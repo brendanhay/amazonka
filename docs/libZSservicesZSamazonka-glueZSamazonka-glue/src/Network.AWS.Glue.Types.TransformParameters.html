@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.Types.TransformParameters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.Types.TransformParameters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.FindMatchesParameters.html"><span class="hs-identifier">Network.AWS.Glue.Types.FindMatchesParameters</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformType.html"><span class="hs-identifier">Network.AWS.Glue.Types.TransformType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The algorithm-specific parameters that are associated with the machine</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- learning transform.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newTransformParameters' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679701438"><span id="local-6989586621679701439"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransformParameters"><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters"><span class="hs-identifier hs-var">TransformParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformParameters%27"><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters%27"><span class="hs-identifier hs-var">TransformParameters'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The parameters for the find matches algorithm.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AfindMatchesParameters%3ATransformParameters%27"><span class="annot"><span class="annottext">TransformParameters -&gt; Maybe FindMatchesParameters
+</span><a href="Network.AWS.Glue.Types.TransformParameters.html#%24sel%3AfindMatchesParameters%3ATransformParameters%27"><span class="hs-identifier hs-var hs-var">findMatchesParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.FindMatchesParameters.html#FindMatchesParameters"><span class="hs-identifier hs-type">FindMatchesParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The type of machine learning transform.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- For information about the types of machine learning transforms, see</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html Creating Machine Learning Transforms&gt;.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtransformType%3ATransformParameters%27"><span class="annot"><span class="annottext">TransformParameters -&gt; TransformType
+</span><a href="Network.AWS.Glue.Types.TransformParameters.html#%24sel%3AtransformType%3ATransformParameters%27"><span class="hs-identifier hs-var hs-var">transformType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformType.html#TransformType"><span class="hs-identifier hs-type">TransformType</span></a></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679701431"><span id="local-6989586621679701433"><span class="annot"><span class="annottext">TransformParameters -&gt; TransformParameters -&gt; Bool
+(TransformParameters -&gt; TransformParameters -&gt; Bool)
+-&gt; (TransformParameters -&gt; TransformParameters -&gt; Bool)
+-&gt; Eq TransformParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TransformParameters -&gt; TransformParameters -&gt; Bool
+$c/= :: TransformParameters -&gt; TransformParameters -&gt; Bool
+== :: TransformParameters -&gt; TransformParameters -&gt; Bool
+$c== :: TransformParameters -&gt; TransformParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679701422"><span id="local-6989586621679701424"><span id="local-6989586621679701426"><span id="local-6989586621679701428"><span class="annot"><span class="annottext">ReadPrec [TransformParameters]
+ReadPrec TransformParameters
+Int -&gt; ReadS TransformParameters
+ReadS [TransformParameters]
+(Int -&gt; ReadS TransformParameters)
+-&gt; ReadS [TransformParameters]
+-&gt; ReadPrec TransformParameters
+-&gt; ReadPrec [TransformParameters]
+-&gt; Read TransformParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TransformParameters]
+$creadListPrec :: ReadPrec [TransformParameters]
+readPrec :: ReadPrec TransformParameters
+$creadPrec :: ReadPrec TransformParameters
+readList :: ReadS [TransformParameters]
+$creadList :: ReadS [TransformParameters]
+readsPrec :: Int -&gt; ReadS TransformParameters
+$creadsPrec :: Int -&gt; ReadS TransformParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679701415"><span id="local-6989586621679701417"><span id="local-6989586621679701419"><span class="annot"><span class="annottext">Int -&gt; TransformParameters -&gt; ShowS
+[TransformParameters] -&gt; ShowS
+TransformParameters -&gt; String
+(Int -&gt; TransformParameters -&gt; ShowS)
+-&gt; (TransformParameters -&gt; String)
+-&gt; ([TransformParameters] -&gt; ShowS)
+-&gt; Show TransformParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TransformParameters] -&gt; ShowS
+$cshowList :: [TransformParameters] -&gt; ShowS
+show :: TransformParameters -&gt; String
+$cshow :: TransformParameters -&gt; String
+showsPrec :: Int -&gt; TransformParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; TransformParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TransformParameters -&gt; Rep TransformParameters x)
+-&gt; (forall x. Rep TransformParameters x -&gt; TransformParameters)
+-&gt; Generic TransformParameters
+forall x. Rep TransformParameters x -&gt; TransformParameters
+forall x. TransformParameters -&gt; Rep TransformParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TransformParameters x -&gt; TransformParameters
+$cfrom :: forall x. TransformParameters -&gt; Rep TransformParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'TransformParameters' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'findMatchesParameters', 'transformParameters_findMatchesParameters' - The parameters for the find matches algorithm.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'transformType', 'transformParameters_transformType' - The type of machine learning transform.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- For information about the types of machine learning transforms, see</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html Creating Machine Learning Transforms&gt;.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#newTransformParameters"><span class="hs-identifier hs-type">newTransformParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-comment">-- | 'transformType'</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformType.html#TransformType"><span class="hs-identifier hs-type">TransformType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters"><span class="hs-identifier hs-type">TransformParameters</span></a></span><span>
+</span><span id="line-61"></span><span id="newTransformParameters"><span class="annot"><span class="annottext">newTransformParameters :: TransformType -&gt; TransformParameters
+</span><a href="Network.AWS.Glue.Types.TransformParameters.html#newTransformParameters"><span class="hs-identifier hs-var hs-var">newTransformParameters</span></a></span></span><span> </span><span id="local-6989586621679701409"><span class="annot"><span class="annottext">TransformType
+</span><a href="#local-6989586621679701409"><span class="hs-identifier hs-var">pTransformType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">TransformParameters' :: Maybe FindMatchesParameters -&gt; TransformType -&gt; TransformParameters
+</span><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters%27"><span class="hs-identifier hs-type">TransformParameters'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:findMatchesParameters:TransformParameters' :: Maybe FindMatchesParameters
+</span><a href="Network.AWS.Glue.Types.TransformParameters.html#%24sel%3AfindMatchesParameters%3ATransformParameters%27"><span class="hs-identifier hs-var">findMatchesParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe FindMatchesParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:transformType:TransformParameters' :: TransformType
+</span><a href="Network.AWS.Glue.Types.TransformParameters.html#%24sel%3AtransformType%3ATransformParameters%27"><span class="hs-identifier hs-var">transformType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TransformType
+</span><a href="#local-6989586621679701409"><span class="hs-identifier hs-var">pTransformType_</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The parameters for the find matches algorithm.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#transformParameters_findMatchesParameters"><span class="hs-identifier hs-type">transformParameters_findMatchesParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters"><span class="hs-identifier hs-type">TransformParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.FindMatchesParameters.html#FindMatchesParameters"><span class="hs-identifier hs-type">FindMatchesParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="transformParameters_findMatchesParameters"><span class="annot"><span class="annottext">transformParameters_findMatchesParameters :: (Maybe FindMatchesParameters -&gt; f (Maybe FindMatchesParameters))
+-&gt; TransformParameters -&gt; f TransformParameters
+</span><a href="Network.AWS.Glue.Types.TransformParameters.html#transformParameters_findMatchesParameters"><span class="hs-identifier hs-var hs-var">transformParameters_findMatchesParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformParameters -&gt; Maybe FindMatchesParameters)
+-&gt; (TransformParameters
+    -&gt; Maybe FindMatchesParameters -&gt; TransformParameters)
+-&gt; Lens
+     TransformParameters
+     TransformParameters
+     (Maybe FindMatchesParameters)
+     (Maybe FindMatchesParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters%27"><span class="hs-identifier hs-type">TransformParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701405"><span class="annot"><span class="annottext">Maybe FindMatchesParameters
+findMatchesParameters :: Maybe FindMatchesParameters
+$sel:findMatchesParameters:TransformParameters' :: TransformParameters -&gt; Maybe FindMatchesParameters
+</span><a href="#local-6989586621679701405"><span class="hs-identifier hs-var hs-var">findMatchesParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FindMatchesParameters
+</span><a href="#local-6989586621679701405"><span class="hs-identifier hs-var">findMatchesParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701404"><span class="annot"><span class="annottext">s :: TransformParameters
+</span><a href="#local-6989586621679701404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters%27"><span class="hs-identifier hs-type">TransformParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701403"><span class="annot"><span class="annottext">Maybe FindMatchesParameters
+</span><a href="#local-6989586621679701403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformParameters
+</span><a href="#local-6989586621679701404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findMatchesParameters:TransformParameters' :: Maybe FindMatchesParameters
+</span><a href="Network.AWS.Glue.Types.TransformParameters.html#%24sel%3AfindMatchesParameters%3ATransformParameters%27"><span class="hs-identifier hs-var">findMatchesParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FindMatchesParameters
+</span><a href="#local-6989586621679701403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters"><span class="hs-identifier hs-type">TransformParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The type of machine learning transform.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- For information about the types of machine learning transforms, see</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html Creating Machine Learning Transforms&gt;.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#transformParameters_transformType"><span class="hs-identifier hs-type">transformParameters_transformType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters"><span class="hs-identifier hs-type">TransformParameters</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformType.html#TransformType"><span class="hs-identifier hs-type">TransformType</span></a></span><span>
+</span><span id="line-77"></span><span id="transformParameters_transformType"><span class="annot"><span class="annottext">transformParameters_transformType :: (TransformType -&gt; f TransformType)
+-&gt; TransformParameters -&gt; f TransformParameters
+</span><a href="Network.AWS.Glue.Types.TransformParameters.html#transformParameters_transformType"><span class="hs-identifier hs-var hs-var">transformParameters_transformType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformParameters -&gt; TransformType)
+-&gt; (TransformParameters -&gt; TransformType -&gt; TransformParameters)
+-&gt; Lens
+     TransformParameters TransformParameters TransformType TransformType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters%27"><span class="hs-identifier hs-type">TransformParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701401"><span class="annot"><span class="annottext">TransformType
+transformType :: TransformType
+$sel:transformType:TransformParameters' :: TransformParameters -&gt; TransformType
+</span><a href="#local-6989586621679701401"><span class="hs-identifier hs-var hs-var">transformType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformType
+</span><a href="#local-6989586621679701401"><span class="hs-identifier hs-var">transformType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701400"><span class="annot"><span class="annottext">s :: TransformParameters
+</span><a href="#local-6989586621679701400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters%27"><span class="hs-identifier hs-type">TransformParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701399"><span class="annot"><span class="annottext">TransformType
+</span><a href="#local-6989586621679701399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformParameters
+</span><a href="#local-6989586621679701400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformType:TransformParameters' :: TransformType
+</span><a href="Network.AWS.Glue.Types.TransformParameters.html#%24sel%3AtransformType%3ATransformParameters%27"><span class="hs-identifier hs-var">transformType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TransformType
+</span><a href="#local-6989586621679701399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters"><span class="hs-identifier hs-type">TransformParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701396"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters"><span class="hs-identifier hs-type">TransformParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679701394"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TransformParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TransformParameters)
+-&gt; Value
+-&gt; Parser TransformParameters
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TransformParameters&quot;</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679701391"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679701391"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe FindMatchesParameters -&gt; TransformType -&gt; TransformParameters
+</span><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters%27"><span class="hs-identifier hs-var">TransformParameters'</span></a></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FindMatchesParameters
+ -&gt; TransformType -&gt; TransformParameters)
+-&gt; Parser (Maybe FindMatchesParameters)
+-&gt; Parser (TransformType -&gt; TransformParameters)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679701391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FindMatchesParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FindMatchesParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser (TransformType -&gt; TransformParameters)
+-&gt; Parser TransformType -&gt; Parser TransformParameters
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679701391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TransformType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TransformType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701384"><span id="local-6989586621679701386"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters"><span class="hs-identifier hs-type">TransformParameters</span></a></span></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701381"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters"><span class="hs-identifier hs-type">TransformParameters</span></a></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701373"><span id="local-6989586621679701375"><span id="local-6989586621679701377"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters"><span class="hs-identifier hs-type">TransformParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679701371"><span class="annot"><span class="annottext">toJSON :: TransformParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformParameters.html#TransformParameters%27"><span class="hs-identifier hs-type">TransformParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701368"><span id="local-6989586621679701369"><span class="annot"><span class="annottext">Maybe FindMatchesParameters
+TransformType
+transformType :: TransformType
+findMatchesParameters :: Maybe FindMatchesParameters
+$sel:transformType:TransformParameters' :: TransformParameters -&gt; TransformType
+$sel:findMatchesParameters:TransformParameters' :: TransformParameters -&gt; Maybe FindMatchesParameters
+</span><a href="#local-6989586621679701368"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FindMatchesParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FindMatchesParameters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">(FindMatchesParameters -&gt; Pair)
+-&gt; Maybe FindMatchesParameters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FindMatchesParameters
+</span><a href="#local-6989586621679701369"><span class="hs-identifier hs-var">findMatchesParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-100"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TransformType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TransformType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TransformType
+</span><a href="#local-6989586621679701368"><span class="hs-identifier hs-var">transformType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span></pre></body></html>

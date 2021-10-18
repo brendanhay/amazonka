@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoTData.Publish</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Publishes an MQTT message.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions Publish&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- For more information about MQTT messages, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html MQTT Protocol&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the IoT Developer Guide.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- For more information about messaging costs, see</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/iot-core/pricing/#Messaging IoT Core pricing - Messaging&gt;.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTData.Publish</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#newPublish"><span class="hs-identifier">newPublish</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#publish_payload"><span class="hs-identifier">publish_payload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#publish_retain"><span class="hs-identifier">publish_retain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#publish_qos"><span class="hs-identifier">publish_qos</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#publish_topic"><span class="hs-identifier">publish_topic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#PublishResponse"><span class="hs-identifier">PublishResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#newPublishResponse"><span class="hs-identifier">newPublishResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Types.html"><span class="hs-identifier">Network.AWS.IoTData.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The input for the Publish operation.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newPublish' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679143769"><span id="local-6989586621679143770"></span></span><span class="hs-keyword">data</span><span> </span><span id="Publish"><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-var">Publish</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Publish%27"><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish%27"><span class="hs-identifier hs-var">Publish'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The message body. MQTT accepts text, binary, and empty (null) message</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- payloads.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- Publishing an empty (null) payload with __retain__ = @true@ deletes the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- retained message identified by __topic__ from IoT Core.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Apayload%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe ByteString
+</span><a href="Network.AWS.IoTData.Publish.html#%24sel%3Apayload%3APublish%27"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | A Boolean value that determines whether to set the RETAIN flag when the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- message is published.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- Setting the RETAIN flag causes the message to be retained and sent to</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- new subscribers to the topic.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- Valid values: @true@ | @false@</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Default value: @false@</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Aretain%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe Bool
+</span><a href="Network.AWS.IoTData.Publish.html#%24sel%3Aretain%3APublish%27"><span class="hs-identifier hs-var hs-var">retain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The Quality of Service (QoS) level.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Aqos%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe Natural
+</span><a href="Network.AWS.IoTData.Publish.html#%24sel%3Aqos%3APublish%27"><span class="hs-identifier hs-var hs-var">qos</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The name of the MQTT topic.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Atopic%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Text
+</span><a href="Network.AWS.IoTData.Publish.html#%24sel%3Atopic%3APublish%27"><span class="hs-identifier hs-var hs-var">topic</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679143760"><span id="local-6989586621679143762"><span class="annot"><span class="annottext">Publish -&gt; Publish -&gt; Bool
+(Publish -&gt; Publish -&gt; Bool)
+-&gt; (Publish -&gt; Publish -&gt; Bool) -&gt; Eq Publish
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Publish -&gt; Publish -&gt; Bool
+$c/= :: Publish -&gt; Publish -&gt; Bool
+== :: Publish -&gt; Publish -&gt; Bool
+$c== :: Publish -&gt; Publish -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143751"><span id="local-6989586621679143753"><span id="local-6989586621679143755"><span id="local-6989586621679143757"><span class="annot"><span class="annottext">ReadPrec [Publish]
+ReadPrec Publish
+Int -&gt; ReadS Publish
+ReadS [Publish]
+(Int -&gt; ReadS Publish)
+-&gt; ReadS [Publish]
+-&gt; ReadPrec Publish
+-&gt; ReadPrec [Publish]
+-&gt; Read Publish
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Publish]
+$creadListPrec :: ReadPrec [Publish]
+readPrec :: ReadPrec Publish
+$creadPrec :: ReadPrec Publish
+readList :: ReadS [Publish]
+$creadList :: ReadS [Publish]
+readsPrec :: Int -&gt; ReadS Publish
+$creadsPrec :: Int -&gt; ReadS Publish
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143744"><span id="local-6989586621679143746"><span id="local-6989586621679143748"><span class="annot"><span class="annottext">Int -&gt; Publish -&gt; ShowS
+[Publish] -&gt; ShowS
+Publish -&gt; String
+(Int -&gt; Publish -&gt; ShowS)
+-&gt; (Publish -&gt; String) -&gt; ([Publish] -&gt; ShowS) -&gt; Show Publish
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Publish] -&gt; ShowS
+$cshowList :: [Publish] -&gt; ShowS
+show :: Publish -&gt; String
+$cshow :: Publish -&gt; String
+showsPrec :: Int -&gt; Publish -&gt; ShowS
+$cshowsPrec :: Int -&gt; Publish -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Publish -&gt; Rep Publish x)
+-&gt; (forall x. Rep Publish x -&gt; Publish) -&gt; Generic Publish
+forall x. Rep Publish x -&gt; Publish
+forall x. Publish -&gt; Rep Publish x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Publish x -&gt; Publish
+$cfrom :: forall x. Publish -&gt; Rep Publish x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Create a value of 'Publish' with all optional fields omitted.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'payload', 'publish_payload' - The message body. MQTT accepts text, binary, and empty (null) message</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- payloads.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Publishing an empty (null) payload with __retain__ = @true@ deletes the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- retained message identified by __topic__ from IoT Core.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'retain', 'publish_retain' - A Boolean value that determines whether to set the RETAIN flag when the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- message is published.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Setting the RETAIN flag causes the message to be retained and sent to</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- new subscribers to the topic.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Valid values: @true@ | @false@</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Default value: @false@</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'qos', 'publish_qos' - The Quality of Service (QoS) level.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'topic', 'publish_topic' - The name of the MQTT topic.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#newPublish"><span class="hs-identifier hs-type">newPublish</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'topic'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span>
+</span><span id="line-117"></span><span id="newPublish"><span class="annot"><span class="annottext">newPublish :: Text -&gt; Publish
+</span><a href="Network.AWS.IoTData.Publish.html#newPublish"><span class="hs-identifier hs-var hs-var">newPublish</span></a></span></span><span> </span><span id="local-6989586621679143739"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679143739"><span class="hs-identifier hs-var">pTopic_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><span class="annottext">Publish' :: Maybe ByteString -&gt; Maybe Bool -&gt; Maybe Natural -&gt; Text -&gt; Publish
+</span><a href="Network.AWS.IoTData.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:payload:Publish' :: Maybe ByteString
+</span><a href="Network.AWS.IoTData.Publish.html#%24sel%3Apayload%3APublish%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:retain:Publish' :: Maybe Bool
+</span><a href="Network.AWS.IoTData.Publish.html#%24sel%3Aretain%3APublish%27"><span class="hs-identifier hs-var">retain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:qos:Publish' :: Maybe Natural
+</span><a href="Network.AWS.IoTData.Publish.html#%24sel%3Aqos%3APublish%27"><span class="hs-identifier hs-var">qos</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:topic:Publish' :: Text
+</span><a href="Network.AWS.IoTData.Publish.html#%24sel%3Atopic%3APublish%27"><span class="hs-identifier hs-var">topic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679143739"><span class="hs-identifier hs-var">pTopic_</span></a></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The message body. MQTT accepts text, binary, and empty (null) message</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- payloads.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Publishing an empty (null) payload with __retain__ = @true@ deletes the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- retained message identified by __topic__ from IoT Core.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#publish_payload"><span class="hs-identifier hs-type">publish_payload</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="publish_payload"><span class="annot"><span class="annottext">publish_payload :: (Maybe ByteString -&gt; f (Maybe ByteString)) -&gt; Publish -&gt; f Publish
+</span><a href="Network.AWS.IoTData.Publish.html#publish_payload"><span class="hs-identifier hs-var hs-var">publish_payload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Publish -&gt; Maybe ByteString)
+-&gt; (Publish -&gt; Maybe ByteString -&gt; Publish)
+-&gt; Lens Publish Publish (Maybe ByteString) (Maybe ByteString)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143736"><span class="annot"><span class="annottext">Maybe ByteString
+payload :: Maybe ByteString
+$sel:payload:Publish' :: Publish -&gt; Maybe ByteString
+</span><a href="#local-6989586621679143736"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679143736"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143735"><span class="annot"><span class="annottext">s :: Publish
+</span><a href="#local-6989586621679143735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143734"><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679143734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
+</span><a href="#local-6989586621679143735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:Publish' :: Maybe ByteString
+</span><a href="Network.AWS.IoTData.Publish.html#%24sel%3Apayload%3APublish%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679143734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | A Boolean value that determines whether to set the RETAIN flag when the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- message is published.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Setting the RETAIN flag causes the message to be retained and sent to</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- new subscribers to the topic.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Valid values: @true@ | @false@</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Default value: @false@</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#publish_retain"><span class="hs-identifier hs-type">publish_retain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="publish_retain"><span class="annot"><span class="annottext">publish_retain :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Publish -&gt; f Publish
+</span><a href="Network.AWS.IoTData.Publish.html#publish_retain"><span class="hs-identifier hs-var hs-var">publish_retain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Publish -&gt; Maybe Bool)
+-&gt; (Publish -&gt; Maybe Bool -&gt; Publish)
+-&gt; Lens Publish Publish (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143733"><span class="annot"><span class="annottext">Maybe Bool
+retain :: Maybe Bool
+$sel:retain:Publish' :: Publish -&gt; Maybe Bool
+</span><a href="#local-6989586621679143733"><span class="hs-identifier hs-var hs-var">retain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679143733"><span class="hs-identifier hs-var">retain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143732"><span class="annot"><span class="annottext">s :: Publish
+</span><a href="#local-6989586621679143732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143731"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679143731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
+</span><a href="#local-6989586621679143732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retain:Publish' :: Maybe Bool
+</span><a href="Network.AWS.IoTData.Publish.html#%24sel%3Aretain%3APublish%27"><span class="hs-identifier hs-var">retain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679143731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The Quality of Service (QoS) level.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#publish_qos"><span class="hs-identifier hs-type">publish_qos</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="publish_qos"><span class="annot"><span class="annottext">publish_qos :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; Publish -&gt; f Publish
+</span><a href="Network.AWS.IoTData.Publish.html#publish_qos"><span class="hs-identifier hs-var hs-var">publish_qos</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Publish -&gt; Maybe Natural)
+-&gt; (Publish -&gt; Maybe Natural -&gt; Publish)
+-&gt; Lens Publish Publish (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143730"><span class="annot"><span class="annottext">Maybe Natural
+qos :: Maybe Natural
+$sel:qos:Publish' :: Publish -&gt; Maybe Natural
+</span><a href="#local-6989586621679143730"><span class="hs-identifier hs-var hs-var">qos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679143730"><span class="hs-identifier hs-var">qos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143729"><span class="annot"><span class="annottext">s :: Publish
+</span><a href="#local-6989586621679143729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143728"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679143728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
+</span><a href="#local-6989586621679143729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qos:Publish' :: Maybe Natural
+</span><a href="Network.AWS.IoTData.Publish.html#%24sel%3Aqos%3APublish%27"><span class="hs-identifier hs-var">qos</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679143728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The name of the MQTT topic.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#publish_topic"><span class="hs-identifier hs-type">publish_topic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-151"></span><span id="publish_topic"><span class="annot"><span class="annottext">publish_topic :: (Text -&gt; f Text) -&gt; Publish -&gt; f Publish
+</span><a href="Network.AWS.IoTData.Publish.html#publish_topic"><span class="hs-identifier hs-var hs-var">publish_topic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Publish -&gt; Text)
+-&gt; (Publish -&gt; Text -&gt; Publish) -&gt; Lens Publish Publish Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143727"><span class="annot"><span class="annottext">Text
+topic :: Text
+$sel:topic:Publish' :: Publish -&gt; Text
+</span><a href="#local-6989586621679143727"><span class="hs-identifier hs-var hs-var">topic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679143727"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143726"><span class="annot"><span class="annottext">s :: Publish
+</span><a href="#local-6989586621679143726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679143725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
+</span><a href="#local-6989586621679143726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topic:Publish' :: Text
+</span><a href="Network.AWS.IoTData.Publish.html#%24sel%3Atopic%3APublish%27"><span class="hs-identifier hs-var">topic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679143725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#PublishResponse"><span class="hs-identifier hs-type">PublishResponse</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679143721"><span class="annot"><span class="annottext">request :: Publish -&gt; Request Publish
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Publish -&gt; Request Publish
+forall a. (ToRequest a, ToBody a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postBody</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679143717"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy Publish
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse Publish)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AWSResponse Publish
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy Publish
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse Publish)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse Publish
+PublishResponse
+</span><a href="Network.AWS.IoTData.Publish.html#PublishResponse%27"><span class="hs-identifier hs-var">PublishResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143710"><span id="local-6989586621679143712"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143707"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToBody</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679143703"><span class="annot"><span class="annottext">toBody :: Publish -&gt; RequestBody
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toBody</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143698"><span id="local-6989586621679143699"><span id="local-6989586621679143700"><span id="local-6989586621679143701"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe ByteString
+Text
+topic :: Text
+qos :: Maybe Natural
+retain :: Maybe Bool
+payload :: Maybe ByteString
+$sel:topic:Publish' :: Publish -&gt; Text
+$sel:qos:Publish' :: Publish -&gt; Maybe Natural
+$sel:retain:Publish' :: Publish -&gt; Maybe Bool
+$sel:payload:Publish' :: Publish -&gt; Maybe ByteString
+</span><a href="#local-6989586621679143698"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString -&gt; RequestBody
+forall a. ToBody a =&gt; a -&gt; RequestBody
+</span><span class="hs-identifier hs-var">Core.toBody</span></span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679143701"><span class="hs-identifier hs-var">payload</span></a></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679143695"><span class="annot"><span class="annottext">toHeaders :: Publish -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; Publish -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679143690"><span class="annot"><span class="annottext">toPath :: Publish -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143685"><span id="local-6989586621679143686"><span id="local-6989586621679143687"><span id="local-6989586621679143688"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe ByteString
+Text
+topic :: Text
+qos :: Maybe Natural
+retain :: Maybe Bool
+payload :: Maybe ByteString
+$sel:topic:Publish' :: Publish -&gt; Text
+$sel:qos:Publish' :: Publish -&gt; Maybe Natural
+$sel:retain:Publish' :: Publish -&gt; Maybe Bool
+$sel:payload:Publish' :: Publish -&gt; Maybe ByteString
+</span><a href="#local-6989586621679143685"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/topics/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679143685"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679143681"><span class="annot"><span class="annottext">toQuery :: Publish -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143676"><span id="local-6989586621679143677"><span id="local-6989586621679143678"><span id="local-6989586621679143679"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe ByteString
+Text
+topic :: Text
+qos :: Maybe Natural
+retain :: Maybe Bool
+payload :: Maybe ByteString
+$sel:topic:Publish' :: Publish -&gt; Text
+$sel:qos:Publish' :: Publish -&gt; Maybe Natural
+$sel:retain:Publish' :: Publish -&gt; Maybe Bool
+$sel:payload:Publish' :: Publish -&gt; Maybe ByteString
+</span><a href="#local-6989586621679143676"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;retain&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679143678"><span class="hs-identifier hs-var">retain</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;qos&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679143677"><span class="hs-identifier hs-var">qos</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newPublishResponse' smart constructor.</span><span>
+</span><span id="line-178"></span><span id="local-6989586621679143673"><span id="local-6989586621679143674"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublishResponse"><span class="annot"><a href="Network.AWS.IoTData.Publish.html#PublishResponse"><span class="hs-identifier hs-var">PublishResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublishResponse%27"><span class="annot"><a href="Network.AWS.IoTData.Publish.html#PublishResponse%27"><span class="hs-identifier hs-var">PublishResponse'</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679143669"><span id="local-6989586621679143671"><span class="annot"><span class="annottext">PublishResponse -&gt; PublishResponse -&gt; Bool
+(PublishResponse -&gt; PublishResponse -&gt; Bool)
+-&gt; (PublishResponse -&gt; PublishResponse -&gt; Bool)
+-&gt; Eq PublishResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PublishResponse -&gt; PublishResponse -&gt; Bool
+$c/= :: PublishResponse -&gt; PublishResponse -&gt; Bool
+== :: PublishResponse -&gt; PublishResponse -&gt; Bool
+$c== :: PublishResponse -&gt; PublishResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143661"><span id="local-6989586621679143663"><span id="local-6989586621679143665"><span id="local-6989586621679143667"><span class="annot"><span class="annottext">ReadPrec [PublishResponse]
+ReadPrec PublishResponse
+Int -&gt; ReadS PublishResponse
+ReadS [PublishResponse]
+(Int -&gt; ReadS PublishResponse)
+-&gt; ReadS [PublishResponse]
+-&gt; ReadPrec PublishResponse
+-&gt; ReadPrec [PublishResponse]
+-&gt; Read PublishResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PublishResponse]
+$creadListPrec :: ReadPrec [PublishResponse]
+readPrec :: ReadPrec PublishResponse
+$creadPrec :: ReadPrec PublishResponse
+readList :: ReadS [PublishResponse]
+$creadList :: ReadS [PublishResponse]
+readsPrec :: Int -&gt; ReadS PublishResponse
+$creadsPrec :: Int -&gt; ReadS PublishResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143655"><span id="local-6989586621679143657"><span id="local-6989586621679143659"><span class="annot"><span class="annottext">Int -&gt; PublishResponse -&gt; ShowS
+[PublishResponse] -&gt; ShowS
+PublishResponse -&gt; String
+(Int -&gt; PublishResponse -&gt; ShowS)
+-&gt; (PublishResponse -&gt; String)
+-&gt; ([PublishResponse] -&gt; ShowS)
+-&gt; Show PublishResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PublishResponse] -&gt; ShowS
+$cshowList :: [PublishResponse] -&gt; ShowS
+show :: PublishResponse -&gt; String
+$cshow :: PublishResponse -&gt; String
+showsPrec :: Int -&gt; PublishResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PublishResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PublishResponse -&gt; Rep PublishResponse x)
+-&gt; (forall x. Rep PublishResponse x -&gt; PublishResponse)
+-&gt; Generic PublishResponse
+forall x. Rep PublishResponse x -&gt; PublishResponse
+forall x. PublishResponse -&gt; Rep PublishResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PublishResponse x -&gt; PublishResponse
+$cfrom :: forall x. PublishResponse -&gt; Rep PublishResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Create a value of 'PublishResponse' with all optional fields omitted.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#newPublishResponse"><span class="hs-identifier hs-type">newPublishResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#PublishResponse"><span class="hs-identifier hs-type">PublishResponse</span></a></span><span>
+</span><span id="line-189"></span><span id="newPublishResponse"><span class="annot"><span class="annottext">newPublishResponse :: PublishResponse
+</span><a href="Network.AWS.IoTData.Publish.html#newPublishResponse"><span class="hs-identifier hs-var hs-var">newPublishResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PublishResponse
+</span><a href="Network.AWS.IoTData.Publish.html#PublishResponse%27"><span class="hs-identifier hs-var">PublishResponse'</span></a></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143651"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.Publish.html#PublishResponse"><span class="hs-identifier hs-type">PublishResponse</span></a></span></span><span>
+</span><span id="line-192"></span></pre></body></html>

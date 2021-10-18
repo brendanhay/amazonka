@@ -1,0 +1,986 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeCommit.MergeBranchesBySquash</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Merges two branches using the squash merge strategy.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeCommit.MergeBranchesBySquash</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier">MergeBranchesBySquash</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#newMergeBranchesBySquash"><span class="hs-identifier">newMergeBranchesBySquash</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_authorName"><span class="hs-identifier">mergeBranchesBySquash_authorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_commitMessage"><span class="hs-identifier">mergeBranchesBySquash_commitMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_email"><span class="hs-identifier">mergeBranchesBySquash_email</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_conflictDetailLevel"><span class="hs-identifier">mergeBranchesBySquash_conflictDetailLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_keepEmptyFolders"><span class="hs-identifier">mergeBranchesBySquash_keepEmptyFolders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_conflictResolutionStrategy"><span class="hs-identifier">mergeBranchesBySquash_conflictResolutionStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_conflictResolution"><span class="hs-identifier">mergeBranchesBySquash_conflictResolution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_targetBranch"><span class="hs-identifier">mergeBranchesBySquash_targetBranch</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_repositoryName"><span class="hs-identifier">mergeBranchesBySquash_repositoryName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_sourceCommitSpecifier"><span class="hs-identifier">mergeBranchesBySquash_sourceCommitSpecifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_destinationCommitSpecifier"><span class="hs-identifier">mergeBranchesBySquash_destinationCommitSpecifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse"><span class="hs-identifier">MergeBranchesBySquashResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#newMergeBranchesBySquashResponse"><span class="hs-identifier">newMergeBranchesBySquashResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquashResponse_commitId"><span class="hs-identifier">mergeBranchesBySquashResponse_commitId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquashResponse_treeId"><span class="hs-identifier">mergeBranchesBySquashResponse_treeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquashResponse_httpStatus"><span class="hs-identifier">mergeBranchesBySquashResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.html"><span class="hs-identifier">Network.AWS.CodeCommit.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newMergeBranchesBySquash' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679360308"><span id="local-6989586621679360309"></span></span><span class="hs-keyword">data</span><span> </span><span id="MergeBranchesBySquash"><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-var">MergeBranchesBySquash</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MergeBranchesBySquash%27"><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-var">MergeBranchesBySquash'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the author who created the commit. This information is used</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- as both the author and committer for the commit.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AauthorName%3AMergeBranchesBySquash%27"><span class="annot"><span class="annottext">MergeBranchesBySquash -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AauthorName%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var hs-var">authorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The commit message for the merge.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AcommitMessage%3AMergeBranchesBySquash%27"><span class="annot"><span class="annottext">MergeBranchesBySquash -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AcommitMessage%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var hs-var">commitMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The email address of the person merging the branches. This information</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- is used in the commit information for the merge.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Aemail%3AMergeBranchesBySquash%27"><span class="annot"><span class="annottext">MergeBranchesBySquash -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3Aemail%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The level of conflict detail to use. If unspecified, the default</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- FILE_LEVEL is used, which returns a not-mergeable result if the same</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- file has differences in both branches. If LINE_LEVEL is specified, a</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- conflict is considered not mergeable if the same file in both branches</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- has differences on the same line.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AconflictDetailLevel%3AMergeBranchesBySquash%27"><span class="annot"><span class="annottext">MergeBranchesBySquash -&gt; Maybe ConflictDetailLevelTypeEnum
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AconflictDetailLevel%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var hs-var">conflictDetailLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictDetailLevelTypeEnum.html#ConflictDetailLevelTypeEnum"><span class="hs-identifier hs-type">ConflictDetailLevelTypeEnum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | If the commit contains deletions, whether to keep a folder or folder</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- structure if the changes leave the folders empty. If this is specified</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- as true, a .gitkeep file is created for empty folders. The default is</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- false.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AkeepEmptyFolders%3AMergeBranchesBySquash%27"><span class="annot"><span class="annottext">MergeBranchesBySquash -&gt; Maybe Bool
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AkeepEmptyFolders%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var hs-var">keepEmptyFolders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Specifies which branch to use when resolving conflicts, or whether to</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- attempt automatically merging two versions of a file. The default is</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- NONE, which requires any conflicts to be resolved manually before the</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- merge operation is successful.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AconflictResolutionStrategy%3AMergeBranchesBySquash%27"><span class="annot"><span class="annottext">MergeBranchesBySquash -&gt; Maybe ConflictResolutionStrategyTypeEnum
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AconflictResolutionStrategy%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var hs-var">conflictResolutionStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolutionStrategyTypeEnum.html#ConflictResolutionStrategyTypeEnum"><span class="hs-identifier hs-type">ConflictResolutionStrategyTypeEnum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- use when resolving conflicts during a merge.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AconflictResolution%3AMergeBranchesBySquash%27"><span class="annot"><span class="annottext">MergeBranchesBySquash -&gt; Maybe ConflictResolution
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AconflictResolution%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var hs-var">conflictResolution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The branch where the merge is applied.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AtargetBranch%3AMergeBranchesBySquash%27"><span class="annot"><span class="annottext">MergeBranchesBySquash -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AtargetBranch%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var hs-var">targetBranch</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The name of the repository where you want to merge two branches.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3ArepositoryName%3AMergeBranchesBySquash%27"><span class="annot"><span class="annottext">MergeBranchesBySquash -&gt; Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3ArepositoryName%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The branch, tag, HEAD, or other fully qualified reference used to</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- identify a commit (for example, a branch name or a full commit ID).</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AsourceCommitSpecifier%3AMergeBranchesBySquash%27"><span class="annot"><span class="annottext">MergeBranchesBySquash -&gt; Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AsourceCommitSpecifier%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var hs-var">sourceCommitSpecifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The branch, tag, HEAD, or other fully qualified reference used to</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- identify a commit (for example, a branch name or a full commit ID).</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AdestinationCommitSpecifier%3AMergeBranchesBySquash%27"><span class="annot"><span class="annottext">MergeBranchesBySquash -&gt; Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AdestinationCommitSpecifier%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var hs-var">destinationCommitSpecifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360292"><span id="local-6989586621679360294"><span class="annot"><span class="annottext">MergeBranchesBySquash -&gt; MergeBranchesBySquash -&gt; Bool
+(MergeBranchesBySquash -&gt; MergeBranchesBySquash -&gt; Bool)
+-&gt; (MergeBranchesBySquash -&gt; MergeBranchesBySquash -&gt; Bool)
+-&gt; Eq MergeBranchesBySquash
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MergeBranchesBySquash -&gt; MergeBranchesBySquash -&gt; Bool
+$c/= :: MergeBranchesBySquash -&gt; MergeBranchesBySquash -&gt; Bool
+== :: MergeBranchesBySquash -&gt; MergeBranchesBySquash -&gt; Bool
+$c== :: MergeBranchesBySquash -&gt; MergeBranchesBySquash -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360283"><span id="local-6989586621679360285"><span id="local-6989586621679360287"><span id="local-6989586621679360289"><span class="annot"><span class="annottext">ReadPrec [MergeBranchesBySquash]
+ReadPrec MergeBranchesBySquash
+Int -&gt; ReadS MergeBranchesBySquash
+ReadS [MergeBranchesBySquash]
+(Int -&gt; ReadS MergeBranchesBySquash)
+-&gt; ReadS [MergeBranchesBySquash]
+-&gt; ReadPrec MergeBranchesBySquash
+-&gt; ReadPrec [MergeBranchesBySquash]
+-&gt; Read MergeBranchesBySquash
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MergeBranchesBySquash]
+$creadListPrec :: ReadPrec [MergeBranchesBySquash]
+readPrec :: ReadPrec MergeBranchesBySquash
+$creadPrec :: ReadPrec MergeBranchesBySquash
+readList :: ReadS [MergeBranchesBySquash]
+$creadList :: ReadS [MergeBranchesBySquash]
+readsPrec :: Int -&gt; ReadS MergeBranchesBySquash
+$creadsPrec :: Int -&gt; ReadS MergeBranchesBySquash
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360276"><span id="local-6989586621679360278"><span id="local-6989586621679360280"><span class="annot"><span class="annottext">Int -&gt; MergeBranchesBySquash -&gt; ShowS
+[MergeBranchesBySquash] -&gt; ShowS
+MergeBranchesBySquash -&gt; String
+(Int -&gt; MergeBranchesBySquash -&gt; ShowS)
+-&gt; (MergeBranchesBySquash -&gt; String)
+-&gt; ([MergeBranchesBySquash] -&gt; ShowS)
+-&gt; Show MergeBranchesBySquash
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MergeBranchesBySquash] -&gt; ShowS
+$cshowList :: [MergeBranchesBySquash] -&gt; ShowS
+show :: MergeBranchesBySquash -&gt; String
+$cshow :: MergeBranchesBySquash -&gt; String
+showsPrec :: Int -&gt; MergeBranchesBySquash -&gt; ShowS
+$cshowsPrec :: Int -&gt; MergeBranchesBySquash -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MergeBranchesBySquash -&gt; Rep MergeBranchesBySquash x)
+-&gt; (forall x. Rep MergeBranchesBySquash x -&gt; MergeBranchesBySquash)
+-&gt; Generic MergeBranchesBySquash
+forall x. Rep MergeBranchesBySquash x -&gt; MergeBranchesBySquash
+forall x. MergeBranchesBySquash -&gt; Rep MergeBranchesBySquash x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MergeBranchesBySquash x -&gt; MergeBranchesBySquash
+$cfrom :: forall x. MergeBranchesBySquash -&gt; Rep MergeBranchesBySquash x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Create a value of 'MergeBranchesBySquash' with all optional fields omitted.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'authorName', 'mergeBranchesBySquash_authorName' - The name of the author who created the commit. This information is used</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- as both the author and committer for the commit.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'commitMessage', 'mergeBranchesBySquash_commitMessage' - The commit message for the merge.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'email', 'mergeBranchesBySquash_email' - The email address of the person merging the branches. This information</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- is used in the commit information for the merge.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'conflictDetailLevel', 'mergeBranchesBySquash_conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- FILE_LEVEL is used, which returns a not-mergeable result if the same</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- file has differences in both branches. If LINE_LEVEL is specified, a</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- conflict is considered not mergeable if the same file in both branches</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- has differences on the same line.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'keepEmptyFolders', 'mergeBranchesBySquash_keepEmptyFolders' - If the commit contains deletions, whether to keep a folder or folder</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- structure if the changes leave the folders empty. If this is specified</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- as true, a .gitkeep file is created for empty folders. The default is</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- false.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'conflictResolutionStrategy', 'mergeBranchesBySquash_conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- attempt automatically merging two versions of a file. The default is</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- NONE, which requires any conflicts to be resolved manually before the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- merge operation is successful.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'conflictResolution', 'mergeBranchesBySquash_conflictResolution' - If AUTOMERGE is the conflict resolution strategy, a list of inputs to</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- use when resolving conflicts during a merge.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'targetBranch', 'mergeBranchesBySquash_targetBranch' - The branch where the merge is applied.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'repositoryName', 'mergeBranchesBySquash_repositoryName' - The name of the repository where you want to merge two branches.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'sourceCommitSpecifier', 'mergeBranchesBySquash_sourceCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- identify a commit (for example, a branch name or a full commit ID).</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'destinationCommitSpecifier', 'mergeBranchesBySquash_destinationCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- identify a commit (for example, a branch name or a full commit ID).</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#newMergeBranchesBySquash"><span class="hs-identifier hs-type">newMergeBranchesBySquash</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-comment">-- | 'repositoryName'</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'sourceCommitSpecifier'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'destinationCommitSpecifier'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span>
+</span><span id="line-154"></span><span id="newMergeBranchesBySquash"><span class="annot"><span class="annottext">newMergeBranchesBySquash :: Text -&gt; Text -&gt; Text -&gt; MergeBranchesBySquash
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#newMergeBranchesBySquash"><span class="hs-identifier hs-var hs-var">newMergeBranchesBySquash</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679360271"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360271"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679360270"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360270"><span class="hs-identifier hs-var">pSourceCommitSpecifier_</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679360269"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360269"><span class="hs-identifier hs-var">pDestinationCommitSpecifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">MergeBranchesBySquash' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ConflictDetailLevelTypeEnum
+-&gt; Maybe Bool
+-&gt; Maybe ConflictResolutionStrategyTypeEnum
+-&gt; Maybe ConflictResolution
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; MergeBranchesBySquash
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authorName:MergeBranchesBySquash' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AauthorName%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">authorName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:commitMessage:MergeBranchesBySquash' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AcommitMessage%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">commitMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:email:MergeBranchesBySquash' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3Aemail%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:conflictDetailLevel:MergeBranchesBySquash' :: Maybe ConflictDetailLevelTypeEnum
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AconflictDetailLevel%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">conflictDetailLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:keepEmptyFolders:MergeBranchesBySquash' :: Maybe Bool
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AkeepEmptyFolders%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">keepEmptyFolders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:conflictResolutionStrategy:MergeBranchesBySquash' :: Maybe ConflictResolutionStrategyTypeEnum
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AconflictResolutionStrategy%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">conflictResolutionStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:conflictResolution:MergeBranchesBySquash' :: Maybe ConflictResolution
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AconflictResolution%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">conflictResolution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictResolution
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetBranch:MergeBranchesBySquash' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AtargetBranch%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">targetBranch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:repositoryName:MergeBranchesBySquash' :: Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3ArepositoryName%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360271"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceCommitSpecifier:MergeBranchesBySquash' :: Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AsourceCommitSpecifier%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">sourceCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360270"><span class="hs-identifier hs-var">pSourceCommitSpecifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationCommitSpecifier:MergeBranchesBySquash' :: Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AdestinationCommitSpecifier%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">destinationCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360269"><span class="hs-identifier hs-var">pDestinationCommitSpecifier_</span></a></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The name of the author who created the commit. This information is used</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- as both the author and committer for the commit.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_authorName"><span class="hs-identifier hs-type">mergeBranchesBySquash_authorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="mergeBranchesBySquash_authorName"><span class="annot"><span class="annottext">mergeBranchesBySquash_authorName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MergeBranchesBySquash -&gt; f MergeBranchesBySquash
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_authorName"><span class="hs-identifier hs-var hs-var">mergeBranchesBySquash_authorName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeBranchesBySquash -&gt; Maybe Text)
+-&gt; (MergeBranchesBySquash -&gt; Maybe Text -&gt; MergeBranchesBySquash)
+-&gt; Lens
+     MergeBranchesBySquash
+     MergeBranchesBySquash
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360266"><span class="annot"><span class="annottext">Maybe Text
+authorName :: Maybe Text
+$sel:authorName:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Maybe Text
+</span><a href="#local-6989586621679360266"><span class="hs-identifier hs-var hs-var">authorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360266"><span class="hs-identifier hs-var">authorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360265"><span class="annot"><span class="annottext">s :: MergeBranchesBySquash
+</span><a href="#local-6989586621679360265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360264"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeBranchesBySquash
+</span><a href="#local-6989586621679360265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorName:MergeBranchesBySquash' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AauthorName%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">authorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The commit message for the merge.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_commitMessage"><span class="hs-identifier hs-type">mergeBranchesBySquash_commitMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="mergeBranchesBySquash_commitMessage"><span class="annot"><span class="annottext">mergeBranchesBySquash_commitMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MergeBranchesBySquash -&gt; f MergeBranchesBySquash
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_commitMessage"><span class="hs-identifier hs-var hs-var">mergeBranchesBySquash_commitMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeBranchesBySquash -&gt; Maybe Text)
+-&gt; (MergeBranchesBySquash -&gt; Maybe Text -&gt; MergeBranchesBySquash)
+-&gt; Lens
+     MergeBranchesBySquash
+     MergeBranchesBySquash
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360263"><span class="annot"><span class="annottext">Maybe Text
+commitMessage :: Maybe Text
+$sel:commitMessage:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Maybe Text
+</span><a href="#local-6989586621679360263"><span class="hs-identifier hs-var hs-var">commitMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360263"><span class="hs-identifier hs-var">commitMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360262"><span class="annot"><span class="annottext">s :: MergeBranchesBySquash
+</span><a href="#local-6989586621679360262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360261"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeBranchesBySquash
+</span><a href="#local-6989586621679360262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitMessage:MergeBranchesBySquash' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AcommitMessage%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">commitMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The email address of the person merging the branches. This information</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- is used in the commit information for the merge.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_email"><span class="hs-identifier hs-type">mergeBranchesBySquash_email</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="mergeBranchesBySquash_email"><span class="annot"><span class="annottext">mergeBranchesBySquash_email :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MergeBranchesBySquash -&gt; f MergeBranchesBySquash
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_email"><span class="hs-identifier hs-var hs-var">mergeBranchesBySquash_email</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeBranchesBySquash -&gt; Maybe Text)
+-&gt; (MergeBranchesBySquash -&gt; Maybe Text -&gt; MergeBranchesBySquash)
+-&gt; Lens
+     MergeBranchesBySquash
+     MergeBranchesBySquash
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360260"><span class="annot"><span class="annottext">Maybe Text
+email :: Maybe Text
+$sel:email:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Maybe Text
+</span><a href="#local-6989586621679360260"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360260"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360259"><span class="annot"><span class="annottext">s :: MergeBranchesBySquash
+</span><a href="#local-6989586621679360259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360258"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeBranchesBySquash
+</span><a href="#local-6989586621679360259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:MergeBranchesBySquash' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3Aemail%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The level of conflict detail to use. If unspecified, the default</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- FILE_LEVEL is used, which returns a not-mergeable result if the same</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- file has differences in both branches. If LINE_LEVEL is specified, a</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- conflict is considered not mergeable if the same file in both branches</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- has differences on the same line.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_conflictDetailLevel"><span class="hs-identifier hs-type">mergeBranchesBySquash_conflictDetailLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictDetailLevelTypeEnum.html#ConflictDetailLevelTypeEnum"><span class="hs-identifier hs-type">ConflictDetailLevelTypeEnum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="mergeBranchesBySquash_conflictDetailLevel"><span class="annot"><span class="annottext">mergeBranchesBySquash_conflictDetailLevel :: (Maybe ConflictDetailLevelTypeEnum
+ -&gt; f (Maybe ConflictDetailLevelTypeEnum))
+-&gt; MergeBranchesBySquash -&gt; f MergeBranchesBySquash
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_conflictDetailLevel"><span class="hs-identifier hs-var hs-var">mergeBranchesBySquash_conflictDetailLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeBranchesBySquash -&gt; Maybe ConflictDetailLevelTypeEnum)
+-&gt; (MergeBranchesBySquash
+    -&gt; Maybe ConflictDetailLevelTypeEnum -&gt; MergeBranchesBySquash)
+-&gt; Lens
+     MergeBranchesBySquash
+     MergeBranchesBySquash
+     (Maybe ConflictDetailLevelTypeEnum)
+     (Maybe ConflictDetailLevelTypeEnum)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360257"><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
+conflictDetailLevel :: Maybe ConflictDetailLevelTypeEnum
+$sel:conflictDetailLevel:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Maybe ConflictDetailLevelTypeEnum
+</span><a href="#local-6989586621679360257"><span class="hs-identifier hs-var hs-var">conflictDetailLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
+</span><a href="#local-6989586621679360257"><span class="hs-identifier hs-var">conflictDetailLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360256"><span class="annot"><span class="annottext">s :: MergeBranchesBySquash
+</span><a href="#local-6989586621679360256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360255"><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
+</span><a href="#local-6989586621679360255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeBranchesBySquash
+</span><a href="#local-6989586621679360256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictDetailLevel:MergeBranchesBySquash' :: Maybe ConflictDetailLevelTypeEnum
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AconflictDetailLevel%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">conflictDetailLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
+</span><a href="#local-6989586621679360255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | If the commit contains deletions, whether to keep a folder or folder</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- structure if the changes leave the folders empty. If this is specified</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- as true, a .gitkeep file is created for empty folders. The default is</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- false.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_keepEmptyFolders"><span class="hs-identifier hs-type">mergeBranchesBySquash_keepEmptyFolders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="mergeBranchesBySquash_keepEmptyFolders"><span class="annot"><span class="annottext">mergeBranchesBySquash_keepEmptyFolders :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; MergeBranchesBySquash -&gt; f MergeBranchesBySquash
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_keepEmptyFolders"><span class="hs-identifier hs-var hs-var">mergeBranchesBySquash_keepEmptyFolders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeBranchesBySquash -&gt; Maybe Bool)
+-&gt; (MergeBranchesBySquash -&gt; Maybe Bool -&gt; MergeBranchesBySquash)
+-&gt; Lens
+     MergeBranchesBySquash
+     MergeBranchesBySquash
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360254"><span class="annot"><span class="annottext">Maybe Bool
+keepEmptyFolders :: Maybe Bool
+$sel:keepEmptyFolders:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Maybe Bool
+</span><a href="#local-6989586621679360254"><span class="hs-identifier hs-var hs-var">keepEmptyFolders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679360254"><span class="hs-identifier hs-var">keepEmptyFolders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360253"><span class="annot"><span class="annottext">s :: MergeBranchesBySquash
+</span><a href="#local-6989586621679360253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360252"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679360252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeBranchesBySquash
+</span><a href="#local-6989586621679360253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keepEmptyFolders:MergeBranchesBySquash' :: Maybe Bool
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AkeepEmptyFolders%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">keepEmptyFolders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679360252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | Specifies which branch to use when resolving conflicts, or whether to</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- attempt automatically merging two versions of a file. The default is</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- NONE, which requires any conflicts to be resolved manually before the</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- merge operation is successful.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_conflictResolutionStrategy"><span class="hs-identifier hs-type">mergeBranchesBySquash_conflictResolutionStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolutionStrategyTypeEnum.html#ConflictResolutionStrategyTypeEnum"><span class="hs-identifier hs-type">ConflictResolutionStrategyTypeEnum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="mergeBranchesBySquash_conflictResolutionStrategy"><span class="annot"><span class="annottext">mergeBranchesBySquash_conflictResolutionStrategy :: (Maybe ConflictResolutionStrategyTypeEnum
+ -&gt; f (Maybe ConflictResolutionStrategyTypeEnum))
+-&gt; MergeBranchesBySquash -&gt; f MergeBranchesBySquash
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_conflictResolutionStrategy"><span class="hs-identifier hs-var hs-var">mergeBranchesBySquash_conflictResolutionStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeBranchesBySquash -&gt; Maybe ConflictResolutionStrategyTypeEnum)
+-&gt; (MergeBranchesBySquash
+    -&gt; Maybe ConflictResolutionStrategyTypeEnum
+    -&gt; MergeBranchesBySquash)
+-&gt; Lens
+     MergeBranchesBySquash
+     MergeBranchesBySquash
+     (Maybe ConflictResolutionStrategyTypeEnum)
+     (Maybe ConflictResolutionStrategyTypeEnum)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360251"><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
+conflictResolutionStrategy :: Maybe ConflictResolutionStrategyTypeEnum
+$sel:conflictResolutionStrategy:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Maybe ConflictResolutionStrategyTypeEnum
+</span><a href="#local-6989586621679360251"><span class="hs-identifier hs-var hs-var">conflictResolutionStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
+</span><a href="#local-6989586621679360251"><span class="hs-identifier hs-var">conflictResolutionStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360250"><span class="annot"><span class="annottext">s :: MergeBranchesBySquash
+</span><a href="#local-6989586621679360250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360249"><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
+</span><a href="#local-6989586621679360249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeBranchesBySquash
+</span><a href="#local-6989586621679360250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictResolutionStrategy:MergeBranchesBySquash' :: Maybe ConflictResolutionStrategyTypeEnum
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AconflictResolutionStrategy%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">conflictResolutionStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
+</span><a href="#local-6989586621679360249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- use when resolving conflicts during a merge.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_conflictResolution"><span class="hs-identifier hs-type">mergeBranchesBySquash_conflictResolution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="mergeBranchesBySquash_conflictResolution"><span class="annot"><span class="annottext">mergeBranchesBySquash_conflictResolution :: (Maybe ConflictResolution -&gt; f (Maybe ConflictResolution))
+-&gt; MergeBranchesBySquash -&gt; f MergeBranchesBySquash
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_conflictResolution"><span class="hs-identifier hs-var hs-var">mergeBranchesBySquash_conflictResolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeBranchesBySquash -&gt; Maybe ConflictResolution)
+-&gt; (MergeBranchesBySquash
+    -&gt; Maybe ConflictResolution -&gt; MergeBranchesBySquash)
+-&gt; Lens
+     MergeBranchesBySquash
+     MergeBranchesBySquash
+     (Maybe ConflictResolution)
+     (Maybe ConflictResolution)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360248"><span class="annot"><span class="annottext">Maybe ConflictResolution
+conflictResolution :: Maybe ConflictResolution
+$sel:conflictResolution:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Maybe ConflictResolution
+</span><a href="#local-6989586621679360248"><span class="hs-identifier hs-var hs-var">conflictResolution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictResolution
+</span><a href="#local-6989586621679360248"><span class="hs-identifier hs-var">conflictResolution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360247"><span class="annot"><span class="annottext">s :: MergeBranchesBySquash
+</span><a href="#local-6989586621679360247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360246"><span class="annot"><span class="annottext">Maybe ConflictResolution
+</span><a href="#local-6989586621679360246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeBranchesBySquash
+</span><a href="#local-6989586621679360247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictResolution:MergeBranchesBySquash' :: Maybe ConflictResolution
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AconflictResolution%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">conflictResolution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictResolution
+</span><a href="#local-6989586621679360246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The branch where the merge is applied.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_targetBranch"><span class="hs-identifier hs-type">mergeBranchesBySquash_targetBranch</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="mergeBranchesBySquash_targetBranch"><span class="annot"><span class="annottext">mergeBranchesBySquash_targetBranch :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MergeBranchesBySquash -&gt; f MergeBranchesBySquash
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_targetBranch"><span class="hs-identifier hs-var hs-var">mergeBranchesBySquash_targetBranch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeBranchesBySquash -&gt; Maybe Text)
+-&gt; (MergeBranchesBySquash -&gt; Maybe Text -&gt; MergeBranchesBySquash)
+-&gt; Lens
+     MergeBranchesBySquash
+     MergeBranchesBySquash
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360245"><span class="annot"><span class="annottext">Maybe Text
+targetBranch :: Maybe Text
+$sel:targetBranch:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Maybe Text
+</span><a href="#local-6989586621679360245"><span class="hs-identifier hs-var hs-var">targetBranch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360245"><span class="hs-identifier hs-var">targetBranch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360244"><span class="annot"><span class="annottext">s :: MergeBranchesBySquash
+</span><a href="#local-6989586621679360244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360243"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeBranchesBySquash
+</span><a href="#local-6989586621679360244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetBranch:MergeBranchesBySquash' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AtargetBranch%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">targetBranch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The name of the repository where you want to merge two branches.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_repositoryName"><span class="hs-identifier hs-type">mergeBranchesBySquash_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-221"></span><span id="mergeBranchesBySquash_repositoryName"><span class="annot"><span class="annottext">mergeBranchesBySquash_repositoryName :: (Text -&gt; f Text)
+-&gt; MergeBranchesBySquash -&gt; f MergeBranchesBySquash
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_repositoryName"><span class="hs-identifier hs-var hs-var">mergeBranchesBySquash_repositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeBranchesBySquash -&gt; Text)
+-&gt; (MergeBranchesBySquash -&gt; Text -&gt; MergeBranchesBySquash)
+-&gt; Lens MergeBranchesBySquash MergeBranchesBySquash Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360242"><span class="annot"><span class="annottext">Text
+repositoryName :: Text
+$sel:repositoryName:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Text
+</span><a href="#local-6989586621679360242"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360242"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360241"><span class="annot"><span class="annottext">s :: MergeBranchesBySquash
+</span><a href="#local-6989586621679360241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360240"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeBranchesBySquash
+</span><a href="#local-6989586621679360241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:MergeBranchesBySquash' :: Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3ArepositoryName%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The branch, tag, HEAD, or other fully qualified reference used to</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- identify a commit (for example, a branch name or a full commit ID).</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_sourceCommitSpecifier"><span class="hs-identifier hs-type">mergeBranchesBySquash_sourceCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-226"></span><span id="mergeBranchesBySquash_sourceCommitSpecifier"><span class="annot"><span class="annottext">mergeBranchesBySquash_sourceCommitSpecifier :: (Text -&gt; f Text)
+-&gt; MergeBranchesBySquash -&gt; f MergeBranchesBySquash
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_sourceCommitSpecifier"><span class="hs-identifier hs-var hs-var">mergeBranchesBySquash_sourceCommitSpecifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeBranchesBySquash -&gt; Text)
+-&gt; (MergeBranchesBySquash -&gt; Text -&gt; MergeBranchesBySquash)
+-&gt; Lens MergeBranchesBySquash MergeBranchesBySquash Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360239"><span class="annot"><span class="annottext">Text
+sourceCommitSpecifier :: Text
+$sel:sourceCommitSpecifier:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Text
+</span><a href="#local-6989586621679360239"><span class="hs-identifier hs-var hs-var">sourceCommitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360239"><span class="hs-identifier hs-var">sourceCommitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360238"><span class="annot"><span class="annottext">s :: MergeBranchesBySquash
+</span><a href="#local-6989586621679360238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360237"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeBranchesBySquash
+</span><a href="#local-6989586621679360238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCommitSpecifier:MergeBranchesBySquash' :: Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AsourceCommitSpecifier%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">sourceCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The branch, tag, HEAD, or other fully qualified reference used to</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- identify a commit (for example, a branch name or a full commit ID).</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_destinationCommitSpecifier"><span class="hs-identifier hs-type">mergeBranchesBySquash_destinationCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-231"></span><span id="mergeBranchesBySquash_destinationCommitSpecifier"><span class="annot"><span class="annottext">mergeBranchesBySquash_destinationCommitSpecifier :: (Text -&gt; f Text)
+-&gt; MergeBranchesBySquash -&gt; f MergeBranchesBySquash
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquash_destinationCommitSpecifier"><span class="hs-identifier hs-var hs-var">mergeBranchesBySquash_destinationCommitSpecifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeBranchesBySquash -&gt; Text)
+-&gt; (MergeBranchesBySquash -&gt; Text -&gt; MergeBranchesBySquash)
+-&gt; Lens MergeBranchesBySquash MergeBranchesBySquash Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360236"><span class="annot"><span class="annottext">Text
+destinationCommitSpecifier :: Text
+$sel:destinationCommitSpecifier:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Text
+</span><a href="#local-6989586621679360236"><span class="hs-identifier hs-var hs-var">destinationCommitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360236"><span class="hs-identifier hs-var">destinationCommitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360235"><span class="annot"><span class="annottext">s :: MergeBranchesBySquash
+</span><a href="#local-6989586621679360235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360234"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeBranchesBySquash
+</span><a href="#local-6989586621679360235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCommitSpecifier:MergeBranchesBySquash' :: Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AdestinationCommitSpecifier%3AMergeBranchesBySquash%27"><span class="hs-identifier hs-var">destinationCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-235"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse"><span class="hs-identifier hs-type">MergeBranchesBySquashResponse</span></a></span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679360230"><span class="annot"><span class="annottext">request :: MergeBranchesBySquash -&gt; Request MergeBranchesBySquash
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; MergeBranchesBySquash -&gt; Request MergeBranchesBySquash
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679360226"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy MergeBranchesBySquash
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse MergeBranchesBySquash)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse MergeBranchesBySquash))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy MergeBranchesBySquash
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse MergeBranchesBySquash)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679360223"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360223"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679360222"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679360222"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679360221"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360221"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-241"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; MergeBranchesBySquashResponse
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse%27"><span class="hs-identifier hs-var">MergeBranchesBySquashResponse'</span></a></span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; MergeBranchesBySquashResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; MergeBranchesBySquashResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;commitId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; MergeBranchesBySquashResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; MergeBranchesBySquashResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;treeId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; MergeBranchesBySquashResponse)
+-&gt; Either String Int -&gt; Either String MergeBranchesBySquashResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360223"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360213"><span id="local-6989586621679360215"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span></span></span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360210"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679360206"><span class="annot"><span class="annottext">toHeaders :: MergeBranchesBySquash -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; MergeBranchesBySquash -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-254"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-255"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-256"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeCommit_20150413.MergeBranchesBySquash&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-257"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-258"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-260"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-261"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-262"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360196"><span id="local-6989586621679360198"><span id="local-6989586621679360200"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679360194"><span class="annot"><span class="annottext">toJSON :: MergeBranchesBySquash -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash%27"><span class="hs-identifier hs-type">MergeBranchesBySquash'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360182"><span id="local-6989586621679360183"><span id="local-6989586621679360184"><span id="local-6989586621679360185"><span id="local-6989586621679360186"><span id="local-6989586621679360187"><span id="local-6989586621679360188"><span id="local-6989586621679360189"><span id="local-6989586621679360190"><span id="local-6989586621679360191"><span id="local-6989586621679360192"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Maybe ConflictDetailLevelTypeEnum
+Maybe ConflictResolutionStrategyTypeEnum
+Maybe ConflictResolution
+Text
+destinationCommitSpecifier :: Text
+sourceCommitSpecifier :: Text
+repositoryName :: Text
+targetBranch :: Maybe Text
+conflictResolution :: Maybe ConflictResolution
+conflictResolutionStrategy :: Maybe ConflictResolutionStrategyTypeEnum
+keepEmptyFolders :: Maybe Bool
+conflictDetailLevel :: Maybe ConflictDetailLevelTypeEnum
+email :: Maybe Text
+commitMessage :: Maybe Text
+authorName :: Maybe Text
+$sel:destinationCommitSpecifier:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Text
+$sel:sourceCommitSpecifier:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Text
+$sel:repositoryName:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Text
+$sel:targetBranch:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Maybe Text
+$sel:conflictResolution:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Maybe ConflictResolution
+$sel:conflictResolutionStrategy:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Maybe ConflictResolutionStrategyTypeEnum
+$sel:keepEmptyFolders:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Maybe Bool
+$sel:conflictDetailLevel:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Maybe ConflictDetailLevelTypeEnum
+$sel:email:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Maybe Text
+$sel:commitMessage:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Maybe Text
+$sel:authorName:MergeBranchesBySquash' :: MergeBranchesBySquash -&gt; Maybe Text
+</span><a href="#local-6989586621679360182"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-269"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-270"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authorName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360192"><span class="hs-identifier hs-var">authorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;commitMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360191"><span class="hs-identifier hs-var">commitMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;email&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360190"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;conflictDetailLevel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConflictDetailLevelTypeEnum -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>              </span><span class="annot"><span class="annottext">(ConflictDetailLevelTypeEnum -&gt; Pair)
+-&gt; Maybe ConflictDetailLevelTypeEnum -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
+</span><a href="#local-6989586621679360189"><span class="hs-identifier hs-var">conflictDetailLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keepEmptyFolders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679360188"><span class="hs-identifier hs-var">keepEmptyFolders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;conflictResolutionStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConflictResolutionStrategyTypeEnum -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>              </span><span class="annot"><span class="annottext">(ConflictResolutionStrategyTypeEnum -&gt; Pair)
+-&gt; Maybe ConflictResolutionStrategyTypeEnum -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
+</span><a href="#local-6989586621679360187"><span class="hs-identifier hs-var">conflictResolutionStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;conflictResolution&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConflictResolution -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>              </span><span class="annot"><span class="annottext">(ConflictResolution -&gt; Pair)
+-&gt; Maybe ConflictResolution -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConflictResolution
+</span><a href="#local-6989586621679360186"><span class="hs-identifier hs-var">conflictResolution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targetBranch&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360185"><span class="hs-identifier hs-var">targetBranch</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-283"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360184"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-285"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceCommitSpecifier&quot;</span></span><span>
+</span><span id="line-286"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360183"><span class="hs-identifier hs-var">sourceCommitSpecifier</span></a></span><span>
+</span><span id="line-287"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-289"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationCommitSpecifier&quot;</span></span><span>
+</span><span id="line-290"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360182"><span class="hs-identifier hs-var">destinationCommitSpecifier</span></a></span><span>
+</span><span id="line-291"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-293"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-296"></span><span>  </span><span id="local-6989586621679360176"><span class="annot"><span class="annottext">toPath :: MergeBranchesBySquash -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; MergeBranchesBySquash -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquash"><span class="hs-identifier hs-type">MergeBranchesBySquash</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-299"></span><span>  </span><span id="local-6989586621679360172"><span class="annot"><span class="annottext">toQuery :: MergeBranchesBySquash -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; MergeBranchesBySquash -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- | /See:/ 'newMergeBranchesBySquashResponse' smart constructor.</span><span>
+</span><span id="line-302"></span><span id="local-6989586621679360169"><span id="local-6989586621679360170"></span></span><span class="hs-keyword">data</span><span> </span><span id="MergeBranchesBySquashResponse"><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse"><span class="hs-identifier hs-var">MergeBranchesBySquashResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MergeBranchesBySquashResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse%27"><span class="hs-identifier hs-var">MergeBranchesBySquashResponse'</span></a></span></span><span>
+</span><span id="line-303"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The commit ID of the merge in the destination or target branch.</span><span>
+</span><span id="line-304"></span><span>    </span><span id="%24sel%3AcommitId%3AMergeBranchesBySquashResponse%27"><span class="annot"><span class="annottext">MergeBranchesBySquashResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AcommitId%3AMergeBranchesBySquashResponse%27"><span class="hs-identifier hs-var hs-var">commitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>    </span><span class="hs-comment">-- | The tree ID of the merge in the destination or target branch.</span><span>
+</span><span id="line-306"></span><span>    </span><span id="%24sel%3AtreeId%3AMergeBranchesBySquashResponse%27"><span class="annot"><span class="annottext">MergeBranchesBySquashResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AtreeId%3AMergeBranchesBySquashResponse%27"><span class="hs-identifier hs-var hs-var">treeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-308"></span><span>    </span><span id="%24sel%3AhttpStatus%3AMergeBranchesBySquashResponse%27"><span class="annot"><span class="annottext">MergeBranchesBySquashResponse -&gt; Int
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AhttpStatus%3AMergeBranchesBySquashResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-309"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-310"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360162"><span id="local-6989586621679360164"><span class="annot"><span class="annottext">MergeBranchesBySquashResponse
+-&gt; MergeBranchesBySquashResponse -&gt; Bool
+(MergeBranchesBySquashResponse
+ -&gt; MergeBranchesBySquashResponse -&gt; Bool)
+-&gt; (MergeBranchesBySquashResponse
+    -&gt; MergeBranchesBySquashResponse -&gt; Bool)
+-&gt; Eq MergeBranchesBySquashResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MergeBranchesBySquashResponse
+-&gt; MergeBranchesBySquashResponse -&gt; Bool
+$c/= :: MergeBranchesBySquashResponse
+-&gt; MergeBranchesBySquashResponse -&gt; Bool
+== :: MergeBranchesBySquashResponse
+-&gt; MergeBranchesBySquashResponse -&gt; Bool
+$c== :: MergeBranchesBySquashResponse
+-&gt; MergeBranchesBySquashResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360154"><span id="local-6989586621679360156"><span id="local-6989586621679360158"><span id="local-6989586621679360160"><span class="annot"><span class="annottext">ReadPrec [MergeBranchesBySquashResponse]
+ReadPrec MergeBranchesBySquashResponse
+Int -&gt; ReadS MergeBranchesBySquashResponse
+ReadS [MergeBranchesBySquashResponse]
+(Int -&gt; ReadS MergeBranchesBySquashResponse)
+-&gt; ReadS [MergeBranchesBySquashResponse]
+-&gt; ReadPrec MergeBranchesBySquashResponse
+-&gt; ReadPrec [MergeBranchesBySquashResponse]
+-&gt; Read MergeBranchesBySquashResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MergeBranchesBySquashResponse]
+$creadListPrec :: ReadPrec [MergeBranchesBySquashResponse]
+readPrec :: ReadPrec MergeBranchesBySquashResponse
+$creadPrec :: ReadPrec MergeBranchesBySquashResponse
+readList :: ReadS [MergeBranchesBySquashResponse]
+$creadList :: ReadS [MergeBranchesBySquashResponse]
+readsPrec :: Int -&gt; ReadS MergeBranchesBySquashResponse
+$creadsPrec :: Int -&gt; ReadS MergeBranchesBySquashResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360148"><span id="local-6989586621679360150"><span id="local-6989586621679360152"><span class="annot"><span class="annottext">Int -&gt; MergeBranchesBySquashResponse -&gt; ShowS
+[MergeBranchesBySquashResponse] -&gt; ShowS
+MergeBranchesBySquashResponse -&gt; String
+(Int -&gt; MergeBranchesBySquashResponse -&gt; ShowS)
+-&gt; (MergeBranchesBySquashResponse -&gt; String)
+-&gt; ([MergeBranchesBySquashResponse] -&gt; ShowS)
+-&gt; Show MergeBranchesBySquashResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MergeBranchesBySquashResponse] -&gt; ShowS
+$cshowList :: [MergeBranchesBySquashResponse] -&gt; ShowS
+show :: MergeBranchesBySquashResponse -&gt; String
+$cshow :: MergeBranchesBySquashResponse -&gt; String
+showsPrec :: Int -&gt; MergeBranchesBySquashResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; MergeBranchesBySquashResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ MergeBranchesBySquashResponse
+ -&gt; Rep MergeBranchesBySquashResponse x)
+-&gt; (forall x.
+    Rep MergeBranchesBySquashResponse x
+    -&gt; MergeBranchesBySquashResponse)
+-&gt; Generic MergeBranchesBySquashResponse
+forall x.
+Rep MergeBranchesBySquashResponse x
+-&gt; MergeBranchesBySquashResponse
+forall x.
+MergeBranchesBySquashResponse
+-&gt; Rep MergeBranchesBySquashResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep MergeBranchesBySquashResponse x
+-&gt; MergeBranchesBySquashResponse
+$cfrom :: forall x.
+MergeBranchesBySquashResponse
+-&gt; Rep MergeBranchesBySquashResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- Create a value of 'MergeBranchesBySquashResponse' with all optional fields omitted.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- 'commitId', 'mergeBranchesBySquashResponse_commitId' - The commit ID of the merge in the destination or target branch.</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- 'treeId', 'mergeBranchesBySquashResponse_treeId' - The tree ID of the merge in the destination or target branch.</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- 'httpStatus', 'mergeBranchesBySquashResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-325"></span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#newMergeBranchesBySquashResponse"><span class="hs-identifier hs-type">newMergeBranchesBySquashResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-326"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-327"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-328"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse"><span class="hs-identifier hs-type">MergeBranchesBySquashResponse</span></a></span><span>
+</span><span id="line-329"></span><span id="newMergeBranchesBySquashResponse"><span class="annot"><span class="annottext">newMergeBranchesBySquashResponse :: Int -&gt; MergeBranchesBySquashResponse
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#newMergeBranchesBySquashResponse"><span class="hs-identifier hs-var hs-var">newMergeBranchesBySquashResponse</span></a></span></span><span> </span><span id="local-6989586621679360145"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360145"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-330"></span><span>  </span><span class="annot"><span class="annottext">MergeBranchesBySquashResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; MergeBranchesBySquashResponse
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse%27"><span class="hs-identifier hs-type">MergeBranchesBySquashResponse'</span></a></span><span>
+</span><span id="line-331"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:commitId:MergeBranchesBySquashResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AcommitId%3AMergeBranchesBySquashResponse%27"><span class="hs-identifier hs-var">commitId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-332"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>      </span><span class="annot"><span class="annottext">$sel:treeId:MergeBranchesBySquashResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AtreeId%3AMergeBranchesBySquashResponse%27"><span class="hs-identifier hs-var">treeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-334"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:MergeBranchesBySquashResponse' :: Int
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AhttpStatus%3AMergeBranchesBySquashResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360145"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-335"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- | The commit ID of the merge in the destination or target branch.</span><span>
+</span><span id="line-338"></span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquashResponse_commitId"><span class="hs-identifier hs-type">mergeBranchesBySquashResponse_commitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse"><span class="hs-identifier hs-type">MergeBranchesBySquashResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span id="mergeBranchesBySquashResponse_commitId"><span class="annot"><span class="annottext">mergeBranchesBySquashResponse_commitId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MergeBranchesBySquashResponse -&gt; f MergeBranchesBySquashResponse
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquashResponse_commitId"><span class="hs-identifier hs-var hs-var">mergeBranchesBySquashResponse_commitId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeBranchesBySquashResponse -&gt; Maybe Text)
+-&gt; (MergeBranchesBySquashResponse
+    -&gt; Maybe Text -&gt; MergeBranchesBySquashResponse)
+-&gt; Lens
+     MergeBranchesBySquashResponse
+     MergeBranchesBySquashResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse%27"><span class="hs-identifier hs-type">MergeBranchesBySquashResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360144"><span class="annot"><span class="annottext">Maybe Text
+commitId :: Maybe Text
+$sel:commitId:MergeBranchesBySquashResponse' :: MergeBranchesBySquashResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679360144"><span class="hs-identifier hs-var hs-var">commitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360144"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360143"><span class="annot"><span class="annottext">s :: MergeBranchesBySquashResponse
+</span><a href="#local-6989586621679360143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse%27"><span class="hs-identifier hs-type">MergeBranchesBySquashResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360142"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeBranchesBySquashResponse
+</span><a href="#local-6989586621679360143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitId:MergeBranchesBySquashResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AcommitId%3AMergeBranchesBySquashResponse%27"><span class="hs-identifier hs-var">commitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse"><span class="hs-identifier hs-type">MergeBranchesBySquashResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- | The tree ID of the merge in the destination or target branch.</span><span>
+</span><span id="line-342"></span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquashResponse_treeId"><span class="hs-identifier hs-type">mergeBranchesBySquashResponse_treeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse"><span class="hs-identifier hs-type">MergeBranchesBySquashResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span id="mergeBranchesBySquashResponse_treeId"><span class="annot"><span class="annottext">mergeBranchesBySquashResponse_treeId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MergeBranchesBySquashResponse -&gt; f MergeBranchesBySquashResponse
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquashResponse_treeId"><span class="hs-identifier hs-var hs-var">mergeBranchesBySquashResponse_treeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeBranchesBySquashResponse -&gt; Maybe Text)
+-&gt; (MergeBranchesBySquashResponse
+    -&gt; Maybe Text -&gt; MergeBranchesBySquashResponse)
+-&gt; Lens
+     MergeBranchesBySquashResponse
+     MergeBranchesBySquashResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse%27"><span class="hs-identifier hs-type">MergeBranchesBySquashResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360141"><span class="annot"><span class="annottext">Maybe Text
+treeId :: Maybe Text
+$sel:treeId:MergeBranchesBySquashResponse' :: MergeBranchesBySquashResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679360141"><span class="hs-identifier hs-var hs-var">treeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360141"><span class="hs-identifier hs-var">treeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360140"><span class="annot"><span class="annottext">s :: MergeBranchesBySquashResponse
+</span><a href="#local-6989586621679360140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse%27"><span class="hs-identifier hs-type">MergeBranchesBySquashResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360139"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeBranchesBySquashResponse
+</span><a href="#local-6989586621679360140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:treeId:MergeBranchesBySquashResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AtreeId%3AMergeBranchesBySquashResponse%27"><span class="hs-identifier hs-var">treeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse"><span class="hs-identifier hs-type">MergeBranchesBySquashResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-346"></span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquashResponse_httpStatus"><span class="hs-identifier hs-type">mergeBranchesBySquashResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse"><span class="hs-identifier hs-type">MergeBranchesBySquashResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-347"></span><span id="mergeBranchesBySquashResponse_httpStatus"><span class="annot"><span class="annottext">mergeBranchesBySquashResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; MergeBranchesBySquashResponse -&gt; f MergeBranchesBySquashResponse
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#mergeBranchesBySquashResponse_httpStatus"><span class="hs-identifier hs-var hs-var">mergeBranchesBySquashResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeBranchesBySquashResponse -&gt; Int)
+-&gt; (MergeBranchesBySquashResponse
+    -&gt; Int -&gt; MergeBranchesBySquashResponse)
+-&gt; Lens
+     MergeBranchesBySquashResponse MergeBranchesBySquashResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse%27"><span class="hs-identifier hs-type">MergeBranchesBySquashResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360138"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:MergeBranchesBySquashResponse' :: MergeBranchesBySquashResponse -&gt; Int
+</span><a href="#local-6989586621679360138"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360138"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360137"><span class="annot"><span class="annottext">s :: MergeBranchesBySquashResponse
+</span><a href="#local-6989586621679360137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse%27"><span class="hs-identifier hs-type">MergeBranchesBySquashResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360136"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeBranchesBySquashResponse
+</span><a href="#local-6989586621679360137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:MergeBranchesBySquashResponse' :: Int
+</span><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#%24sel%3AhttpStatus%3AMergeBranchesBySquashResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse"><span class="hs-identifier hs-type">MergeBranchesBySquashResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span>
+</span><span id="line-349"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.MergeBranchesBySquash.html#MergeBranchesBySquashResponse"><span class="hs-identifier hs-type">MergeBranchesBySquashResponse</span></a></span></span><span>
+</span><span id="line-350"></span></pre></body></html>

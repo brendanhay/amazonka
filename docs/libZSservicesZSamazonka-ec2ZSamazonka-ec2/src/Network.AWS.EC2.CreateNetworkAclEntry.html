@@ -1,0 +1,777 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.CreateNetworkAclEntry</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an entry (a rule) in a network ACL with the specified rule</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- number. Each network ACL has a set of numbered ingress rules and a</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- separate set of numbered egress rules. When determining whether a packet</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- should be allowed in or out of a subnet associated with the ACL, we</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- process the entries in the ACL according to the rule numbers, in</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- ascending order. Each network ACL has a set of ingress rules and a</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- separate set of egress rules.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- We recommend that you leave room between the rule numbers (for example,</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- 100, 110, 120, ...), and not number them one right after the other (for</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- example, 101, 102, 103, ...). This makes it easier to add a rule between</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- existing ones without having to renumber the rules.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- After you add an entry, you can\'t modify it; you must either replace</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- it, or create an entry and delete the old one.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- For more information about network ACLs, see</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html Network ACLs&gt;</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- in the /Amazon Virtual Private Cloud User Guide/.</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.CreateNetworkAclEntry</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier">CreateNetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#newCreateNetworkAclEntry"><span class="hs-identifier">newCreateNetworkAclEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_portRange"><span class="hs-identifier">createNetworkAclEntry_portRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_dryRun"><span class="hs-identifier">createNetworkAclEntry_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_icmpTypeCode"><span class="hs-identifier">createNetworkAclEntry_icmpTypeCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_ipv6CidrBlock"><span class="hs-identifier">createNetworkAclEntry_ipv6CidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_cidrBlock"><span class="hs-identifier">createNetworkAclEntry_cidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_egress"><span class="hs-identifier">createNetworkAclEntry_egress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_networkAclId"><span class="hs-identifier">createNetworkAclEntry_networkAclId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_protocol"><span class="hs-identifier">createNetworkAclEntry_protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_ruleAction"><span class="hs-identifier">createNetworkAclEntry_ruleAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_ruleNumber"><span class="hs-identifier">createNetworkAclEntry_ruleNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntryResponse"><span class="hs-identifier">CreateNetworkAclEntryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#newCreateNetworkAclEntryResponse"><span class="hs-identifier">newCreateNetworkAclEntryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | /See:/ 'newCreateNetworkAclEntry' smart constructor.</span><span>
+</span><span id="line-73"></span><span id="local-6989586621681257962"><span id="local-6989586621681257963"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateNetworkAclEntry"><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-var">CreateNetworkAclEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateNetworkAclEntry%27"><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-var">CreateNetworkAclEntry'</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | TCP or UDP protocols: The range of ports the rule applies to. Required</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- if specifying protocol 6 (TCP) or 17 (UDP).</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AportRange%3ACreateNetworkAclEntry%27"><span class="annot"><span class="annottext">CreateNetworkAclEntry -&gt; Maybe PortRange
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AportRange%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">portRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AdryRun%3ACreateNetworkAclEntry%27"><span class="annot"><span class="annottext">CreateNetworkAclEntry -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AdryRun%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AicmpTypeCode%3ACreateNetworkAclEntry%27"><span class="annot"><span class="annottext">CreateNetworkAclEntry -&gt; Maybe IcmpTypeCode
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AicmpTypeCode%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">icmpTypeCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The IPv6 network range to allow or deny, in CIDR notation (for example</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- @2001:db8:1234:1a00::\/64@).</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Aipv6CidrBlock%3ACreateNetworkAclEntry%27"><span class="annot"><span class="annottext">CreateNetworkAclEntry -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3Aipv6CidrBlock%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">ipv6CidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The IPv4 network range to allow or deny, in CIDR notation (for example</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- @172.16.0.0\/24@). We modify the specified CIDR block to its canonical</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- form; for example, if you specify @100.68.0.18\/18@, we modify it to</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- @100.68.0.0\/18@.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AcidrBlock%3ACreateNetworkAclEntry%27"><span class="annot"><span class="annottext">CreateNetworkAclEntry -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AcidrBlock%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | Indicates whether this is an egress rule (rule is applied to traffic</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- leaving the subnet).</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3Aegress%3ACreateNetworkAclEntry%27"><span class="annot"><span class="annottext">CreateNetworkAclEntry -&gt; Bool
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3Aegress%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">egress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The ID of the network ACL.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AnetworkAclId%3ACreateNetworkAclEntry%27"><span class="annot"><span class="annottext">CreateNetworkAclEntry -&gt; Text
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AnetworkAclId%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">networkAclId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | The protocol number. A value of \&quot;-1\&quot; means all protocols. If you</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- specify \&quot;-1\&quot; or a protocol number other than \&quot;6\&quot; (TCP), \&quot;17\&quot;</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- (UDP), or \&quot;1\&quot; (ICMP), traffic on all ports is allowed, regardless of</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- any ports or ICMP types or codes that you specify. If you specify</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- protocol \&quot;58\&quot; (ICMPv6) and specify an IPv4 CIDR block, traffic for all</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- ICMP types and codes allowed, regardless of any that you specify. If you</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- specify protocol \&quot;58\&quot; (ICMPv6) and specify an IPv6 CIDR block, you</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- must specify an ICMP type and code.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3Aprotocol%3ACreateNetworkAclEntry%27"><span class="annot"><span class="annottext">CreateNetworkAclEntry -&gt; Text
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3Aprotocol%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | Indicates whether to allow or deny the traffic that matches the rule.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AruleAction%3ACreateNetworkAclEntry%27"><span class="annot"><span class="annottext">CreateNetworkAclEntry -&gt; RuleAction
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AruleAction%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">ruleAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RuleAction.html#RuleAction"><span class="hs-identifier hs-type">RuleAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The rule number for the entry (for example, 100). ACL entries are</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- processed in ascending order by rule number.</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- Constraints: Positive integer from 1 to 32766. The range 32767 to 65535</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- is reserved for internal use.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AruleNumber%3ACreateNetworkAclEntry%27"><span class="annot"><span class="annottext">CreateNetworkAclEntry -&gt; Int
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AruleNumber%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">ruleNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681257947"><span id="local-6989586621681257949"><span class="annot"><span class="annottext">CreateNetworkAclEntry -&gt; CreateNetworkAclEntry -&gt; Bool
+(CreateNetworkAclEntry -&gt; CreateNetworkAclEntry -&gt; Bool)
+-&gt; (CreateNetworkAclEntry -&gt; CreateNetworkAclEntry -&gt; Bool)
+-&gt; Eq CreateNetworkAclEntry
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateNetworkAclEntry -&gt; CreateNetworkAclEntry -&gt; Bool
+$c/= :: CreateNetworkAclEntry -&gt; CreateNetworkAclEntry -&gt; Bool
+== :: CreateNetworkAclEntry -&gt; CreateNetworkAclEntry -&gt; Bool
+$c== :: CreateNetworkAclEntry -&gt; CreateNetworkAclEntry -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681257938"><span id="local-6989586621681257940"><span id="local-6989586621681257942"><span id="local-6989586621681257944"><span class="annot"><span class="annottext">ReadPrec [CreateNetworkAclEntry]
+ReadPrec CreateNetworkAclEntry
+Int -&gt; ReadS CreateNetworkAclEntry
+ReadS [CreateNetworkAclEntry]
+(Int -&gt; ReadS CreateNetworkAclEntry)
+-&gt; ReadS [CreateNetworkAclEntry]
+-&gt; ReadPrec CreateNetworkAclEntry
+-&gt; ReadPrec [CreateNetworkAclEntry]
+-&gt; Read CreateNetworkAclEntry
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateNetworkAclEntry]
+$creadListPrec :: ReadPrec [CreateNetworkAclEntry]
+readPrec :: ReadPrec CreateNetworkAclEntry
+$creadPrec :: ReadPrec CreateNetworkAclEntry
+readList :: ReadS [CreateNetworkAclEntry]
+$creadList :: ReadS [CreateNetworkAclEntry]
+readsPrec :: Int -&gt; ReadS CreateNetworkAclEntry
+$creadsPrec :: Int -&gt; ReadS CreateNetworkAclEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681257931"><span id="local-6989586621681257933"><span id="local-6989586621681257935"><span class="annot"><span class="annottext">Int -&gt; CreateNetworkAclEntry -&gt; ShowS
+[CreateNetworkAclEntry] -&gt; ShowS
+CreateNetworkAclEntry -&gt; String
+(Int -&gt; CreateNetworkAclEntry -&gt; ShowS)
+-&gt; (CreateNetworkAclEntry -&gt; String)
+-&gt; ([CreateNetworkAclEntry] -&gt; ShowS)
+-&gt; Show CreateNetworkAclEntry
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateNetworkAclEntry] -&gt; ShowS
+$cshowList :: [CreateNetworkAclEntry] -&gt; ShowS
+show :: CreateNetworkAclEntry -&gt; String
+$cshow :: CreateNetworkAclEntry -&gt; String
+showsPrec :: Int -&gt; CreateNetworkAclEntry -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateNetworkAclEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateNetworkAclEntry -&gt; Rep CreateNetworkAclEntry x)
+-&gt; (forall x. Rep CreateNetworkAclEntry x -&gt; CreateNetworkAclEntry)
+-&gt; Generic CreateNetworkAclEntry
+forall x. Rep CreateNetworkAclEntry x -&gt; CreateNetworkAclEntry
+forall x. CreateNetworkAclEntry -&gt; Rep CreateNetworkAclEntry x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateNetworkAclEntry x -&gt; CreateNetworkAclEntry
+$cfrom :: forall x. CreateNetworkAclEntry -&gt; Rep CreateNetworkAclEntry x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Create a value of 'CreateNetworkAclEntry' with all optional fields omitted.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'portRange', 'createNetworkAclEntry_portRange' - TCP or UDP protocols: The range of ports the rule applies to. Required</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- if specifying protocol 6 (TCP) or 17 (UDP).</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'dryRun', 'createNetworkAclEntry_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'icmpTypeCode', 'createNetworkAclEntry_icmpTypeCode' - ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'ipv6CidrBlock', 'createNetworkAclEntry_ipv6CidrBlock' - The IPv6 network range to allow or deny, in CIDR notation (for example</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- @2001:db8:1234:1a00::\/64@).</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'cidrBlock', 'createNetworkAclEntry_cidrBlock' - The IPv4 network range to allow or deny, in CIDR notation (for example</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- @172.16.0.0\/24@). We modify the specified CIDR block to its canonical</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- form; for example, if you specify @100.68.0.18\/18@, we modify it to</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- @100.68.0.0\/18@.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'egress', 'createNetworkAclEntry_egress' - Indicates whether this is an egress rule (rule is applied to traffic</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- leaving the subnet).</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'networkAclId', 'createNetworkAclEntry_networkAclId' - The ID of the network ACL.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'protocol', 'createNetworkAclEntry_protocol' - The protocol number. A value of \&quot;-1\&quot; means all protocols. If you</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- specify \&quot;-1\&quot; or a protocol number other than \&quot;6\&quot; (TCP), \&quot;17\&quot;</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- (UDP), or \&quot;1\&quot; (ICMP), traffic on all ports is allowed, regardless of</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- any ports or ICMP types or codes that you specify. If you specify</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- protocol \&quot;58\&quot; (ICMPv6) and specify an IPv4 CIDR block, traffic for all</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- ICMP types and codes allowed, regardless of any that you specify. If you</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- specify protocol \&quot;58\&quot; (ICMPv6) and specify an IPv6 CIDR block, you</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- must specify an ICMP type and code.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'ruleAction', 'createNetworkAclEntry_ruleAction' - Indicates whether to allow or deny the traffic that matches the rule.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'ruleNumber', 'createNetworkAclEntry_ruleNumber' - The rule number for the entry (for example, 100). ACL entries are</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- processed in ascending order by rule number.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Constraints: Positive integer from 1 to 32766. The range 32767 to 65535</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- is reserved for internal use.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#newCreateNetworkAclEntry"><span class="hs-identifier hs-type">newCreateNetworkAclEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-comment">-- | 'egress'</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-comment">-- | 'networkAclId'</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-comment">-- | 'protocol'</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'ruleAction'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.RuleAction.html#RuleAction"><span class="hs-identifier hs-type">RuleAction</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-comment">-- | 'ruleNumber'</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span>
+</span><span id="line-178"></span><span id="newCreateNetworkAclEntry"><span class="annot"><span class="annottext">newCreateNetworkAclEntry :: Bool -&gt; Text -&gt; Text -&gt; RuleAction -&gt; Int -&gt; CreateNetworkAclEntry
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#newCreateNetworkAclEntry"><span class="hs-identifier hs-var hs-var">newCreateNetworkAclEntry</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621681257926"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621681257926"><span class="hs-identifier hs-var">pEgress_</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621681257925"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681257925"><span class="hs-identifier hs-var">pNetworkAclId_</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621681257924"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681257924"><span class="hs-identifier hs-var">pProtocol_</span></a></span></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621681257923"><span class="annot"><span class="annottext">RuleAction
+</span><a href="#local-6989586621681257923"><span class="hs-identifier hs-var">pRuleAction_</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621681257922"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681257922"><span class="hs-identifier hs-var">pRuleNumber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">CreateNetworkAclEntry' :: Maybe PortRange
+-&gt; Maybe Bool
+-&gt; Maybe IcmpTypeCode
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Bool
+-&gt; Text
+-&gt; Text
+-&gt; RuleAction
+-&gt; Int
+-&gt; CreateNetworkAclEntry
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:portRange:CreateNetworkAclEntry' :: Maybe PortRange
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AportRange%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">portRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PortRange
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:CreateNetworkAclEntry' :: Maybe Bool
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AdryRun%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">$sel:icmpTypeCode:CreateNetworkAclEntry' :: Maybe IcmpTypeCode
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AicmpTypeCode%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">icmpTypeCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:ipv6CidrBlock:CreateNetworkAclEntry' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3Aipv6CidrBlock%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">$sel:cidrBlock:CreateNetworkAclEntry' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AcidrBlock%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">$sel:egress:CreateNetworkAclEntry' :: Bool
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3Aegress%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">egress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621681257926"><span class="hs-identifier hs-var">pEgress_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">$sel:networkAclId:CreateNetworkAclEntry' :: Text
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AnetworkAclId%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">networkAclId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681257925"><span class="hs-identifier hs-var">pNetworkAclId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">$sel:protocol:CreateNetworkAclEntry' :: Text
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3Aprotocol%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681257924"><span class="hs-identifier hs-var">pProtocol_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">$sel:ruleAction:CreateNetworkAclEntry' :: RuleAction
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AruleAction%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">ruleAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RuleAction
+</span><a href="#local-6989586621681257923"><span class="hs-identifier hs-var">pRuleAction_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">$sel:ruleNumber:CreateNetworkAclEntry' :: Int
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AruleNumber%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681257922"><span class="hs-identifier hs-var">pRuleNumber_</span></a></span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | TCP or UDP protocols: The range of ports the rule applies to. Required</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- if specifying protocol 6 (TCP) or 17 (UDP).</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_portRange"><span class="hs-identifier hs-type">createNetworkAclEntry_portRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="createNetworkAclEntry_portRange"><span class="annot"><span class="annottext">createNetworkAclEntry_portRange :: (Maybe PortRange -&gt; f (Maybe PortRange))
+-&gt; CreateNetworkAclEntry -&gt; f CreateNetworkAclEntry
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_portRange"><span class="hs-identifier hs-var hs-var">createNetworkAclEntry_portRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkAclEntry -&gt; Maybe PortRange)
+-&gt; (CreateNetworkAclEntry
+    -&gt; Maybe PortRange -&gt; CreateNetworkAclEntry)
+-&gt; Lens
+     CreateNetworkAclEntry
+     CreateNetworkAclEntry
+     (Maybe PortRange)
+     (Maybe PortRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257919"><span class="annot"><span class="annottext">Maybe PortRange
+portRange :: Maybe PortRange
+$sel:portRange:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Maybe PortRange
+</span><a href="#local-6989586621681257919"><span class="hs-identifier hs-var hs-var">portRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PortRange
+</span><a href="#local-6989586621681257919"><span class="hs-identifier hs-var">portRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257918"><span class="annot"><span class="annottext">s :: CreateNetworkAclEntry
+</span><a href="#local-6989586621681257918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257917"><span class="annot"><span class="annottext">Maybe PortRange
+</span><a href="#local-6989586621681257917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkAclEntry
+</span><a href="#local-6989586621681257918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portRange:CreateNetworkAclEntry' :: Maybe PortRange
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AportRange%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">portRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PortRange
+</span><a href="#local-6989586621681257917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_dryRun"><span class="hs-identifier hs-type">createNetworkAclEntry_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="createNetworkAclEntry_dryRun"><span class="annot"><span class="annottext">createNetworkAclEntry_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateNetworkAclEntry -&gt; f CreateNetworkAclEntry
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_dryRun"><span class="hs-identifier hs-var hs-var">createNetworkAclEntry_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkAclEntry -&gt; Maybe Bool)
+-&gt; (CreateNetworkAclEntry -&gt; Maybe Bool -&gt; CreateNetworkAclEntry)
+-&gt; Lens
+     CreateNetworkAclEntry
+     CreateNetworkAclEntry
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257916"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Maybe Bool
+</span><a href="#local-6989586621681257916"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681257916"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257915"><span class="annot"><span class="annottext">s :: CreateNetworkAclEntry
+</span><a href="#local-6989586621681257915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257914"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681257914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkAclEntry
+</span><a href="#local-6989586621681257915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateNetworkAclEntry' :: Maybe Bool
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AdryRun%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681257914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_icmpTypeCode"><span class="hs-identifier hs-type">createNetworkAclEntry_icmpTypeCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="createNetworkAclEntry_icmpTypeCode"><span class="annot"><span class="annottext">createNetworkAclEntry_icmpTypeCode :: (Maybe IcmpTypeCode -&gt; f (Maybe IcmpTypeCode))
+-&gt; CreateNetworkAclEntry -&gt; f CreateNetworkAclEntry
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_icmpTypeCode"><span class="hs-identifier hs-var hs-var">createNetworkAclEntry_icmpTypeCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkAclEntry -&gt; Maybe IcmpTypeCode)
+-&gt; (CreateNetworkAclEntry
+    -&gt; Maybe IcmpTypeCode -&gt; CreateNetworkAclEntry)
+-&gt; Lens
+     CreateNetworkAclEntry
+     CreateNetworkAclEntry
+     (Maybe IcmpTypeCode)
+     (Maybe IcmpTypeCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257913"><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+icmpTypeCode :: Maybe IcmpTypeCode
+$sel:icmpTypeCode:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Maybe IcmpTypeCode
+</span><a href="#local-6989586621681257913"><span class="hs-identifier hs-var hs-var">icmpTypeCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+</span><a href="#local-6989586621681257913"><span class="hs-identifier hs-var">icmpTypeCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257912"><span class="annot"><span class="annottext">s :: CreateNetworkAclEntry
+</span><a href="#local-6989586621681257912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257911"><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+</span><a href="#local-6989586621681257911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkAclEntry
+</span><a href="#local-6989586621681257912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:icmpTypeCode:CreateNetworkAclEntry' :: Maybe IcmpTypeCode
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AicmpTypeCode%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">icmpTypeCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+</span><a href="#local-6989586621681257911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The IPv6 network range to allow or deny, in CIDR notation (for example</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- @2001:db8:1234:1a00::\/64@).</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_ipv6CidrBlock"><span class="hs-identifier hs-type">createNetworkAclEntry_ipv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="createNetworkAclEntry_ipv6CidrBlock"><span class="annot"><span class="annottext">createNetworkAclEntry_ipv6CidrBlock :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateNetworkAclEntry -&gt; f CreateNetworkAclEntry
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_ipv6CidrBlock"><span class="hs-identifier hs-var hs-var">createNetworkAclEntry_ipv6CidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkAclEntry -&gt; Maybe Text)
+-&gt; (CreateNetworkAclEntry -&gt; Maybe Text -&gt; CreateNetworkAclEntry)
+-&gt; Lens
+     CreateNetworkAclEntry
+     CreateNetworkAclEntry
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257910"><span class="annot"><span class="annottext">Maybe Text
+ipv6CidrBlock :: Maybe Text
+$sel:ipv6CidrBlock:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Maybe Text
+</span><a href="#local-6989586621681257910"><span class="hs-identifier hs-var hs-var">ipv6CidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681257910"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257909"><span class="annot"><span class="annottext">s :: CreateNetworkAclEntry
+</span><a href="#local-6989586621681257909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257908"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681257908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkAclEntry
+</span><a href="#local-6989586621681257909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6CidrBlock:CreateNetworkAclEntry' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3Aipv6CidrBlock%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681257908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The IPv4 network range to allow or deny, in CIDR notation (for example</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- @172.16.0.0\/24@). We modify the specified CIDR block to its canonical</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- form; for example, if you specify @100.68.0.18\/18@, we modify it to</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- @100.68.0.0\/18@.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_cidrBlock"><span class="hs-identifier hs-type">createNetworkAclEntry_cidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="createNetworkAclEntry_cidrBlock"><span class="annot"><span class="annottext">createNetworkAclEntry_cidrBlock :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateNetworkAclEntry -&gt; f CreateNetworkAclEntry
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_cidrBlock"><span class="hs-identifier hs-var hs-var">createNetworkAclEntry_cidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkAclEntry -&gt; Maybe Text)
+-&gt; (CreateNetworkAclEntry -&gt; Maybe Text -&gt; CreateNetworkAclEntry)
+-&gt; Lens
+     CreateNetworkAclEntry
+     CreateNetworkAclEntry
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257907"><span class="annot"><span class="annottext">Maybe Text
+cidrBlock :: Maybe Text
+$sel:cidrBlock:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Maybe Text
+</span><a href="#local-6989586621681257907"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681257907"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257906"><span class="annot"><span class="annottext">s :: CreateNetworkAclEntry
+</span><a href="#local-6989586621681257906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257905"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681257905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkAclEntry
+</span><a href="#local-6989586621681257906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrBlock:CreateNetworkAclEntry' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AcidrBlock%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681257905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | Indicates whether this is an egress rule (rule is applied to traffic</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- leaving the subnet).</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_egress"><span class="hs-identifier hs-type">createNetworkAclEntry_egress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-229"></span><span id="createNetworkAclEntry_egress"><span class="annot"><span class="annottext">createNetworkAclEntry_egress :: (Bool -&gt; f Bool)
+-&gt; CreateNetworkAclEntry -&gt; f CreateNetworkAclEntry
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_egress"><span class="hs-identifier hs-var hs-var">createNetworkAclEntry_egress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkAclEntry -&gt; Bool)
+-&gt; (CreateNetworkAclEntry -&gt; Bool -&gt; CreateNetworkAclEntry)
+-&gt; Lens CreateNetworkAclEntry CreateNetworkAclEntry Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257904"><span class="annot"><span class="annottext">Bool
+egress :: Bool
+$sel:egress:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Bool
+</span><a href="#local-6989586621681257904"><span class="hs-identifier hs-var hs-var">egress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621681257904"><span class="hs-identifier hs-var">egress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257903"><span class="annot"><span class="annottext">s :: CreateNetworkAclEntry
+</span><a href="#local-6989586621681257903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257902"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621681257902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkAclEntry
+</span><a href="#local-6989586621681257903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:egress:CreateNetworkAclEntry' :: Bool
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3Aegress%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">egress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621681257902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The ID of the network ACL.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_networkAclId"><span class="hs-identifier hs-type">createNetworkAclEntry_networkAclId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-233"></span><span id="createNetworkAclEntry_networkAclId"><span class="annot"><span class="annottext">createNetworkAclEntry_networkAclId :: (Text -&gt; f Text)
+-&gt; CreateNetworkAclEntry -&gt; f CreateNetworkAclEntry
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_networkAclId"><span class="hs-identifier hs-var hs-var">createNetworkAclEntry_networkAclId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkAclEntry -&gt; Text)
+-&gt; (CreateNetworkAclEntry -&gt; Text -&gt; CreateNetworkAclEntry)
+-&gt; Lens CreateNetworkAclEntry CreateNetworkAclEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257901"><span class="annot"><span class="annottext">Text
+networkAclId :: Text
+$sel:networkAclId:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Text
+</span><a href="#local-6989586621681257901"><span class="hs-identifier hs-var hs-var">networkAclId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681257901"><span class="hs-identifier hs-var">networkAclId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257900"><span class="annot"><span class="annottext">s :: CreateNetworkAclEntry
+</span><a href="#local-6989586621681257900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257899"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681257899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkAclEntry
+</span><a href="#local-6989586621681257900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkAclId:CreateNetworkAclEntry' :: Text
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AnetworkAclId%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">networkAclId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681257899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The protocol number. A value of \&quot;-1\&quot; means all protocols. If you</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- specify \&quot;-1\&quot; or a protocol number other than \&quot;6\&quot; (TCP), \&quot;17\&quot;</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- (UDP), or \&quot;1\&quot; (ICMP), traffic on all ports is allowed, regardless of</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- any ports or ICMP types or codes that you specify. If you specify</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- protocol \&quot;58\&quot; (ICMPv6) and specify an IPv4 CIDR block, traffic for all</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- ICMP types and codes allowed, regardless of any that you specify. If you</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- specify protocol \&quot;58\&quot; (ICMPv6) and specify an IPv6 CIDR block, you</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- must specify an ICMP type and code.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_protocol"><span class="hs-identifier hs-type">createNetworkAclEntry_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-244"></span><span id="createNetworkAclEntry_protocol"><span class="annot"><span class="annottext">createNetworkAclEntry_protocol :: (Text -&gt; f Text)
+-&gt; CreateNetworkAclEntry -&gt; f CreateNetworkAclEntry
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_protocol"><span class="hs-identifier hs-var hs-var">createNetworkAclEntry_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkAclEntry -&gt; Text)
+-&gt; (CreateNetworkAclEntry -&gt; Text -&gt; CreateNetworkAclEntry)
+-&gt; Lens CreateNetworkAclEntry CreateNetworkAclEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257898"><span class="annot"><span class="annottext">Text
+protocol :: Text
+$sel:protocol:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Text
+</span><a href="#local-6989586621681257898"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681257898"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257897"><span class="annot"><span class="annottext">s :: CreateNetworkAclEntry
+</span><a href="#local-6989586621681257897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257896"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681257896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkAclEntry
+</span><a href="#local-6989586621681257897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:CreateNetworkAclEntry' :: Text
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3Aprotocol%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681257896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | Indicates whether to allow or deny the traffic that matches the rule.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_ruleAction"><span class="hs-identifier hs-type">createNetworkAclEntry_ruleAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RuleAction.html#RuleAction"><span class="hs-identifier hs-type">RuleAction</span></a></span><span>
+</span><span id="line-248"></span><span id="createNetworkAclEntry_ruleAction"><span class="annot"><span class="annottext">createNetworkAclEntry_ruleAction :: (RuleAction -&gt; f RuleAction)
+-&gt; CreateNetworkAclEntry -&gt; f CreateNetworkAclEntry
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_ruleAction"><span class="hs-identifier hs-var hs-var">createNetworkAclEntry_ruleAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkAclEntry -&gt; RuleAction)
+-&gt; (CreateNetworkAclEntry -&gt; RuleAction -&gt; CreateNetworkAclEntry)
+-&gt; Lens
+     CreateNetworkAclEntry CreateNetworkAclEntry RuleAction RuleAction
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257895"><span class="annot"><span class="annottext">RuleAction
+ruleAction :: RuleAction
+$sel:ruleAction:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; RuleAction
+</span><a href="#local-6989586621681257895"><span class="hs-identifier hs-var hs-var">ruleAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleAction
+</span><a href="#local-6989586621681257895"><span class="hs-identifier hs-var">ruleAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257894"><span class="annot"><span class="annottext">s :: CreateNetworkAclEntry
+</span><a href="#local-6989586621681257894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257893"><span class="annot"><span class="annottext">RuleAction
+</span><a href="#local-6989586621681257893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkAclEntry
+</span><a href="#local-6989586621681257894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleAction:CreateNetworkAclEntry' :: RuleAction
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AruleAction%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">ruleAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RuleAction
+</span><a href="#local-6989586621681257893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The rule number for the entry (for example, 100). ACL entries are</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- processed in ascending order by rule number.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- Constraints: Positive integer from 1 to 32766. The range 32767 to 65535</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- is reserved for internal use.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_ruleNumber"><span class="hs-identifier hs-type">createNetworkAclEntry_ruleNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-256"></span><span id="createNetworkAclEntry_ruleNumber"><span class="annot"><span class="annottext">createNetworkAclEntry_ruleNumber :: (Int -&gt; f Int) -&gt; CreateNetworkAclEntry -&gt; f CreateNetworkAclEntry
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#createNetworkAclEntry_ruleNumber"><span class="hs-identifier hs-var hs-var">createNetworkAclEntry_ruleNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkAclEntry -&gt; Int)
+-&gt; (CreateNetworkAclEntry -&gt; Int -&gt; CreateNetworkAclEntry)
+-&gt; Lens CreateNetworkAclEntry CreateNetworkAclEntry Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257892"><span class="annot"><span class="annottext">Int
+ruleNumber :: Int
+$sel:ruleNumber:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Int
+</span><a href="#local-6989586621681257892"><span class="hs-identifier hs-var hs-var">ruleNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681257892"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257891"><span class="annot"><span class="annottext">s :: CreateNetworkAclEntry
+</span><a href="#local-6989586621681257891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257890"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681257890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkAclEntry
+</span><a href="#local-6989586621681257891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleNumber:CreateNetworkAclEntry' :: Int
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#%24sel%3AruleNumber%3ACreateNetworkAclEntry%27"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681257890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-260"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-261"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntryResponse"><span class="hs-identifier hs-type">CreateNetworkAclEntryResponse</span></a></span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621681257886"><span class="annot"><span class="annottext">request :: CreateNetworkAclEntry -&gt; Request CreateNetworkAclEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateNetworkAclEntry -&gt; Request CreateNetworkAclEntry
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621681257882"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateNetworkAclEntry
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateNetworkAclEntry)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse CreateNetworkAclEntry
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateNetworkAclEntry
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateNetworkAclEntry)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse CreateNetworkAclEntry
+CreateNetworkAclEntryResponse
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntryResponse%27"><span class="hs-identifier hs-var">CreateNetworkAclEntryResponse'</span></a></span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681257875"><span id="local-6989586621681257877"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span></span></span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681257872"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span></span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621681257868"><span class="annot"><span class="annottext">toHeaders :: CreateNetworkAclEntry -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; CreateNetworkAclEntry -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621681257863"><span class="annot"><span class="annottext">toPath :: CreateNetworkAclEntry -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateNetworkAclEntry -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry"><span class="hs-identifier hs-type">CreateNetworkAclEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-277"></span><span>  </span><span id="local-6989586621681257859"><span class="annot"><span class="annottext">toQuery :: CreateNetworkAclEntry -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntry%27"><span class="hs-identifier hs-type">CreateNetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257848"><span id="local-6989586621681257849"><span id="local-6989586621681257850"><span id="local-6989586621681257851"><span id="local-6989586621681257852"><span id="local-6989586621681257853"><span id="local-6989586621681257854"><span id="local-6989586621681257855"><span id="local-6989586621681257856"><span id="local-6989586621681257857"><span class="annot"><span class="annottext">Bool
+Int
+Maybe Bool
+Maybe Text
+Maybe IcmpTypeCode
+Maybe PortRange
+Text
+RuleAction
+ruleNumber :: Int
+ruleAction :: RuleAction
+protocol :: Text
+networkAclId :: Text
+egress :: Bool
+cidrBlock :: Maybe Text
+ipv6CidrBlock :: Maybe Text
+icmpTypeCode :: Maybe IcmpTypeCode
+dryRun :: Maybe Bool
+portRange :: Maybe PortRange
+$sel:ruleNumber:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Int
+$sel:ruleAction:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; RuleAction
+$sel:protocol:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Text
+$sel:networkAclId:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Text
+$sel:egress:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Bool
+$sel:cidrBlock:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Maybe Text
+$sel:ipv6CidrBlock:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Maybe Text
+$sel:icmpTypeCode:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Maybe IcmpTypeCode
+$sel:dryRun:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Maybe Bool
+$sel:portRange:CreateNetworkAclEntry' :: CreateNetworkAclEntry -&gt; Maybe PortRange
+</span><a href="#local-6989586621681257848"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-279"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-280"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateNetworkAclEntry&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-282"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PortRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe PortRange -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PortRange
+</span><a href="#local-6989586621681257857"><span class="hs-identifier hs-var">portRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681257856"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Icmp&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe IcmpTypeCode -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+</span><a href="#local-6989586621681257855"><span class="hs-identifier hs-var">icmpTypeCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Ipv6CidrBlock&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681257854"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CidrBlock&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681257853"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Egress&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621681257852"><span class="hs-identifier hs-var">egress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NetworkAclId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681257851"><span class="hs-identifier hs-var">networkAclId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Protocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681257850"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RuleAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RuleAction -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">RuleAction
+</span><a href="#local-6989586621681257849"><span class="hs-identifier hs-var">ruleAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RuleNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681257848"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span>
+</span><span id="line-293"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- | /See:/ 'newCreateNetworkAclEntryResponse' smart constructor.</span><span>
+</span><span id="line-296"></span><span id="local-6989586621681257845"><span id="local-6989586621681257846"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateNetworkAclEntryResponse"><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntryResponse"><span class="hs-identifier hs-var">CreateNetworkAclEntryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateNetworkAclEntryResponse%27"><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntryResponse%27"><span class="hs-identifier hs-var">CreateNetworkAclEntryResponse'</span></a></span></span><span>
+</span><span id="line-297"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-298"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-299"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681257841"><span id="local-6989586621681257843"><span class="annot"><span class="annottext">CreateNetworkAclEntryResponse
+-&gt; CreateNetworkAclEntryResponse -&gt; Bool
+(CreateNetworkAclEntryResponse
+ -&gt; CreateNetworkAclEntryResponse -&gt; Bool)
+-&gt; (CreateNetworkAclEntryResponse
+    -&gt; CreateNetworkAclEntryResponse -&gt; Bool)
+-&gt; Eq CreateNetworkAclEntryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateNetworkAclEntryResponse
+-&gt; CreateNetworkAclEntryResponse -&gt; Bool
+$c/= :: CreateNetworkAclEntryResponse
+-&gt; CreateNetworkAclEntryResponse -&gt; Bool
+== :: CreateNetworkAclEntryResponse
+-&gt; CreateNetworkAclEntryResponse -&gt; Bool
+$c== :: CreateNetworkAclEntryResponse
+-&gt; CreateNetworkAclEntryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681257833"><span id="local-6989586621681257835"><span id="local-6989586621681257837"><span id="local-6989586621681257839"><span class="annot"><span class="annottext">ReadPrec [CreateNetworkAclEntryResponse]
+ReadPrec CreateNetworkAclEntryResponse
+Int -&gt; ReadS CreateNetworkAclEntryResponse
+ReadS [CreateNetworkAclEntryResponse]
+(Int -&gt; ReadS CreateNetworkAclEntryResponse)
+-&gt; ReadS [CreateNetworkAclEntryResponse]
+-&gt; ReadPrec CreateNetworkAclEntryResponse
+-&gt; ReadPrec [CreateNetworkAclEntryResponse]
+-&gt; Read CreateNetworkAclEntryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateNetworkAclEntryResponse]
+$creadListPrec :: ReadPrec [CreateNetworkAclEntryResponse]
+readPrec :: ReadPrec CreateNetworkAclEntryResponse
+$creadPrec :: ReadPrec CreateNetworkAclEntryResponse
+readList :: ReadS [CreateNetworkAclEntryResponse]
+$creadList :: ReadS [CreateNetworkAclEntryResponse]
+readsPrec :: Int -&gt; ReadS CreateNetworkAclEntryResponse
+$creadsPrec :: Int -&gt; ReadS CreateNetworkAclEntryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681257827"><span id="local-6989586621681257829"><span id="local-6989586621681257831"><span class="annot"><span class="annottext">Int -&gt; CreateNetworkAclEntryResponse -&gt; ShowS
+[CreateNetworkAclEntryResponse] -&gt; ShowS
+CreateNetworkAclEntryResponse -&gt; String
+(Int -&gt; CreateNetworkAclEntryResponse -&gt; ShowS)
+-&gt; (CreateNetworkAclEntryResponse -&gt; String)
+-&gt; ([CreateNetworkAclEntryResponse] -&gt; ShowS)
+-&gt; Show CreateNetworkAclEntryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateNetworkAclEntryResponse] -&gt; ShowS
+$cshowList :: [CreateNetworkAclEntryResponse] -&gt; ShowS
+show :: CreateNetworkAclEntryResponse -&gt; String
+$cshow :: CreateNetworkAclEntryResponse -&gt; String
+showsPrec :: Int -&gt; CreateNetworkAclEntryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateNetworkAclEntryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateNetworkAclEntryResponse
+ -&gt; Rep CreateNetworkAclEntryResponse x)
+-&gt; (forall x.
+    Rep CreateNetworkAclEntryResponse x
+    -&gt; CreateNetworkAclEntryResponse)
+-&gt; Generic CreateNetworkAclEntryResponse
+forall x.
+Rep CreateNetworkAclEntryResponse x
+-&gt; CreateNetworkAclEntryResponse
+forall x.
+CreateNetworkAclEntryResponse
+-&gt; Rep CreateNetworkAclEntryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateNetworkAclEntryResponse x
+-&gt; CreateNetworkAclEntryResponse
+$cfrom :: forall x.
+CreateNetworkAclEntryResponse
+-&gt; Rep CreateNetworkAclEntryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- Create a value of 'CreateNetworkAclEntryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-305"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#newCreateNetworkAclEntryResponse"><span class="hs-identifier hs-type">newCreateNetworkAclEntryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-306"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntryResponse"><span class="hs-identifier hs-type">CreateNetworkAclEntryResponse</span></a></span><span>
+</span><span id="line-307"></span><span id="newCreateNetworkAclEntryResponse"><span class="annot"><span class="annottext">newCreateNetworkAclEntryResponse :: CreateNetworkAclEntryResponse
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#newCreateNetworkAclEntryResponse"><span class="hs-identifier hs-var hs-var">newCreateNetworkAclEntryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-308"></span><span>  </span><span class="annot"><span class="annottext">CreateNetworkAclEntryResponse
+</span><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntryResponse%27"><span class="hs-identifier hs-var">CreateNetworkAclEntryResponse'</span></a></span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681257823"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkAclEntry.html#CreateNetworkAclEntryResponse"><span class="hs-identifier hs-type">CreateNetworkAclEntryResponse</span></a></span></span><span>
+</span><span id="line-311"></span></pre></body></html>

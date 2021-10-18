@@ -1,0 +1,555 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Route53.GetGeoLocation</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets information about whether a specified geographic location is</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- supported for Amazon Route 53 geolocation resource record sets.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Route 53 does not perform authorization for this API because it</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- retrieves information that is already available to the public.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Use the following syntax to determine whether a continent is supported</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- for geolocation:</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- @GET \/2013-04-01\/geolocation?continentcode=two-letter abbreviation for a continent @</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Use the following syntax to determine whether a country is supported for</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- geolocation:</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- @GET \/2013-04-01\/geolocation?countrycode=two-character country code @</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use the following syntax to determine whether a subdivision of a country</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- is supported for geolocation:</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- @GET \/2013-04-01\/geolocation?countrycode=two-character country code&amp;subdivisioncode=subdivision code @</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53.GetGeoLocation</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier">GetGeoLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#newGetGeoLocation"><span class="hs-identifier">newGetGeoLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#getGeoLocation_continentCode"><span class="hs-identifier">getGeoLocation_continentCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#getGeoLocation_subdivisionCode"><span class="hs-identifier">getGeoLocation_subdivisionCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#getGeoLocation_countryCode"><span class="hs-identifier">getGeoLocation_countryCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier">GetGeoLocationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#newGetGeoLocationResponse"><span class="hs-identifier">newGetGeoLocationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#getGeoLocationResponse_httpStatus"><span class="hs-identifier">getGeoLocationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#getGeoLocationResponse_geoLocationDetails"><span class="hs-identifier">getGeoLocationResponse_geoLocationDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.html"><span class="hs-identifier">Network.AWS.Route53.Types</span></a></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | A request for information about whether a specified geographic location</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- is supported for Amazon Route 53 geolocation resource record sets.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- /See:/ 'newGetGeoLocation' smart constructor.</span><span>
+</span><span id="line-74"></span><span id="local-6989586621679306896"><span id="local-6989586621679306897"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGeoLocation"><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-var">GetGeoLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGeoLocation%27"><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-var">GetGeoLocation'</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For geolocation resource record sets, a two-letter abbreviation that</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- identifies a continent. Amazon Route 53 supports the following continent</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- codes:</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   __AF__: Africa</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   __AN__: Antarctica</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   __AS__: Asia</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   __EU__: Europe</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- -   __OC__: Oceania</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   __NA__: North America</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   __SA__: South America</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AcontinentCode%3AGetGeoLocation%27"><span class="annot"><span class="annottext">GetGeoLocation -&gt; Maybe Text
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#%24sel%3AcontinentCode%3AGetGeoLocation%27"><span class="hs-identifier hs-var hs-var">continentCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The code for the subdivision, such as a particular state within the</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- United States. For a list of US state abbreviations, see</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- &lt;https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two&#8211;Letter State and Possession Abbreviations&gt;</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- on the United States Postal Service website. For a list of all supported</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- subdivision codes, use the</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html ListGeoLocations&gt;</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AsubdivisionCode%3AGetGeoLocation%27"><span class="annot"><span class="annottext">GetGeoLocation -&gt; Maybe Text
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#%24sel%3AsubdivisionCode%3AGetGeoLocation%27"><span class="hs-identifier hs-var hs-var">subdivisionCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | Amazon Route 53 uses the two-letter country codes that are specified in</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2&gt;.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AcountryCode%3AGetGeoLocation%27"><span class="annot"><span class="annottext">GetGeoLocation -&gt; Maybe Text
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#%24sel%3AcountryCode%3AGetGeoLocation%27"><span class="hs-identifier hs-var hs-var">countryCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306888"><span id="local-6989586621679306890"><span class="annot"><span class="annottext">GetGeoLocation -&gt; GetGeoLocation -&gt; Bool
+(GetGeoLocation -&gt; GetGeoLocation -&gt; Bool)
+-&gt; (GetGeoLocation -&gt; GetGeoLocation -&gt; Bool) -&gt; Eq GetGeoLocation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetGeoLocation -&gt; GetGeoLocation -&gt; Bool
+$c/= :: GetGeoLocation -&gt; GetGeoLocation -&gt; Bool
+== :: GetGeoLocation -&gt; GetGeoLocation -&gt; Bool
+$c== :: GetGeoLocation -&gt; GetGeoLocation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306879"><span id="local-6989586621679306881"><span id="local-6989586621679306883"><span id="local-6989586621679306885"><span class="annot"><span class="annottext">ReadPrec [GetGeoLocation]
+ReadPrec GetGeoLocation
+Int -&gt; ReadS GetGeoLocation
+ReadS [GetGeoLocation]
+(Int -&gt; ReadS GetGeoLocation)
+-&gt; ReadS [GetGeoLocation]
+-&gt; ReadPrec GetGeoLocation
+-&gt; ReadPrec [GetGeoLocation]
+-&gt; Read GetGeoLocation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetGeoLocation]
+$creadListPrec :: ReadPrec [GetGeoLocation]
+readPrec :: ReadPrec GetGeoLocation
+$creadPrec :: ReadPrec GetGeoLocation
+readList :: ReadS [GetGeoLocation]
+$creadList :: ReadS [GetGeoLocation]
+readsPrec :: Int -&gt; ReadS GetGeoLocation
+$creadsPrec :: Int -&gt; ReadS GetGeoLocation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306872"><span id="local-6989586621679306874"><span id="local-6989586621679306876"><span class="annot"><span class="annottext">Int -&gt; GetGeoLocation -&gt; ShowS
+[GetGeoLocation] -&gt; ShowS
+GetGeoLocation -&gt; String
+(Int -&gt; GetGeoLocation -&gt; ShowS)
+-&gt; (GetGeoLocation -&gt; String)
+-&gt; ([GetGeoLocation] -&gt; ShowS)
+-&gt; Show GetGeoLocation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetGeoLocation] -&gt; ShowS
+$cshowList :: [GetGeoLocation] -&gt; ShowS
+show :: GetGeoLocation -&gt; String
+$cshow :: GetGeoLocation -&gt; String
+showsPrec :: Int -&gt; GetGeoLocation -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetGeoLocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetGeoLocation -&gt; Rep GetGeoLocation x)
+-&gt; (forall x. Rep GetGeoLocation x -&gt; GetGeoLocation)
+-&gt; Generic GetGeoLocation
+forall x. Rep GetGeoLocation x -&gt; GetGeoLocation
+forall x. GetGeoLocation -&gt; Rep GetGeoLocation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetGeoLocation x -&gt; GetGeoLocation
+$cfrom :: forall x. GetGeoLocation -&gt; Rep GetGeoLocation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Create a value of 'GetGeoLocation' with all optional fields omitted.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'continentCode', 'getGeoLocation_continentCode' - For geolocation resource record sets, a two-letter abbreviation that</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- identifies a continent. Amazon Route 53 supports the following continent</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- codes:</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- -   __AF__: Africa</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   __AN__: Antarctica</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- -   __AS__: Asia</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   __EU__: Europe</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- -   __OC__: Oceania</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- -   __NA__: North America</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   __SA__: South America</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'subdivisionCode', 'getGeoLocation_subdivisionCode' - The code for the subdivision, such as a particular state within the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- United States. For a list of US state abbreviations, see</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- &lt;https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two&#8211;Letter State and Possession Abbreviations&gt;</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- on the United States Postal Service website. For a list of all supported</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- subdivision codes, use the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html ListGeoLocations&gt;</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'countryCode', 'getGeoLocation_countryCode' - Amazon Route 53 uses the two-letter country codes that are specified in</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2&gt;.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#newGetGeoLocation"><span class="hs-identifier hs-type">newGetGeoLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span>
+</span><span id="line-145"></span><span id="newGetGeoLocation"><span class="annot"><span class="annottext">newGetGeoLocation :: GetGeoLocation
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#newGetGeoLocation"><span class="hs-identifier hs-var hs-var">newGetGeoLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">GetGeoLocation' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; GetGeoLocation
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:continentCode:GetGeoLocation' :: Maybe Text
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#%24sel%3AcontinentCode%3AGetGeoLocation%27"><span class="hs-identifier hs-var">continentCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:subdivisionCode:GetGeoLocation' :: Maybe Text
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#%24sel%3AsubdivisionCode%3AGetGeoLocation%27"><span class="hs-identifier hs-var">subdivisionCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:countryCode:GetGeoLocation' :: Maybe Text
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#%24sel%3AcountryCode%3AGetGeoLocation%27"><span class="hs-identifier hs-var">countryCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | For geolocation resource record sets, a two-letter abbreviation that</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- identifies a continent. Amazon Route 53 supports the following continent</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- codes:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   __AF__: Africa</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- -   __AN__: Antarctica</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   __AS__: Asia</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   __EU__: Europe</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   __OC__: Oceania</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- -   __NA__: North America</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- -   __SA__: South America</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#getGeoLocation_continentCode"><span class="hs-identifier hs-type">getGeoLocation_continentCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="getGeoLocation_continentCode"><span class="annot"><span class="annottext">getGeoLocation_continentCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetGeoLocation -&gt; f GetGeoLocation
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#getGeoLocation_continentCode"><span class="hs-identifier hs-var hs-var">getGeoLocation_continentCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGeoLocation -&gt; Maybe Text)
+-&gt; (GetGeoLocation -&gt; Maybe Text -&gt; GetGeoLocation)
+-&gt; Lens GetGeoLocation GetGeoLocation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306865"><span class="annot"><span class="annottext">Maybe Text
+continentCode :: Maybe Text
+$sel:continentCode:GetGeoLocation' :: GetGeoLocation -&gt; Maybe Text
+</span><a href="#local-6989586621679306865"><span class="hs-identifier hs-var hs-var">continentCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306865"><span class="hs-identifier hs-var">continentCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306864"><span class="annot"><span class="annottext">s :: GetGeoLocation
+</span><a href="#local-6989586621679306864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306863"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGeoLocation
+</span><a href="#local-6989586621679306864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continentCode:GetGeoLocation' :: Maybe Text
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#%24sel%3AcontinentCode%3AGetGeoLocation%27"><span class="hs-identifier hs-var">continentCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The code for the subdivision, such as a particular state within the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- United States. For a list of US state abbreviations, see</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- &lt;https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two&#8211;Letter State and Possession Abbreviations&gt;</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- on the United States Postal Service website. For a list of all supported</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- subdivision codes, use the</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html ListGeoLocations&gt;</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#getGeoLocation_subdivisionCode"><span class="hs-identifier hs-type">getGeoLocation_subdivisionCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="getGeoLocation_subdivisionCode"><span class="annot"><span class="annottext">getGeoLocation_subdivisionCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetGeoLocation -&gt; f GetGeoLocation
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#getGeoLocation_subdivisionCode"><span class="hs-identifier hs-var hs-var">getGeoLocation_subdivisionCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGeoLocation -&gt; Maybe Text)
+-&gt; (GetGeoLocation -&gt; Maybe Text -&gt; GetGeoLocation)
+-&gt; Lens GetGeoLocation GetGeoLocation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306862"><span class="annot"><span class="annottext">Maybe Text
+subdivisionCode :: Maybe Text
+$sel:subdivisionCode:GetGeoLocation' :: GetGeoLocation -&gt; Maybe Text
+</span><a href="#local-6989586621679306862"><span class="hs-identifier hs-var hs-var">subdivisionCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306862"><span class="hs-identifier hs-var">subdivisionCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306861"><span class="annot"><span class="annottext">s :: GetGeoLocation
+</span><a href="#local-6989586621679306861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306860"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGeoLocation
+</span><a href="#local-6989586621679306861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subdivisionCode:GetGeoLocation' :: Maybe Text
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#%24sel%3AsubdivisionCode%3AGetGeoLocation%27"><span class="hs-identifier hs-var">subdivisionCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | Amazon Route 53 uses the two-letter country codes that are specified in</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2&gt;.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#getGeoLocation_countryCode"><span class="hs-identifier hs-type">getGeoLocation_countryCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="getGeoLocation_countryCode"><span class="annot"><span class="annottext">getGeoLocation_countryCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetGeoLocation -&gt; f GetGeoLocation
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#getGeoLocation_countryCode"><span class="hs-identifier hs-var hs-var">getGeoLocation_countryCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGeoLocation -&gt; Maybe Text)
+-&gt; (GetGeoLocation -&gt; Maybe Text -&gt; GetGeoLocation)
+-&gt; Lens GetGeoLocation GetGeoLocation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306859"><span class="annot"><span class="annottext">Maybe Text
+countryCode :: Maybe Text
+$sel:countryCode:GetGeoLocation' :: GetGeoLocation -&gt; Maybe Text
+</span><a href="#local-6989586621679306859"><span class="hs-identifier hs-var hs-var">countryCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306859"><span class="hs-identifier hs-var">countryCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306858"><span class="annot"><span class="annottext">s :: GetGeoLocation
+</span><a href="#local-6989586621679306858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306857"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGeoLocation
+</span><a href="#local-6989586621679306858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:countryCode:GetGeoLocation' :: Maybe Text
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#%24sel%3AcountryCode%3AGetGeoLocation%27"><span class="hs-identifier hs-var">countryCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-189"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-type">GetGeoLocationResponse</span></a></span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679306853"><span class="annot"><span class="annottext">request :: GetGeoLocation -&gt; Request GetGeoLocation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetGeoLocation -&gt; Request GetGeoLocation
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679306849"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetGeoLocation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetGeoLocation)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse GetGeoLocation))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetGeoLocation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetGeoLocation)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306846"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306846"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679306845"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679306845"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679306844"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679306844"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; GeoLocationDetails -&gt; GetGeoLocationResponse
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-var">GetGeoLocationResponse'</span></a></span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; GeoLocationDetails -&gt; GetGeoLocationResponse)
+-&gt; Either String Int
+-&gt; Either String (GeoLocationDetails -&gt; GetGeoLocationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306846"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Either String (GeoLocationDetails -&gt; GetGeoLocationResponse)
+-&gt; Either String GeoLocationDetails
+-&gt; Either String GetGeoLocationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679306844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String GeoLocationDetails
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GeoLocationDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306836"><span id="local-6989586621679306838"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span></span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306833"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679306829"><span class="annot"><span class="annottext">toHeaders :: GetGeoLocation -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetGeoLocation -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679306824"><span class="annot"><span class="annottext">toPath :: GetGeoLocation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetGeoLocation -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2013-04-01/geolocation&quot;</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679306820"><span class="annot"><span class="annottext">toQuery :: GetGeoLocation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306816"><span id="local-6989586621679306817"><span id="local-6989586621679306818"><span class="annot"><span class="annottext">Maybe Text
+countryCode :: Maybe Text
+subdivisionCode :: Maybe Text
+continentCode :: Maybe Text
+$sel:countryCode:GetGeoLocation' :: GetGeoLocation -&gt; Maybe Text
+$sel:subdivisionCode:GetGeoLocation' :: GetGeoLocation -&gt; Maybe Text
+$sel:continentCode:GetGeoLocation' :: GetGeoLocation -&gt; Maybe Text
+</span><a href="#local-6989586621679306816"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;continentcode&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306818"><span class="hs-identifier hs-var">continentCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;subdivisioncode&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306817"><span class="hs-identifier hs-var">subdivisionCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;countrycode&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306816"><span class="hs-identifier hs-var">countryCode</span></a></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | A complex type that contains the response information for the specified</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- geolocation code.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- /See:/ 'newGetGeoLocationResponse' smart constructor.</span><span>
+</span><span id="line-222"></span><span id="local-6989586621679306813"><span id="local-6989586621679306814"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGeoLocationResponse"><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-var">GetGeoLocationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGeoLocationResponse%27"><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-var">GetGeoLocationResponse'</span></a></span></span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-224"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetGeoLocationResponse%27"><span class="annot"><span class="annottext">GetGeoLocationResponse -&gt; Int
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#%24sel%3AhttpStatus%3AGetGeoLocationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- | A complex type that contains the codes and full continent, country, and</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- subdivision names for the specified geolocation code.</span><span>
+</span><span id="line-227"></span><span>    </span><span id="%24sel%3AgeoLocationDetails%3AGetGeoLocationResponse%27"><span class="annot"><span class="annottext">GetGeoLocationResponse -&gt; GeoLocationDetails
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#%24sel%3AgeoLocationDetails%3AGetGeoLocationResponse%27"><span class="hs-identifier hs-var hs-var">geoLocationDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocationDetails.html#GeoLocationDetails"><span class="hs-identifier hs-type">GeoLocationDetails</span></a></span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306807"><span id="local-6989586621679306809"><span class="annot"><span class="annottext">GetGeoLocationResponse -&gt; GetGeoLocationResponse -&gt; Bool
+(GetGeoLocationResponse -&gt; GetGeoLocationResponse -&gt; Bool)
+-&gt; (GetGeoLocationResponse -&gt; GetGeoLocationResponse -&gt; Bool)
+-&gt; Eq GetGeoLocationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetGeoLocationResponse -&gt; GetGeoLocationResponse -&gt; Bool
+$c/= :: GetGeoLocationResponse -&gt; GetGeoLocationResponse -&gt; Bool
+== :: GetGeoLocationResponse -&gt; GetGeoLocationResponse -&gt; Bool
+$c== :: GetGeoLocationResponse -&gt; GetGeoLocationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306799"><span id="local-6989586621679306801"><span id="local-6989586621679306803"><span id="local-6989586621679306805"><span class="annot"><span class="annottext">ReadPrec [GetGeoLocationResponse]
+ReadPrec GetGeoLocationResponse
+Int -&gt; ReadS GetGeoLocationResponse
+ReadS [GetGeoLocationResponse]
+(Int -&gt; ReadS GetGeoLocationResponse)
+-&gt; ReadS [GetGeoLocationResponse]
+-&gt; ReadPrec GetGeoLocationResponse
+-&gt; ReadPrec [GetGeoLocationResponse]
+-&gt; Read GetGeoLocationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetGeoLocationResponse]
+$creadListPrec :: ReadPrec [GetGeoLocationResponse]
+readPrec :: ReadPrec GetGeoLocationResponse
+$creadPrec :: ReadPrec GetGeoLocationResponse
+readList :: ReadS [GetGeoLocationResponse]
+$creadList :: ReadS [GetGeoLocationResponse]
+readsPrec :: Int -&gt; ReadS GetGeoLocationResponse
+$creadsPrec :: Int -&gt; ReadS GetGeoLocationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306793"><span id="local-6989586621679306795"><span id="local-6989586621679306797"><span class="annot"><span class="annottext">Int -&gt; GetGeoLocationResponse -&gt; ShowS
+[GetGeoLocationResponse] -&gt; ShowS
+GetGeoLocationResponse -&gt; String
+(Int -&gt; GetGeoLocationResponse -&gt; ShowS)
+-&gt; (GetGeoLocationResponse -&gt; String)
+-&gt; ([GetGeoLocationResponse] -&gt; ShowS)
+-&gt; Show GetGeoLocationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetGeoLocationResponse] -&gt; ShowS
+$cshowList :: [GetGeoLocationResponse] -&gt; ShowS
+show :: GetGeoLocationResponse -&gt; String
+$cshow :: GetGeoLocationResponse -&gt; String
+showsPrec :: Int -&gt; GetGeoLocationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetGeoLocationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetGeoLocationResponse -&gt; Rep GetGeoLocationResponse x)
+-&gt; (forall x.
+    Rep GetGeoLocationResponse x -&gt; GetGeoLocationResponse)
+-&gt; Generic GetGeoLocationResponse
+forall x. Rep GetGeoLocationResponse x -&gt; GetGeoLocationResponse
+forall x. GetGeoLocationResponse -&gt; Rep GetGeoLocationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetGeoLocationResponse x -&gt; GetGeoLocationResponse
+$cfrom :: forall x. GetGeoLocationResponse -&gt; Rep GetGeoLocationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- Create a value of 'GetGeoLocationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'httpStatus', 'getGeoLocationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'geoLocationDetails', 'getGeoLocationResponse_geoLocationDetails' - A complex type that contains the codes and full continent, country, and</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- subdivision names for the specified geolocation code.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#newGetGeoLocationResponse"><span class="hs-identifier hs-type">newGetGeoLocationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-244"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-comment">-- | 'geoLocationDetails'</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocationDetails.html#GeoLocationDetails"><span class="hs-identifier hs-type">GeoLocationDetails</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-type">GetGeoLocationResponse</span></a></span><span>
+</span><span id="line-249"></span><span id="newGetGeoLocationResponse"><span class="annot"><span class="annottext">newGetGeoLocationResponse :: Int -&gt; GeoLocationDetails -&gt; GetGeoLocationResponse
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#newGetGeoLocationResponse"><span class="hs-identifier hs-var hs-var">newGetGeoLocationResponse</span></a></span></span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679306790"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306790"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679306789"><span class="annot"><span class="annottext">GeoLocationDetails
+</span><a href="#local-6989586621679306789"><span class="hs-identifier hs-var">pGeoLocationDetails_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><span class="annottext">GetGeoLocationResponse' :: Int -&gt; GeoLocationDetails -&gt; GetGeoLocationResponse
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-type">GetGeoLocationResponse'</span></a></span><span>
+</span><span id="line-253"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetGeoLocationResponse' :: Int
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#%24sel%3AhttpStatus%3AGetGeoLocationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306790"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">$sel:geoLocationDetails:GetGeoLocationResponse' :: GeoLocationDetails
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#%24sel%3AgeoLocationDetails%3AGetGeoLocationResponse%27"><span class="hs-identifier hs-var">geoLocationDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GeoLocationDetails
+</span><a href="#local-6989586621679306789"><span class="hs-identifier hs-var">pGeoLocationDetails_</span></a></span><span>
+</span><span id="line-255"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#getGeoLocationResponse_httpStatus"><span class="hs-identifier hs-type">getGeoLocationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-type">GetGeoLocationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-259"></span><span id="getGeoLocationResponse_httpStatus"><span class="annot"><span class="annottext">getGeoLocationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetGeoLocationResponse -&gt; f GetGeoLocationResponse
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#getGeoLocationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getGeoLocationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGeoLocationResponse -&gt; Int)
+-&gt; (GetGeoLocationResponse -&gt; Int -&gt; GetGeoLocationResponse)
+-&gt; Lens GetGeoLocationResponse GetGeoLocationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-type">GetGeoLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306788"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetGeoLocationResponse' :: GetGeoLocationResponse -&gt; Int
+</span><a href="#local-6989586621679306788"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306788"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306787"><span class="annot"><span class="annottext">s :: GetGeoLocationResponse
+</span><a href="#local-6989586621679306787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-type">GetGeoLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306786"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGeoLocationResponse
+</span><a href="#local-6989586621679306787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGeoLocationResponse' :: Int
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#%24sel%3AhttpStatus%3AGetGeoLocationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-type">GetGeoLocationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | A complex type that contains the codes and full continent, country, and</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- subdivision names for the specified geolocation code.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#getGeoLocationResponse_geoLocationDetails"><span class="hs-identifier hs-type">getGeoLocationResponse_geoLocationDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-type">GetGeoLocationResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocationDetails.html#GeoLocationDetails"><span class="hs-identifier hs-type">GeoLocationDetails</span></a></span><span>
+</span><span id="line-264"></span><span id="getGeoLocationResponse_geoLocationDetails"><span class="annot"><span class="annottext">getGeoLocationResponse_geoLocationDetails :: (GeoLocationDetails -&gt; f GeoLocationDetails)
+-&gt; GetGeoLocationResponse -&gt; f GetGeoLocationResponse
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#getGeoLocationResponse_geoLocationDetails"><span class="hs-identifier hs-var hs-var">getGeoLocationResponse_geoLocationDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGeoLocationResponse -&gt; GeoLocationDetails)
+-&gt; (GetGeoLocationResponse
+    -&gt; GeoLocationDetails -&gt; GetGeoLocationResponse)
+-&gt; Lens
+     GetGeoLocationResponse
+     GetGeoLocationResponse
+     GeoLocationDetails
+     GeoLocationDetails
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-type">GetGeoLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306785"><span class="annot"><span class="annottext">GeoLocationDetails
+geoLocationDetails :: GeoLocationDetails
+$sel:geoLocationDetails:GetGeoLocationResponse' :: GetGeoLocationResponse -&gt; GeoLocationDetails
+</span><a href="#local-6989586621679306785"><span class="hs-identifier hs-var hs-var">geoLocationDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoLocationDetails
+</span><a href="#local-6989586621679306785"><span class="hs-identifier hs-var">geoLocationDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306784"><span class="annot"><span class="annottext">s :: GetGeoLocationResponse
+</span><a href="#local-6989586621679306784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-type">GetGeoLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306783"><span class="annot"><span class="annottext">GeoLocationDetails
+</span><a href="#local-6989586621679306783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGeoLocationResponse
+</span><a href="#local-6989586621679306784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geoLocationDetails:GetGeoLocationResponse' :: GeoLocationDetails
+</span><a href="Network.AWS.Route53.GetGeoLocation.html#%24sel%3AgeoLocationDetails%3AGetGeoLocationResponse%27"><span class="hs-identifier hs-var">geoLocationDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GeoLocationDetails
+</span><a href="#local-6989586621679306783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-type">GetGeoLocationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306781"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-type">GetGeoLocationResponse</span></a></span></span><span>
+</span><span id="line-267"></span></pre></body></html>

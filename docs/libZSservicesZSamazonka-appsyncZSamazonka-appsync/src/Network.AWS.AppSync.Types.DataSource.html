@@ -1,0 +1,778 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppSync.Types.DataSource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppSync.Types.DataSource</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSourceType.html"><span class="hs-identifier">Network.AWS.AppSync.Types.DataSourceType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DynamodbDataSourceConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.DynamodbDataSourceConfig</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.HttpDataSourceConfig</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.LambdaDataSourceConfig</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Describes a data source.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newDataSource' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679251475"><span id="local-6989586621679251476"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataSource"><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-var">DataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataSource%27"><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-var">DataSource'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Identity and Access Management service role ARN for the data source.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- The system assumes this role when accessing the data source.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AserviceRoleArn%3ADataSource%27"><span class="annot"><span class="annottext">DataSource -&gt; Maybe Text
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AserviceRoleArn%3ADataSource%27"><span class="hs-identifier hs-var hs-var">serviceRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Relational database settings.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3ArelationalDatabaseConfig%3ADataSource%27"><span class="annot"><span class="annottext">DataSource -&gt; Maybe RelationalDatabaseDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3ArelationalDatabaseConfig%3ADataSource%27"><span class="hs-identifier hs-var hs-var">relationalDatabaseConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig.html#RelationalDatabaseDataSourceConfig"><span class="hs-identifier hs-type">RelationalDatabaseDataSourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Amazon OpenSearch Service settings.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AelasticsearchConfig%3ADataSource%27"><span class="annot"><span class="annottext">DataSource -&gt; Maybe ElasticsearchDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AelasticsearchConfig%3ADataSource%27"><span class="hs-identifier hs-var hs-var">elasticsearchConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig.html#ElasticsearchDataSourceConfig"><span class="hs-identifier hs-type">ElasticsearchDataSourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Amazon Web Services Lambda settings.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AlambdaConfig%3ADataSource%27"><span class="annot"><span class="annottext">DataSource -&gt; Maybe LambdaDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AlambdaConfig%3ADataSource%27"><span class="hs-identifier hs-var hs-var">lambdaConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig"><span class="hs-identifier hs-type">LambdaDataSourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name of the data source.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aname%3ADataSource%27"><span class="annot"><span class="annottext">DataSource -&gt; Maybe Text
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3Aname%3ADataSource%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Amazon DynamoDB settings.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdynamodbConfig%3ADataSource%27"><span class="annot"><span class="annottext">DataSource -&gt; Maybe DynamodbDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AdynamodbConfig%3ADataSource%27"><span class="hs-identifier hs-var hs-var">dynamodbConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DynamodbDataSourceConfig.html#DynamodbDataSourceConfig"><span class="hs-identifier hs-type">DynamodbDataSourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The description of the data source.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Adescription%3ADataSource%27"><span class="annot"><span class="annottext">DataSource -&gt; Maybe Text
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3Adescription%3ADataSource%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The data source ARN.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdataSourceArn%3ADataSource%27"><span class="annot"><span class="annottext">DataSource -&gt; Maybe Text
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AdataSourceArn%3ADataSource%27"><span class="hs-identifier hs-var hs-var">dataSourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The type of the data source.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   __AWS_LAMBDA__: The data source is an Amazon Web Services Lambda</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     function.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- -   __AMAZON_DYNAMODB__: The data source is an Amazon DynamoDB table.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- -   __AMAZON_ELASTICSEARCH__: The data source is an Amazon OpenSearch</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     Service domain.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   __AMAZON_OPENSEARCH_SERVICE__: The data source is an Amazon</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     OpenSearch Service domain.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   __NONE__: There is no data source. This type is used when you wish</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     to invoke a GraphQL operation without connecting to a data source,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     such as performing data transformation with resolvers or triggering</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     a subscription to be invoked from a mutation.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   __HTTP__: The data source is an HTTP endpoint.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   __RELATIONAL_DATABASE__: The data source is a relational database.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Atype%27%3ADataSource%27"><span class="annot"><span class="annottext">DataSource -&gt; Maybe DataSourceType
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3Atype%27%3ADataSource%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSourceType.html#DataSourceType"><span class="hs-identifier hs-type">DataSourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | Amazon OpenSearch Service settings.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AopenSearchServiceConfig%3ADataSource%27"><span class="annot"><span class="annottext">DataSource -&gt; Maybe OpenSearchServiceDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AopenSearchServiceConfig%3ADataSource%27"><span class="hs-identifier hs-var hs-var">openSearchServiceConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig.html#OpenSearchServiceDataSourceConfig"><span class="hs-identifier hs-type">OpenSearchServiceDataSourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | HTTP endpoint settings.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AhttpConfig%3ADataSource%27"><span class="annot"><span class="annottext">DataSource -&gt; Maybe HttpDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AhttpConfig%3ADataSource%27"><span class="hs-identifier hs-var hs-var">httpConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier hs-type">HttpDataSourceConfig</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251459"><span id="local-6989586621679251461"><span class="annot"><span class="annottext">DataSource -&gt; DataSource -&gt; Bool
+(DataSource -&gt; DataSource -&gt; Bool)
+-&gt; (DataSource -&gt; DataSource -&gt; Bool) -&gt; Eq DataSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataSource -&gt; DataSource -&gt; Bool
+$c/= :: DataSource -&gt; DataSource -&gt; Bool
+== :: DataSource -&gt; DataSource -&gt; Bool
+$c== :: DataSource -&gt; DataSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251450"><span id="local-6989586621679251452"><span id="local-6989586621679251454"><span id="local-6989586621679251456"><span class="annot"><span class="annottext">ReadPrec [DataSource]
+ReadPrec DataSource
+Int -&gt; ReadS DataSource
+ReadS [DataSource]
+(Int -&gt; ReadS DataSource)
+-&gt; ReadS [DataSource]
+-&gt; ReadPrec DataSource
+-&gt; ReadPrec [DataSource]
+-&gt; Read DataSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataSource]
+$creadListPrec :: ReadPrec [DataSource]
+readPrec :: ReadPrec DataSource
+$creadPrec :: ReadPrec DataSource
+readList :: ReadS [DataSource]
+$creadList :: ReadS [DataSource]
+readsPrec :: Int -&gt; ReadS DataSource
+$creadsPrec :: Int -&gt; ReadS DataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251443"><span id="local-6989586621679251445"><span id="local-6989586621679251447"><span class="annot"><span class="annottext">Int -&gt; DataSource -&gt; ShowS
+[DataSource] -&gt; ShowS
+DataSource -&gt; String
+(Int -&gt; DataSource -&gt; ShowS)
+-&gt; (DataSource -&gt; String)
+-&gt; ([DataSource] -&gt; ShowS)
+-&gt; Show DataSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataSource] -&gt; ShowS
+$cshowList :: [DataSource] -&gt; ShowS
+show :: DataSource -&gt; String
+$cshow :: DataSource -&gt; String
+showsPrec :: Int -&gt; DataSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DataSource -&gt; Rep DataSource x)
+-&gt; (forall x. Rep DataSource x -&gt; DataSource) -&gt; Generic DataSource
+forall x. Rep DataSource x -&gt; DataSource
+forall x. DataSource -&gt; Rep DataSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DataSource x -&gt; DataSource
+$cfrom :: forall x. DataSource -&gt; Rep DataSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Create a value of 'DataSource' with all optional fields omitted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'serviceRoleArn', 'dataSource_serviceRoleArn' - The Identity and Access Management service role ARN for the data source.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- The system assumes this role when accessing the data source.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'relationalDatabaseConfig', 'dataSource_relationalDatabaseConfig' - Relational database settings.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'elasticsearchConfig', 'dataSource_elasticsearchConfig' - Amazon OpenSearch Service settings.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'lambdaConfig', 'dataSource_lambdaConfig' - Amazon Web Services Lambda settings.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'name', 'dataSource_name' - The name of the data source.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'dynamodbConfig', 'dataSource_dynamodbConfig' - Amazon DynamoDB settings.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'description', 'dataSource_description' - The description of the data source.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'dataSourceArn', 'dataSource_dataSourceArn' - The data source ARN.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'type'', 'dataSource_type' - The type of the data source.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- -   __AWS_LAMBDA__: The data source is an Amazon Web Services Lambda</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--     function.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   __AMAZON_DYNAMODB__: The data source is an Amazon DynamoDB table.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   __AMAZON_ELASTICSEARCH__: The data source is an Amazon OpenSearch</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     Service domain.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   __AMAZON_OPENSEARCH_SERVICE__: The data source is an Amazon</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     OpenSearch Service domain.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   __NONE__: There is no data source. This type is used when you wish</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--     to invoke a GraphQL operation without connecting to a data source,</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--     such as performing data transformation with resolvers or triggering</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--     a subscription to be invoked from a mutation.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   __HTTP__: The data source is an HTTP endpoint.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   __RELATIONAL_DATABASE__: The data source is a relational database.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'openSearchServiceConfig', 'dataSource_openSearchServiceConfig' - Amazon OpenSearch Service settings.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'httpConfig', 'dataSource_httpConfig' - HTTP endpoint settings.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#newDataSource"><span class="hs-identifier hs-type">newDataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span>
+</span><span id="line-135"></span><span id="newDataSource"><span class="annot"><span class="annottext">newDataSource :: DataSource
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#newDataSource"><span class="hs-identifier hs-var hs-var">newDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">DataSource' :: Maybe Text
+-&gt; Maybe RelationalDatabaseDataSourceConfig
+-&gt; Maybe ElasticsearchDataSourceConfig
+-&gt; Maybe LambdaDataSourceConfig
+-&gt; Maybe Text
+-&gt; Maybe DynamodbDataSourceConfig
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe DataSourceType
+-&gt; Maybe OpenSearchServiceDataSourceConfig
+-&gt; Maybe HttpDataSourceConfig
+-&gt; DataSource
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceRoleArn:DataSource' :: Maybe Text
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AserviceRoleArn%3ADataSource%27"><span class="hs-identifier hs-var">serviceRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:relationalDatabaseConfig:DataSource' :: Maybe RelationalDatabaseDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3ArelationalDatabaseConfig%3ADataSource%27"><span class="hs-identifier hs-var">relationalDatabaseConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RelationalDatabaseDataSourceConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:elasticsearchConfig:DataSource' :: Maybe ElasticsearchDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AelasticsearchConfig%3ADataSource%27"><span class="hs-identifier hs-var">elasticsearchConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchDataSourceConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:lambdaConfig:DataSource' :: Maybe LambdaDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AlambdaConfig%3ADataSource%27"><span class="hs-identifier hs-var">lambdaConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaDataSourceConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DataSource' :: Maybe Text
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3Aname%3ADataSource%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:dynamodbConfig:DataSource' :: Maybe DynamodbDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AdynamodbConfig%3ADataSource%27"><span class="hs-identifier hs-var">dynamodbConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynamodbDataSourceConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:DataSource' :: Maybe Text
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3Adescription%3ADataSource%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSourceArn:DataSource' :: Maybe Text
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AdataSourceArn%3ADataSource%27"><span class="hs-identifier hs-var">dataSourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':DataSource' :: Maybe DataSourceType
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3Atype%27%3ADataSource%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSourceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:openSearchServiceConfig:DataSource' :: Maybe OpenSearchServiceDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AopenSearchServiceConfig%3ADataSource%27"><span class="hs-identifier hs-var">openSearchServiceConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OpenSearchServiceDataSourceConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpConfig:DataSource' :: Maybe HttpDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AhttpConfig%3ADataSource%27"><span class="hs-identifier hs-var">httpConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpDataSourceConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The Identity and Access Management service role ARN for the data source.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The system assumes this role when accessing the data source.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_serviceRoleArn"><span class="hs-identifier hs-type">dataSource_serviceRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="dataSource_serviceRoleArn"><span class="annot"><span class="annottext">dataSource_serviceRoleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DataSource -&gt; f DataSource
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_serviceRoleArn"><span class="hs-identifier hs-var hs-var">dataSource_serviceRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSource -&gt; Maybe Text)
+-&gt; (DataSource -&gt; Maybe Text -&gt; DataSource)
+-&gt; Lens DataSource DataSource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251434"><span class="annot"><span class="annottext">Maybe Text
+serviceRoleArn :: Maybe Text
+$sel:serviceRoleArn:DataSource' :: DataSource -&gt; Maybe Text
+</span><a href="#local-6989586621679251434"><span class="hs-identifier hs-var hs-var">serviceRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251434"><span class="hs-identifier hs-var">serviceRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251433"><span class="annot"><span class="annottext">s :: DataSource
+</span><a href="#local-6989586621679251433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251432"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679251433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceRoleArn:DataSource' :: Maybe Text
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AserviceRoleArn%3ADataSource%27"><span class="hs-identifier hs-var">serviceRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | Relational database settings.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_relationalDatabaseConfig"><span class="hs-identifier hs-type">dataSource_relationalDatabaseConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig.html#RelationalDatabaseDataSourceConfig"><span class="hs-identifier hs-type">RelationalDatabaseDataSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="dataSource_relationalDatabaseConfig"><span class="annot"><span class="annottext">dataSource_relationalDatabaseConfig :: (Maybe RelationalDatabaseDataSourceConfig
+ -&gt; f (Maybe RelationalDatabaseDataSourceConfig))
+-&gt; DataSource -&gt; f DataSource
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_relationalDatabaseConfig"><span class="hs-identifier hs-var hs-var">dataSource_relationalDatabaseConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSource -&gt; Maybe RelationalDatabaseDataSourceConfig)
+-&gt; (DataSource
+    -&gt; Maybe RelationalDatabaseDataSourceConfig -&gt; DataSource)
+-&gt; Lens
+     DataSource
+     DataSource
+     (Maybe RelationalDatabaseDataSourceConfig)
+     (Maybe RelationalDatabaseDataSourceConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251430"><span class="annot"><span class="annottext">Maybe RelationalDatabaseDataSourceConfig
+relationalDatabaseConfig :: Maybe RelationalDatabaseDataSourceConfig
+$sel:relationalDatabaseConfig:DataSource' :: DataSource -&gt; Maybe RelationalDatabaseDataSourceConfig
+</span><a href="#local-6989586621679251430"><span class="hs-identifier hs-var hs-var">relationalDatabaseConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RelationalDatabaseDataSourceConfig
+</span><a href="#local-6989586621679251430"><span class="hs-identifier hs-var">relationalDatabaseConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251429"><span class="annot"><span class="annottext">s :: DataSource
+</span><a href="#local-6989586621679251429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251428"><span class="annot"><span class="annottext">Maybe RelationalDatabaseDataSourceConfig
+</span><a href="#local-6989586621679251428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679251429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationalDatabaseConfig:DataSource' :: Maybe RelationalDatabaseDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3ArelationalDatabaseConfig%3ADataSource%27"><span class="hs-identifier hs-var">relationalDatabaseConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RelationalDatabaseDataSourceConfig
+</span><a href="#local-6989586621679251428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | Amazon OpenSearch Service settings.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_elasticsearchConfig"><span class="hs-identifier hs-type">dataSource_elasticsearchConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig.html#ElasticsearchDataSourceConfig"><span class="hs-identifier hs-type">ElasticsearchDataSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="dataSource_elasticsearchConfig"><span class="annot"><span class="annottext">dataSource_elasticsearchConfig :: (Maybe ElasticsearchDataSourceConfig
+ -&gt; f (Maybe ElasticsearchDataSourceConfig))
+-&gt; DataSource -&gt; f DataSource
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_elasticsearchConfig"><span class="hs-identifier hs-var hs-var">dataSource_elasticsearchConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSource -&gt; Maybe ElasticsearchDataSourceConfig)
+-&gt; (DataSource
+    -&gt; Maybe ElasticsearchDataSourceConfig -&gt; DataSource)
+-&gt; Lens
+     DataSource
+     DataSource
+     (Maybe ElasticsearchDataSourceConfig)
+     (Maybe ElasticsearchDataSourceConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251426"><span class="annot"><span class="annottext">Maybe ElasticsearchDataSourceConfig
+elasticsearchConfig :: Maybe ElasticsearchDataSourceConfig
+$sel:elasticsearchConfig:DataSource' :: DataSource -&gt; Maybe ElasticsearchDataSourceConfig
+</span><a href="#local-6989586621679251426"><span class="hs-identifier hs-var hs-var">elasticsearchConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchDataSourceConfig
+</span><a href="#local-6989586621679251426"><span class="hs-identifier hs-var">elasticsearchConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251425"><span class="annot"><span class="annottext">s :: DataSource
+</span><a href="#local-6989586621679251425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251424"><span class="annot"><span class="annottext">Maybe ElasticsearchDataSourceConfig
+</span><a href="#local-6989586621679251424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679251425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticsearchConfig:DataSource' :: Maybe ElasticsearchDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AelasticsearchConfig%3ADataSource%27"><span class="hs-identifier hs-var">elasticsearchConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchDataSourceConfig
+</span><a href="#local-6989586621679251424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Amazon Web Services Lambda settings.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_lambdaConfig"><span class="hs-identifier hs-type">dataSource_lambdaConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig"><span class="hs-identifier hs-type">LambdaDataSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="dataSource_lambdaConfig"><span class="annot"><span class="annottext">dataSource_lambdaConfig :: (Maybe LambdaDataSourceConfig -&gt; f (Maybe LambdaDataSourceConfig))
+-&gt; DataSource -&gt; f DataSource
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_lambdaConfig"><span class="hs-identifier hs-var hs-var">dataSource_lambdaConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSource -&gt; Maybe LambdaDataSourceConfig)
+-&gt; (DataSource -&gt; Maybe LambdaDataSourceConfig -&gt; DataSource)
+-&gt; Lens
+     DataSource
+     DataSource
+     (Maybe LambdaDataSourceConfig)
+     (Maybe LambdaDataSourceConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251422"><span class="annot"><span class="annottext">Maybe LambdaDataSourceConfig
+lambdaConfig :: Maybe LambdaDataSourceConfig
+$sel:lambdaConfig:DataSource' :: DataSource -&gt; Maybe LambdaDataSourceConfig
+</span><a href="#local-6989586621679251422"><span class="hs-identifier hs-var hs-var">lambdaConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaDataSourceConfig
+</span><a href="#local-6989586621679251422"><span class="hs-identifier hs-var">lambdaConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251421"><span class="annot"><span class="annottext">s :: DataSource
+</span><a href="#local-6989586621679251421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251420"><span class="annot"><span class="annottext">Maybe LambdaDataSourceConfig
+</span><a href="#local-6989586621679251420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679251421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaConfig:DataSource' :: Maybe LambdaDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AlambdaConfig%3ADataSource%27"><span class="hs-identifier hs-var">lambdaConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaDataSourceConfig
+</span><a href="#local-6989586621679251420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The name of the data source.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_name"><span class="hs-identifier hs-type">dataSource_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="dataSource_name"><span class="annot"><span class="annottext">dataSource_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DataSource -&gt; f DataSource
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_name"><span class="hs-identifier hs-var hs-var">dataSource_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSource -&gt; Maybe Text)
+-&gt; (DataSource -&gt; Maybe Text -&gt; DataSource)
+-&gt; Lens DataSource DataSource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251418"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:DataSource' :: DataSource -&gt; Maybe Text
+</span><a href="#local-6989586621679251418"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251418"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251417"><span class="annot"><span class="annottext">s :: DataSource
+</span><a href="#local-6989586621679251417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251416"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679251417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DataSource' :: Maybe Text
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3Aname%3ADataSource%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Amazon DynamoDB settings.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_dynamodbConfig"><span class="hs-identifier hs-type">dataSource_dynamodbConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DynamodbDataSourceConfig.html#DynamodbDataSourceConfig"><span class="hs-identifier hs-type">DynamodbDataSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="dataSource_dynamodbConfig"><span class="annot"><span class="annottext">dataSource_dynamodbConfig :: (Maybe DynamodbDataSourceConfig
+ -&gt; f (Maybe DynamodbDataSourceConfig))
+-&gt; DataSource -&gt; f DataSource
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_dynamodbConfig"><span class="hs-identifier hs-var hs-var">dataSource_dynamodbConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSource -&gt; Maybe DynamodbDataSourceConfig)
+-&gt; (DataSource -&gt; Maybe DynamodbDataSourceConfig -&gt; DataSource)
+-&gt; Lens
+     DataSource
+     DataSource
+     (Maybe DynamodbDataSourceConfig)
+     (Maybe DynamodbDataSourceConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251414"><span class="annot"><span class="annottext">Maybe DynamodbDataSourceConfig
+dynamodbConfig :: Maybe DynamodbDataSourceConfig
+$sel:dynamodbConfig:DataSource' :: DataSource -&gt; Maybe DynamodbDataSourceConfig
+</span><a href="#local-6989586621679251414"><span class="hs-identifier hs-var hs-var">dynamodbConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DynamodbDataSourceConfig
+</span><a href="#local-6989586621679251414"><span class="hs-identifier hs-var">dynamodbConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251413"><span class="annot"><span class="annottext">s :: DataSource
+</span><a href="#local-6989586621679251413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251412"><span class="annot"><span class="annottext">Maybe DynamodbDataSourceConfig
+</span><a href="#local-6989586621679251412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679251413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamodbConfig:DataSource' :: Maybe DynamodbDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AdynamodbConfig%3ADataSource%27"><span class="hs-identifier hs-var">dynamodbConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynamodbDataSourceConfig
+</span><a href="#local-6989586621679251412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The description of the data source.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_description"><span class="hs-identifier hs-type">dataSource_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="dataSource_description"><span class="annot"><span class="annottext">dataSource_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DataSource -&gt; f DataSource
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_description"><span class="hs-identifier hs-var hs-var">dataSource_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSource -&gt; Maybe Text)
+-&gt; (DataSource -&gt; Maybe Text -&gt; DataSource)
+-&gt; Lens DataSource DataSource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251410"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:DataSource' :: DataSource -&gt; Maybe Text
+</span><a href="#local-6989586621679251410"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251410"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251409"><span class="annot"><span class="annottext">s :: DataSource
+</span><a href="#local-6989586621679251409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251408"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679251409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:DataSource' :: Maybe Text
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3Adescription%3ADataSource%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The data source ARN.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_dataSourceArn"><span class="hs-identifier hs-type">dataSource_dataSourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="dataSource_dataSourceArn"><span class="annot"><span class="annottext">dataSource_dataSourceArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DataSource -&gt; f DataSource
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_dataSourceArn"><span class="hs-identifier hs-var hs-var">dataSource_dataSourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSource -&gt; Maybe Text)
+-&gt; (DataSource -&gt; Maybe Text -&gt; DataSource)
+-&gt; Lens DataSource DataSource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251406"><span class="annot"><span class="annottext">Maybe Text
+dataSourceArn :: Maybe Text
+$sel:dataSourceArn:DataSource' :: DataSource -&gt; Maybe Text
+</span><a href="#local-6989586621679251406"><span class="hs-identifier hs-var hs-var">dataSourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251406"><span class="hs-identifier hs-var">dataSourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251405"><span class="annot"><span class="annottext">s :: DataSource
+</span><a href="#local-6989586621679251405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251404"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679251405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceArn:DataSource' :: Maybe Text
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AdataSourceArn%3ADataSource%27"><span class="hs-identifier hs-var">dataSourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The type of the data source.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- -   __AWS_LAMBDA__: The data source is an Amazon Web Services Lambda</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     function.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -   __AMAZON_DYNAMODB__: The data source is an Amazon DynamoDB table.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- -   __AMAZON_ELASTICSEARCH__: The data source is an Amazon OpenSearch</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--     Service domain.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- -   __AMAZON_OPENSEARCH_SERVICE__: The data source is an Amazon</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--     OpenSearch Service domain.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- -   __NONE__: There is no data source. This type is used when you wish</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--     to invoke a GraphQL operation without connecting to a data source,</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--     such as performing data transformation with resolvers or triggering</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--     a subscription to be invoked from a mutation.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- -   __HTTP__: The data source is an HTTP endpoint.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- -   __RELATIONAL_DATABASE__: The data source is a relational database.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_type"><span class="hs-identifier hs-type">dataSource_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSourceType.html#DataSourceType"><span class="hs-identifier hs-type">DataSourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="dataSource_type"><span class="annot"><span class="annottext">dataSource_type :: (Maybe DataSourceType -&gt; f (Maybe DataSourceType))
+-&gt; DataSource -&gt; f DataSource
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_type"><span class="hs-identifier hs-var hs-var">dataSource_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSource -&gt; Maybe DataSourceType)
+-&gt; (DataSource -&gt; Maybe DataSourceType -&gt; DataSource)
+-&gt; Lens
+     DataSource DataSource (Maybe DataSourceType) (Maybe DataSourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251402"><span class="annot"><span class="annottext">Maybe DataSourceType
+type' :: Maybe DataSourceType
+$sel:type':DataSource' :: DataSource -&gt; Maybe DataSourceType
+</span><a href="#local-6989586621679251402"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataSourceType
+</span><a href="#local-6989586621679251402"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251401"><span class="annot"><span class="annottext">s :: DataSource
+</span><a href="#local-6989586621679251401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251400"><span class="annot"><span class="annottext">Maybe DataSourceType
+</span><a href="#local-6989586621679251400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679251401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DataSource' :: Maybe DataSourceType
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3Atype%27%3ADataSource%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSourceType
+</span><a href="#local-6989586621679251400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | Amazon OpenSearch Service settings.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_openSearchServiceConfig"><span class="hs-identifier hs-type">dataSource_openSearchServiceConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig.html#OpenSearchServiceDataSourceConfig"><span class="hs-identifier hs-type">OpenSearchServiceDataSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="dataSource_openSearchServiceConfig"><span class="annot"><span class="annottext">dataSource_openSearchServiceConfig :: (Maybe OpenSearchServiceDataSourceConfig
+ -&gt; f (Maybe OpenSearchServiceDataSourceConfig))
+-&gt; DataSource -&gt; f DataSource
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_openSearchServiceConfig"><span class="hs-identifier hs-var hs-var">dataSource_openSearchServiceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSource -&gt; Maybe OpenSearchServiceDataSourceConfig)
+-&gt; (DataSource
+    -&gt; Maybe OpenSearchServiceDataSourceConfig -&gt; DataSource)
+-&gt; Lens
+     DataSource
+     DataSource
+     (Maybe OpenSearchServiceDataSourceConfig)
+     (Maybe OpenSearchServiceDataSourceConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251398"><span class="annot"><span class="annottext">Maybe OpenSearchServiceDataSourceConfig
+openSearchServiceConfig :: Maybe OpenSearchServiceDataSourceConfig
+$sel:openSearchServiceConfig:DataSource' :: DataSource -&gt; Maybe OpenSearchServiceDataSourceConfig
+</span><a href="#local-6989586621679251398"><span class="hs-identifier hs-var hs-var">openSearchServiceConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OpenSearchServiceDataSourceConfig
+</span><a href="#local-6989586621679251398"><span class="hs-identifier hs-var">openSearchServiceConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251397"><span class="annot"><span class="annottext">s :: DataSource
+</span><a href="#local-6989586621679251397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251396"><span class="annot"><span class="annottext">Maybe OpenSearchServiceDataSourceConfig
+</span><a href="#local-6989586621679251396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679251397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:openSearchServiceConfig:DataSource' :: Maybe OpenSearchServiceDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AopenSearchServiceConfig%3ADataSource%27"><span class="hs-identifier hs-var">openSearchServiceConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OpenSearchServiceDataSourceConfig
+</span><a href="#local-6989586621679251396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | HTTP endpoint settings.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_httpConfig"><span class="hs-identifier hs-type">dataSource_httpConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier hs-type">HttpDataSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="dataSource_httpConfig"><span class="annot"><span class="annottext">dataSource_httpConfig :: (Maybe HttpDataSourceConfig -&gt; f (Maybe HttpDataSourceConfig))
+-&gt; DataSource -&gt; f DataSource
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_httpConfig"><span class="hs-identifier hs-var hs-var">dataSource_httpConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSource -&gt; Maybe HttpDataSourceConfig)
+-&gt; (DataSource -&gt; Maybe HttpDataSourceConfig -&gt; DataSource)
+-&gt; Lens
+     DataSource
+     DataSource
+     (Maybe HttpDataSourceConfig)
+     (Maybe HttpDataSourceConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251394"><span class="annot"><span class="annottext">Maybe HttpDataSourceConfig
+httpConfig :: Maybe HttpDataSourceConfig
+$sel:httpConfig:DataSource' :: DataSource -&gt; Maybe HttpDataSourceConfig
+</span><a href="#local-6989586621679251394"><span class="hs-identifier hs-var hs-var">httpConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpDataSourceConfig
+</span><a href="#local-6989586621679251394"><span class="hs-identifier hs-var">httpConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251393"><span class="annot"><span class="annottext">s :: DataSource
+</span><a href="#local-6989586621679251393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251392"><span class="annot"><span class="annottext">Maybe HttpDataSourceConfig
+</span><a href="#local-6989586621679251392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679251393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpConfig:DataSource' :: Maybe HttpDataSourceConfig
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#%24sel%3AhttpConfig%3ADataSource%27"><span class="hs-identifier hs-var">httpConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpDataSourceConfig
+</span><a href="#local-6989586621679251392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251389"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679251387"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DataSource) -&gt; Value -&gt; Parser DataSource
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DataSource&quot;</span></span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251384"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251384"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe RelationalDatabaseDataSourceConfig
+-&gt; Maybe ElasticsearchDataSourceConfig
+-&gt; Maybe LambdaDataSourceConfig
+-&gt; Maybe Text
+-&gt; Maybe DynamodbDataSourceConfig
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe DataSourceType
+-&gt; Maybe OpenSearchServiceDataSourceConfig
+-&gt; Maybe HttpDataSourceConfig
+-&gt; DataSource
+</span><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-var">DataSource'</span></a></span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe RelationalDatabaseDataSourceConfig
+ -&gt; Maybe ElasticsearchDataSourceConfig
+ -&gt; Maybe LambdaDataSourceConfig
+ -&gt; Maybe Text
+ -&gt; Maybe DynamodbDataSourceConfig
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe DataSourceType
+ -&gt; Maybe OpenSearchServiceDataSourceConfig
+ -&gt; Maybe HttpDataSourceConfig
+ -&gt; DataSource)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe RelationalDatabaseDataSourceConfig
+      -&gt; Maybe ElasticsearchDataSourceConfig
+      -&gt; Maybe LambdaDataSourceConfig
+      -&gt; Maybe Text
+      -&gt; Maybe DynamodbDataSourceConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DataSourceType
+      -&gt; Maybe OpenSearchServiceDataSourceConfig
+      -&gt; Maybe HttpDataSourceConfig
+      -&gt; DataSource)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RelationalDatabaseDataSourceConfig
+   -&gt; Maybe ElasticsearchDataSourceConfig
+   -&gt; Maybe LambdaDataSourceConfig
+   -&gt; Maybe Text
+   -&gt; Maybe DynamodbDataSourceConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DataSourceType
+   -&gt; Maybe OpenSearchServiceDataSourceConfig
+   -&gt; Maybe HttpDataSourceConfig
+   -&gt; DataSource)
+-&gt; Parser (Maybe RelationalDatabaseDataSourceConfig)
+-&gt; Parser
+     (Maybe ElasticsearchDataSourceConfig
+      -&gt; Maybe LambdaDataSourceConfig
+      -&gt; Maybe Text
+      -&gt; Maybe DynamodbDataSourceConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DataSourceType
+      -&gt; Maybe OpenSearchServiceDataSourceConfig
+      -&gt; Maybe HttpDataSourceConfig
+      -&gt; DataSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RelationalDatabaseDataSourceConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;relationalDatabaseConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ElasticsearchDataSourceConfig
+   -&gt; Maybe LambdaDataSourceConfig
+   -&gt; Maybe Text
+   -&gt; Maybe DynamodbDataSourceConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DataSourceType
+   -&gt; Maybe OpenSearchServiceDataSourceConfig
+   -&gt; Maybe HttpDataSourceConfig
+   -&gt; DataSource)
+-&gt; Parser (Maybe ElasticsearchDataSourceConfig)
+-&gt; Parser
+     (Maybe LambdaDataSourceConfig
+      -&gt; Maybe Text
+      -&gt; Maybe DynamodbDataSourceConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DataSourceType
+      -&gt; Maybe OpenSearchServiceDataSourceConfig
+      -&gt; Maybe HttpDataSourceConfig
+      -&gt; DataSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ElasticsearchDataSourceConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;elasticsearchConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LambdaDataSourceConfig
+   -&gt; Maybe Text
+   -&gt; Maybe DynamodbDataSourceConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DataSourceType
+   -&gt; Maybe OpenSearchServiceDataSourceConfig
+   -&gt; Maybe HttpDataSourceConfig
+   -&gt; DataSource)
+-&gt; Parser (Maybe LambdaDataSourceConfig)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe DynamodbDataSourceConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DataSourceType
+      -&gt; Maybe OpenSearchServiceDataSourceConfig
+      -&gt; Maybe HttpDataSourceConfig
+      -&gt; DataSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LambdaDataSourceConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lambdaConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe DynamodbDataSourceConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DataSourceType
+   -&gt; Maybe OpenSearchServiceDataSourceConfig
+   -&gt; Maybe HttpDataSourceConfig
+   -&gt; DataSource)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe DynamodbDataSourceConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DataSourceType
+      -&gt; Maybe OpenSearchServiceDataSourceConfig
+      -&gt; Maybe HttpDataSourceConfig
+      -&gt; DataSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DynamodbDataSourceConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DataSourceType
+   -&gt; Maybe OpenSearchServiceDataSourceConfig
+   -&gt; Maybe HttpDataSourceConfig
+   -&gt; DataSource)
+-&gt; Parser (Maybe DynamodbDataSourceConfig)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DataSourceType
+      -&gt; Maybe OpenSearchServiceDataSourceConfig
+      -&gt; Maybe HttpDataSourceConfig
+      -&gt; DataSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DynamodbDataSourceConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dynamodbConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DataSourceType
+   -&gt; Maybe OpenSearchServiceDataSourceConfig
+   -&gt; Maybe HttpDataSourceConfig
+   -&gt; DataSource)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe DataSourceType
+      -&gt; Maybe OpenSearchServiceDataSourceConfig
+      -&gt; Maybe HttpDataSourceConfig
+      -&gt; DataSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe DataSourceType
+   -&gt; Maybe OpenSearchServiceDataSourceConfig
+   -&gt; Maybe HttpDataSourceConfig
+   -&gt; DataSource)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe DataSourceType
+      -&gt; Maybe OpenSearchServiceDataSourceConfig
+      -&gt; Maybe HttpDataSourceConfig
+      -&gt; DataSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataSourceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DataSourceType
+   -&gt; Maybe OpenSearchServiceDataSourceConfig
+   -&gt; Maybe HttpDataSourceConfig
+   -&gt; DataSource)
+-&gt; Parser (Maybe DataSourceType)
+-&gt; Parser
+     (Maybe OpenSearchServiceDataSourceConfig
+      -&gt; Maybe HttpDataSourceConfig -&gt; DataSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DataSourceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OpenSearchServiceDataSourceConfig
+   -&gt; Maybe HttpDataSourceConfig -&gt; DataSource)
+-&gt; Parser (Maybe OpenSearchServiceDataSourceConfig)
+-&gt; Parser (Maybe HttpDataSourceConfig -&gt; DataSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OpenSearchServiceDataSourceConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;openSearchServiceConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe HttpDataSourceConfig -&gt; DataSource)
+-&gt; Parser (Maybe HttpDataSourceConfig) -&gt; Parser DataSource
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpDataSourceConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;httpConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251378"><span id="local-6989586621679251380"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span></span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span></span><span>
+</span><span id="line-237"></span></pre></body></html>

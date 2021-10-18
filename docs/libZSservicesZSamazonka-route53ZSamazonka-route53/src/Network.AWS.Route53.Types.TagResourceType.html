@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Route53.Types.TagResourceType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53.Types.TagResourceType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.TagResourceType.html#TagResourceType"><span class="hs-identifier">TagResourceType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53.Types.TagResourceType.html#TagResourceType_Healthcheck"><span class="hs-identifier">TagResourceType_Healthcheck</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53.Types.TagResourceType.html#TagResourceType_Hostedzone"><span class="hs-identifier">TagResourceType_Hostedzone</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html"><span class="hs-identifier">Network.AWS.Route53.Internal</span></a></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679298181"><span id="local-6989586621679298182"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TagResourceType"><span class="annot"><a href="Network.AWS.Route53.Types.TagResourceType.html#TagResourceType"><span class="hs-identifier hs-var">TagResourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagResourceType%27"><span class="annot"><a href="Network.AWS.Route53.Types.TagResourceType.html#TagResourceType%27"><span class="hs-identifier hs-var">TagResourceType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTagResourceType"><span class="annot"><span class="annottext">TagResourceType -&gt; Text
+</span><a href="Network.AWS.Route53.Types.TagResourceType.html#fromTagResourceType"><span class="hs-identifier hs-var hs-var">fromTagResourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298173"><span id="local-6989586621679298175"><span id="local-6989586621679298177"><span class="annot"><span class="annottext">Int -&gt; TagResourceType -&gt; ShowS
+[TagResourceType] -&gt; ShowS
+TagResourceType -&gt; String
+(Int -&gt; TagResourceType -&gt; ShowS)
+-&gt; (TagResourceType -&gt; String)
+-&gt; ([TagResourceType] -&gt; ShowS)
+-&gt; Show TagResourceType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TagResourceType] -&gt; ShowS
+$cshowList :: [TagResourceType] -&gt; ShowS
+show :: TagResourceType -&gt; String
+$cshow :: TagResourceType -&gt; String
+showsPrec :: Int -&gt; TagResourceType -&gt; ShowS
+$cshowsPrec :: Int -&gt; TagResourceType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679298164"><span id="local-6989586621679298166"><span id="local-6989586621679298168"><span id="local-6989586621679298170"><span class="annot"><span class="annottext">ReadPrec [TagResourceType]
+ReadPrec TagResourceType
+Int -&gt; ReadS TagResourceType
+ReadS [TagResourceType]
+(Int -&gt; ReadS TagResourceType)
+-&gt; ReadS [TagResourceType]
+-&gt; ReadPrec TagResourceType
+-&gt; ReadPrec [TagResourceType]
+-&gt; Read TagResourceType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TagResourceType]
+$creadListPrec :: ReadPrec [TagResourceType]
+readPrec :: ReadPrec TagResourceType
+$creadPrec :: ReadPrec TagResourceType
+readList :: ReadS [TagResourceType]
+$creadList :: ReadS [TagResourceType]
+readsPrec :: Int -&gt; ReadS TagResourceType
+$creadsPrec :: Int -&gt; ReadS TagResourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679298159"><span id="local-6989586621679298161"><span class="annot"><span class="annottext">TagResourceType -&gt; TagResourceType -&gt; Bool
+(TagResourceType -&gt; TagResourceType -&gt; Bool)
+-&gt; (TagResourceType -&gt; TagResourceType -&gt; Bool)
+-&gt; Eq TagResourceType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TagResourceType -&gt; TagResourceType -&gt; Bool
+$c/= :: TagResourceType -&gt; TagResourceType -&gt; Bool
+== :: TagResourceType -&gt; TagResourceType -&gt; Bool
+$c== :: TagResourceType -&gt; TagResourceType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679298143"><span id="local-6989586621679298145"><span id="local-6989586621679298147"><span id="local-6989586621679298149"><span id="local-6989586621679298151"><span id="local-6989586621679298153"><span id="local-6989586621679298155"><span class="annot"><span class="annottext">Eq TagResourceType
+Eq TagResourceType
+-&gt; (TagResourceType -&gt; TagResourceType -&gt; Ordering)
+-&gt; (TagResourceType -&gt; TagResourceType -&gt; Bool)
+-&gt; (TagResourceType -&gt; TagResourceType -&gt; Bool)
+-&gt; (TagResourceType -&gt; TagResourceType -&gt; Bool)
+-&gt; (TagResourceType -&gt; TagResourceType -&gt; Bool)
+-&gt; (TagResourceType -&gt; TagResourceType -&gt; TagResourceType)
+-&gt; (TagResourceType -&gt; TagResourceType -&gt; TagResourceType)
+-&gt; Ord TagResourceType
+TagResourceType -&gt; TagResourceType -&gt; Bool
+TagResourceType -&gt; TagResourceType -&gt; Ordering
+TagResourceType -&gt; TagResourceType -&gt; TagResourceType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TagResourceType -&gt; TagResourceType -&gt; TagResourceType
+$cmin :: TagResourceType -&gt; TagResourceType -&gt; TagResourceType
+max :: TagResourceType -&gt; TagResourceType -&gt; TagResourceType
+$cmax :: TagResourceType -&gt; TagResourceType -&gt; TagResourceType
+&gt;= :: TagResourceType -&gt; TagResourceType -&gt; Bool
+$c&gt;= :: TagResourceType -&gt; TagResourceType -&gt; Bool
+&gt; :: TagResourceType -&gt; TagResourceType -&gt; Bool
+$c&gt; :: TagResourceType -&gt; TagResourceType -&gt; Bool
+&lt;= :: TagResourceType -&gt; TagResourceType -&gt; Bool
+$c&lt;= :: TagResourceType -&gt; TagResourceType -&gt; Bool
+&lt; :: TagResourceType -&gt; TagResourceType -&gt; Bool
+$c&lt; :: TagResourceType -&gt; TagResourceType -&gt; Bool
+compare :: TagResourceType -&gt; TagResourceType -&gt; Ordering
+$ccompare :: TagResourceType -&gt; TagResourceType -&gt; Ordering
+$cp1Ord :: Eq TagResourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TagResourceType -&gt; Rep TagResourceType x)
+-&gt; (forall x. Rep TagResourceType x -&gt; TagResourceType)
+-&gt; Generic TagResourceType
+forall x. Rep TagResourceType x -&gt; TagResourceType
+forall x. TagResourceType -&gt; Rep TagResourceType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TagResourceType x -&gt; TagResourceType
+$cfrom :: forall x. TagResourceType -&gt; Rep TagResourceType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298135"><span id="local-6989586621679298137"><span class="annot"><span class="annottext">Int -&gt; TagResourceType -&gt; Int
+TagResourceType -&gt; Int
+(Int -&gt; TagResourceType -&gt; Int)
+-&gt; (TagResourceType -&gt; Int) -&gt; Hashable TagResourceType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TagResourceType -&gt; Int
+$chash :: TagResourceType -&gt; Int
+hashWithSalt :: Int -&gt; TagResourceType -&gt; Int
+$chashWithSalt :: Int -&gt; TagResourceType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679298132"><span class="annot"><span class="annottext">TagResourceType -&gt; ()
+(TagResourceType -&gt; ()) -&gt; NFData TagResourceType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TagResourceType -&gt; ()
+$crnf :: TagResourceType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679298129"><span class="annot"><span class="annottext">Text -&gt; Either String TagResourceType
+(Text -&gt; Either String TagResourceType) -&gt; FromText TagResourceType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TagResourceType
+$cfromText :: Text -&gt; Either String TagResourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679298126"><span class="annot"><span class="annottext">TagResourceType -&gt; Text
+(TagResourceType -&gt; Text) -&gt; ToText TagResourceType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TagResourceType -&gt; Text
+$ctoText :: TagResourceType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679298123"><span class="annot"><span class="annottext">TagResourceType -&gt; ByteString
+(TagResourceType -&gt; ByteString) -&gt; ToByteString TagResourceType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TagResourceType -&gt; ByteString
+$ctoBS :: TagResourceType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679298120"><span class="annot"><span class="annottext">TagResourceType -&gt; ByteStringBuilder
+(TagResourceType -&gt; ByteStringBuilder) -&gt; ToLog TagResourceType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TagResourceType -&gt; ByteStringBuilder
+$cbuild :: TagResourceType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298117"><span class="annot"><span class="annottext">HeaderName -&gt; TagResourceType -&gt; [Header]
+(HeaderName -&gt; TagResourceType -&gt; [Header])
+-&gt; ToHeader TagResourceType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TagResourceType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TagResourceType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298114"><span class="annot"><span class="annottext">TagResourceType -&gt; QueryString
+(TagResourceType -&gt; QueryString) -&gt; ToQuery TagResourceType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TagResourceType -&gt; QueryString
+$ctoQuery :: TagResourceType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298109"><span id="local-6989586621679298111"><span class="annot"><span class="annottext">Value -&gt; Parser [TagResourceType]
+Value -&gt; Parser TagResourceType
+(Value -&gt; Parser TagResourceType)
+-&gt; (Value -&gt; Parser [TagResourceType]) -&gt; FromJSON TagResourceType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TagResourceType]
+$cparseJSONList :: Value -&gt; Parser [TagResourceType]
+parseJSON :: Value -&gt; Parser TagResourceType
+$cparseJSON :: Value -&gt; Parser TagResourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298104"><span id="local-6989586621679298106"><span class="annot"><span class="annottext">FromJSONKeyFunction [TagResourceType]
+FromJSONKeyFunction TagResourceType
+FromJSONKeyFunction TagResourceType
+-&gt; FromJSONKeyFunction [TagResourceType]
+-&gt; FromJSONKey TagResourceType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TagResourceType]
+$cfromJSONKeyList :: FromJSONKeyFunction [TagResourceType]
+fromJSONKey :: FromJSONKeyFunction TagResourceType
+$cfromJSONKey :: FromJSONKeyFunction TagResourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298095"><span id="local-6989586621679298097"><span id="local-6989586621679298099"><span id="local-6989586621679298101"><span class="annot"><span class="annottext">[TagResourceType] -&gt; Encoding
+[TagResourceType] -&gt; Value
+TagResourceType -&gt; Encoding
+TagResourceType -&gt; Value
+(TagResourceType -&gt; Value)
+-&gt; (TagResourceType -&gt; Encoding)
+-&gt; ([TagResourceType] -&gt; Value)
+-&gt; ([TagResourceType] -&gt; Encoding)
+-&gt; ToJSON TagResourceType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TagResourceType] -&gt; Encoding
+$ctoEncodingList :: [TagResourceType] -&gt; Encoding
+toJSONList :: [TagResourceType] -&gt; Value
+$ctoJSONList :: [TagResourceType] -&gt; Value
+toEncoding :: TagResourceType -&gt; Encoding
+$ctoEncoding :: TagResourceType -&gt; Encoding
+toJSON :: TagResourceType -&gt; Value
+$ctoJSON :: TagResourceType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298090"><span id="local-6989586621679298092"><span class="annot"><span class="annottext">ToJSONKeyFunction [TagResourceType]
+ToJSONKeyFunction TagResourceType
+ToJSONKeyFunction TagResourceType
+-&gt; ToJSONKeyFunction [TagResourceType] -&gt; ToJSONKey TagResourceType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TagResourceType]
+$ctoJSONKeyList :: ToJSONKeyFunction [TagResourceType]
+toJSONKey :: ToJSONKeyFunction TagResourceType
+$ctoJSONKey :: ToJSONKeyFunction TagResourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679298087"><span class="annot"><span class="annottext">[Node] -&gt; Either String TagResourceType
+([Node] -&gt; Either String TagResourceType)
+-&gt; FromXML TagResourceType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TagResourceType
+$cparseXML :: [Node] -&gt; Either String TagResourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679298084"><span class="annot"><span class="annottext">TagResourceType -&gt; XML
+(TagResourceType -&gt; XML) -&gt; ToXML TagResourceType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TagResourceType -&gt; XML
+$ctoXML :: TagResourceType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.TagResourceType.html#TagResourceType_Healthcheck"><span class="hs-identifier hs-type">TagResourceType_Healthcheck</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.TagResourceType.html#TagResourceType"><span class="hs-identifier hs-type">TagResourceType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTagResourceType_Healthcheck"><span id="%24mTagResourceType_Healthcheck"><span id="TagResourceType_Healthcheck"><span class="annot"><span class="annottext">$bTagResourceType_Healthcheck :: TagResourceType
+$mTagResourceType_Healthcheck :: forall r. TagResourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53.Types.TagResourceType.html#%24bTagResourceType_Healthcheck"><span class="hs-identifier hs-var hs-var hs-var">TagResourceType_Healthcheck</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.TagResourceType.html#TagResourceType%27"><span class="hs-identifier hs-type">TagResourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;healthcheck&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.TagResourceType.html#TagResourceType_Hostedzone"><span class="hs-identifier hs-type">TagResourceType_Hostedzone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.TagResourceType.html#TagResourceType"><span class="hs-identifier hs-type">TagResourceType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTagResourceType_Hostedzone"><span id="%24mTagResourceType_Hostedzone"><span id="TagResourceType_Hostedzone"><span class="annot"><span class="annottext">$bTagResourceType_Hostedzone :: TagResourceType
+$mTagResourceType_Hostedzone :: forall r. TagResourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53.Types.TagResourceType.html#%24bTagResourceType_Hostedzone"><span class="hs-identifier hs-var hs-var hs-var">TagResourceType_Hostedzone</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.TagResourceType.html#TagResourceType%27"><span class="hs-identifier hs-type">TagResourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;hostedzone&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.TagResourceType.html#TagResourceType_Healthcheck"><span class="hs-pragma hs-type">TagResourceType_Healthcheck</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.TagResourceType.html#TagResourceType_Hostedzone"><span class="hs-pragma hs-type">TagResourceType_Hostedzone</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.TagResourceType.html#TagResourceType%27"><span class="hs-pragma hs-type">TagResourceType'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoSync.RegisterDevice</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Registers a device to receive push sync notifications.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This API can only be called with temporary credentials provided by</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Cognito Identity. You cannot call this API with developer credentials.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoSync.RegisterDevice</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier">RegisterDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#newRegisterDevice"><span class="hs-identifier">newRegisterDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDevice_identityPoolId"><span class="hs-identifier">registerDevice_identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDevice_identityId"><span class="hs-identifier">registerDevice_identityId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDevice_platform"><span class="hs-identifier">registerDevice_platform</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDevice_token"><span class="hs-identifier">registerDevice_token</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDeviceResponse"><span class="hs-identifier">RegisterDeviceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#newRegisterDeviceResponse"><span class="hs-identifier">newRegisterDeviceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDeviceResponse_deviceId"><span class="hs-identifier">registerDeviceResponse_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDeviceResponse_httpStatus"><span class="hs-identifier">registerDeviceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.html"><span class="hs-identifier">Network.AWS.CognitoSync.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | A request to RegisterDevice.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newRegisterDevice' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679176298"><span id="local-6989586621679176299"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterDevice"><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-var">RegisterDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterDevice%27"><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice%27"><span class="hs-identifier hs-var">RegisterDevice'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Cognito. Here, the ID of the pool that the identity belongs to.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AidentityPoolId%3ARegisterDevice%27"><span class="annot"><span class="annottext">RegisterDevice -&gt; Text
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3AidentityPoolId%3ARegisterDevice%27"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The unique ID for this identity.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AidentityId%3ARegisterDevice%27"><span class="annot"><span class="annottext">RegisterDevice -&gt; Text
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3AidentityId%3ARegisterDevice%27"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Aplatform%3ARegisterDevice%27"><span class="annot"><span class="annottext">RegisterDevice -&gt; Platform
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3Aplatform%3ARegisterDevice%27"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Platform.html#Platform"><span class="hs-identifier hs-type">Platform</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The push token.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Atoken%3ARegisterDevice%27"><span class="annot"><span class="annottext">RegisterDevice -&gt; Text
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3Atoken%3ARegisterDevice%27"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176289"><span id="local-6989586621679176291"><span class="annot"><span class="annottext">RegisterDevice -&gt; RegisterDevice -&gt; Bool
+(RegisterDevice -&gt; RegisterDevice -&gt; Bool)
+-&gt; (RegisterDevice -&gt; RegisterDevice -&gt; Bool) -&gt; Eq RegisterDevice
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegisterDevice -&gt; RegisterDevice -&gt; Bool
+$c/= :: RegisterDevice -&gt; RegisterDevice -&gt; Bool
+== :: RegisterDevice -&gt; RegisterDevice -&gt; Bool
+$c== :: RegisterDevice -&gt; RegisterDevice -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176280"><span id="local-6989586621679176282"><span id="local-6989586621679176284"><span id="local-6989586621679176286"><span class="annot"><span class="annottext">ReadPrec [RegisterDevice]
+ReadPrec RegisterDevice
+Int -&gt; ReadS RegisterDevice
+ReadS [RegisterDevice]
+(Int -&gt; ReadS RegisterDevice)
+-&gt; ReadS [RegisterDevice]
+-&gt; ReadPrec RegisterDevice
+-&gt; ReadPrec [RegisterDevice]
+-&gt; Read RegisterDevice
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegisterDevice]
+$creadListPrec :: ReadPrec [RegisterDevice]
+readPrec :: ReadPrec RegisterDevice
+$creadPrec :: ReadPrec RegisterDevice
+readList :: ReadS [RegisterDevice]
+$creadList :: ReadS [RegisterDevice]
+readsPrec :: Int -&gt; ReadS RegisterDevice
+$creadsPrec :: Int -&gt; ReadS RegisterDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176273"><span id="local-6989586621679176275"><span id="local-6989586621679176277"><span class="annot"><span class="annottext">Int -&gt; RegisterDevice -&gt; ShowS
+[RegisterDevice] -&gt; ShowS
+RegisterDevice -&gt; String
+(Int -&gt; RegisterDevice -&gt; ShowS)
+-&gt; (RegisterDevice -&gt; String)
+-&gt; ([RegisterDevice] -&gt; ShowS)
+-&gt; Show RegisterDevice
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegisterDevice] -&gt; ShowS
+$cshowList :: [RegisterDevice] -&gt; ShowS
+show :: RegisterDevice -&gt; String
+$cshow :: RegisterDevice -&gt; String
+showsPrec :: Int -&gt; RegisterDevice -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegisterDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RegisterDevice -&gt; Rep RegisterDevice x)
+-&gt; (forall x. Rep RegisterDevice x -&gt; RegisterDevice)
+-&gt; Generic RegisterDevice
+forall x. Rep RegisterDevice x -&gt; RegisterDevice
+forall x. RegisterDevice -&gt; Rep RegisterDevice x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RegisterDevice x -&gt; RegisterDevice
+$cfrom :: forall x. RegisterDevice -&gt; Rep RegisterDevice x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'RegisterDevice' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'identityPoolId', 'registerDevice_identityPoolId' - A name-spaced GUID (for example,</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Cognito. Here, the ID of the pool that the identity belongs to.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'identityId', 'registerDevice_identityId' - The unique ID for this identity.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'platform', 'registerDevice_platform' - The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'token', 'registerDevice_token' - The push token.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#newRegisterDevice"><span class="hs-identifier hs-type">newRegisterDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'identityPoolId'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'identityId'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'platform'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Platform.html#Platform"><span class="hs-identifier hs-type">Platform</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'token'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span><span>
+</span><span id="line-99"></span><span id="newRegisterDevice"><span class="annot"><span class="annottext">newRegisterDevice :: Text -&gt; Text -&gt; Platform -&gt; Text -&gt; RegisterDevice
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#newRegisterDevice"><span class="hs-identifier hs-var hs-var">newRegisterDevice</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679176268"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176268"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679176267"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176267"><span class="hs-identifier hs-var">pIdentityId_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679176266"><span class="annot"><span class="annottext">Platform
+</span><a href="#local-6989586621679176266"><span class="hs-identifier hs-var">pPlatform_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679176265"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176265"><span class="hs-identifier hs-var">pToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">RegisterDevice' :: Text -&gt; Text -&gt; Platform -&gt; Text -&gt; RegisterDevice
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice%27"><span class="hs-identifier hs-type">RegisterDevice'</span></a></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityPoolId:RegisterDevice' :: Text
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3AidentityPoolId%3ARegisterDevice%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176268"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityId:RegisterDevice' :: Text
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3AidentityId%3ARegisterDevice%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176267"><span class="hs-identifier hs-var">pIdentityId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:platform:RegisterDevice' :: Platform
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3Aplatform%3ARegisterDevice%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Platform
+</span><a href="#local-6989586621679176266"><span class="hs-identifier hs-var">pPlatform_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:token:RegisterDevice' :: Text
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3Atoken%3ARegisterDevice%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176265"><span class="hs-identifier hs-var">pToken_</span></a></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Cognito. Here, the ID of the pool that the identity belongs to.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDevice_identityPoolId"><span class="hs-identifier hs-type">registerDevice_identityPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="registerDevice_identityPoolId"><span class="annot"><span class="annottext">registerDevice_identityPoolId :: (Text -&gt; f Text) -&gt; RegisterDevice -&gt; f RegisterDevice
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDevice_identityPoolId"><span class="hs-identifier hs-var hs-var">registerDevice_identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterDevice -&gt; Text)
+-&gt; (RegisterDevice -&gt; Text -&gt; RegisterDevice)
+-&gt; Lens RegisterDevice RegisterDevice Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice%27"><span class="hs-identifier hs-type">RegisterDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176262"><span class="annot"><span class="annottext">Text
+identityPoolId :: Text
+$sel:identityPoolId:RegisterDevice' :: RegisterDevice -&gt; Text
+</span><a href="#local-6989586621679176262"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176262"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176261"><span class="annot"><span class="annottext">s :: RegisterDevice
+</span><a href="#local-6989586621679176261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice%27"><span class="hs-identifier hs-type">RegisterDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176260"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterDevice
+</span><a href="#local-6989586621679176261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:RegisterDevice' :: Text
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3AidentityPoolId%3ARegisterDevice%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The unique ID for this identity.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDevice_identityId"><span class="hs-identifier hs-type">registerDevice_identityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-119"></span><span id="registerDevice_identityId"><span class="annot"><span class="annottext">registerDevice_identityId :: (Text -&gt; f Text) -&gt; RegisterDevice -&gt; f RegisterDevice
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDevice_identityId"><span class="hs-identifier hs-var hs-var">registerDevice_identityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterDevice -&gt; Text)
+-&gt; (RegisterDevice -&gt; Text -&gt; RegisterDevice)
+-&gt; Lens RegisterDevice RegisterDevice Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice%27"><span class="hs-identifier hs-type">RegisterDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176259"><span class="annot"><span class="annottext">Text
+identityId :: Text
+$sel:identityId:RegisterDevice' :: RegisterDevice -&gt; Text
+</span><a href="#local-6989586621679176259"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176259"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176258"><span class="annot"><span class="annottext">s :: RegisterDevice
+</span><a href="#local-6989586621679176258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice%27"><span class="hs-identifier hs-type">RegisterDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176257"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterDevice
+</span><a href="#local-6989586621679176258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:RegisterDevice' :: Text
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3AidentityId%3ARegisterDevice%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDevice_platform"><span class="hs-identifier hs-type">registerDevice_platform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Platform.html#Platform"><span class="hs-identifier hs-type">Platform</span></a></span><span>
+</span><span id="line-123"></span><span id="registerDevice_platform"><span class="annot"><span class="annottext">registerDevice_platform :: (Platform -&gt; f Platform) -&gt; RegisterDevice -&gt; f RegisterDevice
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDevice_platform"><span class="hs-identifier hs-var hs-var">registerDevice_platform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterDevice -&gt; Platform)
+-&gt; (RegisterDevice -&gt; Platform -&gt; RegisterDevice)
+-&gt; Lens RegisterDevice RegisterDevice Platform Platform
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice%27"><span class="hs-identifier hs-type">RegisterDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176256"><span class="annot"><span class="annottext">Platform
+platform :: Platform
+$sel:platform:RegisterDevice' :: RegisterDevice -&gt; Platform
+</span><a href="#local-6989586621679176256"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Platform
+</span><a href="#local-6989586621679176256"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176255"><span class="annot"><span class="annottext">s :: RegisterDevice
+</span><a href="#local-6989586621679176255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice%27"><span class="hs-identifier hs-type">RegisterDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176254"><span class="annot"><span class="annottext">Platform
+</span><a href="#local-6989586621679176254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterDevice
+</span><a href="#local-6989586621679176255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platform:RegisterDevice' :: Platform
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3Aplatform%3ARegisterDevice%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Platform
+</span><a href="#local-6989586621679176254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The push token.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDevice_token"><span class="hs-identifier hs-type">registerDevice_token</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="registerDevice_token"><span class="annot"><span class="annottext">registerDevice_token :: (Text -&gt; f Text) -&gt; RegisterDevice -&gt; f RegisterDevice
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDevice_token"><span class="hs-identifier hs-var hs-var">registerDevice_token</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterDevice -&gt; Text)
+-&gt; (RegisterDevice -&gt; Text -&gt; RegisterDevice)
+-&gt; Lens RegisterDevice RegisterDevice Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice%27"><span class="hs-identifier hs-type">RegisterDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176253"><span class="annot"><span class="annottext">Text
+token :: Text
+$sel:token:RegisterDevice' :: RegisterDevice -&gt; Text
+</span><a href="#local-6989586621679176253"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176253"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176252"><span class="annot"><span class="annottext">s :: RegisterDevice
+</span><a href="#local-6989586621679176252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice%27"><span class="hs-identifier hs-type">RegisterDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176251"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterDevice
+</span><a href="#local-6989586621679176252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:token:RegisterDevice' :: Text
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3Atoken%3ARegisterDevice%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDeviceResponse"><span class="hs-identifier hs-type">RegisterDeviceResponse</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679176247"><span class="annot"><span class="annottext">request :: RegisterDevice -&gt; Request RegisterDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RegisterDevice -&gt; Request RegisterDevice
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CognitoSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679176243"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RegisterDevice
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse RegisterDevice)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse RegisterDevice))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RegisterDevice
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse RegisterDevice)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176240"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176240"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679176239"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679176239"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679176238"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176238"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; RegisterDeviceResponse
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDeviceResponse%27"><span class="hs-identifier hs-var">RegisterDeviceResponse'</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; RegisterDeviceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; RegisterDeviceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; RegisterDeviceResponse)
+-&gt; Either String Int -&gt; Either String RegisterDeviceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176240"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176230"><span id="local-6989586621679176232"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176227"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679176223"><span class="annot"><span class="annottext">toHeaders :: RegisterDevice -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RegisterDevice -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-153"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176213"><span id="local-6989586621679176215"><span id="local-6989586621679176217"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679176211"><span class="annot"><span class="annottext">toJSON :: RegisterDevice -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice%27"><span class="hs-identifier hs-type">RegisterDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176206"><span id="local-6989586621679176207"><span id="local-6989586621679176208"><span id="local-6989586621679176209"><span class="annot"><span class="annottext">Text
+Platform
+token :: Text
+platform :: Platform
+identityId :: Text
+identityPoolId :: Text
+$sel:token:RegisterDevice' :: RegisterDevice -&gt; Text
+$sel:platform:RegisterDevice' :: RegisterDevice -&gt; Platform
+$sel:identityId:RegisterDevice' :: RegisterDevice -&gt; Text
+$sel:identityPoolId:RegisterDevice' :: RegisterDevice -&gt; Text
+</span><a href="#local-6989586621679176206"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Platform&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Platform -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Platform
+</span><a href="#local-6989586621679176207"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Token&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176206"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679176200"><span class="annot"><span class="annottext">toPath :: RegisterDevice -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice%27"><span class="hs-identifier hs-type">RegisterDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176195"><span id="local-6989586621679176196"><span id="local-6989586621679176197"><span id="local-6989586621679176198"><span class="annot"><span class="annottext">Text
+Platform
+token :: Text
+platform :: Platform
+identityId :: Text
+identityPoolId :: Text
+$sel:token:RegisterDevice' :: RegisterDevice -&gt; Text
+$sel:platform:RegisterDevice' :: RegisterDevice -&gt; Platform
+$sel:identityId:RegisterDevice' :: RegisterDevice -&gt; Text
+$sel:identityPoolId:RegisterDevice' :: RegisterDevice -&gt; Text
+</span><a href="#local-6989586621679176195"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/identitypools/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176198"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/identity/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176197"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/device&quot;</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDevice"><span class="hs-identifier hs-type">RegisterDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679176191"><span class="annot"><span class="annottext">toQuery :: RegisterDevice -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterDevice -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | Response to a RegisterDevice request.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- /See:/ 'newRegisterDeviceResponse' smart constructor.</span><span>
+</span><span id="line-182"></span><span id="local-6989586621679176188"><span id="local-6989586621679176189"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterDeviceResponse"><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDeviceResponse"><span class="hs-identifier hs-var">RegisterDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterDeviceResponse%27"><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDeviceResponse%27"><span class="hs-identifier hs-var">RegisterDeviceResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID generated for this device by Cognito.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AdeviceId%3ARegisterDeviceResponse%27"><span class="annot"><span class="annottext">RegisterDeviceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3AdeviceId%3ARegisterDeviceResponse%27"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARegisterDeviceResponse%27"><span class="annot"><span class="annottext">RegisterDeviceResponse -&gt; Int
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3AhttpStatus%3ARegisterDeviceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176182"><span id="local-6989586621679176184"><span class="annot"><span class="annottext">RegisterDeviceResponse -&gt; RegisterDeviceResponse -&gt; Bool
+(RegisterDeviceResponse -&gt; RegisterDeviceResponse -&gt; Bool)
+-&gt; (RegisterDeviceResponse -&gt; RegisterDeviceResponse -&gt; Bool)
+-&gt; Eq RegisterDeviceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegisterDeviceResponse -&gt; RegisterDeviceResponse -&gt; Bool
+$c/= :: RegisterDeviceResponse -&gt; RegisterDeviceResponse -&gt; Bool
+== :: RegisterDeviceResponse -&gt; RegisterDeviceResponse -&gt; Bool
+$c== :: RegisterDeviceResponse -&gt; RegisterDeviceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176174"><span id="local-6989586621679176176"><span id="local-6989586621679176178"><span id="local-6989586621679176180"><span class="annot"><span class="annottext">ReadPrec [RegisterDeviceResponse]
+ReadPrec RegisterDeviceResponse
+Int -&gt; ReadS RegisterDeviceResponse
+ReadS [RegisterDeviceResponse]
+(Int -&gt; ReadS RegisterDeviceResponse)
+-&gt; ReadS [RegisterDeviceResponse]
+-&gt; ReadPrec RegisterDeviceResponse
+-&gt; ReadPrec [RegisterDeviceResponse]
+-&gt; Read RegisterDeviceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegisterDeviceResponse]
+$creadListPrec :: ReadPrec [RegisterDeviceResponse]
+readPrec :: ReadPrec RegisterDeviceResponse
+$creadPrec :: ReadPrec RegisterDeviceResponse
+readList :: ReadS [RegisterDeviceResponse]
+$creadList :: ReadS [RegisterDeviceResponse]
+readsPrec :: Int -&gt; ReadS RegisterDeviceResponse
+$creadsPrec :: Int -&gt; ReadS RegisterDeviceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176168"><span id="local-6989586621679176170"><span id="local-6989586621679176172"><span class="annot"><span class="annottext">Int -&gt; RegisterDeviceResponse -&gt; ShowS
+[RegisterDeviceResponse] -&gt; ShowS
+RegisterDeviceResponse -&gt; String
+(Int -&gt; RegisterDeviceResponse -&gt; ShowS)
+-&gt; (RegisterDeviceResponse -&gt; String)
+-&gt; ([RegisterDeviceResponse] -&gt; ShowS)
+-&gt; Show RegisterDeviceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegisterDeviceResponse] -&gt; ShowS
+$cshowList :: [RegisterDeviceResponse] -&gt; ShowS
+show :: RegisterDeviceResponse -&gt; String
+$cshow :: RegisterDeviceResponse -&gt; String
+showsPrec :: Int -&gt; RegisterDeviceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegisterDeviceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RegisterDeviceResponse -&gt; Rep RegisterDeviceResponse x)
+-&gt; (forall x.
+    Rep RegisterDeviceResponse x -&gt; RegisterDeviceResponse)
+-&gt; Generic RegisterDeviceResponse
+forall x. Rep RegisterDeviceResponse x -&gt; RegisterDeviceResponse
+forall x. RegisterDeviceResponse -&gt; Rep RegisterDeviceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RegisterDeviceResponse x -&gt; RegisterDeviceResponse
+$cfrom :: forall x. RegisterDeviceResponse -&gt; Rep RegisterDeviceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Create a value of 'RegisterDeviceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'deviceId', 'registerDeviceResponse_deviceId' - The unique ID generated for this device by Cognito.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'httpStatus', 'registerDeviceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#newRegisterDeviceResponse"><span class="hs-identifier hs-type">newRegisterDeviceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDeviceResponse"><span class="hs-identifier hs-type">RegisterDeviceResponse</span></a></span><span>
+</span><span id="line-205"></span><span id="newRegisterDeviceResponse"><span class="annot"><span class="annottext">newRegisterDeviceResponse :: Int -&gt; RegisterDeviceResponse
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#newRegisterDeviceResponse"><span class="hs-identifier hs-var hs-var">newRegisterDeviceResponse</span></a></span></span><span> </span><span id="local-6989586621679176165"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176165"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">RegisterDeviceResponse' :: Maybe Text -&gt; Int -&gt; RegisterDeviceResponse
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDeviceResponse%27"><span class="hs-identifier hs-type">RegisterDeviceResponse'</span></a></span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceId:RegisterDeviceResponse' :: Maybe Text
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3AdeviceId%3ARegisterDeviceResponse%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterDeviceResponse' :: Int
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3AhttpStatus%3ARegisterDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176165"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The unique ID generated for this device by Cognito.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDeviceResponse_deviceId"><span class="hs-identifier hs-type">registerDeviceResponse_deviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDeviceResponse"><span class="hs-identifier hs-type">RegisterDeviceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="registerDeviceResponse_deviceId"><span class="annot"><span class="annottext">registerDeviceResponse_deviceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterDeviceResponse -&gt; f RegisterDeviceResponse
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDeviceResponse_deviceId"><span class="hs-identifier hs-var hs-var">registerDeviceResponse_deviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterDeviceResponse -&gt; Maybe Text)
+-&gt; (RegisterDeviceResponse -&gt; Maybe Text -&gt; RegisterDeviceResponse)
+-&gt; Lens
+     RegisterDeviceResponse
+     RegisterDeviceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDeviceResponse%27"><span class="hs-identifier hs-type">RegisterDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176164"><span class="annot"><span class="annottext">Maybe Text
+deviceId :: Maybe Text
+$sel:deviceId:RegisterDeviceResponse' :: RegisterDeviceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679176164"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176164"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176163"><span class="annot"><span class="annottext">s :: RegisterDeviceResponse
+</span><a href="#local-6989586621679176163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDeviceResponse%27"><span class="hs-identifier hs-type">RegisterDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176162"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterDeviceResponse
+</span><a href="#local-6989586621679176163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:RegisterDeviceResponse' :: Maybe Text
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3AdeviceId%3ARegisterDeviceResponse%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDeviceResponse"><span class="hs-identifier hs-type">RegisterDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDeviceResponse_httpStatus"><span class="hs-identifier hs-type">registerDeviceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDeviceResponse"><span class="hs-identifier hs-type">RegisterDeviceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span id="registerDeviceResponse_httpStatus"><span class="annot"><span class="annottext">registerDeviceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RegisterDeviceResponse -&gt; f RegisterDeviceResponse
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#registerDeviceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">registerDeviceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterDeviceResponse -&gt; Int)
+-&gt; (RegisterDeviceResponse -&gt; Int -&gt; RegisterDeviceResponse)
+-&gt; Lens RegisterDeviceResponse RegisterDeviceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDeviceResponse%27"><span class="hs-identifier hs-type">RegisterDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176161"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RegisterDeviceResponse' :: RegisterDeviceResponse -&gt; Int
+</span><a href="#local-6989586621679176161"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176161"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176160"><span class="annot"><span class="annottext">s :: RegisterDeviceResponse
+</span><a href="#local-6989586621679176160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDeviceResponse%27"><span class="hs-identifier hs-type">RegisterDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176159"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterDeviceResponse
+</span><a href="#local-6989586621679176160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterDeviceResponse' :: Int
+</span><a href="Network.AWS.CognitoSync.RegisterDevice.html#%24sel%3AhttpStatus%3ARegisterDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDeviceResponse"><span class="hs-identifier hs-type">RegisterDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176157"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.RegisterDevice.html#RegisterDeviceResponse"><span class="hs-identifier hs-type">RegisterDeviceResponse</span></a></span></span><span>
+</span><span id="line-220"></span></pre></body></html>

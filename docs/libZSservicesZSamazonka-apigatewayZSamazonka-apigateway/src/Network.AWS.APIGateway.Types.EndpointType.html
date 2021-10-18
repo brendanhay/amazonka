@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.APIGateway.Types.EndpointType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.APIGateway.Types.EndpointType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType"><span class="hs-identifier">EndpointType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType_EDGE"><span class="hs-identifier">EndpointType_EDGE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType_PRIVATE"><span class="hs-identifier">EndpointType_PRIVATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType_REGIONAL"><span class="hs-identifier">EndpointType_REGIONAL</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | The endpoint type. The valid values are @EDGE@ for edge-optimized API</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- setup, most suitable for mobile applications; @REGIONAL@ for regional</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- API endpoint setup, most suitable for calling from AWS Region; and</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @PRIVATE@ for private APIs.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679366164"><span id="local-6989586621679366165"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EndpointType"><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType"><span class="hs-identifier hs-var">EndpointType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointType%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType%27"><span class="hs-identifier hs-var">EndpointType'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEndpointType"><span class="annot"><span class="annottext">EndpointType -&gt; Text
+</span><a href="Network.AWS.APIGateway.Types.EndpointType.html#fromEndpointType"><span class="hs-identifier hs-var hs-var">fromEndpointType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366156"><span id="local-6989586621679366158"><span id="local-6989586621679366160"><span class="annot"><span class="annottext">Int -&gt; EndpointType -&gt; ShowS
+[EndpointType] -&gt; ShowS
+EndpointType -&gt; String
+(Int -&gt; EndpointType -&gt; ShowS)
+-&gt; (EndpointType -&gt; String)
+-&gt; ([EndpointType] -&gt; ShowS)
+-&gt; Show EndpointType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EndpointType] -&gt; ShowS
+$cshowList :: [EndpointType] -&gt; ShowS
+show :: EndpointType -&gt; String
+$cshow :: EndpointType -&gt; String
+showsPrec :: Int -&gt; EndpointType -&gt; ShowS
+$cshowsPrec :: Int -&gt; EndpointType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679366147"><span id="local-6989586621679366149"><span id="local-6989586621679366151"><span id="local-6989586621679366153"><span class="annot"><span class="annottext">ReadPrec [EndpointType]
+ReadPrec EndpointType
+Int -&gt; ReadS EndpointType
+ReadS [EndpointType]
+(Int -&gt; ReadS EndpointType)
+-&gt; ReadS [EndpointType]
+-&gt; ReadPrec EndpointType
+-&gt; ReadPrec [EndpointType]
+-&gt; Read EndpointType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EndpointType]
+$creadListPrec :: ReadPrec [EndpointType]
+readPrec :: ReadPrec EndpointType
+$creadPrec :: ReadPrec EndpointType
+readList :: ReadS [EndpointType]
+$creadList :: ReadS [EndpointType]
+readsPrec :: Int -&gt; ReadS EndpointType
+$creadsPrec :: Int -&gt; ReadS EndpointType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679366142"><span id="local-6989586621679366144"><span class="annot"><span class="annottext">EndpointType -&gt; EndpointType -&gt; Bool
+(EndpointType -&gt; EndpointType -&gt; Bool)
+-&gt; (EndpointType -&gt; EndpointType -&gt; Bool) -&gt; Eq EndpointType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EndpointType -&gt; EndpointType -&gt; Bool
+$c/= :: EndpointType -&gt; EndpointType -&gt; Bool
+== :: EndpointType -&gt; EndpointType -&gt; Bool
+$c== :: EndpointType -&gt; EndpointType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679366126"><span id="local-6989586621679366128"><span id="local-6989586621679366130"><span id="local-6989586621679366132"><span id="local-6989586621679366134"><span id="local-6989586621679366136"><span id="local-6989586621679366138"><span class="annot"><span class="annottext">Eq EndpointType
+Eq EndpointType
+-&gt; (EndpointType -&gt; EndpointType -&gt; Ordering)
+-&gt; (EndpointType -&gt; EndpointType -&gt; Bool)
+-&gt; (EndpointType -&gt; EndpointType -&gt; Bool)
+-&gt; (EndpointType -&gt; EndpointType -&gt; Bool)
+-&gt; (EndpointType -&gt; EndpointType -&gt; Bool)
+-&gt; (EndpointType -&gt; EndpointType -&gt; EndpointType)
+-&gt; (EndpointType -&gt; EndpointType -&gt; EndpointType)
+-&gt; Ord EndpointType
+EndpointType -&gt; EndpointType -&gt; Bool
+EndpointType -&gt; EndpointType -&gt; Ordering
+EndpointType -&gt; EndpointType -&gt; EndpointType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EndpointType -&gt; EndpointType -&gt; EndpointType
+$cmin :: EndpointType -&gt; EndpointType -&gt; EndpointType
+max :: EndpointType -&gt; EndpointType -&gt; EndpointType
+$cmax :: EndpointType -&gt; EndpointType -&gt; EndpointType
+&gt;= :: EndpointType -&gt; EndpointType -&gt; Bool
+$c&gt;= :: EndpointType -&gt; EndpointType -&gt; Bool
+&gt; :: EndpointType -&gt; EndpointType -&gt; Bool
+$c&gt; :: EndpointType -&gt; EndpointType -&gt; Bool
+&lt;= :: EndpointType -&gt; EndpointType -&gt; Bool
+$c&lt;= :: EndpointType -&gt; EndpointType -&gt; Bool
+&lt; :: EndpointType -&gt; EndpointType -&gt; Bool
+$c&lt; :: EndpointType -&gt; EndpointType -&gt; Bool
+compare :: EndpointType -&gt; EndpointType -&gt; Ordering
+$ccompare :: EndpointType -&gt; EndpointType -&gt; Ordering
+$cp1Ord :: Eq EndpointType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. EndpointType -&gt; Rep EndpointType x)
+-&gt; (forall x. Rep EndpointType x -&gt; EndpointType)
+-&gt; Generic EndpointType
+forall x. Rep EndpointType x -&gt; EndpointType
+forall x. EndpointType -&gt; Rep EndpointType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EndpointType x -&gt; EndpointType
+$cfrom :: forall x. EndpointType -&gt; Rep EndpointType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366118"><span id="local-6989586621679366120"><span class="annot"><span class="annottext">Int -&gt; EndpointType -&gt; Int
+EndpointType -&gt; Int
+(Int -&gt; EndpointType -&gt; Int)
+-&gt; (EndpointType -&gt; Int) -&gt; Hashable EndpointType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EndpointType -&gt; Int
+$chash :: EndpointType -&gt; Int
+hashWithSalt :: Int -&gt; EndpointType -&gt; Int
+$chashWithSalt :: Int -&gt; EndpointType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679366115"><span class="annot"><span class="annottext">EndpointType -&gt; ()
+(EndpointType -&gt; ()) -&gt; NFData EndpointType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EndpointType -&gt; ()
+$crnf :: EndpointType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679366112"><span class="annot"><span class="annottext">Text -&gt; Either String EndpointType
+(Text -&gt; Either String EndpointType) -&gt; FromText EndpointType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EndpointType
+$cfromText :: Text -&gt; Either String EndpointType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679366109"><span class="annot"><span class="annottext">EndpointType -&gt; Text
+(EndpointType -&gt; Text) -&gt; ToText EndpointType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EndpointType -&gt; Text
+$ctoText :: EndpointType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679366106"><span class="annot"><span class="annottext">EndpointType -&gt; ByteString
+(EndpointType -&gt; ByteString) -&gt; ToByteString EndpointType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EndpointType -&gt; ByteString
+$ctoBS :: EndpointType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679366103"><span class="annot"><span class="annottext">EndpointType -&gt; ByteStringBuilder
+(EndpointType -&gt; ByteStringBuilder) -&gt; ToLog EndpointType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EndpointType -&gt; ByteStringBuilder
+$cbuild :: EndpointType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679366100"><span class="annot"><span class="annottext">HeaderName -&gt; EndpointType -&gt; [Header]
+(HeaderName -&gt; EndpointType -&gt; [Header]) -&gt; ToHeader EndpointType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EndpointType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EndpointType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679366097"><span class="annot"><span class="annottext">EndpointType -&gt; QueryString
+(EndpointType -&gt; QueryString) -&gt; ToQuery EndpointType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EndpointType -&gt; QueryString
+$ctoQuery :: EndpointType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679366092"><span id="local-6989586621679366094"><span class="annot"><span class="annottext">Value -&gt; Parser [EndpointType]
+Value -&gt; Parser EndpointType
+(Value -&gt; Parser EndpointType)
+-&gt; (Value -&gt; Parser [EndpointType]) -&gt; FromJSON EndpointType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EndpointType]
+$cparseJSONList :: Value -&gt; Parser [EndpointType]
+parseJSON :: Value -&gt; Parser EndpointType
+$cparseJSON :: Value -&gt; Parser EndpointType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679366087"><span id="local-6989586621679366089"><span class="annot"><span class="annottext">FromJSONKeyFunction [EndpointType]
+FromJSONKeyFunction EndpointType
+FromJSONKeyFunction EndpointType
+-&gt; FromJSONKeyFunction [EndpointType] -&gt; FromJSONKey EndpointType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EndpointType]
+$cfromJSONKeyList :: FromJSONKeyFunction [EndpointType]
+fromJSONKey :: FromJSONKeyFunction EndpointType
+$cfromJSONKey :: FromJSONKeyFunction EndpointType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679366078"><span id="local-6989586621679366080"><span id="local-6989586621679366082"><span id="local-6989586621679366084"><span class="annot"><span class="annottext">[EndpointType] -&gt; Encoding
+[EndpointType] -&gt; Value
+EndpointType -&gt; Encoding
+EndpointType -&gt; Value
+(EndpointType -&gt; Value)
+-&gt; (EndpointType -&gt; Encoding)
+-&gt; ([EndpointType] -&gt; Value)
+-&gt; ([EndpointType] -&gt; Encoding)
+-&gt; ToJSON EndpointType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EndpointType] -&gt; Encoding
+$ctoEncodingList :: [EndpointType] -&gt; Encoding
+toJSONList :: [EndpointType] -&gt; Value
+$ctoJSONList :: [EndpointType] -&gt; Value
+toEncoding :: EndpointType -&gt; Encoding
+$ctoEncoding :: EndpointType -&gt; Encoding
+toJSON :: EndpointType -&gt; Value
+$ctoJSON :: EndpointType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679366073"><span id="local-6989586621679366075"><span class="annot"><span class="annottext">ToJSONKeyFunction [EndpointType]
+ToJSONKeyFunction EndpointType
+ToJSONKeyFunction EndpointType
+-&gt; ToJSONKeyFunction [EndpointType] -&gt; ToJSONKey EndpointType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EndpointType]
+$ctoJSONKeyList :: ToJSONKeyFunction [EndpointType]
+toJSONKey :: ToJSONKeyFunction EndpointType
+$ctoJSONKey :: ToJSONKeyFunction EndpointType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679366070"><span class="annot"><span class="annottext">[Node] -&gt; Either String EndpointType
+([Node] -&gt; Either String EndpointType) -&gt; FromXML EndpointType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EndpointType
+$cparseXML :: [Node] -&gt; Either String EndpointType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679366067"><span class="annot"><span class="annottext">EndpointType -&gt; XML
+(EndpointType -&gt; XML) -&gt; ToXML EndpointType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EndpointType -&gt; XML
+$ctoXML :: EndpointType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType_EDGE"><span class="hs-identifier hs-type">EndpointType_EDGE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType"><span class="hs-identifier hs-type">EndpointType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEndpointType_EDGE"><span id="%24mEndpointType_EDGE"><span id="EndpointType_EDGE"><span class="annot"><span class="annottext">$bEndpointType_EDGE :: EndpointType
+$mEndpointType_EDGE :: forall r. EndpointType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.APIGateway.Types.EndpointType.html#%24bEndpointType_EDGE"><span class="hs-identifier hs-var hs-var hs-var">EndpointType_EDGE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType%27"><span class="hs-identifier hs-type">EndpointType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EDGE&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType_PRIVATE"><span class="hs-identifier hs-type">EndpointType_PRIVATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType"><span class="hs-identifier hs-type">EndpointType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEndpointType_PRIVATE"><span id="%24mEndpointType_PRIVATE"><span id="EndpointType_PRIVATE"><span class="annot"><span class="annottext">$bEndpointType_PRIVATE :: EndpointType
+$mEndpointType_PRIVATE :: forall r. EndpointType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.APIGateway.Types.EndpointType.html#%24bEndpointType_PRIVATE"><span class="hs-identifier hs-var hs-var hs-var">EndpointType_PRIVATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType%27"><span class="hs-identifier hs-type">EndpointType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PRIVATE&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType_REGIONAL"><span class="hs-identifier hs-type">EndpointType_REGIONAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType"><span class="hs-identifier hs-type">EndpointType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEndpointType_REGIONAL"><span id="%24mEndpointType_REGIONAL"><span id="EndpointType_REGIONAL"><span class="annot"><span class="annottext">$bEndpointType_REGIONAL :: EndpointType
+$mEndpointType_REGIONAL :: forall r. EndpointType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.APIGateway.Types.EndpointType.html#%24bEndpointType_REGIONAL"><span class="hs-identifier hs-var hs-var hs-var">EndpointType_REGIONAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType%27"><span class="hs-identifier hs-type">EndpointType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REGIONAL&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType_EDGE"><span class="hs-pragma hs-type">EndpointType_EDGE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType_PRIVATE"><span class="hs-pragma hs-type">EndpointType_PRIVATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType_REGIONAL"><span class="hs-pragma hs-type">EndpointType_REGIONAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType%27"><span class="hs-pragma hs-type">EndpointType'</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-80"></span></pre></body></html>

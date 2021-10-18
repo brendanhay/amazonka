@@ -1,0 +1,1055 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.StartMultiplex</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Start (run) the multiplex. Starting the multiplex does not start the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- channels. You must explicitly start each channel.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.StartMultiplex</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex"><span class="hs-identifier">StartMultiplex</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#newStartMultiplex"><span class="hs-identifier">newStartMultiplex</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplex_multiplexId"><span class="hs-identifier">startMultiplex_multiplexId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier">StartMultiplexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#newStartMultiplexResponse"><span class="hs-identifier">newStartMultiplexResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_availabilityZones"><span class="hs-identifier">startMultiplexResponse_availabilityZones</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_arn"><span class="hs-identifier">startMultiplexResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_id"><span class="hs-identifier">startMultiplexResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_pipelinesRunningCount"><span class="hs-identifier">startMultiplexResponse_pipelinesRunningCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_name"><span class="hs-identifier">startMultiplexResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_destinations"><span class="hs-identifier">startMultiplexResponse_destinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_programCount"><span class="hs-identifier">startMultiplexResponse_programCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_state"><span class="hs-identifier">startMultiplexResponse_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_tags"><span class="hs-identifier">startMultiplexResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_multiplexSettings"><span class="hs-identifier">startMultiplexResponse_multiplexSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_httpStatus"><span class="hs-identifier">startMultiplexResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.html"><span class="hs-identifier">Network.AWS.MediaLive.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | Placeholder documentation for StartMultiplexRequest</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newStartMultiplex' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679931159"><span id="local-6989586621679931160"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartMultiplex"><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex"><span class="hs-identifier hs-var">StartMultiplex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartMultiplex%27"><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex%27"><span class="hs-identifier hs-var">StartMultiplex'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the multiplex.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmultiplexId%3AStartMultiplex%27"><span class="annot"><span class="annottext">StartMultiplex -&gt; Text
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3AmultiplexId%3AStartMultiplex%27"><span class="hs-identifier hs-var hs-var">multiplexId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679931153"><span id="local-6989586621679931155"><span class="annot"><span class="annottext">StartMultiplex -&gt; StartMultiplex -&gt; Bool
+(StartMultiplex -&gt; StartMultiplex -&gt; Bool)
+-&gt; (StartMultiplex -&gt; StartMultiplex -&gt; Bool) -&gt; Eq StartMultiplex
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartMultiplex -&gt; StartMultiplex -&gt; Bool
+$c/= :: StartMultiplex -&gt; StartMultiplex -&gt; Bool
+== :: StartMultiplex -&gt; StartMultiplex -&gt; Bool
+$c== :: StartMultiplex -&gt; StartMultiplex -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679931144"><span id="local-6989586621679931146"><span id="local-6989586621679931148"><span id="local-6989586621679931150"><span class="annot"><span class="annottext">ReadPrec [StartMultiplex]
+ReadPrec StartMultiplex
+Int -&gt; ReadS StartMultiplex
+ReadS [StartMultiplex]
+(Int -&gt; ReadS StartMultiplex)
+-&gt; ReadS [StartMultiplex]
+-&gt; ReadPrec StartMultiplex
+-&gt; ReadPrec [StartMultiplex]
+-&gt; Read StartMultiplex
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartMultiplex]
+$creadListPrec :: ReadPrec [StartMultiplex]
+readPrec :: ReadPrec StartMultiplex
+$creadPrec :: ReadPrec StartMultiplex
+readList :: ReadS [StartMultiplex]
+$creadList :: ReadS [StartMultiplex]
+readsPrec :: Int -&gt; ReadS StartMultiplex
+$creadsPrec :: Int -&gt; ReadS StartMultiplex
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679931137"><span id="local-6989586621679931139"><span id="local-6989586621679931141"><span class="annot"><span class="annottext">Int -&gt; StartMultiplex -&gt; ShowS
+[StartMultiplex] -&gt; ShowS
+StartMultiplex -&gt; String
+(Int -&gt; StartMultiplex -&gt; ShowS)
+-&gt; (StartMultiplex -&gt; String)
+-&gt; ([StartMultiplex] -&gt; ShowS)
+-&gt; Show StartMultiplex
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartMultiplex] -&gt; ShowS
+$cshowList :: [StartMultiplex] -&gt; ShowS
+show :: StartMultiplex -&gt; String
+$cshow :: StartMultiplex -&gt; String
+showsPrec :: Int -&gt; StartMultiplex -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartMultiplex -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartMultiplex -&gt; Rep StartMultiplex x)
+-&gt; (forall x. Rep StartMultiplex x -&gt; StartMultiplex)
+-&gt; Generic StartMultiplex
+forall x. Rep StartMultiplex x -&gt; StartMultiplex
+forall x. StartMultiplex -&gt; Rep StartMultiplex x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartMultiplex x -&gt; StartMultiplex
+$cfrom :: forall x. StartMultiplex -&gt; Rep StartMultiplex x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'StartMultiplex' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'multiplexId', 'startMultiplex_multiplexId' - The ID of the multiplex.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#newStartMultiplex"><span class="hs-identifier hs-type">newStartMultiplex</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'multiplexId'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex"><span class="hs-identifier hs-type">StartMultiplex</span></a></span><span>
+</span><span id="line-81"></span><span id="newStartMultiplex"><span class="annot"><span class="annottext">newStartMultiplex :: Text -&gt; StartMultiplex
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#newStartMultiplex"><span class="hs-identifier hs-var hs-var">newStartMultiplex</span></a></span></span><span> </span><span id="local-6989586621679931132"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679931132"><span class="hs-identifier hs-var">pMultiplexId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">StartMultiplex' :: Text -&gt; StartMultiplex
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex%27"><span class="hs-identifier hs-type">StartMultiplex'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiplexId:StartMultiplex' :: Text
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3AmultiplexId%3AStartMultiplex%27"><span class="hs-identifier hs-var">multiplexId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679931132"><span class="hs-identifier hs-var">pMultiplexId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The ID of the multiplex.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplex_multiplexId"><span class="hs-identifier hs-type">startMultiplex_multiplexId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex"><span class="hs-identifier hs-type">StartMultiplex</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="startMultiplex_multiplexId"><span class="annot"><span class="annottext">startMultiplex_multiplexId :: (Text -&gt; f Text) -&gt; StartMultiplex -&gt; f StartMultiplex
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplex_multiplexId"><span class="hs-identifier hs-var hs-var">startMultiplex_multiplexId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartMultiplex -&gt; Text)
+-&gt; (StartMultiplex -&gt; Text -&gt; StartMultiplex)
+-&gt; Lens StartMultiplex StartMultiplex Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex%27"><span class="hs-identifier hs-type">StartMultiplex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931129"><span class="annot"><span class="annottext">Text
+multiplexId :: Text
+$sel:multiplexId:StartMultiplex' :: StartMultiplex -&gt; Text
+</span><a href="#local-6989586621679931129"><span class="hs-identifier hs-var hs-var">multiplexId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679931129"><span class="hs-identifier hs-var">multiplexId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931128"><span class="annot"><span class="annottext">s :: StartMultiplex
+</span><a href="#local-6989586621679931128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex%27"><span class="hs-identifier hs-type">StartMultiplex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931127"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679931127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMultiplex
+</span><a href="#local-6989586621679931128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiplexId:StartMultiplex' :: Text
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3AmultiplexId%3AStartMultiplex%27"><span class="hs-identifier hs-var">multiplexId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679931127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex"><span class="hs-identifier hs-type">StartMultiplex</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex"><span class="hs-identifier hs-type">StartMultiplex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex"><span class="hs-identifier hs-type">StartMultiplex</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679931123"><span class="annot"><span class="annottext">request :: StartMultiplex -&gt; Request StartMultiplex
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartMultiplex -&gt; Request StartMultiplex
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MediaLive.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679931119"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartMultiplex
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StartMultiplex)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartMultiplex))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartMultiplex
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StartMultiplex)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679931116"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679931116"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679931115"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679931115"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679931114"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931114"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe [MultiplexOutputDestination]
+-&gt; Maybe Int
+-&gt; Maybe MultiplexState
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe MultiplexSettings
+-&gt; Int
+-&gt; StartMultiplexResponse
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-var">StartMultiplexResponse'</span></a></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe [MultiplexOutputDestination]
+ -&gt; Maybe Int
+ -&gt; Maybe MultiplexState
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe MultiplexSettings
+ -&gt; Int
+ -&gt; StartMultiplexResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe [MultiplexOutputDestination]
+      -&gt; Maybe Int
+      -&gt; Maybe MultiplexState
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe MultiplexSettings
+      -&gt; Int
+      -&gt; StartMultiplexResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;availabilityZones&quot;</span></span><span>
+</span><span id="line-98"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-99"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe [MultiplexOutputDestination]
+   -&gt; Maybe Int
+   -&gt; Maybe MultiplexState
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe MultiplexSettings
+   -&gt; Int
+   -&gt; StartMultiplexResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe [MultiplexOutputDestination]
+      -&gt; Maybe Int
+      -&gt; Maybe MultiplexState
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe MultiplexSettings
+      -&gt; Int
+      -&gt; StartMultiplexResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe [MultiplexOutputDestination]
+   -&gt; Maybe Int
+   -&gt; Maybe MultiplexState
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe MultiplexSettings
+   -&gt; Int
+   -&gt; StartMultiplexResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe [MultiplexOutputDestination]
+      -&gt; Maybe Int
+      -&gt; Maybe MultiplexState
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe MultiplexSettings
+      -&gt; Int
+      -&gt; StartMultiplexResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe [MultiplexOutputDestination]
+   -&gt; Maybe Int
+   -&gt; Maybe MultiplexState
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe MultiplexSettings
+   -&gt; Int
+   -&gt; StartMultiplexResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [MultiplexOutputDestination]
+      -&gt; Maybe Int
+      -&gt; Maybe MultiplexState
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe MultiplexSettings
+      -&gt; Int
+      -&gt; StartMultiplexResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pipelinesRunningCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [MultiplexOutputDestination]
+   -&gt; Maybe Int
+   -&gt; Maybe MultiplexState
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe MultiplexSettings
+   -&gt; Int
+   -&gt; StartMultiplexResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [MultiplexOutputDestination]
+      -&gt; Maybe Int
+      -&gt; Maybe MultiplexState
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe MultiplexSettings
+      -&gt; Int
+      -&gt; StartMultiplexResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [MultiplexOutputDestination]
+   -&gt; Maybe Int
+   -&gt; Maybe MultiplexState
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe MultiplexSettings
+   -&gt; Int
+   -&gt; StartMultiplexResponse)
+-&gt; Either String (Maybe [MultiplexOutputDestination])
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe MultiplexState
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe MultiplexSettings
+      -&gt; Int
+      -&gt; StartMultiplexResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [MultiplexOutputDestination]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [MultiplexOutputDestination]))
+-&gt; Maybe [MultiplexOutputDestination]
+-&gt; Either String (Maybe [MultiplexOutputDestination])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MultiplexOutputDestination]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe MultiplexState
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe MultiplexSettings
+   -&gt; Int
+   -&gt; StartMultiplexResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe MultiplexState
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe MultiplexSettings
+      -&gt; Int
+      -&gt; StartMultiplexResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;programCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe MultiplexState
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe MultiplexSettings
+   -&gt; Int
+   -&gt; StartMultiplexResponse)
+-&gt; Either String (Maybe MultiplexState)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe MultiplexSettings -&gt; Int -&gt; StartMultiplexResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MultiplexState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe MultiplexSettings -&gt; Int -&gt; StartMultiplexResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either
+     String (Maybe MultiplexSettings -&gt; Int -&gt; StartMultiplexResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe MultiplexSettings -&gt; Int -&gt; StartMultiplexResponse)
+-&gt; Either String (Maybe MultiplexSettings)
+-&gt; Either String (Int -&gt; StartMultiplexResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MultiplexSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;multiplexSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartMultiplexResponse)
+-&gt; Either String Int -&gt; Either String StartMultiplexResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679931116"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931105"><span id="local-6989586621679931107"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex"><span class="hs-identifier hs-type">StartMultiplex</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex"><span class="hs-identifier hs-type">StartMultiplex</span></a></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex"><span class="hs-identifier hs-type">StartMultiplex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679931098"><span class="annot"><span class="annottext">toHeaders :: StartMultiplex -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartMultiplex -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-123"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931088"><span id="local-6989586621679931090"><span id="local-6989586621679931092"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex"><span class="hs-identifier hs-type">StartMultiplex</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679931086"><span class="annot"><span class="annottext">toJSON :: StartMultiplex -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; StartMultiplex -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex"><span class="hs-identifier hs-type">StartMultiplex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679931081"><span class="annot"><span class="annottext">toPath :: StartMultiplex -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex%27"><span class="hs-identifier hs-type">StartMultiplex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931079"><span class="annot"><span class="annottext">Text
+multiplexId :: Text
+$sel:multiplexId:StartMultiplex' :: StartMultiplex -&gt; Text
+</span><a href="#local-6989586621679931079"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/prod/multiplexes/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679931079"><span class="hs-identifier hs-var">multiplexId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/start&quot;</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplex"><span class="hs-identifier hs-type">StartMultiplex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679931075"><span class="annot"><span class="annottext">toQuery :: StartMultiplex -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartMultiplex -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | Placeholder documentation for StartMultiplexResponse</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- /See:/ 'newStartMultiplexResponse' smart constructor.</span><span>
+</span><span id="line-144"></span><span id="local-6989586621679931072"><span id="local-6989586621679931073"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartMultiplexResponse"><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-var">StartMultiplexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartMultiplexResponse%27"><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-var">StartMultiplexResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of availability zones for the multiplex.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AavailabilityZones%3AStartMultiplexResponse%27"><span class="annot"><span class="annottext">StartMultiplexResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3AavailabilityZones%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The unique arn of the multiplex.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3Aarn%3AStartMultiplexResponse%27"><span class="annot"><span class="annottext">StartMultiplexResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Aarn%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The unique id of the multiplex.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3Aid%3AStartMultiplexResponse%27"><span class="annot"><span class="annottext">StartMultiplexResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Aid%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The number of currently healthy pipelines.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3ApipelinesRunningCount%3AStartMultiplexResponse%27"><span class="annot"><span class="annottext">StartMultiplexResponse -&gt; Maybe Int
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3ApipelinesRunningCount%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var hs-var">pipelinesRunningCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The name of the multiplex.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3Aname%3AStartMultiplexResponse%27"><span class="annot"><span class="annottext">StartMultiplexResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Aname%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | A list of the multiplex output destinations.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3Adestinations%3AStartMultiplexResponse%27"><span class="annot"><span class="annottext">StartMultiplexResponse -&gt; Maybe [MultiplexOutputDestination]
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Adestinations%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputDestination.html#MultiplexOutputDestination"><span class="hs-identifier hs-type">MultiplexOutputDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | The number of programs in the multiplex.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AprogramCount%3AStartMultiplexResponse%27"><span class="annot"><span class="annottext">StartMultiplexResponse -&gt; Maybe Int
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3AprogramCount%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var hs-var">programCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The current state of the multiplex.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3Astate%3AStartMultiplexResponse%27"><span class="annot"><span class="annottext">StartMultiplexResponse -&gt; Maybe MultiplexState
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Astate%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexState.html#MultiplexState"><span class="hs-identifier hs-type">MultiplexState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | A collection of key-value pairs.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3Atags%3AStartMultiplexResponse%27"><span class="annot"><span class="annottext">StartMultiplexResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Atags%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | Configuration for a multiplex event.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AmultiplexSettings%3AStartMultiplexResponse%27"><span class="annot"><span class="annottext">StartMultiplexResponse -&gt; Maybe MultiplexSettings
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3AmultiplexSettings%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var hs-var">multiplexSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartMultiplexResponse%27"><span class="annot"><span class="annottext">StartMultiplexResponse -&gt; Int
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3AhttpStatus%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679931057"><span id="local-6989586621679931059"><span class="annot"><span class="annottext">StartMultiplexResponse -&gt; StartMultiplexResponse -&gt; Bool
+(StartMultiplexResponse -&gt; StartMultiplexResponse -&gt; Bool)
+-&gt; (StartMultiplexResponse -&gt; StartMultiplexResponse -&gt; Bool)
+-&gt; Eq StartMultiplexResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartMultiplexResponse -&gt; StartMultiplexResponse -&gt; Bool
+$c/= :: StartMultiplexResponse -&gt; StartMultiplexResponse -&gt; Bool
+== :: StartMultiplexResponse -&gt; StartMultiplexResponse -&gt; Bool
+$c== :: StartMultiplexResponse -&gt; StartMultiplexResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679931049"><span id="local-6989586621679931051"><span id="local-6989586621679931053"><span id="local-6989586621679931055"><span class="annot"><span class="annottext">ReadPrec [StartMultiplexResponse]
+ReadPrec StartMultiplexResponse
+Int -&gt; ReadS StartMultiplexResponse
+ReadS [StartMultiplexResponse]
+(Int -&gt; ReadS StartMultiplexResponse)
+-&gt; ReadS [StartMultiplexResponse]
+-&gt; ReadPrec StartMultiplexResponse
+-&gt; ReadPrec [StartMultiplexResponse]
+-&gt; Read StartMultiplexResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartMultiplexResponse]
+$creadListPrec :: ReadPrec [StartMultiplexResponse]
+readPrec :: ReadPrec StartMultiplexResponse
+$creadPrec :: ReadPrec StartMultiplexResponse
+readList :: ReadS [StartMultiplexResponse]
+$creadList :: ReadS [StartMultiplexResponse]
+readsPrec :: Int -&gt; ReadS StartMultiplexResponse
+$creadsPrec :: Int -&gt; ReadS StartMultiplexResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679931043"><span id="local-6989586621679931045"><span id="local-6989586621679931047"><span class="annot"><span class="annottext">Int -&gt; StartMultiplexResponse -&gt; ShowS
+[StartMultiplexResponse] -&gt; ShowS
+StartMultiplexResponse -&gt; String
+(Int -&gt; StartMultiplexResponse -&gt; ShowS)
+-&gt; (StartMultiplexResponse -&gt; String)
+-&gt; ([StartMultiplexResponse] -&gt; ShowS)
+-&gt; Show StartMultiplexResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartMultiplexResponse] -&gt; ShowS
+$cshowList :: [StartMultiplexResponse] -&gt; ShowS
+show :: StartMultiplexResponse -&gt; String
+$cshow :: StartMultiplexResponse -&gt; String
+showsPrec :: Int -&gt; StartMultiplexResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartMultiplexResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartMultiplexResponse -&gt; Rep StartMultiplexResponse x)
+-&gt; (forall x.
+    Rep StartMultiplexResponse x -&gt; StartMultiplexResponse)
+-&gt; Generic StartMultiplexResponse
+forall x. Rep StartMultiplexResponse x -&gt; StartMultiplexResponse
+forall x. StartMultiplexResponse -&gt; Rep StartMultiplexResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartMultiplexResponse x -&gt; StartMultiplexResponse
+$cfrom :: forall x. StartMultiplexResponse -&gt; Rep StartMultiplexResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Create a value of 'StartMultiplexResponse' with all optional fields omitted.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'availabilityZones', 'startMultiplexResponse_availabilityZones' - A list of availability zones for the multiplex.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'arn', 'startMultiplexResponse_arn' - The unique arn of the multiplex.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'id', 'startMultiplexResponse_id' - The unique id of the multiplex.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'pipelinesRunningCount', 'startMultiplexResponse_pipelinesRunningCount' - The number of currently healthy pipelines.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'name', 'startMultiplexResponse_name' - The name of the multiplex.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'destinations', 'startMultiplexResponse_destinations' - A list of the multiplex output destinations.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'programCount', 'startMultiplexResponse_programCount' - The number of programs in the multiplex.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'state', 'startMultiplexResponse_state' - The current state of the multiplex.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'tags', 'startMultiplexResponse_tags' - A collection of key-value pairs.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'multiplexSettings', 'startMultiplexResponse_multiplexSettings' - Configuration for a multiplex event.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'httpStatus', 'startMultiplexResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#newStartMultiplexResponse"><span class="hs-identifier hs-type">newStartMultiplexResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span>
+</span><span id="line-203"></span><span id="newStartMultiplexResponse"><span class="annot"><span class="annottext">newStartMultiplexResponse :: Int -&gt; StartMultiplexResponse
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#newStartMultiplexResponse"><span class="hs-identifier hs-var hs-var">newStartMultiplexResponse</span></a></span></span><span> </span><span id="local-6989586621679931040"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679931040"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="annottext">StartMultiplexResponse' :: Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe [MultiplexOutputDestination]
+-&gt; Maybe Int
+-&gt; Maybe MultiplexState
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe MultiplexSettings
+-&gt; Int
+-&gt; StartMultiplexResponse
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:availabilityZones:StartMultiplexResponse' :: Maybe [Text]
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3AavailabilityZones%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:StartMultiplexResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Aarn%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:StartMultiplexResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Aid%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelinesRunningCount:StartMultiplexResponse' :: Maybe Int
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3ApipelinesRunningCount%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">pipelinesRunningCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:StartMultiplexResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Aname%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinations:StartMultiplexResponse' :: Maybe [MultiplexOutputDestination]
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Adestinations%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MultiplexOutputDestination]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:programCount:StartMultiplexResponse' :: Maybe Int
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3AprogramCount%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">programCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:StartMultiplexResponse' :: Maybe MultiplexState
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Astate%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:StartMultiplexResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Atags%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:multiplexSettings:StartMultiplexResponse' :: Maybe MultiplexSettings
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3AmultiplexSettings%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">multiplexSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartMultiplexResponse' :: Int
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3AhttpStatus%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679931040"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | A list of availability zones for the multiplex.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_availabilityZones"><span class="hs-identifier hs-type">startMultiplexResponse_availabilityZones</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="startMultiplexResponse_availabilityZones"><span class="annot"><span class="annottext">startMultiplexResponse_availabilityZones :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; StartMultiplexResponse -&gt; f StartMultiplexResponse
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_availabilityZones"><span class="hs-identifier hs-var hs-var">startMultiplexResponse_availabilityZones</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartMultiplexResponse -&gt; Maybe [Text])
+-&gt; (StartMultiplexResponse
+    -&gt; Maybe [Text] -&gt; StartMultiplexResponse)
+-&gt; Lens
+     StartMultiplexResponse
+     StartMultiplexResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931039"><span class="annot"><span class="annottext">Maybe [Text]
+availabilityZones :: Maybe [Text]
+$sel:availabilityZones:StartMultiplexResponse' :: StartMultiplexResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679931039"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679931039"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931038"><span class="annot"><span class="annottext">s :: StartMultiplexResponse
+</span><a href="#local-6989586621679931038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931037"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679931037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMultiplexResponse
+</span><a href="#local-6989586621679931038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZones:StartMultiplexResponse' :: Maybe [Text]
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3AavailabilityZones%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679931037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; StartMultiplexResponse -&gt; f StartMultiplexResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; StartMultiplexResponse
+-&gt; f StartMultiplexResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The unique arn of the multiplex.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_arn"><span class="hs-identifier hs-type">startMultiplexResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="startMultiplexResponse_arn"><span class="annot"><span class="annottext">startMultiplexResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartMultiplexResponse -&gt; f StartMultiplexResponse
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_arn"><span class="hs-identifier hs-var hs-var">startMultiplexResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartMultiplexResponse -&gt; Maybe Text)
+-&gt; (StartMultiplexResponse -&gt; Maybe Text -&gt; StartMultiplexResponse)
+-&gt; Lens
+     StartMultiplexResponse
+     StartMultiplexResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931033"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:StartMultiplexResponse' :: StartMultiplexResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679931033"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679931033"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931032"><span class="annot"><span class="annottext">s :: StartMultiplexResponse
+</span><a href="#local-6989586621679931032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931031"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679931031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMultiplexResponse
+</span><a href="#local-6989586621679931032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:StartMultiplexResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Aarn%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679931031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The unique id of the multiplex.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_id"><span class="hs-identifier hs-type">startMultiplexResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="startMultiplexResponse_id"><span class="annot"><span class="annottext">startMultiplexResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartMultiplexResponse -&gt; f StartMultiplexResponse
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_id"><span class="hs-identifier hs-var hs-var">startMultiplexResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartMultiplexResponse -&gt; Maybe Text)
+-&gt; (StartMultiplexResponse -&gt; Maybe Text -&gt; StartMultiplexResponse)
+-&gt; Lens
+     StartMultiplexResponse
+     StartMultiplexResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931030"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:StartMultiplexResponse' :: StartMultiplexResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679931030"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679931030"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931029"><span class="annot"><span class="annottext">s :: StartMultiplexResponse
+</span><a href="#local-6989586621679931029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931028"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679931028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMultiplexResponse
+</span><a href="#local-6989586621679931029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:StartMultiplexResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Aid%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679931028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The number of currently healthy pipelines.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_pipelinesRunningCount"><span class="hs-identifier hs-type">startMultiplexResponse_pipelinesRunningCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="startMultiplexResponse_pipelinesRunningCount"><span class="annot"><span class="annottext">startMultiplexResponse_pipelinesRunningCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; StartMultiplexResponse -&gt; f StartMultiplexResponse
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_pipelinesRunningCount"><span class="hs-identifier hs-var hs-var">startMultiplexResponse_pipelinesRunningCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartMultiplexResponse -&gt; Maybe Int)
+-&gt; (StartMultiplexResponse -&gt; Maybe Int -&gt; StartMultiplexResponse)
+-&gt; Lens
+     StartMultiplexResponse
+     StartMultiplexResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931027"><span class="annot"><span class="annottext">Maybe Int
+pipelinesRunningCount :: Maybe Int
+$sel:pipelinesRunningCount:StartMultiplexResponse' :: StartMultiplexResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679931027"><span class="hs-identifier hs-var hs-var">pipelinesRunningCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679931027"><span class="hs-identifier hs-var">pipelinesRunningCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931026"><span class="annot"><span class="annottext">s :: StartMultiplexResponse
+</span><a href="#local-6989586621679931026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931025"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679931025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMultiplexResponse
+</span><a href="#local-6989586621679931026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelinesRunningCount:StartMultiplexResponse' :: Maybe Int
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3ApipelinesRunningCount%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">pipelinesRunningCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679931025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The name of the multiplex.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_name"><span class="hs-identifier hs-type">startMultiplexResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="startMultiplexResponse_name"><span class="annot"><span class="annottext">startMultiplexResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartMultiplexResponse -&gt; f StartMultiplexResponse
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_name"><span class="hs-identifier hs-var hs-var">startMultiplexResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartMultiplexResponse -&gt; Maybe Text)
+-&gt; (StartMultiplexResponse -&gt; Maybe Text -&gt; StartMultiplexResponse)
+-&gt; Lens
+     StartMultiplexResponse
+     StartMultiplexResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931024"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:StartMultiplexResponse' :: StartMultiplexResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679931024"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679931024"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931023"><span class="annot"><span class="annottext">s :: StartMultiplexResponse
+</span><a href="#local-6989586621679931023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931022"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679931022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMultiplexResponse
+</span><a href="#local-6989586621679931023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StartMultiplexResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Aname%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679931022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | A list of the multiplex output destinations.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_destinations"><span class="hs-identifier hs-type">startMultiplexResponse_destinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputDestination.html#MultiplexOutputDestination"><span class="hs-identifier hs-type">MultiplexOutputDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="startMultiplexResponse_destinations"><span class="annot"><span class="annottext">startMultiplexResponse_destinations :: (Maybe [MultiplexOutputDestination]
+ -&gt; f (Maybe [MultiplexOutputDestination]))
+-&gt; StartMultiplexResponse -&gt; f StartMultiplexResponse
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_destinations"><span class="hs-identifier hs-var hs-var">startMultiplexResponse_destinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartMultiplexResponse -&gt; Maybe [MultiplexOutputDestination])
+-&gt; (StartMultiplexResponse
+    -&gt; Maybe [MultiplexOutputDestination] -&gt; StartMultiplexResponse)
+-&gt; Lens
+     StartMultiplexResponse
+     StartMultiplexResponse
+     (Maybe [MultiplexOutputDestination])
+     (Maybe [MultiplexOutputDestination])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931021"><span class="annot"><span class="annottext">Maybe [MultiplexOutputDestination]
+destinations :: Maybe [MultiplexOutputDestination]
+$sel:destinations:StartMultiplexResponse' :: StartMultiplexResponse -&gt; Maybe [MultiplexOutputDestination]
+</span><a href="#local-6989586621679931021"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MultiplexOutputDestination]
+</span><a href="#local-6989586621679931021"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931020"><span class="annot"><span class="annottext">s :: StartMultiplexResponse
+</span><a href="#local-6989586621679931020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931019"><span class="annot"><span class="annottext">Maybe [MultiplexOutputDestination]
+</span><a href="#local-6989586621679931019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMultiplexResponse
+</span><a href="#local-6989586621679931020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinations:StartMultiplexResponse' :: Maybe [MultiplexOutputDestination]
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Adestinations%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MultiplexOutputDestination]
+</span><a href="#local-6989586621679931019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MultiplexOutputDestination]
+  -&gt; f (Maybe [MultiplexOutputDestination]))
+ -&gt; StartMultiplexResponse -&gt; f StartMultiplexResponse)
+-&gt; ((Maybe [MultiplexOutputDestination]
+     -&gt; f (Maybe [MultiplexOutputDestination]))
+    -&gt; Maybe [MultiplexOutputDestination]
+    -&gt; f (Maybe [MultiplexOutputDestination]))
+-&gt; (Maybe [MultiplexOutputDestination]
+    -&gt; f (Maybe [MultiplexOutputDestination]))
+-&gt; StartMultiplexResponse
+-&gt; f StartMultiplexResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MultiplexOutputDestination]
+  [MultiplexOutputDestination]
+  [MultiplexOutputDestination]
+  [MultiplexOutputDestination]
+-&gt; Iso
+     (Maybe [MultiplexOutputDestination])
+     (Maybe [MultiplexOutputDestination])
+     (Maybe [MultiplexOutputDestination])
+     (Maybe [MultiplexOutputDestination])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MultiplexOutputDestination]
+  [MultiplexOutputDestination]
+  [MultiplexOutputDestination]
+  [MultiplexOutputDestination]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The number of programs in the multiplex.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_programCount"><span class="hs-identifier hs-type">startMultiplexResponse_programCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="startMultiplexResponse_programCount"><span class="annot"><span class="annottext">startMultiplexResponse_programCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; StartMultiplexResponse -&gt; f StartMultiplexResponse
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_programCount"><span class="hs-identifier hs-var hs-var">startMultiplexResponse_programCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartMultiplexResponse -&gt; Maybe Int)
+-&gt; (StartMultiplexResponse -&gt; Maybe Int -&gt; StartMultiplexResponse)
+-&gt; Lens
+     StartMultiplexResponse
+     StartMultiplexResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931018"><span class="annot"><span class="annottext">Maybe Int
+programCount :: Maybe Int
+$sel:programCount:StartMultiplexResponse' :: StartMultiplexResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679931018"><span class="hs-identifier hs-var hs-var">programCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679931018"><span class="hs-identifier hs-var">programCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931017"><span class="annot"><span class="annottext">s :: StartMultiplexResponse
+</span><a href="#local-6989586621679931017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931016"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679931016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMultiplexResponse
+</span><a href="#local-6989586621679931017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:programCount:StartMultiplexResponse' :: Maybe Int
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3AprogramCount%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">programCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679931016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The current state of the multiplex.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_state"><span class="hs-identifier hs-type">startMultiplexResponse_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexState.html#MultiplexState"><span class="hs-identifier hs-type">MultiplexState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="startMultiplexResponse_state"><span class="annot"><span class="annottext">startMultiplexResponse_state :: (Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; StartMultiplexResponse -&gt; f StartMultiplexResponse
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_state"><span class="hs-identifier hs-var hs-var">startMultiplexResponse_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartMultiplexResponse -&gt; Maybe MultiplexState)
+-&gt; (StartMultiplexResponse
+    -&gt; Maybe MultiplexState -&gt; StartMultiplexResponse)
+-&gt; Lens
+     StartMultiplexResponse
+     StartMultiplexResponse
+     (Maybe MultiplexState)
+     (Maybe MultiplexState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931015"><span class="annot"><span class="annottext">Maybe MultiplexState
+state :: Maybe MultiplexState
+$sel:state:StartMultiplexResponse' :: StartMultiplexResponse -&gt; Maybe MultiplexState
+</span><a href="#local-6989586621679931015"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexState
+</span><a href="#local-6989586621679931015"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931014"><span class="annot"><span class="annottext">s :: StartMultiplexResponse
+</span><a href="#local-6989586621679931014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931013"><span class="annot"><span class="annottext">Maybe MultiplexState
+</span><a href="#local-6989586621679931013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMultiplexResponse
+</span><a href="#local-6989586621679931014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:StartMultiplexResponse' :: Maybe MultiplexState
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Astate%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexState
+</span><a href="#local-6989586621679931013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | A collection of key-value pairs.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_tags"><span class="hs-identifier hs-type">startMultiplexResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="startMultiplexResponse_tags"><span class="annot"><span class="annottext">startMultiplexResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; StartMultiplexResponse -&gt; f StartMultiplexResponse
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_tags"><span class="hs-identifier hs-var hs-var">startMultiplexResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartMultiplexResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (StartMultiplexResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; StartMultiplexResponse)
+-&gt; Lens
+     StartMultiplexResponse
+     StartMultiplexResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931012"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:StartMultiplexResponse' :: StartMultiplexResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679931012"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679931012"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931011"><span class="annot"><span class="annottext">s :: StartMultiplexResponse
+</span><a href="#local-6989586621679931011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931010"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679931010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMultiplexResponse
+</span><a href="#local-6989586621679931011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:StartMultiplexResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3Atags%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679931010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; StartMultiplexResponse -&gt; f StartMultiplexResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; StartMultiplexResponse
+-&gt; f StartMultiplexResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | Configuration for a multiplex event.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_multiplexSettings"><span class="hs-identifier hs-type">startMultiplexResponse_multiplexSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="startMultiplexResponse_multiplexSettings"><span class="annot"><span class="annottext">startMultiplexResponse_multiplexSettings :: (Maybe MultiplexSettings -&gt; f (Maybe MultiplexSettings))
+-&gt; StartMultiplexResponse -&gt; f StartMultiplexResponse
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_multiplexSettings"><span class="hs-identifier hs-var hs-var">startMultiplexResponse_multiplexSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartMultiplexResponse -&gt; Maybe MultiplexSettings)
+-&gt; (StartMultiplexResponse
+    -&gt; Maybe MultiplexSettings -&gt; StartMultiplexResponse)
+-&gt; Lens
+     StartMultiplexResponse
+     StartMultiplexResponse
+     (Maybe MultiplexSettings)
+     (Maybe MultiplexSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931009"><span class="annot"><span class="annottext">Maybe MultiplexSettings
+multiplexSettings :: Maybe MultiplexSettings
+$sel:multiplexSettings:StartMultiplexResponse' :: StartMultiplexResponse -&gt; Maybe MultiplexSettings
+</span><a href="#local-6989586621679931009"><span class="hs-identifier hs-var hs-var">multiplexSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexSettings
+</span><a href="#local-6989586621679931009"><span class="hs-identifier hs-var">multiplexSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931008"><span class="annot"><span class="annottext">s :: StartMultiplexResponse
+</span><a href="#local-6989586621679931008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931007"><span class="annot"><span class="annottext">Maybe MultiplexSettings
+</span><a href="#local-6989586621679931007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMultiplexResponse
+</span><a href="#local-6989586621679931008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiplexSettings:StartMultiplexResponse' :: Maybe MultiplexSettings
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3AmultiplexSettings%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">multiplexSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexSettings
+</span><a href="#local-6989586621679931007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_httpStatus"><span class="hs-identifier hs-type">startMultiplexResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-261"></span><span id="startMultiplexResponse_httpStatus"><span class="annot"><span class="annottext">startMultiplexResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartMultiplexResponse -&gt; f StartMultiplexResponse
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#startMultiplexResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startMultiplexResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartMultiplexResponse -&gt; Int)
+-&gt; (StartMultiplexResponse -&gt; Int -&gt; StartMultiplexResponse)
+-&gt; Lens StartMultiplexResponse StartMultiplexResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931006"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartMultiplexResponse' :: StartMultiplexResponse -&gt; Int
+</span><a href="#local-6989586621679931006"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679931006"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931005"><span class="annot"><span class="annottext">s :: StartMultiplexResponse
+</span><a href="#local-6989586621679931005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse%27"><span class="hs-identifier hs-type">StartMultiplexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931004"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679931004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMultiplexResponse
+</span><a href="#local-6989586621679931005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartMultiplexResponse' :: Int
+</span><a href="Network.AWS.MediaLive.StartMultiplex.html#%24sel%3AhttpStatus%3AStartMultiplexResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679931004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931002"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.StartMultiplex.html#StartMultiplexResponse"><span class="hs-identifier hs-type">StartMultiplexResponse</span></a></span></span><span>
+</span><span id="line-264"></span></pre></body></html>

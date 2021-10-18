@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodePipeline.Types.PipelineContext</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodePipeline.Types.PipelineContext</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionContext.html"><span class="hs-identifier">Network.AWS.CodePipeline.Types.ActionContext</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html"><span class="hs-identifier">Network.AWS.CodePipeline.Types.StageContext</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Represents information about a pipeline to a job worker.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- PipelineContext contains @pipelineArn@ and @pipelineExecutionId@ for</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- custom action jobs. The @pipelineArn@ and @pipelineExecutionId@ fields</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- are not populated for ThirdParty action jobs.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newPipelineContext' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679281186"><span id="local-6989586621679281187"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineContext"><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext"><span class="hs-identifier hs-var">PipelineContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineContext%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext%27"><span class="hs-identifier hs-var">PipelineContext'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pipeline.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3ApipelineArn%3APipelineContext%27"><span class="annot"><span class="annottext">PipelineContext -&gt; Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#%24sel%3ApipelineArn%3APipelineContext%27"><span class="hs-identifier hs-var hs-var">pipelineArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The stage of the pipeline.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Astage%3APipelineContext%27"><span class="annot"><span class="annottext">PipelineContext -&gt; Maybe StageContext
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#%24sel%3Astage%3APipelineContext%27"><span class="hs-identifier hs-var hs-var">stage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext"><span class="hs-identifier hs-type">StageContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The context of an action to a job worker in the stage of a pipeline.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aaction%3APipelineContext%27"><span class="annot"><span class="annottext">PipelineContext -&gt; Maybe ActionContext
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#%24sel%3Aaction%3APipelineContext%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionContext.html#ActionContext"><span class="hs-identifier hs-type">ActionContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of the pipeline. This is a user-specified value. Pipeline names</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- must be unique across all pipeline names under an Amazon Web Services</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3ApipelineName%3APipelineContext%27"><span class="annot"><span class="annottext">PipelineContext -&gt; Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#%24sel%3ApipelineName%3APipelineContext%27"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The execution ID of the pipeline.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3ApipelineExecutionId%3APipelineContext%27"><span class="annot"><span class="annottext">PipelineContext -&gt; Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#%24sel%3ApipelineExecutionId%3APipelineContext%27"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281176"><span id="local-6989586621679281178"><span class="annot"><span class="annottext">PipelineContext -&gt; PipelineContext -&gt; Bool
+(PipelineContext -&gt; PipelineContext -&gt; Bool)
+-&gt; (PipelineContext -&gt; PipelineContext -&gt; Bool)
+-&gt; Eq PipelineContext
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PipelineContext -&gt; PipelineContext -&gt; Bool
+$c/= :: PipelineContext -&gt; PipelineContext -&gt; Bool
+== :: PipelineContext -&gt; PipelineContext -&gt; Bool
+$c== :: PipelineContext -&gt; PipelineContext -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281167"><span id="local-6989586621679281169"><span id="local-6989586621679281171"><span id="local-6989586621679281173"><span class="annot"><span class="annottext">ReadPrec [PipelineContext]
+ReadPrec PipelineContext
+Int -&gt; ReadS PipelineContext
+ReadS [PipelineContext]
+(Int -&gt; ReadS PipelineContext)
+-&gt; ReadS [PipelineContext]
+-&gt; ReadPrec PipelineContext
+-&gt; ReadPrec [PipelineContext]
+-&gt; Read PipelineContext
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PipelineContext]
+$creadListPrec :: ReadPrec [PipelineContext]
+readPrec :: ReadPrec PipelineContext
+$creadPrec :: ReadPrec PipelineContext
+readList :: ReadS [PipelineContext]
+$creadList :: ReadS [PipelineContext]
+readsPrec :: Int -&gt; ReadS PipelineContext
+$creadsPrec :: Int -&gt; ReadS PipelineContext
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281160"><span id="local-6989586621679281162"><span id="local-6989586621679281164"><span class="annot"><span class="annottext">Int -&gt; PipelineContext -&gt; ShowS
+[PipelineContext] -&gt; ShowS
+PipelineContext -&gt; String
+(Int -&gt; PipelineContext -&gt; ShowS)
+-&gt; (PipelineContext -&gt; String)
+-&gt; ([PipelineContext] -&gt; ShowS)
+-&gt; Show PipelineContext
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PipelineContext] -&gt; ShowS
+$cshowList :: [PipelineContext] -&gt; ShowS
+show :: PipelineContext -&gt; String
+$cshow :: PipelineContext -&gt; String
+showsPrec :: Int -&gt; PipelineContext -&gt; ShowS
+$cshowsPrec :: Int -&gt; PipelineContext -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PipelineContext -&gt; Rep PipelineContext x)
+-&gt; (forall x. Rep PipelineContext x -&gt; PipelineContext)
+-&gt; Generic PipelineContext
+forall x. Rep PipelineContext x -&gt; PipelineContext
+forall x. PipelineContext -&gt; Rep PipelineContext x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PipelineContext x -&gt; PipelineContext
+$cfrom :: forall x. PipelineContext -&gt; Rep PipelineContext x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'PipelineContext' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'pipelineArn', 'pipelineContext_pipelineArn' - The Amazon Resource Name (ARN) of the pipeline.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'stage', 'pipelineContext_stage' - The stage of the pipeline.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'action', 'pipelineContext_action' - The context of an action to a job worker in the stage of a pipeline.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'pipelineName', 'pipelineContext_pipelineName' - The name of the pipeline. This is a user-specified value. Pipeline names</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- must be unique across all pipeline names under an Amazon Web Services</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'pipelineExecutionId', 'pipelineContext_pipelineExecutionId' - The execution ID of the pipeline.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#newPipelineContext"><span class="hs-identifier hs-type">newPipelineContext</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext"><span class="hs-identifier hs-type">PipelineContext</span></a></span><span>
+</span><span id="line-72"></span><span id="newPipelineContext"><span class="annot"><span class="annottext">newPipelineContext :: PipelineContext
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#newPipelineContext"><span class="hs-identifier hs-var hs-var">newPipelineContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">PipelineContext' :: Maybe Text
+-&gt; Maybe StageContext
+-&gt; Maybe ActionContext
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; PipelineContext
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext%27"><span class="hs-identifier hs-type">PipelineContext'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pipelineArn:PipelineContext' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#%24sel%3ApipelineArn%3APipelineContext%27"><span class="hs-identifier hs-var">pipelineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:stage:PipelineContext' :: Maybe StageContext
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#%24sel%3Astage%3APipelineContext%27"><span class="hs-identifier hs-var">stage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StageContext
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:action:PipelineContext' :: Maybe ActionContext
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#%24sel%3Aaction%3APipelineContext%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionContext
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineName:PipelineContext' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#%24sel%3ApipelineName%3APipelineContext%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:PipelineContext' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#%24sel%3ApipelineExecutionId%3APipelineContext%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pipeline.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#pipelineContext_pipelineArn"><span class="hs-identifier hs-type">pipelineContext_pipelineArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext"><span class="hs-identifier hs-type">PipelineContext</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="pipelineContext_pipelineArn"><span class="annot"><span class="annottext">pipelineContext_pipelineArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PipelineContext -&gt; f PipelineContext
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#pipelineContext_pipelineArn"><span class="hs-identifier hs-var hs-var">pipelineContext_pipelineArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineContext -&gt; Maybe Text)
+-&gt; (PipelineContext -&gt; Maybe Text -&gt; PipelineContext)
+-&gt; Lens PipelineContext PipelineContext (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext%27"><span class="hs-identifier hs-type">PipelineContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281151"><span class="annot"><span class="annottext">Maybe Text
+pipelineArn :: Maybe Text
+$sel:pipelineArn:PipelineContext' :: PipelineContext -&gt; Maybe Text
+</span><a href="#local-6989586621679281151"><span class="hs-identifier hs-var hs-var">pipelineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281151"><span class="hs-identifier hs-var">pipelineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281150"><span class="annot"><span class="annottext">s :: PipelineContext
+</span><a href="#local-6989586621679281150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext%27"><span class="hs-identifier hs-type">PipelineContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281149"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineContext
+</span><a href="#local-6989586621679281150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineArn:PipelineContext' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#%24sel%3ApipelineArn%3APipelineContext%27"><span class="hs-identifier hs-var">pipelineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext"><span class="hs-identifier hs-type">PipelineContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The stage of the pipeline.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#pipelineContext_stage"><span class="hs-identifier hs-type">pipelineContext_stage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext"><span class="hs-identifier hs-type">PipelineContext</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext"><span class="hs-identifier hs-type">StageContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="pipelineContext_stage"><span class="annot"><span class="annottext">pipelineContext_stage :: (Maybe StageContext -&gt; f (Maybe StageContext))
+-&gt; PipelineContext -&gt; f PipelineContext
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#pipelineContext_stage"><span class="hs-identifier hs-var hs-var">pipelineContext_stage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineContext -&gt; Maybe StageContext)
+-&gt; (PipelineContext -&gt; Maybe StageContext -&gt; PipelineContext)
+-&gt; Lens
+     PipelineContext
+     PipelineContext
+     (Maybe StageContext)
+     (Maybe StageContext)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext%27"><span class="hs-identifier hs-type">PipelineContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281147"><span class="annot"><span class="annottext">Maybe StageContext
+stage :: Maybe StageContext
+$sel:stage:PipelineContext' :: PipelineContext -&gt; Maybe StageContext
+</span><a href="#local-6989586621679281147"><span class="hs-identifier hs-var hs-var">stage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StageContext
+</span><a href="#local-6989586621679281147"><span class="hs-identifier hs-var">stage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281146"><span class="annot"><span class="annottext">s :: PipelineContext
+</span><a href="#local-6989586621679281146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext%27"><span class="hs-identifier hs-type">PipelineContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281145"><span class="annot"><span class="annottext">Maybe StageContext
+</span><a href="#local-6989586621679281145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineContext
+</span><a href="#local-6989586621679281146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stage:PipelineContext' :: Maybe StageContext
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#%24sel%3Astage%3APipelineContext%27"><span class="hs-identifier hs-var">stage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StageContext
+</span><a href="#local-6989586621679281145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext"><span class="hs-identifier hs-type">PipelineContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The context of an action to a job worker in the stage of a pipeline.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#pipelineContext_action"><span class="hs-identifier hs-type">pipelineContext_action</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext"><span class="hs-identifier hs-type">PipelineContext</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionContext.html#ActionContext"><span class="hs-identifier hs-type">ActionContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="pipelineContext_action"><span class="annot"><span class="annottext">pipelineContext_action :: (Maybe ActionContext -&gt; f (Maybe ActionContext))
+-&gt; PipelineContext -&gt; f PipelineContext
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#pipelineContext_action"><span class="hs-identifier hs-var hs-var">pipelineContext_action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineContext -&gt; Maybe ActionContext)
+-&gt; (PipelineContext -&gt; Maybe ActionContext -&gt; PipelineContext)
+-&gt; Lens
+     PipelineContext
+     PipelineContext
+     (Maybe ActionContext)
+     (Maybe ActionContext)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext%27"><span class="hs-identifier hs-type">PipelineContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281143"><span class="annot"><span class="annottext">Maybe ActionContext
+action :: Maybe ActionContext
+$sel:action:PipelineContext' :: PipelineContext -&gt; Maybe ActionContext
+</span><a href="#local-6989586621679281143"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionContext
+</span><a href="#local-6989586621679281143"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281142"><span class="annot"><span class="annottext">s :: PipelineContext
+</span><a href="#local-6989586621679281142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext%27"><span class="hs-identifier hs-type">PipelineContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281141"><span class="annot"><span class="annottext">Maybe ActionContext
+</span><a href="#local-6989586621679281141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineContext
+</span><a href="#local-6989586621679281142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:PipelineContext' :: Maybe ActionContext
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#%24sel%3Aaction%3APipelineContext%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionContext
+</span><a href="#local-6989586621679281141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext"><span class="hs-identifier hs-type">PipelineContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The name of the pipeline. This is a user-specified value. Pipeline names</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- must be unique across all pipeline names under an Amazon Web Services</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#pipelineContext_pipelineName"><span class="hs-identifier hs-type">pipelineContext_pipelineName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext"><span class="hs-identifier hs-type">PipelineContext</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="pipelineContext_pipelineName"><span class="annot"><span class="annottext">pipelineContext_pipelineName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PipelineContext -&gt; f PipelineContext
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#pipelineContext_pipelineName"><span class="hs-identifier hs-var hs-var">pipelineContext_pipelineName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineContext -&gt; Maybe Text)
+-&gt; (PipelineContext -&gt; Maybe Text -&gt; PipelineContext)
+-&gt; Lens PipelineContext PipelineContext (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext%27"><span class="hs-identifier hs-type">PipelineContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281139"><span class="annot"><span class="annottext">Maybe Text
+pipelineName :: Maybe Text
+$sel:pipelineName:PipelineContext' :: PipelineContext -&gt; Maybe Text
+</span><a href="#local-6989586621679281139"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281139"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281138"><span class="annot"><span class="annottext">s :: PipelineContext
+</span><a href="#local-6989586621679281138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext%27"><span class="hs-identifier hs-type">PipelineContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281137"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineContext
+</span><a href="#local-6989586621679281138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:PipelineContext' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#%24sel%3ApipelineName%3APipelineContext%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext"><span class="hs-identifier hs-type">PipelineContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The execution ID of the pipeline.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#pipelineContext_pipelineExecutionId"><span class="hs-identifier hs-type">pipelineContext_pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext"><span class="hs-identifier hs-type">PipelineContext</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="pipelineContext_pipelineExecutionId"><span class="annot"><span class="annottext">pipelineContext_pipelineExecutionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PipelineContext -&gt; f PipelineContext
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#pipelineContext_pipelineExecutionId"><span class="hs-identifier hs-var hs-var">pipelineContext_pipelineExecutionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineContext -&gt; Maybe Text)
+-&gt; (PipelineContext -&gt; Maybe Text -&gt; PipelineContext)
+-&gt; Lens PipelineContext PipelineContext (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext%27"><span class="hs-identifier hs-type">PipelineContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281135"><span class="annot"><span class="annottext">Maybe Text
+pipelineExecutionId :: Maybe Text
+$sel:pipelineExecutionId:PipelineContext' :: PipelineContext -&gt; Maybe Text
+</span><a href="#local-6989586621679281135"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281135"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281134"><span class="annot"><span class="annottext">s :: PipelineContext
+</span><a href="#local-6989586621679281134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext%27"><span class="hs-identifier hs-type">PipelineContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281133"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineContext
+</span><a href="#local-6989586621679281134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:PipelineContext' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#%24sel%3ApipelineExecutionId%3APipelineContext%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext"><span class="hs-identifier hs-type">PipelineContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281130"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext"><span class="hs-identifier hs-type">PipelineContext</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679281128"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineContext
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PipelineContext)
+-&gt; Value
+-&gt; Parser PipelineContext
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PipelineContext&quot;</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281125"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281125"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe StageContext
+-&gt; Maybe ActionContext
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; PipelineContext
+</span><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext%27"><span class="hs-identifier hs-var">PipelineContext'</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe StageContext
+ -&gt; Maybe ActionContext
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; PipelineContext)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe StageContext
+      -&gt; Maybe ActionContext
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; PipelineContext)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pipelineArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe StageContext
+   -&gt; Maybe ActionContext
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; PipelineContext)
+-&gt; Parser (Maybe StageContext)
+-&gt; Parser
+     (Maybe ActionContext
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; PipelineContext)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StageContext)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ActionContext
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; PipelineContext)
+-&gt; Parser (Maybe ActionContext)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; PipelineContext)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ActionContext)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;action&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; PipelineContext)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; PipelineContext)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pipelineName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PipelineContext)
+-&gt; Parser (Maybe Text) -&gt; Parser PipelineContext
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pipelineExecutionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281119"><span id="local-6989586621679281121"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext"><span class="hs-identifier hs-type">PipelineContext</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281116"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineContext.html#PipelineContext"><span class="hs-identifier hs-type">PipelineContext</span></a></span></span><span>
+</span><span id="line-119"></span></pre></body></html>

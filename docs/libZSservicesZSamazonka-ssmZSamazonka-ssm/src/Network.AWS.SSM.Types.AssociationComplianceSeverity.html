@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.AssociationComplianceSeverity</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.AssociationComplianceSeverity</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity"><span class="hs-identifier">AssociationComplianceSeverity</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity_CRITICAL"><span class="hs-identifier">AssociationComplianceSeverity_CRITICAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity_HIGH"><span class="hs-identifier">AssociationComplianceSeverity_HIGH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity_LOW"><span class="hs-identifier">AssociationComplianceSeverity_LOW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity_MEDIUM"><span class="hs-identifier">AssociationComplianceSeverity_MEDIUM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity_UNSPECIFIED"><span class="hs-identifier">AssociationComplianceSeverity_UNSPECIFIED</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679784484"><span id="local-6989586621679784485"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssociationComplianceSeverity"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity"><span class="hs-identifier hs-var">AssociationComplianceSeverity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationComplianceSeverity%27"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity%27"><span class="hs-identifier hs-var">AssociationComplianceSeverity'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssociationComplianceSeverity"><span class="annot"><span class="annottext">AssociationComplianceSeverity -&gt; Text
+</span><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#fromAssociationComplianceSeverity"><span class="hs-identifier hs-var hs-var">fromAssociationComplianceSeverity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679784476"><span id="local-6989586621679784478"><span id="local-6989586621679784480"><span class="annot"><span class="annottext">Int -&gt; AssociationComplianceSeverity -&gt; ShowS
+[AssociationComplianceSeverity] -&gt; ShowS
+AssociationComplianceSeverity -&gt; String
+(Int -&gt; AssociationComplianceSeverity -&gt; ShowS)
+-&gt; (AssociationComplianceSeverity -&gt; String)
+-&gt; ([AssociationComplianceSeverity] -&gt; ShowS)
+-&gt; Show AssociationComplianceSeverity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociationComplianceSeverity] -&gt; ShowS
+$cshowList :: [AssociationComplianceSeverity] -&gt; ShowS
+show :: AssociationComplianceSeverity -&gt; String
+$cshow :: AssociationComplianceSeverity -&gt; String
+showsPrec :: Int -&gt; AssociationComplianceSeverity -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociationComplianceSeverity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679784467"><span id="local-6989586621679784469"><span id="local-6989586621679784471"><span id="local-6989586621679784473"><span class="annot"><span class="annottext">ReadPrec [AssociationComplianceSeverity]
+ReadPrec AssociationComplianceSeverity
+Int -&gt; ReadS AssociationComplianceSeverity
+ReadS [AssociationComplianceSeverity]
+(Int -&gt; ReadS AssociationComplianceSeverity)
+-&gt; ReadS [AssociationComplianceSeverity]
+-&gt; ReadPrec AssociationComplianceSeverity
+-&gt; ReadPrec [AssociationComplianceSeverity]
+-&gt; Read AssociationComplianceSeverity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociationComplianceSeverity]
+$creadListPrec :: ReadPrec [AssociationComplianceSeverity]
+readPrec :: ReadPrec AssociationComplianceSeverity
+$creadPrec :: ReadPrec AssociationComplianceSeverity
+readList :: ReadS [AssociationComplianceSeverity]
+$creadList :: ReadS [AssociationComplianceSeverity]
+readsPrec :: Int -&gt; ReadS AssociationComplianceSeverity
+$creadsPrec :: Int -&gt; ReadS AssociationComplianceSeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679784462"><span id="local-6989586621679784464"><span class="annot"><span class="annottext">AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Bool
+(AssociationComplianceSeverity
+ -&gt; AssociationComplianceSeverity -&gt; Bool)
+-&gt; (AssociationComplianceSeverity
+    -&gt; AssociationComplianceSeverity -&gt; Bool)
+-&gt; Eq AssociationComplianceSeverity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Bool
+$c/= :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Bool
+== :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Bool
+$c== :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679784446"><span id="local-6989586621679784448"><span id="local-6989586621679784450"><span id="local-6989586621679784452"><span id="local-6989586621679784454"><span id="local-6989586621679784456"><span id="local-6989586621679784458"><span class="annot"><span class="annottext">Eq AssociationComplianceSeverity
+Eq AssociationComplianceSeverity
+-&gt; (AssociationComplianceSeverity
+    -&gt; AssociationComplianceSeverity -&gt; Ordering)
+-&gt; (AssociationComplianceSeverity
+    -&gt; AssociationComplianceSeverity -&gt; Bool)
+-&gt; (AssociationComplianceSeverity
+    -&gt; AssociationComplianceSeverity -&gt; Bool)
+-&gt; (AssociationComplianceSeverity
+    -&gt; AssociationComplianceSeverity -&gt; Bool)
+-&gt; (AssociationComplianceSeverity
+    -&gt; AssociationComplianceSeverity -&gt; Bool)
+-&gt; (AssociationComplianceSeverity
+    -&gt; AssociationComplianceSeverity -&gt; AssociationComplianceSeverity)
+-&gt; (AssociationComplianceSeverity
+    -&gt; AssociationComplianceSeverity -&gt; AssociationComplianceSeverity)
+-&gt; Ord AssociationComplianceSeverity
+AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Bool
+AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Ordering
+AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; AssociationComplianceSeverity
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; AssociationComplianceSeverity
+$cmin :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; AssociationComplianceSeverity
+max :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; AssociationComplianceSeverity
+$cmax :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; AssociationComplianceSeverity
+&gt;= :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Bool
+$c&gt;= :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Bool
+&gt; :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Bool
+$c&gt; :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Bool
+&lt;= :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Bool
+$c&lt;= :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Bool
+&lt; :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Bool
+$c&lt; :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Bool
+compare :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Ordering
+$ccompare :: AssociationComplianceSeverity
+-&gt; AssociationComplianceSeverity -&gt; Ordering
+$cp1Ord :: Eq AssociationComplianceSeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AssociationComplianceSeverity
+ -&gt; Rep AssociationComplianceSeverity x)
+-&gt; (forall x.
+    Rep AssociationComplianceSeverity x
+    -&gt; AssociationComplianceSeverity)
+-&gt; Generic AssociationComplianceSeverity
+forall x.
+Rep AssociationComplianceSeverity x
+-&gt; AssociationComplianceSeverity
+forall x.
+AssociationComplianceSeverity
+-&gt; Rep AssociationComplianceSeverity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociationComplianceSeverity x
+-&gt; AssociationComplianceSeverity
+$cfrom :: forall x.
+AssociationComplianceSeverity
+-&gt; Rep AssociationComplianceSeverity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679784438"><span id="local-6989586621679784440"><span class="annot"><span class="annottext">Int -&gt; AssociationComplianceSeverity -&gt; Int
+AssociationComplianceSeverity -&gt; Int
+(Int -&gt; AssociationComplianceSeverity -&gt; Int)
+-&gt; (AssociationComplianceSeverity -&gt; Int)
+-&gt; Hashable AssociationComplianceSeverity
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AssociationComplianceSeverity -&gt; Int
+$chash :: AssociationComplianceSeverity -&gt; Int
+hashWithSalt :: Int -&gt; AssociationComplianceSeverity -&gt; Int
+$chashWithSalt :: Int -&gt; AssociationComplianceSeverity -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679784435"><span class="annot"><span class="annottext">AssociationComplianceSeverity -&gt; ()
+(AssociationComplianceSeverity -&gt; ())
+-&gt; NFData AssociationComplianceSeverity
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AssociationComplianceSeverity -&gt; ()
+$crnf :: AssociationComplianceSeverity -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679784432"><span class="annot"><span class="annottext">Text -&gt; Either String AssociationComplianceSeverity
+(Text -&gt; Either String AssociationComplianceSeverity)
+-&gt; FromText AssociationComplianceSeverity
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AssociationComplianceSeverity
+$cfromText :: Text -&gt; Either String AssociationComplianceSeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679784429"><span class="annot"><span class="annottext">AssociationComplianceSeverity -&gt; Text
+(AssociationComplianceSeverity -&gt; Text)
+-&gt; ToText AssociationComplianceSeverity
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AssociationComplianceSeverity -&gt; Text
+$ctoText :: AssociationComplianceSeverity -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679784426"><span class="annot"><span class="annottext">AssociationComplianceSeverity -&gt; ByteString
+(AssociationComplianceSeverity -&gt; ByteString)
+-&gt; ToByteString AssociationComplianceSeverity
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AssociationComplianceSeverity -&gt; ByteString
+$ctoBS :: AssociationComplianceSeverity -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679784423"><span class="annot"><span class="annottext">AssociationComplianceSeverity -&gt; ByteStringBuilder
+(AssociationComplianceSeverity -&gt; ByteStringBuilder)
+-&gt; ToLog AssociationComplianceSeverity
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AssociationComplianceSeverity -&gt; ByteStringBuilder
+$cbuild :: AssociationComplianceSeverity -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679784420"><span class="annot"><span class="annottext">HeaderName -&gt; AssociationComplianceSeverity -&gt; [Header]
+(HeaderName -&gt; AssociationComplianceSeverity -&gt; [Header])
+-&gt; ToHeader AssociationComplianceSeverity
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AssociationComplianceSeverity -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AssociationComplianceSeverity -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679784417"><span class="annot"><span class="annottext">AssociationComplianceSeverity -&gt; QueryString
+(AssociationComplianceSeverity -&gt; QueryString)
+-&gt; ToQuery AssociationComplianceSeverity
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AssociationComplianceSeverity -&gt; QueryString
+$ctoQuery :: AssociationComplianceSeverity -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679784412"><span id="local-6989586621679784414"><span class="annot"><span class="annottext">Value -&gt; Parser [AssociationComplianceSeverity]
+Value -&gt; Parser AssociationComplianceSeverity
+(Value -&gt; Parser AssociationComplianceSeverity)
+-&gt; (Value -&gt; Parser [AssociationComplianceSeverity])
+-&gt; FromJSON AssociationComplianceSeverity
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AssociationComplianceSeverity]
+$cparseJSONList :: Value -&gt; Parser [AssociationComplianceSeverity]
+parseJSON :: Value -&gt; Parser AssociationComplianceSeverity
+$cparseJSON :: Value -&gt; Parser AssociationComplianceSeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679784407"><span id="local-6989586621679784409"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssociationComplianceSeverity]
+FromJSONKeyFunction AssociationComplianceSeverity
+FromJSONKeyFunction AssociationComplianceSeverity
+-&gt; FromJSONKeyFunction [AssociationComplianceSeverity]
+-&gt; FromJSONKey AssociationComplianceSeverity
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AssociationComplianceSeverity]
+$cfromJSONKeyList :: FromJSONKeyFunction [AssociationComplianceSeverity]
+fromJSONKey :: FromJSONKeyFunction AssociationComplianceSeverity
+$cfromJSONKey :: FromJSONKeyFunction AssociationComplianceSeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679784398"><span id="local-6989586621679784400"><span id="local-6989586621679784402"><span id="local-6989586621679784404"><span class="annot"><span class="annottext">[AssociationComplianceSeverity] -&gt; Encoding
+[AssociationComplianceSeverity] -&gt; Value
+AssociationComplianceSeverity -&gt; Encoding
+AssociationComplianceSeverity -&gt; Value
+(AssociationComplianceSeverity -&gt; Value)
+-&gt; (AssociationComplianceSeverity -&gt; Encoding)
+-&gt; ([AssociationComplianceSeverity] -&gt; Value)
+-&gt; ([AssociationComplianceSeverity] -&gt; Encoding)
+-&gt; ToJSON AssociationComplianceSeverity
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AssociationComplianceSeverity] -&gt; Encoding
+$ctoEncodingList :: [AssociationComplianceSeverity] -&gt; Encoding
+toJSONList :: [AssociationComplianceSeverity] -&gt; Value
+$ctoJSONList :: [AssociationComplianceSeverity] -&gt; Value
+toEncoding :: AssociationComplianceSeverity -&gt; Encoding
+$ctoEncoding :: AssociationComplianceSeverity -&gt; Encoding
+toJSON :: AssociationComplianceSeverity -&gt; Value
+$ctoJSON :: AssociationComplianceSeverity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679784393"><span id="local-6989586621679784395"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssociationComplianceSeverity]
+ToJSONKeyFunction AssociationComplianceSeverity
+ToJSONKeyFunction AssociationComplianceSeverity
+-&gt; ToJSONKeyFunction [AssociationComplianceSeverity]
+-&gt; ToJSONKey AssociationComplianceSeverity
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AssociationComplianceSeverity]
+$ctoJSONKeyList :: ToJSONKeyFunction [AssociationComplianceSeverity]
+toJSONKey :: ToJSONKeyFunction AssociationComplianceSeverity
+$ctoJSONKey :: ToJSONKeyFunction AssociationComplianceSeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679784390"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssociationComplianceSeverity
+([Node] -&gt; Either String AssociationComplianceSeverity)
+-&gt; FromXML AssociationComplianceSeverity
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AssociationComplianceSeverity
+$cparseXML :: [Node] -&gt; Either String AssociationComplianceSeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679784387"><span class="annot"><span class="annottext">AssociationComplianceSeverity -&gt; XML
+(AssociationComplianceSeverity -&gt; XML)
+-&gt; ToXML AssociationComplianceSeverity
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AssociationComplianceSeverity -&gt; XML
+$ctoXML :: AssociationComplianceSeverity -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity_CRITICAL"><span class="hs-identifier hs-type">AssociationComplianceSeverity_CRITICAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity"><span class="hs-identifier hs-type">AssociationComplianceSeverity</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssociationComplianceSeverity_CRITICAL"><span id="%24mAssociationComplianceSeverity_CRITICAL"><span id="AssociationComplianceSeverity_CRITICAL"><span class="annot"><span class="annottext">$bAssociationComplianceSeverity_CRITICAL :: AssociationComplianceSeverity
+$mAssociationComplianceSeverity_CRITICAL :: forall r.
+AssociationComplianceSeverity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#%24bAssociationComplianceSeverity_CRITICAL"><span class="hs-identifier hs-var hs-var hs-var">AssociationComplianceSeverity_CRITICAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity%27"><span class="hs-identifier hs-type">AssociationComplianceSeverity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CRITICAL&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity_HIGH"><span class="hs-identifier hs-type">AssociationComplianceSeverity_HIGH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity"><span class="hs-identifier hs-type">AssociationComplianceSeverity</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssociationComplianceSeverity_HIGH"><span id="%24mAssociationComplianceSeverity_HIGH"><span id="AssociationComplianceSeverity_HIGH"><span class="annot"><span class="annottext">$bAssociationComplianceSeverity_HIGH :: AssociationComplianceSeverity
+$mAssociationComplianceSeverity_HIGH :: forall r.
+AssociationComplianceSeverity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#%24bAssociationComplianceSeverity_HIGH"><span class="hs-identifier hs-var hs-var hs-var">AssociationComplianceSeverity_HIGH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity%27"><span class="hs-identifier hs-type">AssociationComplianceSeverity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HIGH&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity_LOW"><span class="hs-identifier hs-type">AssociationComplianceSeverity_LOW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity"><span class="hs-identifier hs-type">AssociationComplianceSeverity</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssociationComplianceSeverity_LOW"><span id="%24mAssociationComplianceSeverity_LOW"><span id="AssociationComplianceSeverity_LOW"><span class="annot"><span class="annottext">$bAssociationComplianceSeverity_LOW :: AssociationComplianceSeverity
+$mAssociationComplianceSeverity_LOW :: forall r.
+AssociationComplianceSeverity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#%24bAssociationComplianceSeverity_LOW"><span class="hs-identifier hs-var hs-var hs-var">AssociationComplianceSeverity_LOW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity%27"><span class="hs-identifier hs-type">AssociationComplianceSeverity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LOW&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity_MEDIUM"><span class="hs-identifier hs-type">AssociationComplianceSeverity_MEDIUM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity"><span class="hs-identifier hs-type">AssociationComplianceSeverity</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssociationComplianceSeverity_MEDIUM"><span id="%24mAssociationComplianceSeverity_MEDIUM"><span id="AssociationComplianceSeverity_MEDIUM"><span class="annot"><span class="annottext">$bAssociationComplianceSeverity_MEDIUM :: AssociationComplianceSeverity
+$mAssociationComplianceSeverity_MEDIUM :: forall r.
+AssociationComplianceSeverity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#%24bAssociationComplianceSeverity_MEDIUM"><span class="hs-identifier hs-var hs-var hs-var">AssociationComplianceSeverity_MEDIUM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity%27"><span class="hs-identifier hs-type">AssociationComplianceSeverity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MEDIUM&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity_UNSPECIFIED"><span class="hs-identifier hs-type">AssociationComplianceSeverity_UNSPECIFIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity"><span class="hs-identifier hs-type">AssociationComplianceSeverity</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssociationComplianceSeverity_UNSPECIFIED"><span id="%24mAssociationComplianceSeverity_UNSPECIFIED"><span id="AssociationComplianceSeverity_UNSPECIFIED"><span class="annot"><span class="annottext">$bAssociationComplianceSeverity_UNSPECIFIED :: AssociationComplianceSeverity
+$mAssociationComplianceSeverity_UNSPECIFIED :: forall r.
+AssociationComplianceSeverity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#%24bAssociationComplianceSeverity_UNSPECIFIED"><span class="hs-identifier hs-var hs-var hs-var">AssociationComplianceSeverity_UNSPECIFIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity%27"><span class="hs-identifier hs-type">AssociationComplianceSeverity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNSPECIFIED&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity_CRITICAL"><span class="hs-pragma hs-type">AssociationComplianceSeverity_CRITICAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity_HIGH"><span class="hs-pragma hs-type">AssociationComplianceSeverity_HIGH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity_LOW"><span class="hs-pragma hs-type">AssociationComplianceSeverity_LOW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity_MEDIUM"><span class="hs-pragma hs-type">AssociationComplianceSeverity_MEDIUM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity_UNSPECIFIED"><span class="hs-pragma hs-type">AssociationComplianceSeverity_UNSPECIFIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationComplianceSeverity.html#AssociationComplianceSeverity%27"><span class="hs-pragma hs-type">AssociationComplianceSeverity'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

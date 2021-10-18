@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.DeleteEndpointConfig</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an endpoint configuration. The @DeleteEndpointConfig@ API</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- deletes only the specified configuration. It does not delete endpoints</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- created using the configuration.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- You must not delete an @EndpointConfig@ in use by an endpoint that is</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- live or while the @UpdateEndpoint@ or @CreateEndpoint@ operations are</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- being performed on the endpoint. If you delete the @EndpointConfig@ of</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- an endpoint that is active or being created or updated you may lose</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- visibility into the instance type the endpoint is using. The endpoint</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- must be deleted in order to stop incurring charges.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.DeleteEndpointConfig</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig"><span class="hs-identifier">DeleteEndpointConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#newDeleteEndpointConfig"><span class="hs-identifier">newDeleteEndpointConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#deleteEndpointConfig_endpointConfigName"><span class="hs-identifier">deleteEndpointConfig_endpointConfigName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfigResponse"><span class="hs-identifier">DeleteEndpointConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#newDeleteEndpointConfigResponse"><span class="hs-identifier">newDeleteEndpointConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeleteEndpointConfig' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621680408011"><span id="local-6989586621680408012"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEndpointConfig"><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig"><span class="hs-identifier hs-var">DeleteEndpointConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEndpointConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig%27"><span class="hs-identifier hs-var">DeleteEndpointConfig'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the endpoint configuration that you want to delete.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AendpointConfigName%3ADeleteEndpointConfig%27"><span class="annot"><span class="annottext">DeleteEndpointConfig -&gt; Text
+</span><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#%24sel%3AendpointConfigName%3ADeleteEndpointConfig%27"><span class="hs-identifier hs-var hs-var">endpointConfigName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680408005"><span id="local-6989586621680408007"><span class="annot"><span class="annottext">DeleteEndpointConfig -&gt; DeleteEndpointConfig -&gt; Bool
+(DeleteEndpointConfig -&gt; DeleteEndpointConfig -&gt; Bool)
+-&gt; (DeleteEndpointConfig -&gt; DeleteEndpointConfig -&gt; Bool)
+-&gt; Eq DeleteEndpointConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteEndpointConfig -&gt; DeleteEndpointConfig -&gt; Bool
+$c/= :: DeleteEndpointConfig -&gt; DeleteEndpointConfig -&gt; Bool
+== :: DeleteEndpointConfig -&gt; DeleteEndpointConfig -&gt; Bool
+$c== :: DeleteEndpointConfig -&gt; DeleteEndpointConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680407996"><span id="local-6989586621680407998"><span id="local-6989586621680408000"><span id="local-6989586621680408002"><span class="annot"><span class="annottext">ReadPrec [DeleteEndpointConfig]
+ReadPrec DeleteEndpointConfig
+Int -&gt; ReadS DeleteEndpointConfig
+ReadS [DeleteEndpointConfig]
+(Int -&gt; ReadS DeleteEndpointConfig)
+-&gt; ReadS [DeleteEndpointConfig]
+-&gt; ReadPrec DeleteEndpointConfig
+-&gt; ReadPrec [DeleteEndpointConfig]
+-&gt; Read DeleteEndpointConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteEndpointConfig]
+$creadListPrec :: ReadPrec [DeleteEndpointConfig]
+readPrec :: ReadPrec DeleteEndpointConfig
+$creadPrec :: ReadPrec DeleteEndpointConfig
+readList :: ReadS [DeleteEndpointConfig]
+$creadList :: ReadS [DeleteEndpointConfig]
+readsPrec :: Int -&gt; ReadS DeleteEndpointConfig
+$creadsPrec :: Int -&gt; ReadS DeleteEndpointConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680407989"><span id="local-6989586621680407991"><span id="local-6989586621680407993"><span class="annot"><span class="annottext">Int -&gt; DeleteEndpointConfig -&gt; ShowS
+[DeleteEndpointConfig] -&gt; ShowS
+DeleteEndpointConfig -&gt; String
+(Int -&gt; DeleteEndpointConfig -&gt; ShowS)
+-&gt; (DeleteEndpointConfig -&gt; String)
+-&gt; ([DeleteEndpointConfig] -&gt; ShowS)
+-&gt; Show DeleteEndpointConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteEndpointConfig] -&gt; ShowS
+$cshowList :: [DeleteEndpointConfig] -&gt; ShowS
+show :: DeleteEndpointConfig -&gt; String
+$cshow :: DeleteEndpointConfig -&gt; String
+showsPrec :: Int -&gt; DeleteEndpointConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteEndpointConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteEndpointConfig -&gt; Rep DeleteEndpointConfig x)
+-&gt; (forall x. Rep DeleteEndpointConfig x -&gt; DeleteEndpointConfig)
+-&gt; Generic DeleteEndpointConfig
+forall x. Rep DeleteEndpointConfig x -&gt; DeleteEndpointConfig
+forall x. DeleteEndpointConfig -&gt; Rep DeleteEndpointConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteEndpointConfig x -&gt; DeleteEndpointConfig
+$cfrom :: forall x. DeleteEndpointConfig -&gt; Rep DeleteEndpointConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'DeleteEndpointConfig' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'endpointConfigName', 'deleteEndpointConfig_endpointConfigName' - The name of the endpoint configuration that you want to delete.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#newDeleteEndpointConfig"><span class="hs-identifier hs-type">newDeleteEndpointConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'endpointConfigName'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig"><span class="hs-identifier hs-type">DeleteEndpointConfig</span></a></span><span>
+</span><span id="line-74"></span><span id="newDeleteEndpointConfig"><span class="annot"><span class="annottext">newDeleteEndpointConfig :: Text -&gt; DeleteEndpointConfig
+</span><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#newDeleteEndpointConfig"><span class="hs-identifier hs-var hs-var">newDeleteEndpointConfig</span></a></span></span><span> </span><span id="local-6989586621680407984"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680407984"><span class="hs-identifier hs-var">pEndpointConfigName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">DeleteEndpointConfig' :: Text -&gt; DeleteEndpointConfig
+</span><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig%27"><span class="hs-identifier hs-type">DeleteEndpointConfig'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endpointConfigName:DeleteEndpointConfig' :: Text
+</span><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#%24sel%3AendpointConfigName%3ADeleteEndpointConfig%27"><span class="hs-identifier hs-var">endpointConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680407984"><span class="hs-identifier hs-var">pEndpointConfigName_</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The name of the endpoint configuration that you want to delete.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#deleteEndpointConfig_endpointConfigName"><span class="hs-identifier hs-type">deleteEndpointConfig_endpointConfigName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig"><span class="hs-identifier hs-type">DeleteEndpointConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="deleteEndpointConfig_endpointConfigName"><span class="annot"><span class="annottext">deleteEndpointConfig_endpointConfigName :: (Text -&gt; f Text) -&gt; DeleteEndpointConfig -&gt; f DeleteEndpointConfig
+</span><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#deleteEndpointConfig_endpointConfigName"><span class="hs-identifier hs-var hs-var">deleteEndpointConfig_endpointConfigName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteEndpointConfig -&gt; Text)
+-&gt; (DeleteEndpointConfig -&gt; Text -&gt; DeleteEndpointConfig)
+-&gt; Lens DeleteEndpointConfig DeleteEndpointConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig%27"><span class="hs-identifier hs-type">DeleteEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680407981"><span class="annot"><span class="annottext">Text
+endpointConfigName :: Text
+$sel:endpointConfigName:DeleteEndpointConfig' :: DeleteEndpointConfig -&gt; Text
+</span><a href="#local-6989586621680407981"><span class="hs-identifier hs-var hs-var">endpointConfigName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680407981"><span class="hs-identifier hs-var">endpointConfigName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680407980"><span class="annot"><span class="annottext">s :: DeleteEndpointConfig
+</span><a href="#local-6989586621680407980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig%27"><span class="hs-identifier hs-type">DeleteEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680407979"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680407979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEndpointConfig
+</span><a href="#local-6989586621680407980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointConfigName:DeleteEndpointConfig' :: Text
+</span><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#%24sel%3AendpointConfigName%3ADeleteEndpointConfig%27"><span class="hs-identifier hs-var">endpointConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680407979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig"><span class="hs-identifier hs-type">DeleteEndpointConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig"><span class="hs-identifier hs-type">DeleteEndpointConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig"><span class="hs-identifier hs-type">DeleteEndpointConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfigResponse"><span class="hs-identifier hs-type">DeleteEndpointConfigResponse</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621680407975"><span class="annot"><span class="annottext">request :: DeleteEndpointConfig -&gt; Request DeleteEndpointConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteEndpointConfig -&gt; Request DeleteEndpointConfig
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621680407971"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteEndpointConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteEndpointConfig)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteEndpointConfig
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteEndpointConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteEndpointConfig)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteEndpointConfig
+DeleteEndpointConfigResponse
+</span><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfigResponse%27"><span class="hs-identifier hs-var">DeleteEndpointConfigResponse'</span></a></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680407964"><span id="local-6989586621680407966"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig"><span class="hs-identifier hs-type">DeleteEndpointConfig</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680407961"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig"><span class="hs-identifier hs-type">DeleteEndpointConfig</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig"><span class="hs-identifier hs-type">DeleteEndpointConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621680407957"><span class="annot"><span class="annottext">toHeaders :: DeleteEndpointConfig -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteEndpointConfig -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.DeleteEndpointConfig&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680407947"><span id="local-6989586621680407949"><span id="local-6989586621680407951"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig"><span class="hs-identifier hs-type">DeleteEndpointConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621680407945"><span class="annot"><span class="annottext">toJSON :: DeleteEndpointConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig%27"><span class="hs-identifier hs-type">DeleteEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680407943"><span class="annot"><span class="annottext">Text
+endpointConfigName :: Text
+$sel:endpointConfigName:DeleteEndpointConfig' :: DeleteEndpointConfig -&gt; Text
+</span><a href="#local-6989586621680407943"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointConfigName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680407943"><span class="hs-identifier hs-var">endpointConfigName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig"><span class="hs-identifier hs-type">DeleteEndpointConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621680407937"><span class="annot"><span class="annottext">toPath :: DeleteEndpointConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteEndpointConfig -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfig"><span class="hs-identifier hs-type">DeleteEndpointConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621680407933"><span class="annot"><span class="annottext">toQuery :: DeleteEndpointConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteEndpointConfig -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newDeleteEndpointConfigResponse' smart constructor.</span><span>
+</span><span id="line-127"></span><span id="local-6989586621680407930"><span id="local-6989586621680407931"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEndpointConfigResponse"><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfigResponse"><span class="hs-identifier hs-var">DeleteEndpointConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEndpointConfigResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfigResponse%27"><span class="hs-identifier hs-var">DeleteEndpointConfigResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680407926"><span id="local-6989586621680407928"><span class="annot"><span class="annottext">DeleteEndpointConfigResponse
+-&gt; DeleteEndpointConfigResponse -&gt; Bool
+(DeleteEndpointConfigResponse
+ -&gt; DeleteEndpointConfigResponse -&gt; Bool)
+-&gt; (DeleteEndpointConfigResponse
+    -&gt; DeleteEndpointConfigResponse -&gt; Bool)
+-&gt; Eq DeleteEndpointConfigResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteEndpointConfigResponse
+-&gt; DeleteEndpointConfigResponse -&gt; Bool
+$c/= :: DeleteEndpointConfigResponse
+-&gt; DeleteEndpointConfigResponse -&gt; Bool
+== :: DeleteEndpointConfigResponse
+-&gt; DeleteEndpointConfigResponse -&gt; Bool
+$c== :: DeleteEndpointConfigResponse
+-&gt; DeleteEndpointConfigResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680407918"><span id="local-6989586621680407920"><span id="local-6989586621680407922"><span id="local-6989586621680407924"><span class="annot"><span class="annottext">ReadPrec [DeleteEndpointConfigResponse]
+ReadPrec DeleteEndpointConfigResponse
+Int -&gt; ReadS DeleteEndpointConfigResponse
+ReadS [DeleteEndpointConfigResponse]
+(Int -&gt; ReadS DeleteEndpointConfigResponse)
+-&gt; ReadS [DeleteEndpointConfigResponse]
+-&gt; ReadPrec DeleteEndpointConfigResponse
+-&gt; ReadPrec [DeleteEndpointConfigResponse]
+-&gt; Read DeleteEndpointConfigResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteEndpointConfigResponse]
+$creadListPrec :: ReadPrec [DeleteEndpointConfigResponse]
+readPrec :: ReadPrec DeleteEndpointConfigResponse
+$creadPrec :: ReadPrec DeleteEndpointConfigResponse
+readList :: ReadS [DeleteEndpointConfigResponse]
+$creadList :: ReadS [DeleteEndpointConfigResponse]
+readsPrec :: Int -&gt; ReadS DeleteEndpointConfigResponse
+$creadsPrec :: Int -&gt; ReadS DeleteEndpointConfigResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680407912"><span id="local-6989586621680407914"><span id="local-6989586621680407916"><span class="annot"><span class="annottext">Int -&gt; DeleteEndpointConfigResponse -&gt; ShowS
+[DeleteEndpointConfigResponse] -&gt; ShowS
+DeleteEndpointConfigResponse -&gt; String
+(Int -&gt; DeleteEndpointConfigResponse -&gt; ShowS)
+-&gt; (DeleteEndpointConfigResponse -&gt; String)
+-&gt; ([DeleteEndpointConfigResponse] -&gt; ShowS)
+-&gt; Show DeleteEndpointConfigResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteEndpointConfigResponse] -&gt; ShowS
+$cshowList :: [DeleteEndpointConfigResponse] -&gt; ShowS
+show :: DeleteEndpointConfigResponse -&gt; String
+$cshow :: DeleteEndpointConfigResponse -&gt; String
+showsPrec :: Int -&gt; DeleteEndpointConfigResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteEndpointConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteEndpointConfigResponse -&gt; Rep DeleteEndpointConfigResponse x)
+-&gt; (forall x.
+    Rep DeleteEndpointConfigResponse x -&gt; DeleteEndpointConfigResponse)
+-&gt; Generic DeleteEndpointConfigResponse
+forall x.
+Rep DeleteEndpointConfigResponse x -&gt; DeleteEndpointConfigResponse
+forall x.
+DeleteEndpointConfigResponse -&gt; Rep DeleteEndpointConfigResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteEndpointConfigResponse x -&gt; DeleteEndpointConfigResponse
+$cfrom :: forall x.
+DeleteEndpointConfigResponse -&gt; Rep DeleteEndpointConfigResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Create a value of 'DeleteEndpointConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#newDeleteEndpointConfigResponse"><span class="hs-identifier hs-type">newDeleteEndpointConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfigResponse"><span class="hs-identifier hs-type">DeleteEndpointConfigResponse</span></a></span><span>
+</span><span id="line-138"></span><span id="newDeleteEndpointConfigResponse"><span class="annot"><span class="annottext">newDeleteEndpointConfigResponse :: DeleteEndpointConfigResponse
+</span><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#newDeleteEndpointConfigResponse"><span class="hs-identifier hs-var hs-var">newDeleteEndpointConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="annottext">DeleteEndpointConfigResponse
+</span><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfigResponse%27"><span class="hs-identifier hs-var">DeleteEndpointConfigResponse'</span></a></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680407908"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteEndpointConfig.html#DeleteEndpointConfigResponse"><span class="hs-identifier hs-type">DeleteEndpointConfigResponse</span></a></span></span><span>
+</span><span id="line-142"></span></pre></body></html>

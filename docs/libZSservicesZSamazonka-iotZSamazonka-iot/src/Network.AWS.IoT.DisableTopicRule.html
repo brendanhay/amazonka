@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.DisableTopicRule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disables the rule.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DisableTopicRule&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.DisableTopicRule</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule"><span class="hs-identifier">DisableTopicRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#newDisableTopicRule"><span class="hs-identifier">newDisableTopicRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#disableTopicRule_ruleName"><span class="hs-identifier">disableTopicRule_ruleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRuleResponse"><span class="hs-identifier">DisableTopicRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#newDisableTopicRuleResponse"><span class="hs-identifier">newDisableTopicRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.html"><span class="hs-identifier">Network.AWS.IoT.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | The input for the DisableTopicRuleRequest operation.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newDisableTopicRule' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679832752"><span id="local-6989586621679832753"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableTopicRule"><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule"><span class="hs-identifier hs-var">DisableTopicRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableTopicRule%27"><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule%27"><span class="hs-identifier hs-var">DisableTopicRule'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the rule to disable.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AruleName%3ADisableTopicRule%27"><span class="annot"><span class="annottext">DisableTopicRule -&gt; Text
+</span><a href="Network.AWS.IoT.DisableTopicRule.html#%24sel%3AruleName%3ADisableTopicRule%27"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679832746"><span id="local-6989586621679832748"><span class="annot"><span class="annottext">DisableTopicRule -&gt; DisableTopicRule -&gt; Bool
+(DisableTopicRule -&gt; DisableTopicRule -&gt; Bool)
+-&gt; (DisableTopicRule -&gt; DisableTopicRule -&gt; Bool)
+-&gt; Eq DisableTopicRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisableTopicRule -&gt; DisableTopicRule -&gt; Bool
+$c/= :: DisableTopicRule -&gt; DisableTopicRule -&gt; Bool
+== :: DisableTopicRule -&gt; DisableTopicRule -&gt; Bool
+$c== :: DisableTopicRule -&gt; DisableTopicRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832737"><span id="local-6989586621679832739"><span id="local-6989586621679832741"><span id="local-6989586621679832743"><span class="annot"><span class="annottext">ReadPrec [DisableTopicRule]
+ReadPrec DisableTopicRule
+Int -&gt; ReadS DisableTopicRule
+ReadS [DisableTopicRule]
+(Int -&gt; ReadS DisableTopicRule)
+-&gt; ReadS [DisableTopicRule]
+-&gt; ReadPrec DisableTopicRule
+-&gt; ReadPrec [DisableTopicRule]
+-&gt; Read DisableTopicRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisableTopicRule]
+$creadListPrec :: ReadPrec [DisableTopicRule]
+readPrec :: ReadPrec DisableTopicRule
+$creadPrec :: ReadPrec DisableTopicRule
+readList :: ReadS [DisableTopicRule]
+$creadList :: ReadS [DisableTopicRule]
+readsPrec :: Int -&gt; ReadS DisableTopicRule
+$creadsPrec :: Int -&gt; ReadS DisableTopicRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832730"><span id="local-6989586621679832732"><span id="local-6989586621679832734"><span class="annot"><span class="annottext">Int -&gt; DisableTopicRule -&gt; ShowS
+[DisableTopicRule] -&gt; ShowS
+DisableTopicRule -&gt; String
+(Int -&gt; DisableTopicRule -&gt; ShowS)
+-&gt; (DisableTopicRule -&gt; String)
+-&gt; ([DisableTopicRule] -&gt; ShowS)
+-&gt; Show DisableTopicRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisableTopicRule] -&gt; ShowS
+$cshowList :: [DisableTopicRule] -&gt; ShowS
+show :: DisableTopicRule -&gt; String
+$cshow :: DisableTopicRule -&gt; String
+showsPrec :: Int -&gt; DisableTopicRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisableTopicRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DisableTopicRule -&gt; Rep DisableTopicRule x)
+-&gt; (forall x. Rep DisableTopicRule x -&gt; DisableTopicRule)
+-&gt; Generic DisableTopicRule
+forall x. Rep DisableTopicRule x -&gt; DisableTopicRule
+forall x. DisableTopicRule -&gt; Rep DisableTopicRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DisableTopicRule x -&gt; DisableTopicRule
+$cfrom :: forall x. DisableTopicRule -&gt; Rep DisableTopicRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'DisableTopicRule' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'ruleName', 'disableTopicRule_ruleName' - The name of the rule to disable.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#newDisableTopicRule"><span class="hs-identifier hs-type">newDisableTopicRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'ruleName'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule"><span class="hs-identifier hs-type">DisableTopicRule</span></a></span><span>
+</span><span id="line-71"></span><span id="newDisableTopicRule"><span class="annot"><span class="annottext">newDisableTopicRule :: Text -&gt; DisableTopicRule
+</span><a href="Network.AWS.IoT.DisableTopicRule.html#newDisableTopicRule"><span class="hs-identifier hs-var hs-var">newDisableTopicRule</span></a></span></span><span> </span><span id="local-6989586621679832725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679832725"><span class="hs-identifier hs-var">pRuleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DisableTopicRule' :: Text -&gt; DisableTopicRule
+</span><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule%27"><span class="hs-identifier hs-type">DisableTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:DisableTopicRule' :: Text
+</span><a href="Network.AWS.IoT.DisableTopicRule.html#%24sel%3AruleName%3ADisableTopicRule%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679832725"><span class="hs-identifier hs-var">pRuleName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The name of the rule to disable.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#disableTopicRule_ruleName"><span class="hs-identifier hs-type">disableTopicRule_ruleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule"><span class="hs-identifier hs-type">DisableTopicRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="disableTopicRule_ruleName"><span class="annot"><span class="annottext">disableTopicRule_ruleName :: (Text -&gt; f Text) -&gt; DisableTopicRule -&gt; f DisableTopicRule
+</span><a href="Network.AWS.IoT.DisableTopicRule.html#disableTopicRule_ruleName"><span class="hs-identifier hs-var hs-var">disableTopicRule_ruleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableTopicRule -&gt; Text)
+-&gt; (DisableTopicRule -&gt; Text -&gt; DisableTopicRule)
+-&gt; Lens DisableTopicRule DisableTopicRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule%27"><span class="hs-identifier hs-type">DisableTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832722"><span class="annot"><span class="annottext">Text
+ruleName :: Text
+$sel:ruleName:DisableTopicRule' :: DisableTopicRule -&gt; Text
+</span><a href="#local-6989586621679832722"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679832722"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832721"><span class="annot"><span class="annottext">s :: DisableTopicRule
+</span><a href="#local-6989586621679832721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule%27"><span class="hs-identifier hs-type">DisableTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832720"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679832720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableTopicRule
+</span><a href="#local-6989586621679832721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:DisableTopicRule' :: Text
+</span><a href="Network.AWS.IoT.DisableTopicRule.html#%24sel%3AruleName%3ADisableTopicRule%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679832720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule"><span class="hs-identifier hs-type">DisableTopicRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule"><span class="hs-identifier hs-type">DisableTopicRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule"><span class="hs-identifier hs-type">DisableTopicRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRuleResponse"><span class="hs-identifier hs-type">DisableTopicRuleResponse</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679832716"><span class="annot"><span class="annottext">request :: DisableTopicRule -&gt; Request DisableTopicRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DisableTopicRule -&gt; Request DisableTopicRule
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679832712"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisableTopicRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DisableTopicRule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DisableTopicRule
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisableTopicRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DisableTopicRule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DisableTopicRule
+DisableTopicRuleResponse
+</span><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRuleResponse%27"><span class="hs-identifier hs-var">DisableTopicRuleResponse'</span></a></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832705"><span id="local-6989586621679832707"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule"><span class="hs-identifier hs-type">DisableTopicRule</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832702"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule"><span class="hs-identifier hs-type">DisableTopicRule</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule"><span class="hs-identifier hs-type">DisableTopicRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679832698"><span class="annot"><span class="annottext">toHeaders :: DisableTopicRule -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DisableTopicRule -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832689"><span id="local-6989586621679832691"><span id="local-6989586621679832693"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule"><span class="hs-identifier hs-type">DisableTopicRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679832687"><span class="annot"><span class="annottext">toJSON :: DisableTopicRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DisableTopicRule -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule"><span class="hs-identifier hs-type">DisableTopicRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679832682"><span class="annot"><span class="annottext">toPath :: DisableTopicRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule%27"><span class="hs-identifier hs-type">DisableTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832680"><span class="annot"><span class="annottext">Text
+ruleName :: Text
+$sel:ruleName:DisableTopicRule' :: DisableTopicRule -&gt; Text
+</span><a href="#local-6989586621679832680"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/rules/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679832680"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/disable&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRule"><span class="hs-identifier hs-type">DisableTopicRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679832676"><span class="annot"><span class="annottext">toQuery :: DisableTopicRule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisableTopicRule -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | /See:/ 'newDisableTopicRuleResponse' smart constructor.</span><span>
+</span><span id="line-105"></span><span id="local-6989586621679832673"><span id="local-6989586621679832674"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableTopicRuleResponse"><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRuleResponse"><span class="hs-identifier hs-var">DisableTopicRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableTopicRuleResponse%27"><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRuleResponse%27"><span class="hs-identifier hs-var">DisableTopicRuleResponse'</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679832669"><span id="local-6989586621679832671"><span class="annot"><span class="annottext">DisableTopicRuleResponse -&gt; DisableTopicRuleResponse -&gt; Bool
+(DisableTopicRuleResponse -&gt; DisableTopicRuleResponse -&gt; Bool)
+-&gt; (DisableTopicRuleResponse -&gt; DisableTopicRuleResponse -&gt; Bool)
+-&gt; Eq DisableTopicRuleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisableTopicRuleResponse -&gt; DisableTopicRuleResponse -&gt; Bool
+$c/= :: DisableTopicRuleResponse -&gt; DisableTopicRuleResponse -&gt; Bool
+== :: DisableTopicRuleResponse -&gt; DisableTopicRuleResponse -&gt; Bool
+$c== :: DisableTopicRuleResponse -&gt; DisableTopicRuleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832661"><span id="local-6989586621679832663"><span id="local-6989586621679832665"><span id="local-6989586621679832667"><span class="annot"><span class="annottext">ReadPrec [DisableTopicRuleResponse]
+ReadPrec DisableTopicRuleResponse
+Int -&gt; ReadS DisableTopicRuleResponse
+ReadS [DisableTopicRuleResponse]
+(Int -&gt; ReadS DisableTopicRuleResponse)
+-&gt; ReadS [DisableTopicRuleResponse]
+-&gt; ReadPrec DisableTopicRuleResponse
+-&gt; ReadPrec [DisableTopicRuleResponse]
+-&gt; Read DisableTopicRuleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisableTopicRuleResponse]
+$creadListPrec :: ReadPrec [DisableTopicRuleResponse]
+readPrec :: ReadPrec DisableTopicRuleResponse
+$creadPrec :: ReadPrec DisableTopicRuleResponse
+readList :: ReadS [DisableTopicRuleResponse]
+$creadList :: ReadS [DisableTopicRuleResponse]
+readsPrec :: Int -&gt; ReadS DisableTopicRuleResponse
+$creadsPrec :: Int -&gt; ReadS DisableTopicRuleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832655"><span id="local-6989586621679832657"><span id="local-6989586621679832659"><span class="annot"><span class="annottext">Int -&gt; DisableTopicRuleResponse -&gt; ShowS
+[DisableTopicRuleResponse] -&gt; ShowS
+DisableTopicRuleResponse -&gt; String
+(Int -&gt; DisableTopicRuleResponse -&gt; ShowS)
+-&gt; (DisableTopicRuleResponse -&gt; String)
+-&gt; ([DisableTopicRuleResponse] -&gt; ShowS)
+-&gt; Show DisableTopicRuleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisableTopicRuleResponse] -&gt; ShowS
+$cshowList :: [DisableTopicRuleResponse] -&gt; ShowS
+show :: DisableTopicRuleResponse -&gt; String
+$cshow :: DisableTopicRuleResponse -&gt; String
+showsPrec :: Int -&gt; DisableTopicRuleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisableTopicRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisableTopicRuleResponse -&gt; Rep DisableTopicRuleResponse x)
+-&gt; (forall x.
+    Rep DisableTopicRuleResponse x -&gt; DisableTopicRuleResponse)
+-&gt; Generic DisableTopicRuleResponse
+forall x.
+Rep DisableTopicRuleResponse x -&gt; DisableTopicRuleResponse
+forall x.
+DisableTopicRuleResponse -&gt; Rep DisableTopicRuleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisableTopicRuleResponse x -&gt; DisableTopicRuleResponse
+$cfrom :: forall x.
+DisableTopicRuleResponse -&gt; Rep DisableTopicRuleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Create a value of 'DisableTopicRuleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#newDisableTopicRuleResponse"><span class="hs-identifier hs-type">newDisableTopicRuleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRuleResponse"><span class="hs-identifier hs-type">DisableTopicRuleResponse</span></a></span><span>
+</span><span id="line-116"></span><span id="newDisableTopicRuleResponse"><span class="annot"><span class="annottext">newDisableTopicRuleResponse :: DisableTopicRuleResponse
+</span><a href="Network.AWS.IoT.DisableTopicRule.html#newDisableTopicRuleResponse"><span class="hs-identifier hs-var hs-var">newDisableTopicRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">DisableTopicRuleResponse
+</span><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRuleResponse%27"><span class="hs-identifier hs-var">DisableTopicRuleResponse'</span></a></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832651"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DisableTopicRule.html#DisableTopicRuleResponse"><span class="hs-identifier hs-type">DisableTopicRuleResponse</span></a></span></span><span>
+</span><span id="line-120"></span></pre></body></html>

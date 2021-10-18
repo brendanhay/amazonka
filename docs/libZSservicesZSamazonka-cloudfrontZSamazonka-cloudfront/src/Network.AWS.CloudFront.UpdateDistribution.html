@@ -1,0 +1,586 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFront.UpdateDistribution</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the configuration for a web distribution.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- When you update a distribution, there are more required fields than when</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- you create a distribution. When you update your distribution by using</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- this API action, follow the steps here to get the current configuration</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- and then make your updates, to make sure that you include all of the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- required fields. To view a summary, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview-required-fields.html Required Fields for Create Distribution and Update Distribution&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- The update process includes getting the current distribution</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- configuration, updating the XML document that is returned to make your</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- changes, and then submitting an @UpdateDistribution@ request to make the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- updates.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- For information about updating a distribution using the CloudFront</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- console instead, see</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.html Creating a Distribution&gt;</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- __To update a web distribution using the CloudFront API__</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 1.  Submit a</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistributionConfig.html GetDistributionConfig&gt;</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--     request to get the current configuration and an @Etag@ header for</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     the distribution.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--     If you update the distribution again, you must get a new @Etag@</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--     header.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 2.  Update the XML document that was returned in the response to your</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--     @GetDistributionConfig@ request to include your changes.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--     When you edit the XML file, be aware of the following:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--     -   You must strip out the ETag parameter that is returned.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--     -   Additional fields are required when you update a distribution.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--         There may be fields included in the XML file for features that</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--         you haven\'t configured for your distribution. This is expected</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--         and required to successfully update the distribution.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--     -   You can\'t change the value of @CallerReference@. If you try to</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--         change this value, CloudFront returns an @IllegalUpdate@ error.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--     -   The new configuration replaces the existing configuration; the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--         values that you specify in an @UpdateDistribution@ request are</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--         not merged into your existing configuration. When you add,</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--         delete, or replace values in an element that allows multiple</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--         values (for example, @CNAME@), you must specify all of the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--         values that you want to appear in the updated distribution. In</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--         addition, you must update the corresponding @Quantity@ element.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 3.  Submit an @UpdateDistribution@ request to update the configuration</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--     for your distribution:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--     -   In the request body, include the XML document that you updated</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--         in Step 2. The request body must include an XML document with a</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--         @DistributionConfig@ element.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--     -   Set the value of the HTTP @If-Match@ header to the value of the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--         @ETag@ header that CloudFront returned when you submitted the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--         @GetDistributionConfig@ request in Step 1.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 4.  Review the response to the @UpdateDistribution@ request to confirm</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--     that the configuration was successfully updated.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 5.  Optional: Submit a</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html GetDistribution&gt;</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--     request to confirm that your changes have propagated. When</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--     propagation is complete, the value of @Status@ is @Deployed@.</span><span>
+</span><span id="line-94"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFront.UpdateDistribution</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier">UpdateDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#newUpdateDistribution"><span class="hs-identifier">newUpdateDistribution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistribution_ifMatch"><span class="hs-identifier">updateDistribution_ifMatch</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistribution_distributionConfig"><span class="hs-identifier">updateDistribution_distributionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistribution_id"><span class="hs-identifier">updateDistribution_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse"><span class="hs-identifier">UpdateDistributionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#newUpdateDistributionResponse"><span class="hs-identifier">newUpdateDistributionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistributionResponse_eTag"><span class="hs-identifier">updateDistributionResponse_eTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistributionResponse_distribution"><span class="hs-identifier">updateDistributionResponse_distribution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistributionResponse_httpStatus"><span class="hs-identifier">updateDistributionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.html"><span class="hs-identifier">Network.AWS.CloudFront.Types</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The request to update a distribution.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- /See:/ 'newUpdateDistribution' smart constructor.</span><span>
+</span><span id="line-125"></span><span id="local-6989586621679423525"><span id="local-6989586621679423526"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDistribution"><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier hs-var">UpdateDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDistribution%27"><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution%27"><span class="hs-identifier hs-var">UpdateDistribution'</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the @ETag@ header that you received when retrieving the</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- distribution\'s configuration. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AifMatch%3AUpdateDistribution%27"><span class="annot"><span class="annottext">UpdateDistribution -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3AifMatch%3AUpdateDistribution%27"><span class="hs-identifier hs-var hs-var">ifMatch</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The distribution\'s configuration information.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AdistributionConfig%3AUpdateDistribution%27"><span class="annot"><span class="annottext">UpdateDistribution -&gt; DistributionConfig
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3AdistributionConfig%3AUpdateDistribution%27"><span class="hs-identifier hs-var hs-var">distributionConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionConfig.html#DistributionConfig"><span class="hs-identifier hs-type">DistributionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The distribution\'s id.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3Aid%3AUpdateDistribution%27"><span class="annot"><span class="annottext">UpdateDistribution -&gt; Text
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3Aid%3AUpdateDistribution%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423517"><span id="local-6989586621679423519"><span class="annot"><span class="annottext">UpdateDistribution -&gt; UpdateDistribution -&gt; Bool
+(UpdateDistribution -&gt; UpdateDistribution -&gt; Bool)
+-&gt; (UpdateDistribution -&gt; UpdateDistribution -&gt; Bool)
+-&gt; Eq UpdateDistribution
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDistribution -&gt; UpdateDistribution -&gt; Bool
+$c/= :: UpdateDistribution -&gt; UpdateDistribution -&gt; Bool
+== :: UpdateDistribution -&gt; UpdateDistribution -&gt; Bool
+$c== :: UpdateDistribution -&gt; UpdateDistribution -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423510"><span id="local-6989586621679423512"><span id="local-6989586621679423514"><span class="annot"><span class="annottext">Int -&gt; UpdateDistribution -&gt; ShowS
+[UpdateDistribution] -&gt; ShowS
+UpdateDistribution -&gt; String
+(Int -&gt; UpdateDistribution -&gt; ShowS)
+-&gt; (UpdateDistribution -&gt; String)
+-&gt; ([UpdateDistribution] -&gt; ShowS)
+-&gt; Show UpdateDistribution
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDistribution] -&gt; ShowS
+$cshowList :: [UpdateDistribution] -&gt; ShowS
+show :: UpdateDistribution -&gt; String
+$cshow :: UpdateDistribution -&gt; String
+showsPrec :: Int -&gt; UpdateDistribution -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDistribution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateDistribution -&gt; Rep UpdateDistribution x)
+-&gt; (forall x. Rep UpdateDistribution x -&gt; UpdateDistribution)
+-&gt; Generic UpdateDistribution
+forall x. Rep UpdateDistribution x -&gt; UpdateDistribution
+forall x. UpdateDistribution -&gt; Rep UpdateDistribution x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateDistribution x -&gt; UpdateDistribution
+$cfrom :: forall x. UpdateDistribution -&gt; Rep UpdateDistribution x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Create a value of 'UpdateDistribution' with all optional fields omitted.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'ifMatch', 'updateDistribution_ifMatch' - The value of the @ETag@ header that you received when retrieving the</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- distribution\'s configuration. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'distributionConfig', 'updateDistribution_distributionConfig' - The distribution\'s configuration information.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'id', 'updateDistribution_id' - The distribution\'s id.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#newUpdateDistribution"><span class="hs-identifier hs-type">newUpdateDistribution</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'distributionConfig'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionConfig.html#DistributionConfig"><span class="hs-identifier hs-type">DistributionConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier hs-type">UpdateDistribution</span></a></span><span>
+</span><span id="line-156"></span><span id="newUpdateDistribution"><span class="annot"><span class="annottext">newUpdateDistribution :: DistributionConfig -&gt; Text -&gt; UpdateDistribution
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#newUpdateDistribution"><span class="hs-identifier hs-var hs-var">newUpdateDistribution</span></a></span></span><span> </span><span id="local-6989586621679423505"><span class="annot"><span class="annottext">DistributionConfig
+</span><a href="#local-6989586621679423505"><span class="hs-identifier hs-var">pDistributionConfig_</span></a></span></span><span> </span><span id="local-6989586621679423504"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423504"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">UpdateDistribution' :: Maybe Text -&gt; DistributionConfig -&gt; Text -&gt; UpdateDistribution
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution%27"><span class="hs-identifier hs-type">UpdateDistribution'</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ifMatch:UpdateDistribution' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3AifMatch%3AUpdateDistribution%27"><span class="hs-identifier hs-var">ifMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:distributionConfig:UpdateDistribution' :: DistributionConfig
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3AdistributionConfig%3AUpdateDistribution%27"><span class="hs-identifier hs-var">distributionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DistributionConfig
+</span><a href="#local-6989586621679423505"><span class="hs-identifier hs-var">pDistributionConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:UpdateDistribution' :: Text
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3Aid%3AUpdateDistribution%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423504"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The value of the @ETag@ header that you received when retrieving the</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- distribution\'s configuration. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistribution_ifMatch"><span class="hs-identifier hs-type">updateDistribution_ifMatch</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier hs-type">UpdateDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="updateDistribution_ifMatch"><span class="annot"><span class="annottext">updateDistribution_ifMatch :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDistribution -&gt; f UpdateDistribution
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistribution_ifMatch"><span class="hs-identifier hs-var hs-var">updateDistribution_ifMatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDistribution -&gt; Maybe Text)
+-&gt; (UpdateDistribution -&gt; Maybe Text -&gt; UpdateDistribution)
+-&gt; Lens
+     UpdateDistribution UpdateDistribution (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution%27"><span class="hs-identifier hs-type">UpdateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423501"><span class="annot"><span class="annottext">Maybe Text
+ifMatch :: Maybe Text
+$sel:ifMatch:UpdateDistribution' :: UpdateDistribution -&gt; Maybe Text
+</span><a href="#local-6989586621679423501"><span class="hs-identifier hs-var hs-var">ifMatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423501"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423500"><span class="annot"><span class="annottext">s :: UpdateDistribution
+</span><a href="#local-6989586621679423500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution%27"><span class="hs-identifier hs-type">UpdateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423499"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDistribution
+</span><a href="#local-6989586621679423500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ifMatch:UpdateDistribution' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3AifMatch%3AUpdateDistribution%27"><span class="hs-identifier hs-var">ifMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier hs-type">UpdateDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The distribution\'s configuration information.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistribution_distributionConfig"><span class="hs-identifier hs-type">updateDistribution_distributionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier hs-type">UpdateDistribution</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionConfig.html#DistributionConfig"><span class="hs-identifier hs-type">DistributionConfig</span></a></span><span>
+</span><span id="line-170"></span><span id="updateDistribution_distributionConfig"><span class="annot"><span class="annottext">updateDistribution_distributionConfig :: (DistributionConfig -&gt; f DistributionConfig)
+-&gt; UpdateDistribution -&gt; f UpdateDistribution
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistribution_distributionConfig"><span class="hs-identifier hs-var hs-var">updateDistribution_distributionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDistribution -&gt; DistributionConfig)
+-&gt; (UpdateDistribution -&gt; DistributionConfig -&gt; UpdateDistribution)
+-&gt; Lens
+     UpdateDistribution
+     UpdateDistribution
+     DistributionConfig
+     DistributionConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution%27"><span class="hs-identifier hs-type">UpdateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423498"><span class="annot"><span class="annottext">DistributionConfig
+distributionConfig :: DistributionConfig
+$sel:distributionConfig:UpdateDistribution' :: UpdateDistribution -&gt; DistributionConfig
+</span><a href="#local-6989586621679423498"><span class="hs-identifier hs-var hs-var">distributionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionConfig
+</span><a href="#local-6989586621679423498"><span class="hs-identifier hs-var">distributionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423497"><span class="annot"><span class="annottext">s :: UpdateDistribution
+</span><a href="#local-6989586621679423497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution%27"><span class="hs-identifier hs-type">UpdateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423496"><span class="annot"><span class="annottext">DistributionConfig
+</span><a href="#local-6989586621679423496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDistribution
+</span><a href="#local-6989586621679423497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionConfig:UpdateDistribution' :: DistributionConfig
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3AdistributionConfig%3AUpdateDistribution%27"><span class="hs-identifier hs-var">distributionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DistributionConfig
+</span><a href="#local-6989586621679423496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier hs-type">UpdateDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The distribution\'s id.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistribution_id"><span class="hs-identifier hs-type">updateDistribution_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier hs-type">UpdateDistribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-174"></span><span id="updateDistribution_id"><span class="annot"><span class="annottext">updateDistribution_id :: (Text -&gt; f Text) -&gt; UpdateDistribution -&gt; f UpdateDistribution
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistribution_id"><span class="hs-identifier hs-var hs-var">updateDistribution_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDistribution -&gt; Text)
+-&gt; (UpdateDistribution -&gt; Text -&gt; UpdateDistribution)
+-&gt; Lens UpdateDistribution UpdateDistribution Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution%27"><span class="hs-identifier hs-type">UpdateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423495"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:UpdateDistribution' :: UpdateDistribution -&gt; Text
+</span><a href="#local-6989586621679423495"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423495"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423494"><span class="annot"><span class="annottext">s :: UpdateDistribution
+</span><a href="#local-6989586621679423494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution%27"><span class="hs-identifier hs-type">UpdateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423493"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDistribution
+</span><a href="#local-6989586621679423494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:UpdateDistribution' :: Text
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3Aid%3AUpdateDistribution%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier hs-type">UpdateDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier hs-type">UpdateDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-178"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier hs-type">UpdateDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse"><span class="hs-identifier hs-type">UpdateDistributionResponse</span></a></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679423489"><span class="annot"><span class="annottext">request :: UpdateDistribution -&gt; Request UpdateDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDistribution -&gt; Request UpdateDistribution
+forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putXML</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679423485"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateDistribution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateDistribution)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse UpdateDistribution))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateDistribution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateDistribution)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679423482"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423482"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679423481"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679423481"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679423480"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423480"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Distribution -&gt; Int -&gt; UpdateDistributionResponse
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse%27"><span class="hs-identifier hs-var">UpdateDistributionResponse'</span></a></span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Distribution -&gt; Int -&gt; UpdateDistributionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Distribution -&gt; Int -&gt; UpdateDistributionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679423481"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;ETag&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Distribution -&gt; Int -&gt; UpdateDistributionResponse)
+-&gt; Either String (Maybe Distribution)
+-&gt; Either String (Int -&gt; UpdateDistributionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe Distribution)
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423480"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateDistributionResponse)
+-&gt; Either String Int -&gt; Either String UpdateDistributionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423482"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423471"><span id="local-6989586621679423473"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier hs-type">UpdateDistribution</span></a></span></span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423468"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier hs-type">UpdateDistribution</span></a></span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier hs-type">UpdateDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679423464"><span class="annot"><span class="annottext">toElement :: UpdateDistribution -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution%27"><span class="hs-identifier hs-type">UpdateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423460"><span id="local-6989586621679423461"><span id="local-6989586621679423462"><span class="annot"><span class="annottext">Maybe Text
+Text
+DistributionConfig
+id :: Text
+distributionConfig :: DistributionConfig
+ifMatch :: Maybe Text
+$sel:id:UpdateDistribution' :: UpdateDistribution -&gt; Text
+$sel:distributionConfig:UpdateDistribution' :: UpdateDistribution -&gt; DistributionConfig
+$sel:ifMatch:UpdateDistribution' :: UpdateDistribution -&gt; Maybe Text
+</span><a href="#local-6989586621679423460"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; DistributionConfig -&gt; Element
+forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
+</span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;{http://cloudfront.amazonaws.com/doc/2020-05-31/}DistributionConfig&quot;</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">DistributionConfig
+</span><a href="#local-6989586621679423461"><span class="hs-identifier hs-var">distributionConfig</span></a></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier hs-type">UpdateDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679423456"><span class="annot"><span class="annottext">toHeaders :: UpdateDistribution -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution%27"><span class="hs-identifier hs-type">UpdateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423452"><span id="local-6989586621679423453"><span id="local-6989586621679423454"><span class="annot"><span class="annottext">Maybe Text
+Text
+DistributionConfig
+id :: Text
+distributionConfig :: DistributionConfig
+ifMatch :: Maybe Text
+$sel:id:UpdateDistribution' :: UpdateDistribution -&gt; Text
+$sel:distributionConfig:UpdateDistribution' :: UpdateDistribution -&gt; DistributionConfig
+$sel:ifMatch:UpdateDistribution' :: UpdateDistribution -&gt; Maybe Text
+</span><a href="#local-6989586621679423452"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;If-Match&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423454"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier hs-type">UpdateDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679423448"><span class="annot"><span class="annottext">toPath :: UpdateDistribution -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution%27"><span class="hs-identifier hs-type">UpdateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423444"><span id="local-6989586621679423445"><span id="local-6989586621679423446"><span class="annot"><span class="annottext">Maybe Text
+Text
+DistributionConfig
+id :: Text
+distributionConfig :: DistributionConfig
+ifMatch :: Maybe Text
+$sel:id:UpdateDistribution' :: UpdateDistribution -&gt; Text
+$sel:distributionConfig:UpdateDistribution' :: UpdateDistribution -&gt; DistributionConfig
+$sel:ifMatch:UpdateDistribution' :: UpdateDistribution -&gt; Maybe Text
+</span><a href="#local-6989586621679423444"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-05-31/distribution/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423444"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/config&quot;</span></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistribution"><span class="hs-identifier hs-type">UpdateDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679423440"><span class="annot"><span class="annottext">toQuery :: UpdateDistribution -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDistribution -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The returned result of the corresponding request.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- /See:/ 'newUpdateDistributionResponse' smart constructor.</span><span>
+</span><span id="line-218"></span><span id="local-6989586621679423436"><span id="local-6989586621679423437"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDistributionResponse"><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse"><span class="hs-identifier hs-var">UpdateDistributionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDistributionResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse%27"><span class="hs-identifier hs-var">UpdateDistributionResponse'</span></a></span></span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-220"></span><span>    </span><span id="%24sel%3AeTag%3AUpdateDistributionResponse%27"><span class="annot"><span class="annottext">UpdateDistributionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3AeTag%3AUpdateDistributionResponse%27"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">-- | The distribution\'s information.</span><span>
+</span><span id="line-222"></span><span>    </span><span id="%24sel%3Adistribution%3AUpdateDistributionResponse%27"><span class="annot"><span class="annottext">UpdateDistributionResponse -&gt; Maybe Distribution
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3Adistribution%3AUpdateDistributionResponse%27"><span class="hs-identifier hs-var hs-var">distribution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-224"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDistributionResponse%27"><span class="annot"><span class="annottext">UpdateDistributionResponse -&gt; Int
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3AhttpStatus%3AUpdateDistributionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423429"><span id="local-6989586621679423431"><span class="annot"><span class="annottext">UpdateDistributionResponse -&gt; UpdateDistributionResponse -&gt; Bool
+(UpdateDistributionResponse -&gt; UpdateDistributionResponse -&gt; Bool)
+-&gt; (UpdateDistributionResponse
+    -&gt; UpdateDistributionResponse -&gt; Bool)
+-&gt; Eq UpdateDistributionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDistributionResponse -&gt; UpdateDistributionResponse -&gt; Bool
+$c/= :: UpdateDistributionResponse -&gt; UpdateDistributionResponse -&gt; Bool
+== :: UpdateDistributionResponse -&gt; UpdateDistributionResponse -&gt; Bool
+$c== :: UpdateDistributionResponse -&gt; UpdateDistributionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423423"><span id="local-6989586621679423425"><span id="local-6989586621679423427"><span class="annot"><span class="annottext">Int -&gt; UpdateDistributionResponse -&gt; ShowS
+[UpdateDistributionResponse] -&gt; ShowS
+UpdateDistributionResponse -&gt; String
+(Int -&gt; UpdateDistributionResponse -&gt; ShowS)
+-&gt; (UpdateDistributionResponse -&gt; String)
+-&gt; ([UpdateDistributionResponse] -&gt; ShowS)
+-&gt; Show UpdateDistributionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDistributionResponse] -&gt; ShowS
+$cshowList :: [UpdateDistributionResponse] -&gt; ShowS
+show :: UpdateDistributionResponse -&gt; String
+$cshow :: UpdateDistributionResponse -&gt; String
+showsPrec :: Int -&gt; UpdateDistributionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDistributionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateDistributionResponse -&gt; Rep UpdateDistributionResponse x)
+-&gt; (forall x.
+    Rep UpdateDistributionResponse x -&gt; UpdateDistributionResponse)
+-&gt; Generic UpdateDistributionResponse
+forall x.
+Rep UpdateDistributionResponse x -&gt; UpdateDistributionResponse
+forall x.
+UpdateDistributionResponse -&gt; Rep UpdateDistributionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateDistributionResponse x -&gt; UpdateDistributionResponse
+$cfrom :: forall x.
+UpdateDistributionResponse -&gt; Rep UpdateDistributionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- Create a value of 'UpdateDistributionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'eTag', 'updateDistributionResponse_eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'distribution', 'updateDistributionResponse_distribution' - The distribution\'s information.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- 'httpStatus', 'updateDistributionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#newUpdateDistributionResponse"><span class="hs-identifier hs-type">newUpdateDistributionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse"><span class="hs-identifier hs-type">UpdateDistributionResponse</span></a></span><span>
+</span><span id="line-245"></span><span id="newUpdateDistributionResponse"><span class="annot"><span class="annottext">newUpdateDistributionResponse :: Int -&gt; UpdateDistributionResponse
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#newUpdateDistributionResponse"><span class="hs-identifier hs-var hs-var">newUpdateDistributionResponse</span></a></span></span><span> </span><span id="local-6989586621679423420"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423420"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>  </span><span class="annot"><span class="annottext">UpdateDistributionResponse' :: Maybe Text
+-&gt; Maybe Distribution -&gt; Int -&gt; UpdateDistributionResponse
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse%27"><span class="hs-identifier hs-type">UpdateDistributionResponse'</span></a></span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eTag:UpdateDistributionResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3AeTag%3AUpdateDistributionResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:distribution:UpdateDistributionResponse' :: Maybe Distribution
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3Adistribution%3AUpdateDistributionResponse%27"><span class="hs-identifier hs-var">distribution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Distribution
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDistributionResponse' :: Int
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3AhttpStatus%3AUpdateDistributionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423420"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistributionResponse_eTag"><span class="hs-identifier hs-type">updateDistributionResponse_eTag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse"><span class="hs-identifier hs-type">UpdateDistributionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="updateDistributionResponse_eTag"><span class="annot"><span class="annottext">updateDistributionResponse_eTag :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDistributionResponse -&gt; f UpdateDistributionResponse
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistributionResponse_eTag"><span class="hs-identifier hs-var hs-var">updateDistributionResponse_eTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDistributionResponse -&gt; Maybe Text)
+-&gt; (UpdateDistributionResponse
+    -&gt; Maybe Text -&gt; UpdateDistributionResponse)
+-&gt; Lens
+     UpdateDistributionResponse
+     UpdateDistributionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse%27"><span class="hs-identifier hs-type">UpdateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423419"><span class="annot"><span class="annottext">Maybe Text
+eTag :: Maybe Text
+$sel:eTag:UpdateDistributionResponse' :: UpdateDistributionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679423419"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423419"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423418"><span class="annot"><span class="annottext">s :: UpdateDistributionResponse
+</span><a href="#local-6989586621679423418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse%27"><span class="hs-identifier hs-type">UpdateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423417"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDistributionResponse
+</span><a href="#local-6989586621679423418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:UpdateDistributionResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3AeTag%3AUpdateDistributionResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse"><span class="hs-identifier hs-type">UpdateDistributionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The distribution\'s information.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistributionResponse_distribution"><span class="hs-identifier hs-type">updateDistributionResponse_distribution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse"><span class="hs-identifier hs-type">UpdateDistributionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="updateDistributionResponse_distribution"><span class="annot"><span class="annottext">updateDistributionResponse_distribution :: (Maybe Distribution -&gt; f (Maybe Distribution))
+-&gt; UpdateDistributionResponse -&gt; f UpdateDistributionResponse
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistributionResponse_distribution"><span class="hs-identifier hs-var hs-var">updateDistributionResponse_distribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDistributionResponse -&gt; Maybe Distribution)
+-&gt; (UpdateDistributionResponse
+    -&gt; Maybe Distribution -&gt; UpdateDistributionResponse)
+-&gt; Lens
+     UpdateDistributionResponse
+     UpdateDistributionResponse
+     (Maybe Distribution)
+     (Maybe Distribution)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse%27"><span class="hs-identifier hs-type">UpdateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423416"><span class="annot"><span class="annottext">Maybe Distribution
+distribution :: Maybe Distribution
+$sel:distribution:UpdateDistributionResponse' :: UpdateDistributionResponse -&gt; Maybe Distribution
+</span><a href="#local-6989586621679423416"><span class="hs-identifier hs-var hs-var">distribution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Distribution
+</span><a href="#local-6989586621679423416"><span class="hs-identifier hs-var">distribution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423415"><span class="annot"><span class="annottext">s :: UpdateDistributionResponse
+</span><a href="#local-6989586621679423415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse%27"><span class="hs-identifier hs-type">UpdateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423414"><span class="annot"><span class="annottext">Maybe Distribution
+</span><a href="#local-6989586621679423414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDistributionResponse
+</span><a href="#local-6989586621679423415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distribution:UpdateDistributionResponse' :: Maybe Distribution
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3Adistribution%3AUpdateDistributionResponse%27"><span class="hs-identifier hs-var">distribution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Distribution
+</span><a href="#local-6989586621679423414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse"><span class="hs-identifier hs-type">UpdateDistributionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistributionResponse_httpStatus"><span class="hs-identifier hs-type">updateDistributionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse"><span class="hs-identifier hs-type">UpdateDistributionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-262"></span><span id="updateDistributionResponse_httpStatus"><span class="annot"><span class="annottext">updateDistributionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateDistributionResponse -&gt; f UpdateDistributionResponse
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#updateDistributionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateDistributionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDistributionResponse -&gt; Int)
+-&gt; (UpdateDistributionResponse
+    -&gt; Int -&gt; UpdateDistributionResponse)
+-&gt; Lens
+     UpdateDistributionResponse UpdateDistributionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse%27"><span class="hs-identifier hs-type">UpdateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423413"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateDistributionResponse' :: UpdateDistributionResponse -&gt; Int
+</span><a href="#local-6989586621679423413"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423413"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423412"><span class="annot"><span class="annottext">s :: UpdateDistributionResponse
+</span><a href="#local-6989586621679423412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse%27"><span class="hs-identifier hs-type">UpdateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423411"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDistributionResponse
+</span><a href="#local-6989586621679423412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDistributionResponse' :: Int
+</span><a href="Network.AWS.CloudFront.UpdateDistribution.html#%24sel%3AhttpStatus%3AUpdateDistributionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse"><span class="hs-identifier hs-type">UpdateDistributionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423409"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateDistribution.html#UpdateDistributionResponse"><span class="hs-identifier hs-type">UpdateDistributionResponse</span></a></span></span><span>
+</span><span id="line-265"></span></pre></body></html>

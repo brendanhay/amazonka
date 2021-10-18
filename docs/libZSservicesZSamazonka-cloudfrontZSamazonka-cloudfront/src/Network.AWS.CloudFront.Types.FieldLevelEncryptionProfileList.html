@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileSummary.html"><span class="hs-identifier">Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileSummary</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | List of field-level encryption profiles.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFieldLevelEncryptionProfileList' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679389879"><span id="local-6989586621679389880"></span></span><span class="hs-keyword">data</span><span> </span><span id="FieldLevelEncryptionProfileList"><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList"><span class="hs-identifier hs-var">FieldLevelEncryptionProfileList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FieldLevelEncryptionProfileList%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-var">FieldLevelEncryptionProfileList'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The field-level encryption profile items.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aitems%3AFieldLevelEncryptionProfileList%27"><span class="annot"><span class="annottext">FieldLevelEncryptionProfileList
+-&gt; Maybe [FieldLevelEncryptionProfileSummary]
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#%24sel%3Aitems%3AFieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileSummary.html#FieldLevelEncryptionProfileSummary"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | If there are more elements to be listed, this element is present and</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- contains the value that you can use for the @Marker@ request parameter</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- to continue listing your profiles where you left off.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AnextMarker%3AFieldLevelEncryptionProfileList%27"><span class="annot"><span class="annottext">FieldLevelEncryptionProfileList -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#%24sel%3AnextMarker%3AFieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The maximum number of field-level encryption profiles you want in the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- response body.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AmaxItems%3AFieldLevelEncryptionProfileList%27"><span class="annot"><span class="annottext">FieldLevelEncryptionProfileList -&gt; Int
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#%24sel%3AmaxItems%3AFieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The number of field-level encryption profiles.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aquantity%3AFieldLevelEncryptionProfileList%27"><span class="annot"><span class="annottext">FieldLevelEncryptionProfileList -&gt; Int
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#%24sel%3Aquantity%3AFieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389870"><span id="local-6989586621679389872"><span class="annot"><span class="annottext">FieldLevelEncryptionProfileList
+-&gt; FieldLevelEncryptionProfileList -&gt; Bool
+(FieldLevelEncryptionProfileList
+ -&gt; FieldLevelEncryptionProfileList -&gt; Bool)
+-&gt; (FieldLevelEncryptionProfileList
+    -&gt; FieldLevelEncryptionProfileList -&gt; Bool)
+-&gt; Eq FieldLevelEncryptionProfileList
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FieldLevelEncryptionProfileList
+-&gt; FieldLevelEncryptionProfileList -&gt; Bool
+$c/= :: FieldLevelEncryptionProfileList
+-&gt; FieldLevelEncryptionProfileList -&gt; Bool
+== :: FieldLevelEncryptionProfileList
+-&gt; FieldLevelEncryptionProfileList -&gt; Bool
+$c== :: FieldLevelEncryptionProfileList
+-&gt; FieldLevelEncryptionProfileList -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389861"><span id="local-6989586621679389863"><span id="local-6989586621679389865"><span id="local-6989586621679389867"><span class="annot"><span class="annottext">ReadPrec [FieldLevelEncryptionProfileList]
+ReadPrec FieldLevelEncryptionProfileList
+Int -&gt; ReadS FieldLevelEncryptionProfileList
+ReadS [FieldLevelEncryptionProfileList]
+(Int -&gt; ReadS FieldLevelEncryptionProfileList)
+-&gt; ReadS [FieldLevelEncryptionProfileList]
+-&gt; ReadPrec FieldLevelEncryptionProfileList
+-&gt; ReadPrec [FieldLevelEncryptionProfileList]
+-&gt; Read FieldLevelEncryptionProfileList
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FieldLevelEncryptionProfileList]
+$creadListPrec :: ReadPrec [FieldLevelEncryptionProfileList]
+readPrec :: ReadPrec FieldLevelEncryptionProfileList
+$creadPrec :: ReadPrec FieldLevelEncryptionProfileList
+readList :: ReadS [FieldLevelEncryptionProfileList]
+$creadList :: ReadS [FieldLevelEncryptionProfileList]
+readsPrec :: Int -&gt; ReadS FieldLevelEncryptionProfileList
+$creadsPrec :: Int -&gt; ReadS FieldLevelEncryptionProfileList
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389854"><span id="local-6989586621679389856"><span id="local-6989586621679389858"><span class="annot"><span class="annottext">Int -&gt; FieldLevelEncryptionProfileList -&gt; ShowS
+[FieldLevelEncryptionProfileList] -&gt; ShowS
+FieldLevelEncryptionProfileList -&gt; String
+(Int -&gt; FieldLevelEncryptionProfileList -&gt; ShowS)
+-&gt; (FieldLevelEncryptionProfileList -&gt; String)
+-&gt; ([FieldLevelEncryptionProfileList] -&gt; ShowS)
+-&gt; Show FieldLevelEncryptionProfileList
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FieldLevelEncryptionProfileList] -&gt; ShowS
+$cshowList :: [FieldLevelEncryptionProfileList] -&gt; ShowS
+show :: FieldLevelEncryptionProfileList -&gt; String
+$cshow :: FieldLevelEncryptionProfileList -&gt; String
+showsPrec :: Int -&gt; FieldLevelEncryptionProfileList -&gt; ShowS
+$cshowsPrec :: Int -&gt; FieldLevelEncryptionProfileList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ FieldLevelEncryptionProfileList
+ -&gt; Rep FieldLevelEncryptionProfileList x)
+-&gt; (forall x.
+    Rep FieldLevelEncryptionProfileList x
+    -&gt; FieldLevelEncryptionProfileList)
+-&gt; Generic FieldLevelEncryptionProfileList
+forall x.
+Rep FieldLevelEncryptionProfileList x
+-&gt; FieldLevelEncryptionProfileList
+forall x.
+FieldLevelEncryptionProfileList
+-&gt; Rep FieldLevelEncryptionProfileList x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep FieldLevelEncryptionProfileList x
+-&gt; FieldLevelEncryptionProfileList
+$cfrom :: forall x.
+FieldLevelEncryptionProfileList
+-&gt; Rep FieldLevelEncryptionProfileList x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'FieldLevelEncryptionProfileList' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'items', 'fieldLevelEncryptionProfileList_items' - The field-level encryption profile items.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'nextMarker', 'fieldLevelEncryptionProfileList_nextMarker' - If there are more elements to be listed, this element is present and</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- contains the value that you can use for the @Marker@ request parameter</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- to continue listing your profiles where you left off.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'maxItems', 'fieldLevelEncryptionProfileList_maxItems' - The maximum number of field-level encryption profiles you want in the</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- response body.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'quantity', 'fieldLevelEncryptionProfileList_quantity' - The number of field-level encryption profiles.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#newFieldLevelEncryptionProfileList"><span class="hs-identifier hs-type">newFieldLevelEncryptionProfileList</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-comment">-- | 'maxItems'</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'quantity'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList</span></a></span><span>
+</span><span id="line-69"></span><span id="newFieldLevelEncryptionProfileList"><span class="annot"><span class="annottext">newFieldLevelEncryptionProfileList :: Int -&gt; Int -&gt; FieldLevelEncryptionProfileList
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#newFieldLevelEncryptionProfileList"><span class="hs-identifier hs-var hs-var">newFieldLevelEncryptionProfileList</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679389848"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389848"><span class="hs-identifier hs-var">pMaxItems_</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679389847"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389847"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">FieldLevelEncryptionProfileList' :: Maybe [FieldLevelEncryptionProfileSummary]
+-&gt; Maybe Text -&gt; Int -&gt; Int -&gt; FieldLevelEncryptionProfileList
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList'</span></a></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:FieldLevelEncryptionProfileList' :: Maybe [FieldLevelEncryptionProfileSummary]
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#%24sel%3Aitems%3AFieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe [FieldLevelEncryptionProfileSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextMarker:FieldLevelEncryptionProfileList' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#%24sel%3AnextMarker%3AFieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxItems:FieldLevelEncryptionProfileList' :: Int
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#%24sel%3AmaxItems%3AFieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389848"><span class="hs-identifier hs-var">pMaxItems_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">$sel:quantity:FieldLevelEncryptionProfileList' :: Int
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#%24sel%3Aquantity%3AFieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389847"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The field-level encryption profile items.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#fieldLevelEncryptionProfileList_items"><span class="hs-identifier hs-type">fieldLevelEncryptionProfileList_items</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileSummary.html#FieldLevelEncryptionProfileSummary"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="fieldLevelEncryptionProfileList_items"><span class="annot"><span class="annottext">fieldLevelEncryptionProfileList_items :: (Maybe [FieldLevelEncryptionProfileSummary]
+ -&gt; f (Maybe [FieldLevelEncryptionProfileSummary]))
+-&gt; FieldLevelEncryptionProfileList
+-&gt; f FieldLevelEncryptionProfileList
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#fieldLevelEncryptionProfileList_items"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionProfileList_items</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldLevelEncryptionProfileList
+ -&gt; Maybe [FieldLevelEncryptionProfileSummary])
+-&gt; (FieldLevelEncryptionProfileList
+    -&gt; Maybe [FieldLevelEncryptionProfileSummary]
+    -&gt; FieldLevelEncryptionProfileList)
+-&gt; Lens
+     FieldLevelEncryptionProfileList
+     FieldLevelEncryptionProfileList
+     (Maybe [FieldLevelEncryptionProfileSummary])
+     (Maybe [FieldLevelEncryptionProfileSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389843"><span class="annot"><span class="annottext">Maybe [FieldLevelEncryptionProfileSummary]
+items :: Maybe [FieldLevelEncryptionProfileSummary]
+$sel:items:FieldLevelEncryptionProfileList' :: FieldLevelEncryptionProfileList
+-&gt; Maybe [FieldLevelEncryptionProfileSummary]
+</span><a href="#local-6989586621679389843"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FieldLevelEncryptionProfileSummary]
+</span><a href="#local-6989586621679389843"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389842"><span class="annot"><span class="annottext">s :: FieldLevelEncryptionProfileList
+</span><a href="#local-6989586621679389842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389841"><span class="annot"><span class="annottext">Maybe [FieldLevelEncryptionProfileSummary]
+</span><a href="#local-6989586621679389841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionProfileList
+</span><a href="#local-6989586621679389842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:FieldLevelEncryptionProfileList' :: Maybe [FieldLevelEncryptionProfileSummary]
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#%24sel%3Aitems%3AFieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FieldLevelEncryptionProfileSummary]
+</span><a href="#local-6989586621679389841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FieldLevelEncryptionProfileSummary]
+  -&gt; f (Maybe [FieldLevelEncryptionProfileSummary]))
+ -&gt; FieldLevelEncryptionProfileList
+ -&gt; f FieldLevelEncryptionProfileList)
+-&gt; ((Maybe [FieldLevelEncryptionProfileSummary]
+     -&gt; f (Maybe [FieldLevelEncryptionProfileSummary]))
+    -&gt; Maybe [FieldLevelEncryptionProfileSummary]
+    -&gt; f (Maybe [FieldLevelEncryptionProfileSummary]))
+-&gt; (Maybe [FieldLevelEncryptionProfileSummary]
+    -&gt; f (Maybe [FieldLevelEncryptionProfileSummary]))
+-&gt; FieldLevelEncryptionProfileList
+-&gt; f FieldLevelEncryptionProfileList
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FieldLevelEncryptionProfileSummary]
+  [FieldLevelEncryptionProfileSummary]
+  [FieldLevelEncryptionProfileSummary]
+  [FieldLevelEncryptionProfileSummary]
+-&gt; Iso
+     (Maybe [FieldLevelEncryptionProfileSummary])
+     (Maybe [FieldLevelEncryptionProfileSummary])
+     (Maybe [FieldLevelEncryptionProfileSummary])
+     (Maybe [FieldLevelEncryptionProfileSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FieldLevelEncryptionProfileSummary]
+  [FieldLevelEncryptionProfileSummary]
+  [FieldLevelEncryptionProfileSummary]
+  [FieldLevelEncryptionProfileSummary]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | If there are more elements to be listed, this element is present and</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- contains the value that you can use for the @Marker@ request parameter</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- to continue listing your profiles where you left off.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#fieldLevelEncryptionProfileList_nextMarker"><span class="hs-identifier hs-type">fieldLevelEncryptionProfileList_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="fieldLevelEncryptionProfileList_nextMarker"><span class="annot"><span class="annottext">fieldLevelEncryptionProfileList_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FieldLevelEncryptionProfileList
+-&gt; f FieldLevelEncryptionProfileList
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#fieldLevelEncryptionProfileList_nextMarker"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionProfileList_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldLevelEncryptionProfileList -&gt; Maybe Text)
+-&gt; (FieldLevelEncryptionProfileList
+    -&gt; Maybe Text -&gt; FieldLevelEncryptionProfileList)
+-&gt; Lens
+     FieldLevelEncryptionProfileList
+     FieldLevelEncryptionProfileList
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389836"><span class="annot"><span class="annottext">Maybe Text
+nextMarker :: Maybe Text
+$sel:nextMarker:FieldLevelEncryptionProfileList' :: FieldLevelEncryptionProfileList -&gt; Maybe Text
+</span><a href="#local-6989586621679389836"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389836"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389835"><span class="annot"><span class="annottext">s :: FieldLevelEncryptionProfileList
+</span><a href="#local-6989586621679389835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389834"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionProfileList
+</span><a href="#local-6989586621679389835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:FieldLevelEncryptionProfileList' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#%24sel%3AnextMarker%3AFieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The maximum number of field-level encryption profiles you want in the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- response body.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#fieldLevelEncryptionProfileList_maxItems"><span class="hs-identifier hs-type">fieldLevelEncryptionProfileList_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-93"></span><span id="fieldLevelEncryptionProfileList_maxItems"><span class="annot"><span class="annottext">fieldLevelEncryptionProfileList_maxItems :: (Int -&gt; f Int)
+-&gt; FieldLevelEncryptionProfileList
+-&gt; f FieldLevelEncryptionProfileList
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#fieldLevelEncryptionProfileList_maxItems"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionProfileList_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldLevelEncryptionProfileList -&gt; Int)
+-&gt; (FieldLevelEncryptionProfileList
+    -&gt; Int -&gt; FieldLevelEncryptionProfileList)
+-&gt; Lens
+     FieldLevelEncryptionProfileList
+     FieldLevelEncryptionProfileList
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389832"><span class="annot"><span class="annottext">Int
+maxItems :: Int
+$sel:maxItems:FieldLevelEncryptionProfileList' :: FieldLevelEncryptionProfileList -&gt; Int
+</span><a href="#local-6989586621679389832"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389832"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389831"><span class="annot"><span class="annottext">s :: FieldLevelEncryptionProfileList
+</span><a href="#local-6989586621679389831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389830"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionProfileList
+</span><a href="#local-6989586621679389831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:FieldLevelEncryptionProfileList' :: Int
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#%24sel%3AmaxItems%3AFieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The number of field-level encryption profiles.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#fieldLevelEncryptionProfileList_quantity"><span class="hs-identifier hs-type">fieldLevelEncryptionProfileList_quantity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-97"></span><span id="fieldLevelEncryptionProfileList_quantity"><span class="annot"><span class="annottext">fieldLevelEncryptionProfileList_quantity :: (Int -&gt; f Int)
+-&gt; FieldLevelEncryptionProfileList
+-&gt; f FieldLevelEncryptionProfileList
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#fieldLevelEncryptionProfileList_quantity"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionProfileList_quantity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldLevelEncryptionProfileList -&gt; Int)
+-&gt; (FieldLevelEncryptionProfileList
+    -&gt; Int -&gt; FieldLevelEncryptionProfileList)
+-&gt; Lens
+     FieldLevelEncryptionProfileList
+     FieldLevelEncryptionProfileList
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389828"><span class="annot"><span class="annottext">Int
+quantity :: Int
+$sel:quantity:FieldLevelEncryptionProfileList' :: FieldLevelEncryptionProfileList -&gt; Int
+</span><a href="#local-6989586621679389828"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389828"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389827"><span class="annot"><span class="annottext">s :: FieldLevelEncryptionProfileList
+</span><a href="#local-6989586621679389827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389826"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionProfileList
+</span><a href="#local-6989586621679389827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:FieldLevelEncryptionProfileList' :: Int
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#%24sel%3Aquantity%3AFieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679389823"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FieldLevelEncryptionProfileList
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679389821"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679389821"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">Maybe [FieldLevelEncryptionProfileSummary]
+-&gt; Maybe Text -&gt; Int -&gt; Int -&gt; FieldLevelEncryptionProfileList
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList%27"><span class="hs-identifier hs-var">FieldLevelEncryptionProfileList'</span></a></span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [FieldLevelEncryptionProfileSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; Int -&gt; FieldLevelEncryptionProfileList)
+-&gt; Either String (Maybe [FieldLevelEncryptionProfileSummary])
+-&gt; Either
+     String
+     (Maybe Text -&gt; Int -&gt; Int -&gt; FieldLevelEncryptionProfileList)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679389821"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (Maybe [FieldLevelEncryptionProfileSummary]))
+-&gt; Either String (Maybe [FieldLevelEncryptionProfileSummary])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [FieldLevelEncryptionProfileSummary])
+-&gt; [Node]
+-&gt; Either String (Maybe [FieldLevelEncryptionProfileSummary])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span>
+</span><span id="line-104"></span><span>                        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+-&gt; [Node] -&gt; Either String [FieldLevelEncryptionProfileSummary]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span>
+</span><span id="line-105"></span><span>                            </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FieldLevelEncryptionProfileSummary&quot;</span></span><span>
+</span><span id="line-106"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; Int -&gt; FieldLevelEncryptionProfileList)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; Int -&gt; FieldLevelEncryptionProfileList)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679389821"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">Either String (Int -&gt; Int -&gt; FieldLevelEncryptionProfileList)
+-&gt; Either String Int
+-&gt; Either String (Int -&gt; FieldLevelEncryptionProfileList)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679389821"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxItems&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Either String (Int -&gt; FieldLevelEncryptionProfileList)
+-&gt; Either String Int
+-&gt; Either String FieldLevelEncryptionProfileList
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679389821"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679389811"><span id="local-6989586621679389813"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679389808"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList.html#FieldLevelEncryptionProfileList"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileList</span></a></span></span><span>
+</span><span id="line-119"></span></pre></body></html>

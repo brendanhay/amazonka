@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Connect.StopContact</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Ends the specified contact.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Connect.StopContact</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact"><span class="hs-identifier">StopContact</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#newStopContact"><span class="hs-identifier">newStopContact</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#stopContact_contactId"><span class="hs-identifier">stopContact_contactId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#stopContact_instanceId"><span class="hs-identifier">stopContact_instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContactResponse"><span class="hs-identifier">StopContactResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#newStopContactResponse"><span class="hs-identifier">newStopContactResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#stopContactResponse_httpStatus"><span class="hs-identifier">stopContactResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.html"><span class="hs-identifier">Network.AWS.Connect.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newStopContact' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679409562"><span id="local-6989586621679409563"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopContact"><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact"><span class="hs-identifier hs-var">StopContact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopContact%27"><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact%27"><span class="hs-identifier hs-var">StopContact'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the contact.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcontactId%3AStopContact%27"><span class="annot"><span class="annottext">StopContact -&gt; Text
+</span><a href="Network.AWS.Connect.StopContact.html#%24sel%3AcontactId%3AStopContact%27"><span class="hs-identifier hs-var hs-var">contactId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AinstanceId%3AStopContact%27"><span class="annot"><span class="annottext">StopContact -&gt; Text
+</span><a href="Network.AWS.Connect.StopContact.html#%24sel%3AinstanceId%3AStopContact%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409555"><span id="local-6989586621679409557"><span class="annot"><span class="annottext">StopContact -&gt; StopContact -&gt; Bool
+(StopContact -&gt; StopContact -&gt; Bool)
+-&gt; (StopContact -&gt; StopContact -&gt; Bool) -&gt; Eq StopContact
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopContact -&gt; StopContact -&gt; Bool
+$c/= :: StopContact -&gt; StopContact -&gt; Bool
+== :: StopContact -&gt; StopContact -&gt; Bool
+$c== :: StopContact -&gt; StopContact -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409546"><span id="local-6989586621679409548"><span id="local-6989586621679409550"><span id="local-6989586621679409552"><span class="annot"><span class="annottext">ReadPrec [StopContact]
+ReadPrec StopContact
+Int -&gt; ReadS StopContact
+ReadS [StopContact]
+(Int -&gt; ReadS StopContact)
+-&gt; ReadS [StopContact]
+-&gt; ReadPrec StopContact
+-&gt; ReadPrec [StopContact]
+-&gt; Read StopContact
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopContact]
+$creadListPrec :: ReadPrec [StopContact]
+readPrec :: ReadPrec StopContact
+$creadPrec :: ReadPrec StopContact
+readList :: ReadS [StopContact]
+$creadList :: ReadS [StopContact]
+readsPrec :: Int -&gt; ReadS StopContact
+$creadsPrec :: Int -&gt; ReadS StopContact
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409539"><span id="local-6989586621679409541"><span id="local-6989586621679409543"><span class="annot"><span class="annottext">Int -&gt; StopContact -&gt; ShowS
+[StopContact] -&gt; ShowS
+StopContact -&gt; String
+(Int -&gt; StopContact -&gt; ShowS)
+-&gt; (StopContact -&gt; String)
+-&gt; ([StopContact] -&gt; ShowS)
+-&gt; Show StopContact
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopContact] -&gt; ShowS
+$cshowList :: [StopContact] -&gt; ShowS
+show :: StopContact -&gt; String
+$cshow :: StopContact -&gt; String
+showsPrec :: Int -&gt; StopContact -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopContact -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopContact -&gt; Rep StopContact x)
+-&gt; (forall x. Rep StopContact x -&gt; StopContact)
+-&gt; Generic StopContact
+forall x. Rep StopContact x -&gt; StopContact
+forall x. StopContact -&gt; Rep StopContact x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopContact x -&gt; StopContact
+$cfrom :: forall x. StopContact -&gt; Rep StopContact x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'StopContact' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'contactId', 'stopContact_contactId' - The ID of the contact.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'instanceId', 'stopContact_instanceId' - The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#newStopContact"><span class="hs-identifier hs-type">newStopContact</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'contactId'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'instanceId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact"><span class="hs-identifier hs-type">StopContact</span></a></span><span>
+</span><span id="line-77"></span><span id="newStopContact"><span class="annot"><span class="annottext">newStopContact :: Text -&gt; Text -&gt; StopContact
+</span><a href="Network.AWS.Connect.StopContact.html#newStopContact"><span class="hs-identifier hs-var hs-var">newStopContact</span></a></span></span><span> </span><span id="local-6989586621679409534"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679409534"><span class="hs-identifier hs-var">pContactId_</span></a></span></span><span> </span><span id="local-6989586621679409533"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679409533"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">StopContact' :: Text -&gt; Text -&gt; StopContact
+</span><a href="Network.AWS.Connect.StopContact.html#StopContact%27"><span class="hs-identifier hs-type">StopContact'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contactId:StopContact' :: Text
+</span><a href="Network.AWS.Connect.StopContact.html#%24sel%3AcontactId%3AStopContact%27"><span class="hs-identifier hs-var">contactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679409534"><span class="hs-identifier hs-var">pContactId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:StopContact' :: Text
+</span><a href="Network.AWS.Connect.StopContact.html#%24sel%3AinstanceId%3AStopContact%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679409533"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The ID of the contact.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#stopContact_contactId"><span class="hs-identifier hs-type">stopContact_contactId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact"><span class="hs-identifier hs-type">StopContact</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span id="stopContact_contactId"><span class="annot"><span class="annottext">stopContact_contactId :: (Text -&gt; f Text) -&gt; StopContact -&gt; f StopContact
+</span><a href="Network.AWS.Connect.StopContact.html#stopContact_contactId"><span class="hs-identifier hs-var hs-var">stopContact_contactId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopContact -&gt; Text)
+-&gt; (StopContact -&gt; Text -&gt; StopContact)
+-&gt; Lens StopContact StopContact Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact%27"><span class="hs-identifier hs-type">StopContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409530"><span class="annot"><span class="annottext">Text
+contactId :: Text
+$sel:contactId:StopContact' :: StopContact -&gt; Text
+</span><a href="#local-6989586621679409530"><span class="hs-identifier hs-var hs-var">contactId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679409530"><span class="hs-identifier hs-var">contactId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409529"><span class="annot"><span class="annottext">s :: StopContact
+</span><a href="#local-6989586621679409529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact%27"><span class="hs-identifier hs-type">StopContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409528"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679409528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopContact
+</span><a href="#local-6989586621679409529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactId:StopContact' :: Text
+</span><a href="Network.AWS.Connect.StopContact.html#%24sel%3AcontactId%3AStopContact%27"><span class="hs-identifier hs-var">contactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679409528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact"><span class="hs-identifier hs-type">StopContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#stopContact_instanceId"><span class="hs-identifier hs-type">stopContact_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact"><span class="hs-identifier hs-type">StopContact</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="stopContact_instanceId"><span class="annot"><span class="annottext">stopContact_instanceId :: (Text -&gt; f Text) -&gt; StopContact -&gt; f StopContact
+</span><a href="Network.AWS.Connect.StopContact.html#stopContact_instanceId"><span class="hs-identifier hs-var hs-var">stopContact_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopContact -&gt; Text)
+-&gt; (StopContact -&gt; Text -&gt; StopContact)
+-&gt; Lens StopContact StopContact Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact%27"><span class="hs-identifier hs-type">StopContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409527"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+$sel:instanceId:StopContact' :: StopContact -&gt; Text
+</span><a href="#local-6989586621679409527"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679409527"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409526"><span class="annot"><span class="annottext">s :: StopContact
+</span><a href="#local-6989586621679409526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact%27"><span class="hs-identifier hs-type">StopContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409525"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679409525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopContact
+</span><a href="#local-6989586621679409526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:StopContact' :: Text
+</span><a href="Network.AWS.Connect.StopContact.html#%24sel%3AinstanceId%3AStopContact%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679409525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact"><span class="hs-identifier hs-type">StopContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact"><span class="hs-identifier hs-type">StopContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact"><span class="hs-identifier hs-type">StopContact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContactResponse"><span class="hs-identifier hs-type">StopContactResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679409521"><span class="annot"><span class="annottext">request :: StopContact -&gt; Request StopContact
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopContact -&gt; Request StopContact
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679409517"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StopContact
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopContact)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse StopContact))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StopContact
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopContact)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679409514"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679409514"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679409513"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679409513"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679409512"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679409512"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StopContactResponse
+</span><a href="Network.AWS.Connect.StopContact.html#StopContactResponse%27"><span class="hs-identifier hs-var">StopContactResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StopContactResponse)
+-&gt; Either String Int -&gt; Either String StopContactResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679409514"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409505"><span id="local-6989586621679409507"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact"><span class="hs-identifier hs-type">StopContact</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409502"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact"><span class="hs-identifier hs-type">StopContact</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact"><span class="hs-identifier hs-type">StopContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679409498"><span class="annot"><span class="annottext">toHeaders :: StopContact -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopContact -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-113"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409488"><span id="local-6989586621679409490"><span id="local-6989586621679409492"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact"><span class="hs-identifier hs-type">StopContact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679409486"><span class="annot"><span class="annottext">toJSON :: StopContact -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact%27"><span class="hs-identifier hs-type">StopContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409483"><span id="local-6989586621679409484"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+contactId :: Text
+$sel:instanceId:StopContact' :: StopContact -&gt; Text
+$sel:contactId:StopContact' :: StopContact -&gt; Text
+</span><a href="#local-6989586621679409483"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContactId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679409484"><span class="hs-identifier hs-var">contactId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679409483"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact"><span class="hs-identifier hs-type">StopContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679409477"><span class="annot"><span class="annottext">toPath :: StopContact -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopContact -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/contact/stop&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContact"><span class="hs-identifier hs-type">StopContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679409473"><span class="annot"><span class="annottext">toQuery :: StopContact -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopContact -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newStopContactResponse' smart constructor.</span><span>
+</span><span id="line-133"></span><span id="local-6989586621679409470"><span id="local-6989586621679409471"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopContactResponse"><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContactResponse"><span class="hs-identifier hs-var">StopContactResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopContactResponse%27"><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContactResponse%27"><span class="hs-identifier hs-var">StopContactResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopContactResponse%27"><span class="annot"><span class="annottext">StopContactResponse -&gt; Int
+</span><a href="Network.AWS.Connect.StopContact.html#%24sel%3AhttpStatus%3AStopContactResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409465"><span id="local-6989586621679409467"><span class="annot"><span class="annottext">StopContactResponse -&gt; StopContactResponse -&gt; Bool
+(StopContactResponse -&gt; StopContactResponse -&gt; Bool)
+-&gt; (StopContactResponse -&gt; StopContactResponse -&gt; Bool)
+-&gt; Eq StopContactResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopContactResponse -&gt; StopContactResponse -&gt; Bool
+$c/= :: StopContactResponse -&gt; StopContactResponse -&gt; Bool
+== :: StopContactResponse -&gt; StopContactResponse -&gt; Bool
+$c== :: StopContactResponse -&gt; StopContactResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409457"><span id="local-6989586621679409459"><span id="local-6989586621679409461"><span id="local-6989586621679409463"><span class="annot"><span class="annottext">ReadPrec [StopContactResponse]
+ReadPrec StopContactResponse
+Int -&gt; ReadS StopContactResponse
+ReadS [StopContactResponse]
+(Int -&gt; ReadS StopContactResponse)
+-&gt; ReadS [StopContactResponse]
+-&gt; ReadPrec StopContactResponse
+-&gt; ReadPrec [StopContactResponse]
+-&gt; Read StopContactResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopContactResponse]
+$creadListPrec :: ReadPrec [StopContactResponse]
+readPrec :: ReadPrec StopContactResponse
+$creadPrec :: ReadPrec StopContactResponse
+readList :: ReadS [StopContactResponse]
+$creadList :: ReadS [StopContactResponse]
+readsPrec :: Int -&gt; ReadS StopContactResponse
+$creadsPrec :: Int -&gt; ReadS StopContactResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409451"><span id="local-6989586621679409453"><span id="local-6989586621679409455"><span class="annot"><span class="annottext">Int -&gt; StopContactResponse -&gt; ShowS
+[StopContactResponse] -&gt; ShowS
+StopContactResponse -&gt; String
+(Int -&gt; StopContactResponse -&gt; ShowS)
+-&gt; (StopContactResponse -&gt; String)
+-&gt; ([StopContactResponse] -&gt; ShowS)
+-&gt; Show StopContactResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopContactResponse] -&gt; ShowS
+$cshowList :: [StopContactResponse] -&gt; ShowS
+show :: StopContactResponse -&gt; String
+$cshow :: StopContactResponse -&gt; String
+showsPrec :: Int -&gt; StopContactResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopContactResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopContactResponse -&gt; Rep StopContactResponse x)
+-&gt; (forall x. Rep StopContactResponse x -&gt; StopContactResponse)
+-&gt; Generic StopContactResponse
+forall x. Rep StopContactResponse x -&gt; StopContactResponse
+forall x. StopContactResponse -&gt; Rep StopContactResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopContactResponse x -&gt; StopContactResponse
+$cfrom :: forall x. StopContactResponse -&gt; Rep StopContactResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'StopContactResponse' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'httpStatus', 'stopContactResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#newStopContactResponse"><span class="hs-identifier hs-type">newStopContactResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContactResponse"><span class="hs-identifier hs-type">StopContactResponse</span></a></span><span>
+</span><span id="line-152"></span><span id="newStopContactResponse"><span class="annot"><span class="annottext">newStopContactResponse :: Int -&gt; StopContactResponse
+</span><a href="Network.AWS.Connect.StopContact.html#newStopContactResponse"><span class="hs-identifier hs-var hs-var">newStopContactResponse</span></a></span></span><span> </span><span id="local-6989586621679409448"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679409448"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">StopContactResponse' :: Int -&gt; StopContactResponse
+</span><a href="Network.AWS.Connect.StopContact.html#StopContactResponse%27"><span class="hs-identifier hs-type">StopContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopContactResponse' :: Int
+</span><a href="Network.AWS.Connect.StopContact.html#%24sel%3AhttpStatus%3AStopContactResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679409448"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#stopContactResponse_httpStatus"><span class="hs-identifier hs-type">stopContactResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContactResponse"><span class="hs-identifier hs-type">StopContactResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-157"></span><span id="stopContactResponse_httpStatus"><span class="annot"><span class="annottext">stopContactResponse_httpStatus :: (Int -&gt; f Int) -&gt; StopContactResponse -&gt; f StopContactResponse
+</span><a href="Network.AWS.Connect.StopContact.html#stopContactResponse_httpStatus"><span class="hs-identifier hs-var hs-var">stopContactResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopContactResponse -&gt; Int)
+-&gt; (StopContactResponse -&gt; Int -&gt; StopContactResponse)
+-&gt; Lens StopContactResponse StopContactResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContactResponse%27"><span class="hs-identifier hs-type">StopContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409447"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StopContactResponse' :: StopContactResponse -&gt; Int
+</span><a href="#local-6989586621679409447"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679409447"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409446"><span class="annot"><span class="annottext">s :: StopContactResponse
+</span><a href="#local-6989586621679409446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContactResponse%27"><span class="hs-identifier hs-type">StopContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409445"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679409445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopContactResponse
+</span><a href="#local-6989586621679409446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopContactResponse' :: Int
+</span><a href="Network.AWS.Connect.StopContact.html#%24sel%3AhttpStatus%3AStopContactResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679409445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContactResponse"><span class="hs-identifier hs-type">StopContactResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StopContact.html#StopContactResponse"><span class="hs-identifier hs-type">StopContactResponse</span></a></span></span><span>
+</span><span id="line-160"></span></pre></body></html>

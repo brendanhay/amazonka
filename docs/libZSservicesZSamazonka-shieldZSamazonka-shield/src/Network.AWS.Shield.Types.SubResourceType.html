@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Shield.Types.SubResourceType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Shield.Types.SubResourceType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubResourceType.html#SubResourceType"><span class="hs-identifier">SubResourceType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Shield.Types.SubResourceType.html#SubResourceType_IP"><span class="hs-identifier">SubResourceType_IP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Shield.Types.SubResourceType.html#SubResourceType_URL"><span class="hs-identifier">SubResourceType_URL</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679203615"><span id="local-6989586621679203616"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SubResourceType"><span class="annot"><a href="Network.AWS.Shield.Types.SubResourceType.html#SubResourceType"><span class="hs-identifier hs-var">SubResourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubResourceType%27"><span class="annot"><a href="Network.AWS.Shield.Types.SubResourceType.html#SubResourceType%27"><span class="hs-identifier hs-var">SubResourceType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSubResourceType"><span class="annot"><span class="annottext">SubResourceType -&gt; Text
+</span><a href="Network.AWS.Shield.Types.SubResourceType.html#fromSubResourceType"><span class="hs-identifier hs-var hs-var">fromSubResourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679203607"><span id="local-6989586621679203609"><span id="local-6989586621679203611"><span class="annot"><span class="annottext">Int -&gt; SubResourceType -&gt; ShowS
+[SubResourceType] -&gt; ShowS
+SubResourceType -&gt; String
+(Int -&gt; SubResourceType -&gt; ShowS)
+-&gt; (SubResourceType -&gt; String)
+-&gt; ([SubResourceType] -&gt; ShowS)
+-&gt; Show SubResourceType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SubResourceType] -&gt; ShowS
+$cshowList :: [SubResourceType] -&gt; ShowS
+show :: SubResourceType -&gt; String
+$cshow :: SubResourceType -&gt; String
+showsPrec :: Int -&gt; SubResourceType -&gt; ShowS
+$cshowsPrec :: Int -&gt; SubResourceType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679203598"><span id="local-6989586621679203600"><span id="local-6989586621679203602"><span id="local-6989586621679203604"><span class="annot"><span class="annottext">ReadPrec [SubResourceType]
+ReadPrec SubResourceType
+Int -&gt; ReadS SubResourceType
+ReadS [SubResourceType]
+(Int -&gt; ReadS SubResourceType)
+-&gt; ReadS [SubResourceType]
+-&gt; ReadPrec SubResourceType
+-&gt; ReadPrec [SubResourceType]
+-&gt; Read SubResourceType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SubResourceType]
+$creadListPrec :: ReadPrec [SubResourceType]
+readPrec :: ReadPrec SubResourceType
+$creadPrec :: ReadPrec SubResourceType
+readList :: ReadS [SubResourceType]
+$creadList :: ReadS [SubResourceType]
+readsPrec :: Int -&gt; ReadS SubResourceType
+$creadsPrec :: Int -&gt; ReadS SubResourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679203593"><span id="local-6989586621679203595"><span class="annot"><span class="annottext">SubResourceType -&gt; SubResourceType -&gt; Bool
+(SubResourceType -&gt; SubResourceType -&gt; Bool)
+-&gt; (SubResourceType -&gt; SubResourceType -&gt; Bool)
+-&gt; Eq SubResourceType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SubResourceType -&gt; SubResourceType -&gt; Bool
+$c/= :: SubResourceType -&gt; SubResourceType -&gt; Bool
+== :: SubResourceType -&gt; SubResourceType -&gt; Bool
+$c== :: SubResourceType -&gt; SubResourceType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679203577"><span id="local-6989586621679203579"><span id="local-6989586621679203581"><span id="local-6989586621679203583"><span id="local-6989586621679203585"><span id="local-6989586621679203587"><span id="local-6989586621679203589"><span class="annot"><span class="annottext">Eq SubResourceType
+Eq SubResourceType
+-&gt; (SubResourceType -&gt; SubResourceType -&gt; Ordering)
+-&gt; (SubResourceType -&gt; SubResourceType -&gt; Bool)
+-&gt; (SubResourceType -&gt; SubResourceType -&gt; Bool)
+-&gt; (SubResourceType -&gt; SubResourceType -&gt; Bool)
+-&gt; (SubResourceType -&gt; SubResourceType -&gt; Bool)
+-&gt; (SubResourceType -&gt; SubResourceType -&gt; SubResourceType)
+-&gt; (SubResourceType -&gt; SubResourceType -&gt; SubResourceType)
+-&gt; Ord SubResourceType
+SubResourceType -&gt; SubResourceType -&gt; Bool
+SubResourceType -&gt; SubResourceType -&gt; Ordering
+SubResourceType -&gt; SubResourceType -&gt; SubResourceType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SubResourceType -&gt; SubResourceType -&gt; SubResourceType
+$cmin :: SubResourceType -&gt; SubResourceType -&gt; SubResourceType
+max :: SubResourceType -&gt; SubResourceType -&gt; SubResourceType
+$cmax :: SubResourceType -&gt; SubResourceType -&gt; SubResourceType
+&gt;= :: SubResourceType -&gt; SubResourceType -&gt; Bool
+$c&gt;= :: SubResourceType -&gt; SubResourceType -&gt; Bool
+&gt; :: SubResourceType -&gt; SubResourceType -&gt; Bool
+$c&gt; :: SubResourceType -&gt; SubResourceType -&gt; Bool
+&lt;= :: SubResourceType -&gt; SubResourceType -&gt; Bool
+$c&lt;= :: SubResourceType -&gt; SubResourceType -&gt; Bool
+&lt; :: SubResourceType -&gt; SubResourceType -&gt; Bool
+$c&lt; :: SubResourceType -&gt; SubResourceType -&gt; Bool
+compare :: SubResourceType -&gt; SubResourceType -&gt; Ordering
+$ccompare :: SubResourceType -&gt; SubResourceType -&gt; Ordering
+$cp1Ord :: Eq SubResourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SubResourceType -&gt; Rep SubResourceType x)
+-&gt; (forall x. Rep SubResourceType x -&gt; SubResourceType)
+-&gt; Generic SubResourceType
+forall x. Rep SubResourceType x -&gt; SubResourceType
+forall x. SubResourceType -&gt; Rep SubResourceType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SubResourceType x -&gt; SubResourceType
+$cfrom :: forall x. SubResourceType -&gt; Rep SubResourceType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679203569"><span id="local-6989586621679203571"><span class="annot"><span class="annottext">Int -&gt; SubResourceType -&gt; Int
+SubResourceType -&gt; Int
+(Int -&gt; SubResourceType -&gt; Int)
+-&gt; (SubResourceType -&gt; Int) -&gt; Hashable SubResourceType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SubResourceType -&gt; Int
+$chash :: SubResourceType -&gt; Int
+hashWithSalt :: Int -&gt; SubResourceType -&gt; Int
+$chashWithSalt :: Int -&gt; SubResourceType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679203566"><span class="annot"><span class="annottext">SubResourceType -&gt; ()
+(SubResourceType -&gt; ()) -&gt; NFData SubResourceType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SubResourceType -&gt; ()
+$crnf :: SubResourceType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679203563"><span class="annot"><span class="annottext">Text -&gt; Either String SubResourceType
+(Text -&gt; Either String SubResourceType) -&gt; FromText SubResourceType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SubResourceType
+$cfromText :: Text -&gt; Either String SubResourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679203560"><span class="annot"><span class="annottext">SubResourceType -&gt; Text
+(SubResourceType -&gt; Text) -&gt; ToText SubResourceType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SubResourceType -&gt; Text
+$ctoText :: SubResourceType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679203557"><span class="annot"><span class="annottext">SubResourceType -&gt; ByteString
+(SubResourceType -&gt; ByteString) -&gt; ToByteString SubResourceType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SubResourceType -&gt; ByteString
+$ctoBS :: SubResourceType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679203554"><span class="annot"><span class="annottext">SubResourceType -&gt; ByteStringBuilder
+(SubResourceType -&gt; ByteStringBuilder) -&gt; ToLog SubResourceType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SubResourceType -&gt; ByteStringBuilder
+$cbuild :: SubResourceType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679203551"><span class="annot"><span class="annottext">HeaderName -&gt; SubResourceType -&gt; [Header]
+(HeaderName -&gt; SubResourceType -&gt; [Header])
+-&gt; ToHeader SubResourceType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SubResourceType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SubResourceType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679203548"><span class="annot"><span class="annottext">SubResourceType -&gt; QueryString
+(SubResourceType -&gt; QueryString) -&gt; ToQuery SubResourceType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SubResourceType -&gt; QueryString
+$ctoQuery :: SubResourceType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679203543"><span id="local-6989586621679203545"><span class="annot"><span class="annottext">Value -&gt; Parser [SubResourceType]
+Value -&gt; Parser SubResourceType
+(Value -&gt; Parser SubResourceType)
+-&gt; (Value -&gt; Parser [SubResourceType]) -&gt; FromJSON SubResourceType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SubResourceType]
+$cparseJSONList :: Value -&gt; Parser [SubResourceType]
+parseJSON :: Value -&gt; Parser SubResourceType
+$cparseJSON :: Value -&gt; Parser SubResourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679203538"><span id="local-6989586621679203540"><span class="annot"><span class="annottext">FromJSONKeyFunction [SubResourceType]
+FromJSONKeyFunction SubResourceType
+FromJSONKeyFunction SubResourceType
+-&gt; FromJSONKeyFunction [SubResourceType]
+-&gt; FromJSONKey SubResourceType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SubResourceType]
+$cfromJSONKeyList :: FromJSONKeyFunction [SubResourceType]
+fromJSONKey :: FromJSONKeyFunction SubResourceType
+$cfromJSONKey :: FromJSONKeyFunction SubResourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679203529"><span id="local-6989586621679203531"><span id="local-6989586621679203533"><span id="local-6989586621679203535"><span class="annot"><span class="annottext">[SubResourceType] -&gt; Encoding
+[SubResourceType] -&gt; Value
+SubResourceType -&gt; Encoding
+SubResourceType -&gt; Value
+(SubResourceType -&gt; Value)
+-&gt; (SubResourceType -&gt; Encoding)
+-&gt; ([SubResourceType] -&gt; Value)
+-&gt; ([SubResourceType] -&gt; Encoding)
+-&gt; ToJSON SubResourceType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SubResourceType] -&gt; Encoding
+$ctoEncodingList :: [SubResourceType] -&gt; Encoding
+toJSONList :: [SubResourceType] -&gt; Value
+$ctoJSONList :: [SubResourceType] -&gt; Value
+toEncoding :: SubResourceType -&gt; Encoding
+$ctoEncoding :: SubResourceType -&gt; Encoding
+toJSON :: SubResourceType -&gt; Value
+$ctoJSON :: SubResourceType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679203524"><span id="local-6989586621679203526"><span class="annot"><span class="annottext">ToJSONKeyFunction [SubResourceType]
+ToJSONKeyFunction SubResourceType
+ToJSONKeyFunction SubResourceType
+-&gt; ToJSONKeyFunction [SubResourceType] -&gt; ToJSONKey SubResourceType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SubResourceType]
+$ctoJSONKeyList :: ToJSONKeyFunction [SubResourceType]
+toJSONKey :: ToJSONKeyFunction SubResourceType
+$ctoJSONKey :: ToJSONKeyFunction SubResourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679203521"><span class="annot"><span class="annottext">[Node] -&gt; Either String SubResourceType
+([Node] -&gt; Either String SubResourceType)
+-&gt; FromXML SubResourceType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SubResourceType
+$cparseXML :: [Node] -&gt; Either String SubResourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679203518"><span class="annot"><span class="annottext">SubResourceType -&gt; XML
+(SubResourceType -&gt; XML) -&gt; ToXML SubResourceType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SubResourceType -&gt; XML
+$ctoXML :: SubResourceType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubResourceType.html#SubResourceType_IP"><span class="hs-identifier hs-type">SubResourceType_IP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubResourceType.html#SubResourceType"><span class="hs-identifier hs-type">SubResourceType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSubResourceType_IP"><span id="%24mSubResourceType_IP"><span id="SubResourceType_IP"><span class="annot"><span class="annottext">$bSubResourceType_IP :: SubResourceType
+$mSubResourceType_IP :: forall r. SubResourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Shield.Types.SubResourceType.html#%24bSubResourceType_IP"><span class="hs-identifier hs-var hs-var hs-var">SubResourceType_IP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubResourceType.html#SubResourceType%27"><span class="hs-identifier hs-type">SubResourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IP&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubResourceType.html#SubResourceType_URL"><span class="hs-identifier hs-type">SubResourceType_URL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubResourceType.html#SubResourceType"><span class="hs-identifier hs-type">SubResourceType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSubResourceType_URL"><span id="%24mSubResourceType_URL"><span id="SubResourceType_URL"><span class="annot"><span class="annottext">$bSubResourceType_URL :: SubResourceType
+$mSubResourceType_URL :: forall r. SubResourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Shield.Types.SubResourceType.html#%24bSubResourceType_URL"><span class="hs-identifier hs-var hs-var hs-var">SubResourceType_URL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubResourceType.html#SubResourceType%27"><span class="hs-identifier hs-type">SubResourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;URL&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.SubResourceType.html#SubResourceType_IP"><span class="hs-pragma hs-type">SubResourceType_IP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.SubResourceType.html#SubResourceType_URL"><span class="hs-pragma hs-type">SubResourceType_URL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.SubResourceType.html#SubResourceType%27"><span class="hs-pragma hs-type">SubResourceType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

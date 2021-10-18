@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IAM.Types.ContextKeyTypeEnum</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IAM.Types.ContextKeyTypeEnum</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum"><span class="hs-identifier">ContextKeyTypeEnum</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_Binary"><span class="hs-identifier">ContextKeyTypeEnum_Binary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_BinaryList"><span class="hs-identifier">ContextKeyTypeEnum_BinaryList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_Boolean"><span class="hs-identifier">ContextKeyTypeEnum_Boolean</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_BooleanList"><span class="hs-identifier">ContextKeyTypeEnum_BooleanList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_Date"><span class="hs-identifier">ContextKeyTypeEnum_Date</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_DateList"><span class="hs-identifier">ContextKeyTypeEnum_DateList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_Ip"><span class="hs-identifier">ContextKeyTypeEnum_Ip</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_IpList"><span class="hs-identifier">ContextKeyTypeEnum_IpList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_Numeric"><span class="hs-identifier">ContextKeyTypeEnum_Numeric</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_NumericList"><span class="hs-identifier">ContextKeyTypeEnum_NumericList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_String"><span class="hs-identifier">ContextKeyTypeEnum_String</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_StringList"><span class="hs-identifier">ContextKeyTypeEnum_StringList</span></a></span><span>
+</span><span id="line-35"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679423924"><span id="local-6989586621679423925"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContextKeyTypeEnum"><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum"><span class="hs-identifier hs-var">ContextKeyTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContextKeyTypeEnum%27"><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum%27"><span class="hs-identifier hs-var">ContextKeyTypeEnum'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContextKeyTypeEnum"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; Text
+</span><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#fromContextKeyTypeEnum"><span class="hs-identifier hs-var hs-var">fromContextKeyTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679423916"><span id="local-6989586621679423918"><span id="local-6989586621679423920"><span class="annot"><span class="annottext">Int -&gt; ContextKeyTypeEnum -&gt; ShowS
+[ContextKeyTypeEnum] -&gt; ShowS
+ContextKeyTypeEnum -&gt; String
+(Int -&gt; ContextKeyTypeEnum -&gt; ShowS)
+-&gt; (ContextKeyTypeEnum -&gt; String)
+-&gt; ([ContextKeyTypeEnum] -&gt; ShowS)
+-&gt; Show ContextKeyTypeEnum
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContextKeyTypeEnum] -&gt; ShowS
+$cshowList :: [ContextKeyTypeEnum] -&gt; ShowS
+show :: ContextKeyTypeEnum -&gt; String
+$cshow :: ContextKeyTypeEnum -&gt; String
+showsPrec :: Int -&gt; ContextKeyTypeEnum -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContextKeyTypeEnum -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679423907"><span id="local-6989586621679423909"><span id="local-6989586621679423911"><span id="local-6989586621679423913"><span class="annot"><span class="annottext">ReadPrec [ContextKeyTypeEnum]
+ReadPrec ContextKeyTypeEnum
+Int -&gt; ReadS ContextKeyTypeEnum
+ReadS [ContextKeyTypeEnum]
+(Int -&gt; ReadS ContextKeyTypeEnum)
+-&gt; ReadS [ContextKeyTypeEnum]
+-&gt; ReadPrec ContextKeyTypeEnum
+-&gt; ReadPrec [ContextKeyTypeEnum]
+-&gt; Read ContextKeyTypeEnum
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContextKeyTypeEnum]
+$creadListPrec :: ReadPrec [ContextKeyTypeEnum]
+readPrec :: ReadPrec ContextKeyTypeEnum
+$creadPrec :: ReadPrec ContextKeyTypeEnum
+readList :: ReadS [ContextKeyTypeEnum]
+$creadList :: ReadS [ContextKeyTypeEnum]
+readsPrec :: Int -&gt; ReadS ContextKeyTypeEnum
+$creadsPrec :: Int -&gt; ReadS ContextKeyTypeEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679423902"><span id="local-6989586621679423904"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
+(ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool)
+-&gt; (ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool)
+-&gt; Eq ContextKeyTypeEnum
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
+$c/= :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
+== :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
+$c== :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679423886"><span id="local-6989586621679423888"><span id="local-6989586621679423890"><span id="local-6989586621679423892"><span id="local-6989586621679423894"><span id="local-6989586621679423896"><span id="local-6989586621679423898"><span class="annot"><span class="annottext">Eq ContextKeyTypeEnum
+Eq ContextKeyTypeEnum
+-&gt; (ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Ordering)
+-&gt; (ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool)
+-&gt; (ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool)
+-&gt; (ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool)
+-&gt; (ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool)
+-&gt; (ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; ContextKeyTypeEnum)
+-&gt; (ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; ContextKeyTypeEnum)
+-&gt; Ord ContextKeyTypeEnum
+ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
+ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Ordering
+ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; ContextKeyTypeEnum
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; ContextKeyTypeEnum
+$cmin :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; ContextKeyTypeEnum
+max :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; ContextKeyTypeEnum
+$cmax :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; ContextKeyTypeEnum
+&gt;= :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
+$c&gt;= :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
+&gt; :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
+$c&gt; :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
+&lt;= :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
+$c&lt;= :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
+&lt; :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
+$c&lt; :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
+compare :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Ordering
+$ccompare :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Ordering
+$cp1Ord :: Eq ContextKeyTypeEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ContextKeyTypeEnum -&gt; Rep ContextKeyTypeEnum x)
+-&gt; (forall x. Rep ContextKeyTypeEnum x -&gt; ContextKeyTypeEnum)
+-&gt; Generic ContextKeyTypeEnum
+forall x. Rep ContextKeyTypeEnum x -&gt; ContextKeyTypeEnum
+forall x. ContextKeyTypeEnum -&gt; Rep ContextKeyTypeEnum x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ContextKeyTypeEnum x -&gt; ContextKeyTypeEnum
+$cfrom :: forall x. ContextKeyTypeEnum -&gt; Rep ContextKeyTypeEnum x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679423878"><span id="local-6989586621679423880"><span class="annot"><span class="annottext">Int -&gt; ContextKeyTypeEnum -&gt; Int
+ContextKeyTypeEnum -&gt; Int
+(Int -&gt; ContextKeyTypeEnum -&gt; Int)
+-&gt; (ContextKeyTypeEnum -&gt; Int) -&gt; Hashable ContextKeyTypeEnum
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ContextKeyTypeEnum -&gt; Int
+$chash :: ContextKeyTypeEnum -&gt; Int
+hashWithSalt :: Int -&gt; ContextKeyTypeEnum -&gt; Int
+$chashWithSalt :: Int -&gt; ContextKeyTypeEnum -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679423875"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; ()
+(ContextKeyTypeEnum -&gt; ()) -&gt; NFData ContextKeyTypeEnum
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ContextKeyTypeEnum -&gt; ()
+$crnf :: ContextKeyTypeEnum -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679423872"><span class="annot"><span class="annottext">Text -&gt; Either String ContextKeyTypeEnum
+(Text -&gt; Either String ContextKeyTypeEnum)
+-&gt; FromText ContextKeyTypeEnum
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ContextKeyTypeEnum
+$cfromText :: Text -&gt; Either String ContextKeyTypeEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679423869"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; Text
+(ContextKeyTypeEnum -&gt; Text) -&gt; ToText ContextKeyTypeEnum
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ContextKeyTypeEnum -&gt; Text
+$ctoText :: ContextKeyTypeEnum -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679423866"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; ByteString
+(ContextKeyTypeEnum -&gt; ByteString)
+-&gt; ToByteString ContextKeyTypeEnum
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ContextKeyTypeEnum -&gt; ByteString
+$ctoBS :: ContextKeyTypeEnum -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679423863"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; ByteStringBuilder
+(ContextKeyTypeEnum -&gt; ByteStringBuilder)
+-&gt; ToLog ContextKeyTypeEnum
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ContextKeyTypeEnum -&gt; ByteStringBuilder
+$cbuild :: ContextKeyTypeEnum -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679423860"><span class="annot"><span class="annottext">HeaderName -&gt; ContextKeyTypeEnum -&gt; [Header]
+(HeaderName -&gt; ContextKeyTypeEnum -&gt; [Header])
+-&gt; ToHeader ContextKeyTypeEnum
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ContextKeyTypeEnum -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ContextKeyTypeEnum -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679423857"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; QueryString
+(ContextKeyTypeEnum -&gt; QueryString) -&gt; ToQuery ContextKeyTypeEnum
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ContextKeyTypeEnum -&gt; QueryString
+$ctoQuery :: ContextKeyTypeEnum -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679423852"><span id="local-6989586621679423854"><span class="annot"><span class="annottext">Value -&gt; Parser [ContextKeyTypeEnum]
+Value -&gt; Parser ContextKeyTypeEnum
+(Value -&gt; Parser ContextKeyTypeEnum)
+-&gt; (Value -&gt; Parser [ContextKeyTypeEnum])
+-&gt; FromJSON ContextKeyTypeEnum
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ContextKeyTypeEnum]
+$cparseJSONList :: Value -&gt; Parser [ContextKeyTypeEnum]
+parseJSON :: Value -&gt; Parser ContextKeyTypeEnum
+$cparseJSON :: Value -&gt; Parser ContextKeyTypeEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679423847"><span id="local-6989586621679423849"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContextKeyTypeEnum]
+FromJSONKeyFunction ContextKeyTypeEnum
+FromJSONKeyFunction ContextKeyTypeEnum
+-&gt; FromJSONKeyFunction [ContextKeyTypeEnum]
+-&gt; FromJSONKey ContextKeyTypeEnum
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ContextKeyTypeEnum]
+$cfromJSONKeyList :: FromJSONKeyFunction [ContextKeyTypeEnum]
+fromJSONKey :: FromJSONKeyFunction ContextKeyTypeEnum
+$cfromJSONKey :: FromJSONKeyFunction ContextKeyTypeEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679423838"><span id="local-6989586621679423840"><span id="local-6989586621679423842"><span id="local-6989586621679423844"><span class="annot"><span class="annottext">[ContextKeyTypeEnum] -&gt; Encoding
+[ContextKeyTypeEnum] -&gt; Value
+ContextKeyTypeEnum -&gt; Encoding
+ContextKeyTypeEnum -&gt; Value
+(ContextKeyTypeEnum -&gt; Value)
+-&gt; (ContextKeyTypeEnum -&gt; Encoding)
+-&gt; ([ContextKeyTypeEnum] -&gt; Value)
+-&gt; ([ContextKeyTypeEnum] -&gt; Encoding)
+-&gt; ToJSON ContextKeyTypeEnum
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ContextKeyTypeEnum] -&gt; Encoding
+$ctoEncodingList :: [ContextKeyTypeEnum] -&gt; Encoding
+toJSONList :: [ContextKeyTypeEnum] -&gt; Value
+$ctoJSONList :: [ContextKeyTypeEnum] -&gt; Value
+toEncoding :: ContextKeyTypeEnum -&gt; Encoding
+$ctoEncoding :: ContextKeyTypeEnum -&gt; Encoding
+toJSON :: ContextKeyTypeEnum -&gt; Value
+$ctoJSON :: ContextKeyTypeEnum -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679423833"><span id="local-6989586621679423835"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContextKeyTypeEnum]
+ToJSONKeyFunction ContextKeyTypeEnum
+ToJSONKeyFunction ContextKeyTypeEnum
+-&gt; ToJSONKeyFunction [ContextKeyTypeEnum]
+-&gt; ToJSONKey ContextKeyTypeEnum
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ContextKeyTypeEnum]
+$ctoJSONKeyList :: ToJSONKeyFunction [ContextKeyTypeEnum]
+toJSONKey :: ToJSONKeyFunction ContextKeyTypeEnum
+$ctoJSONKey :: ToJSONKeyFunction ContextKeyTypeEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679423830"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContextKeyTypeEnum
+([Node] -&gt; Either String ContextKeyTypeEnum)
+-&gt; FromXML ContextKeyTypeEnum
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ContextKeyTypeEnum
+$cparseXML :: [Node] -&gt; Either String ContextKeyTypeEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679423827"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; XML
+(ContextKeyTypeEnum -&gt; XML) -&gt; ToXML ContextKeyTypeEnum
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ContextKeyTypeEnum -&gt; XML
+$ctoXML :: ContextKeyTypeEnum -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_Binary"><span class="hs-identifier hs-type">ContextKeyTypeEnum_Binary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum"><span class="hs-identifier hs-type">ContextKeyTypeEnum</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContextKeyTypeEnum_Binary"><span id="%24mContextKeyTypeEnum_Binary"><span id="ContextKeyTypeEnum_Binary"><span class="annot"><span class="annottext">$bContextKeyTypeEnum_Binary :: ContextKeyTypeEnum
+$mContextKeyTypeEnum_Binary :: forall r. ContextKeyTypeEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#%24bContextKeyTypeEnum_Binary"><span class="hs-identifier hs-var hs-var hs-var">ContextKeyTypeEnum_Binary</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum%27"><span class="hs-identifier hs-type">ContextKeyTypeEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;binary&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_BinaryList"><span class="hs-identifier hs-type">ContextKeyTypeEnum_BinaryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum"><span class="hs-identifier hs-type">ContextKeyTypeEnum</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContextKeyTypeEnum_BinaryList"><span id="%24mContextKeyTypeEnum_BinaryList"><span id="ContextKeyTypeEnum_BinaryList"><span class="annot"><span class="annottext">$bContextKeyTypeEnum_BinaryList :: ContextKeyTypeEnum
+$mContextKeyTypeEnum_BinaryList :: forall r. ContextKeyTypeEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#%24bContextKeyTypeEnum_BinaryList"><span class="hs-identifier hs-var hs-var hs-var">ContextKeyTypeEnum_BinaryList</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum%27"><span class="hs-identifier hs-type">ContextKeyTypeEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;binaryList&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_Boolean"><span class="hs-identifier hs-type">ContextKeyTypeEnum_Boolean</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum"><span class="hs-identifier hs-type">ContextKeyTypeEnum</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContextKeyTypeEnum_Boolean"><span id="%24mContextKeyTypeEnum_Boolean"><span id="ContextKeyTypeEnum_Boolean"><span class="annot"><span class="annottext">$bContextKeyTypeEnum_Boolean :: ContextKeyTypeEnum
+$mContextKeyTypeEnum_Boolean :: forall r. ContextKeyTypeEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#%24bContextKeyTypeEnum_Boolean"><span class="hs-identifier hs-var hs-var hs-var">ContextKeyTypeEnum_Boolean</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum%27"><span class="hs-identifier hs-type">ContextKeyTypeEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;boolean&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_BooleanList"><span class="hs-identifier hs-type">ContextKeyTypeEnum_BooleanList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum"><span class="hs-identifier hs-type">ContextKeyTypeEnum</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContextKeyTypeEnum_BooleanList"><span id="%24mContextKeyTypeEnum_BooleanList"><span id="ContextKeyTypeEnum_BooleanList"><span class="annot"><span class="annottext">$bContextKeyTypeEnum_BooleanList :: ContextKeyTypeEnum
+$mContextKeyTypeEnum_BooleanList :: forall r. ContextKeyTypeEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#%24bContextKeyTypeEnum_BooleanList"><span class="hs-identifier hs-var hs-var hs-var">ContextKeyTypeEnum_BooleanList</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum%27"><span class="hs-identifier hs-type">ContextKeyTypeEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;booleanList&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_Date"><span class="hs-identifier hs-type">ContextKeyTypeEnum_Date</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum"><span class="hs-identifier hs-type">ContextKeyTypeEnum</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContextKeyTypeEnum_Date"><span id="%24mContextKeyTypeEnum_Date"><span id="ContextKeyTypeEnum_Date"><span class="annot"><span class="annottext">$bContextKeyTypeEnum_Date :: ContextKeyTypeEnum
+$mContextKeyTypeEnum_Date :: forall r. ContextKeyTypeEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#%24bContextKeyTypeEnum_Date"><span class="hs-identifier hs-var hs-var hs-var">ContextKeyTypeEnum_Date</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum%27"><span class="hs-identifier hs-type">ContextKeyTypeEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;date&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_DateList"><span class="hs-identifier hs-type">ContextKeyTypeEnum_DateList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum"><span class="hs-identifier hs-type">ContextKeyTypeEnum</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContextKeyTypeEnum_DateList"><span id="%24mContextKeyTypeEnum_DateList"><span id="ContextKeyTypeEnum_DateList"><span class="annot"><span class="annottext">$bContextKeyTypeEnum_DateList :: ContextKeyTypeEnum
+$mContextKeyTypeEnum_DateList :: forall r. ContextKeyTypeEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#%24bContextKeyTypeEnum_DateList"><span class="hs-identifier hs-var hs-var hs-var">ContextKeyTypeEnum_DateList</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum%27"><span class="hs-identifier hs-type">ContextKeyTypeEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;dateList&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_Ip"><span class="hs-identifier hs-type">ContextKeyTypeEnum_Ip</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum"><span class="hs-identifier hs-type">ContextKeyTypeEnum</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContextKeyTypeEnum_Ip"><span id="%24mContextKeyTypeEnum_Ip"><span id="ContextKeyTypeEnum_Ip"><span class="annot"><span class="annottext">$bContextKeyTypeEnum_Ip :: ContextKeyTypeEnum
+$mContextKeyTypeEnum_Ip :: forall r. ContextKeyTypeEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#%24bContextKeyTypeEnum_Ip"><span class="hs-identifier hs-var hs-var hs-var">ContextKeyTypeEnum_Ip</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum%27"><span class="hs-identifier hs-type">ContextKeyTypeEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ip&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_IpList"><span class="hs-identifier hs-type">ContextKeyTypeEnum_IpList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum"><span class="hs-identifier hs-type">ContextKeyTypeEnum</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContextKeyTypeEnum_IpList"><span id="%24mContextKeyTypeEnum_IpList"><span id="ContextKeyTypeEnum_IpList"><span class="annot"><span class="annottext">$bContextKeyTypeEnum_IpList :: ContextKeyTypeEnum
+$mContextKeyTypeEnum_IpList :: forall r. ContextKeyTypeEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#%24bContextKeyTypeEnum_IpList"><span class="hs-identifier hs-var hs-var hs-var">ContextKeyTypeEnum_IpList</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum%27"><span class="hs-identifier hs-type">ContextKeyTypeEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ipList&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_Numeric"><span class="hs-identifier hs-type">ContextKeyTypeEnum_Numeric</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum"><span class="hs-identifier hs-type">ContextKeyTypeEnum</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContextKeyTypeEnum_Numeric"><span id="%24mContextKeyTypeEnum_Numeric"><span id="ContextKeyTypeEnum_Numeric"><span class="annot"><span class="annottext">$bContextKeyTypeEnum_Numeric :: ContextKeyTypeEnum
+$mContextKeyTypeEnum_Numeric :: forall r. ContextKeyTypeEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#%24bContextKeyTypeEnum_Numeric"><span class="hs-identifier hs-var hs-var hs-var">ContextKeyTypeEnum_Numeric</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum%27"><span class="hs-identifier hs-type">ContextKeyTypeEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;numeric&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_NumericList"><span class="hs-identifier hs-type">ContextKeyTypeEnum_NumericList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum"><span class="hs-identifier hs-type">ContextKeyTypeEnum</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContextKeyTypeEnum_NumericList"><span id="%24mContextKeyTypeEnum_NumericList"><span id="ContextKeyTypeEnum_NumericList"><span class="annot"><span class="annottext">$bContextKeyTypeEnum_NumericList :: ContextKeyTypeEnum
+$mContextKeyTypeEnum_NumericList :: forall r. ContextKeyTypeEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#%24bContextKeyTypeEnum_NumericList"><span class="hs-identifier hs-var hs-var hs-var">ContextKeyTypeEnum_NumericList</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum%27"><span class="hs-identifier hs-type">ContextKeyTypeEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;numericList&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_String"><span class="hs-identifier hs-type">ContextKeyTypeEnum_String</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum"><span class="hs-identifier hs-type">ContextKeyTypeEnum</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContextKeyTypeEnum_String"><span id="%24mContextKeyTypeEnum_String"><span id="ContextKeyTypeEnum_String"><span class="annot"><span class="annottext">$bContextKeyTypeEnum_String :: ContextKeyTypeEnum
+$mContextKeyTypeEnum_String :: forall r. ContextKeyTypeEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#%24bContextKeyTypeEnum_String"><span class="hs-identifier hs-var hs-var hs-var">ContextKeyTypeEnum_String</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum%27"><span class="hs-identifier hs-type">ContextKeyTypeEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;string&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_StringList"><span class="hs-identifier hs-type">ContextKeyTypeEnum_StringList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum"><span class="hs-identifier hs-type">ContextKeyTypeEnum</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContextKeyTypeEnum_StringList"><span id="%24mContextKeyTypeEnum_StringList"><span id="ContextKeyTypeEnum_StringList"><span class="annot"><span class="annottext">$bContextKeyTypeEnum_StringList :: ContextKeyTypeEnum
+$mContextKeyTypeEnum_StringList :: forall r. ContextKeyTypeEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#%24bContextKeyTypeEnum_StringList"><span class="hs-identifier hs-var hs-var hs-var">ContextKeyTypeEnum_StringList</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum%27"><span class="hs-identifier hs-type">ContextKeyTypeEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;stringList&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_Binary"><span class="hs-pragma hs-type">ContextKeyTypeEnum_Binary</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_BinaryList"><span class="hs-pragma hs-type">ContextKeyTypeEnum_BinaryList</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_Boolean"><span class="hs-pragma hs-type">ContextKeyTypeEnum_Boolean</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_BooleanList"><span class="hs-pragma hs-type">ContextKeyTypeEnum_BooleanList</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_Date"><span class="hs-pragma hs-type">ContextKeyTypeEnum_Date</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_DateList"><span class="hs-pragma hs-type">ContextKeyTypeEnum_DateList</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_Ip"><span class="hs-pragma hs-type">ContextKeyTypeEnum_Ip</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_IpList"><span class="hs-pragma hs-type">ContextKeyTypeEnum_IpList</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_Numeric"><span class="hs-pragma hs-type">ContextKeyTypeEnum_Numeric</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_NumericList"><span class="hs-pragma hs-type">ContextKeyTypeEnum_NumericList</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_String"><span class="hs-pragma hs-type">ContextKeyTypeEnum_String</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum_StringList"><span class="hs-pragma hs-type">ContextKeyTypeEnum_StringList</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum%27"><span class="hs-pragma hs-type">ContextKeyTypeEnum'</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-121"></span></pre></body></html>

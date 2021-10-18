@@ -1,0 +1,1069 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CostExplorer.GetCostAndUsage</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves cost and usage metrics for your account. You can specify which</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- cost and usage-related metric that you want the request to return. For</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- example, you can specify @BlendedCosts@ or @UsageQuantity@. You can also</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- filter and group your data by various dimensions, such as @SERVICE@ or</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @AZ@, in a specific time range. For a complete list of valid dimensions,</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- see the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html GetDimensionValues&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- operation. Management account in an organization in Organizations have</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- access to all member accounts.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- For information about filter limitations, see</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-limits.html Quotas and restrictions&gt;</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- in the /Billing and Cost Management User Guide/.</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CostExplorer.GetCostAndUsage</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier">GetCostAndUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#newGetCostAndUsage"><span class="hs-identifier">newGetCostAndUsage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_nextPageToken"><span class="hs-identifier">getCostAndUsage_nextPageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_groupBy"><span class="hs-identifier">getCostAndUsage_groupBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_filter"><span class="hs-identifier">getCostAndUsage_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_timePeriod"><span class="hs-identifier">getCostAndUsage_timePeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_granularity"><span class="hs-identifier">getCostAndUsage_granularity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_metrics"><span class="hs-identifier">getCostAndUsage_metrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse"><span class="hs-identifier">GetCostAndUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#newGetCostAndUsageResponse"><span class="hs-identifier">newGetCostAndUsageResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsageResponse_nextPageToken"><span class="hs-identifier">getCostAndUsageResponse_nextPageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsageResponse_dimensionValueAttributes"><span class="hs-identifier">getCostAndUsageResponse_dimensionValueAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsageResponse_resultsByTime"><span class="hs-identifier">getCostAndUsageResponse_resultsByTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsageResponse_groupDefinitions"><span class="hs-identifier">getCostAndUsageResponse_groupDefinitions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsageResponse_httpStatus"><span class="hs-identifier">getCostAndUsageResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.html"><span class="hs-identifier">Network.AWS.CostExplorer.Types</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newGetCostAndUsage' smart constructor.</span><span>
+</span><span id="line-70"></span><span id="local-6989586621679346252"><span id="local-6989586621679346253"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCostAndUsage"><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-var">GetCostAndUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCostAndUsage%27"><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage%27"><span class="hs-identifier hs-var">GetCostAndUsage'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to retrieve the next set of results. Amazon Web Services</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- provides the token when the response from a previous call has more</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- results than the maximum page size.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AnextPageToken%3AGetCostAndUsage%27"><span class="annot"><span class="annottext">GetCostAndUsage -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AnextPageToken%3AGetCostAndUsage%27"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | You can group Amazon Web Services costs using up to two different</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- groups, either dimensions, tag keys, cost categories, or any two group</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- by types.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- Valid values for the @DIMENSION@ type are @AZ@, @INSTANCE_TYPE@,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- @LEGAL_ENTITY_NAME@, @LINKED_ACCOUNT@, @OPERATION@, @PLATFORM@,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- @PURCHASE_TYPE@, @SERVICE@, @TENANCY@, @RECORD_TYPE@, and @USAGE_TYPE@.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- When you group by the @TAG@ type and include a valid tag key, you get</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- all tag values, including empty strings.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AgroupBy%3AGetCostAndUsage%27"><span class="annot"><span class="annottext">GetCostAndUsage -&gt; Maybe [GroupDefinition]
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AgroupBy%3AGetCostAndUsage%27"><span class="hs-identifier hs-var hs-var">groupBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.GroupDefinition.html#GroupDefinition"><span class="hs-identifier hs-type">GroupDefinition</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | Filters Amazon Web Services costs by different dimensions. For example,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- are associated with that account\'s usage of that service. You can nest</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- @Expression@ objects to define any combination of dimension filters. For</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression&gt;.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3Afilter%27%3AGetCostAndUsage%27"><span class="annot"><span class="annottext">GetCostAndUsage -&gt; Maybe Expression
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3Afilter%27%3AGetCostAndUsage%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | Sets the start date and end date for retrieving Amazon Web Services</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- costs. The start date is inclusive, but the end date is exclusive. For</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- cost and usage data is retrieved from @2017-01-01@ up to and including</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- @2017-04-30@ but not including @2017-05-01@.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AtimePeriod%3AGetCostAndUsage%27"><span class="annot"><span class="annottext">GetCostAndUsage -&gt; DateInterval
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AtimePeriod%3AGetCostAndUsage%27"><span class="hs-identifier hs-var hs-var">timePeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | Sets the Amazon Web Services cost granularity to @MONTHLY@ or @DAILY@,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- or @HOURLY@. If @Granularity@ isn\'t set, the response object doesn\'t</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- include the @Granularity@, either @MONTHLY@ or @DAILY@, or @HOURLY@.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3Agranularity%3AGetCostAndUsage%27"><span class="annot"><span class="annottext">GetCostAndUsage -&gt; Granularity
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3Agranularity%3AGetCostAndUsage%27"><span class="hs-identifier hs-var hs-var">granularity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Granularity.html#Granularity"><span class="hs-identifier hs-type">Granularity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | Which metrics are returned in the query. For more information about</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- blended and unblended rates, see</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- &lt;http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/ Why does the \&quot;blended\&quot; annotation appear on some line items in my bill?&gt;.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- Valid values are @AmortizedCost@, @BlendedCost@, @NetAmortizedCost@,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- @NetUnblendedCost@, @NormalizedUsageAmount@, @UnblendedCost@, and</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- @UsageQuantity@.</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- If you return the @UsageQuantity@ metric, the service aggregates all</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- usage numbers without taking into account the units. For example, if you</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- aggregate @usageQuantity@ across all of Amazon EC2, the results aren\'t</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- meaningful because Amazon EC2 compute hours and data transfer are</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- measured in different units (for example, hours and GB). To get more</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- meaningful @UsageQuantity@ metrics, filter by @UsageType@ or</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- @UsageTypeGroups@.</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- @Metrics@ is required for @GetCostAndUsage@ requests.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3Ametrics%3AGetCostAndUsage%27"><span class="annot"><span class="annottext">GetCostAndUsage -&gt; [Text]
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3Ametrics%3AGetCostAndUsage%27"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346241"><span id="local-6989586621679346243"><span class="annot"><span class="annottext">GetCostAndUsage -&gt; GetCostAndUsage -&gt; Bool
+(GetCostAndUsage -&gt; GetCostAndUsage -&gt; Bool)
+-&gt; (GetCostAndUsage -&gt; GetCostAndUsage -&gt; Bool)
+-&gt; Eq GetCostAndUsage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCostAndUsage -&gt; GetCostAndUsage -&gt; Bool
+$c/= :: GetCostAndUsage -&gt; GetCostAndUsage -&gt; Bool
+== :: GetCostAndUsage -&gt; GetCostAndUsage -&gt; Bool
+$c== :: GetCostAndUsage -&gt; GetCostAndUsage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346232"><span id="local-6989586621679346234"><span id="local-6989586621679346236"><span id="local-6989586621679346238"><span class="annot"><span class="annottext">ReadPrec [GetCostAndUsage]
+ReadPrec GetCostAndUsage
+Int -&gt; ReadS GetCostAndUsage
+ReadS [GetCostAndUsage]
+(Int -&gt; ReadS GetCostAndUsage)
+-&gt; ReadS [GetCostAndUsage]
+-&gt; ReadPrec GetCostAndUsage
+-&gt; ReadPrec [GetCostAndUsage]
+-&gt; Read GetCostAndUsage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCostAndUsage]
+$creadListPrec :: ReadPrec [GetCostAndUsage]
+readPrec :: ReadPrec GetCostAndUsage
+$creadPrec :: ReadPrec GetCostAndUsage
+readList :: ReadS [GetCostAndUsage]
+$creadList :: ReadS [GetCostAndUsage]
+readsPrec :: Int -&gt; ReadS GetCostAndUsage
+$creadsPrec :: Int -&gt; ReadS GetCostAndUsage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346225"><span id="local-6989586621679346227"><span id="local-6989586621679346229"><span class="annot"><span class="annottext">Int -&gt; GetCostAndUsage -&gt; ShowS
+[GetCostAndUsage] -&gt; ShowS
+GetCostAndUsage -&gt; String
+(Int -&gt; GetCostAndUsage -&gt; ShowS)
+-&gt; (GetCostAndUsage -&gt; String)
+-&gt; ([GetCostAndUsage] -&gt; ShowS)
+-&gt; Show GetCostAndUsage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCostAndUsage] -&gt; ShowS
+$cshowList :: [GetCostAndUsage] -&gt; ShowS
+show :: GetCostAndUsage -&gt; String
+$cshow :: GetCostAndUsage -&gt; String
+showsPrec :: Int -&gt; GetCostAndUsage -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCostAndUsage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetCostAndUsage -&gt; Rep GetCostAndUsage x)
+-&gt; (forall x. Rep GetCostAndUsage x -&gt; GetCostAndUsage)
+-&gt; Generic GetCostAndUsage
+forall x. Rep GetCostAndUsage x -&gt; GetCostAndUsage
+forall x. GetCostAndUsage -&gt; Rep GetCostAndUsage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetCostAndUsage x -&gt; GetCostAndUsage
+$cfrom :: forall x. GetCostAndUsage -&gt; Rep GetCostAndUsage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Create a value of 'GetCostAndUsage' with all optional fields omitted.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'nextPageToken', 'getCostAndUsage_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- provides the token when the response from a previous call has more</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- results than the maximum page size.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'groupBy', 'getCostAndUsage_groupBy' - You can group Amazon Web Services costs using up to two different</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- groups, either dimensions, tag keys, cost categories, or any two group</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- by types.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Valid values for the @DIMENSION@ type are @AZ@, @INSTANCE_TYPE@,</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- @LEGAL_ENTITY_NAME@, @LINKED_ACCOUNT@, @OPERATION@, @PLATFORM@,</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- @PURCHASE_TYPE@, @SERVICE@, @TENANCY@, @RECORD_TYPE@, and @USAGE_TYPE@.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- When you group by the @TAG@ type and include a valid tag key, you get</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- all tag values, including empty strings.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'filter'', 'getCostAndUsage_filter' - Filters Amazon Web Services costs by different dimensions. For example,</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- are associated with that account\'s usage of that service. You can nest</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- @Expression@ objects to define any combination of dimension filters. For</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression&gt;.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'timePeriod', 'getCostAndUsage_timePeriod' - Sets the start date and end date for retrieving Amazon Web Services</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- costs. The start date is inclusive, but the end date is exclusive. For</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- cost and usage data is retrieved from @2017-01-01@ up to and including</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- @2017-04-30@ but not including @2017-05-01@.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'granularity', 'getCostAndUsage_granularity' - Sets the Amazon Web Services cost granularity to @MONTHLY@ or @DAILY@,</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- or @HOURLY@. If @Granularity@ isn\'t set, the response object doesn\'t</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- include the @Granularity@, either @MONTHLY@ or @DAILY@, or @HOURLY@.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'metrics', 'getCostAndUsage_metrics' - Which metrics are returned in the query. For more information about</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- blended and unblended rates, see</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/ Why does the \&quot;blended\&quot; annotation appear on some line items in my bill?&gt;.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Valid values are @AmortizedCost@, @BlendedCost@, @NetAmortizedCost@,</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- @NetUnblendedCost@, @NormalizedUsageAmount@, @UnblendedCost@, and</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- @UsageQuantity@.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- If you return the @UsageQuantity@ metric, the service aggregates all</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- usage numbers without taking into account the units. For example, if you</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- aggregate @usageQuantity@ across all of Amazon EC2, the results aren\'t</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- meaningful because Amazon EC2 compute hours and data transfer are</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- measured in different units (for example, hours and GB). To get more</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- meaningful @UsageQuantity@ metrics, filter by @UsageType@ or</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- @UsageTypeGroups@.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- @Metrics@ is required for @GetCostAndUsage@ requests.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#newGetCostAndUsage"><span class="hs-identifier hs-type">newGetCostAndUsage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-comment">-- | 'timePeriod'</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-comment">-- | 'granularity'</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Granularity.html#Granularity"><span class="hs-identifier hs-type">Granularity</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span>
+</span><span id="line-187"></span><span id="newGetCostAndUsage"><span class="annot"><span class="annottext">newGetCostAndUsage :: DateInterval -&gt; Granularity -&gt; GetCostAndUsage
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#newGetCostAndUsage"><span class="hs-identifier hs-var hs-var">newGetCostAndUsage</span></a></span></span><span> </span><span id="local-6989586621679346220"><span class="annot"><span class="annottext">DateInterval
+</span><a href="#local-6989586621679346220"><span class="hs-identifier hs-var">pTimePeriod_</span></a></span></span><span> </span><span id="local-6989586621679346219"><span class="annot"><span class="annottext">Granularity
+</span><a href="#local-6989586621679346219"><span class="hs-identifier hs-var">pGranularity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="annottext">GetCostAndUsage' :: Maybe Text
+-&gt; Maybe [GroupDefinition]
+-&gt; Maybe Expression
+-&gt; DateInterval
+-&gt; Granularity
+-&gt; [Text]
+-&gt; GetCostAndUsage
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage%27"><span class="hs-identifier hs-type">GetCostAndUsage'</span></a></span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextPageToken:GetCostAndUsage' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AnextPageToken%3AGetCostAndUsage%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupBy:GetCostAndUsage' :: Maybe [GroupDefinition]
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AgroupBy%3AGetCostAndUsage%27"><span class="hs-identifier hs-var">groupBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupDefinition]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':GetCostAndUsage' :: Maybe Expression
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3Afilter%27%3AGetCostAndUsage%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:timePeriod:GetCostAndUsage' :: DateInterval
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AtimePeriod%3AGetCostAndUsage%27"><span class="hs-identifier hs-var">timePeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DateInterval
+</span><a href="#local-6989586621679346220"><span class="hs-identifier hs-var">pTimePeriod_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:granularity:GetCostAndUsage' :: Granularity
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3Agranularity%3AGetCostAndUsage%27"><span class="hs-identifier hs-var">granularity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Granularity
+</span><a href="#local-6989586621679346219"><span class="hs-identifier hs-var">pGranularity_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:metrics:GetCostAndUsage' :: [Text]
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3Ametrics%3AGetCostAndUsage%27"><span class="hs-identifier hs-var">metrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The token to retrieve the next set of results. Amazon Web Services</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- provides the token when the response from a previous call has more</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- results than the maximum page size.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_nextPageToken"><span class="hs-identifier hs-type">getCostAndUsage_nextPageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="getCostAndUsage_nextPageToken"><span class="annot"><span class="annottext">getCostAndUsage_nextPageToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCostAndUsage -&gt; f GetCostAndUsage
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_nextPageToken"><span class="hs-identifier hs-var hs-var">getCostAndUsage_nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCostAndUsage -&gt; Maybe Text)
+-&gt; (GetCostAndUsage -&gt; Maybe Text -&gt; GetCostAndUsage)
+-&gt; Lens GetCostAndUsage GetCostAndUsage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage%27"><span class="hs-identifier hs-type">GetCostAndUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346216"><span class="annot"><span class="annottext">Maybe Text
+nextPageToken :: Maybe Text
+$sel:nextPageToken:GetCostAndUsage' :: GetCostAndUsage -&gt; Maybe Text
+</span><a href="#local-6989586621679346216"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346216"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346215"><span class="annot"><span class="annottext">s :: GetCostAndUsage
+</span><a href="#local-6989586621679346215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage%27"><span class="hs-identifier hs-type">GetCostAndUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346214"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostAndUsage
+</span><a href="#local-6989586621679346215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:GetCostAndUsage' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AnextPageToken%3AGetCostAndUsage%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | You can group Amazon Web Services costs using up to two different</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- groups, either dimensions, tag keys, cost categories, or any two group</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- by types.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- Valid values for the @DIMENSION@ type are @AZ@, @INSTANCE_TYPE@,</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- @LEGAL_ENTITY_NAME@, @LINKED_ACCOUNT@, @OPERATION@, @PLATFORM@,</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- @PURCHASE_TYPE@, @SERVICE@, @TENANCY@, @RECORD_TYPE@, and @USAGE_TYPE@.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- When you group by the @TAG@ type and include a valid tag key, you get</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- all tag values, including empty strings.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_groupBy"><span class="hs-identifier hs-type">getCostAndUsage_groupBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.GroupDefinition.html#GroupDefinition"><span class="hs-identifier hs-type">GroupDefinition</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="getCostAndUsage_groupBy"><span class="annot"><span class="annottext">getCostAndUsage_groupBy :: (Maybe [GroupDefinition] -&gt; f (Maybe [GroupDefinition]))
+-&gt; GetCostAndUsage -&gt; f GetCostAndUsage
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_groupBy"><span class="hs-identifier hs-var hs-var">getCostAndUsage_groupBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCostAndUsage -&gt; Maybe [GroupDefinition])
+-&gt; (GetCostAndUsage -&gt; Maybe [GroupDefinition] -&gt; GetCostAndUsage)
+-&gt; Lens
+     GetCostAndUsage
+     GetCostAndUsage
+     (Maybe [GroupDefinition])
+     (Maybe [GroupDefinition])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage%27"><span class="hs-identifier hs-type">GetCostAndUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346213"><span class="annot"><span class="annottext">Maybe [GroupDefinition]
+groupBy :: Maybe [GroupDefinition]
+$sel:groupBy:GetCostAndUsage' :: GetCostAndUsage -&gt; Maybe [GroupDefinition]
+</span><a href="#local-6989586621679346213"><span class="hs-identifier hs-var hs-var">groupBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupDefinition]
+</span><a href="#local-6989586621679346213"><span class="hs-identifier hs-var">groupBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346212"><span class="annot"><span class="annottext">s :: GetCostAndUsage
+</span><a href="#local-6989586621679346212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage%27"><span class="hs-identifier hs-type">GetCostAndUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346211"><span class="annot"><span class="annottext">Maybe [GroupDefinition]
+</span><a href="#local-6989586621679346211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostAndUsage
+</span><a href="#local-6989586621679346212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupBy:GetCostAndUsage' :: Maybe [GroupDefinition]
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AgroupBy%3AGetCostAndUsage%27"><span class="hs-identifier hs-var">groupBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupDefinition]
+</span><a href="#local-6989586621679346211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupDefinition] -&gt; f (Maybe [GroupDefinition]))
+ -&gt; GetCostAndUsage -&gt; f GetCostAndUsage)
+-&gt; ((Maybe [GroupDefinition] -&gt; f (Maybe [GroupDefinition]))
+    -&gt; Maybe [GroupDefinition] -&gt; f (Maybe [GroupDefinition]))
+-&gt; (Maybe [GroupDefinition] -&gt; f (Maybe [GroupDefinition]))
+-&gt; GetCostAndUsage
+-&gt; f GetCostAndUsage
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GroupDefinition]
+  [GroupDefinition]
+  [GroupDefinition]
+  [GroupDefinition]
+-&gt; Iso
+     (Maybe [GroupDefinition])
+     (Maybe [GroupDefinition])
+     (Maybe [GroupDefinition])
+     (Maybe [GroupDefinition])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GroupDefinition]
+  [GroupDefinition]
+  [GroupDefinition]
+  [GroupDefinition]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | Filters Amazon Web Services costs by different dimensions. For example,</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- are associated with that account\'s usage of that service. You can nest</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- @Expression@ objects to define any combination of dimension filters. For</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression&gt;.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_filter"><span class="hs-identifier hs-type">getCostAndUsage_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="getCostAndUsage_filter"><span class="annot"><span class="annottext">getCostAndUsage_filter :: (Maybe Expression -&gt; f (Maybe Expression))
+-&gt; GetCostAndUsage -&gt; f GetCostAndUsage
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_filter"><span class="hs-identifier hs-var hs-var">getCostAndUsage_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCostAndUsage -&gt; Maybe Expression)
+-&gt; (GetCostAndUsage -&gt; Maybe Expression -&gt; GetCostAndUsage)
+-&gt; Lens
+     GetCostAndUsage
+     GetCostAndUsage
+     (Maybe Expression)
+     (Maybe Expression)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage%27"><span class="hs-identifier hs-type">GetCostAndUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346207"><span class="annot"><span class="annottext">Maybe Expression
+filter' :: Maybe Expression
+$sel:filter':GetCostAndUsage' :: GetCostAndUsage -&gt; Maybe Expression
+</span><a href="#local-6989586621679346207"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
+</span><a href="#local-6989586621679346207"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346206"><span class="annot"><span class="annottext">s :: GetCostAndUsage
+</span><a href="#local-6989586621679346206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage%27"><span class="hs-identifier hs-type">GetCostAndUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346205"><span class="annot"><span class="annottext">Maybe Expression
+</span><a href="#local-6989586621679346205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostAndUsage
+</span><a href="#local-6989586621679346206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':GetCostAndUsage' :: Maybe Expression
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3Afilter%27%3AGetCostAndUsage%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
+</span><a href="#local-6989586621679346205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | Sets the start date and end date for retrieving Amazon Web Services</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- costs. The start date is inclusive, but the end date is exclusive. For</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- cost and usage data is retrieved from @2017-01-01@ up to and including</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- @2017-04-30@ but not including @2017-05-01@.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_timePeriod"><span class="hs-identifier hs-type">getCostAndUsage_timePeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span><span>
+</span><span id="line-231"></span><span id="getCostAndUsage_timePeriod"><span class="annot"><span class="annottext">getCostAndUsage_timePeriod :: (DateInterval -&gt; f DateInterval)
+-&gt; GetCostAndUsage -&gt; f GetCostAndUsage
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_timePeriod"><span class="hs-identifier hs-var hs-var">getCostAndUsage_timePeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCostAndUsage -&gt; DateInterval)
+-&gt; (GetCostAndUsage -&gt; DateInterval -&gt; GetCostAndUsage)
+-&gt; Lens GetCostAndUsage GetCostAndUsage DateInterval DateInterval
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage%27"><span class="hs-identifier hs-type">GetCostAndUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346204"><span class="annot"><span class="annottext">DateInterval
+timePeriod :: DateInterval
+$sel:timePeriod:GetCostAndUsage' :: GetCostAndUsage -&gt; DateInterval
+</span><a href="#local-6989586621679346204"><span class="hs-identifier hs-var hs-var">timePeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateInterval
+</span><a href="#local-6989586621679346204"><span class="hs-identifier hs-var">timePeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346203"><span class="annot"><span class="annottext">s :: GetCostAndUsage
+</span><a href="#local-6989586621679346203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage%27"><span class="hs-identifier hs-type">GetCostAndUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346202"><span class="annot"><span class="annottext">DateInterval
+</span><a href="#local-6989586621679346202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostAndUsage
+</span><a href="#local-6989586621679346203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timePeriod:GetCostAndUsage' :: DateInterval
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AtimePeriod%3AGetCostAndUsage%27"><span class="hs-identifier hs-var">timePeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DateInterval
+</span><a href="#local-6989586621679346202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | Sets the Amazon Web Services cost granularity to @MONTHLY@ or @DAILY@,</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- or @HOURLY@. If @Granularity@ isn\'t set, the response object doesn\'t</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- include the @Granularity@, either @MONTHLY@ or @DAILY@, or @HOURLY@.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_granularity"><span class="hs-identifier hs-type">getCostAndUsage_granularity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Granularity.html#Granularity"><span class="hs-identifier hs-type">Granularity</span></a></span><span>
+</span><span id="line-237"></span><span id="getCostAndUsage_granularity"><span class="annot"><span class="annottext">getCostAndUsage_granularity :: (Granularity -&gt; f Granularity)
+-&gt; GetCostAndUsage -&gt; f GetCostAndUsage
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_granularity"><span class="hs-identifier hs-var hs-var">getCostAndUsage_granularity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCostAndUsage -&gt; Granularity)
+-&gt; (GetCostAndUsage -&gt; Granularity -&gt; GetCostAndUsage)
+-&gt; Lens GetCostAndUsage GetCostAndUsage Granularity Granularity
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage%27"><span class="hs-identifier hs-type">GetCostAndUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346201"><span class="annot"><span class="annottext">Granularity
+granularity :: Granularity
+$sel:granularity:GetCostAndUsage' :: GetCostAndUsage -&gt; Granularity
+</span><a href="#local-6989586621679346201"><span class="hs-identifier hs-var hs-var">granularity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Granularity
+</span><a href="#local-6989586621679346201"><span class="hs-identifier hs-var">granularity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346200"><span class="annot"><span class="annottext">s :: GetCostAndUsage
+</span><a href="#local-6989586621679346200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage%27"><span class="hs-identifier hs-type">GetCostAndUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346199"><span class="annot"><span class="annottext">Granularity
+</span><a href="#local-6989586621679346199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostAndUsage
+</span><a href="#local-6989586621679346200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:granularity:GetCostAndUsage' :: Granularity
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3Agranularity%3AGetCostAndUsage%27"><span class="hs-identifier hs-var">granularity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Granularity
+</span><a href="#local-6989586621679346199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | Which metrics are returned in the query. For more information about</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- blended and unblended rates, see</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/ Why does the \&quot;blended\&quot; annotation appear on some line items in my bill?&gt;.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- Valid values are @AmortizedCost@, @BlendedCost@, @NetAmortizedCost@,</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- @NetUnblendedCost@, @NormalizedUsageAmount@, @UnblendedCost@, and</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- @UsageQuantity@.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- If you return the @UsageQuantity@ metric, the service aggregates all</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- usage numbers without taking into account the units. For example, if you</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- aggregate @usageQuantity@ across all of Amazon EC2, the results aren\'t</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- meaningful because Amazon EC2 compute hours and data transfer are</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- measured in different units (for example, hours and GB). To get more</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- meaningful @UsageQuantity@ metrics, filter by @UsageType@ or</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- @UsageTypeGroups@.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- @Metrics@ is required for @GetCostAndUsage@ requests.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_metrics"><span class="hs-identifier hs-type">getCostAndUsage_metrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-257"></span><span id="getCostAndUsage_metrics"><span class="annot"><span class="annottext">getCostAndUsage_metrics :: ([Text] -&gt; f [Text]) -&gt; GetCostAndUsage -&gt; f GetCostAndUsage
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsage_metrics"><span class="hs-identifier hs-var hs-var">getCostAndUsage_metrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCostAndUsage -&gt; [Text])
+-&gt; (GetCostAndUsage -&gt; [Text] -&gt; GetCostAndUsage)
+-&gt; Lens GetCostAndUsage GetCostAndUsage [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage%27"><span class="hs-identifier hs-type">GetCostAndUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346198"><span class="annot"><span class="annottext">[Text]
+metrics :: [Text]
+$sel:metrics:GetCostAndUsage' :: GetCostAndUsage -&gt; [Text]
+</span><a href="#local-6989586621679346198"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679346198"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346197"><span class="annot"><span class="annottext">s :: GetCostAndUsage
+</span><a href="#local-6989586621679346197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage%27"><span class="hs-identifier hs-type">GetCostAndUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346196"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679346196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostAndUsage
+</span><a href="#local-6989586621679346197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metrics:GetCostAndUsage' :: [Text]
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3Ametrics%3AGetCostAndUsage%27"><span class="hs-identifier hs-var">metrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679346196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; GetCostAndUsage -&gt; f GetCostAndUsage)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; GetCostAndUsage
+-&gt; f GetCostAndUsage
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-261"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-262"></span><span>      </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse"><span class="hs-identifier hs-type">GetCostAndUsageResponse</span></a></span><span>
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679346192"><span class="annot"><span class="annottext">request :: GetCostAndUsage -&gt; Request GetCostAndUsage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetCostAndUsage -&gt; Request GetCostAndUsage
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CostExplorer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679346188"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetCostAndUsage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetCostAndUsage)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetCostAndUsage))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetCostAndUsage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetCostAndUsage)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-266"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346185"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679346185"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679346184"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679346184"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679346183"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346183"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-267"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [DimensionValuesWithAttributes]
+-&gt; Maybe [ResultByTime]
+-&gt; Maybe [GroupDefinition]
+-&gt; Int
+-&gt; GetCostAndUsageResponse
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse%27"><span class="hs-identifier hs-var">GetCostAndUsageResponse'</span></a></span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [DimensionValuesWithAttributes]
+ -&gt; Maybe [ResultByTime]
+ -&gt; Maybe [GroupDefinition]
+ -&gt; Int
+ -&gt; GetCostAndUsageResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [DimensionValuesWithAttributes]
+      -&gt; Maybe [ResultByTime]
+      -&gt; Maybe [GroupDefinition]
+      -&gt; Int
+      -&gt; GetCostAndUsageResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextPageToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [DimensionValuesWithAttributes]
+   -&gt; Maybe [ResultByTime]
+   -&gt; Maybe [GroupDefinition]
+   -&gt; Int
+   -&gt; GetCostAndUsageResponse)
+-&gt; Either String (Maybe [DimensionValuesWithAttributes])
+-&gt; Either
+     String
+     (Maybe [ResultByTime]
+      -&gt; Maybe [GroupDefinition] -&gt; Int -&gt; GetCostAndUsageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [DimensionValuesWithAttributes]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DimensionValueAttributes&quot;</span></span><span>
+</span><span id="line-270"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DimensionValuesWithAttributes]))
+-&gt; Maybe [DimensionValuesWithAttributes]
+-&gt; Either String (Maybe [DimensionValuesWithAttributes])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DimensionValuesWithAttributes]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-271"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ResultByTime]
+   -&gt; Maybe [GroupDefinition] -&gt; Int -&gt; GetCostAndUsageResponse)
+-&gt; Either String (Maybe [ResultByTime])
+-&gt; Either
+     String (Maybe [GroupDefinition] -&gt; Int -&gt; GetCostAndUsageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ResultByTime]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResultsByTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ResultByTime]))
+-&gt; Maybe [ResultByTime] -&gt; Either String (Maybe [ResultByTime])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResultByTime]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [GroupDefinition] -&gt; Int -&gt; GetCostAndUsageResponse)
+-&gt; Either String (Maybe [GroupDefinition])
+-&gt; Either String (Int -&gt; GetCostAndUsageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [GroupDefinition]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupDefinitions&quot;</span></span><span>
+</span><span id="line-274"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [GroupDefinition]))
+-&gt; Maybe [GroupDefinition]
+-&gt; Either String (Maybe [GroupDefinition])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GroupDefinition]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-275"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetCostAndUsageResponse)
+-&gt; Either String Int -&gt; Either String GetCostAndUsageResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679346185"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346174"><span id="local-6989586621679346176"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span></span></span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346171"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span></span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621679346167"><span class="annot"><span class="annottext">toHeaders :: GetCostAndUsage -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCostAndUsage -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-286"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-287"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-288"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSInsightsIndexService.GetCostAndUsage&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-289"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-290"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-292"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-293"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-294"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-296"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346157"><span id="local-6989586621679346159"><span id="local-6989586621679346161"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-299"></span><span>  </span><span id="local-6989586621679346155"><span class="annot"><span class="annottext">toJSON :: GetCostAndUsage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage%27"><span class="hs-identifier hs-type">GetCostAndUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346148"><span id="local-6989586621679346149"><span id="local-6989586621679346150"><span id="local-6989586621679346151"><span id="local-6989586621679346152"><span id="local-6989586621679346153"><span class="annot"><span class="annottext">[Text]
+Maybe [GroupDefinition]
+Maybe Text
+Maybe Expression
+DateInterval
+Granularity
+metrics :: [Text]
+granularity :: Granularity
+timePeriod :: DateInterval
+filter' :: Maybe Expression
+groupBy :: Maybe [GroupDefinition]
+nextPageToken :: Maybe Text
+$sel:metrics:GetCostAndUsage' :: GetCostAndUsage -&gt; [Text]
+$sel:granularity:GetCostAndUsage' :: GetCostAndUsage -&gt; Granularity
+$sel:timePeriod:GetCostAndUsage' :: GetCostAndUsage -&gt; DateInterval
+$sel:filter':GetCostAndUsage' :: GetCostAndUsage -&gt; Maybe Expression
+$sel:groupBy:GetCostAndUsage' :: GetCostAndUsage -&gt; Maybe [GroupDefinition]
+$sel:nextPageToken:GetCostAndUsage' :: GetCostAndUsage -&gt; Maybe Text
+</span><a href="#local-6989586621679346148"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-301"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-302"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextPageToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346153"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [GroupDefinition] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([GroupDefinition] -&gt; Pair)
+-&gt; Maybe [GroupDefinition] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GroupDefinition]
+</span><a href="#local-6989586621679346152"><span class="hs-identifier hs-var">groupBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Expression -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Pair) -&gt; Maybe Expression -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Expression
+</span><a href="#local-6989586621679346151"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TimePeriod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DateInterval -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DateInterval
+</span><a href="#local-6989586621679346150"><span class="hs-identifier hs-var">timePeriod</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Granularity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Granularity -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Granularity
+</span><a href="#local-6989586621679346149"><span class="hs-identifier hs-var">granularity</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Metrics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679346148"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-309"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-312"></span><span>  </span><span id="local-6989586621679346142"><span class="annot"><span class="annottext">toPath :: GetCostAndUsage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetCostAndUsage -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsage"><span class="hs-identifier hs-type">GetCostAndUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-315"></span><span>  </span><span id="local-6989586621679346138"><span class="annot"><span class="annottext">toQuery :: GetCostAndUsage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetCostAndUsage -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- | /See:/ 'newGetCostAndUsageResponse' smart constructor.</span><span>
+</span><span id="line-318"></span><span id="local-6989586621679346135"><span id="local-6989586621679346136"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCostAndUsageResponse"><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse"><span class="hs-identifier hs-var">GetCostAndUsageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCostAndUsageResponse%27"><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse%27"><span class="hs-identifier hs-var">GetCostAndUsageResponse'</span></a></span></span><span>
+</span><span id="line-319"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of retrievable results. Amazon Web Services</span><span>
+</span><span id="line-320"></span><span>    </span><span class="hs-comment">-- provides the token when the response from a previous call has more</span><span>
+</span><span id="line-321"></span><span>    </span><span class="hs-comment">-- results than the maximum page size.</span><span>
+</span><span id="line-322"></span><span>    </span><span id="%24sel%3AnextPageToken%3AGetCostAndUsageResponse%27"><span class="annot"><span class="annottext">GetCostAndUsageResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AnextPageToken%3AGetCostAndUsageResponse%27"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>    </span><span class="hs-comment">-- | The attributes that apply to a specific dimension value. For example, if</span><span>
+</span><span id="line-324"></span><span>    </span><span class="hs-comment">-- the value is a linked account, the attribute is that account name.</span><span>
+</span><span id="line-325"></span><span>    </span><span id="%24sel%3AdimensionValueAttributes%3AGetCostAndUsageResponse%27"><span class="annot"><span class="annottext">GetCostAndUsageResponse -&gt; Maybe [DimensionValuesWithAttributes]
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AdimensionValueAttributes%3AGetCostAndUsageResponse%27"><span class="hs-identifier hs-var hs-var">dimensionValueAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DimensionValuesWithAttributes.html#DimensionValuesWithAttributes"><span class="hs-identifier hs-type">DimensionValuesWithAttributes</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>    </span><span class="hs-comment">-- | The time period that\'s covered by the results in the response.</span><span>
+</span><span id="line-327"></span><span>    </span><span id="%24sel%3AresultsByTime%3AGetCostAndUsageResponse%27"><span class="annot"><span class="annottext">GetCostAndUsageResponse -&gt; Maybe [ResultByTime]
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AresultsByTime%3AGetCostAndUsageResponse%27"><span class="hs-identifier hs-var hs-var">resultsByTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime"><span class="hs-identifier hs-type">ResultByTime</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>    </span><span class="hs-comment">-- | The groups that are specified by the @Filter@ or @GroupBy@ parameters in</span><span>
+</span><span id="line-329"></span><span>    </span><span class="hs-comment">-- the request.</span><span>
+</span><span id="line-330"></span><span>    </span><span id="%24sel%3AgroupDefinitions%3AGetCostAndUsageResponse%27"><span class="annot"><span class="annottext">GetCostAndUsageResponse -&gt; Maybe [GroupDefinition]
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AgroupDefinitions%3AGetCostAndUsageResponse%27"><span class="hs-identifier hs-var hs-var">groupDefinitions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.GroupDefinition.html#GroupDefinition"><span class="hs-identifier hs-type">GroupDefinition</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-332"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCostAndUsageResponse%27"><span class="annot"><span class="annottext">GetCostAndUsageResponse -&gt; Int
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AhttpStatus%3AGetCostAndUsageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-333"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-334"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346126"><span id="local-6989586621679346128"><span class="annot"><span class="annottext">GetCostAndUsageResponse -&gt; GetCostAndUsageResponse -&gt; Bool
+(GetCostAndUsageResponse -&gt; GetCostAndUsageResponse -&gt; Bool)
+-&gt; (GetCostAndUsageResponse -&gt; GetCostAndUsageResponse -&gt; Bool)
+-&gt; Eq GetCostAndUsageResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCostAndUsageResponse -&gt; GetCostAndUsageResponse -&gt; Bool
+$c/= :: GetCostAndUsageResponse -&gt; GetCostAndUsageResponse -&gt; Bool
+== :: GetCostAndUsageResponse -&gt; GetCostAndUsageResponse -&gt; Bool
+$c== :: GetCostAndUsageResponse -&gt; GetCostAndUsageResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346118"><span id="local-6989586621679346120"><span id="local-6989586621679346122"><span id="local-6989586621679346124"><span class="annot"><span class="annottext">ReadPrec [GetCostAndUsageResponse]
+ReadPrec GetCostAndUsageResponse
+Int -&gt; ReadS GetCostAndUsageResponse
+ReadS [GetCostAndUsageResponse]
+(Int -&gt; ReadS GetCostAndUsageResponse)
+-&gt; ReadS [GetCostAndUsageResponse]
+-&gt; ReadPrec GetCostAndUsageResponse
+-&gt; ReadPrec [GetCostAndUsageResponse]
+-&gt; Read GetCostAndUsageResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCostAndUsageResponse]
+$creadListPrec :: ReadPrec [GetCostAndUsageResponse]
+readPrec :: ReadPrec GetCostAndUsageResponse
+$creadPrec :: ReadPrec GetCostAndUsageResponse
+readList :: ReadS [GetCostAndUsageResponse]
+$creadList :: ReadS [GetCostAndUsageResponse]
+readsPrec :: Int -&gt; ReadS GetCostAndUsageResponse
+$creadsPrec :: Int -&gt; ReadS GetCostAndUsageResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346112"><span id="local-6989586621679346114"><span id="local-6989586621679346116"><span class="annot"><span class="annottext">Int -&gt; GetCostAndUsageResponse -&gt; ShowS
+[GetCostAndUsageResponse] -&gt; ShowS
+GetCostAndUsageResponse -&gt; String
+(Int -&gt; GetCostAndUsageResponse -&gt; ShowS)
+-&gt; (GetCostAndUsageResponse -&gt; String)
+-&gt; ([GetCostAndUsageResponse] -&gt; ShowS)
+-&gt; Show GetCostAndUsageResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCostAndUsageResponse] -&gt; ShowS
+$cshowList :: [GetCostAndUsageResponse] -&gt; ShowS
+show :: GetCostAndUsageResponse -&gt; String
+$cshow :: GetCostAndUsageResponse -&gt; String
+showsPrec :: Int -&gt; GetCostAndUsageResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCostAndUsageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetCostAndUsageResponse -&gt; Rep GetCostAndUsageResponse x)
+-&gt; (forall x.
+    Rep GetCostAndUsageResponse x -&gt; GetCostAndUsageResponse)
+-&gt; Generic GetCostAndUsageResponse
+forall x. Rep GetCostAndUsageResponse x -&gt; GetCostAndUsageResponse
+forall x. GetCostAndUsageResponse -&gt; Rep GetCostAndUsageResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetCostAndUsageResponse x -&gt; GetCostAndUsageResponse
+$cfrom :: forall x. GetCostAndUsageResponse -&gt; Rep GetCostAndUsageResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- Create a value of 'GetCostAndUsageResponse' with all optional fields omitted.</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-343"></span><span class="hs-comment">--</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- 'nextPageToken', 'getCostAndUsageResponse_nextPageToken' - The token for the next set of retrievable results. Amazon Web Services</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- provides the token when the response from a previous call has more</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- results than the maximum page size.</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- 'dimensionValueAttributes', 'getCostAndUsageResponse_dimensionValueAttributes' - The attributes that apply to a specific dimension value. For example, if</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- the value is a linked account, the attribute is that account name.</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- 'resultsByTime', 'getCostAndUsageResponse_resultsByTime' - The time period that\'s covered by the results in the response.</span><span>
+</span><span id="line-352"></span><span class="hs-comment">--</span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- 'groupDefinitions', 'getCostAndUsageResponse_groupDefinitions' - The groups that are specified by the @Filter@ or @GroupBy@ parameters in</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- the request.</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- 'httpStatus', 'getCostAndUsageResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-357"></span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#newGetCostAndUsageResponse"><span class="hs-identifier hs-type">newGetCostAndUsageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-358"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-359"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-360"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse"><span class="hs-identifier hs-type">GetCostAndUsageResponse</span></a></span><span>
+</span><span id="line-361"></span><span id="newGetCostAndUsageResponse"><span class="annot"><span class="annottext">newGetCostAndUsageResponse :: Int -&gt; GetCostAndUsageResponse
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#newGetCostAndUsageResponse"><span class="hs-identifier hs-var hs-var">newGetCostAndUsageResponse</span></a></span></span><span> </span><span id="local-6989586621679346109"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679346109"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-362"></span><span>  </span><span class="annot"><span class="annottext">GetCostAndUsageResponse' :: Maybe Text
+-&gt; Maybe [DimensionValuesWithAttributes]
+-&gt; Maybe [ResultByTime]
+-&gt; Maybe [GroupDefinition]
+-&gt; Int
+-&gt; GetCostAndUsageResponse
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse%27"><span class="hs-identifier hs-type">GetCostAndUsageResponse'</span></a></span><span>
+</span><span id="line-363"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextPageToken:GetCostAndUsageResponse' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AnextPageToken%3AGetCostAndUsageResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-364"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-365"></span><span>      </span><span class="annot"><span class="annottext">$sel:dimensionValueAttributes:GetCostAndUsageResponse' :: Maybe [DimensionValuesWithAttributes]
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AdimensionValueAttributes%3AGetCostAndUsageResponse%27"><span class="hs-identifier hs-var">dimensionValueAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DimensionValuesWithAttributes]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>      </span><span class="annot"><span class="annottext">$sel:resultsByTime:GetCostAndUsageResponse' :: Maybe [ResultByTime]
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AresultsByTime%3AGetCostAndUsageResponse%27"><span class="hs-identifier hs-var">resultsByTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResultByTime]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-367"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupDefinitions:GetCostAndUsageResponse' :: Maybe [GroupDefinition]
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AgroupDefinitions%3AGetCostAndUsageResponse%27"><span class="hs-identifier hs-var">groupDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupDefinition]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-368"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCostAndUsageResponse' :: Int
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AhttpStatus%3AGetCostAndUsageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679346109"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-369"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-370"></span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- | The token for the next set of retrievable results. Amazon Web Services</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- provides the token when the response from a previous call has more</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- results than the maximum page size.</span><span>
+</span><span id="line-374"></span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsageResponse_nextPageToken"><span class="hs-identifier hs-type">getCostAndUsageResponse_nextPageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse"><span class="hs-identifier hs-type">GetCostAndUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-375"></span><span id="getCostAndUsageResponse_nextPageToken"><span class="annot"><span class="annottext">getCostAndUsageResponse_nextPageToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCostAndUsageResponse -&gt; f GetCostAndUsageResponse
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsageResponse_nextPageToken"><span class="hs-identifier hs-var hs-var">getCostAndUsageResponse_nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCostAndUsageResponse -&gt; Maybe Text)
+-&gt; (GetCostAndUsageResponse
+    -&gt; Maybe Text -&gt; GetCostAndUsageResponse)
+-&gt; Lens
+     GetCostAndUsageResponse
+     GetCostAndUsageResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse%27"><span class="hs-identifier hs-type">GetCostAndUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346108"><span class="annot"><span class="annottext">Maybe Text
+nextPageToken :: Maybe Text
+$sel:nextPageToken:GetCostAndUsageResponse' :: GetCostAndUsageResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679346108"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346108"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346107"><span class="annot"><span class="annottext">s :: GetCostAndUsageResponse
+</span><a href="#local-6989586621679346107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse%27"><span class="hs-identifier hs-type">GetCostAndUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346106"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostAndUsageResponse
+</span><a href="#local-6989586621679346107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:GetCostAndUsageResponse' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AnextPageToken%3AGetCostAndUsageResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse"><span class="hs-identifier hs-type">GetCostAndUsageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- | The attributes that apply to a specific dimension value. For example, if</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- the value is a linked account, the attribute is that account name.</span><span>
+</span><span id="line-379"></span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsageResponse_dimensionValueAttributes"><span class="hs-identifier hs-type">getCostAndUsageResponse_dimensionValueAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse"><span class="hs-identifier hs-type">GetCostAndUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DimensionValuesWithAttributes.html#DimensionValuesWithAttributes"><span class="hs-identifier hs-type">DimensionValuesWithAttributes</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-380"></span><span id="getCostAndUsageResponse_dimensionValueAttributes"><span class="annot"><span class="annottext">getCostAndUsageResponse_dimensionValueAttributes :: (Maybe [DimensionValuesWithAttributes]
+ -&gt; f (Maybe [DimensionValuesWithAttributes]))
+-&gt; GetCostAndUsageResponse -&gt; f GetCostAndUsageResponse
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsageResponse_dimensionValueAttributes"><span class="hs-identifier hs-var hs-var">getCostAndUsageResponse_dimensionValueAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCostAndUsageResponse -&gt; Maybe [DimensionValuesWithAttributes])
+-&gt; (GetCostAndUsageResponse
+    -&gt; Maybe [DimensionValuesWithAttributes]
+    -&gt; GetCostAndUsageResponse)
+-&gt; Lens
+     GetCostAndUsageResponse
+     GetCostAndUsageResponse
+     (Maybe [DimensionValuesWithAttributes])
+     (Maybe [DimensionValuesWithAttributes])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse%27"><span class="hs-identifier hs-type">GetCostAndUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346105"><span class="annot"><span class="annottext">Maybe [DimensionValuesWithAttributes]
+dimensionValueAttributes :: Maybe [DimensionValuesWithAttributes]
+$sel:dimensionValueAttributes:GetCostAndUsageResponse' :: GetCostAndUsageResponse -&gt; Maybe [DimensionValuesWithAttributes]
+</span><a href="#local-6989586621679346105"><span class="hs-identifier hs-var hs-var">dimensionValueAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DimensionValuesWithAttributes]
+</span><a href="#local-6989586621679346105"><span class="hs-identifier hs-var">dimensionValueAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346104"><span class="annot"><span class="annottext">s :: GetCostAndUsageResponse
+</span><a href="#local-6989586621679346104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse%27"><span class="hs-identifier hs-type">GetCostAndUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346103"><span class="annot"><span class="annottext">Maybe [DimensionValuesWithAttributes]
+</span><a href="#local-6989586621679346103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostAndUsageResponse
+</span><a href="#local-6989586621679346104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensionValueAttributes:GetCostAndUsageResponse' :: Maybe [DimensionValuesWithAttributes]
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AdimensionValueAttributes%3AGetCostAndUsageResponse%27"><span class="hs-identifier hs-var">dimensionValueAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DimensionValuesWithAttributes]
+</span><a href="#local-6989586621679346103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse"><span class="hs-identifier hs-type">GetCostAndUsageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DimensionValuesWithAttributes]
+  -&gt; f (Maybe [DimensionValuesWithAttributes]))
+ -&gt; GetCostAndUsageResponse -&gt; f GetCostAndUsageResponse)
+-&gt; ((Maybe [DimensionValuesWithAttributes]
+     -&gt; f (Maybe [DimensionValuesWithAttributes]))
+    -&gt; Maybe [DimensionValuesWithAttributes]
+    -&gt; f (Maybe [DimensionValuesWithAttributes]))
+-&gt; (Maybe [DimensionValuesWithAttributes]
+    -&gt; f (Maybe [DimensionValuesWithAttributes]))
+-&gt; GetCostAndUsageResponse
+-&gt; f GetCostAndUsageResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DimensionValuesWithAttributes]
+  [DimensionValuesWithAttributes]
+  [DimensionValuesWithAttributes]
+  [DimensionValuesWithAttributes]
+-&gt; Iso
+     (Maybe [DimensionValuesWithAttributes])
+     (Maybe [DimensionValuesWithAttributes])
+     (Maybe [DimensionValuesWithAttributes])
+     (Maybe [DimensionValuesWithAttributes])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DimensionValuesWithAttributes]
+  [DimensionValuesWithAttributes]
+  [DimensionValuesWithAttributes]
+  [DimensionValuesWithAttributes]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-381"></span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- | The time period that\'s covered by the results in the response.</span><span>
+</span><span id="line-383"></span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsageResponse_resultsByTime"><span class="hs-identifier hs-type">getCostAndUsageResponse_resultsByTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse"><span class="hs-identifier hs-type">GetCostAndUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime"><span class="hs-identifier hs-type">ResultByTime</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-384"></span><span id="getCostAndUsageResponse_resultsByTime"><span class="annot"><span class="annottext">getCostAndUsageResponse_resultsByTime :: (Maybe [ResultByTime] -&gt; f (Maybe [ResultByTime]))
+-&gt; GetCostAndUsageResponse -&gt; f GetCostAndUsageResponse
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsageResponse_resultsByTime"><span class="hs-identifier hs-var hs-var">getCostAndUsageResponse_resultsByTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCostAndUsageResponse -&gt; Maybe [ResultByTime])
+-&gt; (GetCostAndUsageResponse
+    -&gt; Maybe [ResultByTime] -&gt; GetCostAndUsageResponse)
+-&gt; Lens
+     GetCostAndUsageResponse
+     GetCostAndUsageResponse
+     (Maybe [ResultByTime])
+     (Maybe [ResultByTime])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse%27"><span class="hs-identifier hs-type">GetCostAndUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346102"><span class="annot"><span class="annottext">Maybe [ResultByTime]
+resultsByTime :: Maybe [ResultByTime]
+$sel:resultsByTime:GetCostAndUsageResponse' :: GetCostAndUsageResponse -&gt; Maybe [ResultByTime]
+</span><a href="#local-6989586621679346102"><span class="hs-identifier hs-var hs-var">resultsByTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResultByTime]
+</span><a href="#local-6989586621679346102"><span class="hs-identifier hs-var">resultsByTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346101"><span class="annot"><span class="annottext">s :: GetCostAndUsageResponse
+</span><a href="#local-6989586621679346101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse%27"><span class="hs-identifier hs-type">GetCostAndUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346100"><span class="annot"><span class="annottext">Maybe [ResultByTime]
+</span><a href="#local-6989586621679346100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostAndUsageResponse
+</span><a href="#local-6989586621679346101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultsByTime:GetCostAndUsageResponse' :: Maybe [ResultByTime]
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AresultsByTime%3AGetCostAndUsageResponse%27"><span class="hs-identifier hs-var">resultsByTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResultByTime]
+</span><a href="#local-6989586621679346100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse"><span class="hs-identifier hs-type">GetCostAndUsageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResultByTime] -&gt; f (Maybe [ResultByTime]))
+ -&gt; GetCostAndUsageResponse -&gt; f GetCostAndUsageResponse)
+-&gt; ((Maybe [ResultByTime] -&gt; f (Maybe [ResultByTime]))
+    -&gt; Maybe [ResultByTime] -&gt; f (Maybe [ResultByTime]))
+-&gt; (Maybe [ResultByTime] -&gt; f (Maybe [ResultByTime]))
+-&gt; GetCostAndUsageResponse
+-&gt; f GetCostAndUsageResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ResultByTime] [ResultByTime] [ResultByTime] [ResultByTime]
+-&gt; Iso
+     (Maybe [ResultByTime])
+     (Maybe [ResultByTime])
+     (Maybe [ResultByTime])
+     (Maybe [ResultByTime])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ResultByTime] [ResultByTime] [ResultByTime] [ResultByTime]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-385"></span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- | The groups that are specified by the @Filter@ or @GroupBy@ parameters in</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- the request.</span><span>
+</span><span id="line-388"></span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsageResponse_groupDefinitions"><span class="hs-identifier hs-type">getCostAndUsageResponse_groupDefinitions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse"><span class="hs-identifier hs-type">GetCostAndUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.GroupDefinition.html#GroupDefinition"><span class="hs-identifier hs-type">GroupDefinition</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-389"></span><span id="getCostAndUsageResponse_groupDefinitions"><span class="annot"><span class="annottext">getCostAndUsageResponse_groupDefinitions :: (Maybe [GroupDefinition] -&gt; f (Maybe [GroupDefinition]))
+-&gt; GetCostAndUsageResponse -&gt; f GetCostAndUsageResponse
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsageResponse_groupDefinitions"><span class="hs-identifier hs-var hs-var">getCostAndUsageResponse_groupDefinitions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCostAndUsageResponse -&gt; Maybe [GroupDefinition])
+-&gt; (GetCostAndUsageResponse
+    -&gt; Maybe [GroupDefinition] -&gt; GetCostAndUsageResponse)
+-&gt; Lens
+     GetCostAndUsageResponse
+     GetCostAndUsageResponse
+     (Maybe [GroupDefinition])
+     (Maybe [GroupDefinition])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse%27"><span class="hs-identifier hs-type">GetCostAndUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346099"><span class="annot"><span class="annottext">Maybe [GroupDefinition]
+groupDefinitions :: Maybe [GroupDefinition]
+$sel:groupDefinitions:GetCostAndUsageResponse' :: GetCostAndUsageResponse -&gt; Maybe [GroupDefinition]
+</span><a href="#local-6989586621679346099"><span class="hs-identifier hs-var hs-var">groupDefinitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupDefinition]
+</span><a href="#local-6989586621679346099"><span class="hs-identifier hs-var">groupDefinitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346098"><span class="annot"><span class="annottext">s :: GetCostAndUsageResponse
+</span><a href="#local-6989586621679346098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse%27"><span class="hs-identifier hs-type">GetCostAndUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346097"><span class="annot"><span class="annottext">Maybe [GroupDefinition]
+</span><a href="#local-6989586621679346097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostAndUsageResponse
+</span><a href="#local-6989586621679346098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupDefinitions:GetCostAndUsageResponse' :: Maybe [GroupDefinition]
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AgroupDefinitions%3AGetCostAndUsageResponse%27"><span class="hs-identifier hs-var">groupDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupDefinition]
+</span><a href="#local-6989586621679346097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse"><span class="hs-identifier hs-type">GetCostAndUsageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupDefinition] -&gt; f (Maybe [GroupDefinition]))
+ -&gt; GetCostAndUsageResponse -&gt; f GetCostAndUsageResponse)
+-&gt; ((Maybe [GroupDefinition] -&gt; f (Maybe [GroupDefinition]))
+    -&gt; Maybe [GroupDefinition] -&gt; f (Maybe [GroupDefinition]))
+-&gt; (Maybe [GroupDefinition] -&gt; f (Maybe [GroupDefinition]))
+-&gt; GetCostAndUsageResponse
+-&gt; f GetCostAndUsageResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GroupDefinition]
+  [GroupDefinition]
+  [GroupDefinition]
+  [GroupDefinition]
+-&gt; Iso
+     (Maybe [GroupDefinition])
+     (Maybe [GroupDefinition])
+     (Maybe [GroupDefinition])
+     (Maybe [GroupDefinition])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GroupDefinition]
+  [GroupDefinition]
+  [GroupDefinition]
+  [GroupDefinition]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-390"></span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-392"></span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsageResponse_httpStatus"><span class="hs-identifier hs-type">getCostAndUsageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse"><span class="hs-identifier hs-type">GetCostAndUsageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-393"></span><span id="getCostAndUsageResponse_httpStatus"><span class="annot"><span class="annottext">getCostAndUsageResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetCostAndUsageResponse -&gt; f GetCostAndUsageResponse
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#getCostAndUsageResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getCostAndUsageResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCostAndUsageResponse -&gt; Int)
+-&gt; (GetCostAndUsageResponse -&gt; Int -&gt; GetCostAndUsageResponse)
+-&gt; Lens GetCostAndUsageResponse GetCostAndUsageResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse%27"><span class="hs-identifier hs-type">GetCostAndUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346096"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetCostAndUsageResponse' :: GetCostAndUsageResponse -&gt; Int
+</span><a href="#local-6989586621679346096"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679346096"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346095"><span class="annot"><span class="annottext">s :: GetCostAndUsageResponse
+</span><a href="#local-6989586621679346095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse%27"><span class="hs-identifier hs-type">GetCostAndUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346094"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679346094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostAndUsageResponse
+</span><a href="#local-6989586621679346095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCostAndUsageResponse' :: Int
+</span><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#%24sel%3AhttpStatus%3AGetCostAndUsageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679346094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse"><span class="hs-identifier hs-type">GetCostAndUsageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-394"></span><span>
+</span><span id="line-395"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostAndUsage.html#GetCostAndUsageResponse"><span class="hs-identifier hs-type">GetCostAndUsageResponse</span></a></span></span><span>
+</span><span id="line-396"></span></pre></body></html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudWatchEvents.ListConnections</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves a list of connections from the account.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudWatchEvents.ListConnections</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier">ListConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#newListConnections"><span class="hs-identifier">newListConnections</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnections_nextToken"><span class="hs-identifier">listConnections_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnections_connectionState"><span class="hs-identifier">listConnections_connectionState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnections_namePrefix"><span class="hs-identifier">listConnections_namePrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnections_limit"><span class="hs-identifier">listConnections_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse"><span class="hs-identifier">ListConnectionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#newListConnectionsResponse"><span class="hs-identifier">newListConnectionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnectionsResponse_nextToken"><span class="hs-identifier">listConnectionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnectionsResponse_connections"><span class="hs-identifier">listConnectionsResponse_connections</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnectionsResponse_httpStatus"><span class="hs-identifier">listConnectionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.html"><span class="hs-identifier">Network.AWS.CloudWatchEvents.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListConnections' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679313368"><span id="local-6989586621679313369"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConnections"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-var">ListConnections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConnections%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections%27"><span class="hs-identifier hs-var">ListConnections'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token returned by a previous call to retrieve the next set of</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListConnections%27"><span class="annot"><span class="annottext">ListConnections -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3AnextToken%3AListConnections%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The state of the connection.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AconnectionState%3AListConnections%27"><span class="annot"><span class="annottext">ListConnections -&gt; Maybe ConnectionState
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3AconnectionState%3AListConnections%27"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A name prefix to filter results returned. Only connections with a name</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- that starts with the prefix are returned.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnamePrefix%3AListConnections%27"><span class="annot"><span class="annottext">ListConnections -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3AnamePrefix%3AListConnections%27"><span class="hs-identifier hs-var hs-var">namePrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum number of connections to return.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Alimit%3AListConnections%27"><span class="annot"><span class="annottext">ListConnections -&gt; Maybe Natural
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3Alimit%3AListConnections%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313359"><span id="local-6989586621679313361"><span class="annot"><span class="annottext">ListConnections -&gt; ListConnections -&gt; Bool
+(ListConnections -&gt; ListConnections -&gt; Bool)
+-&gt; (ListConnections -&gt; ListConnections -&gt; Bool)
+-&gt; Eq ListConnections
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListConnections -&gt; ListConnections -&gt; Bool
+$c/= :: ListConnections -&gt; ListConnections -&gt; Bool
+== :: ListConnections -&gt; ListConnections -&gt; Bool
+$c== :: ListConnections -&gt; ListConnections -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313350"><span id="local-6989586621679313352"><span id="local-6989586621679313354"><span id="local-6989586621679313356"><span class="annot"><span class="annottext">ReadPrec [ListConnections]
+ReadPrec ListConnections
+Int -&gt; ReadS ListConnections
+ReadS [ListConnections]
+(Int -&gt; ReadS ListConnections)
+-&gt; ReadS [ListConnections]
+-&gt; ReadPrec ListConnections
+-&gt; ReadPrec [ListConnections]
+-&gt; Read ListConnections
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListConnections]
+$creadListPrec :: ReadPrec [ListConnections]
+readPrec :: ReadPrec ListConnections
+$creadPrec :: ReadPrec ListConnections
+readList :: ReadS [ListConnections]
+$creadList :: ReadS [ListConnections]
+readsPrec :: Int -&gt; ReadS ListConnections
+$creadsPrec :: Int -&gt; ReadS ListConnections
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313343"><span id="local-6989586621679313345"><span id="local-6989586621679313347"><span class="annot"><span class="annottext">Int -&gt; ListConnections -&gt; ShowS
+[ListConnections] -&gt; ShowS
+ListConnections -&gt; String
+(Int -&gt; ListConnections -&gt; ShowS)
+-&gt; (ListConnections -&gt; String)
+-&gt; ([ListConnections] -&gt; ShowS)
+-&gt; Show ListConnections
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListConnections] -&gt; ShowS
+$cshowList :: [ListConnections] -&gt; ShowS
+show :: ListConnections -&gt; String
+$cshow :: ListConnections -&gt; String
+showsPrec :: Int -&gt; ListConnections -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListConnections -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListConnections -&gt; Rep ListConnections x)
+-&gt; (forall x. Rep ListConnections x -&gt; ListConnections)
+-&gt; Generic ListConnections
+forall x. Rep ListConnections x -&gt; ListConnections
+forall x. ListConnections -&gt; Rep ListConnections x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListConnections x -&gt; ListConnections
+$cfrom :: forall x. ListConnections -&gt; Rep ListConnections x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ListConnections' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'nextToken', 'listConnections_nextToken' - The token returned by a previous call to retrieve the next set of</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'connectionState', 'listConnections_connectionState' - The state of the connection.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'namePrefix', 'listConnections_namePrefix' - A name prefix to filter results returned. Only connections with a name</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- that starts with the prefix are returned.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'limit', 'listConnections_limit' - The maximum number of connections to return.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#newListConnections"><span class="hs-identifier hs-type">newListConnections</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span><span>
+</span><span id="line-87"></span><span id="newListConnections"><span class="annot"><span class="annottext">newListConnections :: ListConnections
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#newListConnections"><span class="hs-identifier hs-var hs-var">newListConnections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">ListConnections' :: Maybe Text
+-&gt; Maybe ConnectionState
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; ListConnections
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections%27"><span class="hs-identifier hs-type">ListConnections'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListConnections' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3AnextToken%3AListConnections%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionState:ListConnections' :: Maybe ConnectionState
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3AconnectionState%3AListConnections%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:namePrefix:ListConnections' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3AnamePrefix%3AListConnections%27"><span class="hs-identifier hs-var">namePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:ListConnections' :: Maybe Natural
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3Alimit%3AListConnections%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The token returned by a previous call to retrieve the next set of</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnections_nextToken"><span class="hs-identifier hs-type">listConnections_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="listConnections_nextToken"><span class="annot"><span class="annottext">listConnections_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListConnections -&gt; f ListConnections
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnections_nextToken"><span class="hs-identifier hs-var hs-var">listConnections_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConnections -&gt; Maybe Text)
+-&gt; (ListConnections -&gt; Maybe Text -&gt; ListConnections)
+-&gt; Lens ListConnections ListConnections (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections%27"><span class="hs-identifier hs-type">ListConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313336"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListConnections' :: ListConnections -&gt; Maybe Text
+</span><a href="#local-6989586621679313336"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313336"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313335"><span class="annot"><span class="annottext">s :: ListConnections
+</span><a href="#local-6989586621679313335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections%27"><span class="hs-identifier hs-type">ListConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313334"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnections
+</span><a href="#local-6989586621679313335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConnections' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3AnextToken%3AListConnections%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The state of the connection.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnections_connectionState"><span class="hs-identifier hs-type">listConnections_connectionState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="listConnections_connectionState"><span class="annot"><span class="annottext">listConnections_connectionState :: (Maybe ConnectionState -&gt; f (Maybe ConnectionState))
+-&gt; ListConnections -&gt; f ListConnections
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnections_connectionState"><span class="hs-identifier hs-var hs-var">listConnections_connectionState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConnections -&gt; Maybe ConnectionState)
+-&gt; (ListConnections -&gt; Maybe ConnectionState -&gt; ListConnections)
+-&gt; Lens
+     ListConnections
+     ListConnections
+     (Maybe ConnectionState)
+     (Maybe ConnectionState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections%27"><span class="hs-identifier hs-type">ListConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313333"><span class="annot"><span class="annottext">Maybe ConnectionState
+connectionState :: Maybe ConnectionState
+$sel:connectionState:ListConnections' :: ListConnections -&gt; Maybe ConnectionState
+</span><a href="#local-6989586621679313333"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><a href="#local-6989586621679313333"><span class="hs-identifier hs-var">connectionState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313332"><span class="annot"><span class="annottext">s :: ListConnections
+</span><a href="#local-6989586621679313332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections%27"><span class="hs-identifier hs-type">ListConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313331"><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><a href="#local-6989586621679313331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnections
+</span><a href="#local-6989586621679313332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionState:ListConnections' :: Maybe ConnectionState
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3AconnectionState%3AListConnections%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><a href="#local-6989586621679313331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | A name prefix to filter results returned. Only connections with a name</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- that starts with the prefix are returned.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnections_namePrefix"><span class="hs-identifier hs-type">listConnections_namePrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="listConnections_namePrefix"><span class="annot"><span class="annottext">listConnections_namePrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListConnections -&gt; f ListConnections
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnections_namePrefix"><span class="hs-identifier hs-var hs-var">listConnections_namePrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConnections -&gt; Maybe Text)
+-&gt; (ListConnections -&gt; Maybe Text -&gt; ListConnections)
+-&gt; Lens ListConnections ListConnections (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections%27"><span class="hs-identifier hs-type">ListConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313330"><span class="annot"><span class="annottext">Maybe Text
+namePrefix :: Maybe Text
+$sel:namePrefix:ListConnections' :: ListConnections -&gt; Maybe Text
+</span><a href="#local-6989586621679313330"><span class="hs-identifier hs-var hs-var">namePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313330"><span class="hs-identifier hs-var">namePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313329"><span class="annot"><span class="annottext">s :: ListConnections
+</span><a href="#local-6989586621679313329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections%27"><span class="hs-identifier hs-type">ListConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313328"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnections
+</span><a href="#local-6989586621679313329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namePrefix:ListConnections' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3AnamePrefix%3AListConnections%27"><span class="hs-identifier hs-var">namePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The maximum number of connections to return.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnections_limit"><span class="hs-identifier hs-type">listConnections_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="listConnections_limit"><span class="annot"><span class="annottext">listConnections_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListConnections -&gt; f ListConnections
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnections_limit"><span class="hs-identifier hs-var hs-var">listConnections_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConnections -&gt; Maybe Natural)
+-&gt; (ListConnections -&gt; Maybe Natural -&gt; ListConnections)
+-&gt; Lens
+     ListConnections ListConnections (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections%27"><span class="hs-identifier hs-type">ListConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313327"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:ListConnections' :: ListConnections -&gt; Maybe Natural
+</span><a href="#local-6989586621679313327"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679313327"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313326"><span class="annot"><span class="annottext">s :: ListConnections
+</span><a href="#local-6989586621679313326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections%27"><span class="hs-identifier hs-type">ListConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313325"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679313325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnections
+</span><a href="#local-6989586621679313326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListConnections' :: Maybe Natural
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3Alimit%3AListConnections%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679313325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse"><span class="hs-identifier hs-type">ListConnectionsResponse</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679313321"><span class="annot"><span class="annottext">request :: ListConnections -&gt; Request ListConnections
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListConnections -&gt; Request ListConnections
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudWatchEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679313317"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListConnections
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListConnections)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListConnections))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListConnections
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListConnections)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313314"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313314"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313313"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679313313"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313312"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313312"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Connection] -&gt; Int -&gt; ListConnectionsResponse
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse%27"><span class="hs-identifier hs-var">ListConnectionsResponse'</span></a></span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Connection] -&gt; Int -&gt; ListConnectionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [Connection] -&gt; Int -&gt; ListConnectionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [Connection] -&gt; Int -&gt; ListConnectionsResponse)
+-&gt; Either String (Maybe [Connection])
+-&gt; Either String (Int -&gt; ListConnectionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Connection]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Connections&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Connection]))
+-&gt; Maybe [Connection] -&gt; Either String (Maybe [Connection])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Connection]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListConnectionsResponse)
+-&gt; Either String Int -&gt; Either String ListConnectionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313314"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313303"><span id="local-6989586621679313305"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679313296"><span class="annot"><span class="annottext">toHeaders :: ListConnections -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListConnections -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSEvents.ListConnections&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-140"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313286"><span id="local-6989586621679313288"><span id="local-6989586621679313290"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679313284"><span class="annot"><span class="annottext">toJSON :: ListConnections -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections%27"><span class="hs-identifier hs-type">ListConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313279"><span id="local-6989586621679313280"><span id="local-6989586621679313281"><span id="local-6989586621679313282"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe ConnectionState
+limit :: Maybe Natural
+namePrefix :: Maybe Text
+connectionState :: Maybe ConnectionState
+nextToken :: Maybe Text
+$sel:limit:ListConnections' :: ListConnections -&gt; Maybe Natural
+$sel:namePrefix:ListConnections' :: ListConnections -&gt; Maybe Text
+$sel:connectionState:ListConnections' :: ListConnections -&gt; Maybe ConnectionState
+$sel:nextToken:ListConnections' :: ListConnections -&gt; Maybe Text
+</span><a href="#local-6989586621679313279"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313282"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectionState&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConnectionState -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">(ConnectionState -&gt; Pair) -&gt; Maybe ConnectionState -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><a href="#local-6989586621679313281"><span class="hs-identifier hs-var">connectionState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NamePrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313280"><span class="hs-identifier hs-var">namePrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679313279"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679313273"><span class="annot"><span class="annottext">toPath :: ListConnections -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListConnections -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnections"><span class="hs-identifier hs-type">ListConnections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679313269"><span class="annot"><span class="annottext">toQuery :: ListConnections -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListConnections -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | /See:/ 'newListConnectionsResponse' smart constructor.</span><span>
+</span><span id="line-163"></span><span id="local-6989586621679313266"><span id="local-6989586621679313267"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConnectionsResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse"><span class="hs-identifier hs-var">ListConnectionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConnectionsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse%27"><span class="hs-identifier hs-var">ListConnectionsResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token you can use in a subsequent request to retrieve the next set of</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AnextToken%3AListConnectionsResponse%27"><span class="annot"><span class="annottext">ListConnectionsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3AnextToken%3AListConnectionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | An array of connections objects that include details about the</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- connections.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3Aconnections%3AListConnectionsResponse%27"><span class="annot"><span class="annottext">ListConnectionsResponse -&gt; Maybe [Connection]
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3Aconnections%3AListConnectionsResponse%27"><span class="hs-identifier hs-var hs-var">connections</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListConnectionsResponse%27"><span class="annot"><span class="annottext">ListConnectionsResponse -&gt; Int
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3AhttpStatus%3AListConnectionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313259"><span id="local-6989586621679313261"><span class="annot"><span class="annottext">ListConnectionsResponse -&gt; ListConnectionsResponse -&gt; Bool
+(ListConnectionsResponse -&gt; ListConnectionsResponse -&gt; Bool)
+-&gt; (ListConnectionsResponse -&gt; ListConnectionsResponse -&gt; Bool)
+-&gt; Eq ListConnectionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListConnectionsResponse -&gt; ListConnectionsResponse -&gt; Bool
+$c/= :: ListConnectionsResponse -&gt; ListConnectionsResponse -&gt; Bool
+== :: ListConnectionsResponse -&gt; ListConnectionsResponse -&gt; Bool
+$c== :: ListConnectionsResponse -&gt; ListConnectionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313251"><span id="local-6989586621679313253"><span id="local-6989586621679313255"><span id="local-6989586621679313257"><span class="annot"><span class="annottext">ReadPrec [ListConnectionsResponse]
+ReadPrec ListConnectionsResponse
+Int -&gt; ReadS ListConnectionsResponse
+ReadS [ListConnectionsResponse]
+(Int -&gt; ReadS ListConnectionsResponse)
+-&gt; ReadS [ListConnectionsResponse]
+-&gt; ReadPrec ListConnectionsResponse
+-&gt; ReadPrec [ListConnectionsResponse]
+-&gt; Read ListConnectionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListConnectionsResponse]
+$creadListPrec :: ReadPrec [ListConnectionsResponse]
+readPrec :: ReadPrec ListConnectionsResponse
+$creadPrec :: ReadPrec ListConnectionsResponse
+readList :: ReadS [ListConnectionsResponse]
+$creadList :: ReadS [ListConnectionsResponse]
+readsPrec :: Int -&gt; ReadS ListConnectionsResponse
+$creadsPrec :: Int -&gt; ReadS ListConnectionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313245"><span id="local-6989586621679313247"><span id="local-6989586621679313249"><span class="annot"><span class="annottext">Int -&gt; ListConnectionsResponse -&gt; ShowS
+[ListConnectionsResponse] -&gt; ShowS
+ListConnectionsResponse -&gt; String
+(Int -&gt; ListConnectionsResponse -&gt; ShowS)
+-&gt; (ListConnectionsResponse -&gt; String)
+-&gt; ([ListConnectionsResponse] -&gt; ShowS)
+-&gt; Show ListConnectionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListConnectionsResponse] -&gt; ShowS
+$cshowList :: [ListConnectionsResponse] -&gt; ShowS
+show :: ListConnectionsResponse -&gt; String
+$cshow :: ListConnectionsResponse -&gt; String
+showsPrec :: Int -&gt; ListConnectionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListConnectionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListConnectionsResponse -&gt; Rep ListConnectionsResponse x)
+-&gt; (forall x.
+    Rep ListConnectionsResponse x -&gt; ListConnectionsResponse)
+-&gt; Generic ListConnectionsResponse
+forall x. Rep ListConnectionsResponse x -&gt; ListConnectionsResponse
+forall x. ListConnectionsResponse -&gt; Rep ListConnectionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListConnectionsResponse x -&gt; ListConnectionsResponse
+$cfrom :: forall x. ListConnectionsResponse -&gt; Rep ListConnectionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Create a value of 'ListConnectionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'nextToken', 'listConnectionsResponse_nextToken' - A token you can use in a subsequent request to retrieve the next set of</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'connections', 'listConnectionsResponse_connections' - An array of connections objects that include details about the</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- connections.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'httpStatus', 'listConnectionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#newListConnectionsResponse"><span class="hs-identifier hs-type">newListConnectionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse"><span class="hs-identifier hs-type">ListConnectionsResponse</span></a></span><span>
+</span><span id="line-194"></span><span id="newListConnectionsResponse"><span class="annot"><span class="annottext">newListConnectionsResponse :: Int -&gt; ListConnectionsResponse
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#newListConnectionsResponse"><span class="hs-identifier hs-var hs-var">newListConnectionsResponse</span></a></span></span><span> </span><span id="local-6989586621679313242"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313242"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="annottext">ListConnectionsResponse' :: Maybe Text -&gt; Maybe [Connection] -&gt; Int -&gt; ListConnectionsResponse
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse%27"><span class="hs-identifier hs-type">ListConnectionsResponse'</span></a></span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListConnectionsResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3AnextToken%3AListConnectionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:connections:ListConnectionsResponse' :: Maybe [Connection]
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3Aconnections%3AListConnectionsResponse%27"><span class="hs-identifier hs-var">connections</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Connection]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListConnectionsResponse' :: Int
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3AhttpStatus%3AListConnectionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313242"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | A token you can use in a subsequent request to retrieve the next set of</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnectionsResponse_nextToken"><span class="hs-identifier hs-type">listConnectionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse"><span class="hs-identifier hs-type">ListConnectionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="listConnectionsResponse_nextToken"><span class="annot"><span class="annottext">listConnectionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListConnectionsResponse -&gt; f ListConnectionsResponse
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnectionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listConnectionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConnectionsResponse -&gt; Maybe Text)
+-&gt; (ListConnectionsResponse
+    -&gt; Maybe Text -&gt; ListConnectionsResponse)
+-&gt; Lens
+     ListConnectionsResponse
+     ListConnectionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse%27"><span class="hs-identifier hs-type">ListConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313241"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListConnectionsResponse' :: ListConnectionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679313241"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313241"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313240"><span class="annot"><span class="annottext">s :: ListConnectionsResponse
+</span><a href="#local-6989586621679313240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse%27"><span class="hs-identifier hs-type">ListConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313239"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnectionsResponse
+</span><a href="#local-6989586621679313240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConnectionsResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3AnextToken%3AListConnectionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse"><span class="hs-identifier hs-type">ListConnectionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | An array of connections objects that include details about the</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- connections.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnectionsResponse_connections"><span class="hs-identifier hs-type">listConnectionsResponse_connections</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse"><span class="hs-identifier hs-type">ListConnectionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="listConnectionsResponse_connections"><span class="annot"><span class="annottext">listConnectionsResponse_connections :: (Maybe [Connection] -&gt; f (Maybe [Connection]))
+-&gt; ListConnectionsResponse -&gt; f ListConnectionsResponse
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnectionsResponse_connections"><span class="hs-identifier hs-var hs-var">listConnectionsResponse_connections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConnectionsResponse -&gt; Maybe [Connection])
+-&gt; (ListConnectionsResponse
+    -&gt; Maybe [Connection] -&gt; ListConnectionsResponse)
+-&gt; Lens
+     ListConnectionsResponse
+     ListConnectionsResponse
+     (Maybe [Connection])
+     (Maybe [Connection])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse%27"><span class="hs-identifier hs-type">ListConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313238"><span class="annot"><span class="annottext">Maybe [Connection]
+connections :: Maybe [Connection]
+$sel:connections:ListConnectionsResponse' :: ListConnectionsResponse -&gt; Maybe [Connection]
+</span><a href="#local-6989586621679313238"><span class="hs-identifier hs-var hs-var">connections</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Connection]
+</span><a href="#local-6989586621679313238"><span class="hs-identifier hs-var">connections</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313237"><span class="annot"><span class="annottext">s :: ListConnectionsResponse
+</span><a href="#local-6989586621679313237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse%27"><span class="hs-identifier hs-type">ListConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313236"><span class="annot"><span class="annottext">Maybe [Connection]
+</span><a href="#local-6989586621679313236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnectionsResponse
+</span><a href="#local-6989586621679313237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connections:ListConnectionsResponse' :: Maybe [Connection]
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3Aconnections%3AListConnectionsResponse%27"><span class="hs-identifier hs-var">connections</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Connection]
+</span><a href="#local-6989586621679313236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse"><span class="hs-identifier hs-type">ListConnectionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Connection] -&gt; f (Maybe [Connection]))
+ -&gt; ListConnectionsResponse -&gt; f ListConnectionsResponse)
+-&gt; ((Maybe [Connection] -&gt; f (Maybe [Connection]))
+    -&gt; Maybe [Connection] -&gt; f (Maybe [Connection]))
+-&gt; (Maybe [Connection] -&gt; f (Maybe [Connection]))
+-&gt; ListConnectionsResponse
+-&gt; f ListConnectionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Connection] [Connection] [Connection] [Connection]
+-&gt; Iso
+     (Maybe [Connection])
+     (Maybe [Connection])
+     (Maybe [Connection])
+     (Maybe [Connection])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Connection] [Connection] [Connection] [Connection]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnectionsResponse_httpStatus"><span class="hs-identifier hs-type">listConnectionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse"><span class="hs-identifier hs-type">ListConnectionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-214"></span><span id="listConnectionsResponse_httpStatus"><span class="annot"><span class="annottext">listConnectionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListConnectionsResponse -&gt; f ListConnectionsResponse
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#listConnectionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listConnectionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConnectionsResponse -&gt; Int)
+-&gt; (ListConnectionsResponse -&gt; Int -&gt; ListConnectionsResponse)
+-&gt; Lens ListConnectionsResponse ListConnectionsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse%27"><span class="hs-identifier hs-type">ListConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313232"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListConnectionsResponse' :: ListConnectionsResponse -&gt; Int
+</span><a href="#local-6989586621679313232"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313232"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313231"><span class="annot"><span class="annottext">s :: ListConnectionsResponse
+</span><a href="#local-6989586621679313231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse%27"><span class="hs-identifier hs-type">ListConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313230"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnectionsResponse
+</span><a href="#local-6989586621679313231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListConnectionsResponse' :: Int
+</span><a href="Network.AWS.CloudWatchEvents.ListConnections.html#%24sel%3AhttpStatus%3AListConnectionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse"><span class="hs-identifier hs-type">ListConnectionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListConnections.html#ListConnectionsResponse"><span class="hs-identifier hs-type">ListConnectionsResponse</span></a></span></span><span>
+</span><span id="line-217"></span></pre></body></html>

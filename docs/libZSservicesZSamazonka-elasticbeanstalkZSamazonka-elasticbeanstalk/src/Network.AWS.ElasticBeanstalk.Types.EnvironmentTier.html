@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticBeanstalk.Types.EnvironmentTier</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticBeanstalk.Types.EnvironmentTier</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Describes the properties of an environment tier</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newEnvironmentTier' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679301549"><span id="local-6989586621679301550"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnvironmentTier"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier"><span class="hs-identifier hs-var">EnvironmentTier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentTier%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier%27"><span class="hs-identifier hs-var">EnvironmentTier'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of this environment tier. When you don\'t set a value to it,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Elastic Beanstalk uses the latest compatible worker tier version.</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- This member is deprecated. Any specific version that you set may become</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- out of date. We recommend leaving it unspecified.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aversion%3AEnvironmentTier%27"><span class="annot"><span class="annottext">EnvironmentTier -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#%24sel%3Aversion%3AEnvironmentTier%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of this environment tier.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Valid values:</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   For /Web server tier/ &#8211; @WebServer@</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   For /Worker tier/ &#8211; @Worker@</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aname%3AEnvironmentTier%27"><span class="annot"><span class="annottext">EnvironmentTier -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#%24sel%3Aname%3AEnvironmentTier%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The type of this environment tier.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- Valid values:</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   For /Web server tier/ &#8211; @Standard@</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   For /Worker tier/ &#8211; @SQS\/HTTP@</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Atype%27%3AEnvironmentTier%27"><span class="annot"><span class="annottext">EnvironmentTier -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#%24sel%3Atype%27%3AEnvironmentTier%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301541"><span id="local-6989586621679301543"><span class="annot"><span class="annottext">EnvironmentTier -&gt; EnvironmentTier -&gt; Bool
+(EnvironmentTier -&gt; EnvironmentTier -&gt; Bool)
+-&gt; (EnvironmentTier -&gt; EnvironmentTier -&gt; Bool)
+-&gt; Eq EnvironmentTier
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnvironmentTier -&gt; EnvironmentTier -&gt; Bool
+$c/= :: EnvironmentTier -&gt; EnvironmentTier -&gt; Bool
+== :: EnvironmentTier -&gt; EnvironmentTier -&gt; Bool
+$c== :: EnvironmentTier -&gt; EnvironmentTier -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301532"><span id="local-6989586621679301534"><span id="local-6989586621679301536"><span id="local-6989586621679301538"><span class="annot"><span class="annottext">ReadPrec [EnvironmentTier]
+ReadPrec EnvironmentTier
+Int -&gt; ReadS EnvironmentTier
+ReadS [EnvironmentTier]
+(Int -&gt; ReadS EnvironmentTier)
+-&gt; ReadS [EnvironmentTier]
+-&gt; ReadPrec EnvironmentTier
+-&gt; ReadPrec [EnvironmentTier]
+-&gt; Read EnvironmentTier
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EnvironmentTier]
+$creadListPrec :: ReadPrec [EnvironmentTier]
+readPrec :: ReadPrec EnvironmentTier
+$creadPrec :: ReadPrec EnvironmentTier
+readList :: ReadS [EnvironmentTier]
+$creadList :: ReadS [EnvironmentTier]
+readsPrec :: Int -&gt; ReadS EnvironmentTier
+$creadsPrec :: Int -&gt; ReadS EnvironmentTier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301525"><span id="local-6989586621679301527"><span id="local-6989586621679301529"><span class="annot"><span class="annottext">Int -&gt; EnvironmentTier -&gt; ShowS
+[EnvironmentTier] -&gt; ShowS
+EnvironmentTier -&gt; String
+(Int -&gt; EnvironmentTier -&gt; ShowS)
+-&gt; (EnvironmentTier -&gt; String)
+-&gt; ([EnvironmentTier] -&gt; ShowS)
+-&gt; Show EnvironmentTier
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnvironmentTier] -&gt; ShowS
+$cshowList :: [EnvironmentTier] -&gt; ShowS
+show :: EnvironmentTier -&gt; String
+$cshow :: EnvironmentTier -&gt; String
+showsPrec :: Int -&gt; EnvironmentTier -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnvironmentTier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EnvironmentTier -&gt; Rep EnvironmentTier x)
+-&gt; (forall x. Rep EnvironmentTier x -&gt; EnvironmentTier)
+-&gt; Generic EnvironmentTier
+forall x. Rep EnvironmentTier x -&gt; EnvironmentTier
+forall x. EnvironmentTier -&gt; Rep EnvironmentTier x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EnvironmentTier x -&gt; EnvironmentTier
+$cfrom :: forall x. EnvironmentTier -&gt; Rep EnvironmentTier x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'EnvironmentTier' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'version', 'environmentTier_version' - The version of this environment tier. When you don\'t set a value to it,</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Elastic Beanstalk uses the latest compatible worker tier version.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- This member is deprecated. Any specific version that you set may become</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- out of date. We recommend leaving it unspecified.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'name', 'environmentTier_name' - The name of this environment tier.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Valid values:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- -   For /Web server tier/ &#8211; @WebServer@</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- -   For /Worker tier/ &#8211; @Worker@</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'type'', 'environmentTier_type' - The type of this environment tier.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Valid values:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- -   For /Web server tier/ &#8211; @Standard@</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- -   For /Worker tier/ &#8211; @SQS\/HTTP@</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#newEnvironmentTier"><span class="hs-identifier hs-type">newEnvironmentTier</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier"><span class="hs-identifier hs-type">EnvironmentTier</span></a></span><span>
+</span><span id="line-86"></span><span id="newEnvironmentTier"><span class="annot"><span class="annottext">newEnvironmentTier :: EnvironmentTier
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#newEnvironmentTier"><span class="hs-identifier hs-var hs-var">newEnvironmentTier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">EnvironmentTier' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; EnvironmentTier
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier%27"><span class="hs-identifier hs-type">EnvironmentTier'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:version:EnvironmentTier' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#%24sel%3Aversion%3AEnvironmentTier%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:EnvironmentTier' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#%24sel%3Aname%3AEnvironmentTier%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':EnvironmentTier' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#%24sel%3Atype%27%3AEnvironmentTier%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The version of this environment tier. When you don\'t set a value to it,</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Elastic Beanstalk uses the latest compatible worker tier version.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- This member is deprecated. Any specific version that you set may become</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- out of date. We recommend leaving it unspecified.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#environmentTier_version"><span class="hs-identifier hs-type">environmentTier_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier"><span class="hs-identifier hs-type">EnvironmentTier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="environmentTier_version"><span class="annot"><span class="annottext">environmentTier_version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnvironmentTier -&gt; f EnvironmentTier
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#environmentTier_version"><span class="hs-identifier hs-var hs-var">environmentTier_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentTier -&gt; Maybe Text)
+-&gt; (EnvironmentTier -&gt; Maybe Text -&gt; EnvironmentTier)
+-&gt; Lens EnvironmentTier EnvironmentTier (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier%27"><span class="hs-identifier hs-type">EnvironmentTier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301516"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:EnvironmentTier' :: EnvironmentTier -&gt; Maybe Text
+</span><a href="#local-6989586621679301516"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301516"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301515"><span class="annot"><span class="annottext">s :: EnvironmentTier
+</span><a href="#local-6989586621679301515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier%27"><span class="hs-identifier hs-type">EnvironmentTier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301514"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentTier
+</span><a href="#local-6989586621679301515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:EnvironmentTier' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#%24sel%3Aversion%3AEnvironmentTier%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier"><span class="hs-identifier hs-type">EnvironmentTier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The name of this environment tier.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Valid values:</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -   For /Web server tier/ &#8211; @WebServer@</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- -   For /Worker tier/ &#8211; @Worker@</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#environmentTier_name"><span class="hs-identifier hs-type">environmentTier_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier"><span class="hs-identifier hs-type">EnvironmentTier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="environmentTier_name"><span class="annot"><span class="annottext">environmentTier_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnvironmentTier -&gt; f EnvironmentTier
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#environmentTier_name"><span class="hs-identifier hs-var hs-var">environmentTier_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentTier -&gt; Maybe Text)
+-&gt; (EnvironmentTier -&gt; Maybe Text -&gt; EnvironmentTier)
+-&gt; Lens EnvironmentTier EnvironmentTier (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier%27"><span class="hs-identifier hs-type">EnvironmentTier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301512"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:EnvironmentTier' :: EnvironmentTier -&gt; Maybe Text
+</span><a href="#local-6989586621679301512"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301512"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301511"><span class="annot"><span class="annottext">s :: EnvironmentTier
+</span><a href="#local-6989586621679301511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier%27"><span class="hs-identifier hs-type">EnvironmentTier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301510"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentTier
+</span><a href="#local-6989586621679301511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:EnvironmentTier' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#%24sel%3Aname%3AEnvironmentTier%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier"><span class="hs-identifier hs-type">EnvironmentTier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The type of this environment tier.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Valid values:</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   For /Web server tier/ &#8211; @Standard@</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   For /Worker tier/ &#8211; @SQS\/HTTP@</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#environmentTier_type"><span class="hs-identifier hs-type">environmentTier_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier"><span class="hs-identifier hs-type">EnvironmentTier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="environmentTier_type"><span class="annot"><span class="annottext">environmentTier_type :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnvironmentTier -&gt; f EnvironmentTier
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#environmentTier_type"><span class="hs-identifier hs-var hs-var">environmentTier_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentTier -&gt; Maybe Text)
+-&gt; (EnvironmentTier -&gt; Maybe Text -&gt; EnvironmentTier)
+-&gt; Lens EnvironmentTier EnvironmentTier (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier%27"><span class="hs-identifier hs-type">EnvironmentTier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301508"><span class="annot"><span class="annottext">Maybe Text
+type' :: Maybe Text
+$sel:type':EnvironmentTier' :: EnvironmentTier -&gt; Maybe Text
+</span><a href="#local-6989586621679301508"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301508"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301507"><span class="annot"><span class="annottext">s :: EnvironmentTier
+</span><a href="#local-6989586621679301507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier%27"><span class="hs-identifier hs-type">EnvironmentTier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301506"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentTier
+</span><a href="#local-6989586621679301507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':EnvironmentTier' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#%24sel%3Atype%27%3AEnvironmentTier%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier"><span class="hs-identifier hs-type">EnvironmentTier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier"><span class="hs-identifier hs-type">EnvironmentTier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679301503"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EnvironmentTier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679301501"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679301501"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; EnvironmentTier
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier%27"><span class="hs-identifier hs-var">EnvironmentTier'</span></a></span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; EnvironmentTier)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; EnvironmentTier)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679301501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; EnvironmentTier)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; EnvironmentTier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679301501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; EnvironmentTier)
+-&gt; Either String (Maybe Text) -&gt; Either String EnvironmentTier
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679301501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301495"><span id="local-6989586621679301497"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier"><span class="hs-identifier hs-type">EnvironmentTier</span></a></span></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301492"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier"><span class="hs-identifier hs-type">EnvironmentTier</span></a></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier"><span class="hs-identifier hs-type">EnvironmentTier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679301488"><span class="annot"><span class="annottext">toQuery :: EnvironmentTier -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentTier.html#EnvironmentTier%27"><span class="hs-identifier hs-type">EnvironmentTier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301484"><span id="local-6989586621679301485"><span id="local-6989586621679301486"><span class="annot"><span class="annottext">Maybe Text
+type' :: Maybe Text
+name :: Maybe Text
+version :: Maybe Text
+$sel:type':EnvironmentTier' :: EnvironmentTier -&gt; Maybe Text
+$sel:name:EnvironmentTier' :: EnvironmentTier -&gt; Maybe Text
+$sel:version:EnvironmentTier' :: EnvironmentTier -&gt; Maybe Text
+</span><a href="#local-6989586621679301484"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301486"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301485"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301484"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span></pre></body></html>

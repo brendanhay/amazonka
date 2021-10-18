@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.M2tsEsRateInPes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.M2tsEsRateInPes</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#M2tsEsRateInPes"><span class="hs-identifier">M2tsEsRateInPes</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#M2tsEsRateInPes_EXCLUDE"><span class="hs-identifier">M2tsEsRateInPes_EXCLUDE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#M2tsEsRateInPes_INCLUDE"><span class="hs-identifier">M2tsEsRateInPes_INCLUDE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Controls whether to include the ES Rate field in the PES header.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679980062"><span id="local-6989586621679980063"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsEsRateInPes"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#M2tsEsRateInPes"><span class="hs-identifier hs-var">M2tsEsRateInPes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsEsRateInPes%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#M2tsEsRateInPes%27"><span class="hs-identifier hs-var">M2tsEsRateInPes'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM2tsEsRateInPes"><span class="annot"><span class="annottext">M2tsEsRateInPes -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#fromM2tsEsRateInPes"><span class="hs-identifier hs-var hs-var">fromM2tsEsRateInPes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679980054"><span id="local-6989586621679980056"><span id="local-6989586621679980058"><span class="annot"><span class="annottext">Int -&gt; M2tsEsRateInPes -&gt; ShowS
+[M2tsEsRateInPes] -&gt; ShowS
+M2tsEsRateInPes -&gt; String
+(Int -&gt; M2tsEsRateInPes -&gt; ShowS)
+-&gt; (M2tsEsRateInPes -&gt; String)
+-&gt; ([M2tsEsRateInPes] -&gt; ShowS)
+-&gt; Show M2tsEsRateInPes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [M2tsEsRateInPes] -&gt; ShowS
+$cshowList :: [M2tsEsRateInPes] -&gt; ShowS
+show :: M2tsEsRateInPes -&gt; String
+$cshow :: M2tsEsRateInPes -&gt; String
+showsPrec :: Int -&gt; M2tsEsRateInPes -&gt; ShowS
+$cshowsPrec :: Int -&gt; M2tsEsRateInPes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679980045"><span id="local-6989586621679980047"><span id="local-6989586621679980049"><span id="local-6989586621679980051"><span class="annot"><span class="annottext">ReadPrec [M2tsEsRateInPes]
+ReadPrec M2tsEsRateInPes
+Int -&gt; ReadS M2tsEsRateInPes
+ReadS [M2tsEsRateInPes]
+(Int -&gt; ReadS M2tsEsRateInPes)
+-&gt; ReadS [M2tsEsRateInPes]
+-&gt; ReadPrec M2tsEsRateInPes
+-&gt; ReadPrec [M2tsEsRateInPes]
+-&gt; Read M2tsEsRateInPes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [M2tsEsRateInPes]
+$creadListPrec :: ReadPrec [M2tsEsRateInPes]
+readPrec :: ReadPrec M2tsEsRateInPes
+$creadPrec :: ReadPrec M2tsEsRateInPes
+readList :: ReadS [M2tsEsRateInPes]
+$creadList :: ReadS [M2tsEsRateInPes]
+readsPrec :: Int -&gt; ReadS M2tsEsRateInPes
+$creadsPrec :: Int -&gt; ReadS M2tsEsRateInPes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679980040"><span id="local-6989586621679980042"><span class="annot"><span class="annottext">M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool
+(M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool)
+-&gt; (M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool)
+-&gt; Eq M2tsEsRateInPes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool
+$c/= :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool
+== :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool
+$c== :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679980024"><span id="local-6989586621679980026"><span id="local-6989586621679980028"><span id="local-6989586621679980030"><span id="local-6989586621679980032"><span id="local-6989586621679980034"><span id="local-6989586621679980036"><span class="annot"><span class="annottext">Eq M2tsEsRateInPes
+Eq M2tsEsRateInPes
+-&gt; (M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Ordering)
+-&gt; (M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool)
+-&gt; (M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool)
+-&gt; (M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool)
+-&gt; (M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool)
+-&gt; (M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; M2tsEsRateInPes)
+-&gt; (M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; M2tsEsRateInPes)
+-&gt; Ord M2tsEsRateInPes
+M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool
+M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Ordering
+M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; M2tsEsRateInPes
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; M2tsEsRateInPes
+$cmin :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; M2tsEsRateInPes
+max :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; M2tsEsRateInPes
+$cmax :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; M2tsEsRateInPes
+&gt;= :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool
+$c&gt;= :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool
+&gt; :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool
+$c&gt; :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool
+&lt;= :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool
+$c&lt;= :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool
+&lt; :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool
+$c&lt; :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Bool
+compare :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Ordering
+$ccompare :: M2tsEsRateInPes -&gt; M2tsEsRateInPes -&gt; Ordering
+$cp1Ord :: Eq M2tsEsRateInPes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. M2tsEsRateInPes -&gt; Rep M2tsEsRateInPes x)
+-&gt; (forall x. Rep M2tsEsRateInPes x -&gt; M2tsEsRateInPes)
+-&gt; Generic M2tsEsRateInPes
+forall x. Rep M2tsEsRateInPes x -&gt; M2tsEsRateInPes
+forall x. M2tsEsRateInPes -&gt; Rep M2tsEsRateInPes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep M2tsEsRateInPes x -&gt; M2tsEsRateInPes
+$cfrom :: forall x. M2tsEsRateInPes -&gt; Rep M2tsEsRateInPes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679980016"><span id="local-6989586621679980018"><span class="annot"><span class="annottext">Int -&gt; M2tsEsRateInPes -&gt; Int
+M2tsEsRateInPes -&gt; Int
+(Int -&gt; M2tsEsRateInPes -&gt; Int)
+-&gt; (M2tsEsRateInPes -&gt; Int) -&gt; Hashable M2tsEsRateInPes
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: M2tsEsRateInPes -&gt; Int
+$chash :: M2tsEsRateInPes -&gt; Int
+hashWithSalt :: Int -&gt; M2tsEsRateInPes -&gt; Int
+$chashWithSalt :: Int -&gt; M2tsEsRateInPes -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679980013"><span class="annot"><span class="annottext">M2tsEsRateInPes -&gt; ()
+(M2tsEsRateInPes -&gt; ()) -&gt; NFData M2tsEsRateInPes
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: M2tsEsRateInPes -&gt; ()
+$crnf :: M2tsEsRateInPes -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679980010"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsEsRateInPes
+(Text -&gt; Either String M2tsEsRateInPes) -&gt; FromText M2tsEsRateInPes
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String M2tsEsRateInPes
+$cfromText :: Text -&gt; Either String M2tsEsRateInPes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679980007"><span class="annot"><span class="annottext">M2tsEsRateInPes -&gt; Text
+(M2tsEsRateInPes -&gt; Text) -&gt; ToText M2tsEsRateInPes
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: M2tsEsRateInPes -&gt; Text
+$ctoText :: M2tsEsRateInPes -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679980004"><span class="annot"><span class="annottext">M2tsEsRateInPes -&gt; ByteString
+(M2tsEsRateInPes -&gt; ByteString) -&gt; ToByteString M2tsEsRateInPes
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: M2tsEsRateInPes -&gt; ByteString
+$ctoBS :: M2tsEsRateInPes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679980001"><span class="annot"><span class="annottext">M2tsEsRateInPes -&gt; ByteStringBuilder
+(M2tsEsRateInPes -&gt; ByteStringBuilder) -&gt; ToLog M2tsEsRateInPes
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: M2tsEsRateInPes -&gt; ByteStringBuilder
+$cbuild :: M2tsEsRateInPes -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679979998"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsEsRateInPes -&gt; [Header]
+(HeaderName -&gt; M2tsEsRateInPes -&gt; [Header])
+-&gt; ToHeader M2tsEsRateInPes
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; M2tsEsRateInPes -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; M2tsEsRateInPes -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679979995"><span class="annot"><span class="annottext">M2tsEsRateInPes -&gt; QueryString
+(M2tsEsRateInPes -&gt; QueryString) -&gt; ToQuery M2tsEsRateInPes
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: M2tsEsRateInPes -&gt; QueryString
+$ctoQuery :: M2tsEsRateInPes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679979990"><span id="local-6989586621679979992"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsEsRateInPes]
+Value -&gt; Parser M2tsEsRateInPes
+(Value -&gt; Parser M2tsEsRateInPes)
+-&gt; (Value -&gt; Parser [M2tsEsRateInPes]) -&gt; FromJSON M2tsEsRateInPes
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [M2tsEsRateInPes]
+$cparseJSONList :: Value -&gt; Parser [M2tsEsRateInPes]
+parseJSON :: Value -&gt; Parser M2tsEsRateInPes
+$cparseJSON :: Value -&gt; Parser M2tsEsRateInPes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679979985"><span id="local-6989586621679979987"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsEsRateInPes]
+FromJSONKeyFunction M2tsEsRateInPes
+FromJSONKeyFunction M2tsEsRateInPes
+-&gt; FromJSONKeyFunction [M2tsEsRateInPes]
+-&gt; FromJSONKey M2tsEsRateInPes
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [M2tsEsRateInPes]
+$cfromJSONKeyList :: FromJSONKeyFunction [M2tsEsRateInPes]
+fromJSONKey :: FromJSONKeyFunction M2tsEsRateInPes
+$cfromJSONKey :: FromJSONKeyFunction M2tsEsRateInPes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679979976"><span id="local-6989586621679979978"><span id="local-6989586621679979980"><span id="local-6989586621679979982"><span class="annot"><span class="annottext">[M2tsEsRateInPes] -&gt; Encoding
+[M2tsEsRateInPes] -&gt; Value
+M2tsEsRateInPes -&gt; Encoding
+M2tsEsRateInPes -&gt; Value
+(M2tsEsRateInPes -&gt; Value)
+-&gt; (M2tsEsRateInPes -&gt; Encoding)
+-&gt; ([M2tsEsRateInPes] -&gt; Value)
+-&gt; ([M2tsEsRateInPes] -&gt; Encoding)
+-&gt; ToJSON M2tsEsRateInPes
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [M2tsEsRateInPes] -&gt; Encoding
+$ctoEncodingList :: [M2tsEsRateInPes] -&gt; Encoding
+toJSONList :: [M2tsEsRateInPes] -&gt; Value
+$ctoJSONList :: [M2tsEsRateInPes] -&gt; Value
+toEncoding :: M2tsEsRateInPes -&gt; Encoding
+$ctoEncoding :: M2tsEsRateInPes -&gt; Encoding
+toJSON :: M2tsEsRateInPes -&gt; Value
+$ctoJSON :: M2tsEsRateInPes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679979971"><span id="local-6989586621679979973"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsEsRateInPes]
+ToJSONKeyFunction M2tsEsRateInPes
+ToJSONKeyFunction M2tsEsRateInPes
+-&gt; ToJSONKeyFunction [M2tsEsRateInPes] -&gt; ToJSONKey M2tsEsRateInPes
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [M2tsEsRateInPes]
+$ctoJSONKeyList :: ToJSONKeyFunction [M2tsEsRateInPes]
+toJSONKey :: ToJSONKeyFunction M2tsEsRateInPes
+$ctoJSONKey :: ToJSONKeyFunction M2tsEsRateInPes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679979968"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsEsRateInPes
+([Node] -&gt; Either String M2tsEsRateInPes)
+-&gt; FromXML M2tsEsRateInPes
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String M2tsEsRateInPes
+$cparseXML :: [Node] -&gt; Either String M2tsEsRateInPes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679979965"><span class="annot"><span class="annottext">M2tsEsRateInPes -&gt; XML
+(M2tsEsRateInPes -&gt; XML) -&gt; ToXML M2tsEsRateInPes
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: M2tsEsRateInPes -&gt; XML
+$ctoXML :: M2tsEsRateInPes -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#M2tsEsRateInPes_EXCLUDE"><span class="hs-identifier hs-type">M2tsEsRateInPes_EXCLUDE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#M2tsEsRateInPes"><span class="hs-identifier hs-type">M2tsEsRateInPes</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bM2tsEsRateInPes_EXCLUDE"><span id="%24mM2tsEsRateInPes_EXCLUDE"><span id="M2tsEsRateInPes_EXCLUDE"><span class="annot"><span class="annottext">$bM2tsEsRateInPes_EXCLUDE :: M2tsEsRateInPes
+$mM2tsEsRateInPes_EXCLUDE :: forall r. M2tsEsRateInPes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#%24bM2tsEsRateInPes_EXCLUDE"><span class="hs-identifier hs-var hs-var hs-var">M2tsEsRateInPes_EXCLUDE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#M2tsEsRateInPes%27"><span class="hs-identifier hs-type">M2tsEsRateInPes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EXCLUDE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#M2tsEsRateInPes_INCLUDE"><span class="hs-identifier hs-type">M2tsEsRateInPes_INCLUDE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#M2tsEsRateInPes"><span class="hs-identifier hs-type">M2tsEsRateInPes</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bM2tsEsRateInPes_INCLUDE"><span id="%24mM2tsEsRateInPes_INCLUDE"><span id="M2tsEsRateInPes_INCLUDE"><span class="annot"><span class="annottext">$bM2tsEsRateInPes_INCLUDE :: M2tsEsRateInPes
+$mM2tsEsRateInPes_INCLUDE :: forall r. M2tsEsRateInPes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#%24bM2tsEsRateInPes_INCLUDE"><span class="hs-identifier hs-var hs-var hs-var">M2tsEsRateInPes_INCLUDE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#M2tsEsRateInPes%27"><span class="hs-identifier hs-type">M2tsEsRateInPes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INCLUDE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#M2tsEsRateInPes_EXCLUDE"><span class="hs-pragma hs-type">M2tsEsRateInPes_EXCLUDE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#M2tsEsRateInPes_INCLUDE"><span class="hs-pragma hs-type">M2tsEsRateInPes_INCLUDE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEsRateInPes.html#M2tsEsRateInPes%27"><span class="hs-pragma hs-type">M2tsEsRateInPes'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

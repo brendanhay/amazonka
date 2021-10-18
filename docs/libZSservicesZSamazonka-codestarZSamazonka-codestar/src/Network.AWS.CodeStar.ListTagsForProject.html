@@ -1,0 +1,593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeStar.ListTagsForProject</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the tags for a project.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeStar.ListTagsForProject</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier">ListTagsForProject</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#newListTagsForProject"><span class="hs-identifier">newListTagsForProject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProject_nextToken"><span class="hs-identifier">listTagsForProject_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProject_maxResults"><span class="hs-identifier">listTagsForProject_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProject_id"><span class="hs-identifier">listTagsForProject_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse"><span class="hs-identifier">ListTagsForProjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#newListTagsForProjectResponse"><span class="hs-identifier">newListTagsForProjectResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProjectResponse_nextToken"><span class="hs-identifier">listTagsForProjectResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProjectResponse_tags"><span class="hs-identifier">listTagsForProjectResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProjectResponse_httpStatus"><span class="hs-identifier">listTagsForProjectResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.html"><span class="hs-identifier">Network.AWS.CodeStar.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newListTagsForProject' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679175665"><span id="local-6989586621679175666"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForProject"><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier hs-var">ListTagsForProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForProject%27"><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject%27"><span class="hs-identifier hs-var">ListTagsForProject'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Reserved for future use.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AnextToken%3AListTagsForProject%27"><span class="annot"><span class="annottext">ListTagsForProject -&gt; Maybe Text
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3AnextToken%3AListTagsForProject%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Reserved for future use.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AmaxResults%3AListTagsForProject%27"><span class="annot"><span class="annottext">ListTagsForProject -&gt; Maybe Natural
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3AmaxResults%3AListTagsForProject%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ID of the project to get tags for.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aid%3AListTagsForProject%27"><span class="annot"><span class="annottext">ListTagsForProject -&gt; Text
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3Aid%3AListTagsForProject%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175657"><span id="local-6989586621679175659"><span class="annot"><span class="annottext">ListTagsForProject -&gt; ListTagsForProject -&gt; Bool
+(ListTagsForProject -&gt; ListTagsForProject -&gt; Bool)
+-&gt; (ListTagsForProject -&gt; ListTagsForProject -&gt; Bool)
+-&gt; Eq ListTagsForProject
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListTagsForProject -&gt; ListTagsForProject -&gt; Bool
+$c/= :: ListTagsForProject -&gt; ListTagsForProject -&gt; Bool
+== :: ListTagsForProject -&gt; ListTagsForProject -&gt; Bool
+$c== :: ListTagsForProject -&gt; ListTagsForProject -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175648"><span id="local-6989586621679175650"><span id="local-6989586621679175652"><span id="local-6989586621679175654"><span class="annot"><span class="annottext">ReadPrec [ListTagsForProject]
+ReadPrec ListTagsForProject
+Int -&gt; ReadS ListTagsForProject
+ReadS [ListTagsForProject]
+(Int -&gt; ReadS ListTagsForProject)
+-&gt; ReadS [ListTagsForProject]
+-&gt; ReadPrec ListTagsForProject
+-&gt; ReadPrec [ListTagsForProject]
+-&gt; Read ListTagsForProject
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListTagsForProject]
+$creadListPrec :: ReadPrec [ListTagsForProject]
+readPrec :: ReadPrec ListTagsForProject
+$creadPrec :: ReadPrec ListTagsForProject
+readList :: ReadS [ListTagsForProject]
+$creadList :: ReadS [ListTagsForProject]
+readsPrec :: Int -&gt; ReadS ListTagsForProject
+$creadsPrec :: Int -&gt; ReadS ListTagsForProject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175641"><span id="local-6989586621679175643"><span id="local-6989586621679175645"><span class="annot"><span class="annottext">Int -&gt; ListTagsForProject -&gt; ShowS
+[ListTagsForProject] -&gt; ShowS
+ListTagsForProject -&gt; String
+(Int -&gt; ListTagsForProject -&gt; ShowS)
+-&gt; (ListTagsForProject -&gt; String)
+-&gt; ([ListTagsForProject] -&gt; ShowS)
+-&gt; Show ListTagsForProject
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListTagsForProject] -&gt; ShowS
+$cshowList :: [ListTagsForProject] -&gt; ShowS
+show :: ListTagsForProject -&gt; String
+$cshow :: ListTagsForProject -&gt; String
+showsPrec :: Int -&gt; ListTagsForProject -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListTagsForProject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListTagsForProject -&gt; Rep ListTagsForProject x)
+-&gt; (forall x. Rep ListTagsForProject x -&gt; ListTagsForProject)
+-&gt; Generic ListTagsForProject
+forall x. Rep ListTagsForProject x -&gt; ListTagsForProject
+forall x. ListTagsForProject -&gt; Rep ListTagsForProject x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListTagsForProject x -&gt; ListTagsForProject
+$cfrom :: forall x. ListTagsForProject -&gt; Rep ListTagsForProject x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'ListTagsForProject' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'nextToken', 'listTagsForProject_nextToken' - Reserved for future use.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'maxResults', 'listTagsForProject_maxResults' - Reserved for future use.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'id', 'listTagsForProject_id' - The ID of the project to get tags for.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#newListTagsForProject"><span class="hs-identifier hs-type">newListTagsForProject</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier hs-type">ListTagsForProject</span></a></span><span>
+</span><span id="line-80"></span><span id="newListTagsForProject"><span class="annot"><span class="annottext">newListTagsForProject :: Text -&gt; ListTagsForProject
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#newListTagsForProject"><span class="hs-identifier hs-var hs-var">newListTagsForProject</span></a></span></span><span> </span><span id="local-6989586621679175636"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175636"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">ListTagsForProject' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListTagsForProject
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject%27"><span class="hs-identifier hs-type">ListTagsForProject'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTagsForProject' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3AnextToken%3AListTagsForProject%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListTagsForProject' :: Maybe Natural
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3AmaxResults%3AListTagsForProject%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ListTagsForProject' :: Text
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3Aid%3AListTagsForProject%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175636"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Reserved for future use.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProject_nextToken"><span class="hs-identifier hs-type">listTagsForProject_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier hs-type">ListTagsForProject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="listTagsForProject_nextToken"><span class="annot"><span class="annottext">listTagsForProject_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTagsForProject -&gt; f ListTagsForProject
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProject_nextToken"><span class="hs-identifier hs-var hs-var">listTagsForProject_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTagsForProject -&gt; Maybe Text)
+-&gt; (ListTagsForProject -&gt; Maybe Text -&gt; ListTagsForProject)
+-&gt; Lens
+     ListTagsForProject ListTagsForProject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject%27"><span class="hs-identifier hs-type">ListTagsForProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175633"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListTagsForProject' :: ListTagsForProject -&gt; Maybe Text
+</span><a href="#local-6989586621679175633"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175633"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175632"><span class="annot"><span class="annottext">s :: ListTagsForProject
+</span><a href="#local-6989586621679175632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject%27"><span class="hs-identifier hs-type">ListTagsForProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175631"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForProject
+</span><a href="#local-6989586621679175632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTagsForProject' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3AnextToken%3AListTagsForProject%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier hs-type">ListTagsForProject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Reserved for future use.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProject_maxResults"><span class="hs-identifier hs-type">listTagsForProject_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier hs-type">ListTagsForProject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="listTagsForProject_maxResults"><span class="annot"><span class="annottext">listTagsForProject_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListTagsForProject -&gt; f ListTagsForProject
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProject_maxResults"><span class="hs-identifier hs-var hs-var">listTagsForProject_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTagsForProject -&gt; Maybe Natural)
+-&gt; (ListTagsForProject -&gt; Maybe Natural -&gt; ListTagsForProject)
+-&gt; Lens
+     ListTagsForProject
+     ListTagsForProject
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject%27"><span class="hs-identifier hs-type">ListTagsForProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175630"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListTagsForProject' :: ListTagsForProject -&gt; Maybe Natural
+</span><a href="#local-6989586621679175630"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679175630"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175629"><span class="annot"><span class="annottext">s :: ListTagsForProject
+</span><a href="#local-6989586621679175629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject%27"><span class="hs-identifier hs-type">ListTagsForProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175628"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679175628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForProject
+</span><a href="#local-6989586621679175629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTagsForProject' :: Maybe Natural
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3AmaxResults%3AListTagsForProject%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679175628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier hs-type">ListTagsForProject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The ID of the project to get tags for.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProject_id"><span class="hs-identifier hs-type">listTagsForProject_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier hs-type">ListTagsForProject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span id="listTagsForProject_id"><span class="annot"><span class="annottext">listTagsForProject_id :: (Text -&gt; f Text) -&gt; ListTagsForProject -&gt; f ListTagsForProject
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProject_id"><span class="hs-identifier hs-var hs-var">listTagsForProject_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTagsForProject -&gt; Text)
+-&gt; (ListTagsForProject -&gt; Text -&gt; ListTagsForProject)
+-&gt; Lens ListTagsForProject ListTagsForProject Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject%27"><span class="hs-identifier hs-type">ListTagsForProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175627"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:ListTagsForProject' :: ListTagsForProject -&gt; Text
+</span><a href="#local-6989586621679175627"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175627"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175626"><span class="annot"><span class="annottext">s :: ListTagsForProject
+</span><a href="#local-6989586621679175626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject%27"><span class="hs-identifier hs-type">ListTagsForProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175625"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForProject
+</span><a href="#local-6989586621679175626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ListTagsForProject' :: Text
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3Aid%3AListTagsForProject%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier hs-type">ListTagsForProject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier hs-type">ListTagsForProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier hs-type">ListTagsForProject</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse"><span class="hs-identifier hs-type">ListTagsForProjectResponse</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679175621"><span class="annot"><span class="annottext">request :: ListTagsForProject -&gt; Request ListTagsForProject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTagsForProject -&gt; Request ListTagsForProject
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeStar.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679175617"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListTagsForProject
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListTagsForProject)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListTagsForProject))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListTagsForProject
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListTagsForProject)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175614"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175614"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175613"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679175613"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175612"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175612"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsForProjectResponse
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse%27"><span class="hs-identifier hs-var">ListTagsForProjectResponse'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsForProjectResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsForProjectResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsForProjectResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; ListTagsForProjectResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListTagsForProjectResponse)
+-&gt; Either String Int -&gt; Either String ListTagsForProjectResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175614"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175603"><span id="local-6989586621679175605"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier hs-type">ListTagsForProject</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175600"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier hs-type">ListTagsForProject</span></a></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier hs-type">ListTagsForProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679175596"><span class="annot"><span class="annottext">toHeaders :: ListTagsForProject -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTagsForProject -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeStar_20170419.ListTagsForProject&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175586"><span id="local-6989586621679175588"><span id="local-6989586621679175590"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier hs-type">ListTagsForProject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679175584"><span class="annot"><span class="annottext">toJSON :: ListTagsForProject -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject%27"><span class="hs-identifier hs-type">ListTagsForProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175580"><span id="local-6989586621679175581"><span id="local-6989586621679175582"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+id :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:id:ListTagsForProject' :: ListTagsForProject -&gt; Text
+$sel:maxResults:ListTagsForProject' :: ListTagsForProject -&gt; Maybe Natural
+$sel:nextToken:ListTagsForProject' :: ListTagsForProject -&gt; Maybe Text
+</span><a href="#local-6989586621679175580"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175582"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679175581"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175580"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier hs-type">ListTagsForProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679175574"><span class="annot"><span class="annottext">toPath :: ListTagsForProject -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListTagsForProject -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProject"><span class="hs-identifier hs-type">ListTagsForProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679175570"><span class="annot"><span class="annottext">toQuery :: ListTagsForProject -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTagsForProject -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newListTagsForProjectResponse' smart constructor.</span><span>
+</span><span id="line-149"></span><span id="local-6989586621679175567"><span id="local-6989586621679175568"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForProjectResponse"><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse"><span class="hs-identifier hs-var">ListTagsForProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForProjectResponse%27"><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse%27"><span class="hs-identifier hs-var">ListTagsForProjectResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Reserved for future use.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AnextToken%3AListTagsForProjectResponse%27"><span class="annot"><span class="annottext">ListTagsForProjectResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3AnextToken%3AListTagsForProjectResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The tags for the project.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3Atags%3AListTagsForProjectResponse%27"><span class="annot"><span class="annottext">ListTagsForProjectResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3Atags%3AListTagsForProjectResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTagsForProjectResponse%27"><span class="annot"><span class="annottext">ListTagsForProjectResponse -&gt; Int
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3AhttpStatus%3AListTagsForProjectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175560"><span id="local-6989586621679175562"><span class="annot"><span class="annottext">ListTagsForProjectResponse -&gt; ListTagsForProjectResponse -&gt; Bool
+(ListTagsForProjectResponse -&gt; ListTagsForProjectResponse -&gt; Bool)
+-&gt; (ListTagsForProjectResponse
+    -&gt; ListTagsForProjectResponse -&gt; Bool)
+-&gt; Eq ListTagsForProjectResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListTagsForProjectResponse -&gt; ListTagsForProjectResponse -&gt; Bool
+$c/= :: ListTagsForProjectResponse -&gt; ListTagsForProjectResponse -&gt; Bool
+== :: ListTagsForProjectResponse -&gt; ListTagsForProjectResponse -&gt; Bool
+$c== :: ListTagsForProjectResponse -&gt; ListTagsForProjectResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175552"><span id="local-6989586621679175554"><span id="local-6989586621679175556"><span id="local-6989586621679175558"><span class="annot"><span class="annottext">ReadPrec [ListTagsForProjectResponse]
+ReadPrec ListTagsForProjectResponse
+Int -&gt; ReadS ListTagsForProjectResponse
+ReadS [ListTagsForProjectResponse]
+(Int -&gt; ReadS ListTagsForProjectResponse)
+-&gt; ReadS [ListTagsForProjectResponse]
+-&gt; ReadPrec ListTagsForProjectResponse
+-&gt; ReadPrec [ListTagsForProjectResponse]
+-&gt; Read ListTagsForProjectResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListTagsForProjectResponse]
+$creadListPrec :: ReadPrec [ListTagsForProjectResponse]
+readPrec :: ReadPrec ListTagsForProjectResponse
+$creadPrec :: ReadPrec ListTagsForProjectResponse
+readList :: ReadS [ListTagsForProjectResponse]
+$creadList :: ReadS [ListTagsForProjectResponse]
+readsPrec :: Int -&gt; ReadS ListTagsForProjectResponse
+$creadsPrec :: Int -&gt; ReadS ListTagsForProjectResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175546"><span id="local-6989586621679175548"><span id="local-6989586621679175550"><span class="annot"><span class="annottext">Int -&gt; ListTagsForProjectResponse -&gt; ShowS
+[ListTagsForProjectResponse] -&gt; ShowS
+ListTagsForProjectResponse -&gt; String
+(Int -&gt; ListTagsForProjectResponse -&gt; ShowS)
+-&gt; (ListTagsForProjectResponse -&gt; String)
+-&gt; ([ListTagsForProjectResponse] -&gt; ShowS)
+-&gt; Show ListTagsForProjectResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListTagsForProjectResponse] -&gt; ShowS
+$cshowList :: [ListTagsForProjectResponse] -&gt; ShowS
+show :: ListTagsForProjectResponse -&gt; String
+$cshow :: ListTagsForProjectResponse -&gt; String
+showsPrec :: Int -&gt; ListTagsForProjectResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListTagsForProjectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListTagsForProjectResponse -&gt; Rep ListTagsForProjectResponse x)
+-&gt; (forall x.
+    Rep ListTagsForProjectResponse x -&gt; ListTagsForProjectResponse)
+-&gt; Generic ListTagsForProjectResponse
+forall x.
+Rep ListTagsForProjectResponse x -&gt; ListTagsForProjectResponse
+forall x.
+ListTagsForProjectResponse -&gt; Rep ListTagsForProjectResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListTagsForProjectResponse x -&gt; ListTagsForProjectResponse
+$cfrom :: forall x.
+ListTagsForProjectResponse -&gt; Rep ListTagsForProjectResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Create a value of 'ListTagsForProjectResponse' with all optional fields omitted.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'nextToken', 'listTagsForProjectResponse_nextToken' - Reserved for future use.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'tags', 'listTagsForProjectResponse_tags' - The tags for the project.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'listTagsForProjectResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#newListTagsForProjectResponse"><span class="hs-identifier hs-type">newListTagsForProjectResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse"><span class="hs-identifier hs-type">ListTagsForProjectResponse</span></a></span><span>
+</span><span id="line-176"></span><span id="newListTagsForProjectResponse"><span class="annot"><span class="annottext">newListTagsForProjectResponse :: Int -&gt; ListTagsForProjectResponse
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#newListTagsForProjectResponse"><span class="hs-identifier hs-var hs-var">newListTagsForProjectResponse</span></a></span></span><span> </span><span id="local-6989586621679175543"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175543"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">ListTagsForProjectResponse' :: Maybe Text
+-&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsForProjectResponse
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse%27"><span class="hs-identifier hs-type">ListTagsForProjectResponse'</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTagsForProjectResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3AnextToken%3AListTagsForProjectResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ListTagsForProjectResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3Atags%3AListTagsForProjectResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForProjectResponse' :: Int
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3AhttpStatus%3AListTagsForProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175543"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | Reserved for future use.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProjectResponse_nextToken"><span class="hs-identifier hs-type">listTagsForProjectResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse"><span class="hs-identifier hs-type">ListTagsForProjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="listTagsForProjectResponse_nextToken"><span class="annot"><span class="annottext">listTagsForProjectResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTagsForProjectResponse -&gt; f ListTagsForProjectResponse
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProjectResponse_nextToken"><span class="hs-identifier hs-var hs-var">listTagsForProjectResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTagsForProjectResponse -&gt; Maybe Text)
+-&gt; (ListTagsForProjectResponse
+    -&gt; Maybe Text -&gt; ListTagsForProjectResponse)
+-&gt; Lens
+     ListTagsForProjectResponse
+     ListTagsForProjectResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse%27"><span class="hs-identifier hs-type">ListTagsForProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175542"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListTagsForProjectResponse' :: ListTagsForProjectResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679175542"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175542"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175541"><span class="annot"><span class="annottext">s :: ListTagsForProjectResponse
+</span><a href="#local-6989586621679175541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse%27"><span class="hs-identifier hs-type">ListTagsForProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175540"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForProjectResponse
+</span><a href="#local-6989586621679175541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTagsForProjectResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3AnextToken%3AListTagsForProjectResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse"><span class="hs-identifier hs-type">ListTagsForProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The tags for the project.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProjectResponse_tags"><span class="hs-identifier hs-type">listTagsForProjectResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse"><span class="hs-identifier hs-type">ListTagsForProjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="listTagsForProjectResponse_tags"><span class="annot"><span class="annottext">listTagsForProjectResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ListTagsForProjectResponse -&gt; f ListTagsForProjectResponse
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProjectResponse_tags"><span class="hs-identifier hs-var hs-var">listTagsForProjectResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTagsForProjectResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (ListTagsForProjectResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; ListTagsForProjectResponse)
+-&gt; Lens
+     ListTagsForProjectResponse
+     ListTagsForProjectResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse%27"><span class="hs-identifier hs-type">ListTagsForProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175539"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:ListTagsForProjectResponse' :: ListTagsForProjectResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679175539"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679175539"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175538"><span class="annot"><span class="annottext">s :: ListTagsForProjectResponse
+</span><a href="#local-6989586621679175538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse%27"><span class="hs-identifier hs-type">ListTagsForProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175537"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679175537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForProjectResponse
+</span><a href="#local-6989586621679175538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListTagsForProjectResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3Atags%3AListTagsForProjectResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679175537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse"><span class="hs-identifier hs-type">ListTagsForProjectResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; ListTagsForProjectResponse -&gt; f ListTagsForProjectResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ListTagsForProjectResponse
+-&gt; f ListTagsForProjectResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProjectResponse_httpStatus"><span class="hs-identifier hs-type">listTagsForProjectResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse"><span class="hs-identifier hs-type">ListTagsForProjectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span id="listTagsForProjectResponse_httpStatus"><span class="annot"><span class="annottext">listTagsForProjectResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListTagsForProjectResponse -&gt; f ListTagsForProjectResponse
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#listTagsForProjectResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listTagsForProjectResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTagsForProjectResponse -&gt; Int)
+-&gt; (ListTagsForProjectResponse
+    -&gt; Int -&gt; ListTagsForProjectResponse)
+-&gt; Lens
+     ListTagsForProjectResponse ListTagsForProjectResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse%27"><span class="hs-identifier hs-type">ListTagsForProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175533"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListTagsForProjectResponse' :: ListTagsForProjectResponse -&gt; Int
+</span><a href="#local-6989586621679175533"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175533"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175532"><span class="annot"><span class="annottext">s :: ListTagsForProjectResponse
+</span><a href="#local-6989586621679175532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse%27"><span class="hs-identifier hs-type">ListTagsForProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175531"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForProjectResponse
+</span><a href="#local-6989586621679175532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForProjectResponse' :: Int
+</span><a href="Network.AWS.CodeStar.ListTagsForProject.html#%24sel%3AhttpStatus%3AListTagsForProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse"><span class="hs-identifier hs-type">ListTagsForProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175529"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTagsForProject.html#ListTagsForProjectResponse"><span class="hs-identifier hs-type">ListTagsForProjectResponse</span></a></span></span><span>
+</span><span id="line-197"></span></pre></body></html>

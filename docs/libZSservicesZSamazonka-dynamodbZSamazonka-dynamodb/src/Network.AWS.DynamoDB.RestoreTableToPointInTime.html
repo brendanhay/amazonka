@@ -1,0 +1,1008 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DynamoDB.RestoreTableToPointInTime</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Restores the specified table to the specified point in time within</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- @EarliestRestorableDateTime@ and @LatestRestorableDateTime@. You can</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- restore your table to any point in time during the last 35 days. Any</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- number of users can execute up to 4 concurrent restores (any type of</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- restore) in a given account.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- When you restore using point in time recovery, DynamoDB restores your</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- table data to the state based on the selected date and time</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- (day:hour:minute:second) to a new table.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Along with data, the following are also included on the new restored</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- table using point in time recovery:</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   Global secondary indexes (GSIs)</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   Local secondary indexes (LSIs)</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- -   Provisioned read and write capacity</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- -   Encryption settings</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--     All these settings come from the current settings of the source</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--     table at the time of restore.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- You must manually set up the following on the restored table:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- -   Auto scaling policies</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- -   IAM policies</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- -   Amazon CloudWatch metrics and alarms</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- -   Tags</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- -   Stream settings</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- -   Time to Live (TTL) settings</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- -   Point in time recovery settings</span><span>
+</span><span id="line-62"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DynamoDB.RestoreTableToPointInTime</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier">RestoreTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#newRestoreTableToPointInTime"><span class="hs-identifier">newRestoreTableToPointInTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_sourceTableName"><span class="hs-identifier">restoreTableToPointInTime_sourceTableName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_restoreDateTime"><span class="hs-identifier">restoreTableToPointInTime_restoreDateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_provisionedThroughputOverride"><span class="hs-identifier">restoreTableToPointInTime_provisionedThroughputOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_globalSecondaryIndexOverride"><span class="hs-identifier">restoreTableToPointInTime_globalSecondaryIndexOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_billingModeOverride"><span class="hs-identifier">restoreTableToPointInTime_billingModeOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_sSESpecificationOverride"><span class="hs-identifier">restoreTableToPointInTime_sSESpecificationOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_sourceTableArn"><span class="hs-identifier">restoreTableToPointInTime_sourceTableArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_localSecondaryIndexOverride"><span class="hs-identifier">restoreTableToPointInTime_localSecondaryIndexOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_useLatestRestorableTime"><span class="hs-identifier">restoreTableToPointInTime_useLatestRestorableTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_targetTableName"><span class="hs-identifier">restoreTableToPointInTime_targetTableName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTimeResponse"><span class="hs-identifier">RestoreTableToPointInTimeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#newRestoreTableToPointInTimeResponse"><span class="hs-identifier">newRestoreTableToPointInTimeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTimeResponse_tableDescription"><span class="hs-identifier">restoreTableToPointInTimeResponse_tableDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTimeResponse_httpStatus"><span class="hs-identifier">restoreTableToPointInTimeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.html"><span class="hs-identifier">Network.AWS.DynamoDB.Types</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | /See:/ 'newRestoreTableToPointInTime' smart constructor.</span><span>
+</span><span id="line-97"></span><span id="local-6989586621679386426"><span id="local-6989586621679386427"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreTableToPointInTime"><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-var">RestoreTableToPointInTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreTableToPointInTime%27"><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-var">RestoreTableToPointInTime'</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the source table that is being restored.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AsourceTableName%3ARestoreTableToPointInTime%27"><span class="annot"><span class="annottext">RestoreTableToPointInTime -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AsourceTableName%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">sourceTableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | Time in the past to restore the table to.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3ArestoreDateTime%3ARestoreTableToPointInTime%27"><span class="annot"><span class="annottext">RestoreTableToPointInTime -&gt; Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3ArestoreDateTime%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">restoreDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | Provisioned throughput settings for the restored table.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AprovisionedThroughputOverride%3ARestoreTableToPointInTime%27"><span class="annot"><span class="annottext">RestoreTableToPointInTime -&gt; Maybe ProvisionedThroughput
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AprovisionedThroughputOverride%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">provisionedThroughputOverride</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughput.html#ProvisionedThroughput"><span class="hs-identifier hs-type">ProvisionedThroughput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | List of global secondary indexes for the restored table. The indexes</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- provided should match existing secondary indexes. You can choose to</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- exclude some or all of the indexes at the time of restore.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AglobalSecondaryIndexOverride%3ARestoreTableToPointInTime%27"><span class="annot"><span class="annottext">RestoreTableToPointInTime -&gt; Maybe [GlobalSecondaryIndex]
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AglobalSecondaryIndexOverride%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">globalSecondaryIndexOverride</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | The billing mode of the restored table.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AbillingModeOverride%3ARestoreTableToPointInTime%27"><span class="annot"><span class="annottext">RestoreTableToPointInTime -&gt; Maybe BillingMode
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AbillingModeOverride%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">billingModeOverride</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingMode.html#BillingMode"><span class="hs-identifier hs-type">BillingMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The new server-side encryption settings for the restored table.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AsSESpecificationOverride%3ARestoreTableToPointInTime%27"><span class="annot"><span class="annottext">RestoreTableToPointInTime -&gt; Maybe SSESpecification
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AsSESpecificationOverride%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">sSESpecificationOverride</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSESpecification.html#SSESpecification"><span class="hs-identifier hs-type">SSESpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The DynamoDB table that will be restored. This value is an Amazon</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- Resource Name (ARN).</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AsourceTableArn%3ARestoreTableToPointInTime%27"><span class="annot"><span class="annottext">RestoreTableToPointInTime -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AsourceTableArn%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">sourceTableArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | List of local secondary indexes for the restored table. The indexes</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- provided should match existing secondary indexes. You can choose to</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- exclude some or all of the indexes at the time of restore.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3AlocalSecondaryIndexOverride%3ARestoreTableToPointInTime%27"><span class="annot"><span class="annottext">RestoreTableToPointInTime -&gt; Maybe [LocalSecondaryIndex]
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AlocalSecondaryIndexOverride%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">localSecondaryIndexOverride</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-type">LocalSecondaryIndex</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | Restore the table to the latest possible time.</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- @LatestRestorableDateTime@ is typically 5 minutes before the current</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AuseLatestRestorableTime%3ARestoreTableToPointInTime%27"><span class="annot"><span class="annottext">RestoreTableToPointInTime -&gt; Maybe Bool
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AuseLatestRestorableTime%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">useLatestRestorableTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | The name of the new table to which it must be restored to.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AtargetTableName%3ARestoreTableToPointInTime%27"><span class="annot"><span class="annottext">RestoreTableToPointInTime -&gt; Text
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AtargetTableName%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">targetTableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386411"><span id="local-6989586621679386413"><span class="annot"><span class="annottext">RestoreTableToPointInTime -&gt; RestoreTableToPointInTime -&gt; Bool
+(RestoreTableToPointInTime -&gt; RestoreTableToPointInTime -&gt; Bool)
+-&gt; (RestoreTableToPointInTime -&gt; RestoreTableToPointInTime -&gt; Bool)
+-&gt; Eq RestoreTableToPointInTime
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RestoreTableToPointInTime -&gt; RestoreTableToPointInTime -&gt; Bool
+$c/= :: RestoreTableToPointInTime -&gt; RestoreTableToPointInTime -&gt; Bool
+== :: RestoreTableToPointInTime -&gt; RestoreTableToPointInTime -&gt; Bool
+$c== :: RestoreTableToPointInTime -&gt; RestoreTableToPointInTime -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386402"><span id="local-6989586621679386404"><span id="local-6989586621679386406"><span id="local-6989586621679386408"><span class="annot"><span class="annottext">ReadPrec [RestoreTableToPointInTime]
+ReadPrec RestoreTableToPointInTime
+Int -&gt; ReadS RestoreTableToPointInTime
+ReadS [RestoreTableToPointInTime]
+(Int -&gt; ReadS RestoreTableToPointInTime)
+-&gt; ReadS [RestoreTableToPointInTime]
+-&gt; ReadPrec RestoreTableToPointInTime
+-&gt; ReadPrec [RestoreTableToPointInTime]
+-&gt; Read RestoreTableToPointInTime
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RestoreTableToPointInTime]
+$creadListPrec :: ReadPrec [RestoreTableToPointInTime]
+readPrec :: ReadPrec RestoreTableToPointInTime
+$creadPrec :: ReadPrec RestoreTableToPointInTime
+readList :: ReadS [RestoreTableToPointInTime]
+$creadList :: ReadS [RestoreTableToPointInTime]
+readsPrec :: Int -&gt; ReadS RestoreTableToPointInTime
+$creadsPrec :: Int -&gt; ReadS RestoreTableToPointInTime
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386395"><span id="local-6989586621679386397"><span id="local-6989586621679386399"><span class="annot"><span class="annottext">Int -&gt; RestoreTableToPointInTime -&gt; ShowS
+[RestoreTableToPointInTime] -&gt; ShowS
+RestoreTableToPointInTime -&gt; String
+(Int -&gt; RestoreTableToPointInTime -&gt; ShowS)
+-&gt; (RestoreTableToPointInTime -&gt; String)
+-&gt; ([RestoreTableToPointInTime] -&gt; ShowS)
+-&gt; Show RestoreTableToPointInTime
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RestoreTableToPointInTime] -&gt; ShowS
+$cshowList :: [RestoreTableToPointInTime] -&gt; ShowS
+show :: RestoreTableToPointInTime -&gt; String
+$cshow :: RestoreTableToPointInTime -&gt; String
+showsPrec :: Int -&gt; RestoreTableToPointInTime -&gt; ShowS
+$cshowsPrec :: Int -&gt; RestoreTableToPointInTime -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RestoreTableToPointInTime -&gt; Rep RestoreTableToPointInTime x)
+-&gt; (forall x.
+    Rep RestoreTableToPointInTime x -&gt; RestoreTableToPointInTime)
+-&gt; Generic RestoreTableToPointInTime
+forall x.
+Rep RestoreTableToPointInTime x -&gt; RestoreTableToPointInTime
+forall x.
+RestoreTableToPointInTime -&gt; Rep RestoreTableToPointInTime x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RestoreTableToPointInTime x -&gt; RestoreTableToPointInTime
+$cfrom :: forall x.
+RestoreTableToPointInTime -&gt; Rep RestoreTableToPointInTime x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Create a value of 'RestoreTableToPointInTime' with all optional fields omitted.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'sourceTableName', 'restoreTableToPointInTime_sourceTableName' - Name of the source table that is being restored.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'restoreDateTime', 'restoreTableToPointInTime_restoreDateTime' - Time in the past to restore the table to.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'provisionedThroughputOverride', 'restoreTableToPointInTime_provisionedThroughputOverride' - Provisioned throughput settings for the restored table.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'globalSecondaryIndexOverride', 'restoreTableToPointInTime_globalSecondaryIndexOverride' - List of global secondary indexes for the restored table. The indexes</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- provided should match existing secondary indexes. You can choose to</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- exclude some or all of the indexes at the time of restore.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'billingModeOverride', 'restoreTableToPointInTime_billingModeOverride' - The billing mode of the restored table.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'sSESpecificationOverride', 'restoreTableToPointInTime_sSESpecificationOverride' - The new server-side encryption settings for the restored table.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'sourceTableArn', 'restoreTableToPointInTime_sourceTableArn' - The DynamoDB table that will be restored. This value is an Amazon</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Resource Name (ARN).</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'localSecondaryIndexOverride', 'restoreTableToPointInTime_localSecondaryIndexOverride' - List of local secondary indexes for the restored table. The indexes</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- provided should match existing secondary indexes. You can choose to</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- exclude some or all of the indexes at the time of restore.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'useLatestRestorableTime', 'restoreTableToPointInTime_useLatestRestorableTime' - Restore the table to the latest possible time.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- @LatestRestorableDateTime@ is typically 5 minutes before the current</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'targetTableName', 'restoreTableToPointInTime_targetTableName' - The name of the new table to which it must be restored to.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#newRestoreTableToPointInTime"><span class="hs-identifier hs-type">newRestoreTableToPointInTime</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-comment">-- | 'targetTableName'</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span>
+</span><span id="line-166"></span><span id="newRestoreTableToPointInTime"><span class="annot"><span class="annottext">newRestoreTableToPointInTime :: Text -&gt; RestoreTableToPointInTime
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#newRestoreTableToPointInTime"><span class="hs-identifier hs-var hs-var">newRestoreTableToPointInTime</span></a></span></span><span> </span><span id="local-6989586621679386390"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386390"><span class="hs-identifier hs-var">pTargetTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">RestoreTableToPointInTime' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe ProvisionedThroughput
+-&gt; Maybe [GlobalSecondaryIndex]
+-&gt; Maybe BillingMode
+-&gt; Maybe SSESpecification
+-&gt; Maybe Text
+-&gt; Maybe [LocalSecondaryIndex]
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; RestoreTableToPointInTime
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceTableName:RestoreTableToPointInTime' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AsourceTableName%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">sourceTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:restoreDateTime:RestoreTableToPointInTime' :: Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3ArestoreDateTime%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">restoreDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionedThroughputOverride:RestoreTableToPointInTime' :: Maybe ProvisionedThroughput
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AprovisionedThroughputOverride%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalSecondaryIndexOverride:RestoreTableToPointInTime' :: Maybe [GlobalSecondaryIndex]
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AglobalSecondaryIndexOverride%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">globalSecondaryIndexOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GlobalSecondaryIndex]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:billingModeOverride:RestoreTableToPointInTime' :: Maybe BillingMode
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AbillingModeOverride%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">billingModeOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BillingMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:sSESpecificationOverride:RestoreTableToPointInTime' :: Maybe SSESpecification
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AsSESpecificationOverride%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">sSESpecificationOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSESpecification
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceTableArn:RestoreTableToPointInTime' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AsourceTableArn%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">sourceTableArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:localSecondaryIndexOverride:RestoreTableToPointInTime' :: Maybe [LocalSecondaryIndex]
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AlocalSecondaryIndexOverride%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">localSecondaryIndexOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LocalSecondaryIndex]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:useLatestRestorableTime:RestoreTableToPointInTime' :: Maybe Bool
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AuseLatestRestorableTime%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">useLatestRestorableTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetTableName:RestoreTableToPointInTime' :: Text
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AtargetTableName%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">targetTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386390"><span class="hs-identifier hs-var">pTargetTableName_</span></a></span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | Name of the source table that is being restored.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_sourceTableName"><span class="hs-identifier hs-type">restoreTableToPointInTime_sourceTableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="restoreTableToPointInTime_sourceTableName"><span class="annot"><span class="annottext">restoreTableToPointInTime_sourceTableName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RestoreTableToPointInTime -&gt; f RestoreTableToPointInTime
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_sourceTableName"><span class="hs-identifier hs-var hs-var">restoreTableToPointInTime_sourceTableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableToPointInTime -&gt; Maybe Text)
+-&gt; (RestoreTableToPointInTime
+    -&gt; Maybe Text -&gt; RestoreTableToPointInTime)
+-&gt; Lens
+     RestoreTableToPointInTime
+     RestoreTableToPointInTime
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386387"><span class="annot"><span class="annottext">Maybe Text
+sourceTableName :: Maybe Text
+$sel:sourceTableName:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe Text
+</span><a href="#local-6989586621679386387"><span class="hs-identifier hs-var hs-var">sourceTableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386387"><span class="hs-identifier hs-var">sourceTableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386386"><span class="annot"><span class="annottext">s :: RestoreTableToPointInTime
+</span><a href="#local-6989586621679386386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386385"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableToPointInTime
+</span><a href="#local-6989586621679386386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceTableName:RestoreTableToPointInTime' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AsourceTableName%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">sourceTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | Time in the past to restore the table to.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_restoreDateTime"><span class="hs-identifier hs-type">restoreTableToPointInTime_restoreDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="restoreTableToPointInTime_restoreDateTime"><span class="annot"><span class="annottext">restoreTableToPointInTime_restoreDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RestoreTableToPointInTime -&gt; f RestoreTableToPointInTime
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_restoreDateTime"><span class="hs-identifier hs-var hs-var">restoreTableToPointInTime_restoreDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableToPointInTime -&gt; Maybe POSIX)
+-&gt; (RestoreTableToPointInTime
+    -&gt; Maybe POSIX -&gt; RestoreTableToPointInTime)
+-&gt; Lens
+     RestoreTableToPointInTime
+     RestoreTableToPointInTime
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386384"><span class="annot"><span class="annottext">Maybe POSIX
+restoreDateTime :: Maybe POSIX
+$sel:restoreDateTime:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe POSIX
+</span><a href="#local-6989586621679386384"><span class="hs-identifier hs-var hs-var">restoreDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679386384"><span class="hs-identifier hs-var">restoreDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386383"><span class="annot"><span class="annottext">s :: RestoreTableToPointInTime
+</span><a href="#local-6989586621679386383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386382"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679386382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableToPointInTime
+</span><a href="#local-6989586621679386383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restoreDateTime:RestoreTableToPointInTime' :: Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3ArestoreDateTime%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">restoreDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679386382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; RestoreTableToPointInTime -&gt; f RestoreTableToPointInTime)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RestoreTableToPointInTime
+-&gt; f RestoreTableToPointInTime
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | Provisioned throughput settings for the restored table.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_provisionedThroughputOverride"><span class="hs-identifier hs-type">restoreTableToPointInTime_provisionedThroughputOverride</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughput.html#ProvisionedThroughput"><span class="hs-identifier hs-type">ProvisionedThroughput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="restoreTableToPointInTime_provisionedThroughputOverride"><span class="annot"><span class="annottext">restoreTableToPointInTime_provisionedThroughputOverride :: (Maybe ProvisionedThroughput -&gt; f (Maybe ProvisionedThroughput))
+-&gt; RestoreTableToPointInTime -&gt; f RestoreTableToPointInTime
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_provisionedThroughputOverride"><span class="hs-identifier hs-var hs-var">restoreTableToPointInTime_provisionedThroughputOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableToPointInTime -&gt; Maybe ProvisionedThroughput)
+-&gt; (RestoreTableToPointInTime
+    -&gt; Maybe ProvisionedThroughput -&gt; RestoreTableToPointInTime)
+-&gt; Lens
+     RestoreTableToPointInTime
+     RestoreTableToPointInTime
+     (Maybe ProvisionedThroughput)
+     (Maybe ProvisionedThroughput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386378"><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+provisionedThroughputOverride :: Maybe ProvisionedThroughput
+$sel:provisionedThroughputOverride:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679386378"><span class="hs-identifier hs-var hs-var">provisionedThroughputOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679386378"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386377"><span class="annot"><span class="annottext">s :: RestoreTableToPointInTime
+</span><a href="#local-6989586621679386377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386376"><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679386376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableToPointInTime
+</span><a href="#local-6989586621679386377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedThroughputOverride:RestoreTableToPointInTime' :: Maybe ProvisionedThroughput
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AprovisionedThroughputOverride%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679386376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | List of global secondary indexes for the restored table. The indexes</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- provided should match existing secondary indexes. You can choose to</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- exclude some or all of the indexes at the time of restore.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_globalSecondaryIndexOverride"><span class="hs-identifier hs-type">restoreTableToPointInTime_globalSecondaryIndexOverride</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="restoreTableToPointInTime_globalSecondaryIndexOverride"><span class="annot"><span class="annottext">restoreTableToPointInTime_globalSecondaryIndexOverride :: (Maybe [GlobalSecondaryIndex] -&gt; f (Maybe [GlobalSecondaryIndex]))
+-&gt; RestoreTableToPointInTime -&gt; f RestoreTableToPointInTime
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_globalSecondaryIndexOverride"><span class="hs-identifier hs-var hs-var">restoreTableToPointInTime_globalSecondaryIndexOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableToPointInTime -&gt; Maybe [GlobalSecondaryIndex])
+-&gt; (RestoreTableToPointInTime
+    -&gt; Maybe [GlobalSecondaryIndex] -&gt; RestoreTableToPointInTime)
+-&gt; Lens
+     RestoreTableToPointInTime
+     RestoreTableToPointInTime
+     (Maybe [GlobalSecondaryIndex])
+     (Maybe [GlobalSecondaryIndex])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386375"><span class="annot"><span class="annottext">Maybe [GlobalSecondaryIndex]
+globalSecondaryIndexOverride :: Maybe [GlobalSecondaryIndex]
+$sel:globalSecondaryIndexOverride:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe [GlobalSecondaryIndex]
+</span><a href="#local-6989586621679386375"><span class="hs-identifier hs-var hs-var">globalSecondaryIndexOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GlobalSecondaryIndex]
+</span><a href="#local-6989586621679386375"><span class="hs-identifier hs-var">globalSecondaryIndexOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386374"><span class="annot"><span class="annottext">s :: RestoreTableToPointInTime
+</span><a href="#local-6989586621679386374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386373"><span class="annot"><span class="annottext">Maybe [GlobalSecondaryIndex]
+</span><a href="#local-6989586621679386373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableToPointInTime
+</span><a href="#local-6989586621679386374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalSecondaryIndexOverride:RestoreTableToPointInTime' :: Maybe [GlobalSecondaryIndex]
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AglobalSecondaryIndexOverride%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">globalSecondaryIndexOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GlobalSecondaryIndex]
+</span><a href="#local-6989586621679386373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GlobalSecondaryIndex] -&gt; f (Maybe [GlobalSecondaryIndex]))
+ -&gt; RestoreTableToPointInTime -&gt; f RestoreTableToPointInTime)
+-&gt; ((Maybe [GlobalSecondaryIndex]
+     -&gt; f (Maybe [GlobalSecondaryIndex]))
+    -&gt; Maybe [GlobalSecondaryIndex]
+    -&gt; f (Maybe [GlobalSecondaryIndex]))
+-&gt; (Maybe [GlobalSecondaryIndex]
+    -&gt; f (Maybe [GlobalSecondaryIndex]))
+-&gt; RestoreTableToPointInTime
+-&gt; f RestoreTableToPointInTime
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GlobalSecondaryIndex]
+  [GlobalSecondaryIndex]
+  [GlobalSecondaryIndex]
+  [GlobalSecondaryIndex]
+-&gt; Iso
+     (Maybe [GlobalSecondaryIndex])
+     (Maybe [GlobalSecondaryIndex])
+     (Maybe [GlobalSecondaryIndex])
+     (Maybe [GlobalSecondaryIndex])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GlobalSecondaryIndex]
+  [GlobalSecondaryIndex]
+  [GlobalSecondaryIndex]
+  [GlobalSecondaryIndex]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The billing mode of the restored table.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_billingModeOverride"><span class="hs-identifier hs-type">restoreTableToPointInTime_billingModeOverride</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingMode.html#BillingMode"><span class="hs-identifier hs-type">BillingMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="restoreTableToPointInTime_billingModeOverride"><span class="annot"><span class="annottext">restoreTableToPointInTime_billingModeOverride :: (Maybe BillingMode -&gt; f (Maybe BillingMode))
+-&gt; RestoreTableToPointInTime -&gt; f RestoreTableToPointInTime
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_billingModeOverride"><span class="hs-identifier hs-var hs-var">restoreTableToPointInTime_billingModeOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableToPointInTime -&gt; Maybe BillingMode)
+-&gt; (RestoreTableToPointInTime
+    -&gt; Maybe BillingMode -&gt; RestoreTableToPointInTime)
+-&gt; Lens
+     RestoreTableToPointInTime
+     RestoreTableToPointInTime
+     (Maybe BillingMode)
+     (Maybe BillingMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386371"><span class="annot"><span class="annottext">Maybe BillingMode
+billingModeOverride :: Maybe BillingMode
+$sel:billingModeOverride:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe BillingMode
+</span><a href="#local-6989586621679386371"><span class="hs-identifier hs-var hs-var">billingModeOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BillingMode
+</span><a href="#local-6989586621679386371"><span class="hs-identifier hs-var">billingModeOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386370"><span class="annot"><span class="annottext">s :: RestoreTableToPointInTime
+</span><a href="#local-6989586621679386370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386369"><span class="annot"><span class="annottext">Maybe BillingMode
+</span><a href="#local-6989586621679386369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableToPointInTime
+</span><a href="#local-6989586621679386370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingModeOverride:RestoreTableToPointInTime' :: Maybe BillingMode
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AbillingModeOverride%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">billingModeOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BillingMode
+</span><a href="#local-6989586621679386369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The new server-side encryption settings for the restored table.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_sSESpecificationOverride"><span class="hs-identifier hs-type">restoreTableToPointInTime_sSESpecificationOverride</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSESpecification.html#SSESpecification"><span class="hs-identifier hs-type">SSESpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="restoreTableToPointInTime_sSESpecificationOverride"><span class="annot"><span class="annottext">restoreTableToPointInTime_sSESpecificationOverride :: (Maybe SSESpecification -&gt; f (Maybe SSESpecification))
+-&gt; RestoreTableToPointInTime -&gt; f RestoreTableToPointInTime
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_sSESpecificationOverride"><span class="hs-identifier hs-var hs-var">restoreTableToPointInTime_sSESpecificationOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableToPointInTime -&gt; Maybe SSESpecification)
+-&gt; (RestoreTableToPointInTime
+    -&gt; Maybe SSESpecification -&gt; RestoreTableToPointInTime)
+-&gt; Lens
+     RestoreTableToPointInTime
+     RestoreTableToPointInTime
+     (Maybe SSESpecification)
+     (Maybe SSESpecification)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386368"><span class="annot"><span class="annottext">Maybe SSESpecification
+sSESpecificationOverride :: Maybe SSESpecification
+$sel:sSESpecificationOverride:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe SSESpecification
+</span><a href="#local-6989586621679386368"><span class="hs-identifier hs-var hs-var">sSESpecificationOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSESpecification
+</span><a href="#local-6989586621679386368"><span class="hs-identifier hs-var">sSESpecificationOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386367"><span class="annot"><span class="annottext">s :: RestoreTableToPointInTime
+</span><a href="#local-6989586621679386367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386366"><span class="annot"><span class="annottext">Maybe SSESpecification
+</span><a href="#local-6989586621679386366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableToPointInTime
+</span><a href="#local-6989586621679386367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSESpecificationOverride:RestoreTableToPointInTime' :: Maybe SSESpecification
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AsSESpecificationOverride%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">sSESpecificationOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSESpecification
+</span><a href="#local-6989586621679386366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The DynamoDB table that will be restored. This value is an Amazon</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Resource Name (ARN).</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_sourceTableArn"><span class="hs-identifier hs-type">restoreTableToPointInTime_sourceTableArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="restoreTableToPointInTime_sourceTableArn"><span class="annot"><span class="annottext">restoreTableToPointInTime_sourceTableArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RestoreTableToPointInTime -&gt; f RestoreTableToPointInTime
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_sourceTableArn"><span class="hs-identifier hs-var hs-var">restoreTableToPointInTime_sourceTableArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableToPointInTime -&gt; Maybe Text)
+-&gt; (RestoreTableToPointInTime
+    -&gt; Maybe Text -&gt; RestoreTableToPointInTime)
+-&gt; Lens
+     RestoreTableToPointInTime
+     RestoreTableToPointInTime
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386365"><span class="annot"><span class="annottext">Maybe Text
+sourceTableArn :: Maybe Text
+$sel:sourceTableArn:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe Text
+</span><a href="#local-6989586621679386365"><span class="hs-identifier hs-var hs-var">sourceTableArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386365"><span class="hs-identifier hs-var">sourceTableArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386364"><span class="annot"><span class="annottext">s :: RestoreTableToPointInTime
+</span><a href="#local-6989586621679386364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386363"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableToPointInTime
+</span><a href="#local-6989586621679386364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceTableArn:RestoreTableToPointInTime' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AsourceTableArn%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">sourceTableArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | List of local secondary indexes for the restored table. The indexes</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- provided should match existing secondary indexes. You can choose to</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- exclude some or all of the indexes at the time of restore.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_localSecondaryIndexOverride"><span class="hs-identifier hs-type">restoreTableToPointInTime_localSecondaryIndexOverride</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-type">LocalSecondaryIndex</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="restoreTableToPointInTime_localSecondaryIndexOverride"><span class="annot"><span class="annottext">restoreTableToPointInTime_localSecondaryIndexOverride :: (Maybe [LocalSecondaryIndex] -&gt; f (Maybe [LocalSecondaryIndex]))
+-&gt; RestoreTableToPointInTime -&gt; f RestoreTableToPointInTime
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_localSecondaryIndexOverride"><span class="hs-identifier hs-var hs-var">restoreTableToPointInTime_localSecondaryIndexOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableToPointInTime -&gt; Maybe [LocalSecondaryIndex])
+-&gt; (RestoreTableToPointInTime
+    -&gt; Maybe [LocalSecondaryIndex] -&gt; RestoreTableToPointInTime)
+-&gt; Lens
+     RestoreTableToPointInTime
+     RestoreTableToPointInTime
+     (Maybe [LocalSecondaryIndex])
+     (Maybe [LocalSecondaryIndex])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386362"><span class="annot"><span class="annottext">Maybe [LocalSecondaryIndex]
+localSecondaryIndexOverride :: Maybe [LocalSecondaryIndex]
+$sel:localSecondaryIndexOverride:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe [LocalSecondaryIndex]
+</span><a href="#local-6989586621679386362"><span class="hs-identifier hs-var hs-var">localSecondaryIndexOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LocalSecondaryIndex]
+</span><a href="#local-6989586621679386362"><span class="hs-identifier hs-var">localSecondaryIndexOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386361"><span class="annot"><span class="annottext">s :: RestoreTableToPointInTime
+</span><a href="#local-6989586621679386361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386360"><span class="annot"><span class="annottext">Maybe [LocalSecondaryIndex]
+</span><a href="#local-6989586621679386360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableToPointInTime
+</span><a href="#local-6989586621679386361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localSecondaryIndexOverride:RestoreTableToPointInTime' :: Maybe [LocalSecondaryIndex]
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AlocalSecondaryIndexOverride%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">localSecondaryIndexOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LocalSecondaryIndex]
+</span><a href="#local-6989586621679386360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LocalSecondaryIndex] -&gt; f (Maybe [LocalSecondaryIndex]))
+ -&gt; RestoreTableToPointInTime -&gt; f RestoreTableToPointInTime)
+-&gt; ((Maybe [LocalSecondaryIndex]
+     -&gt; f (Maybe [LocalSecondaryIndex]))
+    -&gt; Maybe [LocalSecondaryIndex] -&gt; f (Maybe [LocalSecondaryIndex]))
+-&gt; (Maybe [LocalSecondaryIndex] -&gt; f (Maybe [LocalSecondaryIndex]))
+-&gt; RestoreTableToPointInTime
+-&gt; f RestoreTableToPointInTime
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LocalSecondaryIndex]
+  [LocalSecondaryIndex]
+  [LocalSecondaryIndex]
+  [LocalSecondaryIndex]
+-&gt; Iso
+     (Maybe [LocalSecondaryIndex])
+     (Maybe [LocalSecondaryIndex])
+     (Maybe [LocalSecondaryIndex])
+     (Maybe [LocalSecondaryIndex])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LocalSecondaryIndex]
+  [LocalSecondaryIndex]
+  [LocalSecondaryIndex]
+  [LocalSecondaryIndex]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | Restore the table to the latest possible time.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- @LatestRestorableDateTime@ is typically 5 minutes before the current</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_useLatestRestorableTime"><span class="hs-identifier hs-type">restoreTableToPointInTime_useLatestRestorableTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="restoreTableToPointInTime_useLatestRestorableTime"><span class="annot"><span class="annottext">restoreTableToPointInTime_useLatestRestorableTime :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; RestoreTableToPointInTime -&gt; f RestoreTableToPointInTime
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_useLatestRestorableTime"><span class="hs-identifier hs-var hs-var">restoreTableToPointInTime_useLatestRestorableTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableToPointInTime -&gt; Maybe Bool)
+-&gt; (RestoreTableToPointInTime
+    -&gt; Maybe Bool -&gt; RestoreTableToPointInTime)
+-&gt; Lens
+     RestoreTableToPointInTime
+     RestoreTableToPointInTime
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386359"><span class="annot"><span class="annottext">Maybe Bool
+useLatestRestorableTime :: Maybe Bool
+$sel:useLatestRestorableTime:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe Bool
+</span><a href="#local-6989586621679386359"><span class="hs-identifier hs-var hs-var">useLatestRestorableTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679386359"><span class="hs-identifier hs-var">useLatestRestorableTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386358"><span class="annot"><span class="annottext">s :: RestoreTableToPointInTime
+</span><a href="#local-6989586621679386358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386357"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679386357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableToPointInTime
+</span><a href="#local-6989586621679386358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useLatestRestorableTime:RestoreTableToPointInTime' :: Maybe Bool
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AuseLatestRestorableTime%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">useLatestRestorableTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679386357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The name of the new table to which it must be restored to.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_targetTableName"><span class="hs-identifier hs-type">restoreTableToPointInTime_targetTableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-226"></span><span id="restoreTableToPointInTime_targetTableName"><span class="annot"><span class="annottext">restoreTableToPointInTime_targetTableName :: (Text -&gt; f Text)
+-&gt; RestoreTableToPointInTime -&gt; f RestoreTableToPointInTime
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTime_targetTableName"><span class="hs-identifier hs-var hs-var">restoreTableToPointInTime_targetTableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableToPointInTime -&gt; Text)
+-&gt; (RestoreTableToPointInTime -&gt; Text -&gt; RestoreTableToPointInTime)
+-&gt; Lens
+     RestoreTableToPointInTime RestoreTableToPointInTime Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386356"><span class="annot"><span class="annottext">Text
+targetTableName :: Text
+$sel:targetTableName:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Text
+</span><a href="#local-6989586621679386356"><span class="hs-identifier hs-var hs-var">targetTableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386356"><span class="hs-identifier hs-var">targetTableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386355"><span class="annot"><span class="annottext">s :: RestoreTableToPointInTime
+</span><a href="#local-6989586621679386355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386354"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableToPointInTime
+</span><a href="#local-6989586621679386355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetTableName:RestoreTableToPointInTime' :: Text
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AtargetTableName%3ARestoreTableToPointInTime%27"><span class="hs-identifier hs-var">targetTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-230"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTimeResponse"><span class="hs-identifier hs-type">RestoreTableToPointInTimeResponse</span></a></span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679386350"><span class="annot"><span class="annottext">request :: RestoreTableToPointInTime -&gt; Request RestoreTableToPointInTime
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; RestoreTableToPointInTime -&gt; Request RestoreTableToPointInTime
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679386346"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RestoreTableToPointInTime
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RestoreTableToPointInTime)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse RestoreTableToPointInTime))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RestoreTableToPointInTime
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RestoreTableToPointInTime)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386343"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386343"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386342"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679386342"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386341"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679386341"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-236"></span><span>          </span><span class="annot"><span class="annottext">Maybe TableDescription -&gt; Int -&gt; RestoreTableToPointInTimeResponse
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTimeResponse%27"><span class="hs-identifier hs-var">RestoreTableToPointInTimeResponse'</span></a></span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TableDescription
+ -&gt; Int -&gt; RestoreTableToPointInTimeResponse)
+-&gt; Either String (Maybe TableDescription)
+-&gt; Either String (Int -&gt; RestoreTableToPointInTimeResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679386341"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TableDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; RestoreTableToPointInTimeResponse)
+-&gt; Either String Int
+-&gt; Either String RestoreTableToPointInTimeResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386343"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386333"><span id="local-6989586621679386335"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span></span></span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386330"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span></span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679386326"><span class="annot"><span class="annottext">toHeaders :: RestoreTableToPointInTime -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RestoreTableToPointInTime -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-248"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-249"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-250"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DynamoDB_20120810.RestoreTableToPointInTime&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-251"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-252"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-254"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-255"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-256"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386316"><span id="local-6989586621679386318"><span id="local-6989586621679386320"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679386314"><span class="annot"><span class="annottext">toJSON :: RestoreTableToPointInTime -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime%27"><span class="hs-identifier hs-type">RestoreTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386303"><span id="local-6989586621679386304"><span id="local-6989586621679386305"><span id="local-6989586621679386306"><span id="local-6989586621679386307"><span id="local-6989586621679386308"><span id="local-6989586621679386309"><span id="local-6989586621679386310"><span id="local-6989586621679386311"><span id="local-6989586621679386312"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [LocalSecondaryIndex]
+Maybe [GlobalSecondaryIndex]
+Maybe Text
+Maybe POSIX
+Maybe BillingMode
+Maybe ProvisionedThroughput
+Maybe SSESpecification
+Text
+targetTableName :: Text
+useLatestRestorableTime :: Maybe Bool
+localSecondaryIndexOverride :: Maybe [LocalSecondaryIndex]
+sourceTableArn :: Maybe Text
+sSESpecificationOverride :: Maybe SSESpecification
+billingModeOverride :: Maybe BillingMode
+globalSecondaryIndexOverride :: Maybe [GlobalSecondaryIndex]
+provisionedThroughputOverride :: Maybe ProvisionedThroughput
+restoreDateTime :: Maybe POSIX
+sourceTableName :: Maybe Text
+$sel:targetTableName:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Text
+$sel:useLatestRestorableTime:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe Bool
+$sel:localSecondaryIndexOverride:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe [LocalSecondaryIndex]
+$sel:sourceTableArn:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe Text
+$sel:sSESpecificationOverride:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe SSESpecification
+$sel:billingModeOverride:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe BillingMode
+$sel:globalSecondaryIndexOverride:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe [GlobalSecondaryIndex]
+$sel:provisionedThroughputOverride:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe ProvisionedThroughput
+$sel:restoreDateTime:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe POSIX
+$sel:sourceTableName:RestoreTableToPointInTime' :: RestoreTableToPointInTime -&gt; Maybe Text
+</span><a href="#local-6989586621679386303"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-263"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-264"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceTableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386312"><span class="hs-identifier hs-var">sourceTableName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RestoreDateTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679386311"><span class="hs-identifier hs-var">restoreDateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisionedThroughputOverride&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProvisionedThroughput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>              </span><span class="annot"><span class="annottext">(ProvisionedThroughput -&gt; Pair)
+-&gt; Maybe ProvisionedThroughput -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679386310"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalSecondaryIndexOverride&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [GlobalSecondaryIndex] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>              </span><span class="annot"><span class="annottext">([GlobalSecondaryIndex] -&gt; Pair)
+-&gt; Maybe [GlobalSecondaryIndex] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GlobalSecondaryIndex]
+</span><a href="#local-6989586621679386309"><span class="hs-identifier hs-var">globalSecondaryIndexOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BillingModeOverride&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BillingMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>              </span><span class="annot"><span class="annottext">(BillingMode -&gt; Pair) -&gt; Maybe BillingMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BillingMode
+</span><a href="#local-6989586621679386308"><span class="hs-identifier hs-var">billingModeOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SSESpecificationOverride&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SSESpecification -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>              </span><span class="annot"><span class="annottext">(SSESpecification -&gt; Pair) -&gt; Maybe SSESpecification -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SSESpecification
+</span><a href="#local-6989586621679386307"><span class="hs-identifier hs-var">sSESpecificationOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceTableArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386306"><span class="hs-identifier hs-var">sourceTableArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocalSecondaryIndexOverride&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [LocalSecondaryIndex] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>              </span><span class="annot"><span class="annottext">([LocalSecondaryIndex] -&gt; Pair)
+-&gt; Maybe [LocalSecondaryIndex] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LocalSecondaryIndex]
+</span><a href="#local-6989586621679386305"><span class="hs-identifier hs-var">localSecondaryIndexOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UseLatestRestorableTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679386304"><span class="hs-identifier hs-var">useLatestRestorableTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-283"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetTableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386303"><span class="hs-identifier hs-var">targetTableName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-285"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-288"></span><span>  </span><span id="local-6989586621679386297"><span class="annot"><span class="annottext">toPath :: RestoreTableToPointInTime -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RestoreTableToPointInTime -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTime"><span class="hs-identifier hs-type">RestoreTableToPointInTime</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-291"></span><span>  </span><span id="local-6989586621679386293"><span class="annot"><span class="annottext">toQuery :: RestoreTableToPointInTime -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RestoreTableToPointInTime -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | /See:/ 'newRestoreTableToPointInTimeResponse' smart constructor.</span><span>
+</span><span id="line-294"></span><span id="local-6989586621679386290"><span id="local-6989586621679386291"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreTableToPointInTimeResponse"><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTimeResponse"><span class="hs-identifier hs-var">RestoreTableToPointInTimeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreTableToPointInTimeResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTimeResponse%27"><span class="hs-identifier hs-var">RestoreTableToPointInTimeResponse'</span></a></span></span><span>
+</span><span id="line-295"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the properties of a table.</span><span>
+</span><span id="line-296"></span><span>    </span><span id="%24sel%3AtableDescription%3ARestoreTableToPointInTimeResponse%27"><span class="annot"><span class="annottext">RestoreTableToPointInTimeResponse -&gt; Maybe TableDescription
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AtableDescription%3ARestoreTableToPointInTimeResponse%27"><span class="hs-identifier hs-var hs-var">tableDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableDescription.html#TableDescription"><span class="hs-identifier hs-type">TableDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-298"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARestoreTableToPointInTimeResponse%27"><span class="annot"><span class="annottext">RestoreTableToPointInTimeResponse -&gt; Int
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AhttpStatus%3ARestoreTableToPointInTimeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-299"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-300"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386284"><span id="local-6989586621679386286"><span class="annot"><span class="annottext">RestoreTableToPointInTimeResponse
+-&gt; RestoreTableToPointInTimeResponse -&gt; Bool
+(RestoreTableToPointInTimeResponse
+ -&gt; RestoreTableToPointInTimeResponse -&gt; Bool)
+-&gt; (RestoreTableToPointInTimeResponse
+    -&gt; RestoreTableToPointInTimeResponse -&gt; Bool)
+-&gt; Eq RestoreTableToPointInTimeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RestoreTableToPointInTimeResponse
+-&gt; RestoreTableToPointInTimeResponse -&gt; Bool
+$c/= :: RestoreTableToPointInTimeResponse
+-&gt; RestoreTableToPointInTimeResponse -&gt; Bool
+== :: RestoreTableToPointInTimeResponse
+-&gt; RestoreTableToPointInTimeResponse -&gt; Bool
+$c== :: RestoreTableToPointInTimeResponse
+-&gt; RestoreTableToPointInTimeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386276"><span id="local-6989586621679386278"><span id="local-6989586621679386280"><span id="local-6989586621679386282"><span class="annot"><span class="annottext">ReadPrec [RestoreTableToPointInTimeResponse]
+ReadPrec RestoreTableToPointInTimeResponse
+Int -&gt; ReadS RestoreTableToPointInTimeResponse
+ReadS [RestoreTableToPointInTimeResponse]
+(Int -&gt; ReadS RestoreTableToPointInTimeResponse)
+-&gt; ReadS [RestoreTableToPointInTimeResponse]
+-&gt; ReadPrec RestoreTableToPointInTimeResponse
+-&gt; ReadPrec [RestoreTableToPointInTimeResponse]
+-&gt; Read RestoreTableToPointInTimeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RestoreTableToPointInTimeResponse]
+$creadListPrec :: ReadPrec [RestoreTableToPointInTimeResponse]
+readPrec :: ReadPrec RestoreTableToPointInTimeResponse
+$creadPrec :: ReadPrec RestoreTableToPointInTimeResponse
+readList :: ReadS [RestoreTableToPointInTimeResponse]
+$creadList :: ReadS [RestoreTableToPointInTimeResponse]
+readsPrec :: Int -&gt; ReadS RestoreTableToPointInTimeResponse
+$creadsPrec :: Int -&gt; ReadS RestoreTableToPointInTimeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386270"><span id="local-6989586621679386272"><span id="local-6989586621679386274"><span class="annot"><span class="annottext">Int -&gt; RestoreTableToPointInTimeResponse -&gt; ShowS
+[RestoreTableToPointInTimeResponse] -&gt; ShowS
+RestoreTableToPointInTimeResponse -&gt; String
+(Int -&gt; RestoreTableToPointInTimeResponse -&gt; ShowS)
+-&gt; (RestoreTableToPointInTimeResponse -&gt; String)
+-&gt; ([RestoreTableToPointInTimeResponse] -&gt; ShowS)
+-&gt; Show RestoreTableToPointInTimeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RestoreTableToPointInTimeResponse] -&gt; ShowS
+$cshowList :: [RestoreTableToPointInTimeResponse] -&gt; ShowS
+show :: RestoreTableToPointInTimeResponse -&gt; String
+$cshow :: RestoreTableToPointInTimeResponse -&gt; String
+showsPrec :: Int -&gt; RestoreTableToPointInTimeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RestoreTableToPointInTimeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RestoreTableToPointInTimeResponse
+ -&gt; Rep RestoreTableToPointInTimeResponse x)
+-&gt; (forall x.
+    Rep RestoreTableToPointInTimeResponse x
+    -&gt; RestoreTableToPointInTimeResponse)
+-&gt; Generic RestoreTableToPointInTimeResponse
+forall x.
+Rep RestoreTableToPointInTimeResponse x
+-&gt; RestoreTableToPointInTimeResponse
+forall x.
+RestoreTableToPointInTimeResponse
+-&gt; Rep RestoreTableToPointInTimeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RestoreTableToPointInTimeResponse x
+-&gt; RestoreTableToPointInTimeResponse
+$cfrom :: forall x.
+RestoreTableToPointInTimeResponse
+-&gt; Rep RestoreTableToPointInTimeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- Create a value of 'RestoreTableToPointInTimeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- 'tableDescription', 'restoreTableToPointInTimeResponse_tableDescription' - Represents the properties of a table.</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- 'httpStatus', 'restoreTableToPointInTimeResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-313"></span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#newRestoreTableToPointInTimeResponse"><span class="hs-identifier hs-type">newRestoreTableToPointInTimeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-314"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-315"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-316"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTimeResponse"><span class="hs-identifier hs-type">RestoreTableToPointInTimeResponse</span></a></span><span>
+</span><span id="line-317"></span><span id="newRestoreTableToPointInTimeResponse"><span class="annot"><span class="annottext">newRestoreTableToPointInTimeResponse :: Int -&gt; RestoreTableToPointInTimeResponse
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#newRestoreTableToPointInTimeResponse"><span class="hs-identifier hs-var hs-var">newRestoreTableToPointInTimeResponse</span></a></span></span><span> </span><span id="local-6989586621679386267"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386267"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-318"></span><span>  </span><span class="annot"><span class="annottext">RestoreTableToPointInTimeResponse' :: Maybe TableDescription -&gt; Int -&gt; RestoreTableToPointInTimeResponse
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTimeResponse%27"><span class="hs-identifier hs-type">RestoreTableToPointInTimeResponse'</span></a></span><span>
+</span><span id="line-319"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tableDescription:RestoreTableToPointInTimeResponse' :: Maybe TableDescription
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AtableDescription%3ARestoreTableToPointInTimeResponse%27"><span class="hs-identifier hs-var">tableDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-320"></span><span>        </span><span class="annot"><span class="annottext">Maybe TableDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RestoreTableToPointInTimeResponse' :: Int
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AhttpStatus%3ARestoreTableToPointInTimeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386267"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-322"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- | Represents the properties of a table.</span><span>
+</span><span id="line-325"></span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTimeResponse_tableDescription"><span class="hs-identifier hs-type">restoreTableToPointInTimeResponse_tableDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTimeResponse"><span class="hs-identifier hs-type">RestoreTableToPointInTimeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableDescription.html#TableDescription"><span class="hs-identifier hs-type">TableDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span id="restoreTableToPointInTimeResponse_tableDescription"><span class="annot"><span class="annottext">restoreTableToPointInTimeResponse_tableDescription :: (Maybe TableDescription -&gt; f (Maybe TableDescription))
+-&gt; RestoreTableToPointInTimeResponse
+-&gt; f RestoreTableToPointInTimeResponse
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTimeResponse_tableDescription"><span class="hs-identifier hs-var hs-var">restoreTableToPointInTimeResponse_tableDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableToPointInTimeResponse -&gt; Maybe TableDescription)
+-&gt; (RestoreTableToPointInTimeResponse
+    -&gt; Maybe TableDescription -&gt; RestoreTableToPointInTimeResponse)
+-&gt; Lens
+     RestoreTableToPointInTimeResponse
+     RestoreTableToPointInTimeResponse
+     (Maybe TableDescription)
+     (Maybe TableDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTimeResponse%27"><span class="hs-identifier hs-type">RestoreTableToPointInTimeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386266"><span class="annot"><span class="annottext">Maybe TableDescription
+tableDescription :: Maybe TableDescription
+$sel:tableDescription:RestoreTableToPointInTimeResponse' :: RestoreTableToPointInTimeResponse -&gt; Maybe TableDescription
+</span><a href="#local-6989586621679386266"><span class="hs-identifier hs-var hs-var">tableDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TableDescription
+</span><a href="#local-6989586621679386266"><span class="hs-identifier hs-var">tableDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386265"><span class="annot"><span class="annottext">s :: RestoreTableToPointInTimeResponse
+</span><a href="#local-6989586621679386265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTimeResponse%27"><span class="hs-identifier hs-type">RestoreTableToPointInTimeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386264"><span class="annot"><span class="annottext">Maybe TableDescription
+</span><a href="#local-6989586621679386264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableToPointInTimeResponse
+</span><a href="#local-6989586621679386265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableDescription:RestoreTableToPointInTimeResponse' :: Maybe TableDescription
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AtableDescription%3ARestoreTableToPointInTimeResponse%27"><span class="hs-identifier hs-var">tableDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TableDescription
+</span><a href="#local-6989586621679386264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTimeResponse"><span class="hs-identifier hs-type">RestoreTableToPointInTimeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-329"></span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTimeResponse_httpStatus"><span class="hs-identifier hs-type">restoreTableToPointInTimeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTimeResponse"><span class="hs-identifier hs-type">RestoreTableToPointInTimeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-330"></span><span id="restoreTableToPointInTimeResponse_httpStatus"><span class="annot"><span class="annottext">restoreTableToPointInTimeResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RestoreTableToPointInTimeResponse
+-&gt; f RestoreTableToPointInTimeResponse
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#restoreTableToPointInTimeResponse_httpStatus"><span class="hs-identifier hs-var hs-var">restoreTableToPointInTimeResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableToPointInTimeResponse -&gt; Int)
+-&gt; (RestoreTableToPointInTimeResponse
+    -&gt; Int -&gt; RestoreTableToPointInTimeResponse)
+-&gt; Lens
+     RestoreTableToPointInTimeResponse
+     RestoreTableToPointInTimeResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTimeResponse%27"><span class="hs-identifier hs-type">RestoreTableToPointInTimeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386263"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RestoreTableToPointInTimeResponse' :: RestoreTableToPointInTimeResponse -&gt; Int
+</span><a href="#local-6989586621679386263"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386263"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386262"><span class="annot"><span class="annottext">s :: RestoreTableToPointInTimeResponse
+</span><a href="#local-6989586621679386262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTimeResponse%27"><span class="hs-identifier hs-type">RestoreTableToPointInTimeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386261"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableToPointInTimeResponse
+</span><a href="#local-6989586621679386262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RestoreTableToPointInTimeResponse' :: Int
+</span><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#%24sel%3AhttpStatus%3ARestoreTableToPointInTimeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTimeResponse"><span class="hs-identifier hs-type">RestoreTableToPointInTimeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-333"></span><span>  </span><span id="local-6989586621679386259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-334"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.RestoreTableToPointInTime.html#RestoreTableToPointInTimeResponse"><span class="hs-identifier hs-type">RestoreTableToPointInTimeResponse</span></a></span></span><span>
+</span><span id="line-335"></span></pre></body></html>

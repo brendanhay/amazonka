@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.DomainStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.DomainStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier">DomainStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Delete_Failed"><span class="hs-identifier">DomainStatus_Delete_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Deleting"><span class="hs-identifier">DomainStatus_Deleting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Failed"><span class="hs-identifier">DomainStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_InService"><span class="hs-identifier">DomainStatus_InService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Pending"><span class="hs-identifier">DomainStatus_Pending</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Update_Failed"><span class="hs-identifier">DomainStatus_Update_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Updating"><span class="hs-identifier">DomainStatus_Updating</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621680300782"><span id="local-6989586621680300783"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DomainStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-var">DomainStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-var">DomainStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDomainStatus"><span class="annot"><span class="annottext">DomainStatus -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.DomainStatus.html#fromDomainStatus"><span class="hs-identifier hs-var hs-var">fromDomainStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680300774"><span id="local-6989586621680300776"><span id="local-6989586621680300778"><span class="annot"><span class="annottext">Int -&gt; DomainStatus -&gt; ShowS
+[DomainStatus] -&gt; ShowS
+DomainStatus -&gt; String
+(Int -&gt; DomainStatus -&gt; ShowS)
+-&gt; (DomainStatus -&gt; String)
+-&gt; ([DomainStatus] -&gt; ShowS)
+-&gt; Show DomainStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DomainStatus] -&gt; ShowS
+$cshowList :: [DomainStatus] -&gt; ShowS
+show :: DomainStatus -&gt; String
+$cshow :: DomainStatus -&gt; String
+showsPrec :: Int -&gt; DomainStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DomainStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680300765"><span id="local-6989586621680300767"><span id="local-6989586621680300769"><span id="local-6989586621680300771"><span class="annot"><span class="annottext">ReadPrec [DomainStatus]
+ReadPrec DomainStatus
+Int -&gt; ReadS DomainStatus
+ReadS [DomainStatus]
+(Int -&gt; ReadS DomainStatus)
+-&gt; ReadS [DomainStatus]
+-&gt; ReadPrec DomainStatus
+-&gt; ReadPrec [DomainStatus]
+-&gt; Read DomainStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DomainStatus]
+$creadListPrec :: ReadPrec [DomainStatus]
+readPrec :: ReadPrec DomainStatus
+$creadPrec :: ReadPrec DomainStatus
+readList :: ReadS [DomainStatus]
+$creadList :: ReadS [DomainStatus]
+readsPrec :: Int -&gt; ReadS DomainStatus
+$creadsPrec :: Int -&gt; ReadS DomainStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680300760"><span id="local-6989586621680300762"><span class="annot"><span class="annottext">DomainStatus -&gt; DomainStatus -&gt; Bool
+(DomainStatus -&gt; DomainStatus -&gt; Bool)
+-&gt; (DomainStatus -&gt; DomainStatus -&gt; Bool) -&gt; Eq DomainStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DomainStatus -&gt; DomainStatus -&gt; Bool
+$c/= :: DomainStatus -&gt; DomainStatus -&gt; Bool
+== :: DomainStatus -&gt; DomainStatus -&gt; Bool
+$c== :: DomainStatus -&gt; DomainStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680300744"><span id="local-6989586621680300746"><span id="local-6989586621680300748"><span id="local-6989586621680300750"><span id="local-6989586621680300752"><span id="local-6989586621680300754"><span id="local-6989586621680300756"><span class="annot"><span class="annottext">Eq DomainStatus
+Eq DomainStatus
+-&gt; (DomainStatus -&gt; DomainStatus -&gt; Ordering)
+-&gt; (DomainStatus -&gt; DomainStatus -&gt; Bool)
+-&gt; (DomainStatus -&gt; DomainStatus -&gt; Bool)
+-&gt; (DomainStatus -&gt; DomainStatus -&gt; Bool)
+-&gt; (DomainStatus -&gt; DomainStatus -&gt; Bool)
+-&gt; (DomainStatus -&gt; DomainStatus -&gt; DomainStatus)
+-&gt; (DomainStatus -&gt; DomainStatus -&gt; DomainStatus)
+-&gt; Ord DomainStatus
+DomainStatus -&gt; DomainStatus -&gt; Bool
+DomainStatus -&gt; DomainStatus -&gt; Ordering
+DomainStatus -&gt; DomainStatus -&gt; DomainStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DomainStatus -&gt; DomainStatus -&gt; DomainStatus
+$cmin :: DomainStatus -&gt; DomainStatus -&gt; DomainStatus
+max :: DomainStatus -&gt; DomainStatus -&gt; DomainStatus
+$cmax :: DomainStatus -&gt; DomainStatus -&gt; DomainStatus
+&gt;= :: DomainStatus -&gt; DomainStatus -&gt; Bool
+$c&gt;= :: DomainStatus -&gt; DomainStatus -&gt; Bool
+&gt; :: DomainStatus -&gt; DomainStatus -&gt; Bool
+$c&gt; :: DomainStatus -&gt; DomainStatus -&gt; Bool
+&lt;= :: DomainStatus -&gt; DomainStatus -&gt; Bool
+$c&lt;= :: DomainStatus -&gt; DomainStatus -&gt; Bool
+&lt; :: DomainStatus -&gt; DomainStatus -&gt; Bool
+$c&lt; :: DomainStatus -&gt; DomainStatus -&gt; Bool
+compare :: DomainStatus -&gt; DomainStatus -&gt; Ordering
+$ccompare :: DomainStatus -&gt; DomainStatus -&gt; Ordering
+$cp1Ord :: Eq DomainStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DomainStatus -&gt; Rep DomainStatus x)
+-&gt; (forall x. Rep DomainStatus x -&gt; DomainStatus)
+-&gt; Generic DomainStatus
+forall x. Rep DomainStatus x -&gt; DomainStatus
+forall x. DomainStatus -&gt; Rep DomainStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DomainStatus x -&gt; DomainStatus
+$cfrom :: forall x. DomainStatus -&gt; Rep DomainStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680300736"><span id="local-6989586621680300738"><span class="annot"><span class="annottext">Int -&gt; DomainStatus -&gt; Int
+DomainStatus -&gt; Int
+(Int -&gt; DomainStatus -&gt; Int)
+-&gt; (DomainStatus -&gt; Int) -&gt; Hashable DomainStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DomainStatus -&gt; Int
+$chash :: DomainStatus -&gt; Int
+hashWithSalt :: Int -&gt; DomainStatus -&gt; Int
+$chashWithSalt :: Int -&gt; DomainStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680300733"><span class="annot"><span class="annottext">DomainStatus -&gt; ()
+(DomainStatus -&gt; ()) -&gt; NFData DomainStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DomainStatus -&gt; ()
+$crnf :: DomainStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680300730"><span class="annot"><span class="annottext">Text -&gt; Either String DomainStatus
+(Text -&gt; Either String DomainStatus) -&gt; FromText DomainStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DomainStatus
+$cfromText :: Text -&gt; Either String DomainStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680300727"><span class="annot"><span class="annottext">DomainStatus -&gt; Text
+(DomainStatus -&gt; Text) -&gt; ToText DomainStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DomainStatus -&gt; Text
+$ctoText :: DomainStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680300724"><span class="annot"><span class="annottext">DomainStatus -&gt; ByteString
+(DomainStatus -&gt; ByteString) -&gt; ToByteString DomainStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DomainStatus -&gt; ByteString
+$ctoBS :: DomainStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680300721"><span class="annot"><span class="annottext">DomainStatus -&gt; ByteStringBuilder
+(DomainStatus -&gt; ByteStringBuilder) -&gt; ToLog DomainStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DomainStatus -&gt; ByteStringBuilder
+$cbuild :: DomainStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680300718"><span class="annot"><span class="annottext">HeaderName -&gt; DomainStatus -&gt; [Header]
+(HeaderName -&gt; DomainStatus -&gt; [Header]) -&gt; ToHeader DomainStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DomainStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DomainStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680300715"><span class="annot"><span class="annottext">DomainStatus -&gt; QueryString
+(DomainStatus -&gt; QueryString) -&gt; ToQuery DomainStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DomainStatus -&gt; QueryString
+$ctoQuery :: DomainStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680300710"><span id="local-6989586621680300712"><span class="annot"><span class="annottext">Value -&gt; Parser [DomainStatus]
+Value -&gt; Parser DomainStatus
+(Value -&gt; Parser DomainStatus)
+-&gt; (Value -&gt; Parser [DomainStatus]) -&gt; FromJSON DomainStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DomainStatus]
+$cparseJSONList :: Value -&gt; Parser [DomainStatus]
+parseJSON :: Value -&gt; Parser DomainStatus
+$cparseJSON :: Value -&gt; Parser DomainStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680300705"><span id="local-6989586621680300707"><span class="annot"><span class="annottext">FromJSONKeyFunction [DomainStatus]
+FromJSONKeyFunction DomainStatus
+FromJSONKeyFunction DomainStatus
+-&gt; FromJSONKeyFunction [DomainStatus] -&gt; FromJSONKey DomainStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DomainStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [DomainStatus]
+fromJSONKey :: FromJSONKeyFunction DomainStatus
+$cfromJSONKey :: FromJSONKeyFunction DomainStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680300696"><span id="local-6989586621680300698"><span id="local-6989586621680300700"><span id="local-6989586621680300702"><span class="annot"><span class="annottext">[DomainStatus] -&gt; Encoding
+[DomainStatus] -&gt; Value
+DomainStatus -&gt; Encoding
+DomainStatus -&gt; Value
+(DomainStatus -&gt; Value)
+-&gt; (DomainStatus -&gt; Encoding)
+-&gt; ([DomainStatus] -&gt; Value)
+-&gt; ([DomainStatus] -&gt; Encoding)
+-&gt; ToJSON DomainStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DomainStatus] -&gt; Encoding
+$ctoEncodingList :: [DomainStatus] -&gt; Encoding
+toJSONList :: [DomainStatus] -&gt; Value
+$ctoJSONList :: [DomainStatus] -&gt; Value
+toEncoding :: DomainStatus -&gt; Encoding
+$ctoEncoding :: DomainStatus -&gt; Encoding
+toJSON :: DomainStatus -&gt; Value
+$ctoJSON :: DomainStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680300691"><span id="local-6989586621680300693"><span class="annot"><span class="annottext">ToJSONKeyFunction [DomainStatus]
+ToJSONKeyFunction DomainStatus
+ToJSONKeyFunction DomainStatus
+-&gt; ToJSONKeyFunction [DomainStatus] -&gt; ToJSONKey DomainStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DomainStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [DomainStatus]
+toJSONKey :: ToJSONKeyFunction DomainStatus
+$ctoJSONKey :: ToJSONKeyFunction DomainStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680300688"><span class="annot"><span class="annottext">[Node] -&gt; Either String DomainStatus
+([Node] -&gt; Either String DomainStatus) -&gt; FromXML DomainStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DomainStatus
+$cparseXML :: [Node] -&gt; Either String DomainStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680300685"><span class="annot"><span class="annottext">DomainStatus -&gt; XML
+(DomainStatus -&gt; XML) -&gt; ToXML DomainStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DomainStatus -&gt; XML
+$ctoXML :: DomainStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Delete_Failed"><span class="hs-identifier hs-type">DomainStatus_Delete_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDomainStatus_Delete_Failed"><span id="%24mDomainStatus_Delete_Failed"><span id="DomainStatus_Delete_Failed"><span class="annot"><span class="annottext">$bDomainStatus_Delete_Failed :: DomainStatus
+$mDomainStatus_Delete_Failed :: forall r. DomainStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.DomainStatus.html#%24bDomainStatus_Delete_Failed"><span class="hs-identifier hs-var hs-var hs-var">DomainStatus_Delete_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Delete_Failed&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Deleting"><span class="hs-identifier hs-type">DomainStatus_Deleting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDomainStatus_Deleting"><span id="%24mDomainStatus_Deleting"><span id="DomainStatus_Deleting"><span class="annot"><span class="annottext">$bDomainStatus_Deleting :: DomainStatus
+$mDomainStatus_Deleting :: forall r. DomainStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.DomainStatus.html#%24bDomainStatus_Deleting"><span class="hs-identifier hs-var hs-var hs-var">DomainStatus_Deleting</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Deleting&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Failed"><span class="hs-identifier hs-type">DomainStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDomainStatus_Failed"><span id="%24mDomainStatus_Failed"><span id="DomainStatus_Failed"><span class="annot"><span class="annottext">$bDomainStatus_Failed :: DomainStatus
+$mDomainStatus_Failed :: forall r. DomainStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.DomainStatus.html#%24bDomainStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">DomainStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_InService"><span class="hs-identifier hs-type">DomainStatus_InService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDomainStatus_InService"><span id="%24mDomainStatus_InService"><span id="DomainStatus_InService"><span class="annot"><span class="annottext">$bDomainStatus_InService :: DomainStatus
+$mDomainStatus_InService :: forall r. DomainStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.DomainStatus.html#%24bDomainStatus_InService"><span class="hs-identifier hs-var hs-var hs-var">DomainStatus_InService</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InService&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Pending"><span class="hs-identifier hs-type">DomainStatus_Pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDomainStatus_Pending"><span id="%24mDomainStatus_Pending"><span id="DomainStatus_Pending"><span class="annot"><span class="annottext">$bDomainStatus_Pending :: DomainStatus
+$mDomainStatus_Pending :: forall r. DomainStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.DomainStatus.html#%24bDomainStatus_Pending"><span class="hs-identifier hs-var hs-var hs-var">DomainStatus_Pending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Pending&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Update_Failed"><span class="hs-identifier hs-type">DomainStatus_Update_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDomainStatus_Update_Failed"><span id="%24mDomainStatus_Update_Failed"><span id="DomainStatus_Update_Failed"><span class="annot"><span class="annottext">$bDomainStatus_Update_Failed :: DomainStatus
+$mDomainStatus_Update_Failed :: forall r. DomainStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.DomainStatus.html#%24bDomainStatus_Update_Failed"><span class="hs-identifier hs-var hs-var hs-var">DomainStatus_Update_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Update_Failed&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Updating"><span class="hs-identifier hs-type">DomainStatus_Updating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDomainStatus_Updating"><span id="%24mDomainStatus_Updating"><span id="DomainStatus_Updating"><span class="annot"><span class="annottext">$bDomainStatus_Updating :: DomainStatus
+$mDomainStatus_Updating :: forall r. DomainStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.DomainStatus.html#%24bDomainStatus_Updating"><span class="hs-identifier hs-var hs-var hs-var">DomainStatus_Updating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Updating&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Delete_Failed"><span class="hs-pragma hs-type">DomainStatus_Delete_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Deleting"><span class="hs-pragma hs-type">DomainStatus_Deleting</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Failed"><span class="hs-pragma hs-type">DomainStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_InService"><span class="hs-pragma hs-type">DomainStatus_InService</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Pending"><span class="hs-pragma hs-type">DomainStatus_Pending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Update_Failed"><span class="hs-pragma hs-type">DomainStatus_Update_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus_Updating"><span class="hs-pragma hs-type">DomainStatus_Updating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus%27"><span class="hs-pragma hs-type">DomainStatus'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.NetworkCardInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.NetworkCardInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes the network card support of the instance type.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newNetworkCardInfo' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621681093995"><span id="local-6989586621681093996"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkCardInfo"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo"><span class="hs-identifier hs-var">NetworkCardInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkCardInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo%27"><span class="hs-identifier hs-var">NetworkCardInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of network interfaces for the network card.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AmaximumNetworkInterfaces%3ANetworkCardInfo%27"><span class="annot"><span class="annottext">NetworkCardInfo -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#%24sel%3AmaximumNetworkInterfaces%3ANetworkCardInfo%27"><span class="hs-identifier hs-var hs-var">maximumNetworkInterfaces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The index of the network card.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AnetworkCardIndex%3ANetworkCardInfo%27"><span class="annot"><span class="annottext">NetworkCardInfo -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#%24sel%3AnetworkCardIndex%3ANetworkCardInfo%27"><span class="hs-identifier hs-var hs-var">networkCardIndex</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The network performance of the network card.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AnetworkPerformance%3ANetworkCardInfo%27"><span class="annot"><span class="annottext">NetworkCardInfo -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#%24sel%3AnetworkPerformance%3ANetworkCardInfo%27"><span class="hs-identifier hs-var hs-var">networkPerformance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681093987"><span id="local-6989586621681093989"><span class="annot"><span class="annottext">NetworkCardInfo -&gt; NetworkCardInfo -&gt; Bool
+(NetworkCardInfo -&gt; NetworkCardInfo -&gt; Bool)
+-&gt; (NetworkCardInfo -&gt; NetworkCardInfo -&gt; Bool)
+-&gt; Eq NetworkCardInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NetworkCardInfo -&gt; NetworkCardInfo -&gt; Bool
+$c/= :: NetworkCardInfo -&gt; NetworkCardInfo -&gt; Bool
+== :: NetworkCardInfo -&gt; NetworkCardInfo -&gt; Bool
+$c== :: NetworkCardInfo -&gt; NetworkCardInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681093978"><span id="local-6989586621681093980"><span id="local-6989586621681093982"><span id="local-6989586621681093984"><span class="annot"><span class="annottext">ReadPrec [NetworkCardInfo]
+ReadPrec NetworkCardInfo
+Int -&gt; ReadS NetworkCardInfo
+ReadS [NetworkCardInfo]
+(Int -&gt; ReadS NetworkCardInfo)
+-&gt; ReadS [NetworkCardInfo]
+-&gt; ReadPrec NetworkCardInfo
+-&gt; ReadPrec [NetworkCardInfo]
+-&gt; Read NetworkCardInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NetworkCardInfo]
+$creadListPrec :: ReadPrec [NetworkCardInfo]
+readPrec :: ReadPrec NetworkCardInfo
+$creadPrec :: ReadPrec NetworkCardInfo
+readList :: ReadS [NetworkCardInfo]
+$creadList :: ReadS [NetworkCardInfo]
+readsPrec :: Int -&gt; ReadS NetworkCardInfo
+$creadsPrec :: Int -&gt; ReadS NetworkCardInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681093971"><span id="local-6989586621681093973"><span id="local-6989586621681093975"><span class="annot"><span class="annottext">Int -&gt; NetworkCardInfo -&gt; ShowS
+[NetworkCardInfo] -&gt; ShowS
+NetworkCardInfo -&gt; String
+(Int -&gt; NetworkCardInfo -&gt; ShowS)
+-&gt; (NetworkCardInfo -&gt; String)
+-&gt; ([NetworkCardInfo] -&gt; ShowS)
+-&gt; Show NetworkCardInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NetworkCardInfo] -&gt; ShowS
+$cshowList :: [NetworkCardInfo] -&gt; ShowS
+show :: NetworkCardInfo -&gt; String
+$cshow :: NetworkCardInfo -&gt; String
+showsPrec :: Int -&gt; NetworkCardInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; NetworkCardInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. NetworkCardInfo -&gt; Rep NetworkCardInfo x)
+-&gt; (forall x. Rep NetworkCardInfo x -&gt; NetworkCardInfo)
+-&gt; Generic NetworkCardInfo
+forall x. Rep NetworkCardInfo x -&gt; NetworkCardInfo
+forall x. NetworkCardInfo -&gt; Rep NetworkCardInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NetworkCardInfo x -&gt; NetworkCardInfo
+$cfrom :: forall x. NetworkCardInfo -&gt; Rep NetworkCardInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'NetworkCardInfo' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'maximumNetworkInterfaces', 'networkCardInfo_maximumNetworkInterfaces' - The maximum number of network interfaces for the network card.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'networkCardIndex', 'networkCardInfo_networkCardIndex' - The index of the network card.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'networkPerformance', 'networkCardInfo_networkPerformance' - The network performance of the network card.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#newNetworkCardInfo"><span class="hs-identifier hs-type">newNetworkCardInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo"><span class="hs-identifier hs-type">NetworkCardInfo</span></a></span><span>
+</span><span id="line-55"></span><span id="newNetworkCardInfo"><span class="annot"><span class="annottext">newNetworkCardInfo :: NetworkCardInfo
+</span><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#newNetworkCardInfo"><span class="hs-identifier hs-var hs-var">newNetworkCardInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">NetworkCardInfo' :: Maybe Int -&gt; Maybe Int -&gt; Maybe Text -&gt; NetworkCardInfo
+</span><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo%27"><span class="hs-identifier hs-type">NetworkCardInfo'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maximumNetworkInterfaces:NetworkCardInfo' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#%24sel%3AmaximumNetworkInterfaces%3ANetworkCardInfo%27"><span class="hs-identifier hs-var">maximumNetworkInterfaces</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkCardIndex:NetworkCardInfo' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#%24sel%3AnetworkCardIndex%3ANetworkCardInfo%27"><span class="hs-identifier hs-var">networkCardIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkPerformance:NetworkCardInfo' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#%24sel%3AnetworkPerformance%3ANetworkCardInfo%27"><span class="hs-identifier hs-var">networkPerformance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The maximum number of network interfaces for the network card.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#networkCardInfo_maximumNetworkInterfaces"><span class="hs-identifier hs-type">networkCardInfo_maximumNetworkInterfaces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo"><span class="hs-identifier hs-type">NetworkCardInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="networkCardInfo_maximumNetworkInterfaces"><span class="annot"><span class="annottext">networkCardInfo_maximumNetworkInterfaces :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; NetworkCardInfo -&gt; f NetworkCardInfo
+</span><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#networkCardInfo_maximumNetworkInterfaces"><span class="hs-identifier hs-var hs-var">networkCardInfo_maximumNetworkInterfaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkCardInfo -&gt; Maybe Int)
+-&gt; (NetworkCardInfo -&gt; Maybe Int -&gt; NetworkCardInfo)
+-&gt; Lens NetworkCardInfo NetworkCardInfo (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo%27"><span class="hs-identifier hs-type">NetworkCardInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681093962"><span class="annot"><span class="annottext">Maybe Int
+maximumNetworkInterfaces :: Maybe Int
+$sel:maximumNetworkInterfaces:NetworkCardInfo' :: NetworkCardInfo -&gt; Maybe Int
+</span><a href="#local-6989586621681093962"><span class="hs-identifier hs-var hs-var">maximumNetworkInterfaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681093962"><span class="hs-identifier hs-var">maximumNetworkInterfaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681093961"><span class="annot"><span class="annottext">s :: NetworkCardInfo
+</span><a href="#local-6989586621681093961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo%27"><span class="hs-identifier hs-type">NetworkCardInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681093960"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681093960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkCardInfo
+</span><a href="#local-6989586621681093961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumNetworkInterfaces:NetworkCardInfo' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#%24sel%3AmaximumNetworkInterfaces%3ANetworkCardInfo%27"><span class="hs-identifier hs-var">maximumNetworkInterfaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681093960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo"><span class="hs-identifier hs-type">NetworkCardInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The index of the network card.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#networkCardInfo_networkCardIndex"><span class="hs-identifier hs-type">networkCardInfo_networkCardIndex</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo"><span class="hs-identifier hs-type">NetworkCardInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="networkCardInfo_networkCardIndex"><span class="annot"><span class="annottext">networkCardInfo_networkCardIndex :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; NetworkCardInfo -&gt; f NetworkCardInfo
+</span><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#networkCardInfo_networkCardIndex"><span class="hs-identifier hs-var hs-var">networkCardInfo_networkCardIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkCardInfo -&gt; Maybe Int)
+-&gt; (NetworkCardInfo -&gt; Maybe Int -&gt; NetworkCardInfo)
+-&gt; Lens NetworkCardInfo NetworkCardInfo (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo%27"><span class="hs-identifier hs-type">NetworkCardInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681093958"><span class="annot"><span class="annottext">Maybe Int
+networkCardIndex :: Maybe Int
+$sel:networkCardIndex:NetworkCardInfo' :: NetworkCardInfo -&gt; Maybe Int
+</span><a href="#local-6989586621681093958"><span class="hs-identifier hs-var hs-var">networkCardIndex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681093958"><span class="hs-identifier hs-var">networkCardIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681093957"><span class="annot"><span class="annottext">s :: NetworkCardInfo
+</span><a href="#local-6989586621681093957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo%27"><span class="hs-identifier hs-type">NetworkCardInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681093956"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681093956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkCardInfo
+</span><a href="#local-6989586621681093957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkCardIndex:NetworkCardInfo' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#%24sel%3AnetworkCardIndex%3ANetworkCardInfo%27"><span class="hs-identifier hs-var">networkCardIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681093956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo"><span class="hs-identifier hs-type">NetworkCardInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The network performance of the network card.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#networkCardInfo_networkPerformance"><span class="hs-identifier hs-type">networkCardInfo_networkPerformance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo"><span class="hs-identifier hs-type">NetworkCardInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="networkCardInfo_networkPerformance"><span class="annot"><span class="annottext">networkCardInfo_networkPerformance :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkCardInfo -&gt; f NetworkCardInfo
+</span><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#networkCardInfo_networkPerformance"><span class="hs-identifier hs-var hs-var">networkCardInfo_networkPerformance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkCardInfo -&gt; Maybe Text)
+-&gt; (NetworkCardInfo -&gt; Maybe Text -&gt; NetworkCardInfo)
+-&gt; Lens NetworkCardInfo NetworkCardInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo%27"><span class="hs-identifier hs-type">NetworkCardInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681093954"><span class="annot"><span class="annottext">Maybe Text
+networkPerformance :: Maybe Text
+$sel:networkPerformance:NetworkCardInfo' :: NetworkCardInfo -&gt; Maybe Text
+</span><a href="#local-6989586621681093954"><span class="hs-identifier hs-var hs-var">networkPerformance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681093954"><span class="hs-identifier hs-var">networkPerformance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681093953"><span class="annot"><span class="annottext">s :: NetworkCardInfo
+</span><a href="#local-6989586621681093953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo%27"><span class="hs-identifier hs-type">NetworkCardInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681093952"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681093952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkCardInfo
+</span><a href="#local-6989586621681093953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkPerformance:NetworkCardInfo' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#%24sel%3AnetworkPerformance%3ANetworkCardInfo%27"><span class="hs-identifier hs-var">networkPerformance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681093952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo"><span class="hs-identifier hs-type">NetworkCardInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo"><span class="hs-identifier hs-type">NetworkCardInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621681093949"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NetworkCardInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681093947"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681093947"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Int -&gt; Maybe Text -&gt; NetworkCardInfo
+</span><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo%27"><span class="hs-identifier hs-var">NetworkCardInfo'</span></a></span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Int -&gt; Maybe Text -&gt; NetworkCardInfo)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Maybe Int -&gt; Maybe Text -&gt; NetworkCardInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681093947"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maximumNetworkInterfaces&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Maybe Text -&gt; NetworkCardInfo)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Maybe Text -&gt; NetworkCardInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681093947"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkCardIndex&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; NetworkCardInfo)
+-&gt; Either String (Maybe Text) -&gt; Either String NetworkCardInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681093947"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkPerformance&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681093941"><span id="local-6989586621681093943"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo"><span class="hs-identifier hs-type">NetworkCardInfo</span></a></span></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681093938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkCardInfo.html#NetworkCardInfo"><span class="hs-identifier hs-type">NetworkCardInfo</span></a></span></span><span>
+</span><span id="line-85"></span></pre></body></html>

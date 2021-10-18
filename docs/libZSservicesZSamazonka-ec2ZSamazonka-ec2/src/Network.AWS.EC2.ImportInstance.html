@@ -1,0 +1,591 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.ImportInstance</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an import instance task using metadata from the specified disk</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- image.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This API action supports only single-volume VMs. To import multi-volume</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- VMs, use ImportImage instead.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This API action is not supported by the Command Line Interface (CLI).</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- For information about using the Amazon EC2 CLI, which is deprecated, see</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://awsdocs.s3.amazonaws.com/EC2/ec2-clt.pdf#UsingVirtualMachinesinAmazonEC2 Importing a VM to Amazon EC2&gt;</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- in the /Amazon EC2 CLI Reference/ PDF file.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- For information about the import manifest referenced by this API action,</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest&gt;.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.ImportInstance</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier">ImportInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#newImportInstance"><span class="hs-identifier">newImportInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#importInstance_diskImages"><span class="hs-identifier">importInstance_diskImages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#importInstance_dryRun"><span class="hs-identifier">importInstance_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#importInstance_description"><span class="hs-identifier">importInstance_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#importInstance_launchSpecification"><span class="hs-identifier">importInstance_launchSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#importInstance_platform"><span class="hs-identifier">importInstance_platform</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstanceResponse"><span class="hs-identifier">ImportInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#newImportInstanceResponse"><span class="hs-identifier">newImportInstanceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#importInstanceResponse_conversionTask"><span class="hs-identifier">importInstanceResponse_conversionTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#importInstanceResponse_httpStatus"><span class="hs-identifier">importInstanceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newImportInstance' smart constructor.</span><span>
+</span><span id="line-67"></span><span id="local-6989586621681188623"><span id="local-6989586621681188624"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportInstance"><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-var">ImportInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportInstance%27"><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance%27"><span class="hs-identifier hs-var">ImportInstance'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The disk image.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AdiskImages%3AImportInstance%27"><span class="annot"><span class="annottext">ImportInstance -&gt; Maybe [DiskImage]
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3AdiskImages%3AImportInstance%27"><span class="hs-identifier hs-var hs-var">diskImages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImage.html#DiskImage"><span class="hs-identifier hs-type">DiskImage</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AdryRun%3AImportInstance%27"><span class="annot"><span class="annottext">ImportInstance -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3AdryRun%3AImportInstance%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A description for the instance being imported.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Adescription%3AImportInstance%27"><span class="annot"><span class="annottext">ImportInstance -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3Adescription%3AImportInstance%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The launch specification.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AlaunchSpecification%3AImportInstance%27"><span class="annot"><span class="annottext">ImportInstance -&gt; Maybe ImportInstanceLaunchSpecification
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3AlaunchSpecification%3AImportInstance%27"><span class="hs-identifier hs-var hs-var">launchSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceLaunchSpecification.html#ImportInstanceLaunchSpecification"><span class="hs-identifier hs-type">ImportInstanceLaunchSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The instance operating system.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Aplatform%3AImportInstance%27"><span class="annot"><span class="annottext">ImportInstance -&gt; PlatformValues
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3Aplatform%3AImportInstance%27"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlatformValues.html#PlatformValues"><span class="hs-identifier hs-type">PlatformValues</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681188613"><span id="local-6989586621681188615"><span class="annot"><span class="annottext">ImportInstance -&gt; ImportInstance -&gt; Bool
+(ImportInstance -&gt; ImportInstance -&gt; Bool)
+-&gt; (ImportInstance -&gt; ImportInstance -&gt; Bool) -&gt; Eq ImportInstance
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImportInstance -&gt; ImportInstance -&gt; Bool
+$c/= :: ImportInstance -&gt; ImportInstance -&gt; Bool
+== :: ImportInstance -&gt; ImportInstance -&gt; Bool
+$c== :: ImportInstance -&gt; ImportInstance -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681188606"><span id="local-6989586621681188608"><span id="local-6989586621681188610"><span class="annot"><span class="annottext">Int -&gt; ImportInstance -&gt; ShowS
+[ImportInstance] -&gt; ShowS
+ImportInstance -&gt; String
+(Int -&gt; ImportInstance -&gt; ShowS)
+-&gt; (ImportInstance -&gt; String)
+-&gt; ([ImportInstance] -&gt; ShowS)
+-&gt; Show ImportInstance
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImportInstance] -&gt; ShowS
+$cshowList :: [ImportInstance] -&gt; ShowS
+show :: ImportInstance -&gt; String
+$cshow :: ImportInstance -&gt; String
+showsPrec :: Int -&gt; ImportInstance -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImportInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ImportInstance -&gt; Rep ImportInstance x)
+-&gt; (forall x. Rep ImportInstance x -&gt; ImportInstance)
+-&gt; Generic ImportInstance
+forall x. Rep ImportInstance x -&gt; ImportInstance
+forall x. ImportInstance -&gt; Rep ImportInstance x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ImportInstance x -&gt; ImportInstance
+$cfrom :: forall x. ImportInstance -&gt; Rep ImportInstance x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'ImportInstance' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'diskImages', 'importInstance_diskImages' - The disk image.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'dryRun', 'importInstance_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'description', 'importInstance_description' - A description for the instance being imported.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'launchSpecification', 'importInstance_launchSpecification' - The launch specification.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'platform', 'importInstance_platform' - The instance operating system.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#newImportInstance"><span class="hs-identifier hs-type">newImportInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'platform'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.PlatformValues.html#PlatformValues"><span class="hs-identifier hs-type">PlatformValues</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span><span>
+</span><span id="line-108"></span><span id="newImportInstance"><span class="annot"><span class="annottext">newImportInstance :: PlatformValues -&gt; ImportInstance
+</span><a href="Network.AWS.EC2.ImportInstance.html#newImportInstance"><span class="hs-identifier hs-var hs-var">newImportInstance</span></a></span></span><span> </span><span id="local-6989586621681188601"><span class="annot"><span class="annottext">PlatformValues
+</span><a href="#local-6989586621681188601"><span class="hs-identifier hs-var">pPlatform_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">ImportInstance' :: Maybe [DiskImage]
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe ImportInstanceLaunchSpecification
+-&gt; PlatformValues
+-&gt; ImportInstance
+</span><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance%27"><span class="hs-identifier hs-type">ImportInstance'</span></a></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:diskImages:ImportInstance' :: Maybe [DiskImage]
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3AdiskImages%3AImportInstance%27"><span class="hs-identifier hs-var">diskImages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DiskImage]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:ImportInstance' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3AdryRun%3AImportInstance%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ImportInstance' :: Maybe Text
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3Adescription%3AImportInstance%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchSpecification:ImportInstance' :: Maybe ImportInstanceLaunchSpecification
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3AlaunchSpecification%3AImportInstance%27"><span class="hs-identifier hs-var">launchSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImportInstanceLaunchSpecification
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:platform:ImportInstance' :: PlatformValues
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3Aplatform%3AImportInstance%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PlatformValues
+</span><a href="#local-6989586621681188601"><span class="hs-identifier hs-var">pPlatform_</span></a></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The disk image.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#importInstance_diskImages"><span class="hs-identifier hs-type">importInstance_diskImages</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImage.html#DiskImage"><span class="hs-identifier hs-type">DiskImage</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="importInstance_diskImages"><span class="annot"><span class="annottext">importInstance_diskImages :: (Maybe [DiskImage] -&gt; f (Maybe [DiskImage]))
+-&gt; ImportInstance -&gt; f ImportInstance
+</span><a href="Network.AWS.EC2.ImportInstance.html#importInstance_diskImages"><span class="hs-identifier hs-var hs-var">importInstance_diskImages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstance -&gt; Maybe [DiskImage])
+-&gt; (ImportInstance -&gt; Maybe [DiskImage] -&gt; ImportInstance)
+-&gt; Lens
+     ImportInstance
+     ImportInstance
+     (Maybe [DiskImage])
+     (Maybe [DiskImage])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance%27"><span class="hs-identifier hs-type">ImportInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188598"><span class="annot"><span class="annottext">Maybe [DiskImage]
+diskImages :: Maybe [DiskImage]
+$sel:diskImages:ImportInstance' :: ImportInstance -&gt; Maybe [DiskImage]
+</span><a href="#local-6989586621681188598"><span class="hs-identifier hs-var hs-var">diskImages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DiskImage]
+</span><a href="#local-6989586621681188598"><span class="hs-identifier hs-var">diskImages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681188597"><span class="annot"><span class="annottext">s :: ImportInstance
+</span><a href="#local-6989586621681188597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance%27"><span class="hs-identifier hs-type">ImportInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681188596"><span class="annot"><span class="annottext">Maybe [DiskImage]
+</span><a href="#local-6989586621681188596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstance
+</span><a href="#local-6989586621681188597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskImages:ImportInstance' :: Maybe [DiskImage]
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3AdiskImages%3AImportInstance%27"><span class="hs-identifier hs-var">diskImages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DiskImage]
+</span><a href="#local-6989586621681188596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DiskImage] -&gt; f (Maybe [DiskImage]))
+ -&gt; ImportInstance -&gt; f ImportInstance)
+-&gt; ((Maybe [DiskImage] -&gt; f (Maybe [DiskImage]))
+    -&gt; Maybe [DiskImage] -&gt; f (Maybe [DiskImage]))
+-&gt; (Maybe [DiskImage] -&gt; f (Maybe [DiskImage]))
+-&gt; ImportInstance
+-&gt; f ImportInstance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DiskImage] [DiskImage] [DiskImage] [DiskImage]
+-&gt; Iso
+     (Maybe [DiskImage])
+     (Maybe [DiskImage])
+     (Maybe [DiskImage])
+     (Maybe [DiskImage])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DiskImage] [DiskImage] [DiskImage] [DiskImage]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#importInstance_dryRun"><span class="hs-identifier hs-type">importInstance_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="importInstance_dryRun"><span class="annot"><span class="annottext">importInstance_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ImportInstance -&gt; f ImportInstance
+</span><a href="Network.AWS.EC2.ImportInstance.html#importInstance_dryRun"><span class="hs-identifier hs-var hs-var">importInstance_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstance -&gt; Maybe Bool)
+-&gt; (ImportInstance -&gt; Maybe Bool -&gt; ImportInstance)
+-&gt; Lens ImportInstance ImportInstance (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance%27"><span class="hs-identifier hs-type">ImportInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188592"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ImportInstance' :: ImportInstance -&gt; Maybe Bool
+</span><a href="#local-6989586621681188592"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681188592"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681188591"><span class="annot"><span class="annottext">s :: ImportInstance
+</span><a href="#local-6989586621681188591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance%27"><span class="hs-identifier hs-type">ImportInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681188590"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681188590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstance
+</span><a href="#local-6989586621681188591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ImportInstance' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3AdryRun%3AImportInstance%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681188590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | A description for the instance being imported.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#importInstance_description"><span class="hs-identifier hs-type">importInstance_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="importInstance_description"><span class="annot"><span class="annottext">importInstance_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportInstance -&gt; f ImportInstance
+</span><a href="Network.AWS.EC2.ImportInstance.html#importInstance_description"><span class="hs-identifier hs-var hs-var">importInstance_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstance -&gt; Maybe Text)
+-&gt; (ImportInstance -&gt; Maybe Text -&gt; ImportInstance)
+-&gt; Lens ImportInstance ImportInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance%27"><span class="hs-identifier hs-type">ImportInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188589"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ImportInstance' :: ImportInstance -&gt; Maybe Text
+</span><a href="#local-6989586621681188589"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681188589"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681188588"><span class="annot"><span class="annottext">s :: ImportInstance
+</span><a href="#local-6989586621681188588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance%27"><span class="hs-identifier hs-type">ImportInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681188587"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681188587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstance
+</span><a href="#local-6989586621681188588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ImportInstance' :: Maybe Text
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3Adescription%3AImportInstance%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681188587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The launch specification.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#importInstance_launchSpecification"><span class="hs-identifier hs-type">importInstance_launchSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceLaunchSpecification.html#ImportInstanceLaunchSpecification"><span class="hs-identifier hs-type">ImportInstanceLaunchSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="importInstance_launchSpecification"><span class="annot"><span class="annottext">importInstance_launchSpecification :: (Maybe ImportInstanceLaunchSpecification
+ -&gt; f (Maybe ImportInstanceLaunchSpecification))
+-&gt; ImportInstance -&gt; f ImportInstance
+</span><a href="Network.AWS.EC2.ImportInstance.html#importInstance_launchSpecification"><span class="hs-identifier hs-var hs-var">importInstance_launchSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstance -&gt; Maybe ImportInstanceLaunchSpecification)
+-&gt; (ImportInstance
+    -&gt; Maybe ImportInstanceLaunchSpecification -&gt; ImportInstance)
+-&gt; Lens
+     ImportInstance
+     ImportInstance
+     (Maybe ImportInstanceLaunchSpecification)
+     (Maybe ImportInstanceLaunchSpecification)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance%27"><span class="hs-identifier hs-type">ImportInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188586"><span class="annot"><span class="annottext">Maybe ImportInstanceLaunchSpecification
+launchSpecification :: Maybe ImportInstanceLaunchSpecification
+$sel:launchSpecification:ImportInstance' :: ImportInstance -&gt; Maybe ImportInstanceLaunchSpecification
+</span><a href="#local-6989586621681188586"><span class="hs-identifier hs-var hs-var">launchSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImportInstanceLaunchSpecification
+</span><a href="#local-6989586621681188586"><span class="hs-identifier hs-var">launchSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681188585"><span class="annot"><span class="annottext">s :: ImportInstance
+</span><a href="#local-6989586621681188585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance%27"><span class="hs-identifier hs-type">ImportInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681188584"><span class="annot"><span class="annottext">Maybe ImportInstanceLaunchSpecification
+</span><a href="#local-6989586621681188584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstance
+</span><a href="#local-6989586621681188585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchSpecification:ImportInstance' :: Maybe ImportInstanceLaunchSpecification
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3AlaunchSpecification%3AImportInstance%27"><span class="hs-identifier hs-var">launchSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImportInstanceLaunchSpecification
+</span><a href="#local-6989586621681188584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The instance operating system.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#importInstance_platform"><span class="hs-identifier hs-type">importInstance_platform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlatformValues.html#PlatformValues"><span class="hs-identifier hs-type">PlatformValues</span></a></span><span>
+</span><span id="line-138"></span><span id="importInstance_platform"><span class="annot"><span class="annottext">importInstance_platform :: (PlatformValues -&gt; f PlatformValues)
+-&gt; ImportInstance -&gt; f ImportInstance
+</span><a href="Network.AWS.EC2.ImportInstance.html#importInstance_platform"><span class="hs-identifier hs-var hs-var">importInstance_platform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstance -&gt; PlatformValues)
+-&gt; (ImportInstance -&gt; PlatformValues -&gt; ImportInstance)
+-&gt; Lens ImportInstance ImportInstance PlatformValues PlatformValues
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance%27"><span class="hs-identifier hs-type">ImportInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188583"><span class="annot"><span class="annottext">PlatformValues
+platform :: PlatformValues
+$sel:platform:ImportInstance' :: ImportInstance -&gt; PlatformValues
+</span><a href="#local-6989586621681188583"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlatformValues
+</span><a href="#local-6989586621681188583"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681188582"><span class="annot"><span class="annottext">s :: ImportInstance
+</span><a href="#local-6989586621681188582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance%27"><span class="hs-identifier hs-type">ImportInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681188581"><span class="annot"><span class="annottext">PlatformValues
+</span><a href="#local-6989586621681188581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstance
+</span><a href="#local-6989586621681188582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platform:ImportInstance' :: PlatformValues
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3Aplatform%3AImportInstance%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PlatformValues
+</span><a href="#local-6989586621681188581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-142"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstanceResponse"><span class="hs-identifier hs-type">ImportInstanceResponse</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621681188577"><span class="annot"><span class="annottext">request :: ImportInstance -&gt; Request ImportInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ImportInstance -&gt; Request ImportInstance
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621681188573"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ImportInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ImportInstance)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse ImportInstance))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ImportInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ImportInstance)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681188570"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681188570"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681188569"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681188569"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681188568"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681188568"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConversionTask -&gt; Int -&gt; ImportInstanceResponse
+</span><a href="Network.AWS.EC2.ImportInstance.html#ImportInstanceResponse%27"><span class="hs-identifier hs-var">ImportInstanceResponse'</span></a></span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ConversionTask -&gt; Int -&gt; ImportInstanceResponse)
+-&gt; Either String (Maybe ConversionTask)
+-&gt; Either String (Int -&gt; ImportInstanceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681188568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ConversionTask)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;conversionTask&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ImportInstanceResponse)
+-&gt; Either String Int -&gt; Either String ImportInstanceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681188570"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681188560"><span id="local-6989586621681188562"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681188557"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621681188553"><span class="annot"><span class="annottext">toHeaders :: ImportInstance -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ImportInstance -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621681188548"><span class="annot"><span class="annottext">toPath :: ImportInstance -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ImportInstance -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance"><span class="hs-identifier hs-type">ImportInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621681188544"><span class="annot"><span class="annottext">toQuery :: ImportInstance -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstance%27"><span class="hs-identifier hs-type">ImportInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188538"><span id="local-6989586621681188539"><span id="local-6989586621681188540"><span id="local-6989586621681188541"><span id="local-6989586621681188542"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [DiskImage]
+Maybe Text
+Maybe ImportInstanceLaunchSpecification
+PlatformValues
+platform :: PlatformValues
+launchSpecification :: Maybe ImportInstanceLaunchSpecification
+description :: Maybe Text
+dryRun :: Maybe Bool
+diskImages :: Maybe [DiskImage]
+$sel:platform:ImportInstance' :: ImportInstance -&gt; PlatformValues
+$sel:launchSpecification:ImportInstance' :: ImportInstance -&gt; Maybe ImportInstanceLaunchSpecification
+$sel:description:ImportInstance' :: ImportInstance -&gt; Maybe Text
+$sel:dryRun:ImportInstance' :: ImportInstance -&gt; Maybe Bool
+$sel:diskImages:ImportInstance' :: ImportInstance -&gt; Maybe [DiskImage]
+</span><a href="#local-6989586621681188538"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ImportInstance&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [DiskImage] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DiskImage&quot;</span></span><span>
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">([DiskImage] -&gt; QueryString)
+-&gt; Maybe [DiskImage] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DiskImage]
+</span><a href="#local-6989586621681188542"><span class="hs-identifier hs-var">diskImages</span></a></span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681188541"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681188540"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LaunchSpecification&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+-&gt; Maybe ImportInstanceLaunchSpecification -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ImportInstanceLaunchSpecification
+</span><a href="#local-6989586621681188539"><span class="hs-identifier hs-var">launchSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Platform&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PlatformValues -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">PlatformValues
+</span><a href="#local-6989586621681188538"><span class="hs-identifier hs-var">platform</span></a></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | /See:/ 'newImportInstanceResponse' smart constructor.</span><span>
+</span><span id="line-181"></span><span id="local-6989586621681188534"><span id="local-6989586621681188535"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportInstanceResponse"><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstanceResponse"><span class="hs-identifier hs-var">ImportInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportInstanceResponse%27"><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstanceResponse%27"><span class="hs-identifier hs-var">ImportInstanceResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the conversion task.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3AconversionTask%3AImportInstanceResponse%27"><span class="annot"><span class="annottext">ImportInstanceResponse -&gt; Maybe ConversionTask
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3AconversionTask%3AImportInstanceResponse%27"><span class="hs-identifier hs-var hs-var">conversionTask</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AhttpStatus%3AImportInstanceResponse%27"><span class="annot"><span class="annottext">ImportInstanceResponse -&gt; Int
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3AhttpStatus%3AImportInstanceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681188528"><span id="local-6989586621681188530"><span class="annot"><span class="annottext">ImportInstanceResponse -&gt; ImportInstanceResponse -&gt; Bool
+(ImportInstanceResponse -&gt; ImportInstanceResponse -&gt; Bool)
+-&gt; (ImportInstanceResponse -&gt; ImportInstanceResponse -&gt; Bool)
+-&gt; Eq ImportInstanceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImportInstanceResponse -&gt; ImportInstanceResponse -&gt; Bool
+$c/= :: ImportInstanceResponse -&gt; ImportInstanceResponse -&gt; Bool
+== :: ImportInstanceResponse -&gt; ImportInstanceResponse -&gt; Bool
+$c== :: ImportInstanceResponse -&gt; ImportInstanceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681188520"><span id="local-6989586621681188522"><span id="local-6989586621681188524"><span id="local-6989586621681188526"><span class="annot"><span class="annottext">ReadPrec [ImportInstanceResponse]
+ReadPrec ImportInstanceResponse
+Int -&gt; ReadS ImportInstanceResponse
+ReadS [ImportInstanceResponse]
+(Int -&gt; ReadS ImportInstanceResponse)
+-&gt; ReadS [ImportInstanceResponse]
+-&gt; ReadPrec ImportInstanceResponse
+-&gt; ReadPrec [ImportInstanceResponse]
+-&gt; Read ImportInstanceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImportInstanceResponse]
+$creadListPrec :: ReadPrec [ImportInstanceResponse]
+readPrec :: ReadPrec ImportInstanceResponse
+$creadPrec :: ReadPrec ImportInstanceResponse
+readList :: ReadS [ImportInstanceResponse]
+$creadList :: ReadS [ImportInstanceResponse]
+readsPrec :: Int -&gt; ReadS ImportInstanceResponse
+$creadsPrec :: Int -&gt; ReadS ImportInstanceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681188513"><span id="local-6989586621681188515"><span id="local-6989586621681188517"><span class="annot"><span class="annottext">Int -&gt; ImportInstanceResponse -&gt; ShowS
+[ImportInstanceResponse] -&gt; ShowS
+ImportInstanceResponse -&gt; String
+(Int -&gt; ImportInstanceResponse -&gt; ShowS)
+-&gt; (ImportInstanceResponse -&gt; String)
+-&gt; ([ImportInstanceResponse] -&gt; ShowS)
+-&gt; Show ImportInstanceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImportInstanceResponse] -&gt; ShowS
+$cshowList :: [ImportInstanceResponse] -&gt; ShowS
+show :: ImportInstanceResponse -&gt; String
+$cshow :: ImportInstanceResponse -&gt; String
+showsPrec :: Int -&gt; ImportInstanceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImportInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ImportInstanceResponse -&gt; Rep ImportInstanceResponse x)
+-&gt; (forall x.
+    Rep ImportInstanceResponse x -&gt; ImportInstanceResponse)
+-&gt; Generic ImportInstanceResponse
+forall x. Rep ImportInstanceResponse x -&gt; ImportInstanceResponse
+forall x. ImportInstanceResponse -&gt; Rep ImportInstanceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ImportInstanceResponse x -&gt; ImportInstanceResponse
+$cfrom :: forall x. ImportInstanceResponse -&gt; Rep ImportInstanceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Create a value of 'ImportInstanceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'conversionTask', 'importInstanceResponse_conversionTask' - Information about the conversion task.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'httpStatus', 'importInstanceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#newImportInstanceResponse"><span class="hs-identifier hs-type">newImportInstanceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstanceResponse"><span class="hs-identifier hs-type">ImportInstanceResponse</span></a></span><span>
+</span><span id="line-204"></span><span id="newImportInstanceResponse"><span class="annot"><span class="annottext">newImportInstanceResponse :: Int -&gt; ImportInstanceResponse
+</span><a href="Network.AWS.EC2.ImportInstance.html#newImportInstanceResponse"><span class="hs-identifier hs-var hs-var">newImportInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621681188510"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681188510"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><span class="annottext">ImportInstanceResponse' :: Maybe ConversionTask -&gt; Int -&gt; ImportInstanceResponse
+</span><a href="Network.AWS.EC2.ImportInstance.html#ImportInstanceResponse%27"><span class="hs-identifier hs-type">ImportInstanceResponse'</span></a></span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:conversionTask:ImportInstanceResponse' :: Maybe ConversionTask
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3AconversionTask%3AImportInstanceResponse%27"><span class="hs-identifier hs-var">conversionTask</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">Maybe ConversionTask
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ImportInstanceResponse' :: Int
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3AhttpStatus%3AImportInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681188510"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | Information about the conversion task.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#importInstanceResponse_conversionTask"><span class="hs-identifier hs-type">importInstanceResponse_conversionTask</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstanceResponse"><span class="hs-identifier hs-type">ImportInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="importInstanceResponse_conversionTask"><span class="annot"><span class="annottext">importInstanceResponse_conversionTask :: (Maybe ConversionTask -&gt; f (Maybe ConversionTask))
+-&gt; ImportInstanceResponse -&gt; f ImportInstanceResponse
+</span><a href="Network.AWS.EC2.ImportInstance.html#importInstanceResponse_conversionTask"><span class="hs-identifier hs-var hs-var">importInstanceResponse_conversionTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstanceResponse -&gt; Maybe ConversionTask)
+-&gt; (ImportInstanceResponse
+    -&gt; Maybe ConversionTask -&gt; ImportInstanceResponse)
+-&gt; Lens
+     ImportInstanceResponse
+     ImportInstanceResponse
+     (Maybe ConversionTask)
+     (Maybe ConversionTask)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstanceResponse%27"><span class="hs-identifier hs-type">ImportInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188509"><span class="annot"><span class="annottext">Maybe ConversionTask
+conversionTask :: Maybe ConversionTask
+$sel:conversionTask:ImportInstanceResponse' :: ImportInstanceResponse -&gt; Maybe ConversionTask
+</span><a href="#local-6989586621681188509"><span class="hs-identifier hs-var hs-var">conversionTask</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConversionTask
+</span><a href="#local-6989586621681188509"><span class="hs-identifier hs-var">conversionTask</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681188508"><span class="annot"><span class="annottext">s :: ImportInstanceResponse
+</span><a href="#local-6989586621681188508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstanceResponse%27"><span class="hs-identifier hs-type">ImportInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681188507"><span class="annot"><span class="annottext">Maybe ConversionTask
+</span><a href="#local-6989586621681188507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceResponse
+</span><a href="#local-6989586621681188508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conversionTask:ImportInstanceResponse' :: Maybe ConversionTask
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3AconversionTask%3AImportInstanceResponse%27"><span class="hs-identifier hs-var">conversionTask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConversionTask
+</span><a href="#local-6989586621681188507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstanceResponse"><span class="hs-identifier hs-type">ImportInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#importInstanceResponse_httpStatus"><span class="hs-identifier hs-type">importInstanceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstanceResponse"><span class="hs-identifier hs-type">ImportInstanceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span id="importInstanceResponse_httpStatus"><span class="annot"><span class="annottext">importInstanceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ImportInstanceResponse -&gt; f ImportInstanceResponse
+</span><a href="Network.AWS.EC2.ImportInstance.html#importInstanceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">importInstanceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstanceResponse -&gt; Int)
+-&gt; (ImportInstanceResponse -&gt; Int -&gt; ImportInstanceResponse)
+-&gt; Lens ImportInstanceResponse ImportInstanceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstanceResponse%27"><span class="hs-identifier hs-type">ImportInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188506"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ImportInstanceResponse' :: ImportInstanceResponse -&gt; Int
+</span><a href="#local-6989586621681188506"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681188506"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681188505"><span class="annot"><span class="annottext">s :: ImportInstanceResponse
+</span><a href="#local-6989586621681188505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstanceResponse%27"><span class="hs-identifier hs-type">ImportInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681188504"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681188504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceResponse
+</span><a href="#local-6989586621681188505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ImportInstanceResponse' :: Int
+</span><a href="Network.AWS.EC2.ImportInstance.html#%24sel%3AhttpStatus%3AImportInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681188504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstanceResponse"><span class="hs-identifier hs-type">ImportInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681188502"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportInstance.html#ImportInstanceResponse"><span class="hs-identifier hs-type">ImportInstanceResponse</span></a></span></span><span>
+</span><span id="line-220"></span></pre></body></html>

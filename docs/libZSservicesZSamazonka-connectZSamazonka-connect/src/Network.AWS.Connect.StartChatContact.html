@@ -1,0 +1,833 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Connect.StartChatContact</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Initiates a contact flow to start a new chat for the customer. Response</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- of this API provides a token required to obtain credentials from the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html CreateParticipantConnection&gt;</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- API in the Amazon Connect Participant Service.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- When a new chat contact is successfully created, clients must subscribe</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- to the participant&#8217;s connection for the created chat within 5 minutes.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- This is achieved by invoking</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html CreateParticipantConnection&gt;</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- with WEBSOCKET and CONNECTION_CREDENTIALS.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- A 429 error occurs in two situations:</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   API rate limit is exceeded. API TPS throttling returns a</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     @TooManyRequests@ exception.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- -   The</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html quota for concurrent active chats&gt;</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     is exceeded. Active chat throttling returns a</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     @LimitExceededException@.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- For more information about chat, see</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect/latest/adminguide/chat.html Chat&gt;</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- in the /Amazon Connect Administrator Guide/.</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Connect.StartChatContact</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier">StartChatContact</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#newStartChatContact"><span class="hs-identifier">newStartChatContact</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_initialMessage"><span class="hs-identifier">startChatContact_initialMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_attributes"><span class="hs-identifier">startChatContact_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_clientToken"><span class="hs-identifier">startChatContact_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_instanceId"><span class="hs-identifier">startChatContact_instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_contactFlowId"><span class="hs-identifier">startChatContact_contactFlowId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_participantDetails"><span class="hs-identifier">startChatContact_participantDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse"><span class="hs-identifier">StartChatContactResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#newStartChatContactResponse"><span class="hs-identifier">newStartChatContactResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContactResponse_participantToken"><span class="hs-identifier">startChatContactResponse_participantToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContactResponse_contactId"><span class="hs-identifier">startChatContactResponse_contactId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContactResponse_participantId"><span class="hs-identifier">startChatContactResponse_participantId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContactResponse_httpStatus"><span class="hs-identifier">startChatContactResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.html"><span class="hs-identifier">Network.AWS.Connect.Types</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | /See:/ 'newStartChatContact' smart constructor.</span><span>
+</span><span id="line-80"></span><span id="local-6989586621679410591"><span id="local-6989586621679410592"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartChatContact"><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-var">StartChatContact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartChatContact%27"><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact%27"><span class="hs-identifier hs-var">StartChatContact'</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The initial message to be sent to the newly created chat.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AinitialMessage%3AStartChatContact%27"><span class="annot"><span class="annottext">StartChatContact -&gt; Maybe ChatMessage
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AinitialMessage%3AStartChatContact%27"><span class="hs-identifier hs-var hs-var">initialMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage"><span class="hs-identifier hs-type">ChatMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | A custom key-value pair using an attribute map. The attributes are</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- standard Amazon Connect attributes. They can be accessed in contact</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- flows just like any other contact attributes.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- There can be up to 32,768 UTF-8 bytes across all key-value pairs per</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- contact. Attribute keys can include only alphanumeric, dash, and</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- underscore characters.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3Aattributes%3AStartChatContact%27"><span class="annot"><span class="annottext">StartChatContact -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3Aattributes%3AStartChatContact%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AclientToken%3AStartChatContact%27"><span class="annot"><span class="annottext">StartChatContact -&gt; Maybe Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AclientToken%3AStartChatContact%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AinstanceId%3AStartChatContact%27"><span class="annot"><span class="annottext">StartChatContact -&gt; Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AinstanceId%3AStartChatContact%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The identifier of the contact flow for initiating the chat. To see the</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- ContactFlowId in the Amazon Connect console user interface, on the</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- navigation menu go to __Routing__, __Contact Flows__. Choose the contact</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- flow. On the contact flow page, under the name of the contact flow,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- choose __Show additional flow information__. The ContactFlowId is the</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- last part of the ARN, shown here in bold:</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance\/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\/contact-flow\/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AcontactFlowId%3AStartChatContact%27"><span class="annot"><span class="annottext">StartChatContact -&gt; Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AcontactFlowId%3AStartChatContact%27"><span class="hs-identifier hs-var hs-var">contactFlowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | Information identifying the participant.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AparticipantDetails%3AStartChatContact%27"><span class="annot"><span class="annottext">StartChatContact -&gt; ParticipantDetails
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AparticipantDetails%3AStartChatContact%27"><span class="hs-identifier hs-var hs-var">participantDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ParticipantDetails.html#ParticipantDetails"><span class="hs-identifier hs-type">ParticipantDetails</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679410580"><span id="local-6989586621679410582"><span class="annot"><span class="annottext">StartChatContact -&gt; StartChatContact -&gt; Bool
+(StartChatContact -&gt; StartChatContact -&gt; Bool)
+-&gt; (StartChatContact -&gt; StartChatContact -&gt; Bool)
+-&gt; Eq StartChatContact
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartChatContact -&gt; StartChatContact -&gt; Bool
+$c/= :: StartChatContact -&gt; StartChatContact -&gt; Bool
+== :: StartChatContact -&gt; StartChatContact -&gt; Bool
+$c== :: StartChatContact -&gt; StartChatContact -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410571"><span id="local-6989586621679410573"><span id="local-6989586621679410575"><span id="local-6989586621679410577"><span class="annot"><span class="annottext">ReadPrec [StartChatContact]
+ReadPrec StartChatContact
+Int -&gt; ReadS StartChatContact
+ReadS [StartChatContact]
+(Int -&gt; ReadS StartChatContact)
+-&gt; ReadS [StartChatContact]
+-&gt; ReadPrec StartChatContact
+-&gt; ReadPrec [StartChatContact]
+-&gt; Read StartChatContact
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartChatContact]
+$creadListPrec :: ReadPrec [StartChatContact]
+readPrec :: ReadPrec StartChatContact
+$creadPrec :: ReadPrec StartChatContact
+readList :: ReadS [StartChatContact]
+$creadList :: ReadS [StartChatContact]
+readsPrec :: Int -&gt; ReadS StartChatContact
+$creadsPrec :: Int -&gt; ReadS StartChatContact
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410564"><span id="local-6989586621679410566"><span id="local-6989586621679410568"><span class="annot"><span class="annottext">Int -&gt; StartChatContact -&gt; ShowS
+[StartChatContact] -&gt; ShowS
+StartChatContact -&gt; String
+(Int -&gt; StartChatContact -&gt; ShowS)
+-&gt; (StartChatContact -&gt; String)
+-&gt; ([StartChatContact] -&gt; ShowS)
+-&gt; Show StartChatContact
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartChatContact] -&gt; ShowS
+$cshowList :: [StartChatContact] -&gt; ShowS
+show :: StartChatContact -&gt; String
+$cshow :: StartChatContact -&gt; String
+showsPrec :: Int -&gt; StartChatContact -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartChatContact -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartChatContact -&gt; Rep StartChatContact x)
+-&gt; (forall x. Rep StartChatContact x -&gt; StartChatContact)
+-&gt; Generic StartChatContact
+forall x. Rep StartChatContact x -&gt; StartChatContact
+forall x. StartChatContact -&gt; Rep StartChatContact x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartChatContact x -&gt; StartChatContact
+$cfrom :: forall x. StartChatContact -&gt; Rep StartChatContact x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Create a value of 'StartChatContact' with all optional fields omitted.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'initialMessage', 'startChatContact_initialMessage' - The initial message to be sent to the newly created chat.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'attributes', 'startChatContact_attributes' - A custom key-value pair using an attribute map. The attributes are</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- standard Amazon Connect attributes. They can be accessed in contact</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- flows just like any other contact attributes.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- There can be up to 32,768 UTF-8 bytes across all key-value pairs per</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- contact. Attribute keys can include only alphanumeric, dash, and</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- underscore characters.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'clientToken', 'startChatContact_clientToken' - A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'instanceId', 'startChatContact_instanceId' - The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'contactFlowId', 'startChatContact_contactFlowId' - The identifier of the contact flow for initiating the chat. To see the</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- ContactFlowId in the Amazon Connect console user interface, on the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- navigation menu go to __Routing__, __Contact Flows__. Choose the contact</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- flow. On the contact flow page, under the name of the contact flow,</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- choose __Show additional flow information__. The ContactFlowId is the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- last part of the ARN, shown here in bold:</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance\/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\/contact-flow\/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'participantDetails', 'startChatContact_participantDetails' - Information identifying the participant.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#newStartChatContact"><span class="hs-identifier hs-type">newStartChatContact</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'instanceId'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-comment">-- | 'contactFlowId'</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-comment">-- | 'participantDetails'</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.ParticipantDetails.html#ParticipantDetails"><span class="hs-identifier hs-type">ParticipantDetails</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span>
+</span><span id="line-153"></span><span id="newStartChatContact"><span class="annot"><span class="annottext">newStartChatContact :: Text -&gt; Text -&gt; ParticipantDetails -&gt; StartChatContact
+</span><a href="Network.AWS.Connect.StartChatContact.html#newStartChatContact"><span class="hs-identifier hs-var hs-var">newStartChatContact</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679410559"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410559"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679410558"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410558"><span class="hs-identifier hs-var">pContactFlowId_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679410557"><span class="annot"><span class="annottext">ParticipantDetails
+</span><a href="#local-6989586621679410557"><span class="hs-identifier hs-var">pParticipantDetails_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">StartChatContact' :: Maybe ChatMessage
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; ParticipantDetails
+-&gt; StartChatContact
+</span><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact%27"><span class="hs-identifier hs-type">StartChatContact'</span></a></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:initialMessage:StartChatContact' :: Maybe ChatMessage
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AinitialMessage%3AStartChatContact%27"><span class="hs-identifier hs-var">initialMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChatMessage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">$sel:attributes:StartChatContact' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3Aattributes%3AStartChatContact%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientToken:StartChatContact' :: Maybe Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AclientToken%3AStartChatContact%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceId:StartChatContact' :: Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AinstanceId%3AStartChatContact%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410559"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:contactFlowId:StartChatContact' :: Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AcontactFlowId%3AStartChatContact%27"><span class="hs-identifier hs-var">contactFlowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410558"><span class="hs-identifier hs-var">pContactFlowId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:participantDetails:StartChatContact' :: ParticipantDetails
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AparticipantDetails%3AStartChatContact%27"><span class="hs-identifier hs-var">participantDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ParticipantDetails
+</span><a href="#local-6989586621679410557"><span class="hs-identifier hs-var">pParticipantDetails_</span></a></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The initial message to be sent to the newly created chat.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_initialMessage"><span class="hs-identifier hs-type">startChatContact_initialMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage"><span class="hs-identifier hs-type">ChatMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="startChatContact_initialMessage"><span class="annot"><span class="annottext">startChatContact_initialMessage :: (Maybe ChatMessage -&gt; f (Maybe ChatMessage))
+-&gt; StartChatContact -&gt; f StartChatContact
+</span><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_initialMessage"><span class="hs-identifier hs-var hs-var">startChatContact_initialMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartChatContact -&gt; Maybe ChatMessage)
+-&gt; (StartChatContact -&gt; Maybe ChatMessage -&gt; StartChatContact)
+-&gt; Lens
+     StartChatContact
+     StartChatContact
+     (Maybe ChatMessage)
+     (Maybe ChatMessage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact%27"><span class="hs-identifier hs-type">StartChatContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410554"><span class="annot"><span class="annottext">Maybe ChatMessage
+initialMessage :: Maybe ChatMessage
+$sel:initialMessage:StartChatContact' :: StartChatContact -&gt; Maybe ChatMessage
+</span><a href="#local-6989586621679410554"><span class="hs-identifier hs-var hs-var">initialMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChatMessage
+</span><a href="#local-6989586621679410554"><span class="hs-identifier hs-var">initialMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410553"><span class="annot"><span class="annottext">s :: StartChatContact
+</span><a href="#local-6989586621679410553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact%27"><span class="hs-identifier hs-type">StartChatContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410552"><span class="annot"><span class="annottext">Maybe ChatMessage
+</span><a href="#local-6989586621679410552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartChatContact
+</span><a href="#local-6989586621679410553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initialMessage:StartChatContact' :: Maybe ChatMessage
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AinitialMessage%3AStartChatContact%27"><span class="hs-identifier hs-var">initialMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChatMessage
+</span><a href="#local-6989586621679410552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | A custom key-value pair using an attribute map. The attributes are</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- standard Amazon Connect attributes. They can be accessed in contact</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- flows just like any other contact attributes.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- There can be up to 32,768 UTF-8 bytes across all key-value pairs per</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- contact. Attribute keys can include only alphanumeric, dash, and</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- underscore characters.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_attributes"><span class="hs-identifier hs-type">startChatContact_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="startChatContact_attributes"><span class="annot"><span class="annottext">startChatContact_attributes :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; StartChatContact -&gt; f StartChatContact
+</span><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_attributes"><span class="hs-identifier hs-var hs-var">startChatContact_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartChatContact -&gt; Maybe (HashMap Text Text))
+-&gt; (StartChatContact
+    -&gt; Maybe (HashMap Text Text) -&gt; StartChatContact)
+-&gt; Lens
+     StartChatContact
+     StartChatContact
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact%27"><span class="hs-identifier hs-type">StartChatContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410551"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+attributes :: Maybe (HashMap Text Text)
+$sel:attributes:StartChatContact' :: StartChatContact -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679410551"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679410551"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410550"><span class="annot"><span class="annottext">s :: StartChatContact
+</span><a href="#local-6989586621679410550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact%27"><span class="hs-identifier hs-type">StartChatContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410549"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679410549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartChatContact
+</span><a href="#local-6989586621679410550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:StartChatContact' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3Aattributes%3AStartChatContact%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679410549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; StartChatContact -&gt; f StartChatContact)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; StartChatContact
+-&gt; f StartChatContact
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_clientToken"><span class="hs-identifier hs-type">startChatContact_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="startChatContact_clientToken"><span class="annot"><span class="annottext">startChatContact_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartChatContact -&gt; f StartChatContact
+</span><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_clientToken"><span class="hs-identifier hs-var hs-var">startChatContact_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartChatContact -&gt; Maybe Text)
+-&gt; (StartChatContact -&gt; Maybe Text -&gt; StartChatContact)
+-&gt; Lens StartChatContact StartChatContact (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact%27"><span class="hs-identifier hs-type">StartChatContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410545"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:StartChatContact' :: StartChatContact -&gt; Maybe Text
+</span><a href="#local-6989586621679410545"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410545"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410544"><span class="annot"><span class="annottext">s :: StartChatContact
+</span><a href="#local-6989586621679410544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact%27"><span class="hs-identifier hs-type">StartChatContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410543"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartChatContact
+</span><a href="#local-6989586621679410544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:StartChatContact' :: Maybe Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AclientToken%3AStartChatContact%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_instanceId"><span class="hs-identifier hs-type">startChatContact_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-188"></span><span id="startChatContact_instanceId"><span class="annot"><span class="annottext">startChatContact_instanceId :: (Text -&gt; f Text) -&gt; StartChatContact -&gt; f StartChatContact
+</span><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_instanceId"><span class="hs-identifier hs-var hs-var">startChatContact_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartChatContact -&gt; Text)
+-&gt; (StartChatContact -&gt; Text -&gt; StartChatContact)
+-&gt; Lens StartChatContact StartChatContact Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact%27"><span class="hs-identifier hs-type">StartChatContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410542"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+$sel:instanceId:StartChatContact' :: StartChatContact -&gt; Text
+</span><a href="#local-6989586621679410542"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410542"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410541"><span class="annot"><span class="annottext">s :: StartChatContact
+</span><a href="#local-6989586621679410541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact%27"><span class="hs-identifier hs-type">StartChatContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410540"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartChatContact
+</span><a href="#local-6989586621679410541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:StartChatContact' :: Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AinstanceId%3AStartChatContact%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The identifier of the contact flow for initiating the chat. To see the</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- ContactFlowId in the Amazon Connect console user interface, on the</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- navigation menu go to __Routing__, __Contact Flows__. Choose the contact</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- flow. On the contact flow page, under the name of the contact flow,</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- choose __Show additional flow information__. The ContactFlowId is the</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- last part of the ARN, shown here in bold:</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance\/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\/contact-flow\/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_contactFlowId"><span class="hs-identifier hs-type">startChatContact_contactFlowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-199"></span><span id="startChatContact_contactFlowId"><span class="annot"><span class="annottext">startChatContact_contactFlowId :: (Text -&gt; f Text) -&gt; StartChatContact -&gt; f StartChatContact
+</span><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_contactFlowId"><span class="hs-identifier hs-var hs-var">startChatContact_contactFlowId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartChatContact -&gt; Text)
+-&gt; (StartChatContact -&gt; Text -&gt; StartChatContact)
+-&gt; Lens StartChatContact StartChatContact Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact%27"><span class="hs-identifier hs-type">StartChatContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410539"><span class="annot"><span class="annottext">Text
+contactFlowId :: Text
+$sel:contactFlowId:StartChatContact' :: StartChatContact -&gt; Text
+</span><a href="#local-6989586621679410539"><span class="hs-identifier hs-var hs-var">contactFlowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410539"><span class="hs-identifier hs-var">contactFlowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410538"><span class="annot"><span class="annottext">s :: StartChatContact
+</span><a href="#local-6989586621679410538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact%27"><span class="hs-identifier hs-type">StartChatContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410537"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartChatContact
+</span><a href="#local-6989586621679410538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactFlowId:StartChatContact' :: Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AcontactFlowId%3AStartChatContact%27"><span class="hs-identifier hs-var">contactFlowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | Information identifying the participant.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_participantDetails"><span class="hs-identifier hs-type">startChatContact_participantDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ParticipantDetails.html#ParticipantDetails"><span class="hs-identifier hs-type">ParticipantDetails</span></a></span><span>
+</span><span id="line-203"></span><span id="startChatContact_participantDetails"><span class="annot"><span class="annottext">startChatContact_participantDetails :: (ParticipantDetails -&gt; f ParticipantDetails)
+-&gt; StartChatContact -&gt; f StartChatContact
+</span><a href="Network.AWS.Connect.StartChatContact.html#startChatContact_participantDetails"><span class="hs-identifier hs-var hs-var">startChatContact_participantDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartChatContact -&gt; ParticipantDetails)
+-&gt; (StartChatContact -&gt; ParticipantDetails -&gt; StartChatContact)
+-&gt; Lens
+     StartChatContact
+     StartChatContact
+     ParticipantDetails
+     ParticipantDetails
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact%27"><span class="hs-identifier hs-type">StartChatContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410536"><span class="annot"><span class="annottext">ParticipantDetails
+participantDetails :: ParticipantDetails
+$sel:participantDetails:StartChatContact' :: StartChatContact -&gt; ParticipantDetails
+</span><a href="#local-6989586621679410536"><span class="hs-identifier hs-var hs-var">participantDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParticipantDetails
+</span><a href="#local-6989586621679410536"><span class="hs-identifier hs-var">participantDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410535"><span class="annot"><span class="annottext">s :: StartChatContact
+</span><a href="#local-6989586621679410535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact%27"><span class="hs-identifier hs-type">StartChatContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410534"><span class="annot"><span class="annottext">ParticipantDetails
+</span><a href="#local-6989586621679410534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartChatContact
+</span><a href="#local-6989586621679410535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:participantDetails:StartChatContact' :: ParticipantDetails
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AparticipantDetails%3AStartChatContact%27"><span class="hs-identifier hs-var">participantDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ParticipantDetails
+</span><a href="#local-6989586621679410534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-207"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse"><span class="hs-identifier hs-type">StartChatContactResponse</span></a></span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679410530"><span class="annot"><span class="annottext">request :: StartChatContact -&gt; Request StartChatContact
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartChatContact -&gt; Request StartChatContact
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679410526"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartChatContact
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StartChatContact)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartChatContact))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartChatContact
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StartChatContact)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679410523"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410523"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679410522"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679410522"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679410521"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679410521"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartChatContactResponse
+</span><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse%27"><span class="hs-identifier hs-var">StartChatContactResponse'</span></a></span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartChatContactResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartChatContactResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679410521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParticipantToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartChatContactResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; StartChatContactResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679410521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContactId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; StartChatContactResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; StartChatContactResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679410521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParticipantId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartChatContactResponse)
+-&gt; Either String Int -&gt; Either String StartChatContactResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410523"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410513"><span id="local-6989586621679410515"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span></span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679410506"><span class="annot"><span class="annottext">toHeaders :: StartChatContact -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartChatContact -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-227"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-228"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-229"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-230"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-231"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-233"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410496"><span id="local-6989586621679410498"><span id="local-6989586621679410500"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679410494"><span class="annot"><span class="annottext">toJSON :: StartChatContact -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact%27"><span class="hs-identifier hs-type">StartChatContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410487"><span id="local-6989586621679410488"><span id="local-6989586621679410489"><span id="local-6989586621679410490"><span id="local-6989586621679410491"><span id="local-6989586621679410492"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Maybe ChatMessage
+Text
+ParticipantDetails
+participantDetails :: ParticipantDetails
+contactFlowId :: Text
+instanceId :: Text
+clientToken :: Maybe Text
+attributes :: Maybe (HashMap Text Text)
+initialMessage :: Maybe ChatMessage
+$sel:participantDetails:StartChatContact' :: StartChatContact -&gt; ParticipantDetails
+$sel:contactFlowId:StartChatContact' :: StartChatContact -&gt; Text
+$sel:instanceId:StartChatContact' :: StartChatContact -&gt; Text
+$sel:clientToken:StartChatContact' :: StartChatContact -&gt; Maybe Text
+$sel:attributes:StartChatContact' :: StartChatContact -&gt; Maybe (HashMap Text Text)
+$sel:initialMessage:StartChatContact' :: StartChatContact -&gt; Maybe ChatMessage
+</span><a href="#local-6989586621679410487"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-239"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InitialMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ChatMessage -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>              </span><span class="annot"><span class="annottext">(ChatMessage -&gt; Pair) -&gt; Maybe ChatMessage -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ChatMessage
+</span><a href="#local-6989586621679410492"><span class="hs-identifier hs-var">initialMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679410491"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410490"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410489"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContactFlowId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410488"><span class="hs-identifier hs-var">contactFlowId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-246"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParticipantDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ParticipantDetails -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ParticipantDetails
+</span><a href="#local-6989586621679410487"><span class="hs-identifier hs-var">participantDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-248"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679410481"><span class="annot"><span class="annottext">toPath :: StartChatContact -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartChatContact -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/contact/chat&quot;</span></span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContact"><span class="hs-identifier hs-type">StartChatContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679410477"><span class="annot"><span class="annottext">toQuery :: StartChatContact -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartChatContact -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | /See:/ 'newStartChatContactResponse' smart constructor.</span><span>
+</span><span id="line-257"></span><span id="local-6989586621679410474"><span id="local-6989586621679410475"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartChatContactResponse"><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse"><span class="hs-identifier hs-var">StartChatContactResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartChatContactResponse%27"><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse%27"><span class="hs-identifier hs-var">StartChatContactResponse'</span></a></span></span><span>
+</span><span id="line-258"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token used by the chat participant to call</span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html CreateParticipantConnection&gt;.</span><span>
+</span><span id="line-260"></span><span>    </span><span class="hs-comment">-- The participant token is valid for the lifetime of a chat participant.</span><span>
+</span><span id="line-261"></span><span>    </span><span id="%24sel%3AparticipantToken%3AStartChatContactResponse%27"><span class="annot"><span class="annottext">StartChatContactResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AparticipantToken%3AStartChatContactResponse%27"><span class="hs-identifier hs-var hs-var">participantToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-comment">-- | The identifier of this contact within the Amazon Connect instance.</span><span>
+</span><span id="line-263"></span><span>    </span><span id="%24sel%3AcontactId%3AStartChatContactResponse%27"><span class="annot"><span class="annottext">StartChatContactResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AcontactId%3AStartChatContactResponse%27"><span class="hs-identifier hs-var hs-var">contactId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-comment">-- | The identifier for a chat participant. The participantId for a chat</span><span>
+</span><span id="line-265"></span><span>    </span><span class="hs-comment">-- participant is the same throughout the chat lifecycle.</span><span>
+</span><span id="line-266"></span><span>    </span><span id="%24sel%3AparticipantId%3AStartChatContactResponse%27"><span class="annot"><span class="annottext">StartChatContactResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AparticipantId%3AStartChatContactResponse%27"><span class="hs-identifier hs-var hs-var">participantId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-268"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartChatContactResponse%27"><span class="annot"><span class="annottext">StartChatContactResponse -&gt; Int
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AhttpStatus%3AStartChatContactResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-269"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-270"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679410466"><span id="local-6989586621679410468"><span class="annot"><span class="annottext">StartChatContactResponse -&gt; StartChatContactResponse -&gt; Bool
+(StartChatContactResponse -&gt; StartChatContactResponse -&gt; Bool)
+-&gt; (StartChatContactResponse -&gt; StartChatContactResponse -&gt; Bool)
+-&gt; Eq StartChatContactResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartChatContactResponse -&gt; StartChatContactResponse -&gt; Bool
+$c/= :: StartChatContactResponse -&gt; StartChatContactResponse -&gt; Bool
+== :: StartChatContactResponse -&gt; StartChatContactResponse -&gt; Bool
+$c== :: StartChatContactResponse -&gt; StartChatContactResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410458"><span id="local-6989586621679410460"><span id="local-6989586621679410462"><span id="local-6989586621679410464"><span class="annot"><span class="annottext">ReadPrec [StartChatContactResponse]
+ReadPrec StartChatContactResponse
+Int -&gt; ReadS StartChatContactResponse
+ReadS [StartChatContactResponse]
+(Int -&gt; ReadS StartChatContactResponse)
+-&gt; ReadS [StartChatContactResponse]
+-&gt; ReadPrec StartChatContactResponse
+-&gt; ReadPrec [StartChatContactResponse]
+-&gt; Read StartChatContactResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartChatContactResponse]
+$creadListPrec :: ReadPrec [StartChatContactResponse]
+readPrec :: ReadPrec StartChatContactResponse
+$creadPrec :: ReadPrec StartChatContactResponse
+readList :: ReadS [StartChatContactResponse]
+$creadList :: ReadS [StartChatContactResponse]
+readsPrec :: Int -&gt; ReadS StartChatContactResponse
+$creadsPrec :: Int -&gt; ReadS StartChatContactResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410452"><span id="local-6989586621679410454"><span id="local-6989586621679410456"><span class="annot"><span class="annottext">Int -&gt; StartChatContactResponse -&gt; ShowS
+[StartChatContactResponse] -&gt; ShowS
+StartChatContactResponse -&gt; String
+(Int -&gt; StartChatContactResponse -&gt; ShowS)
+-&gt; (StartChatContactResponse -&gt; String)
+-&gt; ([StartChatContactResponse] -&gt; ShowS)
+-&gt; Show StartChatContactResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartChatContactResponse] -&gt; ShowS
+$cshowList :: [StartChatContactResponse] -&gt; ShowS
+show :: StartChatContactResponse -&gt; String
+$cshow :: StartChatContactResponse -&gt; String
+showsPrec :: Int -&gt; StartChatContactResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartChatContactResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartChatContactResponse -&gt; Rep StartChatContactResponse x)
+-&gt; (forall x.
+    Rep StartChatContactResponse x -&gt; StartChatContactResponse)
+-&gt; Generic StartChatContactResponse
+forall x.
+Rep StartChatContactResponse x -&gt; StartChatContactResponse
+forall x.
+StartChatContactResponse -&gt; Rep StartChatContactResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartChatContactResponse x -&gt; StartChatContactResponse
+$cfrom :: forall x.
+StartChatContactResponse -&gt; Rep StartChatContactResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- Create a value of 'StartChatContactResponse' with all optional fields omitted.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- 'participantToken', 'startChatContactResponse_participantToken' - The token used by the chat participant to call</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html CreateParticipantConnection&gt;.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- The participant token is valid for the lifetime of a chat participant.</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- 'contactId', 'startChatContactResponse_contactId' - The identifier of this contact within the Amazon Connect instance.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- 'participantId', 'startChatContactResponse_participantId' - The identifier for a chat participant. The participantId for a chat</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- participant is the same throughout the chat lifecycle.</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- 'httpStatus', 'startChatContactResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#newStartChatContactResponse"><span class="hs-identifier hs-type">newStartChatContactResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-291"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-292"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-293"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse"><span class="hs-identifier hs-type">StartChatContactResponse</span></a></span><span>
+</span><span id="line-294"></span><span id="newStartChatContactResponse"><span class="annot"><span class="annottext">newStartChatContactResponse :: Int -&gt; StartChatContactResponse
+</span><a href="Network.AWS.Connect.StartChatContact.html#newStartChatContactResponse"><span class="hs-identifier hs-var hs-var">newStartChatContactResponse</span></a></span></span><span> </span><span id="local-6989586621679410449"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-295"></span><span>  </span><span class="annot"><span class="annottext">StartChatContactResponse' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartChatContactResponse
+</span><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse%27"><span class="hs-identifier hs-type">StartChatContactResponse'</span></a></span><span>
+</span><span id="line-296"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:participantToken:StartChatContactResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AparticipantToken%3AStartChatContactResponse%27"><span class="hs-identifier hs-var">participantToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-297"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>      </span><span class="annot"><span class="annottext">$sel:contactId:StartChatContactResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AcontactId%3AStartChatContactResponse%27"><span class="hs-identifier hs-var">contactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>      </span><span class="annot"><span class="annottext">$sel:participantId:StartChatContactResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AparticipantId%3AStartChatContactResponse%27"><span class="hs-identifier hs-var">participantId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartChatContactResponse' :: Int
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AhttpStatus%3AStartChatContactResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-301"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- | The token used by the chat participant to call</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html CreateParticipantConnection&gt;.</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- The participant token is valid for the lifetime of a chat participant.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContactResponse_participantToken"><span class="hs-identifier hs-type">startChatContactResponse_participantToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse"><span class="hs-identifier hs-type">StartChatContactResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span id="startChatContactResponse_participantToken"><span class="annot"><span class="annottext">startChatContactResponse_participantToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartChatContactResponse -&gt; f StartChatContactResponse
+</span><a href="Network.AWS.Connect.StartChatContact.html#startChatContactResponse_participantToken"><span class="hs-identifier hs-var hs-var">startChatContactResponse_participantToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartChatContactResponse -&gt; Maybe Text)
+-&gt; (StartChatContactResponse
+    -&gt; Maybe Text -&gt; StartChatContactResponse)
+-&gt; Lens
+     StartChatContactResponse
+     StartChatContactResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse%27"><span class="hs-identifier hs-type">StartChatContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410448"><span class="annot"><span class="annottext">Maybe Text
+participantToken :: Maybe Text
+$sel:participantToken:StartChatContactResponse' :: StartChatContactResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679410448"><span class="hs-identifier hs-var hs-var">participantToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410448"><span class="hs-identifier hs-var">participantToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410447"><span class="annot"><span class="annottext">s :: StartChatContactResponse
+</span><a href="#local-6989586621679410447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse%27"><span class="hs-identifier hs-type">StartChatContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410446"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartChatContactResponse
+</span><a href="#local-6989586621679410447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:participantToken:StartChatContactResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AparticipantToken%3AStartChatContactResponse%27"><span class="hs-identifier hs-var">participantToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse"><span class="hs-identifier hs-type">StartChatContactResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | The identifier of this contact within the Amazon Connect instance.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContactResponse_contactId"><span class="hs-identifier hs-type">startChatContactResponse_contactId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse"><span class="hs-identifier hs-type">StartChatContactResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span id="startChatContactResponse_contactId"><span class="annot"><span class="annottext">startChatContactResponse_contactId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartChatContactResponse -&gt; f StartChatContactResponse
+</span><a href="Network.AWS.Connect.StartChatContact.html#startChatContactResponse_contactId"><span class="hs-identifier hs-var hs-var">startChatContactResponse_contactId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartChatContactResponse -&gt; Maybe Text)
+-&gt; (StartChatContactResponse
+    -&gt; Maybe Text -&gt; StartChatContactResponse)
+-&gt; Lens
+     StartChatContactResponse
+     StartChatContactResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse%27"><span class="hs-identifier hs-type">StartChatContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410445"><span class="annot"><span class="annottext">Maybe Text
+contactId :: Maybe Text
+$sel:contactId:StartChatContactResponse' :: StartChatContactResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679410445"><span class="hs-identifier hs-var hs-var">contactId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410445"><span class="hs-identifier hs-var">contactId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410444"><span class="annot"><span class="annottext">s :: StartChatContactResponse
+</span><a href="#local-6989586621679410444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse%27"><span class="hs-identifier hs-type">StartChatContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410443"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartChatContactResponse
+</span><a href="#local-6989586621679410444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactId:StartChatContactResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AcontactId%3AStartChatContactResponse%27"><span class="hs-identifier hs-var">contactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse"><span class="hs-identifier hs-type">StartChatContactResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | The identifier for a chat participant. The participantId for a chat</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- participant is the same throughout the chat lifecycle.</span><span>
+</span><span id="line-315"></span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContactResponse_participantId"><span class="hs-identifier hs-type">startChatContactResponse_participantId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse"><span class="hs-identifier hs-type">StartChatContactResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span id="startChatContactResponse_participantId"><span class="annot"><span class="annottext">startChatContactResponse_participantId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartChatContactResponse -&gt; f StartChatContactResponse
+</span><a href="Network.AWS.Connect.StartChatContact.html#startChatContactResponse_participantId"><span class="hs-identifier hs-var hs-var">startChatContactResponse_participantId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartChatContactResponse -&gt; Maybe Text)
+-&gt; (StartChatContactResponse
+    -&gt; Maybe Text -&gt; StartChatContactResponse)
+-&gt; Lens
+     StartChatContactResponse
+     StartChatContactResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse%27"><span class="hs-identifier hs-type">StartChatContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410442"><span class="annot"><span class="annottext">Maybe Text
+participantId :: Maybe Text
+$sel:participantId:StartChatContactResponse' :: StartChatContactResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679410442"><span class="hs-identifier hs-var hs-var">participantId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410442"><span class="hs-identifier hs-var">participantId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410441"><span class="annot"><span class="annottext">s :: StartChatContactResponse
+</span><a href="#local-6989586621679410441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse%27"><span class="hs-identifier hs-type">StartChatContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410440"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartChatContactResponse
+</span><a href="#local-6989586621679410441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:participantId:StartChatContactResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AparticipantId%3AStartChatContactResponse%27"><span class="hs-identifier hs-var">participantId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse"><span class="hs-identifier hs-type">StartChatContactResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-319"></span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#startChatContactResponse_httpStatus"><span class="hs-identifier hs-type">startChatContactResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse"><span class="hs-identifier hs-type">StartChatContactResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-320"></span><span id="startChatContactResponse_httpStatus"><span class="annot"><span class="annottext">startChatContactResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartChatContactResponse -&gt; f StartChatContactResponse
+</span><a href="Network.AWS.Connect.StartChatContact.html#startChatContactResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startChatContactResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartChatContactResponse -&gt; Int)
+-&gt; (StartChatContactResponse -&gt; Int -&gt; StartChatContactResponse)
+-&gt; Lens StartChatContactResponse StartChatContactResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse%27"><span class="hs-identifier hs-type">StartChatContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410439"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartChatContactResponse' :: StartChatContactResponse -&gt; Int
+</span><a href="#local-6989586621679410439"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410439"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410438"><span class="annot"><span class="annottext">s :: StartChatContactResponse
+</span><a href="#local-6989586621679410438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse%27"><span class="hs-identifier hs-type">StartChatContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410437"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartChatContactResponse
+</span><a href="#local-6989586621679410438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartChatContactResponse' :: Int
+</span><a href="Network.AWS.Connect.StartChatContact.html#%24sel%3AhttpStatus%3AStartChatContactResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse"><span class="hs-identifier hs-type">StartChatContactResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-321"></span><span>
+</span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410435"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.StartChatContact.html#StartChatContactResponse"><span class="hs-identifier hs-type">StartChatContactResponse</span></a></span></span><span>
+</span><span id="line-323"></span></pre></body></html>

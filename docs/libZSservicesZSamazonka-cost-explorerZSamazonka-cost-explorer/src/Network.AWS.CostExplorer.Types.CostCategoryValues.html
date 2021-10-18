@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CostExplorer.Types.CostCategoryValues</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CostExplorer.Types.CostCategoryValues</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MatchOption.html"><span class="hs-identifier">Network.AWS.CostExplorer.Types.MatchOption</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The Cost Categories values used for filtering the costs.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- If @Values@ and @Key@ are not specified, the @ABSENT@ @MatchOption@ is</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- applied to all Cost Categories. That is, it filters on resources that</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- aren\'t mapped to any Cost Categories.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- If @Values@ is provided and @Key@ isn\'t specified, the @ABSENT@</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- @MatchOption@ is applied to the Cost Categories @Key@ only. That is, it</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- filters on resources without the given Cost Categories key.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newCostCategoryValues' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679330958"><span id="local-6989586621679330959"></span></span><span class="hs-keyword">data</span><span> </span><span id="CostCategoryValues"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-var">CostCategoryValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CostCategoryValues%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues%27"><span class="hs-identifier hs-var">CostCategoryValues'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Akey%3ACostCategoryValues%27"><span class="annot"><span class="annottext">CostCategoryValues -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#%24sel%3Akey%3ACostCategoryValues%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The specific value of the Cost Category.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Avalues%3ACostCategoryValues%27"><span class="annot"><span class="annottext">CostCategoryValues -&gt; Maybe [Text]
+</span><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#%24sel%3Avalues%3ACostCategoryValues%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The match options that you can use to filter your results. MatchOptions</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- is only applicable for actions related to cost category. The default</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- values for @MatchOptions@ is @EQUALS@ and @CASE_SENSITIVE@.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AmatchOptions%3ACostCategoryValues%27"><span class="annot"><span class="annottext">CostCategoryValues -&gt; Maybe [MatchOption]
+</span><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#%24sel%3AmatchOptions%3ACostCategoryValues%27"><span class="hs-identifier hs-var hs-var">matchOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MatchOption.html#MatchOption"><span class="hs-identifier hs-type">MatchOption</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330950"><span id="local-6989586621679330952"><span class="annot"><span class="annottext">CostCategoryValues -&gt; CostCategoryValues -&gt; Bool
+(CostCategoryValues -&gt; CostCategoryValues -&gt; Bool)
+-&gt; (CostCategoryValues -&gt; CostCategoryValues -&gt; Bool)
+-&gt; Eq CostCategoryValues
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CostCategoryValues -&gt; CostCategoryValues -&gt; Bool
+$c/= :: CostCategoryValues -&gt; CostCategoryValues -&gt; Bool
+== :: CostCategoryValues -&gt; CostCategoryValues -&gt; Bool
+$c== :: CostCategoryValues -&gt; CostCategoryValues -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330941"><span id="local-6989586621679330943"><span id="local-6989586621679330945"><span id="local-6989586621679330947"><span class="annot"><span class="annottext">ReadPrec [CostCategoryValues]
+ReadPrec CostCategoryValues
+Int -&gt; ReadS CostCategoryValues
+ReadS [CostCategoryValues]
+(Int -&gt; ReadS CostCategoryValues)
+-&gt; ReadS [CostCategoryValues]
+-&gt; ReadPrec CostCategoryValues
+-&gt; ReadPrec [CostCategoryValues]
+-&gt; Read CostCategoryValues
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CostCategoryValues]
+$creadListPrec :: ReadPrec [CostCategoryValues]
+readPrec :: ReadPrec CostCategoryValues
+$creadPrec :: ReadPrec CostCategoryValues
+readList :: ReadS [CostCategoryValues]
+$creadList :: ReadS [CostCategoryValues]
+readsPrec :: Int -&gt; ReadS CostCategoryValues
+$creadsPrec :: Int -&gt; ReadS CostCategoryValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330934"><span id="local-6989586621679330936"><span id="local-6989586621679330938"><span class="annot"><span class="annottext">Int -&gt; CostCategoryValues -&gt; ShowS
+[CostCategoryValues] -&gt; ShowS
+CostCategoryValues -&gt; String
+(Int -&gt; CostCategoryValues -&gt; ShowS)
+-&gt; (CostCategoryValues -&gt; String)
+-&gt; ([CostCategoryValues] -&gt; ShowS)
+-&gt; Show CostCategoryValues
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CostCategoryValues] -&gt; ShowS
+$cshowList :: [CostCategoryValues] -&gt; ShowS
+show :: CostCategoryValues -&gt; String
+$cshow :: CostCategoryValues -&gt; String
+showsPrec :: Int -&gt; CostCategoryValues -&gt; ShowS
+$cshowsPrec :: Int -&gt; CostCategoryValues -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CostCategoryValues -&gt; Rep CostCategoryValues x)
+-&gt; (forall x. Rep CostCategoryValues x -&gt; CostCategoryValues)
+-&gt; Generic CostCategoryValues
+forall x. Rep CostCategoryValues x -&gt; CostCategoryValues
+forall x. CostCategoryValues -&gt; Rep CostCategoryValues x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CostCategoryValues x -&gt; CostCategoryValues
+$cfrom :: forall x. CostCategoryValues -&gt; Rep CostCategoryValues x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'CostCategoryValues' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'key', 'costCategoryValues_key' - Undocumented member.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'values', 'costCategoryValues_values' - The specific value of the Cost Category.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'matchOptions', 'costCategoryValues_matchOptions' - The match options that you can use to filter your results. MatchOptions</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- is only applicable for actions related to cost category. The default</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- values for @MatchOptions@ is @EQUALS@ and @CASE_SENSITIVE@.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#newCostCategoryValues"><span class="hs-identifier hs-type">newCostCategoryValues</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span><span>
+</span><span id="line-66"></span><span id="newCostCategoryValues"><span class="annot"><span class="annottext">newCostCategoryValues :: CostCategoryValues
+</span><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#newCostCategoryValues"><span class="hs-identifier hs-var hs-var">newCostCategoryValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">CostCategoryValues' :: Maybe Text
+-&gt; Maybe [Text] -&gt; Maybe [MatchOption] -&gt; CostCategoryValues
+</span><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues%27"><span class="hs-identifier hs-type">CostCategoryValues'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:CostCategoryValues' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#%24sel%3Akey%3ACostCategoryValues%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:CostCategoryValues' :: Maybe [Text]
+</span><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#%24sel%3Avalues%3ACostCategoryValues%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:matchOptions:CostCategoryValues' :: Maybe [MatchOption]
+</span><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#%24sel%3AmatchOptions%3ACostCategoryValues%27"><span class="hs-identifier hs-var">matchOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MatchOption]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#costCategoryValues_key"><span class="hs-identifier hs-type">costCategoryValues_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="costCategoryValues_key"><span class="annot"><span class="annottext">costCategoryValues_key :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CostCategoryValues -&gt; f CostCategoryValues
+</span><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#costCategoryValues_key"><span class="hs-identifier hs-var hs-var">costCategoryValues_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CostCategoryValues -&gt; Maybe Text)
+-&gt; (CostCategoryValues -&gt; Maybe Text -&gt; CostCategoryValues)
+-&gt; Lens
+     CostCategoryValues CostCategoryValues (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues%27"><span class="hs-identifier hs-type">CostCategoryValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330925"><span class="annot"><span class="annottext">Maybe Text
+key :: Maybe Text
+$sel:key:CostCategoryValues' :: CostCategoryValues -&gt; Maybe Text
+</span><a href="#local-6989586621679330925"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330925"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330924"><span class="annot"><span class="annottext">s :: CostCategoryValues
+</span><a href="#local-6989586621679330924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues%27"><span class="hs-identifier hs-type">CostCategoryValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330923"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategoryValues
+</span><a href="#local-6989586621679330924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:CostCategoryValues' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#%24sel%3Akey%3ACostCategoryValues%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The specific value of the Cost Category.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#costCategoryValues_values"><span class="hs-identifier hs-type">costCategoryValues_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="costCategoryValues_values"><span class="annot"><span class="annottext">costCategoryValues_values :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CostCategoryValues -&gt; f CostCategoryValues
+</span><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#costCategoryValues_values"><span class="hs-identifier hs-var hs-var">costCategoryValues_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CostCategoryValues -&gt; Maybe [Text])
+-&gt; (CostCategoryValues -&gt; Maybe [Text] -&gt; CostCategoryValues)
+-&gt; Lens
+     CostCategoryValues CostCategoryValues (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues%27"><span class="hs-identifier hs-type">CostCategoryValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330921"><span class="annot"><span class="annottext">Maybe [Text]
+values :: Maybe [Text]
+$sel:values:CostCategoryValues' :: CostCategoryValues -&gt; Maybe [Text]
+</span><a href="#local-6989586621679330921"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679330921"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330920"><span class="annot"><span class="annottext">s :: CostCategoryValues
+</span><a href="#local-6989586621679330920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues%27"><span class="hs-identifier hs-type">CostCategoryValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330919"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategoryValues
+</span><a href="#local-6989586621679330920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:CostCategoryValues' :: Maybe [Text]
+</span><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#%24sel%3Avalues%3ACostCategoryValues%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CostCategoryValues -&gt; f CostCategoryValues)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CostCategoryValues
+-&gt; f CostCategoryValues
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The match options that you can use to filter your results. MatchOptions</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- is only applicable for actions related to cost category. The default</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- values for @MatchOptions@ is @EQUALS@ and @CASE_SENSITIVE@.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#costCategoryValues_matchOptions"><span class="hs-identifier hs-type">costCategoryValues_matchOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MatchOption.html#MatchOption"><span class="hs-identifier hs-type">MatchOption</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="costCategoryValues_matchOptions"><span class="annot"><span class="annottext">costCategoryValues_matchOptions :: (Maybe [MatchOption] -&gt; f (Maybe [MatchOption]))
+-&gt; CostCategoryValues -&gt; f CostCategoryValues
+</span><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#costCategoryValues_matchOptions"><span class="hs-identifier hs-var hs-var">costCategoryValues_matchOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CostCategoryValues -&gt; Maybe [MatchOption])
+-&gt; (CostCategoryValues
+    -&gt; Maybe [MatchOption] -&gt; CostCategoryValues)
+-&gt; Lens
+     CostCategoryValues
+     CostCategoryValues
+     (Maybe [MatchOption])
+     (Maybe [MatchOption])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues%27"><span class="hs-identifier hs-type">CostCategoryValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330914"><span class="annot"><span class="annottext">Maybe [MatchOption]
+matchOptions :: Maybe [MatchOption]
+$sel:matchOptions:CostCategoryValues' :: CostCategoryValues -&gt; Maybe [MatchOption]
+</span><a href="#local-6989586621679330914"><span class="hs-identifier hs-var hs-var">matchOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MatchOption]
+</span><a href="#local-6989586621679330914"><span class="hs-identifier hs-var">matchOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330913"><span class="annot"><span class="annottext">s :: CostCategoryValues
+</span><a href="#local-6989586621679330913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues%27"><span class="hs-identifier hs-type">CostCategoryValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330912"><span class="annot"><span class="annottext">Maybe [MatchOption]
+</span><a href="#local-6989586621679330912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategoryValues
+</span><a href="#local-6989586621679330913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchOptions:CostCategoryValues' :: Maybe [MatchOption]
+</span><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#%24sel%3AmatchOptions%3ACostCategoryValues%27"><span class="hs-identifier hs-var">matchOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MatchOption]
+</span><a href="#local-6989586621679330912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MatchOption] -&gt; f (Maybe [MatchOption]))
+ -&gt; CostCategoryValues -&gt; f CostCategoryValues)
+-&gt; ((Maybe [MatchOption] -&gt; f (Maybe [MatchOption]))
+    -&gt; Maybe [MatchOption] -&gt; f (Maybe [MatchOption]))
+-&gt; (Maybe [MatchOption] -&gt; f (Maybe [MatchOption]))
+-&gt; CostCategoryValues
+-&gt; f CostCategoryValues
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [MatchOption] [MatchOption] [MatchOption] [MatchOption]
+-&gt; Iso
+     (Maybe [MatchOption])
+     (Maybe [MatchOption])
+     (Maybe [MatchOption])
+     (Maybe [MatchOption])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [MatchOption] [MatchOption] [MatchOption] [MatchOption]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330909"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679330907"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CostCategoryValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CostCategoryValues)
+-&gt; Value
+-&gt; Parser CostCategoryValues
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CostCategoryValues&quot;</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330904"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330904"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [Text] -&gt; Maybe [MatchOption] -&gt; CostCategoryValues
+</span><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues%27"><span class="hs-identifier hs-var">CostCategoryValues'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Text] -&gt; Maybe [MatchOption] -&gt; CostCategoryValues)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text] -&gt; Maybe [MatchOption] -&gt; CostCategoryValues)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe [MatchOption] -&gt; CostCategoryValues)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe [MatchOption] -&gt; CostCategoryValues)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [MatchOption] -&gt; CostCategoryValues)
+-&gt; Parser (Maybe [MatchOption]) -&gt; Parser CostCategoryValues
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MatchOption]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MatchOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [MatchOption]))
+-&gt; Maybe [MatchOption] -&gt; Parser (Maybe [MatchOption])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MatchOption]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330897"><span id="local-6989586621679330899"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330894"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330886"><span id="local-6989586621679330888"><span id="local-6989586621679330890"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679330884"><span class="annot"><span class="annottext">toJSON :: CostCategoryValues -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues%27"><span class="hs-identifier hs-type">CostCategoryValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330880"><span id="local-6989586621679330881"><span id="local-6989586621679330882"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe [MatchOption]
+Maybe Text
+matchOptions :: Maybe [MatchOption]
+values :: Maybe [Text]
+key :: Maybe Text
+$sel:matchOptions:CostCategoryValues' :: CostCategoryValues -&gt; Maybe [MatchOption]
+$sel:values:CostCategoryValues' :: CostCategoryValues -&gt; Maybe [Text]
+$sel:key:CostCategoryValues' :: CostCategoryValues -&gt; Maybe Text
+</span><a href="#local-6989586621679330880"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330882"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679330881"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MatchOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MatchOption] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([MatchOption] -&gt; Pair) -&gt; Maybe [MatchOption] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MatchOption]
+</span><a href="#local-6989586621679330880"><span class="hs-identifier hs-var">matchOptions</span></a></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span></pre></body></html>

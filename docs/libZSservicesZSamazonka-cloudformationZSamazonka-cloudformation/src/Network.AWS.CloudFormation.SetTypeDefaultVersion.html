@@ -1,0 +1,537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFormation.SetTypeDefaultVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Specify the default version of an extension. The default version of an</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- extension will be used in CloudFormation operations.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFormation.SetTypeDefaultVersion</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier">SetTypeDefaultVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#newSetTypeDefaultVersion"><span class="hs-identifier">newSetTypeDefaultVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#setTypeDefaultVersion_typeName"><span class="hs-identifier">setTypeDefaultVersion_typeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#setTypeDefaultVersion_arn"><span class="hs-identifier">setTypeDefaultVersion_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#setTypeDefaultVersion_versionId"><span class="hs-identifier">setTypeDefaultVersion_versionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#setTypeDefaultVersion_type"><span class="hs-identifier">setTypeDefaultVersion_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersionResponse"><span class="hs-identifier">SetTypeDefaultVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#newSetTypeDefaultVersionResponse"><span class="hs-identifier">newSetTypeDefaultVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#setTypeDefaultVersionResponse_httpStatus"><span class="hs-identifier">setTypeDefaultVersionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.html"><span class="hs-identifier">Network.AWS.CloudFormation.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newSetTypeDefaultVersion' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679430333"><span id="local-6989586621679430334"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetTypeDefaultVersion"><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-var">SetTypeDefaultVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetTypeDefaultVersion%27"><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion%27"><span class="hs-identifier hs-var">SetTypeDefaultVersion'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the extension.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AtypeName%3ASetTypeDefaultVersion%27"><span class="annot"><span class="annottext">SetTypeDefaultVersion -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#%24sel%3AtypeName%3ASetTypeDefaultVersion%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the extension for which you want</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- version summary information.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Aarn%3ASetTypeDefaultVersion%27"><span class="annot"><span class="annottext">SetTypeDefaultVersion -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#%24sel%3Aarn%3ASetTypeDefaultVersion%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The ID of a specific version of the extension. The version ID is the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- value at the end of the Amazon Resource Name (ARN) assigned to the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- extension version when it is registered.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AversionId%3ASetTypeDefaultVersion%27"><span class="annot"><span class="annottext">SetTypeDefaultVersion -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#%24sel%3AversionId%3ASetTypeDefaultVersion%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The kind of extension.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Atype%27%3ASetTypeDefaultVersion%27"><span class="annot"><span class="annottext">SetTypeDefaultVersion -&gt; Maybe RegistryType
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#%24sel%3Atype%27%3ASetTypeDefaultVersion%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RegistryType.html#RegistryType"><span class="hs-identifier hs-type">RegistryType</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430324"><span id="local-6989586621679430326"><span class="annot"><span class="annottext">SetTypeDefaultVersion -&gt; SetTypeDefaultVersion -&gt; Bool
+(SetTypeDefaultVersion -&gt; SetTypeDefaultVersion -&gt; Bool)
+-&gt; (SetTypeDefaultVersion -&gt; SetTypeDefaultVersion -&gt; Bool)
+-&gt; Eq SetTypeDefaultVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetTypeDefaultVersion -&gt; SetTypeDefaultVersion -&gt; Bool
+$c/= :: SetTypeDefaultVersion -&gt; SetTypeDefaultVersion -&gt; Bool
+== :: SetTypeDefaultVersion -&gt; SetTypeDefaultVersion -&gt; Bool
+$c== :: SetTypeDefaultVersion -&gt; SetTypeDefaultVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430315"><span id="local-6989586621679430317"><span id="local-6989586621679430319"><span id="local-6989586621679430321"><span class="annot"><span class="annottext">ReadPrec [SetTypeDefaultVersion]
+ReadPrec SetTypeDefaultVersion
+Int -&gt; ReadS SetTypeDefaultVersion
+ReadS [SetTypeDefaultVersion]
+(Int -&gt; ReadS SetTypeDefaultVersion)
+-&gt; ReadS [SetTypeDefaultVersion]
+-&gt; ReadPrec SetTypeDefaultVersion
+-&gt; ReadPrec [SetTypeDefaultVersion]
+-&gt; Read SetTypeDefaultVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetTypeDefaultVersion]
+$creadListPrec :: ReadPrec [SetTypeDefaultVersion]
+readPrec :: ReadPrec SetTypeDefaultVersion
+$creadPrec :: ReadPrec SetTypeDefaultVersion
+readList :: ReadS [SetTypeDefaultVersion]
+$creadList :: ReadS [SetTypeDefaultVersion]
+readsPrec :: Int -&gt; ReadS SetTypeDefaultVersion
+$creadsPrec :: Int -&gt; ReadS SetTypeDefaultVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430308"><span id="local-6989586621679430310"><span id="local-6989586621679430312"><span class="annot"><span class="annottext">Int -&gt; SetTypeDefaultVersion -&gt; ShowS
+[SetTypeDefaultVersion] -&gt; ShowS
+SetTypeDefaultVersion -&gt; String
+(Int -&gt; SetTypeDefaultVersion -&gt; ShowS)
+-&gt; (SetTypeDefaultVersion -&gt; String)
+-&gt; ([SetTypeDefaultVersion] -&gt; ShowS)
+-&gt; Show SetTypeDefaultVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetTypeDefaultVersion] -&gt; ShowS
+$cshowList :: [SetTypeDefaultVersion] -&gt; ShowS
+show :: SetTypeDefaultVersion -&gt; String
+$cshow :: SetTypeDefaultVersion -&gt; String
+showsPrec :: Int -&gt; SetTypeDefaultVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetTypeDefaultVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SetTypeDefaultVersion -&gt; Rep SetTypeDefaultVersion x)
+-&gt; (forall x. Rep SetTypeDefaultVersion x -&gt; SetTypeDefaultVersion)
+-&gt; Generic SetTypeDefaultVersion
+forall x. Rep SetTypeDefaultVersion x -&gt; SetTypeDefaultVersion
+forall x. SetTypeDefaultVersion -&gt; Rep SetTypeDefaultVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SetTypeDefaultVersion x -&gt; SetTypeDefaultVersion
+$cfrom :: forall x. SetTypeDefaultVersion -&gt; Rep SetTypeDefaultVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'SetTypeDefaultVersion' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'typeName', 'setTypeDefaultVersion_typeName' - The name of the extension.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'arn', 'setTypeDefaultVersion_arn' - The Amazon Resource Name (ARN) of the extension for which you want</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- version summary information.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'versionId', 'setTypeDefaultVersion_versionId' - The ID of a specific version of the extension. The version ID is the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- value at the end of the Amazon Resource Name (ARN) assigned to the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- extension version when it is registered.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'type'', 'setTypeDefaultVersion_type' - The kind of extension.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#newSetTypeDefaultVersion"><span class="hs-identifier hs-type">newSetTypeDefaultVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-type">SetTypeDefaultVersion</span></a></span><span>
+</span><span id="line-100"></span><span id="newSetTypeDefaultVersion"><span class="annot"><span class="annottext">newSetTypeDefaultVersion :: SetTypeDefaultVersion
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#newSetTypeDefaultVersion"><span class="hs-identifier hs-var hs-var">newSetTypeDefaultVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">SetTypeDefaultVersion' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe RegistryType
+-&gt; SetTypeDefaultVersion
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion%27"><span class="hs-identifier hs-type">SetTypeDefaultVersion'</span></a></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:typeName:SetTypeDefaultVersion' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#%24sel%3AtypeName%3ASetTypeDefaultVersion%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:SetTypeDefaultVersion' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#%24sel%3Aarn%3ASetTypeDefaultVersion%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionId:SetTypeDefaultVersion' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#%24sel%3AversionId%3ASetTypeDefaultVersion%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':SetTypeDefaultVersion' :: Maybe RegistryType
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#%24sel%3Atype%27%3ASetTypeDefaultVersion%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The name of the extension.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#setTypeDefaultVersion_typeName"><span class="hs-identifier hs-type">setTypeDefaultVersion_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-type">SetTypeDefaultVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="setTypeDefaultVersion_typeName"><span class="annot"><span class="annottext">setTypeDefaultVersion_typeName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SetTypeDefaultVersion -&gt; f SetTypeDefaultVersion
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#setTypeDefaultVersion_typeName"><span class="hs-identifier hs-var hs-var">setTypeDefaultVersion_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetTypeDefaultVersion -&gt; Maybe Text)
+-&gt; (SetTypeDefaultVersion -&gt; Maybe Text -&gt; SetTypeDefaultVersion)
+-&gt; Lens
+     SetTypeDefaultVersion
+     SetTypeDefaultVersion
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion%27"><span class="hs-identifier hs-type">SetTypeDefaultVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430301"><span class="annot"><span class="annottext">Maybe Text
+typeName :: Maybe Text
+$sel:typeName:SetTypeDefaultVersion' :: SetTypeDefaultVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679430301"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430301"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430300"><span class="annot"><span class="annottext">s :: SetTypeDefaultVersion
+</span><a href="#local-6989586621679430300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion%27"><span class="hs-identifier hs-type">SetTypeDefaultVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430299"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetTypeDefaultVersion
+</span><a href="#local-6989586621679430300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:SetTypeDefaultVersion' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#%24sel%3AtypeName%3ASetTypeDefaultVersion%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-type">SetTypeDefaultVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the extension for which you want</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- version summary information.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#setTypeDefaultVersion_arn"><span class="hs-identifier hs-type">setTypeDefaultVersion_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-type">SetTypeDefaultVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="setTypeDefaultVersion_arn"><span class="annot"><span class="annottext">setTypeDefaultVersion_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SetTypeDefaultVersion -&gt; f SetTypeDefaultVersion
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#setTypeDefaultVersion_arn"><span class="hs-identifier hs-var hs-var">setTypeDefaultVersion_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetTypeDefaultVersion -&gt; Maybe Text)
+-&gt; (SetTypeDefaultVersion -&gt; Maybe Text -&gt; SetTypeDefaultVersion)
+-&gt; Lens
+     SetTypeDefaultVersion
+     SetTypeDefaultVersion
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion%27"><span class="hs-identifier hs-type">SetTypeDefaultVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430298"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:SetTypeDefaultVersion' :: SetTypeDefaultVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679430298"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430298"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430297"><span class="annot"><span class="annottext">s :: SetTypeDefaultVersion
+</span><a href="#local-6989586621679430297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion%27"><span class="hs-identifier hs-type">SetTypeDefaultVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430296"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetTypeDefaultVersion
+</span><a href="#local-6989586621679430297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:SetTypeDefaultVersion' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#%24sel%3Aarn%3ASetTypeDefaultVersion%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-type">SetTypeDefaultVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The ID of a specific version of the extension. The version ID is the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- value at the end of the Amazon Resource Name (ARN) assigned to the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- extension version when it is registered.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#setTypeDefaultVersion_versionId"><span class="hs-identifier hs-type">setTypeDefaultVersion_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-type">SetTypeDefaultVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="setTypeDefaultVersion_versionId"><span class="annot"><span class="annottext">setTypeDefaultVersion_versionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SetTypeDefaultVersion -&gt; f SetTypeDefaultVersion
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#setTypeDefaultVersion_versionId"><span class="hs-identifier hs-var hs-var">setTypeDefaultVersion_versionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetTypeDefaultVersion -&gt; Maybe Text)
+-&gt; (SetTypeDefaultVersion -&gt; Maybe Text -&gt; SetTypeDefaultVersion)
+-&gt; Lens
+     SetTypeDefaultVersion
+     SetTypeDefaultVersion
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion%27"><span class="hs-identifier hs-type">SetTypeDefaultVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430295"><span class="annot"><span class="annottext">Maybe Text
+versionId :: Maybe Text
+$sel:versionId:SetTypeDefaultVersion' :: SetTypeDefaultVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679430295"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430295"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430294"><span class="annot"><span class="annottext">s :: SetTypeDefaultVersion
+</span><a href="#local-6989586621679430294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion%27"><span class="hs-identifier hs-type">SetTypeDefaultVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430293"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetTypeDefaultVersion
+</span><a href="#local-6989586621679430294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:SetTypeDefaultVersion' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#%24sel%3AversionId%3ASetTypeDefaultVersion%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-type">SetTypeDefaultVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The kind of extension.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#setTypeDefaultVersion_type"><span class="hs-identifier hs-type">setTypeDefaultVersion_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-type">SetTypeDefaultVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RegistryType.html#RegistryType"><span class="hs-identifier hs-type">RegistryType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="setTypeDefaultVersion_type"><span class="annot"><span class="annottext">setTypeDefaultVersion_type :: (Maybe RegistryType -&gt; f (Maybe RegistryType))
+-&gt; SetTypeDefaultVersion -&gt; f SetTypeDefaultVersion
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#setTypeDefaultVersion_type"><span class="hs-identifier hs-var hs-var">setTypeDefaultVersion_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetTypeDefaultVersion -&gt; Maybe RegistryType)
+-&gt; (SetTypeDefaultVersion
+    -&gt; Maybe RegistryType -&gt; SetTypeDefaultVersion)
+-&gt; Lens
+     SetTypeDefaultVersion
+     SetTypeDefaultVersion
+     (Maybe RegistryType)
+     (Maybe RegistryType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion%27"><span class="hs-identifier hs-type">SetTypeDefaultVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430292"><span class="annot"><span class="annottext">Maybe RegistryType
+type' :: Maybe RegistryType
+$sel:type':SetTypeDefaultVersion' :: SetTypeDefaultVersion -&gt; Maybe RegistryType
+</span><a href="#local-6989586621679430292"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryType
+</span><a href="#local-6989586621679430292"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430291"><span class="annot"><span class="annottext">s :: SetTypeDefaultVersion
+</span><a href="#local-6989586621679430291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion%27"><span class="hs-identifier hs-type">SetTypeDefaultVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430290"><span class="annot"><span class="annottext">Maybe RegistryType
+</span><a href="#local-6989586621679430290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetTypeDefaultVersion
+</span><a href="#local-6989586621679430291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':SetTypeDefaultVersion' :: Maybe RegistryType
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#%24sel%3Atype%27%3ASetTypeDefaultVersion%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryType
+</span><a href="#local-6989586621679430290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-type">SetTypeDefaultVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-type">SetTypeDefaultVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-type">SetTypeDefaultVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersionResponse"><span class="hs-identifier hs-type">SetTypeDefaultVersionResponse</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679430286"><span class="annot"><span class="annottext">request :: SetTypeDefaultVersion -&gt; Request SetTypeDefaultVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetTypeDefaultVersion -&gt; Request SetTypeDefaultVersion
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679430282"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SetTypeDefaultVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SetTypeDefaultVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse SetTypeDefaultVersion))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SetTypeDefaultVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SetTypeDefaultVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SetTypeDefaultVersionResult&quot;</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679430279"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430279"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679430278"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679430278"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679430277"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679430277"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SetTypeDefaultVersionResponse
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersionResponse%27"><span class="hs-identifier hs-var">SetTypeDefaultVersionResponse'</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SetTypeDefaultVersionResponse)
+-&gt; Either String Int -&gt; Either String SetTypeDefaultVersionResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430279"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430270"><span id="local-6989586621679430272"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-type">SetTypeDefaultVersion</span></a></span></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430267"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-type">SetTypeDefaultVersion</span></a></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-type">SetTypeDefaultVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679430263"><span class="annot"><span class="annottext">toHeaders :: SetTypeDefaultVersion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SetTypeDefaultVersion -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-type">SetTypeDefaultVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679430258"><span class="annot"><span class="annottext">toPath :: SetTypeDefaultVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetTypeDefaultVersion -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion"><span class="hs-identifier hs-type">SetTypeDefaultVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679430254"><span class="annot"><span class="annottext">toQuery :: SetTypeDefaultVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersion%27"><span class="hs-identifier hs-type">SetTypeDefaultVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430249"><span id="local-6989586621679430250"><span id="local-6989586621679430251"><span id="local-6989586621679430252"><span class="annot"><span class="annottext">Maybe Text
+Maybe RegistryType
+type' :: Maybe RegistryType
+versionId :: Maybe Text
+arn :: Maybe Text
+typeName :: Maybe Text
+$sel:type':SetTypeDefaultVersion' :: SetTypeDefaultVersion -&gt; Maybe RegistryType
+$sel:versionId:SetTypeDefaultVersion' :: SetTypeDefaultVersion -&gt; Maybe Text
+$sel:arn:SetTypeDefaultVersion' :: SetTypeDefaultVersion -&gt; Maybe Text
+$sel:typeName:SetTypeDefaultVersion' :: SetTypeDefaultVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679430249"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SetTypeDefaultVersion&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430252"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430251"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VersionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430250"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe RegistryType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe RegistryType
+</span><a href="#local-6989586621679430249"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | /See:/ 'newSetTypeDefaultVersionResponse' smart constructor.</span><span>
+</span><span id="line-170"></span><span id="local-6989586621679430246"><span id="local-6989586621679430247"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetTypeDefaultVersionResponse"><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersionResponse"><span class="hs-identifier hs-var">SetTypeDefaultVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetTypeDefaultVersionResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersionResponse%27"><span class="hs-identifier hs-var">SetTypeDefaultVersionResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASetTypeDefaultVersionResponse%27"><span class="annot"><span class="annottext">SetTypeDefaultVersionResponse -&gt; Int
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#%24sel%3AhttpStatus%3ASetTypeDefaultVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430241"><span id="local-6989586621679430243"><span class="annot"><span class="annottext">SetTypeDefaultVersionResponse
+-&gt; SetTypeDefaultVersionResponse -&gt; Bool
+(SetTypeDefaultVersionResponse
+ -&gt; SetTypeDefaultVersionResponse -&gt; Bool)
+-&gt; (SetTypeDefaultVersionResponse
+    -&gt; SetTypeDefaultVersionResponse -&gt; Bool)
+-&gt; Eq SetTypeDefaultVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetTypeDefaultVersionResponse
+-&gt; SetTypeDefaultVersionResponse -&gt; Bool
+$c/= :: SetTypeDefaultVersionResponse
+-&gt; SetTypeDefaultVersionResponse -&gt; Bool
+== :: SetTypeDefaultVersionResponse
+-&gt; SetTypeDefaultVersionResponse -&gt; Bool
+$c== :: SetTypeDefaultVersionResponse
+-&gt; SetTypeDefaultVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430233"><span id="local-6989586621679430235"><span id="local-6989586621679430237"><span id="local-6989586621679430239"><span class="annot"><span class="annottext">ReadPrec [SetTypeDefaultVersionResponse]
+ReadPrec SetTypeDefaultVersionResponse
+Int -&gt; ReadS SetTypeDefaultVersionResponse
+ReadS [SetTypeDefaultVersionResponse]
+(Int -&gt; ReadS SetTypeDefaultVersionResponse)
+-&gt; ReadS [SetTypeDefaultVersionResponse]
+-&gt; ReadPrec SetTypeDefaultVersionResponse
+-&gt; ReadPrec [SetTypeDefaultVersionResponse]
+-&gt; Read SetTypeDefaultVersionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetTypeDefaultVersionResponse]
+$creadListPrec :: ReadPrec [SetTypeDefaultVersionResponse]
+readPrec :: ReadPrec SetTypeDefaultVersionResponse
+$creadPrec :: ReadPrec SetTypeDefaultVersionResponse
+readList :: ReadS [SetTypeDefaultVersionResponse]
+$creadList :: ReadS [SetTypeDefaultVersionResponse]
+readsPrec :: Int -&gt; ReadS SetTypeDefaultVersionResponse
+$creadsPrec :: Int -&gt; ReadS SetTypeDefaultVersionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430227"><span id="local-6989586621679430229"><span id="local-6989586621679430231"><span class="annot"><span class="annottext">Int -&gt; SetTypeDefaultVersionResponse -&gt; ShowS
+[SetTypeDefaultVersionResponse] -&gt; ShowS
+SetTypeDefaultVersionResponse -&gt; String
+(Int -&gt; SetTypeDefaultVersionResponse -&gt; ShowS)
+-&gt; (SetTypeDefaultVersionResponse -&gt; String)
+-&gt; ([SetTypeDefaultVersionResponse] -&gt; ShowS)
+-&gt; Show SetTypeDefaultVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetTypeDefaultVersionResponse] -&gt; ShowS
+$cshowList :: [SetTypeDefaultVersionResponse] -&gt; ShowS
+show :: SetTypeDefaultVersionResponse -&gt; String
+$cshow :: SetTypeDefaultVersionResponse -&gt; String
+showsPrec :: Int -&gt; SetTypeDefaultVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetTypeDefaultVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SetTypeDefaultVersionResponse
+ -&gt; Rep SetTypeDefaultVersionResponse x)
+-&gt; (forall x.
+    Rep SetTypeDefaultVersionResponse x
+    -&gt; SetTypeDefaultVersionResponse)
+-&gt; Generic SetTypeDefaultVersionResponse
+forall x.
+Rep SetTypeDefaultVersionResponse x
+-&gt; SetTypeDefaultVersionResponse
+forall x.
+SetTypeDefaultVersionResponse
+-&gt; Rep SetTypeDefaultVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SetTypeDefaultVersionResponse x
+-&gt; SetTypeDefaultVersionResponse
+$cfrom :: forall x.
+SetTypeDefaultVersionResponse
+-&gt; Rep SetTypeDefaultVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Create a value of 'SetTypeDefaultVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'httpStatus', 'setTypeDefaultVersionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#newSetTypeDefaultVersionResponse"><span class="hs-identifier hs-type">newSetTypeDefaultVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersionResponse"><span class="hs-identifier hs-type">SetTypeDefaultVersionResponse</span></a></span><span>
+</span><span id="line-189"></span><span id="newSetTypeDefaultVersionResponse"><span class="annot"><span class="annottext">newSetTypeDefaultVersionResponse :: Int -&gt; SetTypeDefaultVersionResponse
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#newSetTypeDefaultVersionResponse"><span class="hs-identifier hs-var hs-var">newSetTypeDefaultVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679430224"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430224"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">SetTypeDefaultVersionResponse' :: Int -&gt; SetTypeDefaultVersionResponse
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersionResponse%27"><span class="hs-identifier hs-type">SetTypeDefaultVersionResponse'</span></a></span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:SetTypeDefaultVersionResponse' :: Int
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#%24sel%3AhttpStatus%3ASetTypeDefaultVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430224"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#setTypeDefaultVersionResponse_httpStatus"><span class="hs-identifier hs-type">setTypeDefaultVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersionResponse"><span class="hs-identifier hs-type">SetTypeDefaultVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-197"></span><span id="setTypeDefaultVersionResponse_httpStatus"><span class="annot"><span class="annottext">setTypeDefaultVersionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; SetTypeDefaultVersionResponse -&gt; f SetTypeDefaultVersionResponse
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#setTypeDefaultVersionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">setTypeDefaultVersionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetTypeDefaultVersionResponse -&gt; Int)
+-&gt; (SetTypeDefaultVersionResponse
+    -&gt; Int -&gt; SetTypeDefaultVersionResponse)
+-&gt; Lens
+     SetTypeDefaultVersionResponse SetTypeDefaultVersionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersionResponse%27"><span class="hs-identifier hs-type">SetTypeDefaultVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430223"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SetTypeDefaultVersionResponse' :: SetTypeDefaultVersionResponse -&gt; Int
+</span><a href="#local-6989586621679430223"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430223"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430222"><span class="annot"><span class="annottext">s :: SetTypeDefaultVersionResponse
+</span><a href="#local-6989586621679430222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersionResponse%27"><span class="hs-identifier hs-type">SetTypeDefaultVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430221"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetTypeDefaultVersionResponse
+</span><a href="#local-6989586621679430222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetTypeDefaultVersionResponse' :: Int
+</span><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#%24sel%3AhttpStatus%3ASetTypeDefaultVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersionResponse"><span class="hs-identifier hs-type">SetTypeDefaultVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SetTypeDefaultVersion.html#SetTypeDefaultVersionResponse"><span class="hs-identifier hs-type">SetTypeDefaultVersionResponse</span></a></span></span><span>
+</span><span id="line-200"></span></pre></body></html>

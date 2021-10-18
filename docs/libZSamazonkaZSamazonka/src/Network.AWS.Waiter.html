@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">-- |</span><span>
+</span><span id="line-2"></span><span class="hs-comment">-- Module      : Network.AWS.Waiter</span><span>
+</span><span id="line-3"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- License     : This Source Code Form is subject to the terms of</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Stability   : provisional</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-8"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Waiter</span><span>
+</span><span id="line-9"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-10"></span><span>    </span><span class="annot"><a href="Network.AWS.Waiter.html#Acceptor"><span class="hs-identifier">Acceptor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-11"></span><span>    </span><span class="annot"><a href="Network.AWS.Waiter.html#Accept"><span class="hs-identifier">Accept</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-12"></span><span>    </span><span class="annot"><a href="Network.AWS.Waiter.html#Wait"><span class="hs-identifier">Wait</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-13"></span><span>
+</span><span id="line-14"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Acceptors</span></span><span>
+</span><span id="line-15"></span><span>    </span><span class="annot"><a href="Network.AWS.Waiter.html#accept"><span class="hs-identifier">accept</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-16"></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Matchers</span></span><span>
+</span><span id="line-18"></span><span>    </span><span class="annot"><a href="Network.AWS.Waiter.html#matchAll"><span class="hs-identifier">matchAll</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><a href="Network.AWS.Waiter.html#matchAny"><span class="hs-identifier">matchAny</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.Waiter.html#matchNonEmpty"><span class="hs-identifier">matchNonEmpty</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.Waiter.html#matchError"><span class="hs-identifier">matchError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.Waiter.html#matchStatus"><span class="hs-identifier">matchStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Util</span></span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.Waiter.html#nonEmptyText"><span class="hs-identifier">nonEmptyText</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.Text</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Text</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Data.html"><span class="hs-identifier">Network.AWS.Data</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Error.html"><span class="hs-identifier">Network.AWS.Error</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Error.html#_HttpStatus"><span class="hs-identifier">_HttpStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lens.html"><span class="hs-identifier">Network.AWS.Lens</span></a></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">Fold</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-identifier">allOf</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-identifier">anyOf</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-identifier">to</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-operator">(^..)</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-operator">(^?)</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Prelude.html"><span class="hs-identifier">Network.AWS.Prelude</span></a></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Types.html"><span class="hs-identifier">Network.AWS.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.HTTP.Client</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Client</span></span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">type</span><span> </span><span id="Acceptor"><span class="annot"><a href="Network.AWS.Waiter.html#Acceptor"><span class="hs-identifier hs-var">Acceptor</span></a></span></span><span> </span><span id="local-6989586621679201305"><span class="annot"><a href="#local-6989586621679201305"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Request"><span class="hs-identifier hs-type">Request</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679201305"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Error"><span class="hs-identifier hs-type">Error</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#ClientResponse"><span class="hs-identifier hs-type">ClientResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#AWSResponse"><span class="hs-identifier hs-type">AWSResponse</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679201305"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Accept"><span class="hs-identifier hs-type">Accept</span></a></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">data</span><span> </span><span id="Accept"><span class="annot"><a href="Network.AWS.Waiter.html#Accept"><span class="hs-identifier hs-var">Accept</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-glyph">=</span><span> </span><span id="AcceptSuccess"><span class="annot"><a href="Network.AWS.Waiter.html#AcceptSuccess"><span class="hs-identifier hs-var">AcceptSuccess</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span id="AcceptFailure"><span class="annot"><a href="Network.AWS.Waiter.html#AcceptFailure"><span class="hs-identifier hs-var">AcceptFailure</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span id="AcceptRetry"><span class="annot"><a href="Network.AWS.Waiter.html#AcceptRetry"><span class="hs-identifier hs-var">AcceptRetry</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201298"><span id="local-6989586621679201300"><span class="annot"><span class="annottext">Accept -&gt; Accept -&gt; Bool
+(Accept -&gt; Accept -&gt; Bool)
+-&gt; (Accept -&gt; Accept -&gt; Bool) -&gt; Eq Accept
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Accept -&gt; Accept -&gt; Bool
+$c/= :: Accept -&gt; Accept -&gt; Bool
+== :: Accept -&gt; Accept -&gt; Bool
+$c== :: Accept -&gt; Accept -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201291"><span id="local-6989586621679201293"><span id="local-6989586621679201295"><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; ShowS
+[Accept] -&gt; ShowS
+Accept -&gt; String
+(Int -&gt; Accept -&gt; ShowS)
+-&gt; (Accept -&gt; String) -&gt; ([Accept] -&gt; ShowS) -&gt; Show Accept
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Accept] -&gt; ShowS
+$cshowList :: [Accept] -&gt; ShowS
+show :: Accept -&gt; String
+$cshow :: Accept -&gt; String
+showsPrec :: Int -&gt; Accept -&gt; ShowS
+$cshowsPrec :: Int -&gt; Accept -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></span></span></span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Accept"><span class="hs-identifier hs-type">Accept</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>  </span><span id="local-6989586621679201287"><span class="annot"><span class="annottext">build :: Accept -&gt; ByteStringBuilder
+</span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="annottext">Accept
+</span><a href="Network.AWS.Waiter.html#AcceptSuccess"><span class="hs-identifier hs-var">AcceptSuccess</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;Success&quot;</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">Accept
+</span><a href="Network.AWS.Waiter.html#AcceptFailure"><span class="hs-identifier hs-var">AcceptFailure</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;Failure&quot;</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">Accept
+</span><a href="Network.AWS.Waiter.html#AcceptRetry"><span class="hs-identifier hs-var">AcceptRetry</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;Retry&quot;</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | Timing and acceptance criteria to check fulfillment of a remote operation.</span><span>
+</span><span id="line-59"></span><span class="hs-keyword">data</span><span> </span><span id="Wait"><span class="annot"><a href="Network.AWS.Waiter.html#Wait"><span class="hs-identifier hs-var">Wait</span></a></span></span><span> </span><span id="local-6989586621679201372"><span class="annot"><a href="#local-6989586621679201372"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Wait"><span class="annot"><a href="Network.AWS.Waiter.html#Wait"><span class="hs-identifier hs-var">Wait</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3A_waitName%3AWait"><span class="annot"><span class="annottext">Wait a -&gt; ByteString
+</span><a href="Network.AWS.Waiter.html#%24sel%3A_waitName%3AWait"><span class="hs-identifier hs-var hs-var">_waitName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3A_waitAttempts%3AWait"><span class="annot"><span class="annottext">Wait a -&gt; Int
+</span><a href="Network.AWS.Waiter.html#%24sel%3A_waitAttempts%3AWait"><span class="hs-identifier hs-var hs-var">_waitAttempts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3A_waitDelay%3AWait"><span class="annot"><span class="annottext">Wait a -&gt; Seconds
+</span><a href="Network.AWS.Waiter.html#%24sel%3A_waitDelay%3AWait"><span class="hs-identifier hs-var hs-var">_waitDelay</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Seconds"><span class="hs-identifier hs-type">Seconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3A_waitAcceptors%3AWait"><span class="annot"><span class="annottext">Wait a -&gt; [Acceptor a]
+</span><a href="Network.AWS.Waiter.html#%24sel%3A_waitAcceptors%3AWait"><span class="hs-identifier hs-var hs-var">_waitAcceptors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Waiter.html#Acceptor"><span class="hs-identifier hs-type">Acceptor</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679201372"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span id="local-6989586621679201280"><span class="annot"><a href="Network.AWS.Waiter.html#accept"><span class="hs-identifier hs-type">accept</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Wait"><span class="hs-identifier hs-type">Wait</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679201280"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Acceptor"><span class="hs-identifier hs-type">Acceptor</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679201280"><span class="hs-identifier hs-type">a</span></a></span></span><span>
+</span><span id="line-67"></span><span id="accept"><span class="annot"><span class="annottext">accept :: Wait a -&gt; Acceptor a
+</span><a href="Network.AWS.Waiter.html#accept"><span class="hs-identifier hs-var hs-var">accept</span></a></span></span><span> </span><span id="local-6989586621679201279"><span class="annot"><span class="annottext">Wait a
+</span><a href="#local-6989586621679201279"><span class="hs-identifier hs-var">w</span></a></span></span><span> </span><span id="local-6989586621679201278"><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679201278"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679201277"><span class="annot"><span class="annottext">Either Error (ClientResponse (AWSResponse a))
+</span><a href="#local-6989586621679201277"><span class="hs-identifier hs-var">rs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Accept] -&gt; Maybe Accept
+forall a. [a] -&gt; Maybe a
+</span><span class="hs-identifier hs-var">listToMaybe</span></span><span> </span><span class="annot"><span class="annottext">([Accept] -&gt; Maybe Accept)
+-&gt; ([Acceptor a] -&gt; [Accept]) -&gt; [Acceptor a] -&gt; Maybe Accept
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(Acceptor a -&gt; Maybe Accept) -&gt; [Acceptor a] -&gt; [Accept]
+forall a b. (a -&gt; Maybe b) -&gt; [a] -&gt; [b]
+</span><span class="hs-identifier hs-var">mapMaybe</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201273"><span class="annot"><span class="annottext">Acceptor a
+</span><a href="#local-6989586621679201273"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Acceptor a
+</span><a href="#local-6989586621679201273"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679201278"><span class="hs-identifier hs-var">rq</span></a></span><span> </span><span class="annot"><span class="annottext">Either Error (ClientResponse (AWSResponse a))
+</span><a href="#local-6989586621679201277"><span class="hs-identifier hs-var">rs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Acceptor a] -&gt; Maybe Accept) -&gt; [Acceptor a] -&gt; Maybe Accept
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="annot"><span class="annottext">Wait a -&gt; [Acceptor a]
+forall a. Wait a -&gt; [Acceptor a]
+</span><a href="Network.AWS.Waiter.html#%24sel%3A_waitAcceptors%3AWait"><span class="hs-identifier hs-var hs-var">_waitAcceptors</span></a></span><span> </span><span class="annot"><span class="annottext">Wait a
+</span><a href="#local-6989586621679201279"><span class="hs-identifier hs-var">w</span></a></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span id="local-6989586621679201271"><span id="local-6989586621679201272"><span class="annot"><a href="Network.AWS.Waiter.html#matchAll"><span class="hs-identifier hs-type">matchAll</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679201272"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679201272"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Accept"><span class="hs-identifier hs-type">Accept</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Fold</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#AWSResponse"><span class="hs-identifier hs-type">AWSResponse</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679201271"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679201272"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Acceptor"><span class="hs-identifier hs-type">Acceptor</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679201271"><span class="hs-identifier hs-type">a</span></a></span></span></span><span>
+</span><span id="line-70"></span><span id="matchAll"><span class="annot"><span class="annottext">matchAll :: b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><a href="Network.AWS.Waiter.html#matchAll"><span class="hs-identifier hs-var hs-var">matchAll</span></a></span></span><span> </span><span id="local-6989586621679201270"><span class="annot"><span class="annottext">b
+</span><a href="#local-6989586621679201270"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679201269"><span class="annot"><span class="annottext">Accept
+</span><a href="#local-6989586621679201269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679201268"><span class="annot"><span class="annottext">Fold (AWSResponse a) b
+</span><a href="#local-6989586621679201268"><span class="hs-identifier hs-var">l</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AWSResponse a -&gt; Bool) -&gt; Accept -&gt; Acceptor a
+forall a. (AWSResponse a -&gt; Bool) -&gt; Accept -&gt; Acceptor a
+</span><a href="Network.AWS.Waiter.html#match"><span class="hs-identifier hs-var">match</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Getting All (AWSResponse a) b
+-&gt; (b -&gt; Bool) -&gt; AWSResponse a -&gt; Bool
+forall s a. Getting All s a -&gt; (a -&gt; Bool) -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">allOf</span></span><span> </span><span class="annot"><span class="annottext">Getting All (AWSResponse a) b
+Fold (AWSResponse a) b
+</span><a href="#local-6989586621679201268"><span class="hs-identifier hs-var">l</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">b -&gt; b -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">b
+</span><a href="#local-6989586621679201270"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Accept
+</span><a href="#local-6989586621679201269"><span class="hs-identifier hs-var">a</span></a></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span id="local-6989586621679201265"><span id="local-6989586621679201266"><span class="annot"><a href="Network.AWS.Waiter.html#matchAny"><span class="hs-identifier hs-type">matchAny</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679201266"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679201266"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Accept"><span class="hs-identifier hs-type">Accept</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Fold</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#AWSResponse"><span class="hs-identifier hs-type">AWSResponse</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679201265"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679201266"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Acceptor"><span class="hs-identifier hs-type">Acceptor</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679201265"><span class="hs-identifier hs-type">a</span></a></span></span></span><span>
+</span><span id="line-73"></span><span id="matchAny"><span class="annot"><span class="annottext">matchAny :: b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><a href="Network.AWS.Waiter.html#matchAny"><span class="hs-identifier hs-var hs-var">matchAny</span></a></span></span><span> </span><span id="local-6989586621679201264"><span class="annot"><span class="annottext">b
+</span><a href="#local-6989586621679201264"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679201263"><span class="annot"><span class="annottext">Accept
+</span><a href="#local-6989586621679201263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679201262"><span class="annot"><span class="annottext">Fold (AWSResponse a) b
+</span><a href="#local-6989586621679201262"><span class="hs-identifier hs-var">l</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AWSResponse a -&gt; Bool) -&gt; Accept -&gt; Acceptor a
+forall a. (AWSResponse a -&gt; Bool) -&gt; Accept -&gt; Acceptor a
+</span><a href="Network.AWS.Waiter.html#match"><span class="hs-identifier hs-var">match</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Getting Any (AWSResponse a) b
+-&gt; (b -&gt; Bool) -&gt; AWSResponse a -&gt; Bool
+forall s a. Getting Any s a -&gt; (a -&gt; Bool) -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">anyOf</span></span><span> </span><span class="annot"><span class="annottext">Getting Any (AWSResponse a) b
+Fold (AWSResponse a) b
+</span><a href="#local-6989586621679201262"><span class="hs-identifier hs-var">l</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">b -&gt; b -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">b
+</span><a href="#local-6989586621679201264"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Accept
+</span><a href="#local-6989586621679201263"><span class="hs-identifier hs-var">a</span></a></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span id="local-6989586621679201260"><span id="local-6989586621679201261"><span class="annot"><a href="Network.AWS.Waiter.html#matchNonEmpty"><span class="hs-identifier hs-type">matchNonEmpty</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Accept"><span class="hs-identifier hs-type">Accept</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Fold</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#AWSResponse"><span class="hs-identifier hs-type">AWSResponse</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679201261"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679201260"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Acceptor"><span class="hs-identifier hs-type">Acceptor</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679201261"><span class="hs-identifier hs-type">a</span></a></span></span></span><span>
+</span><span id="line-76"></span><span id="matchNonEmpty"><span class="annot"><span class="annottext">matchNonEmpty :: Bool -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><a href="Network.AWS.Waiter.html#matchNonEmpty"><span class="hs-identifier hs-var hs-var">matchNonEmpty</span></a></span></span><span> </span><span id="local-6989586621679201259"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679201259"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679201258"><span class="annot"><span class="annottext">Accept
+</span><a href="#local-6989586621679201258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679201257"><span class="annot"><span class="annottext">Fold (AWSResponse a) b
+</span><a href="#local-6989586621679201257"><span class="hs-identifier hs-var">l</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AWSResponse a -&gt; Bool) -&gt; Accept -&gt; Acceptor a
+forall a. (AWSResponse a -&gt; Bool) -&gt; Accept -&gt; Acceptor a
+</span><a href="Network.AWS.Waiter.html#match"><span class="hs-identifier hs-var">match</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201256"><span class="annot"><span class="annottext">AWSResponse a
+</span><a href="#local-6989586621679201256"><span class="hs-identifier hs-var">rs</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[b] -&gt; Bool
+forall (t :: * -&gt; *) a. Foldable t =&gt; t a -&gt; Bool
+</span><span class="hs-identifier hs-var">null</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse a
+</span><a href="#local-6989586621679201256"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">AWSResponse a -&gt; Getting (Endo [b]) (AWSResponse a) b -&gt; [b]
+forall s a. s -&gt; Getting (Endo [a]) s a -&gt; [a]
+</span><span class="hs-operator hs-var">^..</span></span><span> </span><span class="annot"><span class="annottext">Getting (Endo [b]) (AWSResponse a) b
+Fold (AWSResponse a) b
+</span><a href="#local-6989586621679201257"><span class="hs-identifier hs-var">l</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Bool -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679201259"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Accept
+</span><a href="#local-6989586621679201258"><span class="hs-identifier hs-var">a</span></a></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span id="local-6989586621679201254"><span class="annot"><a href="Network.AWS.Waiter.html#matchStatus"><span class="hs-identifier hs-type">matchStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Accept"><span class="hs-identifier hs-type">Accept</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Acceptor"><span class="hs-identifier hs-type">Acceptor</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679201254"><span class="hs-identifier hs-type">a</span></a></span></span><span>
+</span><span id="line-79"></span><span id="matchStatus"><span class="annot"><span class="annottext">matchStatus :: Int -&gt; Accept -&gt; Acceptor a
+</span><a href="Network.AWS.Waiter.html#matchStatus"><span class="hs-identifier hs-var hs-var">matchStatus</span></a></span></span><span> </span><span id="local-6989586621679201253"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201253"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679201252"><span class="annot"><span class="annottext">Accept
+</span><a href="#local-6989586621679201252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Right</span></span><span> </span><span id="local-6989586621679201251"><span class="annot"><span class="annottext">ClientResponse (AWSResponse a)
+</span><a href="#local-6989586621679201251"><span class="hs-identifier hs-var">rs</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201253"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">Status -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">fromEnum</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ClientResponse (AWSResponse a) -&gt; Status
+forall body. Response body -&gt; Status
+</span><span class="hs-identifier hs-var hs-var">Client.responseStatus</span></span><span> </span><span class="annot"><span class="annottext">ClientResponse (AWSResponse a)
+</span><a href="#local-6989586621679201251"><span class="hs-identifier hs-var">rs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Accept -&gt; Maybe Accept
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><a href="#local-6989586621679201252"><span class="hs-identifier hs-var">a</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Left</span></span><span> </span><span id="local-6989586621679201248"><span class="annot"><span class="annottext">Error
+</span><a href="#local-6989586621679201248"><span class="hs-identifier hs-var">e</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Maybe Int
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201253"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Int -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">==</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Status -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">fromEnum</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; Int) -&gt; Maybe Status -&gt; Maybe Int
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Error
+</span><a href="#local-6989586621679201248"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="annot"><span class="annottext">Error -&gt; Getting (First Status) Error Status -&gt; Maybe Status
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">^?</span></span><span> </span><span class="annot"><span class="annottext">Getting (First Status) Error Status
+forall a. AsError a =&gt; Getting (First Status) a Status
+</span><a href="Network.AWS.Error.html#_HttpStatus"><span class="hs-identifier hs-var">_HttpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Accept -&gt; Maybe Accept
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><a href="#local-6989586621679201252"><span class="hs-identifier hs-var">a</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">Either Error (ClientResponse (AWSResponse a))
+</span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Accept
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Nothing</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span id="local-6989586621679201246"><span class="annot"><a href="Network.AWS.Waiter.html#matchError"><span class="hs-identifier hs-type">matchError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Accept"><span class="hs-identifier hs-type">Accept</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Acceptor"><span class="hs-identifier hs-type">Acceptor</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679201246"><span class="hs-identifier hs-type">a</span></a></span></span><span>
+</span><span id="line-85"></span><span id="matchError"><span class="annot"><span class="annottext">matchError :: ErrorCode -&gt; Accept -&gt; Acceptor a
+</span><a href="Network.AWS.Waiter.html#matchError"><span class="hs-identifier hs-var hs-var">matchError</span></a></span></span><span> </span><span id="local-6989586621679201245"><span class="annot"><span class="annottext">ErrorCode
+</span><a href="#local-6989586621679201245"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span id="local-6989586621679201244"><span class="annot"><span class="annottext">Accept
+</span><a href="#local-6989586621679201244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Left</span></span><span> </span><span id="local-6989586621679201243"><span class="annot"><span class="annottext">Error
+</span><a href="#local-6989586621679201243"><span class="hs-identifier hs-var">e</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Maybe ErrorCode
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><a href="#local-6989586621679201245"><span class="hs-identifier hs-var">c</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ErrorCode -&gt; Maybe ErrorCode -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">Error
+</span><a href="#local-6989586621679201243"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="annot"><span class="annottext">Error
+-&gt; Getting (First ErrorCode) Error ErrorCode -&gt; Maybe ErrorCode
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">^?</span></span><span> </span><span class="annot"><span class="annottext">(ServiceError -&gt; Const (First ErrorCode) ServiceError)
+-&gt; Error -&gt; Const (First ErrorCode) Error
+forall a. AsError a =&gt; Prism' a ServiceError
+</span><a href="Network.AWS.Types.html#_ServiceError"><span class="hs-identifier hs-var">_ServiceError</span></a></span><span> </span><span class="annot"><span class="annottext">((ServiceError -&gt; Const (First ErrorCode) ServiceError)
+ -&gt; Error -&gt; Const (First ErrorCode) Error)
+-&gt; ((ErrorCode -&gt; Const (First ErrorCode) ErrorCode)
+    -&gt; ServiceError -&gt; Const (First ErrorCode) ServiceError)
+-&gt; Getting (First ErrorCode) Error ErrorCode
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(ErrorCode -&gt; Const (First ErrorCode) ErrorCode)
+-&gt; ServiceError -&gt; Const (First ErrorCode) ServiceError
+Lens' ServiceError ErrorCode
+</span><a href="Network.AWS.Types.html#serviceCode"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Accept -&gt; Maybe Accept
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><a href="#local-6989586621679201244"><span class="hs-identifier hs-var">a</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">Either Error (ClientResponse (AWSResponse a))
+</span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Accept
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Nothing</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span id="local-6989586621679201368"><span class="annot"><a href="Network.AWS.Waiter.html#match"><span class="hs-identifier hs-type">match</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#AWSResponse"><span class="hs-identifier hs-type">AWSResponse</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679201368"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Accept"><span class="hs-identifier hs-type">Accept</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Acceptor"><span class="hs-identifier hs-type">Acceptor</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679201368"><span class="hs-identifier hs-type">a</span></a></span></span><span>
+</span><span id="line-90"></span><span id="match"><span class="annot"><span class="annottext">match :: (AWSResponse a -&gt; Bool) -&gt; Accept -&gt; Acceptor a
+</span><a href="Network.AWS.Waiter.html#match"><span class="hs-identifier hs-var hs-var">match</span></a></span></span><span> </span><span id="local-6989586621679201240"><span class="annot"><span class="annottext">AWSResponse a -&gt; Bool
+</span><a href="#local-6989586621679201240"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span id="local-6989586621679201239"><span class="annot"><span class="annottext">Accept
+</span><a href="#local-6989586621679201239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Right</span></span><span> </span><span id="local-6989586621679201238"><span class="annot"><span class="annottext">ClientResponse (AWSResponse a)
+</span><a href="#local-6989586621679201238"><span class="hs-identifier hs-var">rs</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">AWSResponse a -&gt; Bool
+</span><a href="#local-6989586621679201240"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ClientResponse (AWSResponse a) -&gt; AWSResponse a
+forall body. Response body -&gt; body
+</span><span class="hs-identifier hs-var hs-var">Client.responseBody</span></span><span> </span><span class="annot"><span class="annottext">ClientResponse (AWSResponse a)
+</span><a href="#local-6989586621679201238"><span class="hs-identifier hs-var">rs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Accept -&gt; Maybe Accept
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><a href="#local-6989586621679201239"><span class="hs-identifier hs-var">a</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">Either Error (ClientResponse (AWSResponse a))
+</span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Accept
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Nothing</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span id="local-6989586621679201236"><span class="annot"><a href="Network.AWS.Waiter.html#nonEmptyText"><span class="hs-identifier hs-type">nonEmptyText</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Fold</span></span><span> </span><span class="annot"><a href="#local-6989586621679201236"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Fold</span></span><span> </span><span class="annot"><a href="#local-6989586621679201236"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span></span><span>
+</span><span id="line-95"></span><span id="nonEmptyText"><span class="annot"><span class="annottext">nonEmptyText :: Fold a Text -&gt; Fold a Bool
+</span><a href="Network.AWS.Waiter.html#nonEmptyText"><span class="hs-identifier hs-var hs-var">nonEmptyText</span></a></span></span><span> </span><span id="local-6989586621679201235"><span class="annot"><span class="annottext">Fold a Text
+</span><a href="#local-6989586621679201235"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; a -&gt; f a
+Fold a Text
+</span><a href="#local-6989586621679201235"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">((Text -&gt; f Text) -&gt; a -&gt; f a)
+-&gt; ((Bool -&gt; f Bool) -&gt; Text -&gt; f Text)
+-&gt; (Bool -&gt; f Bool)
+-&gt; a
+-&gt; f a
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Bool) -&gt; (Bool -&gt; f Bool) -&gt; Text -&gt; f Text
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">to</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool
+</span><span class="hs-identifier hs-var">Text.null</span></span><span>
+</span><span id="line-96"></span></pre></body></html>

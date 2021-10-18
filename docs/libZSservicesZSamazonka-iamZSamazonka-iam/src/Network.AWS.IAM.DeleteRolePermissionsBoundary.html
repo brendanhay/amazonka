@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IAM.DeleteRolePermissionsBoundary</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the permissions boundary for the specified IAM role.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Deleting the permissions boundary for a role might increase its</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- permissions. For example, it might allow anyone who assumes the role to</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- perform all the actions granted in its permissions policies.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IAM.DeleteRolePermissionsBoundary</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary"><span class="hs-identifier">DeleteRolePermissionsBoundary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#newDeleteRolePermissionsBoundary"><span class="hs-identifier">newDeleteRolePermissionsBoundary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#deleteRolePermissionsBoundary_roleName"><span class="hs-identifier">deleteRolePermissionsBoundary_roleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundaryResponse"><span class="hs-identifier">DeleteRolePermissionsBoundaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#newDeleteRolePermissionsBoundaryResponse"><span class="hs-identifier">newDeleteRolePermissionsBoundaryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.html"><span class="hs-identifier">Network.AWS.IAM.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteRolePermissionsBoundary' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679455183"><span id="local-6989586621679455184"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRolePermissionsBoundary"><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary"><span class="hs-identifier hs-var">DeleteRolePermissionsBoundary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRolePermissionsBoundary%27"><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary%27"><span class="hs-identifier hs-var">DeleteRolePermissionsBoundary'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name (friendly name, not ARN) of the IAM role from which you want to</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- remove the permissions boundary.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AroleName%3ADeleteRolePermissionsBoundary%27"><span class="annot"><span class="annottext">DeleteRolePermissionsBoundary -&gt; Text
+</span><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#%24sel%3AroleName%3ADeleteRolePermissionsBoundary%27"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679455177"><span id="local-6989586621679455179"><span class="annot"><span class="annottext">DeleteRolePermissionsBoundary
+-&gt; DeleteRolePermissionsBoundary -&gt; Bool
+(DeleteRolePermissionsBoundary
+ -&gt; DeleteRolePermissionsBoundary -&gt; Bool)
+-&gt; (DeleteRolePermissionsBoundary
+    -&gt; DeleteRolePermissionsBoundary -&gt; Bool)
+-&gt; Eq DeleteRolePermissionsBoundary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteRolePermissionsBoundary
+-&gt; DeleteRolePermissionsBoundary -&gt; Bool
+$c/= :: DeleteRolePermissionsBoundary
+-&gt; DeleteRolePermissionsBoundary -&gt; Bool
+== :: DeleteRolePermissionsBoundary
+-&gt; DeleteRolePermissionsBoundary -&gt; Bool
+$c== :: DeleteRolePermissionsBoundary
+-&gt; DeleteRolePermissionsBoundary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455168"><span id="local-6989586621679455170"><span id="local-6989586621679455172"><span id="local-6989586621679455174"><span class="annot"><span class="annottext">ReadPrec [DeleteRolePermissionsBoundary]
+ReadPrec DeleteRolePermissionsBoundary
+Int -&gt; ReadS DeleteRolePermissionsBoundary
+ReadS [DeleteRolePermissionsBoundary]
+(Int -&gt; ReadS DeleteRolePermissionsBoundary)
+-&gt; ReadS [DeleteRolePermissionsBoundary]
+-&gt; ReadPrec DeleteRolePermissionsBoundary
+-&gt; ReadPrec [DeleteRolePermissionsBoundary]
+-&gt; Read DeleteRolePermissionsBoundary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteRolePermissionsBoundary]
+$creadListPrec :: ReadPrec [DeleteRolePermissionsBoundary]
+readPrec :: ReadPrec DeleteRolePermissionsBoundary
+$creadPrec :: ReadPrec DeleteRolePermissionsBoundary
+readList :: ReadS [DeleteRolePermissionsBoundary]
+$creadList :: ReadS [DeleteRolePermissionsBoundary]
+readsPrec :: Int -&gt; ReadS DeleteRolePermissionsBoundary
+$creadsPrec :: Int -&gt; ReadS DeleteRolePermissionsBoundary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455161"><span id="local-6989586621679455163"><span id="local-6989586621679455165"><span class="annot"><span class="annottext">Int -&gt; DeleteRolePermissionsBoundary -&gt; ShowS
+[DeleteRolePermissionsBoundary] -&gt; ShowS
+DeleteRolePermissionsBoundary -&gt; String
+(Int -&gt; DeleteRolePermissionsBoundary -&gt; ShowS)
+-&gt; (DeleteRolePermissionsBoundary -&gt; String)
+-&gt; ([DeleteRolePermissionsBoundary] -&gt; ShowS)
+-&gt; Show DeleteRolePermissionsBoundary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteRolePermissionsBoundary] -&gt; ShowS
+$cshowList :: [DeleteRolePermissionsBoundary] -&gt; ShowS
+show :: DeleteRolePermissionsBoundary -&gt; String
+$cshow :: DeleteRolePermissionsBoundary -&gt; String
+showsPrec :: Int -&gt; DeleteRolePermissionsBoundary -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteRolePermissionsBoundary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteRolePermissionsBoundary
+ -&gt; Rep DeleteRolePermissionsBoundary x)
+-&gt; (forall x.
+    Rep DeleteRolePermissionsBoundary x
+    -&gt; DeleteRolePermissionsBoundary)
+-&gt; Generic DeleteRolePermissionsBoundary
+forall x.
+Rep DeleteRolePermissionsBoundary x
+-&gt; DeleteRolePermissionsBoundary
+forall x.
+DeleteRolePermissionsBoundary
+-&gt; Rep DeleteRolePermissionsBoundary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteRolePermissionsBoundary x
+-&gt; DeleteRolePermissionsBoundary
+$cfrom :: forall x.
+DeleteRolePermissionsBoundary
+-&gt; Rep DeleteRolePermissionsBoundary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DeleteRolePermissionsBoundary' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'roleName', 'deleteRolePermissionsBoundary_roleName' - The name (friendly name, not ARN) of the IAM role from which you want to</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- remove the permissions boundary.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#newDeleteRolePermissionsBoundary"><span class="hs-identifier hs-type">newDeleteRolePermissionsBoundary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'roleName'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundary</span></a></span><span>
+</span><span id="line-71"></span><span id="newDeleteRolePermissionsBoundary"><span class="annot"><span class="annottext">newDeleteRolePermissionsBoundary :: Text -&gt; DeleteRolePermissionsBoundary
+</span><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#newDeleteRolePermissionsBoundary"><span class="hs-identifier hs-var hs-var">newDeleteRolePermissionsBoundary</span></a></span></span><span> </span><span id="local-6989586621679455156"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455156"><span class="hs-identifier hs-var">pRoleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DeleteRolePermissionsBoundary' :: Text -&gt; DeleteRolePermissionsBoundary
+</span><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary%27"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundary'</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleName:DeleteRolePermissionsBoundary' :: Text
+</span><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#%24sel%3AroleName%3ADeleteRolePermissionsBoundary%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455156"><span class="hs-identifier hs-var">pRoleName_</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The name (friendly name, not ARN) of the IAM role from which you want to</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- remove the permissions boundary.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#deleteRolePermissionsBoundary_roleName"><span class="hs-identifier hs-type">deleteRolePermissionsBoundary_roleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="deleteRolePermissionsBoundary_roleName"><span class="annot"><span class="annottext">deleteRolePermissionsBoundary_roleName :: (Text -&gt; f Text)
+-&gt; DeleteRolePermissionsBoundary -&gt; f DeleteRolePermissionsBoundary
+</span><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#deleteRolePermissionsBoundary_roleName"><span class="hs-identifier hs-var hs-var">deleteRolePermissionsBoundary_roleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteRolePermissionsBoundary -&gt; Text)
+-&gt; (DeleteRolePermissionsBoundary
+    -&gt; Text -&gt; DeleteRolePermissionsBoundary)
+-&gt; Lens
+     DeleteRolePermissionsBoundary
+     DeleteRolePermissionsBoundary
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary%27"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455153"><span class="annot"><span class="annottext">Text
+roleName :: Text
+$sel:roleName:DeleteRolePermissionsBoundary' :: DeleteRolePermissionsBoundary -&gt; Text
+</span><a href="#local-6989586621679455153"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455153"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455152"><span class="annot"><span class="annottext">s :: DeleteRolePermissionsBoundary
+</span><a href="#local-6989586621679455152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary%27"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455151"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRolePermissionsBoundary
+</span><a href="#local-6989586621679455152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:DeleteRolePermissionsBoundary' :: Text
+</span><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#%24sel%3AroleName%3ADeleteRolePermissionsBoundary%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundary</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundaryResponse"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundaryResponse</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679455147"><span class="annot"><span class="annottext">request :: DeleteRolePermissionsBoundary
+-&gt; Request DeleteRolePermissionsBoundary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteRolePermissionsBoundary
+-&gt; Request DeleteRolePermissionsBoundary
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679455143"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteRolePermissionsBoundary
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteRolePermissionsBoundary)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteRolePermissionsBoundary
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteRolePermissionsBoundary
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteRolePermissionsBoundary)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DeleteRolePermissionsBoundary
+DeleteRolePermissionsBoundaryResponse
+</span><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundaryResponse%27"><span class="hs-identifier hs-var">DeleteRolePermissionsBoundaryResponse'</span></a></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679455136"><span id="local-6989586621679455138"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundary</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundary</span></a></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679455129"><span class="annot"><span class="annottext">toHeaders :: DeleteRolePermissionsBoundary -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteRolePermissionsBoundary -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679455124"><span class="annot"><span class="annottext">toPath :: DeleteRolePermissionsBoundary -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteRolePermissionsBoundary -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679455120"><span class="annot"><span class="annottext">toQuery :: DeleteRolePermissionsBoundary -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundary%27"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455118"><span class="annot"><span class="annottext">Text
+roleName :: Text
+$sel:roleName:DeleteRolePermissionsBoundary' :: DeleteRolePermissionsBoundary -&gt; Text
+</span><a href="#local-6989586621679455118"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteRolePermissionsBoundary&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-112"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-08&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RoleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455118"><span class="hs-identifier hs-var">roleName</span></a></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newDeleteRolePermissionsBoundaryResponse' smart constructor.</span><span>
+</span><span id="line-119"></span><span id="local-6989586621679455115"><span id="local-6989586621679455116"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRolePermissionsBoundaryResponse"><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundaryResponse"><span class="hs-identifier hs-var">DeleteRolePermissionsBoundaryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRolePermissionsBoundaryResponse%27"><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundaryResponse%27"><span class="hs-identifier hs-var">DeleteRolePermissionsBoundaryResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679455111"><span id="local-6989586621679455113"><span class="annot"><span class="annottext">DeleteRolePermissionsBoundaryResponse
+-&gt; DeleteRolePermissionsBoundaryResponse -&gt; Bool
+(DeleteRolePermissionsBoundaryResponse
+ -&gt; DeleteRolePermissionsBoundaryResponse -&gt; Bool)
+-&gt; (DeleteRolePermissionsBoundaryResponse
+    -&gt; DeleteRolePermissionsBoundaryResponse -&gt; Bool)
+-&gt; Eq DeleteRolePermissionsBoundaryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteRolePermissionsBoundaryResponse
+-&gt; DeleteRolePermissionsBoundaryResponse -&gt; Bool
+$c/= :: DeleteRolePermissionsBoundaryResponse
+-&gt; DeleteRolePermissionsBoundaryResponse -&gt; Bool
+== :: DeleteRolePermissionsBoundaryResponse
+-&gt; DeleteRolePermissionsBoundaryResponse -&gt; Bool
+$c== :: DeleteRolePermissionsBoundaryResponse
+-&gt; DeleteRolePermissionsBoundaryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455103"><span id="local-6989586621679455105"><span id="local-6989586621679455107"><span id="local-6989586621679455109"><span class="annot"><span class="annottext">ReadPrec [DeleteRolePermissionsBoundaryResponse]
+ReadPrec DeleteRolePermissionsBoundaryResponse
+Int -&gt; ReadS DeleteRolePermissionsBoundaryResponse
+ReadS [DeleteRolePermissionsBoundaryResponse]
+(Int -&gt; ReadS DeleteRolePermissionsBoundaryResponse)
+-&gt; ReadS [DeleteRolePermissionsBoundaryResponse]
+-&gt; ReadPrec DeleteRolePermissionsBoundaryResponse
+-&gt; ReadPrec [DeleteRolePermissionsBoundaryResponse]
+-&gt; Read DeleteRolePermissionsBoundaryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteRolePermissionsBoundaryResponse]
+$creadListPrec :: ReadPrec [DeleteRolePermissionsBoundaryResponse]
+readPrec :: ReadPrec DeleteRolePermissionsBoundaryResponse
+$creadPrec :: ReadPrec DeleteRolePermissionsBoundaryResponse
+readList :: ReadS [DeleteRolePermissionsBoundaryResponse]
+$creadList :: ReadS [DeleteRolePermissionsBoundaryResponse]
+readsPrec :: Int -&gt; ReadS DeleteRolePermissionsBoundaryResponse
+$creadsPrec :: Int -&gt; ReadS DeleteRolePermissionsBoundaryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455097"><span id="local-6989586621679455099"><span id="local-6989586621679455101"><span class="annot"><span class="annottext">Int -&gt; DeleteRolePermissionsBoundaryResponse -&gt; ShowS
+[DeleteRolePermissionsBoundaryResponse] -&gt; ShowS
+DeleteRolePermissionsBoundaryResponse -&gt; String
+(Int -&gt; DeleteRolePermissionsBoundaryResponse -&gt; ShowS)
+-&gt; (DeleteRolePermissionsBoundaryResponse -&gt; String)
+-&gt; ([DeleteRolePermissionsBoundaryResponse] -&gt; ShowS)
+-&gt; Show DeleteRolePermissionsBoundaryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteRolePermissionsBoundaryResponse] -&gt; ShowS
+$cshowList :: [DeleteRolePermissionsBoundaryResponse] -&gt; ShowS
+show :: DeleteRolePermissionsBoundaryResponse -&gt; String
+$cshow :: DeleteRolePermissionsBoundaryResponse -&gt; String
+showsPrec :: Int -&gt; DeleteRolePermissionsBoundaryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteRolePermissionsBoundaryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteRolePermissionsBoundaryResponse
+ -&gt; Rep DeleteRolePermissionsBoundaryResponse x)
+-&gt; (forall x.
+    Rep DeleteRolePermissionsBoundaryResponse x
+    -&gt; DeleteRolePermissionsBoundaryResponse)
+-&gt; Generic DeleteRolePermissionsBoundaryResponse
+forall x.
+Rep DeleteRolePermissionsBoundaryResponse x
+-&gt; DeleteRolePermissionsBoundaryResponse
+forall x.
+DeleteRolePermissionsBoundaryResponse
+-&gt; Rep DeleteRolePermissionsBoundaryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteRolePermissionsBoundaryResponse x
+-&gt; DeleteRolePermissionsBoundaryResponse
+$cfrom :: forall x.
+DeleteRolePermissionsBoundaryResponse
+-&gt; Rep DeleteRolePermissionsBoundaryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Create a value of 'DeleteRolePermissionsBoundaryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#newDeleteRolePermissionsBoundaryResponse"><span class="hs-identifier hs-type">newDeleteRolePermissionsBoundaryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundaryResponse"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundaryResponse</span></a></span><span>
+</span><span id="line-130"></span><span id="newDeleteRolePermissionsBoundaryResponse"><span class="annot"><span class="annottext">newDeleteRolePermissionsBoundaryResponse :: DeleteRolePermissionsBoundaryResponse
+</span><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#newDeleteRolePermissionsBoundaryResponse"><span class="hs-identifier hs-var hs-var">newDeleteRolePermissionsBoundaryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="annottext">DeleteRolePermissionsBoundaryResponse
+</span><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundaryResponse%27"><span class="hs-identifier hs-var">DeleteRolePermissionsBoundaryResponse'</span></a></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679455093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.DeleteRolePermissionsBoundary.html#DeleteRolePermissionsBoundaryResponse"><span class="hs-identifier hs-type">DeleteRolePermissionsBoundaryResponse</span></a></span></span><span>
+</span><span id="line-136"></span></pre></body></html>

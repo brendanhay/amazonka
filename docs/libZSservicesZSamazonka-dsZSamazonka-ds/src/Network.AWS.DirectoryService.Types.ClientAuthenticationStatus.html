@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DirectoryService.Types.ClientAuthenticationStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DirectoryService.Types.ClientAuthenticationStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#ClientAuthenticationStatus"><span class="hs-identifier">ClientAuthenticationStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#ClientAuthenticationStatus_Disabled"><span class="hs-identifier">ClientAuthenticationStatus_Disabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#ClientAuthenticationStatus_Enabled"><span class="hs-identifier">ClientAuthenticationStatus_Enabled</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679294014"><span id="local-6989586621679294015"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ClientAuthenticationStatus"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#ClientAuthenticationStatus"><span class="hs-identifier hs-var">ClientAuthenticationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientAuthenticationStatus%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#ClientAuthenticationStatus%27"><span class="hs-identifier hs-var">ClientAuthenticationStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromClientAuthenticationStatus"><span class="annot"><span class="annottext">ClientAuthenticationStatus -&gt; Text
+</span><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#fromClientAuthenticationStatus"><span class="hs-identifier hs-var hs-var">fromClientAuthenticationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294006"><span id="local-6989586621679294008"><span id="local-6989586621679294010"><span class="annot"><span class="annottext">Int -&gt; ClientAuthenticationStatus -&gt; ShowS
+[ClientAuthenticationStatus] -&gt; ShowS
+ClientAuthenticationStatus -&gt; String
+(Int -&gt; ClientAuthenticationStatus -&gt; ShowS)
+-&gt; (ClientAuthenticationStatus -&gt; String)
+-&gt; ([ClientAuthenticationStatus] -&gt; ShowS)
+-&gt; Show ClientAuthenticationStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ClientAuthenticationStatus] -&gt; ShowS
+$cshowList :: [ClientAuthenticationStatus] -&gt; ShowS
+show :: ClientAuthenticationStatus -&gt; String
+$cshow :: ClientAuthenticationStatus -&gt; String
+showsPrec :: Int -&gt; ClientAuthenticationStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ClientAuthenticationStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679293997"><span id="local-6989586621679293999"><span id="local-6989586621679294001"><span id="local-6989586621679294003"><span class="annot"><span class="annottext">ReadPrec [ClientAuthenticationStatus]
+ReadPrec ClientAuthenticationStatus
+Int -&gt; ReadS ClientAuthenticationStatus
+ReadS [ClientAuthenticationStatus]
+(Int -&gt; ReadS ClientAuthenticationStatus)
+-&gt; ReadS [ClientAuthenticationStatus]
+-&gt; ReadPrec ClientAuthenticationStatus
+-&gt; ReadPrec [ClientAuthenticationStatus]
+-&gt; Read ClientAuthenticationStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ClientAuthenticationStatus]
+$creadListPrec :: ReadPrec [ClientAuthenticationStatus]
+readPrec :: ReadPrec ClientAuthenticationStatus
+$creadPrec :: ReadPrec ClientAuthenticationStatus
+readList :: ReadS [ClientAuthenticationStatus]
+$creadList :: ReadS [ClientAuthenticationStatus]
+readsPrec :: Int -&gt; ReadS ClientAuthenticationStatus
+$creadsPrec :: Int -&gt; ReadS ClientAuthenticationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679293992"><span id="local-6989586621679293994"><span class="annot"><span class="annottext">ClientAuthenticationStatus -&gt; ClientAuthenticationStatus -&gt; Bool
+(ClientAuthenticationStatus -&gt; ClientAuthenticationStatus -&gt; Bool)
+-&gt; (ClientAuthenticationStatus
+    -&gt; ClientAuthenticationStatus -&gt; Bool)
+-&gt; Eq ClientAuthenticationStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ClientAuthenticationStatus -&gt; ClientAuthenticationStatus -&gt; Bool
+$c/= :: ClientAuthenticationStatus -&gt; ClientAuthenticationStatus -&gt; Bool
+== :: ClientAuthenticationStatus -&gt; ClientAuthenticationStatus -&gt; Bool
+$c== :: ClientAuthenticationStatus -&gt; ClientAuthenticationStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679293976"><span id="local-6989586621679293978"><span id="local-6989586621679293980"><span id="local-6989586621679293982"><span id="local-6989586621679293984"><span id="local-6989586621679293986"><span id="local-6989586621679293988"><span class="annot"><span class="annottext">Eq ClientAuthenticationStatus
+Eq ClientAuthenticationStatus
+-&gt; (ClientAuthenticationStatus
+    -&gt; ClientAuthenticationStatus -&gt; Ordering)
+-&gt; (ClientAuthenticationStatus
+    -&gt; ClientAuthenticationStatus -&gt; Bool)
+-&gt; (ClientAuthenticationStatus
+    -&gt; ClientAuthenticationStatus -&gt; Bool)
+-&gt; (ClientAuthenticationStatus
+    -&gt; ClientAuthenticationStatus -&gt; Bool)
+-&gt; (ClientAuthenticationStatus
+    -&gt; ClientAuthenticationStatus -&gt; Bool)
+-&gt; (ClientAuthenticationStatus
+    -&gt; ClientAuthenticationStatus -&gt; ClientAuthenticationStatus)
+-&gt; (ClientAuthenticationStatus
+    -&gt; ClientAuthenticationStatus -&gt; ClientAuthenticationStatus)
+-&gt; Ord ClientAuthenticationStatus
+ClientAuthenticationStatus -&gt; ClientAuthenticationStatus -&gt; Bool
+ClientAuthenticationStatus
+-&gt; ClientAuthenticationStatus -&gt; Ordering
+ClientAuthenticationStatus
+-&gt; ClientAuthenticationStatus -&gt; ClientAuthenticationStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ClientAuthenticationStatus
+-&gt; ClientAuthenticationStatus -&gt; ClientAuthenticationStatus
+$cmin :: ClientAuthenticationStatus
+-&gt; ClientAuthenticationStatus -&gt; ClientAuthenticationStatus
+max :: ClientAuthenticationStatus
+-&gt; ClientAuthenticationStatus -&gt; ClientAuthenticationStatus
+$cmax :: ClientAuthenticationStatus
+-&gt; ClientAuthenticationStatus -&gt; ClientAuthenticationStatus
+&gt;= :: ClientAuthenticationStatus -&gt; ClientAuthenticationStatus -&gt; Bool
+$c&gt;= :: ClientAuthenticationStatus -&gt; ClientAuthenticationStatus -&gt; Bool
+&gt; :: ClientAuthenticationStatus -&gt; ClientAuthenticationStatus -&gt; Bool
+$c&gt; :: ClientAuthenticationStatus -&gt; ClientAuthenticationStatus -&gt; Bool
+&lt;= :: ClientAuthenticationStatus -&gt; ClientAuthenticationStatus -&gt; Bool
+$c&lt;= :: ClientAuthenticationStatus -&gt; ClientAuthenticationStatus -&gt; Bool
+&lt; :: ClientAuthenticationStatus -&gt; ClientAuthenticationStatus -&gt; Bool
+$c&lt; :: ClientAuthenticationStatus -&gt; ClientAuthenticationStatus -&gt; Bool
+compare :: ClientAuthenticationStatus
+-&gt; ClientAuthenticationStatus -&gt; Ordering
+$ccompare :: ClientAuthenticationStatus
+-&gt; ClientAuthenticationStatus -&gt; Ordering
+$cp1Ord :: Eq ClientAuthenticationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ClientAuthenticationStatus -&gt; Rep ClientAuthenticationStatus x)
+-&gt; (forall x.
+    Rep ClientAuthenticationStatus x -&gt; ClientAuthenticationStatus)
+-&gt; Generic ClientAuthenticationStatus
+forall x.
+Rep ClientAuthenticationStatus x -&gt; ClientAuthenticationStatus
+forall x.
+ClientAuthenticationStatus -&gt; Rep ClientAuthenticationStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ClientAuthenticationStatus x -&gt; ClientAuthenticationStatus
+$cfrom :: forall x.
+ClientAuthenticationStatus -&gt; Rep ClientAuthenticationStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293968"><span id="local-6989586621679293970"><span class="annot"><span class="annottext">Int -&gt; ClientAuthenticationStatus -&gt; Int
+ClientAuthenticationStatus -&gt; Int
+(Int -&gt; ClientAuthenticationStatus -&gt; Int)
+-&gt; (ClientAuthenticationStatus -&gt; Int)
+-&gt; Hashable ClientAuthenticationStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ClientAuthenticationStatus -&gt; Int
+$chash :: ClientAuthenticationStatus -&gt; Int
+hashWithSalt :: Int -&gt; ClientAuthenticationStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ClientAuthenticationStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679293965"><span class="annot"><span class="annottext">ClientAuthenticationStatus -&gt; ()
+(ClientAuthenticationStatus -&gt; ())
+-&gt; NFData ClientAuthenticationStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ClientAuthenticationStatus -&gt; ()
+$crnf :: ClientAuthenticationStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679293962"><span class="annot"><span class="annottext">Text -&gt; Either String ClientAuthenticationStatus
+(Text -&gt; Either String ClientAuthenticationStatus)
+-&gt; FromText ClientAuthenticationStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ClientAuthenticationStatus
+$cfromText :: Text -&gt; Either String ClientAuthenticationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679293959"><span class="annot"><span class="annottext">ClientAuthenticationStatus -&gt; Text
+(ClientAuthenticationStatus -&gt; Text)
+-&gt; ToText ClientAuthenticationStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ClientAuthenticationStatus -&gt; Text
+$ctoText :: ClientAuthenticationStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679293956"><span class="annot"><span class="annottext">ClientAuthenticationStatus -&gt; ByteString
+(ClientAuthenticationStatus -&gt; ByteString)
+-&gt; ToByteString ClientAuthenticationStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ClientAuthenticationStatus -&gt; ByteString
+$ctoBS :: ClientAuthenticationStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679293953"><span class="annot"><span class="annottext">ClientAuthenticationStatus -&gt; ByteStringBuilder
+(ClientAuthenticationStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ClientAuthenticationStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ClientAuthenticationStatus -&gt; ByteStringBuilder
+$cbuild :: ClientAuthenticationStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679293950"><span class="annot"><span class="annottext">HeaderName -&gt; ClientAuthenticationStatus -&gt; [Header]
+(HeaderName -&gt; ClientAuthenticationStatus -&gt; [Header])
+-&gt; ToHeader ClientAuthenticationStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ClientAuthenticationStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ClientAuthenticationStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679293947"><span class="annot"><span class="annottext">ClientAuthenticationStatus -&gt; QueryString
+(ClientAuthenticationStatus -&gt; QueryString)
+-&gt; ToQuery ClientAuthenticationStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ClientAuthenticationStatus -&gt; QueryString
+$ctoQuery :: ClientAuthenticationStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679293942"><span id="local-6989586621679293944"><span class="annot"><span class="annottext">Value -&gt; Parser [ClientAuthenticationStatus]
+Value -&gt; Parser ClientAuthenticationStatus
+(Value -&gt; Parser ClientAuthenticationStatus)
+-&gt; (Value -&gt; Parser [ClientAuthenticationStatus])
+-&gt; FromJSON ClientAuthenticationStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ClientAuthenticationStatus]
+$cparseJSONList :: Value -&gt; Parser [ClientAuthenticationStatus]
+parseJSON :: Value -&gt; Parser ClientAuthenticationStatus
+$cparseJSON :: Value -&gt; Parser ClientAuthenticationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679293937"><span id="local-6989586621679293939"><span class="annot"><span class="annottext">FromJSONKeyFunction [ClientAuthenticationStatus]
+FromJSONKeyFunction ClientAuthenticationStatus
+FromJSONKeyFunction ClientAuthenticationStatus
+-&gt; FromJSONKeyFunction [ClientAuthenticationStatus]
+-&gt; FromJSONKey ClientAuthenticationStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ClientAuthenticationStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ClientAuthenticationStatus]
+fromJSONKey :: FromJSONKeyFunction ClientAuthenticationStatus
+$cfromJSONKey :: FromJSONKeyFunction ClientAuthenticationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679293928"><span id="local-6989586621679293930"><span id="local-6989586621679293932"><span id="local-6989586621679293934"><span class="annot"><span class="annottext">[ClientAuthenticationStatus] -&gt; Encoding
+[ClientAuthenticationStatus] -&gt; Value
+ClientAuthenticationStatus -&gt; Encoding
+ClientAuthenticationStatus -&gt; Value
+(ClientAuthenticationStatus -&gt; Value)
+-&gt; (ClientAuthenticationStatus -&gt; Encoding)
+-&gt; ([ClientAuthenticationStatus] -&gt; Value)
+-&gt; ([ClientAuthenticationStatus] -&gt; Encoding)
+-&gt; ToJSON ClientAuthenticationStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ClientAuthenticationStatus] -&gt; Encoding
+$ctoEncodingList :: [ClientAuthenticationStatus] -&gt; Encoding
+toJSONList :: [ClientAuthenticationStatus] -&gt; Value
+$ctoJSONList :: [ClientAuthenticationStatus] -&gt; Value
+toEncoding :: ClientAuthenticationStatus -&gt; Encoding
+$ctoEncoding :: ClientAuthenticationStatus -&gt; Encoding
+toJSON :: ClientAuthenticationStatus -&gt; Value
+$ctoJSON :: ClientAuthenticationStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679293923"><span id="local-6989586621679293925"><span class="annot"><span class="annottext">ToJSONKeyFunction [ClientAuthenticationStatus]
+ToJSONKeyFunction ClientAuthenticationStatus
+ToJSONKeyFunction ClientAuthenticationStatus
+-&gt; ToJSONKeyFunction [ClientAuthenticationStatus]
+-&gt; ToJSONKey ClientAuthenticationStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ClientAuthenticationStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ClientAuthenticationStatus]
+toJSONKey :: ToJSONKeyFunction ClientAuthenticationStatus
+$ctoJSONKey :: ToJSONKeyFunction ClientAuthenticationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679293920"><span class="annot"><span class="annottext">[Node] -&gt; Either String ClientAuthenticationStatus
+([Node] -&gt; Either String ClientAuthenticationStatus)
+-&gt; FromXML ClientAuthenticationStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ClientAuthenticationStatus
+$cparseXML :: [Node] -&gt; Either String ClientAuthenticationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679293917"><span class="annot"><span class="annottext">ClientAuthenticationStatus -&gt; XML
+(ClientAuthenticationStatus -&gt; XML)
+-&gt; ToXML ClientAuthenticationStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ClientAuthenticationStatus -&gt; XML
+$ctoXML :: ClientAuthenticationStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#ClientAuthenticationStatus_Disabled"><span class="hs-identifier hs-type">ClientAuthenticationStatus_Disabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#ClientAuthenticationStatus"><span class="hs-identifier hs-type">ClientAuthenticationStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bClientAuthenticationStatus_Disabled"><span id="%24mClientAuthenticationStatus_Disabled"><span id="ClientAuthenticationStatus_Disabled"><span class="annot"><span class="annottext">$bClientAuthenticationStatus_Disabled :: ClientAuthenticationStatus
+$mClientAuthenticationStatus_Disabled :: forall r.
+ClientAuthenticationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#%24bClientAuthenticationStatus_Disabled"><span class="hs-identifier hs-var hs-var hs-var">ClientAuthenticationStatus_Disabled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#ClientAuthenticationStatus%27"><span class="hs-identifier hs-type">ClientAuthenticationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Disabled&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#ClientAuthenticationStatus_Enabled"><span class="hs-identifier hs-type">ClientAuthenticationStatus_Enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#ClientAuthenticationStatus"><span class="hs-identifier hs-type">ClientAuthenticationStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bClientAuthenticationStatus_Enabled"><span id="%24mClientAuthenticationStatus_Enabled"><span id="ClientAuthenticationStatus_Enabled"><span class="annot"><span class="annottext">$bClientAuthenticationStatus_Enabled :: ClientAuthenticationStatus
+$mClientAuthenticationStatus_Enabled :: forall r.
+ClientAuthenticationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#%24bClientAuthenticationStatus_Enabled"><span class="hs-identifier hs-var hs-var hs-var">ClientAuthenticationStatus_Enabled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#ClientAuthenticationStatus%27"><span class="hs-identifier hs-type">ClientAuthenticationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Enabled&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#ClientAuthenticationStatus_Disabled"><span class="hs-pragma hs-type">ClientAuthenticationStatus_Disabled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#ClientAuthenticationStatus_Enabled"><span class="hs-pragma hs-type">ClientAuthenticationStatus_Enabled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationStatus.html#ClientAuthenticationStatus%27"><span class="hs-pragma hs-type">ClientAuthenticationStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

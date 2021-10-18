@@ -1,0 +1,882 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.InputSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.InputSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSelector.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.AudioSelector</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.CaptionSelector</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeblockFilter.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.InputDeblockFilter</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDenoiseFilter.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.InputDenoiseFilter</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputFilter.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.InputFilter</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceEndBehavior.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.InputSourceEndBehavior</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.NetworkInputSettings</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Smpte2038DataPreference.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.Smpte2038DataPreference</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.VideoSelector</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- | Live Event input parameters. There can be multiple inputs in a single</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Live Event.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newInputSettings' smart constructor.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679923680"><span id="local-6989586621679923681"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-var">InputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-var">InputSettings'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Enable or disable the denoise filter when filtering.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdenoiseFilter%3AInputSettings%27"><span class="annot"><span class="annottext">InputSettings -&gt; Maybe InputDenoiseFilter
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AdenoiseFilter%3AInputSettings%27"><span class="hs-identifier hs-var hs-var">denoiseFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDenoiseFilter.html#InputDenoiseFilter"><span class="hs-identifier hs-type">InputDenoiseFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Used to select the audio stream to decode for inputs that have multiple</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- available.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AaudioSelectors%3AInputSettings%27"><span class="annot"><span class="annottext">InputSettings -&gt; Maybe [AudioSelector]
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AaudioSelectors%3AInputSettings%27"><span class="hs-identifier hs-var hs-var">audioSelectors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSelector.html#AudioSelector"><span class="hs-identifier hs-type">AudioSelector</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AfilterStrength%3AInputSettings%27"><span class="annot"><span class="annottext">InputSettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AfilterStrength%3AInputSettings%27"><span class="hs-identifier hs-var hs-var">filterStrength</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Specifies whether to extract applicable ancillary data from a SMPTE-2038</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- source in this input. Applicable data types are captions, timecode, AFD,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- and SCTE-104 messages. - PREFER: Extract from SMPTE-2038 if present in</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- this input, otherwise extract from another source (if any). - IGNORE:</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- Never extract any ancillary data from SMPTE-2038.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Asmpte2038DataPreference%3AInputSettings%27"><span class="annot"><span class="annottext">InputSettings -&gt; Maybe Smpte2038DataPreference
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3Asmpte2038DataPreference%3AInputSettings%27"><span class="hs-identifier hs-var hs-var">smpte2038DataPreference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Smpte2038DataPreference.html#Smpte2038DataPreference"><span class="hs-identifier hs-type">Smpte2038DataPreference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Informs which video elementary stream to decode for input types that</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- have multiple available.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AvideoSelector%3AInputSettings%27"><span class="annot"><span class="annottext">InputSettings -&gt; Maybe VideoSelector
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AvideoSelector%3AInputSettings%27"><span class="hs-identifier hs-var hs-var">videoSelector</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Loop input if it is a file. This allows a file input to be streamed</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- indefinitely.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AsourceEndBehavior%3AInputSettings%27"><span class="annot"><span class="annottext">InputSettings -&gt; Maybe InputSourceEndBehavior
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AsourceEndBehavior%3AInputSettings%27"><span class="hs-identifier hs-var hs-var">sourceEndBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceEndBehavior.html#InputSourceEndBehavior"><span class="hs-identifier hs-type">InputSourceEndBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Turns on the filter for this input. MPEG-2 inputs have the deblocking</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- filter enabled by default. 1) auto - filtering will be applied depending</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- on input type\/quality 2) disabled - no filtering will be applied to the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- input 3) forced - filtering will be applied regardless of input type</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AinputFilter%3AInputSettings%27"><span class="annot"><span class="annottext">InputSettings -&gt; Maybe InputFilter
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AinputFilter%3AInputSettings%27"><span class="hs-identifier hs-var hs-var">inputFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputFilter.html#InputFilter"><span class="hs-identifier hs-type">InputFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Enable or disable the deblock filter when filtering.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AdeblockFilter%3AInputSettings%27"><span class="annot"><span class="annottext">InputSettings -&gt; Maybe InputDeblockFilter
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AdeblockFilter%3AInputSettings%27"><span class="hs-identifier hs-var hs-var">deblockFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeblockFilter.html#InputDeblockFilter"><span class="hs-identifier hs-type">InputDeblockFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Used to select the caption input to use for inputs that have multiple</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- available.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AcaptionSelectors%3AInputSettings%27"><span class="annot"><span class="annottext">InputSettings -&gt; Maybe [CaptionSelector]
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AcaptionSelectors%3AInputSettings%27"><span class="hs-identifier hs-var hs-var">captionSelectors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Input settings.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AnetworkInputSettings%3AInputSettings%27"><span class="annot"><span class="annottext">InputSettings -&gt; Maybe NetworkInputSettings
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AnetworkInputSettings%3AInputSettings%27"><span class="hs-identifier hs-var hs-var">networkInputSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings"><span class="hs-identifier hs-type">NetworkInputSettings</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679923665"><span id="local-6989586621679923667"><span class="annot"><span class="annottext">InputSettings -&gt; InputSettings -&gt; Bool
+(InputSettings -&gt; InputSettings -&gt; Bool)
+-&gt; (InputSettings -&gt; InputSettings -&gt; Bool) -&gt; Eq InputSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InputSettings -&gt; InputSettings -&gt; Bool
+$c/= :: InputSettings -&gt; InputSettings -&gt; Bool
+== :: InputSettings -&gt; InputSettings -&gt; Bool
+$c== :: InputSettings -&gt; InputSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679923656"><span id="local-6989586621679923658"><span id="local-6989586621679923660"><span id="local-6989586621679923662"><span class="annot"><span class="annottext">ReadPrec [InputSettings]
+ReadPrec InputSettings
+Int -&gt; ReadS InputSettings
+ReadS [InputSettings]
+(Int -&gt; ReadS InputSettings)
+-&gt; ReadS [InputSettings]
+-&gt; ReadPrec InputSettings
+-&gt; ReadPrec [InputSettings]
+-&gt; Read InputSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InputSettings]
+$creadListPrec :: ReadPrec [InputSettings]
+readPrec :: ReadPrec InputSettings
+$creadPrec :: ReadPrec InputSettings
+readList :: ReadS [InputSettings]
+$creadList :: ReadS [InputSettings]
+readsPrec :: Int -&gt; ReadS InputSettings
+$creadsPrec :: Int -&gt; ReadS InputSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679923649"><span id="local-6989586621679923651"><span id="local-6989586621679923653"><span class="annot"><span class="annottext">Int -&gt; InputSettings -&gt; ShowS
+[InputSettings] -&gt; ShowS
+InputSettings -&gt; String
+(Int -&gt; InputSettings -&gt; ShowS)
+-&gt; (InputSettings -&gt; String)
+-&gt; ([InputSettings] -&gt; ShowS)
+-&gt; Show InputSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InputSettings] -&gt; ShowS
+$cshowList :: [InputSettings] -&gt; ShowS
+show :: InputSettings -&gt; String
+$cshow :: InputSettings -&gt; String
+showsPrec :: Int -&gt; InputSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; InputSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InputSettings -&gt; Rep InputSettings x)
+-&gt; (forall x. Rep InputSettings x -&gt; InputSettings)
+-&gt; Generic InputSettings
+forall x. Rep InputSettings x -&gt; InputSettings
+forall x. InputSettings -&gt; Rep InputSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InputSettings x -&gt; InputSettings
+$cfrom :: forall x. InputSettings -&gt; Rep InputSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'InputSettings' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'denoiseFilter', 'inputSettings_denoiseFilter' - Enable or disable the denoise filter when filtering.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'audioSelectors', 'inputSettings_audioSelectors' - Used to select the audio stream to decode for inputs that have multiple</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- available.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'filterStrength', 'inputSettings_filterStrength' - Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'smpte2038DataPreference', 'inputSettings_smpte2038DataPreference' - Specifies whether to extract applicable ancillary data from a SMPTE-2038</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- source in this input. Applicable data types are captions, timecode, AFD,</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- and SCTE-104 messages. - PREFER: Extract from SMPTE-2038 if present in</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- this input, otherwise extract from another source (if any). - IGNORE:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Never extract any ancillary data from SMPTE-2038.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'videoSelector', 'inputSettings_videoSelector' - Informs which video elementary stream to decode for input types that</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- have multiple available.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'sourceEndBehavior', 'inputSettings_sourceEndBehavior' - Loop input if it is a file. This allows a file input to be streamed</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- indefinitely.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'inputFilter', 'inputSettings_inputFilter' - Turns on the filter for this input. MPEG-2 inputs have the deblocking</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- filter enabled by default. 1) auto - filtering will be applied depending</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- on input type\/quality 2) disabled - no filtering will be applied to the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- input 3) forced - filtering will be applied regardless of input type</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'deblockFilter', 'inputSettings_deblockFilter' - Enable or disable the deblock filter when filtering.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'captionSelectors', 'inputSettings_captionSelectors' - Used to select the caption input to use for inputs that have multiple</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- available.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'networkInputSettings', 'inputSettings_networkInputSettings' - Input settings.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#newInputSettings"><span class="hs-identifier hs-type">newInputSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span>
+</span><span id="line-114"></span><span id="newInputSettings"><span class="annot"><span class="annottext">newInputSettings :: InputSettings
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#newInputSettings"><span class="hs-identifier hs-var hs-var">newInputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">InputSettings' :: Maybe InputDenoiseFilter
+-&gt; Maybe [AudioSelector]
+-&gt; Maybe Natural
+-&gt; Maybe Smpte2038DataPreference
+-&gt; Maybe VideoSelector
+-&gt; Maybe InputSourceEndBehavior
+-&gt; Maybe InputFilter
+-&gt; Maybe InputDeblockFilter
+-&gt; Maybe [CaptionSelector]
+-&gt; Maybe NetworkInputSettings
+-&gt; InputSettings
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:denoiseFilter:InputSettings' :: Maybe InputDenoiseFilter
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AdenoiseFilter%3AInputSettings%27"><span class="hs-identifier hs-var">denoiseFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDenoiseFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:audioSelectors:InputSettings' :: Maybe [AudioSelector]
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AaudioSelectors%3AInputSettings%27"><span class="hs-identifier hs-var">audioSelectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AudioSelector]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterStrength:InputSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AfilterStrength%3AInputSettings%27"><span class="hs-identifier hs-var">filterStrength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:smpte2038DataPreference:InputSettings' :: Maybe Smpte2038DataPreference
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3Asmpte2038DataPreference%3AInputSettings%27"><span class="hs-identifier hs-var">smpte2038DataPreference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Smpte2038DataPreference
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:videoSelector:InputSettings' :: Maybe VideoSelector
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AvideoSelector%3AInputSettings%27"><span class="hs-identifier hs-var">videoSelector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelector
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceEndBehavior:InputSettings' :: Maybe InputSourceEndBehavior
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AsourceEndBehavior%3AInputSettings%27"><span class="hs-identifier hs-var">sourceEndBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputSourceEndBehavior
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputFilter:InputSettings' :: Maybe InputFilter
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AinputFilter%3AInputSettings%27"><span class="hs-identifier hs-var">inputFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:deblockFilter:InputSettings' :: Maybe InputDeblockFilter
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AdeblockFilter%3AInputSettings%27"><span class="hs-identifier hs-var">deblockFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeblockFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:captionSelectors:InputSettings' :: Maybe [CaptionSelector]
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AcaptionSelectors%3AInputSettings%27"><span class="hs-identifier hs-var">captionSelectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionSelector]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkInputSettings:InputSettings' :: Maybe NetworkInputSettings
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AnetworkInputSettings%3AInputSettings%27"><span class="hs-identifier hs-var">networkInputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInputSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Enable or disable the denoise filter when filtering.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_denoiseFilter"><span class="hs-identifier hs-type">inputSettings_denoiseFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDenoiseFilter.html#InputDenoiseFilter"><span class="hs-identifier hs-type">InputDenoiseFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="inputSettings_denoiseFilter"><span class="annot"><span class="annottext">inputSettings_denoiseFilter :: (Maybe InputDenoiseFilter -&gt; f (Maybe InputDenoiseFilter))
+-&gt; InputSettings -&gt; f InputSettings
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_denoiseFilter"><span class="hs-identifier hs-var hs-var">inputSettings_denoiseFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSettings -&gt; Maybe InputDenoiseFilter)
+-&gt; (InputSettings -&gt; Maybe InputDenoiseFilter -&gt; InputSettings)
+-&gt; Lens
+     InputSettings
+     InputSettings
+     (Maybe InputDenoiseFilter)
+     (Maybe InputDenoiseFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923640"><span class="annot"><span class="annottext">Maybe InputDenoiseFilter
+denoiseFilter :: Maybe InputDenoiseFilter
+$sel:denoiseFilter:InputSettings' :: InputSettings -&gt; Maybe InputDenoiseFilter
+</span><a href="#local-6989586621679923640"><span class="hs-identifier hs-var hs-var">denoiseFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDenoiseFilter
+</span><a href="#local-6989586621679923640"><span class="hs-identifier hs-var">denoiseFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923639"><span class="annot"><span class="annottext">s :: InputSettings
+</span><a href="#local-6989586621679923639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923638"><span class="annot"><span class="annottext">Maybe InputDenoiseFilter
+</span><a href="#local-6989586621679923638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSettings
+</span><a href="#local-6989586621679923639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:denoiseFilter:InputSettings' :: Maybe InputDenoiseFilter
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AdenoiseFilter%3AInputSettings%27"><span class="hs-identifier hs-var">denoiseFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDenoiseFilter
+</span><a href="#local-6989586621679923638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Used to select the audio stream to decode for inputs that have multiple</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- available.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_audioSelectors"><span class="hs-identifier hs-type">inputSettings_audioSelectors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSelector.html#AudioSelector"><span class="hs-identifier hs-type">AudioSelector</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="inputSettings_audioSelectors"><span class="annot"><span class="annottext">inputSettings_audioSelectors :: (Maybe [AudioSelector] -&gt; f (Maybe [AudioSelector]))
+-&gt; InputSettings -&gt; f InputSettings
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_audioSelectors"><span class="hs-identifier hs-var hs-var">inputSettings_audioSelectors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSettings -&gt; Maybe [AudioSelector])
+-&gt; (InputSettings -&gt; Maybe [AudioSelector] -&gt; InputSettings)
+-&gt; Lens
+     InputSettings
+     InputSettings
+     (Maybe [AudioSelector])
+     (Maybe [AudioSelector])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923636"><span class="annot"><span class="annottext">Maybe [AudioSelector]
+audioSelectors :: Maybe [AudioSelector]
+$sel:audioSelectors:InputSettings' :: InputSettings -&gt; Maybe [AudioSelector]
+</span><a href="#local-6989586621679923636"><span class="hs-identifier hs-var hs-var">audioSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AudioSelector]
+</span><a href="#local-6989586621679923636"><span class="hs-identifier hs-var">audioSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923635"><span class="annot"><span class="annottext">s :: InputSettings
+</span><a href="#local-6989586621679923635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923634"><span class="annot"><span class="annottext">Maybe [AudioSelector]
+</span><a href="#local-6989586621679923634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSettings
+</span><a href="#local-6989586621679923635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioSelectors:InputSettings' :: Maybe [AudioSelector]
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AaudioSelectors%3AInputSettings%27"><span class="hs-identifier hs-var">audioSelectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AudioSelector]
+</span><a href="#local-6989586621679923634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AudioSelector] -&gt; f (Maybe [AudioSelector]))
+ -&gt; InputSettings -&gt; f InputSettings)
+-&gt; ((Maybe [AudioSelector] -&gt; f (Maybe [AudioSelector]))
+    -&gt; Maybe [AudioSelector] -&gt; f (Maybe [AudioSelector]))
+-&gt; (Maybe [AudioSelector] -&gt; f (Maybe [AudioSelector]))
+-&gt; InputSettings
+-&gt; f InputSettings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AudioSelector] [AudioSelector] [AudioSelector] [AudioSelector]
+-&gt; Iso
+     (Maybe [AudioSelector])
+     (Maybe [AudioSelector])
+     (Maybe [AudioSelector])
+     (Maybe [AudioSelector])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AudioSelector] [AudioSelector] [AudioSelector] [AudioSelector]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_filterStrength"><span class="hs-identifier hs-type">inputSettings_filterStrength</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="inputSettings_filterStrength"><span class="annot"><span class="annottext">inputSettings_filterStrength :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InputSettings -&gt; f InputSettings
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_filterStrength"><span class="hs-identifier hs-var hs-var">inputSettings_filterStrength</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSettings -&gt; Maybe Natural)
+-&gt; (InputSettings -&gt; Maybe Natural -&gt; InputSettings)
+-&gt; Lens InputSettings InputSettings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923629"><span class="annot"><span class="annottext">Maybe Natural
+filterStrength :: Maybe Natural
+$sel:filterStrength:InputSettings' :: InputSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679923629"><span class="hs-identifier hs-var hs-var">filterStrength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679923629"><span class="hs-identifier hs-var">filterStrength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923628"><span class="annot"><span class="annottext">s :: InputSettings
+</span><a href="#local-6989586621679923628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923627"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679923627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSettings
+</span><a href="#local-6989586621679923628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterStrength:InputSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AfilterStrength%3AInputSettings%27"><span class="hs-identifier hs-var">filterStrength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679923627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | Specifies whether to extract applicable ancillary data from a SMPTE-2038</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- source in this input. Applicable data types are captions, timecode, AFD,</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- and SCTE-104 messages. - PREFER: Extract from SMPTE-2038 if present in</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- this input, otherwise extract from another source (if any). - IGNORE:</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Never extract any ancillary data from SMPTE-2038.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_smpte2038DataPreference"><span class="hs-identifier hs-type">inputSettings_smpte2038DataPreference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Smpte2038DataPreference.html#Smpte2038DataPreference"><span class="hs-identifier hs-type">Smpte2038DataPreference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="inputSettings_smpte2038DataPreference"><span class="annot"><span class="annottext">inputSettings_smpte2038DataPreference :: (Maybe Smpte2038DataPreference
+ -&gt; f (Maybe Smpte2038DataPreference))
+-&gt; InputSettings -&gt; f InputSettings
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_smpte2038DataPreference"><span class="hs-identifier hs-var hs-var">inputSettings_smpte2038DataPreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSettings -&gt; Maybe Smpte2038DataPreference)
+-&gt; (InputSettings
+    -&gt; Maybe Smpte2038DataPreference -&gt; InputSettings)
+-&gt; Lens
+     InputSettings
+     InputSettings
+     (Maybe Smpte2038DataPreference)
+     (Maybe Smpte2038DataPreference)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923625"><span class="annot"><span class="annottext">Maybe Smpte2038DataPreference
+smpte2038DataPreference :: Maybe Smpte2038DataPreference
+$sel:smpte2038DataPreference:InputSettings' :: InputSettings -&gt; Maybe Smpte2038DataPreference
+</span><a href="#local-6989586621679923625"><span class="hs-identifier hs-var hs-var">smpte2038DataPreference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Smpte2038DataPreference
+</span><a href="#local-6989586621679923625"><span class="hs-identifier hs-var">smpte2038DataPreference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923624"><span class="annot"><span class="annottext">s :: InputSettings
+</span><a href="#local-6989586621679923624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923623"><span class="annot"><span class="annottext">Maybe Smpte2038DataPreference
+</span><a href="#local-6989586621679923623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSettings
+</span><a href="#local-6989586621679923624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smpte2038DataPreference:InputSettings' :: Maybe Smpte2038DataPreference
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3Asmpte2038DataPreference%3AInputSettings%27"><span class="hs-identifier hs-var">smpte2038DataPreference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Smpte2038DataPreference
+</span><a href="#local-6989586621679923623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Informs which video elementary stream to decode for input types that</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- have multiple available.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_videoSelector"><span class="hs-identifier hs-type">inputSettings_videoSelector</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="inputSettings_videoSelector"><span class="annot"><span class="annottext">inputSettings_videoSelector :: (Maybe VideoSelector -&gt; f (Maybe VideoSelector))
+-&gt; InputSettings -&gt; f InputSettings
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_videoSelector"><span class="hs-identifier hs-var hs-var">inputSettings_videoSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSettings -&gt; Maybe VideoSelector)
+-&gt; (InputSettings -&gt; Maybe VideoSelector -&gt; InputSettings)
+-&gt; Lens
+     InputSettings
+     InputSettings
+     (Maybe VideoSelector)
+     (Maybe VideoSelector)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923621"><span class="annot"><span class="annottext">Maybe VideoSelector
+videoSelector :: Maybe VideoSelector
+$sel:videoSelector:InputSettings' :: InputSettings -&gt; Maybe VideoSelector
+</span><a href="#local-6989586621679923621"><span class="hs-identifier hs-var hs-var">videoSelector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelector
+</span><a href="#local-6989586621679923621"><span class="hs-identifier hs-var">videoSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923620"><span class="annot"><span class="annottext">s :: InputSettings
+</span><a href="#local-6989586621679923620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923619"><span class="annot"><span class="annottext">Maybe VideoSelector
+</span><a href="#local-6989586621679923619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSettings
+</span><a href="#local-6989586621679923620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoSelector:InputSettings' :: Maybe VideoSelector
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AvideoSelector%3AInputSettings%27"><span class="hs-identifier hs-var">videoSelector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelector
+</span><a href="#local-6989586621679923619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | Loop input if it is a file. This allows a file input to be streamed</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- indefinitely.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_sourceEndBehavior"><span class="hs-identifier hs-type">inputSettings_sourceEndBehavior</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceEndBehavior.html#InputSourceEndBehavior"><span class="hs-identifier hs-type">InputSourceEndBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="inputSettings_sourceEndBehavior"><span class="annot"><span class="annottext">inputSettings_sourceEndBehavior :: (Maybe InputSourceEndBehavior -&gt; f (Maybe InputSourceEndBehavior))
+-&gt; InputSettings -&gt; f InputSettings
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_sourceEndBehavior"><span class="hs-identifier hs-var hs-var">inputSettings_sourceEndBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSettings -&gt; Maybe InputSourceEndBehavior)
+-&gt; (InputSettings -&gt; Maybe InputSourceEndBehavior -&gt; InputSettings)
+-&gt; Lens
+     InputSettings
+     InputSettings
+     (Maybe InputSourceEndBehavior)
+     (Maybe InputSourceEndBehavior)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923617"><span class="annot"><span class="annottext">Maybe InputSourceEndBehavior
+sourceEndBehavior :: Maybe InputSourceEndBehavior
+$sel:sourceEndBehavior:InputSettings' :: InputSettings -&gt; Maybe InputSourceEndBehavior
+</span><a href="#local-6989586621679923617"><span class="hs-identifier hs-var hs-var">sourceEndBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputSourceEndBehavior
+</span><a href="#local-6989586621679923617"><span class="hs-identifier hs-var">sourceEndBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923616"><span class="annot"><span class="annottext">s :: InputSettings
+</span><a href="#local-6989586621679923616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923615"><span class="annot"><span class="annottext">Maybe InputSourceEndBehavior
+</span><a href="#local-6989586621679923615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSettings
+</span><a href="#local-6989586621679923616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceEndBehavior:InputSettings' :: Maybe InputSourceEndBehavior
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AsourceEndBehavior%3AInputSettings%27"><span class="hs-identifier hs-var">sourceEndBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputSourceEndBehavior
+</span><a href="#local-6989586621679923615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | Turns on the filter for this input. MPEG-2 inputs have the deblocking</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- filter enabled by default. 1) auto - filtering will be applied depending</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- on input type\/quality 2) disabled - no filtering will be applied to the</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- input 3) forced - filtering will be applied regardless of input type</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_inputFilter"><span class="hs-identifier hs-type">inputSettings_inputFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputFilter.html#InputFilter"><span class="hs-identifier hs-type">InputFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="inputSettings_inputFilter"><span class="annot"><span class="annottext">inputSettings_inputFilter :: (Maybe InputFilter -&gt; f (Maybe InputFilter))
+-&gt; InputSettings -&gt; f InputSettings
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_inputFilter"><span class="hs-identifier hs-var hs-var">inputSettings_inputFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSettings -&gt; Maybe InputFilter)
+-&gt; (InputSettings -&gt; Maybe InputFilter -&gt; InputSettings)
+-&gt; Lens
+     InputSettings InputSettings (Maybe InputFilter) (Maybe InputFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923613"><span class="annot"><span class="annottext">Maybe InputFilter
+inputFilter :: Maybe InputFilter
+$sel:inputFilter:InputSettings' :: InputSettings -&gt; Maybe InputFilter
+</span><a href="#local-6989586621679923613"><span class="hs-identifier hs-var hs-var">inputFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputFilter
+</span><a href="#local-6989586621679923613"><span class="hs-identifier hs-var">inputFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923612"><span class="annot"><span class="annottext">s :: InputSettings
+</span><a href="#local-6989586621679923612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923611"><span class="annot"><span class="annottext">Maybe InputFilter
+</span><a href="#local-6989586621679923611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSettings
+</span><a href="#local-6989586621679923612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputFilter:InputSettings' :: Maybe InputFilter
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AinputFilter%3AInputSettings%27"><span class="hs-identifier hs-var">inputFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputFilter
+</span><a href="#local-6989586621679923611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | Enable or disable the deblock filter when filtering.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_deblockFilter"><span class="hs-identifier hs-type">inputSettings_deblockFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeblockFilter.html#InputDeblockFilter"><span class="hs-identifier hs-type">InputDeblockFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="inputSettings_deblockFilter"><span class="annot"><span class="annottext">inputSettings_deblockFilter :: (Maybe InputDeblockFilter -&gt; f (Maybe InputDeblockFilter))
+-&gt; InputSettings -&gt; f InputSettings
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_deblockFilter"><span class="hs-identifier hs-var hs-var">inputSettings_deblockFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSettings -&gt; Maybe InputDeblockFilter)
+-&gt; (InputSettings -&gt; Maybe InputDeblockFilter -&gt; InputSettings)
+-&gt; Lens
+     InputSettings
+     InputSettings
+     (Maybe InputDeblockFilter)
+     (Maybe InputDeblockFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923609"><span class="annot"><span class="annottext">Maybe InputDeblockFilter
+deblockFilter :: Maybe InputDeblockFilter
+$sel:deblockFilter:InputSettings' :: InputSettings -&gt; Maybe InputDeblockFilter
+</span><a href="#local-6989586621679923609"><span class="hs-identifier hs-var hs-var">deblockFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeblockFilter
+</span><a href="#local-6989586621679923609"><span class="hs-identifier hs-var">deblockFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923608"><span class="annot"><span class="annottext">s :: InputSettings
+</span><a href="#local-6989586621679923608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923607"><span class="annot"><span class="annottext">Maybe InputDeblockFilter
+</span><a href="#local-6989586621679923607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSettings
+</span><a href="#local-6989586621679923608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deblockFilter:InputSettings' :: Maybe InputDeblockFilter
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AdeblockFilter%3AInputSettings%27"><span class="hs-identifier hs-var">deblockFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeblockFilter
+</span><a href="#local-6989586621679923607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | Used to select the caption input to use for inputs that have multiple</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- available.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_captionSelectors"><span class="hs-identifier hs-type">inputSettings_captionSelectors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="inputSettings_captionSelectors"><span class="annot"><span class="annottext">inputSettings_captionSelectors :: (Maybe [CaptionSelector] -&gt; f (Maybe [CaptionSelector]))
+-&gt; InputSettings -&gt; f InputSettings
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_captionSelectors"><span class="hs-identifier hs-var hs-var">inputSettings_captionSelectors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSettings -&gt; Maybe [CaptionSelector])
+-&gt; (InputSettings -&gt; Maybe [CaptionSelector] -&gt; InputSettings)
+-&gt; Lens
+     InputSettings
+     InputSettings
+     (Maybe [CaptionSelector])
+     (Maybe [CaptionSelector])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923605"><span class="annot"><span class="annottext">Maybe [CaptionSelector]
+captionSelectors :: Maybe [CaptionSelector]
+$sel:captionSelectors:InputSettings' :: InputSettings -&gt; Maybe [CaptionSelector]
+</span><a href="#local-6989586621679923605"><span class="hs-identifier hs-var hs-var">captionSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionSelector]
+</span><a href="#local-6989586621679923605"><span class="hs-identifier hs-var">captionSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923604"><span class="annot"><span class="annottext">s :: InputSettings
+</span><a href="#local-6989586621679923604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923603"><span class="annot"><span class="annottext">Maybe [CaptionSelector]
+</span><a href="#local-6989586621679923603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSettings
+</span><a href="#local-6989586621679923604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionSelectors:InputSettings' :: Maybe [CaptionSelector]
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AcaptionSelectors%3AInputSettings%27"><span class="hs-identifier hs-var">captionSelectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionSelector]
+</span><a href="#local-6989586621679923603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CaptionSelector] -&gt; f (Maybe [CaptionSelector]))
+ -&gt; InputSettings -&gt; f InputSettings)
+-&gt; ((Maybe [CaptionSelector] -&gt; f (Maybe [CaptionSelector]))
+    -&gt; Maybe [CaptionSelector] -&gt; f (Maybe [CaptionSelector]))
+-&gt; (Maybe [CaptionSelector] -&gt; f (Maybe [CaptionSelector]))
+-&gt; InputSettings
+-&gt; f InputSettings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CaptionSelector]
+  [CaptionSelector]
+  [CaptionSelector]
+  [CaptionSelector]
+-&gt; Iso
+     (Maybe [CaptionSelector])
+     (Maybe [CaptionSelector])
+     (Maybe [CaptionSelector])
+     (Maybe [CaptionSelector])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CaptionSelector]
+  [CaptionSelector]
+  [CaptionSelector]
+  [CaptionSelector]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | Input settings.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_networkInputSettings"><span class="hs-identifier hs-type">inputSettings_networkInputSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings"><span class="hs-identifier hs-type">NetworkInputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="inputSettings_networkInputSettings"><span class="annot"><span class="annottext">inputSettings_networkInputSettings :: (Maybe NetworkInputSettings -&gt; f (Maybe NetworkInputSettings))
+-&gt; InputSettings -&gt; f InputSettings
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#inputSettings_networkInputSettings"><span class="hs-identifier hs-var hs-var">inputSettings_networkInputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSettings -&gt; Maybe NetworkInputSettings)
+-&gt; (InputSettings -&gt; Maybe NetworkInputSettings -&gt; InputSettings)
+-&gt; Lens
+     InputSettings
+     InputSettings
+     (Maybe NetworkInputSettings)
+     (Maybe NetworkInputSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923601"><span class="annot"><span class="annottext">Maybe NetworkInputSettings
+networkInputSettings :: Maybe NetworkInputSettings
+$sel:networkInputSettings:InputSettings' :: InputSettings -&gt; Maybe NetworkInputSettings
+</span><a href="#local-6989586621679923601"><span class="hs-identifier hs-var hs-var">networkInputSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInputSettings
+</span><a href="#local-6989586621679923601"><span class="hs-identifier hs-var">networkInputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923600"><span class="annot"><span class="annottext">s :: InputSettings
+</span><a href="#local-6989586621679923600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923599"><span class="annot"><span class="annottext">Maybe NetworkInputSettings
+</span><a href="#local-6989586621679923599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSettings
+</span><a href="#local-6989586621679923600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInputSettings:InputSettings' :: Maybe NetworkInputSettings
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#%24sel%3AnetworkInputSettings%3AInputSettings%27"><span class="hs-identifier hs-var">networkInputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInputSettings
+</span><a href="#local-6989586621679923599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923596"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679923594"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InputSettings)
+-&gt; Value
+-&gt; Parser InputSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InputSettings&quot;</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679923591"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679923591"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Maybe InputDenoiseFilter
+-&gt; Maybe [AudioSelector]
+-&gt; Maybe Natural
+-&gt; Maybe Smpte2038DataPreference
+-&gt; Maybe VideoSelector
+-&gt; Maybe InputSourceEndBehavior
+-&gt; Maybe InputFilter
+-&gt; Maybe InputDeblockFilter
+-&gt; Maybe [CaptionSelector]
+-&gt; Maybe NetworkInputSettings
+-&gt; InputSettings
+</span><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-var">InputSettings'</span></a></span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InputDenoiseFilter
+ -&gt; Maybe [AudioSelector]
+ -&gt; Maybe Natural
+ -&gt; Maybe Smpte2038DataPreference
+ -&gt; Maybe VideoSelector
+ -&gt; Maybe InputSourceEndBehavior
+ -&gt; Maybe InputFilter
+ -&gt; Maybe InputDeblockFilter
+ -&gt; Maybe [CaptionSelector]
+ -&gt; Maybe NetworkInputSettings
+ -&gt; InputSettings)
+-&gt; Parser (Maybe InputDenoiseFilter)
+-&gt; Parser
+     (Maybe [AudioSelector]
+      -&gt; Maybe Natural
+      -&gt; Maybe Smpte2038DataPreference
+      -&gt; Maybe VideoSelector
+      -&gt; Maybe InputSourceEndBehavior
+      -&gt; Maybe InputFilter
+      -&gt; Maybe InputDeblockFilter
+      -&gt; Maybe [CaptionSelector]
+      -&gt; Maybe NetworkInputSettings
+      -&gt; InputSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679923591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDenoiseFilter)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;denoiseFilter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AudioSelector]
+   -&gt; Maybe Natural
+   -&gt; Maybe Smpte2038DataPreference
+   -&gt; Maybe VideoSelector
+   -&gt; Maybe InputSourceEndBehavior
+   -&gt; Maybe InputFilter
+   -&gt; Maybe InputDeblockFilter
+   -&gt; Maybe [CaptionSelector]
+   -&gt; Maybe NetworkInputSettings
+   -&gt; InputSettings)
+-&gt; Parser (Maybe [AudioSelector])
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Smpte2038DataPreference
+      -&gt; Maybe VideoSelector
+      -&gt; Maybe InputSourceEndBehavior
+      -&gt; Maybe InputFilter
+      -&gt; Maybe InputDeblockFilter
+      -&gt; Maybe [CaptionSelector]
+      -&gt; Maybe NetworkInputSettings
+      -&gt; InputSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679923591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AudioSelector]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioSelectors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AudioSelector]))
+-&gt; Maybe [AudioSelector] -&gt; Parser (Maybe [AudioSelector])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AudioSelector]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Smpte2038DataPreference
+   -&gt; Maybe VideoSelector
+   -&gt; Maybe InputSourceEndBehavior
+   -&gt; Maybe InputFilter
+   -&gt; Maybe InputDeblockFilter
+   -&gt; Maybe [CaptionSelector]
+   -&gt; Maybe NetworkInputSettings
+   -&gt; InputSettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Smpte2038DataPreference
+      -&gt; Maybe VideoSelector
+      -&gt; Maybe InputSourceEndBehavior
+      -&gt; Maybe InputFilter
+      -&gt; Maybe InputDeblockFilter
+      -&gt; Maybe [CaptionSelector]
+      -&gt; Maybe NetworkInputSettings
+      -&gt; InputSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679923591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filterStrength&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Smpte2038DataPreference
+   -&gt; Maybe VideoSelector
+   -&gt; Maybe InputSourceEndBehavior
+   -&gt; Maybe InputFilter
+   -&gt; Maybe InputDeblockFilter
+   -&gt; Maybe [CaptionSelector]
+   -&gt; Maybe NetworkInputSettings
+   -&gt; InputSettings)
+-&gt; Parser (Maybe Smpte2038DataPreference)
+-&gt; Parser
+     (Maybe VideoSelector
+      -&gt; Maybe InputSourceEndBehavior
+      -&gt; Maybe InputFilter
+      -&gt; Maybe InputDeblockFilter
+      -&gt; Maybe [CaptionSelector]
+      -&gt; Maybe NetworkInputSettings
+      -&gt; InputSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679923591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Smpte2038DataPreference)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;smpte2038DataPreference&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VideoSelector
+   -&gt; Maybe InputSourceEndBehavior
+   -&gt; Maybe InputFilter
+   -&gt; Maybe InputDeblockFilter
+   -&gt; Maybe [CaptionSelector]
+   -&gt; Maybe NetworkInputSettings
+   -&gt; InputSettings)
+-&gt; Parser (Maybe VideoSelector)
+-&gt; Parser
+     (Maybe InputSourceEndBehavior
+      -&gt; Maybe InputFilter
+      -&gt; Maybe InputDeblockFilter
+      -&gt; Maybe [CaptionSelector]
+      -&gt; Maybe NetworkInputSettings
+      -&gt; InputSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679923591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoSelector)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;videoSelector&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputSourceEndBehavior
+   -&gt; Maybe InputFilter
+   -&gt; Maybe InputDeblockFilter
+   -&gt; Maybe [CaptionSelector]
+   -&gt; Maybe NetworkInputSettings
+   -&gt; InputSettings)
+-&gt; Parser (Maybe InputSourceEndBehavior)
+-&gt; Parser
+     (Maybe InputFilter
+      -&gt; Maybe InputDeblockFilter
+      -&gt; Maybe [CaptionSelector]
+      -&gt; Maybe NetworkInputSettings
+      -&gt; InputSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679923591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputSourceEndBehavior)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceEndBehavior&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputFilter
+   -&gt; Maybe InputDeblockFilter
+   -&gt; Maybe [CaptionSelector]
+   -&gt; Maybe NetworkInputSettings
+   -&gt; InputSettings)
+-&gt; Parser (Maybe InputFilter)
+-&gt; Parser
+     (Maybe InputDeblockFilter
+      -&gt; Maybe [CaptionSelector]
+      -&gt; Maybe NetworkInputSettings
+      -&gt; InputSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679923591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputFilter)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputFilter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputDeblockFilter
+   -&gt; Maybe [CaptionSelector]
+   -&gt; Maybe NetworkInputSettings
+   -&gt; InputSettings)
+-&gt; Parser (Maybe InputDeblockFilter)
+-&gt; Parser
+     (Maybe [CaptionSelector]
+      -&gt; Maybe NetworkInputSettings -&gt; InputSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679923591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDeblockFilter)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deblockFilter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [CaptionSelector]
+   -&gt; Maybe NetworkInputSettings -&gt; InputSettings)
+-&gt; Parser (Maybe [CaptionSelector])
+-&gt; Parser (Maybe NetworkInputSettings -&gt; InputSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679923591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CaptionSelector]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;captionSelectors&quot;</span></span><span>
+</span><span id="line-194"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [CaptionSelector]))
+-&gt; Maybe [CaptionSelector] -&gt; Parser (Maybe [CaptionSelector])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionSelector]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-195"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe NetworkInputSettings -&gt; InputSettings)
+-&gt; Parser (Maybe NetworkInputSettings) -&gt; Parser InputSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679923591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NetworkInputSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkInputSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923584"><span id="local-6989586621679923586"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span></span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923581"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923573"><span id="local-6989586621679923575"><span id="local-6989586621679923577"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679923571"><span class="annot"><span class="annottext">toJSON :: InputSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings%27"><span class="hs-identifier hs-type">InputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923560"><span id="local-6989586621679923561"><span id="local-6989586621679923562"><span id="local-6989586621679923563"><span id="local-6989586621679923564"><span id="local-6989586621679923565"><span id="local-6989586621679923566"><span id="local-6989586621679923567"><span id="local-6989586621679923568"><span id="local-6989586621679923569"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [AudioSelector]
+Maybe [CaptionSelector]
+Maybe InputDeblockFilter
+Maybe InputDenoiseFilter
+Maybe InputFilter
+Maybe InputSourceEndBehavior
+Maybe NetworkInputSettings
+Maybe Smpte2038DataPreference
+Maybe VideoSelector
+networkInputSettings :: Maybe NetworkInputSettings
+captionSelectors :: Maybe [CaptionSelector]
+deblockFilter :: Maybe InputDeblockFilter
+inputFilter :: Maybe InputFilter
+sourceEndBehavior :: Maybe InputSourceEndBehavior
+videoSelector :: Maybe VideoSelector
+smpte2038DataPreference :: Maybe Smpte2038DataPreference
+filterStrength :: Maybe Natural
+audioSelectors :: Maybe [AudioSelector]
+denoiseFilter :: Maybe InputDenoiseFilter
+$sel:networkInputSettings:InputSettings' :: InputSettings -&gt; Maybe NetworkInputSettings
+$sel:captionSelectors:InputSettings' :: InputSettings -&gt; Maybe [CaptionSelector]
+$sel:deblockFilter:InputSettings' :: InputSettings -&gt; Maybe InputDeblockFilter
+$sel:inputFilter:InputSettings' :: InputSettings -&gt; Maybe InputFilter
+$sel:sourceEndBehavior:InputSettings' :: InputSettings -&gt; Maybe InputSourceEndBehavior
+$sel:videoSelector:InputSettings' :: InputSettings -&gt; Maybe VideoSelector
+$sel:smpte2038DataPreference:InputSettings' :: InputSettings -&gt; Maybe Smpte2038DataPreference
+$sel:filterStrength:InputSettings' :: InputSettings -&gt; Maybe Natural
+$sel:audioSelectors:InputSettings' :: InputSettings -&gt; Maybe [AudioSelector]
+$sel:denoiseFilter:InputSettings' :: InputSettings -&gt; Maybe InputDenoiseFilter
+</span><a href="#local-6989586621679923560"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-207"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;denoiseFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputDenoiseFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputDenoiseFilter -&gt; Pair)
+-&gt; Maybe InputDenoiseFilter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputDenoiseFilter
+</span><a href="#local-6989586621679923569"><span class="hs-identifier hs-var">denoiseFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioSelectors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AudioSelector] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">([AudioSelector] -&gt; Pair) -&gt; Maybe [AudioSelector] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AudioSelector]
+</span><a href="#local-6989586621679923568"><span class="hs-identifier hs-var">audioSelectors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filterStrength&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679923567"><span class="hs-identifier hs-var">filterStrength</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;smpte2038DataPreference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Smpte2038DataPreference -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">(Smpte2038DataPreference -&gt; Pair)
+-&gt; Maybe Smpte2038DataPreference -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Smpte2038DataPreference
+</span><a href="#local-6989586621679923566"><span class="hs-identifier hs-var">smpte2038DataPreference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;videoSelector&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VideoSelector -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VideoSelector -&gt; Pair) -&gt; Maybe VideoSelector -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelector
+</span><a href="#local-6989586621679923565"><span class="hs-identifier hs-var">videoSelector</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceEndBehavior&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputSourceEndBehavior -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>              </span><span class="annot"><span class="annottext">(InputSourceEndBehavior -&gt; Pair)
+-&gt; Maybe InputSourceEndBehavior -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputSourceEndBehavior
+</span><a href="#local-6989586621679923564"><span class="hs-identifier hs-var">sourceEndBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputFilter -&gt; Pair) -&gt; Maybe InputFilter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputFilter
+</span><a href="#local-6989586621679923563"><span class="hs-identifier hs-var">inputFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deblockFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputDeblockFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputDeblockFilter -&gt; Pair)
+-&gt; Maybe InputDeblockFilter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputDeblockFilter
+</span><a href="#local-6989586621679923562"><span class="hs-identifier hs-var">deblockFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;captionSelectors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CaptionSelector] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>              </span><span class="annot"><span class="annottext">([CaptionSelector] -&gt; Pair)
+-&gt; Maybe [CaptionSelector] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionSelector]
+</span><a href="#local-6989586621679923561"><span class="hs-identifier hs-var">captionSelectors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkInputSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NetworkInputSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>              </span><span class="annot"><span class="annottext">(NetworkInputSettings -&gt; Pair)
+-&gt; Maybe NetworkInputSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInputSettings
+</span><a href="#local-6989586621679923560"><span class="hs-identifier hs-var">networkInputSettings</span></a></span><span>
+</span><span id="line-223"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span></pre></body></html>

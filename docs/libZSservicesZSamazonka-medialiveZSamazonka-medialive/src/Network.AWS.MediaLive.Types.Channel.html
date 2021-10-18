@@ -1,0 +1,1300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.Channel</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.Channel</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputSpecification.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.CdiInputSpecification</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.ChannelClass</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelEgressEndpoint.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.ChannelEgressEndpoint</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelState.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.ChannelState</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.EncoderSettings</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.InputAttachment</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.InputSpecification</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.LogLevel.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.LogLevel</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.OutputDestination</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelineDetail.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.PipelineDetail</span></a></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettingsDescription.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.VpcOutputSettingsDescription</span></a></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- | Placeholder documentation for Channel</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newChannel' smart constructor.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621679925986"><span id="local-6989586621679925987"></span></span><span class="hs-keyword">data</span><span> </span><span id="Channel"><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-var">Channel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Channel%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-var">Channel'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the role assumed when running the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Channel.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AroleArn%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AroleArn%3AChannel%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AencoderSettings%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AencoderSettings%3AChannel%27"><span class="hs-identifier hs-var hs-var">encoderSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Specification of network and file inputs for this channel</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AinputSpecification%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe InputSpecification
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AinputSpecification%3AChannel%27"><span class="hs-identifier hs-var hs-var">inputSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The unique arn of the channel.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aarn%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Aarn%3AChannel%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The unique id of the channel.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aid%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Aid%3AChannel%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The number of currently healthy pipelines.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3ApipelinesRunningCount%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe Int
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3ApipelinesRunningCount%3AChannel%27"><span class="hs-identifier hs-var hs-var">pipelinesRunningCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The class for this channel. STANDARD for a channel with two pipelines or</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- SINGLE_PIPELINE for a channel with one pipeline.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AchannelClass%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe ChannelClass
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AchannelClass%3AChannel%27"><span class="hs-identifier hs-var hs-var">channelClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass"><span class="hs-identifier hs-type">ChannelClass</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The log level being written to CloudWatch Logs.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AlogLevel%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe LogLevel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AlogLevel%3AChannel%27"><span class="hs-identifier hs-var hs-var">logLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The name of the channel. (user-mutable)</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aname%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Aname%3AChannel%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A list of destinations of the channel. For UDP outputs, there is one</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- destination per output. For other types (HLS, for example), there is one</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- destination per packager.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Adestinations%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe [OutputDestination]
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Adestinations%3AChannel%27"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Astate%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe ChannelState
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Astate%3AChannel%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelState.html#ChannelState"><span class="hs-identifier hs-type">ChannelState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | List of input attachments for channel.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AinputAttachments%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe [InputAttachment]
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AinputAttachments%3AChannel%27"><span class="hs-identifier hs-var hs-var">inputAttachments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A collection of key-value pairs.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Atags%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Atags%3AChannel%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Runtime details for the pipelines of a running channel.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3ApipelineDetails%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe [PipelineDetail]
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3ApipelineDetails%3AChannel%27"><span class="hs-identifier hs-var hs-var">pipelineDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelineDetail.html#PipelineDetail"><span class="hs-identifier hs-type">PipelineDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Settings for VPC output</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Avpc%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe VpcOutputSettingsDescription
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Avpc%3AChannel%27"><span class="hs-identifier hs-var hs-var">vpc</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettingsDescription.html#VpcOutputSettingsDescription"><span class="hs-identifier hs-type">VpcOutputSettingsDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Specification of CDI inputs for this channel</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AcdiInputSpecification%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe CdiInputSpecification
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AcdiInputSpecification%3AChannel%27"><span class="hs-identifier hs-var hs-var">cdiInputSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputSpecification.html#CdiInputSpecification"><span class="hs-identifier hs-type">CdiInputSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The endpoints where outgoing connections initiate from</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AegressEndpoints%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe [ChannelEgressEndpoint]
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AegressEndpoints%3AChannel%27"><span class="hs-identifier hs-var hs-var">egressEndpoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelEgressEndpoint.html#ChannelEgressEndpoint"><span class="hs-identifier hs-type">ChannelEgressEndpoint</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679925964"><span id="local-6989586621679925966"><span class="annot"><span class="annottext">Channel -&gt; Channel -&gt; Bool
+(Channel -&gt; Channel -&gt; Bool)
+-&gt; (Channel -&gt; Channel -&gt; Bool) -&gt; Eq Channel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Channel -&gt; Channel -&gt; Bool
+$c/= :: Channel -&gt; Channel -&gt; Bool
+== :: Channel -&gt; Channel -&gt; Bool
+$c== :: Channel -&gt; Channel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679925955"><span id="local-6989586621679925957"><span id="local-6989586621679925959"><span id="local-6989586621679925961"><span class="annot"><span class="annottext">ReadPrec [Channel]
+ReadPrec Channel
+Int -&gt; ReadS Channel
+ReadS [Channel]
+(Int -&gt; ReadS Channel)
+-&gt; ReadS [Channel]
+-&gt; ReadPrec Channel
+-&gt; ReadPrec [Channel]
+-&gt; Read Channel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Channel]
+$creadListPrec :: ReadPrec [Channel]
+readPrec :: ReadPrec Channel
+$creadPrec :: ReadPrec Channel
+readList :: ReadS [Channel]
+$creadList :: ReadS [Channel]
+readsPrec :: Int -&gt; ReadS Channel
+$creadsPrec :: Int -&gt; ReadS Channel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679925948"><span id="local-6989586621679925950"><span id="local-6989586621679925952"><span class="annot"><span class="annottext">Int -&gt; Channel -&gt; ShowS
+[Channel] -&gt; ShowS
+Channel -&gt; String
+(Int -&gt; Channel -&gt; ShowS)
+-&gt; (Channel -&gt; String) -&gt; ([Channel] -&gt; ShowS) -&gt; Show Channel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Channel] -&gt; ShowS
+$cshowList :: [Channel] -&gt; ShowS
+show :: Channel -&gt; String
+$cshow :: Channel -&gt; String
+showsPrec :: Int -&gt; Channel -&gt; ShowS
+$cshowsPrec :: Int -&gt; Channel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Channel -&gt; Rep Channel x)
+-&gt; (forall x. Rep Channel x -&gt; Channel) -&gt; Generic Channel
+forall x. Rep Channel x -&gt; Channel
+forall x. Channel -&gt; Rep Channel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Channel x -&gt; Channel
+$cfrom :: forall x. Channel -&gt; Rep Channel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'Channel' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'roleArn', 'channel_roleArn' - The Amazon Resource Name (ARN) of the role assumed when running the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Channel.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'encoderSettings', 'channel_encoderSettings' - Undocumented member.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'inputSpecification', 'channel_inputSpecification' - Specification of network and file inputs for this channel</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'arn', 'channel_arn' - The unique arn of the channel.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'id', 'channel_id' - The unique id of the channel.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'pipelinesRunningCount', 'channel_pipelinesRunningCount' - The number of currently healthy pipelines.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'channelClass', 'channel_channelClass' - The class for this channel. STANDARD for a channel with two pipelines or</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- SINGLE_PIPELINE for a channel with one pipeline.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'logLevel', 'channel_logLevel' - The log level being written to CloudWatch Logs.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'name', 'channel_name' - The name of the channel. (user-mutable)</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'destinations', 'channel_destinations' - A list of destinations of the channel. For UDP outputs, there is one</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- destination per output. For other types (HLS, for example), there is one</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- destination per packager.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'state', 'channel_state' - Undocumented member.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'inputAttachments', 'channel_inputAttachments' - List of input attachments for channel.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'tags', 'channel_tags' - A collection of key-value pairs.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'pipelineDetails', 'channel_pipelineDetails' - Runtime details for the pipelines of a running channel.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'vpc', 'channel_vpc' - Settings for VPC output</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'cdiInputSpecification', 'channel_cdiInputSpecification' - Specification of CDI inputs for this channel</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'egressEndpoints', 'channel_egressEndpoints' - The endpoints where outgoing connections initiate from</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#newChannel"><span class="hs-identifier hs-type">newChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span>
+</span><span id="line-127"></span><span id="newChannel"><span class="annot"><span class="annottext">newChannel :: Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#newChannel"><span class="hs-identifier hs-var hs-var">newChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">Channel' :: Maybe Text
+-&gt; Maybe EncoderSettings
+-&gt; Maybe InputSpecification
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe ChannelClass
+-&gt; Maybe LogLevel
+-&gt; Maybe Text
+-&gt; Maybe [OutputDestination]
+-&gt; Maybe ChannelState
+-&gt; Maybe [InputAttachment]
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe [PipelineDetail]
+-&gt; Maybe VpcOutputSettingsDescription
+-&gt; Maybe CdiInputSpecification
+-&gt; Maybe [ChannelEgressEndpoint]
+-&gt; Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleArn:Channel' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AroleArn%3AChannel%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:encoderSettings:Channel' :: Maybe EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AencoderSettings%3AChannel%27"><span class="hs-identifier hs-var">encoderSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncoderSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputSpecification:Channel' :: Maybe InputSpecification
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AinputSpecification%3AChannel%27"><span class="hs-identifier hs-var">inputSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputSpecification
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Channel' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Aarn%3AChannel%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Channel' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Aid%3AChannel%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelinesRunningCount:Channel' :: Maybe Int
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3ApipelinesRunningCount%3AChannel%27"><span class="hs-identifier hs-var">pipelinesRunningCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelClass:Channel' :: Maybe ChannelClass
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AchannelClass%3AChannel%27"><span class="hs-identifier hs-var">channelClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelClass
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:logLevel:Channel' :: Maybe LogLevel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AlogLevel%3AChannel%27"><span class="hs-identifier hs-var">logLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Channel' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Aname%3AChannel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinations:Channel' :: Maybe [OutputDestination]
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Adestinations%3AChannel%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputDestination]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:Channel' :: Maybe ChannelState
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Astate%3AChannel%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputAttachments:Channel' :: Maybe [InputAttachment]
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AinputAttachments%3AChannel%27"><span class="hs-identifier hs-var">inputAttachments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputAttachment]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Channel' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Atags%3AChannel%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineDetails:Channel' :: Maybe [PipelineDetail]
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3ApipelineDetails%3AChannel%27"><span class="hs-identifier hs-var">pipelineDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PipelineDetail]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpc:Channel' :: Maybe VpcOutputSettingsDescription
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Avpc%3AChannel%27"><span class="hs-identifier hs-var">vpc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcOutputSettingsDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:cdiInputSpecification:Channel' :: Maybe CdiInputSpecification
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AcdiInputSpecification%3AChannel%27"><span class="hs-identifier hs-var">cdiInputSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CdiInputSpecification
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:egressEndpoints:Channel' :: Maybe [ChannelEgressEndpoint]
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AegressEndpoints%3AChannel%27"><span class="hs-identifier hs-var">egressEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelEgressEndpoint]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the role assumed when running the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Channel.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_roleArn"><span class="hs-identifier hs-type">channel_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="channel_roleArn"><span class="annot"><span class="annottext">channel_roleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_roleArn"><span class="hs-identifier hs-var hs-var">channel_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe Text)
+-&gt; (Channel -&gt; Maybe Text -&gt; Channel)
+-&gt; Lens Channel Channel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925939"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:Channel' :: Channel -&gt; Maybe Text
+</span><a href="#local-6989586621679925939"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679925939"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925938"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925937"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679925937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:Channel' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AroleArn%3AChannel%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679925937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_encoderSettings"><span class="hs-identifier hs-type">channel_encoderSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EncoderSettings.html#EncoderSettings"><span class="hs-identifier hs-type">EncoderSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="channel_encoderSettings"><span class="annot"><span class="annottext">channel_encoderSettings :: (Maybe EncoderSettings -&gt; f (Maybe EncoderSettings))
+-&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_encoderSettings"><span class="hs-identifier hs-var hs-var">channel_encoderSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe EncoderSettings)
+-&gt; (Channel -&gt; Maybe EncoderSettings -&gt; Channel)
+-&gt; Lens
+     Channel Channel (Maybe EncoderSettings) (Maybe EncoderSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925935"><span class="annot"><span class="annottext">Maybe EncoderSettings
+encoderSettings :: Maybe EncoderSettings
+$sel:encoderSettings:Channel' :: Channel -&gt; Maybe EncoderSettings
+</span><a href="#local-6989586621679925935"><span class="hs-identifier hs-var hs-var">encoderSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncoderSettings
+</span><a href="#local-6989586621679925935"><span class="hs-identifier hs-var">encoderSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925934"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925933"><span class="annot"><span class="annottext">Maybe EncoderSettings
+</span><a href="#local-6989586621679925933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encoderSettings:Channel' :: Maybe EncoderSettings
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AencoderSettings%3AChannel%27"><span class="hs-identifier hs-var">encoderSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncoderSettings
+</span><a href="#local-6989586621679925933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | Specification of network and file inputs for this channel</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_inputSpecification"><span class="hs-identifier hs-type">channel_inputSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="channel_inputSpecification"><span class="annot"><span class="annottext">channel_inputSpecification :: (Maybe InputSpecification -&gt; f (Maybe InputSpecification))
+-&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_inputSpecification"><span class="hs-identifier hs-var hs-var">channel_inputSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe InputSpecification)
+-&gt; (Channel -&gt; Maybe InputSpecification -&gt; Channel)
+-&gt; Lens
+     Channel
+     Channel
+     (Maybe InputSpecification)
+     (Maybe InputSpecification)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925931"><span class="annot"><span class="annottext">Maybe InputSpecification
+inputSpecification :: Maybe InputSpecification
+$sel:inputSpecification:Channel' :: Channel -&gt; Maybe InputSpecification
+</span><a href="#local-6989586621679925931"><span class="hs-identifier hs-var hs-var">inputSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputSpecification
+</span><a href="#local-6989586621679925931"><span class="hs-identifier hs-var">inputSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925930"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925929"><span class="annot"><span class="annottext">Maybe InputSpecification
+</span><a href="#local-6989586621679925929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputSpecification:Channel' :: Maybe InputSpecification
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AinputSpecification%3AChannel%27"><span class="hs-identifier hs-var">inputSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputSpecification
+</span><a href="#local-6989586621679925929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The unique arn of the channel.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_arn"><span class="hs-identifier hs-type">channel_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="channel_arn"><span class="annot"><span class="annottext">channel_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_arn"><span class="hs-identifier hs-var hs-var">channel_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe Text)
+-&gt; (Channel -&gt; Maybe Text -&gt; Channel)
+-&gt; Lens Channel Channel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925927"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Channel' :: Channel -&gt; Maybe Text
+</span><a href="#local-6989586621679925927"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679925927"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925926"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925925"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679925925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Channel' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Aarn%3AChannel%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679925925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The unique id of the channel.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_id"><span class="hs-identifier hs-type">channel_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="channel_id"><span class="annot"><span class="annottext">channel_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_id"><span class="hs-identifier hs-var hs-var">channel_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe Text)
+-&gt; (Channel -&gt; Maybe Text -&gt; Channel)
+-&gt; Lens Channel Channel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925923"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:Channel' :: Channel -&gt; Maybe Text
+</span><a href="#local-6989586621679925923"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679925923"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925922"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925921"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679925921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Channel' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Aid%3AChannel%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679925921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The number of currently healthy pipelines.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_pipelinesRunningCount"><span class="hs-identifier hs-type">channel_pipelinesRunningCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="channel_pipelinesRunningCount"><span class="annot"><span class="annottext">channel_pipelinesRunningCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_pipelinesRunningCount"><span class="hs-identifier hs-var hs-var">channel_pipelinesRunningCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe Int)
+-&gt; (Channel -&gt; Maybe Int -&gt; Channel)
+-&gt; Lens Channel Channel (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925919"><span class="annot"><span class="annottext">Maybe Int
+pipelinesRunningCount :: Maybe Int
+$sel:pipelinesRunningCount:Channel' :: Channel -&gt; Maybe Int
+</span><a href="#local-6989586621679925919"><span class="hs-identifier hs-var hs-var">pipelinesRunningCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679925919"><span class="hs-identifier hs-var">pipelinesRunningCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925918"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925917"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679925917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelinesRunningCount:Channel' :: Maybe Int
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3ApipelinesRunningCount%3AChannel%27"><span class="hs-identifier hs-var">pipelinesRunningCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679925917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The class for this channel. STANDARD for a channel with two pipelines or</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- SINGLE_PIPELINE for a channel with one pipeline.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_channelClass"><span class="hs-identifier hs-type">channel_channelClass</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass"><span class="hs-identifier hs-type">ChannelClass</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="channel_channelClass"><span class="annot"><span class="annottext">channel_channelClass :: (Maybe ChannelClass -&gt; f (Maybe ChannelClass))
+-&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_channelClass"><span class="hs-identifier hs-var hs-var">channel_channelClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe ChannelClass)
+-&gt; (Channel -&gt; Maybe ChannelClass -&gt; Channel)
+-&gt; Lens Channel Channel (Maybe ChannelClass) (Maybe ChannelClass)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925915"><span class="annot"><span class="annottext">Maybe ChannelClass
+channelClass :: Maybe ChannelClass
+$sel:channelClass:Channel' :: Channel -&gt; Maybe ChannelClass
+</span><a href="#local-6989586621679925915"><span class="hs-identifier hs-var hs-var">channelClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelClass
+</span><a href="#local-6989586621679925915"><span class="hs-identifier hs-var">channelClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925914"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925913"><span class="annot"><span class="annottext">Maybe ChannelClass
+</span><a href="#local-6989586621679925913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelClass:Channel' :: Maybe ChannelClass
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AchannelClass%3AChannel%27"><span class="hs-identifier hs-var">channelClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelClass
+</span><a href="#local-6989586621679925913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The log level being written to CloudWatch Logs.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_logLevel"><span class="hs-identifier hs-type">channel_logLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="channel_logLevel"><span class="annot"><span class="annottext">channel_logLevel :: (Maybe LogLevel -&gt; f (Maybe LogLevel)) -&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_logLevel"><span class="hs-identifier hs-var hs-var">channel_logLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe LogLevel)
+-&gt; (Channel -&gt; Maybe LogLevel -&gt; Channel)
+-&gt; Lens Channel Channel (Maybe LogLevel) (Maybe LogLevel)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925911"><span class="annot"><span class="annottext">Maybe LogLevel
+logLevel :: Maybe LogLevel
+$sel:logLevel:Channel' :: Channel -&gt; Maybe LogLevel
+</span><a href="#local-6989586621679925911"><span class="hs-identifier hs-var hs-var">logLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
+</span><a href="#local-6989586621679925911"><span class="hs-identifier hs-var">logLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925910"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925909"><span class="annot"><span class="annottext">Maybe LogLevel
+</span><a href="#local-6989586621679925909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logLevel:Channel' :: Maybe LogLevel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AlogLevel%3AChannel%27"><span class="hs-identifier hs-var">logLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
+</span><a href="#local-6989586621679925909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The name of the channel. (user-mutable)</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_name"><span class="hs-identifier hs-type">channel_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="channel_name"><span class="annot"><span class="annottext">channel_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_name"><span class="hs-identifier hs-var hs-var">channel_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe Text)
+-&gt; (Channel -&gt; Maybe Text -&gt; Channel)
+-&gt; Lens Channel Channel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925907"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Channel' :: Channel -&gt; Maybe Text
+</span><a href="#local-6989586621679925907"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679925907"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925906"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925905"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679925905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Channel' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Aname%3AChannel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679925905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | A list of destinations of the channel. For UDP outputs, there is one</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- destination per output. For other types (HLS, for example), there is one</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- destination per packager.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_destinations"><span class="hs-identifier hs-type">channel_destinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="channel_destinations"><span class="annot"><span class="annottext">channel_destinations :: (Maybe [OutputDestination] -&gt; f (Maybe [OutputDestination]))
+-&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_destinations"><span class="hs-identifier hs-var hs-var">channel_destinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe [OutputDestination])
+-&gt; (Channel -&gt; Maybe [OutputDestination] -&gt; Channel)
+-&gt; Lens
+     Channel
+     Channel
+     (Maybe [OutputDestination])
+     (Maybe [OutputDestination])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925903"><span class="annot"><span class="annottext">Maybe [OutputDestination]
+destinations :: Maybe [OutputDestination]
+$sel:destinations:Channel' :: Channel -&gt; Maybe [OutputDestination]
+</span><a href="#local-6989586621679925903"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputDestination]
+</span><a href="#local-6989586621679925903"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925902"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925901"><span class="annot"><span class="annottext">Maybe [OutputDestination]
+</span><a href="#local-6989586621679925901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinations:Channel' :: Maybe [OutputDestination]
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Adestinations%3AChannel%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputDestination]
+</span><a href="#local-6989586621679925901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OutputDestination] -&gt; f (Maybe [OutputDestination]))
+ -&gt; Channel -&gt; f Channel)
+-&gt; ((Maybe [OutputDestination] -&gt; f (Maybe [OutputDestination]))
+    -&gt; Maybe [OutputDestination] -&gt; f (Maybe [OutputDestination]))
+-&gt; (Maybe [OutputDestination] -&gt; f (Maybe [OutputDestination]))
+-&gt; Channel
+-&gt; f Channel
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [OutputDestination]
+  [OutputDestination]
+  [OutputDestination]
+  [OutputDestination]
+-&gt; Iso
+     (Maybe [OutputDestination])
+     (Maybe [OutputDestination])
+     (Maybe [OutputDestination])
+     (Maybe [OutputDestination])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [OutputDestination]
+  [OutputDestination]
+  [OutputDestination]
+  [OutputDestination]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_state"><span class="hs-identifier hs-type">channel_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelState.html#ChannelState"><span class="hs-identifier hs-type">ChannelState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="channel_state"><span class="annot"><span class="annottext">channel_state :: (Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_state"><span class="hs-identifier hs-var hs-var">channel_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe ChannelState)
+-&gt; (Channel -&gt; Maybe ChannelState -&gt; Channel)
+-&gt; Lens Channel Channel (Maybe ChannelState) (Maybe ChannelState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925896"><span class="annot"><span class="annottext">Maybe ChannelState
+state :: Maybe ChannelState
+$sel:state:Channel' :: Channel -&gt; Maybe ChannelState
+</span><a href="#local-6989586621679925896"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelState
+</span><a href="#local-6989586621679925896"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925895"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925894"><span class="annot"><span class="annottext">Maybe ChannelState
+</span><a href="#local-6989586621679925894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:Channel' :: Maybe ChannelState
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Astate%3AChannel%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelState
+</span><a href="#local-6989586621679925894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | List of input attachments for channel.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_inputAttachments"><span class="hs-identifier hs-type">channel_inputAttachments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="channel_inputAttachments"><span class="annot"><span class="annottext">channel_inputAttachments :: (Maybe [InputAttachment] -&gt; f (Maybe [InputAttachment]))
+-&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_inputAttachments"><span class="hs-identifier hs-var hs-var">channel_inputAttachments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe [InputAttachment])
+-&gt; (Channel -&gt; Maybe [InputAttachment] -&gt; Channel)
+-&gt; Lens
+     Channel Channel (Maybe [InputAttachment]) (Maybe [InputAttachment])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925892"><span class="annot"><span class="annottext">Maybe [InputAttachment]
+inputAttachments :: Maybe [InputAttachment]
+$sel:inputAttachments:Channel' :: Channel -&gt; Maybe [InputAttachment]
+</span><a href="#local-6989586621679925892"><span class="hs-identifier hs-var hs-var">inputAttachments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InputAttachment]
+</span><a href="#local-6989586621679925892"><span class="hs-identifier hs-var">inputAttachments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925891"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925890"><span class="annot"><span class="annottext">Maybe [InputAttachment]
+</span><a href="#local-6989586621679925890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputAttachments:Channel' :: Maybe [InputAttachment]
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AinputAttachments%3AChannel%27"><span class="hs-identifier hs-var">inputAttachments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputAttachment]
+</span><a href="#local-6989586621679925890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InputAttachment] -&gt; f (Maybe [InputAttachment]))
+ -&gt; Channel -&gt; f Channel)
+-&gt; ((Maybe [InputAttachment] -&gt; f (Maybe [InputAttachment]))
+    -&gt; Maybe [InputAttachment] -&gt; f (Maybe [InputAttachment]))
+-&gt; (Maybe [InputAttachment] -&gt; f (Maybe [InputAttachment]))
+-&gt; Channel
+-&gt; f Channel
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InputAttachment]
+  [InputAttachment]
+  [InputAttachment]
+  [InputAttachment]
+-&gt; Iso
+     (Maybe [InputAttachment])
+     (Maybe [InputAttachment])
+     (Maybe [InputAttachment])
+     (Maybe [InputAttachment])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InputAttachment]
+  [InputAttachment]
+  [InputAttachment]
+  [InputAttachment]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | A collection of key-value pairs.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_tags"><span class="hs-identifier hs-type">channel_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="channel_tags"><span class="annot"><span class="annottext">channel_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_tags"><span class="hs-identifier hs-var hs-var">channel_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe (HashMap Text Text))
+-&gt; (Channel -&gt; Maybe (HashMap Text Text) -&gt; Channel)
+-&gt; Lens
+     Channel
+     Channel
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925888"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:Channel' :: Channel -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679925888"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679925888"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925887"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925886"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679925886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Channel' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Atags%3AChannel%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679925886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Channel -&gt; f Channel)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Channel
+-&gt; f Channel
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | Runtime details for the pipelines of a running channel.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_pipelineDetails"><span class="hs-identifier hs-type">channel_pipelineDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelineDetail.html#PipelineDetail"><span class="hs-identifier hs-type">PipelineDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="channel_pipelineDetails"><span class="annot"><span class="annottext">channel_pipelineDetails :: (Maybe [PipelineDetail] -&gt; f (Maybe [PipelineDetail]))
+-&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_pipelineDetails"><span class="hs-identifier hs-var hs-var">channel_pipelineDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe [PipelineDetail])
+-&gt; (Channel -&gt; Maybe [PipelineDetail] -&gt; Channel)
+-&gt; Lens
+     Channel Channel (Maybe [PipelineDetail]) (Maybe [PipelineDetail])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925884"><span class="annot"><span class="annottext">Maybe [PipelineDetail]
+pipelineDetails :: Maybe [PipelineDetail]
+$sel:pipelineDetails:Channel' :: Channel -&gt; Maybe [PipelineDetail]
+</span><a href="#local-6989586621679925884"><span class="hs-identifier hs-var hs-var">pipelineDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PipelineDetail]
+</span><a href="#local-6989586621679925884"><span class="hs-identifier hs-var">pipelineDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925883"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925882"><span class="annot"><span class="annottext">Maybe [PipelineDetail]
+</span><a href="#local-6989586621679925882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineDetails:Channel' :: Maybe [PipelineDetail]
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3ApipelineDetails%3AChannel%27"><span class="hs-identifier hs-var">pipelineDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PipelineDetail]
+</span><a href="#local-6989586621679925882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PipelineDetail] -&gt; f (Maybe [PipelineDetail]))
+ -&gt; Channel -&gt; f Channel)
+-&gt; ((Maybe [PipelineDetail] -&gt; f (Maybe [PipelineDetail]))
+    -&gt; Maybe [PipelineDetail] -&gt; f (Maybe [PipelineDetail]))
+-&gt; (Maybe [PipelineDetail] -&gt; f (Maybe [PipelineDetail]))
+-&gt; Channel
+-&gt; f Channel
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PipelineDetail] [PipelineDetail] [PipelineDetail] [PipelineDetail]
+-&gt; Iso
+     (Maybe [PipelineDetail])
+     (Maybe [PipelineDetail])
+     (Maybe [PipelineDetail])
+     (Maybe [PipelineDetail])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PipelineDetail] [PipelineDetail] [PipelineDetail] [PipelineDetail]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | Settings for VPC output</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_vpc"><span class="hs-identifier hs-type">channel_vpc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettingsDescription.html#VpcOutputSettingsDescription"><span class="hs-identifier hs-type">VpcOutputSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="channel_vpc"><span class="annot"><span class="annottext">channel_vpc :: (Maybe VpcOutputSettingsDescription
+ -&gt; f (Maybe VpcOutputSettingsDescription))
+-&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_vpc"><span class="hs-identifier hs-var hs-var">channel_vpc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe VpcOutputSettingsDescription)
+-&gt; (Channel -&gt; Maybe VpcOutputSettingsDescription -&gt; Channel)
+-&gt; Lens
+     Channel
+     Channel
+     (Maybe VpcOutputSettingsDescription)
+     (Maybe VpcOutputSettingsDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925880"><span class="annot"><span class="annottext">Maybe VpcOutputSettingsDescription
+vpc :: Maybe VpcOutputSettingsDescription
+$sel:vpc:Channel' :: Channel -&gt; Maybe VpcOutputSettingsDescription
+</span><a href="#local-6989586621679925880"><span class="hs-identifier hs-var hs-var">vpc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcOutputSettingsDescription
+</span><a href="#local-6989586621679925880"><span class="hs-identifier hs-var">vpc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925879"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925878"><span class="annot"><span class="annottext">Maybe VpcOutputSettingsDescription
+</span><a href="#local-6989586621679925878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpc:Channel' :: Maybe VpcOutputSettingsDescription
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3Avpc%3AChannel%27"><span class="hs-identifier hs-var">vpc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcOutputSettingsDescription
+</span><a href="#local-6989586621679925878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | Specification of CDI inputs for this channel</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_cdiInputSpecification"><span class="hs-identifier hs-type">channel_cdiInputSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputSpecification.html#CdiInputSpecification"><span class="hs-identifier hs-type">CdiInputSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="channel_cdiInputSpecification"><span class="annot"><span class="annottext">channel_cdiInputSpecification :: (Maybe CdiInputSpecification -&gt; f (Maybe CdiInputSpecification))
+-&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_cdiInputSpecification"><span class="hs-identifier hs-var hs-var">channel_cdiInputSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe CdiInputSpecification)
+-&gt; (Channel -&gt; Maybe CdiInputSpecification -&gt; Channel)
+-&gt; Lens
+     Channel
+     Channel
+     (Maybe CdiInputSpecification)
+     (Maybe CdiInputSpecification)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925876"><span class="annot"><span class="annottext">Maybe CdiInputSpecification
+cdiInputSpecification :: Maybe CdiInputSpecification
+$sel:cdiInputSpecification:Channel' :: Channel -&gt; Maybe CdiInputSpecification
+</span><a href="#local-6989586621679925876"><span class="hs-identifier hs-var hs-var">cdiInputSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CdiInputSpecification
+</span><a href="#local-6989586621679925876"><span class="hs-identifier hs-var">cdiInputSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925875"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925874"><span class="annot"><span class="annottext">Maybe CdiInputSpecification
+</span><a href="#local-6989586621679925874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cdiInputSpecification:Channel' :: Maybe CdiInputSpecification
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AcdiInputSpecification%3AChannel%27"><span class="hs-identifier hs-var">cdiInputSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CdiInputSpecification
+</span><a href="#local-6989586621679925874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The endpoints where outgoing connections initiate from</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#channel_egressEndpoints"><span class="hs-identifier hs-type">channel_egressEndpoints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelEgressEndpoint.html#ChannelEgressEndpoint"><span class="hs-identifier hs-type">ChannelEgressEndpoint</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="channel_egressEndpoints"><span class="annot"><span class="annottext">channel_egressEndpoints :: (Maybe [ChannelEgressEndpoint]
+ -&gt; f (Maybe [ChannelEgressEndpoint]))
+-&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#channel_egressEndpoints"><span class="hs-identifier hs-var hs-var">channel_egressEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe [ChannelEgressEndpoint])
+-&gt; (Channel -&gt; Maybe [ChannelEgressEndpoint] -&gt; Channel)
+-&gt; Lens
+     Channel
+     Channel
+     (Maybe [ChannelEgressEndpoint])
+     (Maybe [ChannelEgressEndpoint])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925872"><span class="annot"><span class="annottext">Maybe [ChannelEgressEndpoint]
+egressEndpoints :: Maybe [ChannelEgressEndpoint]
+$sel:egressEndpoints:Channel' :: Channel -&gt; Maybe [ChannelEgressEndpoint]
+</span><a href="#local-6989586621679925872"><span class="hs-identifier hs-var hs-var">egressEndpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelEgressEndpoint]
+</span><a href="#local-6989586621679925872"><span class="hs-identifier hs-var">egressEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925871"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679925871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925870"><span class="annot"><span class="annottext">Maybe [ChannelEgressEndpoint]
+</span><a href="#local-6989586621679925870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679925871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:egressEndpoints:Channel' :: Maybe [ChannelEgressEndpoint]
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#%24sel%3AegressEndpoints%3AChannel%27"><span class="hs-identifier hs-var">egressEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelEgressEndpoint]
+</span><a href="#local-6989586621679925870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ChannelEgressEndpoint]
+  -&gt; f (Maybe [ChannelEgressEndpoint]))
+ -&gt; Channel -&gt; f Channel)
+-&gt; ((Maybe [ChannelEgressEndpoint]
+     -&gt; f (Maybe [ChannelEgressEndpoint]))
+    -&gt; Maybe [ChannelEgressEndpoint]
+    -&gt; f (Maybe [ChannelEgressEndpoint]))
+-&gt; (Maybe [ChannelEgressEndpoint]
+    -&gt; f (Maybe [ChannelEgressEndpoint]))
+-&gt; Channel
+-&gt; f Channel
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ChannelEgressEndpoint]
+  [ChannelEgressEndpoint]
+  [ChannelEgressEndpoint]
+  [ChannelEgressEndpoint]
+-&gt; Iso
+     (Maybe [ChannelEgressEndpoint])
+     (Maybe [ChannelEgressEndpoint])
+     (Maybe [ChannelEgressEndpoint])
+     (Maybe [ChannelEgressEndpoint])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ChannelEgressEndpoint]
+  [ChannelEgressEndpoint]
+  [ChannelEgressEndpoint]
+  [ChannelEgressEndpoint]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925867"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679925865"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Channel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Channel) -&gt; Value -&gt; Parser Channel
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Channel&quot;</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679925862"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe EncoderSettings
+-&gt; Maybe InputSpecification
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe ChannelClass
+-&gt; Maybe LogLevel
+-&gt; Maybe Text
+-&gt; Maybe [OutputDestination]
+-&gt; Maybe ChannelState
+-&gt; Maybe [InputAttachment]
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe [PipelineDetail]
+-&gt; Maybe VpcOutputSettingsDescription
+-&gt; Maybe CdiInputSpecification
+-&gt; Maybe [ChannelEgressEndpoint]
+-&gt; Channel
+</span><a href="Network.AWS.MediaLive.Types.Channel.html#Channel%27"><span class="hs-identifier hs-var">Channel'</span></a></span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe EncoderSettings
+ -&gt; Maybe InputSpecification
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe ChannelClass
+ -&gt; Maybe LogLevel
+ -&gt; Maybe Text
+ -&gt; Maybe [OutputDestination]
+ -&gt; Maybe ChannelState
+ -&gt; Maybe [InputAttachment]
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe [PipelineDetail]
+ -&gt; Maybe VpcOutputSettingsDescription
+ -&gt; Maybe CdiInputSpecification
+ -&gt; Maybe [ChannelEgressEndpoint]
+ -&gt; Channel)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe EncoderSettings
+      -&gt; Maybe InputSpecification
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe ChannelClass
+      -&gt; Maybe LogLevel
+      -&gt; Maybe Text
+      -&gt; Maybe [OutputDestination]
+      -&gt; Maybe ChannelState
+      -&gt; Maybe [InputAttachment]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [PipelineDetail]
+      -&gt; Maybe VpcOutputSettingsDescription
+      -&gt; Maybe CdiInputSpecification
+      -&gt; Maybe [ChannelEgressEndpoint]
+      -&gt; Channel)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EncoderSettings
+   -&gt; Maybe InputSpecification
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe ChannelClass
+   -&gt; Maybe LogLevel
+   -&gt; Maybe Text
+   -&gt; Maybe [OutputDestination]
+   -&gt; Maybe ChannelState
+   -&gt; Maybe [InputAttachment]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [PipelineDetail]
+   -&gt; Maybe VpcOutputSettingsDescription
+   -&gt; Maybe CdiInputSpecification
+   -&gt; Maybe [ChannelEgressEndpoint]
+   -&gt; Channel)
+-&gt; Parser (Maybe EncoderSettings)
+-&gt; Parser
+     (Maybe InputSpecification
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe ChannelClass
+      -&gt; Maybe LogLevel
+      -&gt; Maybe Text
+      -&gt; Maybe [OutputDestination]
+      -&gt; Maybe ChannelState
+      -&gt; Maybe [InputAttachment]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [PipelineDetail]
+      -&gt; Maybe VpcOutputSettingsDescription
+      -&gt; Maybe CdiInputSpecification
+      -&gt; Maybe [ChannelEgressEndpoint]
+      -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncoderSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encoderSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputSpecification
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe ChannelClass
+   -&gt; Maybe LogLevel
+   -&gt; Maybe Text
+   -&gt; Maybe [OutputDestination]
+   -&gt; Maybe ChannelState
+   -&gt; Maybe [InputAttachment]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [PipelineDetail]
+   -&gt; Maybe VpcOutputSettingsDescription
+   -&gt; Maybe CdiInputSpecification
+   -&gt; Maybe [ChannelEgressEndpoint]
+   -&gt; Channel)
+-&gt; Parser (Maybe InputSpecification)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe ChannelClass
+      -&gt; Maybe LogLevel
+      -&gt; Maybe Text
+      -&gt; Maybe [OutputDestination]
+      -&gt; Maybe ChannelState
+      -&gt; Maybe [InputAttachment]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [PipelineDetail]
+      -&gt; Maybe VpcOutputSettingsDescription
+      -&gt; Maybe CdiInputSpecification
+      -&gt; Maybe [ChannelEgressEndpoint]
+      -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputSpecification)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputSpecification&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe ChannelClass
+   -&gt; Maybe LogLevel
+   -&gt; Maybe Text
+   -&gt; Maybe [OutputDestination]
+   -&gt; Maybe ChannelState
+   -&gt; Maybe [InputAttachment]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [PipelineDetail]
+   -&gt; Maybe VpcOutputSettingsDescription
+   -&gt; Maybe CdiInputSpecification
+   -&gt; Maybe [ChannelEgressEndpoint]
+   -&gt; Channel)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe ChannelClass
+      -&gt; Maybe LogLevel
+      -&gt; Maybe Text
+      -&gt; Maybe [OutputDestination]
+      -&gt; Maybe ChannelState
+      -&gt; Maybe [InputAttachment]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [PipelineDetail]
+      -&gt; Maybe VpcOutputSettingsDescription
+      -&gt; Maybe CdiInputSpecification
+      -&gt; Maybe [ChannelEgressEndpoint]
+      -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe ChannelClass
+   -&gt; Maybe LogLevel
+   -&gt; Maybe Text
+   -&gt; Maybe [OutputDestination]
+   -&gt; Maybe ChannelState
+   -&gt; Maybe [InputAttachment]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [PipelineDetail]
+   -&gt; Maybe VpcOutputSettingsDescription
+   -&gt; Maybe CdiInputSpecification
+   -&gt; Maybe [ChannelEgressEndpoint]
+   -&gt; Channel)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe ChannelClass
+      -&gt; Maybe LogLevel
+      -&gt; Maybe Text
+      -&gt; Maybe [OutputDestination]
+      -&gt; Maybe ChannelState
+      -&gt; Maybe [InputAttachment]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [PipelineDetail]
+      -&gt; Maybe VpcOutputSettingsDescription
+      -&gt; Maybe CdiInputSpecification
+      -&gt; Maybe [ChannelEgressEndpoint]
+      -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe ChannelClass
+   -&gt; Maybe LogLevel
+   -&gt; Maybe Text
+   -&gt; Maybe [OutputDestination]
+   -&gt; Maybe ChannelState
+   -&gt; Maybe [InputAttachment]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [PipelineDetail]
+   -&gt; Maybe VpcOutputSettingsDescription
+   -&gt; Maybe CdiInputSpecification
+   -&gt; Maybe [ChannelEgressEndpoint]
+   -&gt; Channel)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe ChannelClass
+      -&gt; Maybe LogLevel
+      -&gt; Maybe Text
+      -&gt; Maybe [OutputDestination]
+      -&gt; Maybe ChannelState
+      -&gt; Maybe [InputAttachment]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [PipelineDetail]
+      -&gt; Maybe VpcOutputSettingsDescription
+      -&gt; Maybe CdiInputSpecification
+      -&gt; Maybe [ChannelEgressEndpoint]
+      -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pipelinesRunningCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ChannelClass
+   -&gt; Maybe LogLevel
+   -&gt; Maybe Text
+   -&gt; Maybe [OutputDestination]
+   -&gt; Maybe ChannelState
+   -&gt; Maybe [InputAttachment]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [PipelineDetail]
+   -&gt; Maybe VpcOutputSettingsDescription
+   -&gt; Maybe CdiInputSpecification
+   -&gt; Maybe [ChannelEgressEndpoint]
+   -&gt; Channel)
+-&gt; Parser (Maybe ChannelClass)
+-&gt; Parser
+     (Maybe LogLevel
+      -&gt; Maybe Text
+      -&gt; Maybe [OutputDestination]
+      -&gt; Maybe ChannelState
+      -&gt; Maybe [InputAttachment]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [PipelineDetail]
+      -&gt; Maybe VpcOutputSettingsDescription
+      -&gt; Maybe CdiInputSpecification
+      -&gt; Maybe [ChannelEgressEndpoint]
+      -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChannelClass)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;channelClass&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LogLevel
+   -&gt; Maybe Text
+   -&gt; Maybe [OutputDestination]
+   -&gt; Maybe ChannelState
+   -&gt; Maybe [InputAttachment]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [PipelineDetail]
+   -&gt; Maybe VpcOutputSettingsDescription
+   -&gt; Maybe CdiInputSpecification
+   -&gt; Maybe [ChannelEgressEndpoint]
+   -&gt; Channel)
+-&gt; Parser (Maybe LogLevel)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [OutputDestination]
+      -&gt; Maybe ChannelState
+      -&gt; Maybe [InputAttachment]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [PipelineDetail]
+      -&gt; Maybe VpcOutputSettingsDescription
+      -&gt; Maybe CdiInputSpecification
+      -&gt; Maybe [ChannelEgressEndpoint]
+      -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LogLevel)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logLevel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [OutputDestination]
+   -&gt; Maybe ChannelState
+   -&gt; Maybe [InputAttachment]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [PipelineDetail]
+   -&gt; Maybe VpcOutputSettingsDescription
+   -&gt; Maybe CdiInputSpecification
+   -&gt; Maybe [ChannelEgressEndpoint]
+   -&gt; Channel)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [OutputDestination]
+      -&gt; Maybe ChannelState
+      -&gt; Maybe [InputAttachment]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [PipelineDetail]
+      -&gt; Maybe VpcOutputSettingsDescription
+      -&gt; Maybe CdiInputSpecification
+      -&gt; Maybe [ChannelEgressEndpoint]
+      -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [OutputDestination]
+   -&gt; Maybe ChannelState
+   -&gt; Maybe [InputAttachment]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [PipelineDetail]
+   -&gt; Maybe VpcOutputSettingsDescription
+   -&gt; Maybe CdiInputSpecification
+   -&gt; Maybe [ChannelEgressEndpoint]
+   -&gt; Channel)
+-&gt; Parser (Maybe [OutputDestination])
+-&gt; Parser
+     (Maybe ChannelState
+      -&gt; Maybe [InputAttachment]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [PipelineDetail]
+      -&gt; Maybe VpcOutputSettingsDescription
+      -&gt; Maybe CdiInputSpecification
+      -&gt; Maybe [ChannelEgressEndpoint]
+      -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [OutputDestination]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [OutputDestination]))
+-&gt; Maybe [OutputDestination] -&gt; Parser (Maybe [OutputDestination])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OutputDestination]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ChannelState
+   -&gt; Maybe [InputAttachment]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [PipelineDetail]
+   -&gt; Maybe VpcOutputSettingsDescription
+   -&gt; Maybe CdiInputSpecification
+   -&gt; Maybe [ChannelEgressEndpoint]
+   -&gt; Channel)
+-&gt; Parser (Maybe ChannelState)
+-&gt; Parser
+     (Maybe [InputAttachment]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [PipelineDetail]
+      -&gt; Maybe VpcOutputSettingsDescription
+      -&gt; Maybe CdiInputSpecification
+      -&gt; Maybe [ChannelEgressEndpoint]
+      -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChannelState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [InputAttachment]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [PipelineDetail]
+   -&gt; Maybe VpcOutputSettingsDescription
+   -&gt; Maybe CdiInputSpecification
+   -&gt; Maybe [ChannelEgressEndpoint]
+   -&gt; Channel)
+-&gt; Parser (Maybe [InputAttachment])
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe [PipelineDetail]
+      -&gt; Maybe VpcOutputSettingsDescription
+      -&gt; Maybe CdiInputSpecification
+      -&gt; Maybe [ChannelEgressEndpoint]
+      -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InputAttachment]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputAttachments&quot;</span></span><span>
+</span><span id="line-238"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [InputAttachment]))
+-&gt; Maybe [InputAttachment] -&gt; Parser (Maybe [InputAttachment])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InputAttachment]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-239"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe [PipelineDetail]
+   -&gt; Maybe VpcOutputSettingsDescription
+   -&gt; Maybe CdiInputSpecification
+   -&gt; Maybe [ChannelEgressEndpoint]
+   -&gt; Channel)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe [PipelineDetail]
+      -&gt; Maybe VpcOutputSettingsDescription
+      -&gt; Maybe CdiInputSpecification
+      -&gt; Maybe [ChannelEgressEndpoint]
+      -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [PipelineDetail]
+   -&gt; Maybe VpcOutputSettingsDescription
+   -&gt; Maybe CdiInputSpecification
+   -&gt; Maybe [ChannelEgressEndpoint]
+   -&gt; Channel)
+-&gt; Parser (Maybe [PipelineDetail])
+-&gt; Parser
+     (Maybe VpcOutputSettingsDescription
+      -&gt; Maybe CdiInputSpecification
+      -&gt; Maybe [ChannelEgressEndpoint]
+      -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PipelineDetail]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pipelineDetails&quot;</span></span><span>
+</span><span id="line-242"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PipelineDetail]))
+-&gt; Maybe [PipelineDetail] -&gt; Parser (Maybe [PipelineDetail])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PipelineDetail]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-243"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VpcOutputSettingsDescription
+   -&gt; Maybe CdiInputSpecification
+   -&gt; Maybe [ChannelEgressEndpoint]
+   -&gt; Channel)
+-&gt; Parser (Maybe VpcOutputSettingsDescription)
+-&gt; Parser
+     (Maybe CdiInputSpecification
+      -&gt; Maybe [ChannelEgressEndpoint] -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VpcOutputSettingsDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpc&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CdiInputSpecification
+   -&gt; Maybe [ChannelEgressEndpoint] -&gt; Channel)
+-&gt; Parser (Maybe CdiInputSpecification)
+-&gt; Parser (Maybe [ChannelEgressEndpoint] -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CdiInputSpecification)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cdiInputSpecification&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [ChannelEgressEndpoint] -&gt; Channel)
+-&gt; Parser (Maybe [ChannelEgressEndpoint]) -&gt; Parser Channel
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ChannelEgressEndpoint]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;egressEndpoints&quot;</span></span><span>
+</span><span id="line-247"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ChannelEgressEndpoint]))
+-&gt; Maybe [ChannelEgressEndpoint]
+-&gt; Parser (Maybe [ChannelEgressEndpoint])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelEgressEndpoint]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-248"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925855"><span id="local-6989586621679925857"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span></span></span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925852"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span></span><span>
+</span><span id="line-254"></span></pre></body></html>

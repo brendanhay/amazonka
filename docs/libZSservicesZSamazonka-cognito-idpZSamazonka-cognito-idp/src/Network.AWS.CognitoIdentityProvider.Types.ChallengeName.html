@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoIdentityProvider.Types.ChallengeName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.ChallengeName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#ChallengeName"><span class="hs-identifier">ChallengeName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#ChallengeName_Mfa"><span class="hs-identifier">ChallengeName_Mfa</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#ChallengeName_Password"><span class="hs-identifier">ChallengeName_Password</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679424837"><span id="local-6989586621679424838"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChallengeName"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#ChallengeName"><span class="hs-identifier hs-var">ChallengeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChallengeName%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#ChallengeName%27"><span class="hs-identifier hs-var">ChallengeName'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromChallengeName"><span class="annot"><span class="annottext">ChallengeName -&gt; Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#fromChallengeName"><span class="hs-identifier hs-var hs-var">fromChallengeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424829"><span id="local-6989586621679424831"><span id="local-6989586621679424833"><span class="annot"><span class="annottext">Int -&gt; ChallengeName -&gt; ShowS
+[ChallengeName] -&gt; ShowS
+ChallengeName -&gt; String
+(Int -&gt; ChallengeName -&gt; ShowS)
+-&gt; (ChallengeName -&gt; String)
+-&gt; ([ChallengeName] -&gt; ShowS)
+-&gt; Show ChallengeName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChallengeName] -&gt; ShowS
+$cshowList :: [ChallengeName] -&gt; ShowS
+show :: ChallengeName -&gt; String
+$cshow :: ChallengeName -&gt; String
+showsPrec :: Int -&gt; ChallengeName -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChallengeName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679424820"><span id="local-6989586621679424822"><span id="local-6989586621679424824"><span id="local-6989586621679424826"><span class="annot"><span class="annottext">ReadPrec [ChallengeName]
+ReadPrec ChallengeName
+Int -&gt; ReadS ChallengeName
+ReadS [ChallengeName]
+(Int -&gt; ReadS ChallengeName)
+-&gt; ReadS [ChallengeName]
+-&gt; ReadPrec ChallengeName
+-&gt; ReadPrec [ChallengeName]
+-&gt; Read ChallengeName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChallengeName]
+$creadListPrec :: ReadPrec [ChallengeName]
+readPrec :: ReadPrec ChallengeName
+$creadPrec :: ReadPrec ChallengeName
+readList :: ReadS [ChallengeName]
+$creadList :: ReadS [ChallengeName]
+readsPrec :: Int -&gt; ReadS ChallengeName
+$creadsPrec :: Int -&gt; ReadS ChallengeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679424815"><span id="local-6989586621679424817"><span class="annot"><span class="annottext">ChallengeName -&gt; ChallengeName -&gt; Bool
+(ChallengeName -&gt; ChallengeName -&gt; Bool)
+-&gt; (ChallengeName -&gt; ChallengeName -&gt; Bool) -&gt; Eq ChallengeName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChallengeName -&gt; ChallengeName -&gt; Bool
+$c/= :: ChallengeName -&gt; ChallengeName -&gt; Bool
+== :: ChallengeName -&gt; ChallengeName -&gt; Bool
+$c== :: ChallengeName -&gt; ChallengeName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679424799"><span id="local-6989586621679424801"><span id="local-6989586621679424803"><span id="local-6989586621679424805"><span id="local-6989586621679424807"><span id="local-6989586621679424809"><span id="local-6989586621679424811"><span class="annot"><span class="annottext">Eq ChallengeName
+Eq ChallengeName
+-&gt; (ChallengeName -&gt; ChallengeName -&gt; Ordering)
+-&gt; (ChallengeName -&gt; ChallengeName -&gt; Bool)
+-&gt; (ChallengeName -&gt; ChallengeName -&gt; Bool)
+-&gt; (ChallengeName -&gt; ChallengeName -&gt; Bool)
+-&gt; (ChallengeName -&gt; ChallengeName -&gt; Bool)
+-&gt; (ChallengeName -&gt; ChallengeName -&gt; ChallengeName)
+-&gt; (ChallengeName -&gt; ChallengeName -&gt; ChallengeName)
+-&gt; Ord ChallengeName
+ChallengeName -&gt; ChallengeName -&gt; Bool
+ChallengeName -&gt; ChallengeName -&gt; Ordering
+ChallengeName -&gt; ChallengeName -&gt; ChallengeName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ChallengeName -&gt; ChallengeName -&gt; ChallengeName
+$cmin :: ChallengeName -&gt; ChallengeName -&gt; ChallengeName
+max :: ChallengeName -&gt; ChallengeName -&gt; ChallengeName
+$cmax :: ChallengeName -&gt; ChallengeName -&gt; ChallengeName
+&gt;= :: ChallengeName -&gt; ChallengeName -&gt; Bool
+$c&gt;= :: ChallengeName -&gt; ChallengeName -&gt; Bool
+&gt; :: ChallengeName -&gt; ChallengeName -&gt; Bool
+$c&gt; :: ChallengeName -&gt; ChallengeName -&gt; Bool
+&lt;= :: ChallengeName -&gt; ChallengeName -&gt; Bool
+$c&lt;= :: ChallengeName -&gt; ChallengeName -&gt; Bool
+&lt; :: ChallengeName -&gt; ChallengeName -&gt; Bool
+$c&lt; :: ChallengeName -&gt; ChallengeName -&gt; Bool
+compare :: ChallengeName -&gt; ChallengeName -&gt; Ordering
+$ccompare :: ChallengeName -&gt; ChallengeName -&gt; Ordering
+$cp1Ord :: Eq ChallengeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ChallengeName -&gt; Rep ChallengeName x)
+-&gt; (forall x. Rep ChallengeName x -&gt; ChallengeName)
+-&gt; Generic ChallengeName
+forall x. Rep ChallengeName x -&gt; ChallengeName
+forall x. ChallengeName -&gt; Rep ChallengeName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ChallengeName x -&gt; ChallengeName
+$cfrom :: forall x. ChallengeName -&gt; Rep ChallengeName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424791"><span id="local-6989586621679424793"><span class="annot"><span class="annottext">Int -&gt; ChallengeName -&gt; Int
+ChallengeName -&gt; Int
+(Int -&gt; ChallengeName -&gt; Int)
+-&gt; (ChallengeName -&gt; Int) -&gt; Hashable ChallengeName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ChallengeName -&gt; Int
+$chash :: ChallengeName -&gt; Int
+hashWithSalt :: Int -&gt; ChallengeName -&gt; Int
+$chashWithSalt :: Int -&gt; ChallengeName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679424788"><span class="annot"><span class="annottext">ChallengeName -&gt; ()
+(ChallengeName -&gt; ()) -&gt; NFData ChallengeName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ChallengeName -&gt; ()
+$crnf :: ChallengeName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679424785"><span class="annot"><span class="annottext">Text -&gt; Either String ChallengeName
+(Text -&gt; Either String ChallengeName) -&gt; FromText ChallengeName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ChallengeName
+$cfromText :: Text -&gt; Either String ChallengeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679424782"><span class="annot"><span class="annottext">ChallengeName -&gt; Text
+(ChallengeName -&gt; Text) -&gt; ToText ChallengeName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ChallengeName -&gt; Text
+$ctoText :: ChallengeName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679424779"><span class="annot"><span class="annottext">ChallengeName -&gt; ByteString
+(ChallengeName -&gt; ByteString) -&gt; ToByteString ChallengeName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ChallengeName -&gt; ByteString
+$ctoBS :: ChallengeName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679424776"><span class="annot"><span class="annottext">ChallengeName -&gt; ByteStringBuilder
+(ChallengeName -&gt; ByteStringBuilder) -&gt; ToLog ChallengeName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ChallengeName -&gt; ByteStringBuilder
+$cbuild :: ChallengeName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679424773"><span class="annot"><span class="annottext">HeaderName -&gt; ChallengeName -&gt; [Header]
+(HeaderName -&gt; ChallengeName -&gt; [Header]) -&gt; ToHeader ChallengeName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ChallengeName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ChallengeName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679424770"><span class="annot"><span class="annottext">ChallengeName -&gt; QueryString
+(ChallengeName -&gt; QueryString) -&gt; ToQuery ChallengeName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ChallengeName -&gt; QueryString
+$ctoQuery :: ChallengeName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679424765"><span id="local-6989586621679424767"><span class="annot"><span class="annottext">Value -&gt; Parser [ChallengeName]
+Value -&gt; Parser ChallengeName
+(Value -&gt; Parser ChallengeName)
+-&gt; (Value -&gt; Parser [ChallengeName]) -&gt; FromJSON ChallengeName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ChallengeName]
+$cparseJSONList :: Value -&gt; Parser [ChallengeName]
+parseJSON :: Value -&gt; Parser ChallengeName
+$cparseJSON :: Value -&gt; Parser ChallengeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679424760"><span id="local-6989586621679424762"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChallengeName]
+FromJSONKeyFunction ChallengeName
+FromJSONKeyFunction ChallengeName
+-&gt; FromJSONKeyFunction [ChallengeName] -&gt; FromJSONKey ChallengeName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ChallengeName]
+$cfromJSONKeyList :: FromJSONKeyFunction [ChallengeName]
+fromJSONKey :: FromJSONKeyFunction ChallengeName
+$cfromJSONKey :: FromJSONKeyFunction ChallengeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679424751"><span id="local-6989586621679424753"><span id="local-6989586621679424755"><span id="local-6989586621679424757"><span class="annot"><span class="annottext">[ChallengeName] -&gt; Encoding
+[ChallengeName] -&gt; Value
+ChallengeName -&gt; Encoding
+ChallengeName -&gt; Value
+(ChallengeName -&gt; Value)
+-&gt; (ChallengeName -&gt; Encoding)
+-&gt; ([ChallengeName] -&gt; Value)
+-&gt; ([ChallengeName] -&gt; Encoding)
+-&gt; ToJSON ChallengeName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ChallengeName] -&gt; Encoding
+$ctoEncodingList :: [ChallengeName] -&gt; Encoding
+toJSONList :: [ChallengeName] -&gt; Value
+$ctoJSONList :: [ChallengeName] -&gt; Value
+toEncoding :: ChallengeName -&gt; Encoding
+$ctoEncoding :: ChallengeName -&gt; Encoding
+toJSON :: ChallengeName -&gt; Value
+$ctoJSON :: ChallengeName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679424746"><span id="local-6989586621679424748"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChallengeName]
+ToJSONKeyFunction ChallengeName
+ToJSONKeyFunction ChallengeName
+-&gt; ToJSONKeyFunction [ChallengeName] -&gt; ToJSONKey ChallengeName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ChallengeName]
+$ctoJSONKeyList :: ToJSONKeyFunction [ChallengeName]
+toJSONKey :: ToJSONKeyFunction ChallengeName
+$ctoJSONKey :: ToJSONKeyFunction ChallengeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679424743"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChallengeName
+([Node] -&gt; Either String ChallengeName) -&gt; FromXML ChallengeName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ChallengeName
+$cparseXML :: [Node] -&gt; Either String ChallengeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679424740"><span class="annot"><span class="annottext">ChallengeName -&gt; XML
+(ChallengeName -&gt; XML) -&gt; ToXML ChallengeName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ChallengeName -&gt; XML
+$ctoXML :: ChallengeName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#ChallengeName_Mfa"><span class="hs-identifier hs-type">ChallengeName_Mfa</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#ChallengeName"><span class="hs-identifier hs-type">ChallengeName</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChallengeName_Mfa"><span id="%24mChallengeName_Mfa"><span id="ChallengeName_Mfa"><span class="annot"><span class="annottext">$bChallengeName_Mfa :: ChallengeName
+$mChallengeName_Mfa :: forall r. ChallengeName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#%24bChallengeName_Mfa"><span class="hs-identifier hs-var hs-var hs-var">ChallengeName_Mfa</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#ChallengeName%27"><span class="hs-identifier hs-type">ChallengeName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Mfa&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#ChallengeName_Password"><span class="hs-identifier hs-type">ChallengeName_Password</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#ChallengeName"><span class="hs-identifier hs-type">ChallengeName</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChallengeName_Password"><span id="%24mChallengeName_Password"><span id="ChallengeName_Password"><span class="annot"><span class="annottext">$bChallengeName_Password :: ChallengeName
+$mChallengeName_Password :: forall r. ChallengeName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#%24bChallengeName_Password"><span class="hs-identifier hs-var hs-var hs-var">ChallengeName_Password</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#ChallengeName%27"><span class="hs-identifier hs-type">ChallengeName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Password&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#ChallengeName_Mfa"><span class="hs-pragma hs-type">ChallengeName_Mfa</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#ChallengeName_Password"><span class="hs-pragma hs-type">ChallengeName_Password</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeName.html#ChallengeName%27"><span class="hs-pragma hs-type">ChallengeName'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

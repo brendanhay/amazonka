@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">-- |</span><span>
+</span><span id="line-2"></span><span class="hs-comment">-- Module      : Network.AWS.Data.Base64</span><span>
+</span><span id="line-3"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Stability   : provisional</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-8"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Data.Base64</span><span>
+</span><span id="line-9"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier">Base64</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-10"></span><span>    </span><span class="annot"><a href="Network.AWS.Data.Base64.html#_Base64"><span class="hs-identifier">_Base64</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-11"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-12"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-13"></span><span>
+</span><span id="line-14"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.Text.Encoding</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Text</span></span><span>
+</span><span id="line-15"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><a href="Network.AWS.Bytes.html"><span class="hs-identifier">Network.AWS.Bytes</span></a></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Bytes</span></span><span>
+</span><span id="line-16"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Data.Body.html"><span class="hs-identifier">Network.AWS.Data.Body</span></a></span><span>
+</span><span id="line-17"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Data.ByteString.html"><span class="hs-identifier">Network.AWS.Data.ByteString</span></a></span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Data.JSON.html"><span class="hs-identifier">Network.AWS.Data.JSON</span></a></span><span>
+</span><span id="line-19"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Data.Query.html"><span class="hs-identifier">Network.AWS.Data.Query</span></a></span><span>
+</span><span id="line-20"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html"><span class="hs-identifier">Network.AWS.Data.Text</span></a></span><span>
+</span><span id="line-21"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Data.XML.html"><span class="hs-identifier">Network.AWS.Data.XML</span></a></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lens.html"><span class="hs-identifier">Network.AWS.Lens</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">iso</span></span><span class="hs-special">)</span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Prelude.html"><span class="hs-identifier">Network.AWS.Prelude</span></a></span><span>
+</span><span id="line-24"></span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- | Base64 encoded binary data.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Encoding\/decoding is automatically deferred to serialisation and deserialisation</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- respectively.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679197516"><span id="local-6989586621679197517"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Base64"><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-var">Base64</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Base64"><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-var">Base64</span></a></span></span><span> </span><span class="hs-special">{</span><span id="%24sel%3AunBase64%3ABase64"><span class="annot"><span class="annottext">Base64 -&gt; ByteString
+</span><a href="Network.AWS.Data.Base64.html#%24sel%3AunBase64%3ABase64"><span class="hs-identifier hs-var hs-var">unBase64</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span class="hs-special">}</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197510"><span id="local-6989586621679197512"><span class="annot"><span class="annottext">Base64 -&gt; Base64 -&gt; Bool
+(Base64 -&gt; Base64 -&gt; Bool)
+-&gt; (Base64 -&gt; Base64 -&gt; Bool) -&gt; Eq Base64
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Base64 -&gt; Base64 -&gt; Bool
+$c/= :: Base64 -&gt; Base64 -&gt; Bool
+== :: Base64 -&gt; Base64 -&gt; Bool
+$c== :: Base64 -&gt; Base64 -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197501"><span id="local-6989586621679197503"><span id="local-6989586621679197505"><span id="local-6989586621679197507"><span class="annot"><span class="annottext">ReadPrec [Base64]
+ReadPrec Base64
+Int -&gt; ReadS Base64
+ReadS [Base64]
+(Int -&gt; ReadS Base64)
+-&gt; ReadS [Base64]
+-&gt; ReadPrec Base64
+-&gt; ReadPrec [Base64]
+-&gt; Read Base64
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Base64]
+$creadListPrec :: ReadPrec [Base64]
+readPrec :: ReadPrec Base64
+$creadPrec :: ReadPrec Base64
+readList :: ReadS [Base64]
+$creadList :: ReadS [Base64]
+readsPrec :: Int -&gt; ReadS Base64
+$creadsPrec :: Int -&gt; ReadS Base64
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197485"><span id="local-6989586621679197487"><span id="local-6989586621679197489"><span id="local-6989586621679197491"><span id="local-6989586621679197493"><span id="local-6989586621679197495"><span id="local-6989586621679197497"><span class="annot"><span class="annottext">Eq Base64
+Eq Base64
+-&gt; (Base64 -&gt; Base64 -&gt; Ordering)
+-&gt; (Base64 -&gt; Base64 -&gt; Bool)
+-&gt; (Base64 -&gt; Base64 -&gt; Bool)
+-&gt; (Base64 -&gt; Base64 -&gt; Bool)
+-&gt; (Base64 -&gt; Base64 -&gt; Bool)
+-&gt; (Base64 -&gt; Base64 -&gt; Base64)
+-&gt; (Base64 -&gt; Base64 -&gt; Base64)
+-&gt; Ord Base64
+Base64 -&gt; Base64 -&gt; Bool
+Base64 -&gt; Base64 -&gt; Ordering
+Base64 -&gt; Base64 -&gt; Base64
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Base64 -&gt; Base64 -&gt; Base64
+$cmin :: Base64 -&gt; Base64 -&gt; Base64
+max :: Base64 -&gt; Base64 -&gt; Base64
+$cmax :: Base64 -&gt; Base64 -&gt; Base64
+&gt;= :: Base64 -&gt; Base64 -&gt; Bool
+$c&gt;= :: Base64 -&gt; Base64 -&gt; Bool
+&gt; :: Base64 -&gt; Base64 -&gt; Bool
+$c&gt; :: Base64 -&gt; Base64 -&gt; Bool
+&lt;= :: Base64 -&gt; Base64 -&gt; Bool
+$c&lt;= :: Base64 -&gt; Base64 -&gt; Bool
+&lt; :: Base64 -&gt; Base64 -&gt; Bool
+$c&lt; :: Base64 -&gt; Base64 -&gt; Bool
+compare :: Base64 -&gt; Base64 -&gt; Ordering
+$ccompare :: Base64 -&gt; Base64 -&gt; Ordering
+$cp1Ord :: Eq Base64
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Base64 -&gt; Rep Base64 x)
+-&gt; (forall x. Rep Base64 x -&gt; Base64) -&gt; Generic Base64
+forall x. Rep Base64 x -&gt; Base64
+forall x. Base64 -&gt; Rep Base64 x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Base64 x -&gt; Base64
+$cfrom :: forall x. Base64 -&gt; Rep Base64 x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197477"><span id="local-6989586621679197479"><span class="annot"><span class="hs-identifier hs-type">Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-type">Base64</span></a></span></span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197474"><span class="annot"><span class="hs-identifier hs-type">NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-type">Base64</span></a></span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="annot"><a href="Network.AWS.Data.Base64.html#_Base64"><span class="hs-identifier hs-type">_Base64</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Iso'</span></span><span> </span><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-type">Base64</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-37"></span><span id="_Base64"><span class="annot"><span class="annottext">_Base64 :: p ByteString (f ByteString) -&gt; p Base64 (f Base64)
+</span><a href="Network.AWS.Data.Base64.html#_Base64"><span class="hs-identifier hs-var hs-var">_Base64</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Base64 -&gt; ByteString)
+-&gt; (ByteString -&gt; Base64)
+-&gt; Iso Base64 Base64 ByteString ByteString
+forall s a b t. (s -&gt; a) -&gt; (b -&gt; t) -&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">iso</span></span><span> </span><span class="annot"><span class="annottext">Base64 -&gt; ByteString
+</span><a href="Network.AWS.Data.Base64.html#%24sel%3AunBase64%3ABase64"><span class="hs-identifier hs-var hs-var">unBase64</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Base64
+</span><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-var">Base64</span></a></span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- FIXME: a mistake to wrap a ByteString since the underlying serialisers</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- (JSON, XML) use Text internally.</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-type">Base64</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>  </span><span id="local-6989586621679197469"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Base64
+</span><a href="Network.AWS.Data.Text.html#fromText"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Base64)
+-&gt; Either String ByteString -&gt; Either String Base64
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-identifier hs-var">fmap</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Base64
+</span><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-var">Base64</span></a></span><span> </span><span class="annot"><span class="annottext">(Either String ByteString -&gt; Either String Base64)
+-&gt; (Text -&gt; Either String ByteString)
+-&gt; Text
+-&gt; Either String Base64
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Either String ByteString
+forall a. ByteArrayAccess a =&gt; a -&gt; Either String ByteString
+</span><a href="Network.AWS.Bytes.html#decodeBase64"><span class="hs-identifier hs-var">Bytes.decodeBase64</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Either String ByteString)
+-&gt; (Text -&gt; ByteString) -&gt; Text -&gt; Either String ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+</span><span class="hs-identifier hs-var">Text.encodeUtf8</span></span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-type">Base64</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>  </span><span id="local-6989586621679197462"><span class="annot"><span class="annottext">toBS :: Base64 -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var hs-var hs-var hs-var">toBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString
+forall a. ByteArrayAccess a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Bytes.html#encodeBase64"><span class="hs-identifier hs-var">Bytes.encodeBase64</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; ByteString)
+-&gt; (Base64 -&gt; ByteString) -&gt; Base64 -&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Base64 -&gt; ByteString
+</span><a href="Network.AWS.Data.Base64.html#%24sel%3AunBase64%3ABase64"><span class="hs-identifier hs-var hs-var">unBase64</span></a></span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197455"><span id="local-6989586621679197458"><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-type">Base64</span></a></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>  </span><span id="local-6989586621679197453"><span class="annot"><span class="annottext">show :: Base64 -&gt; String
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">show</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; String
+forall a. Show a =&gt; a -&gt; String
+</span><span class="hs-identifier hs-var">show</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; String)
+-&gt; (Base64 -&gt; ByteString) -&gt; Base64 -&gt; String
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Base64 -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-type">Base64</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>  </span><span id="local-6989586621679197449"><span class="annot"><span class="annottext">toText :: Base64 -&gt; Text
+</span><a href="Network.AWS.Data.Text.html#toText"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text
+</span><span class="hs-identifier hs-var">Text.decodeUtf8</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Text) -&gt; (Base64 -&gt; ByteString) -&gt; Base64 -&gt; Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Base64 -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Query.html#ToQuery"><span class="hs-identifier hs-type">ToQuery</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-type">Base64</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679197444"><span class="annot"><span class="annottext">toQuery :: Base64 -&gt; QueryString
+</span><a href="Network.AWS.Data.Query.html#toQuery"><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><a href="Network.AWS.Data.Query.html#toQuery"><span class="hs-identifier hs-var">toQuery</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; QueryString)
+-&gt; (Base64 -&gt; ByteString) -&gt; Base64 -&gt; QueryString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Base64 -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.XML.html#FromXML"><span class="hs-identifier hs-type">FromXML</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-type">Base64</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679197440"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Base64
+</span><a href="Network.AWS.Data.XML.html#parseXML"><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; [Node] -&gt; Either String Base64
+forall a. FromText a =&gt; String -&gt; [Node] -&gt; Either String a
+</span><a href="Network.AWS.Data.XML.html#parseXMLText"><span class="hs-identifier hs-var">parseXMLText</span></a></span><span> </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Base64&quot;</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.XML.html#ToXML"><span class="hs-identifier hs-type">ToXML</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-type">Base64</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679197435"><span class="annot"><span class="annottext">toXML :: Base64 -&gt; XML
+</span><a href="Network.AWS.Data.XML.html#toXML"><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64 -&gt; XML
+forall a. ToText a =&gt; a -&gt; XML
+</span><a href="Network.AWS.Data.XML.html#toXMLText"><span class="hs-identifier hs-var">toXMLText</span></a></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197430"><span class="annot"><span class="hs-identifier hs-type">FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-type">Base64</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679197428"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Base64
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; Value -&gt; Parser Base64
+forall a. FromText a =&gt; String -&gt; Value -&gt; Parser a
+</span><a href="Network.AWS.Data.JSON.html#parseJSONText"><span class="hs-identifier hs-var">parseJSONText</span></a></span><span> </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Base64&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197419"><span id="local-6989586621679197421"><span id="local-6989586621679197423"><span class="annot"><span class="hs-identifier hs-type">ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-type">Base64</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679197417"><span class="annot"><span class="annottext">toJSON :: Base64 -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64 -&gt; Value
+forall a. ToText a =&gt; a -&gt; Value
+</span><a href="Network.AWS.Data.JSON.html#toJSONText"><span class="hs-identifier hs-var">toJSONText</span></a></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Body.html#ToHashedBody"><span class="hs-identifier hs-type">ToHashedBody</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-type">Base64</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679197412"><span class="annot"><span class="annottext">toHashed :: Base64 -&gt; HashedBody
+</span><a href="Network.AWS.Data.Body.html#toHashed"><span class="hs-identifier hs-var hs-var hs-var hs-var">toHashed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; HashedBody
+forall a. ToHashedBody a =&gt; a -&gt; HashedBody
+</span><a href="Network.AWS.Data.Body.html#toHashed"><span class="hs-identifier hs-var">toHashed</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; HashedBody)
+-&gt; (Base64 -&gt; ByteString) -&gt; Base64 -&gt; HashedBody
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Base64 -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197409"><span class="annot"><a href="Network.AWS.Data.Body.html#ToBody"><span class="hs-identifier hs-type">ToBody</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Data.Base64.html#Base64"><span class="hs-identifier hs-type">Base64</span></a></span></span><span>
+</span><span id="line-72"></span></pre></body></html>

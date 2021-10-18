@@ -1,0 +1,533 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Firehose.Types.S3DestinationConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Firehose.Types.S3DestinationConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html"><span class="hs-identifier">Network.AWS.Firehose.Types.BufferingHints</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html"><span class="hs-identifier">Network.AWS.Firehose.Types.CloudWatchLoggingOptions</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CompressionFormat.html"><span class="hs-identifier">Network.AWS.Firehose.Types.CompressionFormat</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.EncryptionConfiguration.html"><span class="hs-identifier">Network.AWS.Firehose.Types.EncryptionConfiguration</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Describes the configuration of a destination in Amazon S3.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newS3DestinationConfiguration' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679261963"><span id="local-6989586621679261964"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3DestinationConfiguration"><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-var">S3DestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3DestinationConfiguration%27"><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-var">S3DestinationConfiguration'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A prefix that Kinesis Data Firehose evaluates and adds to failed records</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- before writing them to S3. This prefix appears immediately following the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- bucket name. For information about how to specify this prefix, see</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects&gt;.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AerrorOutputPrefix%3AS3DestinationConfiguration%27"><span class="annot"><span class="annottext">S3DestinationConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AerrorOutputPrefix%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">errorOutputPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The encryption configuration. If no value is specified, the default is</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- no encryption.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AencryptionConfiguration%3AS3DestinationConfiguration%27"><span class="annot"><span class="annottext">S3DestinationConfiguration -&gt; Maybe EncryptionConfiguration
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AencryptionConfiguration%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The CloudWatch logging options for your delivery stream.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcloudWatchLoggingOptions%3AS3DestinationConfiguration%27"><span class="annot"><span class="annottext">S3DestinationConfiguration -&gt; Maybe CloudWatchLoggingOptions
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AcloudWatchLoggingOptions%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The \&quot;YYYY\/MM\/DD\/HH\&quot; time format prefix is automatically used for</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- delivered Amazon S3 files. You can also specify a custom prefix, as</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- described in</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects&gt;.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aprefix%3AS3DestinationConfiguration%27"><span class="annot"><span class="annottext">S3DestinationConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3Aprefix%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The buffering option. If no value is specified, @BufferingHints@ object</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- default values are used.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AbufferingHints%3AS3DestinationConfiguration%27"><span class="annot"><span class="annottext">S3DestinationConfiguration -&gt; Maybe BufferingHints
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AbufferingHints%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">bufferingHints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-type">BufferingHints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The compression format. If no value is specified, the default is</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @UNCOMPRESSED@.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- The compression formats @SNAPPY@ or @ZIP@ cannot be specified for Amazon</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Redshift destinations because they are not supported by the Amazon</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Redshift @COPY@ operation that reads from the S3 bucket.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AcompressionFormat%3AS3DestinationConfiguration%27"><span class="annot"><span class="annottext">S3DestinationConfiguration -&gt; Maybe CompressionFormat
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AcompressionFormat%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">compressionFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CompressionFormat.html#CompressionFormat"><span class="hs-identifier hs-type">CompressionFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS credentials. For more</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AroleARN%3AS3DestinationConfiguration%27"><span class="annot"><span class="annottext">S3DestinationConfiguration -&gt; Text
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AroleARN%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The ARN of the S3 bucket. For more information, see</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AbucketARN%3AS3DestinationConfiguration%27"><span class="annot"><span class="annottext">S3DestinationConfiguration -&gt; Text
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AbucketARN%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">bucketARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261950"><span id="local-6989586621679261952"><span class="annot"><span class="annottext">S3DestinationConfiguration -&gt; S3DestinationConfiguration -&gt; Bool
+(S3DestinationConfiguration -&gt; S3DestinationConfiguration -&gt; Bool)
+-&gt; (S3DestinationConfiguration
+    -&gt; S3DestinationConfiguration -&gt; Bool)
+-&gt; Eq S3DestinationConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: S3DestinationConfiguration -&gt; S3DestinationConfiguration -&gt; Bool
+$c/= :: S3DestinationConfiguration -&gt; S3DestinationConfiguration -&gt; Bool
+== :: S3DestinationConfiguration -&gt; S3DestinationConfiguration -&gt; Bool
+$c== :: S3DestinationConfiguration -&gt; S3DestinationConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261941"><span id="local-6989586621679261943"><span id="local-6989586621679261945"><span id="local-6989586621679261947"><span class="annot"><span class="annottext">ReadPrec [S3DestinationConfiguration]
+ReadPrec S3DestinationConfiguration
+Int -&gt; ReadS S3DestinationConfiguration
+ReadS [S3DestinationConfiguration]
+(Int -&gt; ReadS S3DestinationConfiguration)
+-&gt; ReadS [S3DestinationConfiguration]
+-&gt; ReadPrec S3DestinationConfiguration
+-&gt; ReadPrec [S3DestinationConfiguration]
+-&gt; Read S3DestinationConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [S3DestinationConfiguration]
+$creadListPrec :: ReadPrec [S3DestinationConfiguration]
+readPrec :: ReadPrec S3DestinationConfiguration
+$creadPrec :: ReadPrec S3DestinationConfiguration
+readList :: ReadS [S3DestinationConfiguration]
+$creadList :: ReadS [S3DestinationConfiguration]
+readsPrec :: Int -&gt; ReadS S3DestinationConfiguration
+$creadsPrec :: Int -&gt; ReadS S3DestinationConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261934"><span id="local-6989586621679261936"><span id="local-6989586621679261938"><span class="annot"><span class="annottext">Int -&gt; S3DestinationConfiguration -&gt; ShowS
+[S3DestinationConfiguration] -&gt; ShowS
+S3DestinationConfiguration -&gt; String
+(Int -&gt; S3DestinationConfiguration -&gt; ShowS)
+-&gt; (S3DestinationConfiguration -&gt; String)
+-&gt; ([S3DestinationConfiguration] -&gt; ShowS)
+-&gt; Show S3DestinationConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [S3DestinationConfiguration] -&gt; ShowS
+$cshowList :: [S3DestinationConfiguration] -&gt; ShowS
+show :: S3DestinationConfiguration -&gt; String
+$cshow :: S3DestinationConfiguration -&gt; String
+showsPrec :: Int -&gt; S3DestinationConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; S3DestinationConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ S3DestinationConfiguration -&gt; Rep S3DestinationConfiguration x)
+-&gt; (forall x.
+    Rep S3DestinationConfiguration x -&gt; S3DestinationConfiguration)
+-&gt; Generic S3DestinationConfiguration
+forall x.
+Rep S3DestinationConfiguration x -&gt; S3DestinationConfiguration
+forall x.
+S3DestinationConfiguration -&gt; Rep S3DestinationConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep S3DestinationConfiguration x -&gt; S3DestinationConfiguration
+$cfrom :: forall x.
+S3DestinationConfiguration -&gt; Rep S3DestinationConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'S3DestinationConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'errorOutputPrefix', 's3DestinationConfiguration_errorOutputPrefix' - A prefix that Kinesis Data Firehose evaluates and adds to failed records</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- before writing them to S3. This prefix appears immediately following the</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- bucket name. For information about how to specify this prefix, see</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects&gt;.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'encryptionConfiguration', 's3DestinationConfiguration_encryptionConfiguration' - The encryption configuration. If no value is specified, the default is</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- no encryption.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'cloudWatchLoggingOptions', 's3DestinationConfiguration_cloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'prefix', 's3DestinationConfiguration_prefix' - The \&quot;YYYY\/MM\/DD\/HH\&quot; time format prefix is automatically used for</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- delivered Amazon S3 files. You can also specify a custom prefix, as</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- described in</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects&gt;.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'bufferingHints', 's3DestinationConfiguration_bufferingHints' - The buffering option. If no value is specified, @BufferingHints@ object</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- default values are used.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'compressionFormat', 's3DestinationConfiguration_compressionFormat' - The compression format. If no value is specified, the default is</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- @UNCOMPRESSED@.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- The compression formats @SNAPPY@ or @ZIP@ cannot be specified for Amazon</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Redshift destinations because they are not supported by the Amazon</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Redshift @COPY@ operation that reads from the S3 bucket.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'roleARN', 's3DestinationConfiguration_roleARN' - The Amazon Resource Name (ARN) of the AWS credentials. For more</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'bucketARN', 's3DestinationConfiguration_bucketARN' - The ARN of the S3 bucket. For more information, see</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#newS3DestinationConfiguration"><span class="hs-identifier hs-type">newS3DestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-comment">-- | 'roleARN'</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-comment">-- | 'bucketARN'</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span>
+</span><span id="line-114"></span><span id="newS3DestinationConfiguration"><span class="annot"><span class="annottext">newS3DestinationConfiguration :: Text -&gt; Text -&gt; S3DestinationConfiguration
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#newS3DestinationConfiguration"><span class="hs-identifier hs-var hs-var">newS3DestinationConfiguration</span></a></span></span><span> </span><span id="local-6989586621679261928"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261928"><span class="hs-identifier hs-var">pRoleARN_</span></a></span></span><span> </span><span id="local-6989586621679261927"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261927"><span class="hs-identifier hs-var">pBucketARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">S3DestinationConfiguration' :: Maybe Text
+-&gt; Maybe EncryptionConfiguration
+-&gt; Maybe CloudWatchLoggingOptions
+-&gt; Maybe Text
+-&gt; Maybe BufferingHints
+-&gt; Maybe CompressionFormat
+-&gt; Text
+-&gt; Text
+-&gt; S3DestinationConfiguration
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errorOutputPrefix:S3DestinationConfiguration' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AerrorOutputPrefix%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">errorOutputPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:S3DestinationConfiguration' :: Maybe EncryptionConfiguration
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AencryptionConfiguration%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:S3DestinationConfiguration' :: Maybe CloudWatchLoggingOptions
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AcloudWatchLoggingOptions%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefix:S3DestinationConfiguration' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3Aprefix%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:bufferingHints:S3DestinationConfiguration' :: Maybe BufferingHints
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AbufferingHints%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BufferingHints
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:compressionFormat:S3DestinationConfiguration' :: Maybe CompressionFormat
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AcompressionFormat%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">compressionFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CompressionFormat
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleARN:S3DestinationConfiguration' :: Text
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AroleARN%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261928"><span class="hs-identifier hs-var">pRoleARN_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketARN:S3DestinationConfiguration' :: Text
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AbucketARN%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">bucketARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261927"><span class="hs-identifier hs-var">pBucketARN_</span></a></span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | A prefix that Kinesis Data Firehose evaluates and adds to failed records</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- before writing them to S3. This prefix appears immediately following the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- bucket name. For information about how to specify this prefix, see</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects&gt;.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_errorOutputPrefix"><span class="hs-identifier hs-type">s3DestinationConfiguration_errorOutputPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="s3DestinationConfiguration_errorOutputPrefix"><span class="annot"><span class="annottext">s3DestinationConfiguration_errorOutputPrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; S3DestinationConfiguration -&gt; f S3DestinationConfiguration
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_errorOutputPrefix"><span class="hs-identifier hs-var hs-var">s3DestinationConfiguration_errorOutputPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3DestinationConfiguration -&gt; Maybe Text)
+-&gt; (S3DestinationConfiguration
+    -&gt; Maybe Text -&gt; S3DestinationConfiguration)
+-&gt; Lens
+     S3DestinationConfiguration
+     S3DestinationConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261923"><span class="annot"><span class="annottext">Maybe Text
+errorOutputPrefix :: Maybe Text
+$sel:errorOutputPrefix:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679261923"><span class="hs-identifier hs-var hs-var">errorOutputPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261923"><span class="hs-identifier hs-var">errorOutputPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261922"><span class="annot"><span class="annottext">s :: S3DestinationConfiguration
+</span><a href="#local-6989586621679261922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261921"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
+</span><a href="#local-6989586621679261922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorOutputPrefix:S3DestinationConfiguration' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AerrorOutputPrefix%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">errorOutputPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The encryption configuration. If no value is specified, the default is</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- no encryption.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_encryptionConfiguration"><span class="hs-identifier hs-type">s3DestinationConfiguration_encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="s3DestinationConfiguration_encryptionConfiguration"><span class="annot"><span class="annottext">s3DestinationConfiguration_encryptionConfiguration :: (Maybe EncryptionConfiguration
+ -&gt; f (Maybe EncryptionConfiguration))
+-&gt; S3DestinationConfiguration -&gt; f S3DestinationConfiguration
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_encryptionConfiguration"><span class="hs-identifier hs-var hs-var">s3DestinationConfiguration_encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3DestinationConfiguration -&gt; Maybe EncryptionConfiguration)
+-&gt; (S3DestinationConfiguration
+    -&gt; Maybe EncryptionConfiguration -&gt; S3DestinationConfiguration)
+-&gt; Lens
+     S3DestinationConfiguration
+     S3DestinationConfiguration
+     (Maybe EncryptionConfiguration)
+     (Maybe EncryptionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261919"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+encryptionConfiguration :: Maybe EncryptionConfiguration
+$sel:encryptionConfiguration:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679261919"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679261919"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261918"><span class="annot"><span class="annottext">s :: S3DestinationConfiguration
+</span><a href="#local-6989586621679261918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261917"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679261917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
+</span><a href="#local-6989586621679261918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:S3DestinationConfiguration' :: Maybe EncryptionConfiguration
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AencryptionConfiguration%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679261917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The CloudWatch logging options for your delivery stream.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_cloudWatchLoggingOptions"><span class="hs-identifier hs-type">s3DestinationConfiguration_cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="s3DestinationConfiguration_cloudWatchLoggingOptions"><span class="annot"><span class="annottext">s3DestinationConfiguration_cloudWatchLoggingOptions :: (Maybe CloudWatchLoggingOptions
+ -&gt; f (Maybe CloudWatchLoggingOptions))
+-&gt; S3DestinationConfiguration -&gt; f S3DestinationConfiguration
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_cloudWatchLoggingOptions"><span class="hs-identifier hs-var hs-var">s3DestinationConfiguration_cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3DestinationConfiguration -&gt; Maybe CloudWatchLoggingOptions)
+-&gt; (S3DestinationConfiguration
+    -&gt; Maybe CloudWatchLoggingOptions -&gt; S3DestinationConfiguration)
+-&gt; Lens
+     S3DestinationConfiguration
+     S3DestinationConfiguration
+     (Maybe CloudWatchLoggingOptions)
+     (Maybe CloudWatchLoggingOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261915"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+cloudWatchLoggingOptions :: Maybe CloudWatchLoggingOptions
+$sel:cloudWatchLoggingOptions:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679261915"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679261915"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261914"><span class="annot"><span class="annottext">s :: S3DestinationConfiguration
+</span><a href="#local-6989586621679261914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261913"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679261913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
+</span><a href="#local-6989586621679261914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:S3DestinationConfiguration' :: Maybe CloudWatchLoggingOptions
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AcloudWatchLoggingOptions%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679261913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The \&quot;YYYY\/MM\/DD\/HH\&quot; time format prefix is automatically used for</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- delivered Amazon S3 files. You can also specify a custom prefix, as</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- described in</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects&gt;.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_prefix"><span class="hs-identifier hs-type">s3DestinationConfiguration_prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="s3DestinationConfiguration_prefix"><span class="annot"><span class="annottext">s3DestinationConfiguration_prefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; S3DestinationConfiguration -&gt; f S3DestinationConfiguration
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_prefix"><span class="hs-identifier hs-var hs-var">s3DestinationConfiguration_prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3DestinationConfiguration -&gt; Maybe Text)
+-&gt; (S3DestinationConfiguration
+    -&gt; Maybe Text -&gt; S3DestinationConfiguration)
+-&gt; Lens
+     S3DestinationConfiguration
+     S3DestinationConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261911"><span class="annot"><span class="annottext">Maybe Text
+prefix :: Maybe Text
+$sel:prefix:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679261911"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261911"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261910"><span class="annot"><span class="annottext">s :: S3DestinationConfiguration
+</span><a href="#local-6989586621679261910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261909"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
+</span><a href="#local-6989586621679261910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:S3DestinationConfiguration' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3Aprefix%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The buffering option. If no value is specified, @BufferingHints@ object</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- default values are used.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_bufferingHints"><span class="hs-identifier hs-type">s3DestinationConfiguration_bufferingHints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-type">BufferingHints</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="s3DestinationConfiguration_bufferingHints"><span class="annot"><span class="annottext">s3DestinationConfiguration_bufferingHints :: (Maybe BufferingHints -&gt; f (Maybe BufferingHints))
+-&gt; S3DestinationConfiguration -&gt; f S3DestinationConfiguration
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_bufferingHints"><span class="hs-identifier hs-var hs-var">s3DestinationConfiguration_bufferingHints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3DestinationConfiguration -&gt; Maybe BufferingHints)
+-&gt; (S3DestinationConfiguration
+    -&gt; Maybe BufferingHints -&gt; S3DestinationConfiguration)
+-&gt; Lens
+     S3DestinationConfiguration
+     S3DestinationConfiguration
+     (Maybe BufferingHints)
+     (Maybe BufferingHints)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261907"><span class="annot"><span class="annottext">Maybe BufferingHints
+bufferingHints :: Maybe BufferingHints
+$sel:bufferingHints:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Maybe BufferingHints
+</span><a href="#local-6989586621679261907"><span class="hs-identifier hs-var hs-var">bufferingHints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BufferingHints
+</span><a href="#local-6989586621679261907"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261906"><span class="annot"><span class="annottext">s :: S3DestinationConfiguration
+</span><a href="#local-6989586621679261906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261905"><span class="annot"><span class="annottext">Maybe BufferingHints
+</span><a href="#local-6989586621679261905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
+</span><a href="#local-6989586621679261906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bufferingHints:S3DestinationConfiguration' :: Maybe BufferingHints
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AbufferingHints%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BufferingHints
+</span><a href="#local-6989586621679261905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The compression format. If no value is specified, the default is</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- @UNCOMPRESSED@.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- The compression formats @SNAPPY@ or @ZIP@ cannot be specified for Amazon</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Redshift destinations because they are not supported by the Amazon</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Redshift @COPY@ operation that reads from the S3 bucket.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_compressionFormat"><span class="hs-identifier hs-type">s3DestinationConfiguration_compressionFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CompressionFormat.html#CompressionFormat"><span class="hs-identifier hs-type">CompressionFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="s3DestinationConfiguration_compressionFormat"><span class="annot"><span class="annottext">s3DestinationConfiguration_compressionFormat :: (Maybe CompressionFormat -&gt; f (Maybe CompressionFormat))
+-&gt; S3DestinationConfiguration -&gt; f S3DestinationConfiguration
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_compressionFormat"><span class="hs-identifier hs-var hs-var">s3DestinationConfiguration_compressionFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3DestinationConfiguration -&gt; Maybe CompressionFormat)
+-&gt; (S3DestinationConfiguration
+    -&gt; Maybe CompressionFormat -&gt; S3DestinationConfiguration)
+-&gt; Lens
+     S3DestinationConfiguration
+     S3DestinationConfiguration
+     (Maybe CompressionFormat)
+     (Maybe CompressionFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261903"><span class="annot"><span class="annottext">Maybe CompressionFormat
+compressionFormat :: Maybe CompressionFormat
+$sel:compressionFormat:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Maybe CompressionFormat
+</span><a href="#local-6989586621679261903"><span class="hs-identifier hs-var hs-var">compressionFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CompressionFormat
+</span><a href="#local-6989586621679261903"><span class="hs-identifier hs-var">compressionFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261902"><span class="annot"><span class="annottext">s :: S3DestinationConfiguration
+</span><a href="#local-6989586621679261902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261901"><span class="annot"><span class="annottext">Maybe CompressionFormat
+</span><a href="#local-6989586621679261901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
+</span><a href="#local-6989586621679261902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compressionFormat:S3DestinationConfiguration' :: Maybe CompressionFormat
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AcompressionFormat%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">compressionFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CompressionFormat
+</span><a href="#local-6989586621679261901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS credentials. For more</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_roleARN"><span class="hs-identifier hs-type">s3DestinationConfiguration_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-168"></span><span id="s3DestinationConfiguration_roleARN"><span class="annot"><span class="annottext">s3DestinationConfiguration_roleARN :: (Text -&gt; f Text)
+-&gt; S3DestinationConfiguration -&gt; f S3DestinationConfiguration
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_roleARN"><span class="hs-identifier hs-var hs-var">s3DestinationConfiguration_roleARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3DestinationConfiguration -&gt; Text)
+-&gt; (S3DestinationConfiguration
+    -&gt; Text -&gt; S3DestinationConfiguration)
+-&gt; Lens
+     S3DestinationConfiguration S3DestinationConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261899"><span class="annot"><span class="annottext">Text
+roleARN :: Text
+$sel:roleARN:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Text
+</span><a href="#local-6989586621679261899"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261899"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261898"><span class="annot"><span class="annottext">s :: S3DestinationConfiguration
+</span><a href="#local-6989586621679261898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261897"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
+</span><a href="#local-6989586621679261898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:S3DestinationConfiguration' :: Text
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AroleARN%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The ARN of the S3 bucket. For more information, see</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_bucketARN"><span class="hs-identifier hs-type">s3DestinationConfiguration_bucketARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-173"></span><span id="s3DestinationConfiguration_bucketARN"><span class="annot"><span class="annottext">s3DestinationConfiguration_bucketARN :: (Text -&gt; f Text)
+-&gt; S3DestinationConfiguration -&gt; f S3DestinationConfiguration
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_bucketARN"><span class="hs-identifier hs-var hs-var">s3DestinationConfiguration_bucketARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3DestinationConfiguration -&gt; Text)
+-&gt; (S3DestinationConfiguration
+    -&gt; Text -&gt; S3DestinationConfiguration)
+-&gt; Lens
+     S3DestinationConfiguration S3DestinationConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261895"><span class="annot"><span class="annottext">Text
+bucketARN :: Text
+$sel:bucketARN:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Text
+</span><a href="#local-6989586621679261895"><span class="hs-identifier hs-var hs-var">bucketARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261895"><span class="hs-identifier hs-var">bucketARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261894"><span class="annot"><span class="annottext">s :: S3DestinationConfiguration
+</span><a href="#local-6989586621679261894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261893"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
+</span><a href="#local-6989586621679261894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketARN:S3DestinationConfiguration' :: Text
+</span><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#%24sel%3AbucketARN%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">bucketARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261889"><span id="local-6989586621679261891"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span></span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261886"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261878"><span id="local-6989586621679261880"><span id="local-6989586621679261882"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679261876"><span class="annot"><span class="annottext">toJSON :: S3DestinationConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261867"><span id="local-6989586621679261868"><span id="local-6989586621679261869"><span id="local-6989586621679261870"><span id="local-6989586621679261871"><span id="local-6989586621679261872"><span id="local-6989586621679261873"><span id="local-6989586621679261874"><span class="annot"><span class="annottext">Maybe Text
+Maybe BufferingHints
+Maybe CloudWatchLoggingOptions
+Maybe CompressionFormat
+Maybe EncryptionConfiguration
+Text
+bucketARN :: Text
+roleARN :: Text
+compressionFormat :: Maybe CompressionFormat
+bufferingHints :: Maybe BufferingHints
+prefix :: Maybe Text
+cloudWatchLoggingOptions :: Maybe CloudWatchLoggingOptions
+encryptionConfiguration :: Maybe EncryptionConfiguration
+errorOutputPrefix :: Maybe Text
+$sel:bucketARN:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Text
+$sel:roleARN:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Text
+$sel:compressionFormat:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Maybe CompressionFormat
+$sel:bufferingHints:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Maybe BufferingHints
+$sel:prefix:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Maybe Text
+$sel:cloudWatchLoggingOptions:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Maybe CloudWatchLoggingOptions
+$sel:encryptionConfiguration:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Maybe EncryptionConfiguration
+$sel:errorOutputPrefix:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679261867"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-183"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorOutputPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261874"><span class="hs-identifier hs-var">errorOutputPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">(EncryptionConfiguration -&gt; Pair)
+-&gt; Maybe EncryptionConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679261873"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudWatchLoggingOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CloudWatchLoggingOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">(CloudWatchLoggingOptions -&gt; Pair)
+-&gt; Maybe CloudWatchLoggingOptions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679261872"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261871"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BufferingHints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BufferingHints -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>              </span><span class="annot"><span class="annottext">(BufferingHints -&gt; Pair) -&gt; Maybe BufferingHints -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BufferingHints
+</span><a href="#local-6989586621679261870"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompressionFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CompressionFormat -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>              </span><span class="annot"><span class="annottext">(CompressionFormat -&gt; Pair)
+-&gt; Maybe CompressionFormat -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CompressionFormat
+</span><a href="#local-6989586621679261869"><span class="hs-identifier hs-var">compressionFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261868"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BucketARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261867"><span class="hs-identifier hs-var">bucketARN</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span></pre></body></html>

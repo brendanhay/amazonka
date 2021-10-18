@@ -1,0 +1,1697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.XRay.Types.TraceSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.XRay.Types.TraceSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html"><span class="hs-identifier">Network.AWS.XRay.Types.AvailabilityZoneDetail</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html"><span class="hs-identifier">Network.AWS.XRay.Types.ErrorRootCause</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.FaultRootCause.html"><span class="hs-identifier">Network.AWS.XRay.Types.FaultRootCause</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Http.html"><span class="hs-identifier">Network.AWS.XRay.Types.Http</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html"><span class="hs-identifier">Network.AWS.XRay.Types.InstanceIdDetail</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html"><span class="hs-identifier">Network.AWS.XRay.Types.ResourceARNDetail</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html"><span class="hs-identifier">Network.AWS.XRay.Types.ResponseTimeRootCause</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ServiceId.html"><span class="hs-identifier">Network.AWS.XRay.Types.ServiceId</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html"><span class="hs-identifier">Network.AWS.XRay.Types.TraceUser</span></a></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ValueWithServiceIds.html"><span class="hs-identifier">Network.AWS.XRay.Types.ValueWithServiceIds</span></a></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- | Metadata generated from the segment documents in a trace.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newTraceSummary' smart constructor.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679257672"><span id="local-6989586621679257673"></span></span><span class="hs-keyword">data</span><span> </span><span id="TraceSummary"><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-var">TraceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TraceSummary%27"><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-var">TraceSummary'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of EC2 instance IDs for any instance corresponding to the trace</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AinstanceIds%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe [InstanceIdDetail]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AinstanceIds%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail"><span class="hs-identifier hs-type">InstanceIdDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A list of Availability Zones for any zone corresponding to the trace</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AavailabilityZones%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe [AvailabilityZoneDetail]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AavailabilityZones%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail"><span class="hs-identifier hs-type">AvailabilityZoneDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A collection of ErrorRootCause structures corresponding to the trace</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AerrorRootCauses%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe [ErrorRootCause]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AerrorRootCauses%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">errorRootCauses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause"><span class="hs-identifier hs-type">ErrorRootCause</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The length of time in seconds between the start and end times of the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- root segment. If the service performs work asynchronously, the response</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- time measures the time before the response is sent to the user, while</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- the duration measures the amount of time before the last traced activity</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- completes.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AresponseTime%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe Double
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AresponseTime%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">responseTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The length of time in seconds between the start time of the root segment</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- and the end time of the last segment that completed.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aduration%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe Double
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Aduration%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Service IDs from the trace\'s segment documents.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AserviceIds%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe [ServiceId]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AserviceIds%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">serviceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ServiceId.html#ServiceId"><span class="hs-identifier hs-type">ServiceId</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The matched time stamp of a defined event.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmatchedEventTime%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AmatchedEventTime%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">matchedEventTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The root of a trace.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AentryPoint%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe ServiceId
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AentryPoint%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">entryPoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ServiceId.html#ServiceId"><span class="hs-identifier hs-type">ServiceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The root segment document has a 500 series error.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AhasFault%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe Bool
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AhasFault%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">hasFault</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the request that generated the trace\'s</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- segments and subsegments.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Aid%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Aid%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Annotations from the trace\'s segment documents.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Aannotations%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Aannotations%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">annotations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ValueWithServiceIds.html#ValueWithServiceIds"><span class="hs-identifier hs-type">ValueWithServiceIds</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | A list of resource ARNs for any resource corresponding to the trace</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AresourceARNs%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe [ResourceARNDetail]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AresourceARNs%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">resourceARNs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail"><span class="hs-identifier hs-type">ResourceARNDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | One or more of the segment documents is in progress.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AisPartial%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe Bool
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AisPartial%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">isPartial</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | A collection of FaultRootCause structures corresponding to the trace</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AfaultRootCauses%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe [FaultRootCause]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AfaultRootCauses%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">faultRootCauses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.FaultRootCause.html#FaultRootCause"><span class="hs-identifier hs-type">FaultRootCause</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The revision number of a trace.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Arevision%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe Int
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Arevision%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Information about the HTTP request served by the trace.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Ahttp%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe Http
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Ahttp%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">http</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Http.html#Http"><span class="hs-identifier hs-type">Http</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The root segment document has a 400 series error.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AhasError%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe Bool
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AhasError%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">hasError</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | Users from the trace\'s segment documents.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Ausers%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe [TraceUser]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Ausers%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">users</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser"><span class="hs-identifier hs-type">TraceUser</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | A collection of ResponseTimeRootCause structures corresponding to the</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- trace segments.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AresponseTimeRootCauses%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe [ResponseTimeRootCause]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AresponseTimeRootCauses%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">responseTimeRootCauses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause"><span class="hs-identifier hs-type">ResponseTimeRootCause</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | One or more of the segment documents has a 429 throttling error.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AhasThrottle%3ATraceSummary%27"><span class="annot"><span class="annottext">TraceSummary -&gt; Maybe Bool
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AhasThrottle%3ATraceSummary%27"><span class="hs-identifier hs-var hs-var">hasThrottle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257647"><span id="local-6989586621679257649"><span class="annot"><span class="annottext">TraceSummary -&gt; TraceSummary -&gt; Bool
+(TraceSummary -&gt; TraceSummary -&gt; Bool)
+-&gt; (TraceSummary -&gt; TraceSummary -&gt; Bool) -&gt; Eq TraceSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TraceSummary -&gt; TraceSummary -&gt; Bool
+$c/= :: TraceSummary -&gt; TraceSummary -&gt; Bool
+== :: TraceSummary -&gt; TraceSummary -&gt; Bool
+$c== :: TraceSummary -&gt; TraceSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257638"><span id="local-6989586621679257640"><span id="local-6989586621679257642"><span id="local-6989586621679257644"><span class="annot"><span class="annottext">ReadPrec [TraceSummary]
+ReadPrec TraceSummary
+Int -&gt; ReadS TraceSummary
+ReadS [TraceSummary]
+(Int -&gt; ReadS TraceSummary)
+-&gt; ReadS [TraceSummary]
+-&gt; ReadPrec TraceSummary
+-&gt; ReadPrec [TraceSummary]
+-&gt; Read TraceSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TraceSummary]
+$creadListPrec :: ReadPrec [TraceSummary]
+readPrec :: ReadPrec TraceSummary
+$creadPrec :: ReadPrec TraceSummary
+readList :: ReadS [TraceSummary]
+$creadList :: ReadS [TraceSummary]
+readsPrec :: Int -&gt; ReadS TraceSummary
+$creadsPrec :: Int -&gt; ReadS TraceSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257631"><span id="local-6989586621679257633"><span id="local-6989586621679257635"><span class="annot"><span class="annottext">Int -&gt; TraceSummary -&gt; ShowS
+[TraceSummary] -&gt; ShowS
+TraceSummary -&gt; String
+(Int -&gt; TraceSummary -&gt; ShowS)
+-&gt; (TraceSummary -&gt; String)
+-&gt; ([TraceSummary] -&gt; ShowS)
+-&gt; Show TraceSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TraceSummary] -&gt; ShowS
+$cshowList :: [TraceSummary] -&gt; ShowS
+show :: TraceSummary -&gt; String
+$cshow :: TraceSummary -&gt; String
+showsPrec :: Int -&gt; TraceSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; TraceSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TraceSummary -&gt; Rep TraceSummary x)
+-&gt; (forall x. Rep TraceSummary x -&gt; TraceSummary)
+-&gt; Generic TraceSummary
+forall x. Rep TraceSummary x -&gt; TraceSummary
+forall x. TraceSummary -&gt; Rep TraceSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TraceSummary x -&gt; TraceSummary
+$cfrom :: forall x. TraceSummary -&gt; Rep TraceSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Create a value of 'TraceSummary' with all optional fields omitted.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'instanceIds', 'traceSummary_instanceIds' - A list of EC2 instance IDs for any instance corresponding to the trace</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'availabilityZones', 'traceSummary_availabilityZones' - A list of Availability Zones for any zone corresponding to the trace</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'errorRootCauses', 'traceSummary_errorRootCauses' - A collection of ErrorRootCause structures corresponding to the trace</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'responseTime', 'traceSummary_responseTime' - The length of time in seconds between the start and end times of the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- root segment. If the service performs work asynchronously, the response</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- time measures the time before the response is sent to the user, while</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- the duration measures the amount of time before the last traced activity</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- completes.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'duration', 'traceSummary_duration' - The length of time in seconds between the start time of the root segment</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- and the end time of the last segment that completed.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'serviceIds', 'traceSummary_serviceIds' - Service IDs from the trace\'s segment documents.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'matchedEventTime', 'traceSummary_matchedEventTime' - The matched time stamp of a defined event.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'entryPoint', 'traceSummary_entryPoint' - The root of a trace.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'hasFault', 'traceSummary_hasFault' - The root segment document has a 500 series error.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'id', 'traceSummary_id' - The unique identifier for the request that generated the trace\'s</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- segments and subsegments.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'annotations', 'traceSummary_annotations' - Annotations from the trace\'s segment documents.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'resourceARNs', 'traceSummary_resourceARNs' - A list of resource ARNs for any resource corresponding to the trace</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'isPartial', 'traceSummary_isPartial' - One or more of the segment documents is in progress.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'faultRootCauses', 'traceSummary_faultRootCauses' - A collection of FaultRootCause structures corresponding to the trace</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'revision', 'traceSummary_revision' - The revision number of a trace.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'http', 'traceSummary_http' - Information about the HTTP request served by the trace.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'hasError', 'traceSummary_hasError' - The root segment document has a 400 series error.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'users', 'traceSummary_users' - Users from the trace\'s segment documents.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'responseTimeRootCauses', 'traceSummary_responseTimeRootCauses' - A collection of ResponseTimeRootCause structures corresponding to the</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- trace segments.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'hasThrottle', 'traceSummary_hasThrottle' - One or more of the segment documents has a 429 throttling error.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#newTraceSummary"><span class="hs-identifier hs-type">newTraceSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span>
+</span><span id="line-156"></span><span id="newTraceSummary"><span class="annot"><span class="annottext">newTraceSummary :: TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#newTraceSummary"><span class="hs-identifier hs-var hs-var">newTraceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">TraceSummary' :: Maybe [InstanceIdDetail]
+-&gt; Maybe [AvailabilityZoneDetail]
+-&gt; Maybe [ErrorRootCause]
+-&gt; Maybe Double
+-&gt; Maybe Double
+-&gt; Maybe [ServiceId]
+-&gt; Maybe POSIX
+-&gt; Maybe ServiceId
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text [ValueWithServiceIds])
+-&gt; Maybe [ResourceARNDetail]
+-&gt; Maybe Bool
+-&gt; Maybe [FaultRootCause]
+-&gt; Maybe Int
+-&gt; Maybe Http
+-&gt; Maybe Bool
+-&gt; Maybe [TraceUser]
+-&gt; Maybe [ResponseTimeRootCause]
+-&gt; Maybe Bool
+-&gt; TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceIds:TraceSummary' :: Maybe [InstanceIdDetail]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AinstanceIds%3ATraceSummary%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceIdDetail]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZones:TraceSummary' :: Maybe [AvailabilityZoneDetail]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AavailabilityZones%3ATraceSummary%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AvailabilityZoneDetail]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorRootCauses:TraceSummary' :: Maybe [ErrorRootCause]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AerrorRootCauses%3ATraceSummary%27"><span class="hs-identifier hs-var">errorRootCauses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorRootCause]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:responseTime:TraceSummary' :: Maybe Double
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AresponseTime%3ATraceSummary%27"><span class="hs-identifier hs-var">responseTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:duration:TraceSummary' :: Maybe Double
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Aduration%3ATraceSummary%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceIds:TraceSummary' :: Maybe [ServiceId]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AserviceIds%3ATraceSummary%27"><span class="hs-identifier hs-var">serviceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceId]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:matchedEventTime:TraceSummary' :: Maybe POSIX
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AmatchedEventTime%3ATraceSummary%27"><span class="hs-identifier hs-var">matchedEventTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:entryPoint:TraceSummary' :: Maybe ServiceId
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AentryPoint%3ATraceSummary%27"><span class="hs-identifier hs-var">entryPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceId
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:hasFault:TraceSummary' :: Maybe Bool
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AhasFault%3ATraceSummary%27"><span class="hs-identifier hs-var">hasFault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:TraceSummary' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Aid%3ATraceSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:annotations:TraceSummary' :: Maybe (HashMap Text [ValueWithServiceIds])
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Aannotations%3ATraceSummary%27"><span class="hs-identifier hs-var">annotations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [ValueWithServiceIds])
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceARNs:TraceSummary' :: Maybe [ResourceARNDetail]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AresourceARNs%3ATraceSummary%27"><span class="hs-identifier hs-var">resourceARNs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceARNDetail]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:isPartial:TraceSummary' :: Maybe Bool
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AisPartial%3ATraceSummary%27"><span class="hs-identifier hs-var">isPartial</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:faultRootCauses:TraceSummary' :: Maybe [FaultRootCause]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AfaultRootCauses%3ATraceSummary%27"><span class="hs-identifier hs-var">faultRootCauses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FaultRootCause]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:revision:TraceSummary' :: Maybe Int
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Arevision%3ATraceSummary%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:http:TraceSummary' :: Maybe Http
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Ahttp%3ATraceSummary%27"><span class="hs-identifier hs-var">http</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Http
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:hasError:TraceSummary' :: Maybe Bool
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AhasError%3ATraceSummary%27"><span class="hs-identifier hs-var">hasError</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:users:TraceSummary' :: Maybe [TraceUser]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Ausers%3ATraceSummary%27"><span class="hs-identifier hs-var">users</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TraceUser]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:responseTimeRootCauses:TraceSummary' :: Maybe [ResponseTimeRootCause]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AresponseTimeRootCauses%3ATraceSummary%27"><span class="hs-identifier hs-var">responseTimeRootCauses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCause]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:hasThrottle:TraceSummary' :: Maybe Bool
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AhasThrottle%3ATraceSummary%27"><span class="hs-identifier hs-var">hasThrottle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | A list of EC2 instance IDs for any instance corresponding to the trace</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_instanceIds"><span class="hs-identifier hs-type">traceSummary_instanceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail"><span class="hs-identifier hs-type">InstanceIdDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="traceSummary_instanceIds"><span class="annot"><span class="annottext">traceSummary_instanceIds :: (Maybe [InstanceIdDetail] -&gt; f (Maybe [InstanceIdDetail]))
+-&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_instanceIds"><span class="hs-identifier hs-var hs-var">traceSummary_instanceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe [InstanceIdDetail])
+-&gt; (TraceSummary -&gt; Maybe [InstanceIdDetail] -&gt; TraceSummary)
+-&gt; Lens
+     TraceSummary
+     TraceSummary
+     (Maybe [InstanceIdDetail])
+     (Maybe [InstanceIdDetail])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257622"><span class="annot"><span class="annottext">Maybe [InstanceIdDetail]
+instanceIds :: Maybe [InstanceIdDetail]
+$sel:instanceIds:TraceSummary' :: TraceSummary -&gt; Maybe [InstanceIdDetail]
+</span><a href="#local-6989586621679257622"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceIdDetail]
+</span><a href="#local-6989586621679257622"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257621"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257620"><span class="annot"><span class="annottext">Maybe [InstanceIdDetail]
+</span><a href="#local-6989586621679257620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:TraceSummary' :: Maybe [InstanceIdDetail]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AinstanceIds%3ATraceSummary%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceIdDetail]
+</span><a href="#local-6989586621679257620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceIdDetail] -&gt; f (Maybe [InstanceIdDetail]))
+ -&gt; TraceSummary -&gt; f TraceSummary)
+-&gt; ((Maybe [InstanceIdDetail] -&gt; f (Maybe [InstanceIdDetail]))
+    -&gt; Maybe [InstanceIdDetail] -&gt; f (Maybe [InstanceIdDetail]))
+-&gt; (Maybe [InstanceIdDetail] -&gt; f (Maybe [InstanceIdDetail]))
+-&gt; TraceSummary
+-&gt; f TraceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceIdDetail]
+  [InstanceIdDetail]
+  [InstanceIdDetail]
+  [InstanceIdDetail]
+-&gt; Iso
+     (Maybe [InstanceIdDetail])
+     (Maybe [InstanceIdDetail])
+     (Maybe [InstanceIdDetail])
+     (Maybe [InstanceIdDetail])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceIdDetail]
+  [InstanceIdDetail]
+  [InstanceIdDetail]
+  [InstanceIdDetail]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | A list of Availability Zones for any zone corresponding to the trace</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_availabilityZones"><span class="hs-identifier hs-type">traceSummary_availabilityZones</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail"><span class="hs-identifier hs-type">AvailabilityZoneDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="traceSummary_availabilityZones"><span class="annot"><span class="annottext">traceSummary_availabilityZones :: (Maybe [AvailabilityZoneDetail]
+ -&gt; f (Maybe [AvailabilityZoneDetail]))
+-&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_availabilityZones"><span class="hs-identifier hs-var hs-var">traceSummary_availabilityZones</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe [AvailabilityZoneDetail])
+-&gt; (TraceSummary -&gt; Maybe [AvailabilityZoneDetail] -&gt; TraceSummary)
+-&gt; Lens
+     TraceSummary
+     TraceSummary
+     (Maybe [AvailabilityZoneDetail])
+     (Maybe [AvailabilityZoneDetail])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257615"><span class="annot"><span class="annottext">Maybe [AvailabilityZoneDetail]
+availabilityZones :: Maybe [AvailabilityZoneDetail]
+$sel:availabilityZones:TraceSummary' :: TraceSummary -&gt; Maybe [AvailabilityZoneDetail]
+</span><a href="#local-6989586621679257615"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AvailabilityZoneDetail]
+</span><a href="#local-6989586621679257615"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257614"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257613"><span class="annot"><span class="annottext">Maybe [AvailabilityZoneDetail]
+</span><a href="#local-6989586621679257613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZones:TraceSummary' :: Maybe [AvailabilityZoneDetail]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AavailabilityZones%3ATraceSummary%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AvailabilityZoneDetail]
+</span><a href="#local-6989586621679257613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AvailabilityZoneDetail]
+  -&gt; f (Maybe [AvailabilityZoneDetail]))
+ -&gt; TraceSummary -&gt; f TraceSummary)
+-&gt; ((Maybe [AvailabilityZoneDetail]
+     -&gt; f (Maybe [AvailabilityZoneDetail]))
+    -&gt; Maybe [AvailabilityZoneDetail]
+    -&gt; f (Maybe [AvailabilityZoneDetail]))
+-&gt; (Maybe [AvailabilityZoneDetail]
+    -&gt; f (Maybe [AvailabilityZoneDetail]))
+-&gt; TraceSummary
+-&gt; f TraceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AvailabilityZoneDetail]
+  [AvailabilityZoneDetail]
+  [AvailabilityZoneDetail]
+  [AvailabilityZoneDetail]
+-&gt; Iso
+     (Maybe [AvailabilityZoneDetail])
+     (Maybe [AvailabilityZoneDetail])
+     (Maybe [AvailabilityZoneDetail])
+     (Maybe [AvailabilityZoneDetail])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AvailabilityZoneDetail]
+  [AvailabilityZoneDetail]
+  [AvailabilityZoneDetail]
+  [AvailabilityZoneDetail]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | A collection of ErrorRootCause structures corresponding to the trace</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_errorRootCauses"><span class="hs-identifier hs-type">traceSummary_errorRootCauses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause"><span class="hs-identifier hs-type">ErrorRootCause</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="traceSummary_errorRootCauses"><span class="annot"><span class="annottext">traceSummary_errorRootCauses :: (Maybe [ErrorRootCause] -&gt; f (Maybe [ErrorRootCause]))
+-&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_errorRootCauses"><span class="hs-identifier hs-var hs-var">traceSummary_errorRootCauses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe [ErrorRootCause])
+-&gt; (TraceSummary -&gt; Maybe [ErrorRootCause] -&gt; TraceSummary)
+-&gt; Lens
+     TraceSummary
+     TraceSummary
+     (Maybe [ErrorRootCause])
+     (Maybe [ErrorRootCause])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257611"><span class="annot"><span class="annottext">Maybe [ErrorRootCause]
+errorRootCauses :: Maybe [ErrorRootCause]
+$sel:errorRootCauses:TraceSummary' :: TraceSummary -&gt; Maybe [ErrorRootCause]
+</span><a href="#local-6989586621679257611"><span class="hs-identifier hs-var hs-var">errorRootCauses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorRootCause]
+</span><a href="#local-6989586621679257611"><span class="hs-identifier hs-var">errorRootCauses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257610"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257609"><span class="annot"><span class="annottext">Maybe [ErrorRootCause]
+</span><a href="#local-6989586621679257609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorRootCauses:TraceSummary' :: Maybe [ErrorRootCause]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AerrorRootCauses%3ATraceSummary%27"><span class="hs-identifier hs-var">errorRootCauses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorRootCause]
+</span><a href="#local-6989586621679257609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ErrorRootCause] -&gt; f (Maybe [ErrorRootCause]))
+ -&gt; TraceSummary -&gt; f TraceSummary)
+-&gt; ((Maybe [ErrorRootCause] -&gt; f (Maybe [ErrorRootCause]))
+    -&gt; Maybe [ErrorRootCause] -&gt; f (Maybe [ErrorRootCause]))
+-&gt; (Maybe [ErrorRootCause] -&gt; f (Maybe [ErrorRootCause]))
+-&gt; TraceSummary
+-&gt; f TraceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ErrorRootCause] [ErrorRootCause] [ErrorRootCause] [ErrorRootCause]
+-&gt; Iso
+     (Maybe [ErrorRootCause])
+     (Maybe [ErrorRootCause])
+     (Maybe [ErrorRootCause])
+     (Maybe [ErrorRootCause])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ErrorRootCause] [ErrorRootCause] [ErrorRootCause] [ErrorRootCause]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The length of time in seconds between the start and end times of the</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- root segment. If the service performs work asynchronously, the response</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- time measures the time before the response is sent to the user, while</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- the duration measures the amount of time before the last traced activity</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- completes.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_responseTime"><span class="hs-identifier hs-type">traceSummary_responseTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="traceSummary_responseTime"><span class="annot"><span class="annottext">traceSummary_responseTime :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_responseTime"><span class="hs-identifier hs-var hs-var">traceSummary_responseTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe Double)
+-&gt; (TraceSummary -&gt; Maybe Double -&gt; TraceSummary)
+-&gt; Lens TraceSummary TraceSummary (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257607"><span class="annot"><span class="annottext">Maybe Double
+responseTime :: Maybe Double
+$sel:responseTime:TraceSummary' :: TraceSummary -&gt; Maybe Double
+</span><a href="#local-6989586621679257607"><span class="hs-identifier hs-var hs-var">responseTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679257607"><span class="hs-identifier hs-var">responseTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257606"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257605"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679257605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseTime:TraceSummary' :: Maybe Double
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AresponseTime%3ATraceSummary%27"><span class="hs-identifier hs-var">responseTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679257605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The length of time in seconds between the start time of the root segment</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- and the end time of the last segment that completed.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_duration"><span class="hs-identifier hs-type">traceSummary_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="traceSummary_duration"><span class="annot"><span class="annottext">traceSummary_duration :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_duration"><span class="hs-identifier hs-var hs-var">traceSummary_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe Double)
+-&gt; (TraceSummary -&gt; Maybe Double -&gt; TraceSummary)
+-&gt; Lens TraceSummary TraceSummary (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257603"><span class="annot"><span class="annottext">Maybe Double
+duration :: Maybe Double
+$sel:duration:TraceSummary' :: TraceSummary -&gt; Maybe Double
+</span><a href="#local-6989586621679257603"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679257603"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257602"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257601"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679257601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:TraceSummary' :: Maybe Double
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Aduration%3ATraceSummary%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679257601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | Service IDs from the trace\'s segment documents.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_serviceIds"><span class="hs-identifier hs-type">traceSummary_serviceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ServiceId.html#ServiceId"><span class="hs-identifier hs-type">ServiceId</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="traceSummary_serviceIds"><span class="annot"><span class="annottext">traceSummary_serviceIds :: (Maybe [ServiceId] -&gt; f (Maybe [ServiceId]))
+-&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_serviceIds"><span class="hs-identifier hs-var hs-var">traceSummary_serviceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe [ServiceId])
+-&gt; (TraceSummary -&gt; Maybe [ServiceId] -&gt; TraceSummary)
+-&gt; Lens
+     TraceSummary TraceSummary (Maybe [ServiceId]) (Maybe [ServiceId])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257599"><span class="annot"><span class="annottext">Maybe [ServiceId]
+serviceIds :: Maybe [ServiceId]
+$sel:serviceIds:TraceSummary' :: TraceSummary -&gt; Maybe [ServiceId]
+</span><a href="#local-6989586621679257599"><span class="hs-identifier hs-var hs-var">serviceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceId]
+</span><a href="#local-6989586621679257599"><span class="hs-identifier hs-var">serviceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257598"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257597"><span class="annot"><span class="annottext">Maybe [ServiceId]
+</span><a href="#local-6989586621679257597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceIds:TraceSummary' :: Maybe [ServiceId]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AserviceIds%3ATraceSummary%27"><span class="hs-identifier hs-var">serviceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceId]
+</span><a href="#local-6989586621679257597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServiceId] -&gt; f (Maybe [ServiceId]))
+ -&gt; TraceSummary -&gt; f TraceSummary)
+-&gt; ((Maybe [ServiceId] -&gt; f (Maybe [ServiceId]))
+    -&gt; Maybe [ServiceId] -&gt; f (Maybe [ServiceId]))
+-&gt; (Maybe [ServiceId] -&gt; f (Maybe [ServiceId]))
+-&gt; TraceSummary
+-&gt; f TraceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ServiceId] [ServiceId] [ServiceId] [ServiceId]
+-&gt; Iso
+     (Maybe [ServiceId])
+     (Maybe [ServiceId])
+     (Maybe [ServiceId])
+     (Maybe [ServiceId])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ServiceId] [ServiceId] [ServiceId] [ServiceId]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The matched time stamp of a defined event.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_matchedEventTime"><span class="hs-identifier hs-type">traceSummary_matchedEventTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="traceSummary_matchedEventTime"><span class="annot"><span class="annottext">traceSummary_matchedEventTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_matchedEventTime"><span class="hs-identifier hs-var hs-var">traceSummary_matchedEventTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe POSIX)
+-&gt; (TraceSummary -&gt; Maybe POSIX -&gt; TraceSummary)
+-&gt; Lens TraceSummary TraceSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257595"><span class="annot"><span class="annottext">Maybe POSIX
+matchedEventTime :: Maybe POSIX
+$sel:matchedEventTime:TraceSummary' :: TraceSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679257595"><span class="hs-identifier hs-var hs-var">matchedEventTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679257595"><span class="hs-identifier hs-var">matchedEventTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257594"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257593"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679257593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchedEventTime:TraceSummary' :: Maybe POSIX
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AmatchedEventTime%3ATraceSummary%27"><span class="hs-identifier hs-var">matchedEventTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679257593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; TraceSummary -&gt; f TraceSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TraceSummary
+-&gt; f TraceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The root of a trace.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_entryPoint"><span class="hs-identifier hs-type">traceSummary_entryPoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ServiceId.html#ServiceId"><span class="hs-identifier hs-type">ServiceId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="traceSummary_entryPoint"><span class="annot"><span class="annottext">traceSummary_entryPoint :: (Maybe ServiceId -&gt; f (Maybe ServiceId))
+-&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_entryPoint"><span class="hs-identifier hs-var hs-var">traceSummary_entryPoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe ServiceId)
+-&gt; (TraceSummary -&gt; Maybe ServiceId -&gt; TraceSummary)
+-&gt; Lens
+     TraceSummary TraceSummary (Maybe ServiceId) (Maybe ServiceId)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257590"><span class="annot"><span class="annottext">Maybe ServiceId
+entryPoint :: Maybe ServiceId
+$sel:entryPoint:TraceSummary' :: TraceSummary -&gt; Maybe ServiceId
+</span><a href="#local-6989586621679257590"><span class="hs-identifier hs-var hs-var">entryPoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceId
+</span><a href="#local-6989586621679257590"><span class="hs-identifier hs-var">entryPoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257589"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257588"><span class="annot"><span class="annottext">Maybe ServiceId
+</span><a href="#local-6989586621679257588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entryPoint:TraceSummary' :: Maybe ServiceId
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AentryPoint%3ATraceSummary%27"><span class="hs-identifier hs-var">entryPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceId
+</span><a href="#local-6989586621679257588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The root segment document has a 500 series error.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_hasFault"><span class="hs-identifier hs-type">traceSummary_hasFault</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="traceSummary_hasFault"><span class="annot"><span class="annottext">traceSummary_hasFault :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_hasFault"><span class="hs-identifier hs-var hs-var">traceSummary_hasFault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe Bool)
+-&gt; (TraceSummary -&gt; Maybe Bool -&gt; TraceSummary)
+-&gt; Lens TraceSummary TraceSummary (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257586"><span class="annot"><span class="annottext">Maybe Bool
+hasFault :: Maybe Bool
+$sel:hasFault:TraceSummary' :: TraceSummary -&gt; Maybe Bool
+</span><a href="#local-6989586621679257586"><span class="hs-identifier hs-var hs-var">hasFault</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679257586"><span class="hs-identifier hs-var">hasFault</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257585"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257584"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679257584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hasFault:TraceSummary' :: Maybe Bool
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AhasFault%3ATraceSummary%27"><span class="hs-identifier hs-var">hasFault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679257584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The unique identifier for the request that generated the trace\'s</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- segments and subsegments.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_id"><span class="hs-identifier hs-type">traceSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="traceSummary_id"><span class="annot"><span class="annottext">traceSummary_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_id"><span class="hs-identifier hs-var hs-var">traceSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe Text)
+-&gt; (TraceSummary -&gt; Maybe Text -&gt; TraceSummary)
+-&gt; Lens TraceSummary TraceSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257582"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:TraceSummary' :: TraceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679257582"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257582"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257581"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257580"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:TraceSummary' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Aid%3ATraceSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | Annotations from the trace\'s segment documents.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_annotations"><span class="hs-identifier hs-type">traceSummary_annotations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ValueWithServiceIds.html#ValueWithServiceIds"><span class="hs-identifier hs-type">ValueWithServiceIds</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="traceSummary_annotations"><span class="annot"><span class="annottext">traceSummary_annotations :: (Maybe (HashMap Text [ValueWithServiceIds])
+ -&gt; f (Maybe (HashMap Text [ValueWithServiceIds])))
+-&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_annotations"><span class="hs-identifier hs-var hs-var">traceSummary_annotations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe (HashMap Text [ValueWithServiceIds]))
+-&gt; (TraceSummary
+    -&gt; Maybe (HashMap Text [ValueWithServiceIds]) -&gt; TraceSummary)
+-&gt; Lens
+     TraceSummary
+     TraceSummary
+     (Maybe (HashMap Text [ValueWithServiceIds]))
+     (Maybe (HashMap Text [ValueWithServiceIds]))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257578"><span class="annot"><span class="annottext">Maybe (HashMap Text [ValueWithServiceIds])
+annotations :: Maybe (HashMap Text [ValueWithServiceIds])
+$sel:annotations:TraceSummary' :: TraceSummary -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+</span><a href="#local-6989586621679257578"><span class="hs-identifier hs-var hs-var">annotations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [ValueWithServiceIds])
+</span><a href="#local-6989586621679257578"><span class="hs-identifier hs-var">annotations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257577"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257576"><span class="annot"><span class="annottext">Maybe (HashMap Text [ValueWithServiceIds])
+</span><a href="#local-6989586621679257576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:annotations:TraceSummary' :: Maybe (HashMap Text [ValueWithServiceIds])
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Aannotations%3ATraceSummary%27"><span class="hs-identifier hs-var">annotations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [ValueWithServiceIds])
+</span><a href="#local-6989586621679257576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [ValueWithServiceIds])
+  -&gt; f (Maybe (HashMap Text [ValueWithServiceIds])))
+ -&gt; TraceSummary -&gt; f TraceSummary)
+-&gt; ((Maybe (HashMap Text [ValueWithServiceIds])
+     -&gt; f (Maybe (HashMap Text [ValueWithServiceIds])))
+    -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+    -&gt; f (Maybe (HashMap Text [ValueWithServiceIds])))
+-&gt; (Maybe (HashMap Text [ValueWithServiceIds])
+    -&gt; f (Maybe (HashMap Text [ValueWithServiceIds])))
+-&gt; TraceSummary
+-&gt; f TraceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text [ValueWithServiceIds])
+  (HashMap Text [ValueWithServiceIds])
+  (HashMap Text [ValueWithServiceIds])
+  (HashMap Text [ValueWithServiceIds])
+-&gt; Iso
+     (Maybe (HashMap Text [ValueWithServiceIds]))
+     (Maybe (HashMap Text [ValueWithServiceIds]))
+     (Maybe (HashMap Text [ValueWithServiceIds]))
+     (Maybe (HashMap Text [ValueWithServiceIds]))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text [ValueWithServiceIds])
+  (HashMap Text [ValueWithServiceIds])
+  (HashMap Text [ValueWithServiceIds])
+  (HashMap Text [ValueWithServiceIds])
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | A list of resource ARNs for any resource corresponding to the trace</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_resourceARNs"><span class="hs-identifier hs-type">traceSummary_resourceARNs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail"><span class="hs-identifier hs-type">ResourceARNDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="traceSummary_resourceARNs"><span class="annot"><span class="annottext">traceSummary_resourceARNs :: (Maybe [ResourceARNDetail] -&gt; f (Maybe [ResourceARNDetail]))
+-&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_resourceARNs"><span class="hs-identifier hs-var hs-var">traceSummary_resourceARNs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe [ResourceARNDetail])
+-&gt; (TraceSummary -&gt; Maybe [ResourceARNDetail] -&gt; TraceSummary)
+-&gt; Lens
+     TraceSummary
+     TraceSummary
+     (Maybe [ResourceARNDetail])
+     (Maybe [ResourceARNDetail])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257574"><span class="annot"><span class="annottext">Maybe [ResourceARNDetail]
+resourceARNs :: Maybe [ResourceARNDetail]
+$sel:resourceARNs:TraceSummary' :: TraceSummary -&gt; Maybe [ResourceARNDetail]
+</span><a href="#local-6989586621679257574"><span class="hs-identifier hs-var hs-var">resourceARNs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceARNDetail]
+</span><a href="#local-6989586621679257574"><span class="hs-identifier hs-var">resourceARNs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257573"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257572"><span class="annot"><span class="annottext">Maybe [ResourceARNDetail]
+</span><a href="#local-6989586621679257572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceARNs:TraceSummary' :: Maybe [ResourceARNDetail]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AresourceARNs%3ATraceSummary%27"><span class="hs-identifier hs-var">resourceARNs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceARNDetail]
+</span><a href="#local-6989586621679257572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceARNDetail] -&gt; f (Maybe [ResourceARNDetail]))
+ -&gt; TraceSummary -&gt; f TraceSummary)
+-&gt; ((Maybe [ResourceARNDetail] -&gt; f (Maybe [ResourceARNDetail]))
+    -&gt; Maybe [ResourceARNDetail] -&gt; f (Maybe [ResourceARNDetail]))
+-&gt; (Maybe [ResourceARNDetail] -&gt; f (Maybe [ResourceARNDetail]))
+-&gt; TraceSummary
+-&gt; f TraceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceARNDetail]
+  [ResourceARNDetail]
+  [ResourceARNDetail]
+  [ResourceARNDetail]
+-&gt; Iso
+     (Maybe [ResourceARNDetail])
+     (Maybe [ResourceARNDetail])
+     (Maybe [ResourceARNDetail])
+     (Maybe [ResourceARNDetail])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceARNDetail]
+  [ResourceARNDetail]
+  [ResourceARNDetail]
+  [ResourceARNDetail]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | One or more of the segment documents is in progress.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_isPartial"><span class="hs-identifier hs-type">traceSummary_isPartial</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="traceSummary_isPartial"><span class="annot"><span class="annottext">traceSummary_isPartial :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_isPartial"><span class="hs-identifier hs-var hs-var">traceSummary_isPartial</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe Bool)
+-&gt; (TraceSummary -&gt; Maybe Bool -&gt; TraceSummary)
+-&gt; Lens TraceSummary TraceSummary (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257570"><span class="annot"><span class="annottext">Maybe Bool
+isPartial :: Maybe Bool
+$sel:isPartial:TraceSummary' :: TraceSummary -&gt; Maybe Bool
+</span><a href="#local-6989586621679257570"><span class="hs-identifier hs-var hs-var">isPartial</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679257570"><span class="hs-identifier hs-var">isPartial</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257569"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257568"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679257568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isPartial:TraceSummary' :: Maybe Bool
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AisPartial%3ATraceSummary%27"><span class="hs-identifier hs-var">isPartial</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679257568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | A collection of FaultRootCause structures corresponding to the trace</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- segments.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_faultRootCauses"><span class="hs-identifier hs-type">traceSummary_faultRootCauses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.FaultRootCause.html#FaultRootCause"><span class="hs-identifier hs-type">FaultRootCause</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="traceSummary_faultRootCauses"><span class="annot"><span class="annottext">traceSummary_faultRootCauses :: (Maybe [FaultRootCause] -&gt; f (Maybe [FaultRootCause]))
+-&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_faultRootCauses"><span class="hs-identifier hs-var hs-var">traceSummary_faultRootCauses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe [FaultRootCause])
+-&gt; (TraceSummary -&gt; Maybe [FaultRootCause] -&gt; TraceSummary)
+-&gt; Lens
+     TraceSummary
+     TraceSummary
+     (Maybe [FaultRootCause])
+     (Maybe [FaultRootCause])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257566"><span class="annot"><span class="annottext">Maybe [FaultRootCause]
+faultRootCauses :: Maybe [FaultRootCause]
+$sel:faultRootCauses:TraceSummary' :: TraceSummary -&gt; Maybe [FaultRootCause]
+</span><a href="#local-6989586621679257566"><span class="hs-identifier hs-var hs-var">faultRootCauses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FaultRootCause]
+</span><a href="#local-6989586621679257566"><span class="hs-identifier hs-var">faultRootCauses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257565"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257564"><span class="annot"><span class="annottext">Maybe [FaultRootCause]
+</span><a href="#local-6989586621679257564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faultRootCauses:TraceSummary' :: Maybe [FaultRootCause]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AfaultRootCauses%3ATraceSummary%27"><span class="hs-identifier hs-var">faultRootCauses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FaultRootCause]
+</span><a href="#local-6989586621679257564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FaultRootCause] -&gt; f (Maybe [FaultRootCause]))
+ -&gt; TraceSummary -&gt; f TraceSummary)
+-&gt; ((Maybe [FaultRootCause] -&gt; f (Maybe [FaultRootCause]))
+    -&gt; Maybe [FaultRootCause] -&gt; f (Maybe [FaultRootCause]))
+-&gt; (Maybe [FaultRootCause] -&gt; f (Maybe [FaultRootCause]))
+-&gt; TraceSummary
+-&gt; f TraceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FaultRootCause] [FaultRootCause] [FaultRootCause] [FaultRootCause]
+-&gt; Iso
+     (Maybe [FaultRootCause])
+     (Maybe [FaultRootCause])
+     (Maybe [FaultRootCause])
+     (Maybe [FaultRootCause])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FaultRootCause] [FaultRootCause] [FaultRootCause] [FaultRootCause]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The revision number of a trace.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_revision"><span class="hs-identifier hs-type">traceSummary_revision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="traceSummary_revision"><span class="annot"><span class="annottext">traceSummary_revision :: (Maybe Int -&gt; f (Maybe Int)) -&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_revision"><span class="hs-identifier hs-var hs-var">traceSummary_revision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe Int)
+-&gt; (TraceSummary -&gt; Maybe Int -&gt; TraceSummary)
+-&gt; Lens TraceSummary TraceSummary (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257562"><span class="annot"><span class="annottext">Maybe Int
+revision :: Maybe Int
+$sel:revision:TraceSummary' :: TraceSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679257562"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679257562"><span class="hs-identifier hs-var">revision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257561"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257560"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679257560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revision:TraceSummary' :: Maybe Int
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Arevision%3ATraceSummary%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679257560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | Information about the HTTP request served by the trace.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_http"><span class="hs-identifier hs-type">traceSummary_http</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Http.html#Http"><span class="hs-identifier hs-type">Http</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="traceSummary_http"><span class="annot"><span class="annottext">traceSummary_http :: (Maybe Http -&gt; f (Maybe Http)) -&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_http"><span class="hs-identifier hs-var hs-var">traceSummary_http</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe Http)
+-&gt; (TraceSummary -&gt; Maybe Http -&gt; TraceSummary)
+-&gt; Lens TraceSummary TraceSummary (Maybe Http) (Maybe Http)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257558"><span class="annot"><span class="annottext">Maybe Http
+http :: Maybe Http
+$sel:http:TraceSummary' :: TraceSummary -&gt; Maybe Http
+</span><a href="#local-6989586621679257558"><span class="hs-identifier hs-var hs-var">http</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Http
+</span><a href="#local-6989586621679257558"><span class="hs-identifier hs-var">http</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257557"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257556"><span class="annot"><span class="annottext">Maybe Http
+</span><a href="#local-6989586621679257556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:http:TraceSummary' :: Maybe Http
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Ahttp%3ATraceSummary%27"><span class="hs-identifier hs-var">http</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Http
+</span><a href="#local-6989586621679257556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The root segment document has a 400 series error.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_hasError"><span class="hs-identifier hs-type">traceSummary_hasError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="traceSummary_hasError"><span class="annot"><span class="annottext">traceSummary_hasError :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_hasError"><span class="hs-identifier hs-var hs-var">traceSummary_hasError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe Bool)
+-&gt; (TraceSummary -&gt; Maybe Bool -&gt; TraceSummary)
+-&gt; Lens TraceSummary TraceSummary (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257554"><span class="annot"><span class="annottext">Maybe Bool
+hasError :: Maybe Bool
+$sel:hasError:TraceSummary' :: TraceSummary -&gt; Maybe Bool
+</span><a href="#local-6989586621679257554"><span class="hs-identifier hs-var hs-var">hasError</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679257554"><span class="hs-identifier hs-var">hasError</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257553"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257552"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679257552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hasError:TraceSummary' :: Maybe Bool
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AhasError%3ATraceSummary%27"><span class="hs-identifier hs-var">hasError</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679257552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | Users from the trace\'s segment documents.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_users"><span class="hs-identifier hs-type">traceSummary_users</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser"><span class="hs-identifier hs-type">TraceUser</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="traceSummary_users"><span class="annot"><span class="annottext">traceSummary_users :: (Maybe [TraceUser] -&gt; f (Maybe [TraceUser]))
+-&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_users"><span class="hs-identifier hs-var hs-var">traceSummary_users</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe [TraceUser])
+-&gt; (TraceSummary -&gt; Maybe [TraceUser] -&gt; TraceSummary)
+-&gt; Lens
+     TraceSummary TraceSummary (Maybe [TraceUser]) (Maybe [TraceUser])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257550"><span class="annot"><span class="annottext">Maybe [TraceUser]
+users :: Maybe [TraceUser]
+$sel:users:TraceSummary' :: TraceSummary -&gt; Maybe [TraceUser]
+</span><a href="#local-6989586621679257550"><span class="hs-identifier hs-var hs-var">users</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TraceUser]
+</span><a href="#local-6989586621679257550"><span class="hs-identifier hs-var">users</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257549"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257548"><span class="annot"><span class="annottext">Maybe [TraceUser]
+</span><a href="#local-6989586621679257548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:users:TraceSummary' :: Maybe [TraceUser]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3Ausers%3ATraceSummary%27"><span class="hs-identifier hs-var">users</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TraceUser]
+</span><a href="#local-6989586621679257548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TraceUser] -&gt; f (Maybe [TraceUser]))
+ -&gt; TraceSummary -&gt; f TraceSummary)
+-&gt; ((Maybe [TraceUser] -&gt; f (Maybe [TraceUser]))
+    -&gt; Maybe [TraceUser] -&gt; f (Maybe [TraceUser]))
+-&gt; (Maybe [TraceUser] -&gt; f (Maybe [TraceUser]))
+-&gt; TraceSummary
+-&gt; f TraceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TraceUser] [TraceUser] [TraceUser] [TraceUser]
+-&gt; Iso
+     (Maybe [TraceUser])
+     (Maybe [TraceUser])
+     (Maybe [TraceUser])
+     (Maybe [TraceUser])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TraceUser] [TraceUser] [TraceUser] [TraceUser]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | A collection of ResponseTimeRootCause structures corresponding to the</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- trace segments.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_responseTimeRootCauses"><span class="hs-identifier hs-type">traceSummary_responseTimeRootCauses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause"><span class="hs-identifier hs-type">ResponseTimeRootCause</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span id="traceSummary_responseTimeRootCauses"><span class="annot"><span class="annottext">traceSummary_responseTimeRootCauses :: (Maybe [ResponseTimeRootCause]
+ -&gt; f (Maybe [ResponseTimeRootCause]))
+-&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_responseTimeRootCauses"><span class="hs-identifier hs-var hs-var">traceSummary_responseTimeRootCauses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe [ResponseTimeRootCause])
+-&gt; (TraceSummary -&gt; Maybe [ResponseTimeRootCause] -&gt; TraceSummary)
+-&gt; Lens
+     TraceSummary
+     TraceSummary
+     (Maybe [ResponseTimeRootCause])
+     (Maybe [ResponseTimeRootCause])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257546"><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCause]
+responseTimeRootCauses :: Maybe [ResponseTimeRootCause]
+$sel:responseTimeRootCauses:TraceSummary' :: TraceSummary -&gt; Maybe [ResponseTimeRootCause]
+</span><a href="#local-6989586621679257546"><span class="hs-identifier hs-var hs-var">responseTimeRootCauses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCause]
+</span><a href="#local-6989586621679257546"><span class="hs-identifier hs-var">responseTimeRootCauses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257545"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257544"><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCause]
+</span><a href="#local-6989586621679257544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseTimeRootCauses:TraceSummary' :: Maybe [ResponseTimeRootCause]
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AresponseTimeRootCauses%3ATraceSummary%27"><span class="hs-identifier hs-var">responseTimeRootCauses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCause]
+</span><a href="#local-6989586621679257544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResponseTimeRootCause]
+  -&gt; f (Maybe [ResponseTimeRootCause]))
+ -&gt; TraceSummary -&gt; f TraceSummary)
+-&gt; ((Maybe [ResponseTimeRootCause]
+     -&gt; f (Maybe [ResponseTimeRootCause]))
+    -&gt; Maybe [ResponseTimeRootCause]
+    -&gt; f (Maybe [ResponseTimeRootCause]))
+-&gt; (Maybe [ResponseTimeRootCause]
+    -&gt; f (Maybe [ResponseTimeRootCause]))
+-&gt; TraceSummary
+-&gt; f TraceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResponseTimeRootCause]
+  [ResponseTimeRootCause]
+  [ResponseTimeRootCause]
+  [ResponseTimeRootCause]
+-&gt; Iso
+     (Maybe [ResponseTimeRootCause])
+     (Maybe [ResponseTimeRootCause])
+     (Maybe [ResponseTimeRootCause])
+     (Maybe [ResponseTimeRootCause])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResponseTimeRootCause]
+  [ResponseTimeRootCause]
+  [ResponseTimeRootCause]
+  [ResponseTimeRootCause]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | One or more of the segment documents has a 429 throttling error.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_hasThrottle"><span class="hs-identifier hs-type">traceSummary_hasThrottle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="traceSummary_hasThrottle"><span class="annot"><span class="annottext">traceSummary_hasThrottle :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; TraceSummary -&gt; f TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#traceSummary_hasThrottle"><span class="hs-identifier hs-var hs-var">traceSummary_hasThrottle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TraceSummary -&gt; Maybe Bool)
+-&gt; (TraceSummary -&gt; Maybe Bool -&gt; TraceSummary)
+-&gt; Lens TraceSummary TraceSummary (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257542"><span class="annot"><span class="annottext">Maybe Bool
+hasThrottle :: Maybe Bool
+$sel:hasThrottle:TraceSummary' :: TraceSummary -&gt; Maybe Bool
+</span><a href="#local-6989586621679257542"><span class="hs-identifier hs-var hs-var">hasThrottle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679257542"><span class="hs-identifier hs-var">hasThrottle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257541"><span class="annot"><span class="annottext">s :: TraceSummary
+</span><a href="#local-6989586621679257541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-type">TraceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257540"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679257540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceSummary
+</span><a href="#local-6989586621679257541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hasThrottle:TraceSummary' :: Maybe Bool
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#%24sel%3AhasThrottle%3ATraceSummary%27"><span class="hs-identifier hs-var">hasThrottle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679257540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257537"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621679257535"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TraceSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TraceSummary) -&gt; Value -&gt; Parser TraceSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TraceSummary&quot;</span></span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257532"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-277"></span><span>          </span><span class="annot"><span class="annottext">Maybe [InstanceIdDetail]
+-&gt; Maybe [AvailabilityZoneDetail]
+-&gt; Maybe [ErrorRootCause]
+-&gt; Maybe Double
+-&gt; Maybe Double
+-&gt; Maybe [ServiceId]
+-&gt; Maybe POSIX
+-&gt; Maybe ServiceId
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text [ValueWithServiceIds])
+-&gt; Maybe [ResourceARNDetail]
+-&gt; Maybe Bool
+-&gt; Maybe [FaultRootCause]
+-&gt; Maybe Int
+-&gt; Maybe Http
+-&gt; Maybe Bool
+-&gt; Maybe [TraceUser]
+-&gt; Maybe [ResponseTimeRootCause]
+-&gt; Maybe Bool
+-&gt; TraceSummary
+</span><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary%27"><span class="hs-identifier hs-var">TraceSummary'</span></a></span><span>
+</span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [InstanceIdDetail]
+ -&gt; Maybe [AvailabilityZoneDetail]
+ -&gt; Maybe [ErrorRootCause]
+ -&gt; Maybe Double
+ -&gt; Maybe Double
+ -&gt; Maybe [ServiceId]
+ -&gt; Maybe POSIX
+ -&gt; Maybe ServiceId
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+ -&gt; Maybe [ResourceARNDetail]
+ -&gt; Maybe Bool
+ -&gt; Maybe [FaultRootCause]
+ -&gt; Maybe Int
+ -&gt; Maybe Http
+ -&gt; Maybe Bool
+ -&gt; Maybe [TraceUser]
+ -&gt; Maybe [ResponseTimeRootCause]
+ -&gt; Maybe Bool
+ -&gt; TraceSummary)
+-&gt; Parser (Maybe [InstanceIdDetail])
+-&gt; Parser
+     (Maybe [AvailabilityZoneDetail]
+      -&gt; Maybe [ErrorRootCause]
+      -&gt; Maybe Double
+      -&gt; Maybe Double
+      -&gt; Maybe [ServiceId]
+      -&gt; Maybe POSIX
+      -&gt; Maybe ServiceId
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+      -&gt; Maybe [ResourceARNDetail]
+      -&gt; Maybe Bool
+      -&gt; Maybe [FaultRootCause]
+      -&gt; Maybe Int
+      -&gt; Maybe Http
+      -&gt; Maybe Bool
+      -&gt; Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause]
+      -&gt; Maybe Bool
+      -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InstanceIdDetail]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [InstanceIdDetail]))
+-&gt; Maybe [InstanceIdDetail] -&gt; Parser (Maybe [InstanceIdDetail])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceIdDetail]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AvailabilityZoneDetail]
+   -&gt; Maybe [ErrorRootCause]
+   -&gt; Maybe Double
+   -&gt; Maybe Double
+   -&gt; Maybe [ServiceId]
+   -&gt; Maybe POSIX
+   -&gt; Maybe ServiceId
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+   -&gt; Maybe [ResourceARNDetail]
+   -&gt; Maybe Bool
+   -&gt; Maybe [FaultRootCause]
+   -&gt; Maybe Int
+   -&gt; Maybe Http
+   -&gt; Maybe Bool
+   -&gt; Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause]
+   -&gt; Maybe Bool
+   -&gt; TraceSummary)
+-&gt; Parser (Maybe [AvailabilityZoneDetail])
+-&gt; Parser
+     (Maybe [ErrorRootCause]
+      -&gt; Maybe Double
+      -&gt; Maybe Double
+      -&gt; Maybe [ServiceId]
+      -&gt; Maybe POSIX
+      -&gt; Maybe ServiceId
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+      -&gt; Maybe [ResourceARNDetail]
+      -&gt; Maybe Bool
+      -&gt; Maybe [FaultRootCause]
+      -&gt; Maybe Int
+      -&gt; Maybe Http
+      -&gt; Maybe Bool
+      -&gt; Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause]
+      -&gt; Maybe Bool
+      -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AvailabilityZoneDetail]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AvailabilityZones&quot;</span></span><span>
+</span><span id="line-280"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AvailabilityZoneDetail]))
+-&gt; Maybe [AvailabilityZoneDetail]
+-&gt; Parser (Maybe [AvailabilityZoneDetail])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AvailabilityZoneDetail]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-281"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ErrorRootCause]
+   -&gt; Maybe Double
+   -&gt; Maybe Double
+   -&gt; Maybe [ServiceId]
+   -&gt; Maybe POSIX
+   -&gt; Maybe ServiceId
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+   -&gt; Maybe [ResourceARNDetail]
+   -&gt; Maybe Bool
+   -&gt; Maybe [FaultRootCause]
+   -&gt; Maybe Int
+   -&gt; Maybe Http
+   -&gt; Maybe Bool
+   -&gt; Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause]
+   -&gt; Maybe Bool
+   -&gt; TraceSummary)
+-&gt; Parser (Maybe [ErrorRootCause])
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe Double
+      -&gt; Maybe [ServiceId]
+      -&gt; Maybe POSIX
+      -&gt; Maybe ServiceId
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+      -&gt; Maybe [ResourceARNDetail]
+      -&gt; Maybe Bool
+      -&gt; Maybe [FaultRootCause]
+      -&gt; Maybe Int
+      -&gt; Maybe Http
+      -&gt; Maybe Bool
+      -&gt; Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause]
+      -&gt; Maybe Bool
+      -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ErrorRootCause]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorRootCauses&quot;</span></span><span>
+</span><span id="line-283"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ErrorRootCause]))
+-&gt; Maybe [ErrorRootCause] -&gt; Parser (Maybe [ErrorRootCause])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorRootCause]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-284"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe Double
+   -&gt; Maybe [ServiceId]
+   -&gt; Maybe POSIX
+   -&gt; Maybe ServiceId
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+   -&gt; Maybe [ResourceARNDetail]
+   -&gt; Maybe Bool
+   -&gt; Maybe [FaultRootCause]
+   -&gt; Maybe Int
+   -&gt; Maybe Http
+   -&gt; Maybe Bool
+   -&gt; Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause]
+   -&gt; Maybe Bool
+   -&gt; TraceSummary)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe [ServiceId]
+      -&gt; Maybe POSIX
+      -&gt; Maybe ServiceId
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+      -&gt; Maybe [ResourceARNDetail]
+      -&gt; Maybe Bool
+      -&gt; Maybe [FaultRootCause]
+      -&gt; Maybe Int
+      -&gt; Maybe Http
+      -&gt; Maybe Bool
+      -&gt; Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause]
+      -&gt; Maybe Bool
+      -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResponseTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe [ServiceId]
+   -&gt; Maybe POSIX
+   -&gt; Maybe ServiceId
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+   -&gt; Maybe [ResourceARNDetail]
+   -&gt; Maybe Bool
+   -&gt; Maybe [FaultRootCause]
+   -&gt; Maybe Int
+   -&gt; Maybe Http
+   -&gt; Maybe Bool
+   -&gt; Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause]
+   -&gt; Maybe Bool
+   -&gt; TraceSummary)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe [ServiceId]
+      -&gt; Maybe POSIX
+      -&gt; Maybe ServiceId
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+      -&gt; Maybe [ResourceARNDetail]
+      -&gt; Maybe Bool
+      -&gt; Maybe [FaultRootCause]
+      -&gt; Maybe Int
+      -&gt; Maybe Http
+      -&gt; Maybe Bool
+      -&gt; Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause]
+      -&gt; Maybe Bool
+      -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Duration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ServiceId]
+   -&gt; Maybe POSIX
+   -&gt; Maybe ServiceId
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+   -&gt; Maybe [ResourceARNDetail]
+   -&gt; Maybe Bool
+   -&gt; Maybe [FaultRootCause]
+   -&gt; Maybe Int
+   -&gt; Maybe Http
+   -&gt; Maybe Bool
+   -&gt; Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause]
+   -&gt; Maybe Bool
+   -&gt; TraceSummary)
+-&gt; Parser (Maybe [ServiceId])
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe ServiceId
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+      -&gt; Maybe [ResourceARNDetail]
+      -&gt; Maybe Bool
+      -&gt; Maybe [FaultRootCause]
+      -&gt; Maybe Int
+      -&gt; Maybe Http
+      -&gt; Maybe Bool
+      -&gt; Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause]
+      -&gt; Maybe Bool
+      -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ServiceId]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ServiceId]))
+-&gt; Maybe [ServiceId] -&gt; Parser (Maybe [ServiceId])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceId]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe ServiceId
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+   -&gt; Maybe [ResourceARNDetail]
+   -&gt; Maybe Bool
+   -&gt; Maybe [FaultRootCause]
+   -&gt; Maybe Int
+   -&gt; Maybe Http
+   -&gt; Maybe Bool
+   -&gt; Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause]
+   -&gt; Maybe Bool
+   -&gt; TraceSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ServiceId
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+      -&gt; Maybe [ResourceARNDetail]
+      -&gt; Maybe Bool
+      -&gt; Maybe [FaultRootCause]
+      -&gt; Maybe Int
+      -&gt; Maybe Http
+      -&gt; Maybe Bool
+      -&gt; Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause]
+      -&gt; Maybe Bool
+      -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MatchedEventTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ServiceId
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+   -&gt; Maybe [ResourceARNDetail]
+   -&gt; Maybe Bool
+   -&gt; Maybe [FaultRootCause]
+   -&gt; Maybe Int
+   -&gt; Maybe Http
+   -&gt; Maybe Bool
+   -&gt; Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause]
+   -&gt; Maybe Bool
+   -&gt; TraceSummary)
+-&gt; Parser (Maybe ServiceId)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+      -&gt; Maybe [ResourceARNDetail]
+      -&gt; Maybe Bool
+      -&gt; Maybe [FaultRootCause]
+      -&gt; Maybe Int
+      -&gt; Maybe Http
+      -&gt; Maybe Bool
+      -&gt; Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause]
+      -&gt; Maybe Bool
+      -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceId)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EntryPoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+   -&gt; Maybe [ResourceARNDetail]
+   -&gt; Maybe Bool
+   -&gt; Maybe [FaultRootCause]
+   -&gt; Maybe Int
+   -&gt; Maybe Http
+   -&gt; Maybe Bool
+   -&gt; Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause]
+   -&gt; Maybe Bool
+   -&gt; TraceSummary)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+      -&gt; Maybe [ResourceARNDetail]
+      -&gt; Maybe Bool
+      -&gt; Maybe [FaultRootCause]
+      -&gt; Maybe Int
+      -&gt; Maybe Http
+      -&gt; Maybe Bool
+      -&gt; Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause]
+      -&gt; Maybe Bool
+      -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HasFault&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text [ValueWithServiceIds])
+   -&gt; Maybe [ResourceARNDetail]
+   -&gt; Maybe Bool
+   -&gt; Maybe [FaultRootCause]
+   -&gt; Maybe Int
+   -&gt; Maybe Http
+   -&gt; Maybe Bool
+   -&gt; Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause]
+   -&gt; Maybe Bool
+   -&gt; TraceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text [ValueWithServiceIds])
+      -&gt; Maybe [ResourceARNDetail]
+      -&gt; Maybe Bool
+      -&gt; Maybe [FaultRootCause]
+      -&gt; Maybe Int
+      -&gt; Maybe Http
+      -&gt; Maybe Bool
+      -&gt; Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause]
+      -&gt; Maybe Bool
+      -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text [ValueWithServiceIds])
+   -&gt; Maybe [ResourceARNDetail]
+   -&gt; Maybe Bool
+   -&gt; Maybe [FaultRootCause]
+   -&gt; Maybe Int
+   -&gt; Maybe Http
+   -&gt; Maybe Bool
+   -&gt; Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause]
+   -&gt; Maybe Bool
+   -&gt; TraceSummary)
+-&gt; Parser (Maybe (HashMap Text [ValueWithServiceIds]))
+-&gt; Parser
+     (Maybe [ResourceARNDetail]
+      -&gt; Maybe Bool
+      -&gt; Maybe [FaultRootCause]
+      -&gt; Maybe Int
+      -&gt; Maybe Http
+      -&gt; Maybe Bool
+      -&gt; Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause]
+      -&gt; Maybe Bool
+      -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe (Maybe (HashMap Text [ValueWithServiceIds])))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Annotations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text [ValueWithServiceIds])))
+-&gt; Maybe (HashMap Text [ValueWithServiceIds])
+-&gt; Parser (Maybe (HashMap Text [ValueWithServiceIds]))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [ValueWithServiceIds])
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ResourceARNDetail]
+   -&gt; Maybe Bool
+   -&gt; Maybe [FaultRootCause]
+   -&gt; Maybe Int
+   -&gt; Maybe Http
+   -&gt; Maybe Bool
+   -&gt; Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause]
+   -&gt; Maybe Bool
+   -&gt; TraceSummary)
+-&gt; Parser (Maybe [ResourceARNDetail])
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe [FaultRootCause]
+      -&gt; Maybe Int
+      -&gt; Maybe Http
+      -&gt; Maybe Bool
+      -&gt; Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause]
+      -&gt; Maybe Bool
+      -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ResourceARNDetail]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceARNs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ResourceARNDetail]))
+-&gt; Maybe [ResourceARNDetail] -&gt; Parser (Maybe [ResourceARNDetail])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceARNDetail]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe [FaultRootCause]
+   -&gt; Maybe Int
+   -&gt; Maybe Http
+   -&gt; Maybe Bool
+   -&gt; Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause]
+   -&gt; Maybe Bool
+   -&gt; TraceSummary)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe [FaultRootCause]
+      -&gt; Maybe Int
+      -&gt; Maybe Http
+      -&gt; Maybe Bool
+      -&gt; Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause]
+      -&gt; Maybe Bool
+      -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsPartial&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [FaultRootCause]
+   -&gt; Maybe Int
+   -&gt; Maybe Http
+   -&gt; Maybe Bool
+   -&gt; Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause]
+   -&gt; Maybe Bool
+   -&gt; TraceSummary)
+-&gt; Parser (Maybe [FaultRootCause])
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Http
+      -&gt; Maybe Bool
+      -&gt; Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause]
+      -&gt; Maybe Bool
+      -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [FaultRootCause]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FaultRootCauses&quot;</span></span><span>
+</span><span id="line-296"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [FaultRootCause]))
+-&gt; Maybe [FaultRootCause] -&gt; Parser (Maybe [FaultRootCause])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FaultRootCause]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-297"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Http
+   -&gt; Maybe Bool
+   -&gt; Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause]
+   -&gt; Maybe Bool
+   -&gt; TraceSummary)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Http
+      -&gt; Maybe Bool
+      -&gt; Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause]
+      -&gt; Maybe Bool
+      -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Revision&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Http
+   -&gt; Maybe Bool
+   -&gt; Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause]
+   -&gt; Maybe Bool
+   -&gt; TraceSummary)
+-&gt; Parser (Maybe Http)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause]
+      -&gt; Maybe Bool
+      -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Http)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Http&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause]
+   -&gt; Maybe Bool
+   -&gt; TraceSummary)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe [TraceUser]
+      -&gt; Maybe [ResponseTimeRootCause] -&gt; Maybe Bool -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HasError&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [TraceUser]
+   -&gt; Maybe [ResponseTimeRootCause] -&gt; Maybe Bool -&gt; TraceSummary)
+-&gt; Parser (Maybe [TraceUser])
+-&gt; Parser
+     (Maybe [ResponseTimeRootCause] -&gt; Maybe Bool -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TraceUser]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Users&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [TraceUser]))
+-&gt; Maybe [TraceUser] -&gt; Parser (Maybe [TraceUser])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TraceUser]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ResponseTimeRootCause] -&gt; Maybe Bool -&gt; TraceSummary)
+-&gt; Parser (Maybe [ResponseTimeRootCause])
+-&gt; Parser (Maybe Bool -&gt; TraceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ResponseTimeRootCause]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResponseTimeRootCauses&quot;</span></span><span>
+</span><span id="line-303"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ResponseTimeRootCause]))
+-&gt; Maybe [ResponseTimeRootCause]
+-&gt; Parser (Maybe [ResponseTimeRootCause])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCause]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-304"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; TraceSummary)
+-&gt; Parser (Maybe Bool) -&gt; Parser TraceSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HasThrottle&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257525"><span id="local-6989586621679257527"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span></span></span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257522"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceSummary.html#TraceSummary"><span class="hs-identifier hs-type">TraceSummary</span></a></span></span><span>
+</span><span id="line-311"></span></pre></body></html>

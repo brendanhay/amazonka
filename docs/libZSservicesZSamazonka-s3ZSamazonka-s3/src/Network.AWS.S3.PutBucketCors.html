@@ -1,0 +1,507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.S3.PutBucketCors</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Sets the @cors@ configuration for your bucket. If the configuration</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- exists, Amazon S3 replaces it.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- To use this operation, you must be allowed to perform the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @s3:PutBucketCORS@ action. By default, the bucket owner has this</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- permission and can grant it to others.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- You set this configuration on a bucket so that the bucket can service</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- cross-origin requests. For example, you might want to enable a request</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- whose origin is @http:\/\/www.example.com@ to access your Amazon S3</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- bucket at @my.example.bucket.com@ by using the browser\'s</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- @XMLHttpRequest@ capability.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- To enable cross-origin resource sharing (CORS) on a bucket, you add the</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- @cors@ subresource to the bucket. The @cors@ subresource is an XML</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- document in which you configure rules that identify origins and the HTTP</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- methods that can be executed on your bucket. The document is limited to</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- 64 KB in size.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- When Amazon S3 receives a cross-origin request (or a pre-flight OPTIONS</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- request) against a bucket, it evaluates the @cors@ configuration on the</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- bucket and uses the first @CORSRule@ rule that matches the incoming</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- browser request to enable a cross-origin request. For a rule to match,</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- the following conditions must be met:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- -   The request\'s @Origin@ header must match @AllowedOrigin@ elements.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- -   The request method (for example, GET, PUT, HEAD, and so on) or the</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--     @Access-Control-Request-Method@ header in case of a pre-flight</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--     @OPTIONS@ request must be one of the @AllowedMethod@ elements.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- -   Every header specified in the @Access-Control-Request-Headers@</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--     request header of a pre-flight request must match an @AllowedHeader@</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--     element.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- For more information about CORS, go to</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing&gt;</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- __Related Resources__</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketCors.html GetBucketCors&gt;</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html DeleteBucketCors&gt;</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html RESTOPTIONSobject&gt;</span><span>
+</span><span id="line-69"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.PutBucketCors</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier">PutBucketCors</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#newPutBucketCors"><span class="hs-identifier">newPutBucketCors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#putBucketCors_expectedBucketOwner"><span class="hs-identifier">putBucketCors_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#putBucketCors_contentMD5"><span class="hs-identifier">putBucketCors_contentMD5</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#putBucketCors_bucket"><span class="hs-identifier">putBucketCors_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#putBucketCors_cORSConfiguration"><span class="hs-identifier">putBucketCors_cORSConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCorsResponse"><span class="hs-identifier">PutBucketCorsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#newPutBucketCorsResponse"><span class="hs-identifier">newPutBucketCorsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | /See:/ 'newPutBucketCors' smart constructor.</span><span>
+</span><span id="line-94"></span><span id="local-6989586621679566411"><span id="local-6989586621679566412"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketCors"><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-var">PutBucketCors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketCors%27"><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors%27"><span class="hs-identifier hs-var">PutBucketCors'</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3APutBucketCors%27"><span class="annot"><span class="annottext">PutBucketCors -&gt; Maybe Text
+</span><a href="Network.AWS.S3.PutBucketCors.html#%24sel%3AexpectedBucketOwner%3APutBucketCors%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The base64-encoded 128-bit MD5 digest of the data. This header must be</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- used as a message integrity check to verify that the request body was</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- not corrupted in transit. For more information, go to</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- &lt;http://www.ietf.org/rfc/rfc1864.txt RFC 1864.&gt;</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- For requests made using the Amazon Web Services Command Line Interface</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- (CLI) or Amazon Web Services SDKs, this field is calculated</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- automatically.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AcontentMD5%3APutBucketCors%27"><span class="annot"><span class="annottext">PutBucketCors -&gt; Maybe Text
+</span><a href="Network.AWS.S3.PutBucketCors.html#%24sel%3AcontentMD5%3APutBucketCors%27"><span class="hs-identifier hs-var hs-var">contentMD5</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | Specifies the bucket impacted by the @cors@configuration.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3Abucket%3APutBucketCors%27"><span class="annot"><span class="annottext">PutBucketCors -&gt; BucketName
+</span><a href="Network.AWS.S3.PutBucketCors.html#%24sel%3Abucket%3APutBucketCors%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | Describes the cross-origin access configuration for objects in an Amazon</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- S3 bucket. For more information, see</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing&gt;</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AcORSConfiguration%3APutBucketCors%27"><span class="annot"><span class="annottext">PutBucketCors -&gt; CORSConfiguration
+</span><a href="Network.AWS.S3.PutBucketCors.html#%24sel%3AcORSConfiguration%3APutBucketCors%27"><span class="hs-identifier hs-var hs-var">cORSConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration"><span class="hs-identifier hs-type">CORSConfiguration</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679566402"><span id="local-6989586621679566404"><span class="annot"><span class="annottext">PutBucketCors -&gt; PutBucketCors -&gt; Bool
+(PutBucketCors -&gt; PutBucketCors -&gt; Bool)
+-&gt; (PutBucketCors -&gt; PutBucketCors -&gt; Bool) -&gt; Eq PutBucketCors
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutBucketCors -&gt; PutBucketCors -&gt; Bool
+$c/= :: PutBucketCors -&gt; PutBucketCors -&gt; Bool
+== :: PutBucketCors -&gt; PutBucketCors -&gt; Bool
+$c== :: PutBucketCors -&gt; PutBucketCors -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566393"><span id="local-6989586621679566395"><span id="local-6989586621679566397"><span id="local-6989586621679566399"><span class="annot"><span class="annottext">ReadPrec [PutBucketCors]
+ReadPrec PutBucketCors
+Int -&gt; ReadS PutBucketCors
+ReadS [PutBucketCors]
+(Int -&gt; ReadS PutBucketCors)
+-&gt; ReadS [PutBucketCors]
+-&gt; ReadPrec PutBucketCors
+-&gt; ReadPrec [PutBucketCors]
+-&gt; Read PutBucketCors
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutBucketCors]
+$creadListPrec :: ReadPrec [PutBucketCors]
+readPrec :: ReadPrec PutBucketCors
+$creadPrec :: ReadPrec PutBucketCors
+readList :: ReadS [PutBucketCors]
+$creadList :: ReadS [PutBucketCors]
+readsPrec :: Int -&gt; ReadS PutBucketCors
+$creadsPrec :: Int -&gt; ReadS PutBucketCors
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566386"><span id="local-6989586621679566388"><span id="local-6989586621679566390"><span class="annot"><span class="annottext">Int -&gt; PutBucketCors -&gt; ShowS
+[PutBucketCors] -&gt; ShowS
+PutBucketCors -&gt; String
+(Int -&gt; PutBucketCors -&gt; ShowS)
+-&gt; (PutBucketCors -&gt; String)
+-&gt; ([PutBucketCors] -&gt; ShowS)
+-&gt; Show PutBucketCors
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutBucketCors] -&gt; ShowS
+$cshowList :: [PutBucketCors] -&gt; ShowS
+show :: PutBucketCors -&gt; String
+$cshow :: PutBucketCors -&gt; String
+showsPrec :: Int -&gt; PutBucketCors -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutBucketCors -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutBucketCors -&gt; Rep PutBucketCors x)
+-&gt; (forall x. Rep PutBucketCors x -&gt; PutBucketCors)
+-&gt; Generic PutBucketCors
+forall x. Rep PutBucketCors x -&gt; PutBucketCors
+forall x. PutBucketCors -&gt; Rep PutBucketCors x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutBucketCors x -&gt; PutBucketCors
+$cfrom :: forall x. PutBucketCors -&gt; Rep PutBucketCors x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Create a value of 'PutBucketCors' with all optional fields omitted.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'expectedBucketOwner', 'putBucketCors_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'contentMD5', 'putBucketCors_contentMD5' - The base64-encoded 128-bit MD5 digest of the data. This header must be</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- used as a message integrity check to verify that the request body was</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- not corrupted in transit. For more information, go to</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- &lt;http://www.ietf.org/rfc/rfc1864.txt RFC 1864.&gt;</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- For requests made using the Amazon Web Services Command Line Interface</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- (CLI) or Amazon Web Services SDKs, this field is calculated</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- automatically.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'bucket', 'putBucketCors_bucket' - Specifies the bucket impacted by the @cors@configuration.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'cORSConfiguration', 'putBucketCors_cORSConfiguration' - Describes the cross-origin access configuration for objects in an Amazon</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- S3 bucket. For more information, see</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing&gt;</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#newPutBucketCors"><span class="hs-identifier hs-type">newPutBucketCors</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'bucket'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-comment">-- | 'cORSConfiguration'</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration"><span class="hs-identifier hs-type">CORSConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span><span>
+</span><span id="line-151"></span><span id="newPutBucketCors"><span class="annot"><span class="annottext">newPutBucketCors :: BucketName -&gt; CORSConfiguration -&gt; PutBucketCors
+</span><a href="Network.AWS.S3.PutBucketCors.html#newPutBucketCors"><span class="hs-identifier hs-var hs-var">newPutBucketCors</span></a></span></span><span> </span><span id="local-6989586621679566381"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679566381"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679566380"><span class="annot"><span class="annottext">CORSConfiguration
+</span><a href="#local-6989586621679566380"><span class="hs-identifier hs-var">pCORSConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">PutBucketCors' :: Maybe Text
+-&gt; Maybe Text -&gt; BucketName -&gt; CORSConfiguration -&gt; PutBucketCors
+</span><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors%27"><span class="hs-identifier hs-type">PutBucketCors'</span></a></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketCors' :: Maybe Text
+</span><a href="Network.AWS.S3.PutBucketCors.html#%24sel%3AexpectedBucketOwner%3APutBucketCors%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentMD5:PutBucketCors' :: Maybe Text
+</span><a href="Network.AWS.S3.PutBucketCors.html#%24sel%3AcontentMD5%3APutBucketCors%27"><span class="hs-identifier hs-var">contentMD5</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:PutBucketCors' :: BucketName
+</span><a href="Network.AWS.S3.PutBucketCors.html#%24sel%3Abucket%3APutBucketCors%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679566381"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:cORSConfiguration:PutBucketCors' :: CORSConfiguration
+</span><a href="Network.AWS.S3.PutBucketCors.html#%24sel%3AcORSConfiguration%3APutBucketCors%27"><span class="hs-identifier hs-var">cORSConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CORSConfiguration
+</span><a href="#local-6989586621679566380"><span class="hs-identifier hs-var">pCORSConfiguration_</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#putBucketCors_expectedBucketOwner"><span class="hs-identifier hs-type">putBucketCors_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="putBucketCors_expectedBucketOwner"><span class="annot"><span class="annottext">putBucketCors_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PutBucketCors -&gt; f PutBucketCors
+</span><a href="Network.AWS.S3.PutBucketCors.html#putBucketCors_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">putBucketCors_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketCors -&gt; Maybe Text)
+-&gt; (PutBucketCors -&gt; Maybe Text -&gt; PutBucketCors)
+-&gt; Lens PutBucketCors PutBucketCors (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors%27"><span class="hs-identifier hs-type">PutBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566377"><span class="annot"><span class="annottext">Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:expectedBucketOwner:PutBucketCors' :: PutBucketCors -&gt; Maybe Text
+</span><a href="#local-6989586621679566377"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566377"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566376"><span class="annot"><span class="annottext">s :: PutBucketCors
+</span><a href="#local-6989586621679566376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors%27"><span class="hs-identifier hs-type">PutBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566375"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketCors
+</span><a href="#local-6989586621679566376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketCors' :: Maybe Text
+</span><a href="Network.AWS.S3.PutBucketCors.html#%24sel%3AexpectedBucketOwner%3APutBucketCors%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The base64-encoded 128-bit MD5 digest of the data. This header must be</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- used as a message integrity check to verify that the request body was</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- not corrupted in transit. For more information, go to</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- &lt;http://www.ietf.org/rfc/rfc1864.txt RFC 1864.&gt;</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- For requests made using the Amazon Web Services Command Line Interface</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- (CLI) or Amazon Web Services SDKs, this field is calculated</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- automatically.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#putBucketCors_contentMD5"><span class="hs-identifier hs-type">putBucketCors_contentMD5</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="putBucketCors_contentMD5"><span class="annot"><span class="annottext">putBucketCors_contentMD5 :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PutBucketCors -&gt; f PutBucketCors
+</span><a href="Network.AWS.S3.PutBucketCors.html#putBucketCors_contentMD5"><span class="hs-identifier hs-var hs-var">putBucketCors_contentMD5</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketCors -&gt; Maybe Text)
+-&gt; (PutBucketCors -&gt; Maybe Text -&gt; PutBucketCors)
+-&gt; Lens PutBucketCors PutBucketCors (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors%27"><span class="hs-identifier hs-type">PutBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566374"><span class="annot"><span class="annottext">Maybe Text
+contentMD5 :: Maybe Text
+$sel:contentMD5:PutBucketCors' :: PutBucketCors -&gt; Maybe Text
+</span><a href="#local-6989586621679566374"><span class="hs-identifier hs-var hs-var">contentMD5</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566374"><span class="hs-identifier hs-var">contentMD5</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566373"><span class="annot"><span class="annottext">s :: PutBucketCors
+</span><a href="#local-6989586621679566373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors%27"><span class="hs-identifier hs-type">PutBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566372"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketCors
+</span><a href="#local-6989586621679566373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentMD5:PutBucketCors' :: Maybe Text
+</span><a href="Network.AWS.S3.PutBucketCors.html#%24sel%3AcontentMD5%3APutBucketCors%27"><span class="hs-identifier hs-var">contentMD5</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Specifies the bucket impacted by the @cors@configuration.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#putBucketCors_bucket"><span class="hs-identifier hs-type">putBucketCors_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
+</span><span id="line-179"></span><span id="putBucketCors_bucket"><span class="annot"><span class="annottext">putBucketCors_bucket :: (BucketName -&gt; f BucketName) -&gt; PutBucketCors -&gt; f PutBucketCors
+</span><a href="Network.AWS.S3.PutBucketCors.html#putBucketCors_bucket"><span class="hs-identifier hs-var hs-var">putBucketCors_bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketCors -&gt; BucketName)
+-&gt; (PutBucketCors -&gt; BucketName -&gt; PutBucketCors)
+-&gt; Lens PutBucketCors PutBucketCors BucketName BucketName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors%27"><span class="hs-identifier hs-type">PutBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566371"><span class="annot"><span class="annottext">BucketName
+bucket :: BucketName
+$sel:bucket:PutBucketCors' :: PutBucketCors -&gt; BucketName
+</span><a href="#local-6989586621679566371"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679566371"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566370"><span class="annot"><span class="annottext">s :: PutBucketCors
+</span><a href="#local-6989586621679566370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors%27"><span class="hs-identifier hs-type">PutBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566369"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679566369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketCors
+</span><a href="#local-6989586621679566370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:PutBucketCors' :: BucketName
+</span><a href="Network.AWS.S3.PutBucketCors.html#%24sel%3Abucket%3APutBucketCors%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679566369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | Describes the cross-origin access configuration for objects in an Amazon</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- S3 bucket. For more information, see</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing&gt;</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#putBucketCors_cORSConfiguration"><span class="hs-identifier hs-type">putBucketCors_cORSConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration"><span class="hs-identifier hs-type">CORSConfiguration</span></a></span><span>
+</span><span id="line-186"></span><span id="putBucketCors_cORSConfiguration"><span class="annot"><span class="annottext">putBucketCors_cORSConfiguration :: (CORSConfiguration -&gt; f CORSConfiguration)
+-&gt; PutBucketCors -&gt; f PutBucketCors
+</span><a href="Network.AWS.S3.PutBucketCors.html#putBucketCors_cORSConfiguration"><span class="hs-identifier hs-var hs-var">putBucketCors_cORSConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketCors -&gt; CORSConfiguration)
+-&gt; (PutBucketCors -&gt; CORSConfiguration -&gt; PutBucketCors)
+-&gt; Lens
+     PutBucketCors PutBucketCors CORSConfiguration CORSConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors%27"><span class="hs-identifier hs-type">PutBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566368"><span class="annot"><span class="annottext">CORSConfiguration
+cORSConfiguration :: CORSConfiguration
+$sel:cORSConfiguration:PutBucketCors' :: PutBucketCors -&gt; CORSConfiguration
+</span><a href="#local-6989586621679566368"><span class="hs-identifier hs-var hs-var">cORSConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CORSConfiguration
+</span><a href="#local-6989586621679566368"><span class="hs-identifier hs-var">cORSConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566367"><span class="annot"><span class="annottext">s :: PutBucketCors
+</span><a href="#local-6989586621679566367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors%27"><span class="hs-identifier hs-type">PutBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566366"><span class="annot"><span class="annottext">CORSConfiguration
+</span><a href="#local-6989586621679566366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketCors
+</span><a href="#local-6989586621679566367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cORSConfiguration:PutBucketCors' :: CORSConfiguration
+</span><a href="Network.AWS.S3.PutBucketCors.html#%24sel%3AcORSConfiguration%3APutBucketCors%27"><span class="hs-identifier hs-var">cORSConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CORSConfiguration
+</span><a href="#local-6989586621679566366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-190"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCorsResponse"><span class="hs-identifier hs-type">PutBucketCorsResponse</span></a></span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679566362"><span class="annot"><span class="annottext">request :: PutBucketCors -&gt; Request PutBucketCors
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutBucketCors -&gt; Request PutBucketCors
+forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putXML</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679566358"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutBucketCors
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutBucketCors)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse PutBucketCors
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutBucketCors
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutBucketCors)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse PutBucketCors
+PutBucketCorsResponse
+</span><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCorsResponse%27"><span class="hs-identifier hs-var">PutBucketCorsResponse'</span></a></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679566351"><span id="local-6989586621679566353"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span></span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679566348"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679566344"><span class="annot"><span class="annottext">toElement :: PutBucketCors -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors%27"><span class="hs-identifier hs-type">PutBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566339"><span id="local-6989586621679566340"><span id="local-6989586621679566341"><span id="local-6989586621679566342"><span class="annot"><span class="annottext">Maybe Text
+BucketName
+CORSConfiguration
+cORSConfiguration :: CORSConfiguration
+bucket :: BucketName
+contentMD5 :: Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:cORSConfiguration:PutBucketCors' :: PutBucketCors -&gt; CORSConfiguration
+$sel:bucket:PutBucketCors' :: PutBucketCors -&gt; BucketName
+$sel:contentMD5:PutBucketCors' :: PutBucketCors -&gt; Maybe Text
+$sel:expectedBucketOwner:PutBucketCors' :: PutBucketCors -&gt; Maybe Text
+</span><a href="#local-6989586621679566339"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; CORSConfiguration -&gt; Element
+forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
+</span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;{http://s3.amazonaws.com/doc/2006-03-01/}CORSConfiguration&quot;</span></span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">CORSConfiguration
+</span><a href="#local-6989586621679566339"><span class="hs-identifier hs-var">cORSConfiguration</span></a></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679566335"><span class="annot"><span class="annottext">toHeaders :: PutBucketCors -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors%27"><span class="hs-identifier hs-type">PutBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566330"><span id="local-6989586621679566331"><span id="local-6989586621679566332"><span id="local-6989586621679566333"><span class="annot"><span class="annottext">Maybe Text
+BucketName
+CORSConfiguration
+cORSConfiguration :: CORSConfiguration
+bucket :: BucketName
+contentMD5 :: Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:cORSConfiguration:PutBucketCors' :: PutBucketCors -&gt; CORSConfiguration
+$sel:bucket:PutBucketCors' :: PutBucketCors -&gt; BucketName
+$sel:contentMD5:PutBucketCors' :: PutBucketCors -&gt; Maybe Text
+$sel:expectedBucketOwner:PutBucketCors' :: PutBucketCors -&gt; Maybe Text
+</span><a href="#local-6989586621679566330"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
+</span><span id="line-210"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566333"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-MD5&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566332"><span class="hs-identifier hs-var">contentMD5</span></a></span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679566326"><span class="annot"><span class="annottext">toPath :: PutBucketCors -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors%27"><span class="hs-identifier hs-type">PutBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566321"><span id="local-6989586621679566322"><span id="local-6989586621679566323"><span id="local-6989586621679566324"><span class="annot"><span class="annottext">Maybe Text
+BucketName
+CORSConfiguration
+cORSConfiguration :: CORSConfiguration
+bucket :: BucketName
+contentMD5 :: Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:cORSConfiguration:PutBucketCors' :: PutBucketCors -&gt; CORSConfiguration
+$sel:bucket:PutBucketCors' :: PutBucketCors -&gt; BucketName
+$sel:contentMD5:PutBucketCors' :: PutBucketCors -&gt; Maybe Text
+$sel:expectedBucketOwner:PutBucketCors' :: PutBucketCors -&gt; Maybe Text
+</span><a href="#local-6989586621679566321"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679566322"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCors"><span class="hs-identifier hs-type">PutBucketCors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679566317"><span class="annot"><span class="annottext">toQuery :: PutBucketCors -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutBucketCors -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;cors&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | /See:/ 'newPutBucketCorsResponse' smart constructor.</span><span>
+</span><span id="line-222"></span><span id="local-6989586621679566313"><span id="local-6989586621679566314"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketCorsResponse"><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCorsResponse"><span class="hs-identifier hs-var">PutBucketCorsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketCorsResponse%27"><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCorsResponse%27"><span class="hs-identifier hs-var">PutBucketCorsResponse'</span></a></span></span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679566309"><span id="local-6989586621679566311"><span class="annot"><span class="annottext">PutBucketCorsResponse -&gt; PutBucketCorsResponse -&gt; Bool
+(PutBucketCorsResponse -&gt; PutBucketCorsResponse -&gt; Bool)
+-&gt; (PutBucketCorsResponse -&gt; PutBucketCorsResponse -&gt; Bool)
+-&gt; Eq PutBucketCorsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutBucketCorsResponse -&gt; PutBucketCorsResponse -&gt; Bool
+$c/= :: PutBucketCorsResponse -&gt; PutBucketCorsResponse -&gt; Bool
+== :: PutBucketCorsResponse -&gt; PutBucketCorsResponse -&gt; Bool
+$c== :: PutBucketCorsResponse -&gt; PutBucketCorsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566301"><span id="local-6989586621679566303"><span id="local-6989586621679566305"><span id="local-6989586621679566307"><span class="annot"><span class="annottext">ReadPrec [PutBucketCorsResponse]
+ReadPrec PutBucketCorsResponse
+Int -&gt; ReadS PutBucketCorsResponse
+ReadS [PutBucketCorsResponse]
+(Int -&gt; ReadS PutBucketCorsResponse)
+-&gt; ReadS [PutBucketCorsResponse]
+-&gt; ReadPrec PutBucketCorsResponse
+-&gt; ReadPrec [PutBucketCorsResponse]
+-&gt; Read PutBucketCorsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutBucketCorsResponse]
+$creadListPrec :: ReadPrec [PutBucketCorsResponse]
+readPrec :: ReadPrec PutBucketCorsResponse
+$creadPrec :: ReadPrec PutBucketCorsResponse
+readList :: ReadS [PutBucketCorsResponse]
+$creadList :: ReadS [PutBucketCorsResponse]
+readsPrec :: Int -&gt; ReadS PutBucketCorsResponse
+$creadsPrec :: Int -&gt; ReadS PutBucketCorsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566295"><span id="local-6989586621679566297"><span id="local-6989586621679566299"><span class="annot"><span class="annottext">Int -&gt; PutBucketCorsResponse -&gt; ShowS
+[PutBucketCorsResponse] -&gt; ShowS
+PutBucketCorsResponse -&gt; String
+(Int -&gt; PutBucketCorsResponse -&gt; ShowS)
+-&gt; (PutBucketCorsResponse -&gt; String)
+-&gt; ([PutBucketCorsResponse] -&gt; ShowS)
+-&gt; Show PutBucketCorsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutBucketCorsResponse] -&gt; ShowS
+$cshowList :: [PutBucketCorsResponse] -&gt; ShowS
+show :: PutBucketCorsResponse -&gt; String
+$cshow :: PutBucketCorsResponse -&gt; String
+showsPrec :: Int -&gt; PutBucketCorsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutBucketCorsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutBucketCorsResponse -&gt; Rep PutBucketCorsResponse x)
+-&gt; (forall x. Rep PutBucketCorsResponse x -&gt; PutBucketCorsResponse)
+-&gt; Generic PutBucketCorsResponse
+forall x. Rep PutBucketCorsResponse x -&gt; PutBucketCorsResponse
+forall x. PutBucketCorsResponse -&gt; Rep PutBucketCorsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutBucketCorsResponse x -&gt; PutBucketCorsResponse
+$cfrom :: forall x. PutBucketCorsResponse -&gt; Rep PutBucketCorsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Create a value of 'PutBucketCorsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#newPutBucketCorsResponse"><span class="hs-identifier hs-type">newPutBucketCorsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-232"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCorsResponse"><span class="hs-identifier hs-type">PutBucketCorsResponse</span></a></span><span>
+</span><span id="line-233"></span><span id="newPutBucketCorsResponse"><span class="annot"><span class="annottext">newPutBucketCorsResponse :: PutBucketCorsResponse
+</span><a href="Network.AWS.S3.PutBucketCors.html#newPutBucketCorsResponse"><span class="hs-identifier hs-var hs-var">newPutBucketCorsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutBucketCorsResponse
+</span><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCorsResponse%27"><span class="hs-identifier hs-var">PutBucketCorsResponse'</span></a></span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679566291"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketCors.html#PutBucketCorsResponse"><span class="hs-identifier hs-type">PutBucketCorsResponse</span></a></span></span><span>
+</span><span id="line-236"></span></pre></body></html>

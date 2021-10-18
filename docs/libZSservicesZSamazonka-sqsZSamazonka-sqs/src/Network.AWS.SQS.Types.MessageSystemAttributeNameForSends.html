@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SQS.Types.MessageSystemAttributeNameForSends</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SQS.Types.MessageSystemAttributeNameForSends</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.html#MessageSystemAttributeNameForSends"><span class="hs-identifier">MessageSystemAttributeNameForSends</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.html#MessageSystemAttributeNameForSends_AWSTraceHeader"><span class="hs-identifier">MessageSystemAttributeNameForSends_AWSTraceHeader</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679175872"><span id="local-6989586621679175873"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MessageSystemAttributeNameForSends"><span class="annot"><a href="Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.html#MessageSystemAttributeNameForSends"><span class="hs-identifier hs-var">MessageSystemAttributeNameForSends</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MessageSystemAttributeNameForSends%27"><span class="annot"><a href="Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.html#MessageSystemAttributeNameForSends%27"><span class="hs-identifier hs-var">MessageSystemAttributeNameForSends'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMessageSystemAttributeNameForSends"><span class="annot"><span class="annottext">MessageSystemAttributeNameForSends -&gt; Text
+</span><a href="Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.html#fromMessageSystemAttributeNameForSends"><span class="hs-identifier hs-var hs-var">fromMessageSystemAttributeNameForSends</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175864"><span id="local-6989586621679175866"><span id="local-6989586621679175868"><span class="annot"><span class="annottext">Int -&gt; MessageSystemAttributeNameForSends -&gt; ShowS
+[MessageSystemAttributeNameForSends] -&gt; ShowS
+MessageSystemAttributeNameForSends -&gt; String
+(Int -&gt; MessageSystemAttributeNameForSends -&gt; ShowS)
+-&gt; (MessageSystemAttributeNameForSends -&gt; String)
+-&gt; ([MessageSystemAttributeNameForSends] -&gt; ShowS)
+-&gt; Show MessageSystemAttributeNameForSends
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MessageSystemAttributeNameForSends] -&gt; ShowS
+$cshowList :: [MessageSystemAttributeNameForSends] -&gt; ShowS
+show :: MessageSystemAttributeNameForSends -&gt; String
+$cshow :: MessageSystemAttributeNameForSends -&gt; String
+showsPrec :: Int -&gt; MessageSystemAttributeNameForSends -&gt; ShowS
+$cshowsPrec :: Int -&gt; MessageSystemAttributeNameForSends -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679175855"><span id="local-6989586621679175857"><span id="local-6989586621679175859"><span id="local-6989586621679175861"><span class="annot"><span class="annottext">ReadPrec [MessageSystemAttributeNameForSends]
+ReadPrec MessageSystemAttributeNameForSends
+Int -&gt; ReadS MessageSystemAttributeNameForSends
+ReadS [MessageSystemAttributeNameForSends]
+(Int -&gt; ReadS MessageSystemAttributeNameForSends)
+-&gt; ReadS [MessageSystemAttributeNameForSends]
+-&gt; ReadPrec MessageSystemAttributeNameForSends
+-&gt; ReadPrec [MessageSystemAttributeNameForSends]
+-&gt; Read MessageSystemAttributeNameForSends
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MessageSystemAttributeNameForSends]
+$creadListPrec :: ReadPrec [MessageSystemAttributeNameForSends]
+readPrec :: ReadPrec MessageSystemAttributeNameForSends
+$creadPrec :: ReadPrec MessageSystemAttributeNameForSends
+readList :: ReadS [MessageSystemAttributeNameForSends]
+$creadList :: ReadS [MessageSystemAttributeNameForSends]
+readsPrec :: Int -&gt; ReadS MessageSystemAttributeNameForSends
+$creadsPrec :: Int -&gt; ReadS MessageSystemAttributeNameForSends
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679175850"><span id="local-6989586621679175852"><span class="annot"><span class="annottext">MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Bool
+(MessageSystemAttributeNameForSends
+ -&gt; MessageSystemAttributeNameForSends -&gt; Bool)
+-&gt; (MessageSystemAttributeNameForSends
+    -&gt; MessageSystemAttributeNameForSends -&gt; Bool)
+-&gt; Eq MessageSystemAttributeNameForSends
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Bool
+$c/= :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Bool
+== :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Bool
+$c== :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679175834"><span id="local-6989586621679175836"><span id="local-6989586621679175838"><span id="local-6989586621679175840"><span id="local-6989586621679175842"><span id="local-6989586621679175844"><span id="local-6989586621679175846"><span class="annot"><span class="annottext">Eq MessageSystemAttributeNameForSends
+Eq MessageSystemAttributeNameForSends
+-&gt; (MessageSystemAttributeNameForSends
+    -&gt; MessageSystemAttributeNameForSends -&gt; Ordering)
+-&gt; (MessageSystemAttributeNameForSends
+    -&gt; MessageSystemAttributeNameForSends -&gt; Bool)
+-&gt; (MessageSystemAttributeNameForSends
+    -&gt; MessageSystemAttributeNameForSends -&gt; Bool)
+-&gt; (MessageSystemAttributeNameForSends
+    -&gt; MessageSystemAttributeNameForSends -&gt; Bool)
+-&gt; (MessageSystemAttributeNameForSends
+    -&gt; MessageSystemAttributeNameForSends -&gt; Bool)
+-&gt; (MessageSystemAttributeNameForSends
+    -&gt; MessageSystemAttributeNameForSends
+    -&gt; MessageSystemAttributeNameForSends)
+-&gt; (MessageSystemAttributeNameForSends
+    -&gt; MessageSystemAttributeNameForSends
+    -&gt; MessageSystemAttributeNameForSends)
+-&gt; Ord MessageSystemAttributeNameForSends
+MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Bool
+MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Ordering
+MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends
+$cmin :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends
+max :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends
+$cmax :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends
+&gt;= :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Bool
+$c&gt;= :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Bool
+&gt; :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Bool
+$c&gt; :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Bool
+&lt;= :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Bool
+$c&lt;= :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Bool
+&lt; :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Bool
+$c&lt; :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Bool
+compare :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Ordering
+$ccompare :: MessageSystemAttributeNameForSends
+-&gt; MessageSystemAttributeNameForSends -&gt; Ordering
+$cp1Ord :: Eq MessageSystemAttributeNameForSends
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ MessageSystemAttributeNameForSends
+ -&gt; Rep MessageSystemAttributeNameForSends x)
+-&gt; (forall x.
+    Rep MessageSystemAttributeNameForSends x
+    -&gt; MessageSystemAttributeNameForSends)
+-&gt; Generic MessageSystemAttributeNameForSends
+forall x.
+Rep MessageSystemAttributeNameForSends x
+-&gt; MessageSystemAttributeNameForSends
+forall x.
+MessageSystemAttributeNameForSends
+-&gt; Rep MessageSystemAttributeNameForSends x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep MessageSystemAttributeNameForSends x
+-&gt; MessageSystemAttributeNameForSends
+$cfrom :: forall x.
+MessageSystemAttributeNameForSends
+-&gt; Rep MessageSystemAttributeNameForSends x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175826"><span id="local-6989586621679175828"><span class="annot"><span class="annottext">Int -&gt; MessageSystemAttributeNameForSends -&gt; Int
+MessageSystemAttributeNameForSends -&gt; Int
+(Int -&gt; MessageSystemAttributeNameForSends -&gt; Int)
+-&gt; (MessageSystemAttributeNameForSends -&gt; Int)
+-&gt; Hashable MessageSystemAttributeNameForSends
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MessageSystemAttributeNameForSends -&gt; Int
+$chash :: MessageSystemAttributeNameForSends -&gt; Int
+hashWithSalt :: Int -&gt; MessageSystemAttributeNameForSends -&gt; Int
+$chashWithSalt :: Int -&gt; MessageSystemAttributeNameForSends -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679175823"><span class="annot"><span class="annottext">MessageSystemAttributeNameForSends -&gt; ()
+(MessageSystemAttributeNameForSends -&gt; ())
+-&gt; NFData MessageSystemAttributeNameForSends
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MessageSystemAttributeNameForSends -&gt; ()
+$crnf :: MessageSystemAttributeNameForSends -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679175820"><span class="annot"><span class="annottext">Text -&gt; Either String MessageSystemAttributeNameForSends
+(Text -&gt; Either String MessageSystemAttributeNameForSends)
+-&gt; FromText MessageSystemAttributeNameForSends
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MessageSystemAttributeNameForSends
+$cfromText :: Text -&gt; Either String MessageSystemAttributeNameForSends
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679175817"><span class="annot"><span class="annottext">MessageSystemAttributeNameForSends -&gt; Text
+(MessageSystemAttributeNameForSends -&gt; Text)
+-&gt; ToText MessageSystemAttributeNameForSends
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MessageSystemAttributeNameForSends -&gt; Text
+$ctoText :: MessageSystemAttributeNameForSends -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679175814"><span class="annot"><span class="annottext">MessageSystemAttributeNameForSends -&gt; ByteString
+(MessageSystemAttributeNameForSends -&gt; ByteString)
+-&gt; ToByteString MessageSystemAttributeNameForSends
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MessageSystemAttributeNameForSends -&gt; ByteString
+$ctoBS :: MessageSystemAttributeNameForSends -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679175811"><span class="annot"><span class="annottext">MessageSystemAttributeNameForSends -&gt; ByteStringBuilder
+(MessageSystemAttributeNameForSends -&gt; ByteStringBuilder)
+-&gt; ToLog MessageSystemAttributeNameForSends
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MessageSystemAttributeNameForSends -&gt; ByteStringBuilder
+$cbuild :: MessageSystemAttributeNameForSends -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679175808"><span class="annot"><span class="annottext">HeaderName -&gt; MessageSystemAttributeNameForSends -&gt; [Header]
+(HeaderName -&gt; MessageSystemAttributeNameForSends -&gt; [Header])
+-&gt; ToHeader MessageSystemAttributeNameForSends
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MessageSystemAttributeNameForSends -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MessageSystemAttributeNameForSends -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679175805"><span class="annot"><span class="annottext">MessageSystemAttributeNameForSends -&gt; QueryString
+(MessageSystemAttributeNameForSends -&gt; QueryString)
+-&gt; ToQuery MessageSystemAttributeNameForSends
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MessageSystemAttributeNameForSends -&gt; QueryString
+$ctoQuery :: MessageSystemAttributeNameForSends -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679175800"><span id="local-6989586621679175802"><span class="annot"><span class="annottext">Value -&gt; Parser [MessageSystemAttributeNameForSends]
+Value -&gt; Parser MessageSystemAttributeNameForSends
+(Value -&gt; Parser MessageSystemAttributeNameForSends)
+-&gt; (Value -&gt; Parser [MessageSystemAttributeNameForSends])
+-&gt; FromJSON MessageSystemAttributeNameForSends
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MessageSystemAttributeNameForSends]
+$cparseJSONList :: Value -&gt; Parser [MessageSystemAttributeNameForSends]
+parseJSON :: Value -&gt; Parser MessageSystemAttributeNameForSends
+$cparseJSON :: Value -&gt; Parser MessageSystemAttributeNameForSends
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679175795"><span id="local-6989586621679175797"><span class="annot"><span class="annottext">FromJSONKeyFunction [MessageSystemAttributeNameForSends]
+FromJSONKeyFunction MessageSystemAttributeNameForSends
+FromJSONKeyFunction MessageSystemAttributeNameForSends
+-&gt; FromJSONKeyFunction [MessageSystemAttributeNameForSends]
+-&gt; FromJSONKey MessageSystemAttributeNameForSends
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MessageSystemAttributeNameForSends]
+$cfromJSONKeyList :: FromJSONKeyFunction [MessageSystemAttributeNameForSends]
+fromJSONKey :: FromJSONKeyFunction MessageSystemAttributeNameForSends
+$cfromJSONKey :: FromJSONKeyFunction MessageSystemAttributeNameForSends
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679175786"><span id="local-6989586621679175788"><span id="local-6989586621679175790"><span id="local-6989586621679175792"><span class="annot"><span class="annottext">[MessageSystemAttributeNameForSends] -&gt; Encoding
+[MessageSystemAttributeNameForSends] -&gt; Value
+MessageSystemAttributeNameForSends -&gt; Encoding
+MessageSystemAttributeNameForSends -&gt; Value
+(MessageSystemAttributeNameForSends -&gt; Value)
+-&gt; (MessageSystemAttributeNameForSends -&gt; Encoding)
+-&gt; ([MessageSystemAttributeNameForSends] -&gt; Value)
+-&gt; ([MessageSystemAttributeNameForSends] -&gt; Encoding)
+-&gt; ToJSON MessageSystemAttributeNameForSends
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MessageSystemAttributeNameForSends] -&gt; Encoding
+$ctoEncodingList :: [MessageSystemAttributeNameForSends] -&gt; Encoding
+toJSONList :: [MessageSystemAttributeNameForSends] -&gt; Value
+$ctoJSONList :: [MessageSystemAttributeNameForSends] -&gt; Value
+toEncoding :: MessageSystemAttributeNameForSends -&gt; Encoding
+$ctoEncoding :: MessageSystemAttributeNameForSends -&gt; Encoding
+toJSON :: MessageSystemAttributeNameForSends -&gt; Value
+$ctoJSON :: MessageSystemAttributeNameForSends -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679175781"><span id="local-6989586621679175783"><span class="annot"><span class="annottext">ToJSONKeyFunction [MessageSystemAttributeNameForSends]
+ToJSONKeyFunction MessageSystemAttributeNameForSends
+ToJSONKeyFunction MessageSystemAttributeNameForSends
+-&gt; ToJSONKeyFunction [MessageSystemAttributeNameForSends]
+-&gt; ToJSONKey MessageSystemAttributeNameForSends
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MessageSystemAttributeNameForSends]
+$ctoJSONKeyList :: ToJSONKeyFunction [MessageSystemAttributeNameForSends]
+toJSONKey :: ToJSONKeyFunction MessageSystemAttributeNameForSends
+$ctoJSONKey :: ToJSONKeyFunction MessageSystemAttributeNameForSends
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679175778"><span class="annot"><span class="annottext">[Node] -&gt; Either String MessageSystemAttributeNameForSends
+([Node] -&gt; Either String MessageSystemAttributeNameForSends)
+-&gt; FromXML MessageSystemAttributeNameForSends
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MessageSystemAttributeNameForSends
+$cparseXML :: [Node] -&gt; Either String MessageSystemAttributeNameForSends
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679175775"><span class="annot"><span class="annottext">MessageSystemAttributeNameForSends -&gt; XML
+(MessageSystemAttributeNameForSends -&gt; XML)
+-&gt; ToXML MessageSystemAttributeNameForSends
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MessageSystemAttributeNameForSends -&gt; XML
+$ctoXML :: MessageSystemAttributeNameForSends -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.html#MessageSystemAttributeNameForSends_AWSTraceHeader"><span class="hs-identifier hs-type">MessageSystemAttributeNameForSends_AWSTraceHeader</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.html#MessageSystemAttributeNameForSends"><span class="hs-identifier hs-type">MessageSystemAttributeNameForSends</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMessageSystemAttributeNameForSends_AWSTraceHeader"><span id="%24mMessageSystemAttributeNameForSends_AWSTraceHeader"><span id="MessageSystemAttributeNameForSends_AWSTraceHeader"><span class="annot"><span class="annottext">$bMessageSystemAttributeNameForSends_AWSTraceHeader :: MessageSystemAttributeNameForSends
+$mMessageSystemAttributeNameForSends_AWSTraceHeader :: forall r.
+MessageSystemAttributeNameForSends
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.html#%24bMessageSystemAttributeNameForSends_AWSTraceHeader"><span class="hs-identifier hs-var hs-var hs-var">MessageSystemAttributeNameForSends_AWSTraceHeader</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.html#MessageSystemAttributeNameForSends%27"><span class="hs-identifier hs-type">MessageSystemAttributeNameForSends'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWSTraceHeader&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.html#MessageSystemAttributeNameForSends_AWSTraceHeader"><span class="hs-pragma hs-type">MessageSystemAttributeNameForSends_AWSTraceHeader</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.html#MessageSystemAttributeNameForSends%27"><span class="hs-pragma hs-type">MessageSystemAttributeNameForSends'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

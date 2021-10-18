@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Batch.DeleteJobQueue</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified job queue. You must first disable submissions for</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- a queue with the UpdateJobQueue operation. All jobs in the queue are</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- eventually terminated when you delete a job queue. The jobs are</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- terminated at a rate of about 16 jobs each second.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- It\'s not necessary to disassociate compute environments from a queue</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- before submitting a @DeleteJobQueue@ request.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Batch.DeleteJobQueue</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue"><span class="hs-identifier">DeleteJobQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#newDeleteJobQueue"><span class="hs-identifier">newDeleteJobQueue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#deleteJobQueue_jobQueue"><span class="hs-identifier">deleteJobQueue_jobQueue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueueResponse"><span class="hs-identifier">DeleteJobQueueResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#newDeleteJobQueueResponse"><span class="hs-identifier">newDeleteJobQueueResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#deleteJobQueueResponse_httpStatus"><span class="hs-identifier">deleteJobQueueResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.html"><span class="hs-identifier">Network.AWS.Batch.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | Contains the parameters for @DeleteJobQueue@.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newDeleteJobQueue' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679270449"><span id="local-6989586621679270450"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteJobQueue"><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue"><span class="hs-identifier hs-var">DeleteJobQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteJobQueue%27"><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue%27"><span class="hs-identifier hs-var">DeleteJobQueue'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the queue to</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- delete.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AjobQueue%3ADeleteJobQueue%27"><span class="annot"><span class="annottext">DeleteJobQueue -&gt; Text
+</span><a href="Network.AWS.Batch.DeleteJobQueue.html#%24sel%3AjobQueue%3ADeleteJobQueue%27"><span class="hs-identifier hs-var hs-var">jobQueue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270443"><span id="local-6989586621679270445"><span class="annot"><span class="annottext">DeleteJobQueue -&gt; DeleteJobQueue -&gt; Bool
+(DeleteJobQueue -&gt; DeleteJobQueue -&gt; Bool)
+-&gt; (DeleteJobQueue -&gt; DeleteJobQueue -&gt; Bool) -&gt; Eq DeleteJobQueue
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteJobQueue -&gt; DeleteJobQueue -&gt; Bool
+$c/= :: DeleteJobQueue -&gt; DeleteJobQueue -&gt; Bool
+== :: DeleteJobQueue -&gt; DeleteJobQueue -&gt; Bool
+$c== :: DeleteJobQueue -&gt; DeleteJobQueue -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270434"><span id="local-6989586621679270436"><span id="local-6989586621679270438"><span id="local-6989586621679270440"><span class="annot"><span class="annottext">ReadPrec [DeleteJobQueue]
+ReadPrec DeleteJobQueue
+Int -&gt; ReadS DeleteJobQueue
+ReadS [DeleteJobQueue]
+(Int -&gt; ReadS DeleteJobQueue)
+-&gt; ReadS [DeleteJobQueue]
+-&gt; ReadPrec DeleteJobQueue
+-&gt; ReadPrec [DeleteJobQueue]
+-&gt; Read DeleteJobQueue
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteJobQueue]
+$creadListPrec :: ReadPrec [DeleteJobQueue]
+readPrec :: ReadPrec DeleteJobQueue
+$creadPrec :: ReadPrec DeleteJobQueue
+readList :: ReadS [DeleteJobQueue]
+$creadList :: ReadS [DeleteJobQueue]
+readsPrec :: Int -&gt; ReadS DeleteJobQueue
+$creadsPrec :: Int -&gt; ReadS DeleteJobQueue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270427"><span id="local-6989586621679270429"><span id="local-6989586621679270431"><span class="annot"><span class="annottext">Int -&gt; DeleteJobQueue -&gt; ShowS
+[DeleteJobQueue] -&gt; ShowS
+DeleteJobQueue -&gt; String
+(Int -&gt; DeleteJobQueue -&gt; ShowS)
+-&gt; (DeleteJobQueue -&gt; String)
+-&gt; ([DeleteJobQueue] -&gt; ShowS)
+-&gt; Show DeleteJobQueue
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteJobQueue] -&gt; ShowS
+$cshowList :: [DeleteJobQueue] -&gt; ShowS
+show :: DeleteJobQueue -&gt; String
+$cshow :: DeleteJobQueue -&gt; String
+showsPrec :: Int -&gt; DeleteJobQueue -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteJobQueue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteJobQueue -&gt; Rep DeleteJobQueue x)
+-&gt; (forall x. Rep DeleteJobQueue x -&gt; DeleteJobQueue)
+-&gt; Generic DeleteJobQueue
+forall x. Rep DeleteJobQueue x -&gt; DeleteJobQueue
+forall x. DeleteJobQueue -&gt; Rep DeleteJobQueue x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteJobQueue x -&gt; DeleteJobQueue
+$cfrom :: forall x. DeleteJobQueue -&gt; Rep DeleteJobQueue x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DeleteJobQueue' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'jobQueue', 'deleteJobQueue_jobQueue' - The short name or full Amazon Resource Name (ARN) of the queue to</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- delete.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#newDeleteJobQueue"><span class="hs-identifier hs-type">newDeleteJobQueue</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'jobQueue'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue"><span class="hs-identifier hs-type">DeleteJobQueue</span></a></span><span>
+</span><span id="line-78"></span><span id="newDeleteJobQueue"><span class="annot"><span class="annottext">newDeleteJobQueue :: Text -&gt; DeleteJobQueue
+</span><a href="Network.AWS.Batch.DeleteJobQueue.html#newDeleteJobQueue"><span class="hs-identifier hs-var hs-var">newDeleteJobQueue</span></a></span></span><span> </span><span id="local-6989586621679270422"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270422"><span class="hs-identifier hs-var">pJobQueue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DeleteJobQueue' :: Text -&gt; DeleteJobQueue
+</span><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue%27"><span class="hs-identifier hs-type">DeleteJobQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobQueue:DeleteJobQueue' :: Text
+</span><a href="Network.AWS.Batch.DeleteJobQueue.html#%24sel%3AjobQueue%3ADeleteJobQueue%27"><span class="hs-identifier hs-var">jobQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270422"><span class="hs-identifier hs-var">pJobQueue_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the queue to</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- delete.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#deleteJobQueue_jobQueue"><span class="hs-identifier hs-type">deleteJobQueue_jobQueue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue"><span class="hs-identifier hs-type">DeleteJobQueue</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="deleteJobQueue_jobQueue"><span class="annot"><span class="annottext">deleteJobQueue_jobQueue :: (Text -&gt; f Text) -&gt; DeleteJobQueue -&gt; f DeleteJobQueue
+</span><a href="Network.AWS.Batch.DeleteJobQueue.html#deleteJobQueue_jobQueue"><span class="hs-identifier hs-var hs-var">deleteJobQueue_jobQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteJobQueue -&gt; Text)
+-&gt; (DeleteJobQueue -&gt; Text -&gt; DeleteJobQueue)
+-&gt; Lens DeleteJobQueue DeleteJobQueue Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue%27"><span class="hs-identifier hs-type">DeleteJobQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270419"><span class="annot"><span class="annottext">Text
+jobQueue :: Text
+$sel:jobQueue:DeleteJobQueue' :: DeleteJobQueue -&gt; Text
+</span><a href="#local-6989586621679270419"><span class="hs-identifier hs-var hs-var">jobQueue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270419"><span class="hs-identifier hs-var">jobQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270418"><span class="annot"><span class="annottext">s :: DeleteJobQueue
+</span><a href="#local-6989586621679270418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue%27"><span class="hs-identifier hs-type">DeleteJobQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270417"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJobQueue
+</span><a href="#local-6989586621679270418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobQueue:DeleteJobQueue' :: Text
+</span><a href="Network.AWS.Batch.DeleteJobQueue.html#%24sel%3AjobQueue%3ADeleteJobQueue%27"><span class="hs-identifier hs-var">jobQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue"><span class="hs-identifier hs-type">DeleteJobQueue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue"><span class="hs-identifier hs-type">DeleteJobQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue"><span class="hs-identifier hs-type">DeleteJobQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueueResponse"><span class="hs-identifier hs-type">DeleteJobQueueResponse</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679270413"><span class="annot"><span class="annottext">request :: DeleteJobQueue -&gt; Request DeleteJobQueue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteJobQueue -&gt; Request DeleteJobQueue
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Batch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679270409"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteJobQueue
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteJobQueue)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteJobQueue))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteJobQueue
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteJobQueue)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270406"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270406"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679270405"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679270405"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679270404"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679270404"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteJobQueueResponse
+</span><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueueResponse%27"><span class="hs-identifier hs-var">DeleteJobQueueResponse'</span></a></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteJobQueueResponse)
+-&gt; Either String Int -&gt; Either String DeleteJobQueueResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270406"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270397"><span id="local-6989586621679270399"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue"><span class="hs-identifier hs-type">DeleteJobQueue</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270394"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue"><span class="hs-identifier hs-type">DeleteJobQueue</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue"><span class="hs-identifier hs-type">DeleteJobQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679270390"><span class="annot"><span class="annottext">toHeaders :: DeleteJobQueue -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteJobQueue -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-109"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270380"><span id="local-6989586621679270382"><span id="local-6989586621679270384"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue"><span class="hs-identifier hs-type">DeleteJobQueue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679270378"><span class="annot"><span class="annottext">toJSON :: DeleteJobQueue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue%27"><span class="hs-identifier hs-type">DeleteJobQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270376"><span class="annot"><span class="annottext">Text
+jobQueue :: Text
+$sel:jobQueue:DeleteJobQueue' :: DeleteJobQueue -&gt; Text
+</span><a href="#local-6989586621679270376"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobQueue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270376"><span class="hs-identifier hs-var">jobQueue</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue"><span class="hs-identifier hs-type">DeleteJobQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679270370"><span class="annot"><span class="annottext">toPath :: DeleteJobQueue -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteJobQueue -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/deletejobqueue&quot;</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueue"><span class="hs-identifier hs-type">DeleteJobQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679270366"><span class="annot"><span class="annottext">toQuery :: DeleteJobQueue -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteJobQueue -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newDeleteJobQueueResponse' smart constructor.</span><span>
+</span><span id="line-127"></span><span id="local-6989586621679270363"><span id="local-6989586621679270364"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteJobQueueResponse"><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueueResponse"><span class="hs-identifier hs-var">DeleteJobQueueResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteJobQueueResponse%27"><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueueResponse%27"><span class="hs-identifier hs-var">DeleteJobQueueResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteJobQueueResponse%27"><span class="annot"><span class="annottext">DeleteJobQueueResponse -&gt; Int
+</span><a href="Network.AWS.Batch.DeleteJobQueue.html#%24sel%3AhttpStatus%3ADeleteJobQueueResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270358"><span id="local-6989586621679270360"><span class="annot"><span class="annottext">DeleteJobQueueResponse -&gt; DeleteJobQueueResponse -&gt; Bool
+(DeleteJobQueueResponse -&gt; DeleteJobQueueResponse -&gt; Bool)
+-&gt; (DeleteJobQueueResponse -&gt; DeleteJobQueueResponse -&gt; Bool)
+-&gt; Eq DeleteJobQueueResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteJobQueueResponse -&gt; DeleteJobQueueResponse -&gt; Bool
+$c/= :: DeleteJobQueueResponse -&gt; DeleteJobQueueResponse -&gt; Bool
+== :: DeleteJobQueueResponse -&gt; DeleteJobQueueResponse -&gt; Bool
+$c== :: DeleteJobQueueResponse -&gt; DeleteJobQueueResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270350"><span id="local-6989586621679270352"><span id="local-6989586621679270354"><span id="local-6989586621679270356"><span class="annot"><span class="annottext">ReadPrec [DeleteJobQueueResponse]
+ReadPrec DeleteJobQueueResponse
+Int -&gt; ReadS DeleteJobQueueResponse
+ReadS [DeleteJobQueueResponse]
+(Int -&gt; ReadS DeleteJobQueueResponse)
+-&gt; ReadS [DeleteJobQueueResponse]
+-&gt; ReadPrec DeleteJobQueueResponse
+-&gt; ReadPrec [DeleteJobQueueResponse]
+-&gt; Read DeleteJobQueueResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteJobQueueResponse]
+$creadListPrec :: ReadPrec [DeleteJobQueueResponse]
+readPrec :: ReadPrec DeleteJobQueueResponse
+$creadPrec :: ReadPrec DeleteJobQueueResponse
+readList :: ReadS [DeleteJobQueueResponse]
+$creadList :: ReadS [DeleteJobQueueResponse]
+readsPrec :: Int -&gt; ReadS DeleteJobQueueResponse
+$creadsPrec :: Int -&gt; ReadS DeleteJobQueueResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270344"><span id="local-6989586621679270346"><span id="local-6989586621679270348"><span class="annot"><span class="annottext">Int -&gt; DeleteJobQueueResponse -&gt; ShowS
+[DeleteJobQueueResponse] -&gt; ShowS
+DeleteJobQueueResponse -&gt; String
+(Int -&gt; DeleteJobQueueResponse -&gt; ShowS)
+-&gt; (DeleteJobQueueResponse -&gt; String)
+-&gt; ([DeleteJobQueueResponse] -&gt; ShowS)
+-&gt; Show DeleteJobQueueResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteJobQueueResponse] -&gt; ShowS
+$cshowList :: [DeleteJobQueueResponse] -&gt; ShowS
+show :: DeleteJobQueueResponse -&gt; String
+$cshow :: DeleteJobQueueResponse -&gt; String
+showsPrec :: Int -&gt; DeleteJobQueueResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteJobQueueResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteJobQueueResponse -&gt; Rep DeleteJobQueueResponse x)
+-&gt; (forall x.
+    Rep DeleteJobQueueResponse x -&gt; DeleteJobQueueResponse)
+-&gt; Generic DeleteJobQueueResponse
+forall x. Rep DeleteJobQueueResponse x -&gt; DeleteJobQueueResponse
+forall x. DeleteJobQueueResponse -&gt; Rep DeleteJobQueueResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteJobQueueResponse x -&gt; DeleteJobQueueResponse
+$cfrom :: forall x. DeleteJobQueueResponse -&gt; Rep DeleteJobQueueResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Create a value of 'DeleteJobQueueResponse' with all optional fields omitted.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'httpStatus', 'deleteJobQueueResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#newDeleteJobQueueResponse"><span class="hs-identifier hs-type">newDeleteJobQueueResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueueResponse"><span class="hs-identifier hs-type">DeleteJobQueueResponse</span></a></span><span>
+</span><span id="line-146"></span><span id="newDeleteJobQueueResponse"><span class="annot"><span class="annottext">newDeleteJobQueueResponse :: Int -&gt; DeleteJobQueueResponse
+</span><a href="Network.AWS.Batch.DeleteJobQueue.html#newDeleteJobQueueResponse"><span class="hs-identifier hs-var hs-var">newDeleteJobQueueResponse</span></a></span></span><span> </span><span id="local-6989586621679270341"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270341"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">DeleteJobQueueResponse' :: Int -&gt; DeleteJobQueueResponse
+</span><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueueResponse%27"><span class="hs-identifier hs-type">DeleteJobQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteJobQueueResponse' :: Int
+</span><a href="Network.AWS.Batch.DeleteJobQueue.html#%24sel%3AhttpStatus%3ADeleteJobQueueResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270341"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#deleteJobQueueResponse_httpStatus"><span class="hs-identifier hs-type">deleteJobQueueResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueueResponse"><span class="hs-identifier hs-type">DeleteJobQueueResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-151"></span><span id="deleteJobQueueResponse_httpStatus"><span class="annot"><span class="annottext">deleteJobQueueResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteJobQueueResponse -&gt; f DeleteJobQueueResponse
+</span><a href="Network.AWS.Batch.DeleteJobQueue.html#deleteJobQueueResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteJobQueueResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteJobQueueResponse -&gt; Int)
+-&gt; (DeleteJobQueueResponse -&gt; Int -&gt; DeleteJobQueueResponse)
+-&gt; Lens DeleteJobQueueResponse DeleteJobQueueResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueueResponse%27"><span class="hs-identifier hs-type">DeleteJobQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270340"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteJobQueueResponse' :: DeleteJobQueueResponse -&gt; Int
+</span><a href="#local-6989586621679270340"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270340"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270339"><span class="annot"><span class="annottext">s :: DeleteJobQueueResponse
+</span><a href="#local-6989586621679270339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueueResponse%27"><span class="hs-identifier hs-type">DeleteJobQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270338"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJobQueueResponse
+</span><a href="#local-6989586621679270339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteJobQueueResponse' :: Int
+</span><a href="Network.AWS.Batch.DeleteJobQueue.html#%24sel%3AhttpStatus%3ADeleteJobQueueResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueueResponse"><span class="hs-identifier hs-type">DeleteJobQueueResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270336"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DeleteJobQueue.html#DeleteJobQueueResponse"><span class="hs-identifier hs-type">DeleteJobQueueResponse</span></a></span></span><span>
+</span><span id="line-154"></span></pre></body></html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Pinpoint.Types.SegmentDemographics</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pinpoint.Types.SegmentDemographics</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html"><span class="hs-identifier">Network.AWS.Pinpoint.Types.SetDimension</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Specifies demographic-based dimension settings for including or</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- excluding endpoints from a segment. These settings derive from</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- characteristics of endpoint devices, such as platform, make, and model.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSegmentDemographics' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679610355"><span id="local-6989586621679610356"></span></span><span class="hs-keyword">data</span><span> </span><span id="SegmentDemographics"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-var">SegmentDemographics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SegmentDemographics%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics%27"><span class="hs-identifier hs-var">SegmentDemographics'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The device model criteria for the segment.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Amodel%3ASegmentDemographics%27"><span class="annot"><span class="annottext">SegmentDemographics -&gt; Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3Amodel%3ASegmentDemographics%27"><span class="hs-identifier hs-var hs-var">model</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The device platform criteria for the segment.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aplatform%3ASegmentDemographics%27"><span class="annot"><span class="annottext">SegmentDemographics -&gt; Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3Aplatform%3ASegmentDemographics%27"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The app version criteria for the segment.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AappVersion%3ASegmentDemographics%27"><span class="annot"><span class="annottext">SegmentDemographics -&gt; Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3AappVersion%3ASegmentDemographics%27"><span class="hs-identifier hs-var hs-var">appVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The channel criteria for the segment.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Achannel%3ASegmentDemographics%27"><span class="annot"><span class="annottext">SegmentDemographics -&gt; Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3Achannel%3ASegmentDemographics%27"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The device type criteria for the segment.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AdeviceType%3ASegmentDemographics%27"><span class="annot"><span class="annottext">SegmentDemographics -&gt; Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3AdeviceType%3ASegmentDemographics%27"><span class="hs-identifier hs-var hs-var">deviceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The device make criteria for the segment.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Amake%3ASegmentDemographics%27"><span class="annot"><span class="annottext">SegmentDemographics -&gt; Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3Amake%3ASegmentDemographics%27"><span class="hs-identifier hs-var hs-var">make</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679610344"><span id="local-6989586621679610346"><span class="annot"><span class="annottext">SegmentDemographics -&gt; SegmentDemographics -&gt; Bool
+(SegmentDemographics -&gt; SegmentDemographics -&gt; Bool)
+-&gt; (SegmentDemographics -&gt; SegmentDemographics -&gt; Bool)
+-&gt; Eq SegmentDemographics
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SegmentDemographics -&gt; SegmentDemographics -&gt; Bool
+$c/= :: SegmentDemographics -&gt; SegmentDemographics -&gt; Bool
+== :: SegmentDemographics -&gt; SegmentDemographics -&gt; Bool
+$c== :: SegmentDemographics -&gt; SegmentDemographics -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610335"><span id="local-6989586621679610337"><span id="local-6989586621679610339"><span id="local-6989586621679610341"><span class="annot"><span class="annottext">ReadPrec [SegmentDemographics]
+ReadPrec SegmentDemographics
+Int -&gt; ReadS SegmentDemographics
+ReadS [SegmentDemographics]
+(Int -&gt; ReadS SegmentDemographics)
+-&gt; ReadS [SegmentDemographics]
+-&gt; ReadPrec SegmentDemographics
+-&gt; ReadPrec [SegmentDemographics]
+-&gt; Read SegmentDemographics
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SegmentDemographics]
+$creadListPrec :: ReadPrec [SegmentDemographics]
+readPrec :: ReadPrec SegmentDemographics
+$creadPrec :: ReadPrec SegmentDemographics
+readList :: ReadS [SegmentDemographics]
+$creadList :: ReadS [SegmentDemographics]
+readsPrec :: Int -&gt; ReadS SegmentDemographics
+$creadsPrec :: Int -&gt; ReadS SegmentDemographics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610328"><span id="local-6989586621679610330"><span id="local-6989586621679610332"><span class="annot"><span class="annottext">Int -&gt; SegmentDemographics -&gt; ShowS
+[SegmentDemographics] -&gt; ShowS
+SegmentDemographics -&gt; String
+(Int -&gt; SegmentDemographics -&gt; ShowS)
+-&gt; (SegmentDemographics -&gt; String)
+-&gt; ([SegmentDemographics] -&gt; ShowS)
+-&gt; Show SegmentDemographics
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SegmentDemographics] -&gt; ShowS
+$cshowList :: [SegmentDemographics] -&gt; ShowS
+show :: SegmentDemographics -&gt; String
+$cshow :: SegmentDemographics -&gt; String
+showsPrec :: Int -&gt; SegmentDemographics -&gt; ShowS
+$cshowsPrec :: Int -&gt; SegmentDemographics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SegmentDemographics -&gt; Rep SegmentDemographics x)
+-&gt; (forall x. Rep SegmentDemographics x -&gt; SegmentDemographics)
+-&gt; Generic SegmentDemographics
+forall x. Rep SegmentDemographics x -&gt; SegmentDemographics
+forall x. SegmentDemographics -&gt; Rep SegmentDemographics x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SegmentDemographics x -&gt; SegmentDemographics
+$cfrom :: forall x. SegmentDemographics -&gt; Rep SegmentDemographics x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'SegmentDemographics' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'model', 'segmentDemographics_model' - The device model criteria for the segment.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'platform', 'segmentDemographics_platform' - The device platform criteria for the segment.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'appVersion', 'segmentDemographics_appVersion' - The app version criteria for the segment.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'channel', 'segmentDemographics_channel' - The channel criteria for the segment.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'deviceType', 'segmentDemographics_deviceType' - The device type criteria for the segment.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'make', 'segmentDemographics_make' - The device make criteria for the segment.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#newSegmentDemographics"><span class="hs-identifier hs-type">newSegmentDemographics</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span><span>
+</span><span id="line-69"></span><span id="newSegmentDemographics"><span class="annot"><span class="annottext">newSegmentDemographics :: SegmentDemographics
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#newSegmentDemographics"><span class="hs-identifier hs-var hs-var">newSegmentDemographics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">SegmentDemographics' :: Maybe SetDimension
+-&gt; Maybe SetDimension
+-&gt; Maybe SetDimension
+-&gt; Maybe SetDimension
+-&gt; Maybe SetDimension
+-&gt; Maybe SetDimension
+-&gt; SegmentDemographics
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics%27"><span class="hs-identifier hs-type">SegmentDemographics'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:model:SegmentDemographics' :: Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3Amodel%3ASegmentDemographics%27"><span class="hs-identifier hs-var">model</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:platform:SegmentDemographics' :: Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3Aplatform%3ASegmentDemographics%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:appVersion:SegmentDemographics' :: Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3AappVersion%3ASegmentDemographics%27"><span class="hs-identifier hs-var">appVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:channel:SegmentDemographics' :: Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3Achannel%3ASegmentDemographics%27"><span class="hs-identifier hs-var">channel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceType:SegmentDemographics' :: Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3AdeviceType%3ASegmentDemographics%27"><span class="hs-identifier hs-var">deviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:make:SegmentDemographics' :: Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3Amake%3ASegmentDemographics%27"><span class="hs-identifier hs-var">make</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The device model criteria for the segment.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#segmentDemographics_model"><span class="hs-identifier hs-type">segmentDemographics_model</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="segmentDemographics_model"><span class="annot"><span class="annottext">segmentDemographics_model :: (Maybe SetDimension -&gt; f (Maybe SetDimension))
+-&gt; SegmentDemographics -&gt; f SegmentDemographics
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#segmentDemographics_model"><span class="hs-identifier hs-var hs-var">segmentDemographics_model</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDemographics -&gt; Maybe SetDimension)
+-&gt; (SegmentDemographics
+    -&gt; Maybe SetDimension -&gt; SegmentDemographics)
+-&gt; Lens
+     SegmentDemographics
+     SegmentDemographics
+     (Maybe SetDimension)
+     (Maybe SetDimension)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics%27"><span class="hs-identifier hs-type">SegmentDemographics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610319"><span class="annot"><span class="annottext">Maybe SetDimension
+model :: Maybe SetDimension
+$sel:model:SegmentDemographics' :: SegmentDemographics -&gt; Maybe SetDimension
+</span><a href="#local-6989586621679610319"><span class="hs-identifier hs-var hs-var">model</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610319"><span class="hs-identifier hs-var">model</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610318"><span class="annot"><span class="annottext">s :: SegmentDemographics
+</span><a href="#local-6989586621679610318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics%27"><span class="hs-identifier hs-type">SegmentDemographics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610317"><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDemographics
+</span><a href="#local-6989586621679610318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:model:SegmentDemographics' :: Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3Amodel%3ASegmentDemographics%27"><span class="hs-identifier hs-var">model</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The device platform criteria for the segment.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#segmentDemographics_platform"><span class="hs-identifier hs-type">segmentDemographics_platform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="segmentDemographics_platform"><span class="annot"><span class="annottext">segmentDemographics_platform :: (Maybe SetDimension -&gt; f (Maybe SetDimension))
+-&gt; SegmentDemographics -&gt; f SegmentDemographics
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#segmentDemographics_platform"><span class="hs-identifier hs-var hs-var">segmentDemographics_platform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDemographics -&gt; Maybe SetDimension)
+-&gt; (SegmentDemographics
+    -&gt; Maybe SetDimension -&gt; SegmentDemographics)
+-&gt; Lens
+     SegmentDemographics
+     SegmentDemographics
+     (Maybe SetDimension)
+     (Maybe SetDimension)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics%27"><span class="hs-identifier hs-type">SegmentDemographics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610315"><span class="annot"><span class="annottext">Maybe SetDimension
+platform :: Maybe SetDimension
+$sel:platform:SegmentDemographics' :: SegmentDemographics -&gt; Maybe SetDimension
+</span><a href="#local-6989586621679610315"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610315"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610314"><span class="annot"><span class="annottext">s :: SegmentDemographics
+</span><a href="#local-6989586621679610314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics%27"><span class="hs-identifier hs-type">SegmentDemographics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610313"><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDemographics
+</span><a href="#local-6989586621679610314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platform:SegmentDemographics' :: Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3Aplatform%3ASegmentDemographics%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The app version criteria for the segment.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#segmentDemographics_appVersion"><span class="hs-identifier hs-type">segmentDemographics_appVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="segmentDemographics_appVersion"><span class="annot"><span class="annottext">segmentDemographics_appVersion :: (Maybe SetDimension -&gt; f (Maybe SetDimension))
+-&gt; SegmentDemographics -&gt; f SegmentDemographics
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#segmentDemographics_appVersion"><span class="hs-identifier hs-var hs-var">segmentDemographics_appVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDemographics -&gt; Maybe SetDimension)
+-&gt; (SegmentDemographics
+    -&gt; Maybe SetDimension -&gt; SegmentDemographics)
+-&gt; Lens
+     SegmentDemographics
+     SegmentDemographics
+     (Maybe SetDimension)
+     (Maybe SetDimension)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics%27"><span class="hs-identifier hs-type">SegmentDemographics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610311"><span class="annot"><span class="annottext">Maybe SetDimension
+appVersion :: Maybe SetDimension
+$sel:appVersion:SegmentDemographics' :: SegmentDemographics -&gt; Maybe SetDimension
+</span><a href="#local-6989586621679610311"><span class="hs-identifier hs-var hs-var">appVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610311"><span class="hs-identifier hs-var">appVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610310"><span class="annot"><span class="annottext">s :: SegmentDemographics
+</span><a href="#local-6989586621679610310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics%27"><span class="hs-identifier hs-type">SegmentDemographics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610309"><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDemographics
+</span><a href="#local-6989586621679610310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appVersion:SegmentDemographics' :: Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3AappVersion%3ASegmentDemographics%27"><span class="hs-identifier hs-var">appVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The channel criteria for the segment.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#segmentDemographics_channel"><span class="hs-identifier hs-type">segmentDemographics_channel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="segmentDemographics_channel"><span class="annot"><span class="annottext">segmentDemographics_channel :: (Maybe SetDimension -&gt; f (Maybe SetDimension))
+-&gt; SegmentDemographics -&gt; f SegmentDemographics
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#segmentDemographics_channel"><span class="hs-identifier hs-var hs-var">segmentDemographics_channel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDemographics -&gt; Maybe SetDimension)
+-&gt; (SegmentDemographics
+    -&gt; Maybe SetDimension -&gt; SegmentDemographics)
+-&gt; Lens
+     SegmentDemographics
+     SegmentDemographics
+     (Maybe SetDimension)
+     (Maybe SetDimension)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics%27"><span class="hs-identifier hs-type">SegmentDemographics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610307"><span class="annot"><span class="annottext">Maybe SetDimension
+channel :: Maybe SetDimension
+$sel:channel:SegmentDemographics' :: SegmentDemographics -&gt; Maybe SetDimension
+</span><a href="#local-6989586621679610307"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610307"><span class="hs-identifier hs-var">channel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610306"><span class="annot"><span class="annottext">s :: SegmentDemographics
+</span><a href="#local-6989586621679610306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics%27"><span class="hs-identifier hs-type">SegmentDemographics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610305"><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDemographics
+</span><a href="#local-6989586621679610306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channel:SegmentDemographics' :: Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3Achannel%3ASegmentDemographics%27"><span class="hs-identifier hs-var">channel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The device type criteria for the segment.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#segmentDemographics_deviceType"><span class="hs-identifier hs-type">segmentDemographics_deviceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="segmentDemographics_deviceType"><span class="annot"><span class="annottext">segmentDemographics_deviceType :: (Maybe SetDimension -&gt; f (Maybe SetDimension))
+-&gt; SegmentDemographics -&gt; f SegmentDemographics
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#segmentDemographics_deviceType"><span class="hs-identifier hs-var hs-var">segmentDemographics_deviceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDemographics -&gt; Maybe SetDimension)
+-&gt; (SegmentDemographics
+    -&gt; Maybe SetDimension -&gt; SegmentDemographics)
+-&gt; Lens
+     SegmentDemographics
+     SegmentDemographics
+     (Maybe SetDimension)
+     (Maybe SetDimension)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics%27"><span class="hs-identifier hs-type">SegmentDemographics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610303"><span class="annot"><span class="annottext">Maybe SetDimension
+deviceType :: Maybe SetDimension
+$sel:deviceType:SegmentDemographics' :: SegmentDemographics -&gt; Maybe SetDimension
+</span><a href="#local-6989586621679610303"><span class="hs-identifier hs-var hs-var">deviceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610303"><span class="hs-identifier hs-var">deviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610302"><span class="annot"><span class="annottext">s :: SegmentDemographics
+</span><a href="#local-6989586621679610302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics%27"><span class="hs-identifier hs-type">SegmentDemographics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610301"><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDemographics
+</span><a href="#local-6989586621679610302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceType:SegmentDemographics' :: Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3AdeviceType%3ASegmentDemographics%27"><span class="hs-identifier hs-var">deviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The device make criteria for the segment.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#segmentDemographics_make"><span class="hs-identifier hs-type">segmentDemographics_make</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="segmentDemographics_make"><span class="annot"><span class="annottext">segmentDemographics_make :: (Maybe SetDimension -&gt; f (Maybe SetDimension))
+-&gt; SegmentDemographics -&gt; f SegmentDemographics
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#segmentDemographics_make"><span class="hs-identifier hs-var hs-var">segmentDemographics_make</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDemographics -&gt; Maybe SetDimension)
+-&gt; (SegmentDemographics
+    -&gt; Maybe SetDimension -&gt; SegmentDemographics)
+-&gt; Lens
+     SegmentDemographics
+     SegmentDemographics
+     (Maybe SetDimension)
+     (Maybe SetDimension)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics%27"><span class="hs-identifier hs-type">SegmentDemographics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610299"><span class="annot"><span class="annottext">Maybe SetDimension
+make :: Maybe SetDimension
+$sel:make:SegmentDemographics' :: SegmentDemographics -&gt; Maybe SetDimension
+</span><a href="#local-6989586621679610299"><span class="hs-identifier hs-var hs-var">make</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610299"><span class="hs-identifier hs-var">make</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610298"><span class="annot"><span class="annottext">s :: SegmentDemographics
+</span><a href="#local-6989586621679610298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics%27"><span class="hs-identifier hs-type">SegmentDemographics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610297"><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDemographics
+</span><a href="#local-6989586621679610298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:make:SegmentDemographics' :: Maybe SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#%24sel%3Amake%3ASegmentDemographics%27"><span class="hs-identifier hs-var">make</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610294"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679610292"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SegmentDemographics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SegmentDemographics)
+-&gt; Value
+-&gt; Parser SegmentDemographics
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SegmentDemographics&quot;</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679610289"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610289"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe SetDimension
+-&gt; Maybe SetDimension
+-&gt; Maybe SetDimension
+-&gt; Maybe SetDimension
+-&gt; Maybe SetDimension
+-&gt; Maybe SetDimension
+-&gt; SegmentDemographics
+</span><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics%27"><span class="hs-identifier hs-var">SegmentDemographics'</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SetDimension
+ -&gt; Maybe SetDimension
+ -&gt; Maybe SetDimension
+ -&gt; Maybe SetDimension
+ -&gt; Maybe SetDimension
+ -&gt; Maybe SetDimension
+ -&gt; SegmentDemographics)
+-&gt; Parser (Maybe SetDimension)
+-&gt; Parser
+     (Maybe SetDimension
+      -&gt; Maybe SetDimension
+      -&gt; Maybe SetDimension
+      -&gt; Maybe SetDimension
+      -&gt; Maybe SetDimension
+      -&gt; SegmentDemographics)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SetDimension)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Model&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SetDimension
+   -&gt; Maybe SetDimension
+   -&gt; Maybe SetDimension
+   -&gt; Maybe SetDimension
+   -&gt; Maybe SetDimension
+   -&gt; SegmentDemographics)
+-&gt; Parser (Maybe SetDimension)
+-&gt; Parser
+     (Maybe SetDimension
+      -&gt; Maybe SetDimension
+      -&gt; Maybe SetDimension
+      -&gt; Maybe SetDimension
+      -&gt; SegmentDemographics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SetDimension)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Platform&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SetDimension
+   -&gt; Maybe SetDimension
+   -&gt; Maybe SetDimension
+   -&gt; Maybe SetDimension
+   -&gt; SegmentDemographics)
+-&gt; Parser (Maybe SetDimension)
+-&gt; Parser
+     (Maybe SetDimension
+      -&gt; Maybe SetDimension -&gt; Maybe SetDimension -&gt; SegmentDemographics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SetDimension)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SetDimension
+   -&gt; Maybe SetDimension -&gt; Maybe SetDimension -&gt; SegmentDemographics)
+-&gt; Parser (Maybe SetDimension)
+-&gt; Parser
+     (Maybe SetDimension -&gt; Maybe SetDimension -&gt; SegmentDemographics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SetDimension)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Channel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SetDimension -&gt; Maybe SetDimension -&gt; SegmentDemographics)
+-&gt; Parser (Maybe SetDimension)
+-&gt; Parser (Maybe SetDimension -&gt; SegmentDemographics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SetDimension)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SetDimension -&gt; SegmentDemographics)
+-&gt; Parser (Maybe SetDimension) -&gt; Parser SegmentDemographics
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SetDimension)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Make&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610283"><span id="local-6989586621679610285"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610280"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610272"><span id="local-6989586621679610274"><span id="local-6989586621679610276"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics"><span class="hs-identifier hs-type">SegmentDemographics</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679610270"><span class="annot"><span class="annottext">toJSON :: SegmentDemographics -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDemographics.html#SegmentDemographics%27"><span class="hs-identifier hs-type">SegmentDemographics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610263"><span id="local-6989586621679610264"><span id="local-6989586621679610265"><span id="local-6989586621679610266"><span id="local-6989586621679610267"><span id="local-6989586621679610268"><span class="annot"><span class="annottext">Maybe SetDimension
+make :: Maybe SetDimension
+deviceType :: Maybe SetDimension
+channel :: Maybe SetDimension
+appVersion :: Maybe SetDimension
+platform :: Maybe SetDimension
+model :: Maybe SetDimension
+$sel:make:SegmentDemographics' :: SegmentDemographics -&gt; Maybe SetDimension
+$sel:deviceType:SegmentDemographics' :: SegmentDemographics -&gt; Maybe SetDimension
+$sel:channel:SegmentDemographics' :: SegmentDemographics -&gt; Maybe SetDimension
+$sel:appVersion:SegmentDemographics' :: SegmentDemographics -&gt; Maybe SetDimension
+$sel:platform:SegmentDemographics' :: SegmentDemographics -&gt; Maybe SetDimension
+$sel:model:SegmentDemographics' :: SegmentDemographics -&gt; Maybe SetDimension
+</span><a href="#local-6989586621679610263"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Model&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SetDimension -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SetDimension -&gt; Pair) -&gt; Maybe SetDimension -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610268"><span class="hs-identifier hs-var">model</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Platform&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SetDimension -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SetDimension -&gt; Pair) -&gt; Maybe SetDimension -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610267"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SetDimension -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SetDimension -&gt; Pair) -&gt; Maybe SetDimension -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610266"><span class="hs-identifier hs-var">appVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Channel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SetDimension -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SetDimension -&gt; Pair) -&gt; Maybe SetDimension -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610265"><span class="hs-identifier hs-var">channel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SetDimension -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SetDimension -&gt; Pair) -&gt; Maybe SetDimension -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610264"><span class="hs-identifier hs-var">deviceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Make&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SetDimension -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SetDimension -&gt; Pair) -&gt; Maybe SetDimension -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610263"><span class="hs-identifier hs-var">make</span></a></span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span></pre></body></html>

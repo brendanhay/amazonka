@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm"><span class="hs-identifier">AudioNormalizationAlgorithm</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm_ITU_BS_1770_1"><span class="hs-identifier">AudioNormalizationAlgorithm_ITU_BS_1770_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm_ITU_BS_1770_2"><span class="hs-identifier">AudioNormalizationAlgorithm_ITU_BS_1770_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm_ITU_BS_1770_3"><span class="hs-identifier">AudioNormalizationAlgorithm_ITU_BS_1770_3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm_ITU_BS_1770_4"><span class="hs-identifier">AudioNormalizationAlgorithm_ITU_BS_1770_4</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Choose one of the following audio normalization algorithms: ITU-R</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- BS.1770-1: Ungated loudness. A measurement of ungated average loudness</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- for an entire piece of content, suitable for measurement of short-form</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- content under ATSC recommendation A\/85. Supports up to 5.1 audio</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- channels. ITU-R BS.1770-2: Gated loudness. A measurement of gated</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- average loudness compliant with the requirements of EBU-R128. Supports</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- up to 5.1 audio channels. ITU-R BS.1770-3: Modified peak. The same</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- loudness measurement algorithm as 1770-2, with an updated true peak</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- measurement. ITU-R BS.1770-4: Higher channel count. Allows for more</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- audio channels than the other algorithms, including configurations such</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- as 7.1.</span><span>
+</span><span id="line-45"></span><span id="local-6989586621679935816"><span id="local-6989586621679935817"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioNormalizationAlgorithm"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm"><span class="hs-identifier hs-var">AudioNormalizationAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioNormalizationAlgorithm%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm%27"><span class="hs-identifier hs-var">AudioNormalizationAlgorithm'</span></a></span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAudioNormalizationAlgorithm"><span class="annot"><span class="annottext">AudioNormalizationAlgorithm -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#fromAudioNormalizationAlgorithm"><span class="hs-identifier hs-var hs-var">fromAudioNormalizationAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679935808"><span id="local-6989586621679935810"><span id="local-6989586621679935812"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationAlgorithm -&gt; ShowS
+[AudioNormalizationAlgorithm] -&gt; ShowS
+AudioNormalizationAlgorithm -&gt; String
+(Int -&gt; AudioNormalizationAlgorithm -&gt; ShowS)
+-&gt; (AudioNormalizationAlgorithm -&gt; String)
+-&gt; ([AudioNormalizationAlgorithm] -&gt; ShowS)
+-&gt; Show AudioNormalizationAlgorithm
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AudioNormalizationAlgorithm] -&gt; ShowS
+$cshowList :: [AudioNormalizationAlgorithm] -&gt; ShowS
+show :: AudioNormalizationAlgorithm -&gt; String
+$cshow :: AudioNormalizationAlgorithm -&gt; String
+showsPrec :: Int -&gt; AudioNormalizationAlgorithm -&gt; ShowS
+$cshowsPrec :: Int -&gt; AudioNormalizationAlgorithm -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679935799"><span id="local-6989586621679935801"><span id="local-6989586621679935803"><span id="local-6989586621679935805"><span class="annot"><span class="annottext">ReadPrec [AudioNormalizationAlgorithm]
+ReadPrec AudioNormalizationAlgorithm
+Int -&gt; ReadS AudioNormalizationAlgorithm
+ReadS [AudioNormalizationAlgorithm]
+(Int -&gt; ReadS AudioNormalizationAlgorithm)
+-&gt; ReadS [AudioNormalizationAlgorithm]
+-&gt; ReadPrec AudioNormalizationAlgorithm
+-&gt; ReadPrec [AudioNormalizationAlgorithm]
+-&gt; Read AudioNormalizationAlgorithm
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AudioNormalizationAlgorithm]
+$creadListPrec :: ReadPrec [AudioNormalizationAlgorithm]
+readPrec :: ReadPrec AudioNormalizationAlgorithm
+$creadPrec :: ReadPrec AudioNormalizationAlgorithm
+readList :: ReadS [AudioNormalizationAlgorithm]
+$creadList :: ReadS [AudioNormalizationAlgorithm]
+readsPrec :: Int -&gt; ReadS AudioNormalizationAlgorithm
+$creadsPrec :: Int -&gt; ReadS AudioNormalizationAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679935794"><span id="local-6989586621679935796"><span class="annot"><span class="annottext">AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm -&gt; Bool
+(AudioNormalizationAlgorithm
+ -&gt; AudioNormalizationAlgorithm -&gt; Bool)
+-&gt; (AudioNormalizationAlgorithm
+    -&gt; AudioNormalizationAlgorithm -&gt; Bool)
+-&gt; Eq AudioNormalizationAlgorithm
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm -&gt; Bool
+$c/= :: AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm -&gt; Bool
+== :: AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm -&gt; Bool
+$c== :: AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679935778"><span id="local-6989586621679935780"><span id="local-6989586621679935782"><span id="local-6989586621679935784"><span id="local-6989586621679935786"><span id="local-6989586621679935788"><span id="local-6989586621679935790"><span class="annot"><span class="annottext">Eq AudioNormalizationAlgorithm
+Eq AudioNormalizationAlgorithm
+-&gt; (AudioNormalizationAlgorithm
+    -&gt; AudioNormalizationAlgorithm -&gt; Ordering)
+-&gt; (AudioNormalizationAlgorithm
+    -&gt; AudioNormalizationAlgorithm -&gt; Bool)
+-&gt; (AudioNormalizationAlgorithm
+    -&gt; AudioNormalizationAlgorithm -&gt; Bool)
+-&gt; (AudioNormalizationAlgorithm
+    -&gt; AudioNormalizationAlgorithm -&gt; Bool)
+-&gt; (AudioNormalizationAlgorithm
+    -&gt; AudioNormalizationAlgorithm -&gt; Bool)
+-&gt; (AudioNormalizationAlgorithm
+    -&gt; AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm)
+-&gt; (AudioNormalizationAlgorithm
+    -&gt; AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm)
+-&gt; Ord AudioNormalizationAlgorithm
+AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm -&gt; Bool
+AudioNormalizationAlgorithm
+-&gt; AudioNormalizationAlgorithm -&gt; Ordering
+AudioNormalizationAlgorithm
+-&gt; AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AudioNormalizationAlgorithm
+-&gt; AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm
+$cmin :: AudioNormalizationAlgorithm
+-&gt; AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm
+max :: AudioNormalizationAlgorithm
+-&gt; AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm
+$cmax :: AudioNormalizationAlgorithm
+-&gt; AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm
+&gt;= :: AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm -&gt; Bool
+$c&gt;= :: AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm -&gt; Bool
+&gt; :: AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm -&gt; Bool
+$c&gt; :: AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm -&gt; Bool
+&lt;= :: AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm -&gt; Bool
+$c&lt;= :: AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm -&gt; Bool
+&lt; :: AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm -&gt; Bool
+$c&lt; :: AudioNormalizationAlgorithm -&gt; AudioNormalizationAlgorithm -&gt; Bool
+compare :: AudioNormalizationAlgorithm
+-&gt; AudioNormalizationAlgorithm -&gt; Ordering
+$ccompare :: AudioNormalizationAlgorithm
+-&gt; AudioNormalizationAlgorithm -&gt; Ordering
+$cp1Ord :: Eq AudioNormalizationAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AudioNormalizationAlgorithm -&gt; Rep AudioNormalizationAlgorithm x)
+-&gt; (forall x.
+    Rep AudioNormalizationAlgorithm x -&gt; AudioNormalizationAlgorithm)
+-&gt; Generic AudioNormalizationAlgorithm
+forall x.
+Rep AudioNormalizationAlgorithm x -&gt; AudioNormalizationAlgorithm
+forall x.
+AudioNormalizationAlgorithm -&gt; Rep AudioNormalizationAlgorithm x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AudioNormalizationAlgorithm x -&gt; AudioNormalizationAlgorithm
+$cfrom :: forall x.
+AudioNormalizationAlgorithm -&gt; Rep AudioNormalizationAlgorithm x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679935770"><span id="local-6989586621679935772"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationAlgorithm -&gt; Int
+AudioNormalizationAlgorithm -&gt; Int
+(Int -&gt; AudioNormalizationAlgorithm -&gt; Int)
+-&gt; (AudioNormalizationAlgorithm -&gt; Int)
+-&gt; Hashable AudioNormalizationAlgorithm
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AudioNormalizationAlgorithm -&gt; Int
+$chash :: AudioNormalizationAlgorithm -&gt; Int
+hashWithSalt :: Int -&gt; AudioNormalizationAlgorithm -&gt; Int
+$chashWithSalt :: Int -&gt; AudioNormalizationAlgorithm -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679935767"><span class="annot"><span class="annottext">AudioNormalizationAlgorithm -&gt; ()
+(AudioNormalizationAlgorithm -&gt; ())
+-&gt; NFData AudioNormalizationAlgorithm
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AudioNormalizationAlgorithm -&gt; ()
+$crnf :: AudioNormalizationAlgorithm -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679935764"><span class="annot"><span class="annottext">Text -&gt; Either String AudioNormalizationAlgorithm
+(Text -&gt; Either String AudioNormalizationAlgorithm)
+-&gt; FromText AudioNormalizationAlgorithm
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AudioNormalizationAlgorithm
+$cfromText :: Text -&gt; Either String AudioNormalizationAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679935761"><span class="annot"><span class="annottext">AudioNormalizationAlgorithm -&gt; Text
+(AudioNormalizationAlgorithm -&gt; Text)
+-&gt; ToText AudioNormalizationAlgorithm
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AudioNormalizationAlgorithm -&gt; Text
+$ctoText :: AudioNormalizationAlgorithm -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679935758"><span class="annot"><span class="annottext">AudioNormalizationAlgorithm -&gt; ByteString
+(AudioNormalizationAlgorithm -&gt; ByteString)
+-&gt; ToByteString AudioNormalizationAlgorithm
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AudioNormalizationAlgorithm -&gt; ByteString
+$ctoBS :: AudioNormalizationAlgorithm -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679935755"><span class="annot"><span class="annottext">AudioNormalizationAlgorithm -&gt; ByteStringBuilder
+(AudioNormalizationAlgorithm -&gt; ByteStringBuilder)
+-&gt; ToLog AudioNormalizationAlgorithm
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AudioNormalizationAlgorithm -&gt; ByteStringBuilder
+$cbuild :: AudioNormalizationAlgorithm -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679935752"><span class="annot"><span class="annottext">HeaderName -&gt; AudioNormalizationAlgorithm -&gt; [Header]
+(HeaderName -&gt; AudioNormalizationAlgorithm -&gt; [Header])
+-&gt; ToHeader AudioNormalizationAlgorithm
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AudioNormalizationAlgorithm -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AudioNormalizationAlgorithm -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679935749"><span class="annot"><span class="annottext">AudioNormalizationAlgorithm -&gt; QueryString
+(AudioNormalizationAlgorithm -&gt; QueryString)
+-&gt; ToQuery AudioNormalizationAlgorithm
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AudioNormalizationAlgorithm -&gt; QueryString
+$ctoQuery :: AudioNormalizationAlgorithm -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679935744"><span id="local-6989586621679935746"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioNormalizationAlgorithm]
+Value -&gt; Parser AudioNormalizationAlgorithm
+(Value -&gt; Parser AudioNormalizationAlgorithm)
+-&gt; (Value -&gt; Parser [AudioNormalizationAlgorithm])
+-&gt; FromJSON AudioNormalizationAlgorithm
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AudioNormalizationAlgorithm]
+$cparseJSONList :: Value -&gt; Parser [AudioNormalizationAlgorithm]
+parseJSON :: Value -&gt; Parser AudioNormalizationAlgorithm
+$cparseJSON :: Value -&gt; Parser AudioNormalizationAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679935739"><span id="local-6989586621679935741"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioNormalizationAlgorithm]
+FromJSONKeyFunction AudioNormalizationAlgorithm
+FromJSONKeyFunction AudioNormalizationAlgorithm
+-&gt; FromJSONKeyFunction [AudioNormalizationAlgorithm]
+-&gt; FromJSONKey AudioNormalizationAlgorithm
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AudioNormalizationAlgorithm]
+$cfromJSONKeyList :: FromJSONKeyFunction [AudioNormalizationAlgorithm]
+fromJSONKey :: FromJSONKeyFunction AudioNormalizationAlgorithm
+$cfromJSONKey :: FromJSONKeyFunction AudioNormalizationAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679935730"><span id="local-6989586621679935732"><span id="local-6989586621679935734"><span id="local-6989586621679935736"><span class="annot"><span class="annottext">[AudioNormalizationAlgorithm] -&gt; Encoding
+[AudioNormalizationAlgorithm] -&gt; Value
+AudioNormalizationAlgorithm -&gt; Encoding
+AudioNormalizationAlgorithm -&gt; Value
+(AudioNormalizationAlgorithm -&gt; Value)
+-&gt; (AudioNormalizationAlgorithm -&gt; Encoding)
+-&gt; ([AudioNormalizationAlgorithm] -&gt; Value)
+-&gt; ([AudioNormalizationAlgorithm] -&gt; Encoding)
+-&gt; ToJSON AudioNormalizationAlgorithm
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AudioNormalizationAlgorithm] -&gt; Encoding
+$ctoEncodingList :: [AudioNormalizationAlgorithm] -&gt; Encoding
+toJSONList :: [AudioNormalizationAlgorithm] -&gt; Value
+$ctoJSONList :: [AudioNormalizationAlgorithm] -&gt; Value
+toEncoding :: AudioNormalizationAlgorithm -&gt; Encoding
+$ctoEncoding :: AudioNormalizationAlgorithm -&gt; Encoding
+toJSON :: AudioNormalizationAlgorithm -&gt; Value
+$ctoJSON :: AudioNormalizationAlgorithm -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679935725"><span id="local-6989586621679935727"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioNormalizationAlgorithm]
+ToJSONKeyFunction AudioNormalizationAlgorithm
+ToJSONKeyFunction AudioNormalizationAlgorithm
+-&gt; ToJSONKeyFunction [AudioNormalizationAlgorithm]
+-&gt; ToJSONKey AudioNormalizationAlgorithm
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AudioNormalizationAlgorithm]
+$ctoJSONKeyList :: ToJSONKeyFunction [AudioNormalizationAlgorithm]
+toJSONKey :: ToJSONKeyFunction AudioNormalizationAlgorithm
+$ctoJSONKey :: ToJSONKeyFunction AudioNormalizationAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679935722"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioNormalizationAlgorithm
+([Node] -&gt; Either String AudioNormalizationAlgorithm)
+-&gt; FromXML AudioNormalizationAlgorithm
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AudioNormalizationAlgorithm
+$cparseXML :: [Node] -&gt; Either String AudioNormalizationAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679935719"><span class="annot"><span class="annottext">AudioNormalizationAlgorithm -&gt; XML
+(AudioNormalizationAlgorithm -&gt; XML)
+-&gt; ToXML AudioNormalizationAlgorithm
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AudioNormalizationAlgorithm -&gt; XML
+$ctoXML :: AudioNormalizationAlgorithm -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm_ITU_BS_1770_1"><span class="hs-identifier hs-type">AudioNormalizationAlgorithm_ITU_BS_1770_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm"><span class="hs-identifier hs-type">AudioNormalizationAlgorithm</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAudioNormalizationAlgorithm_ITU_BS_1770_1"><span id="%24mAudioNormalizationAlgorithm_ITU_BS_1770_1"><span id="AudioNormalizationAlgorithm_ITU_BS_1770_1"><span class="annot"><span class="annottext">$bAudioNormalizationAlgorithm_ITU_BS_1770_1 :: AudioNormalizationAlgorithm
+$mAudioNormalizationAlgorithm_ITU_BS_1770_1 :: forall r.
+AudioNormalizationAlgorithm -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#%24bAudioNormalizationAlgorithm_ITU_BS_1770_1"><span class="hs-identifier hs-var hs-var hs-var">AudioNormalizationAlgorithm_ITU_BS_1770_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm%27"><span class="hs-identifier hs-type">AudioNormalizationAlgorithm'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ITU_BS_1770_1&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm_ITU_BS_1770_2"><span class="hs-identifier hs-type">AudioNormalizationAlgorithm_ITU_BS_1770_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm"><span class="hs-identifier hs-type">AudioNormalizationAlgorithm</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAudioNormalizationAlgorithm_ITU_BS_1770_2"><span id="%24mAudioNormalizationAlgorithm_ITU_BS_1770_2"><span id="AudioNormalizationAlgorithm_ITU_BS_1770_2"><span class="annot"><span class="annottext">$bAudioNormalizationAlgorithm_ITU_BS_1770_2 :: AudioNormalizationAlgorithm
+$mAudioNormalizationAlgorithm_ITU_BS_1770_2 :: forall r.
+AudioNormalizationAlgorithm -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#%24bAudioNormalizationAlgorithm_ITU_BS_1770_2"><span class="hs-identifier hs-var hs-var hs-var">AudioNormalizationAlgorithm_ITU_BS_1770_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm%27"><span class="hs-identifier hs-type">AudioNormalizationAlgorithm'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ITU_BS_1770_2&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm_ITU_BS_1770_3"><span class="hs-identifier hs-type">AudioNormalizationAlgorithm_ITU_BS_1770_3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm"><span class="hs-identifier hs-type">AudioNormalizationAlgorithm</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAudioNormalizationAlgorithm_ITU_BS_1770_3"><span id="%24mAudioNormalizationAlgorithm_ITU_BS_1770_3"><span id="AudioNormalizationAlgorithm_ITU_BS_1770_3"><span class="annot"><span class="annottext">$bAudioNormalizationAlgorithm_ITU_BS_1770_3 :: AudioNormalizationAlgorithm
+$mAudioNormalizationAlgorithm_ITU_BS_1770_3 :: forall r.
+AudioNormalizationAlgorithm -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#%24bAudioNormalizationAlgorithm_ITU_BS_1770_3"><span class="hs-identifier hs-var hs-var hs-var">AudioNormalizationAlgorithm_ITU_BS_1770_3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm%27"><span class="hs-identifier hs-type">AudioNormalizationAlgorithm'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ITU_BS_1770_3&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm_ITU_BS_1770_4"><span class="hs-identifier hs-type">AudioNormalizationAlgorithm_ITU_BS_1770_4</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm"><span class="hs-identifier hs-type">AudioNormalizationAlgorithm</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAudioNormalizationAlgorithm_ITU_BS_1770_4"><span id="%24mAudioNormalizationAlgorithm_ITU_BS_1770_4"><span id="AudioNormalizationAlgorithm_ITU_BS_1770_4"><span class="annot"><span class="annottext">$bAudioNormalizationAlgorithm_ITU_BS_1770_4 :: AudioNormalizationAlgorithm
+$mAudioNormalizationAlgorithm_ITU_BS_1770_4 :: forall r.
+AudioNormalizationAlgorithm -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#%24bAudioNormalizationAlgorithm_ITU_BS_1770_4"><span class="hs-identifier hs-var hs-var hs-var">AudioNormalizationAlgorithm_ITU_BS_1770_4</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm%27"><span class="hs-identifier hs-type">AudioNormalizationAlgorithm'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ITU_BS_1770_4&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm_ITU_BS_1770_1"><span class="hs-pragma hs-type">AudioNormalizationAlgorithm_ITU_BS_1770_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm_ITU_BS_1770_2"><span class="hs-pragma hs-type">AudioNormalizationAlgorithm_ITU_BS_1770_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm_ITU_BS_1770_3"><span class="hs-pragma hs-type">AudioNormalizationAlgorithm_ITU_BS_1770_3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm_ITU_BS_1770_4"><span class="hs-pragma hs-type">AudioNormalizationAlgorithm_ITU_BS_1770_4</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm%27"><span class="hs-pragma hs-type">AudioNormalizationAlgorithm'</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-92"></span></pre></body></html>

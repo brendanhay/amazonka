@@ -1,0 +1,772 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.APIGateway.CreateRestApi</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new RestApi resource.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.APIGateway.CreateRestApi</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier">CreateRestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#newCreateRestApi"><span class="hs-identifier">newCreateRestApi</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_endpointConfiguration"><span class="hs-identifier">createRestApi_endpointConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_binaryMediaTypes"><span class="hs-identifier">createRestApi_binaryMediaTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_version"><span class="hs-identifier">createRestApi_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_tags"><span class="hs-identifier">createRestApi_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_description"><span class="hs-identifier">createRestApi_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_policy"><span class="hs-identifier">createRestApi_policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_disableExecuteApiEndpoint"><span class="hs-identifier">createRestApi_disableExecuteApiEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_cloneFrom"><span class="hs-identifier">createRestApi_cloneFrom</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_minimumCompressionSize"><span class="hs-identifier">createRestApi_minimumCompressionSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_apiKeySource"><span class="hs-identifier">createRestApi_apiKeySource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_name"><span class="hs-identifier">createRestApi_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier">RestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RestApi.html#newRestApi"><span class="hs-identifier">newRestApi</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RestApi.html#restApi_createdDate"><span class="hs-identifier">restApi_createdDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RestApi.html#restApi_warnings"><span class="hs-identifier">restApi_warnings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RestApi.html#restApi_endpointConfiguration"><span class="hs-identifier">restApi_endpointConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RestApi.html#restApi_binaryMediaTypes"><span class="hs-identifier">restApi_binaryMediaTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RestApi.html#restApi_id"><span class="hs-identifier">restApi_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RestApi.html#restApi_version"><span class="hs-identifier">restApi_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RestApi.html#restApi_name"><span class="hs-identifier">restApi_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RestApi.html#restApi_tags"><span class="hs-identifier">restApi_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RestApi.html#restApi_description"><span class="hs-identifier">restApi_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RestApi.html#restApi_policy"><span class="hs-identifier">restApi_policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RestApi.html#restApi_disableExecuteApiEndpoint"><span class="hs-identifier">restApi_disableExecuteApiEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RestApi.html#restApi_minimumCompressionSize"><span class="hs-identifier">restApi_minimumCompressionSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RestApi.html#restApi_apiKeySource"><span class="hs-identifier">restApi_apiKeySource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.html"><span class="hs-identifier">Network.AWS.APIGateway.Types</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The POST Request to add a new RestApi resource to your collection.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- /See:/ 'newCreateRestApi' smart constructor.</span><span>
+</span><span id="line-73"></span><span id="local-6989586621679390620"><span id="local-6989586621679390621"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRestApi"><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-var">CreateRestApi</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRestApi%27"><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-var">CreateRestApi'</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The endpoint configuration of this RestApi showing the endpoint types of</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- the API.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AendpointConfiguration%3ACreateRestApi%27"><span class="annot"><span class="annottext">CreateRestApi -&gt; Maybe EndpointConfiguration
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AendpointConfiguration%3ACreateRestApi%27"><span class="hs-identifier hs-var hs-var">endpointConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointConfiguration.html#EndpointConfiguration"><span class="hs-identifier hs-type">EndpointConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The list of binary media types supported by the RestApi. By default, the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- RestApi supports only UTF-8-encoded text payloads.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AbinaryMediaTypes%3ACreateRestApi%27"><span class="annot"><span class="annottext">CreateRestApi -&gt; Maybe [Text]
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AbinaryMediaTypes%3ACreateRestApi%27"><span class="hs-identifier hs-var hs-var">binaryMediaTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | A version identifier for the API.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Aversion%3ACreateRestApi%27"><span class="annot"><span class="annottext">CreateRestApi -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3Aversion%3ACreateRestApi%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The key-value map of strings. The valid character set is</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- start with @aws:@. The tag value can be up to 256 characters.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3Atags%3ACreateRestApi%27"><span class="annot"><span class="annottext">CreateRestApi -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3Atags%3ACreateRestApi%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The description of the RestApi.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Adescription%3ACreateRestApi%27"><span class="annot"><span class="annottext">CreateRestApi -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3Adescription%3ACreateRestApi%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | A stringified JSON policy document that applies to this RestApi</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- regardless of the caller and Method configuration.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3Apolicy%3ACreateRestApi%27"><span class="annot"><span class="annottext">CreateRestApi -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3Apolicy%3ACreateRestApi%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | Specifies whether clients can invoke your API by using the default</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- @execute-api@ endpoint. By default, clients can invoke your API with the</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- To require that clients use a custom domain name to invoke your API,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- disable the default endpoint.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AdisableExecuteApiEndpoint%3ACreateRestApi%27"><span class="annot"><span class="annottext">CreateRestApi -&gt; Maybe Bool
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AdisableExecuteApiEndpoint%3ACreateRestApi%27"><span class="hs-identifier hs-var hs-var">disableExecuteApiEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The ID of the RestApi that you want to clone from.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AcloneFrom%3ACreateRestApi%27"><span class="annot"><span class="annottext">CreateRestApi -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AcloneFrom%3ACreateRestApi%27"><span class="hs-identifier hs-var hs-var">cloneFrom</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | A nullable integer that is used to enable compression (with non-negative</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- between 0 and 10485760 (10M) bytes, inclusive) or disable compression</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- (with a null value) on an API. When compression is enabled, compression</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- or decompression is not applied on the payload if the payload size is</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- smaller than this value. Setting it to zero allows compression for any</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- payload size.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AminimumCompressionSize%3ACreateRestApi%27"><span class="annot"><span class="annottext">CreateRestApi -&gt; Maybe Int
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AminimumCompressionSize%3ACreateRestApi%27"><span class="hs-identifier hs-var hs-var">minimumCompressionSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | The source of the API key for metering requests according to a usage</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- plan. Valid values are:</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- -   @HEADER@ to read the API key from the @X-API-Key@ header of a</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--     request.</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- -   @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--     a custom authorizer.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3AapiKeySource%3ACreateRestApi%27"><span class="annot"><span class="annottext">CreateRestApi -&gt; Maybe ApiKeySourceType
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AapiKeySource%3ACreateRestApi%27"><span class="hs-identifier hs-var hs-var">apiKeySource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ApiKeySourceType.html#ApiKeySourceType"><span class="hs-identifier hs-type">ApiKeySourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | [Required] The name of the RestApi.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3Aname%3ACreateRestApi%27"><span class="annot"><span class="annottext">CreateRestApi -&gt; Text
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3Aname%3ACreateRestApi%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390604"><span id="local-6989586621679390606"><span class="annot"><span class="annottext">CreateRestApi -&gt; CreateRestApi -&gt; Bool
+(CreateRestApi -&gt; CreateRestApi -&gt; Bool)
+-&gt; (CreateRestApi -&gt; CreateRestApi -&gt; Bool) -&gt; Eq CreateRestApi
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRestApi -&gt; CreateRestApi -&gt; Bool
+$c/= :: CreateRestApi -&gt; CreateRestApi -&gt; Bool
+== :: CreateRestApi -&gt; CreateRestApi -&gt; Bool
+$c== :: CreateRestApi -&gt; CreateRestApi -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390595"><span id="local-6989586621679390597"><span id="local-6989586621679390599"><span id="local-6989586621679390601"><span class="annot"><span class="annottext">ReadPrec [CreateRestApi]
+ReadPrec CreateRestApi
+Int -&gt; ReadS CreateRestApi
+ReadS [CreateRestApi]
+(Int -&gt; ReadS CreateRestApi)
+-&gt; ReadS [CreateRestApi]
+-&gt; ReadPrec CreateRestApi
+-&gt; ReadPrec [CreateRestApi]
+-&gt; Read CreateRestApi
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateRestApi]
+$creadListPrec :: ReadPrec [CreateRestApi]
+readPrec :: ReadPrec CreateRestApi
+$creadPrec :: ReadPrec CreateRestApi
+readList :: ReadS [CreateRestApi]
+$creadList :: ReadS [CreateRestApi]
+readsPrec :: Int -&gt; ReadS CreateRestApi
+$creadsPrec :: Int -&gt; ReadS CreateRestApi
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390588"><span id="local-6989586621679390590"><span id="local-6989586621679390592"><span class="annot"><span class="annottext">Int -&gt; CreateRestApi -&gt; ShowS
+[CreateRestApi] -&gt; ShowS
+CreateRestApi -&gt; String
+(Int -&gt; CreateRestApi -&gt; ShowS)
+-&gt; (CreateRestApi -&gt; String)
+-&gt; ([CreateRestApi] -&gt; ShowS)
+-&gt; Show CreateRestApi
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRestApi] -&gt; ShowS
+$cshowList :: [CreateRestApi] -&gt; ShowS
+show :: CreateRestApi -&gt; String
+$cshow :: CreateRestApi -&gt; String
+showsPrec :: Int -&gt; CreateRestApi -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRestApi -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateRestApi -&gt; Rep CreateRestApi x)
+-&gt; (forall x. Rep CreateRestApi x -&gt; CreateRestApi)
+-&gt; Generic CreateRestApi
+forall x. Rep CreateRestApi x -&gt; CreateRestApi
+forall x. CreateRestApi -&gt; Rep CreateRestApi x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateRestApi x -&gt; CreateRestApi
+$cfrom :: forall x. CreateRestApi -&gt; Rep CreateRestApi x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Create a value of 'CreateRestApi' with all optional fields omitted.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'endpointConfiguration', 'createRestApi_endpointConfiguration' - The endpoint configuration of this RestApi showing the endpoint types of</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- the API.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'binaryMediaTypes', 'createRestApi_binaryMediaTypes' - The list of binary media types supported by the RestApi. By default, the</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- RestApi supports only UTF-8-encoded text payloads.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'version', 'createRestApi_version' - A version identifier for the API.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'tags', 'createRestApi_tags' - The key-value map of strings. The valid character set is</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- start with @aws:@. The tag value can be up to 256 characters.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'description', 'createRestApi_description' - The description of the RestApi.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'policy', 'createRestApi_policy' - A stringified JSON policy document that applies to this RestApi</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- regardless of the caller and Method configuration.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'disableExecuteApiEndpoint', 'createRestApi_disableExecuteApiEndpoint' - Specifies whether clients can invoke your API by using the default</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @execute-api@ endpoint. By default, clients can invoke your API with the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- To require that clients use a custom domain name to invoke your API,</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- disable the default endpoint.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'cloneFrom', 'createRestApi_cloneFrom' - The ID of the RestApi that you want to clone from.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'minimumCompressionSize', 'createRestApi_minimumCompressionSize' - A nullable integer that is used to enable compression (with non-negative</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- between 0 and 10485760 (10M) bytes, inclusive) or disable compression</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- (with a null value) on an API. When compression is enabled, compression</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- or decompression is not applied on the payload if the payload size is</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- smaller than this value. Setting it to zero allows compression for any</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- payload size.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'apiKeySource', 'createRestApi_apiKeySource' - The source of the API key for metering requests according to a usage</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- plan. Valid values are:</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   @HEADER@ to read the API key from the @X-API-Key@ header of a</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--     request.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--     a custom authorizer.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'name', 'createRestApi_name' - [Required] The name of the RestApi.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#newCreateRestApi"><span class="hs-identifier hs-type">newCreateRestApi</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span>
+</span><span id="line-172"></span><span id="newCreateRestApi"><span class="annot"><span class="annottext">newCreateRestApi :: Text -&gt; CreateRestApi
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#newCreateRestApi"><span class="hs-identifier hs-var hs-var">newCreateRestApi</span></a></span></span><span> </span><span id="local-6989586621679390583"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390583"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">CreateRestApi' :: Maybe EndpointConfiguration
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe ApiKeySourceType
+-&gt; Text
+-&gt; CreateRestApi
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endpointConfiguration:CreateRestApi' :: Maybe EndpointConfiguration
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AendpointConfiguration%3ACreateRestApi%27"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Maybe EndpointConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:binaryMediaTypes:CreateRestApi' :: Maybe [Text]
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AbinaryMediaTypes%3ACreateRestApi%27"><span class="hs-identifier hs-var">binaryMediaTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:CreateRestApi' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3Aversion%3ACreateRestApi%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateRestApi' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3Atags%3ACreateRestApi%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateRestApi' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3Adescription%3ACreateRestApi%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:policy:CreateRestApi' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3Apolicy%3ACreateRestApi%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:disableExecuteApiEndpoint:CreateRestApi' :: Maybe Bool
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AdisableExecuteApiEndpoint%3ACreateRestApi%27"><span class="hs-identifier hs-var">disableExecuteApiEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloneFrom:CreateRestApi' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AcloneFrom%3ACreateRestApi%27"><span class="hs-identifier hs-var">cloneFrom</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:minimumCompressionSize:CreateRestApi' :: Maybe Int
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AminimumCompressionSize%3ACreateRestApi%27"><span class="hs-identifier hs-var">minimumCompressionSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiKeySource:CreateRestApi' :: Maybe ApiKeySourceType
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AapiKeySource%3ACreateRestApi%27"><span class="hs-identifier hs-var">apiKeySource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApiKeySourceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateRestApi' :: Text
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3Aname%3ACreateRestApi%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390583"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The endpoint configuration of this RestApi showing the endpoint types of</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- the API.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_endpointConfiguration"><span class="hs-identifier hs-type">createRestApi_endpointConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointConfiguration.html#EndpointConfiguration"><span class="hs-identifier hs-type">EndpointConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="createRestApi_endpointConfiguration"><span class="annot"><span class="annottext">createRestApi_endpointConfiguration :: (Maybe EndpointConfiguration -&gt; f (Maybe EndpointConfiguration))
+-&gt; CreateRestApi -&gt; f CreateRestApi
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_endpointConfiguration"><span class="hs-identifier hs-var hs-var">createRestApi_endpointConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRestApi -&gt; Maybe EndpointConfiguration)
+-&gt; (CreateRestApi -&gt; Maybe EndpointConfiguration -&gt; CreateRestApi)
+-&gt; Lens
+     CreateRestApi
+     CreateRestApi
+     (Maybe EndpointConfiguration)
+     (Maybe EndpointConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390580"><span class="annot"><span class="annottext">Maybe EndpointConfiguration
+endpointConfiguration :: Maybe EndpointConfiguration
+$sel:endpointConfiguration:CreateRestApi' :: CreateRestApi -&gt; Maybe EndpointConfiguration
+</span><a href="#local-6989586621679390580"><span class="hs-identifier hs-var hs-var">endpointConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointConfiguration
+</span><a href="#local-6989586621679390580"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390579"><span class="annot"><span class="annottext">s :: CreateRestApi
+</span><a href="#local-6989586621679390579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390578"><span class="annot"><span class="annottext">Maybe EndpointConfiguration
+</span><a href="#local-6989586621679390578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRestApi
+</span><a href="#local-6989586621679390579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointConfiguration:CreateRestApi' :: Maybe EndpointConfiguration
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AendpointConfiguration%3ACreateRestApi%27"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointConfiguration
+</span><a href="#local-6989586621679390578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The list of binary media types supported by the RestApi. By default, the</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- RestApi supports only UTF-8-encoded text payloads.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_binaryMediaTypes"><span class="hs-identifier hs-type">createRestApi_binaryMediaTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="createRestApi_binaryMediaTypes"><span class="annot"><span class="annottext">createRestApi_binaryMediaTypes :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateRestApi -&gt; f CreateRestApi
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_binaryMediaTypes"><span class="hs-identifier hs-var hs-var">createRestApi_binaryMediaTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRestApi -&gt; Maybe [Text])
+-&gt; (CreateRestApi -&gt; Maybe [Text] -&gt; CreateRestApi)
+-&gt; Lens CreateRestApi CreateRestApi (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390577"><span class="annot"><span class="annottext">Maybe [Text]
+binaryMediaTypes :: Maybe [Text]
+$sel:binaryMediaTypes:CreateRestApi' :: CreateRestApi -&gt; Maybe [Text]
+</span><a href="#local-6989586621679390577"><span class="hs-identifier hs-var hs-var">binaryMediaTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679390577"><span class="hs-identifier hs-var">binaryMediaTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390576"><span class="annot"><span class="annottext">s :: CreateRestApi
+</span><a href="#local-6989586621679390576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390575"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679390575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRestApi
+</span><a href="#local-6989586621679390576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:binaryMediaTypes:CreateRestApi' :: Maybe [Text]
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AbinaryMediaTypes%3ACreateRestApi%27"><span class="hs-identifier hs-var">binaryMediaTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679390575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateRestApi -&gt; f CreateRestApi)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateRestApi
+-&gt; f CreateRestApi
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | A version identifier for the API.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_version"><span class="hs-identifier hs-type">createRestApi_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="createRestApi_version"><span class="annot"><span class="annottext">createRestApi_version :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRestApi -&gt; f CreateRestApi
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_version"><span class="hs-identifier hs-var hs-var">createRestApi_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRestApi -&gt; Maybe Text)
+-&gt; (CreateRestApi -&gt; Maybe Text -&gt; CreateRestApi)
+-&gt; Lens CreateRestApi CreateRestApi (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390571"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:CreateRestApi' :: CreateRestApi -&gt; Maybe Text
+</span><a href="#local-6989586621679390571"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390571"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390570"><span class="annot"><span class="annottext">s :: CreateRestApi
+</span><a href="#local-6989586621679390570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390569"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRestApi
+</span><a href="#local-6989586621679390570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:CreateRestApi' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3Aversion%3ACreateRestApi%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The key-value map of strings. The valid character set is</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- start with @aws:@. The tag value can be up to 256 characters.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_tags"><span class="hs-identifier hs-type">createRestApi_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="createRestApi_tags"><span class="annot"><span class="annottext">createRestApi_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateRestApi -&gt; f CreateRestApi
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_tags"><span class="hs-identifier hs-var hs-var">createRestApi_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRestApi -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateRestApi -&gt; Maybe (HashMap Text Text) -&gt; CreateRestApi)
+-&gt; Lens
+     CreateRestApi
+     CreateRestApi
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390568"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateRestApi' :: CreateRestApi -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679390568"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679390568"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390567"><span class="annot"><span class="annottext">s :: CreateRestApi
+</span><a href="#local-6989586621679390567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390566"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679390566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRestApi
+</span><a href="#local-6989586621679390567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRestApi' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3Atags%3ACreateRestApi%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679390566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateRestApi -&gt; f CreateRestApi)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateRestApi
+-&gt; f CreateRestApi
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The description of the RestApi.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_description"><span class="hs-identifier hs-type">createRestApi_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="createRestApi_description"><span class="annot"><span class="annottext">createRestApi_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRestApi -&gt; f CreateRestApi
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_description"><span class="hs-identifier hs-var hs-var">createRestApi_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRestApi -&gt; Maybe Text)
+-&gt; (CreateRestApi -&gt; Maybe Text -&gt; CreateRestApi)
+-&gt; Lens CreateRestApi CreateRestApi (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390565"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateRestApi' :: CreateRestApi -&gt; Maybe Text
+</span><a href="#local-6989586621679390565"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390565"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390564"><span class="annot"><span class="annottext">s :: CreateRestApi
+</span><a href="#local-6989586621679390564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390563"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRestApi
+</span><a href="#local-6989586621679390564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateRestApi' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3Adescription%3ACreateRestApi%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | A stringified JSON policy document that applies to this RestApi</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- regardless of the caller and Method configuration.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_policy"><span class="hs-identifier hs-type">createRestApi_policy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="createRestApi_policy"><span class="annot"><span class="annottext">createRestApi_policy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRestApi -&gt; f CreateRestApi
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_policy"><span class="hs-identifier hs-var hs-var">createRestApi_policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRestApi -&gt; Maybe Text)
+-&gt; (CreateRestApi -&gt; Maybe Text -&gt; CreateRestApi)
+-&gt; Lens CreateRestApi CreateRestApi (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390562"><span class="annot"><span class="annottext">Maybe Text
+policy :: Maybe Text
+$sel:policy:CreateRestApi' :: CreateRestApi -&gt; Maybe Text
+</span><a href="#local-6989586621679390562"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390562"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390561"><span class="annot"><span class="annottext">s :: CreateRestApi
+</span><a href="#local-6989586621679390561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390560"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRestApi
+</span><a href="#local-6989586621679390561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:CreateRestApi' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3Apolicy%3ACreateRestApi%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | Specifies whether clients can invoke your API by using the default</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- @execute-api@ endpoint. By default, clients can invoke your API with the</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- To require that clients use a custom domain name to invoke your API,</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- disable the default endpoint.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_disableExecuteApiEndpoint"><span class="hs-identifier hs-type">createRestApi_disableExecuteApiEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="createRestApi_disableExecuteApiEndpoint"><span class="annot"><span class="annottext">createRestApi_disableExecuteApiEndpoint :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CreateRestApi -&gt; f CreateRestApi
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_disableExecuteApiEndpoint"><span class="hs-identifier hs-var hs-var">createRestApi_disableExecuteApiEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRestApi -&gt; Maybe Bool)
+-&gt; (CreateRestApi -&gt; Maybe Bool -&gt; CreateRestApi)
+-&gt; Lens CreateRestApi CreateRestApi (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390559"><span class="annot"><span class="annottext">Maybe Bool
+disableExecuteApiEndpoint :: Maybe Bool
+$sel:disableExecuteApiEndpoint:CreateRestApi' :: CreateRestApi -&gt; Maybe Bool
+</span><a href="#local-6989586621679390559"><span class="hs-identifier hs-var hs-var">disableExecuteApiEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679390559"><span class="hs-identifier hs-var">disableExecuteApiEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390558"><span class="annot"><span class="annottext">s :: CreateRestApi
+</span><a href="#local-6989586621679390558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390557"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679390557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRestApi
+</span><a href="#local-6989586621679390558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disableExecuteApiEndpoint:CreateRestApi' :: Maybe Bool
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AdisableExecuteApiEndpoint%3ACreateRestApi%27"><span class="hs-identifier hs-var">disableExecuteApiEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679390557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The ID of the RestApi that you want to clone from.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_cloneFrom"><span class="hs-identifier hs-type">createRestApi_cloneFrom</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="createRestApi_cloneFrom"><span class="annot"><span class="annottext">createRestApi_cloneFrom :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRestApi -&gt; f CreateRestApi
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_cloneFrom"><span class="hs-identifier hs-var hs-var">createRestApi_cloneFrom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRestApi -&gt; Maybe Text)
+-&gt; (CreateRestApi -&gt; Maybe Text -&gt; CreateRestApi)
+-&gt; Lens CreateRestApi CreateRestApi (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390556"><span class="annot"><span class="annottext">Maybe Text
+cloneFrom :: Maybe Text
+$sel:cloneFrom:CreateRestApi' :: CreateRestApi -&gt; Maybe Text
+</span><a href="#local-6989586621679390556"><span class="hs-identifier hs-var hs-var">cloneFrom</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390556"><span class="hs-identifier hs-var">cloneFrom</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390555"><span class="annot"><span class="annottext">s :: CreateRestApi
+</span><a href="#local-6989586621679390555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390554"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRestApi
+</span><a href="#local-6989586621679390555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloneFrom:CreateRestApi' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AcloneFrom%3ACreateRestApi%27"><span class="hs-identifier hs-var">cloneFrom</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | A nullable integer that is used to enable compression (with non-negative</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- between 0 and 10485760 (10M) bytes, inclusive) or disable compression</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- (with a null value) on an API. When compression is enabled, compression</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- or decompression is not applied on the payload if the payload size is</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- smaller than this value. Setting it to zero allows compression for any</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- payload size.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_minimumCompressionSize"><span class="hs-identifier hs-type">createRestApi_minimumCompressionSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="createRestApi_minimumCompressionSize"><span class="annot"><span class="annottext">createRestApi_minimumCompressionSize :: (Maybe Int -&gt; f (Maybe Int)) -&gt; CreateRestApi -&gt; f CreateRestApi
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_minimumCompressionSize"><span class="hs-identifier hs-var hs-var">createRestApi_minimumCompressionSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRestApi -&gt; Maybe Int)
+-&gt; (CreateRestApi -&gt; Maybe Int -&gt; CreateRestApi)
+-&gt; Lens CreateRestApi CreateRestApi (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390553"><span class="annot"><span class="annottext">Maybe Int
+minimumCompressionSize :: Maybe Int
+$sel:minimumCompressionSize:CreateRestApi' :: CreateRestApi -&gt; Maybe Int
+</span><a href="#local-6989586621679390553"><span class="hs-identifier hs-var hs-var">minimumCompressionSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679390553"><span class="hs-identifier hs-var">minimumCompressionSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390552"><span class="annot"><span class="annottext">s :: CreateRestApi
+</span><a href="#local-6989586621679390552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390551"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679390551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRestApi
+</span><a href="#local-6989586621679390552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumCompressionSize:CreateRestApi' :: Maybe Int
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AminimumCompressionSize%3ACreateRestApi%27"><span class="hs-identifier hs-var">minimumCompressionSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679390551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The source of the API key for metering requests according to a usage</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- plan. Valid values are:</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- -   @HEADER@ to read the API key from the @X-API-Key@ header of a</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--     request.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- -   @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--     a custom authorizer.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_apiKeySource"><span class="hs-identifier hs-type">createRestApi_apiKeySource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ApiKeySourceType.html#ApiKeySourceType"><span class="hs-identifier hs-type">ApiKeySourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="createRestApi_apiKeySource"><span class="annot"><span class="annottext">createRestApi_apiKeySource :: (Maybe ApiKeySourceType -&gt; f (Maybe ApiKeySourceType))
+-&gt; CreateRestApi -&gt; f CreateRestApi
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_apiKeySource"><span class="hs-identifier hs-var hs-var">createRestApi_apiKeySource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRestApi -&gt; Maybe ApiKeySourceType)
+-&gt; (CreateRestApi -&gt; Maybe ApiKeySourceType -&gt; CreateRestApi)
+-&gt; Lens
+     CreateRestApi
+     CreateRestApi
+     (Maybe ApiKeySourceType)
+     (Maybe ApiKeySourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390550"><span class="annot"><span class="annottext">Maybe ApiKeySourceType
+apiKeySource :: Maybe ApiKeySourceType
+$sel:apiKeySource:CreateRestApi' :: CreateRestApi -&gt; Maybe ApiKeySourceType
+</span><a href="#local-6989586621679390550"><span class="hs-identifier hs-var hs-var">apiKeySource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApiKeySourceType
+</span><a href="#local-6989586621679390550"><span class="hs-identifier hs-var">apiKeySource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390549"><span class="annot"><span class="annottext">s :: CreateRestApi
+</span><a href="#local-6989586621679390549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390548"><span class="annot"><span class="annottext">Maybe ApiKeySourceType
+</span><a href="#local-6989586621679390548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRestApi
+</span><a href="#local-6989586621679390549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeySource:CreateRestApi' :: Maybe ApiKeySourceType
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3AapiKeySource%3ACreateRestApi%27"><span class="hs-identifier hs-var">apiKeySource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApiKeySourceType
+</span><a href="#local-6989586621679390548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | [Required] The name of the RestApi.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_name"><span class="hs-identifier hs-type">createRestApi_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-250"></span><span id="createRestApi_name"><span class="annot"><span class="annottext">createRestApi_name :: (Text -&gt; f Text) -&gt; CreateRestApi -&gt; f CreateRestApi
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#createRestApi_name"><span class="hs-identifier hs-var hs-var">createRestApi_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRestApi -&gt; Text)
+-&gt; (CreateRestApi -&gt; Text -&gt; CreateRestApi)
+-&gt; Lens CreateRestApi CreateRestApi Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390547"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateRestApi' :: CreateRestApi -&gt; Text
+</span><a href="#local-6989586621679390547"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390547"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390546"><span class="annot"><span class="annottext">s :: CreateRestApi
+</span><a href="#local-6989586621679390546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390545"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRestApi
+</span><a href="#local-6989586621679390546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateRestApi' :: Text
+</span><a href="Network.AWS.APIGateway.CreateRestApi.html#%24sel%3Aname%3ACreateRestApi%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-253"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679390541"><span class="annot"><span class="annottext">request :: CreateRestApi -&gt; Request CreateRestApi
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateRestApi -&gt; Request CreateRestApi
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679390537"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateRestApi
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateRestApi)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateRestApi))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateRestApi
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateRestApi)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-257"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390534"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390534"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679390533"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679390533"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679390532"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679390532"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String RestApi
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679390532"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390527"><span id="local-6989586621679390529"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span></span></span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390524"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679390520"><span class="annot"><span class="annottext">toHeaders :: CreateRestApi -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateRestApi -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-266"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-267"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Accept&quot;</span></span><span>
+</span><span id="line-268"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/json&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-270"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390510"><span id="local-6989586621679390512"><span id="local-6989586621679390514"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621679390508"><span class="annot"><span class="annottext">toJSON :: CreateRestApi -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi%27"><span class="hs-identifier hs-type">CreateRestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390496"><span id="local-6989586621679390497"><span id="local-6989586621679390498"><span id="local-6989586621679390499"><span id="local-6989586621679390500"><span id="local-6989586621679390501"><span id="local-6989586621679390502"><span id="local-6989586621679390503"><span id="local-6989586621679390504"><span id="local-6989586621679390505"><span id="local-6989586621679390506"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe [Text]
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe ApiKeySourceType
+Maybe EndpointConfiguration
+Text
+name :: Text
+apiKeySource :: Maybe ApiKeySourceType
+minimumCompressionSize :: Maybe Int
+cloneFrom :: Maybe Text
+disableExecuteApiEndpoint :: Maybe Bool
+policy :: Maybe Text
+description :: Maybe Text
+tags :: Maybe (HashMap Text Text)
+version :: Maybe Text
+binaryMediaTypes :: Maybe [Text]
+endpointConfiguration :: Maybe EndpointConfiguration
+$sel:name:CreateRestApi' :: CreateRestApi -&gt; Text
+$sel:apiKeySource:CreateRestApi' :: CreateRestApi -&gt; Maybe ApiKeySourceType
+$sel:minimumCompressionSize:CreateRestApi' :: CreateRestApi -&gt; Maybe Int
+$sel:cloneFrom:CreateRestApi' :: CreateRestApi -&gt; Maybe Text
+$sel:disableExecuteApiEndpoint:CreateRestApi' :: CreateRestApi -&gt; Maybe Bool
+$sel:policy:CreateRestApi' :: CreateRestApi -&gt; Maybe Text
+$sel:description:CreateRestApi' :: CreateRestApi -&gt; Maybe Text
+$sel:tags:CreateRestApi' :: CreateRestApi -&gt; Maybe (HashMap Text Text)
+$sel:version:CreateRestApi' :: CreateRestApi -&gt; Maybe Text
+$sel:binaryMediaTypes:CreateRestApi' :: CreateRestApi -&gt; Maybe [Text]
+$sel:endpointConfiguration:CreateRestApi' :: CreateRestApi -&gt; Maybe EndpointConfiguration
+</span><a href="#local-6989586621679390496"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-275"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-276"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endpointConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EndpointConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>              </span><span class="annot"><span class="annottext">(EndpointConfiguration -&gt; Pair)
+-&gt; Maybe EndpointConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EndpointConfiguration
+</span><a href="#local-6989586621679390506"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;binaryMediaTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679390505"><span class="hs-identifier hs-var">binaryMediaTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390504"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679390503"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390502"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;policy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390501"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;disableExecuteApiEndpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679390500"><span class="hs-identifier hs-var">disableExecuteApiEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cloneFrom&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390499"><span class="hs-identifier hs-var">cloneFrom</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;minimumCompressionSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679390498"><span class="hs-identifier hs-var">minimumCompressionSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;apiKeySource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ApiKeySourceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ApiKeySourceType -&gt; Pair) -&gt; Maybe ApiKeySourceType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ApiKeySourceType
+</span><a href="#local-6989586621679390497"><span class="hs-identifier hs-var">apiKeySource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390496"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-292"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-295"></span><span>  </span><span id="local-6989586621679390489"><span class="annot"><span class="annottext">toPath :: CreateRestApi -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateRestApi -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/restapis&quot;</span></span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRestApi.html#CreateRestApi"><span class="hs-identifier hs-type">CreateRestApi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-298"></span><span>  </span><span id="local-6989586621679390485"><span class="annot"><span class="annottext">toQuery :: CreateRestApi -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateRestApi -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-299"></span></pre></body></html>

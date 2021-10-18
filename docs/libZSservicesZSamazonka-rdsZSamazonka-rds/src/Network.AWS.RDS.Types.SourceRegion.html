@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RDS.Types.SourceRegion</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RDS.Types.SourceRegion</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains an Amazon Web Services Region name as the result of a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- successful call to the @DescribeSourceRegions@ action.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSourceRegion' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679765183"><span id="local-6989586621679765184"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceRegion"><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion"><span class="hs-identifier hs-var">SourceRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceRegion%27"><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion%27"><span class="hs-identifier hs-var">SourceRegion'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the source Amazon Web Services Region.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AregionName%3ASourceRegion%27"><span class="annot"><span class="annottext">SourceRegion -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#%24sel%3AregionName%3ASourceRegion%27"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The status of the source Amazon Web Services Region.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3ASourceRegion%27"><span class="annot"><span class="annottext">SourceRegion -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#%24sel%3Astatus%3ASourceRegion%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Whether the source Amazon Web Services Region supports replicating</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- automated backups to the current Amazon Web Services Region.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsupportsDBInstanceAutomatedBackupsReplication%3ASourceRegion%27"><span class="annot"><span class="annottext">SourceRegion -&gt; Maybe Bool
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#%24sel%3AsupportsDBInstanceAutomatedBackupsReplication%3ASourceRegion%27"><span class="hs-identifier hs-var hs-var">supportsDBInstanceAutomatedBackupsReplication</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The endpoint for the source Amazon Web Services Region endpoint.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aendpoint%3ASourceRegion%27"><span class="annot"><span class="annottext">SourceRegion -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#%24sel%3Aendpoint%3ASourceRegion%27"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679765174"><span id="local-6989586621679765176"><span class="annot"><span class="annottext">SourceRegion -&gt; SourceRegion -&gt; Bool
+(SourceRegion -&gt; SourceRegion -&gt; Bool)
+-&gt; (SourceRegion -&gt; SourceRegion -&gt; Bool) -&gt; Eq SourceRegion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SourceRegion -&gt; SourceRegion -&gt; Bool
+$c/= :: SourceRegion -&gt; SourceRegion -&gt; Bool
+== :: SourceRegion -&gt; SourceRegion -&gt; Bool
+$c== :: SourceRegion -&gt; SourceRegion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679765165"><span id="local-6989586621679765167"><span id="local-6989586621679765169"><span id="local-6989586621679765171"><span class="annot"><span class="annottext">ReadPrec [SourceRegion]
+ReadPrec SourceRegion
+Int -&gt; ReadS SourceRegion
+ReadS [SourceRegion]
+(Int -&gt; ReadS SourceRegion)
+-&gt; ReadS [SourceRegion]
+-&gt; ReadPrec SourceRegion
+-&gt; ReadPrec [SourceRegion]
+-&gt; Read SourceRegion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SourceRegion]
+$creadListPrec :: ReadPrec [SourceRegion]
+readPrec :: ReadPrec SourceRegion
+$creadPrec :: ReadPrec SourceRegion
+readList :: ReadS [SourceRegion]
+$creadList :: ReadS [SourceRegion]
+readsPrec :: Int -&gt; ReadS SourceRegion
+$creadsPrec :: Int -&gt; ReadS SourceRegion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679765158"><span id="local-6989586621679765160"><span id="local-6989586621679765162"><span class="annot"><span class="annottext">Int -&gt; SourceRegion -&gt; ShowS
+[SourceRegion] -&gt; ShowS
+SourceRegion -&gt; String
+(Int -&gt; SourceRegion -&gt; ShowS)
+-&gt; (SourceRegion -&gt; String)
+-&gt; ([SourceRegion] -&gt; ShowS)
+-&gt; Show SourceRegion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SourceRegion] -&gt; ShowS
+$cshowList :: [SourceRegion] -&gt; ShowS
+show :: SourceRegion -&gt; String
+$cshow :: SourceRegion -&gt; String
+showsPrec :: Int -&gt; SourceRegion -&gt; ShowS
+$cshowsPrec :: Int -&gt; SourceRegion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SourceRegion -&gt; Rep SourceRegion x)
+-&gt; (forall x. Rep SourceRegion x -&gt; SourceRegion)
+-&gt; Generic SourceRegion
+forall x. Rep SourceRegion x -&gt; SourceRegion
+forall x. SourceRegion -&gt; Rep SourceRegion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SourceRegion x -&gt; SourceRegion
+$cfrom :: forall x. SourceRegion -&gt; Rep SourceRegion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'SourceRegion' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'regionName', 'sourceRegion_regionName' - The name of the source Amazon Web Services Region.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'status', 'sourceRegion_status' - The status of the source Amazon Web Services Region.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'supportsDBInstanceAutomatedBackupsReplication', 'sourceRegion_supportsDBInstanceAutomatedBackupsReplication' - Whether the source Amazon Web Services Region supports replicating</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- automated backups to the current Amazon Web Services Region.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'endpoint', 'sourceRegion_endpoint' - The endpoint for the source Amazon Web Services Region endpoint.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#newSourceRegion"><span class="hs-identifier hs-type">newSourceRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion"><span class="hs-identifier hs-type">SourceRegion</span></a></span><span>
+</span><span id="line-61"></span><span id="newSourceRegion"><span class="annot"><span class="annottext">newSourceRegion :: SourceRegion
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#newSourceRegion"><span class="hs-identifier hs-var hs-var">newSourceRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">SourceRegion' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Bool -&gt; Maybe Text -&gt; SourceRegion
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion%27"><span class="hs-identifier hs-type">SourceRegion'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:regionName:SourceRegion' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#%24sel%3AregionName%3ASourceRegion%27"><span class="hs-identifier hs-var">regionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:SourceRegion' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#%24sel%3Astatus%3ASourceRegion%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportsDBInstanceAutomatedBackupsReplication:SourceRegion' :: Maybe Bool
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#%24sel%3AsupportsDBInstanceAutomatedBackupsReplication%3ASourceRegion%27"><span class="hs-identifier hs-var">supportsDBInstanceAutomatedBackupsReplication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpoint:SourceRegion' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#%24sel%3Aendpoint%3ASourceRegion%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The name of the source Amazon Web Services Region.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#sourceRegion_regionName"><span class="hs-identifier hs-type">sourceRegion_regionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion"><span class="hs-identifier hs-type">SourceRegion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="sourceRegion_regionName"><span class="annot"><span class="annottext">sourceRegion_regionName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SourceRegion -&gt; f SourceRegion
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#sourceRegion_regionName"><span class="hs-identifier hs-var hs-var">sourceRegion_regionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceRegion -&gt; Maybe Text)
+-&gt; (SourceRegion -&gt; Maybe Text -&gt; SourceRegion)
+-&gt; Lens SourceRegion SourceRegion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion%27"><span class="hs-identifier hs-type">SourceRegion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679765149"><span class="annot"><span class="annottext">Maybe Text
+regionName :: Maybe Text
+$sel:regionName:SourceRegion' :: SourceRegion -&gt; Maybe Text
+</span><a href="#local-6989586621679765149"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679765149"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679765148"><span class="annot"><span class="annottext">s :: SourceRegion
+</span><a href="#local-6989586621679765148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion%27"><span class="hs-identifier hs-type">SourceRegion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679765147"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679765147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceRegion
+</span><a href="#local-6989586621679765148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionName:SourceRegion' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#%24sel%3AregionName%3ASourceRegion%27"><span class="hs-identifier hs-var">regionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679765147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion"><span class="hs-identifier hs-type">SourceRegion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The status of the source Amazon Web Services Region.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#sourceRegion_status"><span class="hs-identifier hs-type">sourceRegion_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion"><span class="hs-identifier hs-type">SourceRegion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="sourceRegion_status"><span class="annot"><span class="annottext">sourceRegion_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SourceRegion -&gt; f SourceRegion
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#sourceRegion_status"><span class="hs-identifier hs-var hs-var">sourceRegion_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceRegion -&gt; Maybe Text)
+-&gt; (SourceRegion -&gt; Maybe Text -&gt; SourceRegion)
+-&gt; Lens SourceRegion SourceRegion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion%27"><span class="hs-identifier hs-type">SourceRegion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679765145"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:SourceRegion' :: SourceRegion -&gt; Maybe Text
+</span><a href="#local-6989586621679765145"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679765145"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679765144"><span class="annot"><span class="annottext">s :: SourceRegion
+</span><a href="#local-6989586621679765144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion%27"><span class="hs-identifier hs-type">SourceRegion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679765143"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679765143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceRegion
+</span><a href="#local-6989586621679765144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SourceRegion' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#%24sel%3Astatus%3ASourceRegion%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679765143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion"><span class="hs-identifier hs-type">SourceRegion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | Whether the source Amazon Web Services Region supports replicating</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- automated backups to the current Amazon Web Services Region.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#sourceRegion_supportsDBInstanceAutomatedBackupsReplication"><span class="hs-identifier hs-type">sourceRegion_supportsDBInstanceAutomatedBackupsReplication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion"><span class="hs-identifier hs-type">SourceRegion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="sourceRegion_supportsDBInstanceAutomatedBackupsReplication"><span class="annot"><span class="annottext">sourceRegion_supportsDBInstanceAutomatedBackupsReplication :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; SourceRegion -&gt; f SourceRegion
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#sourceRegion_supportsDBInstanceAutomatedBackupsReplication"><span class="hs-identifier hs-var hs-var">sourceRegion_supportsDBInstanceAutomatedBackupsReplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceRegion -&gt; Maybe Bool)
+-&gt; (SourceRegion -&gt; Maybe Bool -&gt; SourceRegion)
+-&gt; Lens SourceRegion SourceRegion (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion%27"><span class="hs-identifier hs-type">SourceRegion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679765141"><span class="annot"><span class="annottext">Maybe Bool
+supportsDBInstanceAutomatedBackupsReplication :: Maybe Bool
+$sel:supportsDBInstanceAutomatedBackupsReplication:SourceRegion' :: SourceRegion -&gt; Maybe Bool
+</span><a href="#local-6989586621679765141"><span class="hs-identifier hs-var hs-var">supportsDBInstanceAutomatedBackupsReplication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679765141"><span class="hs-identifier hs-var">supportsDBInstanceAutomatedBackupsReplication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679765140"><span class="annot"><span class="annottext">s :: SourceRegion
+</span><a href="#local-6989586621679765140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion%27"><span class="hs-identifier hs-type">SourceRegion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679765139"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679765139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceRegion
+</span><a href="#local-6989586621679765140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportsDBInstanceAutomatedBackupsReplication:SourceRegion' :: Maybe Bool
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#%24sel%3AsupportsDBInstanceAutomatedBackupsReplication%3ASourceRegion%27"><span class="hs-identifier hs-var">supportsDBInstanceAutomatedBackupsReplication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679765139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion"><span class="hs-identifier hs-type">SourceRegion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The endpoint for the source Amazon Web Services Region endpoint.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#sourceRegion_endpoint"><span class="hs-identifier hs-type">sourceRegion_endpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion"><span class="hs-identifier hs-type">SourceRegion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="sourceRegion_endpoint"><span class="annot"><span class="annottext">sourceRegion_endpoint :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SourceRegion -&gt; f SourceRegion
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#sourceRegion_endpoint"><span class="hs-identifier hs-var hs-var">sourceRegion_endpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceRegion -&gt; Maybe Text)
+-&gt; (SourceRegion -&gt; Maybe Text -&gt; SourceRegion)
+-&gt; Lens SourceRegion SourceRegion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion%27"><span class="hs-identifier hs-type">SourceRegion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679765137"><span class="annot"><span class="annottext">Maybe Text
+endpoint :: Maybe Text
+$sel:endpoint:SourceRegion' :: SourceRegion -&gt; Maybe Text
+</span><a href="#local-6989586621679765137"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679765137"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679765136"><span class="annot"><span class="annottext">s :: SourceRegion
+</span><a href="#local-6989586621679765136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion%27"><span class="hs-identifier hs-type">SourceRegion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679765135"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679765135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceRegion
+</span><a href="#local-6989586621679765136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:SourceRegion' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#%24sel%3Aendpoint%3ASourceRegion%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679765135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion"><span class="hs-identifier hs-type">SourceRegion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion"><span class="hs-identifier hs-type">SourceRegion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679765132"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SourceRegion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679765130"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679765130"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Bool -&gt; Maybe Text -&gt; SourceRegion
+</span><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion%27"><span class="hs-identifier hs-var">SourceRegion'</span></a></span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Bool -&gt; Maybe Text -&gt; SourceRegion)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Bool -&gt; Maybe Text -&gt; SourceRegion)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679765130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RegionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Bool -&gt; Maybe Text -&gt; SourceRegion)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Bool -&gt; Maybe Text -&gt; SourceRegion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679765130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Maybe Text -&gt; SourceRegion)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Maybe Text -&gt; SourceRegion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679765130"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-93"></span><span>                      </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SupportsDBInstanceAutomatedBackupsReplication&quot;</span></span><span>
+</span><span id="line-94"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; SourceRegion)
+-&gt; Either String (Maybe Text) -&gt; Either String SourceRegion
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679765130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Endpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679765124"><span id="local-6989586621679765126"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion"><span class="hs-identifier hs-type">SourceRegion</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679765121"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.SourceRegion.html#SourceRegion"><span class="hs-identifier hs-type">SourceRegion</span></a></span></span><span>
+</span><span id="line-100"></span></pre></body></html>

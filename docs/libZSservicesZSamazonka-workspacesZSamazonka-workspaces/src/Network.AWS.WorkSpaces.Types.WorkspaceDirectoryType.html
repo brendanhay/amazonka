@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType"><span class="hs-identifier">WorkspaceDirectoryType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType_AD_CONNECTOR"><span class="hs-identifier">WorkspaceDirectoryType_AD_CONNECTOR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType_SIMPLE_AD"><span class="hs-identifier">WorkspaceDirectoryType_SIMPLE_AD</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679272722"><span id="local-6989586621679272723"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkspaceDirectoryType"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType"><span class="hs-identifier hs-var">WorkspaceDirectoryType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceDirectoryType%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType%27"><span class="hs-identifier hs-var">WorkspaceDirectoryType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWorkspaceDirectoryType"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#fromWorkspaceDirectoryType"><span class="hs-identifier hs-var hs-var">fromWorkspaceDirectoryType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272714"><span id="local-6989586621679272716"><span id="local-6989586621679272718"><span class="annot"><span class="annottext">Int -&gt; WorkspaceDirectoryType -&gt; ShowS
+[WorkspaceDirectoryType] -&gt; ShowS
+WorkspaceDirectoryType -&gt; String
+(Int -&gt; WorkspaceDirectoryType -&gt; ShowS)
+-&gt; (WorkspaceDirectoryType -&gt; String)
+-&gt; ([WorkspaceDirectoryType] -&gt; ShowS)
+-&gt; Show WorkspaceDirectoryType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WorkspaceDirectoryType] -&gt; ShowS
+$cshowList :: [WorkspaceDirectoryType] -&gt; ShowS
+show :: WorkspaceDirectoryType -&gt; String
+$cshow :: WorkspaceDirectoryType -&gt; String
+showsPrec :: Int -&gt; WorkspaceDirectoryType -&gt; ShowS
+$cshowsPrec :: Int -&gt; WorkspaceDirectoryType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679272705"><span id="local-6989586621679272707"><span id="local-6989586621679272709"><span id="local-6989586621679272711"><span class="annot"><span class="annottext">ReadPrec [WorkspaceDirectoryType]
+ReadPrec WorkspaceDirectoryType
+Int -&gt; ReadS WorkspaceDirectoryType
+ReadS [WorkspaceDirectoryType]
+(Int -&gt; ReadS WorkspaceDirectoryType)
+-&gt; ReadS [WorkspaceDirectoryType]
+-&gt; ReadPrec WorkspaceDirectoryType
+-&gt; ReadPrec [WorkspaceDirectoryType]
+-&gt; Read WorkspaceDirectoryType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WorkspaceDirectoryType]
+$creadListPrec :: ReadPrec [WorkspaceDirectoryType]
+readPrec :: ReadPrec WorkspaceDirectoryType
+$creadPrec :: ReadPrec WorkspaceDirectoryType
+readList :: ReadS [WorkspaceDirectoryType]
+$creadList :: ReadS [WorkspaceDirectoryType]
+readsPrec :: Int -&gt; ReadS WorkspaceDirectoryType
+$creadsPrec :: Int -&gt; ReadS WorkspaceDirectoryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679272700"><span id="local-6989586621679272702"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
+(WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool)
+-&gt; (WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool)
+-&gt; Eq WorkspaceDirectoryType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
+$c/= :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
+== :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
+$c== :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679272684"><span id="local-6989586621679272686"><span id="local-6989586621679272688"><span id="local-6989586621679272690"><span id="local-6989586621679272692"><span id="local-6989586621679272694"><span id="local-6989586621679272696"><span class="annot"><span class="annottext">Eq WorkspaceDirectoryType
+Eq WorkspaceDirectoryType
+-&gt; (WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Ordering)
+-&gt; (WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool)
+-&gt; (WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool)
+-&gt; (WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool)
+-&gt; (WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool)
+-&gt; (WorkspaceDirectoryType
+    -&gt; WorkspaceDirectoryType -&gt; WorkspaceDirectoryType)
+-&gt; (WorkspaceDirectoryType
+    -&gt; WorkspaceDirectoryType -&gt; WorkspaceDirectoryType)
+-&gt; Ord WorkspaceDirectoryType
+WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
+WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Ordering
+WorkspaceDirectoryType
+-&gt; WorkspaceDirectoryType -&gt; WorkspaceDirectoryType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: WorkspaceDirectoryType
+-&gt; WorkspaceDirectoryType -&gt; WorkspaceDirectoryType
+$cmin :: WorkspaceDirectoryType
+-&gt; WorkspaceDirectoryType -&gt; WorkspaceDirectoryType
+max :: WorkspaceDirectoryType
+-&gt; WorkspaceDirectoryType -&gt; WorkspaceDirectoryType
+$cmax :: WorkspaceDirectoryType
+-&gt; WorkspaceDirectoryType -&gt; WorkspaceDirectoryType
+&gt;= :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
+$c&gt;= :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
+&gt; :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
+$c&gt; :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
+&lt;= :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
+$c&lt;= :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
+&lt; :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
+$c&lt; :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
+compare :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Ordering
+$ccompare :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Ordering
+$cp1Ord :: Eq WorkspaceDirectoryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. WorkspaceDirectoryType -&gt; Rep WorkspaceDirectoryType x)
+-&gt; (forall x.
+    Rep WorkspaceDirectoryType x -&gt; WorkspaceDirectoryType)
+-&gt; Generic WorkspaceDirectoryType
+forall x. Rep WorkspaceDirectoryType x -&gt; WorkspaceDirectoryType
+forall x. WorkspaceDirectoryType -&gt; Rep WorkspaceDirectoryType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WorkspaceDirectoryType x -&gt; WorkspaceDirectoryType
+$cfrom :: forall x. WorkspaceDirectoryType -&gt; Rep WorkspaceDirectoryType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272676"><span id="local-6989586621679272678"><span class="annot"><span class="annottext">Int -&gt; WorkspaceDirectoryType -&gt; Int
+WorkspaceDirectoryType -&gt; Int
+(Int -&gt; WorkspaceDirectoryType -&gt; Int)
+-&gt; (WorkspaceDirectoryType -&gt; Int)
+-&gt; Hashable WorkspaceDirectoryType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: WorkspaceDirectoryType -&gt; Int
+$chash :: WorkspaceDirectoryType -&gt; Int
+hashWithSalt :: Int -&gt; WorkspaceDirectoryType -&gt; Int
+$chashWithSalt :: Int -&gt; WorkspaceDirectoryType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679272673"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; ()
+(WorkspaceDirectoryType -&gt; ()) -&gt; NFData WorkspaceDirectoryType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: WorkspaceDirectoryType -&gt; ()
+$crnf :: WorkspaceDirectoryType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679272670"><span class="annot"><span class="annottext">Text -&gt; Either String WorkspaceDirectoryType
+(Text -&gt; Either String WorkspaceDirectoryType)
+-&gt; FromText WorkspaceDirectoryType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String WorkspaceDirectoryType
+$cfromText :: Text -&gt; Either String WorkspaceDirectoryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679272667"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; Text
+(WorkspaceDirectoryType -&gt; Text) -&gt; ToText WorkspaceDirectoryType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: WorkspaceDirectoryType -&gt; Text
+$ctoText :: WorkspaceDirectoryType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679272664"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; ByteString
+(WorkspaceDirectoryType -&gt; ByteString)
+-&gt; ToByteString WorkspaceDirectoryType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: WorkspaceDirectoryType -&gt; ByteString
+$ctoBS :: WorkspaceDirectoryType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679272661"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; ByteStringBuilder
+(WorkspaceDirectoryType -&gt; ByteStringBuilder)
+-&gt; ToLog WorkspaceDirectoryType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: WorkspaceDirectoryType -&gt; ByteStringBuilder
+$cbuild :: WorkspaceDirectoryType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679272658"><span class="annot"><span class="annottext">HeaderName -&gt; WorkspaceDirectoryType -&gt; [Header]
+(HeaderName -&gt; WorkspaceDirectoryType -&gt; [Header])
+-&gt; ToHeader WorkspaceDirectoryType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; WorkspaceDirectoryType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; WorkspaceDirectoryType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679272655"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; QueryString
+(WorkspaceDirectoryType -&gt; QueryString)
+-&gt; ToQuery WorkspaceDirectoryType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: WorkspaceDirectoryType -&gt; QueryString
+$ctoQuery :: WorkspaceDirectoryType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679272650"><span id="local-6989586621679272652"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkspaceDirectoryType]
+Value -&gt; Parser WorkspaceDirectoryType
+(Value -&gt; Parser WorkspaceDirectoryType)
+-&gt; (Value -&gt; Parser [WorkspaceDirectoryType])
+-&gt; FromJSON WorkspaceDirectoryType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [WorkspaceDirectoryType]
+$cparseJSONList :: Value -&gt; Parser [WorkspaceDirectoryType]
+parseJSON :: Value -&gt; Parser WorkspaceDirectoryType
+$cparseJSON :: Value -&gt; Parser WorkspaceDirectoryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679272645"><span id="local-6989586621679272647"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkspaceDirectoryType]
+FromJSONKeyFunction WorkspaceDirectoryType
+FromJSONKeyFunction WorkspaceDirectoryType
+-&gt; FromJSONKeyFunction [WorkspaceDirectoryType]
+-&gt; FromJSONKey WorkspaceDirectoryType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [WorkspaceDirectoryType]
+$cfromJSONKeyList :: FromJSONKeyFunction [WorkspaceDirectoryType]
+fromJSONKey :: FromJSONKeyFunction WorkspaceDirectoryType
+$cfromJSONKey :: FromJSONKeyFunction WorkspaceDirectoryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679272636"><span id="local-6989586621679272638"><span id="local-6989586621679272640"><span id="local-6989586621679272642"><span class="annot"><span class="annottext">[WorkspaceDirectoryType] -&gt; Encoding
+[WorkspaceDirectoryType] -&gt; Value
+WorkspaceDirectoryType -&gt; Encoding
+WorkspaceDirectoryType -&gt; Value
+(WorkspaceDirectoryType -&gt; Value)
+-&gt; (WorkspaceDirectoryType -&gt; Encoding)
+-&gt; ([WorkspaceDirectoryType] -&gt; Value)
+-&gt; ([WorkspaceDirectoryType] -&gt; Encoding)
+-&gt; ToJSON WorkspaceDirectoryType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [WorkspaceDirectoryType] -&gt; Encoding
+$ctoEncodingList :: [WorkspaceDirectoryType] -&gt; Encoding
+toJSONList :: [WorkspaceDirectoryType] -&gt; Value
+$ctoJSONList :: [WorkspaceDirectoryType] -&gt; Value
+toEncoding :: WorkspaceDirectoryType -&gt; Encoding
+$ctoEncoding :: WorkspaceDirectoryType -&gt; Encoding
+toJSON :: WorkspaceDirectoryType -&gt; Value
+$ctoJSON :: WorkspaceDirectoryType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679272631"><span id="local-6989586621679272633"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkspaceDirectoryType]
+ToJSONKeyFunction WorkspaceDirectoryType
+ToJSONKeyFunction WorkspaceDirectoryType
+-&gt; ToJSONKeyFunction [WorkspaceDirectoryType]
+-&gt; ToJSONKey WorkspaceDirectoryType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [WorkspaceDirectoryType]
+$ctoJSONKeyList :: ToJSONKeyFunction [WorkspaceDirectoryType]
+toJSONKey :: ToJSONKeyFunction WorkspaceDirectoryType
+$ctoJSONKey :: ToJSONKeyFunction WorkspaceDirectoryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679272628"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkspaceDirectoryType
+([Node] -&gt; Either String WorkspaceDirectoryType)
+-&gt; FromXML WorkspaceDirectoryType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String WorkspaceDirectoryType
+$cparseXML :: [Node] -&gt; Either String WorkspaceDirectoryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679272625"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; XML
+(WorkspaceDirectoryType -&gt; XML) -&gt; ToXML WorkspaceDirectoryType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: WorkspaceDirectoryType -&gt; XML
+$ctoXML :: WorkspaceDirectoryType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType_AD_CONNECTOR"><span class="hs-identifier hs-type">WorkspaceDirectoryType_AD_CONNECTOR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType"><span class="hs-identifier hs-type">WorkspaceDirectoryType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceDirectoryType_AD_CONNECTOR"><span id="%24mWorkspaceDirectoryType_AD_CONNECTOR"><span id="WorkspaceDirectoryType_AD_CONNECTOR"><span class="annot"><span class="annottext">$bWorkspaceDirectoryType_AD_CONNECTOR :: WorkspaceDirectoryType
+$mWorkspaceDirectoryType_AD_CONNECTOR :: forall r.
+WorkspaceDirectoryType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#%24bWorkspaceDirectoryType_AD_CONNECTOR"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceDirectoryType_AD_CONNECTOR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType%27"><span class="hs-identifier hs-type">WorkspaceDirectoryType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AD_CONNECTOR&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType_SIMPLE_AD"><span class="hs-identifier hs-type">WorkspaceDirectoryType_SIMPLE_AD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType"><span class="hs-identifier hs-type">WorkspaceDirectoryType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceDirectoryType_SIMPLE_AD"><span id="%24mWorkspaceDirectoryType_SIMPLE_AD"><span id="WorkspaceDirectoryType_SIMPLE_AD"><span class="annot"><span class="annottext">$bWorkspaceDirectoryType_SIMPLE_AD :: WorkspaceDirectoryType
+$mWorkspaceDirectoryType_SIMPLE_AD :: forall r.
+WorkspaceDirectoryType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#%24bWorkspaceDirectoryType_SIMPLE_AD"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceDirectoryType_SIMPLE_AD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType%27"><span class="hs-identifier hs-type">WorkspaceDirectoryType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SIMPLE_AD&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType_AD_CONNECTOR"><span class="hs-pragma hs-type">WorkspaceDirectoryType_AD_CONNECTOR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType_SIMPLE_AD"><span class="hs-pragma hs-type">WorkspaceDirectoryType_SIMPLE_AD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType%27"><span class="hs-pragma hs-type">WorkspaceDirectoryType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

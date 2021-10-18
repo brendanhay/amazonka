@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CertificateManagerPCA.Types.ApiPassthrough</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.ApiPassthrough</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ASN1Subject.html"><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.ASN1Subject</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Extensions.html"><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.Extensions</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Contains X.509 certificate information to be placed in an issued</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- certificate. An @APIPassthrough@ or @APICSRPassthrough@ template variant</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- must be selected, or else this parameter is ignored.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- If conflicting or duplicate certificate information is supplied from</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- other sources, ACM Private CA applies</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations order of operation rules&gt;</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- to determine what information is used.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newApiPassthrough' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679211398"><span id="local-6989586621679211399"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApiPassthrough"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#ApiPassthrough"><span class="hs-identifier hs-var">ApiPassthrough</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiPassthrough%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#ApiPassthrough%27"><span class="hs-identifier hs-var">ApiPassthrough'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies X.509 extension information for a certificate.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aextensions%3AApiPassthrough%27"><span class="annot"><span class="annottext">ApiPassthrough -&gt; Maybe Extensions
+</span><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#%24sel%3Aextensions%3AApiPassthrough%27"><span class="hs-identifier hs-var hs-var">extensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Extensions.html#Extensions"><span class="hs-identifier hs-type">Extensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Asubject%3AApiPassthrough%27"><span class="annot"><span class="annottext">ApiPassthrough -&gt; Maybe ASN1Subject
+</span><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#%24sel%3Asubject%3AApiPassthrough%27"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679211391"><span id="local-6989586621679211393"><span class="annot"><span class="annottext">ApiPassthrough -&gt; ApiPassthrough -&gt; Bool
+(ApiPassthrough -&gt; ApiPassthrough -&gt; Bool)
+-&gt; (ApiPassthrough -&gt; ApiPassthrough -&gt; Bool) -&gt; Eq ApiPassthrough
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApiPassthrough -&gt; ApiPassthrough -&gt; Bool
+$c/= :: ApiPassthrough -&gt; ApiPassthrough -&gt; Bool
+== :: ApiPassthrough -&gt; ApiPassthrough -&gt; Bool
+$c== :: ApiPassthrough -&gt; ApiPassthrough -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211382"><span id="local-6989586621679211384"><span id="local-6989586621679211386"><span id="local-6989586621679211388"><span class="annot"><span class="annottext">ReadPrec [ApiPassthrough]
+ReadPrec ApiPassthrough
+Int -&gt; ReadS ApiPassthrough
+ReadS [ApiPassthrough]
+(Int -&gt; ReadS ApiPassthrough)
+-&gt; ReadS [ApiPassthrough]
+-&gt; ReadPrec ApiPassthrough
+-&gt; ReadPrec [ApiPassthrough]
+-&gt; Read ApiPassthrough
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApiPassthrough]
+$creadListPrec :: ReadPrec [ApiPassthrough]
+readPrec :: ReadPrec ApiPassthrough
+$creadPrec :: ReadPrec ApiPassthrough
+readList :: ReadS [ApiPassthrough]
+$creadList :: ReadS [ApiPassthrough]
+readsPrec :: Int -&gt; ReadS ApiPassthrough
+$creadsPrec :: Int -&gt; ReadS ApiPassthrough
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211375"><span id="local-6989586621679211377"><span id="local-6989586621679211379"><span class="annot"><span class="annottext">Int -&gt; ApiPassthrough -&gt; ShowS
+[ApiPassthrough] -&gt; ShowS
+ApiPassthrough -&gt; String
+(Int -&gt; ApiPassthrough -&gt; ShowS)
+-&gt; (ApiPassthrough -&gt; String)
+-&gt; ([ApiPassthrough] -&gt; ShowS)
+-&gt; Show ApiPassthrough
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApiPassthrough] -&gt; ShowS
+$cshowList :: [ApiPassthrough] -&gt; ShowS
+show :: ApiPassthrough -&gt; String
+$cshow :: ApiPassthrough -&gt; String
+showsPrec :: Int -&gt; ApiPassthrough -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApiPassthrough -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ApiPassthrough -&gt; Rep ApiPassthrough x)
+-&gt; (forall x. Rep ApiPassthrough x -&gt; ApiPassthrough)
+-&gt; Generic ApiPassthrough
+forall x. Rep ApiPassthrough x -&gt; ApiPassthrough
+forall x. ApiPassthrough -&gt; Rep ApiPassthrough x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ApiPassthrough x -&gt; ApiPassthrough
+$cfrom :: forall x. ApiPassthrough -&gt; Rep ApiPassthrough x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'ApiPassthrough' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'extensions', 'apiPassthrough_extensions' - Specifies X.509 extension information for a certificate.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'subject', 'apiPassthrough_subject' - Undocumented member.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#newApiPassthrough"><span class="hs-identifier hs-type">newApiPassthrough</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#ApiPassthrough"><span class="hs-identifier hs-type">ApiPassthrough</span></a></span><span>
+</span><span id="line-58"></span><span id="newApiPassthrough"><span class="annot"><span class="annottext">newApiPassthrough :: ApiPassthrough
+</span><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#newApiPassthrough"><span class="hs-identifier hs-var hs-var">newApiPassthrough</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ApiPassthrough' :: Maybe Extensions -&gt; Maybe ASN1Subject -&gt; ApiPassthrough
+</span><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#ApiPassthrough%27"><span class="hs-identifier hs-type">ApiPassthrough'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:extensions:ApiPassthrough' :: Maybe Extensions
+</span><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#%24sel%3Aextensions%3AApiPassthrough%27"><span class="hs-identifier hs-var">extensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Extensions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:subject:ApiPassthrough' :: Maybe ASN1Subject
+</span><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#%24sel%3Asubject%3AApiPassthrough%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ASN1Subject
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Specifies X.509 extension information for a certificate.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#apiPassthrough_extensions"><span class="hs-identifier hs-type">apiPassthrough_extensions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#ApiPassthrough"><span class="hs-identifier hs-type">ApiPassthrough</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Extensions.html#Extensions"><span class="hs-identifier hs-type">Extensions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="apiPassthrough_extensions"><span class="annot"><span class="annottext">apiPassthrough_extensions :: (Maybe Extensions -&gt; f (Maybe Extensions))
+-&gt; ApiPassthrough -&gt; f ApiPassthrough
+</span><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#apiPassthrough_extensions"><span class="hs-identifier hs-var hs-var">apiPassthrough_extensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApiPassthrough -&gt; Maybe Extensions)
+-&gt; (ApiPassthrough -&gt; Maybe Extensions -&gt; ApiPassthrough)
+-&gt; Lens
+     ApiPassthrough ApiPassthrough (Maybe Extensions) (Maybe Extensions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#ApiPassthrough%27"><span class="hs-identifier hs-type">ApiPassthrough'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211366"><span class="annot"><span class="annottext">Maybe Extensions
+extensions :: Maybe Extensions
+$sel:extensions:ApiPassthrough' :: ApiPassthrough -&gt; Maybe Extensions
+</span><a href="#local-6989586621679211366"><span class="hs-identifier hs-var hs-var">extensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Extensions
+</span><a href="#local-6989586621679211366"><span class="hs-identifier hs-var">extensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211365"><span class="annot"><span class="annottext">s :: ApiPassthrough
+</span><a href="#local-6989586621679211365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#ApiPassthrough%27"><span class="hs-identifier hs-type">ApiPassthrough'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211364"><span class="annot"><span class="annottext">Maybe Extensions
+</span><a href="#local-6989586621679211364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiPassthrough
+</span><a href="#local-6989586621679211365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extensions:ApiPassthrough' :: Maybe Extensions
+</span><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#%24sel%3Aextensions%3AApiPassthrough%27"><span class="hs-identifier hs-var">extensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Extensions
+</span><a href="#local-6989586621679211364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#ApiPassthrough"><span class="hs-identifier hs-type">ApiPassthrough</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#apiPassthrough_subject"><span class="hs-identifier hs-type">apiPassthrough_subject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#ApiPassthrough"><span class="hs-identifier hs-type">ApiPassthrough</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="apiPassthrough_subject"><span class="annot"><span class="annottext">apiPassthrough_subject :: (Maybe ASN1Subject -&gt; f (Maybe ASN1Subject))
+-&gt; ApiPassthrough -&gt; f ApiPassthrough
+</span><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#apiPassthrough_subject"><span class="hs-identifier hs-var hs-var">apiPassthrough_subject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApiPassthrough -&gt; Maybe ASN1Subject)
+-&gt; (ApiPassthrough -&gt; Maybe ASN1Subject -&gt; ApiPassthrough)
+-&gt; Lens
+     ApiPassthrough
+     ApiPassthrough
+     (Maybe ASN1Subject)
+     (Maybe ASN1Subject)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#ApiPassthrough%27"><span class="hs-identifier hs-type">ApiPassthrough'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211362"><span class="annot"><span class="annottext">Maybe ASN1Subject
+subject :: Maybe ASN1Subject
+$sel:subject:ApiPassthrough' :: ApiPassthrough -&gt; Maybe ASN1Subject
+</span><a href="#local-6989586621679211362"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ASN1Subject
+</span><a href="#local-6989586621679211362"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211361"><span class="annot"><span class="annottext">s :: ApiPassthrough
+</span><a href="#local-6989586621679211361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#ApiPassthrough%27"><span class="hs-identifier hs-type">ApiPassthrough'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211360"><span class="annot"><span class="annottext">Maybe ASN1Subject
+</span><a href="#local-6989586621679211360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiPassthrough
+</span><a href="#local-6989586621679211361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:ApiPassthrough' :: Maybe ASN1Subject
+</span><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#%24sel%3Asubject%3AApiPassthrough%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ASN1Subject
+</span><a href="#local-6989586621679211360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#ApiPassthrough"><span class="hs-identifier hs-type">ApiPassthrough</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211356"><span id="local-6989586621679211358"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#ApiPassthrough"><span class="hs-identifier hs-type">ApiPassthrough</span></a></span></span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#ApiPassthrough"><span class="hs-identifier hs-type">ApiPassthrough</span></a></span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211345"><span id="local-6989586621679211347"><span id="local-6989586621679211349"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#ApiPassthrough"><span class="hs-identifier hs-type">ApiPassthrough</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679211343"><span class="annot"><span class="annottext">toJSON :: ApiPassthrough -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ApiPassthrough.html#ApiPassthrough%27"><span class="hs-identifier hs-type">ApiPassthrough'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211340"><span id="local-6989586621679211341"><span class="annot"><span class="annottext">Maybe ASN1Subject
+Maybe Extensions
+subject :: Maybe ASN1Subject
+extensions :: Maybe Extensions
+$sel:subject:ApiPassthrough' :: ApiPassthrough -&gt; Maybe ASN1Subject
+$sel:extensions:ApiPassthrough' :: ApiPassthrough -&gt; Maybe Extensions
+</span><a href="#local-6989586621679211340"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-80"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Extensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Extensions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Extensions -&gt; Pair) -&gt; Maybe Extensions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Extensions
+</span><a href="#local-6989586621679211341"><span class="hs-identifier hs-var">extensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Subject&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ASN1Subject -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Pair) -&gt; Maybe ASN1Subject -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ASN1Subject
+</span><a href="#local-6989586621679211340"><span class="hs-identifier hs-var">subject</span></a></span><span>
+</span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span></pre></body></html>

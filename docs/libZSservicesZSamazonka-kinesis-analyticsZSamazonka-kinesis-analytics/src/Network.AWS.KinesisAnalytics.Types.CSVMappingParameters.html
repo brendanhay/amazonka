@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisAnalytics.Types.CSVMappingParameters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisAnalytics.Types.CSVMappingParameters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Provides additional mapping information when the record format uses</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- delimiters, such as CSV. For example, the following sample records use</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- CSV format, where the records use the /\'\\n\'/ as the row delimiter and</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- a comma (\&quot;,\&quot;) as the column delimiter:</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- @\&quot;name1\&quot;, \&quot;address1\&quot;@</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- @\&quot;name2\&quot;, \&quot;address2\&quot;@</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newCSVMappingParameters' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679204858"><span id="local-6989586621679204859"></span></span><span class="hs-keyword">data</span><span> </span><span id="CSVMappingParameters"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters"><span class="hs-identifier hs-var">CSVMappingParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CSVMappingParameters%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters%27"><span class="hs-identifier hs-var">CSVMappingParameters'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Row delimiter. For example, in a CSV format, /\'\\n\'/ is the typical</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- row delimiter.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3ArecordRowDelimiter%3ACSVMappingParameters%27"><span class="annot"><span class="annottext">CSVMappingParameters -&gt; Text
+</span><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#%24sel%3ArecordRowDelimiter%3ACSVMappingParameters%27"><span class="hs-identifier hs-var hs-var">recordRowDelimiter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Column delimiter. For example, in a CSV format, a comma (\&quot;,\&quot;) is the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- typical column delimiter.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3ArecordColumnDelimiter%3ACSVMappingParameters%27"><span class="annot"><span class="annottext">CSVMappingParameters -&gt; Text
+</span><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#%24sel%3ArecordColumnDelimiter%3ACSVMappingParameters%27"><span class="hs-identifier hs-var hs-var">recordColumnDelimiter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204851"><span id="local-6989586621679204853"><span class="annot"><span class="annottext">CSVMappingParameters -&gt; CSVMappingParameters -&gt; Bool
+(CSVMappingParameters -&gt; CSVMappingParameters -&gt; Bool)
+-&gt; (CSVMappingParameters -&gt; CSVMappingParameters -&gt; Bool)
+-&gt; Eq CSVMappingParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CSVMappingParameters -&gt; CSVMappingParameters -&gt; Bool
+$c/= :: CSVMappingParameters -&gt; CSVMappingParameters -&gt; Bool
+== :: CSVMappingParameters -&gt; CSVMappingParameters -&gt; Bool
+$c== :: CSVMappingParameters -&gt; CSVMappingParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204842"><span id="local-6989586621679204844"><span id="local-6989586621679204846"><span id="local-6989586621679204848"><span class="annot"><span class="annottext">ReadPrec [CSVMappingParameters]
+ReadPrec CSVMappingParameters
+Int -&gt; ReadS CSVMappingParameters
+ReadS [CSVMappingParameters]
+(Int -&gt; ReadS CSVMappingParameters)
+-&gt; ReadS [CSVMappingParameters]
+-&gt; ReadPrec CSVMappingParameters
+-&gt; ReadPrec [CSVMappingParameters]
+-&gt; Read CSVMappingParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CSVMappingParameters]
+$creadListPrec :: ReadPrec [CSVMappingParameters]
+readPrec :: ReadPrec CSVMappingParameters
+$creadPrec :: ReadPrec CSVMappingParameters
+readList :: ReadS [CSVMappingParameters]
+$creadList :: ReadS [CSVMappingParameters]
+readsPrec :: Int -&gt; ReadS CSVMappingParameters
+$creadsPrec :: Int -&gt; ReadS CSVMappingParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204835"><span id="local-6989586621679204837"><span id="local-6989586621679204839"><span class="annot"><span class="annottext">Int -&gt; CSVMappingParameters -&gt; ShowS
+[CSVMappingParameters] -&gt; ShowS
+CSVMappingParameters -&gt; String
+(Int -&gt; CSVMappingParameters -&gt; ShowS)
+-&gt; (CSVMappingParameters -&gt; String)
+-&gt; ([CSVMappingParameters] -&gt; ShowS)
+-&gt; Show CSVMappingParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CSVMappingParameters] -&gt; ShowS
+$cshowList :: [CSVMappingParameters] -&gt; ShowS
+show :: CSVMappingParameters -&gt; String
+$cshow :: CSVMappingParameters -&gt; String
+showsPrec :: Int -&gt; CSVMappingParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; CSVMappingParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CSVMappingParameters -&gt; Rep CSVMappingParameters x)
+-&gt; (forall x. Rep CSVMappingParameters x -&gt; CSVMappingParameters)
+-&gt; Generic CSVMappingParameters
+forall x. Rep CSVMappingParameters x -&gt; CSVMappingParameters
+forall x. CSVMappingParameters -&gt; Rep CSVMappingParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CSVMappingParameters x -&gt; CSVMappingParameters
+$cfrom :: forall x. CSVMappingParameters -&gt; Rep CSVMappingParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'CSVMappingParameters' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'recordRowDelimiter', 'cSVMappingParameters_recordRowDelimiter' - Row delimiter. For example, in a CSV format, /\'\\n\'/ is the typical</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- row delimiter.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'recordColumnDelimiter', 'cSVMappingParameters_recordColumnDelimiter' - Column delimiter. For example, in a CSV format, a comma (\&quot;,\&quot;) is the</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- typical column delimiter.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#newCSVMappingParameters"><span class="hs-identifier hs-type">newCSVMappingParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-comment">-- | 'recordRowDelimiter'</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-comment">-- | 'recordColumnDelimiter'</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters"><span class="hs-identifier hs-type">CSVMappingParameters</span></a></span><span>
+</span><span id="line-65"></span><span id="newCSVMappingParameters"><span class="annot"><span class="annottext">newCSVMappingParameters :: Text -&gt; Text -&gt; CSVMappingParameters
+</span><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#newCSVMappingParameters"><span class="hs-identifier hs-var hs-var">newCSVMappingParameters</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679204829"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204829"><span class="hs-identifier hs-var">pRecordRowDelimiter_</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679204828"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204828"><span class="hs-identifier hs-var">pRecordColumnDelimiter_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">CSVMappingParameters' :: Text -&gt; Text -&gt; CSVMappingParameters
+</span><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters%27"><span class="hs-identifier hs-type">CSVMappingParameters'</span></a></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:recordRowDelimiter:CSVMappingParameters' :: Text
+</span><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#%24sel%3ArecordRowDelimiter%3ACSVMappingParameters%27"><span class="hs-identifier hs-var">recordRowDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204829"><span class="hs-identifier hs-var">pRecordRowDelimiter_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">$sel:recordColumnDelimiter:CSVMappingParameters' :: Text
+</span><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#%24sel%3ArecordColumnDelimiter%3ACSVMappingParameters%27"><span class="hs-identifier hs-var">recordColumnDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204828"><span class="hs-identifier hs-var">pRecordColumnDelimiter_</span></a></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | Row delimiter. For example, in a CSV format, /\'\\n\'/ is the typical</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- row delimiter.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#cSVMappingParameters_recordRowDelimiter"><span class="hs-identifier hs-type">cSVMappingParameters_recordRowDelimiter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters"><span class="hs-identifier hs-type">CSVMappingParameters</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="cSVMappingParameters_recordRowDelimiter"><span class="annot"><span class="annottext">cSVMappingParameters_recordRowDelimiter :: (Text -&gt; f Text) -&gt; CSVMappingParameters -&gt; f CSVMappingParameters
+</span><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#cSVMappingParameters_recordRowDelimiter"><span class="hs-identifier hs-var hs-var">cSVMappingParameters_recordRowDelimiter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CSVMappingParameters -&gt; Text)
+-&gt; (CSVMappingParameters -&gt; Text -&gt; CSVMappingParameters)
+-&gt; Lens CSVMappingParameters CSVMappingParameters Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters%27"><span class="hs-identifier hs-type">CSVMappingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204824"><span class="annot"><span class="annottext">Text
+recordRowDelimiter :: Text
+$sel:recordRowDelimiter:CSVMappingParameters' :: CSVMappingParameters -&gt; Text
+</span><a href="#local-6989586621679204824"><span class="hs-identifier hs-var hs-var">recordRowDelimiter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204824"><span class="hs-identifier hs-var">recordRowDelimiter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204823"><span class="annot"><span class="annottext">s :: CSVMappingParameters
+</span><a href="#local-6989586621679204823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters%27"><span class="hs-identifier hs-type">CSVMappingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204822"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CSVMappingParameters
+</span><a href="#local-6989586621679204823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordRowDelimiter:CSVMappingParameters' :: Text
+</span><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#%24sel%3ArecordRowDelimiter%3ACSVMappingParameters%27"><span class="hs-identifier hs-var">recordRowDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters"><span class="hs-identifier hs-type">CSVMappingParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Column delimiter. For example, in a CSV format, a comma (\&quot;,\&quot;) is the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- typical column delimiter.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#cSVMappingParameters_recordColumnDelimiter"><span class="hs-identifier hs-type">cSVMappingParameters_recordColumnDelimiter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters"><span class="hs-identifier hs-type">CSVMappingParameters</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="cSVMappingParameters_recordColumnDelimiter"><span class="annot"><span class="annottext">cSVMappingParameters_recordColumnDelimiter :: (Text -&gt; f Text) -&gt; CSVMappingParameters -&gt; f CSVMappingParameters
+</span><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#cSVMappingParameters_recordColumnDelimiter"><span class="hs-identifier hs-var hs-var">cSVMappingParameters_recordColumnDelimiter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CSVMappingParameters -&gt; Text)
+-&gt; (CSVMappingParameters -&gt; Text -&gt; CSVMappingParameters)
+-&gt; Lens CSVMappingParameters CSVMappingParameters Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters%27"><span class="hs-identifier hs-type">CSVMappingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204820"><span class="annot"><span class="annottext">Text
+recordColumnDelimiter :: Text
+$sel:recordColumnDelimiter:CSVMappingParameters' :: CSVMappingParameters -&gt; Text
+</span><a href="#local-6989586621679204820"><span class="hs-identifier hs-var hs-var">recordColumnDelimiter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204820"><span class="hs-identifier hs-var">recordColumnDelimiter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204819"><span class="annot"><span class="annottext">s :: CSVMappingParameters
+</span><a href="#local-6989586621679204819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters%27"><span class="hs-identifier hs-type">CSVMappingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204818"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CSVMappingParameters
+</span><a href="#local-6989586621679204819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordColumnDelimiter:CSVMappingParameters' :: Text
+</span><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#%24sel%3ArecordColumnDelimiter%3ACSVMappingParameters%27"><span class="hs-identifier hs-var">recordColumnDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters"><span class="hs-identifier hs-type">CSVMappingParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204815"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters"><span class="hs-identifier hs-type">CSVMappingParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679204813"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CSVMappingParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CSVMappingParameters)
+-&gt; Value
+-&gt; Parser CSVMappingParameters
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CSVMappingParameters&quot;</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679204810"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204810"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; CSVMappingParameters
+</span><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters%27"><span class="hs-identifier hs-var">CSVMappingParameters'</span></a></span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; CSVMappingParameters)
+-&gt; Parser Text -&gt; Parser (Text -&gt; CSVMappingParameters)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordRowDelimiter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; CSVMappingParameters)
+-&gt; Parser Text -&gt; Parser CSVMappingParameters
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordColumnDelimiter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204804"><span id="local-6989586621679204806"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters"><span class="hs-identifier hs-type">CSVMappingParameters</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204801"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters"><span class="hs-identifier hs-type">CSVMappingParameters</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204793"><span id="local-6989586621679204795"><span id="local-6989586621679204797"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters"><span class="hs-identifier hs-type">CSVMappingParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679204791"><span class="annot"><span class="annottext">toJSON :: CSVMappingParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters%27"><span class="hs-identifier hs-type">CSVMappingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204788"><span id="local-6989586621679204789"><span class="annot"><span class="annottext">Text
+recordColumnDelimiter :: Text
+recordRowDelimiter :: Text
+$sel:recordColumnDelimiter:CSVMappingParameters' :: CSVMappingParameters -&gt; Text
+$sel:recordRowDelimiter:CSVMappingParameters' :: CSVMappingParameters -&gt; Text
+</span><a href="#local-6989586621679204788"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-103"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordRowDelimiter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204789"><span class="hs-identifier hs-var">recordRowDelimiter</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordColumnDelimiter&quot;</span></span><span>
+</span><span id="line-106"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204788"><span class="hs-identifier hs-var">recordColumnDelimiter</span></a></span><span>
+</span><span id="line-107"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span></pre></body></html>

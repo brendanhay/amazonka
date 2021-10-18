@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MechanicalTurk.Types.ReviewActionStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MechanicalTurk.Types.ReviewActionStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus"><span class="hs-identifier">ReviewActionStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus_Cancelled"><span class="hs-identifier">ReviewActionStatus_Cancelled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus_Failed"><span class="hs-identifier">ReviewActionStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus_Intended"><span class="hs-identifier">ReviewActionStatus_Intended</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus_Succeeded"><span class="hs-identifier">ReviewActionStatus_Succeeded</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679245577"><span id="local-6989586621679245578"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReviewActionStatus"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus"><span class="hs-identifier hs-var">ReviewActionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReviewActionStatus%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus%27"><span class="hs-identifier hs-var">ReviewActionStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReviewActionStatus"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; Text
+</span><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#fromReviewActionStatus"><span class="hs-identifier hs-var hs-var">fromReviewActionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245569"><span id="local-6989586621679245571"><span id="local-6989586621679245573"><span class="annot"><span class="annottext">Int -&gt; ReviewActionStatus -&gt; ShowS
+[ReviewActionStatus] -&gt; ShowS
+ReviewActionStatus -&gt; String
+(Int -&gt; ReviewActionStatus -&gt; ShowS)
+-&gt; (ReviewActionStatus -&gt; String)
+-&gt; ([ReviewActionStatus] -&gt; ShowS)
+-&gt; Show ReviewActionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReviewActionStatus] -&gt; ShowS
+$cshowList :: [ReviewActionStatus] -&gt; ShowS
+show :: ReviewActionStatus -&gt; String
+$cshow :: ReviewActionStatus -&gt; String
+showsPrec :: Int -&gt; ReviewActionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReviewActionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679245560"><span id="local-6989586621679245562"><span id="local-6989586621679245564"><span id="local-6989586621679245566"><span class="annot"><span class="annottext">ReadPrec [ReviewActionStatus]
+ReadPrec ReviewActionStatus
+Int -&gt; ReadS ReviewActionStatus
+ReadS [ReviewActionStatus]
+(Int -&gt; ReadS ReviewActionStatus)
+-&gt; ReadS [ReviewActionStatus]
+-&gt; ReadPrec ReviewActionStatus
+-&gt; ReadPrec [ReviewActionStatus]
+-&gt; Read ReviewActionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReviewActionStatus]
+$creadListPrec :: ReadPrec [ReviewActionStatus]
+readPrec :: ReadPrec ReviewActionStatus
+$creadPrec :: ReadPrec ReviewActionStatus
+readList :: ReadS [ReviewActionStatus]
+$creadList :: ReadS [ReviewActionStatus]
+readsPrec :: Int -&gt; ReadS ReviewActionStatus
+$creadsPrec :: Int -&gt; ReadS ReviewActionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679245555"><span id="local-6989586621679245557"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
+(ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool)
+-&gt; (ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool)
+-&gt; Eq ReviewActionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
+$c/= :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
+== :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
+$c== :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679245539"><span id="local-6989586621679245541"><span id="local-6989586621679245543"><span id="local-6989586621679245545"><span id="local-6989586621679245547"><span id="local-6989586621679245549"><span id="local-6989586621679245551"><span class="annot"><span class="annottext">Eq ReviewActionStatus
+Eq ReviewActionStatus
+-&gt; (ReviewActionStatus -&gt; ReviewActionStatus -&gt; Ordering)
+-&gt; (ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool)
+-&gt; (ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool)
+-&gt; (ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool)
+-&gt; (ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool)
+-&gt; (ReviewActionStatus -&gt; ReviewActionStatus -&gt; ReviewActionStatus)
+-&gt; (ReviewActionStatus -&gt; ReviewActionStatus -&gt; ReviewActionStatus)
+-&gt; Ord ReviewActionStatus
+ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
+ReviewActionStatus -&gt; ReviewActionStatus -&gt; Ordering
+ReviewActionStatus -&gt; ReviewActionStatus -&gt; ReviewActionStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; ReviewActionStatus
+$cmin :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; ReviewActionStatus
+max :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; ReviewActionStatus
+$cmax :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; ReviewActionStatus
+&gt;= :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
+$c&gt;= :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
+&gt; :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
+$c&gt; :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
+&lt;= :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
+$c&lt;= :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
+&lt; :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
+$c&lt; :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
+compare :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Ordering
+$ccompare :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Ordering
+$cp1Ord :: Eq ReviewActionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ReviewActionStatus -&gt; Rep ReviewActionStatus x)
+-&gt; (forall x. Rep ReviewActionStatus x -&gt; ReviewActionStatus)
+-&gt; Generic ReviewActionStatus
+forall x. Rep ReviewActionStatus x -&gt; ReviewActionStatus
+forall x. ReviewActionStatus -&gt; Rep ReviewActionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReviewActionStatus x -&gt; ReviewActionStatus
+$cfrom :: forall x. ReviewActionStatus -&gt; Rep ReviewActionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245531"><span id="local-6989586621679245533"><span class="annot"><span class="annottext">Int -&gt; ReviewActionStatus -&gt; Int
+ReviewActionStatus -&gt; Int
+(Int -&gt; ReviewActionStatus -&gt; Int)
+-&gt; (ReviewActionStatus -&gt; Int) -&gt; Hashable ReviewActionStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ReviewActionStatus -&gt; Int
+$chash :: ReviewActionStatus -&gt; Int
+hashWithSalt :: Int -&gt; ReviewActionStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ReviewActionStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679245528"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; ()
+(ReviewActionStatus -&gt; ()) -&gt; NFData ReviewActionStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ReviewActionStatus -&gt; ()
+$crnf :: ReviewActionStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679245525"><span class="annot"><span class="annottext">Text -&gt; Either String ReviewActionStatus
+(Text -&gt; Either String ReviewActionStatus)
+-&gt; FromText ReviewActionStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ReviewActionStatus
+$cfromText :: Text -&gt; Either String ReviewActionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679245522"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; Text
+(ReviewActionStatus -&gt; Text) -&gt; ToText ReviewActionStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ReviewActionStatus -&gt; Text
+$ctoText :: ReviewActionStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679245519"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; ByteString
+(ReviewActionStatus -&gt; ByteString)
+-&gt; ToByteString ReviewActionStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ReviewActionStatus -&gt; ByteString
+$ctoBS :: ReviewActionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679245516"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; ByteStringBuilder
+(ReviewActionStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ReviewActionStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ReviewActionStatus -&gt; ByteStringBuilder
+$cbuild :: ReviewActionStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679245513"><span class="annot"><span class="annottext">HeaderName -&gt; ReviewActionStatus -&gt; [Header]
+(HeaderName -&gt; ReviewActionStatus -&gt; [Header])
+-&gt; ToHeader ReviewActionStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ReviewActionStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ReviewActionStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679245510"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; QueryString
+(ReviewActionStatus -&gt; QueryString) -&gt; ToQuery ReviewActionStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ReviewActionStatus -&gt; QueryString
+$ctoQuery :: ReviewActionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679245505"><span id="local-6989586621679245507"><span class="annot"><span class="annottext">Value -&gt; Parser [ReviewActionStatus]
+Value -&gt; Parser ReviewActionStatus
+(Value -&gt; Parser ReviewActionStatus)
+-&gt; (Value -&gt; Parser [ReviewActionStatus])
+-&gt; FromJSON ReviewActionStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ReviewActionStatus]
+$cparseJSONList :: Value -&gt; Parser [ReviewActionStatus]
+parseJSON :: Value -&gt; Parser ReviewActionStatus
+$cparseJSON :: Value -&gt; Parser ReviewActionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679245500"><span id="local-6989586621679245502"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReviewActionStatus]
+FromJSONKeyFunction ReviewActionStatus
+FromJSONKeyFunction ReviewActionStatus
+-&gt; FromJSONKeyFunction [ReviewActionStatus]
+-&gt; FromJSONKey ReviewActionStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ReviewActionStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ReviewActionStatus]
+fromJSONKey :: FromJSONKeyFunction ReviewActionStatus
+$cfromJSONKey :: FromJSONKeyFunction ReviewActionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679245491"><span id="local-6989586621679245493"><span id="local-6989586621679245495"><span id="local-6989586621679245497"><span class="annot"><span class="annottext">[ReviewActionStatus] -&gt; Encoding
+[ReviewActionStatus] -&gt; Value
+ReviewActionStatus -&gt; Encoding
+ReviewActionStatus -&gt; Value
+(ReviewActionStatus -&gt; Value)
+-&gt; (ReviewActionStatus -&gt; Encoding)
+-&gt; ([ReviewActionStatus] -&gt; Value)
+-&gt; ([ReviewActionStatus] -&gt; Encoding)
+-&gt; ToJSON ReviewActionStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ReviewActionStatus] -&gt; Encoding
+$ctoEncodingList :: [ReviewActionStatus] -&gt; Encoding
+toJSONList :: [ReviewActionStatus] -&gt; Value
+$ctoJSONList :: [ReviewActionStatus] -&gt; Value
+toEncoding :: ReviewActionStatus -&gt; Encoding
+$ctoEncoding :: ReviewActionStatus -&gt; Encoding
+toJSON :: ReviewActionStatus -&gt; Value
+$ctoJSON :: ReviewActionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679245486"><span id="local-6989586621679245488"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReviewActionStatus]
+ToJSONKeyFunction ReviewActionStatus
+ToJSONKeyFunction ReviewActionStatus
+-&gt; ToJSONKeyFunction [ReviewActionStatus]
+-&gt; ToJSONKey ReviewActionStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ReviewActionStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ReviewActionStatus]
+toJSONKey :: ToJSONKeyFunction ReviewActionStatus
+$ctoJSONKey :: ToJSONKeyFunction ReviewActionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679245483"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReviewActionStatus
+([Node] -&gt; Either String ReviewActionStatus)
+-&gt; FromXML ReviewActionStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ReviewActionStatus
+$cparseXML :: [Node] -&gt; Either String ReviewActionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679245480"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; XML
+(ReviewActionStatus -&gt; XML) -&gt; ToXML ReviewActionStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ReviewActionStatus -&gt; XML
+$ctoXML :: ReviewActionStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus_Cancelled"><span class="hs-identifier hs-type">ReviewActionStatus_Cancelled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus"><span class="hs-identifier hs-type">ReviewActionStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReviewActionStatus_Cancelled"><span id="%24mReviewActionStatus_Cancelled"><span id="ReviewActionStatus_Cancelled"><span class="annot"><span class="annottext">$bReviewActionStatus_Cancelled :: ReviewActionStatus
+$mReviewActionStatus_Cancelled :: forall r. ReviewActionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#%24bReviewActionStatus_Cancelled"><span class="hs-identifier hs-var hs-var hs-var">ReviewActionStatus_Cancelled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus%27"><span class="hs-identifier hs-type">ReviewActionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Cancelled&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus_Failed"><span class="hs-identifier hs-type">ReviewActionStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus"><span class="hs-identifier hs-type">ReviewActionStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReviewActionStatus_Failed"><span id="%24mReviewActionStatus_Failed"><span id="ReviewActionStatus_Failed"><span class="annot"><span class="annottext">$bReviewActionStatus_Failed :: ReviewActionStatus
+$mReviewActionStatus_Failed :: forall r. ReviewActionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#%24bReviewActionStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">ReviewActionStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus%27"><span class="hs-identifier hs-type">ReviewActionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus_Intended"><span class="hs-identifier hs-type">ReviewActionStatus_Intended</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus"><span class="hs-identifier hs-type">ReviewActionStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReviewActionStatus_Intended"><span id="%24mReviewActionStatus_Intended"><span id="ReviewActionStatus_Intended"><span class="annot"><span class="annottext">$bReviewActionStatus_Intended :: ReviewActionStatus
+$mReviewActionStatus_Intended :: forall r. ReviewActionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#%24bReviewActionStatus_Intended"><span class="hs-identifier hs-var hs-var hs-var">ReviewActionStatus_Intended</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus%27"><span class="hs-identifier hs-type">ReviewActionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Intended&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus_Succeeded"><span class="hs-identifier hs-type">ReviewActionStatus_Succeeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus"><span class="hs-identifier hs-type">ReviewActionStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReviewActionStatus_Succeeded"><span id="%24mReviewActionStatus_Succeeded"><span id="ReviewActionStatus_Succeeded"><span class="annot"><span class="annottext">$bReviewActionStatus_Succeeded :: ReviewActionStatus
+$mReviewActionStatus_Succeeded :: forall r. ReviewActionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#%24bReviewActionStatus_Succeeded"><span class="hs-identifier hs-var hs-var hs-var">ReviewActionStatus_Succeeded</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus%27"><span class="hs-identifier hs-type">ReviewActionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Succeeded&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus_Cancelled"><span class="hs-pragma hs-type">ReviewActionStatus_Cancelled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus_Failed"><span class="hs-pragma hs-type">ReviewActionStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus_Intended"><span class="hs-pragma hs-type">ReviewActionStatus_Intended</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus_Succeeded"><span class="hs-pragma hs-type">ReviewActionStatus_Succeeded</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus%27"><span class="hs-pragma hs-type">ReviewActionStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

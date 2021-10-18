@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Shield.Types.Unit</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Shield.Types.Unit</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit"><span class="hs-identifier">Unit</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit_BITS"><span class="hs-identifier">Unit_BITS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit_BYTES"><span class="hs-identifier">Unit_BYTES</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit_PACKETS"><span class="hs-identifier">Unit_PACKETS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit_REQUESTS"><span class="hs-identifier">Unit_REQUESTS</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679204845"><span id="local-6989586621679204846"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Unit"><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit"><span class="hs-identifier hs-var">Unit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Unit%27"><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit%27"><span class="hs-identifier hs-var">Unit'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromUnit"><span class="annot"><span class="annottext">Unit -&gt; Text
+</span><a href="Network.AWS.Shield.Types.Unit.html#fromUnit"><span class="hs-identifier hs-var hs-var">fromUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679204837"><span id="local-6989586621679204839"><span id="local-6989586621679204841"><span class="annot"><span class="annottext">Int -&gt; Unit -&gt; ShowS
+[Unit] -&gt; ShowS
+Unit -&gt; String
+(Int -&gt; Unit -&gt; ShowS)
+-&gt; (Unit -&gt; String) -&gt; ([Unit] -&gt; ShowS) -&gt; Show Unit
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Unit] -&gt; ShowS
+$cshowList :: [Unit] -&gt; ShowS
+show :: Unit -&gt; String
+$cshow :: Unit -&gt; String
+showsPrec :: Int -&gt; Unit -&gt; ShowS
+$cshowsPrec :: Int -&gt; Unit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679204828"><span id="local-6989586621679204830"><span id="local-6989586621679204832"><span id="local-6989586621679204834"><span class="annot"><span class="annottext">ReadPrec [Unit]
+ReadPrec Unit
+Int -&gt; ReadS Unit
+ReadS [Unit]
+(Int -&gt; ReadS Unit)
+-&gt; ReadS [Unit] -&gt; ReadPrec Unit -&gt; ReadPrec [Unit] -&gt; Read Unit
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Unit]
+$creadListPrec :: ReadPrec [Unit]
+readPrec :: ReadPrec Unit
+$creadPrec :: ReadPrec Unit
+readList :: ReadS [Unit]
+$creadList :: ReadS [Unit]
+readsPrec :: Int -&gt; ReadS Unit
+$creadsPrec :: Int -&gt; ReadS Unit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679204823"><span id="local-6989586621679204825"><span class="annot"><span class="annottext">Unit -&gt; Unit -&gt; Bool
+(Unit -&gt; Unit -&gt; Bool) -&gt; (Unit -&gt; Unit -&gt; Bool) -&gt; Eq Unit
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Unit -&gt; Unit -&gt; Bool
+$c/= :: Unit -&gt; Unit -&gt; Bool
+== :: Unit -&gt; Unit -&gt; Bool
+$c== :: Unit -&gt; Unit -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679204807"><span id="local-6989586621679204809"><span id="local-6989586621679204811"><span id="local-6989586621679204813"><span id="local-6989586621679204815"><span id="local-6989586621679204817"><span id="local-6989586621679204819"><span class="annot"><span class="annottext">Eq Unit
+Eq Unit
+-&gt; (Unit -&gt; Unit -&gt; Ordering)
+-&gt; (Unit -&gt; Unit -&gt; Bool)
+-&gt; (Unit -&gt; Unit -&gt; Bool)
+-&gt; (Unit -&gt; Unit -&gt; Bool)
+-&gt; (Unit -&gt; Unit -&gt; Bool)
+-&gt; (Unit -&gt; Unit -&gt; Unit)
+-&gt; (Unit -&gt; Unit -&gt; Unit)
+-&gt; Ord Unit
+Unit -&gt; Unit -&gt; Bool
+Unit -&gt; Unit -&gt; Ordering
+Unit -&gt; Unit -&gt; Unit
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Unit -&gt; Unit -&gt; Unit
+$cmin :: Unit -&gt; Unit -&gt; Unit
+max :: Unit -&gt; Unit -&gt; Unit
+$cmax :: Unit -&gt; Unit -&gt; Unit
+&gt;= :: Unit -&gt; Unit -&gt; Bool
+$c&gt;= :: Unit -&gt; Unit -&gt; Bool
+&gt; :: Unit -&gt; Unit -&gt; Bool
+$c&gt; :: Unit -&gt; Unit -&gt; Bool
+&lt;= :: Unit -&gt; Unit -&gt; Bool
+$c&lt;= :: Unit -&gt; Unit -&gt; Bool
+&lt; :: Unit -&gt; Unit -&gt; Bool
+$c&lt; :: Unit -&gt; Unit -&gt; Bool
+compare :: Unit -&gt; Unit -&gt; Ordering
+$ccompare :: Unit -&gt; Unit -&gt; Ordering
+$cp1Ord :: Eq Unit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Unit -&gt; Rep Unit x)
+-&gt; (forall x. Rep Unit x -&gt; Unit) -&gt; Generic Unit
+forall x. Rep Unit x -&gt; Unit
+forall x. Unit -&gt; Rep Unit x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Unit x -&gt; Unit
+$cfrom :: forall x. Unit -&gt; Rep Unit x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679204799"><span id="local-6989586621679204801"><span class="annot"><span class="annottext">Int -&gt; Unit -&gt; Int
+Unit -&gt; Int
+(Int -&gt; Unit -&gt; Int) -&gt; (Unit -&gt; Int) -&gt; Hashable Unit
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Unit -&gt; Int
+$chash :: Unit -&gt; Int
+hashWithSalt :: Int -&gt; Unit -&gt; Int
+$chashWithSalt :: Int -&gt; Unit -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679204796"><span class="annot"><span class="annottext">Unit -&gt; ()
+(Unit -&gt; ()) -&gt; NFData Unit
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Unit -&gt; ()
+$crnf :: Unit -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679204793"><span class="annot"><span class="annottext">Text -&gt; Either String Unit
+(Text -&gt; Either String Unit) -&gt; FromText Unit
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Unit
+$cfromText :: Text -&gt; Either String Unit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679204790"><span class="annot"><span class="annottext">Unit -&gt; Text
+(Unit -&gt; Text) -&gt; ToText Unit
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Unit -&gt; Text
+$ctoText :: Unit -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679204787"><span class="annot"><span class="annottext">Unit -&gt; ByteString
+(Unit -&gt; ByteString) -&gt; ToByteString Unit
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Unit -&gt; ByteString
+$ctoBS :: Unit -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679204784"><span class="annot"><span class="annottext">Unit -&gt; ByteStringBuilder
+(Unit -&gt; ByteStringBuilder) -&gt; ToLog Unit
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Unit -&gt; ByteStringBuilder
+$cbuild :: Unit -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679204781"><span class="annot"><span class="annottext">HeaderName -&gt; Unit -&gt; [Header]
+(HeaderName -&gt; Unit -&gt; [Header]) -&gt; ToHeader Unit
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Unit -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Unit -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679204778"><span class="annot"><span class="annottext">Unit -&gt; QueryString
+(Unit -&gt; QueryString) -&gt; ToQuery Unit
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Unit -&gt; QueryString
+$ctoQuery :: Unit -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679204773"><span id="local-6989586621679204775"><span class="annot"><span class="annottext">Value -&gt; Parser [Unit]
+Value -&gt; Parser Unit
+(Value -&gt; Parser Unit) -&gt; (Value -&gt; Parser [Unit]) -&gt; FromJSON Unit
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Unit]
+$cparseJSONList :: Value -&gt; Parser [Unit]
+parseJSON :: Value -&gt; Parser Unit
+$cparseJSON :: Value -&gt; Parser Unit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679204768"><span id="local-6989586621679204770"><span class="annot"><span class="annottext">FromJSONKeyFunction [Unit]
+FromJSONKeyFunction Unit
+FromJSONKeyFunction Unit
+-&gt; FromJSONKeyFunction [Unit] -&gt; FromJSONKey Unit
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Unit]
+$cfromJSONKeyList :: FromJSONKeyFunction [Unit]
+fromJSONKey :: FromJSONKeyFunction Unit
+$cfromJSONKey :: FromJSONKeyFunction Unit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679204759"><span id="local-6989586621679204761"><span id="local-6989586621679204763"><span id="local-6989586621679204765"><span class="annot"><span class="annottext">[Unit] -&gt; Encoding
+[Unit] -&gt; Value
+Unit -&gt; Encoding
+Unit -&gt; Value
+(Unit -&gt; Value)
+-&gt; (Unit -&gt; Encoding)
+-&gt; ([Unit] -&gt; Value)
+-&gt; ([Unit] -&gt; Encoding)
+-&gt; ToJSON Unit
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Unit] -&gt; Encoding
+$ctoEncodingList :: [Unit] -&gt; Encoding
+toJSONList :: [Unit] -&gt; Value
+$ctoJSONList :: [Unit] -&gt; Value
+toEncoding :: Unit -&gt; Encoding
+$ctoEncoding :: Unit -&gt; Encoding
+toJSON :: Unit -&gt; Value
+$ctoJSON :: Unit -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679204754"><span id="local-6989586621679204756"><span class="annot"><span class="annottext">ToJSONKeyFunction [Unit]
+ToJSONKeyFunction Unit
+ToJSONKeyFunction Unit
+-&gt; ToJSONKeyFunction [Unit] -&gt; ToJSONKey Unit
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Unit]
+$ctoJSONKeyList :: ToJSONKeyFunction [Unit]
+toJSONKey :: ToJSONKeyFunction Unit
+$ctoJSONKey :: ToJSONKeyFunction Unit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679204751"><span class="annot"><span class="annottext">[Node] -&gt; Either String Unit
+([Node] -&gt; Either String Unit) -&gt; FromXML Unit
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Unit
+$cparseXML :: [Node] -&gt; Either String Unit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679204748"><span class="annot"><span class="annottext">Unit -&gt; XML
+(Unit -&gt; XML) -&gt; ToXML Unit
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Unit -&gt; XML
+$ctoXML :: Unit -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit_BITS"><span class="hs-identifier hs-type">Unit_BITS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_BITS"><span id="%24mUnit_BITS"><span id="Unit_BITS"><span class="annot"><span class="annottext">$bUnit_BITS :: Unit
+$mUnit_BITS :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Shield.Types.Unit.html#%24bUnit_BITS"><span class="hs-identifier hs-var hs-var hs-var">Unit_BITS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BITS&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit_BYTES"><span class="hs-identifier hs-type">Unit_BYTES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_BYTES"><span id="%24mUnit_BYTES"><span id="Unit_BYTES"><span class="annot"><span class="annottext">$bUnit_BYTES :: Unit
+$mUnit_BYTES :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Shield.Types.Unit.html#%24bUnit_BYTES"><span class="hs-identifier hs-var hs-var hs-var">Unit_BYTES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BYTES&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit_PACKETS"><span class="hs-identifier hs-type">Unit_PACKETS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_PACKETS"><span id="%24mUnit_PACKETS"><span id="Unit_PACKETS"><span class="annot"><span class="annottext">$bUnit_PACKETS :: Unit
+$mUnit_PACKETS :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Shield.Types.Unit.html#%24bUnit_PACKETS"><span class="hs-identifier hs-var hs-var hs-var">Unit_PACKETS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PACKETS&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit_REQUESTS"><span class="hs-identifier hs-type">Unit_REQUESTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnit_REQUESTS"><span id="%24mUnit_REQUESTS"><span id="Unit_REQUESTS"><span class="annot"><span class="annottext">$bUnit_REQUESTS :: Unit
+$mUnit_REQUESTS :: forall r. Unit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Shield.Types.Unit.html#%24bUnit_REQUESTS"><span class="hs-identifier hs-var hs-var hs-var">Unit_REQUESTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit%27"><span class="hs-identifier hs-type">Unit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REQUESTS&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit_BITS"><span class="hs-pragma hs-type">Unit_BITS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit_BYTES"><span class="hs-pragma hs-type">Unit_BYTES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit_PACKETS"><span class="hs-pragma hs-type">Unit_PACKETS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit_REQUESTS"><span class="hs-pragma hs-type">Unit_REQUESTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.Unit.html#Unit%27"><span class="hs-pragma hs-type">Unit'</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-78"></span></pre></body></html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RDS.Types.ActivityStreamStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RDS.Types.ActivityStreamStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus"><span class="hs-identifier">ActivityStreamStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus_Started"><span class="hs-identifier">ActivityStreamStatus_Started</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus_Starting"><span class="hs-identifier">ActivityStreamStatus_Starting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus_Stopped"><span class="hs-identifier">ActivityStreamStatus_Stopped</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus_Stopping"><span class="hs-identifier">ActivityStreamStatus_Stopping</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679755272"><span id="local-6989586621679755273"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActivityStreamStatus"><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus"><span class="hs-identifier hs-var">ActivityStreamStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityStreamStatus%27"><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus%27"><span class="hs-identifier hs-var">ActivityStreamStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromActivityStreamStatus"><span class="annot"><span class="annottext">ActivityStreamStatus -&gt; Text
+</span><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#fromActivityStreamStatus"><span class="hs-identifier hs-var hs-var">fromActivityStreamStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679755264"><span id="local-6989586621679755266"><span id="local-6989586621679755268"><span class="annot"><span class="annottext">Int -&gt; ActivityStreamStatus -&gt; ShowS
+[ActivityStreamStatus] -&gt; ShowS
+ActivityStreamStatus -&gt; String
+(Int -&gt; ActivityStreamStatus -&gt; ShowS)
+-&gt; (ActivityStreamStatus -&gt; String)
+-&gt; ([ActivityStreamStatus] -&gt; ShowS)
+-&gt; Show ActivityStreamStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ActivityStreamStatus] -&gt; ShowS
+$cshowList :: [ActivityStreamStatus] -&gt; ShowS
+show :: ActivityStreamStatus -&gt; String
+$cshow :: ActivityStreamStatus -&gt; String
+showsPrec :: Int -&gt; ActivityStreamStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ActivityStreamStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679755255"><span id="local-6989586621679755257"><span id="local-6989586621679755259"><span id="local-6989586621679755261"><span class="annot"><span class="annottext">ReadPrec [ActivityStreamStatus]
+ReadPrec ActivityStreamStatus
+Int -&gt; ReadS ActivityStreamStatus
+ReadS [ActivityStreamStatus]
+(Int -&gt; ReadS ActivityStreamStatus)
+-&gt; ReadS [ActivityStreamStatus]
+-&gt; ReadPrec ActivityStreamStatus
+-&gt; ReadPrec [ActivityStreamStatus]
+-&gt; Read ActivityStreamStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ActivityStreamStatus]
+$creadListPrec :: ReadPrec [ActivityStreamStatus]
+readPrec :: ReadPrec ActivityStreamStatus
+$creadPrec :: ReadPrec ActivityStreamStatus
+readList :: ReadS [ActivityStreamStatus]
+$creadList :: ReadS [ActivityStreamStatus]
+readsPrec :: Int -&gt; ReadS ActivityStreamStatus
+$creadsPrec :: Int -&gt; ReadS ActivityStreamStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679755250"><span id="local-6989586621679755252"><span class="annot"><span class="annottext">ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool
+(ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool)
+-&gt; (ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool)
+-&gt; Eq ActivityStreamStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool
+$c/= :: ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool
+== :: ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool
+$c== :: ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679755234"><span id="local-6989586621679755236"><span id="local-6989586621679755238"><span id="local-6989586621679755240"><span id="local-6989586621679755242"><span id="local-6989586621679755244"><span id="local-6989586621679755246"><span class="annot"><span class="annottext">Eq ActivityStreamStatus
+Eq ActivityStreamStatus
+-&gt; (ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Ordering)
+-&gt; (ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool)
+-&gt; (ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool)
+-&gt; (ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool)
+-&gt; (ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool)
+-&gt; (ActivityStreamStatus
+    -&gt; ActivityStreamStatus -&gt; ActivityStreamStatus)
+-&gt; (ActivityStreamStatus
+    -&gt; ActivityStreamStatus -&gt; ActivityStreamStatus)
+-&gt; Ord ActivityStreamStatus
+ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool
+ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Ordering
+ActivityStreamStatus
+-&gt; ActivityStreamStatus -&gt; ActivityStreamStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ActivityStreamStatus
+-&gt; ActivityStreamStatus -&gt; ActivityStreamStatus
+$cmin :: ActivityStreamStatus
+-&gt; ActivityStreamStatus -&gt; ActivityStreamStatus
+max :: ActivityStreamStatus
+-&gt; ActivityStreamStatus -&gt; ActivityStreamStatus
+$cmax :: ActivityStreamStatus
+-&gt; ActivityStreamStatus -&gt; ActivityStreamStatus
+&gt;= :: ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool
+$c&gt;= :: ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool
+&gt; :: ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool
+$c&gt; :: ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool
+&lt;= :: ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool
+$c&lt;= :: ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool
+&lt; :: ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool
+$c&lt; :: ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Bool
+compare :: ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Ordering
+$ccompare :: ActivityStreamStatus -&gt; ActivityStreamStatus -&gt; Ordering
+$cp1Ord :: Eq ActivityStreamStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ActivityStreamStatus -&gt; Rep ActivityStreamStatus x)
+-&gt; (forall x. Rep ActivityStreamStatus x -&gt; ActivityStreamStatus)
+-&gt; Generic ActivityStreamStatus
+forall x. Rep ActivityStreamStatus x -&gt; ActivityStreamStatus
+forall x. ActivityStreamStatus -&gt; Rep ActivityStreamStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ActivityStreamStatus x -&gt; ActivityStreamStatus
+$cfrom :: forall x. ActivityStreamStatus -&gt; Rep ActivityStreamStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679755226"><span id="local-6989586621679755228"><span class="annot"><span class="annottext">Int -&gt; ActivityStreamStatus -&gt; Int
+ActivityStreamStatus -&gt; Int
+(Int -&gt; ActivityStreamStatus -&gt; Int)
+-&gt; (ActivityStreamStatus -&gt; Int) -&gt; Hashable ActivityStreamStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ActivityStreamStatus -&gt; Int
+$chash :: ActivityStreamStatus -&gt; Int
+hashWithSalt :: Int -&gt; ActivityStreamStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ActivityStreamStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679755223"><span class="annot"><span class="annottext">ActivityStreamStatus -&gt; ()
+(ActivityStreamStatus -&gt; ()) -&gt; NFData ActivityStreamStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ActivityStreamStatus -&gt; ()
+$crnf :: ActivityStreamStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679755220"><span class="annot"><span class="annottext">Text -&gt; Either String ActivityStreamStatus
+(Text -&gt; Either String ActivityStreamStatus)
+-&gt; FromText ActivityStreamStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ActivityStreamStatus
+$cfromText :: Text -&gt; Either String ActivityStreamStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679755217"><span class="annot"><span class="annottext">ActivityStreamStatus -&gt; Text
+(ActivityStreamStatus -&gt; Text) -&gt; ToText ActivityStreamStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ActivityStreamStatus -&gt; Text
+$ctoText :: ActivityStreamStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679755214"><span class="annot"><span class="annottext">ActivityStreamStatus -&gt; ByteString
+(ActivityStreamStatus -&gt; ByteString)
+-&gt; ToByteString ActivityStreamStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ActivityStreamStatus -&gt; ByteString
+$ctoBS :: ActivityStreamStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679755211"><span class="annot"><span class="annottext">ActivityStreamStatus -&gt; ByteStringBuilder
+(ActivityStreamStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ActivityStreamStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ActivityStreamStatus -&gt; ByteStringBuilder
+$cbuild :: ActivityStreamStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679755208"><span class="annot"><span class="annottext">HeaderName -&gt; ActivityStreamStatus -&gt; [Header]
+(HeaderName -&gt; ActivityStreamStatus -&gt; [Header])
+-&gt; ToHeader ActivityStreamStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ActivityStreamStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ActivityStreamStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679755205"><span class="annot"><span class="annottext">ActivityStreamStatus -&gt; QueryString
+(ActivityStreamStatus -&gt; QueryString)
+-&gt; ToQuery ActivityStreamStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ActivityStreamStatus -&gt; QueryString
+$ctoQuery :: ActivityStreamStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679755200"><span id="local-6989586621679755202"><span class="annot"><span class="annottext">Value -&gt; Parser [ActivityStreamStatus]
+Value -&gt; Parser ActivityStreamStatus
+(Value -&gt; Parser ActivityStreamStatus)
+-&gt; (Value -&gt; Parser [ActivityStreamStatus])
+-&gt; FromJSON ActivityStreamStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ActivityStreamStatus]
+$cparseJSONList :: Value -&gt; Parser [ActivityStreamStatus]
+parseJSON :: Value -&gt; Parser ActivityStreamStatus
+$cparseJSON :: Value -&gt; Parser ActivityStreamStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679755195"><span id="local-6989586621679755197"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActivityStreamStatus]
+FromJSONKeyFunction ActivityStreamStatus
+FromJSONKeyFunction ActivityStreamStatus
+-&gt; FromJSONKeyFunction [ActivityStreamStatus]
+-&gt; FromJSONKey ActivityStreamStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ActivityStreamStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ActivityStreamStatus]
+fromJSONKey :: FromJSONKeyFunction ActivityStreamStatus
+$cfromJSONKey :: FromJSONKeyFunction ActivityStreamStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679755186"><span id="local-6989586621679755188"><span id="local-6989586621679755190"><span id="local-6989586621679755192"><span class="annot"><span class="annottext">[ActivityStreamStatus] -&gt; Encoding
+[ActivityStreamStatus] -&gt; Value
+ActivityStreamStatus -&gt; Encoding
+ActivityStreamStatus -&gt; Value
+(ActivityStreamStatus -&gt; Value)
+-&gt; (ActivityStreamStatus -&gt; Encoding)
+-&gt; ([ActivityStreamStatus] -&gt; Value)
+-&gt; ([ActivityStreamStatus] -&gt; Encoding)
+-&gt; ToJSON ActivityStreamStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ActivityStreamStatus] -&gt; Encoding
+$ctoEncodingList :: [ActivityStreamStatus] -&gt; Encoding
+toJSONList :: [ActivityStreamStatus] -&gt; Value
+$ctoJSONList :: [ActivityStreamStatus] -&gt; Value
+toEncoding :: ActivityStreamStatus -&gt; Encoding
+$ctoEncoding :: ActivityStreamStatus -&gt; Encoding
+toJSON :: ActivityStreamStatus -&gt; Value
+$ctoJSON :: ActivityStreamStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679755181"><span id="local-6989586621679755183"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActivityStreamStatus]
+ToJSONKeyFunction ActivityStreamStatus
+ToJSONKeyFunction ActivityStreamStatus
+-&gt; ToJSONKeyFunction [ActivityStreamStatus]
+-&gt; ToJSONKey ActivityStreamStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ActivityStreamStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ActivityStreamStatus]
+toJSONKey :: ToJSONKeyFunction ActivityStreamStatus
+$ctoJSONKey :: ToJSONKeyFunction ActivityStreamStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679755178"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActivityStreamStatus
+([Node] -&gt; Either String ActivityStreamStatus)
+-&gt; FromXML ActivityStreamStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ActivityStreamStatus
+$cparseXML :: [Node] -&gt; Either String ActivityStreamStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679755175"><span class="annot"><span class="annottext">ActivityStreamStatus -&gt; XML
+(ActivityStreamStatus -&gt; XML) -&gt; ToXML ActivityStreamStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ActivityStreamStatus -&gt; XML
+$ctoXML :: ActivityStreamStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus_Started"><span class="hs-identifier hs-type">ActivityStreamStatus_Started</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus"><span class="hs-identifier hs-type">ActivityStreamStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bActivityStreamStatus_Started"><span id="%24mActivityStreamStatus_Started"><span id="ActivityStreamStatus_Started"><span class="annot"><span class="annottext">$bActivityStreamStatus_Started :: ActivityStreamStatus
+$mActivityStreamStatus_Started :: forall r. ActivityStreamStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#%24bActivityStreamStatus_Started"><span class="hs-identifier hs-var hs-var hs-var">ActivityStreamStatus_Started</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus%27"><span class="hs-identifier hs-type">ActivityStreamStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;started&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus_Starting"><span class="hs-identifier hs-type">ActivityStreamStatus_Starting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus"><span class="hs-identifier hs-type">ActivityStreamStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bActivityStreamStatus_Starting"><span id="%24mActivityStreamStatus_Starting"><span id="ActivityStreamStatus_Starting"><span class="annot"><span class="annottext">$bActivityStreamStatus_Starting :: ActivityStreamStatus
+$mActivityStreamStatus_Starting :: forall r. ActivityStreamStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#%24bActivityStreamStatus_Starting"><span class="hs-identifier hs-var hs-var hs-var">ActivityStreamStatus_Starting</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus%27"><span class="hs-identifier hs-type">ActivityStreamStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;starting&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus_Stopped"><span class="hs-identifier hs-type">ActivityStreamStatus_Stopped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus"><span class="hs-identifier hs-type">ActivityStreamStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bActivityStreamStatus_Stopped"><span id="%24mActivityStreamStatus_Stopped"><span id="ActivityStreamStatus_Stopped"><span class="annot"><span class="annottext">$bActivityStreamStatus_Stopped :: ActivityStreamStatus
+$mActivityStreamStatus_Stopped :: forall r. ActivityStreamStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#%24bActivityStreamStatus_Stopped"><span class="hs-identifier hs-var hs-var hs-var">ActivityStreamStatus_Stopped</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus%27"><span class="hs-identifier hs-type">ActivityStreamStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;stopped&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus_Stopping"><span class="hs-identifier hs-type">ActivityStreamStatus_Stopping</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus"><span class="hs-identifier hs-type">ActivityStreamStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bActivityStreamStatus_Stopping"><span id="%24mActivityStreamStatus_Stopping"><span id="ActivityStreamStatus_Stopping"><span class="annot"><span class="annottext">$bActivityStreamStatus_Stopping :: ActivityStreamStatus
+$mActivityStreamStatus_Stopping :: forall r. ActivityStreamStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#%24bActivityStreamStatus_Stopping"><span class="hs-identifier hs-var hs-var hs-var">ActivityStreamStatus_Stopping</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus%27"><span class="hs-identifier hs-type">ActivityStreamStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;stopping&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus_Started"><span class="hs-pragma hs-type">ActivityStreamStatus_Started</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus_Starting"><span class="hs-pragma hs-type">ActivityStreamStatus_Starting</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus_Stopped"><span class="hs-pragma hs-type">ActivityStreamStatus_Stopped</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus_Stopping"><span class="hs-pragma hs-type">ActivityStreamStatus_Stopping</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus%27"><span class="hs-pragma hs-type">ActivityStreamStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

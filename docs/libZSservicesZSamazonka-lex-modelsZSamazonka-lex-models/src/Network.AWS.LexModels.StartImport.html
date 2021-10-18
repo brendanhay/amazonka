@@ -1,0 +1,979 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.LexModels.StartImport</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts a job to import a resource to Amazon Lex.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LexModels.StartImport</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier">StartImport</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#newStartImport"><span class="hs-identifier">newStartImport</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImport_tags"><span class="hs-identifier">startImport_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImport_payload"><span class="hs-identifier">startImport_payload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImport_resourceType"><span class="hs-identifier">startImport_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImport_mergeStrategy"><span class="hs-identifier">startImport_mergeStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier">StartImportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#newStartImportResponse"><span class="hs-identifier">newStartImportResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_createdDate"><span class="hs-identifier">startImportResponse_createdDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_mergeStrategy"><span class="hs-identifier">startImportResponse_mergeStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_importId"><span class="hs-identifier">startImportResponse_importId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_resourceType"><span class="hs-identifier">startImportResponse_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_name"><span class="hs-identifier">startImportResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_importStatus"><span class="hs-identifier">startImportResponse_importStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_tags"><span class="hs-identifier">startImportResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_httpStatus"><span class="hs-identifier">startImportResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.html"><span class="hs-identifier">Network.AWS.LexModels.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newStartImport' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679318141"><span id="local-6989586621679318142"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartImport"><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-var">StartImport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartImport%27"><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport%27"><span class="hs-identifier hs-var">StartImport'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of tags to add to the imported bot. You can only add tags when</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- you import a bot, you can\'t add tags to an intent or slot type.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Atags%3AStartImport%27"><span class="annot"><span class="annottext">StartImport -&gt; Maybe [Tag]
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3Atags%3AStartImport%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexModels.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A zip archive in binary format. The archive should contain one file, a</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- JSON file containing the resource to import. The resource should match</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the type specified in the @resourceType@ field.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Apayload%3AStartImport%27"><span class="annot"><span class="annottext">StartImport -&gt; Base64
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3Apayload%3AStartImport%27"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Specifies the type of resource to export. Each resource also exports any</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- resources that it depends on.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   A bot exports dependent intents.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   An intent exports dependent slot types.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AresourceType%3AStartImport%27"><span class="annot"><span class="annottext">StartImport -&gt; ResourceType
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AresourceType%3AStartImport%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Specifies the action that the @StartImport@ operation should take when</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- there is an existing resource with the same name.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   FAIL_ON_CONFLICT - The import operation is stopped on the first</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     conflict between a resource in the import file and an existing</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     resource. The name of the resource causing the conflict is in the</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     @failureReason@ field of the response to the @GetImport@ operation.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     OVERWRITE_LATEST - The import operation proceeds even if there is a</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     conflict with an existing resource. The $LASTEST version of the</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     existing resource is overwritten with the data from the import file.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AmergeStrategy%3AStartImport%27"><span class="annot"><span class="annottext">StartImport -&gt; MergeStrategy
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AmergeStrategy%3AStartImport%27"><span class="hs-identifier hs-var hs-var">mergeStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MergeStrategy.html#MergeStrategy"><span class="hs-identifier hs-type">MergeStrategy</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318132"><span id="local-6989586621679318134"><span class="annot"><span class="annottext">StartImport -&gt; StartImport -&gt; Bool
+(StartImport -&gt; StartImport -&gt; Bool)
+-&gt; (StartImport -&gt; StartImport -&gt; Bool) -&gt; Eq StartImport
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartImport -&gt; StartImport -&gt; Bool
+$c/= :: StartImport -&gt; StartImport -&gt; Bool
+== :: StartImport -&gt; StartImport -&gt; Bool
+$c== :: StartImport -&gt; StartImport -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318123"><span id="local-6989586621679318125"><span id="local-6989586621679318127"><span id="local-6989586621679318129"><span class="annot"><span class="annottext">ReadPrec [StartImport]
+ReadPrec StartImport
+Int -&gt; ReadS StartImport
+ReadS [StartImport]
+(Int -&gt; ReadS StartImport)
+-&gt; ReadS [StartImport]
+-&gt; ReadPrec StartImport
+-&gt; ReadPrec [StartImport]
+-&gt; Read StartImport
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartImport]
+$creadListPrec :: ReadPrec [StartImport]
+readPrec :: ReadPrec StartImport
+$creadPrec :: ReadPrec StartImport
+readList :: ReadS [StartImport]
+$creadList :: ReadS [StartImport]
+readsPrec :: Int -&gt; ReadS StartImport
+$creadsPrec :: Int -&gt; ReadS StartImport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318116"><span id="local-6989586621679318118"><span id="local-6989586621679318120"><span class="annot"><span class="annottext">Int -&gt; StartImport -&gt; ShowS
+[StartImport] -&gt; ShowS
+StartImport -&gt; String
+(Int -&gt; StartImport -&gt; ShowS)
+-&gt; (StartImport -&gt; String)
+-&gt; ([StartImport] -&gt; ShowS)
+-&gt; Show StartImport
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartImport] -&gt; ShowS
+$cshowList :: [StartImport] -&gt; ShowS
+show :: StartImport -&gt; String
+$cshow :: StartImport -&gt; String
+showsPrec :: Int -&gt; StartImport -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartImport -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartImport -&gt; Rep StartImport x)
+-&gt; (forall x. Rep StartImport x -&gt; StartImport)
+-&gt; Generic StartImport
+forall x. Rep StartImport x -&gt; StartImport
+forall x. StartImport -&gt; Rep StartImport x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartImport x -&gt; StartImport
+$cfrom :: forall x. StartImport -&gt; Rep StartImport x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Create a value of 'StartImport' with all optional fields omitted.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'tags', 'startImport_tags' - A list of tags to add to the imported bot. You can only add tags when</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- you import a bot, you can\'t add tags to an intent or slot type.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'payload', 'startImport_payload' - A zip archive in binary format. The archive should contain one file, a</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- JSON file containing the resource to import. The resource should match</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- the type specified in the @resourceType@ field.--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'resourceType', 'startImport_resourceType' - Specifies the type of resource to export. Each resource also exports any</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- resources that it depends on.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- -   A bot exports dependent intents.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   An intent exports dependent slot types.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'mergeStrategy', 'startImport_mergeStrategy' - Specifies the action that the @StartImport@ operation should take when</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- there is an existing resource with the same name.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   FAIL_ON_CONFLICT - The import operation is stopped on the first</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     conflict between a resource in the import file and an existing</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--     resource. The name of the resource causing the conflict is in the</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--     @failureReason@ field of the response to the @GetImport@ operation.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--     OVERWRITE_LATEST - The import operation proceeds even if there is a</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--     conflict with an existing resource. The $LASTEST version of the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--     existing resource is overwritten with the data from the import file.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#newStartImport"><span class="hs-identifier hs-type">newStartImport</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-comment">-- | 'payload'</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-comment">-- | 'resourceType'</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-comment">-- | 'mergeStrategy'</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.MergeStrategy.html#MergeStrategy"><span class="hs-identifier hs-type">MergeStrategy</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span><span>
+</span><span id="line-134"></span><span id="newStartImport"><span class="annot"><span class="annottext">newStartImport :: ByteString -&gt; ResourceType -&gt; MergeStrategy -&gt; StartImport
+</span><a href="Network.AWS.LexModels.StartImport.html#newStartImport"><span class="hs-identifier hs-var hs-var">newStartImport</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679318111"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679318111"><span class="hs-identifier hs-var">pPayload_</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679318110"><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621679318110"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679318109"><span class="annot"><span class="annottext">MergeStrategy
+</span><a href="#local-6989586621679318109"><span class="hs-identifier hs-var">pMergeStrategy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">StartImport' :: Maybe [Tag]
+-&gt; Base64 -&gt; ResourceType -&gt; MergeStrategy -&gt; StartImport
+</span><a href="Network.AWS.LexModels.StartImport.html#StartImport%27"><span class="hs-identifier hs-type">StartImport'</span></a></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:StartImport' :: Maybe [Tag]
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3Atags%3AStartImport%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:payload:StartImport' :: Base64
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3Apayload%3AStartImport%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
+-&gt; Tagged Base64 (Identity Base64)
+Iso' Base64 ByteString
+</span><span class="hs-identifier hs-var">Core._Base64</span></span><span> </span><span class="annot"><span class="annottext">(Tagged ByteString (Identity ByteString)
+ -&gt; Tagged Base64 (Identity Base64))
+-&gt; ByteString -&gt; Base64
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679318111"><span class="hs-identifier hs-var">pPayload_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceType:StartImport' :: ResourceType
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AresourceType%3AStartImport%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621679318110"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:mergeStrategy:StartImport' :: MergeStrategy
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AmergeStrategy%3AStartImport%27"><span class="hs-identifier hs-var">mergeStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MergeStrategy
+</span><a href="#local-6989586621679318109"><span class="hs-identifier hs-var">pMergeStrategy_</span></a></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | A list of tags to add to the imported bot. You can only add tags when</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- you import a bot, you can\'t add tags to an intent or slot type.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImport_tags"><span class="hs-identifier hs-type">startImport_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexModels.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="startImport_tags"><span class="annot"><span class="annottext">startImport_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; StartImport -&gt; f StartImport
+</span><a href="Network.AWS.LexModels.StartImport.html#startImport_tags"><span class="hs-identifier hs-var hs-var">startImport_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartImport -&gt; Maybe [Tag])
+-&gt; (StartImport -&gt; Maybe [Tag] -&gt; StartImport)
+-&gt; Lens StartImport StartImport (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport%27"><span class="hs-identifier hs-type">StartImport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318104"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:StartImport' :: StartImport -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679318104"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679318104"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318103"><span class="annot"><span class="annottext">s :: StartImport
+</span><a href="#local-6989586621679318103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport%27"><span class="hs-identifier hs-type">StartImport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318102"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679318102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImport
+</span><a href="#local-6989586621679318103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:StartImport' :: Maybe [Tag]
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3Atags%3AStartImport%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679318102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; StartImport -&gt; f StartImport)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; StartImport
+-&gt; f StartImport
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | A zip archive in binary format. The archive should contain one file, a</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- JSON file containing the resource to import. The resource should match</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- the type specified in the @resourceType@ field.--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImport_payload"><span class="hs-identifier hs-type">startImport_payload</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-158"></span><span id="startImport_payload"><span class="annot"><span class="annottext">startImport_payload :: (ByteString -&gt; f ByteString) -&gt; StartImport -&gt; f StartImport
+</span><a href="Network.AWS.LexModels.StartImport.html#startImport_payload"><span class="hs-identifier hs-var hs-var">startImport_payload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartImport -&gt; Base64)
+-&gt; (StartImport -&gt; Base64 -&gt; StartImport)
+-&gt; Lens StartImport StartImport Base64 Base64
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport%27"><span class="hs-identifier hs-type">StartImport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318098"><span class="annot"><span class="annottext">Base64
+payload :: Base64
+$sel:payload:StartImport' :: StartImport -&gt; Base64
+</span><a href="#local-6989586621679318098"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679318098"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318097"><span class="annot"><span class="annottext">s :: StartImport
+</span><a href="#local-6989586621679318097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport%27"><span class="hs-identifier hs-type">StartImport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318096"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679318096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImport
+</span><a href="#local-6989586621679318097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:StartImport' :: Base64
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3Apayload%3AStartImport%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679318096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; StartImport -&gt; f StartImport)
+-&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
+-&gt; (ByteString -&gt; f ByteString)
+-&gt; StartImport
+-&gt; f StartImport
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64
+Iso' Base64 ByteString
+</span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | Specifies the type of resource to export. Each resource also exports any</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- resources that it depends on.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- -   A bot exports dependent intents.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- -   An intent exports dependent slot types.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImport_resourceType"><span class="hs-identifier hs-type">startImport_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span>
+</span><span id="line-167"></span><span id="startImport_resourceType"><span class="annot"><span class="annottext">startImport_resourceType :: (ResourceType -&gt; f ResourceType) -&gt; StartImport -&gt; f StartImport
+</span><a href="Network.AWS.LexModels.StartImport.html#startImport_resourceType"><span class="hs-identifier hs-var hs-var">startImport_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartImport -&gt; ResourceType)
+-&gt; (StartImport -&gt; ResourceType -&gt; StartImport)
+-&gt; Lens StartImport StartImport ResourceType ResourceType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport%27"><span class="hs-identifier hs-type">StartImport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318095"><span class="annot"><span class="annottext">ResourceType
+resourceType :: ResourceType
+$sel:resourceType:StartImport' :: StartImport -&gt; ResourceType
+</span><a href="#local-6989586621679318095"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621679318095"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318094"><span class="annot"><span class="annottext">s :: StartImport
+</span><a href="#local-6989586621679318094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport%27"><span class="hs-identifier hs-type">StartImport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318093"><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621679318093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImport
+</span><a href="#local-6989586621679318094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:StartImport' :: ResourceType
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AresourceType%3AStartImport%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621679318093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | Specifies the action that the @StartImport@ operation should take when</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- there is an existing resource with the same name.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- -   FAIL_ON_CONFLICT - The import operation is stopped on the first</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--     conflict between a resource in the import file and an existing</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--     resource. The name of the resource causing the conflict is in the</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--     @failureReason@ field of the response to the @GetImport@ operation.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--     OVERWRITE_LATEST - The import operation proceeds even if there is a</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     conflict with an existing resource. The $LASTEST version of the</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     existing resource is overwritten with the data from the import file.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImport_mergeStrategy"><span class="hs-identifier hs-type">startImport_mergeStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MergeStrategy.html#MergeStrategy"><span class="hs-identifier hs-type">MergeStrategy</span></a></span><span>
+</span><span id="line-181"></span><span id="startImport_mergeStrategy"><span class="annot"><span class="annottext">startImport_mergeStrategy :: (MergeStrategy -&gt; f MergeStrategy) -&gt; StartImport -&gt; f StartImport
+</span><a href="Network.AWS.LexModels.StartImport.html#startImport_mergeStrategy"><span class="hs-identifier hs-var hs-var">startImport_mergeStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartImport -&gt; MergeStrategy)
+-&gt; (StartImport -&gt; MergeStrategy -&gt; StartImport)
+-&gt; Lens StartImport StartImport MergeStrategy MergeStrategy
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport%27"><span class="hs-identifier hs-type">StartImport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318092"><span class="annot"><span class="annottext">MergeStrategy
+mergeStrategy :: MergeStrategy
+$sel:mergeStrategy:StartImport' :: StartImport -&gt; MergeStrategy
+</span><a href="#local-6989586621679318092"><span class="hs-identifier hs-var hs-var">mergeStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeStrategy
+</span><a href="#local-6989586621679318092"><span class="hs-identifier hs-var">mergeStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318091"><span class="annot"><span class="annottext">s :: StartImport
+</span><a href="#local-6989586621679318091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport%27"><span class="hs-identifier hs-type">StartImport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318090"><span class="annot"><span class="annottext">MergeStrategy
+</span><a href="#local-6989586621679318090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImport
+</span><a href="#local-6989586621679318091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergeStrategy:StartImport' :: MergeStrategy
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AmergeStrategy%3AStartImport%27"><span class="hs-identifier hs-var">mergeStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MergeStrategy
+</span><a href="#local-6989586621679318090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679318086"><span class="annot"><span class="annottext">request :: StartImport -&gt; Request StartImport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartImport -&gt; Request StartImport
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LexModels.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679318082"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartImport
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StartImport)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartImport))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartImport
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StartImport)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679318079"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318079"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679318078"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679318078"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679318077"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318077"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-189"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe MergeStrategy
+-&gt; Maybe Text
+-&gt; Maybe ResourceType
+-&gt; Maybe Text
+-&gt; Maybe ImportStatus
+-&gt; Maybe [Tag]
+-&gt; Int
+-&gt; StartImportResponse
+</span><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-var">StartImportResponse'</span></a></span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe MergeStrategy
+ -&gt; Maybe Text
+ -&gt; Maybe ResourceType
+ -&gt; Maybe Text
+ -&gt; Maybe ImportStatus
+ -&gt; Maybe [Tag]
+ -&gt; Int
+ -&gt; StartImportResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe MergeStrategy
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceType
+      -&gt; Maybe Text
+      -&gt; Maybe ImportStatus
+      -&gt; Maybe [Tag]
+      -&gt; Int
+      -&gt; StartImportResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe MergeStrategy
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceType
+   -&gt; Maybe Text
+   -&gt; Maybe ImportStatus
+   -&gt; Maybe [Tag]
+   -&gt; Int
+   -&gt; StartImportResponse)
+-&gt; Either String (Maybe MergeStrategy)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ResourceType
+      -&gt; Maybe Text
+      -&gt; Maybe ImportStatus
+      -&gt; Maybe [Tag]
+      -&gt; Int
+      -&gt; StartImportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MergeStrategy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mergeStrategy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ResourceType
+   -&gt; Maybe Text
+   -&gt; Maybe ImportStatus
+   -&gt; Maybe [Tag]
+   -&gt; Int
+   -&gt; StartImportResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ResourceType
+      -&gt; Maybe Text
+      -&gt; Maybe ImportStatus
+      -&gt; Maybe [Tag]
+      -&gt; Int
+      -&gt; StartImportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;importId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ResourceType
+   -&gt; Maybe Text
+   -&gt; Maybe ImportStatus
+   -&gt; Maybe [Tag]
+   -&gt; Int
+   -&gt; StartImportResponse)
+-&gt; Either String (Maybe ResourceType)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ImportStatus -&gt; Maybe [Tag] -&gt; Int -&gt; StartImportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ResourceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ImportStatus -&gt; Maybe [Tag] -&gt; Int -&gt; StartImportResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ImportStatus -&gt; Maybe [Tag] -&gt; Int -&gt; StartImportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ImportStatus -&gt; Maybe [Tag] -&gt; Int -&gt; StartImportResponse)
+-&gt; Either String (Maybe ImportStatus)
+-&gt; Either String (Maybe [Tag] -&gt; Int -&gt; StartImportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ImportStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;importStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; Int -&gt; StartImportResponse)
+-&gt; Either String (Maybe [Tag])
+-&gt; Either String (Int -&gt; StartImportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Tag]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Tag]))
+-&gt; Maybe [Tag] -&gt; Either String (Maybe [Tag])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartImportResponse)
+-&gt; Either String Int -&gt; Either String StartImportResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318079"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318068"><span id="local-6989586621679318070"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span></span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318065"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679318061"><span class="annot"><span class="annottext">toHeaders :: StartImport -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartImport -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-208"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-210"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-211"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318051"><span id="local-6989586621679318053"><span id="local-6989586621679318055"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679318049"><span class="annot"><span class="annottext">toJSON :: StartImport -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport%27"><span class="hs-identifier hs-type">StartImport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318044"><span id="local-6989586621679318045"><span id="local-6989586621679318046"><span id="local-6989586621679318047"><span class="annot"><span class="annottext">Maybe [Tag]
+Base64
+MergeStrategy
+ResourceType
+mergeStrategy :: MergeStrategy
+resourceType :: ResourceType
+payload :: Base64
+tags :: Maybe [Tag]
+$sel:mergeStrategy:StartImport' :: StartImport -&gt; MergeStrategy
+$sel:resourceType:StartImport' :: StartImport -&gt; ResourceType
+$sel:payload:StartImport' :: StartImport -&gt; Base64
+$sel:tags:StartImport' :: StartImport -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679318044"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-219"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679318047"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;payload&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679318046"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621679318045"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-223"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mergeStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MergeStrategy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MergeStrategy
+</span><a href="#local-6989586621679318044"><span class="hs-identifier hs-var">mergeStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679318038"><span class="annot"><span class="annottext">toPath :: StartImport -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartImport -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/imports/&quot;</span></span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImport"><span class="hs-identifier hs-type">StartImport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679318034"><span class="annot"><span class="annottext">toQuery :: StartImport -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartImport -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | /See:/ 'newStartImportResponse' smart constructor.</span><span>
+</span><span id="line-234"></span><span id="local-6989586621679318031"><span id="local-6989586621679318032"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartImportResponse"><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-var">StartImportResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartImportResponse%27"><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-var">StartImportResponse'</span></a></span></span><span>
+</span><span id="line-235"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A timestamp for the date and time that the import job was requested.</span><span>
+</span><span id="line-236"></span><span>    </span><span id="%24sel%3AcreatedDate%3AStartImportResponse%27"><span class="annot"><span class="annottext">StartImportResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AcreatedDate%3AStartImportResponse%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- | The action to take when there is a merge conflict.</span><span>
+</span><span id="line-238"></span><span>    </span><span id="%24sel%3AmergeStrategy%3AStartImportResponse%27"><span class="annot"><span class="annottext">StartImportResponse -&gt; Maybe MergeStrategy
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AmergeStrategy%3AStartImportResponse%27"><span class="hs-identifier hs-var hs-var">mergeStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MergeStrategy.html#MergeStrategy"><span class="hs-identifier hs-type">MergeStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- | The identifier for the specific import job.</span><span>
+</span><span id="line-240"></span><span>    </span><span id="%24sel%3AimportId%3AStartImportResponse%27"><span class="annot"><span class="annottext">StartImportResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AimportId%3AStartImportResponse%27"><span class="hs-identifier hs-var hs-var">importId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-comment">-- | The type of resource to import.</span><span>
+</span><span id="line-242"></span><span>    </span><span id="%24sel%3AresourceType%3AStartImportResponse%27"><span class="annot"><span class="annottext">StartImportResponse -&gt; Maybe ResourceType
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AresourceType%3AStartImportResponse%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-comment">-- | The name given to the import job.</span><span>
+</span><span id="line-244"></span><span>    </span><span id="%24sel%3Aname%3AStartImportResponse%27"><span class="annot"><span class="annottext">StartImportResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3Aname%3AStartImportResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-comment">-- | The status of the import job. If the status is @FAILED@, you can get the</span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-comment">-- reason for the failure using the @GetImport@ operation.</span><span>
+</span><span id="line-247"></span><span>    </span><span id="%24sel%3AimportStatus%3AStartImportResponse%27"><span class="annot"><span class="annottext">StartImportResponse -&gt; Maybe ImportStatus
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AimportStatus%3AStartImportResponse%27"><span class="hs-identifier hs-var hs-var">importStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ImportStatus.html#ImportStatus"><span class="hs-identifier hs-type">ImportStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-comment">-- | A list of tags added to the imported bot.</span><span>
+</span><span id="line-249"></span><span>    </span><span id="%24sel%3Atags%3AStartImportResponse%27"><span class="annot"><span class="annottext">StartImportResponse -&gt; Maybe [Tag]
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3Atags%3AStartImportResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexModels.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-251"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartImportResponse%27"><span class="annot"><span class="annottext">StartImportResponse -&gt; Int
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AhttpStatus%3AStartImportResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-252"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-253"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318019"><span id="local-6989586621679318021"><span class="annot"><span class="annottext">StartImportResponse -&gt; StartImportResponse -&gt; Bool
+(StartImportResponse -&gt; StartImportResponse -&gt; Bool)
+-&gt; (StartImportResponse -&gt; StartImportResponse -&gt; Bool)
+-&gt; Eq StartImportResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartImportResponse -&gt; StartImportResponse -&gt; Bool
+$c/= :: StartImportResponse -&gt; StartImportResponse -&gt; Bool
+== :: StartImportResponse -&gt; StartImportResponse -&gt; Bool
+$c== :: StartImportResponse -&gt; StartImportResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318011"><span id="local-6989586621679318013"><span id="local-6989586621679318015"><span id="local-6989586621679318017"><span class="annot"><span class="annottext">ReadPrec [StartImportResponse]
+ReadPrec StartImportResponse
+Int -&gt; ReadS StartImportResponse
+ReadS [StartImportResponse]
+(Int -&gt; ReadS StartImportResponse)
+-&gt; ReadS [StartImportResponse]
+-&gt; ReadPrec StartImportResponse
+-&gt; ReadPrec [StartImportResponse]
+-&gt; Read StartImportResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartImportResponse]
+$creadListPrec :: ReadPrec [StartImportResponse]
+readPrec :: ReadPrec StartImportResponse
+$creadPrec :: ReadPrec StartImportResponse
+readList :: ReadS [StartImportResponse]
+$creadList :: ReadS [StartImportResponse]
+readsPrec :: Int -&gt; ReadS StartImportResponse
+$creadsPrec :: Int -&gt; ReadS StartImportResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318005"><span id="local-6989586621679318007"><span id="local-6989586621679318009"><span class="annot"><span class="annottext">Int -&gt; StartImportResponse -&gt; ShowS
+[StartImportResponse] -&gt; ShowS
+StartImportResponse -&gt; String
+(Int -&gt; StartImportResponse -&gt; ShowS)
+-&gt; (StartImportResponse -&gt; String)
+-&gt; ([StartImportResponse] -&gt; ShowS)
+-&gt; Show StartImportResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartImportResponse] -&gt; ShowS
+$cshowList :: [StartImportResponse] -&gt; ShowS
+show :: StartImportResponse -&gt; String
+$cshow :: StartImportResponse -&gt; String
+showsPrec :: Int -&gt; StartImportResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartImportResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartImportResponse -&gt; Rep StartImportResponse x)
+-&gt; (forall x. Rep StartImportResponse x -&gt; StartImportResponse)
+-&gt; Generic StartImportResponse
+forall x. Rep StartImportResponse x -&gt; StartImportResponse
+forall x. StartImportResponse -&gt; Rep StartImportResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartImportResponse x -&gt; StartImportResponse
+$cfrom :: forall x. StartImportResponse -&gt; Rep StartImportResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- Create a value of 'StartImportResponse' with all optional fields omitted.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- 'createdDate', 'startImportResponse_createdDate' - A timestamp for the date and time that the import job was requested.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- 'mergeStrategy', 'startImportResponse_mergeStrategy' - The action to take when there is a merge conflict.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 'importId', 'startImportResponse_importId' - The identifier for the specific import job.</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- 'resourceType', 'startImportResponse_resourceType' - The type of resource to import.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- 'name', 'startImportResponse_name' - The name given to the import job.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- 'importStatus', 'startImportResponse_importStatus' - The status of the import job. If the status is @FAILED@, you can get the</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- reason for the failure using the @GetImport@ operation.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- 'tags', 'startImportResponse_tags' - A list of tags added to the imported bot.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- 'httpStatus', 'startImportResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#newStartImportResponse"><span class="hs-identifier hs-type">newStartImportResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-280"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-281"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-282"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span>
+</span><span id="line-283"></span><span id="newStartImportResponse"><span class="annot"><span class="annottext">newStartImportResponse :: Int -&gt; StartImportResponse
+</span><a href="Network.AWS.LexModels.StartImport.html#newStartImportResponse"><span class="hs-identifier hs-var hs-var">newStartImportResponse</span></a></span></span><span> </span><span id="local-6989586621679318002"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318002"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-284"></span><span>  </span><span class="annot"><span class="annottext">StartImportResponse' :: Maybe POSIX
+-&gt; Maybe MergeStrategy
+-&gt; Maybe Text
+-&gt; Maybe ResourceType
+-&gt; Maybe Text
+-&gt; Maybe ImportStatus
+-&gt; Maybe [Tag]
+-&gt; Int
+-&gt; StartImportResponse
+</span><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span>
+</span><span id="line-285"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdDate:StartImportResponse' :: Maybe POSIX
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AcreatedDate%3AStartImportResponse%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:mergeStrategy:StartImportResponse' :: Maybe MergeStrategy
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AmergeStrategy%3AStartImportResponse%27"><span class="hs-identifier hs-var">mergeStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MergeStrategy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>      </span><span class="annot"><span class="annottext">$sel:importId:StartImportResponse' :: Maybe Text
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AimportId%3AStartImportResponse%27"><span class="hs-identifier hs-var">importId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:StartImportResponse' :: Maybe ResourceType
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AresourceType%3AStartImportResponse%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:StartImportResponse' :: Maybe Text
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3Aname%3AStartImportResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>      </span><span class="annot"><span class="annottext">$sel:importStatus:StartImportResponse' :: Maybe ImportStatus
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AimportStatus%3AStartImportResponse%27"><span class="hs-identifier hs-var">importStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImportStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:StartImportResponse' :: Maybe [Tag]
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3Atags%3AStartImportResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartImportResponse' :: Int
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AhttpStatus%3AStartImportResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318002"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-293"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- | A timestamp for the date and time that the import job was requested.</span><span>
+</span><span id="line-296"></span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_createdDate"><span class="hs-identifier hs-type">startImportResponse_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span id="startImportResponse_createdDate"><span class="annot"><span class="annottext">startImportResponse_createdDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; StartImportResponse -&gt; f StartImportResponse
+</span><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_createdDate"><span class="hs-identifier hs-var hs-var">startImportResponse_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartImportResponse -&gt; Maybe POSIX)
+-&gt; (StartImportResponse -&gt; Maybe POSIX -&gt; StartImportResponse)
+-&gt; Lens
+     StartImportResponse StartImportResponse (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318001"><span class="annot"><span class="annottext">Maybe POSIX
+createdDate :: Maybe POSIX
+$sel:createdDate:StartImportResponse' :: StartImportResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679318001"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679318001"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318000"><span class="annot"><span class="annottext">s :: StartImportResponse
+</span><a href="#local-6989586621679318000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317999"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportResponse
+</span><a href="#local-6989586621679318000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:StartImportResponse' :: Maybe POSIX
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AcreatedDate%3AStartImportResponse%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; StartImportResponse -&gt; f StartImportResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; StartImportResponse
+-&gt; f StartImportResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- | The action to take when there is a merge conflict.</span><span>
+</span><span id="line-300"></span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_mergeStrategy"><span class="hs-identifier hs-type">startImportResponse_mergeStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MergeStrategy.html#MergeStrategy"><span class="hs-identifier hs-type">MergeStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span id="startImportResponse_mergeStrategy"><span class="annot"><span class="annottext">startImportResponse_mergeStrategy :: (Maybe MergeStrategy -&gt; f (Maybe MergeStrategy))
+-&gt; StartImportResponse -&gt; f StartImportResponse
+</span><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_mergeStrategy"><span class="hs-identifier hs-var hs-var">startImportResponse_mergeStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartImportResponse -&gt; Maybe MergeStrategy)
+-&gt; (StartImportResponse
+    -&gt; Maybe MergeStrategy -&gt; StartImportResponse)
+-&gt; Lens
+     StartImportResponse
+     StartImportResponse
+     (Maybe MergeStrategy)
+     (Maybe MergeStrategy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317997"><span class="annot"><span class="annottext">Maybe MergeStrategy
+mergeStrategy :: Maybe MergeStrategy
+$sel:mergeStrategy:StartImportResponse' :: StartImportResponse -&gt; Maybe MergeStrategy
+</span><a href="#local-6989586621679317997"><span class="hs-identifier hs-var hs-var">mergeStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MergeStrategy
+</span><a href="#local-6989586621679317997"><span class="hs-identifier hs-var">mergeStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317996"><span class="annot"><span class="annottext">s :: StartImportResponse
+</span><a href="#local-6989586621679317996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317995"><span class="annot"><span class="annottext">Maybe MergeStrategy
+</span><a href="#local-6989586621679317995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportResponse
+</span><a href="#local-6989586621679317996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergeStrategy:StartImportResponse' :: Maybe MergeStrategy
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AmergeStrategy%3AStartImportResponse%27"><span class="hs-identifier hs-var">mergeStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MergeStrategy
+</span><a href="#local-6989586621679317995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- | The identifier for the specific import job.</span><span>
+</span><span id="line-304"></span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_importId"><span class="hs-identifier hs-type">startImportResponse_importId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span id="startImportResponse_importId"><span class="annot"><span class="annottext">startImportResponse_importId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartImportResponse -&gt; f StartImportResponse
+</span><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_importId"><span class="hs-identifier hs-var hs-var">startImportResponse_importId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartImportResponse -&gt; Maybe Text)
+-&gt; (StartImportResponse -&gt; Maybe Text -&gt; StartImportResponse)
+-&gt; Lens
+     StartImportResponse StartImportResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317994"><span class="annot"><span class="annottext">Maybe Text
+importId :: Maybe Text
+$sel:importId:StartImportResponse' :: StartImportResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679317994"><span class="hs-identifier hs-var hs-var">importId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317994"><span class="hs-identifier hs-var">importId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317993"><span class="annot"><span class="annottext">s :: StartImportResponse
+</span><a href="#local-6989586621679317993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317992"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportResponse
+</span><a href="#local-6989586621679317993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importId:StartImportResponse' :: Maybe Text
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AimportId%3AStartImportResponse%27"><span class="hs-identifier hs-var">importId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- | The type of resource to import.</span><span>
+</span><span id="line-308"></span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_resourceType"><span class="hs-identifier hs-type">startImportResponse_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span id="startImportResponse_resourceType"><span class="annot"><span class="annottext">startImportResponse_resourceType :: (Maybe ResourceType -&gt; f (Maybe ResourceType))
+-&gt; StartImportResponse -&gt; f StartImportResponse
+</span><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_resourceType"><span class="hs-identifier hs-var hs-var">startImportResponse_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartImportResponse -&gt; Maybe ResourceType)
+-&gt; (StartImportResponse
+    -&gt; Maybe ResourceType -&gt; StartImportResponse)
+-&gt; Lens
+     StartImportResponse
+     StartImportResponse
+     (Maybe ResourceType)
+     (Maybe ResourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317991"><span class="annot"><span class="annottext">Maybe ResourceType
+resourceType :: Maybe ResourceType
+$sel:resourceType:StartImportResponse' :: StartImportResponse -&gt; Maybe ResourceType
+</span><a href="#local-6989586621679317991"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679317991"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317990"><span class="annot"><span class="annottext">s :: StartImportResponse
+</span><a href="#local-6989586621679317990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317989"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679317989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportResponse
+</span><a href="#local-6989586621679317990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:StartImportResponse' :: Maybe ResourceType
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AresourceType%3AStartImportResponse%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679317989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- | The name given to the import job.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_name"><span class="hs-identifier hs-type">startImportResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span id="startImportResponse_name"><span class="annot"><span class="annottext">startImportResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartImportResponse -&gt; f StartImportResponse
+</span><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_name"><span class="hs-identifier hs-var hs-var">startImportResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartImportResponse -&gt; Maybe Text)
+-&gt; (StartImportResponse -&gt; Maybe Text -&gt; StartImportResponse)
+-&gt; Lens
+     StartImportResponse StartImportResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317988"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:StartImportResponse' :: StartImportResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679317988"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317988"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317987"><span class="annot"><span class="annottext">s :: StartImportResponse
+</span><a href="#local-6989586621679317987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317986"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportResponse
+</span><a href="#local-6989586621679317987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StartImportResponse' :: Maybe Text
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3Aname%3AStartImportResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | The status of the import job. If the status is @FAILED@, you can get the</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- reason for the failure using the @GetImport@ operation.</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_importStatus"><span class="hs-identifier hs-type">startImportResponse_importStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ImportStatus.html#ImportStatus"><span class="hs-identifier hs-type">ImportStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span id="startImportResponse_importStatus"><span class="annot"><span class="annottext">startImportResponse_importStatus :: (Maybe ImportStatus -&gt; f (Maybe ImportStatus))
+-&gt; StartImportResponse -&gt; f StartImportResponse
+</span><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_importStatus"><span class="hs-identifier hs-var hs-var">startImportResponse_importStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartImportResponse -&gt; Maybe ImportStatus)
+-&gt; (StartImportResponse
+    -&gt; Maybe ImportStatus -&gt; StartImportResponse)
+-&gt; Lens
+     StartImportResponse
+     StartImportResponse
+     (Maybe ImportStatus)
+     (Maybe ImportStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317985"><span class="annot"><span class="annottext">Maybe ImportStatus
+importStatus :: Maybe ImportStatus
+$sel:importStatus:StartImportResponse' :: StartImportResponse -&gt; Maybe ImportStatus
+</span><a href="#local-6989586621679317985"><span class="hs-identifier hs-var hs-var">importStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImportStatus
+</span><a href="#local-6989586621679317985"><span class="hs-identifier hs-var">importStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317984"><span class="annot"><span class="annottext">s :: StartImportResponse
+</span><a href="#local-6989586621679317984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317983"><span class="annot"><span class="annottext">Maybe ImportStatus
+</span><a href="#local-6989586621679317983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportResponse
+</span><a href="#local-6989586621679317984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importStatus:StartImportResponse' :: Maybe ImportStatus
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AimportStatus%3AStartImportResponse%27"><span class="hs-identifier hs-var">importStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImportStatus
+</span><a href="#local-6989586621679317983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | A list of tags added to the imported bot.</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_tags"><span class="hs-identifier hs-type">startImportResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexModels.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span id="startImportResponse_tags"><span class="annot"><span class="annottext">startImportResponse_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; StartImportResponse -&gt; f StartImportResponse
+</span><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_tags"><span class="hs-identifier hs-var hs-var">startImportResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartImportResponse -&gt; Maybe [Tag])
+-&gt; (StartImportResponse -&gt; Maybe [Tag] -&gt; StartImportResponse)
+-&gt; Lens
+     StartImportResponse StartImportResponse (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317982"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:StartImportResponse' :: StartImportResponse -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679317982"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679317982"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317981"><span class="annot"><span class="annottext">s :: StartImportResponse
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317980"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679317980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportResponse
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:StartImportResponse' :: Maybe [Tag]
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3Atags%3AStartImportResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679317980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; StartImportResponse -&gt; f StartImportResponse)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; StartImportResponse
+-&gt; f StartImportResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-325"></span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_httpStatus"><span class="hs-identifier hs-type">startImportResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-326"></span><span id="startImportResponse_httpStatus"><span class="annot"><span class="annottext">startImportResponse_httpStatus :: (Int -&gt; f Int) -&gt; StartImportResponse -&gt; f StartImportResponse
+</span><a href="Network.AWS.LexModels.StartImport.html#startImportResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startImportResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartImportResponse -&gt; Int)
+-&gt; (StartImportResponse -&gt; Int -&gt; StartImportResponse)
+-&gt; Lens StartImportResponse StartImportResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317979"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartImportResponse' :: StartImportResponse -&gt; Int
+</span><a href="#local-6989586621679317979"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317979"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317978"><span class="annot"><span class="annottext">s :: StartImportResponse
+</span><a href="#local-6989586621679317978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse%27"><span class="hs-identifier hs-type">StartImportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317977"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportResponse
+</span><a href="#local-6989586621679317978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartImportResponse' :: Int
+</span><a href="Network.AWS.LexModels.StartImport.html#%24sel%3AhttpStatus%3AStartImportResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317975"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.StartImport.html#StartImportResponse"><span class="hs-identifier hs-type">StartImportResponse</span></a></span></span><span>
+</span><span id="line-329"></span></pre></body></html>

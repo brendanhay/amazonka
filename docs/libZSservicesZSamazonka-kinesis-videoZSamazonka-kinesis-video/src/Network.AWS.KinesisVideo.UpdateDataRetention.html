@@ -1,0 +1,583 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisVideo.UpdateDataRetention</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Increases or decreases the stream\'s data retention period by the value</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- that you specify. To indicate whether you want to increase or decrease</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- the data retention period, specify the @Operation@ parameter in the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- request body. In the request, you must specify either the @StreamName@</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- or the @StreamARN@.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- The retention period that you specify replaces the current value.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- This operation requires permission for the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- @KinesisVideo:UpdateDataRetention@ action.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Changing the data retention period affects the data in the stream as</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- follows:</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- -   If the data retention period is increased, existing data is retained</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     for the new retention period. For example, if the data retention</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     period is increased from one hour to seven hours, all existing data</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     is retained for seven hours.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- -   If the data retention period is decreased, existing data is retained</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     for the new retention period. For example, if the data retention</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--     period is decreased from seven hours to one hour, all existing data</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--     is retained for one hour, and any data older than one hour is</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--     deleted immediately.</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisVideo.UpdateDataRetention</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier">UpdateDataRetention</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#newUpdateDataRetention"><span class="hs-identifier">newUpdateDataRetention</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetention_streamARN"><span class="hs-identifier">updateDataRetention_streamARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetention_streamName"><span class="hs-identifier">updateDataRetention_streamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetention_currentVersion"><span class="hs-identifier">updateDataRetention_currentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetention_operation"><span class="hs-identifier">updateDataRetention_operation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetention_dataRetentionChangeInHours"><span class="hs-identifier">updateDataRetention_dataRetentionChangeInHours</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetentionResponse"><span class="hs-identifier">UpdateDataRetentionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#newUpdateDataRetentionResponse"><span class="hs-identifier">newUpdateDataRetentionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetentionResponse_httpStatus"><span class="hs-identifier">updateDataRetentionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.Types.html"><span class="hs-identifier">Network.AWS.KinesisVideo.Types</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | /See:/ 'newUpdateDataRetention' smart constructor.</span><span>
+</span><span id="line-76"></span><span id="local-6989586621679181060"><span id="local-6989586621679181061"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDataRetention"><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-var">UpdateDataRetention</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDataRetention%27"><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention%27"><span class="hs-identifier hs-var">UpdateDataRetention'</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the stream whose retention period you</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- want to change.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AstreamARN%3AUpdateDataRetention%27"><span class="annot"><span class="annottext">UpdateDataRetention -&gt; Maybe Text
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3AstreamARN%3AUpdateDataRetention%27"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The name of the stream whose retention period you want to change.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AstreamName%3AUpdateDataRetention%27"><span class="annot"><span class="annottext">UpdateDataRetention -&gt; Maybe Text
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3AstreamName%3AUpdateDataRetention%27"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The version of the stream whose retention period you want to change. To</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- get the version, call either the @DescribeStream@ or the @ListStreams@</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AcurrentVersion%3AUpdateDataRetention%27"><span class="annot"><span class="annottext">UpdateDataRetention -&gt; Text
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3AcurrentVersion%3AUpdateDataRetention%27"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | Indicates whether you want to increase or decrease the retention period.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Aoperation%3AUpdateDataRetention%27"><span class="annot"><span class="annottext">UpdateDataRetention -&gt; UpdateDataRetentionOperation
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3Aoperation%3AUpdateDataRetention%27"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation"><span class="hs-identifier hs-type">UpdateDataRetentionOperation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The retention period, in hours. The value you specify replaces the</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- current value. The maximum value for this parameter is 87600 (ten</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- years).</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AdataRetentionChangeInHours%3AUpdateDataRetention%27"><span class="annot"><span class="annottext">UpdateDataRetention -&gt; Natural
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3AdataRetentionChangeInHours%3AUpdateDataRetention%27"><span class="hs-identifier hs-var hs-var">dataRetentionChangeInHours</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181050"><span id="local-6989586621679181052"><span class="annot"><span class="annottext">UpdateDataRetention -&gt; UpdateDataRetention -&gt; Bool
+(UpdateDataRetention -&gt; UpdateDataRetention -&gt; Bool)
+-&gt; (UpdateDataRetention -&gt; UpdateDataRetention -&gt; Bool)
+-&gt; Eq UpdateDataRetention
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDataRetention -&gt; UpdateDataRetention -&gt; Bool
+$c/= :: UpdateDataRetention -&gt; UpdateDataRetention -&gt; Bool
+== :: UpdateDataRetention -&gt; UpdateDataRetention -&gt; Bool
+$c== :: UpdateDataRetention -&gt; UpdateDataRetention -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181041"><span id="local-6989586621679181043"><span id="local-6989586621679181045"><span id="local-6989586621679181047"><span class="annot"><span class="annottext">ReadPrec [UpdateDataRetention]
+ReadPrec UpdateDataRetention
+Int -&gt; ReadS UpdateDataRetention
+ReadS [UpdateDataRetention]
+(Int -&gt; ReadS UpdateDataRetention)
+-&gt; ReadS [UpdateDataRetention]
+-&gt; ReadPrec UpdateDataRetention
+-&gt; ReadPrec [UpdateDataRetention]
+-&gt; Read UpdateDataRetention
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDataRetention]
+$creadListPrec :: ReadPrec [UpdateDataRetention]
+readPrec :: ReadPrec UpdateDataRetention
+$creadPrec :: ReadPrec UpdateDataRetention
+readList :: ReadS [UpdateDataRetention]
+$creadList :: ReadS [UpdateDataRetention]
+readsPrec :: Int -&gt; ReadS UpdateDataRetention
+$creadsPrec :: Int -&gt; ReadS UpdateDataRetention
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181034"><span id="local-6989586621679181036"><span id="local-6989586621679181038"><span class="annot"><span class="annottext">Int -&gt; UpdateDataRetention -&gt; ShowS
+[UpdateDataRetention] -&gt; ShowS
+UpdateDataRetention -&gt; String
+(Int -&gt; UpdateDataRetention -&gt; ShowS)
+-&gt; (UpdateDataRetention -&gt; String)
+-&gt; ([UpdateDataRetention] -&gt; ShowS)
+-&gt; Show UpdateDataRetention
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDataRetention] -&gt; ShowS
+$cshowList :: [UpdateDataRetention] -&gt; ShowS
+show :: UpdateDataRetention -&gt; String
+$cshow :: UpdateDataRetention -&gt; String
+showsPrec :: Int -&gt; UpdateDataRetention -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDataRetention -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateDataRetention -&gt; Rep UpdateDataRetention x)
+-&gt; (forall x. Rep UpdateDataRetention x -&gt; UpdateDataRetention)
+-&gt; Generic UpdateDataRetention
+forall x. Rep UpdateDataRetention x -&gt; UpdateDataRetention
+forall x. UpdateDataRetention -&gt; Rep UpdateDataRetention x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateDataRetention x -&gt; UpdateDataRetention
+$cfrom :: forall x. UpdateDataRetention -&gt; Rep UpdateDataRetention x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Create a value of 'UpdateDataRetention' with all optional fields omitted.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'streamARN', 'updateDataRetention_streamARN' - The Amazon Resource Name (ARN) of the stream whose retention period you</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- want to change.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'streamName', 'updateDataRetention_streamName' - The name of the stream whose retention period you want to change.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'currentVersion', 'updateDataRetention_currentVersion' - The version of the stream whose retention period you want to change. To</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- get the version, call either the @DescribeStream@ or the @ListStreams@</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'operation', 'updateDataRetention_operation' - Indicates whether you want to increase or decrease the retention period.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'dataRetentionChangeInHours', 'updateDataRetention_dataRetentionChangeInHours' - The retention period, in hours. The value you specify replaces the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- current value. The maximum value for this parameter is 87600 (ten</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- years).</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#newUpdateDataRetention"><span class="hs-identifier hs-type">newUpdateDataRetention</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-comment">-- | 'currentVersion'</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-comment">-- | 'operation'</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation"><span class="hs-identifier hs-type">UpdateDataRetentionOperation</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'dataRetentionChangeInHours'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span><span>
+</span><span id="line-125"></span><span id="newUpdateDataRetention"><span class="annot"><span class="annottext">newUpdateDataRetention :: Text
+-&gt; UpdateDataRetentionOperation -&gt; Natural -&gt; UpdateDataRetention
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#newUpdateDataRetention"><span class="hs-identifier hs-var hs-var">newUpdateDataRetention</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679181029"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181029"><span class="hs-identifier hs-var">pCurrentVersion_</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679181028"><span class="annot"><span class="annottext">UpdateDataRetentionOperation
+</span><a href="#local-6989586621679181028"><span class="hs-identifier hs-var">pOperation_</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679181027"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679181027"><span class="hs-identifier hs-var">pDataRetentionChangeInHours_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">UpdateDataRetention' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; UpdateDataRetentionOperation
+-&gt; Natural
+-&gt; UpdateDataRetention
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention%27"><span class="hs-identifier hs-type">UpdateDataRetention'</span></a></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamARN:UpdateDataRetention' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3AstreamARN%3AUpdateDataRetention%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:streamName:UpdateDataRetention' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3AstreamName%3AUpdateDataRetention%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">$sel:currentVersion:UpdateDataRetention' :: Text
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3AcurrentVersion%3AUpdateDataRetention%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181029"><span class="hs-identifier hs-var">pCurrentVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">$sel:operation:UpdateDataRetention' :: UpdateDataRetentionOperation
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3Aoperation%3AUpdateDataRetention%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateDataRetentionOperation
+</span><a href="#local-6989586621679181028"><span class="hs-identifier hs-var">pOperation_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataRetentionChangeInHours:UpdateDataRetention' :: Natural
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3AdataRetentionChangeInHours%3AUpdateDataRetention%27"><span class="hs-identifier hs-var">dataRetentionChangeInHours</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679181027"><span class="hs-identifier hs-var">pDataRetentionChangeInHours_</span></a></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the stream whose retention period you</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- want to change.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetention_streamARN"><span class="hs-identifier hs-type">updateDataRetention_streamARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="updateDataRetention_streamARN"><span class="annot"><span class="annottext">updateDataRetention_streamARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDataRetention -&gt; f UpdateDataRetention
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetention_streamARN"><span class="hs-identifier hs-var hs-var">updateDataRetention_streamARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDataRetention -&gt; Maybe Text)
+-&gt; (UpdateDataRetention -&gt; Maybe Text -&gt; UpdateDataRetention)
+-&gt; Lens
+     UpdateDataRetention UpdateDataRetention (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention%27"><span class="hs-identifier hs-type">UpdateDataRetention'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181024"><span class="annot"><span class="annottext">Maybe Text
+streamARN :: Maybe Text
+$sel:streamARN:UpdateDataRetention' :: UpdateDataRetention -&gt; Maybe Text
+</span><a href="#local-6989586621679181024"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181024"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181023"><span class="annot"><span class="annottext">s :: UpdateDataRetention
+</span><a href="#local-6989586621679181023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention%27"><span class="hs-identifier hs-type">UpdateDataRetention'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181022"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataRetention
+</span><a href="#local-6989586621679181023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:UpdateDataRetention' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3AstreamARN%3AUpdateDataRetention%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The name of the stream whose retention period you want to change.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetention_streamName"><span class="hs-identifier hs-type">updateDataRetention_streamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="updateDataRetention_streamName"><span class="annot"><span class="annottext">updateDataRetention_streamName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDataRetention -&gt; f UpdateDataRetention
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetention_streamName"><span class="hs-identifier hs-var hs-var">updateDataRetention_streamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDataRetention -&gt; Maybe Text)
+-&gt; (UpdateDataRetention -&gt; Maybe Text -&gt; UpdateDataRetention)
+-&gt; Lens
+     UpdateDataRetention UpdateDataRetention (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention%27"><span class="hs-identifier hs-type">UpdateDataRetention'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181021"><span class="annot"><span class="annottext">Maybe Text
+streamName :: Maybe Text
+$sel:streamName:UpdateDataRetention' :: UpdateDataRetention -&gt; Maybe Text
+</span><a href="#local-6989586621679181021"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181021"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181020"><span class="annot"><span class="annottext">s :: UpdateDataRetention
+</span><a href="#local-6989586621679181020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention%27"><span class="hs-identifier hs-type">UpdateDataRetention'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181019"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataRetention
+</span><a href="#local-6989586621679181020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:UpdateDataRetention' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3AstreamName%3AUpdateDataRetention%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The version of the stream whose retention period you want to change. To</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- get the version, call either the @DescribeStream@ or the @ListStreams@</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetention_currentVersion"><span class="hs-identifier hs-type">updateDataRetention_currentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-151"></span><span id="updateDataRetention_currentVersion"><span class="annot"><span class="annottext">updateDataRetention_currentVersion :: (Text -&gt; f Text) -&gt; UpdateDataRetention -&gt; f UpdateDataRetention
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetention_currentVersion"><span class="hs-identifier hs-var hs-var">updateDataRetention_currentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDataRetention -&gt; Text)
+-&gt; (UpdateDataRetention -&gt; Text -&gt; UpdateDataRetention)
+-&gt; Lens UpdateDataRetention UpdateDataRetention Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention%27"><span class="hs-identifier hs-type">UpdateDataRetention'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181018"><span class="annot"><span class="annottext">Text
+currentVersion :: Text
+$sel:currentVersion:UpdateDataRetention' :: UpdateDataRetention -&gt; Text
+</span><a href="#local-6989586621679181018"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181018"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181017"><span class="annot"><span class="annottext">s :: UpdateDataRetention
+</span><a href="#local-6989586621679181017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention%27"><span class="hs-identifier hs-type">UpdateDataRetention'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181016"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataRetention
+</span><a href="#local-6989586621679181017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentVersion:UpdateDataRetention' :: Text
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3AcurrentVersion%3AUpdateDataRetention%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Indicates whether you want to increase or decrease the retention period.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetention_operation"><span class="hs-identifier hs-type">updateDataRetention_operation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation"><span class="hs-identifier hs-type">UpdateDataRetentionOperation</span></a></span><span>
+</span><span id="line-155"></span><span id="updateDataRetention_operation"><span class="annot"><span class="annottext">updateDataRetention_operation :: (UpdateDataRetentionOperation -&gt; f UpdateDataRetentionOperation)
+-&gt; UpdateDataRetention -&gt; f UpdateDataRetention
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetention_operation"><span class="hs-identifier hs-var hs-var">updateDataRetention_operation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDataRetention -&gt; UpdateDataRetentionOperation)
+-&gt; (UpdateDataRetention
+    -&gt; UpdateDataRetentionOperation -&gt; UpdateDataRetention)
+-&gt; Lens
+     UpdateDataRetention
+     UpdateDataRetention
+     UpdateDataRetentionOperation
+     UpdateDataRetentionOperation
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention%27"><span class="hs-identifier hs-type">UpdateDataRetention'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181015"><span class="annot"><span class="annottext">UpdateDataRetentionOperation
+operation :: UpdateDataRetentionOperation
+$sel:operation:UpdateDataRetention' :: UpdateDataRetention -&gt; UpdateDataRetentionOperation
+</span><a href="#local-6989586621679181015"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataRetentionOperation
+</span><a href="#local-6989586621679181015"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181014"><span class="annot"><span class="annottext">s :: UpdateDataRetention
+</span><a href="#local-6989586621679181014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention%27"><span class="hs-identifier hs-type">UpdateDataRetention'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181013"><span class="annot"><span class="annottext">UpdateDataRetentionOperation
+</span><a href="#local-6989586621679181013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataRetention
+</span><a href="#local-6989586621679181014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:UpdateDataRetention' :: UpdateDataRetentionOperation
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3Aoperation%3AUpdateDataRetention%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateDataRetentionOperation
+</span><a href="#local-6989586621679181013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The retention period, in hours. The value you specify replaces the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- current value. The maximum value for this parameter is 87600 (ten</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- years).</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetention_dataRetentionChangeInHours"><span class="hs-identifier hs-type">updateDataRetention_dataRetentionChangeInHours</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-161"></span><span id="updateDataRetention_dataRetentionChangeInHours"><span class="annot"><span class="annottext">updateDataRetention_dataRetentionChangeInHours :: (Natural -&gt; f Natural)
+-&gt; UpdateDataRetention -&gt; f UpdateDataRetention
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetention_dataRetentionChangeInHours"><span class="hs-identifier hs-var hs-var">updateDataRetention_dataRetentionChangeInHours</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDataRetention -&gt; Natural)
+-&gt; (UpdateDataRetention -&gt; Natural -&gt; UpdateDataRetention)
+-&gt; Lens UpdateDataRetention UpdateDataRetention Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention%27"><span class="hs-identifier hs-type">UpdateDataRetention'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181012"><span class="annot"><span class="annottext">Natural
+dataRetentionChangeInHours :: Natural
+$sel:dataRetentionChangeInHours:UpdateDataRetention' :: UpdateDataRetention -&gt; Natural
+</span><a href="#local-6989586621679181012"><span class="hs-identifier hs-var hs-var">dataRetentionChangeInHours</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679181012"><span class="hs-identifier hs-var">dataRetentionChangeInHours</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181011"><span class="annot"><span class="annottext">s :: UpdateDataRetention
+</span><a href="#local-6989586621679181011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention%27"><span class="hs-identifier hs-type">UpdateDataRetention'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181010"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679181010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataRetention
+</span><a href="#local-6989586621679181011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataRetentionChangeInHours:UpdateDataRetention' :: Natural
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3AdataRetentionChangeInHours%3AUpdateDataRetention%27"><span class="hs-identifier hs-var">dataRetentionChangeInHours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679181010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-165"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetentionResponse"><span class="hs-identifier hs-type">UpdateDataRetentionResponse</span></a></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679181006"><span class="annot"><span class="annottext">request :: UpdateDataRetention -&gt; Request UpdateDataRetention
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDataRetention -&gt; Request UpdateDataRetention
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.KinesisVideo.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679181002"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateDataRetention
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateDataRetention)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse UpdateDataRetention))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateDataRetention
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateDataRetention)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679180999"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180999"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679180998"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679180998"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679180997"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679180997"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateDataRetentionResponse
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetentionResponse%27"><span class="hs-identifier hs-var">UpdateDataRetentionResponse'</span></a></span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateDataRetentionResponse)
+-&gt; Either String Int -&gt; Either String UpdateDataRetentionResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180999"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180990"><span id="local-6989586621679180992"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span></span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180987"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679180983"><span class="annot"><span class="annottext">toHeaders :: UpdateDataRetention -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDataRetention -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180974"><span id="local-6989586621679180976"><span id="local-6989586621679180978"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679180972"><span class="annot"><span class="annottext">toJSON :: UpdateDataRetention -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention%27"><span class="hs-identifier hs-type">UpdateDataRetention'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180966"><span id="local-6989586621679180967"><span id="local-6989586621679180968"><span id="local-6989586621679180969"><span id="local-6989586621679180970"><span class="annot"><span class="annottext">Natural
+Maybe Text
+Text
+UpdateDataRetentionOperation
+dataRetentionChangeInHours :: Natural
+operation :: UpdateDataRetentionOperation
+currentVersion :: Text
+streamName :: Maybe Text
+streamARN :: Maybe Text
+$sel:dataRetentionChangeInHours:UpdateDataRetention' :: UpdateDataRetention -&gt; Natural
+$sel:operation:UpdateDataRetention' :: UpdateDataRetention -&gt; UpdateDataRetentionOperation
+$sel:currentVersion:UpdateDataRetention' :: UpdateDataRetention -&gt; Text
+$sel:streamName:UpdateDataRetention' :: UpdateDataRetention -&gt; Maybe Text
+$sel:streamARN:UpdateDataRetention' :: UpdateDataRetention -&gt; Maybe Text
+</span><a href="#local-6989586621679180966"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-186"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StreamARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180970"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180969"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-189"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CurrentVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180968"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Operation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UpdateDataRetentionOperation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">UpdateDataRetentionOperation
+</span><a href="#local-6989586621679180967"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-192"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataRetentionChangeInHours&quot;</span></span><span>
+</span><span id="line-193"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679180966"><span class="hs-identifier hs-var">dataRetentionChangeInHours</span></a></span><span>
+</span><span id="line-194"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679180960"><span class="annot"><span class="annottext">toPath :: UpdateDataRetention -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateDataRetention -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/updateDataRetention&quot;</span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetention"><span class="hs-identifier hs-type">UpdateDataRetention</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679180956"><span class="annot"><span class="annottext">toQuery :: UpdateDataRetention -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDataRetention -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | /See:/ 'newUpdateDataRetentionResponse' smart constructor.</span><span>
+</span><span id="line-205"></span><span id="local-6989586621679180953"><span id="local-6989586621679180954"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDataRetentionResponse"><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetentionResponse"><span class="hs-identifier hs-var">UpdateDataRetentionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDataRetentionResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetentionResponse%27"><span class="hs-identifier hs-var">UpdateDataRetentionResponse'</span></a></span></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-207"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDataRetentionResponse%27"><span class="annot"><span class="annottext">UpdateDataRetentionResponse -&gt; Int
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3AhttpStatus%3AUpdateDataRetentionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180948"><span id="local-6989586621679180950"><span class="annot"><span class="annottext">UpdateDataRetentionResponse -&gt; UpdateDataRetentionResponse -&gt; Bool
+(UpdateDataRetentionResponse
+ -&gt; UpdateDataRetentionResponse -&gt; Bool)
+-&gt; (UpdateDataRetentionResponse
+    -&gt; UpdateDataRetentionResponse -&gt; Bool)
+-&gt; Eq UpdateDataRetentionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDataRetentionResponse -&gt; UpdateDataRetentionResponse -&gt; Bool
+$c/= :: UpdateDataRetentionResponse -&gt; UpdateDataRetentionResponse -&gt; Bool
+== :: UpdateDataRetentionResponse -&gt; UpdateDataRetentionResponse -&gt; Bool
+$c== :: UpdateDataRetentionResponse -&gt; UpdateDataRetentionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180940"><span id="local-6989586621679180942"><span id="local-6989586621679180944"><span id="local-6989586621679180946"><span class="annot"><span class="annottext">ReadPrec [UpdateDataRetentionResponse]
+ReadPrec UpdateDataRetentionResponse
+Int -&gt; ReadS UpdateDataRetentionResponse
+ReadS [UpdateDataRetentionResponse]
+(Int -&gt; ReadS UpdateDataRetentionResponse)
+-&gt; ReadS [UpdateDataRetentionResponse]
+-&gt; ReadPrec UpdateDataRetentionResponse
+-&gt; ReadPrec [UpdateDataRetentionResponse]
+-&gt; Read UpdateDataRetentionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDataRetentionResponse]
+$creadListPrec :: ReadPrec [UpdateDataRetentionResponse]
+readPrec :: ReadPrec UpdateDataRetentionResponse
+$creadPrec :: ReadPrec UpdateDataRetentionResponse
+readList :: ReadS [UpdateDataRetentionResponse]
+$creadList :: ReadS [UpdateDataRetentionResponse]
+readsPrec :: Int -&gt; ReadS UpdateDataRetentionResponse
+$creadsPrec :: Int -&gt; ReadS UpdateDataRetentionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180934"><span id="local-6989586621679180936"><span id="local-6989586621679180938"><span class="annot"><span class="annottext">Int -&gt; UpdateDataRetentionResponse -&gt; ShowS
+[UpdateDataRetentionResponse] -&gt; ShowS
+UpdateDataRetentionResponse -&gt; String
+(Int -&gt; UpdateDataRetentionResponse -&gt; ShowS)
+-&gt; (UpdateDataRetentionResponse -&gt; String)
+-&gt; ([UpdateDataRetentionResponse] -&gt; ShowS)
+-&gt; Show UpdateDataRetentionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDataRetentionResponse] -&gt; ShowS
+$cshowList :: [UpdateDataRetentionResponse] -&gt; ShowS
+show :: UpdateDataRetentionResponse -&gt; String
+$cshow :: UpdateDataRetentionResponse -&gt; String
+showsPrec :: Int -&gt; UpdateDataRetentionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDataRetentionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateDataRetentionResponse -&gt; Rep UpdateDataRetentionResponse x)
+-&gt; (forall x.
+    Rep UpdateDataRetentionResponse x -&gt; UpdateDataRetentionResponse)
+-&gt; Generic UpdateDataRetentionResponse
+forall x.
+Rep UpdateDataRetentionResponse x -&gt; UpdateDataRetentionResponse
+forall x.
+UpdateDataRetentionResponse -&gt; Rep UpdateDataRetentionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateDataRetentionResponse x -&gt; UpdateDataRetentionResponse
+$cfrom :: forall x.
+UpdateDataRetentionResponse -&gt; Rep UpdateDataRetentionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- Create a value of 'UpdateDataRetentionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'httpStatus', 'updateDataRetentionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#newUpdateDataRetentionResponse"><span class="hs-identifier hs-type">newUpdateDataRetentionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetentionResponse"><span class="hs-identifier hs-type">UpdateDataRetentionResponse</span></a></span><span>
+</span><span id="line-224"></span><span id="newUpdateDataRetentionResponse"><span class="annot"><span class="annottext">newUpdateDataRetentionResponse :: Int -&gt; UpdateDataRetentionResponse
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#newUpdateDataRetentionResponse"><span class="hs-identifier hs-var hs-var">newUpdateDataRetentionResponse</span></a></span></span><span> </span><span id="local-6989586621679180931"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180931"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="annottext">UpdateDataRetentionResponse' :: Int -&gt; UpdateDataRetentionResponse
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetentionResponse%27"><span class="hs-identifier hs-type">UpdateDataRetentionResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDataRetentionResponse' :: Int
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3AhttpStatus%3AUpdateDataRetentionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180931"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetentionResponse_httpStatus"><span class="hs-identifier hs-type">updateDataRetentionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetentionResponse"><span class="hs-identifier hs-type">UpdateDataRetentionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-232"></span><span id="updateDataRetentionResponse_httpStatus"><span class="annot"><span class="annottext">updateDataRetentionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateDataRetentionResponse -&gt; f UpdateDataRetentionResponse
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#updateDataRetentionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateDataRetentionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDataRetentionResponse -&gt; Int)
+-&gt; (UpdateDataRetentionResponse
+    -&gt; Int -&gt; UpdateDataRetentionResponse)
+-&gt; Lens
+     UpdateDataRetentionResponse UpdateDataRetentionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetentionResponse%27"><span class="hs-identifier hs-type">UpdateDataRetentionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180930"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateDataRetentionResponse' :: UpdateDataRetentionResponse -&gt; Int
+</span><a href="#local-6989586621679180930"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180930"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180929"><span class="annot"><span class="annottext">s :: UpdateDataRetentionResponse
+</span><a href="#local-6989586621679180929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetentionResponse%27"><span class="hs-identifier hs-type">UpdateDataRetentionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180928"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataRetentionResponse
+</span><a href="#local-6989586621679180929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDataRetentionResponse' :: Int
+</span><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#%24sel%3AhttpStatus%3AUpdateDataRetentionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetentionResponse"><span class="hs-identifier hs-type">UpdateDataRetentionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180926"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateDataRetention.html#UpdateDataRetentionResponse"><span class="hs-identifier hs-type">UpdateDataRetentionResponse</span></a></span></span><span>
+</span><span id="line-235"></span></pre></body></html>

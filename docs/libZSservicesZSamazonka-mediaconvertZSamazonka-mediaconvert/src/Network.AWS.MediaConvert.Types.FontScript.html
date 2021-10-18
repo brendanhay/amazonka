@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.FontScript</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.FontScript</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript"><span class="hs-identifier">FontScript</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript_AUTOMATIC"><span class="hs-identifier">FontScript_AUTOMATIC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript_HANS"><span class="hs-identifier">FontScript_HANS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript_HANT"><span class="hs-identifier">FontScript_HANT</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Provide the font script, using an ISO 15924 script code, if the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- LanguageCode is not sufficient for determining the script type. Where</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- LanguageCode or CustomLanguageCode is sufficient, use \&quot;AUTOMATIC\&quot; or</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- leave unset.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679959886"><span id="local-6989586621679959887"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FontScript"><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript"><span class="hs-identifier hs-var">FontScript</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FontScript%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript%27"><span class="hs-identifier hs-var">FontScript'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFontScript"><span class="annot"><span class="annottext">FontScript -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.FontScript.html#fromFontScript"><span class="hs-identifier hs-var hs-var">fromFontScript</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679959878"><span id="local-6989586621679959880"><span id="local-6989586621679959882"><span class="annot"><span class="annottext">Int -&gt; FontScript -&gt; ShowS
+[FontScript] -&gt; ShowS
+FontScript -&gt; String
+(Int -&gt; FontScript -&gt; ShowS)
+-&gt; (FontScript -&gt; String)
+-&gt; ([FontScript] -&gt; ShowS)
+-&gt; Show FontScript
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FontScript] -&gt; ShowS
+$cshowList :: [FontScript] -&gt; ShowS
+show :: FontScript -&gt; String
+$cshow :: FontScript -&gt; String
+showsPrec :: Int -&gt; FontScript -&gt; ShowS
+$cshowsPrec :: Int -&gt; FontScript -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679959869"><span id="local-6989586621679959871"><span id="local-6989586621679959873"><span id="local-6989586621679959875"><span class="annot"><span class="annottext">ReadPrec [FontScript]
+ReadPrec FontScript
+Int -&gt; ReadS FontScript
+ReadS [FontScript]
+(Int -&gt; ReadS FontScript)
+-&gt; ReadS [FontScript]
+-&gt; ReadPrec FontScript
+-&gt; ReadPrec [FontScript]
+-&gt; Read FontScript
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FontScript]
+$creadListPrec :: ReadPrec [FontScript]
+readPrec :: ReadPrec FontScript
+$creadPrec :: ReadPrec FontScript
+readList :: ReadS [FontScript]
+$creadList :: ReadS [FontScript]
+readsPrec :: Int -&gt; ReadS FontScript
+$creadsPrec :: Int -&gt; ReadS FontScript
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679959864"><span id="local-6989586621679959866"><span class="annot"><span class="annottext">FontScript -&gt; FontScript -&gt; Bool
+(FontScript -&gt; FontScript -&gt; Bool)
+-&gt; (FontScript -&gt; FontScript -&gt; Bool) -&gt; Eq FontScript
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FontScript -&gt; FontScript -&gt; Bool
+$c/= :: FontScript -&gt; FontScript -&gt; Bool
+== :: FontScript -&gt; FontScript -&gt; Bool
+$c== :: FontScript -&gt; FontScript -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679959848"><span id="local-6989586621679959850"><span id="local-6989586621679959852"><span id="local-6989586621679959854"><span id="local-6989586621679959856"><span id="local-6989586621679959858"><span id="local-6989586621679959860"><span class="annot"><span class="annottext">Eq FontScript
+Eq FontScript
+-&gt; (FontScript -&gt; FontScript -&gt; Ordering)
+-&gt; (FontScript -&gt; FontScript -&gt; Bool)
+-&gt; (FontScript -&gt; FontScript -&gt; Bool)
+-&gt; (FontScript -&gt; FontScript -&gt; Bool)
+-&gt; (FontScript -&gt; FontScript -&gt; Bool)
+-&gt; (FontScript -&gt; FontScript -&gt; FontScript)
+-&gt; (FontScript -&gt; FontScript -&gt; FontScript)
+-&gt; Ord FontScript
+FontScript -&gt; FontScript -&gt; Bool
+FontScript -&gt; FontScript -&gt; Ordering
+FontScript -&gt; FontScript -&gt; FontScript
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FontScript -&gt; FontScript -&gt; FontScript
+$cmin :: FontScript -&gt; FontScript -&gt; FontScript
+max :: FontScript -&gt; FontScript -&gt; FontScript
+$cmax :: FontScript -&gt; FontScript -&gt; FontScript
+&gt;= :: FontScript -&gt; FontScript -&gt; Bool
+$c&gt;= :: FontScript -&gt; FontScript -&gt; Bool
+&gt; :: FontScript -&gt; FontScript -&gt; Bool
+$c&gt; :: FontScript -&gt; FontScript -&gt; Bool
+&lt;= :: FontScript -&gt; FontScript -&gt; Bool
+$c&lt;= :: FontScript -&gt; FontScript -&gt; Bool
+&lt; :: FontScript -&gt; FontScript -&gt; Bool
+$c&lt; :: FontScript -&gt; FontScript -&gt; Bool
+compare :: FontScript -&gt; FontScript -&gt; Ordering
+$ccompare :: FontScript -&gt; FontScript -&gt; Ordering
+$cp1Ord :: Eq FontScript
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FontScript -&gt; Rep FontScript x)
+-&gt; (forall x. Rep FontScript x -&gt; FontScript) -&gt; Generic FontScript
+forall x. Rep FontScript x -&gt; FontScript
+forall x. FontScript -&gt; Rep FontScript x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FontScript x -&gt; FontScript
+$cfrom :: forall x. FontScript -&gt; Rep FontScript x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679959840"><span id="local-6989586621679959842"><span class="annot"><span class="annottext">Int -&gt; FontScript -&gt; Int
+FontScript -&gt; Int
+(Int -&gt; FontScript -&gt; Int)
+-&gt; (FontScript -&gt; Int) -&gt; Hashable FontScript
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FontScript -&gt; Int
+$chash :: FontScript -&gt; Int
+hashWithSalt :: Int -&gt; FontScript -&gt; Int
+$chashWithSalt :: Int -&gt; FontScript -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679959837"><span class="annot"><span class="annottext">FontScript -&gt; ()
+(FontScript -&gt; ()) -&gt; NFData FontScript
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FontScript -&gt; ()
+$crnf :: FontScript -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679959834"><span class="annot"><span class="annottext">Text -&gt; Either String FontScript
+(Text -&gt; Either String FontScript) -&gt; FromText FontScript
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FontScript
+$cfromText :: Text -&gt; Either String FontScript
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679959831"><span class="annot"><span class="annottext">FontScript -&gt; Text
+(FontScript -&gt; Text) -&gt; ToText FontScript
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FontScript -&gt; Text
+$ctoText :: FontScript -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679959828"><span class="annot"><span class="annottext">FontScript -&gt; ByteString
+(FontScript -&gt; ByteString) -&gt; ToByteString FontScript
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FontScript -&gt; ByteString
+$ctoBS :: FontScript -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679959825"><span class="annot"><span class="annottext">FontScript -&gt; ByteStringBuilder
+(FontScript -&gt; ByteStringBuilder) -&gt; ToLog FontScript
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FontScript -&gt; ByteStringBuilder
+$cbuild :: FontScript -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679959822"><span class="annot"><span class="annottext">HeaderName -&gt; FontScript -&gt; [Header]
+(HeaderName -&gt; FontScript -&gt; [Header]) -&gt; ToHeader FontScript
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FontScript -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FontScript -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679959819"><span class="annot"><span class="annottext">FontScript -&gt; QueryString
+(FontScript -&gt; QueryString) -&gt; ToQuery FontScript
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FontScript -&gt; QueryString
+$ctoQuery :: FontScript -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679959814"><span id="local-6989586621679959816"><span class="annot"><span class="annottext">Value -&gt; Parser [FontScript]
+Value -&gt; Parser FontScript
+(Value -&gt; Parser FontScript)
+-&gt; (Value -&gt; Parser [FontScript]) -&gt; FromJSON FontScript
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FontScript]
+$cparseJSONList :: Value -&gt; Parser [FontScript]
+parseJSON :: Value -&gt; Parser FontScript
+$cparseJSON :: Value -&gt; Parser FontScript
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679959809"><span id="local-6989586621679959811"><span class="annot"><span class="annottext">FromJSONKeyFunction [FontScript]
+FromJSONKeyFunction FontScript
+FromJSONKeyFunction FontScript
+-&gt; FromJSONKeyFunction [FontScript] -&gt; FromJSONKey FontScript
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FontScript]
+$cfromJSONKeyList :: FromJSONKeyFunction [FontScript]
+fromJSONKey :: FromJSONKeyFunction FontScript
+$cfromJSONKey :: FromJSONKeyFunction FontScript
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679959800"><span id="local-6989586621679959802"><span id="local-6989586621679959804"><span id="local-6989586621679959806"><span class="annot"><span class="annottext">[FontScript] -&gt; Encoding
+[FontScript] -&gt; Value
+FontScript -&gt; Encoding
+FontScript -&gt; Value
+(FontScript -&gt; Value)
+-&gt; (FontScript -&gt; Encoding)
+-&gt; ([FontScript] -&gt; Value)
+-&gt; ([FontScript] -&gt; Encoding)
+-&gt; ToJSON FontScript
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FontScript] -&gt; Encoding
+$ctoEncodingList :: [FontScript] -&gt; Encoding
+toJSONList :: [FontScript] -&gt; Value
+$ctoJSONList :: [FontScript] -&gt; Value
+toEncoding :: FontScript -&gt; Encoding
+$ctoEncoding :: FontScript -&gt; Encoding
+toJSON :: FontScript -&gt; Value
+$ctoJSON :: FontScript -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679959795"><span id="local-6989586621679959797"><span class="annot"><span class="annottext">ToJSONKeyFunction [FontScript]
+ToJSONKeyFunction FontScript
+ToJSONKeyFunction FontScript
+-&gt; ToJSONKeyFunction [FontScript] -&gt; ToJSONKey FontScript
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FontScript]
+$ctoJSONKeyList :: ToJSONKeyFunction [FontScript]
+toJSONKey :: ToJSONKeyFunction FontScript
+$ctoJSONKey :: ToJSONKeyFunction FontScript
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679959792"><span class="annot"><span class="annottext">[Node] -&gt; Either String FontScript
+([Node] -&gt; Either String FontScript) -&gt; FromXML FontScript
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FontScript
+$cparseXML :: [Node] -&gt; Either String FontScript
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679959789"><span class="annot"><span class="annottext">FontScript -&gt; XML
+(FontScript -&gt; XML) -&gt; ToXML FontScript
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FontScript -&gt; XML
+$ctoXML :: FontScript -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript_AUTOMATIC"><span class="hs-identifier hs-type">FontScript_AUTOMATIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript"><span class="hs-identifier hs-type">FontScript</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFontScript_AUTOMATIC"><span id="%24mFontScript_AUTOMATIC"><span id="FontScript_AUTOMATIC"><span class="annot"><span class="annottext">$bFontScript_AUTOMATIC :: FontScript
+$mFontScript_AUTOMATIC :: forall r. FontScript -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.FontScript.html#%24bFontScript_AUTOMATIC"><span class="hs-identifier hs-var hs-var hs-var">FontScript_AUTOMATIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript%27"><span class="hs-identifier hs-type">FontScript'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTOMATIC&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript_HANS"><span class="hs-identifier hs-type">FontScript_HANS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript"><span class="hs-identifier hs-type">FontScript</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFontScript_HANS"><span id="%24mFontScript_HANS"><span id="FontScript_HANS"><span class="annot"><span class="annottext">$bFontScript_HANS :: FontScript
+$mFontScript_HANS :: forall r. FontScript -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.FontScript.html#%24bFontScript_HANS"><span class="hs-identifier hs-var hs-var hs-var">FontScript_HANS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript%27"><span class="hs-identifier hs-type">FontScript'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HANS&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript_HANT"><span class="hs-identifier hs-type">FontScript_HANT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript"><span class="hs-identifier hs-type">FontScript</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFontScript_HANT"><span id="%24mFontScript_HANT"><span id="FontScript_HANT"><span class="annot"><span class="annottext">$bFontScript_HANT :: FontScript
+$mFontScript_HANT :: forall r. FontScript -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.FontScript.html#%24bFontScript_HANT"><span class="hs-identifier hs-var hs-var hs-var">FontScript_HANT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript%27"><span class="hs-identifier hs-type">FontScript'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HANT&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript_AUTOMATIC"><span class="hs-pragma hs-type">FontScript_AUTOMATIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript_HANS"><span class="hs-pragma hs-type">FontScript_HANS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript_HANT"><span class="hs-pragma hs-type">FontScript_HANT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript%27"><span class="hs-pragma hs-type">FontScript'</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-80"></span></pre></body></html>

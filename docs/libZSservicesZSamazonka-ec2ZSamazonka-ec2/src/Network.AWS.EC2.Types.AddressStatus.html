@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.AddressStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.AddressStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus"><span class="hs-identifier">AddressStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus_InClassic"><span class="hs-identifier">AddressStatus_InClassic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus_InVpc"><span class="hs-identifier">AddressStatus_InVpc</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus_MoveInProgress"><span class="hs-identifier">AddressStatus_MoveInProgress</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681051580"><span id="local-6989586621681051581"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AddressStatus"><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus"><span class="hs-identifier hs-var">AddressStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddressStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus%27"><span class="hs-identifier hs-var">AddressStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAddressStatus"><span class="annot"><span class="annottext">AddressStatus -&gt; Text
+</span><a href="Network.AWS.EC2.Types.AddressStatus.html#fromAddressStatus"><span class="hs-identifier hs-var hs-var">fromAddressStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681051572"><span id="local-6989586621681051574"><span id="local-6989586621681051576"><span class="annot"><span class="annottext">Int -&gt; AddressStatus -&gt; ShowS
+[AddressStatus] -&gt; ShowS
+AddressStatus -&gt; String
+(Int -&gt; AddressStatus -&gt; ShowS)
+-&gt; (AddressStatus -&gt; String)
+-&gt; ([AddressStatus] -&gt; ShowS)
+-&gt; Show AddressStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddressStatus] -&gt; ShowS
+$cshowList :: [AddressStatus] -&gt; ShowS
+show :: AddressStatus -&gt; String
+$cshow :: AddressStatus -&gt; String
+showsPrec :: Int -&gt; AddressStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddressStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681051563"><span id="local-6989586621681051565"><span id="local-6989586621681051567"><span id="local-6989586621681051569"><span class="annot"><span class="annottext">ReadPrec [AddressStatus]
+ReadPrec AddressStatus
+Int -&gt; ReadS AddressStatus
+ReadS [AddressStatus]
+(Int -&gt; ReadS AddressStatus)
+-&gt; ReadS [AddressStatus]
+-&gt; ReadPrec AddressStatus
+-&gt; ReadPrec [AddressStatus]
+-&gt; Read AddressStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddressStatus]
+$creadListPrec :: ReadPrec [AddressStatus]
+readPrec :: ReadPrec AddressStatus
+$creadPrec :: ReadPrec AddressStatus
+readList :: ReadS [AddressStatus]
+$creadList :: ReadS [AddressStatus]
+readsPrec :: Int -&gt; ReadS AddressStatus
+$creadsPrec :: Int -&gt; ReadS AddressStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681051558"><span id="local-6989586621681051560"><span class="annot"><span class="annottext">AddressStatus -&gt; AddressStatus -&gt; Bool
+(AddressStatus -&gt; AddressStatus -&gt; Bool)
+-&gt; (AddressStatus -&gt; AddressStatus -&gt; Bool) -&gt; Eq AddressStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddressStatus -&gt; AddressStatus -&gt; Bool
+$c/= :: AddressStatus -&gt; AddressStatus -&gt; Bool
+== :: AddressStatus -&gt; AddressStatus -&gt; Bool
+$c== :: AddressStatus -&gt; AddressStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681051542"><span id="local-6989586621681051544"><span id="local-6989586621681051546"><span id="local-6989586621681051548"><span id="local-6989586621681051550"><span id="local-6989586621681051552"><span id="local-6989586621681051554"><span class="annot"><span class="annottext">Eq AddressStatus
+Eq AddressStatus
+-&gt; (AddressStatus -&gt; AddressStatus -&gt; Ordering)
+-&gt; (AddressStatus -&gt; AddressStatus -&gt; Bool)
+-&gt; (AddressStatus -&gt; AddressStatus -&gt; Bool)
+-&gt; (AddressStatus -&gt; AddressStatus -&gt; Bool)
+-&gt; (AddressStatus -&gt; AddressStatus -&gt; Bool)
+-&gt; (AddressStatus -&gt; AddressStatus -&gt; AddressStatus)
+-&gt; (AddressStatus -&gt; AddressStatus -&gt; AddressStatus)
+-&gt; Ord AddressStatus
+AddressStatus -&gt; AddressStatus -&gt; Bool
+AddressStatus -&gt; AddressStatus -&gt; Ordering
+AddressStatus -&gt; AddressStatus -&gt; AddressStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AddressStatus -&gt; AddressStatus -&gt; AddressStatus
+$cmin :: AddressStatus -&gt; AddressStatus -&gt; AddressStatus
+max :: AddressStatus -&gt; AddressStatus -&gt; AddressStatus
+$cmax :: AddressStatus -&gt; AddressStatus -&gt; AddressStatus
+&gt;= :: AddressStatus -&gt; AddressStatus -&gt; Bool
+$c&gt;= :: AddressStatus -&gt; AddressStatus -&gt; Bool
+&gt; :: AddressStatus -&gt; AddressStatus -&gt; Bool
+$c&gt; :: AddressStatus -&gt; AddressStatus -&gt; Bool
+&lt;= :: AddressStatus -&gt; AddressStatus -&gt; Bool
+$c&lt;= :: AddressStatus -&gt; AddressStatus -&gt; Bool
+&lt; :: AddressStatus -&gt; AddressStatus -&gt; Bool
+$c&lt; :: AddressStatus -&gt; AddressStatus -&gt; Bool
+compare :: AddressStatus -&gt; AddressStatus -&gt; Ordering
+$ccompare :: AddressStatus -&gt; AddressStatus -&gt; Ordering
+$cp1Ord :: Eq AddressStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AddressStatus -&gt; Rep AddressStatus x)
+-&gt; (forall x. Rep AddressStatus x -&gt; AddressStatus)
+-&gt; Generic AddressStatus
+forall x. Rep AddressStatus x -&gt; AddressStatus
+forall x. AddressStatus -&gt; Rep AddressStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddressStatus x -&gt; AddressStatus
+$cfrom :: forall x. AddressStatus -&gt; Rep AddressStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681051534"><span id="local-6989586621681051536"><span class="annot"><span class="annottext">Int -&gt; AddressStatus -&gt; Int
+AddressStatus -&gt; Int
+(Int -&gt; AddressStatus -&gt; Int)
+-&gt; (AddressStatus -&gt; Int) -&gt; Hashable AddressStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AddressStatus -&gt; Int
+$chash :: AddressStatus -&gt; Int
+hashWithSalt :: Int -&gt; AddressStatus -&gt; Int
+$chashWithSalt :: Int -&gt; AddressStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681051531"><span class="annot"><span class="annottext">AddressStatus -&gt; ()
+(AddressStatus -&gt; ()) -&gt; NFData AddressStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AddressStatus -&gt; ()
+$crnf :: AddressStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681051528"><span class="annot"><span class="annottext">Text -&gt; Either String AddressStatus
+(Text -&gt; Either String AddressStatus) -&gt; FromText AddressStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AddressStatus
+$cfromText :: Text -&gt; Either String AddressStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681051525"><span class="annot"><span class="annottext">AddressStatus -&gt; Text
+(AddressStatus -&gt; Text) -&gt; ToText AddressStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AddressStatus -&gt; Text
+$ctoText :: AddressStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681051522"><span class="annot"><span class="annottext">AddressStatus -&gt; ByteString
+(AddressStatus -&gt; ByteString) -&gt; ToByteString AddressStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AddressStatus -&gt; ByteString
+$ctoBS :: AddressStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681051519"><span class="annot"><span class="annottext">AddressStatus -&gt; ByteStringBuilder
+(AddressStatus -&gt; ByteStringBuilder) -&gt; ToLog AddressStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AddressStatus -&gt; ByteStringBuilder
+$cbuild :: AddressStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681051516"><span class="annot"><span class="annottext">HeaderName -&gt; AddressStatus -&gt; [Header]
+(HeaderName -&gt; AddressStatus -&gt; [Header]) -&gt; ToHeader AddressStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AddressStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AddressStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681051513"><span class="annot"><span class="annottext">AddressStatus -&gt; QueryString
+(AddressStatus -&gt; QueryString) -&gt; ToQuery AddressStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AddressStatus -&gt; QueryString
+$ctoQuery :: AddressStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681051508"><span id="local-6989586621681051510"><span class="annot"><span class="annottext">Value -&gt; Parser [AddressStatus]
+Value -&gt; Parser AddressStatus
+(Value -&gt; Parser AddressStatus)
+-&gt; (Value -&gt; Parser [AddressStatus]) -&gt; FromJSON AddressStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AddressStatus]
+$cparseJSONList :: Value -&gt; Parser [AddressStatus]
+parseJSON :: Value -&gt; Parser AddressStatus
+$cparseJSON :: Value -&gt; Parser AddressStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681051503"><span id="local-6989586621681051505"><span class="annot"><span class="annottext">FromJSONKeyFunction [AddressStatus]
+FromJSONKeyFunction AddressStatus
+FromJSONKeyFunction AddressStatus
+-&gt; FromJSONKeyFunction [AddressStatus] -&gt; FromJSONKey AddressStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AddressStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [AddressStatus]
+fromJSONKey :: FromJSONKeyFunction AddressStatus
+$cfromJSONKey :: FromJSONKeyFunction AddressStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681051494"><span id="local-6989586621681051496"><span id="local-6989586621681051498"><span id="local-6989586621681051500"><span class="annot"><span class="annottext">[AddressStatus] -&gt; Encoding
+[AddressStatus] -&gt; Value
+AddressStatus -&gt; Encoding
+AddressStatus -&gt; Value
+(AddressStatus -&gt; Value)
+-&gt; (AddressStatus -&gt; Encoding)
+-&gt; ([AddressStatus] -&gt; Value)
+-&gt; ([AddressStatus] -&gt; Encoding)
+-&gt; ToJSON AddressStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AddressStatus] -&gt; Encoding
+$ctoEncodingList :: [AddressStatus] -&gt; Encoding
+toJSONList :: [AddressStatus] -&gt; Value
+$ctoJSONList :: [AddressStatus] -&gt; Value
+toEncoding :: AddressStatus -&gt; Encoding
+$ctoEncoding :: AddressStatus -&gt; Encoding
+toJSON :: AddressStatus -&gt; Value
+$ctoJSON :: AddressStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681051489"><span id="local-6989586621681051491"><span class="annot"><span class="annottext">ToJSONKeyFunction [AddressStatus]
+ToJSONKeyFunction AddressStatus
+ToJSONKeyFunction AddressStatus
+-&gt; ToJSONKeyFunction [AddressStatus] -&gt; ToJSONKey AddressStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AddressStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [AddressStatus]
+toJSONKey :: ToJSONKeyFunction AddressStatus
+$ctoJSONKey :: ToJSONKeyFunction AddressStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681051486"><span class="annot"><span class="annottext">[Node] -&gt; Either String AddressStatus
+([Node] -&gt; Either String AddressStatus) -&gt; FromXML AddressStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AddressStatus
+$cparseXML :: [Node] -&gt; Either String AddressStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681051483"><span class="annot"><span class="annottext">AddressStatus -&gt; XML
+(AddressStatus -&gt; XML) -&gt; ToXML AddressStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AddressStatus -&gt; XML
+$ctoXML :: AddressStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus_InClassic"><span class="hs-identifier hs-type">AddressStatus_InClassic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus"><span class="hs-identifier hs-type">AddressStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAddressStatus_InClassic"><span id="%24mAddressStatus_InClassic"><span id="AddressStatus_InClassic"><span class="annot"><span class="annottext">$bAddressStatus_InClassic :: AddressStatus
+$mAddressStatus_InClassic :: forall r. AddressStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.AddressStatus.html#%24bAddressStatus_InClassic"><span class="hs-identifier hs-var hs-var hs-var">AddressStatus_InClassic</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus%27"><span class="hs-identifier hs-type">AddressStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InClassic&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus_InVpc"><span class="hs-identifier hs-type">AddressStatus_InVpc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus"><span class="hs-identifier hs-type">AddressStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAddressStatus_InVpc"><span id="%24mAddressStatus_InVpc"><span id="AddressStatus_InVpc"><span class="annot"><span class="annottext">$bAddressStatus_InVpc :: AddressStatus
+$mAddressStatus_InVpc :: forall r. AddressStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.AddressStatus.html#%24bAddressStatus_InVpc"><span class="hs-identifier hs-var hs-var hs-var">AddressStatus_InVpc</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus%27"><span class="hs-identifier hs-type">AddressStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InVpc&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus_MoveInProgress"><span class="hs-identifier hs-type">AddressStatus_MoveInProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus"><span class="hs-identifier hs-type">AddressStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAddressStatus_MoveInProgress"><span id="%24mAddressStatus_MoveInProgress"><span id="AddressStatus_MoveInProgress"><span class="annot"><span class="annottext">$bAddressStatus_MoveInProgress :: AddressStatus
+$mAddressStatus_MoveInProgress :: forall r. AddressStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.AddressStatus.html#%24bAddressStatus_MoveInProgress"><span class="hs-identifier hs-var hs-var hs-var">AddressStatus_MoveInProgress</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus%27"><span class="hs-identifier hs-type">AddressStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MoveInProgress&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus_InClassic"><span class="hs-pragma hs-type">AddressStatus_InClassic</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus_InVpc"><span class="hs-pragma hs-type">AddressStatus_InVpc</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus_MoveInProgress"><span class="hs-pragma hs-type">AddressStatus_MoveInProgress</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus%27"><span class="hs-pragma hs-type">AddressStatus'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

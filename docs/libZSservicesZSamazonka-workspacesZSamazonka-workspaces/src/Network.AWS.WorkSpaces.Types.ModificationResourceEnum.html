@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.WorkSpaces.Types.ModificationResourceEnum</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkSpaces.Types.ModificationResourceEnum</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum"><span class="hs-identifier">ModificationResourceEnum</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum_COMPUTE_TYPE"><span class="hs-identifier">ModificationResourceEnum_COMPUTE_TYPE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum_ROOT_VOLUME"><span class="hs-identifier">ModificationResourceEnum_ROOT_VOLUME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum_USER_VOLUME"><span class="hs-identifier">ModificationResourceEnum_USER_VOLUME</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679269361"><span id="local-6989586621679269362"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModificationResourceEnum"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum"><span class="hs-identifier hs-var">ModificationResourceEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModificationResourceEnum%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum%27"><span class="hs-identifier hs-var">ModificationResourceEnum'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromModificationResourceEnum"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; Text
+</span><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#fromModificationResourceEnum"><span class="hs-identifier hs-var hs-var">fromModificationResourceEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679269353"><span id="local-6989586621679269355"><span id="local-6989586621679269357"><span class="annot"><span class="annottext">Int -&gt; ModificationResourceEnum -&gt; ShowS
+[ModificationResourceEnum] -&gt; ShowS
+ModificationResourceEnum -&gt; String
+(Int -&gt; ModificationResourceEnum -&gt; ShowS)
+-&gt; (ModificationResourceEnum -&gt; String)
+-&gt; ([ModificationResourceEnum] -&gt; ShowS)
+-&gt; Show ModificationResourceEnum
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModificationResourceEnum] -&gt; ShowS
+$cshowList :: [ModificationResourceEnum] -&gt; ShowS
+show :: ModificationResourceEnum -&gt; String
+$cshow :: ModificationResourceEnum -&gt; String
+showsPrec :: Int -&gt; ModificationResourceEnum -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModificationResourceEnum -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679269344"><span id="local-6989586621679269346"><span id="local-6989586621679269348"><span id="local-6989586621679269350"><span class="annot"><span class="annottext">ReadPrec [ModificationResourceEnum]
+ReadPrec ModificationResourceEnum
+Int -&gt; ReadS ModificationResourceEnum
+ReadS [ModificationResourceEnum]
+(Int -&gt; ReadS ModificationResourceEnum)
+-&gt; ReadS [ModificationResourceEnum]
+-&gt; ReadPrec ModificationResourceEnum
+-&gt; ReadPrec [ModificationResourceEnum]
+-&gt; Read ModificationResourceEnum
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModificationResourceEnum]
+$creadListPrec :: ReadPrec [ModificationResourceEnum]
+readPrec :: ReadPrec ModificationResourceEnum
+$creadPrec :: ReadPrec ModificationResourceEnum
+readList :: ReadS [ModificationResourceEnum]
+$creadList :: ReadS [ModificationResourceEnum]
+readsPrec :: Int -&gt; ReadS ModificationResourceEnum
+$creadsPrec :: Int -&gt; ReadS ModificationResourceEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679269339"><span id="local-6989586621679269341"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
+(ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool)
+-&gt; (ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool)
+-&gt; Eq ModificationResourceEnum
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
+$c/= :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
+== :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
+$c== :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679269323"><span id="local-6989586621679269325"><span id="local-6989586621679269327"><span id="local-6989586621679269329"><span id="local-6989586621679269331"><span id="local-6989586621679269333"><span id="local-6989586621679269335"><span class="annot"><span class="annottext">Eq ModificationResourceEnum
+Eq ModificationResourceEnum
+-&gt; (ModificationResourceEnum
+    -&gt; ModificationResourceEnum -&gt; Ordering)
+-&gt; (ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool)
+-&gt; (ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool)
+-&gt; (ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool)
+-&gt; (ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool)
+-&gt; (ModificationResourceEnum
+    -&gt; ModificationResourceEnum -&gt; ModificationResourceEnum)
+-&gt; (ModificationResourceEnum
+    -&gt; ModificationResourceEnum -&gt; ModificationResourceEnum)
+-&gt; Ord ModificationResourceEnum
+ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
+ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Ordering
+ModificationResourceEnum
+-&gt; ModificationResourceEnum -&gt; ModificationResourceEnum
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ModificationResourceEnum
+-&gt; ModificationResourceEnum -&gt; ModificationResourceEnum
+$cmin :: ModificationResourceEnum
+-&gt; ModificationResourceEnum -&gt; ModificationResourceEnum
+max :: ModificationResourceEnum
+-&gt; ModificationResourceEnum -&gt; ModificationResourceEnum
+$cmax :: ModificationResourceEnum
+-&gt; ModificationResourceEnum -&gt; ModificationResourceEnum
+&gt;= :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
+$c&gt;= :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
+&gt; :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
+$c&gt; :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
+&lt;= :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
+$c&lt;= :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
+&lt; :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
+$c&lt; :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
+compare :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Ordering
+$ccompare :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Ordering
+$cp1Ord :: Eq ModificationResourceEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ModificationResourceEnum -&gt; Rep ModificationResourceEnum x)
+-&gt; (forall x.
+    Rep ModificationResourceEnum x -&gt; ModificationResourceEnum)
+-&gt; Generic ModificationResourceEnum
+forall x.
+Rep ModificationResourceEnum x -&gt; ModificationResourceEnum
+forall x.
+ModificationResourceEnum -&gt; Rep ModificationResourceEnum x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModificationResourceEnum x -&gt; ModificationResourceEnum
+$cfrom :: forall x.
+ModificationResourceEnum -&gt; Rep ModificationResourceEnum x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679269315"><span id="local-6989586621679269317"><span class="annot"><span class="annottext">Int -&gt; ModificationResourceEnum -&gt; Int
+ModificationResourceEnum -&gt; Int
+(Int -&gt; ModificationResourceEnum -&gt; Int)
+-&gt; (ModificationResourceEnum -&gt; Int)
+-&gt; Hashable ModificationResourceEnum
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ModificationResourceEnum -&gt; Int
+$chash :: ModificationResourceEnum -&gt; Int
+hashWithSalt :: Int -&gt; ModificationResourceEnum -&gt; Int
+$chashWithSalt :: Int -&gt; ModificationResourceEnum -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679269312"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; ()
+(ModificationResourceEnum -&gt; ()) -&gt; NFData ModificationResourceEnum
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ModificationResourceEnum -&gt; ()
+$crnf :: ModificationResourceEnum -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679269309"><span class="annot"><span class="annottext">Text -&gt; Either String ModificationResourceEnum
+(Text -&gt; Either String ModificationResourceEnum)
+-&gt; FromText ModificationResourceEnum
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ModificationResourceEnum
+$cfromText :: Text -&gt; Either String ModificationResourceEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679269306"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; Text
+(ModificationResourceEnum -&gt; Text)
+-&gt; ToText ModificationResourceEnum
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ModificationResourceEnum -&gt; Text
+$ctoText :: ModificationResourceEnum -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679269303"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; ByteString
+(ModificationResourceEnum -&gt; ByteString)
+-&gt; ToByteString ModificationResourceEnum
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ModificationResourceEnum -&gt; ByteString
+$ctoBS :: ModificationResourceEnum -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679269300"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; ByteStringBuilder
+(ModificationResourceEnum -&gt; ByteStringBuilder)
+-&gt; ToLog ModificationResourceEnum
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ModificationResourceEnum -&gt; ByteStringBuilder
+$cbuild :: ModificationResourceEnum -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679269297"><span class="annot"><span class="annottext">HeaderName -&gt; ModificationResourceEnum -&gt; [Header]
+(HeaderName -&gt; ModificationResourceEnum -&gt; [Header])
+-&gt; ToHeader ModificationResourceEnum
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ModificationResourceEnum -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ModificationResourceEnum -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679269294"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; QueryString
+(ModificationResourceEnum -&gt; QueryString)
+-&gt; ToQuery ModificationResourceEnum
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ModificationResourceEnum -&gt; QueryString
+$ctoQuery :: ModificationResourceEnum -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679269289"><span id="local-6989586621679269291"><span class="annot"><span class="annottext">Value -&gt; Parser [ModificationResourceEnum]
+Value -&gt; Parser ModificationResourceEnum
+(Value -&gt; Parser ModificationResourceEnum)
+-&gt; (Value -&gt; Parser [ModificationResourceEnum])
+-&gt; FromJSON ModificationResourceEnum
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ModificationResourceEnum]
+$cparseJSONList :: Value -&gt; Parser [ModificationResourceEnum]
+parseJSON :: Value -&gt; Parser ModificationResourceEnum
+$cparseJSON :: Value -&gt; Parser ModificationResourceEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679269284"><span id="local-6989586621679269286"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModificationResourceEnum]
+FromJSONKeyFunction ModificationResourceEnum
+FromJSONKeyFunction ModificationResourceEnum
+-&gt; FromJSONKeyFunction [ModificationResourceEnum]
+-&gt; FromJSONKey ModificationResourceEnum
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ModificationResourceEnum]
+$cfromJSONKeyList :: FromJSONKeyFunction [ModificationResourceEnum]
+fromJSONKey :: FromJSONKeyFunction ModificationResourceEnum
+$cfromJSONKey :: FromJSONKeyFunction ModificationResourceEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679269275"><span id="local-6989586621679269277"><span id="local-6989586621679269279"><span id="local-6989586621679269281"><span class="annot"><span class="annottext">[ModificationResourceEnum] -&gt; Encoding
+[ModificationResourceEnum] -&gt; Value
+ModificationResourceEnum -&gt; Encoding
+ModificationResourceEnum -&gt; Value
+(ModificationResourceEnum -&gt; Value)
+-&gt; (ModificationResourceEnum -&gt; Encoding)
+-&gt; ([ModificationResourceEnum] -&gt; Value)
+-&gt; ([ModificationResourceEnum] -&gt; Encoding)
+-&gt; ToJSON ModificationResourceEnum
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ModificationResourceEnum] -&gt; Encoding
+$ctoEncodingList :: [ModificationResourceEnum] -&gt; Encoding
+toJSONList :: [ModificationResourceEnum] -&gt; Value
+$ctoJSONList :: [ModificationResourceEnum] -&gt; Value
+toEncoding :: ModificationResourceEnum -&gt; Encoding
+$ctoEncoding :: ModificationResourceEnum -&gt; Encoding
+toJSON :: ModificationResourceEnum -&gt; Value
+$ctoJSON :: ModificationResourceEnum -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679269270"><span id="local-6989586621679269272"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModificationResourceEnum]
+ToJSONKeyFunction ModificationResourceEnum
+ToJSONKeyFunction ModificationResourceEnum
+-&gt; ToJSONKeyFunction [ModificationResourceEnum]
+-&gt; ToJSONKey ModificationResourceEnum
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ModificationResourceEnum]
+$ctoJSONKeyList :: ToJSONKeyFunction [ModificationResourceEnum]
+toJSONKey :: ToJSONKeyFunction ModificationResourceEnum
+$ctoJSONKey :: ToJSONKeyFunction ModificationResourceEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679269267"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModificationResourceEnum
+([Node] -&gt; Either String ModificationResourceEnum)
+-&gt; FromXML ModificationResourceEnum
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ModificationResourceEnum
+$cparseXML :: [Node] -&gt; Either String ModificationResourceEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679269264"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; XML
+(ModificationResourceEnum -&gt; XML) -&gt; ToXML ModificationResourceEnum
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ModificationResourceEnum -&gt; XML
+$ctoXML :: ModificationResourceEnum -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum_COMPUTE_TYPE"><span class="hs-identifier hs-type">ModificationResourceEnum_COMPUTE_TYPE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum"><span class="hs-identifier hs-type">ModificationResourceEnum</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModificationResourceEnum_COMPUTE_TYPE"><span id="%24mModificationResourceEnum_COMPUTE_TYPE"><span id="ModificationResourceEnum_COMPUTE_TYPE"><span class="annot"><span class="annottext">$bModificationResourceEnum_COMPUTE_TYPE :: ModificationResourceEnum
+$mModificationResourceEnum_COMPUTE_TYPE :: forall r.
+ModificationResourceEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#%24bModificationResourceEnum_COMPUTE_TYPE"><span class="hs-identifier hs-var hs-var hs-var">ModificationResourceEnum_COMPUTE_TYPE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum%27"><span class="hs-identifier hs-type">ModificationResourceEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPUTE_TYPE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum_ROOT_VOLUME"><span class="hs-identifier hs-type">ModificationResourceEnum_ROOT_VOLUME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum"><span class="hs-identifier hs-type">ModificationResourceEnum</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModificationResourceEnum_ROOT_VOLUME"><span id="%24mModificationResourceEnum_ROOT_VOLUME"><span id="ModificationResourceEnum_ROOT_VOLUME"><span class="annot"><span class="annottext">$bModificationResourceEnum_ROOT_VOLUME :: ModificationResourceEnum
+$mModificationResourceEnum_ROOT_VOLUME :: forall r.
+ModificationResourceEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#%24bModificationResourceEnum_ROOT_VOLUME"><span class="hs-identifier hs-var hs-var hs-var">ModificationResourceEnum_ROOT_VOLUME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum%27"><span class="hs-identifier hs-type">ModificationResourceEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROOT_VOLUME&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum_USER_VOLUME"><span class="hs-identifier hs-type">ModificationResourceEnum_USER_VOLUME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum"><span class="hs-identifier hs-type">ModificationResourceEnum</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModificationResourceEnum_USER_VOLUME"><span id="%24mModificationResourceEnum_USER_VOLUME"><span id="ModificationResourceEnum_USER_VOLUME"><span class="annot"><span class="annottext">$bModificationResourceEnum_USER_VOLUME :: ModificationResourceEnum
+$mModificationResourceEnum_USER_VOLUME :: forall r.
+ModificationResourceEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#%24bModificationResourceEnum_USER_VOLUME"><span class="hs-identifier hs-var hs-var hs-var">ModificationResourceEnum_USER_VOLUME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum%27"><span class="hs-identifier hs-type">ModificationResourceEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;USER_VOLUME&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum_COMPUTE_TYPE"><span class="hs-pragma hs-type">ModificationResourceEnum_COMPUTE_TYPE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum_ROOT_VOLUME"><span class="hs-pragma hs-type">ModificationResourceEnum_ROOT_VOLUME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum_USER_VOLUME"><span class="hs-pragma hs-type">ModificationResourceEnum_USER_VOLUME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum%27"><span class="hs-pragma hs-type">ModificationResourceEnum'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

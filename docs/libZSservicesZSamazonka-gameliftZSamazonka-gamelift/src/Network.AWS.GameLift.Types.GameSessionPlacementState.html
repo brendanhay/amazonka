@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GameLift.Types.GameSessionPlacementState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GameLift.Types.GameSessionPlacementState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState"><span class="hs-identifier">GameSessionPlacementState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState_CANCELLED"><span class="hs-identifier">GameSessionPlacementState_CANCELLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState_FAILED"><span class="hs-identifier">GameSessionPlacementState_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState_FULFILLED"><span class="hs-identifier">GameSessionPlacementState_FULFILLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState_PENDING"><span class="hs-identifier">GameSessionPlacementState_PENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState_TIMED_OUT"><span class="hs-identifier">GameSessionPlacementState_TIMED_OUT</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679433042"><span id="local-6989586621679433043"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameSessionPlacementState"><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState"><span class="hs-identifier hs-var">GameSessionPlacementState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameSessionPlacementState%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState%27"><span class="hs-identifier hs-var">GameSessionPlacementState'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGameSessionPlacementState"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; Text
+</span><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#fromGameSessionPlacementState"><span class="hs-identifier hs-var hs-var">fromGameSessionPlacementState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433034"><span id="local-6989586621679433036"><span id="local-6989586621679433038"><span class="annot"><span class="annottext">Int -&gt; GameSessionPlacementState -&gt; ShowS
+[GameSessionPlacementState] -&gt; ShowS
+GameSessionPlacementState -&gt; String
+(Int -&gt; GameSessionPlacementState -&gt; ShowS)
+-&gt; (GameSessionPlacementState -&gt; String)
+-&gt; ([GameSessionPlacementState] -&gt; ShowS)
+-&gt; Show GameSessionPlacementState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GameSessionPlacementState] -&gt; ShowS
+$cshowList :: [GameSessionPlacementState] -&gt; ShowS
+show :: GameSessionPlacementState -&gt; String
+$cshow :: GameSessionPlacementState -&gt; String
+showsPrec :: Int -&gt; GameSessionPlacementState -&gt; ShowS
+$cshowsPrec :: Int -&gt; GameSessionPlacementState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679433025"><span id="local-6989586621679433027"><span id="local-6989586621679433029"><span id="local-6989586621679433031"><span class="annot"><span class="annottext">ReadPrec [GameSessionPlacementState]
+ReadPrec GameSessionPlacementState
+Int -&gt; ReadS GameSessionPlacementState
+ReadS [GameSessionPlacementState]
+(Int -&gt; ReadS GameSessionPlacementState)
+-&gt; ReadS [GameSessionPlacementState]
+-&gt; ReadPrec GameSessionPlacementState
+-&gt; ReadPrec [GameSessionPlacementState]
+-&gt; Read GameSessionPlacementState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GameSessionPlacementState]
+$creadListPrec :: ReadPrec [GameSessionPlacementState]
+readPrec :: ReadPrec GameSessionPlacementState
+$creadPrec :: ReadPrec GameSessionPlacementState
+readList :: ReadS [GameSessionPlacementState]
+$creadList :: ReadS [GameSessionPlacementState]
+readsPrec :: Int -&gt; ReadS GameSessionPlacementState
+$creadsPrec :: Int -&gt; ReadS GameSessionPlacementState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679433020"><span id="local-6989586621679433022"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
+(GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool)
+-&gt; (GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool)
+-&gt; Eq GameSessionPlacementState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
+$c/= :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
+== :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
+$c== :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679433004"><span id="local-6989586621679433006"><span id="local-6989586621679433008"><span id="local-6989586621679433010"><span id="local-6989586621679433012"><span id="local-6989586621679433014"><span id="local-6989586621679433016"><span class="annot"><span class="annottext">Eq GameSessionPlacementState
+Eq GameSessionPlacementState
+-&gt; (GameSessionPlacementState
+    -&gt; GameSessionPlacementState -&gt; Ordering)
+-&gt; (GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool)
+-&gt; (GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool)
+-&gt; (GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool)
+-&gt; (GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool)
+-&gt; (GameSessionPlacementState
+    -&gt; GameSessionPlacementState -&gt; GameSessionPlacementState)
+-&gt; (GameSessionPlacementState
+    -&gt; GameSessionPlacementState -&gt; GameSessionPlacementState)
+-&gt; Ord GameSessionPlacementState
+GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
+GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Ordering
+GameSessionPlacementState
+-&gt; GameSessionPlacementState -&gt; GameSessionPlacementState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: GameSessionPlacementState
+-&gt; GameSessionPlacementState -&gt; GameSessionPlacementState
+$cmin :: GameSessionPlacementState
+-&gt; GameSessionPlacementState -&gt; GameSessionPlacementState
+max :: GameSessionPlacementState
+-&gt; GameSessionPlacementState -&gt; GameSessionPlacementState
+$cmax :: GameSessionPlacementState
+-&gt; GameSessionPlacementState -&gt; GameSessionPlacementState
+&gt;= :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
+$c&gt;= :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
+&gt; :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
+$c&gt; :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
+&lt;= :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
+$c&lt;= :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
+&lt; :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
+$c&lt; :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
+compare :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Ordering
+$ccompare :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Ordering
+$cp1Ord :: Eq GameSessionPlacementState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ GameSessionPlacementState -&gt; Rep GameSessionPlacementState x)
+-&gt; (forall x.
+    Rep GameSessionPlacementState x -&gt; GameSessionPlacementState)
+-&gt; Generic GameSessionPlacementState
+forall x.
+Rep GameSessionPlacementState x -&gt; GameSessionPlacementState
+forall x.
+GameSessionPlacementState -&gt; Rep GameSessionPlacementState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GameSessionPlacementState x -&gt; GameSessionPlacementState
+$cfrom :: forall x.
+GameSessionPlacementState -&gt; Rep GameSessionPlacementState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432996"><span id="local-6989586621679432998"><span class="annot"><span class="annottext">Int -&gt; GameSessionPlacementState -&gt; Int
+GameSessionPlacementState -&gt; Int
+(Int -&gt; GameSessionPlacementState -&gt; Int)
+-&gt; (GameSessionPlacementState -&gt; Int)
+-&gt; Hashable GameSessionPlacementState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: GameSessionPlacementState -&gt; Int
+$chash :: GameSessionPlacementState -&gt; Int
+hashWithSalt :: Int -&gt; GameSessionPlacementState -&gt; Int
+$chashWithSalt :: Int -&gt; GameSessionPlacementState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679432993"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; ()
+(GameSessionPlacementState -&gt; ())
+-&gt; NFData GameSessionPlacementState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: GameSessionPlacementState -&gt; ()
+$crnf :: GameSessionPlacementState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679432990"><span class="annot"><span class="annottext">Text -&gt; Either String GameSessionPlacementState
+(Text -&gt; Either String GameSessionPlacementState)
+-&gt; FromText GameSessionPlacementState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String GameSessionPlacementState
+$cfromText :: Text -&gt; Either String GameSessionPlacementState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679432987"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; Text
+(GameSessionPlacementState -&gt; Text)
+-&gt; ToText GameSessionPlacementState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: GameSessionPlacementState -&gt; Text
+$ctoText :: GameSessionPlacementState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679432984"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; ByteString
+(GameSessionPlacementState -&gt; ByteString)
+-&gt; ToByteString GameSessionPlacementState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: GameSessionPlacementState -&gt; ByteString
+$ctoBS :: GameSessionPlacementState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679432981"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; ByteStringBuilder
+(GameSessionPlacementState -&gt; ByteStringBuilder)
+-&gt; ToLog GameSessionPlacementState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: GameSessionPlacementState -&gt; ByteStringBuilder
+$cbuild :: GameSessionPlacementState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679432978"><span class="annot"><span class="annottext">HeaderName -&gt; GameSessionPlacementState -&gt; [Header]
+(HeaderName -&gt; GameSessionPlacementState -&gt; [Header])
+-&gt; ToHeader GameSessionPlacementState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; GameSessionPlacementState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; GameSessionPlacementState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679432975"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; QueryString
+(GameSessionPlacementState -&gt; QueryString)
+-&gt; ToQuery GameSessionPlacementState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: GameSessionPlacementState -&gt; QueryString
+$ctoQuery :: GameSessionPlacementState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679432970"><span id="local-6989586621679432972"><span class="annot"><span class="annottext">Value -&gt; Parser [GameSessionPlacementState]
+Value -&gt; Parser GameSessionPlacementState
+(Value -&gt; Parser GameSessionPlacementState)
+-&gt; (Value -&gt; Parser [GameSessionPlacementState])
+-&gt; FromJSON GameSessionPlacementState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [GameSessionPlacementState]
+$cparseJSONList :: Value -&gt; Parser [GameSessionPlacementState]
+parseJSON :: Value -&gt; Parser GameSessionPlacementState
+$cparseJSON :: Value -&gt; Parser GameSessionPlacementState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679432965"><span id="local-6989586621679432967"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameSessionPlacementState]
+FromJSONKeyFunction GameSessionPlacementState
+FromJSONKeyFunction GameSessionPlacementState
+-&gt; FromJSONKeyFunction [GameSessionPlacementState]
+-&gt; FromJSONKey GameSessionPlacementState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [GameSessionPlacementState]
+$cfromJSONKeyList :: FromJSONKeyFunction [GameSessionPlacementState]
+fromJSONKey :: FromJSONKeyFunction GameSessionPlacementState
+$cfromJSONKey :: FromJSONKeyFunction GameSessionPlacementState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679432956"><span id="local-6989586621679432958"><span id="local-6989586621679432960"><span id="local-6989586621679432962"><span class="annot"><span class="annottext">[GameSessionPlacementState] -&gt; Encoding
+[GameSessionPlacementState] -&gt; Value
+GameSessionPlacementState -&gt; Encoding
+GameSessionPlacementState -&gt; Value
+(GameSessionPlacementState -&gt; Value)
+-&gt; (GameSessionPlacementState -&gt; Encoding)
+-&gt; ([GameSessionPlacementState] -&gt; Value)
+-&gt; ([GameSessionPlacementState] -&gt; Encoding)
+-&gt; ToJSON GameSessionPlacementState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [GameSessionPlacementState] -&gt; Encoding
+$ctoEncodingList :: [GameSessionPlacementState] -&gt; Encoding
+toJSONList :: [GameSessionPlacementState] -&gt; Value
+$ctoJSONList :: [GameSessionPlacementState] -&gt; Value
+toEncoding :: GameSessionPlacementState -&gt; Encoding
+$ctoEncoding :: GameSessionPlacementState -&gt; Encoding
+toJSON :: GameSessionPlacementState -&gt; Value
+$ctoJSON :: GameSessionPlacementState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679432951"><span id="local-6989586621679432953"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameSessionPlacementState]
+ToJSONKeyFunction GameSessionPlacementState
+ToJSONKeyFunction GameSessionPlacementState
+-&gt; ToJSONKeyFunction [GameSessionPlacementState]
+-&gt; ToJSONKey GameSessionPlacementState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [GameSessionPlacementState]
+$ctoJSONKeyList :: ToJSONKeyFunction [GameSessionPlacementState]
+toJSONKey :: ToJSONKeyFunction GameSessionPlacementState
+$ctoJSONKey :: ToJSONKeyFunction GameSessionPlacementState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679432948"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameSessionPlacementState
+([Node] -&gt; Either String GameSessionPlacementState)
+-&gt; FromXML GameSessionPlacementState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String GameSessionPlacementState
+$cparseXML :: [Node] -&gt; Either String GameSessionPlacementState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679432945"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; XML
+(GameSessionPlacementState -&gt; XML)
+-&gt; ToXML GameSessionPlacementState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: GameSessionPlacementState -&gt; XML
+$ctoXML :: GameSessionPlacementState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState_CANCELLED"><span class="hs-identifier hs-type">GameSessionPlacementState_CANCELLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState"><span class="hs-identifier hs-type">GameSessionPlacementState</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGameSessionPlacementState_CANCELLED"><span id="%24mGameSessionPlacementState_CANCELLED"><span id="GameSessionPlacementState_CANCELLED"><span class="annot"><span class="annottext">$bGameSessionPlacementState_CANCELLED :: GameSessionPlacementState
+$mGameSessionPlacementState_CANCELLED :: forall r.
+GameSessionPlacementState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#%24bGameSessionPlacementState_CANCELLED"><span class="hs-identifier hs-var hs-var hs-var">GameSessionPlacementState_CANCELLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState%27"><span class="hs-identifier hs-type">GameSessionPlacementState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CANCELLED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState_FAILED"><span class="hs-identifier hs-type">GameSessionPlacementState_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState"><span class="hs-identifier hs-type">GameSessionPlacementState</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGameSessionPlacementState_FAILED"><span id="%24mGameSessionPlacementState_FAILED"><span id="GameSessionPlacementState_FAILED"><span class="annot"><span class="annottext">$bGameSessionPlacementState_FAILED :: GameSessionPlacementState
+$mGameSessionPlacementState_FAILED :: forall r.
+GameSessionPlacementState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#%24bGameSessionPlacementState_FAILED"><span class="hs-identifier hs-var hs-var hs-var">GameSessionPlacementState_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState%27"><span class="hs-identifier hs-type">GameSessionPlacementState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState_FULFILLED"><span class="hs-identifier hs-type">GameSessionPlacementState_FULFILLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState"><span class="hs-identifier hs-type">GameSessionPlacementState</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGameSessionPlacementState_FULFILLED"><span id="%24mGameSessionPlacementState_FULFILLED"><span id="GameSessionPlacementState_FULFILLED"><span class="annot"><span class="annottext">$bGameSessionPlacementState_FULFILLED :: GameSessionPlacementState
+$mGameSessionPlacementState_FULFILLED :: forall r.
+GameSessionPlacementState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#%24bGameSessionPlacementState_FULFILLED"><span class="hs-identifier hs-var hs-var hs-var">GameSessionPlacementState_FULFILLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState%27"><span class="hs-identifier hs-type">GameSessionPlacementState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FULFILLED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState_PENDING"><span class="hs-identifier hs-type">GameSessionPlacementState_PENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState"><span class="hs-identifier hs-type">GameSessionPlacementState</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGameSessionPlacementState_PENDING"><span id="%24mGameSessionPlacementState_PENDING"><span id="GameSessionPlacementState_PENDING"><span class="annot"><span class="annottext">$bGameSessionPlacementState_PENDING :: GameSessionPlacementState
+$mGameSessionPlacementState_PENDING :: forall r.
+GameSessionPlacementState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#%24bGameSessionPlacementState_PENDING"><span class="hs-identifier hs-var hs-var hs-var">GameSessionPlacementState_PENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState%27"><span class="hs-identifier hs-type">GameSessionPlacementState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState_TIMED_OUT"><span class="hs-identifier hs-type">GameSessionPlacementState_TIMED_OUT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState"><span class="hs-identifier hs-type">GameSessionPlacementState</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGameSessionPlacementState_TIMED_OUT"><span id="%24mGameSessionPlacementState_TIMED_OUT"><span id="GameSessionPlacementState_TIMED_OUT"><span class="annot"><span class="annottext">$bGameSessionPlacementState_TIMED_OUT :: GameSessionPlacementState
+$mGameSessionPlacementState_TIMED_OUT :: forall r.
+GameSessionPlacementState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#%24bGameSessionPlacementState_TIMED_OUT"><span class="hs-identifier hs-var hs-var hs-var">GameSessionPlacementState_TIMED_OUT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState%27"><span class="hs-identifier hs-type">GameSessionPlacementState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TIMED_OUT&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState_CANCELLED"><span class="hs-pragma hs-type">GameSessionPlacementState_CANCELLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState_FAILED"><span class="hs-pragma hs-type">GameSessionPlacementState_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState_FULFILLED"><span class="hs-pragma hs-type">GameSessionPlacementState_FULFILLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState_PENDING"><span class="hs-pragma hs-type">GameSessionPlacementState_PENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState_TIMED_OUT"><span class="hs-pragma hs-type">GameSessionPlacementState_TIMED_OUT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState%27"><span class="hs-pragma hs-type">GameSessionPlacementState'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

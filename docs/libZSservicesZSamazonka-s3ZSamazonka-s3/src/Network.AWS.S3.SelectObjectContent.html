@@ -1,0 +1,1136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.S3.SelectObjectContent</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This action filters the contents of an Amazon S3 object based on a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- simple structured query language (SQL) statement. In the request, along</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- with the SQL expression, you must also specify a data serialization</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- format (JSON, CSV, or Apache Parquet) of the object. Amazon S3 uses this</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- format to parse object data into records, and returns only records that</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- match the specified SQL expression. You must also specify the data</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- serialization format for the response.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- This action is not supported by Amazon S3 on Outposts.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- For more information about Amazon S3 Select, see</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html Selecting Content from Objects&gt;</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- For more information about using SQL with Amazon S3 Select, see</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html SQL Reference for Amazon S3 Select and S3 Glacier Select&gt;</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- __Permissions__</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- You must have @s3:GetObject@ permission for this operation.&#160;Amazon S3</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Select does not support anonymous access. For more information about</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- permissions, see</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html Specifying Permissions in a Policy&gt;</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- /Object Data Formats/</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- You can use Amazon S3 Select to query objects that have the following</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- format properties:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- -   /CSV, JSON, and Parquet/ - Objects must be in CSV, JSON, or Parquet</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--     format.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- -   /UTF-8/ - UTF-8 is the only encoding type Amazon S3 Select supports.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- -   /GZIP or BZIP2/ - CSV and JSON files can be compressed using GZIP or</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--     BZIP2. GZIP and BZIP2 are the only compression formats that Amazon</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--     S3 Select supports for CSV and JSON files. Amazon S3 Select supports</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--     columnar compression for Parquet using GZIP or Snappy. Amazon S3</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--     Select does not support whole-object compression for Parquet</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--     objects.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- -   /Server-side encryption/ - Amazon S3 Select supports querying</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--     objects that are protected with server-side encryption.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--     For objects that are encrypted with customer-provided encryption</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--     keys (SSE-C), you must use HTTPS, and you must use the headers that</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--     are documented in the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject&gt;.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--     For more information about SSE-C, see</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys)&gt;</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--     in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--     For objects that are encrypted with Amazon S3 managed encryption</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--     keys (SSE-S3) and Amazon Web Services KMS keys (SSE-KMS),</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--     server-side encryption is handled transparently, so you don\'t need</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--     to specify anything. For more information about server-side</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--     encryption, including SSE-S3 and SSE-KMS, see</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html Protecting Data Using Server-Side Encryption&gt;</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--     in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- __Working with the Response Body__</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Given the response size is unknown, Amazon S3 Select streams the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- response as a series of messages and includes a @Transfer-Encoding@</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- header with @chunked@ as its value in the response. For more</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/RESTSelectObjectAppendix.html Appendix: SelectObjectContent Response&gt;.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- __GetObject Support__</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- The @SelectObjectContent@ action does not support the following</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- @GetObject@ functionality. For more information, see</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject&gt;.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- -   @Range@: Although you can specify a scan range for an Amazon S3</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--     Select request (see</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_SelectObjectContent.html#AmazonS3-SelectObjectContent-request-ScanRange SelectObjectContentRequest - ScanRange&gt;</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--     in the request parameters), you cannot specify the range of bytes of</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--     an object to return.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -   GLACIER, DEEP_ARCHIVE and REDUCED_REDUNDANCY storage classes: You</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--     cannot specify the GLACIER, DEEP_ARCHIVE, or @REDUCED_REDUNDANCY@</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--     storage classes. For more information, about storage classes see</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#storage-class-intro Storage Classes&gt;</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--     in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- __Special Errors__</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- For a list of special errors for this operation, see</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#SelectObjectContentErrorCodeList List of SELECT Object Content Error Codes&gt;</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- __Related Resources__</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject&gt;</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html GetBucketLifecycleConfiguration&gt;</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html PutBucketLifecycleConfiguration&gt;</span><span>
+</span><span id="line-123"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.SelectObjectContent</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier">SelectObjectContent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#newSelectObjectContent"><span class="hs-identifier">newSelectObjectContent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_requestProgress"><span class="hs-identifier">selectObjectContent_requestProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_expectedBucketOwner"><span class="hs-identifier">selectObjectContent_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_scanRange"><span class="hs-identifier">selectObjectContent_scanRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_sSECustomerKeyMD5"><span class="hs-identifier">selectObjectContent_sSECustomerKeyMD5</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_sSECustomerKey"><span class="hs-identifier">selectObjectContent_sSECustomerKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_sSECustomerAlgorithm"><span class="hs-identifier">selectObjectContent_sSECustomerAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_bucket"><span class="hs-identifier">selectObjectContent_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_key"><span class="hs-identifier">selectObjectContent_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_expression"><span class="hs-identifier">selectObjectContent_expression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_expressionType"><span class="hs-identifier">selectObjectContent_expressionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_inputSerialization"><span class="hs-identifier">selectObjectContent_inputSerialization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_outputSerialization"><span class="hs-identifier">selectObjectContent_outputSerialization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContentResponse"><span class="hs-identifier">SelectObjectContentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#newSelectObjectContentResponse"><span class="hs-identifier">newSelectObjectContentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContentResponse_payload"><span class="hs-identifier">selectObjectContentResponse_payload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContentResponse_httpStatus"><span class="hs-identifier">selectObjectContentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | Request to filter the contents of an Amazon S3 object based on a simple</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Structured Query Language (SQL) statement. In the request, along with</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- the SQL expression, you must specify a data serialization format (JSON</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- or CSV) of the object. Amazon S3 uses this to parse object data into</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- records. It returns only records that match the specified SQL</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- expression. You must also specify the data serialization format for the</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- response. For more information, see</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectSELECTContent.html S3Select API Documentation&gt;.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- /See:/ 'newSelectObjectContent' smart constructor.</span><span>
+</span><span id="line-169"></span><span id="local-6989586621679560972"><span id="local-6989586621679560973"></span></span><span class="hs-keyword">data</span><span> </span><span id="SelectObjectContent"><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-var">SelectObjectContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SelectObjectContent%27"><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-var">SelectObjectContent'</span></a></span></span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies if periodic request progress information should be enabled.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3ArequestProgress%3ASelectObjectContent%27"><span class="annot"><span class="annottext">SelectObjectContent -&gt; Maybe RequestProgress
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3ArequestProgress%3ASelectObjectContent%27"><span class="hs-identifier hs-var hs-var">requestProgress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestProgress.html#RequestProgress"><span class="hs-identifier hs-type">RequestProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3ASelectObjectContent%27"><span class="annot"><span class="annottext">SelectObjectContent -&gt; Maybe Text
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AexpectedBucketOwner%3ASelectObjectContent%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- | Specifies the byte range of the object to get the records from. A record</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- is processed when its first byte is contained by the range. This</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- parameter is optional, but when specified, it must not be empty. See RFC</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- 2616, Section 14.35.1 about how to specify the start and end of the</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- range.</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- @ScanRange@may be used in the following ways:</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- -   @\&lt;scanrange&gt;\&lt;start&gt;50\&lt;\/start&gt;\&lt;end&gt;100\&lt;\/end&gt;\&lt;\/scanrange&gt;@ -</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">--     process only the records starting between the bytes 50 and 100</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">--     (inclusive, counting from zero)</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- -   @\&lt;scanrange&gt;\&lt;start&gt;50\&lt;\/start&gt;\&lt;\/scanrange&gt;@ - process only the</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">--     records starting after the byte 50</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- -   @\&lt;scanrange&gt;\&lt;end&gt;50\&lt;\/end&gt;\&lt;\/scanrange&gt;@ - process only the</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">--     records within the last 50 bytes of the file.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AscanRange%3ASelectObjectContent%27"><span class="annot"><span class="annottext">SelectObjectContent -&gt; Maybe ScanRange
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AscanRange%3ASelectObjectContent%27"><span class="hs-identifier hs-var hs-var">scanRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange"><span class="hs-identifier hs-type">ScanRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | The SSE Customer Key MD5. For more information, see</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys&gt;.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3AsSECustomerKeyMD5%3ASelectObjectContent%27"><span class="annot"><span class="annottext">SelectObjectContent -&gt; Maybe Text
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AsSECustomerKeyMD5%3ASelectObjectContent%27"><span class="hs-identifier hs-var hs-var">sSECustomerKeyMD5</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The SSE Customer Key. For more information, see</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys&gt;.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AsSECustomerKey%3ASelectObjectContent%27"><span class="annot"><span class="annottext">SelectObjectContent -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AsSECustomerKey%3ASelectObjectContent%27"><span class="hs-identifier hs-var hs-var">sSECustomerKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | The SSE Algorithm used to encrypt the object. For more information, see</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys&gt;.</span><span>
+</span><span id="line-202"></span><span>    </span><span id="%24sel%3AsSECustomerAlgorithm%3ASelectObjectContent%27"><span class="annot"><span class="annottext">SelectObjectContent -&gt; Maybe Text
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AsSECustomerAlgorithm%3ASelectObjectContent%27"><span class="hs-identifier hs-var hs-var">sSECustomerAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- | The S3 bucket.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3Abucket%3ASelectObjectContent%27"><span class="annot"><span class="annottext">SelectObjectContent -&gt; BucketName
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3Abucket%3ASelectObjectContent%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | The object key.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3Akey%3ASelectObjectContent%27"><span class="annot"><span class="annottext">SelectObjectContent -&gt; ObjectKey
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3Akey%3ASelectObjectContent%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- | The expression that is used to query the object.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3Aexpression%3ASelectObjectContent%27"><span class="annot"><span class="annottext">SelectObjectContent -&gt; Text
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3Aexpression%3ASelectObjectContent%27"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- | The type of the provided expression (for example, SQL).</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3AexpressionType%3ASelectObjectContent%27"><span class="annot"><span class="annottext">SelectObjectContent -&gt; ExpressionType
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AexpressionType%3ASelectObjectContent%27"><span class="hs-identifier hs-var hs-var">expressionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ExpressionType.html#ExpressionType"><span class="hs-identifier hs-type">ExpressionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- | Describes the format of the data in the object that is being queried.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3AinputSerialization%3ASelectObjectContent%27"><span class="annot"><span class="annottext">SelectObjectContent -&gt; InputSerialization
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AinputSerialization%3ASelectObjectContent%27"><span class="hs-identifier hs-var hs-var">inputSerialization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | Describes the format of the data that you want Amazon S3 to return in</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3AoutputSerialization%3ASelectObjectContent%27"><span class="annot"><span class="annottext">SelectObjectContent -&gt; OutputSerialization
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AoutputSerialization%3ASelectObjectContent%27"><span class="hs-identifier hs-var hs-var">outputSerialization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OutputSerialization.html#OutputSerialization"><span class="hs-identifier hs-type">OutputSerialization</span></a></span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679560955"><span id="local-6989586621679560957"><span class="annot"><span class="annottext">SelectObjectContent -&gt; SelectObjectContent -&gt; Bool
+(SelectObjectContent -&gt; SelectObjectContent -&gt; Bool)
+-&gt; (SelectObjectContent -&gt; SelectObjectContent -&gt; Bool)
+-&gt; Eq SelectObjectContent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SelectObjectContent -&gt; SelectObjectContent -&gt; Bool
+$c/= :: SelectObjectContent -&gt; SelectObjectContent -&gt; Bool
+== :: SelectObjectContent -&gt; SelectObjectContent -&gt; Bool
+$c== :: SelectObjectContent -&gt; SelectObjectContent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679560948"><span id="local-6989586621679560950"><span id="local-6989586621679560952"><span class="annot"><span class="annottext">Int -&gt; SelectObjectContent -&gt; ShowS
+[SelectObjectContent] -&gt; ShowS
+SelectObjectContent -&gt; String
+(Int -&gt; SelectObjectContent -&gt; ShowS)
+-&gt; (SelectObjectContent -&gt; String)
+-&gt; ([SelectObjectContent] -&gt; ShowS)
+-&gt; Show SelectObjectContent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SelectObjectContent] -&gt; ShowS
+$cshowList :: [SelectObjectContent] -&gt; ShowS
+show :: SelectObjectContent -&gt; String
+$cshow :: SelectObjectContent -&gt; String
+showsPrec :: Int -&gt; SelectObjectContent -&gt; ShowS
+$cshowsPrec :: Int -&gt; SelectObjectContent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SelectObjectContent -&gt; Rep SelectObjectContent x)
+-&gt; (forall x. Rep SelectObjectContent x -&gt; SelectObjectContent)
+-&gt; Generic SelectObjectContent
+forall x. Rep SelectObjectContent x -&gt; SelectObjectContent
+forall x. SelectObjectContent -&gt; Rep SelectObjectContent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SelectObjectContent x -&gt; SelectObjectContent
+$cfrom :: forall x. SelectObjectContent -&gt; Rep SelectObjectContent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Create a value of 'SelectObjectContent' with all optional fields omitted.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'requestProgress', 'selectObjectContent_requestProgress' - Specifies if periodic request progress information should be enabled.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- 'expectedBucketOwner', 'selectObjectContent_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 'scanRange', 'selectObjectContent_scanRange' - Specifies the byte range of the object to get the records from. A record</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- is processed when its first byte is contained by the range. This</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- parameter is optional, but when specified, it must not be empty. See RFC</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 2616, Section 14.35.1 about how to specify the start and end of the</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- range.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- @ScanRange@may be used in the following ways:</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- -   @\&lt;scanrange&gt;\&lt;start&gt;50\&lt;\/start&gt;\&lt;end&gt;100\&lt;\/end&gt;\&lt;\/scanrange&gt;@ -</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--     process only the records starting between the bytes 50 and 100</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--     (inclusive, counting from zero)</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- -   @\&lt;scanrange&gt;\&lt;start&gt;50\&lt;\/start&gt;\&lt;\/scanrange&gt;@ - process only the</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--     records starting after the byte 50</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- -   @\&lt;scanrange&gt;\&lt;end&gt;50\&lt;\/end&gt;\&lt;\/scanrange&gt;@ - process only the</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--     records within the last 50 bytes of the file.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- 'sSECustomerKeyMD5', 'selectObjectContent_sSECustomerKeyMD5' - The SSE Customer Key MD5. For more information, see</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys&gt;.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- 'sSECustomerKey', 'selectObjectContent_sSECustomerKey' - The SSE Customer Key. For more information, see</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys&gt;.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'sSECustomerAlgorithm', 'selectObjectContent_sSECustomerAlgorithm' - The SSE Algorithm used to encrypt the object. For more information, see</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys&gt;.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- 'bucket', 'selectObjectContent_bucket' - The S3 bucket.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- 'key', 'selectObjectContent_key' - The object key.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- 'expression', 'selectObjectContent_expression' - The expression that is used to query the object.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- 'expressionType', 'selectObjectContent_expressionType' - The type of the provided expression (for example, SQL).</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- 'inputSerialization', 'selectObjectContent_inputSerialization' - Describes the format of the data in the object that is being queried.</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- 'outputSerialization', 'selectObjectContent_outputSerialization' - Describes the format of the data that you want Amazon S3 to return in</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#newSelectObjectContent"><span class="hs-identifier hs-type">newSelectObjectContent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-273"></span><span>  </span><span class="hs-comment">-- | 'bucket'</span><span>
+</span><span id="line-274"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-275"></span><span>  </span><span class="hs-comment">-- | 'key'</span><span>
+</span><span id="line-276"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-277"></span><span>  </span><span class="hs-comment">-- | 'expression'</span><span>
+</span><span id="line-278"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-279"></span><span>  </span><span class="hs-comment">-- | 'expressionType'</span><span>
+</span><span id="line-280"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.ExpressionType.html#ExpressionType"><span class="hs-identifier hs-type">ExpressionType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-281"></span><span>  </span><span class="hs-comment">-- | 'inputSerialization'</span><span>
+</span><span id="line-282"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-283"></span><span>  </span><span class="hs-comment">-- | 'outputSerialization'</span><span>
+</span><span id="line-284"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.OutputSerialization.html#OutputSerialization"><span class="hs-identifier hs-type">OutputSerialization</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-285"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span>
+</span><span id="line-286"></span><span id="newSelectObjectContent"><span class="annot"><span class="annottext">newSelectObjectContent :: BucketName
+-&gt; ObjectKey
+-&gt; Text
+-&gt; ExpressionType
+-&gt; InputSerialization
+-&gt; OutputSerialization
+-&gt; SelectObjectContent
+</span><a href="Network.AWS.S3.SelectObjectContent.html#newSelectObjectContent"><span class="hs-identifier hs-var hs-var">newSelectObjectContent</span></a></span></span><span>
+</span><span id="line-287"></span><span>  </span><span id="local-6989586621679560943"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679560943"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
+</span><span id="line-288"></span><span>  </span><span id="local-6989586621679560942"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679560942"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span>
+</span><span id="line-289"></span><span>  </span><span id="local-6989586621679560941"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679560941"><span class="hs-identifier hs-var">pExpression_</span></a></span></span><span>
+</span><span id="line-290"></span><span>  </span><span id="local-6989586621679560940"><span class="annot"><span class="annottext">ExpressionType
+</span><a href="#local-6989586621679560940"><span class="hs-identifier hs-var">pExpressionType_</span></a></span></span><span>
+</span><span id="line-291"></span><span>  </span><span id="local-6989586621679560939"><span class="annot"><span class="annottext">InputSerialization
+</span><a href="#local-6989586621679560939"><span class="hs-identifier hs-var">pInputSerialization_</span></a></span></span><span>
+</span><span id="line-292"></span><span>  </span><span id="local-6989586621679560938"><span class="annot"><span class="annottext">OutputSerialization
+</span><a href="#local-6989586621679560938"><span class="hs-identifier hs-var">pOutputSerialization_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><span class="annottext">SelectObjectContent' :: Maybe RequestProgress
+-&gt; Maybe Text
+-&gt; Maybe ScanRange
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; BucketName
+-&gt; ObjectKey
+-&gt; Text
+-&gt; ExpressionType
+-&gt; InputSerialization
+-&gt; OutputSerialization
+-&gt; SelectObjectContent
+</span><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span>
+</span><span id="line-294"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestProgress:SelectObjectContent' :: Maybe RequestProgress
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3ArequestProgress%3ASelectObjectContent%27"><span class="hs-identifier hs-var">requestProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-295"></span><span>          </span><span class="annot"><span class="annottext">Maybe RequestProgress
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>        </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:SelectObjectContent' :: Maybe Text
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AexpectedBucketOwner%3ASelectObjectContent%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>        </span><span class="annot"><span class="annottext">$sel:scanRange:SelectObjectContent' :: Maybe ScanRange
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AscanRange%3ASelectObjectContent%27"><span class="hs-identifier hs-var">scanRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScanRange
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>        </span><span class="annot"><span class="annottext">$sel:sSECustomerKeyMD5:SelectObjectContent' :: Maybe Text
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AsSECustomerKeyMD5%3ASelectObjectContent%27"><span class="hs-identifier hs-var">sSECustomerKeyMD5</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>        </span><span class="annot"><span class="annottext">$sel:sSECustomerKey:SelectObjectContent' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AsSECustomerKey%3ASelectObjectContent%27"><span class="hs-identifier hs-var">sSECustomerKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>        </span><span class="annot"><span class="annottext">$sel:sSECustomerAlgorithm:SelectObjectContent' :: Maybe Text
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AsSECustomerAlgorithm%3ASelectObjectContent%27"><span class="hs-identifier hs-var">sSECustomerAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>        </span><span class="annot"><span class="annottext">$sel:bucket:SelectObjectContent' :: BucketName
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3Abucket%3ASelectObjectContent%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679560943"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>        </span><span class="annot"><span class="annottext">$sel:key:SelectObjectContent' :: ObjectKey
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3Akey%3ASelectObjectContent%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679560942"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>        </span><span class="annot"><span class="annottext">$sel:expression:SelectObjectContent' :: Text
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3Aexpression%3ASelectObjectContent%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679560941"><span class="hs-identifier hs-var">pExpression_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>        </span><span class="annot"><span class="annottext">$sel:expressionType:SelectObjectContent' :: ExpressionType
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AexpressionType%3ASelectObjectContent%27"><span class="hs-identifier hs-var">expressionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExpressionType
+</span><a href="#local-6989586621679560940"><span class="hs-identifier hs-var">pExpressionType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>        </span><span class="annot"><span class="annottext">$sel:inputSerialization:SelectObjectContent' :: InputSerialization
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AinputSerialization%3ASelectObjectContent%27"><span class="hs-identifier hs-var">inputSerialization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputSerialization
+</span><a href="#local-6989586621679560939"><span class="hs-identifier hs-var">pInputSerialization_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputSerialization:SelectObjectContent' :: OutputSerialization
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AoutputSerialization%3ASelectObjectContent%27"><span class="hs-identifier hs-var">outputSerialization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputSerialization
+</span><a href="#local-6989586621679560938"><span class="hs-identifier hs-var">pOutputSerialization_</span></a></span><span>
+</span><span id="line-307"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | Specifies if periodic request progress information should be enabled.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_requestProgress"><span class="hs-identifier hs-type">selectObjectContent_requestProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestProgress.html#RequestProgress"><span class="hs-identifier hs-type">RequestProgress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span id="selectObjectContent_requestProgress"><span class="annot"><span class="annottext">selectObjectContent_requestProgress :: (Maybe RequestProgress -&gt; f (Maybe RequestProgress))
+-&gt; SelectObjectContent -&gt; f SelectObjectContent
+</span><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_requestProgress"><span class="hs-identifier hs-var hs-var">selectObjectContent_requestProgress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContent -&gt; Maybe RequestProgress)
+-&gt; (SelectObjectContent
+    -&gt; Maybe RequestProgress -&gt; SelectObjectContent)
+-&gt; Lens
+     SelectObjectContent
+     SelectObjectContent
+     (Maybe RequestProgress)
+     (Maybe RequestProgress)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560935"><span class="annot"><span class="annottext">Maybe RequestProgress
+requestProgress :: Maybe RequestProgress
+$sel:requestProgress:SelectObjectContent' :: SelectObjectContent -&gt; Maybe RequestProgress
+</span><a href="#local-6989586621679560935"><span class="hs-identifier hs-var hs-var">requestProgress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestProgress
+</span><a href="#local-6989586621679560935"><span class="hs-identifier hs-var">requestProgress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679560934"><span class="annot"><span class="annottext">s :: SelectObjectContent
+</span><a href="#local-6989586621679560934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679560933"><span class="annot"><span class="annottext">Maybe RequestProgress
+</span><a href="#local-6989586621679560933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContent
+</span><a href="#local-6989586621679560934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestProgress:SelectObjectContent' :: Maybe RequestProgress
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3ArequestProgress%3ASelectObjectContent%27"><span class="hs-identifier hs-var">requestProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestProgress
+</span><a href="#local-6989586621679560933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-316"></span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_expectedBucketOwner"><span class="hs-identifier hs-type">selectObjectContent_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span id="selectObjectContent_expectedBucketOwner"><span class="annot"><span class="annottext">selectObjectContent_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SelectObjectContent -&gt; f SelectObjectContent
+</span><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">selectObjectContent_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContent -&gt; Maybe Text)
+-&gt; (SelectObjectContent -&gt; Maybe Text -&gt; SelectObjectContent)
+-&gt; Lens
+     SelectObjectContent SelectObjectContent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560932"><span class="annot"><span class="annottext">Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:expectedBucketOwner:SelectObjectContent' :: SelectObjectContent -&gt; Maybe Text
+</span><a href="#local-6989586621679560932"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679560932"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679560931"><span class="annot"><span class="annottext">s :: SelectObjectContent
+</span><a href="#local-6989586621679560931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679560930"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679560930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContent
+</span><a href="#local-6989586621679560931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:SelectObjectContent' :: Maybe Text
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AexpectedBucketOwner%3ASelectObjectContent%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679560930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | Specifies the byte range of the object to get the records from. A record</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- is processed when its first byte is contained by the range. This</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- parameter is optional, but when specified, it must not be empty. See RFC</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- 2616, Section 14.35.1 about how to specify the start and end of the</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- range.</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- @ScanRange@may be used in the following ways:</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- -   @\&lt;scanrange&gt;\&lt;start&gt;50\&lt;\/start&gt;\&lt;end&gt;100\&lt;\/end&gt;\&lt;\/scanrange&gt;@ -</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--     process only the records starting between the bytes 50 and 100</span><span>
+</span><span id="line-329"></span><span class="hs-comment">--     (inclusive, counting from zero)</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- -   @\&lt;scanrange&gt;\&lt;start&gt;50\&lt;\/start&gt;\&lt;\/scanrange&gt;@ - process only the</span><span>
+</span><span id="line-332"></span><span class="hs-comment">--     records starting after the byte 50</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- -   @\&lt;scanrange&gt;\&lt;end&gt;50\&lt;\/end&gt;\&lt;\/scanrange&gt;@ - process only the</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--     records within the last 50 bytes of the file.</span><span>
+</span><span id="line-336"></span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_scanRange"><span class="hs-identifier hs-type">selectObjectContent_scanRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange"><span class="hs-identifier hs-type">ScanRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span id="selectObjectContent_scanRange"><span class="annot"><span class="annottext">selectObjectContent_scanRange :: (Maybe ScanRange -&gt; f (Maybe ScanRange))
+-&gt; SelectObjectContent -&gt; f SelectObjectContent
+</span><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_scanRange"><span class="hs-identifier hs-var hs-var">selectObjectContent_scanRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContent -&gt; Maybe ScanRange)
+-&gt; (SelectObjectContent -&gt; Maybe ScanRange -&gt; SelectObjectContent)
+-&gt; Lens
+     SelectObjectContent
+     SelectObjectContent
+     (Maybe ScanRange)
+     (Maybe ScanRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560929"><span class="annot"><span class="annottext">Maybe ScanRange
+scanRange :: Maybe ScanRange
+$sel:scanRange:SelectObjectContent' :: SelectObjectContent -&gt; Maybe ScanRange
+</span><a href="#local-6989586621679560929"><span class="hs-identifier hs-var hs-var">scanRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScanRange
+</span><a href="#local-6989586621679560929"><span class="hs-identifier hs-var">scanRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679560928"><span class="annot"><span class="annottext">s :: SelectObjectContent
+</span><a href="#local-6989586621679560928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679560927"><span class="annot"><span class="annottext">Maybe ScanRange
+</span><a href="#local-6989586621679560927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContent
+</span><a href="#local-6989586621679560928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanRange:SelectObjectContent' :: Maybe ScanRange
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AscanRange%3ASelectObjectContent%27"><span class="hs-identifier hs-var">scanRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScanRange
+</span><a href="#local-6989586621679560927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- | The SSE Customer Key MD5. For more information, see</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys&gt;.</span><span>
+</span><span id="line-341"></span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_sSECustomerKeyMD5"><span class="hs-identifier hs-type">selectObjectContent_sSECustomerKeyMD5</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span id="selectObjectContent_sSECustomerKeyMD5"><span class="annot"><span class="annottext">selectObjectContent_sSECustomerKeyMD5 :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SelectObjectContent -&gt; f SelectObjectContent
+</span><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_sSECustomerKeyMD5"><span class="hs-identifier hs-var hs-var">selectObjectContent_sSECustomerKeyMD5</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContent -&gt; Maybe Text)
+-&gt; (SelectObjectContent -&gt; Maybe Text -&gt; SelectObjectContent)
+-&gt; Lens
+     SelectObjectContent SelectObjectContent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560926"><span class="annot"><span class="annottext">Maybe Text
+sSECustomerKeyMD5 :: Maybe Text
+$sel:sSECustomerKeyMD5:SelectObjectContent' :: SelectObjectContent -&gt; Maybe Text
+</span><a href="#local-6989586621679560926"><span class="hs-identifier hs-var hs-var">sSECustomerKeyMD5</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679560926"><span class="hs-identifier hs-var">sSECustomerKeyMD5</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679560925"><span class="annot"><span class="annottext">s :: SelectObjectContent
+</span><a href="#local-6989586621679560925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679560924"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679560924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContent
+</span><a href="#local-6989586621679560925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSECustomerKeyMD5:SelectObjectContent' :: Maybe Text
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AsSECustomerKeyMD5%3ASelectObjectContent%27"><span class="hs-identifier hs-var">sSECustomerKeyMD5</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679560924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- | The SSE Customer Key. For more information, see</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys&gt;.</span><span>
+</span><span id="line-346"></span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_sSECustomerKey"><span class="hs-identifier hs-type">selectObjectContent_sSECustomerKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span id="selectObjectContent_sSECustomerKey"><span class="annot"><span class="annottext">selectObjectContent_sSECustomerKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SelectObjectContent -&gt; f SelectObjectContent
+</span><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_sSECustomerKey"><span class="hs-identifier hs-var hs-var">selectObjectContent_sSECustomerKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContent -&gt; Maybe (Sensitive Text))
+-&gt; (SelectObjectContent
+    -&gt; Maybe (Sensitive Text) -&gt; SelectObjectContent)
+-&gt; Lens
+     SelectObjectContent
+     SelectObjectContent
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560923"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+sSECustomerKey :: Maybe (Sensitive Text)
+$sel:sSECustomerKey:SelectObjectContent' :: SelectObjectContent -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679560923"><span class="hs-identifier hs-var hs-var">sSECustomerKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679560923"><span class="hs-identifier hs-var">sSECustomerKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679560922"><span class="annot"><span class="annottext">s :: SelectObjectContent
+</span><a href="#local-6989586621679560922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679560921"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679560921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContent
+</span><a href="#local-6989586621679560922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSECustomerKey:SelectObjectContent' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AsSECustomerKey%3ASelectObjectContent%27"><span class="hs-identifier hs-var">sSECustomerKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679560921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; SelectObjectContent -&gt; f SelectObjectContent)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; SelectObjectContent
+-&gt; f SelectObjectContent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-348"></span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- | The SSE Algorithm used to encrypt the object. For more information, see</span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys&gt;.</span><span>
+</span><span id="line-351"></span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_sSECustomerAlgorithm"><span class="hs-identifier hs-type">selectObjectContent_sSECustomerAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span id="selectObjectContent_sSECustomerAlgorithm"><span class="annot"><span class="annottext">selectObjectContent_sSECustomerAlgorithm :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SelectObjectContent -&gt; f SelectObjectContent
+</span><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_sSECustomerAlgorithm"><span class="hs-identifier hs-var hs-var">selectObjectContent_sSECustomerAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContent -&gt; Maybe Text)
+-&gt; (SelectObjectContent -&gt; Maybe Text -&gt; SelectObjectContent)
+-&gt; Lens
+     SelectObjectContent SelectObjectContent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560917"><span class="annot"><span class="annottext">Maybe Text
+sSECustomerAlgorithm :: Maybe Text
+$sel:sSECustomerAlgorithm:SelectObjectContent' :: SelectObjectContent -&gt; Maybe Text
+</span><a href="#local-6989586621679560917"><span class="hs-identifier hs-var hs-var">sSECustomerAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679560917"><span class="hs-identifier hs-var">sSECustomerAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679560916"><span class="annot"><span class="annottext">s :: SelectObjectContent
+</span><a href="#local-6989586621679560916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679560915"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679560915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContent
+</span><a href="#local-6989586621679560916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSECustomerAlgorithm:SelectObjectContent' :: Maybe Text
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AsSECustomerAlgorithm%3ASelectObjectContent%27"><span class="hs-identifier hs-var">sSECustomerAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679560915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- | The S3 bucket.</span><span>
+</span><span id="line-355"></span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_bucket"><span class="hs-identifier hs-type">selectObjectContent_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
+</span><span id="line-356"></span><span id="selectObjectContent_bucket"><span class="annot"><span class="annottext">selectObjectContent_bucket :: (BucketName -&gt; f BucketName)
+-&gt; SelectObjectContent -&gt; f SelectObjectContent
+</span><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_bucket"><span class="hs-identifier hs-var hs-var">selectObjectContent_bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContent -&gt; BucketName)
+-&gt; (SelectObjectContent -&gt; BucketName -&gt; SelectObjectContent)
+-&gt; Lens
+     SelectObjectContent SelectObjectContent BucketName BucketName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560914"><span class="annot"><span class="annottext">BucketName
+bucket :: BucketName
+$sel:bucket:SelectObjectContent' :: SelectObjectContent -&gt; BucketName
+</span><a href="#local-6989586621679560914"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679560914"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679560913"><span class="annot"><span class="annottext">s :: SelectObjectContent
+</span><a href="#local-6989586621679560913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679560912"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679560912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContent
+</span><a href="#local-6989586621679560913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:SelectObjectContent' :: BucketName
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3Abucket%3ASelectObjectContent%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679560912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- | The object key.</span><span>
+</span><span id="line-359"></span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_key"><span class="hs-identifier hs-type">selectObjectContent_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
+</span><span id="line-360"></span><span id="selectObjectContent_key"><span class="annot"><span class="annottext">selectObjectContent_key :: (ObjectKey -&gt; f ObjectKey)
+-&gt; SelectObjectContent -&gt; f SelectObjectContent
+</span><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_key"><span class="hs-identifier hs-var hs-var">selectObjectContent_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContent -&gt; ObjectKey)
+-&gt; (SelectObjectContent -&gt; ObjectKey -&gt; SelectObjectContent)
+-&gt; Lens SelectObjectContent SelectObjectContent ObjectKey ObjectKey
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560911"><span class="annot"><span class="annottext">ObjectKey
+key :: ObjectKey
+$sel:key:SelectObjectContent' :: SelectObjectContent -&gt; ObjectKey
+</span><a href="#local-6989586621679560911"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679560911"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679560910"><span class="annot"><span class="annottext">s :: SelectObjectContent
+</span><a href="#local-6989586621679560910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679560909"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679560909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContent
+</span><a href="#local-6989586621679560910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:SelectObjectContent' :: ObjectKey
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3Akey%3ASelectObjectContent%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679560909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- | The expression that is used to query the object.</span><span>
+</span><span id="line-363"></span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_expression"><span class="hs-identifier hs-type">selectObjectContent_expression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-364"></span><span id="selectObjectContent_expression"><span class="annot"><span class="annottext">selectObjectContent_expression :: (Text -&gt; f Text) -&gt; SelectObjectContent -&gt; f SelectObjectContent
+</span><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_expression"><span class="hs-identifier hs-var hs-var">selectObjectContent_expression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContent -&gt; Text)
+-&gt; (SelectObjectContent -&gt; Text -&gt; SelectObjectContent)
+-&gt; Lens SelectObjectContent SelectObjectContent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560908"><span class="annot"><span class="annottext">Text
+expression :: Text
+$sel:expression:SelectObjectContent' :: SelectObjectContent -&gt; Text
+</span><a href="#local-6989586621679560908"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679560908"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679560907"><span class="annot"><span class="annottext">s :: SelectObjectContent
+</span><a href="#local-6989586621679560907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679560906"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679560906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContent
+</span><a href="#local-6989586621679560907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expression:SelectObjectContent' :: Text
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3Aexpression%3ASelectObjectContent%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679560906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-365"></span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- | The type of the provided expression (for example, SQL).</span><span>
+</span><span id="line-367"></span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_expressionType"><span class="hs-identifier hs-type">selectObjectContent_expressionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ExpressionType.html#ExpressionType"><span class="hs-identifier hs-type">ExpressionType</span></a></span><span>
+</span><span id="line-368"></span><span id="selectObjectContent_expressionType"><span class="annot"><span class="annottext">selectObjectContent_expressionType :: (ExpressionType -&gt; f ExpressionType)
+-&gt; SelectObjectContent -&gt; f SelectObjectContent
+</span><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_expressionType"><span class="hs-identifier hs-var hs-var">selectObjectContent_expressionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContent -&gt; ExpressionType)
+-&gt; (SelectObjectContent -&gt; ExpressionType -&gt; SelectObjectContent)
+-&gt; Lens
+     SelectObjectContent
+     SelectObjectContent
+     ExpressionType
+     ExpressionType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560905"><span class="annot"><span class="annottext">ExpressionType
+expressionType :: ExpressionType
+$sel:expressionType:SelectObjectContent' :: SelectObjectContent -&gt; ExpressionType
+</span><a href="#local-6989586621679560905"><span class="hs-identifier hs-var hs-var">expressionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpressionType
+</span><a href="#local-6989586621679560905"><span class="hs-identifier hs-var">expressionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679560904"><span class="annot"><span class="annottext">s :: SelectObjectContent
+</span><a href="#local-6989586621679560904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679560903"><span class="annot"><span class="annottext">ExpressionType
+</span><a href="#local-6989586621679560903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContent
+</span><a href="#local-6989586621679560904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionType:SelectObjectContent' :: ExpressionType
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AexpressionType%3ASelectObjectContent%27"><span class="hs-identifier hs-var">expressionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExpressionType
+</span><a href="#local-6989586621679560903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-369"></span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- | Describes the format of the data in the object that is being queried.</span><span>
+</span><span id="line-371"></span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_inputSerialization"><span class="hs-identifier hs-type">selectObjectContent_inputSerialization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span><span>
+</span><span id="line-372"></span><span id="selectObjectContent_inputSerialization"><span class="annot"><span class="annottext">selectObjectContent_inputSerialization :: (InputSerialization -&gt; f InputSerialization)
+-&gt; SelectObjectContent -&gt; f SelectObjectContent
+</span><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_inputSerialization"><span class="hs-identifier hs-var hs-var">selectObjectContent_inputSerialization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContent -&gt; InputSerialization)
+-&gt; (SelectObjectContent
+    -&gt; InputSerialization -&gt; SelectObjectContent)
+-&gt; Lens
+     SelectObjectContent
+     SelectObjectContent
+     InputSerialization
+     InputSerialization
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560902"><span class="annot"><span class="annottext">InputSerialization
+inputSerialization :: InputSerialization
+$sel:inputSerialization:SelectObjectContent' :: SelectObjectContent -&gt; InputSerialization
+</span><a href="#local-6989586621679560902"><span class="hs-identifier hs-var hs-var">inputSerialization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSerialization
+</span><a href="#local-6989586621679560902"><span class="hs-identifier hs-var">inputSerialization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679560901"><span class="annot"><span class="annottext">s :: SelectObjectContent
+</span><a href="#local-6989586621679560901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679560900"><span class="annot"><span class="annottext">InputSerialization
+</span><a href="#local-6989586621679560900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContent
+</span><a href="#local-6989586621679560901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputSerialization:SelectObjectContent' :: InputSerialization
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AinputSerialization%3ASelectObjectContent%27"><span class="hs-identifier hs-var">inputSerialization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputSerialization
+</span><a href="#local-6989586621679560900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-373"></span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- | Describes the format of the data that you want Amazon S3 to return in</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-376"></span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_outputSerialization"><span class="hs-identifier hs-type">selectObjectContent_outputSerialization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OutputSerialization.html#OutputSerialization"><span class="hs-identifier hs-type">OutputSerialization</span></a></span><span>
+</span><span id="line-377"></span><span id="selectObjectContent_outputSerialization"><span class="annot"><span class="annottext">selectObjectContent_outputSerialization :: (OutputSerialization -&gt; f OutputSerialization)
+-&gt; SelectObjectContent -&gt; f SelectObjectContent
+</span><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContent_outputSerialization"><span class="hs-identifier hs-var hs-var">selectObjectContent_outputSerialization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContent -&gt; OutputSerialization)
+-&gt; (SelectObjectContent
+    -&gt; OutputSerialization -&gt; SelectObjectContent)
+-&gt; Lens
+     SelectObjectContent
+     SelectObjectContent
+     OutputSerialization
+     OutputSerialization
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560899"><span class="annot"><span class="annottext">OutputSerialization
+outputSerialization :: OutputSerialization
+$sel:outputSerialization:SelectObjectContent' :: SelectObjectContent -&gt; OutputSerialization
+</span><a href="#local-6989586621679560899"><span class="hs-identifier hs-var hs-var">outputSerialization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputSerialization
+</span><a href="#local-6989586621679560899"><span class="hs-identifier hs-var">outputSerialization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679560898"><span class="annot"><span class="annottext">s :: SelectObjectContent
+</span><a href="#local-6989586621679560898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679560897"><span class="annot"><span class="annottext">OutputSerialization
+</span><a href="#local-6989586621679560897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContent
+</span><a href="#local-6989586621679560898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputSerialization:SelectObjectContent' :: OutputSerialization
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AoutputSerialization%3ASelectObjectContent%27"><span class="hs-identifier hs-var">outputSerialization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputSerialization
+</span><a href="#local-6989586621679560897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-378"></span><span>
+</span><span id="line-379"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-380"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-381"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-382"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContentResponse"><span class="hs-identifier hs-type">SelectObjectContentResponse</span></a></span><span>
+</span><span id="line-383"></span><span>  </span><span id="local-6989586621679560893"><span class="annot"><span class="annottext">request :: SelectObjectContent -&gt; Request SelectObjectContent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SelectObjectContent -&gt; Request SelectObjectContent
+forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postXML</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-384"></span><span>  </span><span id="local-6989586621679560889"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SelectObjectContent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SelectObjectContent)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-385"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse SelectObjectContent))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SelectObjectContent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SelectObjectContent)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-386"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679560886"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679560886"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679560885"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679560885"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679560884"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679560884"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-387"></span><span>          </span><span class="annot"><span class="annottext">Maybe SelectObjectContentEventStream
+-&gt; Int -&gt; SelectObjectContentResponse
+</span><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContentResponse%27"><span class="hs-identifier hs-var">SelectObjectContentResponse'</span></a></span><span>
+</span><span id="line-388"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SelectObjectContentEventStream
+ -&gt; Int -&gt; SelectObjectContentResponse)
+-&gt; Either String (Maybe SelectObjectContentEventStream)
+-&gt; Either String (Int -&gt; SelectObjectContentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe SelectObjectContentEventStream)
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679560884"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-389"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; SelectObjectContentResponse)
+-&gt; Either String Int -&gt; Either String SelectObjectContentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679560886"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-390"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-391"></span><span>
+</span><span id="line-392"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679560876"><span id="local-6989586621679560878"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span></span></span><span>
+</span><span id="line-393"></span><span>
+</span><span id="line-394"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679560873"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span></span><span>
+</span><span id="line-395"></span><span>
+</span><span id="line-396"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-397"></span><span>  </span><span id="local-6989586621679560869"><span class="annot"><span class="annottext">toElement :: SelectObjectContent -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-398"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; SelectObjectContent -&gt; Element
+forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
+</span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
+</span><span id="line-399"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;{http://s3.amazonaws.com/doc/2006-03-01/}SelectObjectContentRequest&quot;</span></span><span>
+</span><span id="line-400"></span><span>
+</span><span id="line-401"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-402"></span><span>  </span><span id="local-6989586621679560864"><span class="annot"><span class="annottext">toHeaders :: SelectObjectContent -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560851"><span id="local-6989586621679560852"><span id="local-6989586621679560853"><span id="local-6989586621679560854"><span id="local-6989586621679560855"><span id="local-6989586621679560856"><span id="local-6989586621679560857"><span id="local-6989586621679560858"><span id="local-6989586621679560859"><span id="local-6989586621679560860"><span id="local-6989586621679560861"><span id="local-6989586621679560862"><span class="annot"><span class="annottext">Maybe Text
+Maybe (Sensitive Text)
+Maybe RequestProgress
+Maybe ScanRange
+Text
+ObjectKey
+BucketName
+ExpressionType
+InputSerialization
+OutputSerialization
+outputSerialization :: OutputSerialization
+inputSerialization :: InputSerialization
+expressionType :: ExpressionType
+expression :: Text
+key :: ObjectKey
+bucket :: BucketName
+sSECustomerAlgorithm :: Maybe Text
+sSECustomerKey :: Maybe (Sensitive Text)
+sSECustomerKeyMD5 :: Maybe Text
+scanRange :: Maybe ScanRange
+expectedBucketOwner :: Maybe Text
+requestProgress :: Maybe RequestProgress
+$sel:outputSerialization:SelectObjectContent' :: SelectObjectContent -&gt; OutputSerialization
+$sel:inputSerialization:SelectObjectContent' :: SelectObjectContent -&gt; InputSerialization
+$sel:expressionType:SelectObjectContent' :: SelectObjectContent -&gt; ExpressionType
+$sel:expression:SelectObjectContent' :: SelectObjectContent -&gt; Text
+$sel:key:SelectObjectContent' :: SelectObjectContent -&gt; ObjectKey
+$sel:bucket:SelectObjectContent' :: SelectObjectContent -&gt; BucketName
+$sel:sSECustomerAlgorithm:SelectObjectContent' :: SelectObjectContent -&gt; Maybe Text
+$sel:sSECustomerKey:SelectObjectContent' :: SelectObjectContent -&gt; Maybe (Sensitive Text)
+$sel:sSECustomerKeyMD5:SelectObjectContent' :: SelectObjectContent -&gt; Maybe Text
+$sel:scanRange:SelectObjectContent' :: SelectObjectContent -&gt; Maybe ScanRange
+$sel:expectedBucketOwner:SelectObjectContent' :: SelectObjectContent -&gt; Maybe Text
+$sel:requestProgress:SelectObjectContent' :: SelectObjectContent -&gt; Maybe RequestProgress
+</span><a href="#local-6989586621679560851"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-403"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-404"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
+</span><span id="line-405"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679560861"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-406"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-server-side-encryption-customer-key-MD5&quot;</span></span><span>
+</span><span id="line-407"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679560859"><span class="hs-identifier hs-var">sSECustomerKeyMD5</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-408"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-server-side-encryption-customer-key&quot;</span></span><span>
+</span><span id="line-409"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe (Sensitive Text) -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679560858"><span class="hs-identifier hs-var">sSECustomerKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-410"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-server-side-encryption-customer-algorithm&quot;</span></span><span>
+</span><span id="line-411"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679560857"><span class="hs-identifier hs-var">sSECustomerAlgorithm</span></a></span><span>
+</span><span id="line-412"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-413"></span><span>
+</span><span id="line-414"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-415"></span><span>  </span><span id="local-6989586621679560847"><span class="annot"><span class="annottext">toPath :: SelectObjectContent -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560834"><span id="local-6989586621679560835"><span id="local-6989586621679560836"><span id="local-6989586621679560837"><span id="local-6989586621679560838"><span id="local-6989586621679560839"><span id="local-6989586621679560840"><span id="local-6989586621679560841"><span id="local-6989586621679560842"><span id="local-6989586621679560843"><span id="local-6989586621679560844"><span id="local-6989586621679560845"><span class="annot"><span class="annottext">Maybe Text
+Maybe (Sensitive Text)
+Maybe RequestProgress
+Maybe ScanRange
+Text
+ObjectKey
+BucketName
+ExpressionType
+InputSerialization
+OutputSerialization
+outputSerialization :: OutputSerialization
+inputSerialization :: InputSerialization
+expressionType :: ExpressionType
+expression :: Text
+key :: ObjectKey
+bucket :: BucketName
+sSECustomerAlgorithm :: Maybe Text
+sSECustomerKey :: Maybe (Sensitive Text)
+sSECustomerKeyMD5 :: Maybe Text
+scanRange :: Maybe ScanRange
+expectedBucketOwner :: Maybe Text
+requestProgress :: Maybe RequestProgress
+$sel:outputSerialization:SelectObjectContent' :: SelectObjectContent -&gt; OutputSerialization
+$sel:inputSerialization:SelectObjectContent' :: SelectObjectContent -&gt; InputSerialization
+$sel:expressionType:SelectObjectContent' :: SelectObjectContent -&gt; ExpressionType
+$sel:expression:SelectObjectContent' :: SelectObjectContent -&gt; Text
+$sel:key:SelectObjectContent' :: SelectObjectContent -&gt; ObjectKey
+$sel:bucket:SelectObjectContent' :: SelectObjectContent -&gt; BucketName
+$sel:sSECustomerAlgorithm:SelectObjectContent' :: SelectObjectContent -&gt; Maybe Text
+$sel:sSECustomerKey:SelectObjectContent' :: SelectObjectContent -&gt; Maybe (Sensitive Text)
+$sel:sSECustomerKeyMD5:SelectObjectContent' :: SelectObjectContent -&gt; Maybe Text
+$sel:scanRange:SelectObjectContent' :: SelectObjectContent -&gt; Maybe ScanRange
+$sel:expectedBucketOwner:SelectObjectContent' :: SelectObjectContent -&gt; Maybe Text
+$sel:requestProgress:SelectObjectContent' :: SelectObjectContent -&gt; Maybe RequestProgress
+</span><a href="#local-6989586621679560834"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-416"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-417"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679560839"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ObjectKey -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679560838"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-418"></span><span>
+</span><span id="line-419"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-420"></span><span>  </span><span id="local-6989586621679560830"><span class="annot"><span class="annottext">toQuery :: SelectObjectContent -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-421"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; SelectObjectContent -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-422"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;select&amp;select-type=2&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-423"></span><span>
+</span><span id="line-424"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent"><span class="hs-identifier hs-type">SelectObjectContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-425"></span><span>  </span><span id="local-6989586621679560825"><span class="annot"><span class="annottext">toXML :: SelectObjectContent -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContent%27"><span class="hs-identifier hs-type">SelectObjectContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560812"><span id="local-6989586621679560813"><span id="local-6989586621679560814"><span id="local-6989586621679560815"><span id="local-6989586621679560816"><span id="local-6989586621679560817"><span id="local-6989586621679560818"><span id="local-6989586621679560819"><span id="local-6989586621679560820"><span id="local-6989586621679560821"><span id="local-6989586621679560822"><span id="local-6989586621679560823"><span class="annot"><span class="annottext">Maybe Text
+Maybe (Sensitive Text)
+Maybe RequestProgress
+Maybe ScanRange
+Text
+ObjectKey
+BucketName
+ExpressionType
+InputSerialization
+OutputSerialization
+outputSerialization :: OutputSerialization
+inputSerialization :: InputSerialization
+expressionType :: ExpressionType
+expression :: Text
+key :: ObjectKey
+bucket :: BucketName
+sSECustomerAlgorithm :: Maybe Text
+sSECustomerKey :: Maybe (Sensitive Text)
+sSECustomerKeyMD5 :: Maybe Text
+scanRange :: Maybe ScanRange
+expectedBucketOwner :: Maybe Text
+requestProgress :: Maybe RequestProgress
+$sel:outputSerialization:SelectObjectContent' :: SelectObjectContent -&gt; OutputSerialization
+$sel:inputSerialization:SelectObjectContent' :: SelectObjectContent -&gt; InputSerialization
+$sel:expressionType:SelectObjectContent' :: SelectObjectContent -&gt; ExpressionType
+$sel:expression:SelectObjectContent' :: SelectObjectContent -&gt; Text
+$sel:key:SelectObjectContent' :: SelectObjectContent -&gt; ObjectKey
+$sel:bucket:SelectObjectContent' :: SelectObjectContent -&gt; BucketName
+$sel:sSECustomerAlgorithm:SelectObjectContent' :: SelectObjectContent -&gt; Maybe Text
+$sel:sSECustomerKey:SelectObjectContent' :: SelectObjectContent -&gt; Maybe (Sensitive Text)
+$sel:sSECustomerKeyMD5:SelectObjectContent' :: SelectObjectContent -&gt; Maybe Text
+$sel:scanRange:SelectObjectContent' :: SelectObjectContent -&gt; Maybe ScanRange
+$sel:expectedBucketOwner:SelectObjectContent' :: SelectObjectContent -&gt; Maybe Text
+$sel:requestProgress:SelectObjectContent' :: SelectObjectContent -&gt; Maybe RequestProgress
+</span><a href="#local-6989586621679560812"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-426"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-427"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;RequestProgress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe RequestProgress -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe RequestProgress
+</span><a href="#local-6989586621679560823"><span class="hs-identifier hs-var">requestProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-428"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;ScanRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe ScanRange -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ScanRange
+</span><a href="#local-6989586621679560821"><span class="hs-identifier hs-var">scanRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-429"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Expression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679560815"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-430"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;ExpressionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; ExpressionType -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">ExpressionType
+</span><a href="#local-6989586621679560814"><span class="hs-identifier hs-var">expressionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-431"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;InputSerialization&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; InputSerialization -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">InputSerialization
+</span><a href="#local-6989586621679560813"><span class="hs-identifier hs-var">inputSerialization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-432"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;OutputSerialization&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; OutputSerialization -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">OutputSerialization
+</span><a href="#local-6989586621679560812"><span class="hs-identifier hs-var">outputSerialization</span></a></span><span>
+</span><span id="line-433"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-434"></span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- | /See:/ 'newSelectObjectContentResponse' smart constructor.</span><span>
+</span><span id="line-436"></span><span id="local-6989586621679560809"><span id="local-6989586621679560810"></span></span><span class="hs-keyword">data</span><span> </span><span id="SelectObjectContentResponse"><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContentResponse"><span class="hs-identifier hs-var">SelectObjectContentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SelectObjectContentResponse%27"><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContentResponse%27"><span class="hs-identifier hs-var">SelectObjectContentResponse'</span></a></span></span><span>
+</span><span id="line-437"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The array of results.</span><span>
+</span><span id="line-438"></span><span>    </span><span id="%24sel%3Apayload%3ASelectObjectContentResponse%27"><span class="annot"><span class="annottext">SelectObjectContentResponse -&gt; Maybe SelectObjectContentEventStream
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3Apayload%3ASelectObjectContentResponse%27"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-439"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-440"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASelectObjectContentResponse%27"><span class="annot"><span class="annottext">SelectObjectContentResponse -&gt; Int
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AhttpStatus%3ASelectObjectContentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-441"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-442"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679560803"><span id="local-6989586621679560805"><span class="annot"><span class="annottext">SelectObjectContentResponse -&gt; SelectObjectContentResponse -&gt; Bool
+(SelectObjectContentResponse
+ -&gt; SelectObjectContentResponse -&gt; Bool)
+-&gt; (SelectObjectContentResponse
+    -&gt; SelectObjectContentResponse -&gt; Bool)
+-&gt; Eq SelectObjectContentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SelectObjectContentResponse -&gt; SelectObjectContentResponse -&gt; Bool
+$c/= :: SelectObjectContentResponse -&gt; SelectObjectContentResponse -&gt; Bool
+== :: SelectObjectContentResponse -&gt; SelectObjectContentResponse -&gt; Bool
+$c== :: SelectObjectContentResponse -&gt; SelectObjectContentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679560795"><span id="local-6989586621679560797"><span id="local-6989586621679560799"><span id="local-6989586621679560801"><span class="annot"><span class="annottext">ReadPrec [SelectObjectContentResponse]
+ReadPrec SelectObjectContentResponse
+Int -&gt; ReadS SelectObjectContentResponse
+ReadS [SelectObjectContentResponse]
+(Int -&gt; ReadS SelectObjectContentResponse)
+-&gt; ReadS [SelectObjectContentResponse]
+-&gt; ReadPrec SelectObjectContentResponse
+-&gt; ReadPrec [SelectObjectContentResponse]
+-&gt; Read SelectObjectContentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SelectObjectContentResponse]
+$creadListPrec :: ReadPrec [SelectObjectContentResponse]
+readPrec :: ReadPrec SelectObjectContentResponse
+$creadPrec :: ReadPrec SelectObjectContentResponse
+readList :: ReadS [SelectObjectContentResponse]
+$creadList :: ReadS [SelectObjectContentResponse]
+readsPrec :: Int -&gt; ReadS SelectObjectContentResponse
+$creadsPrec :: Int -&gt; ReadS SelectObjectContentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679560788"><span id="local-6989586621679560790"><span id="local-6989586621679560792"><span class="annot"><span class="annottext">Int -&gt; SelectObjectContentResponse -&gt; ShowS
+[SelectObjectContentResponse] -&gt; ShowS
+SelectObjectContentResponse -&gt; String
+(Int -&gt; SelectObjectContentResponse -&gt; ShowS)
+-&gt; (SelectObjectContentResponse -&gt; String)
+-&gt; ([SelectObjectContentResponse] -&gt; ShowS)
+-&gt; Show SelectObjectContentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SelectObjectContentResponse] -&gt; ShowS
+$cshowList :: [SelectObjectContentResponse] -&gt; ShowS
+show :: SelectObjectContentResponse -&gt; String
+$cshow :: SelectObjectContentResponse -&gt; String
+showsPrec :: Int -&gt; SelectObjectContentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SelectObjectContentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SelectObjectContentResponse -&gt; Rep SelectObjectContentResponse x)
+-&gt; (forall x.
+    Rep SelectObjectContentResponse x -&gt; SelectObjectContentResponse)
+-&gt; Generic SelectObjectContentResponse
+forall x.
+Rep SelectObjectContentResponse x -&gt; SelectObjectContentResponse
+forall x.
+SelectObjectContentResponse -&gt; Rep SelectObjectContentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SelectObjectContentResponse x -&gt; SelectObjectContentResponse
+$cfrom :: forall x.
+SelectObjectContentResponse -&gt; Rep SelectObjectContentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-443"></span><span>
+</span><span id="line-444"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- Create a value of 'SelectObjectContentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-446"></span><span class="hs-comment">--</span><span>
+</span><span id="line-447"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-448"></span><span class="hs-comment">--</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-451"></span><span class="hs-comment">--</span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- 'payload', 'selectObjectContentResponse_payload' - The array of results.</span><span>
+</span><span id="line-453"></span><span class="hs-comment">--</span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- 'httpStatus', 'selectObjectContentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-455"></span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#newSelectObjectContentResponse"><span class="hs-identifier hs-type">newSelectObjectContentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-456"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-457"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-458"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContentResponse"><span class="hs-identifier hs-type">SelectObjectContentResponse</span></a></span><span>
+</span><span id="line-459"></span><span id="newSelectObjectContentResponse"><span class="annot"><span class="annottext">newSelectObjectContentResponse :: Int -&gt; SelectObjectContentResponse
+</span><a href="Network.AWS.S3.SelectObjectContent.html#newSelectObjectContentResponse"><span class="hs-identifier hs-var hs-var">newSelectObjectContentResponse</span></a></span></span><span> </span><span id="local-6989586621679560785"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679560785"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-460"></span><span>  </span><span class="annot"><span class="annottext">SelectObjectContentResponse' :: Maybe SelectObjectContentEventStream
+-&gt; Int -&gt; SelectObjectContentResponse
+</span><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContentResponse%27"><span class="hs-identifier hs-type">SelectObjectContentResponse'</span></a></span><span>
+</span><span id="line-461"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:payload:SelectObjectContentResponse' :: Maybe SelectObjectContentEventStream
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3Apayload%3ASelectObjectContentResponse%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-462"></span><span>        </span><span class="annot"><span class="annottext">Maybe SelectObjectContentEventStream
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-463"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SelectObjectContentResponse' :: Int
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AhttpStatus%3ASelectObjectContentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679560785"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-464"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-465"></span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- | The array of results.</span><span>
+</span><span id="line-467"></span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContentResponse_payload"><span class="hs-identifier hs-type">selectObjectContentResponse_payload</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContentResponse"><span class="hs-identifier hs-type">SelectObjectContentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-468"></span><span id="selectObjectContentResponse_payload"><span class="annot"><span class="annottext">selectObjectContentResponse_payload :: (Maybe SelectObjectContentEventStream
+ -&gt; f (Maybe SelectObjectContentEventStream))
+-&gt; SelectObjectContentResponse -&gt; f SelectObjectContentResponse
+</span><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContentResponse_payload"><span class="hs-identifier hs-var hs-var">selectObjectContentResponse_payload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContentResponse
+ -&gt; Maybe SelectObjectContentEventStream)
+-&gt; (SelectObjectContentResponse
+    -&gt; Maybe SelectObjectContentEventStream
+    -&gt; SelectObjectContentResponse)
+-&gt; Lens
+     SelectObjectContentResponse
+     SelectObjectContentResponse
+     (Maybe SelectObjectContentEventStream)
+     (Maybe SelectObjectContentEventStream)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContentResponse%27"><span class="hs-identifier hs-type">SelectObjectContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560784"><span class="annot"><span class="annottext">Maybe SelectObjectContentEventStream
+payload :: Maybe SelectObjectContentEventStream
+$sel:payload:SelectObjectContentResponse' :: SelectObjectContentResponse -&gt; Maybe SelectObjectContentEventStream
+</span><a href="#local-6989586621679560784"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SelectObjectContentEventStream
+</span><a href="#local-6989586621679560784"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679560783"><span class="annot"><span class="annottext">s :: SelectObjectContentResponse
+</span><a href="#local-6989586621679560783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContentResponse%27"><span class="hs-identifier hs-type">SelectObjectContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679560782"><span class="annot"><span class="annottext">Maybe SelectObjectContentEventStream
+</span><a href="#local-6989586621679560782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContentResponse
+</span><a href="#local-6989586621679560783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:SelectObjectContentResponse' :: Maybe SelectObjectContentEventStream
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3Apayload%3ASelectObjectContentResponse%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SelectObjectContentEventStream
+</span><a href="#local-6989586621679560782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContentResponse"><span class="hs-identifier hs-type">SelectObjectContentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-469"></span><span>
+</span><span id="line-470"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-471"></span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContentResponse_httpStatus"><span class="hs-identifier hs-type">selectObjectContentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContentResponse"><span class="hs-identifier hs-type">SelectObjectContentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-472"></span><span id="selectObjectContentResponse_httpStatus"><span class="annot"><span class="annottext">selectObjectContentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; SelectObjectContentResponse -&gt; f SelectObjectContentResponse
+</span><a href="Network.AWS.S3.SelectObjectContent.html#selectObjectContentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">selectObjectContentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContentResponse -&gt; Int)
+-&gt; (SelectObjectContentResponse
+    -&gt; Int -&gt; SelectObjectContentResponse)
+-&gt; Lens
+     SelectObjectContentResponse SelectObjectContentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContentResponse%27"><span class="hs-identifier hs-type">SelectObjectContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679560781"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SelectObjectContentResponse' :: SelectObjectContentResponse -&gt; Int
+</span><a href="#local-6989586621679560781"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679560781"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679560780"><span class="annot"><span class="annottext">s :: SelectObjectContentResponse
+</span><a href="#local-6989586621679560780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContentResponse%27"><span class="hs-identifier hs-type">SelectObjectContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679560779"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679560779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContentResponse
+</span><a href="#local-6989586621679560780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SelectObjectContentResponse' :: Int
+</span><a href="Network.AWS.S3.SelectObjectContent.html#%24sel%3AhttpStatus%3ASelectObjectContentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679560779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContentResponse"><span class="hs-identifier hs-type">SelectObjectContentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-473"></span><span>
+</span><span id="line-474"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679560777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.SelectObjectContent.html#SelectObjectContentResponse"><span class="hs-identifier hs-type">SelectObjectContentResponse</span></a></span></span><span>
+</span><span id="line-475"></span></pre></body></html>

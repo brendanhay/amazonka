@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticSearch.Types.SAMLOptionsOutput</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticSearch.Types.SAMLOptionsOutput</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html"><span class="hs-identifier">Network.AWS.ElasticSearch.Types.SAMLIdp</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes the SAML application configured for the domain.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSAMLOptionsOutput' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679300527"><span id="local-6989586621679300528"></span></span><span class="hs-keyword">data</span><span> </span><span id="SAMLOptionsOutput"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-var">SAMLOptionsOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SAMLOptionsOutput%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput%27"><span class="hs-identifier hs-var">SAMLOptionsOutput'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The key used for matching the SAML Roles attribute.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3ArolesKey%3ASAMLOptionsOutput%27"><span class="annot"><span class="annottext">SAMLOptionsOutput -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#%24sel%3ArolesKey%3ASAMLOptionsOutput%27"><span class="hs-identifier hs-var hs-var">rolesKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The duration, in minutes, after which a user session becomes inactive.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsessionTimeoutMinutes%3ASAMLOptionsOutput%27"><span class="annot"><span class="annottext">SAMLOptionsOutput -&gt; Maybe Int
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#%24sel%3AsessionTimeoutMinutes%3ASAMLOptionsOutput%27"><span class="hs-identifier hs-var hs-var">sessionTimeoutMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | True if SAML is enabled.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aenabled%3ASAMLOptionsOutput%27"><span class="annot"><span class="annottext">SAMLOptionsOutput -&gt; Maybe Bool
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#%24sel%3Aenabled%3ASAMLOptionsOutput%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Describes the SAML Identity Provider\'s information.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aidp%3ASAMLOptionsOutput%27"><span class="annot"><span class="annottext">SAMLOptionsOutput -&gt; Maybe SAMLIdp
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#%24sel%3Aidp%3ASAMLOptionsOutput%27"><span class="hs-identifier hs-var hs-var">idp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-type">SAMLIdp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The key used for matching the SAML Subject attribute.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsubjectKey%3ASAMLOptionsOutput%27"><span class="annot"><span class="annottext">SAMLOptionsOutput -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#%24sel%3AsubjectKey%3ASAMLOptionsOutput%27"><span class="hs-identifier hs-var hs-var">subjectKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300517"><span id="local-6989586621679300519"><span class="annot"><span class="annottext">SAMLOptionsOutput -&gt; SAMLOptionsOutput -&gt; Bool
+(SAMLOptionsOutput -&gt; SAMLOptionsOutput -&gt; Bool)
+-&gt; (SAMLOptionsOutput -&gt; SAMLOptionsOutput -&gt; Bool)
+-&gt; Eq SAMLOptionsOutput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SAMLOptionsOutput -&gt; SAMLOptionsOutput -&gt; Bool
+$c/= :: SAMLOptionsOutput -&gt; SAMLOptionsOutput -&gt; Bool
+== :: SAMLOptionsOutput -&gt; SAMLOptionsOutput -&gt; Bool
+$c== :: SAMLOptionsOutput -&gt; SAMLOptionsOutput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300508"><span id="local-6989586621679300510"><span id="local-6989586621679300512"><span id="local-6989586621679300514"><span class="annot"><span class="annottext">ReadPrec [SAMLOptionsOutput]
+ReadPrec SAMLOptionsOutput
+Int -&gt; ReadS SAMLOptionsOutput
+ReadS [SAMLOptionsOutput]
+(Int -&gt; ReadS SAMLOptionsOutput)
+-&gt; ReadS [SAMLOptionsOutput]
+-&gt; ReadPrec SAMLOptionsOutput
+-&gt; ReadPrec [SAMLOptionsOutput]
+-&gt; Read SAMLOptionsOutput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SAMLOptionsOutput]
+$creadListPrec :: ReadPrec [SAMLOptionsOutput]
+readPrec :: ReadPrec SAMLOptionsOutput
+$creadPrec :: ReadPrec SAMLOptionsOutput
+readList :: ReadS [SAMLOptionsOutput]
+$creadList :: ReadS [SAMLOptionsOutput]
+readsPrec :: Int -&gt; ReadS SAMLOptionsOutput
+$creadsPrec :: Int -&gt; ReadS SAMLOptionsOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300501"><span id="local-6989586621679300503"><span id="local-6989586621679300505"><span class="annot"><span class="annottext">Int -&gt; SAMLOptionsOutput -&gt; ShowS
+[SAMLOptionsOutput] -&gt; ShowS
+SAMLOptionsOutput -&gt; String
+(Int -&gt; SAMLOptionsOutput -&gt; ShowS)
+-&gt; (SAMLOptionsOutput -&gt; String)
+-&gt; ([SAMLOptionsOutput] -&gt; ShowS)
+-&gt; Show SAMLOptionsOutput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SAMLOptionsOutput] -&gt; ShowS
+$cshowList :: [SAMLOptionsOutput] -&gt; ShowS
+show :: SAMLOptionsOutput -&gt; String
+$cshow :: SAMLOptionsOutput -&gt; String
+showsPrec :: Int -&gt; SAMLOptionsOutput -&gt; ShowS
+$cshowsPrec :: Int -&gt; SAMLOptionsOutput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SAMLOptionsOutput -&gt; Rep SAMLOptionsOutput x)
+-&gt; (forall x. Rep SAMLOptionsOutput x -&gt; SAMLOptionsOutput)
+-&gt; Generic SAMLOptionsOutput
+forall x. Rep SAMLOptionsOutput x -&gt; SAMLOptionsOutput
+forall x. SAMLOptionsOutput -&gt; Rep SAMLOptionsOutput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SAMLOptionsOutput x -&gt; SAMLOptionsOutput
+$cfrom :: forall x. SAMLOptionsOutput -&gt; Rep SAMLOptionsOutput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'SAMLOptionsOutput' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'rolesKey', 'sAMLOptionsOutput_rolesKey' - The key used for matching the SAML Roles attribute.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'sessionTimeoutMinutes', 'sAMLOptionsOutput_sessionTimeoutMinutes' - The duration, in minutes, after which a user session becomes inactive.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'enabled', 'sAMLOptionsOutput_enabled' - True if SAML is enabled.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'idp', 'sAMLOptionsOutput_idp' - Describes the SAML Identity Provider\'s information.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'subjectKey', 'sAMLOptionsOutput_subjectKey' - The key used for matching the SAML Subject attribute.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#newSAMLOptionsOutput"><span class="hs-identifier hs-type">newSAMLOptionsOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span><span>
+</span><span id="line-63"></span><span id="newSAMLOptionsOutput"><span class="annot"><span class="annottext">newSAMLOptionsOutput :: SAMLOptionsOutput
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#newSAMLOptionsOutput"><span class="hs-identifier hs-var hs-var">newSAMLOptionsOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">SAMLOptionsOutput' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe SAMLIdp
+-&gt; Maybe Text
+-&gt; SAMLOptionsOutput
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput%27"><span class="hs-identifier hs-type">SAMLOptionsOutput'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rolesKey:SAMLOptionsOutput' :: Maybe Text
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#%24sel%3ArolesKey%3ASAMLOptionsOutput%27"><span class="hs-identifier hs-var">rolesKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:sessionTimeoutMinutes:SAMLOptionsOutput' :: Maybe Int
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#%24sel%3AsessionTimeoutMinutes%3ASAMLOptionsOutput%27"><span class="hs-identifier hs-var">sessionTimeoutMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:SAMLOptionsOutput' :: Maybe Bool
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#%24sel%3Aenabled%3ASAMLOptionsOutput%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:idp:SAMLOptionsOutput' :: Maybe SAMLIdp
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#%24sel%3Aidp%3ASAMLOptionsOutput%27"><span class="hs-identifier hs-var">idp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SAMLIdp
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:subjectKey:SAMLOptionsOutput' :: Maybe Text
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#%24sel%3AsubjectKey%3ASAMLOptionsOutput%27"><span class="hs-identifier hs-var">subjectKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The key used for matching the SAML Roles attribute.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#sAMLOptionsOutput_rolesKey"><span class="hs-identifier hs-type">sAMLOptionsOutput_rolesKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="sAMLOptionsOutput_rolesKey"><span class="annot"><span class="annottext">sAMLOptionsOutput_rolesKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SAMLOptionsOutput -&gt; f SAMLOptionsOutput
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#sAMLOptionsOutput_rolesKey"><span class="hs-identifier hs-var hs-var">sAMLOptionsOutput_rolesKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SAMLOptionsOutput -&gt; Maybe Text)
+-&gt; (SAMLOptionsOutput -&gt; Maybe Text -&gt; SAMLOptionsOutput)
+-&gt; Lens
+     SAMLOptionsOutput SAMLOptionsOutput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput%27"><span class="hs-identifier hs-type">SAMLOptionsOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300492"><span class="annot"><span class="annottext">Maybe Text
+rolesKey :: Maybe Text
+$sel:rolesKey:SAMLOptionsOutput' :: SAMLOptionsOutput -&gt; Maybe Text
+</span><a href="#local-6989586621679300492"><span class="hs-identifier hs-var hs-var">rolesKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300492"><span class="hs-identifier hs-var">rolesKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300491"><span class="annot"><span class="annottext">s :: SAMLOptionsOutput
+</span><a href="#local-6989586621679300491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput%27"><span class="hs-identifier hs-type">SAMLOptionsOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300490"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SAMLOptionsOutput
+</span><a href="#local-6989586621679300491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rolesKey:SAMLOptionsOutput' :: Maybe Text
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#%24sel%3ArolesKey%3ASAMLOptionsOutput%27"><span class="hs-identifier hs-var">rolesKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The duration, in minutes, after which a user session becomes inactive.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#sAMLOptionsOutput_sessionTimeoutMinutes"><span class="hs-identifier hs-type">sAMLOptionsOutput_sessionTimeoutMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="sAMLOptionsOutput_sessionTimeoutMinutes"><span class="annot"><span class="annottext">sAMLOptionsOutput_sessionTimeoutMinutes :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SAMLOptionsOutput -&gt; f SAMLOptionsOutput
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#sAMLOptionsOutput_sessionTimeoutMinutes"><span class="hs-identifier hs-var hs-var">sAMLOptionsOutput_sessionTimeoutMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SAMLOptionsOutput -&gt; Maybe Int)
+-&gt; (SAMLOptionsOutput -&gt; Maybe Int -&gt; SAMLOptionsOutput)
+-&gt; Lens SAMLOptionsOutput SAMLOptionsOutput (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput%27"><span class="hs-identifier hs-type">SAMLOptionsOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300488"><span class="annot"><span class="annottext">Maybe Int
+sessionTimeoutMinutes :: Maybe Int
+$sel:sessionTimeoutMinutes:SAMLOptionsOutput' :: SAMLOptionsOutput -&gt; Maybe Int
+</span><a href="#local-6989586621679300488"><span class="hs-identifier hs-var hs-var">sessionTimeoutMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679300488"><span class="hs-identifier hs-var">sessionTimeoutMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300487"><span class="annot"><span class="annottext">s :: SAMLOptionsOutput
+</span><a href="#local-6989586621679300487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput%27"><span class="hs-identifier hs-type">SAMLOptionsOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300486"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679300486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SAMLOptionsOutput
+</span><a href="#local-6989586621679300487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionTimeoutMinutes:SAMLOptionsOutput' :: Maybe Int
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#%24sel%3AsessionTimeoutMinutes%3ASAMLOptionsOutput%27"><span class="hs-identifier hs-var">sessionTimeoutMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679300486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | True if SAML is enabled.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#sAMLOptionsOutput_enabled"><span class="hs-identifier hs-type">sAMLOptionsOutput_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="sAMLOptionsOutput_enabled"><span class="annot"><span class="annottext">sAMLOptionsOutput_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; SAMLOptionsOutput -&gt; f SAMLOptionsOutput
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#sAMLOptionsOutput_enabled"><span class="hs-identifier hs-var hs-var">sAMLOptionsOutput_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SAMLOptionsOutput -&gt; Maybe Bool)
+-&gt; (SAMLOptionsOutput -&gt; Maybe Bool -&gt; SAMLOptionsOutput)
+-&gt; Lens
+     SAMLOptionsOutput SAMLOptionsOutput (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput%27"><span class="hs-identifier hs-type">SAMLOptionsOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300484"><span class="annot"><span class="annottext">Maybe Bool
+enabled :: Maybe Bool
+$sel:enabled:SAMLOptionsOutput' :: SAMLOptionsOutput -&gt; Maybe Bool
+</span><a href="#local-6989586621679300484"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300484"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300483"><span class="annot"><span class="annottext">s :: SAMLOptionsOutput
+</span><a href="#local-6989586621679300483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput%27"><span class="hs-identifier hs-type">SAMLOptionsOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300482"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SAMLOptionsOutput
+</span><a href="#local-6989586621679300483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:SAMLOptionsOutput' :: Maybe Bool
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#%24sel%3Aenabled%3ASAMLOptionsOutput%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | Describes the SAML Identity Provider\'s information.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#sAMLOptionsOutput_idp"><span class="hs-identifier hs-type">sAMLOptionsOutput_idp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-type">SAMLIdp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="sAMLOptionsOutput_idp"><span class="annot"><span class="annottext">sAMLOptionsOutput_idp :: (Maybe SAMLIdp -&gt; f (Maybe SAMLIdp))
+-&gt; SAMLOptionsOutput -&gt; f SAMLOptionsOutput
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#sAMLOptionsOutput_idp"><span class="hs-identifier hs-var hs-var">sAMLOptionsOutput_idp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SAMLOptionsOutput -&gt; Maybe SAMLIdp)
+-&gt; (SAMLOptionsOutput -&gt; Maybe SAMLIdp -&gt; SAMLOptionsOutput)
+-&gt; Lens
+     SAMLOptionsOutput SAMLOptionsOutput (Maybe SAMLIdp) (Maybe SAMLIdp)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput%27"><span class="hs-identifier hs-type">SAMLOptionsOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300480"><span class="annot"><span class="annottext">Maybe SAMLIdp
+idp :: Maybe SAMLIdp
+$sel:idp:SAMLOptionsOutput' :: SAMLOptionsOutput -&gt; Maybe SAMLIdp
+</span><a href="#local-6989586621679300480"><span class="hs-identifier hs-var hs-var">idp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SAMLIdp
+</span><a href="#local-6989586621679300480"><span class="hs-identifier hs-var">idp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300479"><span class="annot"><span class="annottext">s :: SAMLOptionsOutput
+</span><a href="#local-6989586621679300479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput%27"><span class="hs-identifier hs-type">SAMLOptionsOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300478"><span class="annot"><span class="annottext">Maybe SAMLIdp
+</span><a href="#local-6989586621679300478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SAMLOptionsOutput
+</span><a href="#local-6989586621679300479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idp:SAMLOptionsOutput' :: Maybe SAMLIdp
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#%24sel%3Aidp%3ASAMLOptionsOutput%27"><span class="hs-identifier hs-var">idp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SAMLIdp
+</span><a href="#local-6989586621679300478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The key used for matching the SAML Subject attribute.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#sAMLOptionsOutput_subjectKey"><span class="hs-identifier hs-type">sAMLOptionsOutput_subjectKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="sAMLOptionsOutput_subjectKey"><span class="annot"><span class="annottext">sAMLOptionsOutput_subjectKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SAMLOptionsOutput -&gt; f SAMLOptionsOutput
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#sAMLOptionsOutput_subjectKey"><span class="hs-identifier hs-var hs-var">sAMLOptionsOutput_subjectKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SAMLOptionsOutput -&gt; Maybe Text)
+-&gt; (SAMLOptionsOutput -&gt; Maybe Text -&gt; SAMLOptionsOutput)
+-&gt; Lens
+     SAMLOptionsOutput SAMLOptionsOutput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput%27"><span class="hs-identifier hs-type">SAMLOptionsOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300476"><span class="annot"><span class="annottext">Maybe Text
+subjectKey :: Maybe Text
+$sel:subjectKey:SAMLOptionsOutput' :: SAMLOptionsOutput -&gt; Maybe Text
+</span><a href="#local-6989586621679300476"><span class="hs-identifier hs-var hs-var">subjectKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300476"><span class="hs-identifier hs-var">subjectKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300475"><span class="annot"><span class="annottext">s :: SAMLOptionsOutput
+</span><a href="#local-6989586621679300475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput%27"><span class="hs-identifier hs-type">SAMLOptionsOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300474"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SAMLOptionsOutput
+</span><a href="#local-6989586621679300475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subjectKey:SAMLOptionsOutput' :: Maybe Text
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#%24sel%3AsubjectKey%3ASAMLOptionsOutput%27"><span class="hs-identifier hs-var">subjectKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300471"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679300469"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SAMLOptionsOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SAMLOptionsOutput)
+-&gt; Value
+-&gt; Parser SAMLOptionsOutput
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SAMLOptionsOutput&quot;</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300466"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300466"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe SAMLIdp
+-&gt; Maybe Text
+-&gt; SAMLOptionsOutput
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput%27"><span class="hs-identifier hs-var">SAMLOptionsOutput'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Bool
+ -&gt; Maybe SAMLIdp
+ -&gt; Maybe Text
+ -&gt; SAMLOptionsOutput)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Bool -&gt; Maybe SAMLIdp -&gt; Maybe Text -&gt; SAMLOptionsOutput)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300466"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RolesKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Bool -&gt; Maybe SAMLIdp -&gt; Maybe Text -&gt; SAMLOptionsOutput)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Bool -&gt; Maybe SAMLIdp -&gt; Maybe Text -&gt; SAMLOptionsOutput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300466"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SessionTimeoutMinutes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool -&gt; Maybe SAMLIdp -&gt; Maybe Text -&gt; SAMLOptionsOutput)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe SAMLIdp -&gt; Maybe Text -&gt; SAMLOptionsOutput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300466"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SAMLIdp -&gt; Maybe Text -&gt; SAMLOptionsOutput)
+-&gt; Parser (Maybe SAMLIdp)
+-&gt; Parser (Maybe Text -&gt; SAMLOptionsOutput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300466"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SAMLIdp)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Idp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; SAMLOptionsOutput)
+-&gt; Parser (Maybe Text) -&gt; Parser SAMLOptionsOutput
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300466"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubjectKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300460"><span id="local-6989586621679300462"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300457"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span></span><span>
+</span><span id="line-108"></span></pre></body></html>

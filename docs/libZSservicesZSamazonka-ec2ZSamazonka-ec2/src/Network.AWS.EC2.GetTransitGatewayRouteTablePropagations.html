@@ -1,0 +1,1010 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.GetTransitGatewayRouteTablePropagations</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets information about the route table propagations for the specified</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- transit gateway route table.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.GetTransitGatewayRouteTablePropagations</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier">GetTransitGatewayRouteTablePropagations</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#newGetTransitGatewayRouteTablePropagations"><span class="hs-identifier">newGetTransitGatewayRouteTablePropagations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagations_nextToken"><span class="hs-identifier">getTransitGatewayRouteTablePropagations_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagations_maxResults"><span class="hs-identifier">getTransitGatewayRouteTablePropagations_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagations_dryRun"><span class="hs-identifier">getTransitGatewayRouteTablePropagations_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagations_filters"><span class="hs-identifier">getTransitGatewayRouteTablePropagations_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagations_transitGatewayRouteTableId"><span class="hs-identifier">getTransitGatewayRouteTablePropagations_transitGatewayRouteTableId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse"><span class="hs-identifier">GetTransitGatewayRouteTablePropagationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#newGetTransitGatewayRouteTablePropagationsResponse"><span class="hs-identifier">newGetTransitGatewayRouteTablePropagationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagationsResponse_nextToken"><span class="hs-identifier">getTransitGatewayRouteTablePropagationsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations"><span class="hs-identifier">getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagationsResponse_httpStatus"><span class="hs-identifier">getTransitGatewayRouteTablePropagationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetTransitGatewayRouteTablePropagations' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621681189972"><span id="local-6989586621681189973"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTransitGatewayRouteTablePropagations"><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-var">GetTransitGatewayRouteTablePropagations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTransitGatewayRouteTablePropagations%27"><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-var">GetTransitGatewayRouteTablePropagations'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3AGetTransitGatewayRouteTablePropagations%27"><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagations -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AnextToken%3AGetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetTransitGatewayRouteTablePropagations%27"><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagations -&gt; Maybe Natural
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AmaxResults%3AGetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AdryRun%3AGetTransitGatewayRouteTablePropagations%27"><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagations -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AdryRun%3AGetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | One or more filters. The possible values are:</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   @resource-id@ - The ID of the resource.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   @resource-type@ - The resource type. Valid values are @vpc@ | @vpn@</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     | @direct-connect-gateway@ | @peering@ | @connect@.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   @transit-gateway-attachment-id@ - The ID of the attachment.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Afilters%3AGetTransitGatewayRouteTablePropagations%27"><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagations -&gt; Maybe [Filter]
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3Afilters%3AGetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway route table.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AtransitGatewayRouteTableId%3AGetTransitGatewayRouteTablePropagations%27"><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagations -&gt; Text
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AtransitGatewayRouteTableId%3AGetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-var hs-var">transitGatewayRouteTableId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681189962"><span id="local-6989586621681189964"><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagations
+-&gt; GetTransitGatewayRouteTablePropagations -&gt; Bool
+(GetTransitGatewayRouteTablePropagations
+ -&gt; GetTransitGatewayRouteTablePropagations -&gt; Bool)
+-&gt; (GetTransitGatewayRouteTablePropagations
+    -&gt; GetTransitGatewayRouteTablePropagations -&gt; Bool)
+-&gt; Eq GetTransitGatewayRouteTablePropagations
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetTransitGatewayRouteTablePropagations
+-&gt; GetTransitGatewayRouteTablePropagations -&gt; Bool
+$c/= :: GetTransitGatewayRouteTablePropagations
+-&gt; GetTransitGatewayRouteTablePropagations -&gt; Bool
+== :: GetTransitGatewayRouteTablePropagations
+-&gt; GetTransitGatewayRouteTablePropagations -&gt; Bool
+$c== :: GetTransitGatewayRouteTablePropagations
+-&gt; GetTransitGatewayRouteTablePropagations -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681189953"><span id="local-6989586621681189955"><span id="local-6989586621681189957"><span id="local-6989586621681189959"><span class="annot"><span class="annottext">ReadPrec [GetTransitGatewayRouteTablePropagations]
+ReadPrec GetTransitGatewayRouteTablePropagations
+Int -&gt; ReadS GetTransitGatewayRouteTablePropagations
+ReadS [GetTransitGatewayRouteTablePropagations]
+(Int -&gt; ReadS GetTransitGatewayRouteTablePropagations)
+-&gt; ReadS [GetTransitGatewayRouteTablePropagations]
+-&gt; ReadPrec GetTransitGatewayRouteTablePropagations
+-&gt; ReadPrec [GetTransitGatewayRouteTablePropagations]
+-&gt; Read GetTransitGatewayRouteTablePropagations
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetTransitGatewayRouteTablePropagations]
+$creadListPrec :: ReadPrec [GetTransitGatewayRouteTablePropagations]
+readPrec :: ReadPrec GetTransitGatewayRouteTablePropagations
+$creadPrec :: ReadPrec GetTransitGatewayRouteTablePropagations
+readList :: ReadS [GetTransitGatewayRouteTablePropagations]
+$creadList :: ReadS [GetTransitGatewayRouteTablePropagations]
+readsPrec :: Int -&gt; ReadS GetTransitGatewayRouteTablePropagations
+$creadsPrec :: Int -&gt; ReadS GetTransitGatewayRouteTablePropagations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681189946"><span id="local-6989586621681189948"><span id="local-6989586621681189950"><span class="annot"><span class="annottext">Int -&gt; GetTransitGatewayRouteTablePropagations -&gt; ShowS
+[GetTransitGatewayRouteTablePropagations] -&gt; ShowS
+GetTransitGatewayRouteTablePropagations -&gt; String
+(Int -&gt; GetTransitGatewayRouteTablePropagations -&gt; ShowS)
+-&gt; (GetTransitGatewayRouteTablePropagations -&gt; String)
+-&gt; ([GetTransitGatewayRouteTablePropagations] -&gt; ShowS)
+-&gt; Show GetTransitGatewayRouteTablePropagations
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetTransitGatewayRouteTablePropagations] -&gt; ShowS
+$cshowList :: [GetTransitGatewayRouteTablePropagations] -&gt; ShowS
+show :: GetTransitGatewayRouteTablePropagations -&gt; String
+$cshow :: GetTransitGatewayRouteTablePropagations -&gt; String
+showsPrec :: Int -&gt; GetTransitGatewayRouteTablePropagations -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetTransitGatewayRouteTablePropagations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetTransitGatewayRouteTablePropagations
+ -&gt; Rep GetTransitGatewayRouteTablePropagations x)
+-&gt; (forall x.
+    Rep GetTransitGatewayRouteTablePropagations x
+    -&gt; GetTransitGatewayRouteTablePropagations)
+-&gt; Generic GetTransitGatewayRouteTablePropagations
+forall x.
+Rep GetTransitGatewayRouteTablePropagations x
+-&gt; GetTransitGatewayRouteTablePropagations
+forall x.
+GetTransitGatewayRouteTablePropagations
+-&gt; Rep GetTransitGatewayRouteTablePropagations x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetTransitGatewayRouteTablePropagations x
+-&gt; GetTransitGatewayRouteTablePropagations
+$cfrom :: forall x.
+GetTransitGatewayRouteTablePropagations
+-&gt; Rep GetTransitGatewayRouteTablePropagations x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'GetTransitGatewayRouteTablePropagations' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'nextToken', 'getTransitGatewayRouteTablePropagations_nextToken' - The token for the next page of results.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'maxResults', 'getTransitGatewayRouteTablePropagations_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'dryRun', 'getTransitGatewayRouteTablePropagations_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'filters', 'getTransitGatewayRouteTablePropagations_filters' - One or more filters. The possible values are:</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -   @resource-id@ - The ID of the resource.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- -   @resource-type@ - The resource type. Valid values are @vpc@ | @vpn@</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--     | @direct-connect-gateway@ | @peering@ | @connect@.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- -   @transit-gateway-attachment-id@ - The ID of the attachment.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'transitGatewayRouteTableId', 'getTransitGatewayRouteTablePropagations_transitGatewayRouteTableId' - The ID of the transit gateway route table.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#newGetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">newGetTransitGatewayRouteTablePropagations</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'transitGatewayRouteTableId'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span>
+</span><span id="line-117"></span><span id="newGetTransitGatewayRouteTablePropagations"><span class="annot"><span class="annottext">newGetTransitGatewayRouteTablePropagations :: Text -&gt; GetTransitGatewayRouteTablePropagations
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#newGetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-var hs-var">newGetTransitGatewayRouteTablePropagations</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621681189941"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681189941"><span class="hs-identifier hs-var">pTransitGatewayRouteTableId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagations' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe [Filter]
+-&gt; Text
+-&gt; GetTransitGatewayRouteTablePropagations
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations'</span></a></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetTransitGatewayRouteTablePropagations' :: Maybe Text
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AnextToken%3AGetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxResults:GetTransitGatewayRouteTablePropagations' :: Maybe Natural
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AmaxResults%3AGetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:GetTransitGatewayRouteTablePropagations' :: Maybe Bool
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AdryRun%3AGetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:filters:GetTransitGatewayRouteTablePropagations' :: Maybe [Filter]
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3Afilters%3AGetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:transitGatewayRouteTableId:GetTransitGatewayRouteTablePropagations' :: Text
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AtransitGatewayRouteTableId%3AGetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-var">transitGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681189941"><span class="hs-identifier hs-var">pTransitGatewayRouteTableId_</span></a></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagations_nextToken"><span class="hs-identifier hs-type">getTransitGatewayRouteTablePropagations_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="getTransitGatewayRouteTablePropagations_nextToken"><span class="annot"><span class="annottext">getTransitGatewayRouteTablePropagations_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetTransitGatewayRouteTablePropagations
+-&gt; f GetTransitGatewayRouteTablePropagations
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagations_nextToken"><span class="hs-identifier hs-var hs-var">getTransitGatewayRouteTablePropagations_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTransitGatewayRouteTablePropagations -&gt; Maybe Text)
+-&gt; (GetTransitGatewayRouteTablePropagations
+    -&gt; Maybe Text -&gt; GetTransitGatewayRouteTablePropagations)
+-&gt; Lens
+     GetTransitGatewayRouteTablePropagations
+     GetTransitGatewayRouteTablePropagations
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189939"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetTransitGatewayRouteTablePropagations' :: GetTransitGatewayRouteTablePropagations -&gt; Maybe Text
+</span><a href="#local-6989586621681189939"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189939"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681189938"><span class="annot"><span class="annottext">s :: GetTransitGatewayRouteTablePropagations
+</span><a href="#local-6989586621681189938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681189937"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagations
+</span><a href="#local-6989586621681189938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetTransitGatewayRouteTablePropagations' :: Maybe Text
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AnextToken%3AGetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagations_maxResults"><span class="hs-identifier hs-type">getTransitGatewayRouteTablePropagations_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="getTransitGatewayRouteTablePropagations_maxResults"><span class="annot"><span class="annottext">getTransitGatewayRouteTablePropagations_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetTransitGatewayRouteTablePropagations
+-&gt; f GetTransitGatewayRouteTablePropagations
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagations_maxResults"><span class="hs-identifier hs-var hs-var">getTransitGatewayRouteTablePropagations_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTransitGatewayRouteTablePropagations -&gt; Maybe Natural)
+-&gt; (GetTransitGatewayRouteTablePropagations
+    -&gt; Maybe Natural -&gt; GetTransitGatewayRouteTablePropagations)
+-&gt; Lens
+     GetTransitGatewayRouteTablePropagations
+     GetTransitGatewayRouteTablePropagations
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189936"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetTransitGatewayRouteTablePropagations' :: GetTransitGatewayRouteTablePropagations -&gt; Maybe Natural
+</span><a href="#local-6989586621681189936"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681189936"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681189935"><span class="annot"><span class="annottext">s :: GetTransitGatewayRouteTablePropagations
+</span><a href="#local-6989586621681189935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681189934"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681189934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagations
+</span><a href="#local-6989586621681189935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetTransitGatewayRouteTablePropagations' :: Maybe Natural
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AmaxResults%3AGetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681189934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagations_dryRun"><span class="hs-identifier hs-type">getTransitGatewayRouteTablePropagations_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="getTransitGatewayRouteTablePropagations_dryRun"><span class="annot"><span class="annottext">getTransitGatewayRouteTablePropagations_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GetTransitGatewayRouteTablePropagations
+-&gt; f GetTransitGatewayRouteTablePropagations
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagations_dryRun"><span class="hs-identifier hs-var hs-var">getTransitGatewayRouteTablePropagations_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTransitGatewayRouteTablePropagations -&gt; Maybe Bool)
+-&gt; (GetTransitGatewayRouteTablePropagations
+    -&gt; Maybe Bool -&gt; GetTransitGatewayRouteTablePropagations)
+-&gt; Lens
+     GetTransitGatewayRouteTablePropagations
+     GetTransitGatewayRouteTablePropagations
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189933"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:GetTransitGatewayRouteTablePropagations' :: GetTransitGatewayRouteTablePropagations -&gt; Maybe Bool
+</span><a href="#local-6989586621681189933"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681189933"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681189932"><span class="annot"><span class="annottext">s :: GetTransitGatewayRouteTablePropagations
+</span><a href="#local-6989586621681189932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681189931"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681189931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagations
+</span><a href="#local-6989586621681189932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:GetTransitGatewayRouteTablePropagations' :: Maybe Bool
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AdryRun%3AGetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681189931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | One or more filters. The possible values are:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   @resource-id@ - The ID of the resource.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- -   @resource-type@ - The resource type. Valid values are @vpc@ | @vpn@</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--     | @direct-connect-gateway@ | @peering@ | @connect@.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- -   @transit-gateway-attachment-id@ - The ID of the attachment.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagations_filters"><span class="hs-identifier hs-type">getTransitGatewayRouteTablePropagations_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="getTransitGatewayRouteTablePropagations_filters"><span class="annot"><span class="annottext">getTransitGatewayRouteTablePropagations_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; GetTransitGatewayRouteTablePropagations
+-&gt; f GetTransitGatewayRouteTablePropagations
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagations_filters"><span class="hs-identifier hs-var hs-var">getTransitGatewayRouteTablePropagations_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTransitGatewayRouteTablePropagations -&gt; Maybe [Filter])
+-&gt; (GetTransitGatewayRouteTablePropagations
+    -&gt; Maybe [Filter] -&gt; GetTransitGatewayRouteTablePropagations)
+-&gt; Lens
+     GetTransitGatewayRouteTablePropagations
+     GetTransitGatewayRouteTablePropagations
+     (Maybe [Filter])
+     (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189930"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:GetTransitGatewayRouteTablePropagations' :: GetTransitGatewayRouteTablePropagations -&gt; Maybe [Filter]
+</span><a href="#local-6989586621681189930"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681189930"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681189929"><span class="annot"><span class="annottext">s :: GetTransitGatewayRouteTablePropagations
+</span><a href="#local-6989586621681189929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681189928"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681189928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagations
+</span><a href="#local-6989586621681189929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:GetTransitGatewayRouteTablePropagations' :: Maybe [Filter]
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3Afilters%3AGetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681189928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; GetTransitGatewayRouteTablePropagations
+ -&gt; f GetTransitGatewayRouteTablePropagations)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; GetTransitGatewayRouteTablePropagations
+-&gt; f GetTransitGatewayRouteTablePropagations
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The ID of the transit gateway route table.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagations_transitGatewayRouteTableId"><span class="hs-identifier hs-type">getTransitGatewayRouteTablePropagations_transitGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-159"></span><span id="getTransitGatewayRouteTablePropagations_transitGatewayRouteTableId"><span class="annot"><span class="annottext">getTransitGatewayRouteTablePropagations_transitGatewayRouteTableId :: (Text -&gt; f Text)
+-&gt; GetTransitGatewayRouteTablePropagations
+-&gt; f GetTransitGatewayRouteTablePropagations
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagations_transitGatewayRouteTableId"><span class="hs-identifier hs-var hs-var">getTransitGatewayRouteTablePropagations_transitGatewayRouteTableId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTransitGatewayRouteTablePropagations -&gt; Text)
+-&gt; (GetTransitGatewayRouteTablePropagations
+    -&gt; Text -&gt; GetTransitGatewayRouteTablePropagations)
+-&gt; Lens
+     GetTransitGatewayRouteTablePropagations
+     GetTransitGatewayRouteTablePropagations
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189924"><span class="annot"><span class="annottext">Text
+transitGatewayRouteTableId :: Text
+$sel:transitGatewayRouteTableId:GetTransitGatewayRouteTablePropagations' :: GetTransitGatewayRouteTablePropagations -&gt; Text
+</span><a href="#local-6989586621681189924"><span class="hs-identifier hs-var hs-var">transitGatewayRouteTableId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681189924"><span class="hs-identifier hs-var">transitGatewayRouteTableId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681189923"><span class="annot"><span class="annottext">s :: GetTransitGatewayRouteTablePropagations
+</span><a href="#local-6989586621681189923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681189922"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681189922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagations
+</span><a href="#local-6989586621681189923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayRouteTableId:GetTransitGatewayRouteTablePropagations' :: Text
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AtransitGatewayRouteTableId%3AGetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-var">transitGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681189922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621681189918"><span class="annot"><span class="annottext">page :: GetTransitGatewayRouteTablePropagations
+-&gt; AWSResponse GetTransitGatewayRouteTablePropagations
+-&gt; Maybe GetTransitGatewayRouteTablePropagations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681189916"><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagations
+</span><a href="#local-6989586621681189916"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681189915"><span class="annot"><span class="annottext">AWSResponse GetTransitGatewayRouteTablePropagations
+</span><a href="#local-6989586621681189915"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-167"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetTransitGatewayRouteTablePropagations
+GetTransitGatewayRouteTablePropagationsResponse
+</span><a href="#local-6989586621681189915"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagationsResponse
+-&gt; Getting
+     (First Text) GetTransitGatewayRouteTablePropagationsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetTransitGatewayRouteTablePropagationsResponse
+-&gt; Const
+     (First Text) GetTransitGatewayRouteTablePropagationsResponse
+Lens' GetTransitGatewayRouteTablePropagationsResponse (Maybe Text)
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagationsResponse_nextToken"><span class="hs-identifier hs-var">getTransitGatewayRouteTablePropagationsResponse_nextToken</span></a></span><span>
+</span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetTransitGatewayRouteTablePropagationsResponse
+ -&gt; Const
+      (First Text) GetTransitGatewayRouteTablePropagationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) GetTransitGatewayRouteTablePropagationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-170"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetTransitGatewayRouteTablePropagations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [TransitGatewayRouteTablePropagation] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-173"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetTransitGatewayRouteTablePropagations
+GetTransitGatewayRouteTablePropagationsResponse
+</span><a href="#local-6989586621681189915"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagationsResponse
+-&gt; Getting
+     (First [TransitGatewayRouteTablePropagation])
+     GetTransitGatewayRouteTablePropagationsResponse
+     [TransitGatewayRouteTablePropagation]
+-&gt; Maybe [TransitGatewayRouteTablePropagation]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [TransitGatewayRouteTablePropagation]
+ -&gt; Const
+      (First [TransitGatewayRouteTablePropagation])
+      (Maybe [TransitGatewayRouteTablePropagation]))
+-&gt; GetTransitGatewayRouteTablePropagationsResponse
+-&gt; Const
+     (First [TransitGatewayRouteTablePropagation])
+     GetTransitGatewayRouteTablePropagationsResponse
+Lens'
+  GetTransitGatewayRouteTablePropagationsResponse
+  (Maybe [TransitGatewayRouteTablePropagation])
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations"><span class="hs-identifier hs-var">getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations</span></a></span><span>
+</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [TransitGatewayRouteTablePropagation]
+  -&gt; Const
+       (First [TransitGatewayRouteTablePropagation])
+       (Maybe [TransitGatewayRouteTablePropagation]))
+ -&gt; GetTransitGatewayRouteTablePropagationsResponse
+ -&gt; Const
+      (First [TransitGatewayRouteTablePropagation])
+      GetTransitGatewayRouteTablePropagationsResponse)
+-&gt; (([TransitGatewayRouteTablePropagation]
+     -&gt; Const
+          (First [TransitGatewayRouteTablePropagation])
+          [TransitGatewayRouteTablePropagation])
+    -&gt; Maybe [TransitGatewayRouteTablePropagation]
+    -&gt; Const
+         (First [TransitGatewayRouteTablePropagation])
+         (Maybe [TransitGatewayRouteTablePropagation]))
+-&gt; Getting
+     (First [TransitGatewayRouteTablePropagation])
+     GetTransitGatewayRouteTablePropagationsResponse
+     [TransitGatewayRouteTablePropagation]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([TransitGatewayRouteTablePropagation]
+ -&gt; Const
+      (First [TransitGatewayRouteTablePropagation])
+      [TransitGatewayRouteTablePropagation])
+-&gt; Maybe [TransitGatewayRouteTablePropagation]
+-&gt; Const
+     (First [TransitGatewayRouteTablePropagation])
+     (Maybe [TransitGatewayRouteTablePropagation])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-176"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetTransitGatewayRouteTablePropagations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagations
+-&gt; Maybe GetTransitGatewayRouteTablePropagations
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(GetTransitGatewayRouteTablePropagations
+ -&gt; Maybe GetTransitGatewayRouteTablePropagations)
+-&gt; GetTransitGatewayRouteTablePropagations
+-&gt; Maybe GetTransitGatewayRouteTablePropagations
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagations
+</span><a href="#local-6989586621681189916"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagations
+-&gt; (GetTransitGatewayRouteTablePropagations
+    -&gt; GetTransitGatewayRouteTablePropagations)
+-&gt; GetTransitGatewayRouteTablePropagations
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; GetTransitGatewayRouteTablePropagations
+-&gt; Identity GetTransitGatewayRouteTablePropagations
+Lens
+  GetTransitGatewayRouteTablePropagations
+  GetTransitGatewayRouteTablePropagations
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagations_nextToken"><span class="hs-identifier hs-var">getTransitGatewayRouteTablePropagations_nextToken</span></a></span><span>
+</span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; GetTransitGatewayRouteTablePropagations
+ -&gt; Identity GetTransitGatewayRouteTablePropagations)
+-&gt; Maybe Text
+-&gt; GetTransitGatewayRouteTablePropagations
+-&gt; GetTransitGatewayRouteTablePropagations
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetTransitGatewayRouteTablePropagations
+GetTransitGatewayRouteTablePropagationsResponse
+</span><a href="#local-6989586621681189915"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagationsResponse
+-&gt; Getting
+     (First Text) GetTransitGatewayRouteTablePropagationsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetTransitGatewayRouteTablePropagationsResponse
+-&gt; Const
+     (First Text) GetTransitGatewayRouteTablePropagationsResponse
+Lens' GetTransitGatewayRouteTablePropagationsResponse (Maybe Text)
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagationsResponse_nextToken"><span class="hs-identifier hs-var">getTransitGatewayRouteTablePropagationsResponse_nextToken</span></a></span><span>
+</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetTransitGatewayRouteTablePropagationsResponse
+ -&gt; Const
+      (First Text) GetTransitGatewayRouteTablePropagationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) GetTransitGatewayRouteTablePropagationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-191"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagationsResponse</span></a></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621681189906"><span class="annot"><span class="annottext">request :: GetTransitGatewayRouteTablePropagations
+-&gt; Request GetTransitGatewayRouteTablePropagations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetTransitGatewayRouteTablePropagations
+-&gt; Request GetTransitGatewayRouteTablePropagations
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621681189902"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetTransitGatewayRouteTablePropagations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse GetTransitGatewayRouteTablePropagations)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either
+      String (AWSResponse GetTransitGatewayRouteTablePropagations))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetTransitGatewayRouteTablePropagations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse GetTransitGatewayRouteTablePropagations)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681189899"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681189899"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681189898"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681189898"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681189897"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681189897"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [TransitGatewayRouteTablePropagation]
+-&gt; Int
+-&gt; GetTransitGatewayRouteTablePropagationsResponse
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-var">GetTransitGatewayRouteTablePropagationsResponse'</span></a></span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [TransitGatewayRouteTablePropagation]
+ -&gt; Int
+ -&gt; GetTransitGatewayRouteTablePropagationsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [TransitGatewayRouteTablePropagation]
+      -&gt; Int -&gt; GetTransitGatewayRouteTablePropagationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681189897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [TransitGatewayRouteTablePropagation]
+   -&gt; Int -&gt; GetTransitGatewayRouteTablePropagationsResponse)
+-&gt; Either String (Maybe [TransitGatewayRouteTablePropagation])
+-&gt; Either
+     String (Int -&gt; GetTransitGatewayRouteTablePropagationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681189897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;transitGatewayRouteTablePropagations&quot;</span></span><span>
+</span><span id="line-201"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-202"></span><span>                              </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (Maybe [TransitGatewayRouteTablePropagation]))
+-&gt; Either String (Maybe [TransitGatewayRouteTablePropagation])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [TransitGatewayRouteTablePropagation])
+-&gt; [Node]
+-&gt; Either String (Maybe [TransitGatewayRouteTablePropagation])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+-&gt; [Node] -&gt; Either String [TransitGatewayRouteTablePropagation]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; GetTransitGatewayRouteTablePropagationsResponse)
+-&gt; Either String Int
+-&gt; Either String GetTransitGatewayRouteTablePropagationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681189899"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621681189886"><span id="local-6989586621681189888"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span></span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621681189883"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621681189879"><span class="annot"><span class="annottext">toHeaders :: GetTransitGatewayRouteTablePropagations -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GetTransitGatewayRouteTablePropagations -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621681189874"><span class="annot"><span class="annottext">toPath :: GetTransitGatewayRouteTablePropagations -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetTransitGatewayRouteTablePropagations -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-228"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations</span></a></span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621681189870"><span class="annot"><span class="annottext">toQuery :: GetTransitGatewayRouteTablePropagations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagations%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189864"><span id="local-6989586621681189865"><span id="local-6989586621681189866"><span id="local-6989586621681189867"><span id="local-6989586621681189868"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe [Filter]
+Maybe Text
+Text
+transitGatewayRouteTableId :: Text
+filters :: Maybe [Filter]
+dryRun :: Maybe Bool
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:transitGatewayRouteTableId:GetTransitGatewayRouteTablePropagations' :: GetTransitGatewayRouteTablePropagations -&gt; Text
+$sel:filters:GetTransitGatewayRouteTablePropagations' :: GetTransitGatewayRouteTablePropagations -&gt; Maybe [Filter]
+$sel:dryRun:GetTransitGatewayRouteTablePropagations' :: GetTransitGatewayRouteTablePropagations -&gt; Maybe Bool
+$sel:maxResults:GetTransitGatewayRouteTablePropagations' :: GetTransitGatewayRouteTablePropagations -&gt; Maybe Natural
+$sel:nextToken:GetTransitGatewayRouteTablePropagations' :: GetTransitGatewayRouteTablePropagations -&gt; Maybe Text
+</span><a href="#local-6989586621681189864"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-233"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GetTransitGatewayRouteTablePropagations&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-235"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-236"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-238"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189868"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681189867"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681189866"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-243"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681189865"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransitGatewayRouteTableId&quot;</span></span><span>
+</span><span id="line-245"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681189864"><span class="hs-identifier hs-var">transitGatewayRouteTableId</span></a></span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | /See:/ 'newGetTransitGatewayRouteTablePropagationsResponse' smart constructor.</span><span>
+</span><span id="line-249"></span><span id="local-6989586621681189860"><span id="local-6989586621681189861"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTransitGatewayRouteTablePropagationsResponse"><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse"><span class="hs-identifier hs-var">GetTransitGatewayRouteTablePropagationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTransitGatewayRouteTablePropagationsResponse%27"><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-var">GetTransitGatewayRouteTablePropagationsResponse'</span></a></span></span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-252"></span><span>    </span><span id="%24sel%3AnextToken%3AGetTransitGatewayRouteTablePropagationsResponse%27"><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagationsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AnextToken%3AGetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-comment">-- | Information about the route table propagations.</span><span>
+</span><span id="line-254"></span><span>    </span><span id="%24sel%3AtransitGatewayRouteTablePropagations%3AGetTransitGatewayRouteTablePropagationsResponse%27"><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagationsResponse
+-&gt; Maybe [TransitGatewayRouteTablePropagation]
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AtransitGatewayRouteTablePropagations%3AGetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-var hs-var">transitGatewayRouteTablePropagations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayRouteTablePropagation.html#TransitGatewayRouteTablePropagation"><span class="hs-identifier hs-type">TransitGatewayRouteTablePropagation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-256"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetTransitGatewayRouteTablePropagationsResponse%27"><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagationsResponse -&gt; Int
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AhttpStatus%3AGetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-257"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-258"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681189853"><span id="local-6989586621681189855"><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagationsResponse
+-&gt; GetTransitGatewayRouteTablePropagationsResponse -&gt; Bool
+(GetTransitGatewayRouteTablePropagationsResponse
+ -&gt; GetTransitGatewayRouteTablePropagationsResponse -&gt; Bool)
+-&gt; (GetTransitGatewayRouteTablePropagationsResponse
+    -&gt; GetTransitGatewayRouteTablePropagationsResponse -&gt; Bool)
+-&gt; Eq GetTransitGatewayRouteTablePropagationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetTransitGatewayRouteTablePropagationsResponse
+-&gt; GetTransitGatewayRouteTablePropagationsResponse -&gt; Bool
+$c/= :: GetTransitGatewayRouteTablePropagationsResponse
+-&gt; GetTransitGatewayRouteTablePropagationsResponse -&gt; Bool
+== :: GetTransitGatewayRouteTablePropagationsResponse
+-&gt; GetTransitGatewayRouteTablePropagationsResponse -&gt; Bool
+$c== :: GetTransitGatewayRouteTablePropagationsResponse
+-&gt; GetTransitGatewayRouteTablePropagationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681189845"><span id="local-6989586621681189847"><span id="local-6989586621681189849"><span id="local-6989586621681189851"><span class="annot"><span class="annottext">ReadPrec [GetTransitGatewayRouteTablePropagationsResponse]
+ReadPrec GetTransitGatewayRouteTablePropagationsResponse
+Int -&gt; ReadS GetTransitGatewayRouteTablePropagationsResponse
+ReadS [GetTransitGatewayRouteTablePropagationsResponse]
+(Int -&gt; ReadS GetTransitGatewayRouteTablePropagationsResponse)
+-&gt; ReadS [GetTransitGatewayRouteTablePropagationsResponse]
+-&gt; ReadPrec GetTransitGatewayRouteTablePropagationsResponse
+-&gt; ReadPrec [GetTransitGatewayRouteTablePropagationsResponse]
+-&gt; Read GetTransitGatewayRouteTablePropagationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetTransitGatewayRouteTablePropagationsResponse]
+$creadListPrec :: ReadPrec [GetTransitGatewayRouteTablePropagationsResponse]
+readPrec :: ReadPrec GetTransitGatewayRouteTablePropagationsResponse
+$creadPrec :: ReadPrec GetTransitGatewayRouteTablePropagationsResponse
+readList :: ReadS [GetTransitGatewayRouteTablePropagationsResponse]
+$creadList :: ReadS [GetTransitGatewayRouteTablePropagationsResponse]
+readsPrec :: Int -&gt; ReadS GetTransitGatewayRouteTablePropagationsResponse
+$creadsPrec :: Int -&gt; ReadS GetTransitGatewayRouteTablePropagationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681189839"><span id="local-6989586621681189841"><span id="local-6989586621681189843"><span class="annot"><span class="annottext">Int -&gt; GetTransitGatewayRouteTablePropagationsResponse -&gt; ShowS
+[GetTransitGatewayRouteTablePropagationsResponse] -&gt; ShowS
+GetTransitGatewayRouteTablePropagationsResponse -&gt; String
+(Int -&gt; GetTransitGatewayRouteTablePropagationsResponse -&gt; ShowS)
+-&gt; (GetTransitGatewayRouteTablePropagationsResponse -&gt; String)
+-&gt; ([GetTransitGatewayRouteTablePropagationsResponse] -&gt; ShowS)
+-&gt; Show GetTransitGatewayRouteTablePropagationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetTransitGatewayRouteTablePropagationsResponse] -&gt; ShowS
+$cshowList :: [GetTransitGatewayRouteTablePropagationsResponse] -&gt; ShowS
+show :: GetTransitGatewayRouteTablePropagationsResponse -&gt; String
+$cshow :: GetTransitGatewayRouteTablePropagationsResponse -&gt; String
+showsPrec :: Int -&gt; GetTransitGatewayRouteTablePropagationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetTransitGatewayRouteTablePropagationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetTransitGatewayRouteTablePropagationsResponse
+ -&gt; Rep GetTransitGatewayRouteTablePropagationsResponse x)
+-&gt; (forall x.
+    Rep GetTransitGatewayRouteTablePropagationsResponse x
+    -&gt; GetTransitGatewayRouteTablePropagationsResponse)
+-&gt; Generic GetTransitGatewayRouteTablePropagationsResponse
+forall x.
+Rep GetTransitGatewayRouteTablePropagationsResponse x
+-&gt; GetTransitGatewayRouteTablePropagationsResponse
+forall x.
+GetTransitGatewayRouteTablePropagationsResponse
+-&gt; Rep GetTransitGatewayRouteTablePropagationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetTransitGatewayRouteTablePropagationsResponse x
+-&gt; GetTransitGatewayRouteTablePropagationsResponse
+$cfrom :: forall x.
+GetTransitGatewayRouteTablePropagationsResponse
+-&gt; Rep GetTransitGatewayRouteTablePropagationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- Create a value of 'GetTransitGatewayRouteTablePropagationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- 'nextToken', 'getTransitGatewayRouteTablePropagationsResponse_nextToken' - The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- 'transitGatewayRouteTablePropagations', 'getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations' - Information about the route table propagations.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- 'httpStatus', 'getTransitGatewayRouteTablePropagationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#newGetTransitGatewayRouteTablePropagationsResponse"><span class="hs-identifier hs-type">newGetTransitGatewayRouteTablePropagationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-275"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-276"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-277"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagationsResponse</span></a></span><span>
+</span><span id="line-278"></span><span id="newGetTransitGatewayRouteTablePropagationsResponse"><span class="annot"><span class="annottext">newGetTransitGatewayRouteTablePropagationsResponse :: Int -&gt; GetTransitGatewayRouteTablePropagationsResponse
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#newGetTransitGatewayRouteTablePropagationsResponse"><span class="hs-identifier hs-var hs-var">newGetTransitGatewayRouteTablePropagationsResponse</span></a></span></span><span>
+</span><span id="line-279"></span><span>  </span><span id="local-6989586621681189836"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681189836"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagationsResponse' :: Maybe Text
+-&gt; Maybe [TransitGatewayRouteTablePropagation]
+-&gt; Int
+-&gt; GetTransitGatewayRouteTablePropagationsResponse
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagationsResponse'</span></a></span><span>
+</span><span id="line-281"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetTransitGatewayRouteTablePropagationsResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AnextToken%3AGetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-282"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>        </span><span class="annot"><span class="annottext">$sel:transitGatewayRouteTablePropagations:GetTransitGatewayRouteTablePropagationsResponse' :: Maybe [TransitGatewayRouteTablePropagation]
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AtransitGatewayRouteTablePropagations%3AGetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-var">transitGatewayRouteTablePropagations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-284"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TransitGatewayRouteTablePropagation]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetTransitGatewayRouteTablePropagationsResponse' :: Int
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AhttpStatus%3AGetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681189836"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-286"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagationsResponse_nextToken"><span class="hs-identifier hs-type">getTransitGatewayRouteTablePropagationsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="getTransitGatewayRouteTablePropagationsResponse_nextToken"><span class="annot"><span class="annottext">getTransitGatewayRouteTablePropagationsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetTransitGatewayRouteTablePropagationsResponse
+-&gt; f GetTransitGatewayRouteTablePropagationsResponse
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagationsResponse_nextToken"><span class="hs-identifier hs-var hs-var">getTransitGatewayRouteTablePropagationsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTransitGatewayRouteTablePropagationsResponse -&gt; Maybe Text)
+-&gt; (GetTransitGatewayRouteTablePropagationsResponse
+    -&gt; Maybe Text -&gt; GetTransitGatewayRouteTablePropagationsResponse)
+-&gt; Lens'
+     GetTransitGatewayRouteTablePropagationsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189835"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetTransitGatewayRouteTablePropagationsResponse' :: GetTransitGatewayRouteTablePropagationsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681189835"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189835"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681189834"><span class="annot"><span class="annottext">s :: GetTransitGatewayRouteTablePropagationsResponse
+</span><a href="#local-6989586621681189834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681189833"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagationsResponse
+</span><a href="#local-6989586621681189834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetTransitGatewayRouteTablePropagationsResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AnextToken%3AGetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | Information about the route table propagations.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations"><span class="hs-identifier hs-type">getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayRouteTablePropagation.html#TransitGatewayRouteTablePropagation"><span class="hs-identifier hs-type">TransitGatewayRouteTablePropagation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span id="getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations"><span class="annot"><span class="annottext">getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations :: (Maybe [TransitGatewayRouteTablePropagation]
+ -&gt; f (Maybe [TransitGatewayRouteTablePropagation]))
+-&gt; GetTransitGatewayRouteTablePropagationsResponse
+-&gt; f GetTransitGatewayRouteTablePropagationsResponse
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations"><span class="hs-identifier hs-var hs-var">getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTransitGatewayRouteTablePropagationsResponse
+ -&gt; Maybe [TransitGatewayRouteTablePropagation])
+-&gt; (GetTransitGatewayRouteTablePropagationsResponse
+    -&gt; Maybe [TransitGatewayRouteTablePropagation]
+    -&gt; GetTransitGatewayRouteTablePropagationsResponse)
+-&gt; Lens'
+     GetTransitGatewayRouteTablePropagationsResponse
+     (Maybe [TransitGatewayRouteTablePropagation])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189832"><span class="annot"><span class="annottext">Maybe [TransitGatewayRouteTablePropagation]
+transitGatewayRouteTablePropagations :: Maybe [TransitGatewayRouteTablePropagation]
+$sel:transitGatewayRouteTablePropagations:GetTransitGatewayRouteTablePropagationsResponse' :: GetTransitGatewayRouteTablePropagationsResponse
+-&gt; Maybe [TransitGatewayRouteTablePropagation]
+</span><a href="#local-6989586621681189832"><span class="hs-identifier hs-var hs-var">transitGatewayRouteTablePropagations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TransitGatewayRouteTablePropagation]
+</span><a href="#local-6989586621681189832"><span class="hs-identifier hs-var">transitGatewayRouteTablePropagations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681189831"><span class="annot"><span class="annottext">s :: GetTransitGatewayRouteTablePropagationsResponse
+</span><a href="#local-6989586621681189831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681189830"><span class="annot"><span class="annottext">Maybe [TransitGatewayRouteTablePropagation]
+</span><a href="#local-6989586621681189830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagationsResponse
+</span><a href="#local-6989586621681189831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayRouteTablePropagations:GetTransitGatewayRouteTablePropagationsResponse' :: Maybe [TransitGatewayRouteTablePropagation]
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AtransitGatewayRouteTablePropagations%3AGetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-var">transitGatewayRouteTablePropagations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TransitGatewayRouteTablePropagation]
+</span><a href="#local-6989586621681189830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TransitGatewayRouteTablePropagation]
+  -&gt; f (Maybe [TransitGatewayRouteTablePropagation]))
+ -&gt; GetTransitGatewayRouteTablePropagationsResponse
+ -&gt; f GetTransitGatewayRouteTablePropagationsResponse)
+-&gt; ((Maybe [TransitGatewayRouteTablePropagation]
+     -&gt; f (Maybe [TransitGatewayRouteTablePropagation]))
+    -&gt; Maybe [TransitGatewayRouteTablePropagation]
+    -&gt; f (Maybe [TransitGatewayRouteTablePropagation]))
+-&gt; (Maybe [TransitGatewayRouteTablePropagation]
+    -&gt; f (Maybe [TransitGatewayRouteTablePropagation]))
+-&gt; GetTransitGatewayRouteTablePropagationsResponse
+-&gt; f GetTransitGatewayRouteTablePropagationsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TransitGatewayRouteTablePropagation]
+  [TransitGatewayRouteTablePropagation]
+  [TransitGatewayRouteTablePropagation]
+  [TransitGatewayRouteTablePropagation]
+-&gt; Iso
+     (Maybe [TransitGatewayRouteTablePropagation])
+     (Maybe [TransitGatewayRouteTablePropagation])
+     (Maybe [TransitGatewayRouteTablePropagation])
+     (Maybe [TransitGatewayRouteTablePropagation])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TransitGatewayRouteTablePropagation]
+  [TransitGatewayRouteTablePropagation]
+  [TransitGatewayRouteTablePropagation]
+  [TransitGatewayRouteTablePropagation]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagationsResponse_httpStatus"><span class="hs-identifier hs-type">getTransitGatewayRouteTablePropagationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-299"></span><span id="getTransitGatewayRouteTablePropagationsResponse_httpStatus"><span class="annot"><span class="annottext">getTransitGatewayRouteTablePropagationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetTransitGatewayRouteTablePropagationsResponse
+-&gt; f GetTransitGatewayRouteTablePropagationsResponse
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#getTransitGatewayRouteTablePropagationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getTransitGatewayRouteTablePropagationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTransitGatewayRouteTablePropagationsResponse -&gt; Int)
+-&gt; (GetTransitGatewayRouteTablePropagationsResponse
+    -&gt; Int -&gt; GetTransitGatewayRouteTablePropagationsResponse)
+-&gt; Lens
+     GetTransitGatewayRouteTablePropagationsResponse
+     GetTransitGatewayRouteTablePropagationsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189829"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetTransitGatewayRouteTablePropagationsResponse' :: GetTransitGatewayRouteTablePropagationsResponse -&gt; Int
+</span><a href="#local-6989586621681189829"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681189829"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681189828"><span class="annot"><span class="annottext">s :: GetTransitGatewayRouteTablePropagationsResponse
+</span><a href="#local-6989586621681189828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681189827"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681189827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTransitGatewayRouteTablePropagationsResponse
+</span><a href="#local-6989586621681189828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTransitGatewayRouteTablePropagationsResponse' :: Int
+</span><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#%24sel%3AhttpStatus%3AGetTransitGatewayRouteTablePropagationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681189827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-302"></span><span>  </span><span id="local-6989586621681189825"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetTransitGatewayRouteTablePropagations.html#GetTransitGatewayRouteTablePropagationsResponse"><span class="hs-identifier hs-type">GetTransitGatewayRouteTablePropagationsResponse</span></a></span></span><span>
+</span><span id="line-304"></span></pre></body></html>

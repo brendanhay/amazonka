@@ -1,0 +1,633 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Comprehend.ListEntityRecognizerSummaries</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a list of summaries for the entity recognizers that you have</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Comprehend.ListEntityRecognizerSummaries</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries"><span class="hs-identifier">ListEntityRecognizerSummaries</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#newListEntityRecognizerSummaries"><span class="hs-identifier">newListEntityRecognizerSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#listEntityRecognizerSummaries_nextToken"><span class="hs-identifier">listEntityRecognizerSummaries_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#listEntityRecognizerSummaries_maxResults"><span class="hs-identifier">listEntityRecognizerSummaries_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse"><span class="hs-identifier">ListEntityRecognizerSummariesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#newListEntityRecognizerSummariesResponse"><span class="hs-identifier">newListEntityRecognizerSummariesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#listEntityRecognizerSummariesResponse_nextToken"><span class="hs-identifier">listEntityRecognizerSummariesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#listEntityRecognizerSummariesResponse_entityRecognizerSummariesList"><span class="hs-identifier">listEntityRecognizerSummariesResponse_entityRecognizerSummariesList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#listEntityRecognizerSummariesResponse_httpStatus"><span class="hs-identifier">listEntityRecognizerSummariesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.html"><span class="hs-identifier">Network.AWS.Comprehend.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newListEntityRecognizerSummaries' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679358587"><span id="local-6989586621679358588"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEntityRecognizerSummaries"><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries"><span class="hs-identifier hs-var">ListEntityRecognizerSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEntityRecognizerSummaries%27"><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries%27"><span class="hs-identifier hs-var">ListEntityRecognizerSummaries'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies the next page of results to return.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AnextToken%3AListEntityRecognizerSummaries%27"><span class="annot"><span class="annottext">ListEntityRecognizerSummaries -&gt; Maybe Text
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#%24sel%3AnextToken%3AListEntityRecognizerSummaries%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return on each page. The default is</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- 100.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AmaxResults%3AListEntityRecognizerSummaries%27"><span class="annot"><span class="annottext">ListEntityRecognizerSummaries -&gt; Maybe Natural
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#%24sel%3AmaxResults%3AListEntityRecognizerSummaries%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358580"><span id="local-6989586621679358582"><span class="annot"><span class="annottext">ListEntityRecognizerSummaries
+-&gt; ListEntityRecognizerSummaries -&gt; Bool
+(ListEntityRecognizerSummaries
+ -&gt; ListEntityRecognizerSummaries -&gt; Bool)
+-&gt; (ListEntityRecognizerSummaries
+    -&gt; ListEntityRecognizerSummaries -&gt; Bool)
+-&gt; Eq ListEntityRecognizerSummaries
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListEntityRecognizerSummaries
+-&gt; ListEntityRecognizerSummaries -&gt; Bool
+$c/= :: ListEntityRecognizerSummaries
+-&gt; ListEntityRecognizerSummaries -&gt; Bool
+== :: ListEntityRecognizerSummaries
+-&gt; ListEntityRecognizerSummaries -&gt; Bool
+$c== :: ListEntityRecognizerSummaries
+-&gt; ListEntityRecognizerSummaries -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358571"><span id="local-6989586621679358573"><span id="local-6989586621679358575"><span id="local-6989586621679358577"><span class="annot"><span class="annottext">ReadPrec [ListEntityRecognizerSummaries]
+ReadPrec ListEntityRecognizerSummaries
+Int -&gt; ReadS ListEntityRecognizerSummaries
+ReadS [ListEntityRecognizerSummaries]
+(Int -&gt; ReadS ListEntityRecognizerSummaries)
+-&gt; ReadS [ListEntityRecognizerSummaries]
+-&gt; ReadPrec ListEntityRecognizerSummaries
+-&gt; ReadPrec [ListEntityRecognizerSummaries]
+-&gt; Read ListEntityRecognizerSummaries
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListEntityRecognizerSummaries]
+$creadListPrec :: ReadPrec [ListEntityRecognizerSummaries]
+readPrec :: ReadPrec ListEntityRecognizerSummaries
+$creadPrec :: ReadPrec ListEntityRecognizerSummaries
+readList :: ReadS [ListEntityRecognizerSummaries]
+$creadList :: ReadS [ListEntityRecognizerSummaries]
+readsPrec :: Int -&gt; ReadS ListEntityRecognizerSummaries
+$creadsPrec :: Int -&gt; ReadS ListEntityRecognizerSummaries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358564"><span id="local-6989586621679358566"><span id="local-6989586621679358568"><span class="annot"><span class="annottext">Int -&gt; ListEntityRecognizerSummaries -&gt; ShowS
+[ListEntityRecognizerSummaries] -&gt; ShowS
+ListEntityRecognizerSummaries -&gt; String
+(Int -&gt; ListEntityRecognizerSummaries -&gt; ShowS)
+-&gt; (ListEntityRecognizerSummaries -&gt; String)
+-&gt; ([ListEntityRecognizerSummaries] -&gt; ShowS)
+-&gt; Show ListEntityRecognizerSummaries
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListEntityRecognizerSummaries] -&gt; ShowS
+$cshowList :: [ListEntityRecognizerSummaries] -&gt; ShowS
+show :: ListEntityRecognizerSummaries -&gt; String
+$cshow :: ListEntityRecognizerSummaries -&gt; String
+showsPrec :: Int -&gt; ListEntityRecognizerSummaries -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListEntityRecognizerSummaries -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListEntityRecognizerSummaries
+ -&gt; Rep ListEntityRecognizerSummaries x)
+-&gt; (forall x.
+    Rep ListEntityRecognizerSummaries x
+    -&gt; ListEntityRecognizerSummaries)
+-&gt; Generic ListEntityRecognizerSummaries
+forall x.
+Rep ListEntityRecognizerSummaries x
+-&gt; ListEntityRecognizerSummaries
+forall x.
+ListEntityRecognizerSummaries
+-&gt; Rep ListEntityRecognizerSummaries x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListEntityRecognizerSummaries x
+-&gt; ListEntityRecognizerSummaries
+$cfrom :: forall x.
+ListEntityRecognizerSummaries
+-&gt; Rep ListEntityRecognizerSummaries x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'ListEntityRecognizerSummaries' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'nextToken', 'listEntityRecognizerSummaries_nextToken' - Identifies the next page of results to return.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'maxResults', 'listEntityRecognizerSummaries_maxResults' - The maximum number of results to return on each page. The default is</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 100.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#newListEntityRecognizerSummaries"><span class="hs-identifier hs-type">newListEntityRecognizerSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries</span></a></span><span>
+</span><span id="line-76"></span><span id="newListEntityRecognizerSummaries"><span class="annot"><span class="annottext">newListEntityRecognizerSummaries :: ListEntityRecognizerSummaries
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#newListEntityRecognizerSummaries"><span class="hs-identifier hs-var hs-var">newListEntityRecognizerSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">ListEntityRecognizerSummaries' :: Maybe Text -&gt; Maybe Natural -&gt; ListEntityRecognizerSummaries
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries%27"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListEntityRecognizerSummaries' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#%24sel%3AnextToken%3AListEntityRecognizerSummaries%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListEntityRecognizerSummaries' :: Maybe Natural
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#%24sel%3AmaxResults%3AListEntityRecognizerSummaries%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | Identifies the next page of results to return.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#listEntityRecognizerSummaries_nextToken"><span class="hs-identifier hs-type">listEntityRecognizerSummaries_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="listEntityRecognizerSummaries_nextToken"><span class="annot"><span class="annottext">listEntityRecognizerSummaries_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListEntityRecognizerSummaries -&gt; f ListEntityRecognizerSummaries
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#listEntityRecognizerSummaries_nextToken"><span class="hs-identifier hs-var hs-var">listEntityRecognizerSummaries_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntityRecognizerSummaries -&gt; Maybe Text)
+-&gt; (ListEntityRecognizerSummaries
+    -&gt; Maybe Text -&gt; ListEntityRecognizerSummaries)
+-&gt; Lens
+     ListEntityRecognizerSummaries
+     ListEntityRecognizerSummaries
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries%27"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358557"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListEntityRecognizerSummaries' :: ListEntityRecognizerSummaries -&gt; Maybe Text
+</span><a href="#local-6989586621679358557"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358557"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358556"><span class="annot"><span class="annottext">s :: ListEntityRecognizerSummaries
+</span><a href="#local-6989586621679358556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries%27"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358555"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizerSummaries
+</span><a href="#local-6989586621679358556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEntityRecognizerSummaries' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#%24sel%3AnextToken%3AListEntityRecognizerSummaries%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The maximum number of results to return on each page. The default is</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 100.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#listEntityRecognizerSummaries_maxResults"><span class="hs-identifier hs-type">listEntityRecognizerSummaries_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="listEntityRecognizerSummaries_maxResults"><span class="annot"><span class="annottext">listEntityRecognizerSummaries_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListEntityRecognizerSummaries -&gt; f ListEntityRecognizerSummaries
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#listEntityRecognizerSummaries_maxResults"><span class="hs-identifier hs-var hs-var">listEntityRecognizerSummaries_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntityRecognizerSummaries -&gt; Maybe Natural)
+-&gt; (ListEntityRecognizerSummaries
+    -&gt; Maybe Natural -&gt; ListEntityRecognizerSummaries)
+-&gt; Lens
+     ListEntityRecognizerSummaries
+     ListEntityRecognizerSummaries
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries%27"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358554"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListEntityRecognizerSummaries' :: ListEntityRecognizerSummaries -&gt; Maybe Natural
+</span><a href="#local-6989586621679358554"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679358554"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358553"><span class="annot"><span class="annottext">s :: ListEntityRecognizerSummaries
+</span><a href="#local-6989586621679358553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries%27"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358552"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679358552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizerSummaries
+</span><a href="#local-6989586621679358553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListEntityRecognizerSummaries' :: Maybe Natural
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#%24sel%3AmaxResults%3AListEntityRecognizerSummaries%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679358552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse"><span class="hs-identifier hs-type">ListEntityRecognizerSummariesResponse</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679358548"><span class="annot"><span class="annottext">request :: ListEntityRecognizerSummaries
+-&gt; Request ListEntityRecognizerSummaries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListEntityRecognizerSummaries
+-&gt; Request ListEntityRecognizerSummaries
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679358544"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListEntityRecognizerSummaries
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListEntityRecognizerSummaries)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListEntityRecognizerSummaries))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListEntityRecognizerSummaries
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListEntityRecognizerSummaries)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679358541"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358541"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679358540"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679358540"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679358539"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679358539"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [EntityRecognizerSummary]
+-&gt; Int
+-&gt; ListEntityRecognizerSummariesResponse
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-var">ListEntityRecognizerSummariesResponse'</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [EntityRecognizerSummary]
+ -&gt; Int
+ -&gt; ListEntityRecognizerSummariesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [EntityRecognizerSummary]
+      -&gt; Int -&gt; ListEntityRecognizerSummariesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679358539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [EntityRecognizerSummary]
+   -&gt; Int -&gt; ListEntityRecognizerSummariesResponse)
+-&gt; Either String (Maybe [EntityRecognizerSummary])
+-&gt; Either String (Int -&gt; ListEntityRecognizerSummariesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679358539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [EntityRecognizerSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EntityRecognizerSummariesList&quot;</span></span><span>
+</span><span id="line-106"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [EntityRecognizerSummary]))
+-&gt; Maybe [EntityRecognizerSummary]
+-&gt; Either String (Maybe [EntityRecognizerSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EntityRecognizerSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-107"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListEntityRecognizerSummariesResponse)
+-&gt; Either String Int
+-&gt; Either String ListEntityRecognizerSummariesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358541"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679358530"><span id="local-6989586621679358532"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358527"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries</span></a></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679358523"><span class="annot"><span class="annottext">toHeaders :: ListEntityRecognizerSummaries -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListEntityRecognizerSummaries -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Comprehend_20171127.ListEntityRecognizerSummaries&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358513"><span id="local-6989586621679358515"><span id="local-6989586621679358517"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679358511"><span class="annot"><span class="annottext">toJSON :: ListEntityRecognizerSummaries -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries%27"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358508"><span id="local-6989586621679358509"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListEntityRecognizerSummaries' :: ListEntityRecognizerSummaries -&gt; Maybe Natural
+$sel:nextToken:ListEntityRecognizerSummaries' :: ListEntityRecognizerSummaries -&gt; Maybe Text
+</span><a href="#local-6989586621679358508"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358509"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679358508"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679358502"><span class="annot"><span class="annottext">toPath :: ListEntityRecognizerSummaries -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListEntityRecognizerSummaries -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummaries"><span class="hs-identifier hs-type">ListEntityRecognizerSummaries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679358498"><span class="annot"><span class="annottext">toQuery :: ListEntityRecognizerSummaries -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListEntityRecognizerSummaries -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newListEntityRecognizerSummariesResponse' smart constructor.</span><span>
+</span><span id="line-148"></span><span id="local-6989586621679358495"><span id="local-6989586621679358496"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEntityRecognizerSummariesResponse"><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse"><span class="hs-identifier hs-var">ListEntityRecognizerSummariesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEntityRecognizerSummariesResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-var">ListEntityRecognizerSummariesResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list entity recognizer summaries.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AnextToken%3AListEntityRecognizerSummariesResponse%27"><span class="annot"><span class="annottext">ListEntityRecognizerSummariesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#%24sel%3AnextToken%3AListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The list entity recognizer summaries.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AentityRecognizerSummariesList%3AListEntityRecognizerSummariesResponse%27"><span class="annot"><span class="annottext">ListEntityRecognizerSummariesResponse
+-&gt; Maybe [EntityRecognizerSummary]
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#%24sel%3AentityRecognizerSummariesList%3AListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-var hs-var">entityRecognizerSummariesList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerSummary.html#EntityRecognizerSummary"><span class="hs-identifier hs-type">EntityRecognizerSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListEntityRecognizerSummariesResponse%27"><span class="annot"><span class="annottext">ListEntityRecognizerSummariesResponse -&gt; Int
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#%24sel%3AhttpStatus%3AListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358488"><span id="local-6989586621679358490"><span class="annot"><span class="annottext">ListEntityRecognizerSummariesResponse
+-&gt; ListEntityRecognizerSummariesResponse -&gt; Bool
+(ListEntityRecognizerSummariesResponse
+ -&gt; ListEntityRecognizerSummariesResponse -&gt; Bool)
+-&gt; (ListEntityRecognizerSummariesResponse
+    -&gt; ListEntityRecognizerSummariesResponse -&gt; Bool)
+-&gt; Eq ListEntityRecognizerSummariesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListEntityRecognizerSummariesResponse
+-&gt; ListEntityRecognizerSummariesResponse -&gt; Bool
+$c/= :: ListEntityRecognizerSummariesResponse
+-&gt; ListEntityRecognizerSummariesResponse -&gt; Bool
+== :: ListEntityRecognizerSummariesResponse
+-&gt; ListEntityRecognizerSummariesResponse -&gt; Bool
+$c== :: ListEntityRecognizerSummariesResponse
+-&gt; ListEntityRecognizerSummariesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358480"><span id="local-6989586621679358482"><span id="local-6989586621679358484"><span id="local-6989586621679358486"><span class="annot"><span class="annottext">ReadPrec [ListEntityRecognizerSummariesResponse]
+ReadPrec ListEntityRecognizerSummariesResponse
+Int -&gt; ReadS ListEntityRecognizerSummariesResponse
+ReadS [ListEntityRecognizerSummariesResponse]
+(Int -&gt; ReadS ListEntityRecognizerSummariesResponse)
+-&gt; ReadS [ListEntityRecognizerSummariesResponse]
+-&gt; ReadPrec ListEntityRecognizerSummariesResponse
+-&gt; ReadPrec [ListEntityRecognizerSummariesResponse]
+-&gt; Read ListEntityRecognizerSummariesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListEntityRecognizerSummariesResponse]
+$creadListPrec :: ReadPrec [ListEntityRecognizerSummariesResponse]
+readPrec :: ReadPrec ListEntityRecognizerSummariesResponse
+$creadPrec :: ReadPrec ListEntityRecognizerSummariesResponse
+readList :: ReadS [ListEntityRecognizerSummariesResponse]
+$creadList :: ReadS [ListEntityRecognizerSummariesResponse]
+readsPrec :: Int -&gt; ReadS ListEntityRecognizerSummariesResponse
+$creadsPrec :: Int -&gt; ReadS ListEntityRecognizerSummariesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358474"><span id="local-6989586621679358476"><span id="local-6989586621679358478"><span class="annot"><span class="annottext">Int -&gt; ListEntityRecognizerSummariesResponse -&gt; ShowS
+[ListEntityRecognizerSummariesResponse] -&gt; ShowS
+ListEntityRecognizerSummariesResponse -&gt; String
+(Int -&gt; ListEntityRecognizerSummariesResponse -&gt; ShowS)
+-&gt; (ListEntityRecognizerSummariesResponse -&gt; String)
+-&gt; ([ListEntityRecognizerSummariesResponse] -&gt; ShowS)
+-&gt; Show ListEntityRecognizerSummariesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListEntityRecognizerSummariesResponse] -&gt; ShowS
+$cshowList :: [ListEntityRecognizerSummariesResponse] -&gt; ShowS
+show :: ListEntityRecognizerSummariesResponse -&gt; String
+$cshow :: ListEntityRecognizerSummariesResponse -&gt; String
+showsPrec :: Int -&gt; ListEntityRecognizerSummariesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListEntityRecognizerSummariesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListEntityRecognizerSummariesResponse
+ -&gt; Rep ListEntityRecognizerSummariesResponse x)
+-&gt; (forall x.
+    Rep ListEntityRecognizerSummariesResponse x
+    -&gt; ListEntityRecognizerSummariesResponse)
+-&gt; Generic ListEntityRecognizerSummariesResponse
+forall x.
+Rep ListEntityRecognizerSummariesResponse x
+-&gt; ListEntityRecognizerSummariesResponse
+forall x.
+ListEntityRecognizerSummariesResponse
+-&gt; Rep ListEntityRecognizerSummariesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListEntityRecognizerSummariesResponse x
+-&gt; ListEntityRecognizerSummariesResponse
+$cfrom :: forall x.
+ListEntityRecognizerSummariesResponse
+-&gt; Rep ListEntityRecognizerSummariesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'ListEntityRecognizerSummariesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'nextToken', 'listEntityRecognizerSummariesResponse_nextToken' - The list entity recognizer summaries.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'entityRecognizerSummariesList', 'listEntityRecognizerSummariesResponse_entityRecognizerSummariesList' - The list entity recognizer summaries.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'httpStatus', 'listEntityRecognizerSummariesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#newListEntityRecognizerSummariesResponse"><span class="hs-identifier hs-type">newListEntityRecognizerSummariesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse"><span class="hs-identifier hs-type">ListEntityRecognizerSummariesResponse</span></a></span><span>
+</span><span id="line-175"></span><span id="newListEntityRecognizerSummariesResponse"><span class="annot"><span class="annottext">newListEntityRecognizerSummariesResponse :: Int -&gt; ListEntityRecognizerSummariesResponse
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#newListEntityRecognizerSummariesResponse"><span class="hs-identifier hs-var hs-var">newListEntityRecognizerSummariesResponse</span></a></span></span><span> </span><span id="local-6989586621679358471"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358471"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">ListEntityRecognizerSummariesResponse' :: Maybe Text
+-&gt; Maybe [EntityRecognizerSummary]
+-&gt; Int
+-&gt; ListEntityRecognizerSummariesResponse
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizerSummariesResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListEntityRecognizerSummariesResponse' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#%24sel%3AnextToken%3AListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityRecognizerSummariesList:ListEntityRecognizerSummariesResponse' :: Maybe [EntityRecognizerSummary]
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#%24sel%3AentityRecognizerSummariesList%3AListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-var">entityRecognizerSummariesList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Maybe [EntityRecognizerSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListEntityRecognizerSummariesResponse' :: Int
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#%24sel%3AhttpStatus%3AListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358471"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The list entity recognizer summaries.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#listEntityRecognizerSummariesResponse_nextToken"><span class="hs-identifier hs-type">listEntityRecognizerSummariesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse"><span class="hs-identifier hs-type">ListEntityRecognizerSummariesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="listEntityRecognizerSummariesResponse_nextToken"><span class="annot"><span class="annottext">listEntityRecognizerSummariesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListEntityRecognizerSummariesResponse
+-&gt; f ListEntityRecognizerSummariesResponse
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#listEntityRecognizerSummariesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listEntityRecognizerSummariesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntityRecognizerSummariesResponse -&gt; Maybe Text)
+-&gt; (ListEntityRecognizerSummariesResponse
+    -&gt; Maybe Text -&gt; ListEntityRecognizerSummariesResponse)
+-&gt; Lens
+     ListEntityRecognizerSummariesResponse
+     ListEntityRecognizerSummariesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizerSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358470"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListEntityRecognizerSummariesResponse' :: ListEntityRecognizerSummariesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679358470"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358470"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358469"><span class="annot"><span class="annottext">s :: ListEntityRecognizerSummariesResponse
+</span><a href="#local-6989586621679358469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizerSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358468"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizerSummariesResponse
+</span><a href="#local-6989586621679358469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEntityRecognizerSummariesResponse' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#%24sel%3AnextToken%3AListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse"><span class="hs-identifier hs-type">ListEntityRecognizerSummariesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The list entity recognizer summaries.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#listEntityRecognizerSummariesResponse_entityRecognizerSummariesList"><span class="hs-identifier hs-type">listEntityRecognizerSummariesResponse_entityRecognizerSummariesList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse"><span class="hs-identifier hs-type">ListEntityRecognizerSummariesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerSummary.html#EntityRecognizerSummary"><span class="hs-identifier hs-type">EntityRecognizerSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="listEntityRecognizerSummariesResponse_entityRecognizerSummariesList"><span class="annot"><span class="annottext">listEntityRecognizerSummariesResponse_entityRecognizerSummariesList :: (Maybe [EntityRecognizerSummary]
+ -&gt; f (Maybe [EntityRecognizerSummary]))
+-&gt; ListEntityRecognizerSummariesResponse
+-&gt; f ListEntityRecognizerSummariesResponse
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#listEntityRecognizerSummariesResponse_entityRecognizerSummariesList"><span class="hs-identifier hs-var hs-var">listEntityRecognizerSummariesResponse_entityRecognizerSummariesList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntityRecognizerSummariesResponse
+ -&gt; Maybe [EntityRecognizerSummary])
+-&gt; (ListEntityRecognizerSummariesResponse
+    -&gt; Maybe [EntityRecognizerSummary]
+    -&gt; ListEntityRecognizerSummariesResponse)
+-&gt; Lens
+     ListEntityRecognizerSummariesResponse
+     ListEntityRecognizerSummariesResponse
+     (Maybe [EntityRecognizerSummary])
+     (Maybe [EntityRecognizerSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizerSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358467"><span class="annot"><span class="annottext">Maybe [EntityRecognizerSummary]
+entityRecognizerSummariesList :: Maybe [EntityRecognizerSummary]
+$sel:entityRecognizerSummariesList:ListEntityRecognizerSummariesResponse' :: ListEntityRecognizerSummariesResponse
+-&gt; Maybe [EntityRecognizerSummary]
+</span><a href="#local-6989586621679358467"><span class="hs-identifier hs-var hs-var">entityRecognizerSummariesList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EntityRecognizerSummary]
+</span><a href="#local-6989586621679358467"><span class="hs-identifier hs-var">entityRecognizerSummariesList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358466"><span class="annot"><span class="annottext">s :: ListEntityRecognizerSummariesResponse
+</span><a href="#local-6989586621679358466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizerSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358465"><span class="annot"><span class="annottext">Maybe [EntityRecognizerSummary]
+</span><a href="#local-6989586621679358465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizerSummariesResponse
+</span><a href="#local-6989586621679358466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityRecognizerSummariesList:ListEntityRecognizerSummariesResponse' :: Maybe [EntityRecognizerSummary]
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#%24sel%3AentityRecognizerSummariesList%3AListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-var">entityRecognizerSummariesList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EntityRecognizerSummary]
+</span><a href="#local-6989586621679358465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse"><span class="hs-identifier hs-type">ListEntityRecognizerSummariesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EntityRecognizerSummary]
+  -&gt; f (Maybe [EntityRecognizerSummary]))
+ -&gt; ListEntityRecognizerSummariesResponse
+ -&gt; f ListEntityRecognizerSummariesResponse)
+-&gt; ((Maybe [EntityRecognizerSummary]
+     -&gt; f (Maybe [EntityRecognizerSummary]))
+    -&gt; Maybe [EntityRecognizerSummary]
+    -&gt; f (Maybe [EntityRecognizerSummary]))
+-&gt; (Maybe [EntityRecognizerSummary]
+    -&gt; f (Maybe [EntityRecognizerSummary]))
+-&gt; ListEntityRecognizerSummariesResponse
+-&gt; f ListEntityRecognizerSummariesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EntityRecognizerSummary]
+  [EntityRecognizerSummary]
+  [EntityRecognizerSummary]
+  [EntityRecognizerSummary]
+-&gt; Iso
+     (Maybe [EntityRecognizerSummary])
+     (Maybe [EntityRecognizerSummary])
+     (Maybe [EntityRecognizerSummary])
+     (Maybe [EntityRecognizerSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EntityRecognizerSummary]
+  [EntityRecognizerSummary]
+  [EntityRecognizerSummary]
+  [EntityRecognizerSummary]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#listEntityRecognizerSummariesResponse_httpStatus"><span class="hs-identifier hs-type">listEntityRecognizerSummariesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse"><span class="hs-identifier hs-type">ListEntityRecognizerSummariesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span id="listEntityRecognizerSummariesResponse_httpStatus"><span class="annot"><span class="annottext">listEntityRecognizerSummariesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListEntityRecognizerSummariesResponse
+-&gt; f ListEntityRecognizerSummariesResponse
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#listEntityRecognizerSummariesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listEntityRecognizerSummariesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntityRecognizerSummariesResponse -&gt; Int)
+-&gt; (ListEntityRecognizerSummariesResponse
+    -&gt; Int -&gt; ListEntityRecognizerSummariesResponse)
+-&gt; Lens
+     ListEntityRecognizerSummariesResponse
+     ListEntityRecognizerSummariesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizerSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358461"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListEntityRecognizerSummariesResponse' :: ListEntityRecognizerSummariesResponse -&gt; Int
+</span><a href="#local-6989586621679358461"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358461"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358460"><span class="annot"><span class="annottext">s :: ListEntityRecognizerSummariesResponse
+</span><a href="#local-6989586621679358460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizerSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358459"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizerSummariesResponse
+</span><a href="#local-6989586621679358460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListEntityRecognizerSummariesResponse' :: Int
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#%24sel%3AhttpStatus%3AListEntityRecognizerSummariesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse"><span class="hs-identifier hs-type">ListEntityRecognizerSummariesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679358457"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizerSummaries.html#ListEntityRecognizerSummariesResponse"><span class="hs-identifier hs-type">ListEntityRecognizerSummariesResponse</span></a></span></span><span>
+</span><span id="line-199"></span></pre></body></html>

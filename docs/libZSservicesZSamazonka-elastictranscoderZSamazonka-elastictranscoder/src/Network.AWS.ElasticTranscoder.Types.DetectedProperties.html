@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticTranscoder.Types.DetectedProperties</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticTranscoder.Types.DetectedProperties</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The detected properties of the input file. Elastic Transcoder identifies</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- these values from the input file.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDetectedProperties' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679209930"><span id="local-6989586621679209931"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectedProperties"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-var">DetectedProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectedProperties%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties%27"><span class="hs-identifier hs-var">DetectedProperties'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The detected height of the input file, in pixels.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aheight%3ADetectedProperties%27"><span class="annot"><span class="annottext">DetectedProperties -&gt; Maybe Int
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#%24sel%3Aheight%3ADetectedProperties%27"><span class="hs-identifier hs-var hs-var">height</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The detected frame rate of the input file, in frames per second.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AframeRate%3ADetectedProperties%27"><span class="annot"><span class="annottext">DetectedProperties -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#%24sel%3AframeRate%3ADetectedProperties%27"><span class="hs-identifier hs-var hs-var">frameRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The detected file size of the input file, in bytes.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AfileSize%3ADetectedProperties%27"><span class="annot"><span class="annottext">DetectedProperties -&gt; Maybe Integer
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#%24sel%3AfileSize%3ADetectedProperties%27"><span class="hs-identifier hs-var hs-var">fileSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The detected width of the input file, in pixels.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Awidth%3ADetectedProperties%27"><span class="annot"><span class="annottext">DetectedProperties -&gt; Maybe Int
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#%24sel%3Awidth%3ADetectedProperties%27"><span class="hs-identifier hs-var hs-var">width</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The detected duration of the input file, in milliseconds.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdurationMillis%3ADetectedProperties%27"><span class="annot"><span class="annottext">DetectedProperties -&gt; Maybe Integer
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#%24sel%3AdurationMillis%3ADetectedProperties%27"><span class="hs-identifier hs-var hs-var">durationMillis</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209920"><span id="local-6989586621679209922"><span class="annot"><span class="annottext">DetectedProperties -&gt; DetectedProperties -&gt; Bool
+(DetectedProperties -&gt; DetectedProperties -&gt; Bool)
+-&gt; (DetectedProperties -&gt; DetectedProperties -&gt; Bool)
+-&gt; Eq DetectedProperties
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DetectedProperties -&gt; DetectedProperties -&gt; Bool
+$c/= :: DetectedProperties -&gt; DetectedProperties -&gt; Bool
+== :: DetectedProperties -&gt; DetectedProperties -&gt; Bool
+$c== :: DetectedProperties -&gt; DetectedProperties -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209911"><span id="local-6989586621679209913"><span id="local-6989586621679209915"><span id="local-6989586621679209917"><span class="annot"><span class="annottext">ReadPrec [DetectedProperties]
+ReadPrec DetectedProperties
+Int -&gt; ReadS DetectedProperties
+ReadS [DetectedProperties]
+(Int -&gt; ReadS DetectedProperties)
+-&gt; ReadS [DetectedProperties]
+-&gt; ReadPrec DetectedProperties
+-&gt; ReadPrec [DetectedProperties]
+-&gt; Read DetectedProperties
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DetectedProperties]
+$creadListPrec :: ReadPrec [DetectedProperties]
+readPrec :: ReadPrec DetectedProperties
+$creadPrec :: ReadPrec DetectedProperties
+readList :: ReadS [DetectedProperties]
+$creadList :: ReadS [DetectedProperties]
+readsPrec :: Int -&gt; ReadS DetectedProperties
+$creadsPrec :: Int -&gt; ReadS DetectedProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209904"><span id="local-6989586621679209906"><span id="local-6989586621679209908"><span class="annot"><span class="annottext">Int -&gt; DetectedProperties -&gt; ShowS
+[DetectedProperties] -&gt; ShowS
+DetectedProperties -&gt; String
+(Int -&gt; DetectedProperties -&gt; ShowS)
+-&gt; (DetectedProperties -&gt; String)
+-&gt; ([DetectedProperties] -&gt; ShowS)
+-&gt; Show DetectedProperties
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DetectedProperties] -&gt; ShowS
+$cshowList :: [DetectedProperties] -&gt; ShowS
+show :: DetectedProperties -&gt; String
+$cshow :: DetectedProperties -&gt; String
+showsPrec :: Int -&gt; DetectedProperties -&gt; ShowS
+$cshowsPrec :: Int -&gt; DetectedProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DetectedProperties -&gt; Rep DetectedProperties x)
+-&gt; (forall x. Rep DetectedProperties x -&gt; DetectedProperties)
+-&gt; Generic DetectedProperties
+forall x. Rep DetectedProperties x -&gt; DetectedProperties
+forall x. DetectedProperties -&gt; Rep DetectedProperties x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DetectedProperties x -&gt; DetectedProperties
+$cfrom :: forall x. DetectedProperties -&gt; Rep DetectedProperties x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'DetectedProperties' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'height', 'detectedProperties_height' - The detected height of the input file, in pixels.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'frameRate', 'detectedProperties_frameRate' - The detected frame rate of the input file, in frames per second.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'fileSize', 'detectedProperties_fileSize' - The detected file size of the input file, in bytes.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'width', 'detectedProperties_width' - The detected width of the input file, in pixels.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'durationMillis', 'detectedProperties_durationMillis' - The detected duration of the input file, in milliseconds.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#newDetectedProperties"><span class="hs-identifier hs-type">newDetectedProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-type">DetectedProperties</span></a></span><span>
+</span><span id="line-63"></span><span id="newDetectedProperties"><span class="annot"><span class="annottext">newDetectedProperties :: DetectedProperties
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#newDetectedProperties"><span class="hs-identifier hs-var hs-var">newDetectedProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">DetectedProperties' :: Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Int
+-&gt; Maybe Integer
+-&gt; DetectedProperties
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties%27"><span class="hs-identifier hs-type">DetectedProperties'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:height:DetectedProperties' :: Maybe Int
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#%24sel%3Aheight%3ADetectedProperties%27"><span class="hs-identifier hs-var">height</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:frameRate:DetectedProperties' :: Maybe Text
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#%24sel%3AframeRate%3ADetectedProperties%27"><span class="hs-identifier hs-var">frameRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileSize:DetectedProperties' :: Maybe Integer
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#%24sel%3AfileSize%3ADetectedProperties%27"><span class="hs-identifier hs-var">fileSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:width:DetectedProperties' :: Maybe Int
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#%24sel%3Awidth%3ADetectedProperties%27"><span class="hs-identifier hs-var">width</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:durationMillis:DetectedProperties' :: Maybe Integer
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#%24sel%3AdurationMillis%3ADetectedProperties%27"><span class="hs-identifier hs-var">durationMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The detected height of the input file, in pixels.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#detectedProperties_height"><span class="hs-identifier hs-type">detectedProperties_height</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-type">DetectedProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="detectedProperties_height"><span class="annot"><span class="annottext">detectedProperties_height :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DetectedProperties -&gt; f DetectedProperties
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#detectedProperties_height"><span class="hs-identifier hs-var hs-var">detectedProperties_height</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectedProperties -&gt; Maybe Int)
+-&gt; (DetectedProperties -&gt; Maybe Int -&gt; DetectedProperties)
+-&gt; Lens
+     DetectedProperties DetectedProperties (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties%27"><span class="hs-identifier hs-type">DetectedProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209895"><span class="annot"><span class="annottext">Maybe Int
+height :: Maybe Int
+$sel:height:DetectedProperties' :: DetectedProperties -&gt; Maybe Int
+</span><a href="#local-6989586621679209895"><span class="hs-identifier hs-var hs-var">height</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679209895"><span class="hs-identifier hs-var">height</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209894"><span class="annot"><span class="annottext">s :: DetectedProperties
+</span><a href="#local-6989586621679209894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties%27"><span class="hs-identifier hs-type">DetectedProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209893"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679209893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectedProperties
+</span><a href="#local-6989586621679209894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:height:DetectedProperties' :: Maybe Int
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#%24sel%3Aheight%3ADetectedProperties%27"><span class="hs-identifier hs-var">height</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679209893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-type">DetectedProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The detected frame rate of the input file, in frames per second.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#detectedProperties_frameRate"><span class="hs-identifier hs-type">detectedProperties_frameRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-type">DetectedProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="detectedProperties_frameRate"><span class="annot"><span class="annottext">detectedProperties_frameRate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DetectedProperties -&gt; f DetectedProperties
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#detectedProperties_frameRate"><span class="hs-identifier hs-var hs-var">detectedProperties_frameRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectedProperties -&gt; Maybe Text)
+-&gt; (DetectedProperties -&gt; Maybe Text -&gt; DetectedProperties)
+-&gt; Lens
+     DetectedProperties DetectedProperties (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties%27"><span class="hs-identifier hs-type">DetectedProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209891"><span class="annot"><span class="annottext">Maybe Text
+frameRate :: Maybe Text
+$sel:frameRate:DetectedProperties' :: DetectedProperties -&gt; Maybe Text
+</span><a href="#local-6989586621679209891"><span class="hs-identifier hs-var hs-var">frameRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209891"><span class="hs-identifier hs-var">frameRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209890"><span class="annot"><span class="annottext">s :: DetectedProperties
+</span><a href="#local-6989586621679209890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties%27"><span class="hs-identifier hs-type">DetectedProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209889"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectedProperties
+</span><a href="#local-6989586621679209890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameRate:DetectedProperties' :: Maybe Text
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#%24sel%3AframeRate%3ADetectedProperties%27"><span class="hs-identifier hs-var">frameRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-type">DetectedProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The detected file size of the input file, in bytes.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#detectedProperties_fileSize"><span class="hs-identifier hs-type">detectedProperties_fileSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-type">DetectedProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="detectedProperties_fileSize"><span class="annot"><span class="annottext">detectedProperties_fileSize :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; DetectedProperties -&gt; f DetectedProperties
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#detectedProperties_fileSize"><span class="hs-identifier hs-var hs-var">detectedProperties_fileSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectedProperties -&gt; Maybe Integer)
+-&gt; (DetectedProperties -&gt; Maybe Integer -&gt; DetectedProperties)
+-&gt; Lens
+     DetectedProperties
+     DetectedProperties
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties%27"><span class="hs-identifier hs-type">DetectedProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209887"><span class="annot"><span class="annottext">Maybe Integer
+fileSize :: Maybe Integer
+$sel:fileSize:DetectedProperties' :: DetectedProperties -&gt; Maybe Integer
+</span><a href="#local-6989586621679209887"><span class="hs-identifier hs-var hs-var">fileSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679209887"><span class="hs-identifier hs-var">fileSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209886"><span class="annot"><span class="annottext">s :: DetectedProperties
+</span><a href="#local-6989586621679209886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties%27"><span class="hs-identifier hs-type">DetectedProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209885"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679209885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectedProperties
+</span><a href="#local-6989586621679209886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSize:DetectedProperties' :: Maybe Integer
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#%24sel%3AfileSize%3ADetectedProperties%27"><span class="hs-identifier hs-var">fileSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679209885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-type">DetectedProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The detected width of the input file, in pixels.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#detectedProperties_width"><span class="hs-identifier hs-type">detectedProperties_width</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-type">DetectedProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="detectedProperties_width"><span class="annot"><span class="annottext">detectedProperties_width :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DetectedProperties -&gt; f DetectedProperties
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#detectedProperties_width"><span class="hs-identifier hs-var hs-var">detectedProperties_width</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectedProperties -&gt; Maybe Int)
+-&gt; (DetectedProperties -&gt; Maybe Int -&gt; DetectedProperties)
+-&gt; Lens
+     DetectedProperties DetectedProperties (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties%27"><span class="hs-identifier hs-type">DetectedProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209883"><span class="annot"><span class="annottext">Maybe Int
+width :: Maybe Int
+$sel:width:DetectedProperties' :: DetectedProperties -&gt; Maybe Int
+</span><a href="#local-6989586621679209883"><span class="hs-identifier hs-var hs-var">width</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679209883"><span class="hs-identifier hs-var">width</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209882"><span class="annot"><span class="annottext">s :: DetectedProperties
+</span><a href="#local-6989586621679209882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties%27"><span class="hs-identifier hs-type">DetectedProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209881"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679209881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectedProperties
+</span><a href="#local-6989586621679209882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:width:DetectedProperties' :: Maybe Int
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#%24sel%3Awidth%3ADetectedProperties%27"><span class="hs-identifier hs-var">width</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679209881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-type">DetectedProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The detected duration of the input file, in milliseconds.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#detectedProperties_durationMillis"><span class="hs-identifier hs-type">detectedProperties_durationMillis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-type">DetectedProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="detectedProperties_durationMillis"><span class="annot"><span class="annottext">detectedProperties_durationMillis :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; DetectedProperties -&gt; f DetectedProperties
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#detectedProperties_durationMillis"><span class="hs-identifier hs-var hs-var">detectedProperties_durationMillis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectedProperties -&gt; Maybe Integer)
+-&gt; (DetectedProperties -&gt; Maybe Integer -&gt; DetectedProperties)
+-&gt; Lens
+     DetectedProperties
+     DetectedProperties
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties%27"><span class="hs-identifier hs-type">DetectedProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209879"><span class="annot"><span class="annottext">Maybe Integer
+durationMillis :: Maybe Integer
+$sel:durationMillis:DetectedProperties' :: DetectedProperties -&gt; Maybe Integer
+</span><a href="#local-6989586621679209879"><span class="hs-identifier hs-var hs-var">durationMillis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679209879"><span class="hs-identifier hs-var">durationMillis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209878"><span class="annot"><span class="annottext">s :: DetectedProperties
+</span><a href="#local-6989586621679209878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties%27"><span class="hs-identifier hs-type">DetectedProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209877"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679209877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectedProperties
+</span><a href="#local-6989586621679209878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationMillis:DetectedProperties' :: Maybe Integer
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#%24sel%3AdurationMillis%3ADetectedProperties%27"><span class="hs-identifier hs-var">durationMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679209877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-type">DetectedProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209874"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-type">DetectedProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679209872"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DetectedProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DetectedProperties)
+-&gt; Value
+-&gt; Parser DetectedProperties
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DetectedProperties&quot;</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209869"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209869"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Int
+-&gt; Maybe Integer
+-&gt; DetectedProperties
+</span><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties%27"><span class="hs-identifier hs-var">DetectedProperties'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe Int
+ -&gt; Maybe Integer
+ -&gt; DetectedProperties)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe Int
+      -&gt; Maybe Integer
+      -&gt; DetectedProperties)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Height&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe Int
+   -&gt; Maybe Integer
+   -&gt; DetectedProperties)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Integer -&gt; Maybe Int -&gt; Maybe Integer -&gt; DetectedProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FrameRate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer -&gt; Maybe Int -&gt; Maybe Integer -&gt; DetectedProperties)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser (Maybe Int -&gt; Maybe Integer -&gt; DetectedProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FileSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Integer -&gt; DetectedProperties)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Integer -&gt; DetectedProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Width&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; DetectedProperties)
+-&gt; Parser (Maybe Integer) -&gt; Parser DetectedProperties
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DurationMillis&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209863"><span id="local-6989586621679209865"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-type">DetectedProperties</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209860"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-type">DetectedProperties</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209852"><span id="local-6989586621679209854"><span id="local-6989586621679209856"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-type">DetectedProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679209850"><span class="annot"><span class="annottext">toJSON :: DetectedProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties%27"><span class="hs-identifier hs-type">DetectedProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209844"><span id="local-6989586621679209845"><span id="local-6989586621679209846"><span id="local-6989586621679209847"><span id="local-6989586621679209848"><span class="annot"><span class="annottext">Maybe Int
+Maybe Integer
+Maybe Text
+durationMillis :: Maybe Integer
+width :: Maybe Int
+fileSize :: Maybe Integer
+frameRate :: Maybe Text
+height :: Maybe Int
+$sel:durationMillis:DetectedProperties' :: DetectedProperties -&gt; Maybe Integer
+$sel:width:DetectedProperties' :: DetectedProperties -&gt; Maybe Int
+$sel:fileSize:DetectedProperties' :: DetectedProperties -&gt; Maybe Integer
+$sel:frameRate:DetectedProperties' :: DetectedProperties -&gt; Maybe Text
+$sel:height:DetectedProperties' :: DetectedProperties -&gt; Maybe Int
+</span><a href="#local-6989586621679209844"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Height&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679209848"><span class="hs-identifier hs-var">height</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FrameRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209847"><span class="hs-identifier hs-var">frameRate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FileSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679209846"><span class="hs-identifier hs-var">fileSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Width&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679209845"><span class="hs-identifier hs-var">width</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DurationMillis&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679209844"><span class="hs-identifier hs-var">durationMillis</span></a></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span></pre></body></html>

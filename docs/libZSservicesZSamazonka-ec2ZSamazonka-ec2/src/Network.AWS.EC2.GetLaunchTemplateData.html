@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.GetLaunchTemplateData</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the configuration data of the specified instance. You can use</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- this data to create a launch template.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This action calls on other describe actions to get instance information.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Depending on your instance configuration, you may need to allow the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- following actions in your IAM policy: DescribeSpotInstanceRequests,</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- DescribeInstanceCreditSpecifications, DescribeVolumes,</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- DescribeInstanceAttribute, and DescribeElasticGpus. Or, you can allow</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- @describe*@ depending on your instance requirements.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.GetLaunchTemplateData</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData"><span class="hs-identifier">GetLaunchTemplateData</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#newGetLaunchTemplateData"><span class="hs-identifier">newGetLaunchTemplateData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#getLaunchTemplateData_dryRun"><span class="hs-identifier">getLaunchTemplateData_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#getLaunchTemplateData_instanceId"><span class="hs-identifier">getLaunchTemplateData_instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateDataResponse"><span class="hs-identifier">GetLaunchTemplateDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#newGetLaunchTemplateDataResponse"><span class="hs-identifier">newGetLaunchTemplateDataResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#getLaunchTemplateDataResponse_launchTemplateData"><span class="hs-identifier">getLaunchTemplateDataResponse_launchTemplateData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#getLaunchTemplateDataResponse_httpStatus"><span class="hs-identifier">getLaunchTemplateDataResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newGetLaunchTemplateData' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621681192868"><span id="local-6989586621681192869"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetLaunchTemplateData"><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData"><span class="hs-identifier hs-var">GetLaunchTemplateData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetLaunchTemplateData%27"><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData%27"><span class="hs-identifier hs-var">GetLaunchTemplateData'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdryRun%3AGetLaunchTemplateData%27"><span class="annot"><span class="annottext">GetLaunchTemplateData -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#%24sel%3AdryRun%3AGetLaunchTemplateData%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ID of the instance.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AinstanceId%3AGetLaunchTemplateData%27"><span class="annot"><span class="annottext">GetLaunchTemplateData -&gt; Text
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#%24sel%3AinstanceId%3AGetLaunchTemplateData%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681192861"><span id="local-6989586621681192863"><span class="annot"><span class="annottext">GetLaunchTemplateData -&gt; GetLaunchTemplateData -&gt; Bool
+(GetLaunchTemplateData -&gt; GetLaunchTemplateData -&gt; Bool)
+-&gt; (GetLaunchTemplateData -&gt; GetLaunchTemplateData -&gt; Bool)
+-&gt; Eq GetLaunchTemplateData
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetLaunchTemplateData -&gt; GetLaunchTemplateData -&gt; Bool
+$c/= :: GetLaunchTemplateData -&gt; GetLaunchTemplateData -&gt; Bool
+== :: GetLaunchTemplateData -&gt; GetLaunchTemplateData -&gt; Bool
+$c== :: GetLaunchTemplateData -&gt; GetLaunchTemplateData -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681192852"><span id="local-6989586621681192854"><span id="local-6989586621681192856"><span id="local-6989586621681192858"><span class="annot"><span class="annottext">ReadPrec [GetLaunchTemplateData]
+ReadPrec GetLaunchTemplateData
+Int -&gt; ReadS GetLaunchTemplateData
+ReadS [GetLaunchTemplateData]
+(Int -&gt; ReadS GetLaunchTemplateData)
+-&gt; ReadS [GetLaunchTemplateData]
+-&gt; ReadPrec GetLaunchTemplateData
+-&gt; ReadPrec [GetLaunchTemplateData]
+-&gt; Read GetLaunchTemplateData
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetLaunchTemplateData]
+$creadListPrec :: ReadPrec [GetLaunchTemplateData]
+readPrec :: ReadPrec GetLaunchTemplateData
+$creadPrec :: ReadPrec GetLaunchTemplateData
+readList :: ReadS [GetLaunchTemplateData]
+$creadList :: ReadS [GetLaunchTemplateData]
+readsPrec :: Int -&gt; ReadS GetLaunchTemplateData
+$creadsPrec :: Int -&gt; ReadS GetLaunchTemplateData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681192845"><span id="local-6989586621681192847"><span id="local-6989586621681192849"><span class="annot"><span class="annottext">Int -&gt; GetLaunchTemplateData -&gt; ShowS
+[GetLaunchTemplateData] -&gt; ShowS
+GetLaunchTemplateData -&gt; String
+(Int -&gt; GetLaunchTemplateData -&gt; ShowS)
+-&gt; (GetLaunchTemplateData -&gt; String)
+-&gt; ([GetLaunchTemplateData] -&gt; ShowS)
+-&gt; Show GetLaunchTemplateData
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetLaunchTemplateData] -&gt; ShowS
+$cshowList :: [GetLaunchTemplateData] -&gt; ShowS
+show :: GetLaunchTemplateData -&gt; String
+$cshow :: GetLaunchTemplateData -&gt; String
+showsPrec :: Int -&gt; GetLaunchTemplateData -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetLaunchTemplateData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetLaunchTemplateData -&gt; Rep GetLaunchTemplateData x)
+-&gt; (forall x. Rep GetLaunchTemplateData x -&gt; GetLaunchTemplateData)
+-&gt; Generic GetLaunchTemplateData
+forall x. Rep GetLaunchTemplateData x -&gt; GetLaunchTemplateData
+forall x. GetLaunchTemplateData -&gt; Rep GetLaunchTemplateData x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetLaunchTemplateData x -&gt; GetLaunchTemplateData
+$cfrom :: forall x. GetLaunchTemplateData -&gt; Rep GetLaunchTemplateData x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'GetLaunchTemplateData' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'dryRun', 'getLaunchTemplateData_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'instanceId', 'getLaunchTemplateData_instanceId' - The ID of the instance.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#newGetLaunchTemplateData"><span class="hs-identifier hs-type">newGetLaunchTemplateData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'instanceId'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData"><span class="hs-identifier hs-type">GetLaunchTemplateData</span></a></span><span>
+</span><span id="line-88"></span><span id="newGetLaunchTemplateData"><span class="annot"><span class="annottext">newGetLaunchTemplateData :: Text -&gt; GetLaunchTemplateData
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#newGetLaunchTemplateData"><span class="hs-identifier hs-var hs-var">newGetLaunchTemplateData</span></a></span></span><span> </span><span id="local-6989586621681192840"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681192840"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">GetLaunchTemplateData' :: Maybe Bool -&gt; Text -&gt; GetLaunchTemplateData
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData%27"><span class="hs-identifier hs-type">GetLaunchTemplateData'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:GetLaunchTemplateData' :: Maybe Bool
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#%24sel%3AdryRun%3AGetLaunchTemplateData%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:GetLaunchTemplateData' :: Text
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#%24sel%3AinstanceId%3AGetLaunchTemplateData%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681192840"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#getLaunchTemplateData_dryRun"><span class="hs-identifier hs-type">getLaunchTemplateData_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData"><span class="hs-identifier hs-type">GetLaunchTemplateData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="getLaunchTemplateData_dryRun"><span class="annot"><span class="annottext">getLaunchTemplateData_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GetLaunchTemplateData -&gt; f GetLaunchTemplateData
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#getLaunchTemplateData_dryRun"><span class="hs-identifier hs-var hs-var">getLaunchTemplateData_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLaunchTemplateData -&gt; Maybe Bool)
+-&gt; (GetLaunchTemplateData -&gt; Maybe Bool -&gt; GetLaunchTemplateData)
+-&gt; Lens
+     GetLaunchTemplateData
+     GetLaunchTemplateData
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData%27"><span class="hs-identifier hs-type">GetLaunchTemplateData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681192837"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:GetLaunchTemplateData' :: GetLaunchTemplateData -&gt; Maybe Bool
+</span><a href="#local-6989586621681192837"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681192837"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681192836"><span class="annot"><span class="annottext">s :: GetLaunchTemplateData
+</span><a href="#local-6989586621681192836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData%27"><span class="hs-identifier hs-type">GetLaunchTemplateData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681192835"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681192835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLaunchTemplateData
+</span><a href="#local-6989586621681192836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:GetLaunchTemplateData' :: Maybe Bool
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#%24sel%3AdryRun%3AGetLaunchTemplateData%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681192835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData"><span class="hs-identifier hs-type">GetLaunchTemplateData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The ID of the instance.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#getLaunchTemplateData_instanceId"><span class="hs-identifier hs-type">getLaunchTemplateData_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData"><span class="hs-identifier hs-type">GetLaunchTemplateData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="getLaunchTemplateData_instanceId"><span class="annot"><span class="annottext">getLaunchTemplateData_instanceId :: (Text -&gt; f Text)
+-&gt; GetLaunchTemplateData -&gt; f GetLaunchTemplateData
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#getLaunchTemplateData_instanceId"><span class="hs-identifier hs-var hs-var">getLaunchTemplateData_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLaunchTemplateData -&gt; Text)
+-&gt; (GetLaunchTemplateData -&gt; Text -&gt; GetLaunchTemplateData)
+-&gt; Lens GetLaunchTemplateData GetLaunchTemplateData Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData%27"><span class="hs-identifier hs-type">GetLaunchTemplateData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681192834"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+$sel:instanceId:GetLaunchTemplateData' :: GetLaunchTemplateData -&gt; Text
+</span><a href="#local-6989586621681192834"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681192834"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681192833"><span class="annot"><span class="annottext">s :: GetLaunchTemplateData
+</span><a href="#local-6989586621681192833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData%27"><span class="hs-identifier hs-type">GetLaunchTemplateData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681192832"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681192832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLaunchTemplateData
+</span><a href="#local-6989586621681192833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:GetLaunchTemplateData' :: Text
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#%24sel%3AinstanceId%3AGetLaunchTemplateData%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681192832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData"><span class="hs-identifier hs-type">GetLaunchTemplateData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData"><span class="hs-identifier hs-type">GetLaunchTemplateData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData"><span class="hs-identifier hs-type">GetLaunchTemplateData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateDataResponse"><span class="hs-identifier hs-type">GetLaunchTemplateDataResponse</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621681192828"><span class="annot"><span class="annottext">request :: GetLaunchTemplateData -&gt; Request GetLaunchTemplateData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetLaunchTemplateData -&gt; Request GetLaunchTemplateData
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621681192824"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetLaunchTemplateData
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetLaunchTemplateData)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse GetLaunchTemplateData))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetLaunchTemplateData
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetLaunchTemplateData)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681192821"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681192821"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681192820"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681192820"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681192819"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681192819"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResponseLaunchTemplateData
+-&gt; Int -&gt; GetLaunchTemplateDataResponse
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateDataResponse%27"><span class="hs-identifier hs-var">GetLaunchTemplateDataResponse'</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ResponseLaunchTemplateData
+ -&gt; Int -&gt; GetLaunchTemplateDataResponse)
+-&gt; Either String (Maybe ResponseLaunchTemplateData)
+-&gt; Either String (Int -&gt; GetLaunchTemplateDataResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681192819"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ResponseLaunchTemplateData)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;launchTemplateData&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetLaunchTemplateDataResponse)
+-&gt; Either String Int -&gt; Either String GetLaunchTemplateDataResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681192821"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681192811"><span id="local-6989586621681192813"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData"><span class="hs-identifier hs-type">GetLaunchTemplateData</span></a></span></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681192808"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData"><span class="hs-identifier hs-type">GetLaunchTemplateData</span></a></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData"><span class="hs-identifier hs-type">GetLaunchTemplateData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621681192804"><span class="annot"><span class="annottext">toHeaders :: GetLaunchTemplateData -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetLaunchTemplateData -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData"><span class="hs-identifier hs-type">GetLaunchTemplateData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621681192799"><span class="annot"><span class="annottext">toPath :: GetLaunchTemplateData -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetLaunchTemplateData -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData"><span class="hs-identifier hs-type">GetLaunchTemplateData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621681192795"><span class="annot"><span class="annottext">toQuery :: GetLaunchTemplateData -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateData%27"><span class="hs-identifier hs-type">GetLaunchTemplateData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681192792"><span id="local-6989586621681192793"><span class="annot"><span class="annottext">Maybe Bool
+Text
+instanceId :: Text
+dryRun :: Maybe Bool
+$sel:instanceId:GetLaunchTemplateData' :: GetLaunchTemplateData -&gt; Text
+$sel:dryRun:GetLaunchTemplateData' :: GetLaunchTemplateData -&gt; Maybe Bool
+</span><a href="#local-6989586621681192792"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GetLaunchTemplateData&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681192793"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681192792"><span class="hs-identifier hs-var">instanceId</span></a></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newGetLaunchTemplateDataResponse' smart constructor.</span><span>
+</span><span id="line-140"></span><span id="local-6989586621681192789"><span id="local-6989586621681192790"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetLaunchTemplateDataResponse"><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateDataResponse"><span class="hs-identifier hs-var">GetLaunchTemplateDataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetLaunchTemplateDataResponse%27"><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateDataResponse%27"><span class="hs-identifier hs-var">GetLaunchTemplateDataResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The instance data.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AlaunchTemplateData%3AGetLaunchTemplateDataResponse%27"><span class="annot"><span class="annottext">GetLaunchTemplateDataResponse -&gt; Maybe ResponseLaunchTemplateData
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#%24sel%3AlaunchTemplateData%3AGetLaunchTemplateDataResponse%27"><span class="hs-identifier hs-var hs-var">launchTemplateData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseLaunchTemplateData.html#ResponseLaunchTemplateData"><span class="hs-identifier hs-type">ResponseLaunchTemplateData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetLaunchTemplateDataResponse%27"><span class="annot"><span class="annottext">GetLaunchTemplateDataResponse -&gt; Int
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#%24sel%3AhttpStatus%3AGetLaunchTemplateDataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681192783"><span id="local-6989586621681192785"><span class="annot"><span class="annottext">GetLaunchTemplateDataResponse
+-&gt; GetLaunchTemplateDataResponse -&gt; Bool
+(GetLaunchTemplateDataResponse
+ -&gt; GetLaunchTemplateDataResponse -&gt; Bool)
+-&gt; (GetLaunchTemplateDataResponse
+    -&gt; GetLaunchTemplateDataResponse -&gt; Bool)
+-&gt; Eq GetLaunchTemplateDataResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetLaunchTemplateDataResponse
+-&gt; GetLaunchTemplateDataResponse -&gt; Bool
+$c/= :: GetLaunchTemplateDataResponse
+-&gt; GetLaunchTemplateDataResponse -&gt; Bool
+== :: GetLaunchTemplateDataResponse
+-&gt; GetLaunchTemplateDataResponse -&gt; Bool
+$c== :: GetLaunchTemplateDataResponse
+-&gt; GetLaunchTemplateDataResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681192775"><span id="local-6989586621681192777"><span id="local-6989586621681192779"><span id="local-6989586621681192781"><span class="annot"><span class="annottext">ReadPrec [GetLaunchTemplateDataResponse]
+ReadPrec GetLaunchTemplateDataResponse
+Int -&gt; ReadS GetLaunchTemplateDataResponse
+ReadS [GetLaunchTemplateDataResponse]
+(Int -&gt; ReadS GetLaunchTemplateDataResponse)
+-&gt; ReadS [GetLaunchTemplateDataResponse]
+-&gt; ReadPrec GetLaunchTemplateDataResponse
+-&gt; ReadPrec [GetLaunchTemplateDataResponse]
+-&gt; Read GetLaunchTemplateDataResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetLaunchTemplateDataResponse]
+$creadListPrec :: ReadPrec [GetLaunchTemplateDataResponse]
+readPrec :: ReadPrec GetLaunchTemplateDataResponse
+$creadPrec :: ReadPrec GetLaunchTemplateDataResponse
+readList :: ReadS [GetLaunchTemplateDataResponse]
+$creadList :: ReadS [GetLaunchTemplateDataResponse]
+readsPrec :: Int -&gt; ReadS GetLaunchTemplateDataResponse
+$creadsPrec :: Int -&gt; ReadS GetLaunchTemplateDataResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681192769"><span id="local-6989586621681192771"><span id="local-6989586621681192773"><span class="annot"><span class="annottext">Int -&gt; GetLaunchTemplateDataResponse -&gt; ShowS
+[GetLaunchTemplateDataResponse] -&gt; ShowS
+GetLaunchTemplateDataResponse -&gt; String
+(Int -&gt; GetLaunchTemplateDataResponse -&gt; ShowS)
+-&gt; (GetLaunchTemplateDataResponse -&gt; String)
+-&gt; ([GetLaunchTemplateDataResponse] -&gt; ShowS)
+-&gt; Show GetLaunchTemplateDataResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetLaunchTemplateDataResponse] -&gt; ShowS
+$cshowList :: [GetLaunchTemplateDataResponse] -&gt; ShowS
+show :: GetLaunchTemplateDataResponse -&gt; String
+$cshow :: GetLaunchTemplateDataResponse -&gt; String
+showsPrec :: Int -&gt; GetLaunchTemplateDataResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetLaunchTemplateDataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetLaunchTemplateDataResponse
+ -&gt; Rep GetLaunchTemplateDataResponse x)
+-&gt; (forall x.
+    Rep GetLaunchTemplateDataResponse x
+    -&gt; GetLaunchTemplateDataResponse)
+-&gt; Generic GetLaunchTemplateDataResponse
+forall x.
+Rep GetLaunchTemplateDataResponse x
+-&gt; GetLaunchTemplateDataResponse
+forall x.
+GetLaunchTemplateDataResponse
+-&gt; Rep GetLaunchTemplateDataResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetLaunchTemplateDataResponse x
+-&gt; GetLaunchTemplateDataResponse
+$cfrom :: forall x.
+GetLaunchTemplateDataResponse
+-&gt; Rep GetLaunchTemplateDataResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Create a value of 'GetLaunchTemplateDataResponse' with all optional fields omitted.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'launchTemplateData', 'getLaunchTemplateDataResponse_launchTemplateData' - The instance data.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'httpStatus', 'getLaunchTemplateDataResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#newGetLaunchTemplateDataResponse"><span class="hs-identifier hs-type">newGetLaunchTemplateDataResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateDataResponse"><span class="hs-identifier hs-type">GetLaunchTemplateDataResponse</span></a></span><span>
+</span><span id="line-163"></span><span id="newGetLaunchTemplateDataResponse"><span class="annot"><span class="annottext">newGetLaunchTemplateDataResponse :: Int -&gt; GetLaunchTemplateDataResponse
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#newGetLaunchTemplateDataResponse"><span class="hs-identifier hs-var hs-var">newGetLaunchTemplateDataResponse</span></a></span></span><span> </span><span id="local-6989586621681192766"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681192766"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">GetLaunchTemplateDataResponse' :: Maybe ResponseLaunchTemplateData
+-&gt; Int -&gt; GetLaunchTemplateDataResponse
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateDataResponse%27"><span class="hs-identifier hs-type">GetLaunchTemplateDataResponse'</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:launchTemplateData:GetLaunchTemplateDataResponse' :: Maybe ResponseLaunchTemplateData
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#%24sel%3AlaunchTemplateData%3AGetLaunchTemplateDataResponse%27"><span class="hs-identifier hs-var">launchTemplateData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Maybe ResponseLaunchTemplateData
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetLaunchTemplateDataResponse' :: Int
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#%24sel%3AhttpStatus%3AGetLaunchTemplateDataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681192766"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The instance data.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#getLaunchTemplateDataResponse_launchTemplateData"><span class="hs-identifier hs-type">getLaunchTemplateDataResponse_launchTemplateData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateDataResponse"><span class="hs-identifier hs-type">GetLaunchTemplateDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseLaunchTemplateData.html#ResponseLaunchTemplateData"><span class="hs-identifier hs-type">ResponseLaunchTemplateData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="getLaunchTemplateDataResponse_launchTemplateData"><span class="annot"><span class="annottext">getLaunchTemplateDataResponse_launchTemplateData :: (Maybe ResponseLaunchTemplateData
+ -&gt; f (Maybe ResponseLaunchTemplateData))
+-&gt; GetLaunchTemplateDataResponse -&gt; f GetLaunchTemplateDataResponse
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#getLaunchTemplateDataResponse_launchTemplateData"><span class="hs-identifier hs-var hs-var">getLaunchTemplateDataResponse_launchTemplateData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLaunchTemplateDataResponse -&gt; Maybe ResponseLaunchTemplateData)
+-&gt; (GetLaunchTemplateDataResponse
+    -&gt; Maybe ResponseLaunchTemplateData
+    -&gt; GetLaunchTemplateDataResponse)
+-&gt; Lens
+     GetLaunchTemplateDataResponse
+     GetLaunchTemplateDataResponse
+     (Maybe ResponseLaunchTemplateData)
+     (Maybe ResponseLaunchTemplateData)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateDataResponse%27"><span class="hs-identifier hs-type">GetLaunchTemplateDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681192765"><span class="annot"><span class="annottext">Maybe ResponseLaunchTemplateData
+launchTemplateData :: Maybe ResponseLaunchTemplateData
+$sel:launchTemplateData:GetLaunchTemplateDataResponse' :: GetLaunchTemplateDataResponse -&gt; Maybe ResponseLaunchTemplateData
+</span><a href="#local-6989586621681192765"><span class="hs-identifier hs-var hs-var">launchTemplateData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResponseLaunchTemplateData
+</span><a href="#local-6989586621681192765"><span class="hs-identifier hs-var">launchTemplateData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681192764"><span class="annot"><span class="annottext">s :: GetLaunchTemplateDataResponse
+</span><a href="#local-6989586621681192764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateDataResponse%27"><span class="hs-identifier hs-type">GetLaunchTemplateDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681192763"><span class="annot"><span class="annottext">Maybe ResponseLaunchTemplateData
+</span><a href="#local-6989586621681192763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLaunchTemplateDataResponse
+</span><a href="#local-6989586621681192764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateData:GetLaunchTemplateDataResponse' :: Maybe ResponseLaunchTemplateData
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#%24sel%3AlaunchTemplateData%3AGetLaunchTemplateDataResponse%27"><span class="hs-identifier hs-var">launchTemplateData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResponseLaunchTemplateData
+</span><a href="#local-6989586621681192763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateDataResponse"><span class="hs-identifier hs-type">GetLaunchTemplateDataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#getLaunchTemplateDataResponse_httpStatus"><span class="hs-identifier hs-type">getLaunchTemplateDataResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateDataResponse"><span class="hs-identifier hs-type">GetLaunchTemplateDataResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-176"></span><span id="getLaunchTemplateDataResponse_httpStatus"><span class="annot"><span class="annottext">getLaunchTemplateDataResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetLaunchTemplateDataResponse -&gt; f GetLaunchTemplateDataResponse
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#getLaunchTemplateDataResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getLaunchTemplateDataResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLaunchTemplateDataResponse -&gt; Int)
+-&gt; (GetLaunchTemplateDataResponse
+    -&gt; Int -&gt; GetLaunchTemplateDataResponse)
+-&gt; Lens
+     GetLaunchTemplateDataResponse GetLaunchTemplateDataResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateDataResponse%27"><span class="hs-identifier hs-type">GetLaunchTemplateDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681192762"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetLaunchTemplateDataResponse' :: GetLaunchTemplateDataResponse -&gt; Int
+</span><a href="#local-6989586621681192762"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681192762"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681192761"><span class="annot"><span class="annottext">s :: GetLaunchTemplateDataResponse
+</span><a href="#local-6989586621681192761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateDataResponse%27"><span class="hs-identifier hs-type">GetLaunchTemplateDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681192760"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681192760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLaunchTemplateDataResponse
+</span><a href="#local-6989586621681192761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetLaunchTemplateDataResponse' :: Int
+</span><a href="Network.AWS.EC2.GetLaunchTemplateData.html#%24sel%3AhttpStatus%3AGetLaunchTemplateDataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681192760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateDataResponse"><span class="hs-identifier hs-type">GetLaunchTemplateDataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681192758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetLaunchTemplateData.html#GetLaunchTemplateDataResponse"><span class="hs-identifier hs-type">GetLaunchTemplateDataResponse</span></a></span></span><span>
+</span><span id="line-179"></span></pre></body></html>

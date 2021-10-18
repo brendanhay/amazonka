@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.MetricDimension.html"><span class="hs-identifier">Network.AWS.AutoScalingPlans.Types.MetricDimension</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.MetricStatistic.html"><span class="hs-identifier">Network.AWS.AutoScalingPlans.Types.MetricStatistic</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Represents a CloudWatch metric of your choosing that can be used for</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- predictive scaling.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- For predictive scaling to work with a customized load metric</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- specification, AWS Auto Scaling needs access to the @Sum@ and @Average@</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- statistics that CloudWatch computes from metric data.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- When you choose a load metric, make sure that the required @Sum@ and</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @Average@ statistics for your metric are available in CloudWatch and</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- that they provide relevant data for predictive scaling. The @Sum@</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- statistic must represent the total load on the resource, and the</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- @Average@ statistic must represent the average load per capacity unit of</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- the resource. For example, there is a metric that counts the number of</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- requests processed by your Auto Scaling group. If the @Sum@ statistic</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- represents the total request count processed by the group, then the</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- @Average@ statistic for the specified metric must represent the average</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- request count processed by each instance of the group.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- If you publish your own metrics, you can aggregate the data points at a</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- given interval and then publish the aggregated data points to</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- CloudWatch. Before AWS Auto Scaling generates the forecast, it sums up</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- all the metric data points that occurred within each hour to match the</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- granularity period that is used in the forecast (60 minutes).</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- For information about terminology, available metrics, or how to publish</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- new metrics, see</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html Amazon CloudWatch Concepts&gt;</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- in the /Amazon CloudWatch User Guide/.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- After creating your scaling plan, you can use the AWS Auto Scaling</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- console to visualize forecasts for the specified metric. For more</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/plans/userguide/gs-create-scaling-plan.html#gs-view-resource View Scaling Information for a Resource&gt;</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- in the /AWS Auto Scaling User Guide/.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- /See:/ 'newCustomizedLoadMetricSpecification' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679176611"><span id="local-6989586621679176612"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomizedLoadMetricSpecification"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier hs-var">CustomizedLoadMetricSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomizedLoadMetricSpecification%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-var">CustomizedLoadMetricSpecification'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unit of the metric.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Aunit%3ACustomizedLoadMetricSpecification%27"><span class="annot"><span class="annottext">CustomizedLoadMetricSpecification -&gt; Maybe Text
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#%24sel%3Aunit%3ACustomizedLoadMetricSpecification%27"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The dimensions of the metric.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Conditional: If you published your metric with dimensions, you must</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- specify the same dimensions in your customized load metric</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- specification.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Adimensions%3ACustomizedLoadMetricSpecification%27"><span class="annot"><span class="annottext">CustomizedLoadMetricSpecification -&gt; Maybe [MetricDimension]
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#%24sel%3Adimensions%3ACustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The name of the metric.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmetricName%3ACustomizedLoadMetricSpecification%27"><span class="annot"><span class="annottext">CustomizedLoadMetricSpecification -&gt; Text
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#%24sel%3AmetricName%3ACustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The namespace of the metric.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Anamespace%3ACustomizedLoadMetricSpecification%27"><span class="annot"><span class="annottext">CustomizedLoadMetricSpecification -&gt; Text
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#%24sel%3Anamespace%3ACustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The statistic of the metric. The only valid value is @Sum@.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Astatistic%3ACustomizedLoadMetricSpecification%27"><span class="annot"><span class="annottext">CustomizedLoadMetricSpecification -&gt; MetricStatistic
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#%24sel%3Astatistic%3ACustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-var hs-var">statistic</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.MetricStatistic.html#MetricStatistic"><span class="hs-identifier hs-type">MetricStatistic</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176601"><span id="local-6989586621679176603"><span class="annot"><span class="annottext">CustomizedLoadMetricSpecification
+-&gt; CustomizedLoadMetricSpecification -&gt; Bool
+(CustomizedLoadMetricSpecification
+ -&gt; CustomizedLoadMetricSpecification -&gt; Bool)
+-&gt; (CustomizedLoadMetricSpecification
+    -&gt; CustomizedLoadMetricSpecification -&gt; Bool)
+-&gt; Eq CustomizedLoadMetricSpecification
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CustomizedLoadMetricSpecification
+-&gt; CustomizedLoadMetricSpecification -&gt; Bool
+$c/= :: CustomizedLoadMetricSpecification
+-&gt; CustomizedLoadMetricSpecification -&gt; Bool
+== :: CustomizedLoadMetricSpecification
+-&gt; CustomizedLoadMetricSpecification -&gt; Bool
+$c== :: CustomizedLoadMetricSpecification
+-&gt; CustomizedLoadMetricSpecification -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176592"><span id="local-6989586621679176594"><span id="local-6989586621679176596"><span id="local-6989586621679176598"><span class="annot"><span class="annottext">ReadPrec [CustomizedLoadMetricSpecification]
+ReadPrec CustomizedLoadMetricSpecification
+Int -&gt; ReadS CustomizedLoadMetricSpecification
+ReadS [CustomizedLoadMetricSpecification]
+(Int -&gt; ReadS CustomizedLoadMetricSpecification)
+-&gt; ReadS [CustomizedLoadMetricSpecification]
+-&gt; ReadPrec CustomizedLoadMetricSpecification
+-&gt; ReadPrec [CustomizedLoadMetricSpecification]
+-&gt; Read CustomizedLoadMetricSpecification
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CustomizedLoadMetricSpecification]
+$creadListPrec :: ReadPrec [CustomizedLoadMetricSpecification]
+readPrec :: ReadPrec CustomizedLoadMetricSpecification
+$creadPrec :: ReadPrec CustomizedLoadMetricSpecification
+readList :: ReadS [CustomizedLoadMetricSpecification]
+$creadList :: ReadS [CustomizedLoadMetricSpecification]
+readsPrec :: Int -&gt; ReadS CustomizedLoadMetricSpecification
+$creadsPrec :: Int -&gt; ReadS CustomizedLoadMetricSpecification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176585"><span id="local-6989586621679176587"><span id="local-6989586621679176589"><span class="annot"><span class="annottext">Int -&gt; CustomizedLoadMetricSpecification -&gt; ShowS
+[CustomizedLoadMetricSpecification] -&gt; ShowS
+CustomizedLoadMetricSpecification -&gt; String
+(Int -&gt; CustomizedLoadMetricSpecification -&gt; ShowS)
+-&gt; (CustomizedLoadMetricSpecification -&gt; String)
+-&gt; ([CustomizedLoadMetricSpecification] -&gt; ShowS)
+-&gt; Show CustomizedLoadMetricSpecification
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CustomizedLoadMetricSpecification] -&gt; ShowS
+$cshowList :: [CustomizedLoadMetricSpecification] -&gt; ShowS
+show :: CustomizedLoadMetricSpecification -&gt; String
+$cshow :: CustomizedLoadMetricSpecification -&gt; String
+showsPrec :: Int -&gt; CustomizedLoadMetricSpecification -&gt; ShowS
+$cshowsPrec :: Int -&gt; CustomizedLoadMetricSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CustomizedLoadMetricSpecification
+ -&gt; Rep CustomizedLoadMetricSpecification x)
+-&gt; (forall x.
+    Rep CustomizedLoadMetricSpecification x
+    -&gt; CustomizedLoadMetricSpecification)
+-&gt; Generic CustomizedLoadMetricSpecification
+forall x.
+Rep CustomizedLoadMetricSpecification x
+-&gt; CustomizedLoadMetricSpecification
+forall x.
+CustomizedLoadMetricSpecification
+-&gt; Rep CustomizedLoadMetricSpecification x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CustomizedLoadMetricSpecification x
+-&gt; CustomizedLoadMetricSpecification
+$cfrom :: forall x.
+CustomizedLoadMetricSpecification
+-&gt; Rep CustomizedLoadMetricSpecification x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Create a value of 'CustomizedLoadMetricSpecification' with all optional fields omitted.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'unit', 'customizedLoadMetricSpecification_unit' - The unit of the metric.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'dimensions', 'customizedLoadMetricSpecification_dimensions' - The dimensions of the metric.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Conditional: If you published your metric with dimensions, you must</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- specify the same dimensions in your customized load metric</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- specification.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'metricName', 'customizedLoadMetricSpecification_metricName' - The name of the metric.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'namespace', 'customizedLoadMetricSpecification_namespace' - The namespace of the metric.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'statistic', 'customizedLoadMetricSpecification_statistic' - The statistic of the metric. The only valid value is @Sum@.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#newCustomizedLoadMetricSpecification"><span class="hs-identifier hs-type">newCustomizedLoadMetricSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'metricName'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-comment">-- | 'namespace'</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'statistic'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.MetricStatistic.html#MetricStatistic"><span class="hs-identifier hs-type">MetricStatistic</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification</span></a></span><span>
+</span><span id="line-111"></span><span id="newCustomizedLoadMetricSpecification"><span class="annot"><span class="annottext">newCustomizedLoadMetricSpecification :: Text
+-&gt; Text -&gt; MetricStatistic -&gt; CustomizedLoadMetricSpecification
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#newCustomizedLoadMetricSpecification"><span class="hs-identifier hs-var hs-var">newCustomizedLoadMetricSpecification</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679176579"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176579"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679176578"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176578"><span class="hs-identifier hs-var">pNamespace_</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679176577"><span class="annot"><span class="annottext">MetricStatistic
+</span><a href="#local-6989586621679176577"><span class="hs-identifier hs-var">pStatistic_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">CustomizedLoadMetricSpecification' :: Maybe Text
+-&gt; Maybe [MetricDimension]
+-&gt; Text
+-&gt; Text
+-&gt; MetricStatistic
+-&gt; CustomizedLoadMetricSpecification
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification'</span></a></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:unit:CustomizedLoadMetricSpecification' :: Maybe Text
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#%24sel%3Aunit%3ACustomizedLoadMetricSpecification%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:dimensions:CustomizedLoadMetricSpecification' :: Maybe [MetricDimension]
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#%24sel%3Adimensions%3ACustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDimension]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricName:CustomizedLoadMetricSpecification' :: Text
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#%24sel%3AmetricName%3ACustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176579"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:namespace:CustomizedLoadMetricSpecification' :: Text
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#%24sel%3Anamespace%3ACustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176578"><span class="hs-identifier hs-var">pNamespace_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:statistic:CustomizedLoadMetricSpecification' :: MetricStatistic
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#%24sel%3Astatistic%3ACustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-var">statistic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MetricStatistic
+</span><a href="#local-6989586621679176577"><span class="hs-identifier hs-var">pStatistic_</span></a></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The unit of the metric.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#customizedLoadMetricSpecification_unit"><span class="hs-identifier hs-type">customizedLoadMetricSpecification_unit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="customizedLoadMetricSpecification_unit"><span class="annot"><span class="annottext">customizedLoadMetricSpecification_unit :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CustomizedLoadMetricSpecification
+-&gt; f CustomizedLoadMetricSpecification
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#customizedLoadMetricSpecification_unit"><span class="hs-identifier hs-var hs-var">customizedLoadMetricSpecification_unit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomizedLoadMetricSpecification -&gt; Maybe Text)
+-&gt; (CustomizedLoadMetricSpecification
+    -&gt; Maybe Text -&gt; CustomizedLoadMetricSpecification)
+-&gt; Lens
+     CustomizedLoadMetricSpecification
+     CustomizedLoadMetricSpecification
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176573"><span class="annot"><span class="annottext">Maybe Text
+unit :: Maybe Text
+$sel:unit:CustomizedLoadMetricSpecification' :: CustomizedLoadMetricSpecification -&gt; Maybe Text
+</span><a href="#local-6989586621679176573"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176573"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176572"><span class="annot"><span class="annottext">s :: CustomizedLoadMetricSpecification
+</span><a href="#local-6989586621679176572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176571"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomizedLoadMetricSpecification
+</span><a href="#local-6989586621679176572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:CustomizedLoadMetricSpecification' :: Maybe Text
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#%24sel%3Aunit%3ACustomizedLoadMetricSpecification%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The dimensions of the metric.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Conditional: If you published your metric with dimensions, you must</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- specify the same dimensions in your customized load metric</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- specification.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#customizedLoadMetricSpecification_dimensions"><span class="hs-identifier hs-type">customizedLoadMetricSpecification_dimensions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="customizedLoadMetricSpecification_dimensions"><span class="annot"><span class="annottext">customizedLoadMetricSpecification_dimensions :: (Maybe [MetricDimension] -&gt; f (Maybe [MetricDimension]))
+-&gt; CustomizedLoadMetricSpecification
+-&gt; f CustomizedLoadMetricSpecification
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#customizedLoadMetricSpecification_dimensions"><span class="hs-identifier hs-var hs-var">customizedLoadMetricSpecification_dimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomizedLoadMetricSpecification -&gt; Maybe [MetricDimension])
+-&gt; (CustomizedLoadMetricSpecification
+    -&gt; Maybe [MetricDimension] -&gt; CustomizedLoadMetricSpecification)
+-&gt; Lens
+     CustomizedLoadMetricSpecification
+     CustomizedLoadMetricSpecification
+     (Maybe [MetricDimension])
+     (Maybe [MetricDimension])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176569"><span class="annot"><span class="annottext">Maybe [MetricDimension]
+dimensions :: Maybe [MetricDimension]
+$sel:dimensions:CustomizedLoadMetricSpecification' :: CustomizedLoadMetricSpecification -&gt; Maybe [MetricDimension]
+</span><a href="#local-6989586621679176569"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDimension]
+</span><a href="#local-6989586621679176569"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176568"><span class="annot"><span class="annottext">s :: CustomizedLoadMetricSpecification
+</span><a href="#local-6989586621679176568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176567"><span class="annot"><span class="annottext">Maybe [MetricDimension]
+</span><a href="#local-6989586621679176567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomizedLoadMetricSpecification
+</span><a href="#local-6989586621679176568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:CustomizedLoadMetricSpecification' :: Maybe [MetricDimension]
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#%24sel%3Adimensions%3ACustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDimension]
+</span><a href="#local-6989586621679176567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricDimension] -&gt; f (Maybe [MetricDimension]))
+ -&gt; CustomizedLoadMetricSpecification
+ -&gt; f CustomizedLoadMetricSpecification)
+-&gt; ((Maybe [MetricDimension] -&gt; f (Maybe [MetricDimension]))
+    -&gt; Maybe [MetricDimension] -&gt; f (Maybe [MetricDimension]))
+-&gt; (Maybe [MetricDimension] -&gt; f (Maybe [MetricDimension]))
+-&gt; CustomizedLoadMetricSpecification
+-&gt; f CustomizedLoadMetricSpecification
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MetricDimension]
+  [MetricDimension]
+  [MetricDimension]
+  [MetricDimension]
+-&gt; Iso
+     (Maybe [MetricDimension])
+     (Maybe [MetricDimension])
+     (Maybe [MetricDimension])
+     (Maybe [MetricDimension])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MetricDimension]
+  [MetricDimension]
+  [MetricDimension]
+  [MetricDimension]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The name of the metric.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#customizedLoadMetricSpecification_metricName"><span class="hs-identifier hs-type">customizedLoadMetricSpecification_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-138"></span><span id="customizedLoadMetricSpecification_metricName"><span class="annot"><span class="annottext">customizedLoadMetricSpecification_metricName :: (Text -&gt; f Text)
+-&gt; CustomizedLoadMetricSpecification
+-&gt; f CustomizedLoadMetricSpecification
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#customizedLoadMetricSpecification_metricName"><span class="hs-identifier hs-var hs-var">customizedLoadMetricSpecification_metricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomizedLoadMetricSpecification -&gt; Text)
+-&gt; (CustomizedLoadMetricSpecification
+    -&gt; Text -&gt; CustomizedLoadMetricSpecification)
+-&gt; Lens
+     CustomizedLoadMetricSpecification
+     CustomizedLoadMetricSpecification
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176562"><span class="annot"><span class="annottext">Text
+metricName :: Text
+$sel:metricName:CustomizedLoadMetricSpecification' :: CustomizedLoadMetricSpecification -&gt; Text
+</span><a href="#local-6989586621679176562"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176562"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176561"><span class="annot"><span class="annottext">s :: CustomizedLoadMetricSpecification
+</span><a href="#local-6989586621679176561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176560"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomizedLoadMetricSpecification
+</span><a href="#local-6989586621679176561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:CustomizedLoadMetricSpecification' :: Text
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#%24sel%3AmetricName%3ACustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The namespace of the metric.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#customizedLoadMetricSpecification_namespace"><span class="hs-identifier hs-type">customizedLoadMetricSpecification_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-142"></span><span id="customizedLoadMetricSpecification_namespace"><span class="annot"><span class="annottext">customizedLoadMetricSpecification_namespace :: (Text -&gt; f Text)
+-&gt; CustomizedLoadMetricSpecification
+-&gt; f CustomizedLoadMetricSpecification
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#customizedLoadMetricSpecification_namespace"><span class="hs-identifier hs-var hs-var">customizedLoadMetricSpecification_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomizedLoadMetricSpecification -&gt; Text)
+-&gt; (CustomizedLoadMetricSpecification
+    -&gt; Text -&gt; CustomizedLoadMetricSpecification)
+-&gt; Lens
+     CustomizedLoadMetricSpecification
+     CustomizedLoadMetricSpecification
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176558"><span class="annot"><span class="annottext">Text
+namespace :: Text
+$sel:namespace:CustomizedLoadMetricSpecification' :: CustomizedLoadMetricSpecification -&gt; Text
+</span><a href="#local-6989586621679176558"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176558"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176557"><span class="annot"><span class="annottext">s :: CustomizedLoadMetricSpecification
+</span><a href="#local-6989586621679176557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176556"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomizedLoadMetricSpecification
+</span><a href="#local-6989586621679176557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:CustomizedLoadMetricSpecification' :: Text
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#%24sel%3Anamespace%3ACustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The statistic of the metric. The only valid value is @Sum@.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#customizedLoadMetricSpecification_statistic"><span class="hs-identifier hs-type">customizedLoadMetricSpecification_statistic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.MetricStatistic.html#MetricStatistic"><span class="hs-identifier hs-type">MetricStatistic</span></a></span><span>
+</span><span id="line-146"></span><span id="customizedLoadMetricSpecification_statistic"><span class="annot"><span class="annottext">customizedLoadMetricSpecification_statistic :: (MetricStatistic -&gt; f MetricStatistic)
+-&gt; CustomizedLoadMetricSpecification
+-&gt; f CustomizedLoadMetricSpecification
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#customizedLoadMetricSpecification_statistic"><span class="hs-identifier hs-var hs-var">customizedLoadMetricSpecification_statistic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomizedLoadMetricSpecification -&gt; MetricStatistic)
+-&gt; (CustomizedLoadMetricSpecification
+    -&gt; MetricStatistic -&gt; CustomizedLoadMetricSpecification)
+-&gt; Lens
+     CustomizedLoadMetricSpecification
+     CustomizedLoadMetricSpecification
+     MetricStatistic
+     MetricStatistic
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176554"><span class="annot"><span class="annottext">MetricStatistic
+statistic :: MetricStatistic
+$sel:statistic:CustomizedLoadMetricSpecification' :: CustomizedLoadMetricSpecification -&gt; MetricStatistic
+</span><a href="#local-6989586621679176554"><span class="hs-identifier hs-var hs-var">statistic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStatistic
+</span><a href="#local-6989586621679176554"><span class="hs-identifier hs-var">statistic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176553"><span class="annot"><span class="annottext">s :: CustomizedLoadMetricSpecification
+</span><a href="#local-6989586621679176553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176552"><span class="annot"><span class="annottext">MetricStatistic
+</span><a href="#local-6989586621679176552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomizedLoadMetricSpecification
+</span><a href="#local-6989586621679176553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistic:CustomizedLoadMetricSpecification' :: MetricStatistic
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#%24sel%3Astatistic%3ACustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-var">statistic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MetricStatistic
+</span><a href="#local-6989586621679176552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679176549"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679176547"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CustomizedLoadMetricSpecification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CustomizedLoadMetricSpecification)
+-&gt; Value
+-&gt; Parser CustomizedLoadMetricSpecification
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CustomizedLoadMetricSpecification&quot;</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176544"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176544"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [MetricDimension]
+-&gt; Text
+-&gt; Text
+-&gt; MetricStatistic
+-&gt; CustomizedLoadMetricSpecification
+</span><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-var">CustomizedLoadMetricSpecification'</span></a></span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [MetricDimension]
+ -&gt; Text
+ -&gt; Text
+ -&gt; MetricStatistic
+ -&gt; CustomizedLoadMetricSpecification)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [MetricDimension]
+      -&gt; Text
+      -&gt; Text
+      -&gt; MetricStatistic
+      -&gt; CustomizedLoadMetricSpecification)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176544"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Unit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [MetricDimension]
+   -&gt; Text
+   -&gt; Text
+   -&gt; MetricStatistic
+   -&gt; CustomizedLoadMetricSpecification)
+-&gt; Parser (Maybe [MetricDimension])
+-&gt; Parser
+     (Text
+      -&gt; Text -&gt; MetricStatistic -&gt; CustomizedLoadMetricSpecification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176544"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MetricDimension]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Dimensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [MetricDimension]))
+-&gt; Maybe [MetricDimension] -&gt; Parser (Maybe [MetricDimension])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDimension]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text -&gt; MetricStatistic -&gt; CustomizedLoadMetricSpecification)
+-&gt; Parser Text
+-&gt; Parser
+     (Text -&gt; MetricStatistic -&gt; CustomizedLoadMetricSpecification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176544"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; MetricStatistic -&gt; CustomizedLoadMetricSpecification)
+-&gt; Parser Text
+-&gt; Parser (MetricStatistic -&gt; CustomizedLoadMetricSpecification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176544"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Namespace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser (MetricStatistic -&gt; CustomizedLoadMetricSpecification)
+-&gt; Parser MetricStatistic
+-&gt; Parser CustomizedLoadMetricSpecification
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176544"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser MetricStatistic
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Statistic&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679176536"><span id="local-6989586621679176538"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification</span></a></span></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679176533"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification</span></a></span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679176525"><span id="local-6989586621679176527"><span id="local-6989586621679176529"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification</span></a></span></span></span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679176523"><span class="annot"><span class="annottext">toJSON :: CustomizedLoadMetricSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification%27"><span class="hs-identifier hs-type">CustomizedLoadMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176517"><span id="local-6989586621679176518"><span id="local-6989586621679176519"><span id="local-6989586621679176520"><span id="local-6989586621679176521"><span class="annot"><span class="annottext">Maybe [MetricDimension]
+Maybe Text
+Text
+MetricStatistic
+statistic :: MetricStatistic
+namespace :: Text
+metricName :: Text
+dimensions :: Maybe [MetricDimension]
+unit :: Maybe Text
+$sel:statistic:CustomizedLoadMetricSpecification' :: CustomizedLoadMetricSpecification -&gt; MetricStatistic
+$sel:namespace:CustomizedLoadMetricSpecification' :: CustomizedLoadMetricSpecification -&gt; Text
+$sel:metricName:CustomizedLoadMetricSpecification' :: CustomizedLoadMetricSpecification -&gt; Text
+$sel:dimensions:CustomizedLoadMetricSpecification' :: CustomizedLoadMetricSpecification -&gt; Maybe [MetricDimension]
+$sel:unit:CustomizedLoadMetricSpecification' :: CustomizedLoadMetricSpecification -&gt; Maybe Text
+</span><a href="#local-6989586621679176517"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-179"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Unit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176521"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Dimensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MetricDimension] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([MetricDimension] -&gt; Pair)
+-&gt; Maybe [MetricDimension] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDimension]
+</span><a href="#local-6989586621679176520"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176519"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176518"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Statistic&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MetricStatistic -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MetricStatistic
+</span><a href="#local-6989586621679176517"><span class="hs-identifier hs-var">statistic</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span></pre></body></html>

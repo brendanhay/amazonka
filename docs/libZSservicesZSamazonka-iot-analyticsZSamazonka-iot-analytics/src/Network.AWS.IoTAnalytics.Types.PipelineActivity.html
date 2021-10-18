@@ -1,0 +1,804 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTAnalytics.Types.PipelineActivity</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTAnalytics.Types.PipelineActivity</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.AddAttributesActivity.html"><span class="hs-identifier">Network.AWS.IoTAnalytics.Types.AddAttributesActivity</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelActivity.html"><span class="hs-identifier">Network.AWS.IoTAnalytics.Types.ChannelActivity</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreActivity.html"><span class="hs-identifier">Network.AWS.IoTAnalytics.Types.DatastoreActivity</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeviceRegistryEnrichActivity.html"><span class="hs-identifier">Network.AWS.IoTAnalytics.Types.DeviceRegistryEnrichActivity</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeviceShadowEnrichActivity.html"><span class="hs-identifier">Network.AWS.IoTAnalytics.Types.DeviceShadowEnrichActivity</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FilterActivity.html"><span class="hs-identifier">Network.AWS.IoTAnalytics.Types.FilterActivity</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html"><span class="hs-identifier">Network.AWS.IoTAnalytics.Types.LambdaActivity</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.MathActivity.html"><span class="hs-identifier">Network.AWS.IoTAnalytics.Types.MathActivity</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RemoveAttributesActivity.html"><span class="hs-identifier">Network.AWS.IoTAnalytics.Types.RemoveAttributesActivity</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SelectAttributesActivity.html"><span class="hs-identifier">Network.AWS.IoTAnalytics.Types.SelectAttributesActivity</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- | An activity that performs a transformation on a message.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newPipelineActivity' smart constructor.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679259521"><span id="local-6989586621679259522"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineActivity"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-var">PipelineActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineActivity%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-var">PipelineActivity'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Used to create a new message using only the specified attributes from</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- the original message.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AselectAttributes%3APipelineActivity%27"><span class="annot"><span class="annottext">PipelineActivity -&gt; Maybe SelectAttributesActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3AselectAttributes%3APipelineActivity%27"><span class="hs-identifier hs-var hs-var">selectAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SelectAttributesActivity.html#SelectAttributesActivity"><span class="hs-identifier hs-type">SelectAttributesActivity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Specifies where to store the processed message data.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Adatastore%3APipelineActivity%27"><span class="annot"><span class="annottext">PipelineActivity -&gt; Maybe DatastoreActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3Adatastore%3APipelineActivity%27"><span class="hs-identifier hs-var hs-var">datastore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreActivity.html#DatastoreActivity"><span class="hs-identifier hs-type">DatastoreActivity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Removes attributes from a message.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AremoveAttributes%3APipelineActivity%27"><span class="annot"><span class="annottext">PipelineActivity -&gt; Maybe RemoveAttributesActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3AremoveAttributes%3APipelineActivity%27"><span class="hs-identifier hs-var hs-var">removeAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RemoveAttributesActivity.html#RemoveAttributesActivity"><span class="hs-identifier hs-type">RemoveAttributesActivity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Adds other attributes based on existing attributes in the message.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AaddAttributes%3APipelineActivity%27"><span class="annot"><span class="annottext">PipelineActivity -&gt; Maybe AddAttributesActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3AaddAttributes%3APipelineActivity%27"><span class="hs-identifier hs-var hs-var">addAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.AddAttributesActivity.html#AddAttributesActivity"><span class="hs-identifier hs-type">AddAttributesActivity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Adds information from the IoT Device Shadow service to a message.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AdeviceShadowEnrich%3APipelineActivity%27"><span class="annot"><span class="annottext">PipelineActivity -&gt; Maybe DeviceShadowEnrichActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3AdeviceShadowEnrich%3APipelineActivity%27"><span class="hs-identifier hs-var hs-var">deviceShadowEnrich</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeviceShadowEnrichActivity.html#DeviceShadowEnrichActivity"><span class="hs-identifier hs-type">DeviceShadowEnrichActivity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Runs a Lambda function to modify the message.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Alambda%3APipelineActivity%27"><span class="annot"><span class="annottext">PipelineActivity -&gt; Maybe LambdaActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3Alambda%3APipelineActivity%27"><span class="hs-identifier hs-var hs-var">lambda</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Adds data from the IoT device registry to your message.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AdeviceRegistryEnrich%3APipelineActivity%27"><span class="annot"><span class="annottext">PipelineActivity -&gt; Maybe DeviceRegistryEnrichActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3AdeviceRegistryEnrich%3APipelineActivity%27"><span class="hs-identifier hs-var hs-var">deviceRegistryEnrich</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeviceRegistryEnrichActivity.html#DeviceRegistryEnrichActivity"><span class="hs-identifier hs-type">DeviceRegistryEnrichActivity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Determines the source of the messages to be processed.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Achannel%3APipelineActivity%27"><span class="annot"><span class="annottext">PipelineActivity -&gt; Maybe ChannelActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3Achannel%3APipelineActivity%27"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelActivity.html#ChannelActivity"><span class="hs-identifier hs-type">ChannelActivity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Computes an arithmetic expression using the message\'s attributes and</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- adds it to the message.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Amath%3APipelineActivity%27"><span class="annot"><span class="annottext">PipelineActivity -&gt; Maybe MathActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3Amath%3APipelineActivity%27"><span class="hs-identifier hs-var hs-var">math</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.MathActivity.html#MathActivity"><span class="hs-identifier hs-type">MathActivity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Filters a message based on its attributes.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Afilter%27%3APipelineActivity%27"><span class="annot"><span class="annottext">PipelineActivity -&gt; Maybe FilterActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3Afilter%27%3APipelineActivity%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FilterActivity.html#FilterActivity"><span class="hs-identifier hs-type">FilterActivity</span></a></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259506"><span id="local-6989586621679259508"><span class="annot"><span class="annottext">PipelineActivity -&gt; PipelineActivity -&gt; Bool
+(PipelineActivity -&gt; PipelineActivity -&gt; Bool)
+-&gt; (PipelineActivity -&gt; PipelineActivity -&gt; Bool)
+-&gt; Eq PipelineActivity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PipelineActivity -&gt; PipelineActivity -&gt; Bool
+$c/= :: PipelineActivity -&gt; PipelineActivity -&gt; Bool
+== :: PipelineActivity -&gt; PipelineActivity -&gt; Bool
+$c== :: PipelineActivity -&gt; PipelineActivity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259497"><span id="local-6989586621679259499"><span id="local-6989586621679259501"><span id="local-6989586621679259503"><span class="annot"><span class="annottext">ReadPrec [PipelineActivity]
+ReadPrec PipelineActivity
+Int -&gt; ReadS PipelineActivity
+ReadS [PipelineActivity]
+(Int -&gt; ReadS PipelineActivity)
+-&gt; ReadS [PipelineActivity]
+-&gt; ReadPrec PipelineActivity
+-&gt; ReadPrec [PipelineActivity]
+-&gt; Read PipelineActivity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PipelineActivity]
+$creadListPrec :: ReadPrec [PipelineActivity]
+readPrec :: ReadPrec PipelineActivity
+$creadPrec :: ReadPrec PipelineActivity
+readList :: ReadS [PipelineActivity]
+$creadList :: ReadS [PipelineActivity]
+readsPrec :: Int -&gt; ReadS PipelineActivity
+$creadsPrec :: Int -&gt; ReadS PipelineActivity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259490"><span id="local-6989586621679259492"><span id="local-6989586621679259494"><span class="annot"><span class="annottext">Int -&gt; PipelineActivity -&gt; ShowS
+[PipelineActivity] -&gt; ShowS
+PipelineActivity -&gt; String
+(Int -&gt; PipelineActivity -&gt; ShowS)
+-&gt; (PipelineActivity -&gt; String)
+-&gt; ([PipelineActivity] -&gt; ShowS)
+-&gt; Show PipelineActivity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PipelineActivity] -&gt; ShowS
+$cshowList :: [PipelineActivity] -&gt; ShowS
+show :: PipelineActivity -&gt; String
+$cshow :: PipelineActivity -&gt; String
+showsPrec :: Int -&gt; PipelineActivity -&gt; ShowS
+$cshowsPrec :: Int -&gt; PipelineActivity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PipelineActivity -&gt; Rep PipelineActivity x)
+-&gt; (forall x. Rep PipelineActivity x -&gt; PipelineActivity)
+-&gt; Generic PipelineActivity
+forall x. Rep PipelineActivity x -&gt; PipelineActivity
+forall x. PipelineActivity -&gt; Rep PipelineActivity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PipelineActivity x -&gt; PipelineActivity
+$cfrom :: forall x. PipelineActivity -&gt; Rep PipelineActivity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'PipelineActivity' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'selectAttributes', 'pipelineActivity_selectAttributes' - Used to create a new message using only the specified attributes from</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- the original message.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'datastore', 'pipelineActivity_datastore' - Specifies where to store the processed message data.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'removeAttributes', 'pipelineActivity_removeAttributes' - Removes attributes from a message.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'addAttributes', 'pipelineActivity_addAttributes' - Adds other attributes based on existing attributes in the message.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'deviceShadowEnrich', 'pipelineActivity_deviceShadowEnrich' - Adds information from the IoT Device Shadow service to a message.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'lambda', 'pipelineActivity_lambda' - Runs a Lambda function to modify the message.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'deviceRegistryEnrich', 'pipelineActivity_deviceRegistryEnrich' - Adds data from the IoT device registry to your message.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'channel', 'pipelineActivity_channel' - Determines the source of the messages to be processed.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'math', 'pipelineActivity_math' - Computes an arithmetic expression using the message\'s attributes and</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- adds it to the message.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'filter'', 'pipelineActivity_filter' - Filters a message based on its attributes.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#newPipelineActivity"><span class="hs-identifier hs-type">newPipelineActivity</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span>
+</span><span id="line-96"></span><span id="newPipelineActivity"><span class="annot"><span class="annottext">newPipelineActivity :: PipelineActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#newPipelineActivity"><span class="hs-identifier hs-var hs-var">newPipelineActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">PipelineActivity' :: Maybe SelectAttributesActivity
+-&gt; Maybe DatastoreActivity
+-&gt; Maybe RemoveAttributesActivity
+-&gt; Maybe AddAttributesActivity
+-&gt; Maybe DeviceShadowEnrichActivity
+-&gt; Maybe LambdaActivity
+-&gt; Maybe DeviceRegistryEnrichActivity
+-&gt; Maybe ChannelActivity
+-&gt; Maybe MathActivity
+-&gt; Maybe FilterActivity
+-&gt; PipelineActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:selectAttributes:PipelineActivity' :: Maybe SelectAttributesActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3AselectAttributes%3APipelineActivity%27"><span class="hs-identifier hs-var">selectAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe SelectAttributesActivity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:datastore:PipelineActivity' :: Maybe DatastoreActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3Adatastore%3APipelineActivity%27"><span class="hs-identifier hs-var">datastore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreActivity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:removeAttributes:PipelineActivity' :: Maybe RemoveAttributesActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3AremoveAttributes%3APipelineActivity%27"><span class="hs-identifier hs-var">removeAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RemoveAttributesActivity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:addAttributes:PipelineActivity' :: Maybe AddAttributesActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3AaddAttributes%3APipelineActivity%27"><span class="hs-identifier hs-var">addAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AddAttributesActivity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceShadowEnrich:PipelineActivity' :: Maybe DeviceShadowEnrichActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3AdeviceShadowEnrich%3APipelineActivity%27"><span class="hs-identifier hs-var">deviceShadowEnrich</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceShadowEnrichActivity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:lambda:PipelineActivity' :: Maybe LambdaActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3Alambda%3APipelineActivity%27"><span class="hs-identifier hs-var">lambda</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaActivity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceRegistryEnrich:PipelineActivity' :: Maybe DeviceRegistryEnrichActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3AdeviceRegistryEnrich%3APipelineActivity%27"><span class="hs-identifier hs-var">deviceRegistryEnrich</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceRegistryEnrichActivity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:channel:PipelineActivity' :: Maybe ChannelActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3Achannel%3APipelineActivity%27"><span class="hs-identifier hs-var">channel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelActivity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:math:PipelineActivity' :: Maybe MathActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3Amath%3APipelineActivity%27"><span class="hs-identifier hs-var">math</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MathActivity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':PipelineActivity' :: Maybe FilterActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3Afilter%27%3APipelineActivity%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilterActivity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Used to create a new message using only the specified attributes from</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the original message.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_selectAttributes"><span class="hs-identifier hs-type">pipelineActivity_selectAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SelectAttributesActivity.html#SelectAttributesActivity"><span class="hs-identifier hs-type">SelectAttributesActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="pipelineActivity_selectAttributes"><span class="annot"><span class="annottext">pipelineActivity_selectAttributes :: (Maybe SelectAttributesActivity
+ -&gt; f (Maybe SelectAttributesActivity))
+-&gt; PipelineActivity -&gt; f PipelineActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_selectAttributes"><span class="hs-identifier hs-var hs-var">pipelineActivity_selectAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineActivity -&gt; Maybe SelectAttributesActivity)
+-&gt; (PipelineActivity
+    -&gt; Maybe SelectAttributesActivity -&gt; PipelineActivity)
+-&gt; Lens
+     PipelineActivity
+     PipelineActivity
+     (Maybe SelectAttributesActivity)
+     (Maybe SelectAttributesActivity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259481"><span class="annot"><span class="annottext">Maybe SelectAttributesActivity
+selectAttributes :: Maybe SelectAttributesActivity
+$sel:selectAttributes:PipelineActivity' :: PipelineActivity -&gt; Maybe SelectAttributesActivity
+</span><a href="#local-6989586621679259481"><span class="hs-identifier hs-var hs-var">selectAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SelectAttributesActivity
+</span><a href="#local-6989586621679259481"><span class="hs-identifier hs-var">selectAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259480"><span class="annot"><span class="annottext">s :: PipelineActivity
+</span><a href="#local-6989586621679259480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259479"><span class="annot"><span class="annottext">Maybe SelectAttributesActivity
+</span><a href="#local-6989586621679259479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineActivity
+</span><a href="#local-6989586621679259480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectAttributes:PipelineActivity' :: Maybe SelectAttributesActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3AselectAttributes%3APipelineActivity%27"><span class="hs-identifier hs-var">selectAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SelectAttributesActivity
+</span><a href="#local-6989586621679259479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Specifies where to store the processed message data.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_datastore"><span class="hs-identifier hs-type">pipelineActivity_datastore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreActivity.html#DatastoreActivity"><span class="hs-identifier hs-type">DatastoreActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="pipelineActivity_datastore"><span class="annot"><span class="annottext">pipelineActivity_datastore :: (Maybe DatastoreActivity -&gt; f (Maybe DatastoreActivity))
+-&gt; PipelineActivity -&gt; f PipelineActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_datastore"><span class="hs-identifier hs-var hs-var">pipelineActivity_datastore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineActivity -&gt; Maybe DatastoreActivity)
+-&gt; (PipelineActivity
+    -&gt; Maybe DatastoreActivity -&gt; PipelineActivity)
+-&gt; Lens
+     PipelineActivity
+     PipelineActivity
+     (Maybe DatastoreActivity)
+     (Maybe DatastoreActivity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259477"><span class="annot"><span class="annottext">Maybe DatastoreActivity
+datastore :: Maybe DatastoreActivity
+$sel:datastore:PipelineActivity' :: PipelineActivity -&gt; Maybe DatastoreActivity
+</span><a href="#local-6989586621679259477"><span class="hs-identifier hs-var hs-var">datastore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreActivity
+</span><a href="#local-6989586621679259477"><span class="hs-identifier hs-var">datastore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259476"><span class="annot"><span class="annottext">s :: PipelineActivity
+</span><a href="#local-6989586621679259476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259475"><span class="annot"><span class="annottext">Maybe DatastoreActivity
+</span><a href="#local-6989586621679259475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineActivity
+</span><a href="#local-6989586621679259476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastore:PipelineActivity' :: Maybe DatastoreActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3Adatastore%3APipelineActivity%27"><span class="hs-identifier hs-var">datastore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreActivity
+</span><a href="#local-6989586621679259475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Removes attributes from a message.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_removeAttributes"><span class="hs-identifier hs-type">pipelineActivity_removeAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RemoveAttributesActivity.html#RemoveAttributesActivity"><span class="hs-identifier hs-type">RemoveAttributesActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="pipelineActivity_removeAttributes"><span class="annot"><span class="annottext">pipelineActivity_removeAttributes :: (Maybe RemoveAttributesActivity
+ -&gt; f (Maybe RemoveAttributesActivity))
+-&gt; PipelineActivity -&gt; f PipelineActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_removeAttributes"><span class="hs-identifier hs-var hs-var">pipelineActivity_removeAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineActivity -&gt; Maybe RemoveAttributesActivity)
+-&gt; (PipelineActivity
+    -&gt; Maybe RemoveAttributesActivity -&gt; PipelineActivity)
+-&gt; Lens
+     PipelineActivity
+     PipelineActivity
+     (Maybe RemoveAttributesActivity)
+     (Maybe RemoveAttributesActivity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259473"><span class="annot"><span class="annottext">Maybe RemoveAttributesActivity
+removeAttributes :: Maybe RemoveAttributesActivity
+$sel:removeAttributes:PipelineActivity' :: PipelineActivity -&gt; Maybe RemoveAttributesActivity
+</span><a href="#local-6989586621679259473"><span class="hs-identifier hs-var hs-var">removeAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RemoveAttributesActivity
+</span><a href="#local-6989586621679259473"><span class="hs-identifier hs-var">removeAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259472"><span class="annot"><span class="annottext">s :: PipelineActivity
+</span><a href="#local-6989586621679259472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259471"><span class="annot"><span class="annottext">Maybe RemoveAttributesActivity
+</span><a href="#local-6989586621679259471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineActivity
+</span><a href="#local-6989586621679259472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeAttributes:PipelineActivity' :: Maybe RemoveAttributesActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3AremoveAttributes%3APipelineActivity%27"><span class="hs-identifier hs-var">removeAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RemoveAttributesActivity
+</span><a href="#local-6989586621679259471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | Adds other attributes based on existing attributes in the message.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_addAttributes"><span class="hs-identifier hs-type">pipelineActivity_addAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.AddAttributesActivity.html#AddAttributesActivity"><span class="hs-identifier hs-type">AddAttributesActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="pipelineActivity_addAttributes"><span class="annot"><span class="annottext">pipelineActivity_addAttributes :: (Maybe AddAttributesActivity -&gt; f (Maybe AddAttributesActivity))
+-&gt; PipelineActivity -&gt; f PipelineActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_addAttributes"><span class="hs-identifier hs-var hs-var">pipelineActivity_addAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineActivity -&gt; Maybe AddAttributesActivity)
+-&gt; (PipelineActivity
+    -&gt; Maybe AddAttributesActivity -&gt; PipelineActivity)
+-&gt; Lens
+     PipelineActivity
+     PipelineActivity
+     (Maybe AddAttributesActivity)
+     (Maybe AddAttributesActivity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259469"><span class="annot"><span class="annottext">Maybe AddAttributesActivity
+addAttributes :: Maybe AddAttributesActivity
+$sel:addAttributes:PipelineActivity' :: PipelineActivity -&gt; Maybe AddAttributesActivity
+</span><a href="#local-6989586621679259469"><span class="hs-identifier hs-var hs-var">addAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AddAttributesActivity
+</span><a href="#local-6989586621679259469"><span class="hs-identifier hs-var">addAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259468"><span class="annot"><span class="annottext">s :: PipelineActivity
+</span><a href="#local-6989586621679259468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259467"><span class="annot"><span class="annottext">Maybe AddAttributesActivity
+</span><a href="#local-6989586621679259467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineActivity
+</span><a href="#local-6989586621679259468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addAttributes:PipelineActivity' :: Maybe AddAttributesActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3AaddAttributes%3APipelineActivity%27"><span class="hs-identifier hs-var">addAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AddAttributesActivity
+</span><a href="#local-6989586621679259467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Adds information from the IoT Device Shadow service to a message.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_deviceShadowEnrich"><span class="hs-identifier hs-type">pipelineActivity_deviceShadowEnrich</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeviceShadowEnrichActivity.html#DeviceShadowEnrichActivity"><span class="hs-identifier hs-type">DeviceShadowEnrichActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="pipelineActivity_deviceShadowEnrich"><span class="annot"><span class="annottext">pipelineActivity_deviceShadowEnrich :: (Maybe DeviceShadowEnrichActivity
+ -&gt; f (Maybe DeviceShadowEnrichActivity))
+-&gt; PipelineActivity -&gt; f PipelineActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_deviceShadowEnrich"><span class="hs-identifier hs-var hs-var">pipelineActivity_deviceShadowEnrich</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineActivity -&gt; Maybe DeviceShadowEnrichActivity)
+-&gt; (PipelineActivity
+    -&gt; Maybe DeviceShadowEnrichActivity -&gt; PipelineActivity)
+-&gt; Lens
+     PipelineActivity
+     PipelineActivity
+     (Maybe DeviceShadowEnrichActivity)
+     (Maybe DeviceShadowEnrichActivity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259465"><span class="annot"><span class="annottext">Maybe DeviceShadowEnrichActivity
+deviceShadowEnrich :: Maybe DeviceShadowEnrichActivity
+$sel:deviceShadowEnrich:PipelineActivity' :: PipelineActivity -&gt; Maybe DeviceShadowEnrichActivity
+</span><a href="#local-6989586621679259465"><span class="hs-identifier hs-var hs-var">deviceShadowEnrich</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceShadowEnrichActivity
+</span><a href="#local-6989586621679259465"><span class="hs-identifier hs-var">deviceShadowEnrich</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259464"><span class="annot"><span class="annottext">s :: PipelineActivity
+</span><a href="#local-6989586621679259464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259463"><span class="annot"><span class="annottext">Maybe DeviceShadowEnrichActivity
+</span><a href="#local-6989586621679259463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineActivity
+</span><a href="#local-6989586621679259464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceShadowEnrich:PipelineActivity' :: Maybe DeviceShadowEnrichActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3AdeviceShadowEnrich%3APipelineActivity%27"><span class="hs-identifier hs-var">deviceShadowEnrich</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceShadowEnrichActivity
+</span><a href="#local-6989586621679259463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Runs a Lambda function to modify the message.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_lambda"><span class="hs-identifier hs-type">pipelineActivity_lambda</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="pipelineActivity_lambda"><span class="annot"><span class="annottext">pipelineActivity_lambda :: (Maybe LambdaActivity -&gt; f (Maybe LambdaActivity))
+-&gt; PipelineActivity -&gt; f PipelineActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_lambda"><span class="hs-identifier hs-var hs-var">pipelineActivity_lambda</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineActivity -&gt; Maybe LambdaActivity)
+-&gt; (PipelineActivity -&gt; Maybe LambdaActivity -&gt; PipelineActivity)
+-&gt; Lens
+     PipelineActivity
+     PipelineActivity
+     (Maybe LambdaActivity)
+     (Maybe LambdaActivity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259461"><span class="annot"><span class="annottext">Maybe LambdaActivity
+lambda :: Maybe LambdaActivity
+$sel:lambda:PipelineActivity' :: PipelineActivity -&gt; Maybe LambdaActivity
+</span><a href="#local-6989586621679259461"><span class="hs-identifier hs-var hs-var">lambda</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaActivity
+</span><a href="#local-6989586621679259461"><span class="hs-identifier hs-var">lambda</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259460"><span class="annot"><span class="annottext">s :: PipelineActivity
+</span><a href="#local-6989586621679259460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259459"><span class="annot"><span class="annottext">Maybe LambdaActivity
+</span><a href="#local-6989586621679259459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineActivity
+</span><a href="#local-6989586621679259460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambda:PipelineActivity' :: Maybe LambdaActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3Alambda%3APipelineActivity%27"><span class="hs-identifier hs-var">lambda</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaActivity
+</span><a href="#local-6989586621679259459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Adds data from the IoT device registry to your message.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_deviceRegistryEnrich"><span class="hs-identifier hs-type">pipelineActivity_deviceRegistryEnrich</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeviceRegistryEnrichActivity.html#DeviceRegistryEnrichActivity"><span class="hs-identifier hs-type">DeviceRegistryEnrichActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="pipelineActivity_deviceRegistryEnrich"><span class="annot"><span class="annottext">pipelineActivity_deviceRegistryEnrich :: (Maybe DeviceRegistryEnrichActivity
+ -&gt; f (Maybe DeviceRegistryEnrichActivity))
+-&gt; PipelineActivity -&gt; f PipelineActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_deviceRegistryEnrich"><span class="hs-identifier hs-var hs-var">pipelineActivity_deviceRegistryEnrich</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineActivity -&gt; Maybe DeviceRegistryEnrichActivity)
+-&gt; (PipelineActivity
+    -&gt; Maybe DeviceRegistryEnrichActivity -&gt; PipelineActivity)
+-&gt; Lens
+     PipelineActivity
+     PipelineActivity
+     (Maybe DeviceRegistryEnrichActivity)
+     (Maybe DeviceRegistryEnrichActivity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259457"><span class="annot"><span class="annottext">Maybe DeviceRegistryEnrichActivity
+deviceRegistryEnrich :: Maybe DeviceRegistryEnrichActivity
+$sel:deviceRegistryEnrich:PipelineActivity' :: PipelineActivity -&gt; Maybe DeviceRegistryEnrichActivity
+</span><a href="#local-6989586621679259457"><span class="hs-identifier hs-var hs-var">deviceRegistryEnrich</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceRegistryEnrichActivity
+</span><a href="#local-6989586621679259457"><span class="hs-identifier hs-var">deviceRegistryEnrich</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259456"><span class="annot"><span class="annottext">s :: PipelineActivity
+</span><a href="#local-6989586621679259456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259455"><span class="annot"><span class="annottext">Maybe DeviceRegistryEnrichActivity
+</span><a href="#local-6989586621679259455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineActivity
+</span><a href="#local-6989586621679259456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceRegistryEnrich:PipelineActivity' :: Maybe DeviceRegistryEnrichActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3AdeviceRegistryEnrich%3APipelineActivity%27"><span class="hs-identifier hs-var">deviceRegistryEnrich</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceRegistryEnrichActivity
+</span><a href="#local-6989586621679259455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | Determines the source of the messages to be processed.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_channel"><span class="hs-identifier hs-type">pipelineActivity_channel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelActivity.html#ChannelActivity"><span class="hs-identifier hs-type">ChannelActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="pipelineActivity_channel"><span class="annot"><span class="annottext">pipelineActivity_channel :: (Maybe ChannelActivity -&gt; f (Maybe ChannelActivity))
+-&gt; PipelineActivity -&gt; f PipelineActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_channel"><span class="hs-identifier hs-var hs-var">pipelineActivity_channel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineActivity -&gt; Maybe ChannelActivity)
+-&gt; (PipelineActivity -&gt; Maybe ChannelActivity -&gt; PipelineActivity)
+-&gt; Lens
+     PipelineActivity
+     PipelineActivity
+     (Maybe ChannelActivity)
+     (Maybe ChannelActivity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259453"><span class="annot"><span class="annottext">Maybe ChannelActivity
+channel :: Maybe ChannelActivity
+$sel:channel:PipelineActivity' :: PipelineActivity -&gt; Maybe ChannelActivity
+</span><a href="#local-6989586621679259453"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelActivity
+</span><a href="#local-6989586621679259453"><span class="hs-identifier hs-var">channel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259452"><span class="annot"><span class="annottext">s :: PipelineActivity
+</span><a href="#local-6989586621679259452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259451"><span class="annot"><span class="annottext">Maybe ChannelActivity
+</span><a href="#local-6989586621679259451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineActivity
+</span><a href="#local-6989586621679259452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channel:PipelineActivity' :: Maybe ChannelActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3Achannel%3APipelineActivity%27"><span class="hs-identifier hs-var">channel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelActivity
+</span><a href="#local-6989586621679259451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | Computes an arithmetic expression using the message\'s attributes and</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- adds it to the message.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_math"><span class="hs-identifier hs-type">pipelineActivity_math</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.MathActivity.html#MathActivity"><span class="hs-identifier hs-type">MathActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="pipelineActivity_math"><span class="annot"><span class="annottext">pipelineActivity_math :: (Maybe MathActivity -&gt; f (Maybe MathActivity))
+-&gt; PipelineActivity -&gt; f PipelineActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_math"><span class="hs-identifier hs-var hs-var">pipelineActivity_math</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineActivity -&gt; Maybe MathActivity)
+-&gt; (PipelineActivity -&gt; Maybe MathActivity -&gt; PipelineActivity)
+-&gt; Lens
+     PipelineActivity
+     PipelineActivity
+     (Maybe MathActivity)
+     (Maybe MathActivity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259449"><span class="annot"><span class="annottext">Maybe MathActivity
+math :: Maybe MathActivity
+$sel:math:PipelineActivity' :: PipelineActivity -&gt; Maybe MathActivity
+</span><a href="#local-6989586621679259449"><span class="hs-identifier hs-var hs-var">math</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MathActivity
+</span><a href="#local-6989586621679259449"><span class="hs-identifier hs-var">math</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259448"><span class="annot"><span class="annottext">s :: PipelineActivity
+</span><a href="#local-6989586621679259448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259447"><span class="annot"><span class="annottext">Maybe MathActivity
+</span><a href="#local-6989586621679259447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineActivity
+</span><a href="#local-6989586621679259448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:math:PipelineActivity' :: Maybe MathActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3Amath%3APipelineActivity%27"><span class="hs-identifier hs-var">math</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MathActivity
+</span><a href="#local-6989586621679259447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Filters a message based on its attributes.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_filter"><span class="hs-identifier hs-type">pipelineActivity_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FilterActivity.html#FilterActivity"><span class="hs-identifier hs-type">FilterActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="pipelineActivity_filter"><span class="annot"><span class="annottext">pipelineActivity_filter :: (Maybe FilterActivity -&gt; f (Maybe FilterActivity))
+-&gt; PipelineActivity -&gt; f PipelineActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_filter"><span class="hs-identifier hs-var hs-var">pipelineActivity_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineActivity -&gt; Maybe FilterActivity)
+-&gt; (PipelineActivity -&gt; Maybe FilterActivity -&gt; PipelineActivity)
+-&gt; Lens
+     PipelineActivity
+     PipelineActivity
+     (Maybe FilterActivity)
+     (Maybe FilterActivity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259445"><span class="annot"><span class="annottext">Maybe FilterActivity
+filter' :: Maybe FilterActivity
+$sel:filter':PipelineActivity' :: PipelineActivity -&gt; Maybe FilterActivity
+</span><a href="#local-6989586621679259445"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FilterActivity
+</span><a href="#local-6989586621679259445"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259444"><span class="annot"><span class="annottext">s :: PipelineActivity
+</span><a href="#local-6989586621679259444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259443"><span class="annot"><span class="annottext">Maybe FilterActivity
+</span><a href="#local-6989586621679259443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineActivity
+</span><a href="#local-6989586621679259444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':PipelineActivity' :: Maybe FilterActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#%24sel%3Afilter%27%3APipelineActivity%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilterActivity
+</span><a href="#local-6989586621679259443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259440"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679259438"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineActivity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PipelineActivity)
+-&gt; Value
+-&gt; Parser PipelineActivity
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PipelineActivity&quot;</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259435"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259435"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe SelectAttributesActivity
+-&gt; Maybe DatastoreActivity
+-&gt; Maybe RemoveAttributesActivity
+-&gt; Maybe AddAttributesActivity
+-&gt; Maybe DeviceShadowEnrichActivity
+-&gt; Maybe LambdaActivity
+-&gt; Maybe DeviceRegistryEnrichActivity
+-&gt; Maybe ChannelActivity
+-&gt; Maybe MathActivity
+-&gt; Maybe FilterActivity
+-&gt; PipelineActivity
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-var">PipelineActivity'</span></a></span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SelectAttributesActivity
+ -&gt; Maybe DatastoreActivity
+ -&gt; Maybe RemoveAttributesActivity
+ -&gt; Maybe AddAttributesActivity
+ -&gt; Maybe DeviceShadowEnrichActivity
+ -&gt; Maybe LambdaActivity
+ -&gt; Maybe DeviceRegistryEnrichActivity
+ -&gt; Maybe ChannelActivity
+ -&gt; Maybe MathActivity
+ -&gt; Maybe FilterActivity
+ -&gt; PipelineActivity)
+-&gt; Parser (Maybe SelectAttributesActivity)
+-&gt; Parser
+     (Maybe DatastoreActivity
+      -&gt; Maybe RemoveAttributesActivity
+      -&gt; Maybe AddAttributesActivity
+      -&gt; Maybe DeviceShadowEnrichActivity
+      -&gt; Maybe LambdaActivity
+      -&gt; Maybe DeviceRegistryEnrichActivity
+      -&gt; Maybe ChannelActivity
+      -&gt; Maybe MathActivity
+      -&gt; Maybe FilterActivity
+      -&gt; PipelineActivity)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SelectAttributesActivity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;selectAttributes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DatastoreActivity
+   -&gt; Maybe RemoveAttributesActivity
+   -&gt; Maybe AddAttributesActivity
+   -&gt; Maybe DeviceShadowEnrichActivity
+   -&gt; Maybe LambdaActivity
+   -&gt; Maybe DeviceRegistryEnrichActivity
+   -&gt; Maybe ChannelActivity
+   -&gt; Maybe MathActivity
+   -&gt; Maybe FilterActivity
+   -&gt; PipelineActivity)
+-&gt; Parser (Maybe DatastoreActivity)
+-&gt; Parser
+     (Maybe RemoveAttributesActivity
+      -&gt; Maybe AddAttributesActivity
+      -&gt; Maybe DeviceShadowEnrichActivity
+      -&gt; Maybe LambdaActivity
+      -&gt; Maybe DeviceRegistryEnrichActivity
+      -&gt; Maybe ChannelActivity
+      -&gt; Maybe MathActivity
+      -&gt; Maybe FilterActivity
+      -&gt; PipelineActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DatastoreActivity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datastore&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RemoveAttributesActivity
+   -&gt; Maybe AddAttributesActivity
+   -&gt; Maybe DeviceShadowEnrichActivity
+   -&gt; Maybe LambdaActivity
+   -&gt; Maybe DeviceRegistryEnrichActivity
+   -&gt; Maybe ChannelActivity
+   -&gt; Maybe MathActivity
+   -&gt; Maybe FilterActivity
+   -&gt; PipelineActivity)
+-&gt; Parser (Maybe RemoveAttributesActivity)
+-&gt; Parser
+     (Maybe AddAttributesActivity
+      -&gt; Maybe DeviceShadowEnrichActivity
+      -&gt; Maybe LambdaActivity
+      -&gt; Maybe DeviceRegistryEnrichActivity
+      -&gt; Maybe ChannelActivity
+      -&gt; Maybe MathActivity
+      -&gt; Maybe FilterActivity
+      -&gt; PipelineActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RemoveAttributesActivity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;removeAttributes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AddAttributesActivity
+   -&gt; Maybe DeviceShadowEnrichActivity
+   -&gt; Maybe LambdaActivity
+   -&gt; Maybe DeviceRegistryEnrichActivity
+   -&gt; Maybe ChannelActivity
+   -&gt; Maybe MathActivity
+   -&gt; Maybe FilterActivity
+   -&gt; PipelineActivity)
+-&gt; Parser (Maybe AddAttributesActivity)
+-&gt; Parser
+     (Maybe DeviceShadowEnrichActivity
+      -&gt; Maybe LambdaActivity
+      -&gt; Maybe DeviceRegistryEnrichActivity
+      -&gt; Maybe ChannelActivity
+      -&gt; Maybe MathActivity
+      -&gt; Maybe FilterActivity
+      -&gt; PipelineActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AddAttributesActivity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;addAttributes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DeviceShadowEnrichActivity
+   -&gt; Maybe LambdaActivity
+   -&gt; Maybe DeviceRegistryEnrichActivity
+   -&gt; Maybe ChannelActivity
+   -&gt; Maybe MathActivity
+   -&gt; Maybe FilterActivity
+   -&gt; PipelineActivity)
+-&gt; Parser (Maybe DeviceShadowEnrichActivity)
+-&gt; Parser
+     (Maybe LambdaActivity
+      -&gt; Maybe DeviceRegistryEnrichActivity
+      -&gt; Maybe ChannelActivity
+      -&gt; Maybe MathActivity
+      -&gt; Maybe FilterActivity
+      -&gt; PipelineActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceShadowEnrichActivity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceShadowEnrich&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LambdaActivity
+   -&gt; Maybe DeviceRegistryEnrichActivity
+   -&gt; Maybe ChannelActivity
+   -&gt; Maybe MathActivity
+   -&gt; Maybe FilterActivity
+   -&gt; PipelineActivity)
+-&gt; Parser (Maybe LambdaActivity)
+-&gt; Parser
+     (Maybe DeviceRegistryEnrichActivity
+      -&gt; Maybe ChannelActivity
+      -&gt; Maybe MathActivity
+      -&gt; Maybe FilterActivity
+      -&gt; PipelineActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LambdaActivity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lambda&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DeviceRegistryEnrichActivity
+   -&gt; Maybe ChannelActivity
+   -&gt; Maybe MathActivity
+   -&gt; Maybe FilterActivity
+   -&gt; PipelineActivity)
+-&gt; Parser (Maybe DeviceRegistryEnrichActivity)
+-&gt; Parser
+     (Maybe ChannelActivity
+      -&gt; Maybe MathActivity -&gt; Maybe FilterActivity -&gt; PipelineActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceRegistryEnrichActivity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceRegistryEnrich&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ChannelActivity
+   -&gt; Maybe MathActivity -&gt; Maybe FilterActivity -&gt; PipelineActivity)
+-&gt; Parser (Maybe ChannelActivity)
+-&gt; Parser
+     (Maybe MathActivity -&gt; Maybe FilterActivity -&gt; PipelineActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChannelActivity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;channel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MathActivity -&gt; Maybe FilterActivity -&gt; PipelineActivity)
+-&gt; Parser (Maybe MathActivity)
+-&gt; Parser (Maybe FilterActivity -&gt; PipelineActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MathActivity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;math&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe FilterActivity -&gt; PipelineActivity)
+-&gt; Parser (Maybe FilterActivity) -&gt; Parser PipelineActivity
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FilterActivity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259429"><span id="local-6989586621679259431"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span></span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259426"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259418"><span id="local-6989586621679259420"><span id="local-6989586621679259422"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679259416"><span class="annot"><span class="annottext">toJSON :: PipelineActivity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity%27"><span class="hs-identifier hs-type">PipelineActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259405"><span id="local-6989586621679259406"><span id="local-6989586621679259407"><span id="local-6989586621679259408"><span id="local-6989586621679259409"><span id="local-6989586621679259410"><span id="local-6989586621679259411"><span id="local-6989586621679259412"><span id="local-6989586621679259413"><span id="local-6989586621679259414"><span class="annot"><span class="annottext">Maybe AddAttributesActivity
+Maybe ChannelActivity
+Maybe DatastoreActivity
+Maybe DeviceRegistryEnrichActivity
+Maybe DeviceShadowEnrichActivity
+Maybe FilterActivity
+Maybe LambdaActivity
+Maybe MathActivity
+Maybe RemoveAttributesActivity
+Maybe SelectAttributesActivity
+filter' :: Maybe FilterActivity
+math :: Maybe MathActivity
+channel :: Maybe ChannelActivity
+deviceRegistryEnrich :: Maybe DeviceRegistryEnrichActivity
+lambda :: Maybe LambdaActivity
+deviceShadowEnrich :: Maybe DeviceShadowEnrichActivity
+addAttributes :: Maybe AddAttributesActivity
+removeAttributes :: Maybe RemoveAttributesActivity
+datastore :: Maybe DatastoreActivity
+selectAttributes :: Maybe SelectAttributesActivity
+$sel:filter':PipelineActivity' :: PipelineActivity -&gt; Maybe FilterActivity
+$sel:math:PipelineActivity' :: PipelineActivity -&gt; Maybe MathActivity
+$sel:channel:PipelineActivity' :: PipelineActivity -&gt; Maybe ChannelActivity
+$sel:deviceRegistryEnrich:PipelineActivity' :: PipelineActivity -&gt; Maybe DeviceRegistryEnrichActivity
+$sel:lambda:PipelineActivity' :: PipelineActivity -&gt; Maybe LambdaActivity
+$sel:deviceShadowEnrich:PipelineActivity' :: PipelineActivity -&gt; Maybe DeviceShadowEnrichActivity
+$sel:addAttributes:PipelineActivity' :: PipelineActivity -&gt; Maybe AddAttributesActivity
+$sel:removeAttributes:PipelineActivity' :: PipelineActivity -&gt; Maybe RemoveAttributesActivity
+$sel:datastore:PipelineActivity' :: PipelineActivity -&gt; Maybe DatastoreActivity
+$sel:selectAttributes:PipelineActivity' :: PipelineActivity -&gt; Maybe SelectAttributesActivity
+</span><a href="#local-6989586621679259405"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-179"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;selectAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SelectAttributesActivity -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">(SelectAttributesActivity -&gt; Pair)
+-&gt; Maybe SelectAttributesActivity -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SelectAttributesActivity
+</span><a href="#local-6989586621679259414"><span class="hs-identifier hs-var">selectAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datastore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DatastoreActivity -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DatastoreActivity -&gt; Pair)
+-&gt; Maybe DatastoreActivity -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreActivity
+</span><a href="#local-6989586621679259413"><span class="hs-identifier hs-var">datastore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;removeAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RemoveAttributesActivity -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">(RemoveAttributesActivity -&gt; Pair)
+-&gt; Maybe RemoveAttributesActivity -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RemoveAttributesActivity
+</span><a href="#local-6989586621679259412"><span class="hs-identifier hs-var">removeAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;addAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AddAttributesActivity -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AddAttributesActivity -&gt; Pair)
+-&gt; Maybe AddAttributesActivity -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AddAttributesActivity
+</span><a href="#local-6989586621679259411"><span class="hs-identifier hs-var">addAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceShadowEnrich&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeviceShadowEnrichActivity -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">(DeviceShadowEnrichActivity -&gt; Pair)
+-&gt; Maybe DeviceShadowEnrichActivity -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeviceShadowEnrichActivity
+</span><a href="#local-6989586621679259410"><span class="hs-identifier hs-var">deviceShadowEnrich</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lambda&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LambdaActivity -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LambdaActivity -&gt; Pair) -&gt; Maybe LambdaActivity -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaActivity
+</span><a href="#local-6989586621679259409"><span class="hs-identifier hs-var">lambda</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceRegistryEnrich&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeviceRegistryEnrichActivity -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>              </span><span class="annot"><span class="annottext">(DeviceRegistryEnrichActivity -&gt; Pair)
+-&gt; Maybe DeviceRegistryEnrichActivity -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeviceRegistryEnrichActivity
+</span><a href="#local-6989586621679259408"><span class="hs-identifier hs-var">deviceRegistryEnrich</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;channel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ChannelActivity -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ChannelActivity -&gt; Pair) -&gt; Maybe ChannelActivity -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ChannelActivity
+</span><a href="#local-6989586621679259407"><span class="hs-identifier hs-var">channel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;math&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MathActivity -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MathActivity -&gt; Pair) -&gt; Maybe MathActivity -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MathActivity
+</span><a href="#local-6989586621679259406"><span class="hs-identifier hs-var">math</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FilterActivity -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FilterActivity -&gt; Pair) -&gt; Maybe FilterActivity -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FilterActivity
+</span><a href="#local-6989586621679259405"><span class="hs-identifier hs-var">filter'</span></a></span><span>
+</span><span id="line-193"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span></pre></body></html>

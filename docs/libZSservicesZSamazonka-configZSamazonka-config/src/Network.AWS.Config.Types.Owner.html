@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Config.Types.Owner</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Config.Types.Owner</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Owner.html#Owner"><span class="hs-identifier">Owner</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Config.Types.Owner.html#Owner_AWS"><span class="hs-identifier">Owner_AWS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Config.Types.Owner.html#Owner_CUSTOM_LAMBDA"><span class="hs-identifier">Owner_CUSTOM_LAMBDA</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679403694"><span id="local-6989586621679403695"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Owner"><span class="annot"><a href="Network.AWS.Config.Types.Owner.html#Owner"><span class="hs-identifier hs-var">Owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Owner%27"><span class="annot"><a href="Network.AWS.Config.Types.Owner.html#Owner%27"><span class="hs-identifier hs-var">Owner'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromOwner"><span class="annot"><span class="annottext">Owner -&gt; Text
+</span><a href="Network.AWS.Config.Types.Owner.html#fromOwner"><span class="hs-identifier hs-var hs-var">fromOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679403686"><span id="local-6989586621679403688"><span id="local-6989586621679403690"><span class="annot"><span class="annottext">Int -&gt; Owner -&gt; ShowS
+[Owner] -&gt; ShowS
+Owner -&gt; String
+(Int -&gt; Owner -&gt; ShowS)
+-&gt; (Owner -&gt; String) -&gt; ([Owner] -&gt; ShowS) -&gt; Show Owner
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Owner] -&gt; ShowS
+$cshowList :: [Owner] -&gt; ShowS
+show :: Owner -&gt; String
+$cshow :: Owner -&gt; String
+showsPrec :: Int -&gt; Owner -&gt; ShowS
+$cshowsPrec :: Int -&gt; Owner -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679403677"><span id="local-6989586621679403679"><span id="local-6989586621679403681"><span id="local-6989586621679403683"><span class="annot"><span class="annottext">ReadPrec [Owner]
+ReadPrec Owner
+Int -&gt; ReadS Owner
+ReadS [Owner]
+(Int -&gt; ReadS Owner)
+-&gt; ReadS [Owner]
+-&gt; ReadPrec Owner
+-&gt; ReadPrec [Owner]
+-&gt; Read Owner
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Owner]
+$creadListPrec :: ReadPrec [Owner]
+readPrec :: ReadPrec Owner
+$creadPrec :: ReadPrec Owner
+readList :: ReadS [Owner]
+$creadList :: ReadS [Owner]
+readsPrec :: Int -&gt; ReadS Owner
+$creadsPrec :: Int -&gt; ReadS Owner
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679403672"><span id="local-6989586621679403674"><span class="annot"><span class="annottext">Owner -&gt; Owner -&gt; Bool
+(Owner -&gt; Owner -&gt; Bool) -&gt; (Owner -&gt; Owner -&gt; Bool) -&gt; Eq Owner
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Owner -&gt; Owner -&gt; Bool
+$c/= :: Owner -&gt; Owner -&gt; Bool
+== :: Owner -&gt; Owner -&gt; Bool
+$c== :: Owner -&gt; Owner -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679403656"><span id="local-6989586621679403658"><span id="local-6989586621679403660"><span id="local-6989586621679403662"><span id="local-6989586621679403664"><span id="local-6989586621679403666"><span id="local-6989586621679403668"><span class="annot"><span class="annottext">Eq Owner
+Eq Owner
+-&gt; (Owner -&gt; Owner -&gt; Ordering)
+-&gt; (Owner -&gt; Owner -&gt; Bool)
+-&gt; (Owner -&gt; Owner -&gt; Bool)
+-&gt; (Owner -&gt; Owner -&gt; Bool)
+-&gt; (Owner -&gt; Owner -&gt; Bool)
+-&gt; (Owner -&gt; Owner -&gt; Owner)
+-&gt; (Owner -&gt; Owner -&gt; Owner)
+-&gt; Ord Owner
+Owner -&gt; Owner -&gt; Bool
+Owner -&gt; Owner -&gt; Ordering
+Owner -&gt; Owner -&gt; Owner
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Owner -&gt; Owner -&gt; Owner
+$cmin :: Owner -&gt; Owner -&gt; Owner
+max :: Owner -&gt; Owner -&gt; Owner
+$cmax :: Owner -&gt; Owner -&gt; Owner
+&gt;= :: Owner -&gt; Owner -&gt; Bool
+$c&gt;= :: Owner -&gt; Owner -&gt; Bool
+&gt; :: Owner -&gt; Owner -&gt; Bool
+$c&gt; :: Owner -&gt; Owner -&gt; Bool
+&lt;= :: Owner -&gt; Owner -&gt; Bool
+$c&lt;= :: Owner -&gt; Owner -&gt; Bool
+&lt; :: Owner -&gt; Owner -&gt; Bool
+$c&lt; :: Owner -&gt; Owner -&gt; Bool
+compare :: Owner -&gt; Owner -&gt; Ordering
+$ccompare :: Owner -&gt; Owner -&gt; Ordering
+$cp1Ord :: Eq Owner
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Owner -&gt; Rep Owner x)
+-&gt; (forall x. Rep Owner x -&gt; Owner) -&gt; Generic Owner
+forall x. Rep Owner x -&gt; Owner
+forall x. Owner -&gt; Rep Owner x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Owner x -&gt; Owner
+$cfrom :: forall x. Owner -&gt; Rep Owner x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679403648"><span id="local-6989586621679403650"><span class="annot"><span class="annottext">Int -&gt; Owner -&gt; Int
+Owner -&gt; Int
+(Int -&gt; Owner -&gt; Int) -&gt; (Owner -&gt; Int) -&gt; Hashable Owner
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Owner -&gt; Int
+$chash :: Owner -&gt; Int
+hashWithSalt :: Int -&gt; Owner -&gt; Int
+$chashWithSalt :: Int -&gt; Owner -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679403645"><span class="annot"><span class="annottext">Owner -&gt; ()
+(Owner -&gt; ()) -&gt; NFData Owner
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Owner -&gt; ()
+$crnf :: Owner -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679403642"><span class="annot"><span class="annottext">Text -&gt; Either String Owner
+(Text -&gt; Either String Owner) -&gt; FromText Owner
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Owner
+$cfromText :: Text -&gt; Either String Owner
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679403639"><span class="annot"><span class="annottext">Owner -&gt; Text
+(Owner -&gt; Text) -&gt; ToText Owner
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Owner -&gt; Text
+$ctoText :: Owner -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679403636"><span class="annot"><span class="annottext">Owner -&gt; ByteString
+(Owner -&gt; ByteString) -&gt; ToByteString Owner
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Owner -&gt; ByteString
+$ctoBS :: Owner -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679403633"><span class="annot"><span class="annottext">Owner -&gt; ByteStringBuilder
+(Owner -&gt; ByteStringBuilder) -&gt; ToLog Owner
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Owner -&gt; ByteStringBuilder
+$cbuild :: Owner -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679403630"><span class="annot"><span class="annottext">HeaderName -&gt; Owner -&gt; [Header]
+(HeaderName -&gt; Owner -&gt; [Header]) -&gt; ToHeader Owner
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Owner -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Owner -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679403627"><span class="annot"><span class="annottext">Owner -&gt; QueryString
+(Owner -&gt; QueryString) -&gt; ToQuery Owner
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Owner -&gt; QueryString
+$ctoQuery :: Owner -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679403622"><span id="local-6989586621679403624"><span class="annot"><span class="annottext">Value -&gt; Parser [Owner]
+Value -&gt; Parser Owner
+(Value -&gt; Parser Owner)
+-&gt; (Value -&gt; Parser [Owner]) -&gt; FromJSON Owner
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Owner]
+$cparseJSONList :: Value -&gt; Parser [Owner]
+parseJSON :: Value -&gt; Parser Owner
+$cparseJSON :: Value -&gt; Parser Owner
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679403617"><span id="local-6989586621679403619"><span class="annot"><span class="annottext">FromJSONKeyFunction [Owner]
+FromJSONKeyFunction Owner
+FromJSONKeyFunction Owner
+-&gt; FromJSONKeyFunction [Owner] -&gt; FromJSONKey Owner
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Owner]
+$cfromJSONKeyList :: FromJSONKeyFunction [Owner]
+fromJSONKey :: FromJSONKeyFunction Owner
+$cfromJSONKey :: FromJSONKeyFunction Owner
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679403608"><span id="local-6989586621679403610"><span id="local-6989586621679403612"><span id="local-6989586621679403614"><span class="annot"><span class="annottext">[Owner] -&gt; Encoding
+[Owner] -&gt; Value
+Owner -&gt; Encoding
+Owner -&gt; Value
+(Owner -&gt; Value)
+-&gt; (Owner -&gt; Encoding)
+-&gt; ([Owner] -&gt; Value)
+-&gt; ([Owner] -&gt; Encoding)
+-&gt; ToJSON Owner
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Owner] -&gt; Encoding
+$ctoEncodingList :: [Owner] -&gt; Encoding
+toJSONList :: [Owner] -&gt; Value
+$ctoJSONList :: [Owner] -&gt; Value
+toEncoding :: Owner -&gt; Encoding
+$ctoEncoding :: Owner -&gt; Encoding
+toJSON :: Owner -&gt; Value
+$ctoJSON :: Owner -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679403603"><span id="local-6989586621679403605"><span class="annot"><span class="annottext">ToJSONKeyFunction [Owner]
+ToJSONKeyFunction Owner
+ToJSONKeyFunction Owner
+-&gt; ToJSONKeyFunction [Owner] -&gt; ToJSONKey Owner
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Owner]
+$ctoJSONKeyList :: ToJSONKeyFunction [Owner]
+toJSONKey :: ToJSONKeyFunction Owner
+$ctoJSONKey :: ToJSONKeyFunction Owner
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679403600"><span class="annot"><span class="annottext">[Node] -&gt; Either String Owner
+([Node] -&gt; Either String Owner) -&gt; FromXML Owner
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Owner
+$cparseXML :: [Node] -&gt; Either String Owner
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679403597"><span class="annot"><span class="annottext">Owner -&gt; XML
+(Owner -&gt; XML) -&gt; ToXML Owner
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Owner -&gt; XML
+$ctoXML :: Owner -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Owner.html#Owner_AWS"><span class="hs-identifier hs-type">Owner_AWS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOwner_AWS"><span id="%24mOwner_AWS"><span id="Owner_AWS"><span class="annot"><span class="annottext">$bOwner_AWS :: Owner
+$mOwner_AWS :: forall r. Owner -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Config.Types.Owner.html#%24bOwner_AWS"><span class="hs-identifier hs-var hs-var hs-var">Owner_AWS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Owner.html#Owner%27"><span class="hs-identifier hs-type">Owner'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWS&quot;</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Owner.html#Owner_CUSTOM_LAMBDA"><span class="hs-identifier hs-type">Owner_CUSTOM_LAMBDA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOwner_CUSTOM_LAMBDA"><span id="%24mOwner_CUSTOM_LAMBDA"><span id="Owner_CUSTOM_LAMBDA"><span class="annot"><span class="annottext">$bOwner_CUSTOM_LAMBDA :: Owner
+$mOwner_CUSTOM_LAMBDA :: forall r. Owner -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Config.Types.Owner.html#%24bOwner_CUSTOM_LAMBDA"><span class="hs-identifier hs-var hs-var hs-var">Owner_CUSTOM_LAMBDA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Owner.html#Owner%27"><span class="hs-identifier hs-type">Owner'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CUSTOM_LAMBDA&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.Owner.html#Owner_AWS"><span class="hs-pragma hs-type">Owner_AWS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.Owner.html#Owner_CUSTOM_LAMBDA"><span class="hs-pragma hs-type">Owner_CUSTOM_LAMBDA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.Owner.html#Owner%27"><span class="hs-pragma hs-type">Owner'</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-68"></span></pre></body></html>

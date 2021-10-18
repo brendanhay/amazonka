@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AvailableProcessorFeature.html"><span class="hs-identifier">Network.AWS.RDS.Types.AvailableProcessorFeature</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ValidStorageOptions.html"><span class="hs-identifier">Network.AWS.RDS.Types.ValidStorageOptions</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Information about valid modifications that you can make to your DB</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- instance. Contains the result of a successful call to the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- @DescribeValidDBInstanceModifications@ action. You can use this</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- information when you call @ModifyDBInstance@.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newValidDBInstanceModificationsMessage' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679768436"><span id="local-6989586621679768437"></span></span><span class="hs-keyword">data</span><span> </span><span id="ValidDBInstanceModificationsMessage"><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#ValidDBInstanceModificationsMessage"><span class="hs-identifier hs-var">ValidDBInstanceModificationsMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValidDBInstanceModificationsMessage%27"><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#ValidDBInstanceModificationsMessage%27"><span class="hs-identifier hs-var">ValidDBInstanceModificationsMessage'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Valid processor features for your DB instance.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AvalidProcessorFeatures%3AValidDBInstanceModificationsMessage%27"><span class="annot"><span class="annottext">ValidDBInstanceModificationsMessage
+-&gt; Maybe [AvailableProcessorFeature]
+</span><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#%24sel%3AvalidProcessorFeatures%3AValidDBInstanceModificationsMessage%27"><span class="hs-identifier hs-var hs-var">validProcessorFeatures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.AvailableProcessorFeature.html#AvailableProcessorFeature"><span class="hs-identifier hs-type">AvailableProcessorFeature</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Valid storage options for your DB instance.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astorage%3AValidDBInstanceModificationsMessage%27"><span class="annot"><span class="annottext">ValidDBInstanceModificationsMessage -&gt; Maybe [ValidStorageOptions]
+</span><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#%24sel%3Astorage%3AValidDBInstanceModificationsMessage%27"><span class="hs-identifier hs-var hs-var">storage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.ValidStorageOptions.html#ValidStorageOptions"><span class="hs-identifier hs-type">ValidStorageOptions</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679768429"><span id="local-6989586621679768431"><span class="annot"><span class="annottext">ValidDBInstanceModificationsMessage
+-&gt; ValidDBInstanceModificationsMessage -&gt; Bool
+(ValidDBInstanceModificationsMessage
+ -&gt; ValidDBInstanceModificationsMessage -&gt; Bool)
+-&gt; (ValidDBInstanceModificationsMessage
+    -&gt; ValidDBInstanceModificationsMessage -&gt; Bool)
+-&gt; Eq ValidDBInstanceModificationsMessage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ValidDBInstanceModificationsMessage
+-&gt; ValidDBInstanceModificationsMessage -&gt; Bool
+$c/= :: ValidDBInstanceModificationsMessage
+-&gt; ValidDBInstanceModificationsMessage -&gt; Bool
+== :: ValidDBInstanceModificationsMessage
+-&gt; ValidDBInstanceModificationsMessage -&gt; Bool
+$c== :: ValidDBInstanceModificationsMessage
+-&gt; ValidDBInstanceModificationsMessage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679768420"><span id="local-6989586621679768422"><span id="local-6989586621679768424"><span id="local-6989586621679768426"><span class="annot"><span class="annottext">ReadPrec [ValidDBInstanceModificationsMessage]
+ReadPrec ValidDBInstanceModificationsMessage
+Int -&gt; ReadS ValidDBInstanceModificationsMessage
+ReadS [ValidDBInstanceModificationsMessage]
+(Int -&gt; ReadS ValidDBInstanceModificationsMessage)
+-&gt; ReadS [ValidDBInstanceModificationsMessage]
+-&gt; ReadPrec ValidDBInstanceModificationsMessage
+-&gt; ReadPrec [ValidDBInstanceModificationsMessage]
+-&gt; Read ValidDBInstanceModificationsMessage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ValidDBInstanceModificationsMessage]
+$creadListPrec :: ReadPrec [ValidDBInstanceModificationsMessage]
+readPrec :: ReadPrec ValidDBInstanceModificationsMessage
+$creadPrec :: ReadPrec ValidDBInstanceModificationsMessage
+readList :: ReadS [ValidDBInstanceModificationsMessage]
+$creadList :: ReadS [ValidDBInstanceModificationsMessage]
+readsPrec :: Int -&gt; ReadS ValidDBInstanceModificationsMessage
+$creadsPrec :: Int -&gt; ReadS ValidDBInstanceModificationsMessage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679768413"><span id="local-6989586621679768415"><span id="local-6989586621679768417"><span class="annot"><span class="annottext">Int -&gt; ValidDBInstanceModificationsMessage -&gt; ShowS
+[ValidDBInstanceModificationsMessage] -&gt; ShowS
+ValidDBInstanceModificationsMessage -&gt; String
+(Int -&gt; ValidDBInstanceModificationsMessage -&gt; ShowS)
+-&gt; (ValidDBInstanceModificationsMessage -&gt; String)
+-&gt; ([ValidDBInstanceModificationsMessage] -&gt; ShowS)
+-&gt; Show ValidDBInstanceModificationsMessage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ValidDBInstanceModificationsMessage] -&gt; ShowS
+$cshowList :: [ValidDBInstanceModificationsMessage] -&gt; ShowS
+show :: ValidDBInstanceModificationsMessage -&gt; String
+$cshow :: ValidDBInstanceModificationsMessage -&gt; String
+showsPrec :: Int -&gt; ValidDBInstanceModificationsMessage -&gt; ShowS
+$cshowsPrec :: Int -&gt; ValidDBInstanceModificationsMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ValidDBInstanceModificationsMessage
+ -&gt; Rep ValidDBInstanceModificationsMessage x)
+-&gt; (forall x.
+    Rep ValidDBInstanceModificationsMessage x
+    -&gt; ValidDBInstanceModificationsMessage)
+-&gt; Generic ValidDBInstanceModificationsMessage
+forall x.
+Rep ValidDBInstanceModificationsMessage x
+-&gt; ValidDBInstanceModificationsMessage
+forall x.
+ValidDBInstanceModificationsMessage
+-&gt; Rep ValidDBInstanceModificationsMessage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ValidDBInstanceModificationsMessage x
+-&gt; ValidDBInstanceModificationsMessage
+$cfrom :: forall x.
+ValidDBInstanceModificationsMessage
+-&gt; Rep ValidDBInstanceModificationsMessage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'ValidDBInstanceModificationsMessage' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'validProcessorFeatures', 'validDBInstanceModificationsMessage_validProcessorFeatures' - Valid processor features for your DB instance.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'storage', 'validDBInstanceModificationsMessage_storage' - Valid storage options for your DB instance.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#newValidDBInstanceModificationsMessage"><span class="hs-identifier hs-type">newValidDBInstanceModificationsMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#ValidDBInstanceModificationsMessage"><span class="hs-identifier hs-type">ValidDBInstanceModificationsMessage</span></a></span><span>
+</span><span id="line-55"></span><span id="newValidDBInstanceModificationsMessage"><span class="annot"><span class="annottext">newValidDBInstanceModificationsMessage :: ValidDBInstanceModificationsMessage
+</span><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#newValidDBInstanceModificationsMessage"><span class="hs-identifier hs-var hs-var">newValidDBInstanceModificationsMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ValidDBInstanceModificationsMessage' :: Maybe [AvailableProcessorFeature]
+-&gt; Maybe [ValidStorageOptions]
+-&gt; ValidDBInstanceModificationsMessage
+</span><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#ValidDBInstanceModificationsMessage%27"><span class="hs-identifier hs-type">ValidDBInstanceModificationsMessage'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:validProcessorFeatures:ValidDBInstanceModificationsMessage' :: Maybe [AvailableProcessorFeature]
+</span><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#%24sel%3AvalidProcessorFeatures%3AValidDBInstanceModificationsMessage%27"><span class="hs-identifier hs-var">validProcessorFeatures</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AvailableProcessorFeature]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:storage:ValidDBInstanceModificationsMessage' :: Maybe [ValidStorageOptions]
+</span><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#%24sel%3Astorage%3AValidDBInstanceModificationsMessage%27"><span class="hs-identifier hs-var">storage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ValidStorageOptions]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | Valid processor features for your DB instance.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#validDBInstanceModificationsMessage_validProcessorFeatures"><span class="hs-identifier hs-type">validDBInstanceModificationsMessage_validProcessorFeatures</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#ValidDBInstanceModificationsMessage"><span class="hs-identifier hs-type">ValidDBInstanceModificationsMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.AvailableProcessorFeature.html#AvailableProcessorFeature"><span class="hs-identifier hs-type">AvailableProcessorFeature</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="validDBInstanceModificationsMessage_validProcessorFeatures"><span class="annot"><span class="annottext">validDBInstanceModificationsMessage_validProcessorFeatures :: (Maybe [AvailableProcessorFeature]
+ -&gt; f (Maybe [AvailableProcessorFeature]))
+-&gt; ValidDBInstanceModificationsMessage
+-&gt; f ValidDBInstanceModificationsMessage
+</span><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#validDBInstanceModificationsMessage_validProcessorFeatures"><span class="hs-identifier hs-var hs-var">validDBInstanceModificationsMessage_validProcessorFeatures</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ValidDBInstanceModificationsMessage
+ -&gt; Maybe [AvailableProcessorFeature])
+-&gt; (ValidDBInstanceModificationsMessage
+    -&gt; Maybe [AvailableProcessorFeature]
+    -&gt; ValidDBInstanceModificationsMessage)
+-&gt; Lens
+     ValidDBInstanceModificationsMessage
+     ValidDBInstanceModificationsMessage
+     (Maybe [AvailableProcessorFeature])
+     (Maybe [AvailableProcessorFeature])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#ValidDBInstanceModificationsMessage%27"><span class="hs-identifier hs-type">ValidDBInstanceModificationsMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768404"><span class="annot"><span class="annottext">Maybe [AvailableProcessorFeature]
+validProcessorFeatures :: Maybe [AvailableProcessorFeature]
+$sel:validProcessorFeatures:ValidDBInstanceModificationsMessage' :: ValidDBInstanceModificationsMessage
+-&gt; Maybe [AvailableProcessorFeature]
+</span><a href="#local-6989586621679768404"><span class="hs-identifier hs-var hs-var">validProcessorFeatures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AvailableProcessorFeature]
+</span><a href="#local-6989586621679768404"><span class="hs-identifier hs-var">validProcessorFeatures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768403"><span class="annot"><span class="annottext">s :: ValidDBInstanceModificationsMessage
+</span><a href="#local-6989586621679768403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#ValidDBInstanceModificationsMessage%27"><span class="hs-identifier hs-type">ValidDBInstanceModificationsMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768402"><span class="annot"><span class="annottext">Maybe [AvailableProcessorFeature]
+</span><a href="#local-6989586621679768402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidDBInstanceModificationsMessage
+</span><a href="#local-6989586621679768403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validProcessorFeatures:ValidDBInstanceModificationsMessage' :: Maybe [AvailableProcessorFeature]
+</span><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#%24sel%3AvalidProcessorFeatures%3AValidDBInstanceModificationsMessage%27"><span class="hs-identifier hs-var">validProcessorFeatures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AvailableProcessorFeature]
+</span><a href="#local-6989586621679768402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#ValidDBInstanceModificationsMessage"><span class="hs-identifier hs-type">ValidDBInstanceModificationsMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AvailableProcessorFeature]
+  -&gt; f (Maybe [AvailableProcessorFeature]))
+ -&gt; ValidDBInstanceModificationsMessage
+ -&gt; f ValidDBInstanceModificationsMessage)
+-&gt; ((Maybe [AvailableProcessorFeature]
+     -&gt; f (Maybe [AvailableProcessorFeature]))
+    -&gt; Maybe [AvailableProcessorFeature]
+    -&gt; f (Maybe [AvailableProcessorFeature]))
+-&gt; (Maybe [AvailableProcessorFeature]
+    -&gt; f (Maybe [AvailableProcessorFeature]))
+-&gt; ValidDBInstanceModificationsMessage
+-&gt; f ValidDBInstanceModificationsMessage
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AvailableProcessorFeature]
+  [AvailableProcessorFeature]
+  [AvailableProcessorFeature]
+  [AvailableProcessorFeature]
+-&gt; Iso
+     (Maybe [AvailableProcessorFeature])
+     (Maybe [AvailableProcessorFeature])
+     (Maybe [AvailableProcessorFeature])
+     (Maybe [AvailableProcessorFeature])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AvailableProcessorFeature]
+  [AvailableProcessorFeature]
+  [AvailableProcessorFeature]
+  [AvailableProcessorFeature]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | Valid storage options for your DB instance.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#validDBInstanceModificationsMessage_storage"><span class="hs-identifier hs-type">validDBInstanceModificationsMessage_storage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#ValidDBInstanceModificationsMessage"><span class="hs-identifier hs-type">ValidDBInstanceModificationsMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.ValidStorageOptions.html#ValidStorageOptions"><span class="hs-identifier hs-type">ValidStorageOptions</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="validDBInstanceModificationsMessage_storage"><span class="annot"><span class="annottext">validDBInstanceModificationsMessage_storage :: (Maybe [ValidStorageOptions] -&gt; f (Maybe [ValidStorageOptions]))
+-&gt; ValidDBInstanceModificationsMessage
+-&gt; f ValidDBInstanceModificationsMessage
+</span><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#validDBInstanceModificationsMessage_storage"><span class="hs-identifier hs-var hs-var">validDBInstanceModificationsMessage_storage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ValidDBInstanceModificationsMessage
+ -&gt; Maybe [ValidStorageOptions])
+-&gt; (ValidDBInstanceModificationsMessage
+    -&gt; Maybe [ValidStorageOptions]
+    -&gt; ValidDBInstanceModificationsMessage)
+-&gt; Lens
+     ValidDBInstanceModificationsMessage
+     ValidDBInstanceModificationsMessage
+     (Maybe [ValidStorageOptions])
+     (Maybe [ValidStorageOptions])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#ValidDBInstanceModificationsMessage%27"><span class="hs-identifier hs-type">ValidDBInstanceModificationsMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768397"><span class="annot"><span class="annottext">Maybe [ValidStorageOptions]
+storage :: Maybe [ValidStorageOptions]
+$sel:storage:ValidDBInstanceModificationsMessage' :: ValidDBInstanceModificationsMessage -&gt; Maybe [ValidStorageOptions]
+</span><a href="#local-6989586621679768397"><span class="hs-identifier hs-var hs-var">storage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ValidStorageOptions]
+</span><a href="#local-6989586621679768397"><span class="hs-identifier hs-var">storage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768396"><span class="annot"><span class="annottext">s :: ValidDBInstanceModificationsMessage
+</span><a href="#local-6989586621679768396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#ValidDBInstanceModificationsMessage%27"><span class="hs-identifier hs-type">ValidDBInstanceModificationsMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768395"><span class="annot"><span class="annottext">Maybe [ValidStorageOptions]
+</span><a href="#local-6989586621679768395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidDBInstanceModificationsMessage
+</span><a href="#local-6989586621679768396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storage:ValidDBInstanceModificationsMessage' :: Maybe [ValidStorageOptions]
+</span><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#%24sel%3Astorage%3AValidDBInstanceModificationsMessage%27"><span class="hs-identifier hs-var">storage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ValidStorageOptions]
+</span><a href="#local-6989586621679768395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#ValidDBInstanceModificationsMessage"><span class="hs-identifier hs-type">ValidDBInstanceModificationsMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ValidStorageOptions] -&gt; f (Maybe [ValidStorageOptions]))
+ -&gt; ValidDBInstanceModificationsMessage
+ -&gt; f ValidDBInstanceModificationsMessage)
+-&gt; ((Maybe [ValidStorageOptions]
+     -&gt; f (Maybe [ValidStorageOptions]))
+    -&gt; Maybe [ValidStorageOptions] -&gt; f (Maybe [ValidStorageOptions]))
+-&gt; (Maybe [ValidStorageOptions] -&gt; f (Maybe [ValidStorageOptions]))
+-&gt; ValidDBInstanceModificationsMessage
+-&gt; f ValidDBInstanceModificationsMessage
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ValidStorageOptions]
+  [ValidStorageOptions]
+  [ValidStorageOptions]
+  [ValidStorageOptions]
+-&gt; Iso
+     (Maybe [ValidStorageOptions])
+     (Maybe [ValidStorageOptions])
+     (Maybe [ValidStorageOptions])
+     (Maybe [ValidStorageOptions])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ValidStorageOptions]
+  [ValidStorageOptions]
+  [ValidStorageOptions]
+  [ValidStorageOptions]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#ValidDBInstanceModificationsMessage"><span class="hs-identifier hs-type">ValidDBInstanceModificationsMessage</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679768392"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ValidDBInstanceModificationsMessage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679768390"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768390"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">Maybe [AvailableProcessorFeature]
+-&gt; Maybe [ValidStorageOptions]
+-&gt; ValidDBInstanceModificationsMessage
+</span><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#ValidDBInstanceModificationsMessage%27"><span class="hs-identifier hs-var">ValidDBInstanceModificationsMessage'</span></a></span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [AvailableProcessorFeature]
+ -&gt; Maybe [ValidStorageOptions]
+ -&gt; ValidDBInstanceModificationsMessage)
+-&gt; Either String (Maybe [AvailableProcessorFeature])
+-&gt; Either
+     String
+     (Maybe [ValidStorageOptions]
+      -&gt; ValidDBInstanceModificationsMessage)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768390"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ValidProcessorFeatures&quot;</span></span><span>
+</span><span id="line-77"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-78"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [AvailableProcessorFeature]))
+-&gt; Either String (Maybe [AvailableProcessorFeature])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [AvailableProcessorFeature])
+-&gt; [Node] -&gt; Either String (Maybe [AvailableProcessorFeature])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span>
+</span><span id="line-79"></span><span>                        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [AvailableProcessorFeature]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AvailableProcessorFeature&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ValidStorageOptions]
+   -&gt; ValidDBInstanceModificationsMessage)
+-&gt; Either String (Maybe [ValidStorageOptions])
+-&gt; Either String ValidDBInstanceModificationsMessage
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768390"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Storage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-82"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [ValidStorageOptions]))
+-&gt; Either String (Maybe [ValidStorageOptions])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [ValidStorageOptions])
+-&gt; [Node] -&gt; Either String (Maybe [ValidStorageOptions])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [ValidStorageOptions]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ValidStorageOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679768381"><span id="local-6989586621679768383"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#ValidDBInstanceModificationsMessage"><span class="hs-identifier hs-type">ValidDBInstanceModificationsMessage</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679768378"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage.html#ValidDBInstanceModificationsMessage"><span class="hs-identifier hs-type">ValidDBInstanceModificationsMessage</span></a></span></span><span>
+</span><span id="line-92"></span></pre></body></html>

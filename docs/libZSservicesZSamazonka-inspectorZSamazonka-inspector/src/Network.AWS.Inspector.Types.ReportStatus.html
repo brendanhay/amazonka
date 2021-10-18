@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Inspector.Types.ReportStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Inspector.Types.ReportStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus"><span class="hs-identifier">ReportStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus_COMPLETED"><span class="hs-identifier">ReportStatus_COMPLETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus_FAILED"><span class="hs-identifier">ReportStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus_WORK_IN_PROGRESS"><span class="hs-identifier">ReportStatus_WORK_IN_PROGRESS</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679246841"><span id="local-6989586621679246842"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReportStatus"><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus"><span class="hs-identifier hs-var">ReportStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportStatus%27"><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus%27"><span class="hs-identifier hs-var">ReportStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReportStatus"><span class="annot"><span class="annottext">ReportStatus -&gt; Text
+</span><a href="Network.AWS.Inspector.Types.ReportStatus.html#fromReportStatus"><span class="hs-identifier hs-var hs-var">fromReportStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246833"><span id="local-6989586621679246835"><span id="local-6989586621679246837"><span class="annot"><span class="annottext">Int -&gt; ReportStatus -&gt; ShowS
+[ReportStatus] -&gt; ShowS
+ReportStatus -&gt; String
+(Int -&gt; ReportStatus -&gt; ShowS)
+-&gt; (ReportStatus -&gt; String)
+-&gt; ([ReportStatus] -&gt; ShowS)
+-&gt; Show ReportStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReportStatus] -&gt; ShowS
+$cshowList :: [ReportStatus] -&gt; ShowS
+show :: ReportStatus -&gt; String
+$cshow :: ReportStatus -&gt; String
+showsPrec :: Int -&gt; ReportStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReportStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679246824"><span id="local-6989586621679246826"><span id="local-6989586621679246828"><span id="local-6989586621679246830"><span class="annot"><span class="annottext">ReadPrec [ReportStatus]
+ReadPrec ReportStatus
+Int -&gt; ReadS ReportStatus
+ReadS [ReportStatus]
+(Int -&gt; ReadS ReportStatus)
+-&gt; ReadS [ReportStatus]
+-&gt; ReadPrec ReportStatus
+-&gt; ReadPrec [ReportStatus]
+-&gt; Read ReportStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReportStatus]
+$creadListPrec :: ReadPrec [ReportStatus]
+readPrec :: ReadPrec ReportStatus
+$creadPrec :: ReadPrec ReportStatus
+readList :: ReadS [ReportStatus]
+$creadList :: ReadS [ReportStatus]
+readsPrec :: Int -&gt; ReadS ReportStatus
+$creadsPrec :: Int -&gt; ReadS ReportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679246819"><span id="local-6989586621679246821"><span class="annot"><span class="annottext">ReportStatus -&gt; ReportStatus -&gt; Bool
+(ReportStatus -&gt; ReportStatus -&gt; Bool)
+-&gt; (ReportStatus -&gt; ReportStatus -&gt; Bool) -&gt; Eq ReportStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReportStatus -&gt; ReportStatus -&gt; Bool
+$c/= :: ReportStatus -&gt; ReportStatus -&gt; Bool
+== :: ReportStatus -&gt; ReportStatus -&gt; Bool
+$c== :: ReportStatus -&gt; ReportStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679246803"><span id="local-6989586621679246805"><span id="local-6989586621679246807"><span id="local-6989586621679246809"><span id="local-6989586621679246811"><span id="local-6989586621679246813"><span id="local-6989586621679246815"><span class="annot"><span class="annottext">Eq ReportStatus
+Eq ReportStatus
+-&gt; (ReportStatus -&gt; ReportStatus -&gt; Ordering)
+-&gt; (ReportStatus -&gt; ReportStatus -&gt; Bool)
+-&gt; (ReportStatus -&gt; ReportStatus -&gt; Bool)
+-&gt; (ReportStatus -&gt; ReportStatus -&gt; Bool)
+-&gt; (ReportStatus -&gt; ReportStatus -&gt; Bool)
+-&gt; (ReportStatus -&gt; ReportStatus -&gt; ReportStatus)
+-&gt; (ReportStatus -&gt; ReportStatus -&gt; ReportStatus)
+-&gt; Ord ReportStatus
+ReportStatus -&gt; ReportStatus -&gt; Bool
+ReportStatus -&gt; ReportStatus -&gt; Ordering
+ReportStatus -&gt; ReportStatus -&gt; ReportStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ReportStatus -&gt; ReportStatus -&gt; ReportStatus
+$cmin :: ReportStatus -&gt; ReportStatus -&gt; ReportStatus
+max :: ReportStatus -&gt; ReportStatus -&gt; ReportStatus
+$cmax :: ReportStatus -&gt; ReportStatus -&gt; ReportStatus
+&gt;= :: ReportStatus -&gt; ReportStatus -&gt; Bool
+$c&gt;= :: ReportStatus -&gt; ReportStatus -&gt; Bool
+&gt; :: ReportStatus -&gt; ReportStatus -&gt; Bool
+$c&gt; :: ReportStatus -&gt; ReportStatus -&gt; Bool
+&lt;= :: ReportStatus -&gt; ReportStatus -&gt; Bool
+$c&lt;= :: ReportStatus -&gt; ReportStatus -&gt; Bool
+&lt; :: ReportStatus -&gt; ReportStatus -&gt; Bool
+$c&lt; :: ReportStatus -&gt; ReportStatus -&gt; Bool
+compare :: ReportStatus -&gt; ReportStatus -&gt; Ordering
+$ccompare :: ReportStatus -&gt; ReportStatus -&gt; Ordering
+$cp1Ord :: Eq ReportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ReportStatus -&gt; Rep ReportStatus x)
+-&gt; (forall x. Rep ReportStatus x -&gt; ReportStatus)
+-&gt; Generic ReportStatus
+forall x. Rep ReportStatus x -&gt; ReportStatus
+forall x. ReportStatus -&gt; Rep ReportStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReportStatus x -&gt; ReportStatus
+$cfrom :: forall x. ReportStatus -&gt; Rep ReportStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246795"><span id="local-6989586621679246797"><span class="annot"><span class="annottext">Int -&gt; ReportStatus -&gt; Int
+ReportStatus -&gt; Int
+(Int -&gt; ReportStatus -&gt; Int)
+-&gt; (ReportStatus -&gt; Int) -&gt; Hashable ReportStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ReportStatus -&gt; Int
+$chash :: ReportStatus -&gt; Int
+hashWithSalt :: Int -&gt; ReportStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ReportStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679246792"><span class="annot"><span class="annottext">ReportStatus -&gt; ()
+(ReportStatus -&gt; ()) -&gt; NFData ReportStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ReportStatus -&gt; ()
+$crnf :: ReportStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679246789"><span class="annot"><span class="annottext">Text -&gt; Either String ReportStatus
+(Text -&gt; Either String ReportStatus) -&gt; FromText ReportStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ReportStatus
+$cfromText :: Text -&gt; Either String ReportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679246786"><span class="annot"><span class="annottext">ReportStatus -&gt; Text
+(ReportStatus -&gt; Text) -&gt; ToText ReportStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ReportStatus -&gt; Text
+$ctoText :: ReportStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679246783"><span class="annot"><span class="annottext">ReportStatus -&gt; ByteString
+(ReportStatus -&gt; ByteString) -&gt; ToByteString ReportStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ReportStatus -&gt; ByteString
+$ctoBS :: ReportStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679246780"><span class="annot"><span class="annottext">ReportStatus -&gt; ByteStringBuilder
+(ReportStatus -&gt; ByteStringBuilder) -&gt; ToLog ReportStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ReportStatus -&gt; ByteStringBuilder
+$cbuild :: ReportStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246777"><span class="annot"><span class="annottext">HeaderName -&gt; ReportStatus -&gt; [Header]
+(HeaderName -&gt; ReportStatus -&gt; [Header]) -&gt; ToHeader ReportStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ReportStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ReportStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246774"><span class="annot"><span class="annottext">ReportStatus -&gt; QueryString
+(ReportStatus -&gt; QueryString) -&gt; ToQuery ReportStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ReportStatus -&gt; QueryString
+$ctoQuery :: ReportStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246769"><span id="local-6989586621679246771"><span class="annot"><span class="annottext">Value -&gt; Parser [ReportStatus]
+Value -&gt; Parser ReportStatus
+(Value -&gt; Parser ReportStatus)
+-&gt; (Value -&gt; Parser [ReportStatus]) -&gt; FromJSON ReportStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ReportStatus]
+$cparseJSONList :: Value -&gt; Parser [ReportStatus]
+parseJSON :: Value -&gt; Parser ReportStatus
+$cparseJSON :: Value -&gt; Parser ReportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246764"><span id="local-6989586621679246766"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReportStatus]
+FromJSONKeyFunction ReportStatus
+FromJSONKeyFunction ReportStatus
+-&gt; FromJSONKeyFunction [ReportStatus] -&gt; FromJSONKey ReportStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ReportStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ReportStatus]
+fromJSONKey :: FromJSONKeyFunction ReportStatus
+$cfromJSONKey :: FromJSONKeyFunction ReportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246755"><span id="local-6989586621679246757"><span id="local-6989586621679246759"><span id="local-6989586621679246761"><span class="annot"><span class="annottext">[ReportStatus] -&gt; Encoding
+[ReportStatus] -&gt; Value
+ReportStatus -&gt; Encoding
+ReportStatus -&gt; Value
+(ReportStatus -&gt; Value)
+-&gt; (ReportStatus -&gt; Encoding)
+-&gt; ([ReportStatus] -&gt; Value)
+-&gt; ([ReportStatus] -&gt; Encoding)
+-&gt; ToJSON ReportStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ReportStatus] -&gt; Encoding
+$ctoEncodingList :: [ReportStatus] -&gt; Encoding
+toJSONList :: [ReportStatus] -&gt; Value
+$ctoJSONList :: [ReportStatus] -&gt; Value
+toEncoding :: ReportStatus -&gt; Encoding
+$ctoEncoding :: ReportStatus -&gt; Encoding
+toJSON :: ReportStatus -&gt; Value
+$ctoJSON :: ReportStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246750"><span id="local-6989586621679246752"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReportStatus]
+ToJSONKeyFunction ReportStatus
+ToJSONKeyFunction ReportStatus
+-&gt; ToJSONKeyFunction [ReportStatus] -&gt; ToJSONKey ReportStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ReportStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ReportStatus]
+toJSONKey :: ToJSONKeyFunction ReportStatus
+$ctoJSONKey :: ToJSONKeyFunction ReportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679246747"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReportStatus
+([Node] -&gt; Either String ReportStatus) -&gt; FromXML ReportStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ReportStatus
+$cparseXML :: [Node] -&gt; Either String ReportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679246744"><span class="annot"><span class="annottext">ReportStatus -&gt; XML
+(ReportStatus -&gt; XML) -&gt; ToXML ReportStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ReportStatus -&gt; XML
+$ctoXML :: ReportStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus_COMPLETED"><span class="hs-identifier hs-type">ReportStatus_COMPLETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus"><span class="hs-identifier hs-type">ReportStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportStatus_COMPLETED"><span id="%24mReportStatus_COMPLETED"><span id="ReportStatus_COMPLETED"><span class="annot"><span class="annottext">$bReportStatus_COMPLETED :: ReportStatus
+$mReportStatus_COMPLETED :: forall r. ReportStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Inspector.Types.ReportStatus.html#%24bReportStatus_COMPLETED"><span class="hs-identifier hs-var hs-var hs-var">ReportStatus_COMPLETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus%27"><span class="hs-identifier hs-type">ReportStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus_FAILED"><span class="hs-identifier hs-type">ReportStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus"><span class="hs-identifier hs-type">ReportStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportStatus_FAILED"><span id="%24mReportStatus_FAILED"><span id="ReportStatus_FAILED"><span class="annot"><span class="annottext">$bReportStatus_FAILED :: ReportStatus
+$mReportStatus_FAILED :: forall r. ReportStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Inspector.Types.ReportStatus.html#%24bReportStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ReportStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus%27"><span class="hs-identifier hs-type">ReportStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus_WORK_IN_PROGRESS"><span class="hs-identifier hs-type">ReportStatus_WORK_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus"><span class="hs-identifier hs-type">ReportStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportStatus_WORK_IN_PROGRESS"><span id="%24mReportStatus_WORK_IN_PROGRESS"><span id="ReportStatus_WORK_IN_PROGRESS"><span class="annot"><span class="annottext">$bReportStatus_WORK_IN_PROGRESS :: ReportStatus
+$mReportStatus_WORK_IN_PROGRESS :: forall r. ReportStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Inspector.Types.ReportStatus.html#%24bReportStatus_WORK_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">ReportStatus_WORK_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus%27"><span class="hs-identifier hs-type">ReportStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WORK_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus_COMPLETED"><span class="hs-pragma hs-type">ReportStatus_COMPLETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus_FAILED"><span class="hs-pragma hs-type">ReportStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus_WORK_IN_PROGRESS"><span class="hs-pragma hs-type">ReportStatus_WORK_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.ReportStatus.html#ReportStatus%27"><span class="hs-pragma hs-type">ReportStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

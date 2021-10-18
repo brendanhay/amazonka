@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CostExplorer.Types.TermInYears</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CostExplorer.Types.TermInYears</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears"><span class="hs-identifier">TermInYears</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears_ONE_YEAR"><span class="hs-identifier">TermInYears_ONE_YEAR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears_THREE_YEARS"><span class="hs-identifier">TermInYears_THREE_YEARS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679339498"><span id="local-6989586621679339499"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TermInYears"><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears"><span class="hs-identifier hs-var">TermInYears</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TermInYears%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears%27"><span class="hs-identifier hs-var">TermInYears'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTermInYears"><span class="annot"><span class="annottext">TermInYears -&gt; Text
+</span><a href="Network.AWS.CostExplorer.Types.TermInYears.html#fromTermInYears"><span class="hs-identifier hs-var hs-var">fromTermInYears</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679339490"><span id="local-6989586621679339492"><span id="local-6989586621679339494"><span class="annot"><span class="annottext">Int -&gt; TermInYears -&gt; ShowS
+[TermInYears] -&gt; ShowS
+TermInYears -&gt; String
+(Int -&gt; TermInYears -&gt; ShowS)
+-&gt; (TermInYears -&gt; String)
+-&gt; ([TermInYears] -&gt; ShowS)
+-&gt; Show TermInYears
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TermInYears] -&gt; ShowS
+$cshowList :: [TermInYears] -&gt; ShowS
+show :: TermInYears -&gt; String
+$cshow :: TermInYears -&gt; String
+showsPrec :: Int -&gt; TermInYears -&gt; ShowS
+$cshowsPrec :: Int -&gt; TermInYears -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679339481"><span id="local-6989586621679339483"><span id="local-6989586621679339485"><span id="local-6989586621679339487"><span class="annot"><span class="annottext">ReadPrec [TermInYears]
+ReadPrec TermInYears
+Int -&gt; ReadS TermInYears
+ReadS [TermInYears]
+(Int -&gt; ReadS TermInYears)
+-&gt; ReadS [TermInYears]
+-&gt; ReadPrec TermInYears
+-&gt; ReadPrec [TermInYears]
+-&gt; Read TermInYears
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TermInYears]
+$creadListPrec :: ReadPrec [TermInYears]
+readPrec :: ReadPrec TermInYears
+$creadPrec :: ReadPrec TermInYears
+readList :: ReadS [TermInYears]
+$creadList :: ReadS [TermInYears]
+readsPrec :: Int -&gt; ReadS TermInYears
+$creadsPrec :: Int -&gt; ReadS TermInYears
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679339476"><span id="local-6989586621679339478"><span class="annot"><span class="annottext">TermInYears -&gt; TermInYears -&gt; Bool
+(TermInYears -&gt; TermInYears -&gt; Bool)
+-&gt; (TermInYears -&gt; TermInYears -&gt; Bool) -&gt; Eq TermInYears
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TermInYears -&gt; TermInYears -&gt; Bool
+$c/= :: TermInYears -&gt; TermInYears -&gt; Bool
+== :: TermInYears -&gt; TermInYears -&gt; Bool
+$c== :: TermInYears -&gt; TermInYears -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679339460"><span id="local-6989586621679339462"><span id="local-6989586621679339464"><span id="local-6989586621679339466"><span id="local-6989586621679339468"><span id="local-6989586621679339470"><span id="local-6989586621679339472"><span class="annot"><span class="annottext">Eq TermInYears
+Eq TermInYears
+-&gt; (TermInYears -&gt; TermInYears -&gt; Ordering)
+-&gt; (TermInYears -&gt; TermInYears -&gt; Bool)
+-&gt; (TermInYears -&gt; TermInYears -&gt; Bool)
+-&gt; (TermInYears -&gt; TermInYears -&gt; Bool)
+-&gt; (TermInYears -&gt; TermInYears -&gt; Bool)
+-&gt; (TermInYears -&gt; TermInYears -&gt; TermInYears)
+-&gt; (TermInYears -&gt; TermInYears -&gt; TermInYears)
+-&gt; Ord TermInYears
+TermInYears -&gt; TermInYears -&gt; Bool
+TermInYears -&gt; TermInYears -&gt; Ordering
+TermInYears -&gt; TermInYears -&gt; TermInYears
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TermInYears -&gt; TermInYears -&gt; TermInYears
+$cmin :: TermInYears -&gt; TermInYears -&gt; TermInYears
+max :: TermInYears -&gt; TermInYears -&gt; TermInYears
+$cmax :: TermInYears -&gt; TermInYears -&gt; TermInYears
+&gt;= :: TermInYears -&gt; TermInYears -&gt; Bool
+$c&gt;= :: TermInYears -&gt; TermInYears -&gt; Bool
+&gt; :: TermInYears -&gt; TermInYears -&gt; Bool
+$c&gt; :: TermInYears -&gt; TermInYears -&gt; Bool
+&lt;= :: TermInYears -&gt; TermInYears -&gt; Bool
+$c&lt;= :: TermInYears -&gt; TermInYears -&gt; Bool
+&lt; :: TermInYears -&gt; TermInYears -&gt; Bool
+$c&lt; :: TermInYears -&gt; TermInYears -&gt; Bool
+compare :: TermInYears -&gt; TermInYears -&gt; Ordering
+$ccompare :: TermInYears -&gt; TermInYears -&gt; Ordering
+$cp1Ord :: Eq TermInYears
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TermInYears -&gt; Rep TermInYears x)
+-&gt; (forall x. Rep TermInYears x -&gt; TermInYears)
+-&gt; Generic TermInYears
+forall x. Rep TermInYears x -&gt; TermInYears
+forall x. TermInYears -&gt; Rep TermInYears x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TermInYears x -&gt; TermInYears
+$cfrom :: forall x. TermInYears -&gt; Rep TermInYears x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679339452"><span id="local-6989586621679339454"><span class="annot"><span class="annottext">Int -&gt; TermInYears -&gt; Int
+TermInYears -&gt; Int
+(Int -&gt; TermInYears -&gt; Int)
+-&gt; (TermInYears -&gt; Int) -&gt; Hashable TermInYears
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TermInYears -&gt; Int
+$chash :: TermInYears -&gt; Int
+hashWithSalt :: Int -&gt; TermInYears -&gt; Int
+$chashWithSalt :: Int -&gt; TermInYears -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679339449"><span class="annot"><span class="annottext">TermInYears -&gt; ()
+(TermInYears -&gt; ()) -&gt; NFData TermInYears
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TermInYears -&gt; ()
+$crnf :: TermInYears -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679339446"><span class="annot"><span class="annottext">Text -&gt; Either String TermInYears
+(Text -&gt; Either String TermInYears) -&gt; FromText TermInYears
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TermInYears
+$cfromText :: Text -&gt; Either String TermInYears
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679339443"><span class="annot"><span class="annottext">TermInYears -&gt; Text
+(TermInYears -&gt; Text) -&gt; ToText TermInYears
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TermInYears -&gt; Text
+$ctoText :: TermInYears -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679339440"><span class="annot"><span class="annottext">TermInYears -&gt; ByteString
+(TermInYears -&gt; ByteString) -&gt; ToByteString TermInYears
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TermInYears -&gt; ByteString
+$ctoBS :: TermInYears -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679339437"><span class="annot"><span class="annottext">TermInYears -&gt; ByteStringBuilder
+(TermInYears -&gt; ByteStringBuilder) -&gt; ToLog TermInYears
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TermInYears -&gt; ByteStringBuilder
+$cbuild :: TermInYears -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679339434"><span class="annot"><span class="annottext">HeaderName -&gt; TermInYears -&gt; [Header]
+(HeaderName -&gt; TermInYears -&gt; [Header]) -&gt; ToHeader TermInYears
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TermInYears -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TermInYears -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679339431"><span class="annot"><span class="annottext">TermInYears -&gt; QueryString
+(TermInYears -&gt; QueryString) -&gt; ToQuery TermInYears
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TermInYears -&gt; QueryString
+$ctoQuery :: TermInYears -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679339426"><span id="local-6989586621679339428"><span class="annot"><span class="annottext">Value -&gt; Parser [TermInYears]
+Value -&gt; Parser TermInYears
+(Value -&gt; Parser TermInYears)
+-&gt; (Value -&gt; Parser [TermInYears]) -&gt; FromJSON TermInYears
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TermInYears]
+$cparseJSONList :: Value -&gt; Parser [TermInYears]
+parseJSON :: Value -&gt; Parser TermInYears
+$cparseJSON :: Value -&gt; Parser TermInYears
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679339421"><span id="local-6989586621679339423"><span class="annot"><span class="annottext">FromJSONKeyFunction [TermInYears]
+FromJSONKeyFunction TermInYears
+FromJSONKeyFunction TermInYears
+-&gt; FromJSONKeyFunction [TermInYears] -&gt; FromJSONKey TermInYears
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TermInYears]
+$cfromJSONKeyList :: FromJSONKeyFunction [TermInYears]
+fromJSONKey :: FromJSONKeyFunction TermInYears
+$cfromJSONKey :: FromJSONKeyFunction TermInYears
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679339412"><span id="local-6989586621679339414"><span id="local-6989586621679339416"><span id="local-6989586621679339418"><span class="annot"><span class="annottext">[TermInYears] -&gt; Encoding
+[TermInYears] -&gt; Value
+TermInYears -&gt; Encoding
+TermInYears -&gt; Value
+(TermInYears -&gt; Value)
+-&gt; (TermInYears -&gt; Encoding)
+-&gt; ([TermInYears] -&gt; Value)
+-&gt; ([TermInYears] -&gt; Encoding)
+-&gt; ToJSON TermInYears
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TermInYears] -&gt; Encoding
+$ctoEncodingList :: [TermInYears] -&gt; Encoding
+toJSONList :: [TermInYears] -&gt; Value
+$ctoJSONList :: [TermInYears] -&gt; Value
+toEncoding :: TermInYears -&gt; Encoding
+$ctoEncoding :: TermInYears -&gt; Encoding
+toJSON :: TermInYears -&gt; Value
+$ctoJSON :: TermInYears -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679339407"><span id="local-6989586621679339409"><span class="annot"><span class="annottext">ToJSONKeyFunction [TermInYears]
+ToJSONKeyFunction TermInYears
+ToJSONKeyFunction TermInYears
+-&gt; ToJSONKeyFunction [TermInYears] -&gt; ToJSONKey TermInYears
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TermInYears]
+$ctoJSONKeyList :: ToJSONKeyFunction [TermInYears]
+toJSONKey :: ToJSONKeyFunction TermInYears
+$ctoJSONKey :: ToJSONKeyFunction TermInYears
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679339404"><span class="annot"><span class="annottext">[Node] -&gt; Either String TermInYears
+([Node] -&gt; Either String TermInYears) -&gt; FromXML TermInYears
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TermInYears
+$cparseXML :: [Node] -&gt; Either String TermInYears
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679339401"><span class="annot"><span class="annottext">TermInYears -&gt; XML
+(TermInYears -&gt; XML) -&gt; ToXML TermInYears
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TermInYears -&gt; XML
+$ctoXML :: TermInYears -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears_ONE_YEAR"><span class="hs-identifier hs-type">TermInYears_ONE_YEAR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears"><span class="hs-identifier hs-type">TermInYears</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTermInYears_ONE_YEAR"><span id="%24mTermInYears_ONE_YEAR"><span id="TermInYears_ONE_YEAR"><span class="annot"><span class="annottext">$bTermInYears_ONE_YEAR :: TermInYears
+$mTermInYears_ONE_YEAR :: forall r. TermInYears -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.TermInYears.html#%24bTermInYears_ONE_YEAR"><span class="hs-identifier hs-var hs-var hs-var">TermInYears_ONE_YEAR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears%27"><span class="hs-identifier hs-type">TermInYears'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ONE_YEAR&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears_THREE_YEARS"><span class="hs-identifier hs-type">TermInYears_THREE_YEARS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears"><span class="hs-identifier hs-type">TermInYears</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTermInYears_THREE_YEARS"><span id="%24mTermInYears_THREE_YEARS"><span id="TermInYears_THREE_YEARS"><span class="annot"><span class="annottext">$bTermInYears_THREE_YEARS :: TermInYears
+$mTermInYears_THREE_YEARS :: forall r. TermInYears -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.TermInYears.html#%24bTermInYears_THREE_YEARS"><span class="hs-identifier hs-var hs-var hs-var">TermInYears_THREE_YEARS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears%27"><span class="hs-identifier hs-type">TermInYears'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;THREE_YEARS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears_ONE_YEAR"><span class="hs-pragma hs-type">TermInYears_ONE_YEAR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears_THREE_YEARS"><span class="hs-pragma hs-type">TermInYears_THREE_YEARS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears%27"><span class="hs-pragma hs-type">TermInYears'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

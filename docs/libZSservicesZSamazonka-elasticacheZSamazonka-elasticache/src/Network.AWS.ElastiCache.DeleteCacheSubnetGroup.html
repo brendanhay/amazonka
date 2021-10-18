@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ElastiCache.DeleteCacheSubnetGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a cache subnet group.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You cannot delete a default cache subnet group or one that is associated</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- with any clusters.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElastiCache.DeleteCacheSubnetGroup</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup"><span class="hs-identifier">DeleteCacheSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#newDeleteCacheSubnetGroup"><span class="hs-identifier">newDeleteCacheSubnetGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#deleteCacheSubnetGroup_cacheSubnetGroupName"><span class="hs-identifier">deleteCacheSubnetGroup_cacheSubnetGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroupResponse"><span class="hs-identifier">DeleteCacheSubnetGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#newDeleteCacheSubnetGroupResponse"><span class="hs-identifier">newDeleteCacheSubnetGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.html"><span class="hs-identifier">Network.AWS.ElastiCache.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | Represents the input of a @DeleteCacheSubnetGroup@ operation.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- /See:/ 'newDeleteCacheSubnetGroup' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679420207"><span id="local-6989586621679420208"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCacheSubnetGroup"><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup"><span class="hs-identifier hs-var">DeleteCacheSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCacheSubnetGroup%27"><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup%27"><span class="hs-identifier hs-var">DeleteCacheSubnetGroup'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the cache subnet group to delete.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Constraints: Must contain no more than 255 alphanumeric characters or</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- hyphens.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AcacheSubnetGroupName%3ADeleteCacheSubnetGroup%27"><span class="annot"><span class="annottext">DeleteCacheSubnetGroup -&gt; Text
+</span><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#%24sel%3AcacheSubnetGroupName%3ADeleteCacheSubnetGroup%27"><span class="hs-identifier hs-var hs-var">cacheSubnetGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420201"><span id="local-6989586621679420203"><span class="annot"><span class="annottext">DeleteCacheSubnetGroup -&gt; DeleteCacheSubnetGroup -&gt; Bool
+(DeleteCacheSubnetGroup -&gt; DeleteCacheSubnetGroup -&gt; Bool)
+-&gt; (DeleteCacheSubnetGroup -&gt; DeleteCacheSubnetGroup -&gt; Bool)
+-&gt; Eq DeleteCacheSubnetGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteCacheSubnetGroup -&gt; DeleteCacheSubnetGroup -&gt; Bool
+$c/= :: DeleteCacheSubnetGroup -&gt; DeleteCacheSubnetGroup -&gt; Bool
+== :: DeleteCacheSubnetGroup -&gt; DeleteCacheSubnetGroup -&gt; Bool
+$c== :: DeleteCacheSubnetGroup -&gt; DeleteCacheSubnetGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420192"><span id="local-6989586621679420194"><span id="local-6989586621679420196"><span id="local-6989586621679420198"><span class="annot"><span class="annottext">ReadPrec [DeleteCacheSubnetGroup]
+ReadPrec DeleteCacheSubnetGroup
+Int -&gt; ReadS DeleteCacheSubnetGroup
+ReadS [DeleteCacheSubnetGroup]
+(Int -&gt; ReadS DeleteCacheSubnetGroup)
+-&gt; ReadS [DeleteCacheSubnetGroup]
+-&gt; ReadPrec DeleteCacheSubnetGroup
+-&gt; ReadPrec [DeleteCacheSubnetGroup]
+-&gt; Read DeleteCacheSubnetGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteCacheSubnetGroup]
+$creadListPrec :: ReadPrec [DeleteCacheSubnetGroup]
+readPrec :: ReadPrec DeleteCacheSubnetGroup
+$creadPrec :: ReadPrec DeleteCacheSubnetGroup
+readList :: ReadS [DeleteCacheSubnetGroup]
+$creadList :: ReadS [DeleteCacheSubnetGroup]
+readsPrec :: Int -&gt; ReadS DeleteCacheSubnetGroup
+$creadsPrec :: Int -&gt; ReadS DeleteCacheSubnetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420185"><span id="local-6989586621679420187"><span id="local-6989586621679420189"><span class="annot"><span class="annottext">Int -&gt; DeleteCacheSubnetGroup -&gt; ShowS
+[DeleteCacheSubnetGroup] -&gt; ShowS
+DeleteCacheSubnetGroup -&gt; String
+(Int -&gt; DeleteCacheSubnetGroup -&gt; ShowS)
+-&gt; (DeleteCacheSubnetGroup -&gt; String)
+-&gt; ([DeleteCacheSubnetGroup] -&gt; ShowS)
+-&gt; Show DeleteCacheSubnetGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteCacheSubnetGroup] -&gt; ShowS
+$cshowList :: [DeleteCacheSubnetGroup] -&gt; ShowS
+show :: DeleteCacheSubnetGroup -&gt; String
+$cshow :: DeleteCacheSubnetGroup -&gt; String
+showsPrec :: Int -&gt; DeleteCacheSubnetGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteCacheSubnetGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteCacheSubnetGroup -&gt; Rep DeleteCacheSubnetGroup x)
+-&gt; (forall x.
+    Rep DeleteCacheSubnetGroup x -&gt; DeleteCacheSubnetGroup)
+-&gt; Generic DeleteCacheSubnetGroup
+forall x. Rep DeleteCacheSubnetGroup x -&gt; DeleteCacheSubnetGroup
+forall x. DeleteCacheSubnetGroup -&gt; Rep DeleteCacheSubnetGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteCacheSubnetGroup x -&gt; DeleteCacheSubnetGroup
+$cfrom :: forall x. DeleteCacheSubnetGroup -&gt; Rep DeleteCacheSubnetGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DeleteCacheSubnetGroup' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'cacheSubnetGroupName', 'deleteCacheSubnetGroup_cacheSubnetGroupName' - The name of the cache subnet group to delete.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Constraints: Must contain no more than 255 alphanumeric characters or</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- hyphens.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#newDeleteCacheSubnetGroup"><span class="hs-identifier hs-type">newDeleteCacheSubnetGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'cacheSubnetGroupName'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup"><span class="hs-identifier hs-type">DeleteCacheSubnetGroup</span></a></span><span>
+</span><span id="line-76"></span><span id="newDeleteCacheSubnetGroup"><span class="annot"><span class="annottext">newDeleteCacheSubnetGroup :: Text -&gt; DeleteCacheSubnetGroup
+</span><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#newDeleteCacheSubnetGroup"><span class="hs-identifier hs-var hs-var">newDeleteCacheSubnetGroup</span></a></span></span><span> </span><span id="local-6989586621679420180"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420180"><span class="hs-identifier hs-var">pCacheSubnetGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">DeleteCacheSubnetGroup' :: Text -&gt; DeleteCacheSubnetGroup
+</span><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup%27"><span class="hs-identifier hs-type">DeleteCacheSubnetGroup'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cacheSubnetGroupName:DeleteCacheSubnetGroup' :: Text
+</span><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#%24sel%3AcacheSubnetGroupName%3ADeleteCacheSubnetGroup%27"><span class="hs-identifier hs-var">cacheSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420180"><span class="hs-identifier hs-var">pCacheSubnetGroupName_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The name of the cache subnet group to delete.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Constraints: Must contain no more than 255 alphanumeric characters or</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- hyphens.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#deleteCacheSubnetGroup_cacheSubnetGroupName"><span class="hs-identifier hs-type">deleteCacheSubnetGroup_cacheSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup"><span class="hs-identifier hs-type">DeleteCacheSubnetGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="deleteCacheSubnetGroup_cacheSubnetGroupName"><span class="annot"><span class="annottext">deleteCacheSubnetGroup_cacheSubnetGroupName :: (Text -&gt; f Text)
+-&gt; DeleteCacheSubnetGroup -&gt; f DeleteCacheSubnetGroup
+</span><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#deleteCacheSubnetGroup_cacheSubnetGroupName"><span class="hs-identifier hs-var hs-var">deleteCacheSubnetGroup_cacheSubnetGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteCacheSubnetGroup -&gt; Text)
+-&gt; (DeleteCacheSubnetGroup -&gt; Text -&gt; DeleteCacheSubnetGroup)
+-&gt; Lens DeleteCacheSubnetGroup DeleteCacheSubnetGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup%27"><span class="hs-identifier hs-type">DeleteCacheSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420177"><span class="annot"><span class="annottext">Text
+cacheSubnetGroupName :: Text
+$sel:cacheSubnetGroupName:DeleteCacheSubnetGroup' :: DeleteCacheSubnetGroup -&gt; Text
+</span><a href="#local-6989586621679420177"><span class="hs-identifier hs-var hs-var">cacheSubnetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420177"><span class="hs-identifier hs-var">cacheSubnetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420176"><span class="annot"><span class="annottext">s :: DeleteCacheSubnetGroup
+</span><a href="#local-6989586621679420176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup%27"><span class="hs-identifier hs-type">DeleteCacheSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420175"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCacheSubnetGroup
+</span><a href="#local-6989586621679420176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheSubnetGroupName:DeleteCacheSubnetGroup' :: Text
+</span><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#%24sel%3AcacheSubnetGroupName%3ADeleteCacheSubnetGroup%27"><span class="hs-identifier hs-var">cacheSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup"><span class="hs-identifier hs-type">DeleteCacheSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup"><span class="hs-identifier hs-type">DeleteCacheSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup"><span class="hs-identifier hs-type">DeleteCacheSubnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteCacheSubnetGroupResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679420171"><span class="annot"><span class="annottext">request :: DeleteCacheSubnetGroup -&gt; Request DeleteCacheSubnetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteCacheSubnetGroup -&gt; Request DeleteCacheSubnetGroup
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679420167"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteCacheSubnetGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteCacheSubnetGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteCacheSubnetGroup
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteCacheSubnetGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteCacheSubnetGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DeleteCacheSubnetGroup
+DeleteCacheSubnetGroupResponse
+</span><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroupResponse%27"><span class="hs-identifier hs-var">DeleteCacheSubnetGroupResponse'</span></a></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420160"><span id="local-6989586621679420162"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup"><span class="hs-identifier hs-type">DeleteCacheSubnetGroup</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420157"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup"><span class="hs-identifier hs-type">DeleteCacheSubnetGroup</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup"><span class="hs-identifier hs-type">DeleteCacheSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679420153"><span class="annot"><span class="annottext">toHeaders :: DeleteCacheSubnetGroup -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteCacheSubnetGroup -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup"><span class="hs-identifier hs-type">DeleteCacheSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679420148"><span class="annot"><span class="annottext">toPath :: DeleteCacheSubnetGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteCacheSubnetGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup"><span class="hs-identifier hs-type">DeleteCacheSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679420144"><span class="annot"><span class="annottext">toQuery :: DeleteCacheSubnetGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroup%27"><span class="hs-identifier hs-type">DeleteCacheSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420142"><span class="annot"><span class="annottext">Text
+cacheSubnetGroupName :: Text
+$sel:cacheSubnetGroupName:DeleteCacheSubnetGroup' :: DeleteCacheSubnetGroup -&gt; Text
+</span><a href="#local-6989586621679420142"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteCacheSubnetGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2015-02-02&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CacheSubnetGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420142"><span class="hs-identifier hs-var">cacheSubnetGroupName</span></a></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newDeleteCacheSubnetGroupResponse' smart constructor.</span><span>
+</span><span id="line-119"></span><span id="local-6989586621679420139"><span id="local-6989586621679420140"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCacheSubnetGroupResponse"><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroupResponse"><span class="hs-identifier hs-var">DeleteCacheSubnetGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCacheSubnetGroupResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroupResponse%27"><span class="hs-identifier hs-var">DeleteCacheSubnetGroupResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420135"><span id="local-6989586621679420137"><span class="annot"><span class="annottext">DeleteCacheSubnetGroupResponse
+-&gt; DeleteCacheSubnetGroupResponse -&gt; Bool
+(DeleteCacheSubnetGroupResponse
+ -&gt; DeleteCacheSubnetGroupResponse -&gt; Bool)
+-&gt; (DeleteCacheSubnetGroupResponse
+    -&gt; DeleteCacheSubnetGroupResponse -&gt; Bool)
+-&gt; Eq DeleteCacheSubnetGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteCacheSubnetGroupResponse
+-&gt; DeleteCacheSubnetGroupResponse -&gt; Bool
+$c/= :: DeleteCacheSubnetGroupResponse
+-&gt; DeleteCacheSubnetGroupResponse -&gt; Bool
+== :: DeleteCacheSubnetGroupResponse
+-&gt; DeleteCacheSubnetGroupResponse -&gt; Bool
+$c== :: DeleteCacheSubnetGroupResponse
+-&gt; DeleteCacheSubnetGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420127"><span id="local-6989586621679420129"><span id="local-6989586621679420131"><span id="local-6989586621679420133"><span class="annot"><span class="annottext">ReadPrec [DeleteCacheSubnetGroupResponse]
+ReadPrec DeleteCacheSubnetGroupResponse
+Int -&gt; ReadS DeleteCacheSubnetGroupResponse
+ReadS [DeleteCacheSubnetGroupResponse]
+(Int -&gt; ReadS DeleteCacheSubnetGroupResponse)
+-&gt; ReadS [DeleteCacheSubnetGroupResponse]
+-&gt; ReadPrec DeleteCacheSubnetGroupResponse
+-&gt; ReadPrec [DeleteCacheSubnetGroupResponse]
+-&gt; Read DeleteCacheSubnetGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteCacheSubnetGroupResponse]
+$creadListPrec :: ReadPrec [DeleteCacheSubnetGroupResponse]
+readPrec :: ReadPrec DeleteCacheSubnetGroupResponse
+$creadPrec :: ReadPrec DeleteCacheSubnetGroupResponse
+readList :: ReadS [DeleteCacheSubnetGroupResponse]
+$creadList :: ReadS [DeleteCacheSubnetGroupResponse]
+readsPrec :: Int -&gt; ReadS DeleteCacheSubnetGroupResponse
+$creadsPrec :: Int -&gt; ReadS DeleteCacheSubnetGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420121"><span id="local-6989586621679420123"><span id="local-6989586621679420125"><span class="annot"><span class="annottext">Int -&gt; DeleteCacheSubnetGroupResponse -&gt; ShowS
+[DeleteCacheSubnetGroupResponse] -&gt; ShowS
+DeleteCacheSubnetGroupResponse -&gt; String
+(Int -&gt; DeleteCacheSubnetGroupResponse -&gt; ShowS)
+-&gt; (DeleteCacheSubnetGroupResponse -&gt; String)
+-&gt; ([DeleteCacheSubnetGroupResponse] -&gt; ShowS)
+-&gt; Show DeleteCacheSubnetGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteCacheSubnetGroupResponse] -&gt; ShowS
+$cshowList :: [DeleteCacheSubnetGroupResponse] -&gt; ShowS
+show :: DeleteCacheSubnetGroupResponse -&gt; String
+$cshow :: DeleteCacheSubnetGroupResponse -&gt; String
+showsPrec :: Int -&gt; DeleteCacheSubnetGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteCacheSubnetGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteCacheSubnetGroupResponse
+ -&gt; Rep DeleteCacheSubnetGroupResponse x)
+-&gt; (forall x.
+    Rep DeleteCacheSubnetGroupResponse x
+    -&gt; DeleteCacheSubnetGroupResponse)
+-&gt; Generic DeleteCacheSubnetGroupResponse
+forall x.
+Rep DeleteCacheSubnetGroupResponse x
+-&gt; DeleteCacheSubnetGroupResponse
+forall x.
+DeleteCacheSubnetGroupResponse
+-&gt; Rep DeleteCacheSubnetGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteCacheSubnetGroupResponse x
+-&gt; DeleteCacheSubnetGroupResponse
+$cfrom :: forall x.
+DeleteCacheSubnetGroupResponse
+-&gt; Rep DeleteCacheSubnetGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Create a value of 'DeleteCacheSubnetGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#newDeleteCacheSubnetGroupResponse"><span class="hs-identifier hs-type">newDeleteCacheSubnetGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteCacheSubnetGroupResponse</span></a></span><span>
+</span><span id="line-130"></span><span id="newDeleteCacheSubnetGroupResponse"><span class="annot"><span class="annottext">newDeleteCacheSubnetGroupResponse :: DeleteCacheSubnetGroupResponse
+</span><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#newDeleteCacheSubnetGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteCacheSubnetGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="annottext">DeleteCacheSubnetGroupResponse
+</span><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroupResponse%27"><span class="hs-identifier hs-var">DeleteCacheSubnetGroupResponse'</span></a></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679420117"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheSubnetGroup.html#DeleteCacheSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteCacheSubnetGroupResponse</span></a></span></span><span>
+</span><span id="line-136"></span></pre></body></html>

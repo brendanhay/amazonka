@@ -1,0 +1,1502 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Lightsail.Types.Instance</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Lightsail.Types.Instance</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html"><span class="hs-identifier">Network.AWS.Lightsail.Types.AddOn</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHardware.html"><span class="hs-identifier">Network.AWS.Lightsail.Types.InstanceHardware</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html"><span class="hs-identifier">Network.AWS.Lightsail.Types.InstanceNetworking</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceState.html"><span class="hs-identifier">Network.AWS.Lightsail.Types.InstanceState</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.IpAddressType.html"><span class="hs-identifier">Network.AWS.Lightsail.Types.IpAddressType</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceLocation.html"><span class="hs-identifier">Network.AWS.Lightsail.Types.ResourceLocation</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html"><span class="hs-identifier">Network.AWS.Lightsail.Types.ResourceType</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Tag.html"><span class="hs-identifier">Network.AWS.Lightsail.Types.Tag</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Describes an instance (a virtual private server).</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newInstance' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679625333"><span id="local-6989586621679625334"></span></span><span class="hs-keyword">data</span><span> </span><span id="Instance"><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-var">Instance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Instance%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-var">Instance'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IP address type of the instance.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- and IPv6.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AipAddressType%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe IpAddressType
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AipAddressType%3AInstance%27"><span class="hs-identifier hs-var hs-var">ipAddressType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.IpAddressType.html#IpAddressType"><span class="hs-identifier hs-type">IpAddressType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The bundle for the instance (e.g., @micro_1_0@).</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AbundleId%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AbundleId%3AInstance%27"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The IPv6 addresses of the instance.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aipv6Addresses%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe [Text]
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Aipv6Addresses%3AInstance%27"><span class="hs-identifier hs-var hs-var">ipv6Addresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The size of the vCPU and the amount of RAM for the instance.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Ahardware%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe InstanceHardware
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Ahardware%3AInstance%27"><span class="hs-identifier hs-var hs-var">hardware</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHardware.html#InstanceHardware"><span class="hs-identifier hs-type">InstanceHardware</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | An array of objects representing the add-ons enabled on the instance.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AaddOns%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe [AddOn]
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AaddOns%3AInstance%27"><span class="hs-identifier hs-var hs-var">addOns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The name of the SSH key being used to connect to the instance (e.g.,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- @LightsailDefaultKeyPair@).</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AsshKeyName%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AsshKeyName%3AInstance%27"><span class="hs-identifier hs-var hs-var">sshKeyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The friendly name of the blueprint (e.g., @Amazon Linux@).</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AblueprintName%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AblueprintName%3AInstance%27"><span class="hs-identifier hs-var hs-var">blueprintName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The timestamp when the instance was created (e.g., @1479734909.17@) in</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Unix time format.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AcreatedAt%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe POSIX
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AcreatedAt%3AInstance%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the instance (e.g.,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- @arn:aws:lightsail:us-east-2:123456789101:Instance\/244ad76f-8aad-4741-809f-12345EXAMPLE@).</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aarn%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Aarn%3AInstance%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The support code. Include this code in your email to support when you</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- have questions about an instance or another resource in Lightsail. This</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- code enables our support team to look up your Lightsail information more</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- easily.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AsupportCode%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AsupportCode%3AInstance%27"><span class="hs-identifier hs-var hs-var">supportCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The blueprint ID (e.g., @os_amlinux_2016_03@).</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AblueprintId%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AblueprintId%3AInstance%27"><span class="hs-identifier hs-var hs-var">blueprintId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The type of resource (usually @Instance@).</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AresourceType%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe ResourceType
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AresourceType%3AInstance%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The status code and the state (e.g., @running@) for the instance.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Astate%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe InstanceState
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Astate%3AInstance%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceState.html#InstanceState"><span class="hs-identifier hs-type">InstanceState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The name the user gave the instance (e.g., @Amazon_Linux-1GB-Ohio-1@).</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Aname%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Aname%3AInstance%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The tag keys and optional values for the resource. For more information</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- about tags in Lightsail, see the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide&gt;.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Atags%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe [Tag]
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Atags%3AInstance%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | Information about the public ports and monthly data transfer rates for</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- the instance.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Anetworking%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe InstanceNetworking
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Anetworking%3AInstance%27"><span class="hs-identifier hs-var hs-var">networking</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking"><span class="hs-identifier hs-type">InstanceNetworking</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The public IP address of the instance.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3ApublicIpAddress%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3ApublicIpAddress%3AInstance%27"><span class="hs-identifier hs-var hs-var">publicIpAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The user name for connecting to the instance (e.g., @ec2-user@).</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3Ausername%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Ausername%3AInstance%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | A Boolean value indicating whether this instance has a static IP</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- assigned to it.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AisStaticIp%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AisStaticIp%3AInstance%27"><span class="hs-identifier hs-var hs-var">isStaticIp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The region name and Availability Zone where the instance is located.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3Alocation%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe ResourceLocation
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Alocation%3AInstance%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceLocation.html#ResourceLocation"><span class="hs-identifier hs-type">ResourceLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The private IP address of the instance.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AprivateIpAddress%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AprivateIpAddress%3AInstance%27"><span class="hs-identifier hs-var hs-var">privateIpAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679625307"><span id="local-6989586621679625309"><span class="annot"><span class="annottext">Instance -&gt; Instance -&gt; Bool
+(Instance -&gt; Instance -&gt; Bool)
+-&gt; (Instance -&gt; Instance -&gt; Bool) -&gt; Eq Instance
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Instance -&gt; Instance -&gt; Bool
+$c/= :: Instance -&gt; Instance -&gt; Bool
+== :: Instance -&gt; Instance -&gt; Bool
+$c== :: Instance -&gt; Instance -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679625298"><span id="local-6989586621679625300"><span id="local-6989586621679625302"><span id="local-6989586621679625304"><span class="annot"><span class="annottext">ReadPrec [Instance]
+ReadPrec Instance
+Int -&gt; ReadS Instance
+ReadS [Instance]
+(Int -&gt; ReadS Instance)
+-&gt; ReadS [Instance]
+-&gt; ReadPrec Instance
+-&gt; ReadPrec [Instance]
+-&gt; Read Instance
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Instance]
+$creadListPrec :: ReadPrec [Instance]
+readPrec :: ReadPrec Instance
+$creadPrec :: ReadPrec Instance
+readList :: ReadS [Instance]
+$creadList :: ReadS [Instance]
+readsPrec :: Int -&gt; ReadS Instance
+$creadsPrec :: Int -&gt; ReadS Instance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679625291"><span id="local-6989586621679625293"><span id="local-6989586621679625295"><span class="annot"><span class="annottext">Int -&gt; Instance -&gt; ShowS
+[Instance] -&gt; ShowS
+Instance -&gt; String
+(Int -&gt; Instance -&gt; ShowS)
+-&gt; (Instance -&gt; String) -&gt; ([Instance] -&gt; ShowS) -&gt; Show Instance
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Instance] -&gt; ShowS
+$cshowList :: [Instance] -&gt; ShowS
+show :: Instance -&gt; String
+$cshow :: Instance -&gt; String
+showsPrec :: Int -&gt; Instance -&gt; ShowS
+$cshowsPrec :: Int -&gt; Instance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Instance -&gt; Rep Instance x)
+-&gt; (forall x. Rep Instance x -&gt; Instance) -&gt; Generic Instance
+forall x. Rep Instance x -&gt; Instance
+forall x. Instance -&gt; Rep Instance x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Instance x -&gt; Instance
+$cfrom :: forall x. Instance -&gt; Rep Instance x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Create a value of 'Instance' with all optional fields omitted.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'ipAddressType', 'instance_ipAddressType' - The IP address type of the instance.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- and IPv6.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'bundleId', 'instance_bundleId' - The bundle for the instance (e.g., @micro_1_0@).</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'ipv6Addresses', 'instance_ipv6Addresses' - The IPv6 addresses of the instance.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'hardware', 'instance_hardware' - The size of the vCPU and the amount of RAM for the instance.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'addOns', 'instance_addOns' - An array of objects representing the add-ons enabled on the instance.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'sshKeyName', 'instance_sshKeyName' - The name of the SSH key being used to connect to the instance (e.g.,</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- @LightsailDefaultKeyPair@).</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'blueprintName', 'instance_blueprintName' - The friendly name of the blueprint (e.g., @Amazon Linux@).</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'createdAt', 'instance_createdAt' - The timestamp when the instance was created (e.g., @1479734909.17@) in</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Unix time format.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'arn', 'instance_arn' - The Amazon Resource Name (ARN) of the instance (e.g.,</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- @arn:aws:lightsail:us-east-2:123456789101:Instance\/244ad76f-8aad-4741-809f-12345EXAMPLE@).</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'supportCode', 'instance_supportCode' - The support code. Include this code in your email to support when you</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- have questions about an instance or another resource in Lightsail. This</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- code enables our support team to look up your Lightsail information more</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- easily.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'blueprintId', 'instance_blueprintId' - The blueprint ID (e.g., @os_amlinux_2016_03@).</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'resourceType', 'instance_resourceType' - The type of resource (usually @Instance@).</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'state', 'instance_state' - The status code and the state (e.g., @running@) for the instance.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'name', 'instance_name' - The name the user gave the instance (e.g., @Amazon_Linux-1GB-Ohio-1@).</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'tags', 'instance_tags' - The tag keys and optional values for the resource. For more information</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- about tags in Lightsail, see the</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide&gt;.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'networking', 'instance_networking' - Information about the public ports and monthly data transfer rates for</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- the instance.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'publicIpAddress', 'instance_publicIpAddress' - The public IP address of the instance.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'username', 'instance_username' - The user name for connecting to the instance (e.g., @ec2-user@).</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'isStaticIp', 'instance_isStaticIp' - A Boolean value indicating whether this instance has a static IP</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- assigned to it.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'location', 'instance_location' - The region name and Availability Zone where the instance is located.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'privateIpAddress', 'instance_privateIpAddress' - The private IP address of the instance.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#newInstance"><span class="hs-identifier hs-type">newInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span>
+</span><span id="line-160"></span><span id="newInstance"><span class="annot"><span class="annottext">newInstance :: Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#newInstance"><span class="hs-identifier hs-var hs-var">newInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">Instance' :: Maybe IpAddressType
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe InstanceHardware
+-&gt; Maybe [AddOn]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ResourceType
+-&gt; Maybe InstanceState
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Maybe InstanceNetworking
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe ResourceLocation
+-&gt; Maybe Text
+-&gt; Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ipAddressType:Instance' :: Maybe IpAddressType
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AipAddressType%3AInstance%27"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:bundleId:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AbundleId%3AInstance%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipv6Addresses:Instance' :: Maybe [Text]
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Aipv6Addresses%3AInstance%27"><span class="hs-identifier hs-var">ipv6Addresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:hardware:Instance' :: Maybe InstanceHardware
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Ahardware%3AInstance%27"><span class="hs-identifier hs-var">hardware</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceHardware
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:addOns:Instance' :: Maybe [AddOn]
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AaddOns%3AInstance%27"><span class="hs-identifier hs-var">addOns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AddOn]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:sshKeyName:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AsshKeyName%3AInstance%27"><span class="hs-identifier hs-var">sshKeyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:blueprintName:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AblueprintName%3AInstance%27"><span class="hs-identifier hs-var">blueprintName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:Instance' :: Maybe POSIX
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AcreatedAt%3AInstance%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Aarn%3AInstance%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportCode:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AsupportCode%3AInstance%27"><span class="hs-identifier hs-var">supportCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:blueprintId:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AblueprintId%3AInstance%27"><span class="hs-identifier hs-var">blueprintId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:Instance' :: Maybe ResourceType
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AresourceType%3AInstance%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:Instance' :: Maybe InstanceState
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Astate%3AInstance%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Aname%3AInstance%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Instance' :: Maybe [Tag]
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Atags%3AInstance%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:networking:Instance' :: Maybe InstanceNetworking
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Anetworking%3AInstance%27"><span class="hs-identifier hs-var">networking</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceNetworking
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:publicIpAddress:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3ApublicIpAddress%3AInstance%27"><span class="hs-identifier hs-var">publicIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Ausername%3AInstance%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:isStaticIp:Instance' :: Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AisStaticIp%3AInstance%27"><span class="hs-identifier hs-var">isStaticIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:Instance' :: Maybe ResourceLocation
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Alocation%3AInstance%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:privateIpAddress:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AprivateIpAddress%3AInstance%27"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The IP address type of the instance.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- and IPv6.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_ipAddressType"><span class="hs-identifier hs-type">instance_ipAddressType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.IpAddressType.html#IpAddressType"><span class="hs-identifier hs-type">IpAddressType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="instance_ipAddressType"><span class="annot"><span class="annottext">instance_ipAddressType :: (Maybe IpAddressType -&gt; f (Maybe IpAddressType))
+-&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_ipAddressType"><span class="hs-identifier hs-var hs-var">instance_ipAddressType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe IpAddressType)
+-&gt; (Instance -&gt; Maybe IpAddressType -&gt; Instance)
+-&gt; Lens
+     Instance Instance (Maybe IpAddressType) (Maybe IpAddressType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625282"><span class="annot"><span class="annottext">Maybe IpAddressType
+ipAddressType :: Maybe IpAddressType
+$sel:ipAddressType:Instance' :: Instance -&gt; Maybe IpAddressType
+</span><a href="#local-6989586621679625282"><span class="hs-identifier hs-var hs-var">ipAddressType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><a href="#local-6989586621679625282"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625281"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625280"><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><a href="#local-6989586621679625280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddressType:Instance' :: Maybe IpAddressType
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AipAddressType%3AInstance%27"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><a href="#local-6989586621679625280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The bundle for the instance (e.g., @micro_1_0@).</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_bundleId"><span class="hs-identifier hs-type">instance_bundleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="instance_bundleId"><span class="annot"><span class="annottext">instance_bundleId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_bundleId"><span class="hs-identifier hs-var hs-var">instance_bundleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
+-&gt; (Instance -&gt; Maybe Text -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625278"><span class="annot"><span class="annottext">Maybe Text
+bundleId :: Maybe Text
+$sel:bundleId:Instance' :: Instance -&gt; Maybe Text
+</span><a href="#local-6989586621679625278"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625278"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625277"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625276"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AbundleId%3AInstance%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The IPv6 addresses of the instance.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_ipv6Addresses"><span class="hs-identifier hs-type">instance_ipv6Addresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="instance_ipv6Addresses"><span class="annot"><span class="annottext">instance_ipv6Addresses :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_ipv6Addresses"><span class="hs-identifier hs-var hs-var">instance_ipv6Addresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe [Text])
+-&gt; (Instance -&gt; Maybe [Text] -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625274"><span class="annot"><span class="annottext">Maybe [Text]
+ipv6Addresses :: Maybe [Text]
+$sel:ipv6Addresses:Instance' :: Instance -&gt; Maybe [Text]
+</span><a href="#local-6989586621679625274"><span class="hs-identifier hs-var hs-var">ipv6Addresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679625274"><span class="hs-identifier hs-var">ipv6Addresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625273"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625272"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679625272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6Addresses:Instance' :: Maybe [Text]
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Aipv6Addresses%3AInstance%27"><span class="hs-identifier hs-var">ipv6Addresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679625272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Instance -&gt; f Instance)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Instance
+-&gt; f Instance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The size of the vCPU and the amount of RAM for the instance.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_hardware"><span class="hs-identifier hs-type">instance_hardware</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHardware.html#InstanceHardware"><span class="hs-identifier hs-type">InstanceHardware</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="instance_hardware"><span class="annot"><span class="annottext">instance_hardware :: (Maybe InstanceHardware -&gt; f (Maybe InstanceHardware))
+-&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_hardware"><span class="hs-identifier hs-var hs-var">instance_hardware</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe InstanceHardware)
+-&gt; (Instance -&gt; Maybe InstanceHardware -&gt; Instance)
+-&gt; Lens
+     Instance Instance (Maybe InstanceHardware) (Maybe InstanceHardware)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625267"><span class="annot"><span class="annottext">Maybe InstanceHardware
+hardware :: Maybe InstanceHardware
+$sel:hardware:Instance' :: Instance -&gt; Maybe InstanceHardware
+</span><a href="#local-6989586621679625267"><span class="hs-identifier hs-var hs-var">hardware</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceHardware
+</span><a href="#local-6989586621679625267"><span class="hs-identifier hs-var">hardware</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625266"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625265"><span class="annot"><span class="annottext">Maybe InstanceHardware
+</span><a href="#local-6989586621679625265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hardware:Instance' :: Maybe InstanceHardware
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Ahardware%3AInstance%27"><span class="hs-identifier hs-var">hardware</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceHardware
+</span><a href="#local-6989586621679625265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | An array of objects representing the add-ons enabled on the instance.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_addOns"><span class="hs-identifier hs-type">instance_addOns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="instance_addOns"><span class="annot"><span class="annottext">instance_addOns :: (Maybe [AddOn] -&gt; f (Maybe [AddOn])) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_addOns"><span class="hs-identifier hs-var hs-var">instance_addOns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe [AddOn])
+-&gt; (Instance -&gt; Maybe [AddOn] -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe [AddOn]) (Maybe [AddOn])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625263"><span class="annot"><span class="annottext">Maybe [AddOn]
+addOns :: Maybe [AddOn]
+$sel:addOns:Instance' :: Instance -&gt; Maybe [AddOn]
+</span><a href="#local-6989586621679625263"><span class="hs-identifier hs-var hs-var">addOns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AddOn]
+</span><a href="#local-6989586621679625263"><span class="hs-identifier hs-var">addOns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625262"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625261"><span class="annot"><span class="annottext">Maybe [AddOn]
+</span><a href="#local-6989586621679625261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addOns:Instance' :: Maybe [AddOn]
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AaddOns%3AInstance%27"><span class="hs-identifier hs-var">addOns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AddOn]
+</span><a href="#local-6989586621679625261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AddOn] -&gt; f (Maybe [AddOn])) -&gt; Instance -&gt; f Instance)
+-&gt; ((Maybe [AddOn] -&gt; f (Maybe [AddOn]))
+    -&gt; Maybe [AddOn] -&gt; f (Maybe [AddOn]))
+-&gt; (Maybe [AddOn] -&gt; f (Maybe [AddOn]))
+-&gt; Instance
+-&gt; f Instance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [AddOn] [AddOn] [AddOn] [AddOn]
+-&gt; Iso
+     (Maybe [AddOn]) (Maybe [AddOn]) (Maybe [AddOn]) (Maybe [AddOn])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [AddOn] [AddOn] [AddOn] [AddOn]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The name of the SSH key being used to connect to the instance (e.g.,</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- @LightsailDefaultKeyPair@).</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_sshKeyName"><span class="hs-identifier hs-type">instance_sshKeyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="instance_sshKeyName"><span class="annot"><span class="annottext">instance_sshKeyName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_sshKeyName"><span class="hs-identifier hs-var hs-var">instance_sshKeyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
+-&gt; (Instance -&gt; Maybe Text -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625259"><span class="annot"><span class="annottext">Maybe Text
+sshKeyName :: Maybe Text
+$sel:sshKeyName:Instance' :: Instance -&gt; Maybe Text
+</span><a href="#local-6989586621679625259"><span class="hs-identifier hs-var hs-var">sshKeyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625259"><span class="hs-identifier hs-var">sshKeyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625258"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625257"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sshKeyName:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AsshKeyName%3AInstance%27"><span class="hs-identifier hs-var">sshKeyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The friendly name of the blueprint (e.g., @Amazon Linux@).</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_blueprintName"><span class="hs-identifier hs-type">instance_blueprintName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="instance_blueprintName"><span class="annot"><span class="annottext">instance_blueprintName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_blueprintName"><span class="hs-identifier hs-var hs-var">instance_blueprintName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
+-&gt; (Instance -&gt; Maybe Text -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625255"><span class="annot"><span class="annottext">Maybe Text
+blueprintName :: Maybe Text
+$sel:blueprintName:Instance' :: Instance -&gt; Maybe Text
+</span><a href="#local-6989586621679625255"><span class="hs-identifier hs-var hs-var">blueprintName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625255"><span class="hs-identifier hs-var">blueprintName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625254"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625253"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprintName:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AblueprintName%3AInstance%27"><span class="hs-identifier hs-var">blueprintName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The timestamp when the instance was created (e.g., @1479734909.17@) in</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Unix time format.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_createdAt"><span class="hs-identifier hs-type">instance_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="instance_createdAt"><span class="annot"><span class="annottext">instance_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_createdAt"><span class="hs-identifier hs-var hs-var">instance_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe POSIX)
+-&gt; (Instance -&gt; Maybe POSIX -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625251"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:Instance' :: Instance -&gt; Maybe POSIX
+</span><a href="#local-6989586621679625251"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679625251"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625250"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625249"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679625249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:Instance' :: Maybe POSIX
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AcreatedAt%3AInstance%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679625249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Instance -&gt; f Instance)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Instance
+-&gt; f Instance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the instance (e.g.,</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- @arn:aws:lightsail:us-east-2:123456789101:Instance\/244ad76f-8aad-4741-809f-12345EXAMPLE@).</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_arn"><span class="hs-identifier hs-type">instance_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="instance_arn"><span class="annot"><span class="annottext">instance_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_arn"><span class="hs-identifier hs-var hs-var">instance_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
+-&gt; (Instance -&gt; Maybe Text -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625246"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Instance' :: Instance -&gt; Maybe Text
+</span><a href="#local-6989586621679625246"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625246"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625245"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625244"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Aarn%3AInstance%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The support code. Include this code in your email to support when you</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- have questions about an instance or another resource in Lightsail. This</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- code enables our support team to look up your Lightsail information more</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- easily.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_supportCode"><span class="hs-identifier hs-type">instance_supportCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="instance_supportCode"><span class="annot"><span class="annottext">instance_supportCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_supportCode"><span class="hs-identifier hs-var hs-var">instance_supportCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
+-&gt; (Instance -&gt; Maybe Text -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625242"><span class="annot"><span class="annottext">Maybe Text
+supportCode :: Maybe Text
+$sel:supportCode:Instance' :: Instance -&gt; Maybe Text
+</span><a href="#local-6989586621679625242"><span class="hs-identifier hs-var hs-var">supportCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625242"><span class="hs-identifier hs-var">supportCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625241"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625240"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportCode:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AsupportCode%3AInstance%27"><span class="hs-identifier hs-var">supportCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The blueprint ID (e.g., @os_amlinux_2016_03@).</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_blueprintId"><span class="hs-identifier hs-type">instance_blueprintId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="instance_blueprintId"><span class="annot"><span class="annottext">instance_blueprintId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_blueprintId"><span class="hs-identifier hs-var hs-var">instance_blueprintId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
+-&gt; (Instance -&gt; Maybe Text -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625238"><span class="annot"><span class="annottext">Maybe Text
+blueprintId :: Maybe Text
+$sel:blueprintId:Instance' :: Instance -&gt; Maybe Text
+</span><a href="#local-6989586621679625238"><span class="hs-identifier hs-var hs-var">blueprintId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625238"><span class="hs-identifier hs-var">blueprintId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625237"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625236"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprintId:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AblueprintId%3AInstance%27"><span class="hs-identifier hs-var">blueprintId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The type of resource (usually @Instance@).</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_resourceType"><span class="hs-identifier hs-type">instance_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="instance_resourceType"><span class="annot"><span class="annottext">instance_resourceType :: (Maybe ResourceType -&gt; f (Maybe ResourceType))
+-&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_resourceType"><span class="hs-identifier hs-var hs-var">instance_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe ResourceType)
+-&gt; (Instance -&gt; Maybe ResourceType -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe ResourceType) (Maybe ResourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625234"><span class="annot"><span class="annottext">Maybe ResourceType
+resourceType :: Maybe ResourceType
+$sel:resourceType:Instance' :: Instance -&gt; Maybe ResourceType
+</span><a href="#local-6989586621679625234"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679625234"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625233"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625232"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679625232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:Instance' :: Maybe ResourceType
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AresourceType%3AInstance%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679625232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The status code and the state (e.g., @running@) for the instance.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_state"><span class="hs-identifier hs-type">instance_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceState.html#InstanceState"><span class="hs-identifier hs-type">InstanceState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="instance_state"><span class="annot"><span class="annottext">instance_state :: (Maybe InstanceState -&gt; f (Maybe InstanceState))
+-&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_state"><span class="hs-identifier hs-var hs-var">instance_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe InstanceState)
+-&gt; (Instance -&gt; Maybe InstanceState -&gt; Instance)
+-&gt; Lens
+     Instance Instance (Maybe InstanceState) (Maybe InstanceState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625230"><span class="annot"><span class="annottext">Maybe InstanceState
+state :: Maybe InstanceState
+$sel:state:Instance' :: Instance -&gt; Maybe InstanceState
+</span><a href="#local-6989586621679625230"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceState
+</span><a href="#local-6989586621679625230"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625229"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625228"><span class="annot"><span class="annottext">Maybe InstanceState
+</span><a href="#local-6989586621679625228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:Instance' :: Maybe InstanceState
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Astate%3AInstance%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceState
+</span><a href="#local-6989586621679625228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The name the user gave the instance (e.g., @Amazon_Linux-1GB-Ohio-1@).</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_name"><span class="hs-identifier hs-type">instance_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="instance_name"><span class="annot"><span class="annottext">instance_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_name"><span class="hs-identifier hs-var hs-var">instance_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
+-&gt; (Instance -&gt; Maybe Text -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625226"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Instance' :: Instance -&gt; Maybe Text
+</span><a href="#local-6989586621679625226"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625226"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625225"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625224"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Aname%3AInstance%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The tag keys and optional values for the resource. For more information</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- about tags in Lightsail, see the</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide&gt;.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_tags"><span class="hs-identifier hs-type">instance_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="instance_tags"><span class="annot"><span class="annottext">instance_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_tags"><span class="hs-identifier hs-var hs-var">instance_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe [Tag])
+-&gt; (Instance -&gt; Maybe [Tag] -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625222"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:Instance' :: Instance -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679625222"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679625222"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625221"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625220"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679625220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Instance' :: Maybe [Tag]
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Atags%3AInstance%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679625220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Instance -&gt; f Instance)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; Instance
+-&gt; f Instance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | Information about the public ports and monthly data transfer rates for</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- the instance.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_networking"><span class="hs-identifier hs-type">instance_networking</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking"><span class="hs-identifier hs-type">InstanceNetworking</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span id="instance_networking"><span class="annot"><span class="annottext">instance_networking :: (Maybe InstanceNetworking -&gt; f (Maybe InstanceNetworking))
+-&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_networking"><span class="hs-identifier hs-var hs-var">instance_networking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe InstanceNetworking)
+-&gt; (Instance -&gt; Maybe InstanceNetworking -&gt; Instance)
+-&gt; Lens
+     Instance
+     Instance
+     (Maybe InstanceNetworking)
+     (Maybe InstanceNetworking)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625218"><span class="annot"><span class="annottext">Maybe InstanceNetworking
+networking :: Maybe InstanceNetworking
+$sel:networking:Instance' :: Instance -&gt; Maybe InstanceNetworking
+</span><a href="#local-6989586621679625218"><span class="hs-identifier hs-var hs-var">networking</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceNetworking
+</span><a href="#local-6989586621679625218"><span class="hs-identifier hs-var">networking</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625217"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625216"><span class="annot"><span class="annottext">Maybe InstanceNetworking
+</span><a href="#local-6989586621679625216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networking:Instance' :: Maybe InstanceNetworking
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Anetworking%3AInstance%27"><span class="hs-identifier hs-var">networking</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceNetworking
+</span><a href="#local-6989586621679625216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | The public IP address of the instance.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_publicIpAddress"><span class="hs-identifier hs-type">instance_publicIpAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="instance_publicIpAddress"><span class="annot"><span class="annottext">instance_publicIpAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_publicIpAddress"><span class="hs-identifier hs-var hs-var">instance_publicIpAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
+-&gt; (Instance -&gt; Maybe Text -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625214"><span class="annot"><span class="annottext">Maybe Text
+publicIpAddress :: Maybe Text
+$sel:publicIpAddress:Instance' :: Instance -&gt; Maybe Text
+</span><a href="#local-6989586621679625214"><span class="hs-identifier hs-var hs-var">publicIpAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625214"><span class="hs-identifier hs-var">publicIpAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625213"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625212"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicIpAddress:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3ApublicIpAddress%3AInstance%27"><span class="hs-identifier hs-var">publicIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | The user name for connecting to the instance (e.g., @ec2-user@).</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_username"><span class="hs-identifier hs-type">instance_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="instance_username"><span class="annot"><span class="annottext">instance_username :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_username"><span class="hs-identifier hs-var hs-var">instance_username</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
+-&gt; (Instance -&gt; Maybe Text -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625210"><span class="annot"><span class="annottext">Maybe Text
+username :: Maybe Text
+$sel:username:Instance' :: Instance -&gt; Maybe Text
+</span><a href="#local-6989586621679625210"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625210"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625209"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625208"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Ausername%3AInstance%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | A Boolean value indicating whether this instance has a static IP</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- assigned to it.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_isStaticIp"><span class="hs-identifier hs-type">instance_isStaticIp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="instance_isStaticIp"><span class="annot"><span class="annottext">instance_isStaticIp :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_isStaticIp"><span class="hs-identifier hs-var hs-var">instance_isStaticIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Bool)
+-&gt; (Instance -&gt; Maybe Bool -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625206"><span class="annot"><span class="annottext">Maybe Bool
+isStaticIp :: Maybe Bool
+$sel:isStaticIp:Instance' :: Instance -&gt; Maybe Bool
+</span><a href="#local-6989586621679625206"><span class="hs-identifier hs-var hs-var">isStaticIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679625206"><span class="hs-identifier hs-var">isStaticIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625205"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625204"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679625204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isStaticIp:Instance' :: Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AisStaticIp%3AInstance%27"><span class="hs-identifier hs-var">isStaticIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679625204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | The region name and Availability Zone where the instance is located.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_location"><span class="hs-identifier hs-type">instance_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceLocation.html#ResourceLocation"><span class="hs-identifier hs-type">ResourceLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span id="instance_location"><span class="annot"><span class="annottext">instance_location :: (Maybe ResourceLocation -&gt; f (Maybe ResourceLocation))
+-&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_location"><span class="hs-identifier hs-var hs-var">instance_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe ResourceLocation)
+-&gt; (Instance -&gt; Maybe ResourceLocation -&gt; Instance)
+-&gt; Lens
+     Instance Instance (Maybe ResourceLocation) (Maybe ResourceLocation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625202"><span class="annot"><span class="annottext">Maybe ResourceLocation
+location :: Maybe ResourceLocation
+$sel:location:Instance' :: Instance -&gt; Maybe ResourceLocation
+</span><a href="#local-6989586621679625202"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
+</span><a href="#local-6989586621679625202"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625201"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625200"><span class="annot"><span class="annottext">Maybe ResourceLocation
+</span><a href="#local-6989586621679625200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:Instance' :: Maybe ResourceLocation
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3Alocation%3AInstance%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
+</span><a href="#local-6989586621679625200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | The private IP address of the instance.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#instance_privateIpAddress"><span class="hs-identifier hs-type">instance_privateIpAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="instance_privateIpAddress"><span class="annot"><span class="annottext">instance_privateIpAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#instance_privateIpAddress"><span class="hs-identifier hs-var hs-var">instance_privateIpAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
+-&gt; (Instance -&gt; Maybe Text -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625198"><span class="annot"><span class="annottext">Maybe Text
+privateIpAddress :: Maybe Text
+$sel:privateIpAddress:Instance' :: Instance -&gt; Maybe Text
+</span><a href="#local-6989586621679625198"><span class="hs-identifier hs-var hs-var">privateIpAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625198"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625197"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679625197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625196"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679625197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateIpAddress:Instance' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#%24sel%3AprivateIpAddress%3AInstance%27"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679625193"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679625191"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Instance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Instance) -&gt; Value -&gt; Parser Instance
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Instance&quot;</span></span><span>
+</span><span id="line-286"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679625188"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-287"></span><span>          </span><span class="annot"><span class="annottext">Maybe IpAddressType
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe InstanceHardware
+-&gt; Maybe [AddOn]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ResourceType
+-&gt; Maybe InstanceState
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Maybe InstanceNetworking
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe ResourceLocation
+-&gt; Maybe Text
+-&gt; Instance
+</span><a href="Network.AWS.Lightsail.Types.Instance.html#Instance%27"><span class="hs-identifier hs-var">Instance'</span></a></span><span>
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">(Maybe IpAddressType
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe InstanceHardware
+ -&gt; Maybe [AddOn]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ResourceType
+ -&gt; Maybe InstanceState
+ -&gt; Maybe Text
+ -&gt; Maybe [Tag]
+ -&gt; Maybe InstanceNetworking
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe ResourceLocation
+ -&gt; Maybe Text
+ -&gt; Instance)
+-&gt; Parser (Maybe IpAddressType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe InstanceHardware
+      -&gt; Maybe [AddOn]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceType
+      -&gt; Maybe InstanceState
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe InstanceNetworking
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IpAddressType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipAddressType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe InstanceHardware
+   -&gt; Maybe [AddOn]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceType
+   -&gt; Maybe InstanceState
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe InstanceNetworking
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe InstanceHardware
+      -&gt; Maybe [AddOn]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceType
+      -&gt; Maybe InstanceState
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe InstanceNetworking
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bundleId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe InstanceHardware
+   -&gt; Maybe [AddOn]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceType
+   -&gt; Maybe InstanceState
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe InstanceNetworking
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe InstanceHardware
+      -&gt; Maybe [AddOn]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceType
+      -&gt; Maybe InstanceState
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe InstanceNetworking
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipv6Addresses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InstanceHardware
+   -&gt; Maybe [AddOn]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceType
+   -&gt; Maybe InstanceState
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe InstanceNetworking
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe InstanceHardware)
+-&gt; Parser
+     (Maybe [AddOn]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceType
+      -&gt; Maybe InstanceState
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe InstanceNetworking
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceHardware)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hardware&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AddOn]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceType
+   -&gt; Maybe InstanceState
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe InstanceNetworking
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe [AddOn])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceType
+      -&gt; Maybe InstanceState
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe InstanceNetworking
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AddOn]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;addOns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AddOn]))
+-&gt; Maybe [AddOn] -&gt; Parser (Maybe [AddOn])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AddOn]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceType
+   -&gt; Maybe InstanceState
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe InstanceNetworking
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceType
+      -&gt; Maybe InstanceState
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe InstanceNetworking
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sshKeyName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceType
+   -&gt; Maybe InstanceState
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe InstanceNetworking
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceType
+      -&gt; Maybe InstanceState
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe InstanceNetworking
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;blueprintName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceType
+   -&gt; Maybe InstanceState
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe InstanceNetworking
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceType
+      -&gt; Maybe InstanceState
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe InstanceNetworking
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceType
+   -&gt; Maybe InstanceState
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe InstanceNetworking
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceType
+      -&gt; Maybe InstanceState
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe InstanceNetworking
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceType
+   -&gt; Maybe InstanceState
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe InstanceNetworking
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ResourceType
+      -&gt; Maybe InstanceState
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe InstanceNetworking
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;supportCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ResourceType
+   -&gt; Maybe InstanceState
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe InstanceNetworking
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ResourceType
+      -&gt; Maybe InstanceState
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe InstanceNetworking
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;blueprintId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResourceType
+   -&gt; Maybe InstanceState
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe InstanceNetworking
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe ResourceType)
+-&gt; Parser
+     (Maybe InstanceState
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe InstanceNetworking
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InstanceState
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe InstanceNetworking
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe InstanceState)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe InstanceNetworking
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe InstanceNetworking
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Tag]
+      -&gt; Maybe InstanceNetworking
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Tag]
+   -&gt; Maybe InstanceNetworking
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe [Tag])
+-&gt; Parser
+     (Maybe InstanceNetworking
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InstanceNetworking
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe InstanceNetworking)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceNetworking)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networking&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool -&gt; Maybe ResourceLocation -&gt; Maybe Text -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;publicIpAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool -&gt; Maybe ResourceLocation -&gt; Maybe Text -&gt; Instance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool -&gt; Maybe ResourceLocation -&gt; Maybe Text -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;username&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool -&gt; Maybe ResourceLocation -&gt; Maybe Text -&gt; Instance)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe ResourceLocation -&gt; Maybe Text -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isStaticIp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ResourceLocation -&gt; Maybe Text -&gt; Instance)
+-&gt; Parser (Maybe ResourceLocation)
+-&gt; Parser (Maybe Text -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceLocation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Instance)
+-&gt; Parser (Maybe Text) -&gt; Parser Instance
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;privateIpAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679625181"><span id="local-6989586621679625183"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span></span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679625178"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span><span>
+</span><span id="line-314"></span></pre></body></html>

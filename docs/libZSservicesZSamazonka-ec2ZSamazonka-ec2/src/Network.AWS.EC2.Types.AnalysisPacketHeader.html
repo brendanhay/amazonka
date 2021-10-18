@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.AnalysisPacketHeader</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.AnalysisPacketHeader</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PortRange.html"><span class="hs-identifier">Network.AWS.EC2.Types.PortRange</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes a header. Reflects any changes made by a component as traffic</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- passes through. The fields of an inbound header are null except for the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- first component of a path.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAnalysisPacketHeader' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621681102493"><span id="local-6989586621681102494"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnalysisPacketHeader"><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader"><span class="hs-identifier hs-var">AnalysisPacketHeader</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalysisPacketHeader%27"><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader%27"><span class="hs-identifier hs-var">AnalysisPacketHeader'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The destination addresses.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdestinationAddresses%3AAnalysisPacketHeader%27"><span class="annot"><span class="annottext">AnalysisPacketHeader -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#%24sel%3AdestinationAddresses%3AAnalysisPacketHeader%27"><span class="hs-identifier hs-var hs-var">destinationAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The source addresses.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsourceAddresses%3AAnalysisPacketHeader%27"><span class="annot"><span class="annottext">AnalysisPacketHeader -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#%24sel%3AsourceAddresses%3AAnalysisPacketHeader%27"><span class="hs-identifier hs-var hs-var">sourceAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The destination port ranges.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdestinationPortRanges%3AAnalysisPacketHeader%27"><span class="annot"><span class="annottext">AnalysisPacketHeader -&gt; Maybe [PortRange]
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#%24sel%3AdestinationPortRanges%3AAnalysisPacketHeader%27"><span class="hs-identifier hs-var hs-var">destinationPortRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The protocol.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aprotocol%3AAnalysisPacketHeader%27"><span class="annot"><span class="annottext">AnalysisPacketHeader -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#%24sel%3Aprotocol%3AAnalysisPacketHeader%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The source port ranges.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AsourcePortRanges%3AAnalysisPacketHeader%27"><span class="annot"><span class="annottext">AnalysisPacketHeader -&gt; Maybe [PortRange]
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#%24sel%3AsourcePortRanges%3AAnalysisPacketHeader%27"><span class="hs-identifier hs-var hs-var">sourcePortRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681102483"><span id="local-6989586621681102485"><span class="annot"><span class="annottext">AnalysisPacketHeader -&gt; AnalysisPacketHeader -&gt; Bool
+(AnalysisPacketHeader -&gt; AnalysisPacketHeader -&gt; Bool)
+-&gt; (AnalysisPacketHeader -&gt; AnalysisPacketHeader -&gt; Bool)
+-&gt; Eq AnalysisPacketHeader
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AnalysisPacketHeader -&gt; AnalysisPacketHeader -&gt; Bool
+$c/= :: AnalysisPacketHeader -&gt; AnalysisPacketHeader -&gt; Bool
+== :: AnalysisPacketHeader -&gt; AnalysisPacketHeader -&gt; Bool
+$c== :: AnalysisPacketHeader -&gt; AnalysisPacketHeader -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681102474"><span id="local-6989586621681102476"><span id="local-6989586621681102478"><span id="local-6989586621681102480"><span class="annot"><span class="annottext">ReadPrec [AnalysisPacketHeader]
+ReadPrec AnalysisPacketHeader
+Int -&gt; ReadS AnalysisPacketHeader
+ReadS [AnalysisPacketHeader]
+(Int -&gt; ReadS AnalysisPacketHeader)
+-&gt; ReadS [AnalysisPacketHeader]
+-&gt; ReadPrec AnalysisPacketHeader
+-&gt; ReadPrec [AnalysisPacketHeader]
+-&gt; Read AnalysisPacketHeader
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AnalysisPacketHeader]
+$creadListPrec :: ReadPrec [AnalysisPacketHeader]
+readPrec :: ReadPrec AnalysisPacketHeader
+$creadPrec :: ReadPrec AnalysisPacketHeader
+readList :: ReadS [AnalysisPacketHeader]
+$creadList :: ReadS [AnalysisPacketHeader]
+readsPrec :: Int -&gt; ReadS AnalysisPacketHeader
+$creadsPrec :: Int -&gt; ReadS AnalysisPacketHeader
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681102467"><span id="local-6989586621681102469"><span id="local-6989586621681102471"><span class="annot"><span class="annottext">Int -&gt; AnalysisPacketHeader -&gt; ShowS
+[AnalysisPacketHeader] -&gt; ShowS
+AnalysisPacketHeader -&gt; String
+(Int -&gt; AnalysisPacketHeader -&gt; ShowS)
+-&gt; (AnalysisPacketHeader -&gt; String)
+-&gt; ([AnalysisPacketHeader] -&gt; ShowS)
+-&gt; Show AnalysisPacketHeader
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AnalysisPacketHeader] -&gt; ShowS
+$cshowList :: [AnalysisPacketHeader] -&gt; ShowS
+show :: AnalysisPacketHeader -&gt; String
+$cshow :: AnalysisPacketHeader -&gt; String
+showsPrec :: Int -&gt; AnalysisPacketHeader -&gt; ShowS
+$cshowsPrec :: Int -&gt; AnalysisPacketHeader -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AnalysisPacketHeader -&gt; Rep AnalysisPacketHeader x)
+-&gt; (forall x. Rep AnalysisPacketHeader x -&gt; AnalysisPacketHeader)
+-&gt; Generic AnalysisPacketHeader
+forall x. Rep AnalysisPacketHeader x -&gt; AnalysisPacketHeader
+forall x. AnalysisPacketHeader -&gt; Rep AnalysisPacketHeader x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AnalysisPacketHeader x -&gt; AnalysisPacketHeader
+$cfrom :: forall x. AnalysisPacketHeader -&gt; Rep AnalysisPacketHeader x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'AnalysisPacketHeader' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'destinationAddresses', 'analysisPacketHeader_destinationAddresses' - The destination addresses.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'sourceAddresses', 'analysisPacketHeader_sourceAddresses' - The source addresses.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'destinationPortRanges', 'analysisPacketHeader_destinationPortRanges' - The destination port ranges.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'protocol', 'analysisPacketHeader_protocol' - The protocol.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'sourcePortRanges', 'analysisPacketHeader_sourcePortRanges' - The source port ranges.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#newAnalysisPacketHeader"><span class="hs-identifier hs-type">newAnalysisPacketHeader</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader"><span class="hs-identifier hs-type">AnalysisPacketHeader</span></a></span><span>
+</span><span id="line-66"></span><span id="newAnalysisPacketHeader"><span class="annot"><span class="annottext">newAnalysisPacketHeader :: AnalysisPacketHeader
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#newAnalysisPacketHeader"><span class="hs-identifier hs-var hs-var">newAnalysisPacketHeader</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">AnalysisPacketHeader' :: Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe [PortRange]
+-&gt; Maybe Text
+-&gt; Maybe [PortRange]
+-&gt; AnalysisPacketHeader
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader%27"><span class="hs-identifier hs-type">AnalysisPacketHeader'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destinationAddresses:AnalysisPacketHeader' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#%24sel%3AdestinationAddresses%3AAnalysisPacketHeader%27"><span class="hs-identifier hs-var">destinationAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceAddresses:AnalysisPacketHeader' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#%24sel%3AsourceAddresses%3AAnalysisPacketHeader%27"><span class="hs-identifier hs-var">sourceAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationPortRanges:AnalysisPacketHeader' :: Maybe [PortRange]
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#%24sel%3AdestinationPortRanges%3AAnalysisPacketHeader%27"><span class="hs-identifier hs-var">destinationPortRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PortRange]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:AnalysisPacketHeader' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#%24sel%3Aprotocol%3AAnalysisPacketHeader%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourcePortRanges:AnalysisPacketHeader' :: Maybe [PortRange]
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#%24sel%3AsourcePortRanges%3AAnalysisPacketHeader%27"><span class="hs-identifier hs-var">sourcePortRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PortRange]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The destination addresses.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#analysisPacketHeader_destinationAddresses"><span class="hs-identifier hs-type">analysisPacketHeader_destinationAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader"><span class="hs-identifier hs-type">AnalysisPacketHeader</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="analysisPacketHeader_destinationAddresses"><span class="annot"><span class="annottext">analysisPacketHeader_destinationAddresses :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AnalysisPacketHeader -&gt; f AnalysisPacketHeader
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#analysisPacketHeader_destinationAddresses"><span class="hs-identifier hs-var hs-var">analysisPacketHeader_destinationAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisPacketHeader -&gt; Maybe [Text])
+-&gt; (AnalysisPacketHeader -&gt; Maybe [Text] -&gt; AnalysisPacketHeader)
+-&gt; Lens
+     AnalysisPacketHeader
+     AnalysisPacketHeader
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader%27"><span class="hs-identifier hs-type">AnalysisPacketHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102458"><span class="annot"><span class="annottext">Maybe [Text]
+destinationAddresses :: Maybe [Text]
+$sel:destinationAddresses:AnalysisPacketHeader' :: AnalysisPacketHeader -&gt; Maybe [Text]
+</span><a href="#local-6989586621681102458"><span class="hs-identifier hs-var hs-var">destinationAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681102458"><span class="hs-identifier hs-var">destinationAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681102457"><span class="annot"><span class="annottext">s :: AnalysisPacketHeader
+</span><a href="#local-6989586621681102457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader%27"><span class="hs-identifier hs-type">AnalysisPacketHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681102456"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681102456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisPacketHeader
+</span><a href="#local-6989586621681102457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationAddresses:AnalysisPacketHeader' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#%24sel%3AdestinationAddresses%3AAnalysisPacketHeader%27"><span class="hs-identifier hs-var">destinationAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681102456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader"><span class="hs-identifier hs-type">AnalysisPacketHeader</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; AnalysisPacketHeader -&gt; f AnalysisPacketHeader)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AnalysisPacketHeader
+-&gt; f AnalysisPacketHeader
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The source addresses.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#analysisPacketHeader_sourceAddresses"><span class="hs-identifier hs-type">analysisPacketHeader_sourceAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader"><span class="hs-identifier hs-type">AnalysisPacketHeader</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="analysisPacketHeader_sourceAddresses"><span class="annot"><span class="annottext">analysisPacketHeader_sourceAddresses :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AnalysisPacketHeader -&gt; f AnalysisPacketHeader
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#analysisPacketHeader_sourceAddresses"><span class="hs-identifier hs-var hs-var">analysisPacketHeader_sourceAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisPacketHeader -&gt; Maybe [Text])
+-&gt; (AnalysisPacketHeader -&gt; Maybe [Text] -&gt; AnalysisPacketHeader)
+-&gt; Lens
+     AnalysisPacketHeader
+     AnalysisPacketHeader
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader%27"><span class="hs-identifier hs-type">AnalysisPacketHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102451"><span class="annot"><span class="annottext">Maybe [Text]
+sourceAddresses :: Maybe [Text]
+$sel:sourceAddresses:AnalysisPacketHeader' :: AnalysisPacketHeader -&gt; Maybe [Text]
+</span><a href="#local-6989586621681102451"><span class="hs-identifier hs-var hs-var">sourceAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681102451"><span class="hs-identifier hs-var">sourceAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681102450"><span class="annot"><span class="annottext">s :: AnalysisPacketHeader
+</span><a href="#local-6989586621681102450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader%27"><span class="hs-identifier hs-type">AnalysisPacketHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681102449"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681102449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisPacketHeader
+</span><a href="#local-6989586621681102450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceAddresses:AnalysisPacketHeader' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#%24sel%3AsourceAddresses%3AAnalysisPacketHeader%27"><span class="hs-identifier hs-var">sourceAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681102449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader"><span class="hs-identifier hs-type">AnalysisPacketHeader</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; AnalysisPacketHeader -&gt; f AnalysisPacketHeader)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AnalysisPacketHeader
+-&gt; f AnalysisPacketHeader
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The destination port ranges.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#analysisPacketHeader_destinationPortRanges"><span class="hs-identifier hs-type">analysisPacketHeader_destinationPortRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader"><span class="hs-identifier hs-type">AnalysisPacketHeader</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="analysisPacketHeader_destinationPortRanges"><span class="annot"><span class="annottext">analysisPacketHeader_destinationPortRanges :: (Maybe [PortRange] -&gt; f (Maybe [PortRange]))
+-&gt; AnalysisPacketHeader -&gt; f AnalysisPacketHeader
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#analysisPacketHeader_destinationPortRanges"><span class="hs-identifier hs-var hs-var">analysisPacketHeader_destinationPortRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisPacketHeader -&gt; Maybe [PortRange])
+-&gt; (AnalysisPacketHeader
+    -&gt; Maybe [PortRange] -&gt; AnalysisPacketHeader)
+-&gt; Lens
+     AnalysisPacketHeader
+     AnalysisPacketHeader
+     (Maybe [PortRange])
+     (Maybe [PortRange])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader%27"><span class="hs-identifier hs-type">AnalysisPacketHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102447"><span class="annot"><span class="annottext">Maybe [PortRange]
+destinationPortRanges :: Maybe [PortRange]
+$sel:destinationPortRanges:AnalysisPacketHeader' :: AnalysisPacketHeader -&gt; Maybe [PortRange]
+</span><a href="#local-6989586621681102447"><span class="hs-identifier hs-var hs-var">destinationPortRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PortRange]
+</span><a href="#local-6989586621681102447"><span class="hs-identifier hs-var">destinationPortRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681102446"><span class="annot"><span class="annottext">s :: AnalysisPacketHeader
+</span><a href="#local-6989586621681102446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader%27"><span class="hs-identifier hs-type">AnalysisPacketHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681102445"><span class="annot"><span class="annottext">Maybe [PortRange]
+</span><a href="#local-6989586621681102445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisPacketHeader
+</span><a href="#local-6989586621681102446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationPortRanges:AnalysisPacketHeader' :: Maybe [PortRange]
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#%24sel%3AdestinationPortRanges%3AAnalysisPacketHeader%27"><span class="hs-identifier hs-var">destinationPortRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PortRange]
+</span><a href="#local-6989586621681102445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader"><span class="hs-identifier hs-type">AnalysisPacketHeader</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PortRange] -&gt; f (Maybe [PortRange]))
+ -&gt; AnalysisPacketHeader -&gt; f AnalysisPacketHeader)
+-&gt; ((Maybe [PortRange] -&gt; f (Maybe [PortRange]))
+    -&gt; Maybe [PortRange] -&gt; f (Maybe [PortRange]))
+-&gt; (Maybe [PortRange] -&gt; f (Maybe [PortRange]))
+-&gt; AnalysisPacketHeader
+-&gt; f AnalysisPacketHeader
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PortRange] [PortRange] [PortRange] [PortRange]
+-&gt; Iso
+     (Maybe [PortRange])
+     (Maybe [PortRange])
+     (Maybe [PortRange])
+     (Maybe [PortRange])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PortRange] [PortRange] [PortRange] [PortRange]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The protocol.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#analysisPacketHeader_protocol"><span class="hs-identifier hs-type">analysisPacketHeader_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader"><span class="hs-identifier hs-type">AnalysisPacketHeader</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="analysisPacketHeader_protocol"><span class="annot"><span class="annottext">analysisPacketHeader_protocol :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AnalysisPacketHeader -&gt; f AnalysisPacketHeader
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#analysisPacketHeader_protocol"><span class="hs-identifier hs-var hs-var">analysisPacketHeader_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisPacketHeader -&gt; Maybe Text)
+-&gt; (AnalysisPacketHeader -&gt; Maybe Text -&gt; AnalysisPacketHeader)
+-&gt; Lens
+     AnalysisPacketHeader AnalysisPacketHeader (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader%27"><span class="hs-identifier hs-type">AnalysisPacketHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102443"><span class="annot"><span class="annottext">Maybe Text
+protocol :: Maybe Text
+$sel:protocol:AnalysisPacketHeader' :: AnalysisPacketHeader -&gt; Maybe Text
+</span><a href="#local-6989586621681102443"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681102443"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681102442"><span class="annot"><span class="annottext">s :: AnalysisPacketHeader
+</span><a href="#local-6989586621681102442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader%27"><span class="hs-identifier hs-type">AnalysisPacketHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681102441"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681102441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisPacketHeader
+</span><a href="#local-6989586621681102442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:AnalysisPacketHeader' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#%24sel%3Aprotocol%3AAnalysisPacketHeader%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681102441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader"><span class="hs-identifier hs-type">AnalysisPacketHeader</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The source port ranges.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#analysisPacketHeader_sourcePortRanges"><span class="hs-identifier hs-type">analysisPacketHeader_sourcePortRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader"><span class="hs-identifier hs-type">AnalysisPacketHeader</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="analysisPacketHeader_sourcePortRanges"><span class="annot"><span class="annottext">analysisPacketHeader_sourcePortRanges :: (Maybe [PortRange] -&gt; f (Maybe [PortRange]))
+-&gt; AnalysisPacketHeader -&gt; f AnalysisPacketHeader
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#analysisPacketHeader_sourcePortRanges"><span class="hs-identifier hs-var hs-var">analysisPacketHeader_sourcePortRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisPacketHeader -&gt; Maybe [PortRange])
+-&gt; (AnalysisPacketHeader
+    -&gt; Maybe [PortRange] -&gt; AnalysisPacketHeader)
+-&gt; Lens
+     AnalysisPacketHeader
+     AnalysisPacketHeader
+     (Maybe [PortRange])
+     (Maybe [PortRange])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader%27"><span class="hs-identifier hs-type">AnalysisPacketHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102439"><span class="annot"><span class="annottext">Maybe [PortRange]
+sourcePortRanges :: Maybe [PortRange]
+$sel:sourcePortRanges:AnalysisPacketHeader' :: AnalysisPacketHeader -&gt; Maybe [PortRange]
+</span><a href="#local-6989586621681102439"><span class="hs-identifier hs-var hs-var">sourcePortRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PortRange]
+</span><a href="#local-6989586621681102439"><span class="hs-identifier hs-var">sourcePortRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681102438"><span class="annot"><span class="annottext">s :: AnalysisPacketHeader
+</span><a href="#local-6989586621681102438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader%27"><span class="hs-identifier hs-type">AnalysisPacketHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681102437"><span class="annot"><span class="annottext">Maybe [PortRange]
+</span><a href="#local-6989586621681102437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisPacketHeader
+</span><a href="#local-6989586621681102438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePortRanges:AnalysisPacketHeader' :: Maybe [PortRange]
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#%24sel%3AsourcePortRanges%3AAnalysisPacketHeader%27"><span class="hs-identifier hs-var">sourcePortRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PortRange]
+</span><a href="#local-6989586621681102437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader"><span class="hs-identifier hs-type">AnalysisPacketHeader</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PortRange] -&gt; f (Maybe [PortRange]))
+ -&gt; AnalysisPacketHeader -&gt; f AnalysisPacketHeader)
+-&gt; ((Maybe [PortRange] -&gt; f (Maybe [PortRange]))
+    -&gt; Maybe [PortRange] -&gt; f (Maybe [PortRange]))
+-&gt; (Maybe [PortRange] -&gt; f (Maybe [PortRange]))
+-&gt; AnalysisPacketHeader
+-&gt; f AnalysisPacketHeader
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PortRange] [PortRange] [PortRange] [PortRange]
+-&gt; Iso
+     (Maybe [PortRange])
+     (Maybe [PortRange])
+     (Maybe [PortRange])
+     (Maybe [PortRange])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PortRange] [PortRange] [PortRange] [PortRange]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader"><span class="hs-identifier hs-type">AnalysisPacketHeader</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621681102434"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AnalysisPacketHeader
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681102432"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681102432"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe [PortRange]
+-&gt; Maybe Text
+-&gt; Maybe [PortRange]
+-&gt; AnalysisPacketHeader
+</span><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader%27"><span class="hs-identifier hs-var">AnalysisPacketHeader'</span></a></span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe [Text]
+ -&gt; Maybe [PortRange]
+ -&gt; Maybe Text
+ -&gt; Maybe [PortRange]
+ -&gt; AnalysisPacketHeader)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe [PortRange]
+      -&gt; Maybe Text
+      -&gt; Maybe [PortRange]
+      -&gt; AnalysisPacketHeader)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681102432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationAddressSet&quot;</span></span><span>
+</span><span id="line-100"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-101"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe [PortRange]
+   -&gt; Maybe Text
+   -&gt; Maybe [PortRange]
+   -&gt; AnalysisPacketHeader)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe [PortRange]
+      -&gt; Maybe Text -&gt; Maybe [PortRange] -&gt; AnalysisPacketHeader)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681102432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceAddressSet&quot;</span></span><span>
+</span><span id="line-104"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-105"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [PortRange]
+   -&gt; Maybe Text -&gt; Maybe [PortRange] -&gt; AnalysisPacketHeader)
+-&gt; Either String (Maybe [PortRange])
+-&gt; Either
+     String (Maybe Text -&gt; Maybe [PortRange] -&gt; AnalysisPacketHeader)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681102432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationPortRangeSet&quot;</span></span><span>
+</span><span id="line-108"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-109"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [PortRange]))
+-&gt; Either String (Maybe [PortRange])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [PortRange])
+-&gt; [Node] -&gt; Either String (Maybe [PortRange])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [PortRange]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe [PortRange] -&gt; AnalysisPacketHeader)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [PortRange] -&gt; AnalysisPacketHeader)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681102432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;protocol&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [PortRange] -&gt; AnalysisPacketHeader)
+-&gt; Either String (Maybe [PortRange])
+-&gt; Either String AnalysisPacketHeader
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681102432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourcePortRangeSet&quot;</span></span><span>
+</span><span id="line-113"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [PortRange]))
+-&gt; Either String (Maybe [PortRange])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [PortRange])
+-&gt; [Node] -&gt; Either String (Maybe [PortRange])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [PortRange]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681102423"><span id="local-6989586621681102425"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader"><span class="hs-identifier hs-type">AnalysisPacketHeader</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681102420"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisPacketHeader.html#AnalysisPacketHeader"><span class="hs-identifier hs-type">AnalysisPacketHeader</span></a></span></span><span>
+</span><span id="line-120"></span></pre></body></html>

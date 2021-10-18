@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFront.Types.OriginSslProtocols</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFront.Types.OriginSslProtocols</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.SslProtocol.html"><span class="hs-identifier">Network.AWS.CloudFront.Types.SslProtocol</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A complex type that contains information about the SSL\/TLS protocols</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- that CloudFront can use when establishing an HTTPS connection with your</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- origin.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newOriginSslProtocols' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679402128"><span id="local-6989586621679402129"></span></span><span class="hs-keyword">data</span><span> </span><span id="OriginSslProtocols"><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols"><span class="hs-identifier hs-var">OriginSslProtocols</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OriginSslProtocols%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols%27"><span class="hs-identifier hs-var">OriginSslProtocols'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of SSL\/TLS protocols that you want to allow CloudFront to</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- use when establishing an HTTPS connection with this origin.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aquantity%3AOriginSslProtocols%27"><span class="annot"><span class="annottext">OriginSslProtocols -&gt; Int
+</span><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#%24sel%3Aquantity%3AOriginSslProtocols%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A list that contains allowed SSL\/TLS protocols for this distribution.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aitems%3AOriginSslProtocols%27"><span class="annot"><span class="annottext">OriginSslProtocols -&gt; [SslProtocol]
+</span><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#%24sel%3Aitems%3AOriginSslProtocols%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.SslProtocol.html#SslProtocol"><span class="hs-identifier hs-type">SslProtocol</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402121"><span id="local-6989586621679402123"><span class="annot"><span class="annottext">OriginSslProtocols -&gt; OriginSslProtocols -&gt; Bool
+(OriginSslProtocols -&gt; OriginSslProtocols -&gt; Bool)
+-&gt; (OriginSslProtocols -&gt; OriginSslProtocols -&gt; Bool)
+-&gt; Eq OriginSslProtocols
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OriginSslProtocols -&gt; OriginSslProtocols -&gt; Bool
+$c/= :: OriginSslProtocols -&gt; OriginSslProtocols -&gt; Bool
+== :: OriginSslProtocols -&gt; OriginSslProtocols -&gt; Bool
+$c== :: OriginSslProtocols -&gt; OriginSslProtocols -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402112"><span id="local-6989586621679402114"><span id="local-6989586621679402116"><span id="local-6989586621679402118"><span class="annot"><span class="annottext">ReadPrec [OriginSslProtocols]
+ReadPrec OriginSslProtocols
+Int -&gt; ReadS OriginSslProtocols
+ReadS [OriginSslProtocols]
+(Int -&gt; ReadS OriginSslProtocols)
+-&gt; ReadS [OriginSslProtocols]
+-&gt; ReadPrec OriginSslProtocols
+-&gt; ReadPrec [OriginSslProtocols]
+-&gt; Read OriginSslProtocols
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OriginSslProtocols]
+$creadListPrec :: ReadPrec [OriginSslProtocols]
+readPrec :: ReadPrec OriginSslProtocols
+$creadPrec :: ReadPrec OriginSslProtocols
+readList :: ReadS [OriginSslProtocols]
+$creadList :: ReadS [OriginSslProtocols]
+readsPrec :: Int -&gt; ReadS OriginSslProtocols
+$creadsPrec :: Int -&gt; ReadS OriginSslProtocols
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402105"><span id="local-6989586621679402107"><span id="local-6989586621679402109"><span class="annot"><span class="annottext">Int -&gt; OriginSslProtocols -&gt; ShowS
+[OriginSslProtocols] -&gt; ShowS
+OriginSslProtocols -&gt; String
+(Int -&gt; OriginSslProtocols -&gt; ShowS)
+-&gt; (OriginSslProtocols -&gt; String)
+-&gt; ([OriginSslProtocols] -&gt; ShowS)
+-&gt; Show OriginSslProtocols
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OriginSslProtocols] -&gt; ShowS
+$cshowList :: [OriginSslProtocols] -&gt; ShowS
+show :: OriginSslProtocols -&gt; String
+$cshow :: OriginSslProtocols -&gt; String
+showsPrec :: Int -&gt; OriginSslProtocols -&gt; ShowS
+$cshowsPrec :: Int -&gt; OriginSslProtocols -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. OriginSslProtocols -&gt; Rep OriginSslProtocols x)
+-&gt; (forall x. Rep OriginSslProtocols x -&gt; OriginSslProtocols)
+-&gt; Generic OriginSslProtocols
+forall x. Rep OriginSslProtocols x -&gt; OriginSslProtocols
+forall x. OriginSslProtocols -&gt; Rep OriginSslProtocols x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OriginSslProtocols x -&gt; OriginSslProtocols
+$cfrom :: forall x. OriginSslProtocols -&gt; Rep OriginSslProtocols x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'OriginSslProtocols' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'quantity', 'originSslProtocols_quantity' - The number of SSL\/TLS protocols that you want to allow CloudFront to</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- use when establishing an HTTPS connection with this origin.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'items', 'originSslProtocols_items' - A list that contains allowed SSL\/TLS protocols for this distribution.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#newOriginSslProtocols"><span class="hs-identifier hs-type">newOriginSslProtocols</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-comment">-- | 'quantity'</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols"><span class="hs-identifier hs-type">OriginSslProtocols</span></a></span><span>
+</span><span id="line-57"></span><span id="newOriginSslProtocols"><span class="annot"><span class="annottext">newOriginSslProtocols :: Int -&gt; OriginSslProtocols
+</span><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#newOriginSslProtocols"><span class="hs-identifier hs-var hs-var">newOriginSslProtocols</span></a></span></span><span> </span><span id="local-6989586621679402099"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402099"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">OriginSslProtocols' :: Int -&gt; [SslProtocol] -&gt; OriginSslProtocols
+</span><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols%27"><span class="hs-identifier hs-type">OriginSslProtocols'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:quantity:OriginSslProtocols' :: Int
+</span><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#%24sel%3Aquantity%3AOriginSslProtocols%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402099"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:items:OriginSslProtocols' :: [SslProtocol]
+</span><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#%24sel%3Aitems%3AOriginSslProtocols%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SslProtocol]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The number of SSL\/TLS protocols that you want to allow CloudFront to</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- use when establishing an HTTPS connection with this origin.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#originSslProtocols_quantity"><span class="hs-identifier hs-type">originSslProtocols_quantity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols"><span class="hs-identifier hs-type">OriginSslProtocols</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-66"></span><span id="originSslProtocols_quantity"><span class="annot"><span class="annottext">originSslProtocols_quantity :: (Int -&gt; f Int) -&gt; OriginSslProtocols -&gt; f OriginSslProtocols
+</span><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#originSslProtocols_quantity"><span class="hs-identifier hs-var hs-var">originSslProtocols_quantity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OriginSslProtocols -&gt; Int)
+-&gt; (OriginSslProtocols -&gt; Int -&gt; OriginSslProtocols)
+-&gt; Lens OriginSslProtocols OriginSslProtocols Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols%27"><span class="hs-identifier hs-type">OriginSslProtocols'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402095"><span class="annot"><span class="annottext">Int
+quantity :: Int
+$sel:quantity:OriginSslProtocols' :: OriginSslProtocols -&gt; Int
+</span><a href="#local-6989586621679402095"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402095"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402094"><span class="annot"><span class="annottext">s :: OriginSslProtocols
+</span><a href="#local-6989586621679402094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols%27"><span class="hs-identifier hs-type">OriginSslProtocols'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402093"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginSslProtocols
+</span><a href="#local-6989586621679402094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:OriginSslProtocols' :: Int
+</span><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#%24sel%3Aquantity%3AOriginSslProtocols%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols"><span class="hs-identifier hs-type">OriginSslProtocols</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | A list that contains allowed SSL\/TLS protocols for this distribution.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#originSslProtocols_items"><span class="hs-identifier hs-type">originSslProtocols_items</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols"><span class="hs-identifier hs-type">OriginSslProtocols</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.SslProtocol.html#SslProtocol"><span class="hs-identifier hs-type">SslProtocol</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-70"></span><span id="originSslProtocols_items"><span class="annot"><span class="annottext">originSslProtocols_items :: ([SslProtocol] -&gt; f [SslProtocol])
+-&gt; OriginSslProtocols -&gt; f OriginSslProtocols
+</span><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#originSslProtocols_items"><span class="hs-identifier hs-var hs-var">originSslProtocols_items</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OriginSslProtocols -&gt; [SslProtocol])
+-&gt; (OriginSslProtocols -&gt; [SslProtocol] -&gt; OriginSslProtocols)
+-&gt; Lens
+     OriginSslProtocols OriginSslProtocols [SslProtocol] [SslProtocol]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols%27"><span class="hs-identifier hs-type">OriginSslProtocols'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402091"><span class="annot"><span class="annottext">[SslProtocol]
+items :: [SslProtocol]
+$sel:items:OriginSslProtocols' :: OriginSslProtocols -&gt; [SslProtocol]
+</span><a href="#local-6989586621679402091"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SslProtocol]
+</span><a href="#local-6989586621679402091"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402090"><span class="annot"><span class="annottext">s :: OriginSslProtocols
+</span><a href="#local-6989586621679402090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols%27"><span class="hs-identifier hs-type">OriginSslProtocols'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402089"><span class="annot"><span class="annottext">[SslProtocol]
+</span><a href="#local-6989586621679402089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginSslProtocols
+</span><a href="#local-6989586621679402090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:OriginSslProtocols' :: [SslProtocol]
+</span><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#%24sel%3Aitems%3AOriginSslProtocols%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SslProtocol]
+</span><a href="#local-6989586621679402089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols"><span class="hs-identifier hs-type">OriginSslProtocols</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SslProtocol] -&gt; f [SslProtocol])
+ -&gt; OriginSslProtocols -&gt; f OriginSslProtocols)
+-&gt; (([SslProtocol] -&gt; f [SslProtocol])
+    -&gt; [SslProtocol] -&gt; f [SslProtocol])
+-&gt; ([SslProtocol] -&gt; f [SslProtocol])
+-&gt; OriginSslProtocols
+-&gt; f OriginSslProtocols
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([SslProtocol] -&gt; f [SslProtocol])
+-&gt; [SslProtocol] -&gt; f [SslProtocol]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols"><span class="hs-identifier hs-type">OriginSslProtocols</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679402084"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String OriginSslProtocols
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679402082"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402082"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">Int -&gt; [SslProtocol] -&gt; OriginSslProtocols
+</span><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols%27"><span class="hs-identifier hs-var">OriginSslProtocols'</span></a></span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">(Int -&gt; [SslProtocol] -&gt; OriginSslProtocols)
+-&gt; Either String Int
+-&gt; Either String ([SslProtocol] -&gt; OriginSslProtocols)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">Either String ([SslProtocol] -&gt; OriginSslProtocols)
+-&gt; Either String [SslProtocol] -&gt; Either String OriginSslProtocols
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-77"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String [SslProtocol])
+-&gt; Either String [SslProtocol]
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [SslProtocol]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SslProtocol&quot;</span></span><span>
+</span><span id="line-78"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402073"><span id="local-6989586621679402075"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols"><span class="hs-identifier hs-type">OriginSslProtocols</span></a></span></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402070"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols"><span class="hs-identifier hs-type">OriginSslProtocols</span></a></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols"><span class="hs-identifier hs-type">OriginSslProtocols</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679402066"><span class="annot"><span class="annottext">toXML :: OriginSslProtocols -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols%27"><span class="hs-identifier hs-type">OriginSslProtocols'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402063"><span id="local-6989586621679402064"><span class="annot"><span class="annottext">Int
+[SslProtocol]
+items :: [SslProtocol]
+quantity :: Int
+$sel:items:OriginSslProtocols' :: OriginSslProtocols -&gt; [SslProtocol]
+$sel:quantity:OriginSslProtocols' :: OriginSslProtocols -&gt; Int
+</span><a href="#local-6989586621679402063"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Quantity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402064"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; [SslProtocol] -&gt; XML
+forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;SslProtocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">[SslProtocol]
+</span><a href="#local-6989586621679402063"><span class="hs-identifier hs-var">items</span></a></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-90"></span></pre></body></html>

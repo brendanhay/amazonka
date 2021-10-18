@@ -1,0 +1,497 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.ModifyVpcTenancy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Modifies the instance tenancy attribute of the specified VPC. You can</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- change the instance tenancy attribute of a VPC to @default@ only. You</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- cannot change the instance tenancy attribute to @dedicated@.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- After you modify the tenancy of the VPC, any new instances that you</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- launch into the VPC have a tenancy of @default@, unless you specify</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- otherwise during launch. The tenancy of any existing instances in the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- VPC is not affected.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html Dedicated Instances&gt;</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.ModifyVpcTenancy</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy"><span class="hs-identifier">ModifyVpcTenancy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#newModifyVpcTenancy"><span class="hs-identifier">newModifyVpcTenancy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#modifyVpcTenancy_dryRun"><span class="hs-identifier">modifyVpcTenancy_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#modifyVpcTenancy_vpcId"><span class="hs-identifier">modifyVpcTenancy_vpcId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#modifyVpcTenancy_instanceTenancy"><span class="hs-identifier">modifyVpcTenancy_instanceTenancy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancyResponse"><span class="hs-identifier">ModifyVpcTenancyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#newModifyVpcTenancyResponse"><span class="hs-identifier">newModifyVpcTenancyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#modifyVpcTenancyResponse_returnValue"><span class="hs-identifier">modifyVpcTenancyResponse_returnValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#modifyVpcTenancyResponse_httpStatus"><span class="hs-identifier">modifyVpcTenancyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newModifyVpcTenancy' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621681178453"><span id="local-6989586621681178454"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVpcTenancy"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy"><span class="hs-identifier hs-var">ModifyVpcTenancy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVpcTenancy%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy%27"><span class="hs-identifier hs-var">ModifyVpcTenancy'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AdryRun%3AModifyVpcTenancy%27"><span class="annot"><span class="annottext">ModifyVpcTenancy -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#%24sel%3AdryRun%3AModifyVpcTenancy%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AvpcId%3AModifyVpcTenancy%27"><span class="annot"><span class="annottext">ModifyVpcTenancy -&gt; Text
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#%24sel%3AvpcId%3AModifyVpcTenancy%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The instance tenancy attribute for the VPC.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AinstanceTenancy%3AModifyVpcTenancy%27"><span class="annot"><span class="annottext">ModifyVpcTenancy -&gt; VpcTenancy
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#%24sel%3AinstanceTenancy%3AModifyVpcTenancy%27"><span class="hs-identifier hs-var hs-var">instanceTenancy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcTenancy.html#VpcTenancy"><span class="hs-identifier hs-type">VpcTenancy</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681178445"><span id="local-6989586621681178447"><span class="annot"><span class="annottext">ModifyVpcTenancy -&gt; ModifyVpcTenancy -&gt; Bool
+(ModifyVpcTenancy -&gt; ModifyVpcTenancy -&gt; Bool)
+-&gt; (ModifyVpcTenancy -&gt; ModifyVpcTenancy -&gt; Bool)
+-&gt; Eq ModifyVpcTenancy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyVpcTenancy -&gt; ModifyVpcTenancy -&gt; Bool
+$c/= :: ModifyVpcTenancy -&gt; ModifyVpcTenancy -&gt; Bool
+== :: ModifyVpcTenancy -&gt; ModifyVpcTenancy -&gt; Bool
+$c== :: ModifyVpcTenancy -&gt; ModifyVpcTenancy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681178436"><span id="local-6989586621681178438"><span id="local-6989586621681178440"><span id="local-6989586621681178442"><span class="annot"><span class="annottext">ReadPrec [ModifyVpcTenancy]
+ReadPrec ModifyVpcTenancy
+Int -&gt; ReadS ModifyVpcTenancy
+ReadS [ModifyVpcTenancy]
+(Int -&gt; ReadS ModifyVpcTenancy)
+-&gt; ReadS [ModifyVpcTenancy]
+-&gt; ReadPrec ModifyVpcTenancy
+-&gt; ReadPrec [ModifyVpcTenancy]
+-&gt; Read ModifyVpcTenancy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyVpcTenancy]
+$creadListPrec :: ReadPrec [ModifyVpcTenancy]
+readPrec :: ReadPrec ModifyVpcTenancy
+$creadPrec :: ReadPrec ModifyVpcTenancy
+readList :: ReadS [ModifyVpcTenancy]
+$creadList :: ReadS [ModifyVpcTenancy]
+readsPrec :: Int -&gt; ReadS ModifyVpcTenancy
+$creadsPrec :: Int -&gt; ReadS ModifyVpcTenancy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681178429"><span id="local-6989586621681178431"><span id="local-6989586621681178433"><span class="annot"><span class="annottext">Int -&gt; ModifyVpcTenancy -&gt; ShowS
+[ModifyVpcTenancy] -&gt; ShowS
+ModifyVpcTenancy -&gt; String
+(Int -&gt; ModifyVpcTenancy -&gt; ShowS)
+-&gt; (ModifyVpcTenancy -&gt; String)
+-&gt; ([ModifyVpcTenancy] -&gt; ShowS)
+-&gt; Show ModifyVpcTenancy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyVpcTenancy] -&gt; ShowS
+$cshowList :: [ModifyVpcTenancy] -&gt; ShowS
+show :: ModifyVpcTenancy -&gt; String
+$cshow :: ModifyVpcTenancy -&gt; String
+showsPrec :: Int -&gt; ModifyVpcTenancy -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyVpcTenancy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ModifyVpcTenancy -&gt; Rep ModifyVpcTenancy x)
+-&gt; (forall x. Rep ModifyVpcTenancy x -&gt; ModifyVpcTenancy)
+-&gt; Generic ModifyVpcTenancy
+forall x. Rep ModifyVpcTenancy x -&gt; ModifyVpcTenancy
+forall x. ModifyVpcTenancy -&gt; Rep ModifyVpcTenancy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModifyVpcTenancy x -&gt; ModifyVpcTenancy
+$cfrom :: forall x. ModifyVpcTenancy -&gt; Rep ModifyVpcTenancy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'ModifyVpcTenancy' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'dryRun', 'modifyVpcTenancy_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'vpcId', 'modifyVpcTenancy_vpcId' - The ID of the VPC.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'instanceTenancy', 'modifyVpcTenancy_instanceTenancy' - The instance tenancy attribute for the VPC.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#newModifyVpcTenancy"><span class="hs-identifier hs-type">newModifyVpcTenancy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'vpcId'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'instanceTenancy'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcTenancy.html#VpcTenancy"><span class="hs-identifier hs-type">VpcTenancy</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy"><span class="hs-identifier hs-type">ModifyVpcTenancy</span></a></span><span>
+</span><span id="line-98"></span><span id="newModifyVpcTenancy"><span class="annot"><span class="annottext">newModifyVpcTenancy :: Text -&gt; VpcTenancy -&gt; ModifyVpcTenancy
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#newModifyVpcTenancy"><span class="hs-identifier hs-var hs-var">newModifyVpcTenancy</span></a></span></span><span> </span><span id="local-6989586621681178424"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681178424"><span class="hs-identifier hs-var">pVpcId_</span></a></span></span><span> </span><span id="local-6989586621681178423"><span class="annot"><span class="annottext">VpcTenancy
+</span><a href="#local-6989586621681178423"><span class="hs-identifier hs-var">pInstanceTenancy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">ModifyVpcTenancy' :: Maybe Bool -&gt; Text -&gt; VpcTenancy -&gt; ModifyVpcTenancy
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy%27"><span class="hs-identifier hs-type">ModifyVpcTenancy'</span></a></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:ModifyVpcTenancy' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#%24sel%3AdryRun%3AModifyVpcTenancy%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:ModifyVpcTenancy' :: Text
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#%24sel%3AvpcId%3AModifyVpcTenancy%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681178424"><span class="hs-identifier hs-var">pVpcId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceTenancy:ModifyVpcTenancy' :: VpcTenancy
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#%24sel%3AinstanceTenancy%3AModifyVpcTenancy%27"><span class="hs-identifier hs-var">instanceTenancy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VpcTenancy
+</span><a href="#local-6989586621681178423"><span class="hs-identifier hs-var">pInstanceTenancy_</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#modifyVpcTenancy_dryRun"><span class="hs-identifier hs-type">modifyVpcTenancy_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy"><span class="hs-identifier hs-type">ModifyVpcTenancy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="modifyVpcTenancy_dryRun"><span class="annot"><span class="annottext">modifyVpcTenancy_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ModifyVpcTenancy -&gt; f ModifyVpcTenancy
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#modifyVpcTenancy_dryRun"><span class="hs-identifier hs-var hs-var">modifyVpcTenancy_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpcTenancy -&gt; Maybe Bool)
+-&gt; (ModifyVpcTenancy -&gt; Maybe Bool -&gt; ModifyVpcTenancy)
+-&gt; Lens ModifyVpcTenancy ModifyVpcTenancy (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy%27"><span class="hs-identifier hs-type">ModifyVpcTenancy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681178420"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ModifyVpcTenancy' :: ModifyVpcTenancy -&gt; Maybe Bool
+</span><a href="#local-6989586621681178420"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681178420"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681178419"><span class="annot"><span class="annottext">s :: ModifyVpcTenancy
+</span><a href="#local-6989586621681178419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy%27"><span class="hs-identifier hs-type">ModifyVpcTenancy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681178418"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681178418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcTenancy
+</span><a href="#local-6989586621681178419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyVpcTenancy' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#%24sel%3AdryRun%3AModifyVpcTenancy%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681178418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy"><span class="hs-identifier hs-type">ModifyVpcTenancy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The ID of the VPC.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#modifyVpcTenancy_vpcId"><span class="hs-identifier hs-type">modifyVpcTenancy_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy"><span class="hs-identifier hs-type">ModifyVpcTenancy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="modifyVpcTenancy_vpcId"><span class="annot"><span class="annottext">modifyVpcTenancy_vpcId :: (Text -&gt; f Text) -&gt; ModifyVpcTenancy -&gt; f ModifyVpcTenancy
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#modifyVpcTenancy_vpcId"><span class="hs-identifier hs-var hs-var">modifyVpcTenancy_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpcTenancy -&gt; Text)
+-&gt; (ModifyVpcTenancy -&gt; Text -&gt; ModifyVpcTenancy)
+-&gt; Lens ModifyVpcTenancy ModifyVpcTenancy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy%27"><span class="hs-identifier hs-type">ModifyVpcTenancy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681178417"><span class="annot"><span class="annottext">Text
+vpcId :: Text
+$sel:vpcId:ModifyVpcTenancy' :: ModifyVpcTenancy -&gt; Text
+</span><a href="#local-6989586621681178417"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681178417"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681178416"><span class="annot"><span class="annottext">s :: ModifyVpcTenancy
+</span><a href="#local-6989586621681178416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy%27"><span class="hs-identifier hs-type">ModifyVpcTenancy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681178415"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681178415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcTenancy
+</span><a href="#local-6989586621681178416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:ModifyVpcTenancy' :: Text
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#%24sel%3AvpcId%3AModifyVpcTenancy%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681178415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy"><span class="hs-identifier hs-type">ModifyVpcTenancy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The instance tenancy attribute for the VPC.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#modifyVpcTenancy_instanceTenancy"><span class="hs-identifier hs-type">modifyVpcTenancy_instanceTenancy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy"><span class="hs-identifier hs-type">ModifyVpcTenancy</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcTenancy.html#VpcTenancy"><span class="hs-identifier hs-type">VpcTenancy</span></a></span><span>
+</span><span id="line-118"></span><span id="modifyVpcTenancy_instanceTenancy"><span class="annot"><span class="annottext">modifyVpcTenancy_instanceTenancy :: (VpcTenancy -&gt; f VpcTenancy)
+-&gt; ModifyVpcTenancy -&gt; f ModifyVpcTenancy
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#modifyVpcTenancy_instanceTenancy"><span class="hs-identifier hs-var hs-var">modifyVpcTenancy_instanceTenancy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpcTenancy -&gt; VpcTenancy)
+-&gt; (ModifyVpcTenancy -&gt; VpcTenancy -&gt; ModifyVpcTenancy)
+-&gt; Lens ModifyVpcTenancy ModifyVpcTenancy VpcTenancy VpcTenancy
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy%27"><span class="hs-identifier hs-type">ModifyVpcTenancy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681178414"><span class="annot"><span class="annottext">VpcTenancy
+instanceTenancy :: VpcTenancy
+$sel:instanceTenancy:ModifyVpcTenancy' :: ModifyVpcTenancy -&gt; VpcTenancy
+</span><a href="#local-6989586621681178414"><span class="hs-identifier hs-var hs-var">instanceTenancy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcTenancy
+</span><a href="#local-6989586621681178414"><span class="hs-identifier hs-var">instanceTenancy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681178413"><span class="annot"><span class="annottext">s :: ModifyVpcTenancy
+</span><a href="#local-6989586621681178413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy%27"><span class="hs-identifier hs-type">ModifyVpcTenancy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681178412"><span class="annot"><span class="annottext">VpcTenancy
+</span><a href="#local-6989586621681178412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcTenancy
+</span><a href="#local-6989586621681178413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceTenancy:ModifyVpcTenancy' :: VpcTenancy
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#%24sel%3AinstanceTenancy%3AModifyVpcTenancy%27"><span class="hs-identifier hs-var">instanceTenancy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VpcTenancy
+</span><a href="#local-6989586621681178412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy"><span class="hs-identifier hs-type">ModifyVpcTenancy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy"><span class="hs-identifier hs-type">ModifyVpcTenancy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy"><span class="hs-identifier hs-type">ModifyVpcTenancy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancyResponse"><span class="hs-identifier hs-type">ModifyVpcTenancyResponse</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621681178408"><span class="annot"><span class="annottext">request :: ModifyVpcTenancy -&gt; Request ModifyVpcTenancy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyVpcTenancy -&gt; Request ModifyVpcTenancy
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621681178404"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ModifyVpcTenancy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ModifyVpcTenancy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse ModifyVpcTenancy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ModifyVpcTenancy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ModifyVpcTenancy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681178401"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681178401"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681178400"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681178400"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681178399"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681178399"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Int -&gt; ModifyVpcTenancyResponse
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancyResponse%27"><span class="hs-identifier hs-var">ModifyVpcTenancyResponse'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Int -&gt; ModifyVpcTenancyResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; ModifyVpcTenancyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681178399"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;return&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ModifyVpcTenancyResponse)
+-&gt; Either String Int -&gt; Either String ModifyVpcTenancyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681178401"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681178391"><span id="local-6989586621681178393"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy"><span class="hs-identifier hs-type">ModifyVpcTenancy</span></a></span></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681178388"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy"><span class="hs-identifier hs-type">ModifyVpcTenancy</span></a></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy"><span class="hs-identifier hs-type">ModifyVpcTenancy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621681178384"><span class="annot"><span class="annottext">toHeaders :: ModifyVpcTenancy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyVpcTenancy -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy"><span class="hs-identifier hs-type">ModifyVpcTenancy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621681178379"><span class="annot"><span class="annottext">toPath :: ModifyVpcTenancy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyVpcTenancy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy"><span class="hs-identifier hs-type">ModifyVpcTenancy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621681178375"><span class="annot"><span class="annottext">toQuery :: ModifyVpcTenancy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancy%27"><span class="hs-identifier hs-type">ModifyVpcTenancy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681178371"><span id="local-6989586621681178372"><span id="local-6989586621681178373"><span class="annot"><span class="annottext">Maybe Bool
+Text
+VpcTenancy
+instanceTenancy :: VpcTenancy
+vpcId :: Text
+dryRun :: Maybe Bool
+$sel:instanceTenancy:ModifyVpcTenancy' :: ModifyVpcTenancy -&gt; VpcTenancy
+$sel:vpcId:ModifyVpcTenancy' :: ModifyVpcTenancy -&gt; Text
+$sel:dryRun:ModifyVpcTenancy' :: ModifyVpcTenancy -&gt; Maybe Bool
+</span><a href="#local-6989586621681178371"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ModifyVpcTenancy&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681178373"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VpcId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681178372"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InstanceTenancy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; VpcTenancy -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">VpcTenancy
+</span><a href="#local-6989586621681178371"><span class="hs-identifier hs-var">instanceTenancy</span></a></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | /See:/ 'newModifyVpcTenancyResponse' smart constructor.</span><span>
+</span><span id="line-156"></span><span id="local-6989586621681178368"><span id="local-6989586621681178369"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVpcTenancyResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancyResponse"><span class="hs-identifier hs-var">ModifyVpcTenancyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVpcTenancyResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancyResponse%27"><span class="hs-identifier hs-var">ModifyVpcTenancyResponse'</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns @true@ if the request succeeds; otherwise, returns an error.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AreturnValue%3AModifyVpcTenancyResponse%27"><span class="annot"><span class="annottext">ModifyVpcTenancyResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#%24sel%3AreturnValue%3AModifyVpcTenancyResponse%27"><span class="hs-identifier hs-var hs-var">returnValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyVpcTenancyResponse%27"><span class="annot"><span class="annottext">ModifyVpcTenancyResponse -&gt; Int
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#%24sel%3AhttpStatus%3AModifyVpcTenancyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681178362"><span id="local-6989586621681178364"><span class="annot"><span class="annottext">ModifyVpcTenancyResponse -&gt; ModifyVpcTenancyResponse -&gt; Bool
+(ModifyVpcTenancyResponse -&gt; ModifyVpcTenancyResponse -&gt; Bool)
+-&gt; (ModifyVpcTenancyResponse -&gt; ModifyVpcTenancyResponse -&gt; Bool)
+-&gt; Eq ModifyVpcTenancyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyVpcTenancyResponse -&gt; ModifyVpcTenancyResponse -&gt; Bool
+$c/= :: ModifyVpcTenancyResponse -&gt; ModifyVpcTenancyResponse -&gt; Bool
+== :: ModifyVpcTenancyResponse -&gt; ModifyVpcTenancyResponse -&gt; Bool
+$c== :: ModifyVpcTenancyResponse -&gt; ModifyVpcTenancyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681178354"><span id="local-6989586621681178356"><span id="local-6989586621681178358"><span id="local-6989586621681178360"><span class="annot"><span class="annottext">ReadPrec [ModifyVpcTenancyResponse]
+ReadPrec ModifyVpcTenancyResponse
+Int -&gt; ReadS ModifyVpcTenancyResponse
+ReadS [ModifyVpcTenancyResponse]
+(Int -&gt; ReadS ModifyVpcTenancyResponse)
+-&gt; ReadS [ModifyVpcTenancyResponse]
+-&gt; ReadPrec ModifyVpcTenancyResponse
+-&gt; ReadPrec [ModifyVpcTenancyResponse]
+-&gt; Read ModifyVpcTenancyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyVpcTenancyResponse]
+$creadListPrec :: ReadPrec [ModifyVpcTenancyResponse]
+readPrec :: ReadPrec ModifyVpcTenancyResponse
+$creadPrec :: ReadPrec ModifyVpcTenancyResponse
+readList :: ReadS [ModifyVpcTenancyResponse]
+$creadList :: ReadS [ModifyVpcTenancyResponse]
+readsPrec :: Int -&gt; ReadS ModifyVpcTenancyResponse
+$creadsPrec :: Int -&gt; ReadS ModifyVpcTenancyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681178348"><span id="local-6989586621681178350"><span id="local-6989586621681178352"><span class="annot"><span class="annottext">Int -&gt; ModifyVpcTenancyResponse -&gt; ShowS
+[ModifyVpcTenancyResponse] -&gt; ShowS
+ModifyVpcTenancyResponse -&gt; String
+(Int -&gt; ModifyVpcTenancyResponse -&gt; ShowS)
+-&gt; (ModifyVpcTenancyResponse -&gt; String)
+-&gt; ([ModifyVpcTenancyResponse] -&gt; ShowS)
+-&gt; Show ModifyVpcTenancyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyVpcTenancyResponse] -&gt; ShowS
+$cshowList :: [ModifyVpcTenancyResponse] -&gt; ShowS
+show :: ModifyVpcTenancyResponse -&gt; String
+$cshow :: ModifyVpcTenancyResponse -&gt; String
+showsPrec :: Int -&gt; ModifyVpcTenancyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyVpcTenancyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModifyVpcTenancyResponse -&gt; Rep ModifyVpcTenancyResponse x)
+-&gt; (forall x.
+    Rep ModifyVpcTenancyResponse x -&gt; ModifyVpcTenancyResponse)
+-&gt; Generic ModifyVpcTenancyResponse
+forall x.
+Rep ModifyVpcTenancyResponse x -&gt; ModifyVpcTenancyResponse
+forall x.
+ModifyVpcTenancyResponse -&gt; Rep ModifyVpcTenancyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModifyVpcTenancyResponse x -&gt; ModifyVpcTenancyResponse
+$cfrom :: forall x.
+ModifyVpcTenancyResponse -&gt; Rep ModifyVpcTenancyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Create a value of 'ModifyVpcTenancyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'returnValue', 'modifyVpcTenancyResponse_returnValue' - Returns @true@ if the request succeeds; otherwise, returns an error.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'httpStatus', 'modifyVpcTenancyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#newModifyVpcTenancyResponse"><span class="hs-identifier hs-type">newModifyVpcTenancyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancyResponse"><span class="hs-identifier hs-type">ModifyVpcTenancyResponse</span></a></span><span>
+</span><span id="line-179"></span><span id="newModifyVpcTenancyResponse"><span class="annot"><span class="annottext">newModifyVpcTenancyResponse :: Int -&gt; ModifyVpcTenancyResponse
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#newModifyVpcTenancyResponse"><span class="hs-identifier hs-var hs-var">newModifyVpcTenancyResponse</span></a></span></span><span> </span><span id="local-6989586621681178345"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681178345"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">ModifyVpcTenancyResponse' :: Maybe Bool -&gt; Int -&gt; ModifyVpcTenancyResponse
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancyResponse%27"><span class="hs-identifier hs-type">ModifyVpcTenancyResponse'</span></a></span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:returnValue:ModifyVpcTenancyResponse' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#%24sel%3AreturnValue%3AModifyVpcTenancyResponse%27"><span class="hs-identifier hs-var">returnValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyVpcTenancyResponse' :: Int
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#%24sel%3AhttpStatus%3AModifyVpcTenancyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681178345"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | Returns @true@ if the request succeeds; otherwise, returns an error.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#modifyVpcTenancyResponse_returnValue"><span class="hs-identifier hs-type">modifyVpcTenancyResponse_returnValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancyResponse"><span class="hs-identifier hs-type">ModifyVpcTenancyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="modifyVpcTenancyResponse_returnValue"><span class="annot"><span class="annottext">modifyVpcTenancyResponse_returnValue :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ModifyVpcTenancyResponse -&gt; f ModifyVpcTenancyResponse
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#modifyVpcTenancyResponse_returnValue"><span class="hs-identifier hs-var hs-var">modifyVpcTenancyResponse_returnValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpcTenancyResponse -&gt; Maybe Bool)
+-&gt; (ModifyVpcTenancyResponse
+    -&gt; Maybe Bool -&gt; ModifyVpcTenancyResponse)
+-&gt; Lens
+     ModifyVpcTenancyResponse
+     ModifyVpcTenancyResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancyResponse%27"><span class="hs-identifier hs-type">ModifyVpcTenancyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681178344"><span class="annot"><span class="annottext">Maybe Bool
+returnValue :: Maybe Bool
+$sel:returnValue:ModifyVpcTenancyResponse' :: ModifyVpcTenancyResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621681178344"><span class="hs-identifier hs-var hs-var">returnValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681178344"><span class="hs-identifier hs-var">returnValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681178343"><span class="annot"><span class="annottext">s :: ModifyVpcTenancyResponse
+</span><a href="#local-6989586621681178343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancyResponse%27"><span class="hs-identifier hs-type">ModifyVpcTenancyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681178342"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681178342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcTenancyResponse
+</span><a href="#local-6989586621681178343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnValue:ModifyVpcTenancyResponse' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#%24sel%3AreturnValue%3AModifyVpcTenancyResponse%27"><span class="hs-identifier hs-var">returnValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681178342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancyResponse"><span class="hs-identifier hs-type">ModifyVpcTenancyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#modifyVpcTenancyResponse_httpStatus"><span class="hs-identifier hs-type">modifyVpcTenancyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancyResponse"><span class="hs-identifier hs-type">ModifyVpcTenancyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-192"></span><span id="modifyVpcTenancyResponse_httpStatus"><span class="annot"><span class="annottext">modifyVpcTenancyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ModifyVpcTenancyResponse -&gt; f ModifyVpcTenancyResponse
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#modifyVpcTenancyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">modifyVpcTenancyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpcTenancyResponse -&gt; Int)
+-&gt; (ModifyVpcTenancyResponse -&gt; Int -&gt; ModifyVpcTenancyResponse)
+-&gt; Lens ModifyVpcTenancyResponse ModifyVpcTenancyResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancyResponse%27"><span class="hs-identifier hs-type">ModifyVpcTenancyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681178341"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ModifyVpcTenancyResponse' :: ModifyVpcTenancyResponse -&gt; Int
+</span><a href="#local-6989586621681178341"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681178341"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681178340"><span class="annot"><span class="annottext">s :: ModifyVpcTenancyResponse
+</span><a href="#local-6989586621681178340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancyResponse%27"><span class="hs-identifier hs-type">ModifyVpcTenancyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681178339"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681178339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcTenancyResponse
+</span><a href="#local-6989586621681178340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyVpcTenancyResponse' :: Int
+</span><a href="Network.AWS.EC2.ModifyVpcTenancy.html#%24sel%3AhttpStatus%3AModifyVpcTenancyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681178339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancyResponse"><span class="hs-identifier hs-type">ModifyVpcTenancyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681178337"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcTenancy.html#ModifyVpcTenancyResponse"><span class="hs-identifier hs-type">ModifyVpcTenancyResponse</span></a></span></span><span>
+</span><span id="line-195"></span></pre></body></html>

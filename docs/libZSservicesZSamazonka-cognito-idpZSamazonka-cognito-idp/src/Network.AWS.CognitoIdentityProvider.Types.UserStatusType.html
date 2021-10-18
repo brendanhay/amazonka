@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoIdentityProvider.Types.UserStatusType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.UserStatusType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType"><span class="hs-identifier">UserStatusType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_ARCHIVED"><span class="hs-identifier">UserStatusType_ARCHIVED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_COMPROMISED"><span class="hs-identifier">UserStatusType_COMPROMISED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_CONFIRMED"><span class="hs-identifier">UserStatusType_CONFIRMED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_FORCE_CHANGE_PASSWORD"><span class="hs-identifier">UserStatusType_FORCE_CHANGE_PASSWORD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_RESET_REQUIRED"><span class="hs-identifier">UserStatusType_RESET_REQUIRED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_UNCONFIRMED"><span class="hs-identifier">UserStatusType_UNCONFIRMED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_UNKNOWN"><span class="hs-identifier">UserStatusType_UNKNOWN</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679436446"><span id="local-6989586621679436447"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UserStatusType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType"><span class="hs-identifier hs-var">UserStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserStatusType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType%27"><span class="hs-identifier hs-var">UserStatusType'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUserStatusType"><span class="annot"><span class="annottext">UserStatusType -&gt; Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#fromUserStatusType"><span class="hs-identifier hs-var hs-var">fromUserStatusType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436438"><span id="local-6989586621679436440"><span id="local-6989586621679436442"><span class="annot"><span class="annottext">Int -&gt; UserStatusType -&gt; ShowS
+[UserStatusType] -&gt; ShowS
+UserStatusType -&gt; String
+(Int -&gt; UserStatusType -&gt; ShowS)
+-&gt; (UserStatusType -&gt; String)
+-&gt; ([UserStatusType] -&gt; ShowS)
+-&gt; Show UserStatusType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UserStatusType] -&gt; ShowS
+$cshowList :: [UserStatusType] -&gt; ShowS
+show :: UserStatusType -&gt; String
+$cshow :: UserStatusType -&gt; String
+showsPrec :: Int -&gt; UserStatusType -&gt; ShowS
+$cshowsPrec :: Int -&gt; UserStatusType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679436429"><span id="local-6989586621679436431"><span id="local-6989586621679436433"><span id="local-6989586621679436435"><span class="annot"><span class="annottext">ReadPrec [UserStatusType]
+ReadPrec UserStatusType
+Int -&gt; ReadS UserStatusType
+ReadS [UserStatusType]
+(Int -&gt; ReadS UserStatusType)
+-&gt; ReadS [UserStatusType]
+-&gt; ReadPrec UserStatusType
+-&gt; ReadPrec [UserStatusType]
+-&gt; Read UserStatusType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UserStatusType]
+$creadListPrec :: ReadPrec [UserStatusType]
+readPrec :: ReadPrec UserStatusType
+$creadPrec :: ReadPrec UserStatusType
+readList :: ReadS [UserStatusType]
+$creadList :: ReadS [UserStatusType]
+readsPrec :: Int -&gt; ReadS UserStatusType
+$creadsPrec :: Int -&gt; ReadS UserStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679436424"><span id="local-6989586621679436426"><span class="annot"><span class="annottext">UserStatusType -&gt; UserStatusType -&gt; Bool
+(UserStatusType -&gt; UserStatusType -&gt; Bool)
+-&gt; (UserStatusType -&gt; UserStatusType -&gt; Bool) -&gt; Eq UserStatusType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UserStatusType -&gt; UserStatusType -&gt; Bool
+$c/= :: UserStatusType -&gt; UserStatusType -&gt; Bool
+== :: UserStatusType -&gt; UserStatusType -&gt; Bool
+$c== :: UserStatusType -&gt; UserStatusType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679436408"><span id="local-6989586621679436410"><span id="local-6989586621679436412"><span id="local-6989586621679436414"><span id="local-6989586621679436416"><span id="local-6989586621679436418"><span id="local-6989586621679436420"><span class="annot"><span class="annottext">Eq UserStatusType
+Eq UserStatusType
+-&gt; (UserStatusType -&gt; UserStatusType -&gt; Ordering)
+-&gt; (UserStatusType -&gt; UserStatusType -&gt; Bool)
+-&gt; (UserStatusType -&gt; UserStatusType -&gt; Bool)
+-&gt; (UserStatusType -&gt; UserStatusType -&gt; Bool)
+-&gt; (UserStatusType -&gt; UserStatusType -&gt; Bool)
+-&gt; (UserStatusType -&gt; UserStatusType -&gt; UserStatusType)
+-&gt; (UserStatusType -&gt; UserStatusType -&gt; UserStatusType)
+-&gt; Ord UserStatusType
+UserStatusType -&gt; UserStatusType -&gt; Bool
+UserStatusType -&gt; UserStatusType -&gt; Ordering
+UserStatusType -&gt; UserStatusType -&gt; UserStatusType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: UserStatusType -&gt; UserStatusType -&gt; UserStatusType
+$cmin :: UserStatusType -&gt; UserStatusType -&gt; UserStatusType
+max :: UserStatusType -&gt; UserStatusType -&gt; UserStatusType
+$cmax :: UserStatusType -&gt; UserStatusType -&gt; UserStatusType
+&gt;= :: UserStatusType -&gt; UserStatusType -&gt; Bool
+$c&gt;= :: UserStatusType -&gt; UserStatusType -&gt; Bool
+&gt; :: UserStatusType -&gt; UserStatusType -&gt; Bool
+$c&gt; :: UserStatusType -&gt; UserStatusType -&gt; Bool
+&lt;= :: UserStatusType -&gt; UserStatusType -&gt; Bool
+$c&lt;= :: UserStatusType -&gt; UserStatusType -&gt; Bool
+&lt; :: UserStatusType -&gt; UserStatusType -&gt; Bool
+$c&lt; :: UserStatusType -&gt; UserStatusType -&gt; Bool
+compare :: UserStatusType -&gt; UserStatusType -&gt; Ordering
+$ccompare :: UserStatusType -&gt; UserStatusType -&gt; Ordering
+$cp1Ord :: Eq UserStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. UserStatusType -&gt; Rep UserStatusType x)
+-&gt; (forall x. Rep UserStatusType x -&gt; UserStatusType)
+-&gt; Generic UserStatusType
+forall x. Rep UserStatusType x -&gt; UserStatusType
+forall x. UserStatusType -&gt; Rep UserStatusType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UserStatusType x -&gt; UserStatusType
+$cfrom :: forall x. UserStatusType -&gt; Rep UserStatusType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436400"><span id="local-6989586621679436402"><span class="annot"><span class="annottext">Int -&gt; UserStatusType -&gt; Int
+UserStatusType -&gt; Int
+(Int -&gt; UserStatusType -&gt; Int)
+-&gt; (UserStatusType -&gt; Int) -&gt; Hashable UserStatusType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: UserStatusType -&gt; Int
+$chash :: UserStatusType -&gt; Int
+hashWithSalt :: Int -&gt; UserStatusType -&gt; Int
+$chashWithSalt :: Int -&gt; UserStatusType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679436397"><span class="annot"><span class="annottext">UserStatusType -&gt; ()
+(UserStatusType -&gt; ()) -&gt; NFData UserStatusType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: UserStatusType -&gt; ()
+$crnf :: UserStatusType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679436394"><span class="annot"><span class="annottext">Text -&gt; Either String UserStatusType
+(Text -&gt; Either String UserStatusType) -&gt; FromText UserStatusType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String UserStatusType
+$cfromText :: Text -&gt; Either String UserStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679436391"><span class="annot"><span class="annottext">UserStatusType -&gt; Text
+(UserStatusType -&gt; Text) -&gt; ToText UserStatusType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: UserStatusType -&gt; Text
+$ctoText :: UserStatusType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679436388"><span class="annot"><span class="annottext">UserStatusType -&gt; ByteString
+(UserStatusType -&gt; ByteString) -&gt; ToByteString UserStatusType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: UserStatusType -&gt; ByteString
+$ctoBS :: UserStatusType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679436385"><span class="annot"><span class="annottext">UserStatusType -&gt; ByteStringBuilder
+(UserStatusType -&gt; ByteStringBuilder) -&gt; ToLog UserStatusType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: UserStatusType -&gt; ByteStringBuilder
+$cbuild :: UserStatusType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679436382"><span class="annot"><span class="annottext">HeaderName -&gt; UserStatusType -&gt; [Header]
+(HeaderName -&gt; UserStatusType -&gt; [Header])
+-&gt; ToHeader UserStatusType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; UserStatusType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; UserStatusType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679436379"><span class="annot"><span class="annottext">UserStatusType -&gt; QueryString
+(UserStatusType -&gt; QueryString) -&gt; ToQuery UserStatusType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: UserStatusType -&gt; QueryString
+$ctoQuery :: UserStatusType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679436374"><span id="local-6989586621679436376"><span class="annot"><span class="annottext">Value -&gt; Parser [UserStatusType]
+Value -&gt; Parser UserStatusType
+(Value -&gt; Parser UserStatusType)
+-&gt; (Value -&gt; Parser [UserStatusType]) -&gt; FromJSON UserStatusType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [UserStatusType]
+$cparseJSONList :: Value -&gt; Parser [UserStatusType]
+parseJSON :: Value -&gt; Parser UserStatusType
+$cparseJSON :: Value -&gt; Parser UserStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679436369"><span id="local-6989586621679436371"><span class="annot"><span class="annottext">FromJSONKeyFunction [UserStatusType]
+FromJSONKeyFunction UserStatusType
+FromJSONKeyFunction UserStatusType
+-&gt; FromJSONKeyFunction [UserStatusType]
+-&gt; FromJSONKey UserStatusType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [UserStatusType]
+$cfromJSONKeyList :: FromJSONKeyFunction [UserStatusType]
+fromJSONKey :: FromJSONKeyFunction UserStatusType
+$cfromJSONKey :: FromJSONKeyFunction UserStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679436360"><span id="local-6989586621679436362"><span id="local-6989586621679436364"><span id="local-6989586621679436366"><span class="annot"><span class="annottext">[UserStatusType] -&gt; Encoding
+[UserStatusType] -&gt; Value
+UserStatusType -&gt; Encoding
+UserStatusType -&gt; Value
+(UserStatusType -&gt; Value)
+-&gt; (UserStatusType -&gt; Encoding)
+-&gt; ([UserStatusType] -&gt; Value)
+-&gt; ([UserStatusType] -&gt; Encoding)
+-&gt; ToJSON UserStatusType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [UserStatusType] -&gt; Encoding
+$ctoEncodingList :: [UserStatusType] -&gt; Encoding
+toJSONList :: [UserStatusType] -&gt; Value
+$ctoJSONList :: [UserStatusType] -&gt; Value
+toEncoding :: UserStatusType -&gt; Encoding
+$ctoEncoding :: UserStatusType -&gt; Encoding
+toJSON :: UserStatusType -&gt; Value
+$ctoJSON :: UserStatusType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679436355"><span id="local-6989586621679436357"><span class="annot"><span class="annottext">ToJSONKeyFunction [UserStatusType]
+ToJSONKeyFunction UserStatusType
+ToJSONKeyFunction UserStatusType
+-&gt; ToJSONKeyFunction [UserStatusType] -&gt; ToJSONKey UserStatusType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [UserStatusType]
+$ctoJSONKeyList :: ToJSONKeyFunction [UserStatusType]
+toJSONKey :: ToJSONKeyFunction UserStatusType
+$ctoJSONKey :: ToJSONKeyFunction UserStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679436352"><span class="annot"><span class="annottext">[Node] -&gt; Either String UserStatusType
+([Node] -&gt; Either String UserStatusType) -&gt; FromXML UserStatusType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String UserStatusType
+$cparseXML :: [Node] -&gt; Either String UserStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679436349"><span class="annot"><span class="annottext">UserStatusType -&gt; XML
+(UserStatusType -&gt; XML) -&gt; ToXML UserStatusType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: UserStatusType -&gt; XML
+$ctoXML :: UserStatusType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_ARCHIVED"><span class="hs-identifier hs-type">UserStatusType_ARCHIVED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType"><span class="hs-identifier hs-type">UserStatusType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserStatusType_ARCHIVED"><span id="%24mUserStatusType_ARCHIVED"><span id="UserStatusType_ARCHIVED"><span class="annot"><span class="annottext">$bUserStatusType_ARCHIVED :: UserStatusType
+$mUserStatusType_ARCHIVED :: forall r. UserStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#%24bUserStatusType_ARCHIVED"><span class="hs-identifier hs-var hs-var hs-var">UserStatusType_ARCHIVED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType%27"><span class="hs-identifier hs-type">UserStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ARCHIVED&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_COMPROMISED"><span class="hs-identifier hs-type">UserStatusType_COMPROMISED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType"><span class="hs-identifier hs-type">UserStatusType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserStatusType_COMPROMISED"><span id="%24mUserStatusType_COMPROMISED"><span id="UserStatusType_COMPROMISED"><span class="annot"><span class="annottext">$bUserStatusType_COMPROMISED :: UserStatusType
+$mUserStatusType_COMPROMISED :: forall r. UserStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#%24bUserStatusType_COMPROMISED"><span class="hs-identifier hs-var hs-var hs-var">UserStatusType_COMPROMISED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType%27"><span class="hs-identifier hs-type">UserStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPROMISED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_CONFIRMED"><span class="hs-identifier hs-type">UserStatusType_CONFIRMED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType"><span class="hs-identifier hs-type">UserStatusType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserStatusType_CONFIRMED"><span id="%24mUserStatusType_CONFIRMED"><span id="UserStatusType_CONFIRMED"><span class="annot"><span class="annottext">$bUserStatusType_CONFIRMED :: UserStatusType
+$mUserStatusType_CONFIRMED :: forall r. UserStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#%24bUserStatusType_CONFIRMED"><span class="hs-identifier hs-var hs-var hs-var">UserStatusType_CONFIRMED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType%27"><span class="hs-identifier hs-type">UserStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONFIRMED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_FORCE_CHANGE_PASSWORD"><span class="hs-identifier hs-type">UserStatusType_FORCE_CHANGE_PASSWORD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType"><span class="hs-identifier hs-type">UserStatusType</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserStatusType_FORCE_CHANGE_PASSWORD"><span id="%24mUserStatusType_FORCE_CHANGE_PASSWORD"><span id="UserStatusType_FORCE_CHANGE_PASSWORD"><span class="annot"><span class="annottext">$bUserStatusType_FORCE_CHANGE_PASSWORD :: UserStatusType
+$mUserStatusType_FORCE_CHANGE_PASSWORD :: forall r. UserStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#%24bUserStatusType_FORCE_CHANGE_PASSWORD"><span class="hs-identifier hs-var hs-var hs-var">UserStatusType_FORCE_CHANGE_PASSWORD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType%27"><span class="hs-identifier hs-type">UserStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FORCE_CHANGE_PASSWORD&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_RESET_REQUIRED"><span class="hs-identifier hs-type">UserStatusType_RESET_REQUIRED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType"><span class="hs-identifier hs-type">UserStatusType</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserStatusType_RESET_REQUIRED"><span id="%24mUserStatusType_RESET_REQUIRED"><span id="UserStatusType_RESET_REQUIRED"><span class="annot"><span class="annottext">$bUserStatusType_RESET_REQUIRED :: UserStatusType
+$mUserStatusType_RESET_REQUIRED :: forall r. UserStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#%24bUserStatusType_RESET_REQUIRED"><span class="hs-identifier hs-var hs-var hs-var">UserStatusType_RESET_REQUIRED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType%27"><span class="hs-identifier hs-type">UserStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RESET_REQUIRED&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_UNCONFIRMED"><span class="hs-identifier hs-type">UserStatusType_UNCONFIRMED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType"><span class="hs-identifier hs-type">UserStatusType</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserStatusType_UNCONFIRMED"><span id="%24mUserStatusType_UNCONFIRMED"><span id="UserStatusType_UNCONFIRMED"><span class="annot"><span class="annottext">$bUserStatusType_UNCONFIRMED :: UserStatusType
+$mUserStatusType_UNCONFIRMED :: forall r. UserStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#%24bUserStatusType_UNCONFIRMED"><span class="hs-identifier hs-var hs-var hs-var">UserStatusType_UNCONFIRMED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType%27"><span class="hs-identifier hs-type">UserStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNCONFIRMED&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_UNKNOWN"><span class="hs-identifier hs-type">UserStatusType_UNKNOWN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType"><span class="hs-identifier hs-type">UserStatusType</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserStatusType_UNKNOWN"><span id="%24mUserStatusType_UNKNOWN"><span id="UserStatusType_UNKNOWN"><span class="annot"><span class="annottext">$bUserStatusType_UNKNOWN :: UserStatusType
+$mUserStatusType_UNKNOWN :: forall r. UserStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#%24bUserStatusType_UNKNOWN"><span class="hs-identifier hs-var hs-var hs-var">UserStatusType_UNKNOWN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType%27"><span class="hs-identifier hs-type">UserStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNKNOWN&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_ARCHIVED"><span class="hs-pragma hs-type">UserStatusType_ARCHIVED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_COMPROMISED"><span class="hs-pragma hs-type">UserStatusType_COMPROMISED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_CONFIRMED"><span class="hs-pragma hs-type">UserStatusType_CONFIRMED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_FORCE_CHANGE_PASSWORD"><span class="hs-pragma hs-type">UserStatusType_FORCE_CHANGE_PASSWORD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_RESET_REQUIRED"><span class="hs-pragma hs-type">UserStatusType_RESET_REQUIRED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_UNCONFIRMED"><span class="hs-pragma hs-type">UserStatusType_UNCONFIRMED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType_UNKNOWN"><span class="hs-pragma hs-type">UserStatusType_UNKNOWN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserStatusType.html#UserStatusType%27"><span class="hs-pragma hs-type">UserStatusType'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

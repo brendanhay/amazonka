@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.XRay.PutEncryptionConfig</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the encryption configuration for X-Ray data.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.XRay.PutEncryptionConfig</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig"><span class="hs-identifier">PutEncryptionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#newPutEncryptionConfig"><span class="hs-identifier">newPutEncryptionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#putEncryptionConfig_keyId"><span class="hs-identifier">putEncryptionConfig_keyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#putEncryptionConfig_type"><span class="hs-identifier">putEncryptionConfig_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfigResponse"><span class="hs-identifier">PutEncryptionConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#newPutEncryptionConfigResponse"><span class="hs-identifier">newPutEncryptionConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#putEncryptionConfigResponse_encryptionConfig"><span class="hs-identifier">putEncryptionConfigResponse_encryptionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#putEncryptionConfigResponse_httpStatus"><span class="hs-identifier">putEncryptionConfigResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.html"><span class="hs-identifier">Network.AWS.XRay.Types</span></a></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newPutEncryptionConfig' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679259296"><span id="local-6989586621679259297"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutEncryptionConfig"><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig"><span class="hs-identifier hs-var">PutEncryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutEncryptionConfig%27"><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig%27"><span class="hs-identifier hs-var">PutEncryptionConfig'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An Amazon Web Services KMS key in one of the following formats:</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   __Alias__ - The name of the key. For example, @alias\/MyKey@.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   __Key ID__ - The KMS key ID of the key. For example,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     @ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@. Amazon Web Services X-Ray</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     does not support asymmetric KMS keys.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   __ARN__ - The full Amazon Resource Name of the key ID or alias. For</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     example,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     @arn:aws:kms:us-east-2:123456789012:key\/ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     Use this format to specify a key in a different account.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Omit this key if you set @Type@ to @NONE@.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AkeyId%3APutEncryptionConfig%27"><span class="annot"><span class="annottext">PutEncryptionConfig -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#%24sel%3AkeyId%3APutEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The type of encryption. Set to @KMS@ to use your own key for encryption.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Set to @NONE@ for default encryption.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Atype%27%3APutEncryptionConfig%27"><span class="annot"><span class="annottext">PutEncryptionConfig -&gt; EncryptionType
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#%24sel%3Atype%27%3APutEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionType.html#EncryptionType"><span class="hs-identifier hs-type">EncryptionType</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259289"><span id="local-6989586621679259291"><span class="annot"><span class="annottext">PutEncryptionConfig -&gt; PutEncryptionConfig -&gt; Bool
+(PutEncryptionConfig -&gt; PutEncryptionConfig -&gt; Bool)
+-&gt; (PutEncryptionConfig -&gt; PutEncryptionConfig -&gt; Bool)
+-&gt; Eq PutEncryptionConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutEncryptionConfig -&gt; PutEncryptionConfig -&gt; Bool
+$c/= :: PutEncryptionConfig -&gt; PutEncryptionConfig -&gt; Bool
+== :: PutEncryptionConfig -&gt; PutEncryptionConfig -&gt; Bool
+$c== :: PutEncryptionConfig -&gt; PutEncryptionConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259280"><span id="local-6989586621679259282"><span id="local-6989586621679259284"><span id="local-6989586621679259286"><span class="annot"><span class="annottext">ReadPrec [PutEncryptionConfig]
+ReadPrec PutEncryptionConfig
+Int -&gt; ReadS PutEncryptionConfig
+ReadS [PutEncryptionConfig]
+(Int -&gt; ReadS PutEncryptionConfig)
+-&gt; ReadS [PutEncryptionConfig]
+-&gt; ReadPrec PutEncryptionConfig
+-&gt; ReadPrec [PutEncryptionConfig]
+-&gt; Read PutEncryptionConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutEncryptionConfig]
+$creadListPrec :: ReadPrec [PutEncryptionConfig]
+readPrec :: ReadPrec PutEncryptionConfig
+$creadPrec :: ReadPrec PutEncryptionConfig
+readList :: ReadS [PutEncryptionConfig]
+$creadList :: ReadS [PutEncryptionConfig]
+readsPrec :: Int -&gt; ReadS PutEncryptionConfig
+$creadsPrec :: Int -&gt; ReadS PutEncryptionConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259273"><span id="local-6989586621679259275"><span id="local-6989586621679259277"><span class="annot"><span class="annottext">Int -&gt; PutEncryptionConfig -&gt; ShowS
+[PutEncryptionConfig] -&gt; ShowS
+PutEncryptionConfig -&gt; String
+(Int -&gt; PutEncryptionConfig -&gt; ShowS)
+-&gt; (PutEncryptionConfig -&gt; String)
+-&gt; ([PutEncryptionConfig] -&gt; ShowS)
+-&gt; Show PutEncryptionConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutEncryptionConfig] -&gt; ShowS
+$cshowList :: [PutEncryptionConfig] -&gt; ShowS
+show :: PutEncryptionConfig -&gt; String
+$cshow :: PutEncryptionConfig -&gt; String
+showsPrec :: Int -&gt; PutEncryptionConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutEncryptionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutEncryptionConfig -&gt; Rep PutEncryptionConfig x)
+-&gt; (forall x. Rep PutEncryptionConfig x -&gt; PutEncryptionConfig)
+-&gt; Generic PutEncryptionConfig
+forall x. Rep PutEncryptionConfig x -&gt; PutEncryptionConfig
+forall x. PutEncryptionConfig -&gt; Rep PutEncryptionConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutEncryptionConfig x -&gt; PutEncryptionConfig
+$cfrom :: forall x. PutEncryptionConfig -&gt; Rep PutEncryptionConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'PutEncryptionConfig' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'keyId', 'putEncryptionConfig_keyId' - An Amazon Web Services KMS key in one of the following formats:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- -   __Alias__ - The name of the key. For example, @alias\/MyKey@.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- -   __Key ID__ - The KMS key ID of the key. For example,</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--     @ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@. Amazon Web Services X-Ray</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--     does not support asymmetric KMS keys.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- -   __ARN__ - The full Amazon Resource Name of the key ID or alias. For</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--     example,</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--     @arn:aws:kms:us-east-2:123456789012:key\/ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--     Use this format to specify a key in a different account.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Omit this key if you set @Type@ to @NONE@.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'type'', 'putEncryptionConfig_type' - The type of encryption. Set to @KMS@ to use your own key for encryption.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Set to @NONE@ for default encryption.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#newPutEncryptionConfig"><span class="hs-identifier hs-type">newPutEncryptionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionType.html#EncryptionType"><span class="hs-identifier hs-type">EncryptionType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig"><span class="hs-identifier hs-type">PutEncryptionConfig</span></a></span><span>
+</span><span id="line-102"></span><span id="newPutEncryptionConfig"><span class="annot"><span class="annottext">newPutEncryptionConfig :: EncryptionType -&gt; PutEncryptionConfig
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#newPutEncryptionConfig"><span class="hs-identifier hs-var hs-var">newPutEncryptionConfig</span></a></span></span><span> </span><span id="local-6989586621679259268"><span class="annot"><span class="annottext">EncryptionType
+</span><a href="#local-6989586621679259268"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">PutEncryptionConfig' :: Maybe Text -&gt; EncryptionType -&gt; PutEncryptionConfig
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig%27"><span class="hs-identifier hs-type">PutEncryptionConfig'</span></a></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyId:PutEncryptionConfig' :: Maybe Text
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#%24sel%3AkeyId%3APutEncryptionConfig%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':PutEncryptionConfig' :: EncryptionType
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#%24sel%3Atype%27%3APutEncryptionConfig%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EncryptionType
+</span><a href="#local-6989586621679259268"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | An Amazon Web Services KMS key in one of the following formats:</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- -   __Alias__ - The name of the key. For example, @alias\/MyKey@.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -   __Key ID__ - The KMS key ID of the key. For example,</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--     @ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@. Amazon Web Services X-Ray</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--     does not support asymmetric KMS keys.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -   __ARN__ - The full Amazon Resource Name of the key ID or alias. For</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--     example,</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--     @arn:aws:kms:us-east-2:123456789012:key\/ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     Use this format to specify a key in a different account.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Omit this key if you set @Type@ to @NONE@.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#putEncryptionConfig_keyId"><span class="hs-identifier hs-type">putEncryptionConfig_keyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig"><span class="hs-identifier hs-type">PutEncryptionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="putEncryptionConfig_keyId"><span class="annot"><span class="annottext">putEncryptionConfig_keyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutEncryptionConfig -&gt; f PutEncryptionConfig
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#putEncryptionConfig_keyId"><span class="hs-identifier hs-var hs-var">putEncryptionConfig_keyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutEncryptionConfig -&gt; Maybe Text)
+-&gt; (PutEncryptionConfig -&gt; Maybe Text -&gt; PutEncryptionConfig)
+-&gt; Lens
+     PutEncryptionConfig PutEncryptionConfig (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig%27"><span class="hs-identifier hs-type">PutEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259265"><span class="annot"><span class="annottext">Maybe Text
+keyId :: Maybe Text
+$sel:keyId:PutEncryptionConfig' :: PutEncryptionConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679259265"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259265"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259264"><span class="annot"><span class="annottext">s :: PutEncryptionConfig
+</span><a href="#local-6989586621679259264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig%27"><span class="hs-identifier hs-type">PutEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259263"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEncryptionConfig
+</span><a href="#local-6989586621679259264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:PutEncryptionConfig' :: Maybe Text
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#%24sel%3AkeyId%3APutEncryptionConfig%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig"><span class="hs-identifier hs-type">PutEncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The type of encryption. Set to @KMS@ to use your own key for encryption.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Set to @NONE@ for default encryption.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#putEncryptionConfig_type"><span class="hs-identifier hs-type">putEncryptionConfig_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig"><span class="hs-identifier hs-type">PutEncryptionConfig</span></a></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionType.html#EncryptionType"><span class="hs-identifier hs-type">EncryptionType</span></a></span><span>
+</span><span id="line-128"></span><span id="putEncryptionConfig_type"><span class="annot"><span class="annottext">putEncryptionConfig_type :: (EncryptionType -&gt; f EncryptionType)
+-&gt; PutEncryptionConfig -&gt; f PutEncryptionConfig
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#putEncryptionConfig_type"><span class="hs-identifier hs-var hs-var">putEncryptionConfig_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutEncryptionConfig -&gt; EncryptionType)
+-&gt; (PutEncryptionConfig -&gt; EncryptionType -&gt; PutEncryptionConfig)
+-&gt; Lens
+     PutEncryptionConfig
+     PutEncryptionConfig
+     EncryptionType
+     EncryptionType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig%27"><span class="hs-identifier hs-type">PutEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259262"><span class="annot"><span class="annottext">EncryptionType
+type' :: EncryptionType
+$sel:type':PutEncryptionConfig' :: PutEncryptionConfig -&gt; EncryptionType
+</span><a href="#local-6989586621679259262"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionType
+</span><a href="#local-6989586621679259262"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259261"><span class="annot"><span class="annottext">s :: PutEncryptionConfig
+</span><a href="#local-6989586621679259261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig%27"><span class="hs-identifier hs-type">PutEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259260"><span class="annot"><span class="annottext">EncryptionType
+</span><a href="#local-6989586621679259260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEncryptionConfig
+</span><a href="#local-6989586621679259261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':PutEncryptionConfig' :: EncryptionType
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#%24sel%3Atype%27%3APutEncryptionConfig%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EncryptionType
+</span><a href="#local-6989586621679259260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig"><span class="hs-identifier hs-type">PutEncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig"><span class="hs-identifier hs-type">PutEncryptionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-132"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig"><span class="hs-identifier hs-type">PutEncryptionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfigResponse"><span class="hs-identifier hs-type">PutEncryptionConfigResponse</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679259256"><span class="annot"><span class="annottext">request :: PutEncryptionConfig -&gt; Request PutEncryptionConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutEncryptionConfig -&gt; Request PutEncryptionConfig
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.XRay.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679259252"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutEncryptionConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutEncryptionConfig)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse PutEncryptionConfig))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutEncryptionConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutEncryptionConfig)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259249"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259249"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259248"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679259248"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259247"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259247"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe EncryptionConfig -&gt; Int -&gt; PutEncryptionConfigResponse
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfigResponse%27"><span class="hs-identifier hs-var">PutEncryptionConfigResponse'</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EncryptionConfig -&gt; Int -&gt; PutEncryptionConfigResponse)
+-&gt; Either String (Maybe EncryptionConfig)
+-&gt; Either String (Int -&gt; PutEncryptionConfigResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe EncryptionConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; PutEncryptionConfigResponse)
+-&gt; Either String Int -&gt; Either String PutEncryptionConfigResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259249"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259239"><span id="local-6989586621679259241"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig"><span class="hs-identifier hs-type">PutEncryptionConfig</span></a></span></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259236"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig"><span class="hs-identifier hs-type">PutEncryptionConfig</span></a></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig"><span class="hs-identifier hs-type">PutEncryptionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679259232"><span class="annot"><span class="annottext">toHeaders :: PutEncryptionConfig -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutEncryptionConfig -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259223"><span id="local-6989586621679259225"><span id="local-6989586621679259227"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig"><span class="hs-identifier hs-type">PutEncryptionConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679259221"><span class="annot"><span class="annottext">toJSON :: PutEncryptionConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig%27"><span class="hs-identifier hs-type">PutEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259218"><span id="local-6989586621679259219"><span class="annot"><span class="annottext">Maybe Text
+EncryptionType
+type' :: EncryptionType
+keyId :: Maybe Text
+$sel:type':PutEncryptionConfig' :: PutEncryptionConfig -&gt; EncryptionType
+$sel:keyId:PutEncryptionConfig' :: PutEncryptionConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679259218"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259219"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EncryptionType
+</span><a href="#local-6989586621679259218"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig"><span class="hs-identifier hs-type">PutEncryptionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679259212"><span class="annot"><span class="annottext">toPath :: PutEncryptionConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutEncryptionConfig -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/PutEncryptionConfig&quot;</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfig"><span class="hs-identifier hs-type">PutEncryptionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679259208"><span class="annot"><span class="annottext">toQuery :: PutEncryptionConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutEncryptionConfig -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newPutEncryptionConfigResponse' smart constructor.</span><span>
+</span><span id="line-166"></span><span id="local-6989586621679259205"><span id="local-6989586621679259206"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutEncryptionConfigResponse"><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfigResponse"><span class="hs-identifier hs-var">PutEncryptionConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutEncryptionConfigResponse%27"><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfigResponse%27"><span class="hs-identifier hs-var">PutEncryptionConfigResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new encryption configuration.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AencryptionConfig%3APutEncryptionConfigResponse%27"><span class="annot"><span class="annottext">PutEncryptionConfigResponse -&gt; Maybe EncryptionConfig
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#%24sel%3AencryptionConfig%3APutEncryptionConfigResponse%27"><span class="hs-identifier hs-var hs-var">encryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutEncryptionConfigResponse%27"><span class="annot"><span class="annottext">PutEncryptionConfigResponse -&gt; Int
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#%24sel%3AhttpStatus%3APutEncryptionConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259199"><span id="local-6989586621679259201"><span class="annot"><span class="annottext">PutEncryptionConfigResponse -&gt; PutEncryptionConfigResponse -&gt; Bool
+(PutEncryptionConfigResponse
+ -&gt; PutEncryptionConfigResponse -&gt; Bool)
+-&gt; (PutEncryptionConfigResponse
+    -&gt; PutEncryptionConfigResponse -&gt; Bool)
+-&gt; Eq PutEncryptionConfigResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutEncryptionConfigResponse -&gt; PutEncryptionConfigResponse -&gt; Bool
+$c/= :: PutEncryptionConfigResponse -&gt; PutEncryptionConfigResponse -&gt; Bool
+== :: PutEncryptionConfigResponse -&gt; PutEncryptionConfigResponse -&gt; Bool
+$c== :: PutEncryptionConfigResponse -&gt; PutEncryptionConfigResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259191"><span id="local-6989586621679259193"><span id="local-6989586621679259195"><span id="local-6989586621679259197"><span class="annot"><span class="annottext">ReadPrec [PutEncryptionConfigResponse]
+ReadPrec PutEncryptionConfigResponse
+Int -&gt; ReadS PutEncryptionConfigResponse
+ReadS [PutEncryptionConfigResponse]
+(Int -&gt; ReadS PutEncryptionConfigResponse)
+-&gt; ReadS [PutEncryptionConfigResponse]
+-&gt; ReadPrec PutEncryptionConfigResponse
+-&gt; ReadPrec [PutEncryptionConfigResponse]
+-&gt; Read PutEncryptionConfigResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutEncryptionConfigResponse]
+$creadListPrec :: ReadPrec [PutEncryptionConfigResponse]
+readPrec :: ReadPrec PutEncryptionConfigResponse
+$creadPrec :: ReadPrec PutEncryptionConfigResponse
+readList :: ReadS [PutEncryptionConfigResponse]
+$creadList :: ReadS [PutEncryptionConfigResponse]
+readsPrec :: Int -&gt; ReadS PutEncryptionConfigResponse
+$creadsPrec :: Int -&gt; ReadS PutEncryptionConfigResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259185"><span id="local-6989586621679259187"><span id="local-6989586621679259189"><span class="annot"><span class="annottext">Int -&gt; PutEncryptionConfigResponse -&gt; ShowS
+[PutEncryptionConfigResponse] -&gt; ShowS
+PutEncryptionConfigResponse -&gt; String
+(Int -&gt; PutEncryptionConfigResponse -&gt; ShowS)
+-&gt; (PutEncryptionConfigResponse -&gt; String)
+-&gt; ([PutEncryptionConfigResponse] -&gt; ShowS)
+-&gt; Show PutEncryptionConfigResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutEncryptionConfigResponse] -&gt; ShowS
+$cshowList :: [PutEncryptionConfigResponse] -&gt; ShowS
+show :: PutEncryptionConfigResponse -&gt; String
+$cshow :: PutEncryptionConfigResponse -&gt; String
+showsPrec :: Int -&gt; PutEncryptionConfigResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutEncryptionConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutEncryptionConfigResponse -&gt; Rep PutEncryptionConfigResponse x)
+-&gt; (forall x.
+    Rep PutEncryptionConfigResponse x -&gt; PutEncryptionConfigResponse)
+-&gt; Generic PutEncryptionConfigResponse
+forall x.
+Rep PutEncryptionConfigResponse x -&gt; PutEncryptionConfigResponse
+forall x.
+PutEncryptionConfigResponse -&gt; Rep PutEncryptionConfigResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutEncryptionConfigResponse x -&gt; PutEncryptionConfigResponse
+$cfrom :: forall x.
+PutEncryptionConfigResponse -&gt; Rep PutEncryptionConfigResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Create a value of 'PutEncryptionConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'encryptionConfig', 'putEncryptionConfigResponse_encryptionConfig' - The new encryption configuration.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'httpStatus', 'putEncryptionConfigResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#newPutEncryptionConfigResponse"><span class="hs-identifier hs-type">newPutEncryptionConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfigResponse"><span class="hs-identifier hs-type">PutEncryptionConfigResponse</span></a></span><span>
+</span><span id="line-189"></span><span id="newPutEncryptionConfigResponse"><span class="annot"><span class="annottext">newPutEncryptionConfigResponse :: Int -&gt; PutEncryptionConfigResponse
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#newPutEncryptionConfigResponse"><span class="hs-identifier hs-var hs-var">newPutEncryptionConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679259182"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259182"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">PutEncryptionConfigResponse' :: Maybe EncryptionConfig -&gt; Int -&gt; PutEncryptionConfigResponse
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfigResponse%27"><span class="hs-identifier hs-type">PutEncryptionConfigResponse'</span></a></span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryptionConfig:PutEncryptionConfigResponse' :: Maybe EncryptionConfig
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#%24sel%3AencryptionConfig%3APutEncryptionConfigResponse%27"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">Maybe EncryptionConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutEncryptionConfigResponse' :: Int
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#%24sel%3AhttpStatus%3APutEncryptionConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259182"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The new encryption configuration.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#putEncryptionConfigResponse_encryptionConfig"><span class="hs-identifier hs-type">putEncryptionConfigResponse_encryptionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfigResponse"><span class="hs-identifier hs-type">PutEncryptionConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="putEncryptionConfigResponse_encryptionConfig"><span class="annot"><span class="annottext">putEncryptionConfigResponse_encryptionConfig :: (Maybe EncryptionConfig -&gt; f (Maybe EncryptionConfig))
+-&gt; PutEncryptionConfigResponse -&gt; f PutEncryptionConfigResponse
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#putEncryptionConfigResponse_encryptionConfig"><span class="hs-identifier hs-var hs-var">putEncryptionConfigResponse_encryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutEncryptionConfigResponse -&gt; Maybe EncryptionConfig)
+-&gt; (PutEncryptionConfigResponse
+    -&gt; Maybe EncryptionConfig -&gt; PutEncryptionConfigResponse)
+-&gt; Lens
+     PutEncryptionConfigResponse
+     PutEncryptionConfigResponse
+     (Maybe EncryptionConfig)
+     (Maybe EncryptionConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfigResponse%27"><span class="hs-identifier hs-type">PutEncryptionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259181"><span class="annot"><span class="annottext">Maybe EncryptionConfig
+encryptionConfig :: Maybe EncryptionConfig
+$sel:encryptionConfig:PutEncryptionConfigResponse' :: PutEncryptionConfigResponse -&gt; Maybe EncryptionConfig
+</span><a href="#local-6989586621679259181"><span class="hs-identifier hs-var hs-var">encryptionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfig
+</span><a href="#local-6989586621679259181"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259180"><span class="annot"><span class="annottext">s :: PutEncryptionConfigResponse
+</span><a href="#local-6989586621679259180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfigResponse%27"><span class="hs-identifier hs-type">PutEncryptionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259179"><span class="annot"><span class="annottext">Maybe EncryptionConfig
+</span><a href="#local-6989586621679259179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEncryptionConfigResponse
+</span><a href="#local-6989586621679259180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfig:PutEncryptionConfigResponse' :: Maybe EncryptionConfig
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#%24sel%3AencryptionConfig%3APutEncryptionConfigResponse%27"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfig
+</span><a href="#local-6989586621679259179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfigResponse"><span class="hs-identifier hs-type">PutEncryptionConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#putEncryptionConfigResponse_httpStatus"><span class="hs-identifier hs-type">putEncryptionConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfigResponse"><span class="hs-identifier hs-type">PutEncryptionConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-202"></span><span id="putEncryptionConfigResponse_httpStatus"><span class="annot"><span class="annottext">putEncryptionConfigResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutEncryptionConfigResponse -&gt; f PutEncryptionConfigResponse
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#putEncryptionConfigResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putEncryptionConfigResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutEncryptionConfigResponse -&gt; Int)
+-&gt; (PutEncryptionConfigResponse
+    -&gt; Int -&gt; PutEncryptionConfigResponse)
+-&gt; Lens
+     PutEncryptionConfigResponse PutEncryptionConfigResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfigResponse%27"><span class="hs-identifier hs-type">PutEncryptionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259178"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutEncryptionConfigResponse' :: PutEncryptionConfigResponse -&gt; Int
+</span><a href="#local-6989586621679259178"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259178"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259177"><span class="annot"><span class="annottext">s :: PutEncryptionConfigResponse
+</span><a href="#local-6989586621679259177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfigResponse%27"><span class="hs-identifier hs-type">PutEncryptionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259176"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEncryptionConfigResponse
+</span><a href="#local-6989586621679259177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutEncryptionConfigResponse' :: Int
+</span><a href="Network.AWS.XRay.PutEncryptionConfig.html#%24sel%3AhttpStatus%3APutEncryptionConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfigResponse"><span class="hs-identifier hs-type">PutEncryptionConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259174"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.PutEncryptionConfig.html#PutEncryptionConfigResponse"><span class="hs-identifier hs-type">PutEncryptionConfigResponse</span></a></span></span><span>
+</span><span id="line-205"></span></pre></body></html>

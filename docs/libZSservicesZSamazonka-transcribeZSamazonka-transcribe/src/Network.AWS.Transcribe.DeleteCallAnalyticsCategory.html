@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Transcribe.DeleteCallAnalyticsCategory</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a call analytics category using its name.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Transcribe.DeleteCallAnalyticsCategory</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory"><span class="hs-identifier">DeleteCallAnalyticsCategory</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#newDeleteCallAnalyticsCategory"><span class="hs-identifier">newDeleteCallAnalyticsCategory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#deleteCallAnalyticsCategory_categoryName"><span class="hs-identifier">deleteCallAnalyticsCategory_categoryName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategoryResponse"><span class="hs-identifier">DeleteCallAnalyticsCategoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#newDeleteCallAnalyticsCategoryResponse"><span class="hs-identifier">newDeleteCallAnalyticsCategoryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#deleteCallAnalyticsCategoryResponse_httpStatus"><span class="hs-identifier">deleteCallAnalyticsCategoryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.html"><span class="hs-identifier">Network.AWS.Transcribe.Types</span></a></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteCallAnalyticsCategory' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679285792"><span id="local-6989586621679285793"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCallAnalyticsCategory"><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory"><span class="hs-identifier hs-var">DeleteCallAnalyticsCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCallAnalyticsCategory%27"><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory%27"><span class="hs-identifier hs-var">DeleteCallAnalyticsCategory'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the call analytics category that you\'re choosing to delete.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- The value is case sensitive.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcategoryName%3ADeleteCallAnalyticsCategory%27"><span class="annot"><span class="annottext">DeleteCallAnalyticsCategory -&gt; Text
+</span><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#%24sel%3AcategoryName%3ADeleteCallAnalyticsCategory%27"><span class="hs-identifier hs-var hs-var">categoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285786"><span id="local-6989586621679285788"><span class="annot"><span class="annottext">DeleteCallAnalyticsCategory -&gt; DeleteCallAnalyticsCategory -&gt; Bool
+(DeleteCallAnalyticsCategory
+ -&gt; DeleteCallAnalyticsCategory -&gt; Bool)
+-&gt; (DeleteCallAnalyticsCategory
+    -&gt; DeleteCallAnalyticsCategory -&gt; Bool)
+-&gt; Eq DeleteCallAnalyticsCategory
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteCallAnalyticsCategory -&gt; DeleteCallAnalyticsCategory -&gt; Bool
+$c/= :: DeleteCallAnalyticsCategory -&gt; DeleteCallAnalyticsCategory -&gt; Bool
+== :: DeleteCallAnalyticsCategory -&gt; DeleteCallAnalyticsCategory -&gt; Bool
+$c== :: DeleteCallAnalyticsCategory -&gt; DeleteCallAnalyticsCategory -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285777"><span id="local-6989586621679285779"><span id="local-6989586621679285781"><span id="local-6989586621679285783"><span class="annot"><span class="annottext">ReadPrec [DeleteCallAnalyticsCategory]
+ReadPrec DeleteCallAnalyticsCategory
+Int -&gt; ReadS DeleteCallAnalyticsCategory
+ReadS [DeleteCallAnalyticsCategory]
+(Int -&gt; ReadS DeleteCallAnalyticsCategory)
+-&gt; ReadS [DeleteCallAnalyticsCategory]
+-&gt; ReadPrec DeleteCallAnalyticsCategory
+-&gt; ReadPrec [DeleteCallAnalyticsCategory]
+-&gt; Read DeleteCallAnalyticsCategory
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteCallAnalyticsCategory]
+$creadListPrec :: ReadPrec [DeleteCallAnalyticsCategory]
+readPrec :: ReadPrec DeleteCallAnalyticsCategory
+$creadPrec :: ReadPrec DeleteCallAnalyticsCategory
+readList :: ReadS [DeleteCallAnalyticsCategory]
+$creadList :: ReadS [DeleteCallAnalyticsCategory]
+readsPrec :: Int -&gt; ReadS DeleteCallAnalyticsCategory
+$creadsPrec :: Int -&gt; ReadS DeleteCallAnalyticsCategory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285770"><span id="local-6989586621679285772"><span id="local-6989586621679285774"><span class="annot"><span class="annottext">Int -&gt; DeleteCallAnalyticsCategory -&gt; ShowS
+[DeleteCallAnalyticsCategory] -&gt; ShowS
+DeleteCallAnalyticsCategory -&gt; String
+(Int -&gt; DeleteCallAnalyticsCategory -&gt; ShowS)
+-&gt; (DeleteCallAnalyticsCategory -&gt; String)
+-&gt; ([DeleteCallAnalyticsCategory] -&gt; ShowS)
+-&gt; Show DeleteCallAnalyticsCategory
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteCallAnalyticsCategory] -&gt; ShowS
+$cshowList :: [DeleteCallAnalyticsCategory] -&gt; ShowS
+show :: DeleteCallAnalyticsCategory -&gt; String
+$cshow :: DeleteCallAnalyticsCategory -&gt; String
+showsPrec :: Int -&gt; DeleteCallAnalyticsCategory -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteCallAnalyticsCategory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteCallAnalyticsCategory -&gt; Rep DeleteCallAnalyticsCategory x)
+-&gt; (forall x.
+    Rep DeleteCallAnalyticsCategory x -&gt; DeleteCallAnalyticsCategory)
+-&gt; Generic DeleteCallAnalyticsCategory
+forall x.
+Rep DeleteCallAnalyticsCategory x -&gt; DeleteCallAnalyticsCategory
+forall x.
+DeleteCallAnalyticsCategory -&gt; Rep DeleteCallAnalyticsCategory x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteCallAnalyticsCategory x -&gt; DeleteCallAnalyticsCategory
+$cfrom :: forall x.
+DeleteCallAnalyticsCategory -&gt; Rep DeleteCallAnalyticsCategory x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'DeleteCallAnalyticsCategory' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'categoryName', 'deleteCallAnalyticsCategory_categoryName' - The name of the call analytics category that you\'re choosing to delete.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The value is case sensitive.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#newDeleteCallAnalyticsCategory"><span class="hs-identifier hs-type">newDeleteCallAnalyticsCategory</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'categoryName'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategory</span></a></span><span>
+</span><span id="line-70"></span><span id="newDeleteCallAnalyticsCategory"><span class="annot"><span class="annottext">newDeleteCallAnalyticsCategory :: Text -&gt; DeleteCallAnalyticsCategory
+</span><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#newDeleteCallAnalyticsCategory"><span class="hs-identifier hs-var hs-var">newDeleteCallAnalyticsCategory</span></a></span></span><span> </span><span id="local-6989586621679285765"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285765"><span class="hs-identifier hs-var">pCategoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DeleteCallAnalyticsCategory' :: Text -&gt; DeleteCallAnalyticsCategory
+</span><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory%27"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategory'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:categoryName:DeleteCallAnalyticsCategory' :: Text
+</span><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#%24sel%3AcategoryName%3ADeleteCallAnalyticsCategory%27"><span class="hs-identifier hs-var">categoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285765"><span class="hs-identifier hs-var">pCategoryName_</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The name of the call analytics category that you\'re choosing to delete.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The value is case sensitive.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#deleteCallAnalyticsCategory_categoryName"><span class="hs-identifier hs-type">deleteCallAnalyticsCategory_categoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategory</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span id="deleteCallAnalyticsCategory_categoryName"><span class="annot"><span class="annottext">deleteCallAnalyticsCategory_categoryName :: (Text -&gt; f Text)
+-&gt; DeleteCallAnalyticsCategory -&gt; f DeleteCallAnalyticsCategory
+</span><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#deleteCallAnalyticsCategory_categoryName"><span class="hs-identifier hs-var hs-var">deleteCallAnalyticsCategory_categoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteCallAnalyticsCategory -&gt; Text)
+-&gt; (DeleteCallAnalyticsCategory
+    -&gt; Text -&gt; DeleteCallAnalyticsCategory)
+-&gt; Lens
+     DeleteCallAnalyticsCategory DeleteCallAnalyticsCategory Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory%27"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285762"><span class="annot"><span class="annottext">Text
+categoryName :: Text
+$sel:categoryName:DeleteCallAnalyticsCategory' :: DeleteCallAnalyticsCategory -&gt; Text
+</span><a href="#local-6989586621679285762"><span class="hs-identifier hs-var hs-var">categoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285762"><span class="hs-identifier hs-var">categoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285761"><span class="annot"><span class="annottext">s :: DeleteCallAnalyticsCategory
+</span><a href="#local-6989586621679285761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory%27"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285760"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCallAnalyticsCategory
+</span><a href="#local-6989586621679285761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:categoryName:DeleteCallAnalyticsCategory' :: Text
+</span><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#%24sel%3AcategoryName%3ADeleteCallAnalyticsCategory%27"><span class="hs-identifier hs-var">categoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategory</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategoryResponse"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategoryResponse</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679285756"><span class="annot"><span class="annottext">request :: DeleteCallAnalyticsCategory -&gt; Request DeleteCallAnalyticsCategory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteCallAnalyticsCategory
+-&gt; Request DeleteCallAnalyticsCategory
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Transcribe.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679285752"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteCallAnalyticsCategory
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteCallAnalyticsCategory)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteCallAnalyticsCategory))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteCallAnalyticsCategory
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteCallAnalyticsCategory)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679285749"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285749"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679285748"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679285748"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679285747"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679285747"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteCallAnalyticsCategoryResponse
+</span><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategoryResponse%27"><span class="hs-identifier hs-var">DeleteCallAnalyticsCategoryResponse'</span></a></span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteCallAnalyticsCategoryResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteCallAnalyticsCategoryResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285749"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285740"><span id="local-6989586621679285742"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategory</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategory</span></a></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679285733"><span class="annot"><span class="annottext">toHeaders :: DeleteCallAnalyticsCategory -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteCallAnalyticsCategory -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Transcribe.DeleteCallAnalyticsCategory&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-104"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-108"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285723"><span id="local-6989586621679285725"><span id="local-6989586621679285727"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679285721"><span class="annot"><span class="annottext">toJSON :: DeleteCallAnalyticsCategory -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory%27"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285719"><span class="annot"><span class="annottext">Text
+categoryName :: Text
+$sel:categoryName:DeleteCallAnalyticsCategory' :: DeleteCallAnalyticsCategory -&gt; Text
+</span><a href="#local-6989586621679285719"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CategoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285719"><span class="hs-identifier hs-var">categoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679285713"><span class="annot"><span class="annottext">toPath :: DeleteCallAnalyticsCategory -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteCallAnalyticsCategory -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategory"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679285709"><span class="annot"><span class="annottext">toQuery :: DeleteCallAnalyticsCategory -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteCallAnalyticsCategory -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newDeleteCallAnalyticsCategoryResponse' smart constructor.</span><span>
+</span><span id="line-126"></span><span id="local-6989586621679285706"><span id="local-6989586621679285707"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCallAnalyticsCategoryResponse"><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategoryResponse"><span class="hs-identifier hs-var">DeleteCallAnalyticsCategoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCallAnalyticsCategoryResponse%27"><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategoryResponse%27"><span class="hs-identifier hs-var">DeleteCallAnalyticsCategoryResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteCallAnalyticsCategoryResponse%27"><span class="annot"><span class="annottext">DeleteCallAnalyticsCategoryResponse -&gt; Int
+</span><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#%24sel%3AhttpStatus%3ADeleteCallAnalyticsCategoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285701"><span id="local-6989586621679285703"><span class="annot"><span class="annottext">DeleteCallAnalyticsCategoryResponse
+-&gt; DeleteCallAnalyticsCategoryResponse -&gt; Bool
+(DeleteCallAnalyticsCategoryResponse
+ -&gt; DeleteCallAnalyticsCategoryResponse -&gt; Bool)
+-&gt; (DeleteCallAnalyticsCategoryResponse
+    -&gt; DeleteCallAnalyticsCategoryResponse -&gt; Bool)
+-&gt; Eq DeleteCallAnalyticsCategoryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteCallAnalyticsCategoryResponse
+-&gt; DeleteCallAnalyticsCategoryResponse -&gt; Bool
+$c/= :: DeleteCallAnalyticsCategoryResponse
+-&gt; DeleteCallAnalyticsCategoryResponse -&gt; Bool
+== :: DeleteCallAnalyticsCategoryResponse
+-&gt; DeleteCallAnalyticsCategoryResponse -&gt; Bool
+$c== :: DeleteCallAnalyticsCategoryResponse
+-&gt; DeleteCallAnalyticsCategoryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285693"><span id="local-6989586621679285695"><span id="local-6989586621679285697"><span id="local-6989586621679285699"><span class="annot"><span class="annottext">ReadPrec [DeleteCallAnalyticsCategoryResponse]
+ReadPrec DeleteCallAnalyticsCategoryResponse
+Int -&gt; ReadS DeleteCallAnalyticsCategoryResponse
+ReadS [DeleteCallAnalyticsCategoryResponse]
+(Int -&gt; ReadS DeleteCallAnalyticsCategoryResponse)
+-&gt; ReadS [DeleteCallAnalyticsCategoryResponse]
+-&gt; ReadPrec DeleteCallAnalyticsCategoryResponse
+-&gt; ReadPrec [DeleteCallAnalyticsCategoryResponse]
+-&gt; Read DeleteCallAnalyticsCategoryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteCallAnalyticsCategoryResponse]
+$creadListPrec :: ReadPrec [DeleteCallAnalyticsCategoryResponse]
+readPrec :: ReadPrec DeleteCallAnalyticsCategoryResponse
+$creadPrec :: ReadPrec DeleteCallAnalyticsCategoryResponse
+readList :: ReadS [DeleteCallAnalyticsCategoryResponse]
+$creadList :: ReadS [DeleteCallAnalyticsCategoryResponse]
+readsPrec :: Int -&gt; ReadS DeleteCallAnalyticsCategoryResponse
+$creadsPrec :: Int -&gt; ReadS DeleteCallAnalyticsCategoryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285687"><span id="local-6989586621679285689"><span id="local-6989586621679285691"><span class="annot"><span class="annottext">Int -&gt; DeleteCallAnalyticsCategoryResponse -&gt; ShowS
+[DeleteCallAnalyticsCategoryResponse] -&gt; ShowS
+DeleteCallAnalyticsCategoryResponse -&gt; String
+(Int -&gt; DeleteCallAnalyticsCategoryResponse -&gt; ShowS)
+-&gt; (DeleteCallAnalyticsCategoryResponse -&gt; String)
+-&gt; ([DeleteCallAnalyticsCategoryResponse] -&gt; ShowS)
+-&gt; Show DeleteCallAnalyticsCategoryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteCallAnalyticsCategoryResponse] -&gt; ShowS
+$cshowList :: [DeleteCallAnalyticsCategoryResponse] -&gt; ShowS
+show :: DeleteCallAnalyticsCategoryResponse -&gt; String
+$cshow :: DeleteCallAnalyticsCategoryResponse -&gt; String
+showsPrec :: Int -&gt; DeleteCallAnalyticsCategoryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteCallAnalyticsCategoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteCallAnalyticsCategoryResponse
+ -&gt; Rep DeleteCallAnalyticsCategoryResponse x)
+-&gt; (forall x.
+    Rep DeleteCallAnalyticsCategoryResponse x
+    -&gt; DeleteCallAnalyticsCategoryResponse)
+-&gt; Generic DeleteCallAnalyticsCategoryResponse
+forall x.
+Rep DeleteCallAnalyticsCategoryResponse x
+-&gt; DeleteCallAnalyticsCategoryResponse
+forall x.
+DeleteCallAnalyticsCategoryResponse
+-&gt; Rep DeleteCallAnalyticsCategoryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteCallAnalyticsCategoryResponse x
+-&gt; DeleteCallAnalyticsCategoryResponse
+$cfrom :: forall x.
+DeleteCallAnalyticsCategoryResponse
+-&gt; Rep DeleteCallAnalyticsCategoryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Create a value of 'DeleteCallAnalyticsCategoryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'httpStatus', 'deleteCallAnalyticsCategoryResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#newDeleteCallAnalyticsCategoryResponse"><span class="hs-identifier hs-type">newDeleteCallAnalyticsCategoryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategoryResponse"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategoryResponse</span></a></span><span>
+</span><span id="line-145"></span><span id="newDeleteCallAnalyticsCategoryResponse"><span class="annot"><span class="annottext">newDeleteCallAnalyticsCategoryResponse :: Int -&gt; DeleteCallAnalyticsCategoryResponse
+</span><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#newDeleteCallAnalyticsCategoryResponse"><span class="hs-identifier hs-var hs-var">newDeleteCallAnalyticsCategoryResponse</span></a></span></span><span> </span><span id="local-6989586621679285684"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285684"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">DeleteCallAnalyticsCategoryResponse' :: Int -&gt; DeleteCallAnalyticsCategoryResponse
+</span><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategoryResponse%27"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategoryResponse'</span></a></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCallAnalyticsCategoryResponse' :: Int
+</span><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#%24sel%3AhttpStatus%3ADeleteCallAnalyticsCategoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285684"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#deleteCallAnalyticsCategoryResponse_httpStatus"><span class="hs-identifier hs-type">deleteCallAnalyticsCategoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategoryResponse"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-153"></span><span id="deleteCallAnalyticsCategoryResponse_httpStatus"><span class="annot"><span class="annottext">deleteCallAnalyticsCategoryResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteCallAnalyticsCategoryResponse
+-&gt; f DeleteCallAnalyticsCategoryResponse
+</span><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#deleteCallAnalyticsCategoryResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteCallAnalyticsCategoryResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteCallAnalyticsCategoryResponse -&gt; Int)
+-&gt; (DeleteCallAnalyticsCategoryResponse
+    -&gt; Int -&gt; DeleteCallAnalyticsCategoryResponse)
+-&gt; Lens
+     DeleteCallAnalyticsCategoryResponse
+     DeleteCallAnalyticsCategoryResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategoryResponse%27"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285683"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteCallAnalyticsCategoryResponse' :: DeleteCallAnalyticsCategoryResponse -&gt; Int
+</span><a href="#local-6989586621679285683"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285683"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285682"><span class="annot"><span class="annottext">s :: DeleteCallAnalyticsCategoryResponse
+</span><a href="#local-6989586621679285682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategoryResponse%27"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285681"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCallAnalyticsCategoryResponse
+</span><a href="#local-6989586621679285682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCallAnalyticsCategoryResponse' :: Int
+</span><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#%24sel%3AhttpStatus%3ADeleteCallAnalyticsCategoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategoryResponse"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679285679"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteCallAnalyticsCategory.html#DeleteCallAnalyticsCategoryResponse"><span class="hs-identifier hs-type">DeleteCallAnalyticsCategoryResponse</span></a></span></span><span>
+</span><span id="line-158"></span></pre></body></html>

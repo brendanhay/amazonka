@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.ResourceLimits</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.ResourceLimits</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Specifies the maximum number of training jobs and parallel training jobs</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- that a hyperparameter tuning job can launch.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newResourceLimits' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621680336671"><span id="local-6989586621680336672"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceLimits"><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits"><span class="hs-identifier hs-var">ResourceLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceLimits%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits%27"><span class="hs-identifier hs-var">ResourceLimits'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of training jobs that a hyperparameter tuning job can</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- launch.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AmaxNumberOfTrainingJobs%3AResourceLimits%27"><span class="annot"><span class="annottext">ResourceLimits -&gt; Natural
+</span><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#%24sel%3AmaxNumberOfTrainingJobs%3AResourceLimits%27"><span class="hs-identifier hs-var hs-var">maxNumberOfTrainingJobs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The maximum number of concurrent training jobs that a hyperparameter</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- tuning job can launch.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AmaxParallelTrainingJobs%3AResourceLimits%27"><span class="annot"><span class="annottext">ResourceLimits -&gt; Natural
+</span><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#%24sel%3AmaxParallelTrainingJobs%3AResourceLimits%27"><span class="hs-identifier hs-var hs-var">maxParallelTrainingJobs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680336664"><span id="local-6989586621680336666"><span class="annot"><span class="annottext">ResourceLimits -&gt; ResourceLimits -&gt; Bool
+(ResourceLimits -&gt; ResourceLimits -&gt; Bool)
+-&gt; (ResourceLimits -&gt; ResourceLimits -&gt; Bool) -&gt; Eq ResourceLimits
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceLimits -&gt; ResourceLimits -&gt; Bool
+$c/= :: ResourceLimits -&gt; ResourceLimits -&gt; Bool
+== :: ResourceLimits -&gt; ResourceLimits -&gt; Bool
+$c== :: ResourceLimits -&gt; ResourceLimits -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680336655"><span id="local-6989586621680336657"><span id="local-6989586621680336659"><span id="local-6989586621680336661"><span class="annot"><span class="annottext">ReadPrec [ResourceLimits]
+ReadPrec ResourceLimits
+Int -&gt; ReadS ResourceLimits
+ReadS [ResourceLimits]
+(Int -&gt; ReadS ResourceLimits)
+-&gt; ReadS [ResourceLimits]
+-&gt; ReadPrec ResourceLimits
+-&gt; ReadPrec [ResourceLimits]
+-&gt; Read ResourceLimits
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceLimits]
+$creadListPrec :: ReadPrec [ResourceLimits]
+readPrec :: ReadPrec ResourceLimits
+$creadPrec :: ReadPrec ResourceLimits
+readList :: ReadS [ResourceLimits]
+$creadList :: ReadS [ResourceLimits]
+readsPrec :: Int -&gt; ReadS ResourceLimits
+$creadsPrec :: Int -&gt; ReadS ResourceLimits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680336648"><span id="local-6989586621680336650"><span id="local-6989586621680336652"><span class="annot"><span class="annottext">Int -&gt; ResourceLimits -&gt; ShowS
+[ResourceLimits] -&gt; ShowS
+ResourceLimits -&gt; String
+(Int -&gt; ResourceLimits -&gt; ShowS)
+-&gt; (ResourceLimits -&gt; String)
+-&gt; ([ResourceLimits] -&gt; ShowS)
+-&gt; Show ResourceLimits
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceLimits] -&gt; ShowS
+$cshowList :: [ResourceLimits] -&gt; ShowS
+show :: ResourceLimits -&gt; String
+$cshow :: ResourceLimits -&gt; String
+showsPrec :: Int -&gt; ResourceLimits -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceLimits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ResourceLimits -&gt; Rep ResourceLimits x)
+-&gt; (forall x. Rep ResourceLimits x -&gt; ResourceLimits)
+-&gt; Generic ResourceLimits
+forall x. Rep ResourceLimits x -&gt; ResourceLimits
+forall x. ResourceLimits -&gt; Rep ResourceLimits x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResourceLimits x -&gt; ResourceLimits
+$cfrom :: forall x. ResourceLimits -&gt; Rep ResourceLimits x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'ResourceLimits' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'maxNumberOfTrainingJobs', 'resourceLimits_maxNumberOfTrainingJobs' - The maximum number of training jobs that a hyperparameter tuning job can</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- launch.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'maxParallelTrainingJobs', 'resourceLimits_maxParallelTrainingJobs' - The maximum number of concurrent training jobs that a hyperparameter</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- tuning job can launch.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#newResourceLimits"><span class="hs-identifier hs-type">newResourceLimits</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-comment">-- | 'maxNumberOfTrainingJobs'</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-comment">-- | 'maxParallelTrainingJobs'</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits"><span class="hs-identifier hs-type">ResourceLimits</span></a></span><span>
+</span><span id="line-59"></span><span id="newResourceLimits"><span class="annot"><span class="annottext">newResourceLimits :: Natural -&gt; Natural -&gt; ResourceLimits
+</span><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#newResourceLimits"><span class="hs-identifier hs-var hs-var">newResourceLimits</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621680336642"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680336642"><span class="hs-identifier hs-var">pMaxNumberOfTrainingJobs_</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621680336641"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680336641"><span class="hs-identifier hs-var">pMaxParallelTrainingJobs_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">ResourceLimits' :: Natural -&gt; Natural -&gt; ResourceLimits
+</span><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits%27"><span class="hs-identifier hs-type">ResourceLimits'</span></a></span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxNumberOfTrainingJobs:ResourceLimits' :: Natural
+</span><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#%24sel%3AmaxNumberOfTrainingJobs%3AResourceLimits%27"><span class="hs-identifier hs-var">maxNumberOfTrainingJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680336642"><span class="hs-identifier hs-var">pMaxNumberOfTrainingJobs_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxParallelTrainingJobs:ResourceLimits' :: Natural
+</span><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#%24sel%3AmaxParallelTrainingJobs%3AResourceLimits%27"><span class="hs-identifier hs-var">maxParallelTrainingJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680336641"><span class="hs-identifier hs-var">pMaxParallelTrainingJobs_</span></a></span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The maximum number of training jobs that a hyperparameter tuning job can</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- launch.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#resourceLimits_maxNumberOfTrainingJobs"><span class="hs-identifier hs-type">resourceLimits_maxNumberOfTrainingJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits"><span class="hs-identifier hs-type">ResourceLimits</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-71"></span><span id="resourceLimits_maxNumberOfTrainingJobs"><span class="annot"><span class="annottext">resourceLimits_maxNumberOfTrainingJobs :: (Natural -&gt; f Natural) -&gt; ResourceLimits -&gt; f ResourceLimits
+</span><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#resourceLimits_maxNumberOfTrainingJobs"><span class="hs-identifier hs-var hs-var">resourceLimits_maxNumberOfTrainingJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceLimits -&gt; Natural)
+-&gt; (ResourceLimits -&gt; Natural -&gt; ResourceLimits)
+-&gt; Lens ResourceLimits ResourceLimits Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits%27"><span class="hs-identifier hs-type">ResourceLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336637"><span class="annot"><span class="annottext">Natural
+maxNumberOfTrainingJobs :: Natural
+$sel:maxNumberOfTrainingJobs:ResourceLimits' :: ResourceLimits -&gt; Natural
+</span><a href="#local-6989586621680336637"><span class="hs-identifier hs-var hs-var">maxNumberOfTrainingJobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680336637"><span class="hs-identifier hs-var">maxNumberOfTrainingJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336636"><span class="annot"><span class="annottext">s :: ResourceLimits
+</span><a href="#local-6989586621680336636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits%27"><span class="hs-identifier hs-type">ResourceLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336635"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680336635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceLimits
+</span><a href="#local-6989586621680336636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxNumberOfTrainingJobs:ResourceLimits' :: Natural
+</span><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#%24sel%3AmaxNumberOfTrainingJobs%3AResourceLimits%27"><span class="hs-identifier hs-var">maxNumberOfTrainingJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680336635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits"><span class="hs-identifier hs-type">ResourceLimits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The maximum number of concurrent training jobs that a hyperparameter</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- tuning job can launch.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#resourceLimits_maxParallelTrainingJobs"><span class="hs-identifier hs-type">resourceLimits_maxParallelTrainingJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits"><span class="hs-identifier hs-type">ResourceLimits</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-76"></span><span id="resourceLimits_maxParallelTrainingJobs"><span class="annot"><span class="annottext">resourceLimits_maxParallelTrainingJobs :: (Natural -&gt; f Natural) -&gt; ResourceLimits -&gt; f ResourceLimits
+</span><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#resourceLimits_maxParallelTrainingJobs"><span class="hs-identifier hs-var hs-var">resourceLimits_maxParallelTrainingJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceLimits -&gt; Natural)
+-&gt; (ResourceLimits -&gt; Natural -&gt; ResourceLimits)
+-&gt; Lens ResourceLimits ResourceLimits Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits%27"><span class="hs-identifier hs-type">ResourceLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336633"><span class="annot"><span class="annottext">Natural
+maxParallelTrainingJobs :: Natural
+$sel:maxParallelTrainingJobs:ResourceLimits' :: ResourceLimits -&gt; Natural
+</span><a href="#local-6989586621680336633"><span class="hs-identifier hs-var hs-var">maxParallelTrainingJobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680336633"><span class="hs-identifier hs-var">maxParallelTrainingJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336632"><span class="annot"><span class="annottext">s :: ResourceLimits
+</span><a href="#local-6989586621680336632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits%27"><span class="hs-identifier hs-type">ResourceLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336631"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680336631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceLimits
+</span><a href="#local-6989586621680336632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxParallelTrainingJobs:ResourceLimits' :: Natural
+</span><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#%24sel%3AmaxParallelTrainingJobs%3AResourceLimits%27"><span class="hs-identifier hs-var">maxParallelTrainingJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680336631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits"><span class="hs-identifier hs-type">ResourceLimits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336628"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits"><span class="hs-identifier hs-type">ResourceLimits</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621680336626"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceLimits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ResourceLimits)
+-&gt; Value
+-&gt; Parser ResourceLimits
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ResourceLimits&quot;</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680336623"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680336623"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Natural -&gt; Natural -&gt; ResourceLimits
+</span><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits%27"><span class="hs-identifier hs-var">ResourceLimits'</span></a></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Natural -&gt; Natural -&gt; ResourceLimits)
+-&gt; Parser Natural -&gt; Parser (Natural -&gt; ResourceLimits)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680336623"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxNumberOfTrainingJobs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Natural -&gt; ResourceLimits)
+-&gt; Parser Natural -&gt; Parser ResourceLimits
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680336623"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxParallelTrainingJobs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336617"><span id="local-6989586621680336619"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits"><span class="hs-identifier hs-type">ResourceLimits</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336614"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits"><span class="hs-identifier hs-type">ResourceLimits</span></a></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336606"><span id="local-6989586621680336608"><span id="local-6989586621680336610"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits"><span class="hs-identifier hs-type">ResourceLimits</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621680336604"><span class="annot"><span class="annottext">toJSON :: ResourceLimits -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits%27"><span class="hs-identifier hs-type">ResourceLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336601"><span id="local-6989586621680336602"><span class="annot"><span class="annottext">Natural
+maxParallelTrainingJobs :: Natural
+maxNumberOfTrainingJobs :: Natural
+$sel:maxParallelTrainingJobs:ResourceLimits' :: ResourceLimits -&gt; Natural
+$sel:maxNumberOfTrainingJobs:ResourceLimits' :: ResourceLimits -&gt; Natural
+</span><a href="#local-6989586621680336601"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-96"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-97"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxNumberOfTrainingJobs&quot;</span></span><span>
+</span><span id="line-98"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680336602"><span class="hs-identifier hs-var">maxNumberOfTrainingJobs</span></a></span><span>
+</span><span id="line-99"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxParallelTrainingJobs&quot;</span></span><span>
+</span><span id="line-102"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680336601"><span class="hs-identifier hs-var">maxParallelTrainingJobs</span></a></span><span>
+</span><span id="line-103"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span></pre></body></html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WAFRegional.DeleteWebACL</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This is __AWS WAF Classic__ documentation. For more information, see</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic&gt;</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- in the developer guide.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- With the latest version, AWS WAF has a single set of endpoints for</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- regional and global use.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Permanently deletes a WebACL. You can\'t delete a @WebACL@ if it still</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- contains any @Rules@.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- To delete a @WebACL@, perform the following steps:</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- 1.  Update the @WebACL@ to remove @Rules@, if any. For more information,</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     see UpdateWebACL.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- 2.  Use GetChangeToken to get the change token that you provide in the</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     @ChangeToken@ parameter of a @DeleteWebACL@ request.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- 3.  Submit a @DeleteWebACL@ request.</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WAFRegional.DeleteWebACL</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL"><span class="hs-identifier">DeleteWebACL</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#newDeleteWebACL"><span class="hs-identifier">newDeleteWebACL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#deleteWebACL_webACLId"><span class="hs-identifier">deleteWebACL_webACLId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#deleteWebACL_changeToken"><span class="hs-identifier">deleteWebACL_changeToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACLResponse"><span class="hs-identifier">DeleteWebACLResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#newDeleteWebACLResponse"><span class="hs-identifier">newDeleteWebACLResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#deleteWebACLResponse_changeToken"><span class="hs-identifier">deleteWebACLResponse_changeToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#deleteWebACLResponse_httpStatus"><span class="hs-identifier">deleteWebACLResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.html"><span class="hs-identifier">Network.AWS.WAFRegional.Types</span></a></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | /See:/ 'newDeleteWebACL' smart constructor.</span><span>
+</span><span id="line-71"></span><span id="local-6989586621679321924"><span id="local-6989586621679321925"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteWebACL"><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL"><span class="hs-identifier hs-var">DeleteWebACL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteWebACL%27"><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL%27"><span class="hs-identifier hs-var">DeleteWebACL'</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @WebACLId@ of the WebACL that you want to delete. @WebACLId@ is</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- returned by CreateWebACL and by ListWebACLs.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AwebACLId%3ADeleteWebACL%27"><span class="annot"><span class="annottext">DeleteWebACL -&gt; Text
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#%24sel%3AwebACLId%3ADeleteWebACL%27"><span class="hs-identifier hs-var hs-var">webACLId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The value returned by the most recent call to GetChangeToken.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AchangeToken%3ADeleteWebACL%27"><span class="annot"><span class="annottext">DeleteWebACL -&gt; Text
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#%24sel%3AchangeToken%3ADeleteWebACL%27"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321917"><span id="local-6989586621679321919"><span class="annot"><span class="annottext">DeleteWebACL -&gt; DeleteWebACL -&gt; Bool
+(DeleteWebACL -&gt; DeleteWebACL -&gt; Bool)
+-&gt; (DeleteWebACL -&gt; DeleteWebACL -&gt; Bool) -&gt; Eq DeleteWebACL
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteWebACL -&gt; DeleteWebACL -&gt; Bool
+$c/= :: DeleteWebACL -&gt; DeleteWebACL -&gt; Bool
+== :: DeleteWebACL -&gt; DeleteWebACL -&gt; Bool
+$c== :: DeleteWebACL -&gt; DeleteWebACL -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321908"><span id="local-6989586621679321910"><span id="local-6989586621679321912"><span id="local-6989586621679321914"><span class="annot"><span class="annottext">ReadPrec [DeleteWebACL]
+ReadPrec DeleteWebACL
+Int -&gt; ReadS DeleteWebACL
+ReadS [DeleteWebACL]
+(Int -&gt; ReadS DeleteWebACL)
+-&gt; ReadS [DeleteWebACL]
+-&gt; ReadPrec DeleteWebACL
+-&gt; ReadPrec [DeleteWebACL]
+-&gt; Read DeleteWebACL
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteWebACL]
+$creadListPrec :: ReadPrec [DeleteWebACL]
+readPrec :: ReadPrec DeleteWebACL
+$creadPrec :: ReadPrec DeleteWebACL
+readList :: ReadS [DeleteWebACL]
+$creadList :: ReadS [DeleteWebACL]
+readsPrec :: Int -&gt; ReadS DeleteWebACL
+$creadsPrec :: Int -&gt; ReadS DeleteWebACL
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321901"><span id="local-6989586621679321903"><span id="local-6989586621679321905"><span class="annot"><span class="annottext">Int -&gt; DeleteWebACL -&gt; ShowS
+[DeleteWebACL] -&gt; ShowS
+DeleteWebACL -&gt; String
+(Int -&gt; DeleteWebACL -&gt; ShowS)
+-&gt; (DeleteWebACL -&gt; String)
+-&gt; ([DeleteWebACL] -&gt; ShowS)
+-&gt; Show DeleteWebACL
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteWebACL] -&gt; ShowS
+$cshowList :: [DeleteWebACL] -&gt; ShowS
+show :: DeleteWebACL -&gt; String
+$cshow :: DeleteWebACL -&gt; String
+showsPrec :: Int -&gt; DeleteWebACL -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteWebACL -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteWebACL -&gt; Rep DeleteWebACL x)
+-&gt; (forall x. Rep DeleteWebACL x -&gt; DeleteWebACL)
+-&gt; Generic DeleteWebACL
+forall x. Rep DeleteWebACL x -&gt; DeleteWebACL
+forall x. DeleteWebACL -&gt; Rep DeleteWebACL x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteWebACL x -&gt; DeleteWebACL
+$cfrom :: forall x. DeleteWebACL -&gt; Rep DeleteWebACL x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'DeleteWebACL' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'webACLId', 'deleteWebACL_webACLId' - The @WebACLId@ of the WebACL that you want to delete. @WebACLId@ is</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- returned by CreateWebACL and by ListWebACLs.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'changeToken', 'deleteWebACL_changeToken' - The value returned by the most recent call to GetChangeToken.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#newDeleteWebACL"><span class="hs-identifier hs-type">newDeleteWebACL</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'webACLId'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'changeToken'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL"><span class="hs-identifier hs-type">DeleteWebACL</span></a></span><span>
+</span><span id="line-98"></span><span id="newDeleteWebACL"><span class="annot"><span class="annottext">newDeleteWebACL :: Text -&gt; Text -&gt; DeleteWebACL
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#newDeleteWebACL"><span class="hs-identifier hs-var hs-var">newDeleteWebACL</span></a></span></span><span> </span><span id="local-6989586621679321896"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321896"><span class="hs-identifier hs-var">pWebACLId_</span></a></span></span><span> </span><span id="local-6989586621679321895"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321895"><span class="hs-identifier hs-var">pChangeToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">DeleteWebACL' :: Text -&gt; Text -&gt; DeleteWebACL
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL%27"><span class="hs-identifier hs-type">DeleteWebACL'</span></a></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:webACLId:DeleteWebACL' :: Text
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#%24sel%3AwebACLId%3ADeleteWebACL%27"><span class="hs-identifier hs-var">webACLId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321896"><span class="hs-identifier hs-var">pWebACLId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeToken:DeleteWebACL' :: Text
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#%24sel%3AchangeToken%3ADeleteWebACL%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321895"><span class="hs-identifier hs-var">pChangeToken_</span></a></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The @WebACLId@ of the WebACL that you want to delete. @WebACLId@ is</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- returned by CreateWebACL and by ListWebACLs.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#deleteWebACL_webACLId"><span class="hs-identifier hs-type">deleteWebACL_webACLId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL"><span class="hs-identifier hs-type">DeleteWebACL</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="deleteWebACL_webACLId"><span class="annot"><span class="annottext">deleteWebACL_webACLId :: (Text -&gt; f Text) -&gt; DeleteWebACL -&gt; f DeleteWebACL
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#deleteWebACL_webACLId"><span class="hs-identifier hs-var hs-var">deleteWebACL_webACLId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteWebACL -&gt; Text)
+-&gt; (DeleteWebACL -&gt; Text -&gt; DeleteWebACL)
+-&gt; Lens DeleteWebACL DeleteWebACL Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL%27"><span class="hs-identifier hs-type">DeleteWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321892"><span class="annot"><span class="annottext">Text
+webACLId :: Text
+$sel:webACLId:DeleteWebACL' :: DeleteWebACL -&gt; Text
+</span><a href="#local-6989586621679321892"><span class="hs-identifier hs-var hs-var">webACLId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321892"><span class="hs-identifier hs-var">webACLId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321891"><span class="annot"><span class="annottext">s :: DeleteWebACL
+</span><a href="#local-6989586621679321891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL%27"><span class="hs-identifier hs-type">DeleteWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321890"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteWebACL
+</span><a href="#local-6989586621679321891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webACLId:DeleteWebACL' :: Text
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#%24sel%3AwebACLId%3ADeleteWebACL%27"><span class="hs-identifier hs-var">webACLId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL"><span class="hs-identifier hs-type">DeleteWebACL</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The value returned by the most recent call to GetChangeToken.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#deleteWebACL_changeToken"><span class="hs-identifier hs-type">deleteWebACL_changeToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL"><span class="hs-identifier hs-type">DeleteWebACL</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span id="deleteWebACL_changeToken"><span class="annot"><span class="annottext">deleteWebACL_changeToken :: (Text -&gt; f Text) -&gt; DeleteWebACL -&gt; f DeleteWebACL
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#deleteWebACL_changeToken"><span class="hs-identifier hs-var hs-var">deleteWebACL_changeToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteWebACL -&gt; Text)
+-&gt; (DeleteWebACL -&gt; Text -&gt; DeleteWebACL)
+-&gt; Lens DeleteWebACL DeleteWebACL Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL%27"><span class="hs-identifier hs-type">DeleteWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321889"><span class="annot"><span class="annottext">Text
+changeToken :: Text
+$sel:changeToken:DeleteWebACL' :: DeleteWebACL -&gt; Text
+</span><a href="#local-6989586621679321889"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321889"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321888"><span class="annot"><span class="annottext">s :: DeleteWebACL
+</span><a href="#local-6989586621679321888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL%27"><span class="hs-identifier hs-type">DeleteWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321887"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteWebACL
+</span><a href="#local-6989586621679321888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:DeleteWebACL' :: Text
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#%24sel%3AchangeToken%3ADeleteWebACL%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL"><span class="hs-identifier hs-type">DeleteWebACL</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL"><span class="hs-identifier hs-type">DeleteWebACL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL"><span class="hs-identifier hs-type">DeleteWebACL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACLResponse"><span class="hs-identifier hs-type">DeleteWebACLResponse</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679321883"><span class="annot"><span class="annottext">request :: DeleteWebACL -&gt; Request DeleteWebACL
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteWebACL -&gt; Request DeleteWebACL
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WAFRegional.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679321879"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteWebACL
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteWebACL)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteWebACL))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteWebACL
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteWebACL)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679321876"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321876"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679321875"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679321875"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679321874"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321874"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeleteWebACLResponse
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACLResponse%27"><span class="hs-identifier hs-var">DeleteWebACLResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeleteWebACLResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DeleteWebACLResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteWebACLResponse)
+-&gt; Either String Int -&gt; Either String DeleteWebACLResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321876"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321866"><span id="local-6989586621679321868"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL"><span class="hs-identifier hs-type">DeleteWebACL</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321863"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL"><span class="hs-identifier hs-type">DeleteWebACL</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL"><span class="hs-identifier hs-type">DeleteWebACL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679321859"><span class="annot"><span class="annottext">toHeaders :: DeleteWebACL -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteWebACL -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSWAF_Regional_20161128.DeleteWebACL&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-135"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-139"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321849"><span id="local-6989586621679321851"><span id="local-6989586621679321853"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL"><span class="hs-identifier hs-type">DeleteWebACL</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679321847"><span class="annot"><span class="annottext">toJSON :: DeleteWebACL -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL%27"><span class="hs-identifier hs-type">DeleteWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321844"><span id="local-6989586621679321845"><span class="annot"><span class="annottext">Text
+changeToken :: Text
+webACLId :: Text
+$sel:changeToken:DeleteWebACL' :: DeleteWebACL -&gt; Text
+$sel:webACLId:DeleteWebACL' :: DeleteWebACL -&gt; Text
+</span><a href="#local-6989586621679321844"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WebACLId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321845"><span class="hs-identifier hs-var">webACLId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321844"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL"><span class="hs-identifier hs-type">DeleteWebACL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679321838"><span class="annot"><span class="annottext">toPath :: DeleteWebACL -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteWebACL -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACL"><span class="hs-identifier hs-type">DeleteWebACL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679321834"><span class="annot"><span class="annottext">toQuery :: DeleteWebACL -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteWebACL -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | /See:/ 'newDeleteWebACLResponse' smart constructor.</span><span>
+</span><span id="line-159"></span><span id="local-6989586621679321831"><span id="local-6989586621679321832"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteWebACLResponse"><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACLResponse"><span class="hs-identifier hs-var">DeleteWebACLResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteWebACLResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACLResponse%27"><span class="hs-identifier hs-var">DeleteWebACLResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @ChangeToken@ that you used to submit the @DeleteWebACL@ request.</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- You can also use this value to query the status of the request. For more</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- information, see GetChangeTokenStatus.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AchangeToken%3ADeleteWebACLResponse%27"><span class="annot"><span class="annottext">DeleteWebACLResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#%24sel%3AchangeToken%3ADeleteWebACLResponse%27"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteWebACLResponse%27"><span class="annot"><span class="annottext">DeleteWebACLResponse -&gt; Int
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#%24sel%3AhttpStatus%3ADeleteWebACLResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321825"><span id="local-6989586621679321827"><span class="annot"><span class="annottext">DeleteWebACLResponse -&gt; DeleteWebACLResponse -&gt; Bool
+(DeleteWebACLResponse -&gt; DeleteWebACLResponse -&gt; Bool)
+-&gt; (DeleteWebACLResponse -&gt; DeleteWebACLResponse -&gt; Bool)
+-&gt; Eq DeleteWebACLResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteWebACLResponse -&gt; DeleteWebACLResponse -&gt; Bool
+$c/= :: DeleteWebACLResponse -&gt; DeleteWebACLResponse -&gt; Bool
+== :: DeleteWebACLResponse -&gt; DeleteWebACLResponse -&gt; Bool
+$c== :: DeleteWebACLResponse -&gt; DeleteWebACLResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321817"><span id="local-6989586621679321819"><span id="local-6989586621679321821"><span id="local-6989586621679321823"><span class="annot"><span class="annottext">ReadPrec [DeleteWebACLResponse]
+ReadPrec DeleteWebACLResponse
+Int -&gt; ReadS DeleteWebACLResponse
+ReadS [DeleteWebACLResponse]
+(Int -&gt; ReadS DeleteWebACLResponse)
+-&gt; ReadS [DeleteWebACLResponse]
+-&gt; ReadPrec DeleteWebACLResponse
+-&gt; ReadPrec [DeleteWebACLResponse]
+-&gt; Read DeleteWebACLResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteWebACLResponse]
+$creadListPrec :: ReadPrec [DeleteWebACLResponse]
+readPrec :: ReadPrec DeleteWebACLResponse
+$creadPrec :: ReadPrec DeleteWebACLResponse
+readList :: ReadS [DeleteWebACLResponse]
+$creadList :: ReadS [DeleteWebACLResponse]
+readsPrec :: Int -&gt; ReadS DeleteWebACLResponse
+$creadsPrec :: Int -&gt; ReadS DeleteWebACLResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321811"><span id="local-6989586621679321813"><span id="local-6989586621679321815"><span class="annot"><span class="annottext">Int -&gt; DeleteWebACLResponse -&gt; ShowS
+[DeleteWebACLResponse] -&gt; ShowS
+DeleteWebACLResponse -&gt; String
+(Int -&gt; DeleteWebACLResponse -&gt; ShowS)
+-&gt; (DeleteWebACLResponse -&gt; String)
+-&gt; ([DeleteWebACLResponse] -&gt; ShowS)
+-&gt; Show DeleteWebACLResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteWebACLResponse] -&gt; ShowS
+$cshowList :: [DeleteWebACLResponse] -&gt; ShowS
+show :: DeleteWebACLResponse -&gt; String
+$cshow :: DeleteWebACLResponse -&gt; String
+showsPrec :: Int -&gt; DeleteWebACLResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteWebACLResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteWebACLResponse -&gt; Rep DeleteWebACLResponse x)
+-&gt; (forall x. Rep DeleteWebACLResponse x -&gt; DeleteWebACLResponse)
+-&gt; Generic DeleteWebACLResponse
+forall x. Rep DeleteWebACLResponse x -&gt; DeleteWebACLResponse
+forall x. DeleteWebACLResponse -&gt; Rep DeleteWebACLResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteWebACLResponse x -&gt; DeleteWebACLResponse
+$cfrom :: forall x. DeleteWebACLResponse -&gt; Rep DeleteWebACLResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Create a value of 'DeleteWebACLResponse' with all optional fields omitted.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'changeToken', 'deleteWebACLResponse_changeToken' - The @ChangeToken@ that you used to submit the @DeleteWebACL@ request.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- You can also use this value to query the status of the request. For more</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- information, see GetChangeTokenStatus.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'httpStatus', 'deleteWebACLResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#newDeleteWebACLResponse"><span class="hs-identifier hs-type">newDeleteWebACLResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACLResponse"><span class="hs-identifier hs-type">DeleteWebACLResponse</span></a></span><span>
+</span><span id="line-186"></span><span id="newDeleteWebACLResponse"><span class="annot"><span class="annottext">newDeleteWebACLResponse :: Int -&gt; DeleteWebACLResponse
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#newDeleteWebACLResponse"><span class="hs-identifier hs-var hs-var">newDeleteWebACLResponse</span></a></span></span><span> </span><span id="local-6989586621679321808"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321808"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="annottext">DeleteWebACLResponse' :: Maybe Text -&gt; Int -&gt; DeleteWebACLResponse
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACLResponse%27"><span class="hs-identifier hs-type">DeleteWebACLResponse'</span></a></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:changeToken:DeleteWebACLResponse' :: Maybe Text
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#%24sel%3AchangeToken%3ADeleteWebACLResponse%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteWebACLResponse' :: Int
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#%24sel%3AhttpStatus%3ADeleteWebACLResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321808"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The @ChangeToken@ that you used to submit the @DeleteWebACL@ request.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- You can also use this value to query the status of the request. For more</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- information, see GetChangeTokenStatus.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#deleteWebACLResponse_changeToken"><span class="hs-identifier hs-type">deleteWebACLResponse_changeToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACLResponse"><span class="hs-identifier hs-type">DeleteWebACLResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="deleteWebACLResponse_changeToken"><span class="annot"><span class="annottext">deleteWebACLResponse_changeToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteWebACLResponse -&gt; f DeleteWebACLResponse
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#deleteWebACLResponse_changeToken"><span class="hs-identifier hs-var hs-var">deleteWebACLResponse_changeToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteWebACLResponse -&gt; Maybe Text)
+-&gt; (DeleteWebACLResponse -&gt; Maybe Text -&gt; DeleteWebACLResponse)
+-&gt; Lens
+     DeleteWebACLResponse DeleteWebACLResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACLResponse%27"><span class="hs-identifier hs-type">DeleteWebACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321807"><span class="annot"><span class="annottext">Maybe Text
+changeToken :: Maybe Text
+$sel:changeToken:DeleteWebACLResponse' :: DeleteWebACLResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679321807"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321807"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321806"><span class="annot"><span class="annottext">s :: DeleteWebACLResponse
+</span><a href="#local-6989586621679321806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACLResponse%27"><span class="hs-identifier hs-type">DeleteWebACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321805"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteWebACLResponse
+</span><a href="#local-6989586621679321806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:DeleteWebACLResponse' :: Maybe Text
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#%24sel%3AchangeToken%3ADeleteWebACLResponse%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACLResponse"><span class="hs-identifier hs-type">DeleteWebACLResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#deleteWebACLResponse_httpStatus"><span class="hs-identifier hs-type">deleteWebACLResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACLResponse"><span class="hs-identifier hs-type">DeleteWebACLResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-201"></span><span id="deleteWebACLResponse_httpStatus"><span class="annot"><span class="annottext">deleteWebACLResponse_httpStatus :: (Int -&gt; f Int) -&gt; DeleteWebACLResponse -&gt; f DeleteWebACLResponse
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#deleteWebACLResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteWebACLResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteWebACLResponse -&gt; Int)
+-&gt; (DeleteWebACLResponse -&gt; Int -&gt; DeleteWebACLResponse)
+-&gt; Lens DeleteWebACLResponse DeleteWebACLResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACLResponse%27"><span class="hs-identifier hs-type">DeleteWebACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321804"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteWebACLResponse' :: DeleteWebACLResponse -&gt; Int
+</span><a href="#local-6989586621679321804"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321804"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321803"><span class="annot"><span class="annottext">s :: DeleteWebACLResponse
+</span><a href="#local-6989586621679321803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACLResponse%27"><span class="hs-identifier hs-type">DeleteWebACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321802"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteWebACLResponse
+</span><a href="#local-6989586621679321803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteWebACLResponse' :: Int
+</span><a href="Network.AWS.WAFRegional.DeleteWebACL.html#%24sel%3AhttpStatus%3ADeleteWebACLResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACLResponse"><span class="hs-identifier hs-type">DeleteWebACLResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321800"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteWebACL.html#DeleteWebACLResponse"><span class="hs-identifier hs-type">DeleteWebACLResponse</span></a></span></span><span>
+</span><span id="line-204"></span></pre></body></html>

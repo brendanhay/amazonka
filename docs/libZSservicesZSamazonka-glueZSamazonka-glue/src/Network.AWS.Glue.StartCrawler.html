@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.StartCrawler</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts a crawl using the specified crawler, regardless of what is</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- scheduled. If the crawler is already running, returns a</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException CrawlerRunningException&gt;.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.StartCrawler</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler"><span class="hs-identifier">StartCrawler</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#newStartCrawler"><span class="hs-identifier">newStartCrawler</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#startCrawler_name"><span class="hs-identifier">startCrawler_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawlerResponse"><span class="hs-identifier">StartCrawlerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#newStartCrawlerResponse"><span class="hs-identifier">newStartCrawlerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#startCrawlerResponse_httpStatus"><span class="hs-identifier">startCrawlerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.html"><span class="hs-identifier">Network.AWS.Glue.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newStartCrawler' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679711743"><span id="local-6989586621679711744"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartCrawler"><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler"><span class="hs-identifier hs-var">StartCrawler</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartCrawler%27"><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler%27"><span class="hs-identifier hs-var">StartCrawler'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the crawler to start.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aname%3AStartCrawler%27"><span class="annot"><span class="annottext">StartCrawler -&gt; Text
+</span><a href="Network.AWS.Glue.StartCrawler.html#%24sel%3Aname%3AStartCrawler%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679711737"><span id="local-6989586621679711739"><span class="annot"><span class="annottext">StartCrawler -&gt; StartCrawler -&gt; Bool
+(StartCrawler -&gt; StartCrawler -&gt; Bool)
+-&gt; (StartCrawler -&gt; StartCrawler -&gt; Bool) -&gt; Eq StartCrawler
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartCrawler -&gt; StartCrawler -&gt; Bool
+$c/= :: StartCrawler -&gt; StartCrawler -&gt; Bool
+== :: StartCrawler -&gt; StartCrawler -&gt; Bool
+$c== :: StartCrawler -&gt; StartCrawler -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679711728"><span id="local-6989586621679711730"><span id="local-6989586621679711732"><span id="local-6989586621679711734"><span class="annot"><span class="annottext">ReadPrec [StartCrawler]
+ReadPrec StartCrawler
+Int -&gt; ReadS StartCrawler
+ReadS [StartCrawler]
+(Int -&gt; ReadS StartCrawler)
+-&gt; ReadS [StartCrawler]
+-&gt; ReadPrec StartCrawler
+-&gt; ReadPrec [StartCrawler]
+-&gt; Read StartCrawler
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartCrawler]
+$creadListPrec :: ReadPrec [StartCrawler]
+readPrec :: ReadPrec StartCrawler
+$creadPrec :: ReadPrec StartCrawler
+readList :: ReadS [StartCrawler]
+$creadList :: ReadS [StartCrawler]
+readsPrec :: Int -&gt; ReadS StartCrawler
+$creadsPrec :: Int -&gt; ReadS StartCrawler
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679711721"><span id="local-6989586621679711723"><span id="local-6989586621679711725"><span class="annot"><span class="annottext">Int -&gt; StartCrawler -&gt; ShowS
+[StartCrawler] -&gt; ShowS
+StartCrawler -&gt; String
+(Int -&gt; StartCrawler -&gt; ShowS)
+-&gt; (StartCrawler -&gt; String)
+-&gt; ([StartCrawler] -&gt; ShowS)
+-&gt; Show StartCrawler
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartCrawler] -&gt; ShowS
+$cshowList :: [StartCrawler] -&gt; ShowS
+show :: StartCrawler -&gt; String
+$cshow :: StartCrawler -&gt; String
+showsPrec :: Int -&gt; StartCrawler -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartCrawler -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartCrawler -&gt; Rep StartCrawler x)
+-&gt; (forall x. Rep StartCrawler x -&gt; StartCrawler)
+-&gt; Generic StartCrawler
+forall x. Rep StartCrawler x -&gt; StartCrawler
+forall x. StartCrawler -&gt; Rep StartCrawler x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartCrawler x -&gt; StartCrawler
+$cfrom :: forall x. StartCrawler -&gt; Rep StartCrawler x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'StartCrawler' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'name', 'startCrawler_name' - Name of the crawler to start.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#newStartCrawler"><span class="hs-identifier hs-type">newStartCrawler</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler"><span class="hs-identifier hs-type">StartCrawler</span></a></span><span>
+</span><span id="line-70"></span><span id="newStartCrawler"><span class="annot"><span class="annottext">newStartCrawler :: Text -&gt; StartCrawler
+</span><a href="Network.AWS.Glue.StartCrawler.html#newStartCrawler"><span class="hs-identifier hs-var hs-var">newStartCrawler</span></a></span></span><span> </span><span id="local-6989586621679711716"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679711716"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartCrawler' :: Text -&gt; StartCrawler
+</span><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler%27"><span class="hs-identifier hs-type">StartCrawler'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StartCrawler' :: Text
+</span><a href="Network.AWS.Glue.StartCrawler.html#%24sel%3Aname%3AStartCrawler%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679711716"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Name of the crawler to start.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#startCrawler_name"><span class="hs-identifier hs-type">startCrawler_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler"><span class="hs-identifier hs-type">StartCrawler</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="startCrawler_name"><span class="annot"><span class="annottext">startCrawler_name :: (Text -&gt; f Text) -&gt; StartCrawler -&gt; f StartCrawler
+</span><a href="Network.AWS.Glue.StartCrawler.html#startCrawler_name"><span class="hs-identifier hs-var hs-var">startCrawler_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartCrawler -&gt; Text)
+-&gt; (StartCrawler -&gt; Text -&gt; StartCrawler)
+-&gt; Lens StartCrawler StartCrawler Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler%27"><span class="hs-identifier hs-type">StartCrawler'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679711713"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:StartCrawler' :: StartCrawler -&gt; Text
+</span><a href="#local-6989586621679711713"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679711713"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679711712"><span class="annot"><span class="annottext">s :: StartCrawler
+</span><a href="#local-6989586621679711712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler%27"><span class="hs-identifier hs-type">StartCrawler'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679711711"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679711711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartCrawler
+</span><a href="#local-6989586621679711712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StartCrawler' :: Text
+</span><a href="Network.AWS.Glue.StartCrawler.html#%24sel%3Aname%3AStartCrawler%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679711711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler"><span class="hs-identifier hs-type">StartCrawler</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler"><span class="hs-identifier hs-type">StartCrawler</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler"><span class="hs-identifier hs-type">StartCrawler</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawlerResponse"><span class="hs-identifier hs-type">StartCrawlerResponse</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679711707"><span class="annot"><span class="annottext">request :: StartCrawler -&gt; Request StartCrawler
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartCrawler -&gt; Request StartCrawler
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679711703"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartCrawler
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StartCrawler)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse StartCrawler))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartCrawler
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StartCrawler)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679711700"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679711700"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679711699"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679711699"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679711698"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679711698"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StartCrawlerResponse
+</span><a href="Network.AWS.Glue.StartCrawler.html#StartCrawlerResponse%27"><span class="hs-identifier hs-var">StartCrawlerResponse'</span></a></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StartCrawlerResponse)
+-&gt; Either String Int -&gt; Either String StartCrawlerResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679711700"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679711691"><span id="local-6989586621679711693"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler"><span class="hs-identifier hs-type">StartCrawler</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679711688"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler"><span class="hs-identifier hs-type">StartCrawler</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler"><span class="hs-identifier hs-type">StartCrawler</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679711684"><span class="annot"><span class="annottext">toHeaders :: StartCrawler -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartCrawler -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSGlue.StartCrawler&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-99"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679711674"><span id="local-6989586621679711676"><span id="local-6989586621679711678"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler"><span class="hs-identifier hs-type">StartCrawler</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679711672"><span class="annot"><span class="annottext">toJSON :: StartCrawler -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler%27"><span class="hs-identifier hs-type">StartCrawler'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679711670"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:StartCrawler' :: StartCrawler -&gt; Text
+</span><a href="#local-6989586621679711670"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679711670"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler"><span class="hs-identifier hs-type">StartCrawler</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679711664"><span class="annot"><span class="annottext">toPath :: StartCrawler -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartCrawler -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawler"><span class="hs-identifier hs-type">StartCrawler</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679711660"><span class="annot"><span class="annottext">toQuery :: StartCrawler -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartCrawler -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | /See:/ 'newStartCrawlerResponse' smart constructor.</span><span>
+</span><span id="line-117"></span><span id="local-6989586621679711657"><span id="local-6989586621679711658"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartCrawlerResponse"><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawlerResponse"><span class="hs-identifier hs-var">StartCrawlerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartCrawlerResponse%27"><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawlerResponse%27"><span class="hs-identifier hs-var">StartCrawlerResponse'</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartCrawlerResponse%27"><span class="annot"><span class="annottext">StartCrawlerResponse -&gt; Int
+</span><a href="Network.AWS.Glue.StartCrawler.html#%24sel%3AhttpStatus%3AStartCrawlerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679711652"><span id="local-6989586621679711654"><span class="annot"><span class="annottext">StartCrawlerResponse -&gt; StartCrawlerResponse -&gt; Bool
+(StartCrawlerResponse -&gt; StartCrawlerResponse -&gt; Bool)
+-&gt; (StartCrawlerResponse -&gt; StartCrawlerResponse -&gt; Bool)
+-&gt; Eq StartCrawlerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartCrawlerResponse -&gt; StartCrawlerResponse -&gt; Bool
+$c/= :: StartCrawlerResponse -&gt; StartCrawlerResponse -&gt; Bool
+== :: StartCrawlerResponse -&gt; StartCrawlerResponse -&gt; Bool
+$c== :: StartCrawlerResponse -&gt; StartCrawlerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679711644"><span id="local-6989586621679711646"><span id="local-6989586621679711648"><span id="local-6989586621679711650"><span class="annot"><span class="annottext">ReadPrec [StartCrawlerResponse]
+ReadPrec StartCrawlerResponse
+Int -&gt; ReadS StartCrawlerResponse
+ReadS [StartCrawlerResponse]
+(Int -&gt; ReadS StartCrawlerResponse)
+-&gt; ReadS [StartCrawlerResponse]
+-&gt; ReadPrec StartCrawlerResponse
+-&gt; ReadPrec [StartCrawlerResponse]
+-&gt; Read StartCrawlerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartCrawlerResponse]
+$creadListPrec :: ReadPrec [StartCrawlerResponse]
+readPrec :: ReadPrec StartCrawlerResponse
+$creadPrec :: ReadPrec StartCrawlerResponse
+readList :: ReadS [StartCrawlerResponse]
+$creadList :: ReadS [StartCrawlerResponse]
+readsPrec :: Int -&gt; ReadS StartCrawlerResponse
+$creadsPrec :: Int -&gt; ReadS StartCrawlerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679711638"><span id="local-6989586621679711640"><span id="local-6989586621679711642"><span class="annot"><span class="annottext">Int -&gt; StartCrawlerResponse -&gt; ShowS
+[StartCrawlerResponse] -&gt; ShowS
+StartCrawlerResponse -&gt; String
+(Int -&gt; StartCrawlerResponse -&gt; ShowS)
+-&gt; (StartCrawlerResponse -&gt; String)
+-&gt; ([StartCrawlerResponse] -&gt; ShowS)
+-&gt; Show StartCrawlerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartCrawlerResponse] -&gt; ShowS
+$cshowList :: [StartCrawlerResponse] -&gt; ShowS
+show :: StartCrawlerResponse -&gt; String
+$cshow :: StartCrawlerResponse -&gt; String
+showsPrec :: Int -&gt; StartCrawlerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartCrawlerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartCrawlerResponse -&gt; Rep StartCrawlerResponse x)
+-&gt; (forall x. Rep StartCrawlerResponse x -&gt; StartCrawlerResponse)
+-&gt; Generic StartCrawlerResponse
+forall x. Rep StartCrawlerResponse x -&gt; StartCrawlerResponse
+forall x. StartCrawlerResponse -&gt; Rep StartCrawlerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartCrawlerResponse x -&gt; StartCrawlerResponse
+$cfrom :: forall x. StartCrawlerResponse -&gt; Rep StartCrawlerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Create a value of 'StartCrawlerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'httpStatus', 'startCrawlerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#newStartCrawlerResponse"><span class="hs-identifier hs-type">newStartCrawlerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawlerResponse"><span class="hs-identifier hs-type">StartCrawlerResponse</span></a></span><span>
+</span><span id="line-136"></span><span id="newStartCrawlerResponse"><span class="annot"><span class="annottext">newStartCrawlerResponse :: Int -&gt; StartCrawlerResponse
+</span><a href="Network.AWS.Glue.StartCrawler.html#newStartCrawlerResponse"><span class="hs-identifier hs-var hs-var">newStartCrawlerResponse</span></a></span></span><span> </span><span id="local-6989586621679711635"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679711635"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">StartCrawlerResponse' :: Int -&gt; StartCrawlerResponse
+</span><a href="Network.AWS.Glue.StartCrawler.html#StartCrawlerResponse%27"><span class="hs-identifier hs-type">StartCrawlerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartCrawlerResponse' :: Int
+</span><a href="Network.AWS.Glue.StartCrawler.html#%24sel%3AhttpStatus%3AStartCrawlerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679711635"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#startCrawlerResponse_httpStatus"><span class="hs-identifier hs-type">startCrawlerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawlerResponse"><span class="hs-identifier hs-type">StartCrawlerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-141"></span><span id="startCrawlerResponse_httpStatus"><span class="annot"><span class="annottext">startCrawlerResponse_httpStatus :: (Int -&gt; f Int) -&gt; StartCrawlerResponse -&gt; f StartCrawlerResponse
+</span><a href="Network.AWS.Glue.StartCrawler.html#startCrawlerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startCrawlerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartCrawlerResponse -&gt; Int)
+-&gt; (StartCrawlerResponse -&gt; Int -&gt; StartCrawlerResponse)
+-&gt; Lens StartCrawlerResponse StartCrawlerResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawlerResponse%27"><span class="hs-identifier hs-type">StartCrawlerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679711634"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartCrawlerResponse' :: StartCrawlerResponse -&gt; Int
+</span><a href="#local-6989586621679711634"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679711634"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679711633"><span class="annot"><span class="annottext">s :: StartCrawlerResponse
+</span><a href="#local-6989586621679711633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawlerResponse%27"><span class="hs-identifier hs-type">StartCrawlerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679711632"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679711632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartCrawlerResponse
+</span><a href="#local-6989586621679711633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartCrawlerResponse' :: Int
+</span><a href="Network.AWS.Glue.StartCrawler.html#%24sel%3AhttpStatus%3AStartCrawlerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679711632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawlerResponse"><span class="hs-identifier hs-type">StartCrawlerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679711630"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartCrawler.html#StartCrawlerResponse"><span class="hs-identifier hs-type">StartCrawlerResponse</span></a></span></span><span>
+</span><span id="line-144"></span></pre></body></html>

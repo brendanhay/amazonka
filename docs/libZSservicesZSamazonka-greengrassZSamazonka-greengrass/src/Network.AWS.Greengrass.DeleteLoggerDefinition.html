@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Greengrass.DeleteLoggerDefinition</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a logger definition.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Greengrass.DeleteLoggerDefinition</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition"><span class="hs-identifier">DeleteLoggerDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#newDeleteLoggerDefinition"><span class="hs-identifier">newDeleteLoggerDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#deleteLoggerDefinition_loggerDefinitionId"><span class="hs-identifier">deleteLoggerDefinition_loggerDefinitionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinitionResponse"><span class="hs-identifier">DeleteLoggerDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#newDeleteLoggerDefinitionResponse"><span class="hs-identifier">newDeleteLoggerDefinitionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#deleteLoggerDefinitionResponse_httpStatus"><span class="hs-identifier">deleteLoggerDefinitionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.html"><span class="hs-identifier">Network.AWS.Greengrass.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteLoggerDefinition' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679361452"><span id="local-6989586621679361453"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLoggerDefinition"><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition"><span class="hs-identifier hs-var">DeleteLoggerDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLoggerDefinition%27"><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition%27"><span class="hs-identifier hs-var">DeleteLoggerDefinition'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the logger definition.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AloggerDefinitionId%3ADeleteLoggerDefinition%27"><span class="annot"><span class="annottext">DeleteLoggerDefinition -&gt; Text
+</span><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#%24sel%3AloggerDefinitionId%3ADeleteLoggerDefinition%27"><span class="hs-identifier hs-var hs-var">loggerDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679361446"><span id="local-6989586621679361448"><span class="annot"><span class="annottext">DeleteLoggerDefinition -&gt; DeleteLoggerDefinition -&gt; Bool
+(DeleteLoggerDefinition -&gt; DeleteLoggerDefinition -&gt; Bool)
+-&gt; (DeleteLoggerDefinition -&gt; DeleteLoggerDefinition -&gt; Bool)
+-&gt; Eq DeleteLoggerDefinition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteLoggerDefinition -&gt; DeleteLoggerDefinition -&gt; Bool
+$c/= :: DeleteLoggerDefinition -&gt; DeleteLoggerDefinition -&gt; Bool
+== :: DeleteLoggerDefinition -&gt; DeleteLoggerDefinition -&gt; Bool
+$c== :: DeleteLoggerDefinition -&gt; DeleteLoggerDefinition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361437"><span id="local-6989586621679361439"><span id="local-6989586621679361441"><span id="local-6989586621679361443"><span class="annot"><span class="annottext">ReadPrec [DeleteLoggerDefinition]
+ReadPrec DeleteLoggerDefinition
+Int -&gt; ReadS DeleteLoggerDefinition
+ReadS [DeleteLoggerDefinition]
+(Int -&gt; ReadS DeleteLoggerDefinition)
+-&gt; ReadS [DeleteLoggerDefinition]
+-&gt; ReadPrec DeleteLoggerDefinition
+-&gt; ReadPrec [DeleteLoggerDefinition]
+-&gt; Read DeleteLoggerDefinition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteLoggerDefinition]
+$creadListPrec :: ReadPrec [DeleteLoggerDefinition]
+readPrec :: ReadPrec DeleteLoggerDefinition
+$creadPrec :: ReadPrec DeleteLoggerDefinition
+readList :: ReadS [DeleteLoggerDefinition]
+$creadList :: ReadS [DeleteLoggerDefinition]
+readsPrec :: Int -&gt; ReadS DeleteLoggerDefinition
+$creadsPrec :: Int -&gt; ReadS DeleteLoggerDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361430"><span id="local-6989586621679361432"><span id="local-6989586621679361434"><span class="annot"><span class="annottext">Int -&gt; DeleteLoggerDefinition -&gt; ShowS
+[DeleteLoggerDefinition] -&gt; ShowS
+DeleteLoggerDefinition -&gt; String
+(Int -&gt; DeleteLoggerDefinition -&gt; ShowS)
+-&gt; (DeleteLoggerDefinition -&gt; String)
+-&gt; ([DeleteLoggerDefinition] -&gt; ShowS)
+-&gt; Show DeleteLoggerDefinition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteLoggerDefinition] -&gt; ShowS
+$cshowList :: [DeleteLoggerDefinition] -&gt; ShowS
+show :: DeleteLoggerDefinition -&gt; String
+$cshow :: DeleteLoggerDefinition -&gt; String
+showsPrec :: Int -&gt; DeleteLoggerDefinition -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteLoggerDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteLoggerDefinition -&gt; Rep DeleteLoggerDefinition x)
+-&gt; (forall x.
+    Rep DeleteLoggerDefinition x -&gt; DeleteLoggerDefinition)
+-&gt; Generic DeleteLoggerDefinition
+forall x. Rep DeleteLoggerDefinition x -&gt; DeleteLoggerDefinition
+forall x. DeleteLoggerDefinition -&gt; Rep DeleteLoggerDefinition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteLoggerDefinition x -&gt; DeleteLoggerDefinition
+$cfrom :: forall x. DeleteLoggerDefinition -&gt; Rep DeleteLoggerDefinition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'DeleteLoggerDefinition' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'loggerDefinitionId', 'deleteLoggerDefinition_loggerDefinitionId' - The ID of the logger definition.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#newDeleteLoggerDefinition"><span class="hs-identifier hs-type">newDeleteLoggerDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'loggerDefinitionId'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition"><span class="hs-identifier hs-type">DeleteLoggerDefinition</span></a></span><span>
+</span><span id="line-68"></span><span id="newDeleteLoggerDefinition"><span class="annot"><span class="annottext">newDeleteLoggerDefinition :: Text -&gt; DeleteLoggerDefinition
+</span><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#newDeleteLoggerDefinition"><span class="hs-identifier hs-var hs-var">newDeleteLoggerDefinition</span></a></span></span><span> </span><span id="local-6989586621679361425"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679361425"><span class="hs-identifier hs-var">pLoggerDefinitionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteLoggerDefinition' :: Text -&gt; DeleteLoggerDefinition
+</span><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition%27"><span class="hs-identifier hs-type">DeleteLoggerDefinition'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loggerDefinitionId:DeleteLoggerDefinition' :: Text
+</span><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#%24sel%3AloggerDefinitionId%3ADeleteLoggerDefinition%27"><span class="hs-identifier hs-var">loggerDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679361425"><span class="hs-identifier hs-var">pLoggerDefinitionId_</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The ID of the logger definition.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#deleteLoggerDefinition_loggerDefinitionId"><span class="hs-identifier hs-type">deleteLoggerDefinition_loggerDefinitionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition"><span class="hs-identifier hs-type">DeleteLoggerDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="deleteLoggerDefinition_loggerDefinitionId"><span class="annot"><span class="annottext">deleteLoggerDefinition_loggerDefinitionId :: (Text -&gt; f Text)
+-&gt; DeleteLoggerDefinition -&gt; f DeleteLoggerDefinition
+</span><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#deleteLoggerDefinition_loggerDefinitionId"><span class="hs-identifier hs-var hs-var">deleteLoggerDefinition_loggerDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteLoggerDefinition -&gt; Text)
+-&gt; (DeleteLoggerDefinition -&gt; Text -&gt; DeleteLoggerDefinition)
+-&gt; Lens DeleteLoggerDefinition DeleteLoggerDefinition Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition%27"><span class="hs-identifier hs-type">DeleteLoggerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361422"><span class="annot"><span class="annottext">Text
+loggerDefinitionId :: Text
+$sel:loggerDefinitionId:DeleteLoggerDefinition' :: DeleteLoggerDefinition -&gt; Text
+</span><a href="#local-6989586621679361422"><span class="hs-identifier hs-var hs-var">loggerDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679361422"><span class="hs-identifier hs-var">loggerDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361421"><span class="annot"><span class="annottext">s :: DeleteLoggerDefinition
+</span><a href="#local-6989586621679361421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition%27"><span class="hs-identifier hs-type">DeleteLoggerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361420"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679361420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLoggerDefinition
+</span><a href="#local-6989586621679361421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggerDefinitionId:DeleteLoggerDefinition' :: Text
+</span><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#%24sel%3AloggerDefinitionId%3ADeleteLoggerDefinition%27"><span class="hs-identifier hs-var">loggerDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679361420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition"><span class="hs-identifier hs-type">DeleteLoggerDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition"><span class="hs-identifier hs-type">DeleteLoggerDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition"><span class="hs-identifier hs-type">DeleteLoggerDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinitionResponse"><span class="hs-identifier hs-type">DeleteLoggerDefinitionResponse</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679361416"><span class="annot"><span class="annottext">request :: DeleteLoggerDefinition -&gt; Request DeleteLoggerDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteLoggerDefinition -&gt; Request DeleteLoggerDefinition
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679361412"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteLoggerDefinition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteLoggerDefinition)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteLoggerDefinition))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteLoggerDefinition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteLoggerDefinition)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679361409"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361409"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679361408"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679361408"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679361407"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679361407"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteLoggerDefinitionResponse
+</span><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinitionResponse%27"><span class="hs-identifier hs-var">DeleteLoggerDefinitionResponse'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteLoggerDefinitionResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteLoggerDefinitionResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361409"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361400"><span id="local-6989586621679361402"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition"><span class="hs-identifier hs-type">DeleteLoggerDefinition</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361397"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition"><span class="hs-identifier hs-type">DeleteLoggerDefinition</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition"><span class="hs-identifier hs-type">DeleteLoggerDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679361393"><span class="annot"><span class="annottext">toHeaders :: DeleteLoggerDefinition -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteLoggerDefinition -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-101"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition"><span class="hs-identifier hs-type">DeleteLoggerDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679361387"><span class="annot"><span class="annottext">toPath :: DeleteLoggerDefinition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition%27"><span class="hs-identifier hs-type">DeleteLoggerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361385"><span class="annot"><span class="annottext">Text
+loggerDefinitionId :: Text
+$sel:loggerDefinitionId:DeleteLoggerDefinition' :: DeleteLoggerDefinition -&gt; Text
+</span><a href="#local-6989586621679361385"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/greengrass/definition/loggers/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679361385"><span class="hs-identifier hs-var">loggerDefinitionId</span></a></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinition"><span class="hs-identifier hs-type">DeleteLoggerDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679361381"><span class="annot"><span class="annottext">toQuery :: DeleteLoggerDefinition -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteLoggerDefinition -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newDeleteLoggerDefinitionResponse' smart constructor.</span><span>
+</span><span id="line-116"></span><span id="local-6989586621679361378"><span id="local-6989586621679361379"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLoggerDefinitionResponse"><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinitionResponse"><span class="hs-identifier hs-var">DeleteLoggerDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLoggerDefinitionResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinitionResponse%27"><span class="hs-identifier hs-var">DeleteLoggerDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteLoggerDefinitionResponse%27"><span class="annot"><span class="annottext">DeleteLoggerDefinitionResponse -&gt; Int
+</span><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#%24sel%3AhttpStatus%3ADeleteLoggerDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679361373"><span id="local-6989586621679361375"><span class="annot"><span class="annottext">DeleteLoggerDefinitionResponse
+-&gt; DeleteLoggerDefinitionResponse -&gt; Bool
+(DeleteLoggerDefinitionResponse
+ -&gt; DeleteLoggerDefinitionResponse -&gt; Bool)
+-&gt; (DeleteLoggerDefinitionResponse
+    -&gt; DeleteLoggerDefinitionResponse -&gt; Bool)
+-&gt; Eq DeleteLoggerDefinitionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteLoggerDefinitionResponse
+-&gt; DeleteLoggerDefinitionResponse -&gt; Bool
+$c/= :: DeleteLoggerDefinitionResponse
+-&gt; DeleteLoggerDefinitionResponse -&gt; Bool
+== :: DeleteLoggerDefinitionResponse
+-&gt; DeleteLoggerDefinitionResponse -&gt; Bool
+$c== :: DeleteLoggerDefinitionResponse
+-&gt; DeleteLoggerDefinitionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361365"><span id="local-6989586621679361367"><span id="local-6989586621679361369"><span id="local-6989586621679361371"><span class="annot"><span class="annottext">ReadPrec [DeleteLoggerDefinitionResponse]
+ReadPrec DeleteLoggerDefinitionResponse
+Int -&gt; ReadS DeleteLoggerDefinitionResponse
+ReadS [DeleteLoggerDefinitionResponse]
+(Int -&gt; ReadS DeleteLoggerDefinitionResponse)
+-&gt; ReadS [DeleteLoggerDefinitionResponse]
+-&gt; ReadPrec DeleteLoggerDefinitionResponse
+-&gt; ReadPrec [DeleteLoggerDefinitionResponse]
+-&gt; Read DeleteLoggerDefinitionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteLoggerDefinitionResponse]
+$creadListPrec :: ReadPrec [DeleteLoggerDefinitionResponse]
+readPrec :: ReadPrec DeleteLoggerDefinitionResponse
+$creadPrec :: ReadPrec DeleteLoggerDefinitionResponse
+readList :: ReadS [DeleteLoggerDefinitionResponse]
+$creadList :: ReadS [DeleteLoggerDefinitionResponse]
+readsPrec :: Int -&gt; ReadS DeleteLoggerDefinitionResponse
+$creadsPrec :: Int -&gt; ReadS DeleteLoggerDefinitionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361359"><span id="local-6989586621679361361"><span id="local-6989586621679361363"><span class="annot"><span class="annottext">Int -&gt; DeleteLoggerDefinitionResponse -&gt; ShowS
+[DeleteLoggerDefinitionResponse] -&gt; ShowS
+DeleteLoggerDefinitionResponse -&gt; String
+(Int -&gt; DeleteLoggerDefinitionResponse -&gt; ShowS)
+-&gt; (DeleteLoggerDefinitionResponse -&gt; String)
+-&gt; ([DeleteLoggerDefinitionResponse] -&gt; ShowS)
+-&gt; Show DeleteLoggerDefinitionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteLoggerDefinitionResponse] -&gt; ShowS
+$cshowList :: [DeleteLoggerDefinitionResponse] -&gt; ShowS
+show :: DeleteLoggerDefinitionResponse -&gt; String
+$cshow :: DeleteLoggerDefinitionResponse -&gt; String
+showsPrec :: Int -&gt; DeleteLoggerDefinitionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteLoggerDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteLoggerDefinitionResponse
+ -&gt; Rep DeleteLoggerDefinitionResponse x)
+-&gt; (forall x.
+    Rep DeleteLoggerDefinitionResponse x
+    -&gt; DeleteLoggerDefinitionResponse)
+-&gt; Generic DeleteLoggerDefinitionResponse
+forall x.
+Rep DeleteLoggerDefinitionResponse x
+-&gt; DeleteLoggerDefinitionResponse
+forall x.
+DeleteLoggerDefinitionResponse
+-&gt; Rep DeleteLoggerDefinitionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteLoggerDefinitionResponse x
+-&gt; DeleteLoggerDefinitionResponse
+$cfrom :: forall x.
+DeleteLoggerDefinitionResponse
+-&gt; Rep DeleteLoggerDefinitionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Create a value of 'DeleteLoggerDefinitionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'httpStatus', 'deleteLoggerDefinitionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#newDeleteLoggerDefinitionResponse"><span class="hs-identifier hs-type">newDeleteLoggerDefinitionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinitionResponse"><span class="hs-identifier hs-type">DeleteLoggerDefinitionResponse</span></a></span><span>
+</span><span id="line-135"></span><span id="newDeleteLoggerDefinitionResponse"><span class="annot"><span class="annottext">newDeleteLoggerDefinitionResponse :: Int -&gt; DeleteLoggerDefinitionResponse
+</span><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#newDeleteLoggerDefinitionResponse"><span class="hs-identifier hs-var hs-var">newDeleteLoggerDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679361356"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361356"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">DeleteLoggerDefinitionResponse' :: Int -&gt; DeleteLoggerDefinitionResponse
+</span><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteLoggerDefinitionResponse'</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLoggerDefinitionResponse' :: Int
+</span><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#%24sel%3AhttpStatus%3ADeleteLoggerDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361356"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#deleteLoggerDefinitionResponse_httpStatus"><span class="hs-identifier hs-type">deleteLoggerDefinitionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinitionResponse"><span class="hs-identifier hs-type">DeleteLoggerDefinitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span id="deleteLoggerDefinitionResponse_httpStatus"><span class="annot"><span class="annottext">deleteLoggerDefinitionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteLoggerDefinitionResponse
+-&gt; f DeleteLoggerDefinitionResponse
+</span><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#deleteLoggerDefinitionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteLoggerDefinitionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteLoggerDefinitionResponse -&gt; Int)
+-&gt; (DeleteLoggerDefinitionResponse
+    -&gt; Int -&gt; DeleteLoggerDefinitionResponse)
+-&gt; Lens
+     DeleteLoggerDefinitionResponse
+     DeleteLoggerDefinitionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteLoggerDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361355"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteLoggerDefinitionResponse' :: DeleteLoggerDefinitionResponse -&gt; Int
+</span><a href="#local-6989586621679361355"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361355"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361354"><span class="annot"><span class="annottext">s :: DeleteLoggerDefinitionResponse
+</span><a href="#local-6989586621679361354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteLoggerDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361353"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLoggerDefinitionResponse
+</span><a href="#local-6989586621679361354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLoggerDefinitionResponse' :: Int
+</span><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#%24sel%3AhttpStatus%3ADeleteLoggerDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinitionResponse"><span class="hs-identifier hs-type">DeleteLoggerDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679361351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteLoggerDefinition.html#DeleteLoggerDefinitionResponse"><span class="hs-identifier hs-type">DeleteLoggerDefinitionResponse</span></a></span></span><span>
+</span><span id="line-148"></span></pre></body></html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QLDB.Types.ExportStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QLDB.Types.ExportStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus"><span class="hs-identifier">ExportStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus_CANCELLED"><span class="hs-identifier">ExportStatus_CANCELLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus_COMPLETED"><span class="hs-identifier">ExportStatus_COMPLETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus_IN_PROGRESS"><span class="hs-identifier">ExportStatus_IN_PROGRESS</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679181984"><span id="local-6989586621679181985"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExportStatus"><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus"><span class="hs-identifier hs-var">ExportStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportStatus%27"><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus%27"><span class="hs-identifier hs-var">ExportStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExportStatus"><span class="annot"><span class="annottext">ExportStatus -&gt; Text
+</span><a href="Network.AWS.QLDB.Types.ExportStatus.html#fromExportStatus"><span class="hs-identifier hs-var hs-var">fromExportStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679181976"><span id="local-6989586621679181978"><span id="local-6989586621679181980"><span class="annot"><span class="annottext">Int -&gt; ExportStatus -&gt; ShowS
+[ExportStatus] -&gt; ShowS
+ExportStatus -&gt; String
+(Int -&gt; ExportStatus -&gt; ShowS)
+-&gt; (ExportStatus -&gt; String)
+-&gt; ([ExportStatus] -&gt; ShowS)
+-&gt; Show ExportStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExportStatus] -&gt; ShowS
+$cshowList :: [ExportStatus] -&gt; ShowS
+show :: ExportStatus -&gt; String
+$cshow :: ExportStatus -&gt; String
+showsPrec :: Int -&gt; ExportStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExportStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679181967"><span id="local-6989586621679181969"><span id="local-6989586621679181971"><span id="local-6989586621679181973"><span class="annot"><span class="annottext">ReadPrec [ExportStatus]
+ReadPrec ExportStatus
+Int -&gt; ReadS ExportStatus
+ReadS [ExportStatus]
+(Int -&gt; ReadS ExportStatus)
+-&gt; ReadS [ExportStatus]
+-&gt; ReadPrec ExportStatus
+-&gt; ReadPrec [ExportStatus]
+-&gt; Read ExportStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExportStatus]
+$creadListPrec :: ReadPrec [ExportStatus]
+readPrec :: ReadPrec ExportStatus
+$creadPrec :: ReadPrec ExportStatus
+readList :: ReadS [ExportStatus]
+$creadList :: ReadS [ExportStatus]
+readsPrec :: Int -&gt; ReadS ExportStatus
+$creadsPrec :: Int -&gt; ReadS ExportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679181962"><span id="local-6989586621679181964"><span class="annot"><span class="annottext">ExportStatus -&gt; ExportStatus -&gt; Bool
+(ExportStatus -&gt; ExportStatus -&gt; Bool)
+-&gt; (ExportStatus -&gt; ExportStatus -&gt; Bool) -&gt; Eq ExportStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExportStatus -&gt; ExportStatus -&gt; Bool
+$c/= :: ExportStatus -&gt; ExportStatus -&gt; Bool
+== :: ExportStatus -&gt; ExportStatus -&gt; Bool
+$c== :: ExportStatus -&gt; ExportStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679181946"><span id="local-6989586621679181948"><span id="local-6989586621679181950"><span id="local-6989586621679181952"><span id="local-6989586621679181954"><span id="local-6989586621679181956"><span id="local-6989586621679181958"><span class="annot"><span class="annottext">Eq ExportStatus
+Eq ExportStatus
+-&gt; (ExportStatus -&gt; ExportStatus -&gt; Ordering)
+-&gt; (ExportStatus -&gt; ExportStatus -&gt; Bool)
+-&gt; (ExportStatus -&gt; ExportStatus -&gt; Bool)
+-&gt; (ExportStatus -&gt; ExportStatus -&gt; Bool)
+-&gt; (ExportStatus -&gt; ExportStatus -&gt; Bool)
+-&gt; (ExportStatus -&gt; ExportStatus -&gt; ExportStatus)
+-&gt; (ExportStatus -&gt; ExportStatus -&gt; ExportStatus)
+-&gt; Ord ExportStatus
+ExportStatus -&gt; ExportStatus -&gt; Bool
+ExportStatus -&gt; ExportStatus -&gt; Ordering
+ExportStatus -&gt; ExportStatus -&gt; ExportStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ExportStatus -&gt; ExportStatus -&gt; ExportStatus
+$cmin :: ExportStatus -&gt; ExportStatus -&gt; ExportStatus
+max :: ExportStatus -&gt; ExportStatus -&gt; ExportStatus
+$cmax :: ExportStatus -&gt; ExportStatus -&gt; ExportStatus
+&gt;= :: ExportStatus -&gt; ExportStatus -&gt; Bool
+$c&gt;= :: ExportStatus -&gt; ExportStatus -&gt; Bool
+&gt; :: ExportStatus -&gt; ExportStatus -&gt; Bool
+$c&gt; :: ExportStatus -&gt; ExportStatus -&gt; Bool
+&lt;= :: ExportStatus -&gt; ExportStatus -&gt; Bool
+$c&lt;= :: ExportStatus -&gt; ExportStatus -&gt; Bool
+&lt; :: ExportStatus -&gt; ExportStatus -&gt; Bool
+$c&lt; :: ExportStatus -&gt; ExportStatus -&gt; Bool
+compare :: ExportStatus -&gt; ExportStatus -&gt; Ordering
+$ccompare :: ExportStatus -&gt; ExportStatus -&gt; Ordering
+$cp1Ord :: Eq ExportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ExportStatus -&gt; Rep ExportStatus x)
+-&gt; (forall x. Rep ExportStatus x -&gt; ExportStatus)
+-&gt; Generic ExportStatus
+forall x. Rep ExportStatus x -&gt; ExportStatus
+forall x. ExportStatus -&gt; Rep ExportStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExportStatus x -&gt; ExportStatus
+$cfrom :: forall x. ExportStatus -&gt; Rep ExportStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679181938"><span id="local-6989586621679181940"><span class="annot"><span class="annottext">Int -&gt; ExportStatus -&gt; Int
+ExportStatus -&gt; Int
+(Int -&gt; ExportStatus -&gt; Int)
+-&gt; (ExportStatus -&gt; Int) -&gt; Hashable ExportStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ExportStatus -&gt; Int
+$chash :: ExportStatus -&gt; Int
+hashWithSalt :: Int -&gt; ExportStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ExportStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679181935"><span class="annot"><span class="annottext">ExportStatus -&gt; ()
+(ExportStatus -&gt; ()) -&gt; NFData ExportStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ExportStatus -&gt; ()
+$crnf :: ExportStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679181932"><span class="annot"><span class="annottext">Text -&gt; Either String ExportStatus
+(Text -&gt; Either String ExportStatus) -&gt; FromText ExportStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ExportStatus
+$cfromText :: Text -&gt; Either String ExportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679181929"><span class="annot"><span class="annottext">ExportStatus -&gt; Text
+(ExportStatus -&gt; Text) -&gt; ToText ExportStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ExportStatus -&gt; Text
+$ctoText :: ExportStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679181926"><span class="annot"><span class="annottext">ExportStatus -&gt; ByteString
+(ExportStatus -&gt; ByteString) -&gt; ToByteString ExportStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ExportStatus -&gt; ByteString
+$ctoBS :: ExportStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679181923"><span class="annot"><span class="annottext">ExportStatus -&gt; ByteStringBuilder
+(ExportStatus -&gt; ByteStringBuilder) -&gt; ToLog ExportStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ExportStatus -&gt; ByteStringBuilder
+$cbuild :: ExportStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679181920"><span class="annot"><span class="annottext">HeaderName -&gt; ExportStatus -&gt; [Header]
+(HeaderName -&gt; ExportStatus -&gt; [Header]) -&gt; ToHeader ExportStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ExportStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ExportStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679181917"><span class="annot"><span class="annottext">ExportStatus -&gt; QueryString
+(ExportStatus -&gt; QueryString) -&gt; ToQuery ExportStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ExportStatus -&gt; QueryString
+$ctoQuery :: ExportStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679181912"><span id="local-6989586621679181914"><span class="annot"><span class="annottext">Value -&gt; Parser [ExportStatus]
+Value -&gt; Parser ExportStatus
+(Value -&gt; Parser ExportStatus)
+-&gt; (Value -&gt; Parser [ExportStatus]) -&gt; FromJSON ExportStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ExportStatus]
+$cparseJSONList :: Value -&gt; Parser [ExportStatus]
+parseJSON :: Value -&gt; Parser ExportStatus
+$cparseJSON :: Value -&gt; Parser ExportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679181907"><span id="local-6989586621679181909"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExportStatus]
+FromJSONKeyFunction ExportStatus
+FromJSONKeyFunction ExportStatus
+-&gt; FromJSONKeyFunction [ExportStatus] -&gt; FromJSONKey ExportStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ExportStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ExportStatus]
+fromJSONKey :: FromJSONKeyFunction ExportStatus
+$cfromJSONKey :: FromJSONKeyFunction ExportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679181898"><span id="local-6989586621679181900"><span id="local-6989586621679181902"><span id="local-6989586621679181904"><span class="annot"><span class="annottext">[ExportStatus] -&gt; Encoding
+[ExportStatus] -&gt; Value
+ExportStatus -&gt; Encoding
+ExportStatus -&gt; Value
+(ExportStatus -&gt; Value)
+-&gt; (ExportStatus -&gt; Encoding)
+-&gt; ([ExportStatus] -&gt; Value)
+-&gt; ([ExportStatus] -&gt; Encoding)
+-&gt; ToJSON ExportStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ExportStatus] -&gt; Encoding
+$ctoEncodingList :: [ExportStatus] -&gt; Encoding
+toJSONList :: [ExportStatus] -&gt; Value
+$ctoJSONList :: [ExportStatus] -&gt; Value
+toEncoding :: ExportStatus -&gt; Encoding
+$ctoEncoding :: ExportStatus -&gt; Encoding
+toJSON :: ExportStatus -&gt; Value
+$ctoJSON :: ExportStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679181893"><span id="local-6989586621679181895"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExportStatus]
+ToJSONKeyFunction ExportStatus
+ToJSONKeyFunction ExportStatus
+-&gt; ToJSONKeyFunction [ExportStatus] -&gt; ToJSONKey ExportStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ExportStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ExportStatus]
+toJSONKey :: ToJSONKeyFunction ExportStatus
+$ctoJSONKey :: ToJSONKeyFunction ExportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679181890"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExportStatus
+([Node] -&gt; Either String ExportStatus) -&gt; FromXML ExportStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ExportStatus
+$cparseXML :: [Node] -&gt; Either String ExportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679181887"><span class="annot"><span class="annottext">ExportStatus -&gt; XML
+(ExportStatus -&gt; XML) -&gt; ToXML ExportStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ExportStatus -&gt; XML
+$ctoXML :: ExportStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus_CANCELLED"><span class="hs-identifier hs-type">ExportStatus_CANCELLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus"><span class="hs-identifier hs-type">ExportStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportStatus_CANCELLED"><span id="%24mExportStatus_CANCELLED"><span id="ExportStatus_CANCELLED"><span class="annot"><span class="annottext">$bExportStatus_CANCELLED :: ExportStatus
+$mExportStatus_CANCELLED :: forall r. ExportStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QLDB.Types.ExportStatus.html#%24bExportStatus_CANCELLED"><span class="hs-identifier hs-var hs-var hs-var">ExportStatus_CANCELLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus%27"><span class="hs-identifier hs-type">ExportStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CANCELLED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus_COMPLETED"><span class="hs-identifier hs-type">ExportStatus_COMPLETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus"><span class="hs-identifier hs-type">ExportStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportStatus_COMPLETED"><span id="%24mExportStatus_COMPLETED"><span id="ExportStatus_COMPLETED"><span class="annot"><span class="annottext">$bExportStatus_COMPLETED :: ExportStatus
+$mExportStatus_COMPLETED :: forall r. ExportStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QLDB.Types.ExportStatus.html#%24bExportStatus_COMPLETED"><span class="hs-identifier hs-var hs-var hs-var">ExportStatus_COMPLETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus%27"><span class="hs-identifier hs-type">ExportStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus_IN_PROGRESS"><span class="hs-identifier hs-type">ExportStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus"><span class="hs-identifier hs-type">ExportStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportStatus_IN_PROGRESS"><span id="%24mExportStatus_IN_PROGRESS"><span id="ExportStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bExportStatus_IN_PROGRESS :: ExportStatus
+$mExportStatus_IN_PROGRESS :: forall r. ExportStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QLDB.Types.ExportStatus.html#%24bExportStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">ExportStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus%27"><span class="hs-identifier hs-type">ExportStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus_CANCELLED"><span class="hs-pragma hs-type">ExportStatus_CANCELLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus_COMPLETED"><span class="hs-pragma hs-type">ExportStatus_COMPLETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus_IN_PROGRESS"><span class="hs-pragma hs-type">ExportStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.Types.ExportStatus.html#ExportStatus%27"><span class="hs-pragma hs-type">ExportStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.GetPreset</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieve the JSON for a specific preset.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.GetPreset</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset"><span class="hs-identifier">GetPreset</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#newGetPreset"><span class="hs-identifier">newGetPreset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#getPreset_name"><span class="hs-identifier">getPreset_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPresetResponse"><span class="hs-identifier">GetPresetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#newGetPresetResponse"><span class="hs-identifier">newGetPresetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#getPresetResponse_preset"><span class="hs-identifier">getPresetResponse_preset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#getPresetResponse_httpStatus"><span class="hs-identifier">getPresetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetPreset' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621680025750"><span id="local-6989586621680025751"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPreset"><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset"><span class="hs-identifier hs-var">GetPreset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPreset%27"><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset%27"><span class="hs-identifier hs-var">GetPreset'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the preset.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3AGetPreset%27"><span class="annot"><span class="annottext">GetPreset -&gt; Text
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#%24sel%3Aname%3AGetPreset%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680025744"><span id="local-6989586621680025746"><span class="annot"><span class="annottext">GetPreset -&gt; GetPreset -&gt; Bool
+(GetPreset -&gt; GetPreset -&gt; Bool)
+-&gt; (GetPreset -&gt; GetPreset -&gt; Bool) -&gt; Eq GetPreset
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPreset -&gt; GetPreset -&gt; Bool
+$c/= :: GetPreset -&gt; GetPreset -&gt; Bool
+== :: GetPreset -&gt; GetPreset -&gt; Bool
+$c== :: GetPreset -&gt; GetPreset -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680025735"><span id="local-6989586621680025737"><span id="local-6989586621680025739"><span id="local-6989586621680025741"><span class="annot"><span class="annottext">ReadPrec [GetPreset]
+ReadPrec GetPreset
+Int -&gt; ReadS GetPreset
+ReadS [GetPreset]
+(Int -&gt; ReadS GetPreset)
+-&gt; ReadS [GetPreset]
+-&gt; ReadPrec GetPreset
+-&gt; ReadPrec [GetPreset]
+-&gt; Read GetPreset
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetPreset]
+$creadListPrec :: ReadPrec [GetPreset]
+readPrec :: ReadPrec GetPreset
+$creadPrec :: ReadPrec GetPreset
+readList :: ReadS [GetPreset]
+$creadList :: ReadS [GetPreset]
+readsPrec :: Int -&gt; ReadS GetPreset
+$creadsPrec :: Int -&gt; ReadS GetPreset
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680025728"><span id="local-6989586621680025730"><span id="local-6989586621680025732"><span class="annot"><span class="annottext">Int -&gt; GetPreset -&gt; ShowS
+[GetPreset] -&gt; ShowS
+GetPreset -&gt; String
+(Int -&gt; GetPreset -&gt; ShowS)
+-&gt; (GetPreset -&gt; String)
+-&gt; ([GetPreset] -&gt; ShowS)
+-&gt; Show GetPreset
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPreset] -&gt; ShowS
+$cshowList :: [GetPreset] -&gt; ShowS
+show :: GetPreset -&gt; String
+$cshow :: GetPreset -&gt; String
+showsPrec :: Int -&gt; GetPreset -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPreset -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetPreset -&gt; Rep GetPreset x)
+-&gt; (forall x. Rep GetPreset x -&gt; GetPreset) -&gt; Generic GetPreset
+forall x. Rep GetPreset x -&gt; GetPreset
+forall x. GetPreset -&gt; Rep GetPreset x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetPreset x -&gt; GetPreset
+$cfrom :: forall x. GetPreset -&gt; Rep GetPreset x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'GetPreset' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'name', 'getPreset_name' - The name of the preset.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#newGetPreset"><span class="hs-identifier hs-type">newGetPreset</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset"><span class="hs-identifier hs-type">GetPreset</span></a></span><span>
+</span><span id="line-69"></span><span id="newGetPreset"><span class="annot"><span class="annottext">newGetPreset :: Text -&gt; GetPreset
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#newGetPreset"><span class="hs-identifier hs-var hs-var">newGetPreset</span></a></span></span><span> </span><span id="local-6989586621680025723"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680025723"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetPreset' :: Text -&gt; GetPreset
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset%27"><span class="hs-identifier hs-type">GetPreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetPreset' :: Text
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#%24sel%3Aname%3AGetPreset%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680025723"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The name of the preset.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#getPreset_name"><span class="hs-identifier hs-type">getPreset_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset"><span class="hs-identifier hs-type">GetPreset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="getPreset_name"><span class="annot"><span class="annottext">getPreset_name :: (Text -&gt; f Text) -&gt; GetPreset -&gt; f GetPreset
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#getPreset_name"><span class="hs-identifier hs-var hs-var">getPreset_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPreset -&gt; Text)
+-&gt; (GetPreset -&gt; Text -&gt; GetPreset)
+-&gt; Lens GetPreset GetPreset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset%27"><span class="hs-identifier hs-type">GetPreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680025720"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GetPreset' :: GetPreset -&gt; Text
+</span><a href="#local-6989586621680025720"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680025720"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680025719"><span class="annot"><span class="annottext">s :: GetPreset
+</span><a href="#local-6989586621680025719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset%27"><span class="hs-identifier hs-type">GetPreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680025718"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680025718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPreset
+</span><a href="#local-6989586621680025719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetPreset' :: Text
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#%24sel%3Aname%3AGetPreset%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680025718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset"><span class="hs-identifier hs-type">GetPreset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset"><span class="hs-identifier hs-type">GetPreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset"><span class="hs-identifier hs-type">GetPreset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPresetResponse"><span class="hs-identifier hs-type">GetPresetResponse</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621680025714"><span class="annot"><span class="annottext">request :: GetPreset -&gt; Request GetPreset
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetPreset -&gt; Request GetPreset
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MediaConvert.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621680025710"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetPreset
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetPreset)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetPreset))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetPreset
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetPreset)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680025707"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680025707"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680025706"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680025706"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680025705"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680025705"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Preset -&gt; Int -&gt; GetPresetResponse
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#GetPresetResponse%27"><span class="hs-identifier hs-var">GetPresetResponse'</span></a></span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Preset -&gt; Int -&gt; GetPresetResponse)
+-&gt; Either String (Maybe Preset)
+-&gt; Either String (Int -&gt; GetPresetResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680025705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Preset)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;preset&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetPresetResponse)
+-&gt; Either String Int -&gt; Either String GetPresetResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680025707"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680025697"><span id="local-6989586621680025699"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset"><span class="hs-identifier hs-type">GetPreset</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680025694"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset"><span class="hs-identifier hs-type">GetPreset</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset"><span class="hs-identifier hs-type">GetPreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680025690"><span class="annot"><span class="annottext">toHeaders :: GetPreset -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetPreset -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-97"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset"><span class="hs-identifier hs-type">GetPreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621680025684"><span class="annot"><span class="annottext">toPath :: GetPreset -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset%27"><span class="hs-identifier hs-type">GetPreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680025682"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GetPreset' :: GetPreset -&gt; Text
+</span><a href="#local-6989586621680025682"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2017-08-29/presets/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680025682"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPreset"><span class="hs-identifier hs-type">GetPreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621680025678"><span class="annot"><span class="annottext">toQuery :: GetPreset -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetPreset -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | /See:/ 'newGetPresetResponse' smart constructor.</span><span>
+</span><span id="line-110"></span><span id="local-6989586621680025675"><span id="local-6989586621680025676"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPresetResponse"><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPresetResponse"><span class="hs-identifier hs-var">GetPresetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPresetResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPresetResponse%27"><span class="hs-identifier hs-var">GetPresetResponse'</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A preset is a collection of preconfigured media conversion settings that</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- you want MediaConvert to apply to the output during the conversion</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- process.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3Apreset%3AGetPresetResponse%27"><span class="annot"><span class="annottext">GetPresetResponse -&gt; Maybe Preset
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#%24sel%3Apreset%3AGetPresetResponse%27"><span class="hs-identifier hs-var hs-var">preset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetPresetResponse%27"><span class="annot"><span class="annottext">GetPresetResponse -&gt; Int
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#%24sel%3AhttpStatus%3AGetPresetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680025669"><span id="local-6989586621680025671"><span class="annot"><span class="annottext">GetPresetResponse -&gt; GetPresetResponse -&gt; Bool
+(GetPresetResponse -&gt; GetPresetResponse -&gt; Bool)
+-&gt; (GetPresetResponse -&gt; GetPresetResponse -&gt; Bool)
+-&gt; Eq GetPresetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPresetResponse -&gt; GetPresetResponse -&gt; Bool
+$c/= :: GetPresetResponse -&gt; GetPresetResponse -&gt; Bool
+== :: GetPresetResponse -&gt; GetPresetResponse -&gt; Bool
+$c== :: GetPresetResponse -&gt; GetPresetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680025661"><span id="local-6989586621680025663"><span id="local-6989586621680025665"><span id="local-6989586621680025667"><span class="annot"><span class="annottext">ReadPrec [GetPresetResponse]
+ReadPrec GetPresetResponse
+Int -&gt; ReadS GetPresetResponse
+ReadS [GetPresetResponse]
+(Int -&gt; ReadS GetPresetResponse)
+-&gt; ReadS [GetPresetResponse]
+-&gt; ReadPrec GetPresetResponse
+-&gt; ReadPrec [GetPresetResponse]
+-&gt; Read GetPresetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetPresetResponse]
+$creadListPrec :: ReadPrec [GetPresetResponse]
+readPrec :: ReadPrec GetPresetResponse
+$creadPrec :: ReadPrec GetPresetResponse
+readList :: ReadS [GetPresetResponse]
+$creadList :: ReadS [GetPresetResponse]
+readsPrec :: Int -&gt; ReadS GetPresetResponse
+$creadsPrec :: Int -&gt; ReadS GetPresetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680025655"><span id="local-6989586621680025657"><span id="local-6989586621680025659"><span class="annot"><span class="annottext">Int -&gt; GetPresetResponse -&gt; ShowS
+[GetPresetResponse] -&gt; ShowS
+GetPresetResponse -&gt; String
+(Int -&gt; GetPresetResponse -&gt; ShowS)
+-&gt; (GetPresetResponse -&gt; String)
+-&gt; ([GetPresetResponse] -&gt; ShowS)
+-&gt; Show GetPresetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPresetResponse] -&gt; ShowS
+$cshowList :: [GetPresetResponse] -&gt; ShowS
+show :: GetPresetResponse -&gt; String
+$cshow :: GetPresetResponse -&gt; String
+showsPrec :: Int -&gt; GetPresetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPresetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetPresetResponse -&gt; Rep GetPresetResponse x)
+-&gt; (forall x. Rep GetPresetResponse x -&gt; GetPresetResponse)
+-&gt; Generic GetPresetResponse
+forall x. Rep GetPresetResponse x -&gt; GetPresetResponse
+forall x. GetPresetResponse -&gt; Rep GetPresetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetPresetResponse x -&gt; GetPresetResponse
+$cfrom :: forall x. GetPresetResponse -&gt; Rep GetPresetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Create a value of 'GetPresetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'preset', 'getPresetResponse_preset' - A preset is a collection of preconfigured media conversion settings that</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- you want MediaConvert to apply to the output during the conversion</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- process.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'httpStatus', 'getPresetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#newGetPresetResponse"><span class="hs-identifier hs-type">newGetPresetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPresetResponse"><span class="hs-identifier hs-type">GetPresetResponse</span></a></span><span>
+</span><span id="line-137"></span><span id="newGetPresetResponse"><span class="annot"><span class="annottext">newGetPresetResponse :: Int -&gt; GetPresetResponse
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#newGetPresetResponse"><span class="hs-identifier hs-var hs-var">newGetPresetResponse</span></a></span></span><span> </span><span id="local-6989586621680025652"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680025652"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">GetPresetResponse' :: Maybe Preset -&gt; Int -&gt; GetPresetResponse
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#GetPresetResponse%27"><span class="hs-identifier hs-type">GetPresetResponse'</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:preset:GetPresetResponse' :: Maybe Preset
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#%24sel%3Apreset%3AGetPresetResponse%27"><span class="hs-identifier hs-var">preset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Preset
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetPresetResponse' :: Int
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#%24sel%3AhttpStatus%3AGetPresetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680025652"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | A preset is a collection of preconfigured media conversion settings that</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- you want MediaConvert to apply to the output during the conversion</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- process.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#getPresetResponse_preset"><span class="hs-identifier hs-type">getPresetResponse_preset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPresetResponse"><span class="hs-identifier hs-type">GetPresetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Preset.html#Preset"><span class="hs-identifier hs-type">Preset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="getPresetResponse_preset"><span class="annot"><span class="annottext">getPresetResponse_preset :: (Maybe Preset -&gt; f (Maybe Preset))
+-&gt; GetPresetResponse -&gt; f GetPresetResponse
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#getPresetResponse_preset"><span class="hs-identifier hs-var hs-var">getPresetResponse_preset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPresetResponse -&gt; Maybe Preset)
+-&gt; (GetPresetResponse -&gt; Maybe Preset -&gt; GetPresetResponse)
+-&gt; Lens
+     GetPresetResponse GetPresetResponse (Maybe Preset) (Maybe Preset)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPresetResponse%27"><span class="hs-identifier hs-type">GetPresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680025651"><span class="annot"><span class="annottext">Maybe Preset
+preset :: Maybe Preset
+$sel:preset:GetPresetResponse' :: GetPresetResponse -&gt; Maybe Preset
+</span><a href="#local-6989586621680025651"><span class="hs-identifier hs-var hs-var">preset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Preset
+</span><a href="#local-6989586621680025651"><span class="hs-identifier hs-var">preset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680025650"><span class="annot"><span class="annottext">s :: GetPresetResponse
+</span><a href="#local-6989586621680025650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPresetResponse%27"><span class="hs-identifier hs-type">GetPresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680025649"><span class="annot"><span class="annottext">Maybe Preset
+</span><a href="#local-6989586621680025649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPresetResponse
+</span><a href="#local-6989586621680025650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preset:GetPresetResponse' :: Maybe Preset
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#%24sel%3Apreset%3AGetPresetResponse%27"><span class="hs-identifier hs-var">preset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Preset
+</span><a href="#local-6989586621680025649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPresetResponse"><span class="hs-identifier hs-type">GetPresetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#getPresetResponse_httpStatus"><span class="hs-identifier hs-type">getPresetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPresetResponse"><span class="hs-identifier hs-type">GetPresetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-151"></span><span id="getPresetResponse_httpStatus"><span class="annot"><span class="annottext">getPresetResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetPresetResponse -&gt; f GetPresetResponse
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#getPresetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getPresetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPresetResponse -&gt; Int)
+-&gt; (GetPresetResponse -&gt; Int -&gt; GetPresetResponse)
+-&gt; Lens GetPresetResponse GetPresetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPresetResponse%27"><span class="hs-identifier hs-type">GetPresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680025648"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetPresetResponse' :: GetPresetResponse -&gt; Int
+</span><a href="#local-6989586621680025648"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680025648"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680025647"><span class="annot"><span class="annottext">s :: GetPresetResponse
+</span><a href="#local-6989586621680025647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPresetResponse%27"><span class="hs-identifier hs-type">GetPresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680025646"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680025646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPresetResponse
+</span><a href="#local-6989586621680025647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPresetResponse' :: Int
+</span><a href="Network.AWS.MediaConvert.GetPreset.html#%24sel%3AhttpStatus%3AGetPresetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680025646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPresetResponse"><span class="hs-identifier hs-type">GetPresetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680025644"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetPreset.html#GetPresetResponse"><span class="hs-identifier hs-type">GetPresetResponse</span></a></span></span><span>
+</span><span id="line-154"></span></pre></body></html>

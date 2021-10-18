@@ -1,0 +1,731 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ECS.DescribeContainerInstances</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes one or more container instances. Returns metadata about each</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- container instance requested.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ECS.DescribeContainerInstances</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier">DescribeContainerInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#newDescribeContainerInstances"><span class="hs-identifier">newDescribeContainerInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstances_include"><span class="hs-identifier">describeContainerInstances_include</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstances_cluster"><span class="hs-identifier">describeContainerInstances_cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstances_containerInstances"><span class="hs-identifier">describeContainerInstances_containerInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse"><span class="hs-identifier">DescribeContainerInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#newDescribeContainerInstancesResponse"><span class="hs-identifier">newDescribeContainerInstancesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstancesResponse_failures"><span class="hs-identifier">describeContainerInstancesResponse_failures</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstancesResponse_containerInstances"><span class="hs-identifier">describeContainerInstancesResponse_containerInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstancesResponse_httpStatus"><span class="hs-identifier">describeContainerInstancesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.html"><span class="hs-identifier">Network.AWS.ECS.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribeContainerInstances' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679476146"><span id="local-6989586621679476147"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeContainerInstances"><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier hs-var">DescribeContainerInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeContainerInstances%27"><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances%27"><span class="hs-identifier hs-var">DescribeContainerInstances'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether you want to see the resource tags for the container</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- instance. If @TAGS@ is specified, the tags are included in the response.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- If this field is omitted, tags are not included in the response.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Ainclude%3ADescribeContainerInstances%27"><span class="annot"><span class="annottext">DescribeContainerInstances -&gt; Maybe [ContainerInstanceField]
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3Ainclude%3ADescribeContainerInstances%27"><span class="hs-identifier hs-var hs-var">include</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerInstanceField.html#ContainerInstanceField"><span class="hs-identifier hs-type">ContainerInstanceField</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster that</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- hosts the container instances to describe. If you do not specify a</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- cluster, the default cluster is assumed. This parameter is required if</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the container instance or container instances you are describing were</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- launched in any cluster other than the default cluster.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Acluster%3ADescribeContainerInstances%27"><span class="annot"><span class="annottext">DescribeContainerInstances -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3Acluster%3ADescribeContainerInstances%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | A list of up to 100 container instance IDs or full Amazon Resource Name</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- (ARN) entries.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AcontainerInstances%3ADescribeContainerInstances%27"><span class="annot"><span class="annottext">DescribeContainerInstances -&gt; [Text]
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3AcontainerInstances%3ADescribeContainerInstances%27"><span class="hs-identifier hs-var hs-var">containerInstances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679476138"><span id="local-6989586621679476140"><span class="annot"><span class="annottext">DescribeContainerInstances -&gt; DescribeContainerInstances -&gt; Bool
+(DescribeContainerInstances -&gt; DescribeContainerInstances -&gt; Bool)
+-&gt; (DescribeContainerInstances
+    -&gt; DescribeContainerInstances -&gt; Bool)
+-&gt; Eq DescribeContainerInstances
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeContainerInstances -&gt; DescribeContainerInstances -&gt; Bool
+$c/= :: DescribeContainerInstances -&gt; DescribeContainerInstances -&gt; Bool
+== :: DescribeContainerInstances -&gt; DescribeContainerInstances -&gt; Bool
+$c== :: DescribeContainerInstances -&gt; DescribeContainerInstances -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679476129"><span id="local-6989586621679476131"><span id="local-6989586621679476133"><span id="local-6989586621679476135"><span class="annot"><span class="annottext">ReadPrec [DescribeContainerInstances]
+ReadPrec DescribeContainerInstances
+Int -&gt; ReadS DescribeContainerInstances
+ReadS [DescribeContainerInstances]
+(Int -&gt; ReadS DescribeContainerInstances)
+-&gt; ReadS [DescribeContainerInstances]
+-&gt; ReadPrec DescribeContainerInstances
+-&gt; ReadPrec [DescribeContainerInstances]
+-&gt; Read DescribeContainerInstances
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeContainerInstances]
+$creadListPrec :: ReadPrec [DescribeContainerInstances]
+readPrec :: ReadPrec DescribeContainerInstances
+$creadPrec :: ReadPrec DescribeContainerInstances
+readList :: ReadS [DescribeContainerInstances]
+$creadList :: ReadS [DescribeContainerInstances]
+readsPrec :: Int -&gt; ReadS DescribeContainerInstances
+$creadsPrec :: Int -&gt; ReadS DescribeContainerInstances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679476122"><span id="local-6989586621679476124"><span id="local-6989586621679476126"><span class="annot"><span class="annottext">Int -&gt; DescribeContainerInstances -&gt; ShowS
+[DescribeContainerInstances] -&gt; ShowS
+DescribeContainerInstances -&gt; String
+(Int -&gt; DescribeContainerInstances -&gt; ShowS)
+-&gt; (DescribeContainerInstances -&gt; String)
+-&gt; ([DescribeContainerInstances] -&gt; ShowS)
+-&gt; Show DescribeContainerInstances
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeContainerInstances] -&gt; ShowS
+$cshowList :: [DescribeContainerInstances] -&gt; ShowS
+show :: DescribeContainerInstances -&gt; String
+$cshow :: DescribeContainerInstances -&gt; String
+showsPrec :: Int -&gt; DescribeContainerInstances -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeContainerInstances -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeContainerInstances -&gt; Rep DescribeContainerInstances x)
+-&gt; (forall x.
+    Rep DescribeContainerInstances x -&gt; DescribeContainerInstances)
+-&gt; Generic DescribeContainerInstances
+forall x.
+Rep DescribeContainerInstances x -&gt; DescribeContainerInstances
+forall x.
+DescribeContainerInstances -&gt; Rep DescribeContainerInstances x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeContainerInstances x -&gt; DescribeContainerInstances
+$cfrom :: forall x.
+DescribeContainerInstances -&gt; Rep DescribeContainerInstances x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'DescribeContainerInstances' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'include', 'describeContainerInstances_include' - Specifies whether you want to see the resource tags for the container</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- instance. If @TAGS@ is specified, the tags are included in the response.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- If this field is omitted, tags are not included in the response.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'cluster', 'describeContainerInstances_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- hosts the container instances to describe. If you do not specify a</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- cluster, the default cluster is assumed. This parameter is required if</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- the container instance or container instances you are describing were</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- launched in any cluster other than the default cluster.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'containerInstances', 'describeContainerInstances_containerInstances' - A list of up to 100 container instance IDs or full Amazon Resource Name</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- (ARN) entries.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#newDescribeContainerInstances"><span class="hs-identifier hs-type">newDescribeContainerInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier hs-type">DescribeContainerInstances</span></a></span><span>
+</span><span id="line-93"></span><span id="newDescribeContainerInstances"><span class="annot"><span class="annottext">newDescribeContainerInstances :: DescribeContainerInstances
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#newDescribeContainerInstances"><span class="hs-identifier hs-var hs-var">newDescribeContainerInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">DescribeContainerInstances' :: Maybe [ContainerInstanceField]
+-&gt; Maybe Text -&gt; [Text] -&gt; DescribeContainerInstances
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances%27"><span class="hs-identifier hs-type">DescribeContainerInstances'</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:include:DescribeContainerInstances' :: Maybe [ContainerInstanceField]
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3Ainclude%3ADescribeContainerInstances%27"><span class="hs-identifier hs-var">include</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ContainerInstanceField]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:cluster:DescribeContainerInstances' :: Maybe Text
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3Acluster%3ADescribeContainerInstances%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerInstances:DescribeContainerInstances' :: [Text]
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3AcontainerInstances%3ADescribeContainerInstances%27"><span class="hs-identifier hs-var">containerInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Specifies whether you want to see the resource tags for the container</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- instance. If @TAGS@ is specified, the tags are included in the response.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- If this field is omitted, tags are not included in the response.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstances_include"><span class="hs-identifier hs-type">describeContainerInstances_include</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier hs-type">DescribeContainerInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerInstanceField.html#ContainerInstanceField"><span class="hs-identifier hs-type">ContainerInstanceField</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="describeContainerInstances_include"><span class="annot"><span class="annottext">describeContainerInstances_include :: (Maybe [ContainerInstanceField]
+ -&gt; f (Maybe [ContainerInstanceField]))
+-&gt; DescribeContainerInstances -&gt; f DescribeContainerInstances
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstances_include"><span class="hs-identifier hs-var hs-var">describeContainerInstances_include</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeContainerInstances -&gt; Maybe [ContainerInstanceField])
+-&gt; (DescribeContainerInstances
+    -&gt; Maybe [ContainerInstanceField] -&gt; DescribeContainerInstances)
+-&gt; Lens
+     DescribeContainerInstances
+     DescribeContainerInstances
+     (Maybe [ContainerInstanceField])
+     (Maybe [ContainerInstanceField])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances%27"><span class="hs-identifier hs-type">DescribeContainerInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679476115"><span class="annot"><span class="annottext">Maybe [ContainerInstanceField]
+include :: Maybe [ContainerInstanceField]
+$sel:include:DescribeContainerInstances' :: DescribeContainerInstances -&gt; Maybe [ContainerInstanceField]
+</span><a href="#local-6989586621679476115"><span class="hs-identifier hs-var hs-var">include</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerInstanceField]
+</span><a href="#local-6989586621679476115"><span class="hs-identifier hs-var">include</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679476114"><span class="annot"><span class="annottext">s :: DescribeContainerInstances
+</span><a href="#local-6989586621679476114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances%27"><span class="hs-identifier hs-type">DescribeContainerInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679476113"><span class="annot"><span class="annottext">Maybe [ContainerInstanceField]
+</span><a href="#local-6989586621679476113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeContainerInstances
+</span><a href="#local-6989586621679476114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:include:DescribeContainerInstances' :: Maybe [ContainerInstanceField]
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3Ainclude%3ADescribeContainerInstances%27"><span class="hs-identifier hs-var">include</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerInstanceField]
+</span><a href="#local-6989586621679476113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier hs-type">DescribeContainerInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContainerInstanceField]
+  -&gt; f (Maybe [ContainerInstanceField]))
+ -&gt; DescribeContainerInstances -&gt; f DescribeContainerInstances)
+-&gt; ((Maybe [ContainerInstanceField]
+     -&gt; f (Maybe [ContainerInstanceField]))
+    -&gt; Maybe [ContainerInstanceField]
+    -&gt; f (Maybe [ContainerInstanceField]))
+-&gt; (Maybe [ContainerInstanceField]
+    -&gt; f (Maybe [ContainerInstanceField]))
+-&gt; DescribeContainerInstances
+-&gt; f DescribeContainerInstances
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ContainerInstanceField]
+  [ContainerInstanceField]
+  [ContainerInstanceField]
+  [ContainerInstanceField]
+-&gt; Iso
+     (Maybe [ContainerInstanceField])
+     (Maybe [ContainerInstanceField])
+     (Maybe [ContainerInstanceField])
+     (Maybe [ContainerInstanceField])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ContainerInstanceField]
+  [ContainerInstanceField]
+  [ContainerInstanceField]
+  [ContainerInstanceField]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster that</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- hosts the container instances to describe. If you do not specify a</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- cluster, the default cluster is assumed. This parameter is required if</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- the container instance or container instances you are describing were</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- launched in any cluster other than the default cluster.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstances_cluster"><span class="hs-identifier hs-type">describeContainerInstances_cluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier hs-type">DescribeContainerInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="describeContainerInstances_cluster"><span class="annot"><span class="annottext">describeContainerInstances_cluster :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeContainerInstances -&gt; f DescribeContainerInstances
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstances_cluster"><span class="hs-identifier hs-var hs-var">describeContainerInstances_cluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeContainerInstances -&gt; Maybe Text)
+-&gt; (DescribeContainerInstances
+    -&gt; Maybe Text -&gt; DescribeContainerInstances)
+-&gt; Lens
+     DescribeContainerInstances
+     DescribeContainerInstances
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances%27"><span class="hs-identifier hs-type">DescribeContainerInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679476109"><span class="annot"><span class="annottext">Maybe Text
+cluster :: Maybe Text
+$sel:cluster:DescribeContainerInstances' :: DescribeContainerInstances -&gt; Maybe Text
+</span><a href="#local-6989586621679476109"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679476109"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679476108"><span class="annot"><span class="annottext">s :: DescribeContainerInstances
+</span><a href="#local-6989586621679476108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances%27"><span class="hs-identifier hs-type">DescribeContainerInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679476107"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679476107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeContainerInstances
+</span><a href="#local-6989586621679476108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:DescribeContainerInstances' :: Maybe Text
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3Acluster%3ADescribeContainerInstances%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679476107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier hs-type">DescribeContainerInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | A list of up to 100 container instance IDs or full Amazon Resource Name</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- (ARN) entries.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstances_containerInstances"><span class="hs-identifier hs-type">describeContainerInstances_containerInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier hs-type">DescribeContainerInstances</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span id="describeContainerInstances_containerInstances"><span class="annot"><span class="annottext">describeContainerInstances_containerInstances :: ([Text] -&gt; f [Text])
+-&gt; DescribeContainerInstances -&gt; f DescribeContainerInstances
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstances_containerInstances"><span class="hs-identifier hs-var hs-var">describeContainerInstances_containerInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeContainerInstances -&gt; [Text])
+-&gt; (DescribeContainerInstances
+    -&gt; [Text] -&gt; DescribeContainerInstances)
+-&gt; Lens
+     DescribeContainerInstances DescribeContainerInstances [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances%27"><span class="hs-identifier hs-type">DescribeContainerInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679476106"><span class="annot"><span class="annottext">[Text]
+containerInstances :: [Text]
+$sel:containerInstances:DescribeContainerInstances' :: DescribeContainerInstances -&gt; [Text]
+</span><a href="#local-6989586621679476106"><span class="hs-identifier hs-var hs-var">containerInstances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679476106"><span class="hs-identifier hs-var">containerInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679476105"><span class="annot"><span class="annottext">s :: DescribeContainerInstances
+</span><a href="#local-6989586621679476105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances%27"><span class="hs-identifier hs-type">DescribeContainerInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679476104"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679476104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeContainerInstances
+</span><a href="#local-6989586621679476105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerInstances:DescribeContainerInstances' :: [Text]
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3AcontainerInstances%3ADescribeContainerInstances%27"><span class="hs-identifier hs-var">containerInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679476104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier hs-type">DescribeContainerInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; DescribeContainerInstances -&gt; f DescribeContainerInstances)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; DescribeContainerInstances
+-&gt; f DescribeContainerInstances
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier hs-type">DescribeContainerInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier hs-type">DescribeContainerInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse"><span class="hs-identifier hs-type">DescribeContainerInstancesResponse</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679476100"><span class="annot"><span class="annottext">request :: DescribeContainerInstances -&gt; Request DescribeContainerInstances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeContainerInstances -&gt; Request DescribeContainerInstances
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679476096"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeContainerInstances
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeContainerInstances)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeContainerInstances))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeContainerInstances
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeContainerInstances)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679476093"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679476093"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679476092"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679476092"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679476091"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679476091"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Failure]
+-&gt; Maybe [ContainerInstance]
+-&gt; Int
+-&gt; DescribeContainerInstancesResponse
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse%27"><span class="hs-identifier hs-var">DescribeContainerInstancesResponse'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Failure]
+ -&gt; Maybe [ContainerInstance]
+ -&gt; Int
+ -&gt; DescribeContainerInstancesResponse)
+-&gt; Either String (Maybe [Failure])
+-&gt; Either
+     String
+     (Maybe [ContainerInstance]
+      -&gt; Int -&gt; DescribeContainerInstancesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679476091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Failure]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failures&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Failure]))
+-&gt; Maybe [Failure] -&gt; Either String (Maybe [Failure])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Failure]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ContainerInstance]
+   -&gt; Int -&gt; DescribeContainerInstancesResponse)
+-&gt; Either String (Maybe [ContainerInstance])
+-&gt; Either String (Int -&gt; DescribeContainerInstancesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679476091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ContainerInstance]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerInstances&quot;</span></span><span>
+</span><span id="line-131"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ContainerInstance]))
+-&gt; Maybe [ContainerInstance]
+-&gt; Either String (Maybe [ContainerInstance])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerInstance]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeContainerInstancesResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeContainerInstancesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679476093"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679476082"><span id="local-6989586621679476084"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier hs-type">DescribeContainerInstances</span></a></span></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679476079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier hs-type">DescribeContainerInstances</span></a></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier hs-type">DescribeContainerInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679476075"><span class="annot"><span class="annottext">toHeaders :: DescribeContainerInstances -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeContainerInstances -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonEC2ContainerServiceV20141113.DescribeContainerInstances&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-147"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-151"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679476065"><span id="local-6989586621679476067"><span id="local-6989586621679476069"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier hs-type">DescribeContainerInstances</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679476063"><span class="annot"><span class="annottext">toJSON :: DescribeContainerInstances -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances%27"><span class="hs-identifier hs-type">DescribeContainerInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679476059"><span id="local-6989586621679476060"><span id="local-6989586621679476061"><span class="annot"><span class="annottext">[Text]
+Maybe [ContainerInstanceField]
+Maybe Text
+containerInstances :: [Text]
+cluster :: Maybe Text
+include :: Maybe [ContainerInstanceField]
+$sel:containerInstances:DescribeContainerInstances' :: DescribeContainerInstances -&gt; [Text]
+$sel:cluster:DescribeContainerInstances' :: DescribeContainerInstances -&gt; Maybe Text
+$sel:include:DescribeContainerInstances' :: DescribeContainerInstances -&gt; Maybe [ContainerInstanceField]
+</span><a href="#local-6989586621679476059"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;include&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ContainerInstanceField] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ContainerInstanceField] -&gt; Pair)
+-&gt; Maybe [ContainerInstanceField] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerInstanceField]
+</span><a href="#local-6989586621679476061"><span class="hs-identifier hs-var">include</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cluster&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679476060"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-162"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerInstances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679476059"><span class="hs-identifier hs-var">containerInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier hs-type">DescribeContainerInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679476053"><span class="annot"><span class="annottext">toPath :: DescribeContainerInstances -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeContainerInstances -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstances"><span class="hs-identifier hs-type">DescribeContainerInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679476049"><span class="annot"><span class="annottext">toQuery :: DescribeContainerInstances -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeContainerInstances -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newDescribeContainerInstancesResponse' smart constructor.</span><span>
+</span><span id="line-173"></span><span id="local-6989586621679476046"><span id="local-6989586621679476047"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeContainerInstancesResponse"><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse"><span class="hs-identifier hs-var">DescribeContainerInstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeContainerInstancesResponse%27"><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse%27"><span class="hs-identifier hs-var">DescribeContainerInstancesResponse'</span></a></span></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3Afailures%3ADescribeContainerInstancesResponse%27"><span class="annot"><span class="annottext">DescribeContainerInstancesResponse -&gt; Maybe [Failure]
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3Afailures%3ADescribeContainerInstancesResponse%27"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.Failure.html#Failure"><span class="hs-identifier hs-type">Failure</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- | The list of container instances.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AcontainerInstances%3ADescribeContainerInstancesResponse%27"><span class="annot"><span class="annottext">DescribeContainerInstancesResponse -&gt; Maybe [ContainerInstance]
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3AcontainerInstances%3ADescribeContainerInstancesResponse%27"><span class="hs-identifier hs-var hs-var">containerInstances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerInstance.html#ContainerInstance"><span class="hs-identifier hs-type">ContainerInstance</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeContainerInstancesResponse%27"><span class="annot"><span class="annottext">DescribeContainerInstancesResponse -&gt; Int
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3AhttpStatus%3ADescribeContainerInstancesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679476039"><span id="local-6989586621679476041"><span class="annot"><span class="annottext">DescribeContainerInstancesResponse
+-&gt; DescribeContainerInstancesResponse -&gt; Bool
+(DescribeContainerInstancesResponse
+ -&gt; DescribeContainerInstancesResponse -&gt; Bool)
+-&gt; (DescribeContainerInstancesResponse
+    -&gt; DescribeContainerInstancesResponse -&gt; Bool)
+-&gt; Eq DescribeContainerInstancesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeContainerInstancesResponse
+-&gt; DescribeContainerInstancesResponse -&gt; Bool
+$c/= :: DescribeContainerInstancesResponse
+-&gt; DescribeContainerInstancesResponse -&gt; Bool
+== :: DescribeContainerInstancesResponse
+-&gt; DescribeContainerInstancesResponse -&gt; Bool
+$c== :: DescribeContainerInstancesResponse
+-&gt; DescribeContainerInstancesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679476031"><span id="local-6989586621679476033"><span id="local-6989586621679476035"><span id="local-6989586621679476037"><span class="annot"><span class="annottext">ReadPrec [DescribeContainerInstancesResponse]
+ReadPrec DescribeContainerInstancesResponse
+Int -&gt; ReadS DescribeContainerInstancesResponse
+ReadS [DescribeContainerInstancesResponse]
+(Int -&gt; ReadS DescribeContainerInstancesResponse)
+-&gt; ReadS [DescribeContainerInstancesResponse]
+-&gt; ReadPrec DescribeContainerInstancesResponse
+-&gt; ReadPrec [DescribeContainerInstancesResponse]
+-&gt; Read DescribeContainerInstancesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeContainerInstancesResponse]
+$creadListPrec :: ReadPrec [DescribeContainerInstancesResponse]
+readPrec :: ReadPrec DescribeContainerInstancesResponse
+$creadPrec :: ReadPrec DescribeContainerInstancesResponse
+readList :: ReadS [DescribeContainerInstancesResponse]
+$creadList :: ReadS [DescribeContainerInstancesResponse]
+readsPrec :: Int -&gt; ReadS DescribeContainerInstancesResponse
+$creadsPrec :: Int -&gt; ReadS DescribeContainerInstancesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679476025"><span id="local-6989586621679476027"><span id="local-6989586621679476029"><span class="annot"><span class="annottext">Int -&gt; DescribeContainerInstancesResponse -&gt; ShowS
+[DescribeContainerInstancesResponse] -&gt; ShowS
+DescribeContainerInstancesResponse -&gt; String
+(Int -&gt; DescribeContainerInstancesResponse -&gt; ShowS)
+-&gt; (DescribeContainerInstancesResponse -&gt; String)
+-&gt; ([DescribeContainerInstancesResponse] -&gt; ShowS)
+-&gt; Show DescribeContainerInstancesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeContainerInstancesResponse] -&gt; ShowS
+$cshowList :: [DescribeContainerInstancesResponse] -&gt; ShowS
+show :: DescribeContainerInstancesResponse -&gt; String
+$cshow :: DescribeContainerInstancesResponse -&gt; String
+showsPrec :: Int -&gt; DescribeContainerInstancesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeContainerInstancesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeContainerInstancesResponse
+ -&gt; Rep DescribeContainerInstancesResponse x)
+-&gt; (forall x.
+    Rep DescribeContainerInstancesResponse x
+    -&gt; DescribeContainerInstancesResponse)
+-&gt; Generic DescribeContainerInstancesResponse
+forall x.
+Rep DescribeContainerInstancesResponse x
+-&gt; DescribeContainerInstancesResponse
+forall x.
+DescribeContainerInstancesResponse
+-&gt; Rep DescribeContainerInstancesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeContainerInstancesResponse x
+-&gt; DescribeContainerInstancesResponse
+$cfrom :: forall x.
+DescribeContainerInstancesResponse
+-&gt; Rep DescribeContainerInstancesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Create a value of 'DescribeContainerInstancesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'failures', 'describeContainerInstancesResponse_failures' - Any failures associated with the call.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'containerInstances', 'describeContainerInstancesResponse_containerInstances' - The list of container instances.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'httpStatus', 'describeContainerInstancesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#newDescribeContainerInstancesResponse"><span class="hs-identifier hs-type">newDescribeContainerInstancesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse"><span class="hs-identifier hs-type">DescribeContainerInstancesResponse</span></a></span><span>
+</span><span id="line-200"></span><span id="newDescribeContainerInstancesResponse"><span class="annot"><span class="annottext">newDescribeContainerInstancesResponse :: Int -&gt; DescribeContainerInstancesResponse
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#newDescribeContainerInstancesResponse"><span class="hs-identifier hs-var hs-var">newDescribeContainerInstancesResponse</span></a></span></span><span> </span><span id="local-6989586621679476022"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679476022"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">DescribeContainerInstancesResponse' :: Maybe [Failure]
+-&gt; Maybe [ContainerInstance]
+-&gt; Int
+-&gt; DescribeContainerInstancesResponse
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse%27"><span class="hs-identifier hs-type">DescribeContainerInstancesResponse'</span></a></span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failures:DescribeContainerInstancesResponse' :: Maybe [Failure]
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3Afailures%3ADescribeContainerInstancesResponse%27"><span class="hs-identifier hs-var">failures</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Failure]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerInstances:DescribeContainerInstancesResponse' :: Maybe [ContainerInstance]
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3AcontainerInstances%3ADescribeContainerInstancesResponse%27"><span class="hs-identifier hs-var">containerInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerInstance]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeContainerInstancesResponse' :: Int
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3AhttpStatus%3ADescribeContainerInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679476022"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstancesResponse_failures"><span class="hs-identifier hs-type">describeContainerInstancesResponse_failures</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse"><span class="hs-identifier hs-type">DescribeContainerInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.Failure.html#Failure"><span class="hs-identifier hs-type">Failure</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="describeContainerInstancesResponse_failures"><span class="annot"><span class="annottext">describeContainerInstancesResponse_failures :: (Maybe [Failure] -&gt; f (Maybe [Failure]))
+-&gt; DescribeContainerInstancesResponse
+-&gt; f DescribeContainerInstancesResponse
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstancesResponse_failures"><span class="hs-identifier hs-var hs-var">describeContainerInstancesResponse_failures</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeContainerInstancesResponse -&gt; Maybe [Failure])
+-&gt; (DescribeContainerInstancesResponse
+    -&gt; Maybe [Failure] -&gt; DescribeContainerInstancesResponse)
+-&gt; Lens
+     DescribeContainerInstancesResponse
+     DescribeContainerInstancesResponse
+     (Maybe [Failure])
+     (Maybe [Failure])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse%27"><span class="hs-identifier hs-type">DescribeContainerInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679476021"><span class="annot"><span class="annottext">Maybe [Failure]
+failures :: Maybe [Failure]
+$sel:failures:DescribeContainerInstancesResponse' :: DescribeContainerInstancesResponse -&gt; Maybe [Failure]
+</span><a href="#local-6989586621679476021"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Failure]
+</span><a href="#local-6989586621679476021"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679476020"><span class="annot"><span class="annottext">s :: DescribeContainerInstancesResponse
+</span><a href="#local-6989586621679476020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse%27"><span class="hs-identifier hs-type">DescribeContainerInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679476019"><span class="annot"><span class="annottext">Maybe [Failure]
+</span><a href="#local-6989586621679476019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeContainerInstancesResponse
+</span><a href="#local-6989586621679476020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:DescribeContainerInstancesResponse' :: Maybe [Failure]
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3Afailures%3ADescribeContainerInstancesResponse%27"><span class="hs-identifier hs-var">failures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Failure]
+</span><a href="#local-6989586621679476019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse"><span class="hs-identifier hs-type">DescribeContainerInstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Failure] -&gt; f (Maybe [Failure]))
+ -&gt; DescribeContainerInstancesResponse
+ -&gt; f DescribeContainerInstancesResponse)
+-&gt; ((Maybe [Failure] -&gt; f (Maybe [Failure]))
+    -&gt; Maybe [Failure] -&gt; f (Maybe [Failure]))
+-&gt; (Maybe [Failure] -&gt; f (Maybe [Failure]))
+-&gt; DescribeContainerInstancesResponse
+-&gt; f DescribeContainerInstancesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Failure] [Failure] [Failure] [Failure]
+-&gt; Iso
+     (Maybe [Failure])
+     (Maybe [Failure])
+     (Maybe [Failure])
+     (Maybe [Failure])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Failure] [Failure] [Failure] [Failure]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The list of container instances.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstancesResponse_containerInstances"><span class="hs-identifier hs-type">describeContainerInstancesResponse_containerInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse"><span class="hs-identifier hs-type">DescribeContainerInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerInstance.html#ContainerInstance"><span class="hs-identifier hs-type">ContainerInstance</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="describeContainerInstancesResponse_containerInstances"><span class="annot"><span class="annottext">describeContainerInstancesResponse_containerInstances :: (Maybe [ContainerInstance] -&gt; f (Maybe [ContainerInstance]))
+-&gt; DescribeContainerInstancesResponse
+-&gt; f DescribeContainerInstancesResponse
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstancesResponse_containerInstances"><span class="hs-identifier hs-var hs-var">describeContainerInstancesResponse_containerInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeContainerInstancesResponse -&gt; Maybe [ContainerInstance])
+-&gt; (DescribeContainerInstancesResponse
+    -&gt; Maybe [ContainerInstance] -&gt; DescribeContainerInstancesResponse)
+-&gt; Lens
+     DescribeContainerInstancesResponse
+     DescribeContainerInstancesResponse
+     (Maybe [ContainerInstance])
+     (Maybe [ContainerInstance])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse%27"><span class="hs-identifier hs-type">DescribeContainerInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679476018"><span class="annot"><span class="annottext">Maybe [ContainerInstance]
+containerInstances :: Maybe [ContainerInstance]
+$sel:containerInstances:DescribeContainerInstancesResponse' :: DescribeContainerInstancesResponse -&gt; Maybe [ContainerInstance]
+</span><a href="#local-6989586621679476018"><span class="hs-identifier hs-var hs-var">containerInstances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerInstance]
+</span><a href="#local-6989586621679476018"><span class="hs-identifier hs-var">containerInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679476017"><span class="annot"><span class="annottext">s :: DescribeContainerInstancesResponse
+</span><a href="#local-6989586621679476017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse%27"><span class="hs-identifier hs-type">DescribeContainerInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679476016"><span class="annot"><span class="annottext">Maybe [ContainerInstance]
+</span><a href="#local-6989586621679476016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeContainerInstancesResponse
+</span><a href="#local-6989586621679476017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerInstances:DescribeContainerInstancesResponse' :: Maybe [ContainerInstance]
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3AcontainerInstances%3ADescribeContainerInstancesResponse%27"><span class="hs-identifier hs-var">containerInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerInstance]
+</span><a href="#local-6989586621679476016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse"><span class="hs-identifier hs-type">DescribeContainerInstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContainerInstance] -&gt; f (Maybe [ContainerInstance]))
+ -&gt; DescribeContainerInstancesResponse
+ -&gt; f DescribeContainerInstancesResponse)
+-&gt; ((Maybe [ContainerInstance] -&gt; f (Maybe [ContainerInstance]))
+    -&gt; Maybe [ContainerInstance] -&gt; f (Maybe [ContainerInstance]))
+-&gt; (Maybe [ContainerInstance] -&gt; f (Maybe [ContainerInstance]))
+-&gt; DescribeContainerInstancesResponse
+-&gt; f DescribeContainerInstancesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ContainerInstance]
+  [ContainerInstance]
+  [ContainerInstance]
+  [ContainerInstance]
+-&gt; Iso
+     (Maybe [ContainerInstance])
+     (Maybe [ContainerInstance])
+     (Maybe [ContainerInstance])
+     (Maybe [ContainerInstance])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ContainerInstance]
+  [ContainerInstance]
+  [ContainerInstance]
+  [ContainerInstance]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstancesResponse_httpStatus"><span class="hs-identifier hs-type">describeContainerInstancesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse"><span class="hs-identifier hs-type">DescribeContainerInstancesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-218"></span><span id="describeContainerInstancesResponse_httpStatus"><span class="annot"><span class="annottext">describeContainerInstancesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeContainerInstancesResponse
+-&gt; f DescribeContainerInstancesResponse
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#describeContainerInstancesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeContainerInstancesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeContainerInstancesResponse -&gt; Int)
+-&gt; (DescribeContainerInstancesResponse
+    -&gt; Int -&gt; DescribeContainerInstancesResponse)
+-&gt; Lens
+     DescribeContainerInstancesResponse
+     DescribeContainerInstancesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse%27"><span class="hs-identifier hs-type">DescribeContainerInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679476015"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeContainerInstancesResponse' :: DescribeContainerInstancesResponse -&gt; Int
+</span><a href="#local-6989586621679476015"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679476015"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679476014"><span class="annot"><span class="annottext">s :: DescribeContainerInstancesResponse
+</span><a href="#local-6989586621679476014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse%27"><span class="hs-identifier hs-type">DescribeContainerInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679476013"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679476013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeContainerInstancesResponse
+</span><a href="#local-6989586621679476014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeContainerInstancesResponse' :: Int
+</span><a href="Network.AWS.ECS.DescribeContainerInstances.html#%24sel%3AhttpStatus%3ADescribeContainerInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679476013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse"><span class="hs-identifier hs-type">DescribeContainerInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679476011"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DescribeContainerInstances.html#DescribeContainerInstancesResponse"><span class="hs-identifier hs-type">DescribeContainerInstancesResponse</span></a></span></span><span>
+</span><span id="line-223"></span></pre></body></html>

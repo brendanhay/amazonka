@@ -1,0 +1,784 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DMS.Types.ReplicationTaskStats</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DMS.Types.ReplicationTaskStats</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | In response to a request by the @DescribeReplicationTasks@ operation,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- this object provides a collection of statistics about a replication</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- task.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newReplicationTaskStats' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679437499"><span id="local-6989586621679437500"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationTaskStats"><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-var">ReplicationTaskStats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationTaskStats%27"><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-var">ReplicationTaskStats'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of errors that have occurred during this task.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AtablesErrored%3AReplicationTaskStats%27"><span class="annot"><span class="annottext">ReplicationTaskStats -&gt; Maybe Int
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AtablesErrored%3AReplicationTaskStats%27"><span class="hs-identifier hs-var hs-var">tablesErrored</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The date the replication task was stopped.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AstopDate%3AReplicationTaskStats%27"><span class="annot"><span class="annottext">ReplicationTaskStats -&gt; Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AstopDate%3AReplicationTaskStats%27"><span class="hs-identifier hs-var hs-var">stopDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The date the replication task was started either with a fresh start or a</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- resume. For more information, see</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html#DMS-StartReplicationTask-request-StartReplicationTaskType StartReplicationTaskType&gt;.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AstartDate%3AReplicationTaskStats%27"><span class="annot"><span class="annottext">ReplicationTaskStats -&gt; Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AstartDate%3AReplicationTaskStats%27"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The date the replication task was started either with a fresh start or a</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- target reload.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AfreshStartDate%3AReplicationTaskStats%27"><span class="annot"><span class="annottext">ReplicationTaskStats -&gt; Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AfreshStartDate%3AReplicationTaskStats%27"><span class="hs-identifier hs-var hs-var">freshStartDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The number of tables currently loading for this task.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AtablesLoading%3AReplicationTaskStats%27"><span class="annot"><span class="annottext">ReplicationTaskStats -&gt; Maybe Int
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AtablesLoading%3AReplicationTaskStats%27"><span class="hs-identifier hs-var hs-var">tablesLoading</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The date the replication task full load was started.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AfullLoadStartDate%3AReplicationTaskStats%27"><span class="annot"><span class="annottext">ReplicationTaskStats -&gt; Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AfullLoadStartDate%3AReplicationTaskStats%27"><span class="hs-identifier hs-var hs-var">fullLoadStartDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The elapsed time of the task, in milliseconds.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AelapsedTimeMillis%3AReplicationTaskStats%27"><span class="annot"><span class="annottext">ReplicationTaskStats -&gt; Maybe Integer
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AelapsedTimeMillis%3AReplicationTaskStats%27"><span class="hs-identifier hs-var hs-var">elapsedTimeMillis</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The percent complete for the full load migration task.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AfullLoadProgressPercent%3AReplicationTaskStats%27"><span class="annot"><span class="annottext">ReplicationTaskStats -&gt; Maybe Int
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AfullLoadProgressPercent%3AReplicationTaskStats%27"><span class="hs-identifier hs-var hs-var">fullLoadProgressPercent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The number of tables queued for this task.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AtablesQueued%3AReplicationTaskStats%27"><span class="annot"><span class="annottext">ReplicationTaskStats -&gt; Maybe Int
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AtablesQueued%3AReplicationTaskStats%27"><span class="hs-identifier hs-var hs-var">tablesQueued</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The number of tables loaded for this task.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AtablesLoaded%3AReplicationTaskStats%27"><span class="annot"><span class="annottext">ReplicationTaskStats -&gt; Maybe Int
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AtablesLoaded%3AReplicationTaskStats%27"><span class="hs-identifier hs-var hs-var">tablesLoaded</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The date the replication task full load was completed.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AfullLoadFinishDate%3AReplicationTaskStats%27"><span class="annot"><span class="annottext">ReplicationTaskStats -&gt; Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AfullLoadFinishDate%3AReplicationTaskStats%27"><span class="hs-identifier hs-var hs-var">fullLoadFinishDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679437483"><span id="local-6989586621679437485"><span class="annot"><span class="annottext">ReplicationTaskStats -&gt; ReplicationTaskStats -&gt; Bool
+(ReplicationTaskStats -&gt; ReplicationTaskStats -&gt; Bool)
+-&gt; (ReplicationTaskStats -&gt; ReplicationTaskStats -&gt; Bool)
+-&gt; Eq ReplicationTaskStats
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReplicationTaskStats -&gt; ReplicationTaskStats -&gt; Bool
+$c/= :: ReplicationTaskStats -&gt; ReplicationTaskStats -&gt; Bool
+== :: ReplicationTaskStats -&gt; ReplicationTaskStats -&gt; Bool
+$c== :: ReplicationTaskStats -&gt; ReplicationTaskStats -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437474"><span id="local-6989586621679437476"><span id="local-6989586621679437478"><span id="local-6989586621679437480"><span class="annot"><span class="annottext">ReadPrec [ReplicationTaskStats]
+ReadPrec ReplicationTaskStats
+Int -&gt; ReadS ReplicationTaskStats
+ReadS [ReplicationTaskStats]
+(Int -&gt; ReadS ReplicationTaskStats)
+-&gt; ReadS [ReplicationTaskStats]
+-&gt; ReadPrec ReplicationTaskStats
+-&gt; ReadPrec [ReplicationTaskStats]
+-&gt; Read ReplicationTaskStats
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReplicationTaskStats]
+$creadListPrec :: ReadPrec [ReplicationTaskStats]
+readPrec :: ReadPrec ReplicationTaskStats
+$creadPrec :: ReadPrec ReplicationTaskStats
+readList :: ReadS [ReplicationTaskStats]
+$creadList :: ReadS [ReplicationTaskStats]
+readsPrec :: Int -&gt; ReadS ReplicationTaskStats
+$creadsPrec :: Int -&gt; ReadS ReplicationTaskStats
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437467"><span id="local-6989586621679437469"><span id="local-6989586621679437471"><span class="annot"><span class="annottext">Int -&gt; ReplicationTaskStats -&gt; ShowS
+[ReplicationTaskStats] -&gt; ShowS
+ReplicationTaskStats -&gt; String
+(Int -&gt; ReplicationTaskStats -&gt; ShowS)
+-&gt; (ReplicationTaskStats -&gt; String)
+-&gt; ([ReplicationTaskStats] -&gt; ShowS)
+-&gt; Show ReplicationTaskStats
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReplicationTaskStats] -&gt; ShowS
+$cshowList :: [ReplicationTaskStats] -&gt; ShowS
+show :: ReplicationTaskStats -&gt; String
+$cshow :: ReplicationTaskStats -&gt; String
+showsPrec :: Int -&gt; ReplicationTaskStats -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReplicationTaskStats -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ReplicationTaskStats -&gt; Rep ReplicationTaskStats x)
+-&gt; (forall x. Rep ReplicationTaskStats x -&gt; ReplicationTaskStats)
+-&gt; Generic ReplicationTaskStats
+forall x. Rep ReplicationTaskStats x -&gt; ReplicationTaskStats
+forall x. ReplicationTaskStats -&gt; Rep ReplicationTaskStats x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReplicationTaskStats x -&gt; ReplicationTaskStats
+$cfrom :: forall x. ReplicationTaskStats -&gt; Rep ReplicationTaskStats x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'ReplicationTaskStats' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'tablesErrored', 'replicationTaskStats_tablesErrored' - The number of errors that have occurred during this task.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'stopDate', 'replicationTaskStats_stopDate' - The date the replication task was stopped.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'startDate', 'replicationTaskStats_startDate' - The date the replication task was started either with a fresh start or a</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- resume. For more information, see</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html#DMS-StartReplicationTask-request-StartReplicationTaskType StartReplicationTaskType&gt;.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'freshStartDate', 'replicationTaskStats_freshStartDate' - The date the replication task was started either with a fresh start or a</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- target reload.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'tablesLoading', 'replicationTaskStats_tablesLoading' - The number of tables currently loading for this task.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'fullLoadStartDate', 'replicationTaskStats_fullLoadStartDate' - The date the replication task full load was started.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'elapsedTimeMillis', 'replicationTaskStats_elapsedTimeMillis' - The elapsed time of the task, in milliseconds.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'fullLoadProgressPercent', 'replicationTaskStats_fullLoadProgressPercent' - The percent complete for the full load migration task.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'tablesQueued', 'replicationTaskStats_tablesQueued' - The number of tables queued for this task.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'tablesLoaded', 'replicationTaskStats_tablesLoaded' - The number of tables loaded for this task.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'fullLoadFinishDate', 'replicationTaskStats_fullLoadFinishDate' - The date the replication task full load was completed.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#newReplicationTaskStats"><span class="hs-identifier hs-type">newReplicationTaskStats</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span>
+</span><span id="line-94"></span><span id="newReplicationTaskStats"><span class="annot"><span class="annottext">newReplicationTaskStats :: ReplicationTaskStats
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#newReplicationTaskStats"><span class="hs-identifier hs-var hs-var">newReplicationTaskStats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">ReplicationTaskStats' :: Maybe Int
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Int
+-&gt; Maybe POSIX
+-&gt; Maybe Integer
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe POSIX
+-&gt; ReplicationTaskStats
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tablesErrored:ReplicationTaskStats' :: Maybe Int
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AtablesErrored%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">tablesErrored</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:stopDate:ReplicationTaskStats' :: Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AstopDate%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">stopDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:startDate:ReplicationTaskStats' :: Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AstartDate%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:freshStartDate:ReplicationTaskStats' :: Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AfreshStartDate%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">freshStartDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:tablesLoading:ReplicationTaskStats' :: Maybe Int
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AtablesLoading%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">tablesLoading</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:fullLoadStartDate:ReplicationTaskStats' :: Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AfullLoadStartDate%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">fullLoadStartDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:elapsedTimeMillis:ReplicationTaskStats' :: Maybe Integer
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AelapsedTimeMillis%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">elapsedTimeMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:fullLoadProgressPercent:ReplicationTaskStats' :: Maybe Int
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AfullLoadProgressPercent%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">fullLoadProgressPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:tablesQueued:ReplicationTaskStats' :: Maybe Int
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AtablesQueued%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">tablesQueued</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:tablesLoaded:ReplicationTaskStats' :: Maybe Int
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AtablesLoaded%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">tablesLoaded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:fullLoadFinishDate:ReplicationTaskStats' :: Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AfullLoadFinishDate%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">fullLoadFinishDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The number of errors that have occurred during this task.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_tablesErrored"><span class="hs-identifier hs-type">replicationTaskStats_tablesErrored</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="replicationTaskStats_tablesErrored"><span class="annot"><span class="annottext">replicationTaskStats_tablesErrored :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ReplicationTaskStats -&gt; f ReplicationTaskStats
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_tablesErrored"><span class="hs-identifier hs-var hs-var">replicationTaskStats_tablesErrored</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskStats -&gt; Maybe Int)
+-&gt; (ReplicationTaskStats -&gt; Maybe Int -&gt; ReplicationTaskStats)
+-&gt; Lens
+     ReplicationTaskStats ReplicationTaskStats (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437458"><span class="annot"><span class="annottext">Maybe Int
+tablesErrored :: Maybe Int
+$sel:tablesErrored:ReplicationTaskStats' :: ReplicationTaskStats -&gt; Maybe Int
+</span><a href="#local-6989586621679437458"><span class="hs-identifier hs-var hs-var">tablesErrored</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679437458"><span class="hs-identifier hs-var">tablesErrored</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437457"><span class="annot"><span class="annottext">s :: ReplicationTaskStats
+</span><a href="#local-6989586621679437457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437456"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679437456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskStats
+</span><a href="#local-6989586621679437457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tablesErrored:ReplicationTaskStats' :: Maybe Int
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AtablesErrored%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">tablesErrored</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679437456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The date the replication task was stopped.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_stopDate"><span class="hs-identifier hs-type">replicationTaskStats_stopDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="replicationTaskStats_stopDate"><span class="annot"><span class="annottext">replicationTaskStats_stopDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReplicationTaskStats -&gt; f ReplicationTaskStats
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_stopDate"><span class="hs-identifier hs-var hs-var">replicationTaskStats_stopDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskStats -&gt; Maybe POSIX)
+-&gt; (ReplicationTaskStats -&gt; Maybe POSIX -&gt; ReplicationTaskStats)
+-&gt; Lens
+     ReplicationTaskStats
+     ReplicationTaskStats
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437454"><span class="annot"><span class="annottext">Maybe POSIX
+stopDate :: Maybe POSIX
+$sel:stopDate:ReplicationTaskStats' :: ReplicationTaskStats -&gt; Maybe POSIX
+</span><a href="#local-6989586621679437454"><span class="hs-identifier hs-var hs-var">stopDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437454"><span class="hs-identifier hs-var">stopDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437453"><span class="annot"><span class="annottext">s :: ReplicationTaskStats
+</span><a href="#local-6989586621679437453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437452"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskStats
+</span><a href="#local-6989586621679437453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopDate:ReplicationTaskStats' :: Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AstopDate%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">stopDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ReplicationTaskStats -&gt; f ReplicationTaskStats)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReplicationTaskStats
+-&gt; f ReplicationTaskStats
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The date the replication task was started either with a fresh start or a</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- resume. For more information, see</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html#DMS-StartReplicationTask-request-StartReplicationTaskType StartReplicationTaskType&gt;.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_startDate"><span class="hs-identifier hs-type">replicationTaskStats_startDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="replicationTaskStats_startDate"><span class="annot"><span class="annottext">replicationTaskStats_startDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReplicationTaskStats -&gt; f ReplicationTaskStats
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_startDate"><span class="hs-identifier hs-var hs-var">replicationTaskStats_startDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskStats -&gt; Maybe POSIX)
+-&gt; (ReplicationTaskStats -&gt; Maybe POSIX -&gt; ReplicationTaskStats)
+-&gt; Lens
+     ReplicationTaskStats
+     ReplicationTaskStats
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437447"><span class="annot"><span class="annottext">Maybe POSIX
+startDate :: Maybe POSIX
+$sel:startDate:ReplicationTaskStats' :: ReplicationTaskStats -&gt; Maybe POSIX
+</span><a href="#local-6989586621679437447"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437447"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437446"><span class="annot"><span class="annottext">s :: ReplicationTaskStats
+</span><a href="#local-6989586621679437446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437445"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskStats
+</span><a href="#local-6989586621679437446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startDate:ReplicationTaskStats' :: Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AstartDate%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ReplicationTaskStats -&gt; f ReplicationTaskStats)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReplicationTaskStats
+-&gt; f ReplicationTaskStats
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The date the replication task was started either with a fresh start or a</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- target reload.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_freshStartDate"><span class="hs-identifier hs-type">replicationTaskStats_freshStartDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="replicationTaskStats_freshStartDate"><span class="annot"><span class="annottext">replicationTaskStats_freshStartDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReplicationTaskStats -&gt; f ReplicationTaskStats
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_freshStartDate"><span class="hs-identifier hs-var hs-var">replicationTaskStats_freshStartDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskStats -&gt; Maybe POSIX)
+-&gt; (ReplicationTaskStats -&gt; Maybe POSIX -&gt; ReplicationTaskStats)
+-&gt; Lens
+     ReplicationTaskStats
+     ReplicationTaskStats
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437443"><span class="annot"><span class="annottext">Maybe POSIX
+freshStartDate :: Maybe POSIX
+$sel:freshStartDate:ReplicationTaskStats' :: ReplicationTaskStats -&gt; Maybe POSIX
+</span><a href="#local-6989586621679437443"><span class="hs-identifier hs-var hs-var">freshStartDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437443"><span class="hs-identifier hs-var">freshStartDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437442"><span class="annot"><span class="annottext">s :: ReplicationTaskStats
+</span><a href="#local-6989586621679437442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437441"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskStats
+</span><a href="#local-6989586621679437442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:freshStartDate:ReplicationTaskStats' :: Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AfreshStartDate%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">freshStartDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ReplicationTaskStats -&gt; f ReplicationTaskStats)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReplicationTaskStats
+-&gt; f ReplicationTaskStats
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The number of tables currently loading for this task.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_tablesLoading"><span class="hs-identifier hs-type">replicationTaskStats_tablesLoading</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="replicationTaskStats_tablesLoading"><span class="annot"><span class="annottext">replicationTaskStats_tablesLoading :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ReplicationTaskStats -&gt; f ReplicationTaskStats
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_tablesLoading"><span class="hs-identifier hs-var hs-var">replicationTaskStats_tablesLoading</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskStats -&gt; Maybe Int)
+-&gt; (ReplicationTaskStats -&gt; Maybe Int -&gt; ReplicationTaskStats)
+-&gt; Lens
+     ReplicationTaskStats ReplicationTaskStats (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437439"><span class="annot"><span class="annottext">Maybe Int
+tablesLoading :: Maybe Int
+$sel:tablesLoading:ReplicationTaskStats' :: ReplicationTaskStats -&gt; Maybe Int
+</span><a href="#local-6989586621679437439"><span class="hs-identifier hs-var hs-var">tablesLoading</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679437439"><span class="hs-identifier hs-var">tablesLoading</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437438"><span class="annot"><span class="annottext">s :: ReplicationTaskStats
+</span><a href="#local-6989586621679437438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437437"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679437437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskStats
+</span><a href="#local-6989586621679437438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tablesLoading:ReplicationTaskStats' :: Maybe Int
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AtablesLoading%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">tablesLoading</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679437437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The date the replication task full load was started.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_fullLoadStartDate"><span class="hs-identifier hs-type">replicationTaskStats_fullLoadStartDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="replicationTaskStats_fullLoadStartDate"><span class="annot"><span class="annottext">replicationTaskStats_fullLoadStartDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReplicationTaskStats -&gt; f ReplicationTaskStats
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_fullLoadStartDate"><span class="hs-identifier hs-var hs-var">replicationTaskStats_fullLoadStartDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskStats -&gt; Maybe POSIX)
+-&gt; (ReplicationTaskStats -&gt; Maybe POSIX -&gt; ReplicationTaskStats)
+-&gt; Lens
+     ReplicationTaskStats
+     ReplicationTaskStats
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437435"><span class="annot"><span class="annottext">Maybe POSIX
+fullLoadStartDate :: Maybe POSIX
+$sel:fullLoadStartDate:ReplicationTaskStats' :: ReplicationTaskStats -&gt; Maybe POSIX
+</span><a href="#local-6989586621679437435"><span class="hs-identifier hs-var hs-var">fullLoadStartDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437435"><span class="hs-identifier hs-var">fullLoadStartDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437434"><span class="annot"><span class="annottext">s :: ReplicationTaskStats
+</span><a href="#local-6989586621679437434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437433"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskStats
+</span><a href="#local-6989586621679437434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fullLoadStartDate:ReplicationTaskStats' :: Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AfullLoadStartDate%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">fullLoadStartDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ReplicationTaskStats -&gt; f ReplicationTaskStats)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReplicationTaskStats
+-&gt; f ReplicationTaskStats
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The elapsed time of the task, in milliseconds.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_elapsedTimeMillis"><span class="hs-identifier hs-type">replicationTaskStats_elapsedTimeMillis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="replicationTaskStats_elapsedTimeMillis"><span class="annot"><span class="annottext">replicationTaskStats_elapsedTimeMillis :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; ReplicationTaskStats -&gt; f ReplicationTaskStats
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_elapsedTimeMillis"><span class="hs-identifier hs-var hs-var">replicationTaskStats_elapsedTimeMillis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskStats -&gt; Maybe Integer)
+-&gt; (ReplicationTaskStats -&gt; Maybe Integer -&gt; ReplicationTaskStats)
+-&gt; Lens
+     ReplicationTaskStats
+     ReplicationTaskStats
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437431"><span class="annot"><span class="annottext">Maybe Integer
+elapsedTimeMillis :: Maybe Integer
+$sel:elapsedTimeMillis:ReplicationTaskStats' :: ReplicationTaskStats -&gt; Maybe Integer
+</span><a href="#local-6989586621679437431"><span class="hs-identifier hs-var hs-var">elapsedTimeMillis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679437431"><span class="hs-identifier hs-var">elapsedTimeMillis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437430"><span class="annot"><span class="annottext">s :: ReplicationTaskStats
+</span><a href="#local-6989586621679437430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437429"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679437429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskStats
+</span><a href="#local-6989586621679437430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elapsedTimeMillis:ReplicationTaskStats' :: Maybe Integer
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AelapsedTimeMillis%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">elapsedTimeMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679437429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The percent complete for the full load migration task.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_fullLoadProgressPercent"><span class="hs-identifier hs-type">replicationTaskStats_fullLoadProgressPercent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="replicationTaskStats_fullLoadProgressPercent"><span class="annot"><span class="annottext">replicationTaskStats_fullLoadProgressPercent :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ReplicationTaskStats -&gt; f ReplicationTaskStats
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_fullLoadProgressPercent"><span class="hs-identifier hs-var hs-var">replicationTaskStats_fullLoadProgressPercent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskStats -&gt; Maybe Int)
+-&gt; (ReplicationTaskStats -&gt; Maybe Int -&gt; ReplicationTaskStats)
+-&gt; Lens
+     ReplicationTaskStats ReplicationTaskStats (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437427"><span class="annot"><span class="annottext">Maybe Int
+fullLoadProgressPercent :: Maybe Int
+$sel:fullLoadProgressPercent:ReplicationTaskStats' :: ReplicationTaskStats -&gt; Maybe Int
+</span><a href="#local-6989586621679437427"><span class="hs-identifier hs-var hs-var">fullLoadProgressPercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679437427"><span class="hs-identifier hs-var">fullLoadProgressPercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437426"><span class="annot"><span class="annottext">s :: ReplicationTaskStats
+</span><a href="#local-6989586621679437426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437425"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679437425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskStats
+</span><a href="#local-6989586621679437426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fullLoadProgressPercent:ReplicationTaskStats' :: Maybe Int
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AfullLoadProgressPercent%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">fullLoadProgressPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679437425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The number of tables queued for this task.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_tablesQueued"><span class="hs-identifier hs-type">replicationTaskStats_tablesQueued</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="replicationTaskStats_tablesQueued"><span class="annot"><span class="annottext">replicationTaskStats_tablesQueued :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ReplicationTaskStats -&gt; f ReplicationTaskStats
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_tablesQueued"><span class="hs-identifier hs-var hs-var">replicationTaskStats_tablesQueued</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskStats -&gt; Maybe Int)
+-&gt; (ReplicationTaskStats -&gt; Maybe Int -&gt; ReplicationTaskStats)
+-&gt; Lens
+     ReplicationTaskStats ReplicationTaskStats (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437423"><span class="annot"><span class="annottext">Maybe Int
+tablesQueued :: Maybe Int
+$sel:tablesQueued:ReplicationTaskStats' :: ReplicationTaskStats -&gt; Maybe Int
+</span><a href="#local-6989586621679437423"><span class="hs-identifier hs-var hs-var">tablesQueued</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679437423"><span class="hs-identifier hs-var">tablesQueued</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437422"><span class="annot"><span class="annottext">s :: ReplicationTaskStats
+</span><a href="#local-6989586621679437422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437421"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679437421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskStats
+</span><a href="#local-6989586621679437422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tablesQueued:ReplicationTaskStats' :: Maybe Int
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AtablesQueued%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">tablesQueued</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679437421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The number of tables loaded for this task.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_tablesLoaded"><span class="hs-identifier hs-type">replicationTaskStats_tablesLoaded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="replicationTaskStats_tablesLoaded"><span class="annot"><span class="annottext">replicationTaskStats_tablesLoaded :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ReplicationTaskStats -&gt; f ReplicationTaskStats
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_tablesLoaded"><span class="hs-identifier hs-var hs-var">replicationTaskStats_tablesLoaded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskStats -&gt; Maybe Int)
+-&gt; (ReplicationTaskStats -&gt; Maybe Int -&gt; ReplicationTaskStats)
+-&gt; Lens
+     ReplicationTaskStats ReplicationTaskStats (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437419"><span class="annot"><span class="annottext">Maybe Int
+tablesLoaded :: Maybe Int
+$sel:tablesLoaded:ReplicationTaskStats' :: ReplicationTaskStats -&gt; Maybe Int
+</span><a href="#local-6989586621679437419"><span class="hs-identifier hs-var hs-var">tablesLoaded</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679437419"><span class="hs-identifier hs-var">tablesLoaded</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437418"><span class="annot"><span class="annottext">s :: ReplicationTaskStats
+</span><a href="#local-6989586621679437418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437417"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679437417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskStats
+</span><a href="#local-6989586621679437418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tablesLoaded:ReplicationTaskStats' :: Maybe Int
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AtablesLoaded%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">tablesLoaded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679437417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The date the replication task full load was completed.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_fullLoadFinishDate"><span class="hs-identifier hs-type">replicationTaskStats_fullLoadFinishDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="replicationTaskStats_fullLoadFinishDate"><span class="annot"><span class="annottext">replicationTaskStats_fullLoadFinishDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReplicationTaskStats -&gt; f ReplicationTaskStats
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#replicationTaskStats_fullLoadFinishDate"><span class="hs-identifier hs-var hs-var">replicationTaskStats_fullLoadFinishDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskStats -&gt; Maybe POSIX)
+-&gt; (ReplicationTaskStats -&gt; Maybe POSIX -&gt; ReplicationTaskStats)
+-&gt; Lens
+     ReplicationTaskStats
+     ReplicationTaskStats
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437415"><span class="annot"><span class="annottext">Maybe POSIX
+fullLoadFinishDate :: Maybe POSIX
+$sel:fullLoadFinishDate:ReplicationTaskStats' :: ReplicationTaskStats -&gt; Maybe POSIX
+</span><a href="#local-6989586621679437415"><span class="hs-identifier hs-var hs-var">fullLoadFinishDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437415"><span class="hs-identifier hs-var">fullLoadFinishDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437414"><span class="annot"><span class="annottext">s :: ReplicationTaskStats
+</span><a href="#local-6989586621679437414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-type">ReplicationTaskStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437413"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskStats
+</span><a href="#local-6989586621679437414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fullLoadFinishDate:ReplicationTaskStats' :: Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#%24sel%3AfullLoadFinishDate%3AReplicationTaskStats%27"><span class="hs-identifier hs-var">fullLoadFinishDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ReplicationTaskStats -&gt; f ReplicationTaskStats)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReplicationTaskStats
+-&gt; f ReplicationTaskStats
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437410"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679437408"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplicationTaskStats
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ReplicationTaskStats)
+-&gt; Value
+-&gt; Parser ReplicationTaskStats
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ReplicationTaskStats&quot;</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679437405"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437405"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Int
+-&gt; Maybe POSIX
+-&gt; Maybe Integer
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe POSIX
+-&gt; ReplicationTaskStats
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats%27"><span class="hs-identifier hs-var">ReplicationTaskStats'</span></a></span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Int
+ -&gt; Maybe POSIX
+ -&gt; Maybe Integer
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe POSIX
+ -&gt; ReplicationTaskStats)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; ReplicationTaskStats)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TablesErrored&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; ReplicationTaskStats)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; ReplicationTaskStats)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StopDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; ReplicationTaskStats)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; ReplicationTaskStats)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; ReplicationTaskStats)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; ReplicationTaskStats)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FreshStartDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; ReplicationTaskStats)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; ReplicationTaskStats)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TablesLoading&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; ReplicationTaskStats)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; ReplicationTaskStats)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FullLoadStartDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; ReplicationTaskStats)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe POSIX -&gt; ReplicationTaskStats)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ElapsedTimeMillis&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe POSIX -&gt; ReplicationTaskStats)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int -&gt; Maybe Int -&gt; Maybe POSIX -&gt; ReplicationTaskStats)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FullLoadProgressPercent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int -&gt; Maybe Int -&gt; Maybe POSIX -&gt; ReplicationTaskStats)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Int -&gt; Maybe POSIX -&gt; ReplicationTaskStats)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TablesQueued&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe POSIX -&gt; ReplicationTaskStats)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe POSIX -&gt; ReplicationTaskStats)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TablesLoaded&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; ReplicationTaskStats)
+-&gt; Parser (Maybe POSIX) -&gt; Parser ReplicationTaskStats
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FullLoadFinishDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437399"><span id="local-6989586621679437401"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437396"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskStats.html#ReplicationTaskStats"><span class="hs-identifier hs-type">ReplicationTaskStats</span></a></span></span><span>
+</span><span id="line-179"></span></pre></body></html>

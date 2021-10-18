@@ -1,0 +1,663 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.UpdateEndpoint</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deploys the new @EndpointConfig@ specified in the request, switches to</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- using newly created endpoint, and then deletes resources provisioned for</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- the endpoint using the previous @EndpointConfig@ (there is no</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- availability loss).</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- When Amazon SageMaker receives the request, it sets the endpoint status</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- to @Updating@. After updating the endpoint, it sets the status to</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- @InService@. To check the status of an endpoint, use the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- DescribeEndpoint API.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- You must not delete an @EndpointConfig@ in use by an endpoint that is</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- live or while the @UpdateEndpoint@ or @CreateEndpoint@ operations are</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- being performed on the endpoint. To update an endpoint, you must create</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- a new @EndpointConfig@.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- If you delete the @EndpointConfig@ of an endpoint that is active or</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- being created or updated you may lose visibility into the instance type</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- the endpoint is using. The endpoint must be deleted in order to stop</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- incurring charges.</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.UpdateEndpoint</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier">UpdateEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#newUpdateEndpoint"><span class="hs-identifier">newUpdateEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpoint_excludeRetainedVariantProperties"><span class="hs-identifier">updateEndpoint_excludeRetainedVariantProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpoint_retainAllVariantProperties"><span class="hs-identifier">updateEndpoint_retainAllVariantProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpoint_deploymentConfig"><span class="hs-identifier">updateEndpoint_deploymentConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpoint_endpointName"><span class="hs-identifier">updateEndpoint_endpointName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpoint_endpointConfigName"><span class="hs-identifier">updateEndpoint_endpointConfigName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier">UpdateEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#newUpdateEndpointResponse"><span class="hs-identifier">newUpdateEndpointResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpointResponse_httpStatus"><span class="hs-identifier">updateEndpointResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpointResponse_endpointArn"><span class="hs-identifier">updateEndpointResponse_endpointArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | /See:/ 'newUpdateEndpoint' smart constructor.</span><span>
+</span><span id="line-72"></span><span id="local-6989586621680425241"><span id="local-6989586621680425242"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEndpoint"><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-var">UpdateEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEndpoint%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-var">UpdateEndpoint'</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When you are updating endpoint resources with</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- UpdateEndpointInput$RetainAllVariantProperties, whose value is set to</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- @true@, @ExcludeRetainedVariantProperties@ specifies the list of type</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- VariantProperty to override with the values provided by</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- @EndpointConfig@. If you don\'t specify a value for</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- @ExcludeAllVariantProperties@, no variant properties are overridden.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AexcludeRetainedVariantProperties%3AUpdateEndpoint%27"><span class="annot"><span class="annottext">UpdateEndpoint -&gt; Maybe [VariantProperty]
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AexcludeRetainedVariantProperties%3AUpdateEndpoint%27"><span class="hs-identifier hs-var hs-var">excludeRetainedVariantProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty"><span class="hs-identifier hs-type">VariantProperty</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | When updating endpoint resources, enables or disables the retention of</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html variant properties&gt;,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- such as the instance count or the variant weight. To retain the variant</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- properties of an endpoint when updating it, set</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- @RetainAllVariantProperties@ to @true@. To use the variant properties</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- specified in a new @EndpointConfig@ call when updating an endpoint, set</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- @RetainAllVariantProperties@ to @false@. The default is @false@.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AretainAllVariantProperties%3AUpdateEndpoint%27"><span class="annot"><span class="annottext">UpdateEndpoint -&gt; Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AretainAllVariantProperties%3AUpdateEndpoint%27"><span class="hs-identifier hs-var hs-var">retainAllVariantProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The deployment configuration for the endpoint to be updated.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AdeploymentConfig%3AUpdateEndpoint%27"><span class="annot"><span class="annottext">UpdateEndpoint -&gt; Maybe DeploymentConfig
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AdeploymentConfig%3AUpdateEndpoint%27"><span class="hs-identifier hs-var hs-var">deploymentConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeploymentConfig.html#DeploymentConfig"><span class="hs-identifier hs-type">DeploymentConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The name of the endpoint whose configuration you want to update.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AendpointName%3AUpdateEndpoint%27"><span class="annot"><span class="annottext">UpdateEndpoint -&gt; Text
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AendpointName%3AUpdateEndpoint%27"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The name of the new endpoint configuration.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AendpointConfigName%3AUpdateEndpoint%27"><span class="annot"><span class="annottext">UpdateEndpoint -&gt; Text
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AendpointConfigName%3AUpdateEndpoint%27"><span class="hs-identifier hs-var hs-var">endpointConfigName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680425231"><span id="local-6989586621680425233"><span class="annot"><span class="annottext">UpdateEndpoint -&gt; UpdateEndpoint -&gt; Bool
+(UpdateEndpoint -&gt; UpdateEndpoint -&gt; Bool)
+-&gt; (UpdateEndpoint -&gt; UpdateEndpoint -&gt; Bool) -&gt; Eq UpdateEndpoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateEndpoint -&gt; UpdateEndpoint -&gt; Bool
+$c/= :: UpdateEndpoint -&gt; UpdateEndpoint -&gt; Bool
+== :: UpdateEndpoint -&gt; UpdateEndpoint -&gt; Bool
+$c== :: UpdateEndpoint -&gt; UpdateEndpoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680425222"><span id="local-6989586621680425224"><span id="local-6989586621680425226"><span id="local-6989586621680425228"><span class="annot"><span class="annottext">ReadPrec [UpdateEndpoint]
+ReadPrec UpdateEndpoint
+Int -&gt; ReadS UpdateEndpoint
+ReadS [UpdateEndpoint]
+(Int -&gt; ReadS UpdateEndpoint)
+-&gt; ReadS [UpdateEndpoint]
+-&gt; ReadPrec UpdateEndpoint
+-&gt; ReadPrec [UpdateEndpoint]
+-&gt; Read UpdateEndpoint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateEndpoint]
+$creadListPrec :: ReadPrec [UpdateEndpoint]
+readPrec :: ReadPrec UpdateEndpoint
+$creadPrec :: ReadPrec UpdateEndpoint
+readList :: ReadS [UpdateEndpoint]
+$creadList :: ReadS [UpdateEndpoint]
+readsPrec :: Int -&gt; ReadS UpdateEndpoint
+$creadsPrec :: Int -&gt; ReadS UpdateEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680425215"><span id="local-6989586621680425217"><span id="local-6989586621680425219"><span class="annot"><span class="annottext">Int -&gt; UpdateEndpoint -&gt; ShowS
+[UpdateEndpoint] -&gt; ShowS
+UpdateEndpoint -&gt; String
+(Int -&gt; UpdateEndpoint -&gt; ShowS)
+-&gt; (UpdateEndpoint -&gt; String)
+-&gt; ([UpdateEndpoint] -&gt; ShowS)
+-&gt; Show UpdateEndpoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateEndpoint] -&gt; ShowS
+$cshowList :: [UpdateEndpoint] -&gt; ShowS
+show :: UpdateEndpoint -&gt; String
+$cshow :: UpdateEndpoint -&gt; String
+showsPrec :: Int -&gt; UpdateEndpoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateEndpoint -&gt; Rep UpdateEndpoint x)
+-&gt; (forall x. Rep UpdateEndpoint x -&gt; UpdateEndpoint)
+-&gt; Generic UpdateEndpoint
+forall x. Rep UpdateEndpoint x -&gt; UpdateEndpoint
+forall x. UpdateEndpoint -&gt; Rep UpdateEndpoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateEndpoint x -&gt; UpdateEndpoint
+$cfrom :: forall x. UpdateEndpoint -&gt; Rep UpdateEndpoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Create a value of 'UpdateEndpoint' with all optional fields omitted.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'excludeRetainedVariantProperties', 'updateEndpoint_excludeRetainedVariantProperties' - When you are updating endpoint resources with</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- UpdateEndpointInput$RetainAllVariantProperties, whose value is set to</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- @true@, @ExcludeRetainedVariantProperties@ specifies the list of type</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- VariantProperty to override with the values provided by</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- @EndpointConfig@. If you don\'t specify a value for</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- @ExcludeAllVariantProperties@, no variant properties are overridden.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'retainAllVariantProperties', 'updateEndpoint_retainAllVariantProperties' - When updating endpoint resources, enables or disables the retention of</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html variant properties&gt;,</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- such as the instance count or the variant weight. To retain the variant</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- properties of an endpoint when updating it, set</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- @RetainAllVariantProperties@ to @true@. To use the variant properties</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- specified in a new @EndpointConfig@ call when updating an endpoint, set</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- @RetainAllVariantProperties@ to @false@. The default is @false@.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'deploymentConfig', 'updateEndpoint_deploymentConfig' - The deployment configuration for the endpoint to be updated.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'endpointName', 'updateEndpoint_endpointName' - The name of the endpoint whose configuration you want to update.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'endpointConfigName', 'updateEndpoint_endpointConfigName' - The name of the new endpoint configuration.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#newUpdateEndpoint"><span class="hs-identifier hs-type">newUpdateEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'endpointName'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-comment">-- | 'endpointConfigName'</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span>
+</span><span id="line-131"></span><span id="newUpdateEndpoint"><span class="annot"><span class="annottext">newUpdateEndpoint :: Text -&gt; Text -&gt; UpdateEndpoint
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#newUpdateEndpoint"><span class="hs-identifier hs-var hs-var">newUpdateEndpoint</span></a></span></span><span> </span><span id="local-6989586621680425210"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425210"><span class="hs-identifier hs-var">pEndpointName_</span></a></span></span><span> </span><span id="local-6989586621680425209"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425209"><span class="hs-identifier hs-var">pEndpointConfigName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">UpdateEndpoint' :: Maybe [VariantProperty]
+-&gt; Maybe Bool
+-&gt; Maybe DeploymentConfig
+-&gt; Text
+-&gt; Text
+-&gt; UpdateEndpoint
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:excludeRetainedVariantProperties:UpdateEndpoint' :: Maybe [VariantProperty]
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AexcludeRetainedVariantProperties%3AUpdateEndpoint%27"><span class="hs-identifier hs-var">excludeRetainedVariantProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">Maybe [VariantProperty]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:retainAllVariantProperties:UpdateEndpoint' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AretainAllVariantProperties%3AUpdateEndpoint%27"><span class="hs-identifier hs-var">retainAllVariantProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentConfig:UpdateEndpoint' :: Maybe DeploymentConfig
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AdeploymentConfig%3AUpdateEndpoint%27"><span class="hs-identifier hs-var">deploymentConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointName:UpdateEndpoint' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AendpointName%3AUpdateEndpoint%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425210"><span class="hs-identifier hs-var">pEndpointName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointConfigName:UpdateEndpoint' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AendpointConfigName%3AUpdateEndpoint%27"><span class="hs-identifier hs-var">endpointConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425209"><span class="hs-identifier hs-var">pEndpointConfigName_</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | When you are updating endpoint resources with</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- UpdateEndpointInput$RetainAllVariantProperties, whose value is set to</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- @true@, @ExcludeRetainedVariantProperties@ specifies the list of type</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- VariantProperty to override with the values provided by</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @EndpointConfig@. If you don\'t specify a value for</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- @ExcludeAllVariantProperties@, no variant properties are overridden.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpoint_excludeRetainedVariantProperties"><span class="hs-identifier hs-type">updateEndpoint_excludeRetainedVariantProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty"><span class="hs-identifier hs-type">VariantProperty</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="updateEndpoint_excludeRetainedVariantProperties"><span class="annot"><span class="annottext">updateEndpoint_excludeRetainedVariantProperties :: (Maybe [VariantProperty] -&gt; f (Maybe [VariantProperty]))
+-&gt; UpdateEndpoint -&gt; f UpdateEndpoint
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpoint_excludeRetainedVariantProperties"><span class="hs-identifier hs-var hs-var">updateEndpoint_excludeRetainedVariantProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpoint -&gt; Maybe [VariantProperty])
+-&gt; (UpdateEndpoint -&gt; Maybe [VariantProperty] -&gt; UpdateEndpoint)
+-&gt; Lens
+     UpdateEndpoint
+     UpdateEndpoint
+     (Maybe [VariantProperty])
+     (Maybe [VariantProperty])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680425206"><span class="annot"><span class="annottext">Maybe [VariantProperty]
+excludeRetainedVariantProperties :: Maybe [VariantProperty]
+$sel:excludeRetainedVariantProperties:UpdateEndpoint' :: UpdateEndpoint -&gt; Maybe [VariantProperty]
+</span><a href="#local-6989586621680425206"><span class="hs-identifier hs-var hs-var">excludeRetainedVariantProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VariantProperty]
+</span><a href="#local-6989586621680425206"><span class="hs-identifier hs-var">excludeRetainedVariantProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680425205"><span class="annot"><span class="annottext">s :: UpdateEndpoint
+</span><a href="#local-6989586621680425205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680425204"><span class="annot"><span class="annottext">Maybe [VariantProperty]
+</span><a href="#local-6989586621680425204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpoint
+</span><a href="#local-6989586621680425205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeRetainedVariantProperties:UpdateEndpoint' :: Maybe [VariantProperty]
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AexcludeRetainedVariantProperties%3AUpdateEndpoint%27"><span class="hs-identifier hs-var">excludeRetainedVariantProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VariantProperty]
+</span><a href="#local-6989586621680425204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VariantProperty] -&gt; f (Maybe [VariantProperty]))
+ -&gt; UpdateEndpoint -&gt; f UpdateEndpoint)
+-&gt; ((Maybe [VariantProperty] -&gt; f (Maybe [VariantProperty]))
+    -&gt; Maybe [VariantProperty] -&gt; f (Maybe [VariantProperty]))
+-&gt; (Maybe [VariantProperty] -&gt; f (Maybe [VariantProperty]))
+-&gt; UpdateEndpoint
+-&gt; f UpdateEndpoint
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VariantProperty]
+  [VariantProperty]
+  [VariantProperty]
+  [VariantProperty]
+-&gt; Iso
+     (Maybe [VariantProperty])
+     (Maybe [VariantProperty])
+     (Maybe [VariantProperty])
+     (Maybe [VariantProperty])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VariantProperty]
+  [VariantProperty]
+  [VariantProperty]
+  [VariantProperty]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | When updating endpoint resources, enables or disables the retention of</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html variant properties&gt;,</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- such as the instance count or the variant weight. To retain the variant</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- properties of an endpoint when updating it, set</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- @RetainAllVariantProperties@ to @true@. To use the variant properties</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- specified in a new @EndpointConfig@ call when updating an endpoint, set</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- @RetainAllVariantProperties@ to @false@. The default is @false@.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpoint_retainAllVariantProperties"><span class="hs-identifier hs-type">updateEndpoint_retainAllVariantProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="updateEndpoint_retainAllVariantProperties"><span class="annot"><span class="annottext">updateEndpoint_retainAllVariantProperties :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateEndpoint -&gt; f UpdateEndpoint
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpoint_retainAllVariantProperties"><span class="hs-identifier hs-var hs-var">updateEndpoint_retainAllVariantProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpoint -&gt; Maybe Bool)
+-&gt; (UpdateEndpoint -&gt; Maybe Bool -&gt; UpdateEndpoint)
+-&gt; Lens UpdateEndpoint UpdateEndpoint (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680425200"><span class="annot"><span class="annottext">Maybe Bool
+retainAllVariantProperties :: Maybe Bool
+$sel:retainAllVariantProperties:UpdateEndpoint' :: UpdateEndpoint -&gt; Maybe Bool
+</span><a href="#local-6989586621680425200"><span class="hs-identifier hs-var hs-var">retainAllVariantProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680425200"><span class="hs-identifier hs-var">retainAllVariantProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680425199"><span class="annot"><span class="annottext">s :: UpdateEndpoint
+</span><a href="#local-6989586621680425199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680425198"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680425198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpoint
+</span><a href="#local-6989586621680425199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retainAllVariantProperties:UpdateEndpoint' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AretainAllVariantProperties%3AUpdateEndpoint%27"><span class="hs-identifier hs-var">retainAllVariantProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680425198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The deployment configuration for the endpoint to be updated.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpoint_deploymentConfig"><span class="hs-identifier hs-type">updateEndpoint_deploymentConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeploymentConfig.html#DeploymentConfig"><span class="hs-identifier hs-type">DeploymentConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="updateEndpoint_deploymentConfig"><span class="annot"><span class="annottext">updateEndpoint_deploymentConfig :: (Maybe DeploymentConfig -&gt; f (Maybe DeploymentConfig))
+-&gt; UpdateEndpoint -&gt; f UpdateEndpoint
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpoint_deploymentConfig"><span class="hs-identifier hs-var hs-var">updateEndpoint_deploymentConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpoint -&gt; Maybe DeploymentConfig)
+-&gt; (UpdateEndpoint -&gt; Maybe DeploymentConfig -&gt; UpdateEndpoint)
+-&gt; Lens
+     UpdateEndpoint
+     UpdateEndpoint
+     (Maybe DeploymentConfig)
+     (Maybe DeploymentConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680425197"><span class="annot"><span class="annottext">Maybe DeploymentConfig
+deploymentConfig :: Maybe DeploymentConfig
+$sel:deploymentConfig:UpdateEndpoint' :: UpdateEndpoint -&gt; Maybe DeploymentConfig
+</span><a href="#local-6989586621680425197"><span class="hs-identifier hs-var hs-var">deploymentConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentConfig
+</span><a href="#local-6989586621680425197"><span class="hs-identifier hs-var">deploymentConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680425196"><span class="annot"><span class="annottext">s :: UpdateEndpoint
+</span><a href="#local-6989586621680425196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680425195"><span class="annot"><span class="annottext">Maybe DeploymentConfig
+</span><a href="#local-6989586621680425195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpoint
+</span><a href="#local-6989586621680425196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentConfig:UpdateEndpoint' :: Maybe DeploymentConfig
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AdeploymentConfig%3AUpdateEndpoint%27"><span class="hs-identifier hs-var">deploymentConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentConfig
+</span><a href="#local-6989586621680425195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The name of the endpoint whose configuration you want to update.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpoint_endpointName"><span class="hs-identifier hs-type">updateEndpoint_endpointName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-166"></span><span id="updateEndpoint_endpointName"><span class="annot"><span class="annottext">updateEndpoint_endpointName :: (Text -&gt; f Text) -&gt; UpdateEndpoint -&gt; f UpdateEndpoint
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpoint_endpointName"><span class="hs-identifier hs-var hs-var">updateEndpoint_endpointName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpoint -&gt; Text)
+-&gt; (UpdateEndpoint -&gt; Text -&gt; UpdateEndpoint)
+-&gt; Lens UpdateEndpoint UpdateEndpoint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680425194"><span class="annot"><span class="annottext">Text
+endpointName :: Text
+$sel:endpointName:UpdateEndpoint' :: UpdateEndpoint -&gt; Text
+</span><a href="#local-6989586621680425194"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425194"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680425193"><span class="annot"><span class="annottext">s :: UpdateEndpoint
+</span><a href="#local-6989586621680425193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680425192"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpoint
+</span><a href="#local-6989586621680425193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointName:UpdateEndpoint' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AendpointName%3AUpdateEndpoint%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The name of the new endpoint configuration.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpoint_endpointConfigName"><span class="hs-identifier hs-type">updateEndpoint_endpointConfigName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-170"></span><span id="updateEndpoint_endpointConfigName"><span class="annot"><span class="annottext">updateEndpoint_endpointConfigName :: (Text -&gt; f Text) -&gt; UpdateEndpoint -&gt; f UpdateEndpoint
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpoint_endpointConfigName"><span class="hs-identifier hs-var hs-var">updateEndpoint_endpointConfigName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpoint -&gt; Text)
+-&gt; (UpdateEndpoint -&gt; Text -&gt; UpdateEndpoint)
+-&gt; Lens UpdateEndpoint UpdateEndpoint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680425191"><span class="annot"><span class="annottext">Text
+endpointConfigName :: Text
+$sel:endpointConfigName:UpdateEndpoint' :: UpdateEndpoint -&gt; Text
+</span><a href="#local-6989586621680425191"><span class="hs-identifier hs-var hs-var">endpointConfigName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425191"><span class="hs-identifier hs-var">endpointConfigName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680425190"><span class="annot"><span class="annottext">s :: UpdateEndpoint
+</span><a href="#local-6989586621680425190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680425189"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpoint
+</span><a href="#local-6989586621680425190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointConfigName:UpdateEndpoint' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AendpointConfigName%3AUpdateEndpoint%27"><span class="hs-identifier hs-var">endpointConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-174"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-type">UpdateEndpointResponse</span></a></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621680425185"><span class="annot"><span class="annottext">request :: UpdateEndpoint -&gt; Request UpdateEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateEndpoint -&gt; Request UpdateEndpoint
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621680425181"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateEndpoint)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateEndpoint))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateEndpoint)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680425178"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680425178"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680425177"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680425177"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680425176"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680425176"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; UpdateEndpointResponse
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpointResponse%27"><span class="hs-identifier hs-var">UpdateEndpointResponse'</span></a></span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; UpdateEndpointResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; UpdateEndpointResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680425178"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; UpdateEndpointResponse)
+-&gt; Either String Text -&gt; Either String UpdateEndpointResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680425176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680425168"><span id="local-6989586621680425170"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span></span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680425165"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621680425161"><span class="annot"><span class="annottext">toHeaders :: UpdateEndpoint -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateEndpoint -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-193"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-194"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.UpdateEndpoint&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-196"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-197"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-198"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680425151"><span id="local-6989586621680425153"><span id="local-6989586621680425155"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621680425149"><span class="annot"><span class="annottext">toJSON :: UpdateEndpoint -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680425143"><span id="local-6989586621680425144"><span id="local-6989586621680425145"><span id="local-6989586621680425146"><span id="local-6989586621680425147"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [VariantProperty]
+Maybe DeploymentConfig
+Text
+endpointConfigName :: Text
+endpointName :: Text
+deploymentConfig :: Maybe DeploymentConfig
+retainAllVariantProperties :: Maybe Bool
+excludeRetainedVariantProperties :: Maybe [VariantProperty]
+$sel:endpointConfigName:UpdateEndpoint' :: UpdateEndpoint -&gt; Text
+$sel:endpointName:UpdateEndpoint' :: UpdateEndpoint -&gt; Text
+$sel:deploymentConfig:UpdateEndpoint' :: UpdateEndpoint -&gt; Maybe DeploymentConfig
+$sel:retainAllVariantProperties:UpdateEndpoint' :: UpdateEndpoint -&gt; Maybe Bool
+$sel:excludeRetainedVariantProperties:UpdateEndpoint' :: UpdateEndpoint -&gt; Maybe [VariantProperty]
+</span><a href="#local-6989586621680425143"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-206"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExcludeRetainedVariantProperties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [VariantProperty] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>              </span><span class="annot"><span class="annottext">([VariantProperty] -&gt; Pair)
+-&gt; Maybe [VariantProperty] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [VariantProperty]
+</span><a href="#local-6989586621680425147"><span class="hs-identifier hs-var">excludeRetainedVariantProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetainAllVariantProperties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680425146"><span class="hs-identifier hs-var">retainAllVariantProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeploymentConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeploymentConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>              </span><span class="annot"><span class="annottext">(DeploymentConfig -&gt; Pair) -&gt; Maybe DeploymentConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentConfig
+</span><a href="#local-6989586621680425145"><span class="hs-identifier hs-var">deploymentConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425144"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-214"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointConfigName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425143"><span class="hs-identifier hs-var">endpointConfigName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621680425137"><span class="annot"><span class="annottext">toPath :: UpdateEndpoint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateEndpoint -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621680425133"><span class="annot"><span class="annottext">toQuery :: UpdateEndpoint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateEndpoint -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | /See:/ 'newUpdateEndpointResponse' smart constructor.</span><span>
+</span><span id="line-225"></span><span id="local-6989586621680425130"><span id="local-6989586621680425131"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEndpointResponse"><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-var">UpdateEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEndpointResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpointResponse%27"><span class="hs-identifier hs-var">UpdateEndpointResponse'</span></a></span></span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-227"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateEndpointResponse%27"><span class="annot"><span class="annottext">UpdateEndpointResponse -&gt; Int
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AhttpStatus%3AUpdateEndpointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the endpoint.</span><span>
+</span><span id="line-229"></span><span>    </span><span id="%24sel%3AendpointArn%3AUpdateEndpointResponse%27"><span class="annot"><span class="annottext">UpdateEndpointResponse -&gt; Text
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AendpointArn%3AUpdateEndpointResponse%27"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-231"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680425124"><span id="local-6989586621680425126"><span class="annot"><span class="annottext">UpdateEndpointResponse -&gt; UpdateEndpointResponse -&gt; Bool
+(UpdateEndpointResponse -&gt; UpdateEndpointResponse -&gt; Bool)
+-&gt; (UpdateEndpointResponse -&gt; UpdateEndpointResponse -&gt; Bool)
+-&gt; Eq UpdateEndpointResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateEndpointResponse -&gt; UpdateEndpointResponse -&gt; Bool
+$c/= :: UpdateEndpointResponse -&gt; UpdateEndpointResponse -&gt; Bool
+== :: UpdateEndpointResponse -&gt; UpdateEndpointResponse -&gt; Bool
+$c== :: UpdateEndpointResponse -&gt; UpdateEndpointResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680425116"><span id="local-6989586621680425118"><span id="local-6989586621680425120"><span id="local-6989586621680425122"><span class="annot"><span class="annottext">ReadPrec [UpdateEndpointResponse]
+ReadPrec UpdateEndpointResponse
+Int -&gt; ReadS UpdateEndpointResponse
+ReadS [UpdateEndpointResponse]
+(Int -&gt; ReadS UpdateEndpointResponse)
+-&gt; ReadS [UpdateEndpointResponse]
+-&gt; ReadPrec UpdateEndpointResponse
+-&gt; ReadPrec [UpdateEndpointResponse]
+-&gt; Read UpdateEndpointResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateEndpointResponse]
+$creadListPrec :: ReadPrec [UpdateEndpointResponse]
+readPrec :: ReadPrec UpdateEndpointResponse
+$creadPrec :: ReadPrec UpdateEndpointResponse
+readList :: ReadS [UpdateEndpointResponse]
+$creadList :: ReadS [UpdateEndpointResponse]
+readsPrec :: Int -&gt; ReadS UpdateEndpointResponse
+$creadsPrec :: Int -&gt; ReadS UpdateEndpointResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680425110"><span id="local-6989586621680425112"><span id="local-6989586621680425114"><span class="annot"><span class="annottext">Int -&gt; UpdateEndpointResponse -&gt; ShowS
+[UpdateEndpointResponse] -&gt; ShowS
+UpdateEndpointResponse -&gt; String
+(Int -&gt; UpdateEndpointResponse -&gt; ShowS)
+-&gt; (UpdateEndpointResponse -&gt; String)
+-&gt; ([UpdateEndpointResponse] -&gt; ShowS)
+-&gt; Show UpdateEndpointResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateEndpointResponse] -&gt; ShowS
+$cshowList :: [UpdateEndpointResponse] -&gt; ShowS
+show :: UpdateEndpointResponse -&gt; String
+$cshow :: UpdateEndpointResponse -&gt; String
+showsPrec :: Int -&gt; UpdateEndpointResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateEndpointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateEndpointResponse -&gt; Rep UpdateEndpointResponse x)
+-&gt; (forall x.
+    Rep UpdateEndpointResponse x -&gt; UpdateEndpointResponse)
+-&gt; Generic UpdateEndpointResponse
+forall x. Rep UpdateEndpointResponse x -&gt; UpdateEndpointResponse
+forall x. UpdateEndpointResponse -&gt; Rep UpdateEndpointResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateEndpointResponse x -&gt; UpdateEndpointResponse
+$cfrom :: forall x. UpdateEndpointResponse -&gt; Rep UpdateEndpointResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- Create a value of 'UpdateEndpointResponse' with all optional fields omitted.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'httpStatus', 'updateEndpointResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'endpointArn', 'updateEndpointResponse_endpointArn' - The Amazon Resource Name (ARN) of the endpoint.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#newUpdateEndpointResponse"><span class="hs-identifier hs-type">newUpdateEndpointResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-245"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-246"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-comment">-- | 'endpointArn'</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-249"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-type">UpdateEndpointResponse</span></a></span><span>
+</span><span id="line-250"></span><span id="newUpdateEndpointResponse"><span class="annot"><span class="annottext">newUpdateEndpointResponse :: Int -&gt; Text -&gt; UpdateEndpointResponse
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#newUpdateEndpointResponse"><span class="hs-identifier hs-var hs-var">newUpdateEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621680425107"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680425107"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621680425106"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425106"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>  </span><span class="annot"><span class="annottext">UpdateEndpointResponse' :: Int -&gt; Text -&gt; UpdateEndpointResponse
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpointResponse%27"><span class="hs-identifier hs-type">UpdateEndpointResponse'</span></a></span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateEndpointResponse' :: Int
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AhttpStatus%3AUpdateEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680425107"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointArn:UpdateEndpointResponse' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AendpointArn%3AUpdateEndpointResponse%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425106"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpointResponse_httpStatus"><span class="hs-identifier hs-type">updateEndpointResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-type">UpdateEndpointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-258"></span><span id="updateEndpointResponse_httpStatus"><span class="annot"><span class="annottext">updateEndpointResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateEndpointResponse -&gt; f UpdateEndpointResponse
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpointResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateEndpointResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpointResponse -&gt; Int)
+-&gt; (UpdateEndpointResponse -&gt; Int -&gt; UpdateEndpointResponse)
+-&gt; Lens UpdateEndpointResponse UpdateEndpointResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpointResponse%27"><span class="hs-identifier hs-type">UpdateEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680425105"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateEndpointResponse' :: UpdateEndpointResponse -&gt; Int
+</span><a href="#local-6989586621680425105"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680425105"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680425104"><span class="annot"><span class="annottext">s :: UpdateEndpointResponse
+</span><a href="#local-6989586621680425104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpointResponse%27"><span class="hs-identifier hs-type">UpdateEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680425103"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680425103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpointResponse
+</span><a href="#local-6989586621680425104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateEndpointResponse' :: Int
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AhttpStatus%3AUpdateEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680425103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-type">UpdateEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the endpoint.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpointResponse_endpointArn"><span class="hs-identifier hs-type">updateEndpointResponse_endpointArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-type">UpdateEndpointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-262"></span><span id="updateEndpointResponse_endpointArn"><span class="annot"><span class="annottext">updateEndpointResponse_endpointArn :: (Text -&gt; f Text)
+-&gt; UpdateEndpointResponse -&gt; f UpdateEndpointResponse
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#updateEndpointResponse_endpointArn"><span class="hs-identifier hs-var hs-var">updateEndpointResponse_endpointArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpointResponse -&gt; Text)
+-&gt; (UpdateEndpointResponse -&gt; Text -&gt; UpdateEndpointResponse)
+-&gt; Lens UpdateEndpointResponse UpdateEndpointResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpointResponse%27"><span class="hs-identifier hs-type">UpdateEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680425102"><span class="annot"><span class="annottext">Text
+endpointArn :: Text
+$sel:endpointArn:UpdateEndpointResponse' :: UpdateEndpointResponse -&gt; Text
+</span><a href="#local-6989586621680425102"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425102"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680425101"><span class="annot"><span class="annottext">s :: UpdateEndpointResponse
+</span><a href="#local-6989586621680425101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpointResponse%27"><span class="hs-identifier hs-type">UpdateEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680425100"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpointResponse
+</span><a href="#local-6989586621680425101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:UpdateEndpointResponse' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateEndpoint.html#%24sel%3AendpointArn%3AUpdateEndpointResponse%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680425100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-type">UpdateEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680425098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-type">UpdateEndpointResponse</span></a></span></span><span>
+</span><span id="line-265"></span></pre></body></html>

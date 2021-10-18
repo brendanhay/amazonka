@@ -1,0 +1,1042 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.CreateModelPackage</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a model package that you can use to create Amazon SageMaker</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- models or list on Amazon Web Services Marketplace, or a versioned model</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- that is part of a model group. Buyers can subscribe to model packages</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- listed on Amazon Web Services Marketplace to create models in Amazon</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- SageMaker.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- To create a model package by specifying a Docker container that contains</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- your inference code and the Amazon S3 location of your model artifacts,</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- provide values for @InferenceSpecification@. To create a model from an</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- algorithm resource that you created or subscribed to in Amazon Web</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Services Marketplace, provide a value for</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- @SourceAlgorithmSpecification@.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- There are two types of model packages:</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   Versioned - a model that is part of a model group in the model</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     registry.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- -   Unversioned - a model package that is not part of a model group.</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.CreateModelPackage</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier">CreateModelPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#newCreateModelPackage"><span class="hs-identifier">newCreateModelPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_sourceAlgorithmSpecification"><span class="hs-identifier">createModelPackage_sourceAlgorithmSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_metadataProperties"><span class="hs-identifier">createModelPackage_metadataProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_validationSpecification"><span class="hs-identifier">createModelPackage_validationSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_modelMetrics"><span class="hs-identifier">createModelPackage_modelMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_modelPackageName"><span class="hs-identifier">createModelPackage_modelPackageName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_certifyForMarketplace"><span class="hs-identifier">createModelPackage_certifyForMarketplace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_modelApprovalStatus"><span class="hs-identifier">createModelPackage_modelApprovalStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_tags"><span class="hs-identifier">createModelPackage_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_inferenceSpecification"><span class="hs-identifier">createModelPackage_inferenceSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_modelPackageDescription"><span class="hs-identifier">createModelPackage_modelPackageDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_modelPackageGroupName"><span class="hs-identifier">createModelPackage_modelPackageGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_clientToken"><span class="hs-identifier">createModelPackage_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackageResponse"><span class="hs-identifier">CreateModelPackageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#newCreateModelPackageResponse"><span class="hs-identifier">newCreateModelPackageResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackageResponse_httpStatus"><span class="hs-identifier">createModelPackageResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackageResponse_modelPackageArn"><span class="hs-identifier">createModelPackageResponse_modelPackageArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | /See:/ 'newCreateModelPackage' smart constructor.</span><span>
+</span><span id="line-79"></span><span id="local-6989586621680415491"><span id="local-6989586621680415492"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateModelPackage"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-var">CreateModelPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateModelPackage%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-var">CreateModelPackage'</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the algorithm that was used to create the model package.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AsourceAlgorithmSpecification%3ACreateModelPackage%27"><span class="annot"><span class="annottext">CreateModelPackage -&gt; Maybe SourceAlgorithmSpecification
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AsourceAlgorithmSpecification%3ACreateModelPackage%27"><span class="hs-identifier hs-var hs-var">sourceAlgorithmSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithmSpecification.html#SourceAlgorithmSpecification"><span class="hs-identifier hs-type">SourceAlgorithmSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AmetadataProperties%3ACreateModelPackage%27"><span class="annot"><span class="annottext">CreateModelPackage -&gt; Maybe MetadataProperties
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmetadataProperties%3ACreateModelPackage%27"><span class="hs-identifier hs-var hs-var">metadataProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetadataProperties.html#MetadataProperties"><span class="hs-identifier hs-type">MetadataProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | Specifies configurations for one or more transform jobs that Amazon</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- SageMaker runs to test the model package.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AvalidationSpecification%3ACreateModelPackage%27"><span class="annot"><span class="annottext">CreateModelPackage -&gt; Maybe ModelPackageValidationSpecification
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AvalidationSpecification%3ACreateModelPackage%27"><span class="hs-identifier hs-var hs-var">validationSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageValidationSpecification.html#ModelPackageValidationSpecification"><span class="hs-identifier hs-type">ModelPackageValidationSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | A structure that contains model metrics reports.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AmodelMetrics%3ACreateModelPackage%27"><span class="annot"><span class="annottext">CreateModelPackage -&gt; Maybe ModelMetrics
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelMetrics%3ACreateModelPackage%27"><span class="hs-identifier hs-var hs-var">modelMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelMetrics.html#ModelMetrics"><span class="hs-identifier hs-type">ModelMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The name of the model package. The name must have 1 to 63 characters.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- Valid characters are a-z, A-Z, 0-9, and - (hyphen).</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- This parameter is required for unversioned models. It is not applicable</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- to versioned models.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AmodelPackageName%3ACreateModelPackage%27"><span class="annot"><span class="annottext">CreateModelPackage -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelPackageName%3ACreateModelPackage%27"><span class="hs-identifier hs-var hs-var">modelPackageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | Whether to certify the model package for listing on Amazon Web Services</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- Marketplace.</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- This parameter is optional for unversioned models, and does not apply to</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- versioned models.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AcertifyForMarketplace%3ACreateModelPackage%27"><span class="annot"><span class="annottext">CreateModelPackage -&gt; Maybe Bool
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AcertifyForMarketplace%3ACreateModelPackage%27"><span class="hs-identifier hs-var hs-var">certifyForMarketplace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | Whether the model is approved for deployment.</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- This parameter is optional for versioned models, and does not apply to</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- unversioned models.</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- For versioned models, the value of this parameter must be set to</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- @Approved@ to deploy the model.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AmodelApprovalStatus%3ACreateModelPackage%27"><span class="annot"><span class="annottext">CreateModelPackage -&gt; Maybe ModelApprovalStatus
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelApprovalStatus%3ACreateModelPackage%27"><span class="hs-identifier hs-var hs-var">modelApprovalStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelApprovalStatus.html#ModelApprovalStatus"><span class="hs-identifier hs-type">ModelApprovalStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | A list of key value pairs associated with the model. For more</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources&gt;</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference Guide/.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3Atags%3ACreateModelPackage%27"><span class="annot"><span class="annottext">CreateModelPackage -&gt; Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3Atags%3ACreateModelPackage%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | Specifies details about inference jobs that can be run with models based</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- on this model package, including the following:</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- -   The Amazon ECR paths of containers that contain the inference code</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--     and model artifacts.</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- -   The instance types that the model package supports for transform</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--     jobs and real-time endpoints used for inference.</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- -   The input and output content formats that the model package supports</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--     for inference.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AinferenceSpecification%3ACreateModelPackage%27"><span class="annot"><span class="annottext">CreateModelPackage -&gt; Maybe InferenceSpecification
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AinferenceSpecification%3ACreateModelPackage%27"><span class="hs-identifier hs-var hs-var">inferenceSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | A description of the model package.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AmodelPackageDescription%3ACreateModelPackage%27"><span class="annot"><span class="annottext">CreateModelPackage -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelPackageDescription%3ACreateModelPackage%27"><span class="hs-identifier hs-var hs-var">modelPackageDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The name of the model group that this model version belongs to.</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- This parameter is required for versioned models, and does not apply to</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- unversioned models.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AmodelPackageGroupName%3ACreateModelPackage%27"><span class="annot"><span class="annottext">CreateModelPackage -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelPackageGroupName%3ACreateModelPackage%27"><span class="hs-identifier hs-var hs-var">modelPackageGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | A unique token that guarantees that the call to this API is idempotent.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateModelPackage%27"><span class="annot"><span class="annottext">CreateModelPackage -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AclientToken%3ACreateModelPackage%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680415474"><span id="local-6989586621680415476"><span class="annot"><span class="annottext">CreateModelPackage -&gt; CreateModelPackage -&gt; Bool
+(CreateModelPackage -&gt; CreateModelPackage -&gt; Bool)
+-&gt; (CreateModelPackage -&gt; CreateModelPackage -&gt; Bool)
+-&gt; Eq CreateModelPackage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateModelPackage -&gt; CreateModelPackage -&gt; Bool
+$c/= :: CreateModelPackage -&gt; CreateModelPackage -&gt; Bool
+== :: CreateModelPackage -&gt; CreateModelPackage -&gt; Bool
+$c== :: CreateModelPackage -&gt; CreateModelPackage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680415465"><span id="local-6989586621680415467"><span id="local-6989586621680415469"><span id="local-6989586621680415471"><span class="annot"><span class="annottext">ReadPrec [CreateModelPackage]
+ReadPrec CreateModelPackage
+Int -&gt; ReadS CreateModelPackage
+ReadS [CreateModelPackage]
+(Int -&gt; ReadS CreateModelPackage)
+-&gt; ReadS [CreateModelPackage]
+-&gt; ReadPrec CreateModelPackage
+-&gt; ReadPrec [CreateModelPackage]
+-&gt; Read CreateModelPackage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateModelPackage]
+$creadListPrec :: ReadPrec [CreateModelPackage]
+readPrec :: ReadPrec CreateModelPackage
+$creadPrec :: ReadPrec CreateModelPackage
+readList :: ReadS [CreateModelPackage]
+$creadList :: ReadS [CreateModelPackage]
+readsPrec :: Int -&gt; ReadS CreateModelPackage
+$creadsPrec :: Int -&gt; ReadS CreateModelPackage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680415458"><span id="local-6989586621680415460"><span id="local-6989586621680415462"><span class="annot"><span class="annottext">Int -&gt; CreateModelPackage -&gt; ShowS
+[CreateModelPackage] -&gt; ShowS
+CreateModelPackage -&gt; String
+(Int -&gt; CreateModelPackage -&gt; ShowS)
+-&gt; (CreateModelPackage -&gt; String)
+-&gt; ([CreateModelPackage] -&gt; ShowS)
+-&gt; Show CreateModelPackage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateModelPackage] -&gt; ShowS
+$cshowList :: [CreateModelPackage] -&gt; ShowS
+show :: CreateModelPackage -&gt; String
+$cshow :: CreateModelPackage -&gt; String
+showsPrec :: Int -&gt; CreateModelPackage -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateModelPackage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateModelPackage -&gt; Rep CreateModelPackage x)
+-&gt; (forall x. Rep CreateModelPackage x -&gt; CreateModelPackage)
+-&gt; Generic CreateModelPackage
+forall x. Rep CreateModelPackage x -&gt; CreateModelPackage
+forall x. CreateModelPackage -&gt; Rep CreateModelPackage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateModelPackage x -&gt; CreateModelPackage
+$cfrom :: forall x. CreateModelPackage -&gt; Rep CreateModelPackage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Create a value of 'CreateModelPackage' with all optional fields omitted.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'sourceAlgorithmSpecification', 'createModelPackage_sourceAlgorithmSpecification' - Details about the algorithm that was used to create the model package.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'metadataProperties', 'createModelPackage_metadataProperties' - Undocumented member.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'validationSpecification', 'createModelPackage_validationSpecification' - Specifies configurations for one or more transform jobs that Amazon</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- SageMaker runs to test the model package.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'modelMetrics', 'createModelPackage_modelMetrics' - A structure that contains model metrics reports.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'modelPackageName', 'createModelPackage_modelPackageName' - The name of the model package. The name must have 1 to 63 characters.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Valid characters are a-z, A-Z, 0-9, and - (hyphen).</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- This parameter is required for unversioned models. It is not applicable</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- to versioned models.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'certifyForMarketplace', 'createModelPackage_certifyForMarketplace' - Whether to certify the model package for listing on Amazon Web Services</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Marketplace.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- This parameter is optional for unversioned models, and does not apply to</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- versioned models.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'modelApprovalStatus', 'createModelPackage_modelApprovalStatus' - Whether the model is approved for deployment.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- This parameter is optional for versioned models, and does not apply to</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- unversioned models.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- For versioned models, the value of this parameter must be set to</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- @Approved@ to deploy the model.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'tags', 'createModelPackage_tags' - A list of key value pairs associated with the model. For more</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources&gt;</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference Guide/.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'inferenceSpecification', 'createModelPackage_inferenceSpecification' - Specifies details about inference jobs that can be run with models based</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- on this model package, including the following:</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- -   The Amazon ECR paths of containers that contain the inference code</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     and model artifacts.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- -   The instance types that the model package supports for transform</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     jobs and real-time endpoints used for inference.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -   The input and output content formats that the model package supports</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     for inference.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'modelPackageDescription', 'createModelPackage_modelPackageDescription' - A description of the model package.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'modelPackageGroupName', 'createModelPackage_modelPackageGroupName' - The name of the model group that this model version belongs to.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- This parameter is required for versioned models, and does not apply to</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- unversioned models.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'clientToken', 'createModelPackage_clientToken' - A unique token that guarantees that the call to this API is idempotent.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#newCreateModelPackage"><span class="hs-identifier hs-type">newCreateModelPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span>
+</span><span id="line-201"></span><span id="newCreateModelPackage"><span class="annot"><span class="annottext">newCreateModelPackage :: CreateModelPackage
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#newCreateModelPackage"><span class="hs-identifier hs-var hs-var">newCreateModelPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><span class="annottext">CreateModelPackage' :: Maybe SourceAlgorithmSpecification
+-&gt; Maybe MetadataProperties
+-&gt; Maybe ModelPackageValidationSpecification
+-&gt; Maybe ModelMetrics
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe ModelApprovalStatus
+-&gt; Maybe [Tag]
+-&gt; Maybe InferenceSpecification
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; CreateModelPackage
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceAlgorithmSpecification:CreateModelPackage' :: Maybe SourceAlgorithmSpecification
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AsourceAlgorithmSpecification%3ACreateModelPackage%27"><span class="hs-identifier hs-var">sourceAlgorithmSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">Maybe SourceAlgorithmSpecification
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:metadataProperties:CreateModelPackage' :: Maybe MetadataProperties
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmetadataProperties%3ACreateModelPackage%27"><span class="hs-identifier hs-var">metadataProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetadataProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:validationSpecification:CreateModelPackage' :: Maybe ModelPackageValidationSpecification
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AvalidationSpecification%3ACreateModelPackage%27"><span class="hs-identifier hs-var">validationSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelPackageValidationSpecification
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelMetrics:CreateModelPackage' :: Maybe ModelMetrics
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelMetrics%3ACreateModelPackage%27"><span class="hs-identifier hs-var">modelMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelMetrics
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelPackageName:CreateModelPackage' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelPackageName%3ACreateModelPackage%27"><span class="hs-identifier hs-var">modelPackageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:certifyForMarketplace:CreateModelPackage' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AcertifyForMarketplace%3ACreateModelPackage%27"><span class="hs-identifier hs-var">certifyForMarketplace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelApprovalStatus:CreateModelPackage' :: Maybe ModelApprovalStatus
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelApprovalStatus%3ACreateModelPackage%27"><span class="hs-identifier hs-var">modelApprovalStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelApprovalStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateModelPackage' :: Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3Atags%3ACreateModelPackage%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:inferenceSpecification:CreateModelPackage' :: Maybe InferenceSpecification
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AinferenceSpecification%3ACreateModelPackage%27"><span class="hs-identifier hs-var">inferenceSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InferenceSpecification
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelPackageDescription:CreateModelPackage' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelPackageDescription%3ACreateModelPackage%27"><span class="hs-identifier hs-var">modelPackageDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelPackageGroupName:CreateModelPackage' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelPackageGroupName%3ACreateModelPackage%27"><span class="hs-identifier hs-var">modelPackageGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientToken:CreateModelPackage' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AclientToken%3ACreateModelPackage%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | Details about the algorithm that was used to create the model package.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_sourceAlgorithmSpecification"><span class="hs-identifier hs-type">createModelPackage_sourceAlgorithmSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithmSpecification.html#SourceAlgorithmSpecification"><span class="hs-identifier hs-type">SourceAlgorithmSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="createModelPackage_sourceAlgorithmSpecification"><span class="annot"><span class="annottext">createModelPackage_sourceAlgorithmSpecification :: (Maybe SourceAlgorithmSpecification
+ -&gt; f (Maybe SourceAlgorithmSpecification))
+-&gt; CreateModelPackage -&gt; f CreateModelPackage
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_sourceAlgorithmSpecification"><span class="hs-identifier hs-var hs-var">createModelPackage_sourceAlgorithmSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelPackage -&gt; Maybe SourceAlgorithmSpecification)
+-&gt; (CreateModelPackage
+    -&gt; Maybe SourceAlgorithmSpecification -&gt; CreateModelPackage)
+-&gt; Lens
+     CreateModelPackage
+     CreateModelPackage
+     (Maybe SourceAlgorithmSpecification)
+     (Maybe SourceAlgorithmSpecification)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415451"><span class="annot"><span class="annottext">Maybe SourceAlgorithmSpecification
+sourceAlgorithmSpecification :: Maybe SourceAlgorithmSpecification
+$sel:sourceAlgorithmSpecification:CreateModelPackage' :: CreateModelPackage -&gt; Maybe SourceAlgorithmSpecification
+</span><a href="#local-6989586621680415451"><span class="hs-identifier hs-var hs-var">sourceAlgorithmSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceAlgorithmSpecification
+</span><a href="#local-6989586621680415451"><span class="hs-identifier hs-var">sourceAlgorithmSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415450"><span class="annot"><span class="annottext">s :: CreateModelPackage
+</span><a href="#local-6989586621680415450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415449"><span class="annot"><span class="annottext">Maybe SourceAlgorithmSpecification
+</span><a href="#local-6989586621680415449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelPackage
+</span><a href="#local-6989586621680415450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceAlgorithmSpecification:CreateModelPackage' :: Maybe SourceAlgorithmSpecification
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AsourceAlgorithmSpecification%3ACreateModelPackage%27"><span class="hs-identifier hs-var">sourceAlgorithmSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceAlgorithmSpecification
+</span><a href="#local-6989586621680415449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_metadataProperties"><span class="hs-identifier hs-type">createModelPackage_metadataProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetadataProperties.html#MetadataProperties"><span class="hs-identifier hs-type">MetadataProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="createModelPackage_metadataProperties"><span class="annot"><span class="annottext">createModelPackage_metadataProperties :: (Maybe MetadataProperties -&gt; f (Maybe MetadataProperties))
+-&gt; CreateModelPackage -&gt; f CreateModelPackage
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_metadataProperties"><span class="hs-identifier hs-var hs-var">createModelPackage_metadataProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelPackage -&gt; Maybe MetadataProperties)
+-&gt; (CreateModelPackage
+    -&gt; Maybe MetadataProperties -&gt; CreateModelPackage)
+-&gt; Lens
+     CreateModelPackage
+     CreateModelPackage
+     (Maybe MetadataProperties)
+     (Maybe MetadataProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415448"><span class="annot"><span class="annottext">Maybe MetadataProperties
+metadataProperties :: Maybe MetadataProperties
+$sel:metadataProperties:CreateModelPackage' :: CreateModelPackage -&gt; Maybe MetadataProperties
+</span><a href="#local-6989586621680415448"><span class="hs-identifier hs-var hs-var">metadataProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetadataProperties
+</span><a href="#local-6989586621680415448"><span class="hs-identifier hs-var">metadataProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415447"><span class="annot"><span class="annottext">s :: CreateModelPackage
+</span><a href="#local-6989586621680415447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415446"><span class="annot"><span class="annottext">Maybe MetadataProperties
+</span><a href="#local-6989586621680415446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelPackage
+</span><a href="#local-6989586621680415447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadataProperties:CreateModelPackage' :: Maybe MetadataProperties
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmetadataProperties%3ACreateModelPackage%27"><span class="hs-identifier hs-var">metadataProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetadataProperties
+</span><a href="#local-6989586621680415446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | Specifies configurations for one or more transform jobs that Amazon</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- SageMaker runs to test the model package.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_validationSpecification"><span class="hs-identifier hs-type">createModelPackage_validationSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageValidationSpecification.html#ModelPackageValidationSpecification"><span class="hs-identifier hs-type">ModelPackageValidationSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="createModelPackage_validationSpecification"><span class="annot"><span class="annottext">createModelPackage_validationSpecification :: (Maybe ModelPackageValidationSpecification
+ -&gt; f (Maybe ModelPackageValidationSpecification))
+-&gt; CreateModelPackage -&gt; f CreateModelPackage
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_validationSpecification"><span class="hs-identifier hs-var hs-var">createModelPackage_validationSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelPackage -&gt; Maybe ModelPackageValidationSpecification)
+-&gt; (CreateModelPackage
+    -&gt; Maybe ModelPackageValidationSpecification -&gt; CreateModelPackage)
+-&gt; Lens
+     CreateModelPackage
+     CreateModelPackage
+     (Maybe ModelPackageValidationSpecification)
+     (Maybe ModelPackageValidationSpecification)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415445"><span class="annot"><span class="annottext">Maybe ModelPackageValidationSpecification
+validationSpecification :: Maybe ModelPackageValidationSpecification
+$sel:validationSpecification:CreateModelPackage' :: CreateModelPackage -&gt; Maybe ModelPackageValidationSpecification
+</span><a href="#local-6989586621680415445"><span class="hs-identifier hs-var hs-var">validationSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelPackageValidationSpecification
+</span><a href="#local-6989586621680415445"><span class="hs-identifier hs-var">validationSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415444"><span class="annot"><span class="annottext">s :: CreateModelPackage
+</span><a href="#local-6989586621680415444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415443"><span class="annot"><span class="annottext">Maybe ModelPackageValidationSpecification
+</span><a href="#local-6989586621680415443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelPackage
+</span><a href="#local-6989586621680415444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validationSpecification:CreateModelPackage' :: Maybe ModelPackageValidationSpecification
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AvalidationSpecification%3ACreateModelPackage%27"><span class="hs-identifier hs-var">validationSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelPackageValidationSpecification
+</span><a href="#local-6989586621680415443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | A structure that contains model metrics reports.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_modelMetrics"><span class="hs-identifier hs-type">createModelPackage_modelMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelMetrics.html#ModelMetrics"><span class="hs-identifier hs-type">ModelMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="createModelPackage_modelMetrics"><span class="annot"><span class="annottext">createModelPackage_modelMetrics :: (Maybe ModelMetrics -&gt; f (Maybe ModelMetrics))
+-&gt; CreateModelPackage -&gt; f CreateModelPackage
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_modelMetrics"><span class="hs-identifier hs-var hs-var">createModelPackage_modelMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelPackage -&gt; Maybe ModelMetrics)
+-&gt; (CreateModelPackage -&gt; Maybe ModelMetrics -&gt; CreateModelPackage)
+-&gt; Lens
+     CreateModelPackage
+     CreateModelPackage
+     (Maybe ModelMetrics)
+     (Maybe ModelMetrics)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415442"><span class="annot"><span class="annottext">Maybe ModelMetrics
+modelMetrics :: Maybe ModelMetrics
+$sel:modelMetrics:CreateModelPackage' :: CreateModelPackage -&gt; Maybe ModelMetrics
+</span><a href="#local-6989586621680415442"><span class="hs-identifier hs-var hs-var">modelMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelMetrics
+</span><a href="#local-6989586621680415442"><span class="hs-identifier hs-var">modelMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415441"><span class="annot"><span class="annottext">s :: CreateModelPackage
+</span><a href="#local-6989586621680415441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415440"><span class="annot"><span class="annottext">Maybe ModelMetrics
+</span><a href="#local-6989586621680415440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelPackage
+</span><a href="#local-6989586621680415441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelMetrics:CreateModelPackage' :: Maybe ModelMetrics
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelMetrics%3ACreateModelPackage%27"><span class="hs-identifier hs-var">modelMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelMetrics
+</span><a href="#local-6989586621680415440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The name of the model package. The name must have 1 to 63 characters.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- Valid characters are a-z, A-Z, 0-9, and - (hyphen).</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- This parameter is required for unversioned models. It is not applicable</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- to versioned models.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_modelPackageName"><span class="hs-identifier hs-type">createModelPackage_modelPackageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="createModelPackage_modelPackageName"><span class="annot"><span class="annottext">createModelPackage_modelPackageName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateModelPackage -&gt; f CreateModelPackage
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_modelPackageName"><span class="hs-identifier hs-var hs-var">createModelPackage_modelPackageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelPackage -&gt; Maybe Text)
+-&gt; (CreateModelPackage -&gt; Maybe Text -&gt; CreateModelPackage)
+-&gt; Lens
+     CreateModelPackage CreateModelPackage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415439"><span class="annot"><span class="annottext">Maybe Text
+modelPackageName :: Maybe Text
+$sel:modelPackageName:CreateModelPackage' :: CreateModelPackage -&gt; Maybe Text
+</span><a href="#local-6989586621680415439"><span class="hs-identifier hs-var hs-var">modelPackageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680415439"><span class="hs-identifier hs-var">modelPackageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415438"><span class="annot"><span class="annottext">s :: CreateModelPackage
+</span><a href="#local-6989586621680415438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415437"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680415437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelPackage
+</span><a href="#local-6989586621680415438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageName:CreateModelPackage' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelPackageName%3ACreateModelPackage%27"><span class="hs-identifier hs-var">modelPackageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680415437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | Whether to certify the model package for listing on Amazon Web Services</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- Marketplace.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- This parameter is optional for unversioned models, and does not apply to</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- versioned models.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_certifyForMarketplace"><span class="hs-identifier hs-type">createModelPackage_certifyForMarketplace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="createModelPackage_certifyForMarketplace"><span class="annot"><span class="annottext">createModelPackage_certifyForMarketplace :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateModelPackage -&gt; f CreateModelPackage
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_certifyForMarketplace"><span class="hs-identifier hs-var hs-var">createModelPackage_certifyForMarketplace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelPackage -&gt; Maybe Bool)
+-&gt; (CreateModelPackage -&gt; Maybe Bool -&gt; CreateModelPackage)
+-&gt; Lens
+     CreateModelPackage CreateModelPackage (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415436"><span class="annot"><span class="annottext">Maybe Bool
+certifyForMarketplace :: Maybe Bool
+$sel:certifyForMarketplace:CreateModelPackage' :: CreateModelPackage -&gt; Maybe Bool
+</span><a href="#local-6989586621680415436"><span class="hs-identifier hs-var hs-var">certifyForMarketplace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680415436"><span class="hs-identifier hs-var">certifyForMarketplace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415435"><span class="annot"><span class="annottext">s :: CreateModelPackage
+</span><a href="#local-6989586621680415435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415434"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680415434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelPackage
+</span><a href="#local-6989586621680415435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certifyForMarketplace:CreateModelPackage' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AcertifyForMarketplace%3ACreateModelPackage%27"><span class="hs-identifier hs-var">certifyForMarketplace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680415434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | Whether the model is approved for deployment.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- This parameter is optional for versioned models, and does not apply to</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- unversioned models.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- For versioned models, the value of this parameter must be set to</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- @Approved@ to deploy the model.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_modelApprovalStatus"><span class="hs-identifier hs-type">createModelPackage_modelApprovalStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelApprovalStatus.html#ModelApprovalStatus"><span class="hs-identifier hs-type">ModelApprovalStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span id="createModelPackage_modelApprovalStatus"><span class="annot"><span class="annottext">createModelPackage_modelApprovalStatus :: (Maybe ModelApprovalStatus -&gt; f (Maybe ModelApprovalStatus))
+-&gt; CreateModelPackage -&gt; f CreateModelPackage
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_modelApprovalStatus"><span class="hs-identifier hs-var hs-var">createModelPackage_modelApprovalStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelPackage -&gt; Maybe ModelApprovalStatus)
+-&gt; (CreateModelPackage
+    -&gt; Maybe ModelApprovalStatus -&gt; CreateModelPackage)
+-&gt; Lens
+     CreateModelPackage
+     CreateModelPackage
+     (Maybe ModelApprovalStatus)
+     (Maybe ModelApprovalStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415433"><span class="annot"><span class="annottext">Maybe ModelApprovalStatus
+modelApprovalStatus :: Maybe ModelApprovalStatus
+$sel:modelApprovalStatus:CreateModelPackage' :: CreateModelPackage -&gt; Maybe ModelApprovalStatus
+</span><a href="#local-6989586621680415433"><span class="hs-identifier hs-var hs-var">modelApprovalStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelApprovalStatus
+</span><a href="#local-6989586621680415433"><span class="hs-identifier hs-var">modelApprovalStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415432"><span class="annot"><span class="annottext">s :: CreateModelPackage
+</span><a href="#local-6989586621680415432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415431"><span class="annot"><span class="annottext">Maybe ModelApprovalStatus
+</span><a href="#local-6989586621680415431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelPackage
+</span><a href="#local-6989586621680415432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelApprovalStatus:CreateModelPackage' :: Maybe ModelApprovalStatus
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelApprovalStatus%3ACreateModelPackage%27"><span class="hs-identifier hs-var">modelApprovalStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelApprovalStatus
+</span><a href="#local-6989586621680415431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | A list of key value pairs associated with the model. For more</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources&gt;</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference Guide/.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_tags"><span class="hs-identifier hs-type">createModelPackage_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span id="createModelPackage_tags"><span class="annot"><span class="annottext">createModelPackage_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateModelPackage -&gt; f CreateModelPackage
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_tags"><span class="hs-identifier hs-var hs-var">createModelPackage_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelPackage -&gt; Maybe [Tag])
+-&gt; (CreateModelPackage -&gt; Maybe [Tag] -&gt; CreateModelPackage)
+-&gt; Lens
+     CreateModelPackage CreateModelPackage (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415430"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateModelPackage' :: CreateModelPackage -&gt; Maybe [Tag]
+</span><a href="#local-6989586621680415430"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680415430"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415429"><span class="annot"><span class="annottext">s :: CreateModelPackage
+</span><a href="#local-6989586621680415429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415428"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680415428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelPackage
+</span><a href="#local-6989586621680415429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateModelPackage' :: Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3Atags%3ACreateModelPackage%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680415428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateModelPackage -&gt; f CreateModelPackage)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateModelPackage
+-&gt; f CreateModelPackage
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | Specifies details about inference jobs that can be run with models based</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- on this model package, including the following:</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- -   The Amazon ECR paths of containers that contain the inference code</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--     and model artifacts.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- -   The instance types that the model package supports for transform</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--     jobs and real-time endpoints used for inference.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- -   The input and output content formats that the model package supports</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--     for inference.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_inferenceSpecification"><span class="hs-identifier hs-type">createModelPackage_inferenceSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="createModelPackage_inferenceSpecification"><span class="annot"><span class="annottext">createModelPackage_inferenceSpecification :: (Maybe InferenceSpecification -&gt; f (Maybe InferenceSpecification))
+-&gt; CreateModelPackage -&gt; f CreateModelPackage
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_inferenceSpecification"><span class="hs-identifier hs-var hs-var">createModelPackage_inferenceSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelPackage -&gt; Maybe InferenceSpecification)
+-&gt; (CreateModelPackage
+    -&gt; Maybe InferenceSpecification -&gt; CreateModelPackage)
+-&gt; Lens
+     CreateModelPackage
+     CreateModelPackage
+     (Maybe InferenceSpecification)
+     (Maybe InferenceSpecification)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415424"><span class="annot"><span class="annottext">Maybe InferenceSpecification
+inferenceSpecification :: Maybe InferenceSpecification
+$sel:inferenceSpecification:CreateModelPackage' :: CreateModelPackage -&gt; Maybe InferenceSpecification
+</span><a href="#local-6989586621680415424"><span class="hs-identifier hs-var hs-var">inferenceSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InferenceSpecification
+</span><a href="#local-6989586621680415424"><span class="hs-identifier hs-var">inferenceSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415423"><span class="annot"><span class="annottext">s :: CreateModelPackage
+</span><a href="#local-6989586621680415423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415422"><span class="annot"><span class="annottext">Maybe InferenceSpecification
+</span><a href="#local-6989586621680415422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelPackage
+</span><a href="#local-6989586621680415423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inferenceSpecification:CreateModelPackage' :: Maybe InferenceSpecification
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AinferenceSpecification%3ACreateModelPackage%27"><span class="hs-identifier hs-var">inferenceSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InferenceSpecification
+</span><a href="#local-6989586621680415422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | A description of the model package.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_modelPackageDescription"><span class="hs-identifier hs-type">createModelPackage_modelPackageDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span id="createModelPackage_modelPackageDescription"><span class="annot"><span class="annottext">createModelPackage_modelPackageDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateModelPackage -&gt; f CreateModelPackage
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_modelPackageDescription"><span class="hs-identifier hs-var hs-var">createModelPackage_modelPackageDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelPackage -&gt; Maybe Text)
+-&gt; (CreateModelPackage -&gt; Maybe Text -&gt; CreateModelPackage)
+-&gt; Lens
+     CreateModelPackage CreateModelPackage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415421"><span class="annot"><span class="annottext">Maybe Text
+modelPackageDescription :: Maybe Text
+$sel:modelPackageDescription:CreateModelPackage' :: CreateModelPackage -&gt; Maybe Text
+</span><a href="#local-6989586621680415421"><span class="hs-identifier hs-var hs-var">modelPackageDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680415421"><span class="hs-identifier hs-var">modelPackageDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415420"><span class="annot"><span class="annottext">s :: CreateModelPackage
+</span><a href="#local-6989586621680415420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415419"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680415419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelPackage
+</span><a href="#local-6989586621680415420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageDescription:CreateModelPackage' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelPackageDescription%3ACreateModelPackage%27"><span class="hs-identifier hs-var">modelPackageDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680415419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- | The name of the model group that this model version belongs to.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- This parameter is required for versioned models, and does not apply to</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- unversioned models.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_modelPackageGroupName"><span class="hs-identifier hs-type">createModelPackage_modelPackageGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="createModelPackage_modelPackageGroupName"><span class="annot"><span class="annottext">createModelPackage_modelPackageGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateModelPackage -&gt; f CreateModelPackage
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_modelPackageGroupName"><span class="hs-identifier hs-var hs-var">createModelPackage_modelPackageGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelPackage -&gt; Maybe Text)
+-&gt; (CreateModelPackage -&gt; Maybe Text -&gt; CreateModelPackage)
+-&gt; Lens
+     CreateModelPackage CreateModelPackage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415418"><span class="annot"><span class="annottext">Maybe Text
+modelPackageGroupName :: Maybe Text
+$sel:modelPackageGroupName:CreateModelPackage' :: CreateModelPackage -&gt; Maybe Text
+</span><a href="#local-6989586621680415418"><span class="hs-identifier hs-var hs-var">modelPackageGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680415418"><span class="hs-identifier hs-var">modelPackageGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415417"><span class="annot"><span class="annottext">s :: CreateModelPackage
+</span><a href="#local-6989586621680415417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415416"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680415416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelPackage
+</span><a href="#local-6989586621680415417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageGroupName:CreateModelPackage' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelPackageGroupName%3ACreateModelPackage%27"><span class="hs-identifier hs-var">modelPackageGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680415416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | A unique token that guarantees that the call to this API is idempotent.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_clientToken"><span class="hs-identifier hs-type">createModelPackage_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span id="createModelPackage_clientToken"><span class="annot"><span class="annottext">createModelPackage_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateModelPackage -&gt; f CreateModelPackage
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackage_clientToken"><span class="hs-identifier hs-var hs-var">createModelPackage_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelPackage -&gt; Maybe Text)
+-&gt; (CreateModelPackage -&gt; Maybe Text -&gt; CreateModelPackage)
+-&gt; Lens
+     CreateModelPackage CreateModelPackage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415415"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateModelPackage' :: CreateModelPackage -&gt; Maybe Text
+</span><a href="#local-6989586621680415415"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680415415"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415414"><span class="annot"><span class="annottext">s :: CreateModelPackage
+</span><a href="#local-6989586621680415414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415413"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680415413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelPackage
+</span><a href="#local-6989586621680415414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateModelPackage' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AclientToken%3ACreateModelPackage%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680415413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-298"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-299"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-300"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackageResponse"><span class="hs-identifier hs-type">CreateModelPackageResponse</span></a></span><span>
+</span><span id="line-301"></span><span>  </span><span id="local-6989586621680415409"><span class="annot"><span class="annottext">request :: CreateModelPackage -&gt; Request CreateModelPackage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateModelPackage -&gt; Request CreateModelPackage
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-302"></span><span>  </span><span id="local-6989586621680415405"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateModelPackage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateModelPackage)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateModelPackage))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateModelPackage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateModelPackage)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-304"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680415402"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680415402"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680415401"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680415401"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680415400"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680415400"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-305"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateModelPackageResponse
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackageResponse%27"><span class="hs-identifier hs-var">CreateModelPackageResponse'</span></a></span><span>
+</span><span id="line-306"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateModelPackageResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; CreateModelPackageResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680415402"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateModelPackageResponse)
+-&gt; Either String Text -&gt; Either String CreateModelPackageResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680415400"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelPackageArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680415392"><span id="local-6989586621680415394"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span></span></span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680415389"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span></span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-315"></span><span>  </span><span id="local-6989586621680415385"><span class="annot"><span class="annottext">toHeaders :: CreateModelPackage -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateModelPackage -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-317"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-318"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-319"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.CreateModelPackage&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-320"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-321"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-323"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-324"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-325"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-327"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680415375"><span id="local-6989586621680415377"><span id="local-6989586621680415379"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-330"></span><span>  </span><span id="local-6989586621680415373"><span class="annot"><span class="annottext">toJSON :: CreateModelPackage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage%27"><span class="hs-identifier hs-type">CreateModelPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415360"><span id="local-6989586621680415361"><span id="local-6989586621680415362"><span id="local-6989586621680415363"><span id="local-6989586621680415364"><span id="local-6989586621680415365"><span id="local-6989586621680415366"><span id="local-6989586621680415367"><span id="local-6989586621680415368"><span id="local-6989586621680415369"><span id="local-6989586621680415370"><span id="local-6989586621680415371"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Tag]
+Maybe Text
+Maybe MetadataProperties
+Maybe ModelApprovalStatus
+Maybe ModelMetrics
+Maybe SourceAlgorithmSpecification
+Maybe InferenceSpecification
+Maybe ModelPackageValidationSpecification
+clientToken :: Maybe Text
+modelPackageGroupName :: Maybe Text
+modelPackageDescription :: Maybe Text
+inferenceSpecification :: Maybe InferenceSpecification
+tags :: Maybe [Tag]
+modelApprovalStatus :: Maybe ModelApprovalStatus
+certifyForMarketplace :: Maybe Bool
+modelPackageName :: Maybe Text
+modelMetrics :: Maybe ModelMetrics
+validationSpecification :: Maybe ModelPackageValidationSpecification
+metadataProperties :: Maybe MetadataProperties
+sourceAlgorithmSpecification :: Maybe SourceAlgorithmSpecification
+$sel:clientToken:CreateModelPackage' :: CreateModelPackage -&gt; Maybe Text
+$sel:modelPackageGroupName:CreateModelPackage' :: CreateModelPackage -&gt; Maybe Text
+$sel:modelPackageDescription:CreateModelPackage' :: CreateModelPackage -&gt; Maybe Text
+$sel:inferenceSpecification:CreateModelPackage' :: CreateModelPackage -&gt; Maybe InferenceSpecification
+$sel:tags:CreateModelPackage' :: CreateModelPackage -&gt; Maybe [Tag]
+$sel:modelApprovalStatus:CreateModelPackage' :: CreateModelPackage -&gt; Maybe ModelApprovalStatus
+$sel:certifyForMarketplace:CreateModelPackage' :: CreateModelPackage -&gt; Maybe Bool
+$sel:modelPackageName:CreateModelPackage' :: CreateModelPackage -&gt; Maybe Text
+$sel:modelMetrics:CreateModelPackage' :: CreateModelPackage -&gt; Maybe ModelMetrics
+$sel:validationSpecification:CreateModelPackage' :: CreateModelPackage -&gt; Maybe ModelPackageValidationSpecification
+$sel:metadataProperties:CreateModelPackage' :: CreateModelPackage -&gt; Maybe MetadataProperties
+$sel:sourceAlgorithmSpecification:CreateModelPackage' :: CreateModelPackage -&gt; Maybe SourceAlgorithmSpecification
+</span><a href="#local-6989586621680415360"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-331"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-332"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-333"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceAlgorithmSpecification&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SourceAlgorithmSpecification -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span>              </span><span class="annot"><span class="annottext">(SourceAlgorithmSpecification -&gt; Pair)
+-&gt; Maybe SourceAlgorithmSpecification -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SourceAlgorithmSpecification
+</span><a href="#local-6989586621680415371"><span class="hs-identifier hs-var">sourceAlgorithmSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetadataProperties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MetadataProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>              </span><span class="annot"><span class="annottext">(MetadataProperties -&gt; Pair)
+-&gt; Maybe MetadataProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MetadataProperties
+</span><a href="#local-6989586621680415370"><span class="hs-identifier hs-var">metadataProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ValidationSpecification&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ModelPackageValidationSpecification -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>              </span><span class="annot"><span class="annottext">(ModelPackageValidationSpecification -&gt; Pair)
+-&gt; Maybe ModelPackageValidationSpecification -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ModelPackageValidationSpecification
+</span><a href="#local-6989586621680415369"><span class="hs-identifier hs-var">validationSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelMetrics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ModelMetrics -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ModelMetrics -&gt; Pair) -&gt; Maybe ModelMetrics -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ModelMetrics
+</span><a href="#local-6989586621680415368"><span class="hs-identifier hs-var">modelMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelPackageName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680415367"><span class="hs-identifier hs-var">modelPackageName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CertifyForMarketplace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680415366"><span class="hs-identifier hs-var">certifyForMarketplace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelApprovalStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ModelApprovalStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span>              </span><span class="annot"><span class="annottext">(ModelApprovalStatus -&gt; Pair)
+-&gt; Maybe ModelApprovalStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ModelApprovalStatus
+</span><a href="#local-6989586621680415365"><span class="hs-identifier hs-var">modelApprovalStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-346"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680415364"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-347"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InferenceSpecification&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InferenceSpecification -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span>              </span><span class="annot"><span class="annottext">(InferenceSpecification -&gt; Pair)
+-&gt; Maybe InferenceSpecification -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InferenceSpecification
+</span><a href="#local-6989586621680415363"><span class="hs-identifier hs-var">inferenceSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-349"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelPackageDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680415362"><span class="hs-identifier hs-var">modelPackageDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-351"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelPackageGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680415361"><span class="hs-identifier hs-var">modelPackageGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-353"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680415360"><span class="hs-identifier hs-var">clientToken</span></a></span><span>
+</span><span id="line-354"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-355"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span>
+</span><span id="line-357"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-358"></span><span>  </span><span id="local-6989586621680415354"><span class="annot"><span class="annottext">toPath :: CreateModelPackage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateModelPackage -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-359"></span><span>
+</span><span id="line-360"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackage"><span class="hs-identifier hs-type">CreateModelPackage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-361"></span><span>  </span><span id="local-6989586621680415350"><span class="annot"><span class="annottext">toQuery :: CreateModelPackage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateModelPackage -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-362"></span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- | /See:/ 'newCreateModelPackageResponse' smart constructor.</span><span>
+</span><span id="line-364"></span><span id="local-6989586621680415347"><span id="local-6989586621680415348"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateModelPackageResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackageResponse"><span class="hs-identifier hs-var">CreateModelPackageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateModelPackageResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackageResponse%27"><span class="hs-identifier hs-var">CreateModelPackageResponse'</span></a></span></span><span>
+</span><span id="line-365"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-366"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateModelPackageResponse%27"><span class="annot"><span class="annottext">CreateModelPackageResponse -&gt; Int
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AhttpStatus%3ACreateModelPackageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-367"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the new model package.</span><span>
+</span><span id="line-368"></span><span>    </span><span id="%24sel%3AmodelPackageArn%3ACreateModelPackageResponse%27"><span class="annot"><span class="annottext">CreateModelPackageResponse -&gt; Text
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelPackageArn%3ACreateModelPackageResponse%27"><span class="hs-identifier hs-var hs-var">modelPackageArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-369"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-370"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680415341"><span id="local-6989586621680415343"><span class="annot"><span class="annottext">CreateModelPackageResponse -&gt; CreateModelPackageResponse -&gt; Bool
+(CreateModelPackageResponse -&gt; CreateModelPackageResponse -&gt; Bool)
+-&gt; (CreateModelPackageResponse
+    -&gt; CreateModelPackageResponse -&gt; Bool)
+-&gt; Eq CreateModelPackageResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateModelPackageResponse -&gt; CreateModelPackageResponse -&gt; Bool
+$c/= :: CreateModelPackageResponse -&gt; CreateModelPackageResponse -&gt; Bool
+== :: CreateModelPackageResponse -&gt; CreateModelPackageResponse -&gt; Bool
+$c== :: CreateModelPackageResponse -&gt; CreateModelPackageResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680415333"><span id="local-6989586621680415335"><span id="local-6989586621680415337"><span id="local-6989586621680415339"><span class="annot"><span class="annottext">ReadPrec [CreateModelPackageResponse]
+ReadPrec CreateModelPackageResponse
+Int -&gt; ReadS CreateModelPackageResponse
+ReadS [CreateModelPackageResponse]
+(Int -&gt; ReadS CreateModelPackageResponse)
+-&gt; ReadS [CreateModelPackageResponse]
+-&gt; ReadPrec CreateModelPackageResponse
+-&gt; ReadPrec [CreateModelPackageResponse]
+-&gt; Read CreateModelPackageResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateModelPackageResponse]
+$creadListPrec :: ReadPrec [CreateModelPackageResponse]
+readPrec :: ReadPrec CreateModelPackageResponse
+$creadPrec :: ReadPrec CreateModelPackageResponse
+readList :: ReadS [CreateModelPackageResponse]
+$creadList :: ReadS [CreateModelPackageResponse]
+readsPrec :: Int -&gt; ReadS CreateModelPackageResponse
+$creadsPrec :: Int -&gt; ReadS CreateModelPackageResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680415327"><span id="local-6989586621680415329"><span id="local-6989586621680415331"><span class="annot"><span class="annottext">Int -&gt; CreateModelPackageResponse -&gt; ShowS
+[CreateModelPackageResponse] -&gt; ShowS
+CreateModelPackageResponse -&gt; String
+(Int -&gt; CreateModelPackageResponse -&gt; ShowS)
+-&gt; (CreateModelPackageResponse -&gt; String)
+-&gt; ([CreateModelPackageResponse] -&gt; ShowS)
+-&gt; Show CreateModelPackageResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateModelPackageResponse] -&gt; ShowS
+$cshowList :: [CreateModelPackageResponse] -&gt; ShowS
+show :: CreateModelPackageResponse -&gt; String
+$cshow :: CreateModelPackageResponse -&gt; String
+showsPrec :: Int -&gt; CreateModelPackageResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateModelPackageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateModelPackageResponse -&gt; Rep CreateModelPackageResponse x)
+-&gt; (forall x.
+    Rep CreateModelPackageResponse x -&gt; CreateModelPackageResponse)
+-&gt; Generic CreateModelPackageResponse
+forall x.
+Rep CreateModelPackageResponse x -&gt; CreateModelPackageResponse
+forall x.
+CreateModelPackageResponse -&gt; Rep CreateModelPackageResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateModelPackageResponse x -&gt; CreateModelPackageResponse
+$cfrom :: forall x.
+CreateModelPackageResponse -&gt; Rep CreateModelPackageResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-371"></span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- Create a value of 'CreateModelPackageResponse' with all optional fields omitted.</span><span>
+</span><span id="line-374"></span><span class="hs-comment">--</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-376"></span><span class="hs-comment">--</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-379"></span><span class="hs-comment">--</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- 'httpStatus', 'createModelPackageResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-381"></span><span class="hs-comment">--</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- 'modelPackageArn', 'createModelPackageResponse_modelPackageArn' - The Amazon Resource Name (ARN) of the new model package.</span><span>
+</span><span id="line-383"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#newCreateModelPackageResponse"><span class="hs-identifier hs-type">newCreateModelPackageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-384"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-385"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-386"></span><span>  </span><span class="hs-comment">-- | 'modelPackageArn'</span><span>
+</span><span id="line-387"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-388"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackageResponse"><span class="hs-identifier hs-type">CreateModelPackageResponse</span></a></span><span>
+</span><span id="line-389"></span><span id="newCreateModelPackageResponse"><span class="annot"><span class="annottext">newCreateModelPackageResponse :: Int -&gt; Text -&gt; CreateModelPackageResponse
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#newCreateModelPackageResponse"><span class="hs-identifier hs-var hs-var">newCreateModelPackageResponse</span></a></span></span><span>
+</span><span id="line-390"></span><span>  </span><span id="local-6989586621680415324"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680415324"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-391"></span><span>  </span><span id="local-6989586621680415323"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680415323"><span class="hs-identifier hs-var">pModelPackageArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-392"></span><span>    </span><span class="annot"><span class="annottext">CreateModelPackageResponse' :: Int -&gt; Text -&gt; CreateModelPackageResponse
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackageResponse%27"><span class="hs-identifier hs-type">CreateModelPackageResponse'</span></a></span><span>
+</span><span id="line-393"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateModelPackageResponse' :: Int
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AhttpStatus%3ACreateModelPackageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-394"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680415324"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-395"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelPackageArn:CreateModelPackageResponse' :: Text
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelPackageArn%3ACreateModelPackageResponse%27"><span class="hs-identifier hs-var">modelPackageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680415323"><span class="hs-identifier hs-var">pModelPackageArn_</span></a></span><span>
+</span><span id="line-396"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-397"></span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-399"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackageResponse_httpStatus"><span class="hs-identifier hs-type">createModelPackageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackageResponse"><span class="hs-identifier hs-type">CreateModelPackageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-400"></span><span id="createModelPackageResponse_httpStatus"><span class="annot"><span class="annottext">createModelPackageResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateModelPackageResponse -&gt; f CreateModelPackageResponse
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackageResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createModelPackageResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelPackageResponse -&gt; Int)
+-&gt; (CreateModelPackageResponse
+    -&gt; Int -&gt; CreateModelPackageResponse)
+-&gt; Lens
+     CreateModelPackageResponse CreateModelPackageResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackageResponse%27"><span class="hs-identifier hs-type">CreateModelPackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415322"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateModelPackageResponse' :: CreateModelPackageResponse -&gt; Int
+</span><a href="#local-6989586621680415322"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680415322"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415321"><span class="annot"><span class="annottext">s :: CreateModelPackageResponse
+</span><a href="#local-6989586621680415321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackageResponse%27"><span class="hs-identifier hs-type">CreateModelPackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415320"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680415320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelPackageResponse
+</span><a href="#local-6989586621680415321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateModelPackageResponse' :: Int
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AhttpStatus%3ACreateModelPackageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680415320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackageResponse"><span class="hs-identifier hs-type">CreateModelPackageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-401"></span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the new model package.</span><span>
+</span><span id="line-403"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackageResponse_modelPackageArn"><span class="hs-identifier hs-type">createModelPackageResponse_modelPackageArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackageResponse"><span class="hs-identifier hs-type">CreateModelPackageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-404"></span><span id="createModelPackageResponse_modelPackageArn"><span class="annot"><span class="annottext">createModelPackageResponse_modelPackageArn :: (Text -&gt; f Text)
+-&gt; CreateModelPackageResponse -&gt; f CreateModelPackageResponse
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#createModelPackageResponse_modelPackageArn"><span class="hs-identifier hs-var hs-var">createModelPackageResponse_modelPackageArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelPackageResponse -&gt; Text)
+-&gt; (CreateModelPackageResponse
+    -&gt; Text -&gt; CreateModelPackageResponse)
+-&gt; Lens
+     CreateModelPackageResponse CreateModelPackageResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackageResponse%27"><span class="hs-identifier hs-type">CreateModelPackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415319"><span class="annot"><span class="annottext">Text
+modelPackageArn :: Text
+$sel:modelPackageArn:CreateModelPackageResponse' :: CreateModelPackageResponse -&gt; Text
+</span><a href="#local-6989586621680415319"><span class="hs-identifier hs-var hs-var">modelPackageArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680415319"><span class="hs-identifier hs-var">modelPackageArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415318"><span class="annot"><span class="annottext">s :: CreateModelPackageResponse
+</span><a href="#local-6989586621680415318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackageResponse%27"><span class="hs-identifier hs-type">CreateModelPackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415317"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680415317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelPackageResponse
+</span><a href="#local-6989586621680415318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageArn:CreateModelPackageResponse' :: Text
+</span><a href="Network.AWS.SageMaker.CreateModelPackage.html#%24sel%3AmodelPackageArn%3ACreateModelPackageResponse%27"><span class="hs-identifier hs-var">modelPackageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680415317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackageResponse"><span class="hs-identifier hs-type">CreateModelPackageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-405"></span><span>
+</span><span id="line-406"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680415315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelPackage.html#CreateModelPackageResponse"><span class="hs-identifier hs-type">CreateModelPackageResponse</span></a></span></span><span>
+</span><span id="line-407"></span></pre></body></html>

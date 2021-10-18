@@ -1,0 +1,500 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.ConversionTask</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.ConversionTask</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTaskState.html"><span class="hs-identifier">Network.AWS.EC2.Types.ConversionTaskState</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceTaskDetails.html"><span class="hs-identifier">Network.AWS.EC2.Types.ImportInstanceTaskDetails</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportVolumeTaskDetails.html"><span class="hs-identifier">Network.AWS.EC2.Types.ImportVolumeTaskDetails</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html"><span class="hs-identifier">Network.AWS.EC2.Types.Tag</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Describes a conversion task.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newConversionTask' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621681128223"><span id="local-6989586621681128224"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConversionTask"><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-var">ConversionTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConversionTask%27"><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-var">ConversionTask'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status message related to the conversion task.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AstatusMessage%3AConversionTask%27"><span class="annot"><span class="annottext">ConversionTask -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3AstatusMessage%3AConversionTask%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | If the task is for importing an instance, this contains information</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- about the import instance task.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AimportInstance%3AConversionTask%27"><span class="annot"><span class="annottext">ConversionTask -&gt; Maybe ImportInstanceTaskDetails
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3AimportInstance%3AConversionTask%27"><span class="hs-identifier hs-var hs-var">importInstance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails"><span class="hs-identifier hs-type">ImportInstanceTaskDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The time when the task expires. If the upload isn\'t complete before the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- expiration time, we automatically cancel the task.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AexpirationTime%3AConversionTask%27"><span class="annot"><span class="annottext">ConversionTask -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3AexpirationTime%3AConversionTask%27"><span class="hs-identifier hs-var hs-var">expirationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | If the task is for importing a volume, this contains information about</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- the import volume task.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AimportVolume%3AConversionTask%27"><span class="annot"><span class="annottext">ConversionTask -&gt; Maybe ImportVolumeTaskDetails
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3AimportVolume%3AConversionTask%27"><span class="hs-identifier hs-var hs-var">importVolume</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportVolumeTaskDetails.html#ImportVolumeTaskDetails"><span class="hs-identifier hs-type">ImportVolumeTaskDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The state of the conversion task.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Astate%3AConversionTask%27"><span class="annot"><span class="annottext">ConversionTask -&gt; Maybe ConversionTaskState
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3Astate%3AConversionTask%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTaskState.html#ConversionTaskState"><span class="hs-identifier hs-type">ConversionTaskState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Any tags assigned to the task.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Atags%3AConversionTask%27"><span class="annot"><span class="annottext">ConversionTask -&gt; Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3Atags%3AConversionTask%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The ID of the conversion task.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AconversionTaskId%3AConversionTask%27"><span class="annot"><span class="annottext">ConversionTask -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3AconversionTaskId%3AConversionTask%27"><span class="hs-identifier hs-var hs-var">conversionTaskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681128211"><span id="local-6989586621681128213"><span class="annot"><span class="annottext">ConversionTask -&gt; ConversionTask -&gt; Bool
+(ConversionTask -&gt; ConversionTask -&gt; Bool)
+-&gt; (ConversionTask -&gt; ConversionTask -&gt; Bool) -&gt; Eq ConversionTask
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConversionTask -&gt; ConversionTask -&gt; Bool
+$c/= :: ConversionTask -&gt; ConversionTask -&gt; Bool
+== :: ConversionTask -&gt; ConversionTask -&gt; Bool
+$c== :: ConversionTask -&gt; ConversionTask -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681128202"><span id="local-6989586621681128204"><span id="local-6989586621681128206"><span id="local-6989586621681128208"><span class="annot"><span class="annottext">ReadPrec [ConversionTask]
+ReadPrec ConversionTask
+Int -&gt; ReadS ConversionTask
+ReadS [ConversionTask]
+(Int -&gt; ReadS ConversionTask)
+-&gt; ReadS [ConversionTask]
+-&gt; ReadPrec ConversionTask
+-&gt; ReadPrec [ConversionTask]
+-&gt; Read ConversionTask
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConversionTask]
+$creadListPrec :: ReadPrec [ConversionTask]
+readPrec :: ReadPrec ConversionTask
+$creadPrec :: ReadPrec ConversionTask
+readList :: ReadS [ConversionTask]
+$creadList :: ReadS [ConversionTask]
+readsPrec :: Int -&gt; ReadS ConversionTask
+$creadsPrec :: Int -&gt; ReadS ConversionTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681128195"><span id="local-6989586621681128197"><span id="local-6989586621681128199"><span class="annot"><span class="annottext">Int -&gt; ConversionTask -&gt; ShowS
+[ConversionTask] -&gt; ShowS
+ConversionTask -&gt; String
+(Int -&gt; ConversionTask -&gt; ShowS)
+-&gt; (ConversionTask -&gt; String)
+-&gt; ([ConversionTask] -&gt; ShowS)
+-&gt; Show ConversionTask
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConversionTask] -&gt; ShowS
+$cshowList :: [ConversionTask] -&gt; ShowS
+show :: ConversionTask -&gt; String
+$cshow :: ConversionTask -&gt; String
+showsPrec :: Int -&gt; ConversionTask -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConversionTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ConversionTask -&gt; Rep ConversionTask x)
+-&gt; (forall x. Rep ConversionTask x -&gt; ConversionTask)
+-&gt; Generic ConversionTask
+forall x. Rep ConversionTask x -&gt; ConversionTask
+forall x. ConversionTask -&gt; Rep ConversionTask x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConversionTask x -&gt; ConversionTask
+$cfrom :: forall x. ConversionTask -&gt; Rep ConversionTask x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'ConversionTask' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'statusMessage', 'conversionTask_statusMessage' - The status message related to the conversion task.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'importInstance', 'conversionTask_importInstance' - If the task is for importing an instance, this contains information</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- about the import instance task.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'expirationTime', 'conversionTask_expirationTime' - The time when the task expires. If the upload isn\'t complete before the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- expiration time, we automatically cancel the task.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'importVolume', 'conversionTask_importVolume' - If the task is for importing a volume, this contains information about</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the import volume task.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'state', 'conversionTask_state' - The state of the conversion task.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'tags', 'conversionTask_tags' - Any tags assigned to the task.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'conversionTaskId', 'conversionTask_conversionTaskId' - The ID of the conversion task.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#newConversionTask"><span class="hs-identifier hs-type">newConversionTask</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span>
+</span><span id="line-81"></span><span id="newConversionTask"><span class="annot"><span class="annottext">newConversionTask :: ConversionTask
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#newConversionTask"><span class="hs-identifier hs-var hs-var">newConversionTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">ConversionTask' :: Maybe Text
+-&gt; Maybe ImportInstanceTaskDetails
+-&gt; Maybe Text
+-&gt; Maybe ImportVolumeTaskDetails
+-&gt; Maybe ConversionTaskState
+-&gt; Maybe [Tag]
+-&gt; Maybe Text
+-&gt; ConversionTask
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-type">ConversionTask'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statusMessage:ConversionTask' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3AstatusMessage%3AConversionTask%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:importInstance:ConversionTask' :: Maybe ImportInstanceTaskDetails
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3AimportInstance%3AConversionTask%27"><span class="hs-identifier hs-var">importInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImportInstanceTaskDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:expirationTime:ConversionTask' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3AexpirationTime%3AConversionTask%27"><span class="hs-identifier hs-var">expirationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:importVolume:ConversionTask' :: Maybe ImportVolumeTaskDetails
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3AimportVolume%3AConversionTask%27"><span class="hs-identifier hs-var">importVolume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImportVolumeTaskDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:ConversionTask' :: Maybe ConversionTaskState
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3Astate%3AConversionTask%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConversionTaskState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ConversionTask' :: Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3Atags%3AConversionTask%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:conversionTaskId:ConversionTask' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3AconversionTaskId%3AConversionTask%27"><span class="hs-identifier hs-var">conversionTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The status message related to the conversion task.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#conversionTask_statusMessage"><span class="hs-identifier hs-type">conversionTask_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="conversionTask_statusMessage"><span class="annot"><span class="annottext">conversionTask_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConversionTask -&gt; f ConversionTask
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#conversionTask_statusMessage"><span class="hs-identifier hs-var hs-var">conversionTask_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConversionTask -&gt; Maybe Text)
+-&gt; (ConversionTask -&gt; Maybe Text -&gt; ConversionTask)
+-&gt; Lens ConversionTask ConversionTask (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-type">ConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681128186"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:ConversionTask' :: ConversionTask -&gt; Maybe Text
+</span><a href="#local-6989586621681128186"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681128186"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681128185"><span class="annot"><span class="annottext">s :: ConversionTask
+</span><a href="#local-6989586621681128185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-type">ConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681128184"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681128184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConversionTask
+</span><a href="#local-6989586621681128185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:ConversionTask' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3AstatusMessage%3AConversionTask%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681128184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | If the task is for importing an instance, this contains information</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- about the import instance task.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#conversionTask_importInstance"><span class="hs-identifier hs-type">conversionTask_importInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails"><span class="hs-identifier hs-type">ImportInstanceTaskDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="conversionTask_importInstance"><span class="annot"><span class="annottext">conversionTask_importInstance :: (Maybe ImportInstanceTaskDetails
+ -&gt; f (Maybe ImportInstanceTaskDetails))
+-&gt; ConversionTask -&gt; f ConversionTask
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#conversionTask_importInstance"><span class="hs-identifier hs-var hs-var">conversionTask_importInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConversionTask -&gt; Maybe ImportInstanceTaskDetails)
+-&gt; (ConversionTask
+    -&gt; Maybe ImportInstanceTaskDetails -&gt; ConversionTask)
+-&gt; Lens
+     ConversionTask
+     ConversionTask
+     (Maybe ImportInstanceTaskDetails)
+     (Maybe ImportInstanceTaskDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-type">ConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681128182"><span class="annot"><span class="annottext">Maybe ImportInstanceTaskDetails
+importInstance :: Maybe ImportInstanceTaskDetails
+$sel:importInstance:ConversionTask' :: ConversionTask -&gt; Maybe ImportInstanceTaskDetails
+</span><a href="#local-6989586621681128182"><span class="hs-identifier hs-var hs-var">importInstance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImportInstanceTaskDetails
+</span><a href="#local-6989586621681128182"><span class="hs-identifier hs-var">importInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681128181"><span class="annot"><span class="annottext">s :: ConversionTask
+</span><a href="#local-6989586621681128181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-type">ConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681128180"><span class="annot"><span class="annottext">Maybe ImportInstanceTaskDetails
+</span><a href="#local-6989586621681128180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConversionTask
+</span><a href="#local-6989586621681128181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importInstance:ConversionTask' :: Maybe ImportInstanceTaskDetails
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3AimportInstance%3AConversionTask%27"><span class="hs-identifier hs-var">importInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImportInstanceTaskDetails
+</span><a href="#local-6989586621681128180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The time when the task expires. If the upload isn\'t complete before the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- expiration time, we automatically cancel the task.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#conversionTask_expirationTime"><span class="hs-identifier hs-type">conversionTask_expirationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="conversionTask_expirationTime"><span class="annot"><span class="annottext">conversionTask_expirationTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConversionTask -&gt; f ConversionTask
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#conversionTask_expirationTime"><span class="hs-identifier hs-var hs-var">conversionTask_expirationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConversionTask -&gt; Maybe Text)
+-&gt; (ConversionTask -&gt; Maybe Text -&gt; ConversionTask)
+-&gt; Lens ConversionTask ConversionTask (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-type">ConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681128178"><span class="annot"><span class="annottext">Maybe Text
+expirationTime :: Maybe Text
+$sel:expirationTime:ConversionTask' :: ConversionTask -&gt; Maybe Text
+</span><a href="#local-6989586621681128178"><span class="hs-identifier hs-var hs-var">expirationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681128178"><span class="hs-identifier hs-var">expirationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681128177"><span class="annot"><span class="annottext">s :: ConversionTask
+</span><a href="#local-6989586621681128177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-type">ConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681128176"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681128176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConversionTask
+</span><a href="#local-6989586621681128177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expirationTime:ConversionTask' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3AexpirationTime%3AConversionTask%27"><span class="hs-identifier hs-var">expirationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681128176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | If the task is for importing a volume, this contains information about</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- the import volume task.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#conversionTask_importVolume"><span class="hs-identifier hs-type">conversionTask_importVolume</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportVolumeTaskDetails.html#ImportVolumeTaskDetails"><span class="hs-identifier hs-type">ImportVolumeTaskDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="conversionTask_importVolume"><span class="annot"><span class="annottext">conversionTask_importVolume :: (Maybe ImportVolumeTaskDetails
+ -&gt; f (Maybe ImportVolumeTaskDetails))
+-&gt; ConversionTask -&gt; f ConversionTask
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#conversionTask_importVolume"><span class="hs-identifier hs-var hs-var">conversionTask_importVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConversionTask -&gt; Maybe ImportVolumeTaskDetails)
+-&gt; (ConversionTask
+    -&gt; Maybe ImportVolumeTaskDetails -&gt; ConversionTask)
+-&gt; Lens
+     ConversionTask
+     ConversionTask
+     (Maybe ImportVolumeTaskDetails)
+     (Maybe ImportVolumeTaskDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-type">ConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681128174"><span class="annot"><span class="annottext">Maybe ImportVolumeTaskDetails
+importVolume :: Maybe ImportVolumeTaskDetails
+$sel:importVolume:ConversionTask' :: ConversionTask -&gt; Maybe ImportVolumeTaskDetails
+</span><a href="#local-6989586621681128174"><span class="hs-identifier hs-var hs-var">importVolume</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImportVolumeTaskDetails
+</span><a href="#local-6989586621681128174"><span class="hs-identifier hs-var">importVolume</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681128173"><span class="annot"><span class="annottext">s :: ConversionTask
+</span><a href="#local-6989586621681128173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-type">ConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681128172"><span class="annot"><span class="annottext">Maybe ImportVolumeTaskDetails
+</span><a href="#local-6989586621681128172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConversionTask
+</span><a href="#local-6989586621681128173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importVolume:ConversionTask' :: Maybe ImportVolumeTaskDetails
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3AimportVolume%3AConversionTask%27"><span class="hs-identifier hs-var">importVolume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImportVolumeTaskDetails
+</span><a href="#local-6989586621681128172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The state of the conversion task.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#conversionTask_state"><span class="hs-identifier hs-type">conversionTask_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTaskState.html#ConversionTaskState"><span class="hs-identifier hs-type">ConversionTaskState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="conversionTask_state"><span class="annot"><span class="annottext">conversionTask_state :: (Maybe ConversionTaskState -&gt; f (Maybe ConversionTaskState))
+-&gt; ConversionTask -&gt; f ConversionTask
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#conversionTask_state"><span class="hs-identifier hs-var hs-var">conversionTask_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConversionTask -&gt; Maybe ConversionTaskState)
+-&gt; (ConversionTask -&gt; Maybe ConversionTaskState -&gt; ConversionTask)
+-&gt; Lens
+     ConversionTask
+     ConversionTask
+     (Maybe ConversionTaskState)
+     (Maybe ConversionTaskState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-type">ConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681128170"><span class="annot"><span class="annottext">Maybe ConversionTaskState
+state :: Maybe ConversionTaskState
+$sel:state:ConversionTask' :: ConversionTask -&gt; Maybe ConversionTaskState
+</span><a href="#local-6989586621681128170"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConversionTaskState
+</span><a href="#local-6989586621681128170"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681128169"><span class="annot"><span class="annottext">s :: ConversionTask
+</span><a href="#local-6989586621681128169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-type">ConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681128168"><span class="annot"><span class="annottext">Maybe ConversionTaskState
+</span><a href="#local-6989586621681128168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConversionTask
+</span><a href="#local-6989586621681128169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:ConversionTask' :: Maybe ConversionTaskState
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3Astate%3AConversionTask%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConversionTaskState
+</span><a href="#local-6989586621681128168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Any tags assigned to the task.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#conversionTask_tags"><span class="hs-identifier hs-type">conversionTask_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="conversionTask_tags"><span class="annot"><span class="annottext">conversionTask_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; ConversionTask -&gt; f ConversionTask
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#conversionTask_tags"><span class="hs-identifier hs-var hs-var">conversionTask_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConversionTask -&gt; Maybe [Tag])
+-&gt; (ConversionTask -&gt; Maybe [Tag] -&gt; ConversionTask)
+-&gt; Lens ConversionTask ConversionTask (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-type">ConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681128166"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:ConversionTask' :: ConversionTask -&gt; Maybe [Tag]
+</span><a href="#local-6989586621681128166"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681128166"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681128165"><span class="annot"><span class="annottext">s :: ConversionTask
+</span><a href="#local-6989586621681128165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-type">ConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681128164"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681128164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConversionTask
+</span><a href="#local-6989586621681128165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ConversionTask' :: Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3Atags%3AConversionTask%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681128164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; ConversionTask -&gt; f ConversionTask)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; ConversionTask
+-&gt; f ConversionTask
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The ID of the conversion task.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#conversionTask_conversionTaskId"><span class="hs-identifier hs-type">conversionTask_conversionTaskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="conversionTask_conversionTaskId"><span class="annot"><span class="annottext">conversionTask_conversionTaskId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConversionTask -&gt; f ConversionTask
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#conversionTask_conversionTaskId"><span class="hs-identifier hs-var hs-var">conversionTask_conversionTaskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConversionTask -&gt; Maybe Text)
+-&gt; (ConversionTask -&gt; Maybe Text -&gt; ConversionTask)
+-&gt; Lens ConversionTask ConversionTask (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-type">ConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681128159"><span class="annot"><span class="annottext">Maybe Text
+conversionTaskId :: Maybe Text
+$sel:conversionTaskId:ConversionTask' :: ConversionTask -&gt; Maybe Text
+</span><a href="#local-6989586621681128159"><span class="hs-identifier hs-var hs-var">conversionTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681128159"><span class="hs-identifier hs-var">conversionTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681128158"><span class="annot"><span class="annottext">s :: ConversionTask
+</span><a href="#local-6989586621681128158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-type">ConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681128157"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681128157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConversionTask
+</span><a href="#local-6989586621681128158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conversionTaskId:ConversionTask' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#%24sel%3AconversionTaskId%3AConversionTask%27"><span class="hs-identifier hs-var">conversionTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681128157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621681128154"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ConversionTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681128152"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681128152"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ImportInstanceTaskDetails
+-&gt; Maybe Text
+-&gt; Maybe ImportVolumeTaskDetails
+-&gt; Maybe ConversionTaskState
+-&gt; Maybe [Tag]
+-&gt; Maybe Text
+-&gt; ConversionTask
+</span><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask%27"><span class="hs-identifier hs-var">ConversionTask'</span></a></span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ImportInstanceTaskDetails
+ -&gt; Maybe Text
+ -&gt; Maybe ImportVolumeTaskDetails
+ -&gt; Maybe ConversionTaskState
+ -&gt; Maybe [Tag]
+ -&gt; Maybe Text
+ -&gt; ConversionTask)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ImportInstanceTaskDetails
+      -&gt; Maybe Text
+      -&gt; Maybe ImportVolumeTaskDetails
+      -&gt; Maybe ConversionTaskState
+      -&gt; Maybe [Tag]
+      -&gt; Maybe Text
+      -&gt; ConversionTask)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681128152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ImportInstanceTaskDetails
+   -&gt; Maybe Text
+   -&gt; Maybe ImportVolumeTaskDetails
+   -&gt; Maybe ConversionTaskState
+   -&gt; Maybe [Tag]
+   -&gt; Maybe Text
+   -&gt; ConversionTask)
+-&gt; Either String (Maybe ImportInstanceTaskDetails)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ImportVolumeTaskDetails
+      -&gt; Maybe ConversionTaskState
+      -&gt; Maybe [Tag]
+      -&gt; Maybe Text
+      -&gt; ConversionTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681128152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ImportInstanceTaskDetails)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;importInstance&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ImportVolumeTaskDetails
+   -&gt; Maybe ConversionTaskState
+   -&gt; Maybe [Tag]
+   -&gt; Maybe Text
+   -&gt; ConversionTask)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ImportVolumeTaskDetails
+      -&gt; Maybe ConversionTaskState
+      -&gt; Maybe [Tag]
+      -&gt; Maybe Text
+      -&gt; ConversionTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681128152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;expirationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ImportVolumeTaskDetails
+   -&gt; Maybe ConversionTaskState
+   -&gt; Maybe [Tag]
+   -&gt; Maybe Text
+   -&gt; ConversionTask)
+-&gt; Either String (Maybe ImportVolumeTaskDetails)
+-&gt; Either
+     String
+     (Maybe ConversionTaskState
+      -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; ConversionTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681128152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ImportVolumeTaskDetails)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;importVolume&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ConversionTaskState
+   -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; ConversionTask)
+-&gt; Either String (Maybe ConversionTaskState)
+-&gt; Either String (Maybe [Tag] -&gt; Maybe Text -&gt; ConversionTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681128152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ConversionTaskState)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; Maybe Text -&gt; ConversionTask)
+-&gt; Either String (Maybe [Tag])
+-&gt; Either String (Maybe Text -&gt; ConversionTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681128152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Tag]))
+-&gt; Either String (Maybe [Tag])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Tag])
+-&gt; [Node] -&gt; Either String (Maybe [Tag])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Tag]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ConversionTask)
+-&gt; Either String (Maybe Text) -&gt; Either String ConversionTask
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681128152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;conversionTaskId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681128143"><span id="local-6989586621681128145"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681128140"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span></span><span>
+</span><span id="line-139"></span></pre></body></html>

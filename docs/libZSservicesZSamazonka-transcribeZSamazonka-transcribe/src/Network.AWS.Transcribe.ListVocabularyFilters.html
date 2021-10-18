@@ -1,0 +1,665 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Transcribe.ListVocabularyFilters</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets information about vocabulary filters.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Transcribe.ListVocabularyFilters</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier">ListVocabularyFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#newListVocabularyFilters"><span class="hs-identifier">newListVocabularyFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFilters_nextToken"><span class="hs-identifier">listVocabularyFilters_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFilters_nameContains"><span class="hs-identifier">listVocabularyFilters_nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFilters_maxResults"><span class="hs-identifier">listVocabularyFilters_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse"><span class="hs-identifier">ListVocabularyFiltersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#newListVocabularyFiltersResponse"><span class="hs-identifier">newListVocabularyFiltersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFiltersResponse_nextToken"><span class="hs-identifier">listVocabularyFiltersResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFiltersResponse_vocabularyFilters"><span class="hs-identifier">listVocabularyFiltersResponse_vocabularyFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFiltersResponse_httpStatus"><span class="hs-identifier">listVocabularyFiltersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.html"><span class="hs-identifier">Network.AWS.Transcribe.Types</span></a></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newListVocabularyFilters' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679280474"><span id="local-6989586621679280475"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListVocabularyFilters"><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier hs-var">ListVocabularyFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListVocabularyFilters%27"><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters%27"><span class="hs-identifier hs-var">ListVocabularyFilters'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the result of the previous request to @ListVocabularyFilters@ was</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- truncated, include the @NextToken@ to fetch the next set of collections.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AListVocabularyFilters%27"><span class="annot"><span class="annottext">ListVocabularyFilters -&gt; Maybe Text
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AnextToken%3AListVocabularyFilters%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Filters the response so that it only contains vocabulary filters whose</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- name contains the specified string.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnameContains%3AListVocabularyFilters%27"><span class="annot"><span class="annottext">ListVocabularyFilters -&gt; Maybe Text
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AnameContains%3AListVocabularyFilters%27"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The maximum number of filters to return in each page of results. If</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- there are fewer results than the value you specify, only the actual</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- results are returned. If you do not specify a value, the default of 5 is</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3AListVocabularyFilters%27"><span class="annot"><span class="annottext">ListVocabularyFilters -&gt; Maybe Natural
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AmaxResults%3AListVocabularyFilters%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280466"><span id="local-6989586621679280468"><span class="annot"><span class="annottext">ListVocabularyFilters -&gt; ListVocabularyFilters -&gt; Bool
+(ListVocabularyFilters -&gt; ListVocabularyFilters -&gt; Bool)
+-&gt; (ListVocabularyFilters -&gt; ListVocabularyFilters -&gt; Bool)
+-&gt; Eq ListVocabularyFilters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListVocabularyFilters -&gt; ListVocabularyFilters -&gt; Bool
+$c/= :: ListVocabularyFilters -&gt; ListVocabularyFilters -&gt; Bool
+== :: ListVocabularyFilters -&gt; ListVocabularyFilters -&gt; Bool
+$c== :: ListVocabularyFilters -&gt; ListVocabularyFilters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280457"><span id="local-6989586621679280459"><span id="local-6989586621679280461"><span id="local-6989586621679280463"><span class="annot"><span class="annottext">ReadPrec [ListVocabularyFilters]
+ReadPrec ListVocabularyFilters
+Int -&gt; ReadS ListVocabularyFilters
+ReadS [ListVocabularyFilters]
+(Int -&gt; ReadS ListVocabularyFilters)
+-&gt; ReadS [ListVocabularyFilters]
+-&gt; ReadPrec ListVocabularyFilters
+-&gt; ReadPrec [ListVocabularyFilters]
+-&gt; Read ListVocabularyFilters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListVocabularyFilters]
+$creadListPrec :: ReadPrec [ListVocabularyFilters]
+readPrec :: ReadPrec ListVocabularyFilters
+$creadPrec :: ReadPrec ListVocabularyFilters
+readList :: ReadS [ListVocabularyFilters]
+$creadList :: ReadS [ListVocabularyFilters]
+readsPrec :: Int -&gt; ReadS ListVocabularyFilters
+$creadsPrec :: Int -&gt; ReadS ListVocabularyFilters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280450"><span id="local-6989586621679280452"><span id="local-6989586621679280454"><span class="annot"><span class="annottext">Int -&gt; ListVocabularyFilters -&gt; ShowS
+[ListVocabularyFilters] -&gt; ShowS
+ListVocabularyFilters -&gt; String
+(Int -&gt; ListVocabularyFilters -&gt; ShowS)
+-&gt; (ListVocabularyFilters -&gt; String)
+-&gt; ([ListVocabularyFilters] -&gt; ShowS)
+-&gt; Show ListVocabularyFilters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListVocabularyFilters] -&gt; ShowS
+$cshowList :: [ListVocabularyFilters] -&gt; ShowS
+show :: ListVocabularyFilters -&gt; String
+$cshow :: ListVocabularyFilters -&gt; String
+showsPrec :: Int -&gt; ListVocabularyFilters -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListVocabularyFilters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListVocabularyFilters -&gt; Rep ListVocabularyFilters x)
+-&gt; (forall x. Rep ListVocabularyFilters x -&gt; ListVocabularyFilters)
+-&gt; Generic ListVocabularyFilters
+forall x. Rep ListVocabularyFilters x -&gt; ListVocabularyFilters
+forall x. ListVocabularyFilters -&gt; Rep ListVocabularyFilters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListVocabularyFilters x -&gt; ListVocabularyFilters
+$cfrom :: forall x. ListVocabularyFilters -&gt; Rep ListVocabularyFilters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ListVocabularyFilters' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'nextToken', 'listVocabularyFilters_nextToken' - If the result of the previous request to @ListVocabularyFilters@ was</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- truncated, include the @NextToken@ to fetch the next set of collections.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'nameContains', 'listVocabularyFilters_nameContains' - Filters the response so that it only contains vocabulary filters whose</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- name contains the specified string.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'maxResults', 'listVocabularyFilters_maxResults' - The maximum number of filters to return in each page of results. If</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- there are fewer results than the value you specify, only the actual</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- results are returned. If you do not specify a value, the default of 5 is</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#newListVocabularyFilters"><span class="hs-identifier hs-type">newListVocabularyFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier hs-type">ListVocabularyFilters</span></a></span><span>
+</span><span id="line-88"></span><span id="newListVocabularyFilters"><span class="annot"><span class="annottext">newListVocabularyFilters :: ListVocabularyFilters
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#newListVocabularyFilters"><span class="hs-identifier hs-var hs-var">newListVocabularyFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">ListVocabularyFilters' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; ListVocabularyFilters
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters%27"><span class="hs-identifier hs-type">ListVocabularyFilters'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListVocabularyFilters' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AnextToken%3AListVocabularyFilters%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:nameContains:ListVocabularyFilters' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AnameContains%3AListVocabularyFilters%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListVocabularyFilters' :: Maybe Natural
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AmaxResults%3AListVocabularyFilters%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | If the result of the previous request to @ListVocabularyFilters@ was</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- truncated, include the @NextToken@ to fetch the next set of collections.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFilters_nextToken"><span class="hs-identifier hs-type">listVocabularyFilters_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier hs-type">ListVocabularyFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="listVocabularyFilters_nextToken"><span class="annot"><span class="annottext">listVocabularyFilters_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListVocabularyFilters -&gt; f ListVocabularyFilters
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFilters_nextToken"><span class="hs-identifier hs-var hs-var">listVocabularyFilters_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListVocabularyFilters -&gt; Maybe Text)
+-&gt; (ListVocabularyFilters -&gt; Maybe Text -&gt; ListVocabularyFilters)
+-&gt; Lens
+     ListVocabularyFilters
+     ListVocabularyFilters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters%27"><span class="hs-identifier hs-type">ListVocabularyFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280443"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListVocabularyFilters' :: ListVocabularyFilters -&gt; Maybe Text
+</span><a href="#local-6989586621679280443"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280443"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280442"><span class="annot"><span class="annottext">s :: ListVocabularyFilters
+</span><a href="#local-6989586621679280442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters%27"><span class="hs-identifier hs-type">ListVocabularyFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280441"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVocabularyFilters
+</span><a href="#local-6989586621679280442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListVocabularyFilters' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AnextToken%3AListVocabularyFilters%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier hs-type">ListVocabularyFilters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Filters the response so that it only contains vocabulary filters whose</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- name contains the specified string.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFilters_nameContains"><span class="hs-identifier hs-type">listVocabularyFilters_nameContains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier hs-type">ListVocabularyFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="listVocabularyFilters_nameContains"><span class="annot"><span class="annottext">listVocabularyFilters_nameContains :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListVocabularyFilters -&gt; f ListVocabularyFilters
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFilters_nameContains"><span class="hs-identifier hs-var hs-var">listVocabularyFilters_nameContains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListVocabularyFilters -&gt; Maybe Text)
+-&gt; (ListVocabularyFilters -&gt; Maybe Text -&gt; ListVocabularyFilters)
+-&gt; Lens
+     ListVocabularyFilters
+     ListVocabularyFilters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters%27"><span class="hs-identifier hs-type">ListVocabularyFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280440"><span class="annot"><span class="annottext">Maybe Text
+nameContains :: Maybe Text
+$sel:nameContains:ListVocabularyFilters' :: ListVocabularyFilters -&gt; Maybe Text
+</span><a href="#local-6989586621679280440"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280440"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280439"><span class="annot"><span class="annottext">s :: ListVocabularyFilters
+</span><a href="#local-6989586621679280439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters%27"><span class="hs-identifier hs-type">ListVocabularyFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280438"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVocabularyFilters
+</span><a href="#local-6989586621679280439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:ListVocabularyFilters' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AnameContains%3AListVocabularyFilters%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier hs-type">ListVocabularyFilters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The maximum number of filters to return in each page of results. If</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- there are fewer results than the value you specify, only the actual</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- results are returned. If you do not specify a value, the default of 5 is</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFilters_maxResults"><span class="hs-identifier hs-type">listVocabularyFilters_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier hs-type">ListVocabularyFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="listVocabularyFilters_maxResults"><span class="annot"><span class="annottext">listVocabularyFilters_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListVocabularyFilters -&gt; f ListVocabularyFilters
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFilters_maxResults"><span class="hs-identifier hs-var hs-var">listVocabularyFilters_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListVocabularyFilters -&gt; Maybe Natural)
+-&gt; (ListVocabularyFilters
+    -&gt; Maybe Natural -&gt; ListVocabularyFilters)
+-&gt; Lens
+     ListVocabularyFilters
+     ListVocabularyFilters
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters%27"><span class="hs-identifier hs-type">ListVocabularyFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280437"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListVocabularyFilters' :: ListVocabularyFilters -&gt; Maybe Natural
+</span><a href="#local-6989586621679280437"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679280437"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280436"><span class="annot"><span class="annottext">s :: ListVocabularyFilters
+</span><a href="#local-6989586621679280436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters%27"><span class="hs-identifier hs-type">ListVocabularyFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280435"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679280435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVocabularyFilters
+</span><a href="#local-6989586621679280436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListVocabularyFilters' :: Maybe Natural
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AmaxResults%3AListVocabularyFilters%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679280435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier hs-type">ListVocabularyFilters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier hs-type">ListVocabularyFilters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-114"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier hs-type">ListVocabularyFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse"><span class="hs-identifier hs-type">ListVocabularyFiltersResponse</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679280431"><span class="annot"><span class="annottext">request :: ListVocabularyFilters -&gt; Request ListVocabularyFilters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListVocabularyFilters -&gt; Request ListVocabularyFilters
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Transcribe.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679280427"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListVocabularyFilters
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListVocabularyFilters)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListVocabularyFilters))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListVocabularyFilters
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListVocabularyFilters)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280424"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280424"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679280423"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679280423"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679280422"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280422"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [VocabularyFilterInfo]
+-&gt; Int
+-&gt; ListVocabularyFiltersResponse
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse%27"><span class="hs-identifier hs-var">ListVocabularyFiltersResponse'</span></a></span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [VocabularyFilterInfo]
+ -&gt; Int
+ -&gt; ListVocabularyFiltersResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [VocabularyFilterInfo]
+      -&gt; Int -&gt; ListVocabularyFiltersResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280422"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [VocabularyFilterInfo]
+   -&gt; Int -&gt; ListVocabularyFiltersResponse)
+-&gt; Either String (Maybe [VocabularyFilterInfo])
+-&gt; Either String (Int -&gt; ListVocabularyFiltersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280422"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [VocabularyFilterInfo]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VocabularyFilters&quot;</span></span><span>
+</span><span id="line-123"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [VocabularyFilterInfo]))
+-&gt; Maybe [VocabularyFilterInfo]
+-&gt; Either String (Maybe [VocabularyFilterInfo])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [VocabularyFilterInfo]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListVocabularyFiltersResponse)
+-&gt; Either String Int -&gt; Either String ListVocabularyFiltersResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280424"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280413"><span id="local-6989586621679280415"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier hs-type">ListVocabularyFilters</span></a></span></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280410"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier hs-type">ListVocabularyFilters</span></a></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier hs-type">ListVocabularyFilters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679280406"><span class="annot"><span class="annottext">toHeaders :: ListVocabularyFilters -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListVocabularyFilters -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Transcribe.ListVocabularyFilters&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-139"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-143"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280396"><span id="local-6989586621679280398"><span id="local-6989586621679280400"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier hs-type">ListVocabularyFilters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679280394"><span class="annot"><span class="annottext">toJSON :: ListVocabularyFilters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters%27"><span class="hs-identifier hs-type">ListVocabularyFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280390"><span id="local-6989586621679280391"><span id="local-6989586621679280392"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nameContains :: Maybe Text
+nextToken :: Maybe Text
+$sel:maxResults:ListVocabularyFilters' :: ListVocabularyFilters -&gt; Maybe Natural
+$sel:nameContains:ListVocabularyFilters' :: ListVocabularyFilters -&gt; Maybe Text
+$sel:nextToken:ListVocabularyFilters' :: ListVocabularyFilters -&gt; Maybe Text
+</span><a href="#local-6989586621679280390"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280392"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NameContains&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280391"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679280390"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier hs-type">ListVocabularyFilters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679280384"><span class="annot"><span class="annottext">toPath :: ListVocabularyFilters -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListVocabularyFilters -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFilters"><span class="hs-identifier hs-type">ListVocabularyFilters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679280380"><span class="annot"><span class="annottext">toQuery :: ListVocabularyFilters -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListVocabularyFilters -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | /See:/ 'newListVocabularyFiltersResponse' smart constructor.</span><span>
+</span><span id="line-164"></span><span id="local-6989586621679280377"><span id="local-6989586621679280378"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListVocabularyFiltersResponse"><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse"><span class="hs-identifier hs-var">ListVocabularyFiltersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListVocabularyFiltersResponse%27"><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse%27"><span class="hs-identifier hs-var">ListVocabularyFiltersResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @ListVocabularyFilters@ operation returns a page of collections at a</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- time. The maximum size of the page is set by the @MaxResults@ parameter.</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- If there are more jobs in the list than the page size, Amazon Transcribe</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- returns the @NextPage@ token. Include the token in the next request to</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- the @ListVocabularyFilters@ operation to return in the next page of</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- jobs.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AnextToken%3AListVocabularyFiltersResponse%27"><span class="annot"><span class="annottext">ListVocabularyFiltersResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AnextToken%3AListVocabularyFiltersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The list of vocabulary filters. It contains at most @MaxResults@ number</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- of filters. If there are more filters, call the @ListVocabularyFilters@</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- operation again with the @NextToken@ parameter in the request set to the</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- value of the @NextToken@ field in the response.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AvocabularyFilters%3AListVocabularyFiltersResponse%27"><span class="annot"><span class="annottext">ListVocabularyFiltersResponse -&gt; Maybe [VocabularyFilterInfo]
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AvocabularyFilters%3AListVocabularyFiltersResponse%27"><span class="hs-identifier hs-var hs-var">vocabularyFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Transcribe.Types.VocabularyFilterInfo.html#VocabularyFilterInfo"><span class="hs-identifier hs-type">VocabularyFilterInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListVocabularyFiltersResponse%27"><span class="annot"><span class="annottext">ListVocabularyFiltersResponse -&gt; Int
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AhttpStatus%3AListVocabularyFiltersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280370"><span id="local-6989586621679280372"><span class="annot"><span class="annottext">ListVocabularyFiltersResponse
+-&gt; ListVocabularyFiltersResponse -&gt; Bool
+(ListVocabularyFiltersResponse
+ -&gt; ListVocabularyFiltersResponse -&gt; Bool)
+-&gt; (ListVocabularyFiltersResponse
+    -&gt; ListVocabularyFiltersResponse -&gt; Bool)
+-&gt; Eq ListVocabularyFiltersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListVocabularyFiltersResponse
+-&gt; ListVocabularyFiltersResponse -&gt; Bool
+$c/= :: ListVocabularyFiltersResponse
+-&gt; ListVocabularyFiltersResponse -&gt; Bool
+== :: ListVocabularyFiltersResponse
+-&gt; ListVocabularyFiltersResponse -&gt; Bool
+$c== :: ListVocabularyFiltersResponse
+-&gt; ListVocabularyFiltersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280362"><span id="local-6989586621679280364"><span id="local-6989586621679280366"><span id="local-6989586621679280368"><span class="annot"><span class="annottext">ReadPrec [ListVocabularyFiltersResponse]
+ReadPrec ListVocabularyFiltersResponse
+Int -&gt; ReadS ListVocabularyFiltersResponse
+ReadS [ListVocabularyFiltersResponse]
+(Int -&gt; ReadS ListVocabularyFiltersResponse)
+-&gt; ReadS [ListVocabularyFiltersResponse]
+-&gt; ReadPrec ListVocabularyFiltersResponse
+-&gt; ReadPrec [ListVocabularyFiltersResponse]
+-&gt; Read ListVocabularyFiltersResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListVocabularyFiltersResponse]
+$creadListPrec :: ReadPrec [ListVocabularyFiltersResponse]
+readPrec :: ReadPrec ListVocabularyFiltersResponse
+$creadPrec :: ReadPrec ListVocabularyFiltersResponse
+readList :: ReadS [ListVocabularyFiltersResponse]
+$creadList :: ReadS [ListVocabularyFiltersResponse]
+readsPrec :: Int -&gt; ReadS ListVocabularyFiltersResponse
+$creadsPrec :: Int -&gt; ReadS ListVocabularyFiltersResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280356"><span id="local-6989586621679280358"><span id="local-6989586621679280360"><span class="annot"><span class="annottext">Int -&gt; ListVocabularyFiltersResponse -&gt; ShowS
+[ListVocabularyFiltersResponse] -&gt; ShowS
+ListVocabularyFiltersResponse -&gt; String
+(Int -&gt; ListVocabularyFiltersResponse -&gt; ShowS)
+-&gt; (ListVocabularyFiltersResponse -&gt; String)
+-&gt; ([ListVocabularyFiltersResponse] -&gt; ShowS)
+-&gt; Show ListVocabularyFiltersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListVocabularyFiltersResponse] -&gt; ShowS
+$cshowList :: [ListVocabularyFiltersResponse] -&gt; ShowS
+show :: ListVocabularyFiltersResponse -&gt; String
+$cshow :: ListVocabularyFiltersResponse -&gt; String
+showsPrec :: Int -&gt; ListVocabularyFiltersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListVocabularyFiltersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListVocabularyFiltersResponse
+ -&gt; Rep ListVocabularyFiltersResponse x)
+-&gt; (forall x.
+    Rep ListVocabularyFiltersResponse x
+    -&gt; ListVocabularyFiltersResponse)
+-&gt; Generic ListVocabularyFiltersResponse
+forall x.
+Rep ListVocabularyFiltersResponse x
+-&gt; ListVocabularyFiltersResponse
+forall x.
+ListVocabularyFiltersResponse
+-&gt; Rep ListVocabularyFiltersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListVocabularyFiltersResponse x
+-&gt; ListVocabularyFiltersResponse
+$cfrom :: forall x.
+ListVocabularyFiltersResponse
+-&gt; Rep ListVocabularyFiltersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'ListVocabularyFiltersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'nextToken', 'listVocabularyFiltersResponse_nextToken' - The @ListVocabularyFilters@ operation returns a page of collections at a</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- time. The maximum size of the page is set by the @MaxResults@ parameter.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- If there are more jobs in the list than the page size, Amazon Transcribe</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- returns the @NextPage@ token. Include the token in the next request to</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- the @ListVocabularyFilters@ operation to return in the next page of</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- jobs.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'vocabularyFilters', 'listVocabularyFiltersResponse_vocabularyFilters' - The list of vocabulary filters. It contains at most @MaxResults@ number</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- of filters. If there are more filters, call the @ListVocabularyFilters@</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- operation again with the @NextToken@ parameter in the request set to the</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- value of the @NextToken@ field in the response.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'httpStatus', 'listVocabularyFiltersResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#newListVocabularyFiltersResponse"><span class="hs-identifier hs-type">newListVocabularyFiltersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse"><span class="hs-identifier hs-type">ListVocabularyFiltersResponse</span></a></span><span>
+</span><span id="line-207"></span><span id="newListVocabularyFiltersResponse"><span class="annot"><span class="annottext">newListVocabularyFiltersResponse :: Int -&gt; ListVocabularyFiltersResponse
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#newListVocabularyFiltersResponse"><span class="hs-identifier hs-var hs-var">newListVocabularyFiltersResponse</span></a></span></span><span> </span><span id="local-6989586621679280353"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280353"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="annottext">ListVocabularyFiltersResponse' :: Maybe Text
+-&gt; Maybe [VocabularyFilterInfo]
+-&gt; Int
+-&gt; ListVocabularyFiltersResponse
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse%27"><span class="hs-identifier hs-type">ListVocabularyFiltersResponse'</span></a></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListVocabularyFiltersResponse' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AnextToken%3AListVocabularyFiltersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyFilters:ListVocabularyFiltersResponse' :: Maybe [VocabularyFilterInfo]
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AvocabularyFilters%3AListVocabularyFiltersResponse%27"><span class="hs-identifier hs-var">vocabularyFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VocabularyFilterInfo]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListVocabularyFiltersResponse' :: Int
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AhttpStatus%3AListVocabularyFiltersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280353"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The @ListVocabularyFilters@ operation returns a page of collections at a</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- time. The maximum size of the page is set by the @MaxResults@ parameter.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- If there are more jobs in the list than the page size, Amazon Transcribe</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- returns the @NextPage@ token. Include the token in the next request to</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- the @ListVocabularyFilters@ operation to return in the next page of</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- jobs.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFiltersResponse_nextToken"><span class="hs-identifier hs-type">listVocabularyFiltersResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse"><span class="hs-identifier hs-type">ListVocabularyFiltersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="listVocabularyFiltersResponse_nextToken"><span class="annot"><span class="annottext">listVocabularyFiltersResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListVocabularyFiltersResponse -&gt; f ListVocabularyFiltersResponse
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFiltersResponse_nextToken"><span class="hs-identifier hs-var hs-var">listVocabularyFiltersResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListVocabularyFiltersResponse -&gt; Maybe Text)
+-&gt; (ListVocabularyFiltersResponse
+    -&gt; Maybe Text -&gt; ListVocabularyFiltersResponse)
+-&gt; Lens
+     ListVocabularyFiltersResponse
+     ListVocabularyFiltersResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse%27"><span class="hs-identifier hs-type">ListVocabularyFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280352"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListVocabularyFiltersResponse' :: ListVocabularyFiltersResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679280352"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280352"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280351"><span class="annot"><span class="annottext">s :: ListVocabularyFiltersResponse
+</span><a href="#local-6989586621679280351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse%27"><span class="hs-identifier hs-type">ListVocabularyFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280350"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVocabularyFiltersResponse
+</span><a href="#local-6989586621679280351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListVocabularyFiltersResponse' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AnextToken%3AListVocabularyFiltersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse"><span class="hs-identifier hs-type">ListVocabularyFiltersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The list of vocabulary filters. It contains at most @MaxResults@ number</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- of filters. If there are more filters, call the @ListVocabularyFilters@</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- operation again with the @NextToken@ parameter in the request set to the</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- value of the @NextToken@ field in the response.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFiltersResponse_vocabularyFilters"><span class="hs-identifier hs-type">listVocabularyFiltersResponse_vocabularyFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse"><span class="hs-identifier hs-type">ListVocabularyFiltersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Transcribe.Types.VocabularyFilterInfo.html#VocabularyFilterInfo"><span class="hs-identifier hs-type">VocabularyFilterInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="listVocabularyFiltersResponse_vocabularyFilters"><span class="annot"><span class="annottext">listVocabularyFiltersResponse_vocabularyFilters :: (Maybe [VocabularyFilterInfo] -&gt; f (Maybe [VocabularyFilterInfo]))
+-&gt; ListVocabularyFiltersResponse -&gt; f ListVocabularyFiltersResponse
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFiltersResponse_vocabularyFilters"><span class="hs-identifier hs-var hs-var">listVocabularyFiltersResponse_vocabularyFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListVocabularyFiltersResponse -&gt; Maybe [VocabularyFilterInfo])
+-&gt; (ListVocabularyFiltersResponse
+    -&gt; Maybe [VocabularyFilterInfo] -&gt; ListVocabularyFiltersResponse)
+-&gt; Lens
+     ListVocabularyFiltersResponse
+     ListVocabularyFiltersResponse
+     (Maybe [VocabularyFilterInfo])
+     (Maybe [VocabularyFilterInfo])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse%27"><span class="hs-identifier hs-type">ListVocabularyFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280349"><span class="annot"><span class="annottext">Maybe [VocabularyFilterInfo]
+vocabularyFilters :: Maybe [VocabularyFilterInfo]
+$sel:vocabularyFilters:ListVocabularyFiltersResponse' :: ListVocabularyFiltersResponse -&gt; Maybe [VocabularyFilterInfo]
+</span><a href="#local-6989586621679280349"><span class="hs-identifier hs-var hs-var">vocabularyFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VocabularyFilterInfo]
+</span><a href="#local-6989586621679280349"><span class="hs-identifier hs-var">vocabularyFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280348"><span class="annot"><span class="annottext">s :: ListVocabularyFiltersResponse
+</span><a href="#local-6989586621679280348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse%27"><span class="hs-identifier hs-type">ListVocabularyFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280347"><span class="annot"><span class="annottext">Maybe [VocabularyFilterInfo]
+</span><a href="#local-6989586621679280347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVocabularyFiltersResponse
+</span><a href="#local-6989586621679280348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyFilters:ListVocabularyFiltersResponse' :: Maybe [VocabularyFilterInfo]
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AvocabularyFilters%3AListVocabularyFiltersResponse%27"><span class="hs-identifier hs-var">vocabularyFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VocabularyFilterInfo]
+</span><a href="#local-6989586621679280347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse"><span class="hs-identifier hs-type">ListVocabularyFiltersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VocabularyFilterInfo] -&gt; f (Maybe [VocabularyFilterInfo]))
+ -&gt; ListVocabularyFiltersResponse
+ -&gt; f ListVocabularyFiltersResponse)
+-&gt; ((Maybe [VocabularyFilterInfo]
+     -&gt; f (Maybe [VocabularyFilterInfo]))
+    -&gt; Maybe [VocabularyFilterInfo]
+    -&gt; f (Maybe [VocabularyFilterInfo]))
+-&gt; (Maybe [VocabularyFilterInfo]
+    -&gt; f (Maybe [VocabularyFilterInfo]))
+-&gt; ListVocabularyFiltersResponse
+-&gt; f ListVocabularyFiltersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VocabularyFilterInfo]
+  [VocabularyFilterInfo]
+  [VocabularyFilterInfo]
+  [VocabularyFilterInfo]
+-&gt; Iso
+     (Maybe [VocabularyFilterInfo])
+     (Maybe [VocabularyFilterInfo])
+     (Maybe [VocabularyFilterInfo])
+     (Maybe [VocabularyFilterInfo])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VocabularyFilterInfo]
+  [VocabularyFilterInfo]
+  [VocabularyFilterInfo]
+  [VocabularyFilterInfo]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFiltersResponse_httpStatus"><span class="hs-identifier hs-type">listVocabularyFiltersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse"><span class="hs-identifier hs-type">ListVocabularyFiltersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-233"></span><span id="listVocabularyFiltersResponse_httpStatus"><span class="annot"><span class="annottext">listVocabularyFiltersResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListVocabularyFiltersResponse -&gt; f ListVocabularyFiltersResponse
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#listVocabularyFiltersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listVocabularyFiltersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListVocabularyFiltersResponse -&gt; Int)
+-&gt; (ListVocabularyFiltersResponse
+    -&gt; Int -&gt; ListVocabularyFiltersResponse)
+-&gt; Lens
+     ListVocabularyFiltersResponse ListVocabularyFiltersResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse%27"><span class="hs-identifier hs-type">ListVocabularyFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280343"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListVocabularyFiltersResponse' :: ListVocabularyFiltersResponse -&gt; Int
+</span><a href="#local-6989586621679280343"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280343"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280342"><span class="annot"><span class="annottext">s :: ListVocabularyFiltersResponse
+</span><a href="#local-6989586621679280342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse%27"><span class="hs-identifier hs-type">ListVocabularyFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280341"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVocabularyFiltersResponse
+</span><a href="#local-6989586621679280342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListVocabularyFiltersResponse' :: Int
+</span><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#%24sel%3AhttpStatus%3AListVocabularyFiltersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse"><span class="hs-identifier hs-type">ListVocabularyFiltersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280339"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListVocabularyFilters.html#ListVocabularyFiltersResponse"><span class="hs-identifier hs-type">ListVocabularyFiltersResponse</span></a></span></span><span>
+</span><span id="line-236"></span></pre></body></html>

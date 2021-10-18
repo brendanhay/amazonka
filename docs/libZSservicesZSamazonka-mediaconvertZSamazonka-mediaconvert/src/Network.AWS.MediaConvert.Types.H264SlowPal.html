@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.H264SlowPal</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.H264SlowPal</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#H264SlowPal"><span class="hs-identifier">H264SlowPal</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#H264SlowPal_DISABLED"><span class="hs-identifier">H264SlowPal_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#H264SlowPal_ENABLED"><span class="hs-identifier">H264SlowPal_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Ignore this setting unless your input frame rate is 23.976 or 24 frames</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- per second (fps). Enable slow PAL to create a 25 fps output. When you</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- enable slow PAL, MediaConvert relabels the video frames to 25 fps and</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- resamples your audio to keep it synchronized with the video. Note that</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- enabling this setting will slightly reduce the duration of your video.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Required settings: You must also set Framerate to 25. In your JSON job</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- specification, set (framerateControl) to (SPECIFIED),</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- (framerateNumerator) to 25 and (framerateDenominator) to 1.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621679963911"><span id="local-6989586621679963912"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264SlowPal"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#H264SlowPal"><span class="hs-identifier hs-var">H264SlowPal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264SlowPal%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#H264SlowPal%27"><span class="hs-identifier hs-var">H264SlowPal'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264SlowPal"><span class="annot"><span class="annottext">H264SlowPal -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#fromH264SlowPal"><span class="hs-identifier hs-var hs-var">fromH264SlowPal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679963903"><span id="local-6989586621679963905"><span id="local-6989586621679963907"><span class="annot"><span class="annottext">Int -&gt; H264SlowPal -&gt; ShowS
+[H264SlowPal] -&gt; ShowS
+H264SlowPal -&gt; String
+(Int -&gt; H264SlowPal -&gt; ShowS)
+-&gt; (H264SlowPal -&gt; String)
+-&gt; ([H264SlowPal] -&gt; ShowS)
+-&gt; Show H264SlowPal
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [H264SlowPal] -&gt; ShowS
+$cshowList :: [H264SlowPal] -&gt; ShowS
+show :: H264SlowPal -&gt; String
+$cshow :: H264SlowPal -&gt; String
+showsPrec :: Int -&gt; H264SlowPal -&gt; ShowS
+$cshowsPrec :: Int -&gt; H264SlowPal -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679963894"><span id="local-6989586621679963896"><span id="local-6989586621679963898"><span id="local-6989586621679963900"><span class="annot"><span class="annottext">ReadPrec [H264SlowPal]
+ReadPrec H264SlowPal
+Int -&gt; ReadS H264SlowPal
+ReadS [H264SlowPal]
+(Int -&gt; ReadS H264SlowPal)
+-&gt; ReadS [H264SlowPal]
+-&gt; ReadPrec H264SlowPal
+-&gt; ReadPrec [H264SlowPal]
+-&gt; Read H264SlowPal
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [H264SlowPal]
+$creadListPrec :: ReadPrec [H264SlowPal]
+readPrec :: ReadPrec H264SlowPal
+$creadPrec :: ReadPrec H264SlowPal
+readList :: ReadS [H264SlowPal]
+$creadList :: ReadS [H264SlowPal]
+readsPrec :: Int -&gt; ReadS H264SlowPal
+$creadsPrec :: Int -&gt; ReadS H264SlowPal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679963889"><span id="local-6989586621679963891"><span class="annot"><span class="annottext">H264SlowPal -&gt; H264SlowPal -&gt; Bool
+(H264SlowPal -&gt; H264SlowPal -&gt; Bool)
+-&gt; (H264SlowPal -&gt; H264SlowPal -&gt; Bool) -&gt; Eq H264SlowPal
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: H264SlowPal -&gt; H264SlowPal -&gt; Bool
+$c/= :: H264SlowPal -&gt; H264SlowPal -&gt; Bool
+== :: H264SlowPal -&gt; H264SlowPal -&gt; Bool
+$c== :: H264SlowPal -&gt; H264SlowPal -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679963873"><span id="local-6989586621679963875"><span id="local-6989586621679963877"><span id="local-6989586621679963879"><span id="local-6989586621679963881"><span id="local-6989586621679963883"><span id="local-6989586621679963885"><span class="annot"><span class="annottext">Eq H264SlowPal
+Eq H264SlowPal
+-&gt; (H264SlowPal -&gt; H264SlowPal -&gt; Ordering)
+-&gt; (H264SlowPal -&gt; H264SlowPal -&gt; Bool)
+-&gt; (H264SlowPal -&gt; H264SlowPal -&gt; Bool)
+-&gt; (H264SlowPal -&gt; H264SlowPal -&gt; Bool)
+-&gt; (H264SlowPal -&gt; H264SlowPal -&gt; Bool)
+-&gt; (H264SlowPal -&gt; H264SlowPal -&gt; H264SlowPal)
+-&gt; (H264SlowPal -&gt; H264SlowPal -&gt; H264SlowPal)
+-&gt; Ord H264SlowPal
+H264SlowPal -&gt; H264SlowPal -&gt; Bool
+H264SlowPal -&gt; H264SlowPal -&gt; Ordering
+H264SlowPal -&gt; H264SlowPal -&gt; H264SlowPal
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: H264SlowPal -&gt; H264SlowPal -&gt; H264SlowPal
+$cmin :: H264SlowPal -&gt; H264SlowPal -&gt; H264SlowPal
+max :: H264SlowPal -&gt; H264SlowPal -&gt; H264SlowPal
+$cmax :: H264SlowPal -&gt; H264SlowPal -&gt; H264SlowPal
+&gt;= :: H264SlowPal -&gt; H264SlowPal -&gt; Bool
+$c&gt;= :: H264SlowPal -&gt; H264SlowPal -&gt; Bool
+&gt; :: H264SlowPal -&gt; H264SlowPal -&gt; Bool
+$c&gt; :: H264SlowPal -&gt; H264SlowPal -&gt; Bool
+&lt;= :: H264SlowPal -&gt; H264SlowPal -&gt; Bool
+$c&lt;= :: H264SlowPal -&gt; H264SlowPal -&gt; Bool
+&lt; :: H264SlowPal -&gt; H264SlowPal -&gt; Bool
+$c&lt; :: H264SlowPal -&gt; H264SlowPal -&gt; Bool
+compare :: H264SlowPal -&gt; H264SlowPal -&gt; Ordering
+$ccompare :: H264SlowPal -&gt; H264SlowPal -&gt; Ordering
+$cp1Ord :: Eq H264SlowPal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(forall x. H264SlowPal -&gt; Rep H264SlowPal x)
+-&gt; (forall x. Rep H264SlowPal x -&gt; H264SlowPal)
+-&gt; Generic H264SlowPal
+forall x. Rep H264SlowPal x -&gt; H264SlowPal
+forall x. H264SlowPal -&gt; Rep H264SlowPal x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep H264SlowPal x -&gt; H264SlowPal
+$cfrom :: forall x. H264SlowPal -&gt; Rep H264SlowPal x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679963865"><span id="local-6989586621679963867"><span class="annot"><span class="annottext">Int -&gt; H264SlowPal -&gt; Int
+H264SlowPal -&gt; Int
+(Int -&gt; H264SlowPal -&gt; Int)
+-&gt; (H264SlowPal -&gt; Int) -&gt; Hashable H264SlowPal
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: H264SlowPal -&gt; Int
+$chash :: H264SlowPal -&gt; Int
+hashWithSalt :: Int -&gt; H264SlowPal -&gt; Int
+$chashWithSalt :: Int -&gt; H264SlowPal -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679963862"><span class="annot"><span class="annottext">H264SlowPal -&gt; ()
+(H264SlowPal -&gt; ()) -&gt; NFData H264SlowPal
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: H264SlowPal -&gt; ()
+$crnf :: H264SlowPal -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679963859"><span class="annot"><span class="annottext">Text -&gt; Either String H264SlowPal
+(Text -&gt; Either String H264SlowPal) -&gt; FromText H264SlowPal
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String H264SlowPal
+$cfromText :: Text -&gt; Either String H264SlowPal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679963856"><span class="annot"><span class="annottext">H264SlowPal -&gt; Text
+(H264SlowPal -&gt; Text) -&gt; ToText H264SlowPal
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: H264SlowPal -&gt; Text
+$ctoText :: H264SlowPal -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679963853"><span class="annot"><span class="annottext">H264SlowPal -&gt; ByteString
+(H264SlowPal -&gt; ByteString) -&gt; ToByteString H264SlowPal
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: H264SlowPal -&gt; ByteString
+$ctoBS :: H264SlowPal -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679963850"><span class="annot"><span class="annottext">H264SlowPal -&gt; ByteStringBuilder
+(H264SlowPal -&gt; ByteStringBuilder) -&gt; ToLog H264SlowPal
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: H264SlowPal -&gt; ByteStringBuilder
+$cbuild :: H264SlowPal -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679963847"><span class="annot"><span class="annottext">HeaderName -&gt; H264SlowPal -&gt; [Header]
+(HeaderName -&gt; H264SlowPal -&gt; [Header]) -&gt; ToHeader H264SlowPal
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; H264SlowPal -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; H264SlowPal -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679963844"><span class="annot"><span class="annottext">H264SlowPal -&gt; QueryString
+(H264SlowPal -&gt; QueryString) -&gt; ToQuery H264SlowPal
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: H264SlowPal -&gt; QueryString
+$ctoQuery :: H264SlowPal -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679963839"><span id="local-6989586621679963841"><span class="annot"><span class="annottext">Value -&gt; Parser [H264SlowPal]
+Value -&gt; Parser H264SlowPal
+(Value -&gt; Parser H264SlowPal)
+-&gt; (Value -&gt; Parser [H264SlowPal]) -&gt; FromJSON H264SlowPal
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [H264SlowPal]
+$cparseJSONList :: Value -&gt; Parser [H264SlowPal]
+parseJSON :: Value -&gt; Parser H264SlowPal
+$cparseJSON :: Value -&gt; Parser H264SlowPal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679963834"><span id="local-6989586621679963836"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264SlowPal]
+FromJSONKeyFunction H264SlowPal
+FromJSONKeyFunction H264SlowPal
+-&gt; FromJSONKeyFunction [H264SlowPal] -&gt; FromJSONKey H264SlowPal
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [H264SlowPal]
+$cfromJSONKeyList :: FromJSONKeyFunction [H264SlowPal]
+fromJSONKey :: FromJSONKeyFunction H264SlowPal
+$cfromJSONKey :: FromJSONKeyFunction H264SlowPal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679963825"><span id="local-6989586621679963827"><span id="local-6989586621679963829"><span id="local-6989586621679963831"><span class="annot"><span class="annottext">[H264SlowPal] -&gt; Encoding
+[H264SlowPal] -&gt; Value
+H264SlowPal -&gt; Encoding
+H264SlowPal -&gt; Value
+(H264SlowPal -&gt; Value)
+-&gt; (H264SlowPal -&gt; Encoding)
+-&gt; ([H264SlowPal] -&gt; Value)
+-&gt; ([H264SlowPal] -&gt; Encoding)
+-&gt; ToJSON H264SlowPal
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [H264SlowPal] -&gt; Encoding
+$ctoEncodingList :: [H264SlowPal] -&gt; Encoding
+toJSONList :: [H264SlowPal] -&gt; Value
+$ctoJSONList :: [H264SlowPal] -&gt; Value
+toEncoding :: H264SlowPal -&gt; Encoding
+$ctoEncoding :: H264SlowPal -&gt; Encoding
+toJSON :: H264SlowPal -&gt; Value
+$ctoJSON :: H264SlowPal -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679963820"><span id="local-6989586621679963822"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264SlowPal]
+ToJSONKeyFunction H264SlowPal
+ToJSONKeyFunction H264SlowPal
+-&gt; ToJSONKeyFunction [H264SlowPal] -&gt; ToJSONKey H264SlowPal
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [H264SlowPal]
+$ctoJSONKeyList :: ToJSONKeyFunction [H264SlowPal]
+toJSONKey :: ToJSONKeyFunction H264SlowPal
+$ctoJSONKey :: ToJSONKeyFunction H264SlowPal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679963817"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264SlowPal
+([Node] -&gt; Either String H264SlowPal) -&gt; FromXML H264SlowPal
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String H264SlowPal
+$cparseXML :: [Node] -&gt; Either String H264SlowPal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679963814"><span class="annot"><span class="annottext">H264SlowPal -&gt; XML
+(H264SlowPal -&gt; XML) -&gt; ToXML H264SlowPal
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: H264SlowPal -&gt; XML
+$ctoXML :: H264SlowPal -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#H264SlowPal_DISABLED"><span class="hs-identifier hs-type">H264SlowPal_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#H264SlowPal"><span class="hs-identifier hs-type">H264SlowPal</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264SlowPal_DISABLED"><span id="%24mH264SlowPal_DISABLED"><span id="H264SlowPal_DISABLED"><span class="annot"><span class="annottext">$bH264SlowPal_DISABLED :: H264SlowPal
+$mH264SlowPal_DISABLED :: forall r. H264SlowPal -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#%24bH264SlowPal_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">H264SlowPal_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#H264SlowPal%27"><span class="hs-identifier hs-type">H264SlowPal'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#H264SlowPal_ENABLED"><span class="hs-identifier hs-type">H264SlowPal_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#H264SlowPal"><span class="hs-identifier hs-type">H264SlowPal</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264SlowPal_ENABLED"><span id="%24mH264SlowPal_ENABLED"><span id="H264SlowPal_ENABLED"><span class="annot"><span class="annottext">$bH264SlowPal_ENABLED :: H264SlowPal
+$mH264SlowPal_ENABLED :: forall r. H264SlowPal -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#%24bH264SlowPal_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">H264SlowPal_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#H264SlowPal%27"><span class="hs-identifier hs-type">H264SlowPal'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#H264SlowPal_DISABLED"><span class="hs-pragma hs-type">H264SlowPal_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#H264SlowPal_ENABLED"><span class="hs-pragma hs-type">H264SlowPal_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SlowPal.html#H264SlowPal%27"><span class="hs-pragma hs-type">H264SlowPal'</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-79"></span></pre></body></html>

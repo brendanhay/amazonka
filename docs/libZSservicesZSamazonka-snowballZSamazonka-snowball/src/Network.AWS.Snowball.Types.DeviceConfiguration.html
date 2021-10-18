@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Snowball.Types.DeviceConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Snowball.Types.DeviceConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.SnowconeDeviceConfiguration.html"><span class="hs-identifier">Network.AWS.Snowball.Types.SnowconeDeviceConfiguration</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The container for @SnowconeDeviceConfiguration@.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDeviceConfiguration' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679227410"><span id="local-6989586621679227411"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceConfiguration"><span class="annot"><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#DeviceConfiguration"><span class="hs-identifier hs-var">DeviceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceConfiguration%27"><span class="annot"><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#DeviceConfiguration%27"><span class="hs-identifier hs-var">DeviceConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns information about the device configuration for an AWS Snowcone</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsnowconeDeviceConfiguration%3ADeviceConfiguration%27"><span class="annot"><span class="annottext">DeviceConfiguration -&gt; Maybe SnowconeDeviceConfiguration
+</span><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#%24sel%3AsnowconeDeviceConfiguration%3ADeviceConfiguration%27"><span class="hs-identifier hs-var hs-var">snowconeDeviceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.SnowconeDeviceConfiguration.html#SnowconeDeviceConfiguration"><span class="hs-identifier hs-type">SnowconeDeviceConfiguration</span></a></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227404"><span id="local-6989586621679227406"><span class="annot"><span class="annottext">DeviceConfiguration -&gt; DeviceConfiguration -&gt; Bool
+(DeviceConfiguration -&gt; DeviceConfiguration -&gt; Bool)
+-&gt; (DeviceConfiguration -&gt; DeviceConfiguration -&gt; Bool)
+-&gt; Eq DeviceConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeviceConfiguration -&gt; DeviceConfiguration -&gt; Bool
+$c/= :: DeviceConfiguration -&gt; DeviceConfiguration -&gt; Bool
+== :: DeviceConfiguration -&gt; DeviceConfiguration -&gt; Bool
+$c== :: DeviceConfiguration -&gt; DeviceConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227395"><span id="local-6989586621679227397"><span id="local-6989586621679227399"><span id="local-6989586621679227401"><span class="annot"><span class="annottext">ReadPrec [DeviceConfiguration]
+ReadPrec DeviceConfiguration
+Int -&gt; ReadS DeviceConfiguration
+ReadS [DeviceConfiguration]
+(Int -&gt; ReadS DeviceConfiguration)
+-&gt; ReadS [DeviceConfiguration]
+-&gt; ReadPrec DeviceConfiguration
+-&gt; ReadPrec [DeviceConfiguration]
+-&gt; Read DeviceConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeviceConfiguration]
+$creadListPrec :: ReadPrec [DeviceConfiguration]
+readPrec :: ReadPrec DeviceConfiguration
+$creadPrec :: ReadPrec DeviceConfiguration
+readList :: ReadS [DeviceConfiguration]
+$creadList :: ReadS [DeviceConfiguration]
+readsPrec :: Int -&gt; ReadS DeviceConfiguration
+$creadsPrec :: Int -&gt; ReadS DeviceConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227388"><span id="local-6989586621679227390"><span id="local-6989586621679227392"><span class="annot"><span class="annottext">Int -&gt; DeviceConfiguration -&gt; ShowS
+[DeviceConfiguration] -&gt; ShowS
+DeviceConfiguration -&gt; String
+(Int -&gt; DeviceConfiguration -&gt; ShowS)
+-&gt; (DeviceConfiguration -&gt; String)
+-&gt; ([DeviceConfiguration] -&gt; ShowS)
+-&gt; Show DeviceConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeviceConfiguration] -&gt; ShowS
+$cshowList :: [DeviceConfiguration] -&gt; ShowS
+show :: DeviceConfiguration -&gt; String
+$cshow :: DeviceConfiguration -&gt; String
+showsPrec :: Int -&gt; DeviceConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeviceConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeviceConfiguration -&gt; Rep DeviceConfiguration x)
+-&gt; (forall x. Rep DeviceConfiguration x -&gt; DeviceConfiguration)
+-&gt; Generic DeviceConfiguration
+forall x. Rep DeviceConfiguration x -&gt; DeviceConfiguration
+forall x. DeviceConfiguration -&gt; Rep DeviceConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeviceConfiguration x -&gt; DeviceConfiguration
+$cfrom :: forall x. DeviceConfiguration -&gt; Rep DeviceConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'DeviceConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'snowconeDeviceConfiguration', 'deviceConfiguration_snowconeDeviceConfiguration' - Returns information about the device configuration for an AWS Snowcone</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-47"></span><span class="annot"><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#newDeviceConfiguration"><span class="hs-identifier hs-type">newDeviceConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#DeviceConfiguration"><span class="hs-identifier hs-type">DeviceConfiguration</span></a></span><span>
+</span><span id="line-49"></span><span id="newDeviceConfiguration"><span class="annot"><span class="annottext">newDeviceConfiguration :: DeviceConfiguration
+</span><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#newDeviceConfiguration"><span class="hs-identifier hs-var hs-var">newDeviceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">DeviceConfiguration' :: Maybe SnowconeDeviceConfiguration -&gt; DeviceConfiguration
+</span><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#DeviceConfiguration%27"><span class="hs-identifier hs-type">DeviceConfiguration'</span></a></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:snowconeDeviceConfiguration:DeviceConfiguration' :: Maybe SnowconeDeviceConfiguration
+</span><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#%24sel%3AsnowconeDeviceConfiguration%3ADeviceConfiguration%27"><span class="hs-identifier hs-var">snowconeDeviceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>        </span><span class="annot"><span class="annottext">Maybe SnowconeDeviceConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | Returns information about the device configuration for an AWS Snowcone</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#deviceConfiguration_snowconeDeviceConfiguration"><span class="hs-identifier hs-type">deviceConfiguration_snowconeDeviceConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#DeviceConfiguration"><span class="hs-identifier hs-type">DeviceConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.SnowconeDeviceConfiguration.html#SnowconeDeviceConfiguration"><span class="hs-identifier hs-type">SnowconeDeviceConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="deviceConfiguration_snowconeDeviceConfiguration"><span class="annot"><span class="annottext">deviceConfiguration_snowconeDeviceConfiguration :: (Maybe SnowconeDeviceConfiguration
+ -&gt; f (Maybe SnowconeDeviceConfiguration))
+-&gt; DeviceConfiguration -&gt; f DeviceConfiguration
+</span><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#deviceConfiguration_snowconeDeviceConfiguration"><span class="hs-identifier hs-var hs-var">deviceConfiguration_snowconeDeviceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceConfiguration -&gt; Maybe SnowconeDeviceConfiguration)
+-&gt; (DeviceConfiguration
+    -&gt; Maybe SnowconeDeviceConfiguration -&gt; DeviceConfiguration)
+-&gt; Lens
+     DeviceConfiguration
+     DeviceConfiguration
+     (Maybe SnowconeDeviceConfiguration)
+     (Maybe SnowconeDeviceConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#DeviceConfiguration%27"><span class="hs-identifier hs-type">DeviceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227379"><span class="annot"><span class="annottext">Maybe SnowconeDeviceConfiguration
+snowconeDeviceConfiguration :: Maybe SnowconeDeviceConfiguration
+$sel:snowconeDeviceConfiguration:DeviceConfiguration' :: DeviceConfiguration -&gt; Maybe SnowconeDeviceConfiguration
+</span><a href="#local-6989586621679227379"><span class="hs-identifier hs-var hs-var">snowconeDeviceConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SnowconeDeviceConfiguration
+</span><a href="#local-6989586621679227379"><span class="hs-identifier hs-var">snowconeDeviceConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227378"><span class="annot"><span class="annottext">s :: DeviceConfiguration
+</span><a href="#local-6989586621679227378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#DeviceConfiguration%27"><span class="hs-identifier hs-type">DeviceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227377"><span class="annot"><span class="annottext">Maybe SnowconeDeviceConfiguration
+</span><a href="#local-6989586621679227377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceConfiguration
+</span><a href="#local-6989586621679227378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snowconeDeviceConfiguration:DeviceConfiguration' :: Maybe SnowconeDeviceConfiguration
+</span><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#%24sel%3AsnowconeDeviceConfiguration%3ADeviceConfiguration%27"><span class="hs-identifier hs-var">snowconeDeviceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnowconeDeviceConfiguration
+</span><a href="#local-6989586621679227377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#DeviceConfiguration"><span class="hs-identifier hs-type">DeviceConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227374"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#DeviceConfiguration"><span class="hs-identifier hs-type">DeviceConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679227372"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DeviceConfiguration)
+-&gt; Value
+-&gt; Parser DeviceConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DeviceConfiguration&quot;</span></span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227369"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227369"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">Maybe SnowconeDeviceConfiguration -&gt; DeviceConfiguration
+</span><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#DeviceConfiguration%27"><span class="hs-identifier hs-var">DeviceConfiguration'</span></a></span><span>
+</span><span id="line-66"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SnowconeDeviceConfiguration -&gt; DeviceConfiguration)
+-&gt; Parser (Maybe SnowconeDeviceConfiguration)
+-&gt; Parser DeviceConfiguration
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SnowconeDeviceConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SnowconeDeviceConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227363"><span id="local-6989586621679227365"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#DeviceConfiguration"><span class="hs-identifier hs-type">DeviceConfiguration</span></a></span></span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#DeviceConfiguration"><span class="hs-identifier hs-type">DeviceConfiguration</span></a></span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227352"><span id="local-6989586621679227354"><span id="local-6989586621679227356"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#DeviceConfiguration"><span class="hs-identifier hs-type">DeviceConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679227350"><span class="annot"><span class="annottext">toJSON :: DeviceConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.DeviceConfiguration.html#DeviceConfiguration%27"><span class="hs-identifier hs-type">DeviceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227348"><span class="annot"><span class="annottext">Maybe SnowconeDeviceConfiguration
+snowconeDeviceConfiguration :: Maybe SnowconeDeviceConfiguration
+$sel:snowconeDeviceConfiguration:DeviceConfiguration' :: DeviceConfiguration -&gt; Maybe SnowconeDeviceConfiguration
+</span><a href="#local-6989586621679227348"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-77"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SnowconeDeviceConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SnowconeDeviceConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>              </span><span class="annot"><span class="annottext">(SnowconeDeviceConfiguration -&gt; Pair)
+-&gt; Maybe SnowconeDeviceConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SnowconeDeviceConfiguration
+</span><a href="#local-6989586621679227348"><span class="hs-identifier hs-var">snowconeDeviceConfiguration</span></a></span><span>
+</span><span id="line-79"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span></pre></body></html>

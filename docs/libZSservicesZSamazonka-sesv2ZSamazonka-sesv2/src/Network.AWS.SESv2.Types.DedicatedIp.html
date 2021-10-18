@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SESv2.Types.DedicatedIp</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SESv2.Types.DedicatedIp</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.WarmupStatus.html"><span class="hs-identifier">Network.AWS.SESv2.Types.WarmupStatus</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about a dedicated IP address that is associated</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- with your Amazon SES account.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- To learn more about requesting dedicated IP addresses, see</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/dedicated-ip-case.html Requesting and Relinquishing Dedicated IP Addresses&gt;</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- in the /Amazon SES Developer Guide/.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newDedicatedIp' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679333210"><span id="local-6989586621679333211"></span></span><span class="hs-keyword">data</span><span> </span><span id="DedicatedIp"><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp"><span class="hs-identifier hs-var">DedicatedIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DedicatedIp%27"><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp%27"><span class="hs-identifier hs-var">DedicatedIp'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the dedicated IP pool that the IP address is associated</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- with.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3ApoolName%3ADedicatedIp%27"><span class="annot"><span class="annottext">DedicatedIp -&gt; Maybe Text
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#%24sel%3ApoolName%3ADedicatedIp%27"><span class="hs-identifier hs-var hs-var">poolName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | An IPv4 address.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aip%3ADedicatedIp%27"><span class="annot"><span class="annottext">DedicatedIp -&gt; Text
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#%24sel%3Aip%3ADedicatedIp%27"><span class="hs-identifier hs-var hs-var">ip</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The warm-up status of a dedicated IP address. The status can have one of</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- the following values:</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   @IN_PROGRESS@ &#8211; The IP address isn\'t ready to use because the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     dedicated IP warm-up process is ongoing.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   @DONE@ &#8211; The dedicated IP warm-up process is complete, and the IP</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     address is ready to use.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AwarmupStatus%3ADedicatedIp%27"><span class="annot"><span class="annottext">DedicatedIp -&gt; WarmupStatus
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#%24sel%3AwarmupStatus%3ADedicatedIp%27"><span class="hs-identifier hs-var hs-var">warmupStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.WarmupStatus.html#WarmupStatus"><span class="hs-identifier hs-type">WarmupStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Indicates how complete the dedicated IP warm-up process is. When this</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- value equals 1, the address has completed the warm-up process and is</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- ready for use.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AwarmupPercentage%3ADedicatedIp%27"><span class="annot"><span class="annottext">DedicatedIp -&gt; Int
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#%24sel%3AwarmupPercentage%3ADedicatedIp%27"><span class="hs-identifier hs-var hs-var">warmupPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333201"><span id="local-6989586621679333203"><span class="annot"><span class="annottext">DedicatedIp -&gt; DedicatedIp -&gt; Bool
+(DedicatedIp -&gt; DedicatedIp -&gt; Bool)
+-&gt; (DedicatedIp -&gt; DedicatedIp -&gt; Bool) -&gt; Eq DedicatedIp
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DedicatedIp -&gt; DedicatedIp -&gt; Bool
+$c/= :: DedicatedIp -&gt; DedicatedIp -&gt; Bool
+== :: DedicatedIp -&gt; DedicatedIp -&gt; Bool
+$c== :: DedicatedIp -&gt; DedicatedIp -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333192"><span id="local-6989586621679333194"><span id="local-6989586621679333196"><span id="local-6989586621679333198"><span class="annot"><span class="annottext">ReadPrec [DedicatedIp]
+ReadPrec DedicatedIp
+Int -&gt; ReadS DedicatedIp
+ReadS [DedicatedIp]
+(Int -&gt; ReadS DedicatedIp)
+-&gt; ReadS [DedicatedIp]
+-&gt; ReadPrec DedicatedIp
+-&gt; ReadPrec [DedicatedIp]
+-&gt; Read DedicatedIp
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DedicatedIp]
+$creadListPrec :: ReadPrec [DedicatedIp]
+readPrec :: ReadPrec DedicatedIp
+$creadPrec :: ReadPrec DedicatedIp
+readList :: ReadS [DedicatedIp]
+$creadList :: ReadS [DedicatedIp]
+readsPrec :: Int -&gt; ReadS DedicatedIp
+$creadsPrec :: Int -&gt; ReadS DedicatedIp
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333185"><span id="local-6989586621679333187"><span id="local-6989586621679333189"><span class="annot"><span class="annottext">Int -&gt; DedicatedIp -&gt; ShowS
+[DedicatedIp] -&gt; ShowS
+DedicatedIp -&gt; String
+(Int -&gt; DedicatedIp -&gt; ShowS)
+-&gt; (DedicatedIp -&gt; String)
+-&gt; ([DedicatedIp] -&gt; ShowS)
+-&gt; Show DedicatedIp
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DedicatedIp] -&gt; ShowS
+$cshowList :: [DedicatedIp] -&gt; ShowS
+show :: DedicatedIp -&gt; String
+$cshow :: DedicatedIp -&gt; String
+showsPrec :: Int -&gt; DedicatedIp -&gt; ShowS
+$cshowsPrec :: Int -&gt; DedicatedIp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DedicatedIp -&gt; Rep DedicatedIp x)
+-&gt; (forall x. Rep DedicatedIp x -&gt; DedicatedIp)
+-&gt; Generic DedicatedIp
+forall x. Rep DedicatedIp x -&gt; DedicatedIp
+forall x. DedicatedIp -&gt; Rep DedicatedIp x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DedicatedIp x -&gt; DedicatedIp
+$cfrom :: forall x. DedicatedIp -&gt; Rep DedicatedIp x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DedicatedIp' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'poolName', 'dedicatedIp_poolName' - The name of the dedicated IP pool that the IP address is associated</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- with.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'ip', 'dedicatedIp_ip' - An IPv4 address.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'warmupStatus', 'dedicatedIp_warmupStatus' - The warm-up status of a dedicated IP address. The status can have one of</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- the following values:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- -   @IN_PROGRESS@ &#8211; The IP address isn\'t ready to use because the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--     dedicated IP warm-up process is ongoing.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- -   @DONE@ &#8211; The dedicated IP warm-up process is complete, and the IP</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--     address is ready to use.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'warmupPercentage', 'dedicatedIp_warmupPercentage' - Indicates how complete the dedicated IP warm-up process is. When this</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- value equals 1, the address has completed the warm-up process and is</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- ready for use.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#newDedicatedIp"><span class="hs-identifier hs-type">newDedicatedIp</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'ip'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'warmupStatus'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.WarmupStatus.html#WarmupStatus"><span class="hs-identifier hs-type">WarmupStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'warmupPercentage'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp"><span class="hs-identifier hs-type">DedicatedIp</span></a></span><span>
+</span><span id="line-90"></span><span id="newDedicatedIp"><span class="annot"><span class="annottext">newDedicatedIp :: Text -&gt; WarmupStatus -&gt; Int -&gt; DedicatedIp
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#newDedicatedIp"><span class="hs-identifier hs-var hs-var">newDedicatedIp</span></a></span></span><span> </span><span id="local-6989586621679333179"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333179"><span class="hs-identifier hs-var">pIp_</span></a></span></span><span> </span><span id="local-6989586621679333178"><span class="annot"><span class="annottext">WarmupStatus
+</span><a href="#local-6989586621679333178"><span class="hs-identifier hs-var">pWarmupStatus_</span></a></span></span><span> </span><span id="local-6989586621679333177"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679333177"><span class="hs-identifier hs-var">pWarmupPercentage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">DedicatedIp' :: Maybe Text -&gt; Text -&gt; WarmupStatus -&gt; Int -&gt; DedicatedIp
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp%27"><span class="hs-identifier hs-type">DedicatedIp'</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:poolName:DedicatedIp' :: Maybe Text
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#%24sel%3ApoolName%3ADedicatedIp%27"><span class="hs-identifier hs-var">poolName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:ip:DedicatedIp' :: Text
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#%24sel%3Aip%3ADedicatedIp%27"><span class="hs-identifier hs-var">ip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333179"><span class="hs-identifier hs-var">pIp_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:warmupStatus:DedicatedIp' :: WarmupStatus
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#%24sel%3AwarmupStatus%3ADedicatedIp%27"><span class="hs-identifier hs-var">warmupStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WarmupStatus
+</span><a href="#local-6989586621679333178"><span class="hs-identifier hs-var">pWarmupStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:warmupPercentage:DedicatedIp' :: Int
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#%24sel%3AwarmupPercentage%3ADedicatedIp%27"><span class="hs-identifier hs-var">warmupPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679333177"><span class="hs-identifier hs-var">pWarmupPercentage_</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The name of the dedicated IP pool that the IP address is associated</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- with.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#dedicatedIp_poolName"><span class="hs-identifier hs-type">dedicatedIp_poolName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp"><span class="hs-identifier hs-type">DedicatedIp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="dedicatedIp_poolName"><span class="annot"><span class="annottext">dedicatedIp_poolName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DedicatedIp -&gt; f DedicatedIp
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#dedicatedIp_poolName"><span class="hs-identifier hs-var hs-var">dedicatedIp_poolName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DedicatedIp -&gt; Maybe Text)
+-&gt; (DedicatedIp -&gt; Maybe Text -&gt; DedicatedIp)
+-&gt; Lens DedicatedIp DedicatedIp (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp%27"><span class="hs-identifier hs-type">DedicatedIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333173"><span class="annot"><span class="annottext">Maybe Text
+poolName :: Maybe Text
+$sel:poolName:DedicatedIp' :: DedicatedIp -&gt; Maybe Text
+</span><a href="#local-6989586621679333173"><span class="hs-identifier hs-var hs-var">poolName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679333173"><span class="hs-identifier hs-var">poolName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333172"><span class="annot"><span class="annottext">s :: DedicatedIp
+</span><a href="#local-6989586621679333172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp%27"><span class="hs-identifier hs-type">DedicatedIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333171"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679333171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DedicatedIp
+</span><a href="#local-6989586621679333172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolName:DedicatedIp' :: Maybe Text
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#%24sel%3ApoolName%3ADedicatedIp%27"><span class="hs-identifier hs-var">poolName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679333171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp"><span class="hs-identifier hs-type">DedicatedIp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | An IPv4 address.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#dedicatedIp_ip"><span class="hs-identifier hs-type">dedicatedIp_ip</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp"><span class="hs-identifier hs-type">DedicatedIp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="dedicatedIp_ip"><span class="annot"><span class="annottext">dedicatedIp_ip :: (Text -&gt; f Text) -&gt; DedicatedIp -&gt; f DedicatedIp
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#dedicatedIp_ip"><span class="hs-identifier hs-var hs-var">dedicatedIp_ip</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DedicatedIp -&gt; Text)
+-&gt; (DedicatedIp -&gt; Text -&gt; DedicatedIp)
+-&gt; Lens DedicatedIp DedicatedIp Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp%27"><span class="hs-identifier hs-type">DedicatedIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333169"><span class="annot"><span class="annottext">Text
+ip :: Text
+$sel:ip:DedicatedIp' :: DedicatedIp -&gt; Text
+</span><a href="#local-6989586621679333169"><span class="hs-identifier hs-var hs-var">ip</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333169"><span class="hs-identifier hs-var">ip</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333168"><span class="annot"><span class="annottext">s :: DedicatedIp
+</span><a href="#local-6989586621679333168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp%27"><span class="hs-identifier hs-type">DedicatedIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333167"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DedicatedIp
+</span><a href="#local-6989586621679333168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ip:DedicatedIp' :: Text
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#%24sel%3Aip%3ADedicatedIp%27"><span class="hs-identifier hs-var">ip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp"><span class="hs-identifier hs-type">DedicatedIp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The warm-up status of a dedicated IP address. The status can have one of</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the following values:</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- -   @IN_PROGRESS@ &#8211; The IP address isn\'t ready to use because the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--     dedicated IP warm-up process is ongoing.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   @DONE@ &#8211; The dedicated IP warm-up process is complete, and the IP</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--     address is ready to use.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#dedicatedIp_warmupStatus"><span class="hs-identifier hs-type">dedicatedIp_warmupStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp"><span class="hs-identifier hs-type">DedicatedIp</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.WarmupStatus.html#WarmupStatus"><span class="hs-identifier hs-type">WarmupStatus</span></a></span><span>
+</span><span id="line-116"></span><span id="dedicatedIp_warmupStatus"><span class="annot"><span class="annottext">dedicatedIp_warmupStatus :: (WarmupStatus -&gt; f WarmupStatus) -&gt; DedicatedIp -&gt; f DedicatedIp
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#dedicatedIp_warmupStatus"><span class="hs-identifier hs-var hs-var">dedicatedIp_warmupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DedicatedIp -&gt; WarmupStatus)
+-&gt; (DedicatedIp -&gt; WarmupStatus -&gt; DedicatedIp)
+-&gt; Lens DedicatedIp DedicatedIp WarmupStatus WarmupStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp%27"><span class="hs-identifier hs-type">DedicatedIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333165"><span class="annot"><span class="annottext">WarmupStatus
+warmupStatus :: WarmupStatus
+$sel:warmupStatus:DedicatedIp' :: DedicatedIp -&gt; WarmupStatus
+</span><a href="#local-6989586621679333165"><span class="hs-identifier hs-var hs-var">warmupStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WarmupStatus
+</span><a href="#local-6989586621679333165"><span class="hs-identifier hs-var">warmupStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333164"><span class="annot"><span class="annottext">s :: DedicatedIp
+</span><a href="#local-6989586621679333164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp%27"><span class="hs-identifier hs-type">DedicatedIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333163"><span class="annot"><span class="annottext">WarmupStatus
+</span><a href="#local-6989586621679333163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DedicatedIp
+</span><a href="#local-6989586621679333164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warmupStatus:DedicatedIp' :: WarmupStatus
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#%24sel%3AwarmupStatus%3ADedicatedIp%27"><span class="hs-identifier hs-var">warmupStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WarmupStatus
+</span><a href="#local-6989586621679333163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp"><span class="hs-identifier hs-type">DedicatedIp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | Indicates how complete the dedicated IP warm-up process is. When this</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- value equals 1, the address has completed the warm-up process and is</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- ready for use.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#dedicatedIp_warmupPercentage"><span class="hs-identifier hs-type">dedicatedIp_warmupPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp"><span class="hs-identifier hs-type">DedicatedIp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-122"></span><span id="dedicatedIp_warmupPercentage"><span class="annot"><span class="annottext">dedicatedIp_warmupPercentage :: (Int -&gt; f Int) -&gt; DedicatedIp -&gt; f DedicatedIp
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#dedicatedIp_warmupPercentage"><span class="hs-identifier hs-var hs-var">dedicatedIp_warmupPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DedicatedIp -&gt; Int)
+-&gt; (DedicatedIp -&gt; Int -&gt; DedicatedIp)
+-&gt; Lens DedicatedIp DedicatedIp Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp%27"><span class="hs-identifier hs-type">DedicatedIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333161"><span class="annot"><span class="annottext">Int
+warmupPercentage :: Int
+$sel:warmupPercentage:DedicatedIp' :: DedicatedIp -&gt; Int
+</span><a href="#local-6989586621679333161"><span class="hs-identifier hs-var hs-var">warmupPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679333161"><span class="hs-identifier hs-var">warmupPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333160"><span class="annot"><span class="annottext">s :: DedicatedIp
+</span><a href="#local-6989586621679333160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp%27"><span class="hs-identifier hs-type">DedicatedIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333159"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679333159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DedicatedIp
+</span><a href="#local-6989586621679333160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warmupPercentage:DedicatedIp' :: Int
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#%24sel%3AwarmupPercentage%3ADedicatedIp%27"><span class="hs-identifier hs-var">warmupPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679333159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp"><span class="hs-identifier hs-type">DedicatedIp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333156"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp"><span class="hs-identifier hs-type">DedicatedIp</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679333154"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DedicatedIp
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DedicatedIp) -&gt; Value -&gt; Parser DedicatedIp
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DedicatedIp&quot;</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679333151"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333151"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; WarmupStatus -&gt; Int -&gt; DedicatedIp
+</span><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp%27"><span class="hs-identifier hs-var">DedicatedIp'</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; WarmupStatus -&gt; Int -&gt; DedicatedIp)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Text -&gt; WarmupStatus -&gt; Int -&gt; DedicatedIp)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PoolName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; WarmupStatus -&gt; Int -&gt; DedicatedIp)
+-&gt; Parser Text -&gt; Parser (WarmupStatus -&gt; Int -&gt; DedicatedIp)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Ip&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (WarmupStatus -&gt; Int -&gt; DedicatedIp)
+-&gt; Parser WarmupStatus -&gt; Parser (Int -&gt; DedicatedIp)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WarmupStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WarmupStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Int -&gt; DedicatedIp) -&gt; Parser Int -&gt; Parser DedicatedIp
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WarmupPercentage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333144"><span id="local-6989586621679333146"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp"><span class="hs-identifier hs-type">DedicatedIp</span></a></span></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DedicatedIp.html#DedicatedIp"><span class="hs-identifier hs-type">DedicatedIp</span></a></span></span><span>
+</span><span id="line-139"></span></pre></body></html>

@@ -1,0 +1,1045 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeBuild.Types.ProjectArtifacts</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeBuild.Types.ProjectArtifacts</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactNamespace.html"><span class="hs-identifier">Network.AWS.CodeBuild.Types.ArtifactNamespace</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactPackaging.html"><span class="hs-identifier">Network.AWS.CodeBuild.Types.ArtifactPackaging</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html"><span class="hs-identifier">Network.AWS.CodeBuild.Types.ArtifactsType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BucketOwnerAccess.html"><span class="hs-identifier">Network.AWS.CodeBuild.Types.BucketOwnerAccess</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Information about the build output artifacts for the build project.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newProjectArtifacts' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679371443"><span id="local-6989586621679371444"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectArtifacts"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-var">ProjectArtifacts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectArtifacts%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-var">ProjectArtifacts'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AbucketOwnerAccess%3AProjectArtifacts%27"><span class="annot"><span class="annottext">ProjectArtifacts -&gt; Maybe BucketOwnerAccess
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AbucketOwnerAccess%3AProjectArtifacts%27"><span class="hs-identifier hs-var hs-var">bucketOwnerAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BucketOwnerAccess.html#BucketOwnerAccess"><span class="hs-identifier hs-type">BucketOwnerAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Along with @path@ and @name@, the pattern that CodeBuild uses to</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- determine the name and location to store the output artifact:</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--     if specified. This is because CodePipeline manages its build output</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--     names instead of CodeBuild.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     specified, because no build output is produced.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   If @type@ is set to @S3@, valid values include:</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     -   @BUILD_ID@: Include the build ID in the location of the build</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--         output artifact.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     -   @NONE@: Do not include the build ID. This is the default if</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--         @namespaceType@ is not specified.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- For example, if @path@ is set to @MyArtifacts@, @namespaceType@ is set</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- to @BUILD_ID@, and @name@ is set to @MyArtifact.zip@, the output</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- artifact is stored in @MyArtifacts\/\&lt;build-ID&gt;\/MyArtifact.zip@.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnamespaceType%3AProjectArtifacts%27"><span class="annot"><span class="annottext">ProjectArtifacts -&gt; Maybe ArtifactNamespace
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AnamespaceType%3AProjectArtifacts%27"><span class="hs-identifier hs-var hs-var">namespaceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactNamespace.html#ArtifactNamespace"><span class="hs-identifier hs-type">ArtifactNamespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | An identifier for this artifact definition.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AartifactIdentifier%3AProjectArtifacts%27"><span class="annot"><span class="annottext">ProjectArtifacts -&gt; Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AartifactIdentifier%3AProjectArtifacts%27"><span class="hs-identifier hs-var hs-var">artifactIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | If this flag is set, a name specified in the buildspec file overrides</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- the artifact name. The name specified in a buildspec file is calculated</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- at build time and uses the Shell Command Language. For example, you can</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- append a date and time to your artifact name so that it is always</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- unique.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AoverrideArtifactName%3AProjectArtifacts%27"><span class="annot"><span class="annottext">ProjectArtifacts -&gt; Maybe Bool
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AoverrideArtifactName%3AProjectArtifacts%27"><span class="hs-identifier hs-var hs-var">overrideArtifactName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Set to true if you do not want your output artifacts encrypted. This</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- option is valid only if your artifacts type is Amazon S3. If this is set</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- with another artifacts type, an invalidInputException is thrown.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AencryptionDisabled%3AProjectArtifacts%27"><span class="annot"><span class="annottext">ProjectArtifacts -&gt; Maybe Bool
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AencryptionDisabled%3AProjectArtifacts%27"><span class="hs-identifier hs-var hs-var">encryptionDisabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Along with @path@ and @namespaceType@, the pattern that CodeBuild uses</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- to name and store the output artifact:</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     if specified. This is because CodePipeline manages its build output</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     names instead of CodeBuild.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     specified, because no build output is produced.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   If @type@ is set to @S3@, this is the name of the output artifact</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     object. If you set the name to be a forward slash (\&quot;\/\&quot;), the</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     artifact is stored in the root of the output bucket.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   If @path@ is set to @MyArtifacts@, @namespaceType@ is set to</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     @BUILD_ID@, and @name@ is set to @MyArtifact.zip@, then the output</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     artifact is stored in @MyArtifacts\/\&lt;build-ID&gt;\/MyArtifact.zip@.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   If @path@ is empty, @namespaceType@ is set to @NONE@, and @name@ is</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     set to \&quot;@\/@\&quot;, the output artifact is stored in the root of the</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--     output bucket.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   If @path@ is set to @MyArtifacts@, @namespaceType@ is set to</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     @BUILD_ID@, and @name@ is set to \&quot;@\/@\&quot;, the output artifact is</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--     stored in @MyArtifacts\/\&lt;build-ID&gt;@.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3Aname%3AProjectArtifacts%27"><span class="annot"><span class="annottext">ProjectArtifacts -&gt; Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Aname%3AProjectArtifacts%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The type of build output artifact to create:</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     if specified. This is because CodePipeline manages its build output</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--     artifacts instead of CodeBuild.</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--     specified, because no build output is produced.</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- -   If @type@ is set to @S3@, valid values include:</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--     -   @NONE@: CodeBuild creates in the output bucket a folder that</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--         contains the build output. This is the default if @packaging@ is</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--         not specified.</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--     -   @ZIP@: CodeBuild creates in the output bucket a ZIP file that</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--         contains the build output.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3Apackaging%3AProjectArtifacts%27"><span class="annot"><span class="annottext">ProjectArtifacts -&gt; Maybe ArtifactPackaging
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Apackaging%3AProjectArtifacts%27"><span class="hs-identifier hs-var hs-var">packaging</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactPackaging.html#ArtifactPackaging"><span class="hs-identifier hs-type">ArtifactPackaging</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | Along with @namespaceType@ and @name@, the pattern that CodeBuild uses</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- to name and store the output artifact:</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--     if specified. This is because CodePipeline manages its build output</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--     names instead of CodeBuild.</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--     specified, because no build output is produced.</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- -   If @type@ is set to @S3@, this is the path to the output artifact.</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--     If @path@ is not specified, @path@ is not used.</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- For example, if @path@ is set to @MyArtifacts@, @namespaceType@ is set</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- to @NONE@, and @name@ is set to @MyArtifact.zip@, the output artifact is</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- stored in the output bucket at @MyArtifacts\/MyArtifact.zip@.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3Apath%3AProjectArtifacts%27"><span class="annot"><span class="annottext">ProjectArtifacts -&gt; Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Apath%3AProjectArtifacts%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | Information about the build output artifact location:</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--     if specified. This is because CodePipeline manages its build output</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--     locations instead of CodeBuild.</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">--     specified, because no build output is produced.</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- -   If @type@ is set to @S3@, this is the name of the output bucket.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3Alocation%3AProjectArtifacts%27"><span class="annot"><span class="annottext">ProjectArtifacts -&gt; Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Alocation%3AProjectArtifacts%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The type of build output artifact. Valid values include:</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- -   @CODEPIPELINE@: The build project has build output generated through</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">--     CodePipeline.</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">--     The @CODEPIPELINE@ type is not supported for @secondaryArtifacts@.</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- -   @NO_ARTIFACTS@: The build project does not produce any build output.</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- -   @S3@: The build project stores build output in Amazon S3.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3Atype%27%3AProjectArtifacts%27"><span class="annot"><span class="annottext">ProjectArtifacts -&gt; ArtifactsType
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Atype%27%3AProjectArtifacts%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType"><span class="hs-identifier hs-type">ArtifactsType</span></a></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371428"><span id="local-6989586621679371430"><span class="annot"><span class="annottext">ProjectArtifacts -&gt; ProjectArtifacts -&gt; Bool
+(ProjectArtifacts -&gt; ProjectArtifacts -&gt; Bool)
+-&gt; (ProjectArtifacts -&gt; ProjectArtifacts -&gt; Bool)
+-&gt; Eq ProjectArtifacts
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProjectArtifacts -&gt; ProjectArtifacts -&gt; Bool
+$c/= :: ProjectArtifacts -&gt; ProjectArtifacts -&gt; Bool
+== :: ProjectArtifacts -&gt; ProjectArtifacts -&gt; Bool
+$c== :: ProjectArtifacts -&gt; ProjectArtifacts -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371419"><span id="local-6989586621679371421"><span id="local-6989586621679371423"><span id="local-6989586621679371425"><span class="annot"><span class="annottext">ReadPrec [ProjectArtifacts]
+ReadPrec ProjectArtifacts
+Int -&gt; ReadS ProjectArtifacts
+ReadS [ProjectArtifacts]
+(Int -&gt; ReadS ProjectArtifacts)
+-&gt; ReadS [ProjectArtifacts]
+-&gt; ReadPrec ProjectArtifacts
+-&gt; ReadPrec [ProjectArtifacts]
+-&gt; Read ProjectArtifacts
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProjectArtifacts]
+$creadListPrec :: ReadPrec [ProjectArtifacts]
+readPrec :: ReadPrec ProjectArtifacts
+$creadPrec :: ReadPrec ProjectArtifacts
+readList :: ReadS [ProjectArtifacts]
+$creadList :: ReadS [ProjectArtifacts]
+readsPrec :: Int -&gt; ReadS ProjectArtifacts
+$creadsPrec :: Int -&gt; ReadS ProjectArtifacts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371412"><span id="local-6989586621679371414"><span id="local-6989586621679371416"><span class="annot"><span class="annottext">Int -&gt; ProjectArtifacts -&gt; ShowS
+[ProjectArtifacts] -&gt; ShowS
+ProjectArtifacts -&gt; String
+(Int -&gt; ProjectArtifacts -&gt; ShowS)
+-&gt; (ProjectArtifacts -&gt; String)
+-&gt; ([ProjectArtifacts] -&gt; ShowS)
+-&gt; Show ProjectArtifacts
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProjectArtifacts] -&gt; ShowS
+$cshowList :: [ProjectArtifacts] -&gt; ShowS
+show :: ProjectArtifacts -&gt; String
+$cshow :: ProjectArtifacts -&gt; String
+showsPrec :: Int -&gt; ProjectArtifacts -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProjectArtifacts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ProjectArtifacts -&gt; Rep ProjectArtifacts x)
+-&gt; (forall x. Rep ProjectArtifacts x -&gt; ProjectArtifacts)
+-&gt; Generic ProjectArtifacts
+forall x. Rep ProjectArtifacts x -&gt; ProjectArtifacts
+forall x. ProjectArtifacts -&gt; Rep ProjectArtifacts x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProjectArtifacts x -&gt; ProjectArtifacts
+$cfrom :: forall x. ProjectArtifacts -&gt; Rep ProjectArtifacts x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Create a value of 'ProjectArtifacts' with all optional fields omitted.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'bucketOwnerAccess', 'projectArtifacts_bucketOwnerAccess' - Undocumented member.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'namespaceType', 'projectArtifacts_namespaceType' - Along with @path@ and @name@, the pattern that CodeBuild uses to</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- determine the name and location to store the output artifact:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--     if specified. This is because CodePipeline manages its build output</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--     names instead of CodeBuild.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--     specified, because no build output is produced.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- -   If @type@ is set to @S3@, valid values include:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     -   @BUILD_ID@: Include the build ID in the location of the build</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--         output artifact.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     -   @NONE@: Do not include the build ID. This is the default if</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--         @namespaceType@ is not specified.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- For example, if @path@ is set to @MyArtifacts@, @namespaceType@ is set</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- to @BUILD_ID@, and @name@ is set to @MyArtifact.zip@, the output</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- artifact is stored in @MyArtifacts\/\&lt;build-ID&gt;\/MyArtifact.zip@.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'artifactIdentifier', 'projectArtifacts_artifactIdentifier' - An identifier for this artifact definition.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'overrideArtifactName', 'projectArtifacts_overrideArtifactName' - If this flag is set, a name specified in the buildspec file overrides</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- the artifact name. The name specified in a buildspec file is calculated</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- at build time and uses the Shell Command Language. For example, you can</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- append a date and time to your artifact name so that it is always</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- unique.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'encryptionDisabled', 'projectArtifacts_encryptionDisabled' - Set to true if you do not want your output artifacts encrypted. This</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- option is valid only if your artifacts type is Amazon S3. If this is set</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- with another artifacts type, an invalidInputException is thrown.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'name', 'projectArtifacts_name' - Along with @path@ and @namespaceType@, the pattern that CodeBuild uses</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- to name and store the output artifact:</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--     if specified. This is because CodePipeline manages its build output</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--     names instead of CodeBuild.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--     specified, because no build output is produced.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- -   If @type@ is set to @S3@, this is the name of the output artifact</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--     object. If you set the name to be a forward slash (\&quot;\/\&quot;), the</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--     artifact is stored in the root of the output bucket.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- -   If @path@ is set to @MyArtifacts@, @namespaceType@ is set to</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--     @BUILD_ID@, and @name@ is set to @MyArtifact.zip@, then the output</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--     artifact is stored in @MyArtifacts\/\&lt;build-ID&gt;\/MyArtifact.zip@.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- -   If @path@ is empty, @namespaceType@ is set to @NONE@, and @name@ is</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--     set to \&quot;@\/@\&quot;, the output artifact is stored in the root of the</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--     output bucket.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- -   If @path@ is set to @MyArtifacts@, @namespaceType@ is set to</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--     @BUILD_ID@, and @name@ is set to \&quot;@\/@\&quot;, the output artifact is</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--     stored in @MyArtifacts\/\&lt;build-ID&gt;@.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- 'packaging', 'projectArtifacts_packaging' - The type of build output artifact to create:</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--     if specified. This is because CodePipeline manages its build output</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--     artifacts instead of CodeBuild.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--     specified, because no build output is produced.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- -   If @type@ is set to @S3@, valid values include:</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--     -   @NONE@: CodeBuild creates in the output bucket a folder that</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--         contains the build output. This is the default if @packaging@ is</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--         not specified.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--     -   @ZIP@: CodeBuild creates in the output bucket a ZIP file that</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--         contains the build output.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- 'path', 'projectArtifacts_path' - Along with @namespaceType@ and @name@, the pattern that CodeBuild uses</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- to name and store the output artifact:</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     if specified. This is because CodePipeline manages its build output</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     names instead of CodeBuild.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--     specified, because no build output is produced.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- -   If @type@ is set to @S3@, this is the path to the output artifact.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--     If @path@ is not specified, @path@ is not used.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- For example, if @path@ is set to @MyArtifacts@, @namespaceType@ is set</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- to @NONE@, and @name@ is set to @MyArtifact.zip@, the output artifact is</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- stored in the output bucket at @MyArtifacts\/MyArtifact.zip@.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- 'location', 'projectArtifacts_location' - Information about the build output artifact location:</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--     if specified. This is because CodePipeline manages its build output</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--     locations instead of CodeBuild.</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--     specified, because no build output is produced.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- -   If @type@ is set to @S3@, this is the name of the output bucket.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- 'type'', 'projectArtifacts_type' - The type of build output artifact. Valid values include:</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- -   @CODEPIPELINE@: The build project has build output generated through</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--     CodePipeline.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--     The @CODEPIPELINE@ type is not supported for @secondaryArtifacts@.</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- -   @NO_ARTIFACTS@: The build project does not produce any build output.</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- -   @S3@: The build project stores build output in Amazon S3.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#newProjectArtifacts"><span class="hs-identifier hs-type">newProjectArtifacts</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-286"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-287"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType"><span class="hs-identifier hs-type">ArtifactsType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-288"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span>
+</span><span id="line-289"></span><span id="newProjectArtifacts"><span class="annot"><span class="annottext">newProjectArtifacts :: ArtifactsType -&gt; ProjectArtifacts
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#newProjectArtifacts"><span class="hs-identifier hs-var hs-var">newProjectArtifacts</span></a></span></span><span> </span><span id="local-6989586621679371406"><span class="annot"><span class="annottext">ArtifactsType
+</span><a href="#local-6989586621679371406"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-290"></span><span>  </span><span class="annot"><span class="annottext">ProjectArtifacts' :: Maybe BucketOwnerAccess
+-&gt; Maybe ArtifactNamespace
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe ArtifactPackaging
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ArtifactsType
+-&gt; ProjectArtifacts
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span>
+</span><span id="line-291"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bucketOwnerAccess:ProjectArtifacts' :: Maybe BucketOwnerAccess
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AbucketOwnerAccess%3AProjectArtifacts%27"><span class="hs-identifier hs-var">bucketOwnerAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-292"></span><span>        </span><span class="annot"><span class="annottext">Maybe BucketOwnerAccess
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespaceType:ProjectArtifacts' :: Maybe ArtifactNamespace
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AnamespaceType%3AProjectArtifacts%27"><span class="hs-identifier hs-var">namespaceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactNamespace
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:artifactIdentifier:ProjectArtifacts' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AartifactIdentifier%3AProjectArtifacts%27"><span class="hs-identifier hs-var">artifactIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>      </span><span class="annot"><span class="annottext">$sel:overrideArtifactName:ProjectArtifacts' :: Maybe Bool
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AoverrideArtifactName%3AProjectArtifacts%27"><span class="hs-identifier hs-var">overrideArtifactName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionDisabled:ProjectArtifacts' :: Maybe Bool
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AencryptionDisabled%3AProjectArtifacts%27"><span class="hs-identifier hs-var">encryptionDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ProjectArtifacts' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Aname%3AProjectArtifacts%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>      </span><span class="annot"><span class="annottext">$sel:packaging:ProjectArtifacts' :: Maybe ArtifactPackaging
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Apackaging%3AProjectArtifacts%27"><span class="hs-identifier hs-var">packaging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactPackaging
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>      </span><span class="annot"><span class="annottext">$sel:path:ProjectArtifacts' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Apath%3AProjectArtifacts%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:ProjectArtifacts' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Alocation%3AProjectArtifacts%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ProjectArtifacts' :: ArtifactsType
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Atype%27%3AProjectArtifacts%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArtifactsType
+</span><a href="#local-6989586621679371406"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><span id="line-302"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-305"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_bucketOwnerAccess"><span class="hs-identifier hs-type">projectArtifacts_bucketOwnerAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BucketOwnerAccess.html#BucketOwnerAccess"><span class="hs-identifier hs-type">BucketOwnerAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span id="projectArtifacts_bucketOwnerAccess"><span class="annot"><span class="annottext">projectArtifacts_bucketOwnerAccess :: (Maybe BucketOwnerAccess -&gt; f (Maybe BucketOwnerAccess))
+-&gt; ProjectArtifacts -&gt; f ProjectArtifacts
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_bucketOwnerAccess"><span class="hs-identifier hs-var hs-var">projectArtifacts_bucketOwnerAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectArtifacts -&gt; Maybe BucketOwnerAccess)
+-&gt; (ProjectArtifacts
+    -&gt; Maybe BucketOwnerAccess -&gt; ProjectArtifacts)
+-&gt; Lens
+     ProjectArtifacts
+     ProjectArtifacts
+     (Maybe BucketOwnerAccess)
+     (Maybe BucketOwnerAccess)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371402"><span class="annot"><span class="annottext">Maybe BucketOwnerAccess
+bucketOwnerAccess :: Maybe BucketOwnerAccess
+$sel:bucketOwnerAccess:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe BucketOwnerAccess
+</span><a href="#local-6989586621679371402"><span class="hs-identifier hs-var hs-var">bucketOwnerAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BucketOwnerAccess
+</span><a href="#local-6989586621679371402"><span class="hs-identifier hs-var">bucketOwnerAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371401"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679371401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371400"><span class="annot"><span class="annottext">Maybe BucketOwnerAccess
+</span><a href="#local-6989586621679371400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679371401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketOwnerAccess:ProjectArtifacts' :: Maybe BucketOwnerAccess
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AbucketOwnerAccess%3AProjectArtifacts%27"><span class="hs-identifier hs-var">bucketOwnerAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BucketOwnerAccess
+</span><a href="#local-6989586621679371400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- | Along with @path@ and @name@, the pattern that CodeBuild uses to</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- determine the name and location to store the output artifact:</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--     if specified. This is because CodePipeline manages its build output</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--     names instead of CodeBuild.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--     specified, because no build output is produced.</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- -   If @type@ is set to @S3@, valid values include:</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--     -   @BUILD_ID@: Include the build ID in the location of the build</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--         output artifact.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--     -   @NONE@: Do not include the build ID. This is the default if</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--         @namespaceType@ is not specified.</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- For example, if @path@ is set to @MyArtifacts@, @namespaceType@ is set</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- to @BUILD_ID@, and @name@ is set to @MyArtifact.zip@, the output</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- artifact is stored in @MyArtifacts\/\&lt;build-ID&gt;\/MyArtifact.zip@.</span><span>
+</span><span id="line-329"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_namespaceType"><span class="hs-identifier hs-type">projectArtifacts_namespaceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactNamespace.html#ArtifactNamespace"><span class="hs-identifier hs-type">ArtifactNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span id="projectArtifacts_namespaceType"><span class="annot"><span class="annottext">projectArtifacts_namespaceType :: (Maybe ArtifactNamespace -&gt; f (Maybe ArtifactNamespace))
+-&gt; ProjectArtifacts -&gt; f ProjectArtifacts
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_namespaceType"><span class="hs-identifier hs-var hs-var">projectArtifacts_namespaceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectArtifacts -&gt; Maybe ArtifactNamespace)
+-&gt; (ProjectArtifacts
+    -&gt; Maybe ArtifactNamespace -&gt; ProjectArtifacts)
+-&gt; Lens
+     ProjectArtifacts
+     ProjectArtifacts
+     (Maybe ArtifactNamespace)
+     (Maybe ArtifactNamespace)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371398"><span class="annot"><span class="annottext">Maybe ArtifactNamespace
+namespaceType :: Maybe ArtifactNamespace
+$sel:namespaceType:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe ArtifactNamespace
+</span><a href="#local-6989586621679371398"><span class="hs-identifier hs-var hs-var">namespaceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactNamespace
+</span><a href="#local-6989586621679371398"><span class="hs-identifier hs-var">namespaceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371397"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679371397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371396"><span class="annot"><span class="annottext">Maybe ArtifactNamespace
+</span><a href="#local-6989586621679371396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679371397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaceType:ProjectArtifacts' :: Maybe ArtifactNamespace
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AnamespaceType%3AProjectArtifacts%27"><span class="hs-identifier hs-var">namespaceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactNamespace
+</span><a href="#local-6989586621679371396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- | An identifier for this artifact definition.</span><span>
+</span><span id="line-333"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_artifactIdentifier"><span class="hs-identifier hs-type">projectArtifacts_artifactIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span id="projectArtifacts_artifactIdentifier"><span class="annot"><span class="annottext">projectArtifacts_artifactIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProjectArtifacts -&gt; f ProjectArtifacts
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_artifactIdentifier"><span class="hs-identifier hs-var hs-var">projectArtifacts_artifactIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectArtifacts -&gt; Maybe Text)
+-&gt; (ProjectArtifacts -&gt; Maybe Text -&gt; ProjectArtifacts)
+-&gt; Lens ProjectArtifacts ProjectArtifacts (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371394"><span class="annot"><span class="annottext">Maybe Text
+artifactIdentifier :: Maybe Text
+$sel:artifactIdentifier:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
+</span><a href="#local-6989586621679371394"><span class="hs-identifier hs-var hs-var">artifactIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371394"><span class="hs-identifier hs-var">artifactIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371393"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679371393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371392"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679371393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactIdentifier:ProjectArtifacts' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AartifactIdentifier%3AProjectArtifacts%27"><span class="hs-identifier hs-var">artifactIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- | If this flag is set, a name specified in the buildspec file overrides</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- the artifact name. The name specified in a buildspec file is calculated</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- at build time and uses the Shell Command Language. For example, you can</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- append a date and time to your artifact name so that it is always</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- unique.</span><span>
+</span><span id="line-341"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_overrideArtifactName"><span class="hs-identifier hs-type">projectArtifacts_overrideArtifactName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span id="projectArtifacts_overrideArtifactName"><span class="annot"><span class="annottext">projectArtifacts_overrideArtifactName :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ProjectArtifacts -&gt; f ProjectArtifacts
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_overrideArtifactName"><span class="hs-identifier hs-var hs-var">projectArtifacts_overrideArtifactName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectArtifacts -&gt; Maybe Bool)
+-&gt; (ProjectArtifacts -&gt; Maybe Bool -&gt; ProjectArtifacts)
+-&gt; Lens ProjectArtifacts ProjectArtifacts (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371390"><span class="annot"><span class="annottext">Maybe Bool
+overrideArtifactName :: Maybe Bool
+$sel:overrideArtifactName:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Bool
+</span><a href="#local-6989586621679371390"><span class="hs-identifier hs-var hs-var">overrideArtifactName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679371390"><span class="hs-identifier hs-var">overrideArtifactName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371389"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679371389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371388"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679371388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679371389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overrideArtifactName:ProjectArtifacts' :: Maybe Bool
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AoverrideArtifactName%3AProjectArtifacts%27"><span class="hs-identifier hs-var">overrideArtifactName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679371388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- | Set to true if you do not want your output artifacts encrypted. This</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- option is valid only if your artifacts type is Amazon S3. If this is set</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- with another artifacts type, an invalidInputException is thrown.</span><span>
+</span><span id="line-347"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_encryptionDisabled"><span class="hs-identifier hs-type">projectArtifacts_encryptionDisabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span id="projectArtifacts_encryptionDisabled"><span class="annot"><span class="annottext">projectArtifacts_encryptionDisabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ProjectArtifacts -&gt; f ProjectArtifacts
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_encryptionDisabled"><span class="hs-identifier hs-var hs-var">projectArtifacts_encryptionDisabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectArtifacts -&gt; Maybe Bool)
+-&gt; (ProjectArtifacts -&gt; Maybe Bool -&gt; ProjectArtifacts)
+-&gt; Lens ProjectArtifacts ProjectArtifacts (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371386"><span class="annot"><span class="annottext">Maybe Bool
+encryptionDisabled :: Maybe Bool
+$sel:encryptionDisabled:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Bool
+</span><a href="#local-6989586621679371386"><span class="hs-identifier hs-var hs-var">encryptionDisabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679371386"><span class="hs-identifier hs-var">encryptionDisabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371385"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679371385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371384"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679371384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679371385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionDisabled:ProjectArtifacts' :: Maybe Bool
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AencryptionDisabled%3AProjectArtifacts%27"><span class="hs-identifier hs-var">encryptionDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679371384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- | Along with @path@ and @namespaceType@, the pattern that CodeBuild uses</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- to name and store the output artifact:</span><span>
+</span><span id="line-352"></span><span class="hs-comment">--</span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--     if specified. This is because CodePipeline manages its build output</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--     names instead of CodeBuild.</span><span>
+</span><span id="line-356"></span><span class="hs-comment">--</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--     specified, because no build output is produced.</span><span>
+</span><span id="line-359"></span><span class="hs-comment">--</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- -   If @type@ is set to @S3@, this is the name of the output artifact</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--     object. If you set the name to be a forward slash (\&quot;\/\&quot;), the</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--     artifact is stored in the root of the output bucket.</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-365"></span><span class="hs-comment">--</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- -   If @path@ is set to @MyArtifacts@, @namespaceType@ is set to</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--     @BUILD_ID@, and @name@ is set to @MyArtifact.zip@, then the output</span><span>
+</span><span id="line-368"></span><span class="hs-comment">--     artifact is stored in @MyArtifacts\/\&lt;build-ID&gt;\/MyArtifact.zip@.</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- -   If @path@ is empty, @namespaceType@ is set to @NONE@, and @name@ is</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--     set to \&quot;@\/@\&quot;, the output artifact is stored in the root of the</span><span>
+</span><span id="line-372"></span><span class="hs-comment">--     output bucket.</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- -   If @path@ is set to @MyArtifacts@, @namespaceType@ is set to</span><span>
+</span><span id="line-375"></span><span class="hs-comment">--     @BUILD_ID@, and @name@ is set to \&quot;@\/@\&quot;, the output artifact is</span><span>
+</span><span id="line-376"></span><span class="hs-comment">--     stored in @MyArtifacts\/\&lt;build-ID&gt;@.</span><span>
+</span><span id="line-377"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_name"><span class="hs-identifier hs-type">projectArtifacts_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-378"></span><span id="projectArtifacts_name"><span class="annot"><span class="annottext">projectArtifacts_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProjectArtifacts -&gt; f ProjectArtifacts
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_name"><span class="hs-identifier hs-var hs-var">projectArtifacts_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectArtifacts -&gt; Maybe Text)
+-&gt; (ProjectArtifacts -&gt; Maybe Text -&gt; ProjectArtifacts)
+-&gt; Lens ProjectArtifacts ProjectArtifacts (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371382"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
+</span><a href="#local-6989586621679371382"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371382"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371381"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679371381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371380"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679371381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ProjectArtifacts' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Aname%3AProjectArtifacts%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-379"></span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- | The type of build output artifact to create:</span><span>
+</span><span id="line-381"></span><span class="hs-comment">--</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value</span><span>
+</span><span id="line-383"></span><span class="hs-comment">--     if specified. This is because CodePipeline manages its build output</span><span>
+</span><span id="line-384"></span><span class="hs-comment">--     artifacts instead of CodeBuild.</span><span>
+</span><span id="line-385"></span><span class="hs-comment">--</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--     specified, because no build output is produced.</span><span>
+</span><span id="line-388"></span><span class="hs-comment">--</span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- -   If @type@ is set to @S3@, valid values include:</span><span>
+</span><span id="line-390"></span><span class="hs-comment">--</span><span>
+</span><span id="line-391"></span><span class="hs-comment">--     -   @NONE@: CodeBuild creates in the output bucket a folder that</span><span>
+</span><span id="line-392"></span><span class="hs-comment">--         contains the build output. This is the default if @packaging@ is</span><span>
+</span><span id="line-393"></span><span class="hs-comment">--         not specified.</span><span>
+</span><span id="line-394"></span><span class="hs-comment">--</span><span>
+</span><span id="line-395"></span><span class="hs-comment">--     -   @ZIP@: CodeBuild creates in the output bucket a ZIP file that</span><span>
+</span><span id="line-396"></span><span class="hs-comment">--         contains the build output.</span><span>
+</span><span id="line-397"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_packaging"><span class="hs-identifier hs-type">projectArtifacts_packaging</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactPackaging.html#ArtifactPackaging"><span class="hs-identifier hs-type">ArtifactPackaging</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-398"></span><span id="projectArtifacts_packaging"><span class="annot"><span class="annottext">projectArtifacts_packaging :: (Maybe ArtifactPackaging -&gt; f (Maybe ArtifactPackaging))
+-&gt; ProjectArtifacts -&gt; f ProjectArtifacts
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_packaging"><span class="hs-identifier hs-var hs-var">projectArtifacts_packaging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectArtifacts -&gt; Maybe ArtifactPackaging)
+-&gt; (ProjectArtifacts
+    -&gt; Maybe ArtifactPackaging -&gt; ProjectArtifacts)
+-&gt; Lens
+     ProjectArtifacts
+     ProjectArtifacts
+     (Maybe ArtifactPackaging)
+     (Maybe ArtifactPackaging)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371378"><span class="annot"><span class="annottext">Maybe ArtifactPackaging
+packaging :: Maybe ArtifactPackaging
+$sel:packaging:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe ArtifactPackaging
+</span><a href="#local-6989586621679371378"><span class="hs-identifier hs-var hs-var">packaging</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactPackaging
+</span><a href="#local-6989586621679371378"><span class="hs-identifier hs-var">packaging</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371377"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679371377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371376"><span class="annot"><span class="annottext">Maybe ArtifactPackaging
+</span><a href="#local-6989586621679371376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679371377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packaging:ProjectArtifacts' :: Maybe ArtifactPackaging
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Apackaging%3AProjectArtifacts%27"><span class="hs-identifier hs-var">packaging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactPackaging
+</span><a href="#local-6989586621679371376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-399"></span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- | Along with @namespaceType@ and @name@, the pattern that CodeBuild uses</span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- to name and store the output artifact:</span><span>
+</span><span id="line-402"></span><span class="hs-comment">--</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value</span><span>
+</span><span id="line-404"></span><span class="hs-comment">--     if specified. This is because CodePipeline manages its build output</span><span>
+</span><span id="line-405"></span><span class="hs-comment">--     names instead of CodeBuild.</span><span>
+</span><span id="line-406"></span><span class="hs-comment">--</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if</span><span>
+</span><span id="line-408"></span><span class="hs-comment">--     specified, because no build output is produced.</span><span>
+</span><span id="line-409"></span><span class="hs-comment">--</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- -   If @type@ is set to @S3@, this is the path to the output artifact.</span><span>
+</span><span id="line-411"></span><span class="hs-comment">--     If @path@ is not specified, @path@ is not used.</span><span>
+</span><span id="line-412"></span><span class="hs-comment">--</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- For example, if @path@ is set to @MyArtifacts@, @namespaceType@ is set</span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- to @NONE@, and @name@ is set to @MyArtifact.zip@, the output artifact is</span><span>
+</span><span id="line-415"></span><span class="hs-comment">-- stored in the output bucket at @MyArtifacts\/MyArtifact.zip@.</span><span>
+</span><span id="line-416"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_path"><span class="hs-identifier hs-type">projectArtifacts_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-417"></span><span id="projectArtifacts_path"><span class="annot"><span class="annottext">projectArtifacts_path :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProjectArtifacts -&gt; f ProjectArtifacts
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_path"><span class="hs-identifier hs-var hs-var">projectArtifacts_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectArtifacts -&gt; Maybe Text)
+-&gt; (ProjectArtifacts -&gt; Maybe Text -&gt; ProjectArtifacts)
+-&gt; Lens ProjectArtifacts ProjectArtifacts (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371374"><span class="annot"><span class="annottext">Maybe Text
+path :: Maybe Text
+$sel:path:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
+</span><a href="#local-6989586621679371374"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371374"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371373"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679371373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371372"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679371373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:ProjectArtifacts' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Apath%3AProjectArtifacts%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-418"></span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- | Information about the build output artifact location:</span><span>
+</span><span id="line-420"></span><span class="hs-comment">--</span><span>
+</span><span id="line-421"></span><span class="hs-comment">-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value</span><span>
+</span><span id="line-422"></span><span class="hs-comment">--     if specified. This is because CodePipeline manages its build output</span><span>
+</span><span id="line-423"></span><span class="hs-comment">--     locations instead of CodeBuild.</span><span>
+</span><span id="line-424"></span><span class="hs-comment">--</span><span>
+</span><span id="line-425"></span><span class="hs-comment">-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if</span><span>
+</span><span id="line-426"></span><span class="hs-comment">--     specified, because no build output is produced.</span><span>
+</span><span id="line-427"></span><span class="hs-comment">--</span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- -   If @type@ is set to @S3@, this is the name of the output bucket.</span><span>
+</span><span id="line-429"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_location"><span class="hs-identifier hs-type">projectArtifacts_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-430"></span><span id="projectArtifacts_location"><span class="annot"><span class="annottext">projectArtifacts_location :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProjectArtifacts -&gt; f ProjectArtifacts
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_location"><span class="hs-identifier hs-var hs-var">projectArtifacts_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectArtifacts -&gt; Maybe Text)
+-&gt; (ProjectArtifacts -&gt; Maybe Text -&gt; ProjectArtifacts)
+-&gt; Lens ProjectArtifacts ProjectArtifacts (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371370"><span class="annot"><span class="annottext">Maybe Text
+location :: Maybe Text
+$sel:location:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
+</span><a href="#local-6989586621679371370"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371370"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371369"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679371369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371368"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679371369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:ProjectArtifacts' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Alocation%3AProjectArtifacts%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-431"></span><span>
+</span><span id="line-432"></span><span class="hs-comment">-- | The type of build output artifact. Valid values include:</span><span>
+</span><span id="line-433"></span><span class="hs-comment">--</span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- -   @CODEPIPELINE@: The build project has build output generated through</span><span>
+</span><span id="line-435"></span><span class="hs-comment">--     CodePipeline.</span><span>
+</span><span id="line-436"></span><span class="hs-comment">--</span><span>
+</span><span id="line-437"></span><span class="hs-comment">--     The @CODEPIPELINE@ type is not supported for @secondaryArtifacts@.</span><span>
+</span><span id="line-438"></span><span class="hs-comment">--</span><span>
+</span><span id="line-439"></span><span class="hs-comment">-- -   @NO_ARTIFACTS@: The build project does not produce any build output.</span><span>
+</span><span id="line-440"></span><span class="hs-comment">--</span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- -   @S3@: The build project stores build output in Amazon S3.</span><span>
+</span><span id="line-442"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_type"><span class="hs-identifier hs-type">projectArtifacts_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType"><span class="hs-identifier hs-type">ArtifactsType</span></a></span><span>
+</span><span id="line-443"></span><span id="projectArtifacts_type"><span class="annot"><span class="annottext">projectArtifacts_type :: (ArtifactsType -&gt; f ArtifactsType)
+-&gt; ProjectArtifacts -&gt; f ProjectArtifacts
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_type"><span class="hs-identifier hs-var hs-var">projectArtifacts_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectArtifacts -&gt; ArtifactsType)
+-&gt; (ProjectArtifacts -&gt; ArtifactsType -&gt; ProjectArtifacts)
+-&gt; Lens
+     ProjectArtifacts ProjectArtifacts ArtifactsType ArtifactsType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371366"><span class="annot"><span class="annottext">ArtifactsType
+type' :: ArtifactsType
+$sel:type':ProjectArtifacts' :: ProjectArtifacts -&gt; ArtifactsType
+</span><a href="#local-6989586621679371366"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactsType
+</span><a href="#local-6989586621679371366"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371365"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679371365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371364"><span class="annot"><span class="annottext">ArtifactsType
+</span><a href="#local-6989586621679371364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679371365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ProjectArtifacts' :: ArtifactsType
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Atype%27%3AProjectArtifacts%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArtifactsType
+</span><a href="#local-6989586621679371364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-444"></span><span>
+</span><span id="line-445"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371361"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-446"></span><span>  </span><span id="local-6989586621679371359"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectArtifacts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-447"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ProjectArtifacts)
+-&gt; Value
+-&gt; Parser ProjectArtifacts
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-448"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ProjectArtifacts&quot;</span></span><span>
+</span><span id="line-449"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371356"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371356"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-450"></span><span>          </span><span class="annot"><span class="annottext">Maybe BucketOwnerAccess
+-&gt; Maybe ArtifactNamespace
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe ArtifactPackaging
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ArtifactsType
+-&gt; ProjectArtifacts
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-var">ProjectArtifacts'</span></a></span><span>
+</span><span id="line-451"></span><span>            </span><span class="annot"><span class="annottext">(Maybe BucketOwnerAccess
+ -&gt; Maybe ArtifactNamespace
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe ArtifactPackaging
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ArtifactsType
+ -&gt; ProjectArtifacts)
+-&gt; Parser (Maybe BucketOwnerAccess)
+-&gt; Parser
+     (Maybe ArtifactNamespace
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe ArtifactPackaging
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ArtifactsType
+      -&gt; ProjectArtifacts)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BucketOwnerAccess)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bucketOwnerAccess&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-452"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ArtifactNamespace
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe ArtifactPackaging
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ArtifactsType
+   -&gt; ProjectArtifacts)
+-&gt; Parser (Maybe ArtifactNamespace)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe ArtifactPackaging
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ArtifactsType
+      -&gt; ProjectArtifacts)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArtifactNamespace)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;namespaceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-453"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe ArtifactPackaging
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ArtifactsType
+   -&gt; ProjectArtifacts)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe ArtifactPackaging
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ArtifactsType
+      -&gt; ProjectArtifacts)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;artifactIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-454"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe ArtifactPackaging
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ArtifactsType
+   -&gt; ProjectArtifacts)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe ArtifactPackaging
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ArtifactsType
+      -&gt; ProjectArtifacts)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;overrideArtifactName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-455"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe ArtifactPackaging
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ArtifactsType
+   -&gt; ProjectArtifacts)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ArtifactPackaging
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ArtifactsType
+      -&gt; ProjectArtifacts)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryptionDisabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-456"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ArtifactPackaging
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ArtifactsType
+   -&gt; ProjectArtifacts)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ArtifactPackaging
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; ArtifactsType -&gt; ProjectArtifacts)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-457"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ArtifactPackaging
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; ArtifactsType -&gt; ProjectArtifacts)
+-&gt; Parser (Maybe ArtifactPackaging)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; ArtifactsType -&gt; ProjectArtifacts)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArtifactPackaging)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;packaging&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-458"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; ArtifactsType -&gt; ProjectArtifacts)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; ArtifactsType -&gt; ProjectArtifacts)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;path&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-459"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ArtifactsType -&gt; ProjectArtifacts)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (ArtifactsType -&gt; ProjectArtifacts)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-460"></span><span>            </span><span class="annot"><span class="annottext">Parser (ArtifactsType -&gt; ProjectArtifacts)
+-&gt; Parser ArtifactsType -&gt; Parser ProjectArtifacts
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ArtifactsType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-461"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-462"></span><span>
+</span><span id="line-463"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371349"><span id="local-6989586621679371351"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span></span></span><span>
+</span><span id="line-464"></span><span>
+</span><span id="line-465"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span></span><span>
+</span><span id="line-466"></span><span>
+</span><span id="line-467"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371338"><span id="local-6989586621679371340"><span id="local-6989586621679371342"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-468"></span><span>  </span><span id="local-6989586621679371336"><span class="annot"><span class="annottext">toJSON :: ProjectArtifacts -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371325"><span id="local-6989586621679371326"><span id="local-6989586621679371327"><span id="local-6989586621679371328"><span id="local-6989586621679371329"><span id="local-6989586621679371330"><span id="local-6989586621679371331"><span id="local-6989586621679371332"><span id="local-6989586621679371333"><span id="local-6989586621679371334"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Maybe ArtifactNamespace
+Maybe ArtifactPackaging
+Maybe BucketOwnerAccess
+ArtifactsType
+type' :: ArtifactsType
+location :: Maybe Text
+path :: Maybe Text
+packaging :: Maybe ArtifactPackaging
+name :: Maybe Text
+encryptionDisabled :: Maybe Bool
+overrideArtifactName :: Maybe Bool
+artifactIdentifier :: Maybe Text
+namespaceType :: Maybe ArtifactNamespace
+bucketOwnerAccess :: Maybe BucketOwnerAccess
+$sel:type':ProjectArtifacts' :: ProjectArtifacts -&gt; ArtifactsType
+$sel:location:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
+$sel:path:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
+$sel:packaging:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe ArtifactPackaging
+$sel:name:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
+$sel:encryptionDisabled:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Bool
+$sel:overrideArtifactName:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Bool
+$sel:artifactIdentifier:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
+$sel:namespaceType:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe ArtifactNamespace
+$sel:bucketOwnerAccess:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe BucketOwnerAccess
+</span><a href="#local-6989586621679371325"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-469"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-470"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-471"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bucketOwnerAccess&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BucketOwnerAccess -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-472"></span><span>              </span><span class="annot"><span class="annottext">(BucketOwnerAccess -&gt; Pair)
+-&gt; Maybe BucketOwnerAccess -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BucketOwnerAccess
+</span><a href="#local-6989586621679371334"><span class="hs-identifier hs-var">bucketOwnerAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-473"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;namespaceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ArtifactNamespace -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ArtifactNamespace -&gt; Pair)
+-&gt; Maybe ArtifactNamespace -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactNamespace
+</span><a href="#local-6989586621679371333"><span class="hs-identifier hs-var">namespaceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-474"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;artifactIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-475"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371332"><span class="hs-identifier hs-var">artifactIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-476"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;overrideArtifactName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-477"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679371331"><span class="hs-identifier hs-var">overrideArtifactName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-478"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryptionDisabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-479"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679371330"><span class="hs-identifier hs-var">encryptionDisabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-480"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371329"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-481"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;packaging&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ArtifactPackaging -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ArtifactPackaging -&gt; Pair)
+-&gt; Maybe ArtifactPackaging -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactPackaging
+</span><a href="#local-6989586621679371328"><span class="hs-identifier hs-var">packaging</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-482"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;path&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371327"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-483"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371326"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-484"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ArtifactsType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ArtifactsType
+</span><a href="#local-6989586621679371325"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-485"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-486"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-487"></span></pre></body></html>

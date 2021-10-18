@@ -1,0 +1,836 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the connection status of the specified WorkSpaces.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus"><span class="hs-identifier">DescribeWorkspacesConnectionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#newDescribeWorkspacesConnectionStatus"><span class="hs-identifier">newDescribeWorkspacesConnectionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatus_nextToken"><span class="hs-identifier">describeWorkspacesConnectionStatus_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatus_workspaceIds"><span class="hs-identifier">describeWorkspacesConnectionStatus_workspaceIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse"><span class="hs-identifier">DescribeWorkspacesConnectionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#newDescribeWorkspacesConnectionStatusResponse"><span class="hs-identifier">newDescribeWorkspacesConnectionStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatusResponse_nextToken"><span class="hs-identifier">describeWorkspacesConnectionStatusResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus"><span class="hs-identifier">describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatusResponse_httpStatus"><span class="hs-identifier">describeWorkspacesConnectionStatusResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribeWorkspacesConnectionStatus' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679279837"><span id="local-6989586621679279838"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeWorkspacesConnectionStatus"><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-var">DescribeWorkspacesConnectionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeWorkspacesConnectionStatus%27"><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus%27"><span class="hs-identifier hs-var">DescribeWorkspacesConnectionStatus'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you received a @NextToken@ from a previous call that was paginated,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- provide this token to receive the next set of results.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeWorkspacesConnectionStatus%27"><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatus -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#%24sel%3AnextToken%3ADescribeWorkspacesConnectionStatus%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AworkspaceIds%3ADescribeWorkspacesConnectionStatus%27"><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatus -&gt; Maybe (NonEmpty Text)
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#%24sel%3AworkspaceIds%3ADescribeWorkspacesConnectionStatus%27"><span class="hs-identifier hs-var hs-var">workspaceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279830"><span id="local-6989586621679279832"><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatus
+-&gt; DescribeWorkspacesConnectionStatus -&gt; Bool
+(DescribeWorkspacesConnectionStatus
+ -&gt; DescribeWorkspacesConnectionStatus -&gt; Bool)
+-&gt; (DescribeWorkspacesConnectionStatus
+    -&gt; DescribeWorkspacesConnectionStatus -&gt; Bool)
+-&gt; Eq DescribeWorkspacesConnectionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeWorkspacesConnectionStatus
+-&gt; DescribeWorkspacesConnectionStatus -&gt; Bool
+$c/= :: DescribeWorkspacesConnectionStatus
+-&gt; DescribeWorkspacesConnectionStatus -&gt; Bool
+== :: DescribeWorkspacesConnectionStatus
+-&gt; DescribeWorkspacesConnectionStatus -&gt; Bool
+$c== :: DescribeWorkspacesConnectionStatus
+-&gt; DescribeWorkspacesConnectionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279821"><span id="local-6989586621679279823"><span id="local-6989586621679279825"><span id="local-6989586621679279827"><span class="annot"><span class="annottext">ReadPrec [DescribeWorkspacesConnectionStatus]
+ReadPrec DescribeWorkspacesConnectionStatus
+Int -&gt; ReadS DescribeWorkspacesConnectionStatus
+ReadS [DescribeWorkspacesConnectionStatus]
+(Int -&gt; ReadS DescribeWorkspacesConnectionStatus)
+-&gt; ReadS [DescribeWorkspacesConnectionStatus]
+-&gt; ReadPrec DescribeWorkspacesConnectionStatus
+-&gt; ReadPrec [DescribeWorkspacesConnectionStatus]
+-&gt; Read DescribeWorkspacesConnectionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeWorkspacesConnectionStatus]
+$creadListPrec :: ReadPrec [DescribeWorkspacesConnectionStatus]
+readPrec :: ReadPrec DescribeWorkspacesConnectionStatus
+$creadPrec :: ReadPrec DescribeWorkspacesConnectionStatus
+readList :: ReadS [DescribeWorkspacesConnectionStatus]
+$creadList :: ReadS [DescribeWorkspacesConnectionStatus]
+readsPrec :: Int -&gt; ReadS DescribeWorkspacesConnectionStatus
+$creadsPrec :: Int -&gt; ReadS DescribeWorkspacesConnectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279814"><span id="local-6989586621679279816"><span id="local-6989586621679279818"><span class="annot"><span class="annottext">Int -&gt; DescribeWorkspacesConnectionStatus -&gt; ShowS
+[DescribeWorkspacesConnectionStatus] -&gt; ShowS
+DescribeWorkspacesConnectionStatus -&gt; String
+(Int -&gt; DescribeWorkspacesConnectionStatus -&gt; ShowS)
+-&gt; (DescribeWorkspacesConnectionStatus -&gt; String)
+-&gt; ([DescribeWorkspacesConnectionStatus] -&gt; ShowS)
+-&gt; Show DescribeWorkspacesConnectionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeWorkspacesConnectionStatus] -&gt; ShowS
+$cshowList :: [DescribeWorkspacesConnectionStatus] -&gt; ShowS
+show :: DescribeWorkspacesConnectionStatus -&gt; String
+$cshow :: DescribeWorkspacesConnectionStatus -&gt; String
+showsPrec :: Int -&gt; DescribeWorkspacesConnectionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeWorkspacesConnectionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeWorkspacesConnectionStatus
+ -&gt; Rep DescribeWorkspacesConnectionStatus x)
+-&gt; (forall x.
+    Rep DescribeWorkspacesConnectionStatus x
+    -&gt; DescribeWorkspacesConnectionStatus)
+-&gt; Generic DescribeWorkspacesConnectionStatus
+forall x.
+Rep DescribeWorkspacesConnectionStatus x
+-&gt; DescribeWorkspacesConnectionStatus
+forall x.
+DescribeWorkspacesConnectionStatus
+-&gt; Rep DescribeWorkspacesConnectionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeWorkspacesConnectionStatus x
+-&gt; DescribeWorkspacesConnectionStatus
+$cfrom :: forall x.
+DescribeWorkspacesConnectionStatus
+-&gt; Rep DescribeWorkspacesConnectionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'DescribeWorkspacesConnectionStatus' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'nextToken', 'describeWorkspacesConnectionStatus_nextToken' - If you received a @NextToken@ from a previous call that was paginated,</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- provide this token to receive the next set of results.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'workspaceIds', 'describeWorkspacesConnectionStatus_workspaceIds' - The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#newDescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-type">newDescribeWorkspacesConnectionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus</span></a></span><span>
+</span><span id="line-77"></span><span id="newDescribeWorkspacesConnectionStatus"><span class="annot"><span class="annottext">newDescribeWorkspacesConnectionStatus :: DescribeWorkspacesConnectionStatus
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#newDescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-var hs-var">newDescribeWorkspacesConnectionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatus' :: Maybe Text
+-&gt; Maybe (NonEmpty Text) -&gt; DescribeWorkspacesConnectionStatus
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus%27"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeWorkspacesConnectionStatus' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#%24sel%3AnextToken%3ADescribeWorkspacesConnectionStatus%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:workspaceIds:DescribeWorkspacesConnectionStatus' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#%24sel%3AworkspaceIds%3ADescribeWorkspacesConnectionStatus%27"><span class="hs-identifier hs-var">workspaceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | If you received a @NextToken@ from a previous call that was paginated,</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- provide this token to receive the next set of results.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatus_nextToken"><span class="hs-identifier hs-type">describeWorkspacesConnectionStatus_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="describeWorkspacesConnectionStatus_nextToken"><span class="annot"><span class="annottext">describeWorkspacesConnectionStatus_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeWorkspacesConnectionStatus
+-&gt; f DescribeWorkspacesConnectionStatus
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatus_nextToken"><span class="hs-identifier hs-var hs-var">describeWorkspacesConnectionStatus_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeWorkspacesConnectionStatus -&gt; Maybe Text)
+-&gt; (DescribeWorkspacesConnectionStatus
+    -&gt; Maybe Text -&gt; DescribeWorkspacesConnectionStatus)
+-&gt; Lens
+     DescribeWorkspacesConnectionStatus
+     DescribeWorkspacesConnectionStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus%27"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279808"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeWorkspacesConnectionStatus' :: DescribeWorkspacesConnectionStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679279808"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279808"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279807"><span class="annot"><span class="annottext">s :: DescribeWorkspacesConnectionStatus
+</span><a href="#local-6989586621679279807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus%27"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279806"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatus
+</span><a href="#local-6989586621679279807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeWorkspacesConnectionStatus' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#%24sel%3AnextToken%3ADescribeWorkspacesConnectionStatus%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatus_workspaceIds"><span class="hs-identifier hs-type">describeWorkspacesConnectionStatus_workspaceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="describeWorkspacesConnectionStatus_workspaceIds"><span class="annot"><span class="annottext">describeWorkspacesConnectionStatus_workspaceIds :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; DescribeWorkspacesConnectionStatus
+-&gt; f DescribeWorkspacesConnectionStatus
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatus_workspaceIds"><span class="hs-identifier hs-var hs-var">describeWorkspacesConnectionStatus_workspaceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeWorkspacesConnectionStatus -&gt; Maybe (NonEmpty Text))
+-&gt; (DescribeWorkspacesConnectionStatus
+    -&gt; Maybe (NonEmpty Text) -&gt; DescribeWorkspacesConnectionStatus)
+-&gt; Lens
+     DescribeWorkspacesConnectionStatus
+     DescribeWorkspacesConnectionStatus
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus%27"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279805"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+workspaceIds :: Maybe (NonEmpty Text)
+$sel:workspaceIds:DescribeWorkspacesConnectionStatus' :: DescribeWorkspacesConnectionStatus -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679279805"><span class="hs-identifier hs-var hs-var">workspaceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679279805"><span class="hs-identifier hs-var">workspaceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279804"><span class="annot"><span class="annottext">s :: DescribeWorkspacesConnectionStatus
+</span><a href="#local-6989586621679279804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus%27"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279803"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679279803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatus
+</span><a href="#local-6989586621679279804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceIds:DescribeWorkspacesConnectionStatus' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#%24sel%3AworkspaceIds%3ADescribeWorkspacesConnectionStatus%27"><span class="hs-identifier hs-var">workspaceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679279803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; DescribeWorkspacesConnectionStatus
+ -&gt; f DescribeWorkspacesConnectionStatus)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; DescribeWorkspacesConnectionStatus
+-&gt; f DescribeWorkspacesConnectionStatus
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679279796"><span class="annot"><span class="annottext">page :: DescribeWorkspacesConnectionStatus
+-&gt; AWSResponse DescribeWorkspacesConnectionStatus
+-&gt; Maybe DescribeWorkspacesConnectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679279794"><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatus
+</span><a href="#local-6989586621679279794"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679279793"><span class="annot"><span class="annottext">AWSResponse DescribeWorkspacesConnectionStatus
+</span><a href="#local-6989586621679279793"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-99"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeWorkspacesConnectionStatus
+DescribeWorkspacesConnectionStatusResponse
+</span><a href="#local-6989586621679279793"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatusResponse
+-&gt; Getting
+     (First Text) DescribeWorkspacesConnectionStatusResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeWorkspacesConnectionStatusResponse
+-&gt; Const (First Text) DescribeWorkspacesConnectionStatusResponse
+Lens' DescribeWorkspacesConnectionStatusResponse (Maybe Text)
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatusResponse_nextToken"><span class="hs-identifier hs-var">describeWorkspacesConnectionStatusResponse_nextToken</span></a></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeWorkspacesConnectionStatusResponse
+ -&gt; Const (First Text) DescribeWorkspacesConnectionStatusResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) DescribeWorkspacesConnectionStatusResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-102"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeWorkspacesConnectionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [WorkspaceConnectionStatus] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-105"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeWorkspacesConnectionStatus
+DescribeWorkspacesConnectionStatusResponse
+</span><a href="#local-6989586621679279793"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatusResponse
+-&gt; Getting
+     (First [WorkspaceConnectionStatus])
+     DescribeWorkspacesConnectionStatusResponse
+     [WorkspaceConnectionStatus]
+-&gt; Maybe [WorkspaceConnectionStatus]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [WorkspaceConnectionStatus]
+ -&gt; Const
+      (First [WorkspaceConnectionStatus])
+      (Maybe [WorkspaceConnectionStatus]))
+-&gt; DescribeWorkspacesConnectionStatusResponse
+-&gt; Const
+     (First [WorkspaceConnectionStatus])
+     DescribeWorkspacesConnectionStatusResponse
+Lens'
+  DescribeWorkspacesConnectionStatusResponse
+  (Maybe [WorkspaceConnectionStatus])
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus"><span class="hs-identifier hs-var">describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus</span></a></span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [WorkspaceConnectionStatus]
+  -&gt; Const
+       (First [WorkspaceConnectionStatus])
+       (Maybe [WorkspaceConnectionStatus]))
+ -&gt; DescribeWorkspacesConnectionStatusResponse
+ -&gt; Const
+      (First [WorkspaceConnectionStatus])
+      DescribeWorkspacesConnectionStatusResponse)
+-&gt; (([WorkspaceConnectionStatus]
+     -&gt; Const
+          (First [WorkspaceConnectionStatus]) [WorkspaceConnectionStatus])
+    -&gt; Maybe [WorkspaceConnectionStatus]
+    -&gt; Const
+         (First [WorkspaceConnectionStatus])
+         (Maybe [WorkspaceConnectionStatus]))
+-&gt; Getting
+     (First [WorkspaceConnectionStatus])
+     DescribeWorkspacesConnectionStatusResponse
+     [WorkspaceConnectionStatus]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([WorkspaceConnectionStatus]
+ -&gt; Const
+      (First [WorkspaceConnectionStatus]) [WorkspaceConnectionStatus])
+-&gt; Maybe [WorkspaceConnectionStatus]
+-&gt; Const
+     (First [WorkspaceConnectionStatus])
+     (Maybe [WorkspaceConnectionStatus])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-108"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeWorkspacesConnectionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatus
+-&gt; Maybe DescribeWorkspacesConnectionStatus
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeWorkspacesConnectionStatus
+ -&gt; Maybe DescribeWorkspacesConnectionStatus)
+-&gt; DescribeWorkspacesConnectionStatus
+-&gt; Maybe DescribeWorkspacesConnectionStatus
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatus
+</span><a href="#local-6989586621679279794"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatus
+-&gt; (DescribeWorkspacesConnectionStatus
+    -&gt; DescribeWorkspacesConnectionStatus)
+-&gt; DescribeWorkspacesConnectionStatus
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeWorkspacesConnectionStatus
+-&gt; Identity DescribeWorkspacesConnectionStatus
+Lens
+  DescribeWorkspacesConnectionStatus
+  DescribeWorkspacesConnectionStatus
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatus_nextToken"><span class="hs-identifier hs-var">describeWorkspacesConnectionStatus_nextToken</span></a></span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeWorkspacesConnectionStatus
+ -&gt; Identity DescribeWorkspacesConnectionStatus)
+-&gt; Maybe Text
+-&gt; DescribeWorkspacesConnectionStatus
+-&gt; DescribeWorkspacesConnectionStatus
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeWorkspacesConnectionStatus
+DescribeWorkspacesConnectionStatusResponse
+</span><a href="#local-6989586621679279793"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatusResponse
+-&gt; Getting
+     (First Text) DescribeWorkspacesConnectionStatusResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeWorkspacesConnectionStatusResponse
+-&gt; Const (First Text) DescribeWorkspacesConnectionStatusResponse
+Lens' DescribeWorkspacesConnectionStatusResponse (Maybe Text)
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatusResponse_nextToken"><span class="hs-identifier hs-var">describeWorkspacesConnectionStatusResponse_nextToken</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeWorkspacesConnectionStatusResponse
+ -&gt; Const (First Text) DescribeWorkspacesConnectionStatusResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) DescribeWorkspacesConnectionStatusResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-123"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatusResponse</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679279784"><span class="annot"><span class="annottext">request :: DescribeWorkspacesConnectionStatus
+-&gt; Request DescribeWorkspacesConnectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeWorkspacesConnectionStatus
+-&gt; Request DescribeWorkspacesConnectionStatus
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679279780"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeWorkspacesConnectionStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeWorkspacesConnectionStatus)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeWorkspacesConnectionStatus))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeWorkspacesConnectionStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeWorkspacesConnectionStatus)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279777"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279777"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279776"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679279776"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279775"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279775"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [WorkspaceConnectionStatus]
+-&gt; Int
+-&gt; DescribeWorkspacesConnectionStatusResponse
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-var">DescribeWorkspacesConnectionStatusResponse'</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [WorkspaceConnectionStatus]
+ -&gt; Int
+ -&gt; DescribeWorkspacesConnectionStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [WorkspaceConnectionStatus]
+      -&gt; Int -&gt; DescribeWorkspacesConnectionStatusResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [WorkspaceConnectionStatus]
+   -&gt; Int -&gt; DescribeWorkspacesConnectionStatusResponse)
+-&gt; Either String (Maybe [WorkspaceConnectionStatus])
+-&gt; Either
+     String (Int -&gt; DescribeWorkspacesConnectionStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [WorkspaceConnectionStatus]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkspacesConnectionStatus&quot;</span></span><span>
+</span><span id="line-132"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [WorkspaceConnectionStatus]))
+-&gt; Maybe [WorkspaceConnectionStatus]
+-&gt; Either String (Maybe [WorkspaceConnectionStatus])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [WorkspaceConnectionStatus]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeWorkspacesConnectionStatusResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeWorkspacesConnectionStatusResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279777"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679279766"><span id="local-6989586621679279768"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679279763"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus</span></a></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679279759"><span class="annot"><span class="annottext">toHeaders :: DescribeWorkspacesConnectionStatus -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribeWorkspacesConnectionStatus -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkspacesService.DescribeWorkspacesConnectionStatus&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-155"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-159"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679279749"><span id="local-6989586621679279751"><span id="local-6989586621679279753"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus</span></a></span></span></span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679279747"><span class="annot"><span class="annottext">toJSON :: DescribeWorkspacesConnectionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus%27"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279744"><span id="local-6989586621679279745"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+Maybe Text
+workspaceIds :: Maybe (NonEmpty Text)
+nextToken :: Maybe Text
+$sel:workspaceIds:DescribeWorkspacesConnectionStatus' :: DescribeWorkspacesConnectionStatus -&gt; Maybe (NonEmpty Text)
+$sel:nextToken:DescribeWorkspacesConnectionStatus' :: DescribeWorkspacesConnectionStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679279744"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279745"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkspaceIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679279744"><span class="hs-identifier hs-var">workspaceIds</span></a></span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus</span></a></span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679279738"><span class="annot"><span class="annottext">toPath :: DescribeWorkspacesConnectionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeWorkspacesConnectionStatus -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatus"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatus</span></a></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679279734"><span class="annot"><span class="annottext">toQuery :: DescribeWorkspacesConnectionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeWorkspacesConnectionStatus -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | /See:/ 'newDescribeWorkspacesConnectionStatusResponse' smart constructor.</span><span>
+</span><span id="line-188"></span><span id="local-6989586621679279731"><span id="local-6989586621679279732"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeWorkspacesConnectionStatusResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse"><span class="hs-identifier hs-var">DescribeWorkspacesConnectionStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeWorkspacesConnectionStatusResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-var">DescribeWorkspacesConnectionStatusResponse'</span></a></span></span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- null when there are no more results to return.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeWorkspacesConnectionStatusResponse%27"><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#%24sel%3AnextToken%3ADescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | Information about the connection status of the WorkSpace.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AworkspacesConnectionStatus%3ADescribeWorkspacesConnectionStatusResponse%27"><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatusResponse
+-&gt; Maybe [WorkspaceConnectionStatus]
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#%24sel%3AworkspacesConnectionStatus%3ADescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-var hs-var">workspacesConnectionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceConnectionStatus.html#WorkspaceConnectionStatus"><span class="hs-identifier hs-type">WorkspaceConnectionStatus</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeWorkspacesConnectionStatusResponse%27"><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatusResponse -&gt; Int
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#%24sel%3AhttpStatus%3ADescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279724"><span id="local-6989586621679279726"><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatusResponse
+-&gt; DescribeWorkspacesConnectionStatusResponse -&gt; Bool
+(DescribeWorkspacesConnectionStatusResponse
+ -&gt; DescribeWorkspacesConnectionStatusResponse -&gt; Bool)
+-&gt; (DescribeWorkspacesConnectionStatusResponse
+    -&gt; DescribeWorkspacesConnectionStatusResponse -&gt; Bool)
+-&gt; Eq DescribeWorkspacesConnectionStatusResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeWorkspacesConnectionStatusResponse
+-&gt; DescribeWorkspacesConnectionStatusResponse -&gt; Bool
+$c/= :: DescribeWorkspacesConnectionStatusResponse
+-&gt; DescribeWorkspacesConnectionStatusResponse -&gt; Bool
+== :: DescribeWorkspacesConnectionStatusResponse
+-&gt; DescribeWorkspacesConnectionStatusResponse -&gt; Bool
+$c== :: DescribeWorkspacesConnectionStatusResponse
+-&gt; DescribeWorkspacesConnectionStatusResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279716"><span id="local-6989586621679279718"><span id="local-6989586621679279720"><span id="local-6989586621679279722"><span class="annot"><span class="annottext">ReadPrec [DescribeWorkspacesConnectionStatusResponse]
+ReadPrec DescribeWorkspacesConnectionStatusResponse
+Int -&gt; ReadS DescribeWorkspacesConnectionStatusResponse
+ReadS [DescribeWorkspacesConnectionStatusResponse]
+(Int -&gt; ReadS DescribeWorkspacesConnectionStatusResponse)
+-&gt; ReadS [DescribeWorkspacesConnectionStatusResponse]
+-&gt; ReadPrec DescribeWorkspacesConnectionStatusResponse
+-&gt; ReadPrec [DescribeWorkspacesConnectionStatusResponse]
+-&gt; Read DescribeWorkspacesConnectionStatusResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeWorkspacesConnectionStatusResponse]
+$creadListPrec :: ReadPrec [DescribeWorkspacesConnectionStatusResponse]
+readPrec :: ReadPrec DescribeWorkspacesConnectionStatusResponse
+$creadPrec :: ReadPrec DescribeWorkspacesConnectionStatusResponse
+readList :: ReadS [DescribeWorkspacesConnectionStatusResponse]
+$creadList :: ReadS [DescribeWorkspacesConnectionStatusResponse]
+readsPrec :: Int -&gt; ReadS DescribeWorkspacesConnectionStatusResponse
+$creadsPrec :: Int -&gt; ReadS DescribeWorkspacesConnectionStatusResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279710"><span id="local-6989586621679279712"><span id="local-6989586621679279714"><span class="annot"><span class="annottext">Int -&gt; DescribeWorkspacesConnectionStatusResponse -&gt; ShowS
+[DescribeWorkspacesConnectionStatusResponse] -&gt; ShowS
+DescribeWorkspacesConnectionStatusResponse -&gt; String
+(Int -&gt; DescribeWorkspacesConnectionStatusResponse -&gt; ShowS)
+-&gt; (DescribeWorkspacesConnectionStatusResponse -&gt; String)
+-&gt; ([DescribeWorkspacesConnectionStatusResponse] -&gt; ShowS)
+-&gt; Show DescribeWorkspacesConnectionStatusResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeWorkspacesConnectionStatusResponse] -&gt; ShowS
+$cshowList :: [DescribeWorkspacesConnectionStatusResponse] -&gt; ShowS
+show :: DescribeWorkspacesConnectionStatusResponse -&gt; String
+$cshow :: DescribeWorkspacesConnectionStatusResponse -&gt; String
+showsPrec :: Int -&gt; DescribeWorkspacesConnectionStatusResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeWorkspacesConnectionStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeWorkspacesConnectionStatusResponse
+ -&gt; Rep DescribeWorkspacesConnectionStatusResponse x)
+-&gt; (forall x.
+    Rep DescribeWorkspacesConnectionStatusResponse x
+    -&gt; DescribeWorkspacesConnectionStatusResponse)
+-&gt; Generic DescribeWorkspacesConnectionStatusResponse
+forall x.
+Rep DescribeWorkspacesConnectionStatusResponse x
+-&gt; DescribeWorkspacesConnectionStatusResponse
+forall x.
+DescribeWorkspacesConnectionStatusResponse
+-&gt; Rep DescribeWorkspacesConnectionStatusResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeWorkspacesConnectionStatusResponse x
+-&gt; DescribeWorkspacesConnectionStatusResponse
+$cfrom :: forall x.
+DescribeWorkspacesConnectionStatusResponse
+-&gt; Rep DescribeWorkspacesConnectionStatusResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Create a value of 'DescribeWorkspacesConnectionStatusResponse' with all optional fields omitted.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'nextToken', 'describeWorkspacesConnectionStatusResponse_nextToken' - The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- null when there are no more results to return.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'workspacesConnectionStatus', 'describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus' - Information about the connection status of the WorkSpace.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'httpStatus', 'describeWorkspacesConnectionStatusResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#newDescribeWorkspacesConnectionStatusResponse"><span class="hs-identifier hs-type">newDescribeWorkspacesConnectionStatusResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatusResponse</span></a></span><span>
+</span><span id="line-217"></span><span id="newDescribeWorkspacesConnectionStatusResponse"><span class="annot"><span class="annottext">newDescribeWorkspacesConnectionStatusResponse :: Int -&gt; DescribeWorkspacesConnectionStatusResponse
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#newDescribeWorkspacesConnectionStatusResponse"><span class="hs-identifier hs-var hs-var">newDescribeWorkspacesConnectionStatusResponse</span></a></span></span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679279707"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279707"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatusResponse' :: Maybe Text
+-&gt; Maybe [WorkspaceConnectionStatus]
+-&gt; Int
+-&gt; DescribeWorkspacesConnectionStatusResponse
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatusResponse'</span></a></span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeWorkspacesConnectionStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#%24sel%3AnextToken%3ADescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">$sel:workspacesConnectionStatus:DescribeWorkspacesConnectionStatusResponse' :: Maybe [WorkspaceConnectionStatus]
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#%24sel%3AworkspacesConnectionStatus%3ADescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-var">workspacesConnectionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">Maybe [WorkspaceConnectionStatus]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeWorkspacesConnectionStatusResponse' :: Int
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#%24sel%3AhttpStatus%3ADescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279707"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- null when there are no more results to return.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatusResponse_nextToken"><span class="hs-identifier hs-type">describeWorkspacesConnectionStatusResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="describeWorkspacesConnectionStatusResponse_nextToken"><span class="annot"><span class="annottext">describeWorkspacesConnectionStatusResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeWorkspacesConnectionStatusResponse
+-&gt; f DescribeWorkspacesConnectionStatusResponse
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatusResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeWorkspacesConnectionStatusResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeWorkspacesConnectionStatusResponse -&gt; Maybe Text)
+-&gt; (DescribeWorkspacesConnectionStatusResponse
+    -&gt; Maybe Text -&gt; DescribeWorkspacesConnectionStatusResponse)
+-&gt; Lens' DescribeWorkspacesConnectionStatusResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279706"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeWorkspacesConnectionStatusResponse' :: DescribeWorkspacesConnectionStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679279706"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279706"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279705"><span class="annot"><span class="annottext">s :: DescribeWorkspacesConnectionStatusResponse
+</span><a href="#local-6989586621679279705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279704"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatusResponse
+</span><a href="#local-6989586621679279705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeWorkspacesConnectionStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#%24sel%3AnextToken%3ADescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | Information about the connection status of the WorkSpace.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus"><span class="hs-identifier hs-type">describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceConnectionStatus.html#WorkspaceConnectionStatus"><span class="hs-identifier hs-type">WorkspaceConnectionStatus</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus"><span class="annot"><span class="annottext">describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus :: (Maybe [WorkspaceConnectionStatus]
+ -&gt; f (Maybe [WorkspaceConnectionStatus]))
+-&gt; DescribeWorkspacesConnectionStatusResponse
+-&gt; f DescribeWorkspacesConnectionStatusResponse
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus"><span class="hs-identifier hs-var hs-var">describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeWorkspacesConnectionStatusResponse
+ -&gt; Maybe [WorkspaceConnectionStatus])
+-&gt; (DescribeWorkspacesConnectionStatusResponse
+    -&gt; Maybe [WorkspaceConnectionStatus]
+    -&gt; DescribeWorkspacesConnectionStatusResponse)
+-&gt; Lens'
+     DescribeWorkspacesConnectionStatusResponse
+     (Maybe [WorkspaceConnectionStatus])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279703"><span class="annot"><span class="annottext">Maybe [WorkspaceConnectionStatus]
+workspacesConnectionStatus :: Maybe [WorkspaceConnectionStatus]
+$sel:workspacesConnectionStatus:DescribeWorkspacesConnectionStatusResponse' :: DescribeWorkspacesConnectionStatusResponse
+-&gt; Maybe [WorkspaceConnectionStatus]
+</span><a href="#local-6989586621679279703"><span class="hs-identifier hs-var hs-var">workspacesConnectionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [WorkspaceConnectionStatus]
+</span><a href="#local-6989586621679279703"><span class="hs-identifier hs-var">workspacesConnectionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279702"><span class="annot"><span class="annottext">s :: DescribeWorkspacesConnectionStatusResponse
+</span><a href="#local-6989586621679279702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279701"><span class="annot"><span class="annottext">Maybe [WorkspaceConnectionStatus]
+</span><a href="#local-6989586621679279701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatusResponse
+</span><a href="#local-6989586621679279702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspacesConnectionStatus:DescribeWorkspacesConnectionStatusResponse' :: Maybe [WorkspaceConnectionStatus]
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#%24sel%3AworkspacesConnectionStatus%3ADescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-var">workspacesConnectionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [WorkspaceConnectionStatus]
+</span><a href="#local-6989586621679279701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [WorkspaceConnectionStatus]
+  -&gt; f (Maybe [WorkspaceConnectionStatus]))
+ -&gt; DescribeWorkspacesConnectionStatusResponse
+ -&gt; f DescribeWorkspacesConnectionStatusResponse)
+-&gt; ((Maybe [WorkspaceConnectionStatus]
+     -&gt; f (Maybe [WorkspaceConnectionStatus]))
+    -&gt; Maybe [WorkspaceConnectionStatus]
+    -&gt; f (Maybe [WorkspaceConnectionStatus]))
+-&gt; (Maybe [WorkspaceConnectionStatus]
+    -&gt; f (Maybe [WorkspaceConnectionStatus]))
+-&gt; DescribeWorkspacesConnectionStatusResponse
+-&gt; f DescribeWorkspacesConnectionStatusResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [WorkspaceConnectionStatus]
+  [WorkspaceConnectionStatus]
+  [WorkspaceConnectionStatus]
+  [WorkspaceConnectionStatus]
+-&gt; Iso
+     (Maybe [WorkspaceConnectionStatus])
+     (Maybe [WorkspaceConnectionStatus])
+     (Maybe [WorkspaceConnectionStatus])
+     (Maybe [WorkspaceConnectionStatus])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [WorkspaceConnectionStatus]
+  [WorkspaceConnectionStatus]
+  [WorkspaceConnectionStatus]
+  [WorkspaceConnectionStatus]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatusResponse_httpStatus"><span class="hs-identifier hs-type">describeWorkspacesConnectionStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-238"></span><span id="describeWorkspacesConnectionStatusResponse_httpStatus"><span class="annot"><span class="annottext">describeWorkspacesConnectionStatusResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeWorkspacesConnectionStatusResponse
+-&gt; f DescribeWorkspacesConnectionStatusResponse
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#describeWorkspacesConnectionStatusResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeWorkspacesConnectionStatusResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeWorkspacesConnectionStatusResponse -&gt; Int)
+-&gt; (DescribeWorkspacesConnectionStatusResponse
+    -&gt; Int -&gt; DescribeWorkspacesConnectionStatusResponse)
+-&gt; Lens
+     DescribeWorkspacesConnectionStatusResponse
+     DescribeWorkspacesConnectionStatusResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279700"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeWorkspacesConnectionStatusResponse' :: DescribeWorkspacesConnectionStatusResponse -&gt; Int
+</span><a href="#local-6989586621679279700"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279700"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279699"><span class="annot"><span class="annottext">s :: DescribeWorkspacesConnectionStatusResponse
+</span><a href="#local-6989586621679279699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279698"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeWorkspacesConnectionStatusResponse
+</span><a href="#local-6989586621679279699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeWorkspacesConnectionStatusResponse' :: Int
+</span><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#%24sel%3AhttpStatus%3ADescribeWorkspacesConnectionStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679279696"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus.html#DescribeWorkspacesConnectionStatusResponse"><span class="hs-identifier hs-type">DescribeWorkspacesConnectionStatusResponse</span></a></span></span><span>
+</span><span id="line-243"></span></pre></body></html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.H265TemporalIds</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.H265TemporalIds</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#H265TemporalIds"><span class="hs-identifier">H265TemporalIds</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#H265TemporalIds_DISABLED"><span class="hs-identifier">H265TemporalIds_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#H265TemporalIds_ENABLED"><span class="hs-identifier">H265TemporalIds_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Enables temporal layer identifiers in the encoded bitstream. Up to 3</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- layers are supported depending on GOP structure: I- and P-frames form</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- one layer, reference B-frames can form a second layer and non-reference</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- b-frames can form a third layer. Decoders can optionally decode only the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- lower temporal layers to generate a lower frame rate output. For</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- example, given a bitstream with temporal IDs and with b-frames = 1 (i.e.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- IbPbPb display order), a decoder could decode all the frames for full</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- frame rate output or only the I and P frames (lowest temporal layer) for</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- a half frame rate output.</span><span>
+</span><span id="line-41"></span><span id="local-6989586621679968946"><span id="local-6989586621679968947"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265TemporalIds"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#H265TemporalIds"><span class="hs-identifier hs-var">H265TemporalIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265TemporalIds%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#H265TemporalIds%27"><span class="hs-identifier hs-var">H265TemporalIds'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265TemporalIds"><span class="annot"><span class="annottext">H265TemporalIds -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#fromH265TemporalIds"><span class="hs-identifier hs-var hs-var">fromH265TemporalIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679968938"><span id="local-6989586621679968940"><span id="local-6989586621679968942"><span class="annot"><span class="annottext">Int -&gt; H265TemporalIds -&gt; ShowS
+[H265TemporalIds] -&gt; ShowS
+H265TemporalIds -&gt; String
+(Int -&gt; H265TemporalIds -&gt; ShowS)
+-&gt; (H265TemporalIds -&gt; String)
+-&gt; ([H265TemporalIds] -&gt; ShowS)
+-&gt; Show H265TemporalIds
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [H265TemporalIds] -&gt; ShowS
+$cshowList :: [H265TemporalIds] -&gt; ShowS
+show :: H265TemporalIds -&gt; String
+$cshow :: H265TemporalIds -&gt; String
+showsPrec :: Int -&gt; H265TemporalIds -&gt; ShowS
+$cshowsPrec :: Int -&gt; H265TemporalIds -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679968929"><span id="local-6989586621679968931"><span id="local-6989586621679968933"><span id="local-6989586621679968935"><span class="annot"><span class="annottext">ReadPrec [H265TemporalIds]
+ReadPrec H265TemporalIds
+Int -&gt; ReadS H265TemporalIds
+ReadS [H265TemporalIds]
+(Int -&gt; ReadS H265TemporalIds)
+-&gt; ReadS [H265TemporalIds]
+-&gt; ReadPrec H265TemporalIds
+-&gt; ReadPrec [H265TemporalIds]
+-&gt; Read H265TemporalIds
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [H265TemporalIds]
+$creadListPrec :: ReadPrec [H265TemporalIds]
+readPrec :: ReadPrec H265TemporalIds
+$creadPrec :: ReadPrec H265TemporalIds
+readList :: ReadS [H265TemporalIds]
+$creadList :: ReadS [H265TemporalIds]
+readsPrec :: Int -&gt; ReadS H265TemporalIds
+$creadsPrec :: Int -&gt; ReadS H265TemporalIds
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679968924"><span id="local-6989586621679968926"><span class="annot"><span class="annottext">H265TemporalIds -&gt; H265TemporalIds -&gt; Bool
+(H265TemporalIds -&gt; H265TemporalIds -&gt; Bool)
+-&gt; (H265TemporalIds -&gt; H265TemporalIds -&gt; Bool)
+-&gt; Eq H265TemporalIds
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: H265TemporalIds -&gt; H265TemporalIds -&gt; Bool
+$c/= :: H265TemporalIds -&gt; H265TemporalIds -&gt; Bool
+== :: H265TemporalIds -&gt; H265TemporalIds -&gt; Bool
+$c== :: H265TemporalIds -&gt; H265TemporalIds -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679968908"><span id="local-6989586621679968910"><span id="local-6989586621679968912"><span id="local-6989586621679968914"><span id="local-6989586621679968916"><span id="local-6989586621679968918"><span id="local-6989586621679968920"><span class="annot"><span class="annottext">Eq H265TemporalIds
+Eq H265TemporalIds
+-&gt; (H265TemporalIds -&gt; H265TemporalIds -&gt; Ordering)
+-&gt; (H265TemporalIds -&gt; H265TemporalIds -&gt; Bool)
+-&gt; (H265TemporalIds -&gt; H265TemporalIds -&gt; Bool)
+-&gt; (H265TemporalIds -&gt; H265TemporalIds -&gt; Bool)
+-&gt; (H265TemporalIds -&gt; H265TemporalIds -&gt; Bool)
+-&gt; (H265TemporalIds -&gt; H265TemporalIds -&gt; H265TemporalIds)
+-&gt; (H265TemporalIds -&gt; H265TemporalIds -&gt; H265TemporalIds)
+-&gt; Ord H265TemporalIds
+H265TemporalIds -&gt; H265TemporalIds -&gt; Bool
+H265TemporalIds -&gt; H265TemporalIds -&gt; Ordering
+H265TemporalIds -&gt; H265TemporalIds -&gt; H265TemporalIds
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: H265TemporalIds -&gt; H265TemporalIds -&gt; H265TemporalIds
+$cmin :: H265TemporalIds -&gt; H265TemporalIds -&gt; H265TemporalIds
+max :: H265TemporalIds -&gt; H265TemporalIds -&gt; H265TemporalIds
+$cmax :: H265TemporalIds -&gt; H265TemporalIds -&gt; H265TemporalIds
+&gt;= :: H265TemporalIds -&gt; H265TemporalIds -&gt; Bool
+$c&gt;= :: H265TemporalIds -&gt; H265TemporalIds -&gt; Bool
+&gt; :: H265TemporalIds -&gt; H265TemporalIds -&gt; Bool
+$c&gt; :: H265TemporalIds -&gt; H265TemporalIds -&gt; Bool
+&lt;= :: H265TemporalIds -&gt; H265TemporalIds -&gt; Bool
+$c&lt;= :: H265TemporalIds -&gt; H265TemporalIds -&gt; Bool
+&lt; :: H265TemporalIds -&gt; H265TemporalIds -&gt; Bool
+$c&lt; :: H265TemporalIds -&gt; H265TemporalIds -&gt; Bool
+compare :: H265TemporalIds -&gt; H265TemporalIds -&gt; Ordering
+$ccompare :: H265TemporalIds -&gt; H265TemporalIds -&gt; Ordering
+$cp1Ord :: Eq H265TemporalIds
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="annottext">(forall x. H265TemporalIds -&gt; Rep H265TemporalIds x)
+-&gt; (forall x. Rep H265TemporalIds x -&gt; H265TemporalIds)
+-&gt; Generic H265TemporalIds
+forall x. Rep H265TemporalIds x -&gt; H265TemporalIds
+forall x. H265TemporalIds -&gt; Rep H265TemporalIds x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep H265TemporalIds x -&gt; H265TemporalIds
+$cfrom :: forall x. H265TemporalIds -&gt; Rep H265TemporalIds x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679968900"><span id="local-6989586621679968902"><span class="annot"><span class="annottext">Int -&gt; H265TemporalIds -&gt; Int
+H265TemporalIds -&gt; Int
+(Int -&gt; H265TemporalIds -&gt; Int)
+-&gt; (H265TemporalIds -&gt; Int) -&gt; Hashable H265TemporalIds
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: H265TemporalIds -&gt; Int
+$chash :: H265TemporalIds -&gt; Int
+hashWithSalt :: Int -&gt; H265TemporalIds -&gt; Int
+$chashWithSalt :: Int -&gt; H265TemporalIds -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679968897"><span class="annot"><span class="annottext">H265TemporalIds -&gt; ()
+(H265TemporalIds -&gt; ()) -&gt; NFData H265TemporalIds
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: H265TemporalIds -&gt; ()
+$crnf :: H265TemporalIds -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679968894"><span class="annot"><span class="annottext">Text -&gt; Either String H265TemporalIds
+(Text -&gt; Either String H265TemporalIds) -&gt; FromText H265TemporalIds
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String H265TemporalIds
+$cfromText :: Text -&gt; Either String H265TemporalIds
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679968891"><span class="annot"><span class="annottext">H265TemporalIds -&gt; Text
+(H265TemporalIds -&gt; Text) -&gt; ToText H265TemporalIds
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: H265TemporalIds -&gt; Text
+$ctoText :: H265TemporalIds -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679968888"><span class="annot"><span class="annottext">H265TemporalIds -&gt; ByteString
+(H265TemporalIds -&gt; ByteString) -&gt; ToByteString H265TemporalIds
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: H265TemporalIds -&gt; ByteString
+$ctoBS :: H265TemporalIds -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679968885"><span class="annot"><span class="annottext">H265TemporalIds -&gt; ByteStringBuilder
+(H265TemporalIds -&gt; ByteStringBuilder) -&gt; ToLog H265TemporalIds
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: H265TemporalIds -&gt; ByteStringBuilder
+$cbuild :: H265TemporalIds -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679968882"><span class="annot"><span class="annottext">HeaderName -&gt; H265TemporalIds -&gt; [Header]
+(HeaderName -&gt; H265TemporalIds -&gt; [Header])
+-&gt; ToHeader H265TemporalIds
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; H265TemporalIds -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; H265TemporalIds -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679968879"><span class="annot"><span class="annottext">H265TemporalIds -&gt; QueryString
+(H265TemporalIds -&gt; QueryString) -&gt; ToQuery H265TemporalIds
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: H265TemporalIds -&gt; QueryString
+$ctoQuery :: H265TemporalIds -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679968874"><span id="local-6989586621679968876"><span class="annot"><span class="annottext">Value -&gt; Parser [H265TemporalIds]
+Value -&gt; Parser H265TemporalIds
+(Value -&gt; Parser H265TemporalIds)
+-&gt; (Value -&gt; Parser [H265TemporalIds]) -&gt; FromJSON H265TemporalIds
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [H265TemporalIds]
+$cparseJSONList :: Value -&gt; Parser [H265TemporalIds]
+parseJSON :: Value -&gt; Parser H265TemporalIds
+$cparseJSON :: Value -&gt; Parser H265TemporalIds
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679968869"><span id="local-6989586621679968871"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265TemporalIds]
+FromJSONKeyFunction H265TemporalIds
+FromJSONKeyFunction H265TemporalIds
+-&gt; FromJSONKeyFunction [H265TemporalIds]
+-&gt; FromJSONKey H265TemporalIds
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [H265TemporalIds]
+$cfromJSONKeyList :: FromJSONKeyFunction [H265TemporalIds]
+fromJSONKey :: FromJSONKeyFunction H265TemporalIds
+$cfromJSONKey :: FromJSONKeyFunction H265TemporalIds
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679968860"><span id="local-6989586621679968862"><span id="local-6989586621679968864"><span id="local-6989586621679968866"><span class="annot"><span class="annottext">[H265TemporalIds] -&gt; Encoding
+[H265TemporalIds] -&gt; Value
+H265TemporalIds -&gt; Encoding
+H265TemporalIds -&gt; Value
+(H265TemporalIds -&gt; Value)
+-&gt; (H265TemporalIds -&gt; Encoding)
+-&gt; ([H265TemporalIds] -&gt; Value)
+-&gt; ([H265TemporalIds] -&gt; Encoding)
+-&gt; ToJSON H265TemporalIds
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [H265TemporalIds] -&gt; Encoding
+$ctoEncodingList :: [H265TemporalIds] -&gt; Encoding
+toJSONList :: [H265TemporalIds] -&gt; Value
+$ctoJSONList :: [H265TemporalIds] -&gt; Value
+toEncoding :: H265TemporalIds -&gt; Encoding
+$ctoEncoding :: H265TemporalIds -&gt; Encoding
+toJSON :: H265TemporalIds -&gt; Value
+$ctoJSON :: H265TemporalIds -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679968855"><span id="local-6989586621679968857"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265TemporalIds]
+ToJSONKeyFunction H265TemporalIds
+ToJSONKeyFunction H265TemporalIds
+-&gt; ToJSONKeyFunction [H265TemporalIds] -&gt; ToJSONKey H265TemporalIds
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [H265TemporalIds]
+$ctoJSONKeyList :: ToJSONKeyFunction [H265TemporalIds]
+toJSONKey :: ToJSONKeyFunction H265TemporalIds
+$ctoJSONKey :: ToJSONKeyFunction H265TemporalIds
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679968852"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265TemporalIds
+([Node] -&gt; Either String H265TemporalIds)
+-&gt; FromXML H265TemporalIds
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String H265TemporalIds
+$cparseXML :: [Node] -&gt; Either String H265TemporalIds
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679968849"><span class="annot"><span class="annottext">H265TemporalIds -&gt; XML
+(H265TemporalIds -&gt; XML) -&gt; ToXML H265TemporalIds
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: H265TemporalIds -&gt; XML
+$ctoXML :: H265TemporalIds -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#H265TemporalIds_DISABLED"><span class="hs-identifier hs-type">H265TemporalIds_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#H265TemporalIds"><span class="hs-identifier hs-type">H265TemporalIds</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265TemporalIds_DISABLED"><span id="%24mH265TemporalIds_DISABLED"><span id="H265TemporalIds_DISABLED"><span class="annot"><span class="annottext">$bH265TemporalIds_DISABLED :: H265TemporalIds
+$mH265TemporalIds_DISABLED :: forall r. H265TemporalIds -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#%24bH265TemporalIds_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">H265TemporalIds_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#H265TemporalIds%27"><span class="hs-identifier hs-type">H265TemporalIds'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#H265TemporalIds_ENABLED"><span class="hs-identifier hs-type">H265TemporalIds_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#H265TemporalIds"><span class="hs-identifier hs-type">H265TemporalIds</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265TemporalIds_ENABLED"><span id="%24mH265TemporalIds_ENABLED"><span id="H265TemporalIds_ENABLED"><span class="annot"><span class="annottext">$bH265TemporalIds_ENABLED :: H265TemporalIds
+$mH265TemporalIds_ENABLED :: forall r. H265TemporalIds -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#%24bH265TemporalIds_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">H265TemporalIds_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#H265TemporalIds%27"><span class="hs-identifier hs-type">H265TemporalIds'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#H265TemporalIds_DISABLED"><span class="hs-pragma hs-type">H265TemporalIds_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#H265TemporalIds_ENABLED"><span class="hs-pragma hs-type">H265TemporalIds_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265TemporalIds.html#H265TemporalIds%27"><span class="hs-pragma hs-type">H265TemporalIds'</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-80"></span></pre></body></html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.OpsAggregator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.OpsAggregator</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html"><span class="hs-identifier">Network.AWS.SSM.Types.OpsFilter</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | One or more aggregators for viewing counts of OpsData using different</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- dimensions such as @Source@, @CreatedTime@, or @Source and CreatedTime@,</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- to name a few.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newOpsAggregator' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679800975"><span id="local-6989586621679800976"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpsAggregator"><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-var">OpsAggregator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsAggregator%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator%27"><span class="hs-identifier hs-var">OpsAggregator'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The data type name to use for viewing counts of OpsData.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AtypeName%3AOpsAggregator%27"><span class="annot"><span class="annottext">OpsAggregator -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3AtypeName%3AOpsAggregator%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of an OpsData attribute on which to limit the count of OpsData.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AattributeName%3AOpsAggregator%27"><span class="annot"><span class="annottext">OpsAggregator -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3AattributeName%3AOpsAggregator%27"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The aggregator value.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Avalues%3AOpsAggregator%27"><span class="annot"><span class="annottext">OpsAggregator -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3Avalues%3AOpsAggregator%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Either a @Range@ or @Count@ aggregator for limiting an OpsData summary.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AaggregatorType%3AOpsAggregator%27"><span class="annot"><span class="annottext">OpsAggregator -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3AaggregatorType%3AOpsAggregator%27"><span class="hs-identifier hs-var hs-var">aggregatorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The aggregator filters.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Afilters%3AOpsAggregator%27"><span class="annot"><span class="annottext">OpsAggregator -&gt; Maybe (NonEmpty OpsFilter)
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3Afilters%3AOpsAggregator%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A nested aggregator for viewing counts of OpsData.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aaggregators%3AOpsAggregator%27"><span class="annot"><span class="annottext">OpsAggregator -&gt; Maybe (NonEmpty OpsAggregator)
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3Aaggregators%3AOpsAggregator%27"><span class="hs-identifier hs-var hs-var">aggregators</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800964"><span id="local-6989586621679800966"><span class="annot"><span class="annottext">OpsAggregator -&gt; OpsAggregator -&gt; Bool
+(OpsAggregator -&gt; OpsAggregator -&gt; Bool)
+-&gt; (OpsAggregator -&gt; OpsAggregator -&gt; Bool) -&gt; Eq OpsAggregator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OpsAggregator -&gt; OpsAggregator -&gt; Bool
+$c/= :: OpsAggregator -&gt; OpsAggregator -&gt; Bool
+== :: OpsAggregator -&gt; OpsAggregator -&gt; Bool
+$c== :: OpsAggregator -&gt; OpsAggregator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800955"><span id="local-6989586621679800957"><span id="local-6989586621679800959"><span id="local-6989586621679800961"><span class="annot"><span class="annottext">ReadPrec [OpsAggregator]
+ReadPrec OpsAggregator
+Int -&gt; ReadS OpsAggregator
+ReadS [OpsAggregator]
+(Int -&gt; ReadS OpsAggregator)
+-&gt; ReadS [OpsAggregator]
+-&gt; ReadPrec OpsAggregator
+-&gt; ReadPrec [OpsAggregator]
+-&gt; Read OpsAggregator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OpsAggregator]
+$creadListPrec :: ReadPrec [OpsAggregator]
+readPrec :: ReadPrec OpsAggregator
+$creadPrec :: ReadPrec OpsAggregator
+readList :: ReadS [OpsAggregator]
+$creadList :: ReadS [OpsAggregator]
+readsPrec :: Int -&gt; ReadS OpsAggregator
+$creadsPrec :: Int -&gt; ReadS OpsAggregator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800948"><span id="local-6989586621679800950"><span id="local-6989586621679800952"><span class="annot"><span class="annottext">Int -&gt; OpsAggregator -&gt; ShowS
+[OpsAggregator] -&gt; ShowS
+OpsAggregator -&gt; String
+(Int -&gt; OpsAggregator -&gt; ShowS)
+-&gt; (OpsAggregator -&gt; String)
+-&gt; ([OpsAggregator] -&gt; ShowS)
+-&gt; Show OpsAggregator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OpsAggregator] -&gt; ShowS
+$cshowList :: [OpsAggregator] -&gt; ShowS
+show :: OpsAggregator -&gt; String
+$cshow :: OpsAggregator -&gt; String
+showsPrec :: Int -&gt; OpsAggregator -&gt; ShowS
+$cshowsPrec :: Int -&gt; OpsAggregator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. OpsAggregator -&gt; Rep OpsAggregator x)
+-&gt; (forall x. Rep OpsAggregator x -&gt; OpsAggregator)
+-&gt; Generic OpsAggregator
+forall x. Rep OpsAggregator x -&gt; OpsAggregator
+forall x. OpsAggregator -&gt; Rep OpsAggregator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OpsAggregator x -&gt; OpsAggregator
+$cfrom :: forall x. OpsAggregator -&gt; Rep OpsAggregator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'OpsAggregator' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'typeName', 'opsAggregator_typeName' - The data type name to use for viewing counts of OpsData.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'attributeName', 'opsAggregator_attributeName' - The name of an OpsData attribute on which to limit the count of OpsData.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'values', 'opsAggregator_values' - The aggregator value.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'aggregatorType', 'opsAggregator_aggregatorType' - Either a @Range@ or @Count@ aggregator for limiting an OpsData summary.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'filters', 'opsAggregator_filters' - The aggregator filters.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'aggregators', 'opsAggregator_aggregators' - A nested aggregator for viewing counts of OpsData.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#newOpsAggregator"><span class="hs-identifier hs-type">newOpsAggregator</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span>
+</span><span id="line-69"></span><span id="newOpsAggregator"><span class="annot"><span class="annottext">newOpsAggregator :: OpsAggregator
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#newOpsAggregator"><span class="hs-identifier hs-var hs-var">newOpsAggregator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">OpsAggregator' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty OpsFilter)
+-&gt; Maybe (NonEmpty OpsAggregator)
+-&gt; OpsAggregator
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator%27"><span class="hs-identifier hs-type">OpsAggregator'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:typeName:OpsAggregator' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3AtypeName%3AOpsAggregator%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeName:OpsAggregator' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3AattributeName%3AOpsAggregator%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:OpsAggregator' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3Avalues%3AOpsAggregator%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:aggregatorType:OpsAggregator' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3AaggregatorType%3AOpsAggregator%27"><span class="hs-identifier hs-var">aggregatorType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:OpsAggregator' :: Maybe (NonEmpty OpsFilter)
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3Afilters%3AOpsAggregator%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:aggregators:OpsAggregator' :: Maybe (NonEmpty OpsAggregator)
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3Aaggregators%3AOpsAggregator%27"><span class="hs-identifier hs-var">aggregators</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The data type name to use for viewing counts of OpsData.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#opsAggregator_typeName"><span class="hs-identifier hs-type">opsAggregator_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="opsAggregator_typeName"><span class="annot"><span class="annottext">opsAggregator_typeName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; OpsAggregator -&gt; f OpsAggregator
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#opsAggregator_typeName"><span class="hs-identifier hs-var hs-var">opsAggregator_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OpsAggregator -&gt; Maybe Text)
+-&gt; (OpsAggregator -&gt; Maybe Text -&gt; OpsAggregator)
+-&gt; Lens OpsAggregator OpsAggregator (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator%27"><span class="hs-identifier hs-type">OpsAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800939"><span class="annot"><span class="annottext">Maybe Text
+typeName :: Maybe Text
+$sel:typeName:OpsAggregator' :: OpsAggregator -&gt; Maybe Text
+</span><a href="#local-6989586621679800939"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800939"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800938"><span class="annot"><span class="annottext">s :: OpsAggregator
+</span><a href="#local-6989586621679800938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator%27"><span class="hs-identifier hs-type">OpsAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800937"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsAggregator
+</span><a href="#local-6989586621679800938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:OpsAggregator' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3AtypeName%3AOpsAggregator%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The name of an OpsData attribute on which to limit the count of OpsData.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#opsAggregator_attributeName"><span class="hs-identifier hs-type">opsAggregator_attributeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="opsAggregator_attributeName"><span class="annot"><span class="annottext">opsAggregator_attributeName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; OpsAggregator -&gt; f OpsAggregator
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#opsAggregator_attributeName"><span class="hs-identifier hs-var hs-var">opsAggregator_attributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OpsAggregator -&gt; Maybe Text)
+-&gt; (OpsAggregator -&gt; Maybe Text -&gt; OpsAggregator)
+-&gt; Lens OpsAggregator OpsAggregator (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator%27"><span class="hs-identifier hs-type">OpsAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800935"><span class="annot"><span class="annottext">Maybe Text
+attributeName :: Maybe Text
+$sel:attributeName:OpsAggregator' :: OpsAggregator -&gt; Maybe Text
+</span><a href="#local-6989586621679800935"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800935"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800934"><span class="annot"><span class="annottext">s :: OpsAggregator
+</span><a href="#local-6989586621679800934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator%27"><span class="hs-identifier hs-type">OpsAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800933"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsAggregator
+</span><a href="#local-6989586621679800934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:OpsAggregator' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3AattributeName%3AOpsAggregator%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The aggregator value.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#opsAggregator_values"><span class="hs-identifier hs-type">opsAggregator_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="opsAggregator_values"><span class="annot"><span class="annottext">opsAggregator_values :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; OpsAggregator -&gt; f OpsAggregator
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#opsAggregator_values"><span class="hs-identifier hs-var hs-var">opsAggregator_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OpsAggregator -&gt; Maybe (HashMap Text Text))
+-&gt; (OpsAggregator -&gt; Maybe (HashMap Text Text) -&gt; OpsAggregator)
+-&gt; Lens
+     OpsAggregator
+     OpsAggregator
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator%27"><span class="hs-identifier hs-type">OpsAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800931"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+values :: Maybe (HashMap Text Text)
+$sel:values:OpsAggregator' :: OpsAggregator -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679800931"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679800931"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800930"><span class="annot"><span class="annottext">s :: OpsAggregator
+</span><a href="#local-6989586621679800930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator%27"><span class="hs-identifier hs-type">OpsAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800929"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679800929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsAggregator
+</span><a href="#local-6989586621679800930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:OpsAggregator' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3Avalues%3AOpsAggregator%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679800929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; OpsAggregator -&gt; f OpsAggregator)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; OpsAggregator
+-&gt; f OpsAggregator
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Either a @Range@ or @Count@ aggregator for limiting an OpsData summary.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#opsAggregator_aggregatorType"><span class="hs-identifier hs-type">opsAggregator_aggregatorType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="opsAggregator_aggregatorType"><span class="annot"><span class="annottext">opsAggregator_aggregatorType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; OpsAggregator -&gt; f OpsAggregator
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#opsAggregator_aggregatorType"><span class="hs-identifier hs-var hs-var">opsAggregator_aggregatorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OpsAggregator -&gt; Maybe Text)
+-&gt; (OpsAggregator -&gt; Maybe Text -&gt; OpsAggregator)
+-&gt; Lens OpsAggregator OpsAggregator (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator%27"><span class="hs-identifier hs-type">OpsAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800924"><span class="annot"><span class="annottext">Maybe Text
+aggregatorType :: Maybe Text
+$sel:aggregatorType:OpsAggregator' :: OpsAggregator -&gt; Maybe Text
+</span><a href="#local-6989586621679800924"><span class="hs-identifier hs-var hs-var">aggregatorType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800924"><span class="hs-identifier hs-var">aggregatorType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800923"><span class="annot"><span class="annottext">s :: OpsAggregator
+</span><a href="#local-6989586621679800923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator%27"><span class="hs-identifier hs-type">OpsAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800922"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsAggregator
+</span><a href="#local-6989586621679800923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregatorType:OpsAggregator' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3AaggregatorType%3AOpsAggregator%27"><span class="hs-identifier hs-var">aggregatorType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The aggregator filters.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#opsAggregator_filters"><span class="hs-identifier hs-type">opsAggregator_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="opsAggregator_filters"><span class="annot"><span class="annottext">opsAggregator_filters :: (Maybe (NonEmpty OpsFilter) -&gt; f (Maybe (NonEmpty OpsFilter)))
+-&gt; OpsAggregator -&gt; f OpsAggregator
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#opsAggregator_filters"><span class="hs-identifier hs-var hs-var">opsAggregator_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OpsAggregator -&gt; Maybe (NonEmpty OpsFilter))
+-&gt; (OpsAggregator -&gt; Maybe (NonEmpty OpsFilter) -&gt; OpsAggregator)
+-&gt; Lens
+     OpsAggregator
+     OpsAggregator
+     (Maybe (NonEmpty OpsFilter))
+     (Maybe (NonEmpty OpsFilter))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator%27"><span class="hs-identifier hs-type">OpsAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800920"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
+filters :: Maybe (NonEmpty OpsFilter)
+$sel:filters:OpsAggregator' :: OpsAggregator -&gt; Maybe (NonEmpty OpsFilter)
+</span><a href="#local-6989586621679800920"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
+</span><a href="#local-6989586621679800920"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800919"><span class="annot"><span class="annottext">s :: OpsAggregator
+</span><a href="#local-6989586621679800919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator%27"><span class="hs-identifier hs-type">OpsAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800918"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
+</span><a href="#local-6989586621679800918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsAggregator
+</span><a href="#local-6989586621679800919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:OpsAggregator' :: Maybe (NonEmpty OpsFilter)
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3Afilters%3AOpsAggregator%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
+</span><a href="#local-6989586621679800918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty OpsFilter) -&gt; f (Maybe (NonEmpty OpsFilter)))
+ -&gt; OpsAggregator -&gt; f OpsAggregator)
+-&gt; ((Maybe (NonEmpty OpsFilter) -&gt; f (Maybe (NonEmpty OpsFilter)))
+    -&gt; Maybe (NonEmpty OpsFilter) -&gt; f (Maybe (NonEmpty OpsFilter)))
+-&gt; (Maybe (NonEmpty OpsFilter) -&gt; f (Maybe (NonEmpty OpsFilter)))
+-&gt; OpsAggregator
+-&gt; f OpsAggregator
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty OpsFilter)
+  (NonEmpty OpsFilter)
+  (NonEmpty OpsFilter)
+  (NonEmpty OpsFilter)
+-&gt; Iso
+     (Maybe (NonEmpty OpsFilter))
+     (Maybe (NonEmpty OpsFilter))
+     (Maybe (NonEmpty OpsFilter))
+     (Maybe (NonEmpty OpsFilter))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty OpsFilter)
+  (NonEmpty OpsFilter)
+  (NonEmpty OpsFilter)
+  (NonEmpty OpsFilter)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | A nested aggregator for viewing counts of OpsData.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#opsAggregator_aggregators"><span class="hs-identifier hs-type">opsAggregator_aggregators</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="opsAggregator_aggregators"><span class="annot"><span class="annottext">opsAggregator_aggregators :: (Maybe (NonEmpty OpsAggregator)
+ -&gt; f (Maybe (NonEmpty OpsAggregator)))
+-&gt; OpsAggregator -&gt; f OpsAggregator
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#opsAggregator_aggregators"><span class="hs-identifier hs-var hs-var">opsAggregator_aggregators</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OpsAggregator -&gt; Maybe (NonEmpty OpsAggregator))
+-&gt; (OpsAggregator
+    -&gt; Maybe (NonEmpty OpsAggregator) -&gt; OpsAggregator)
+-&gt; Lens
+     OpsAggregator
+     OpsAggregator
+     (Maybe (NonEmpty OpsAggregator))
+     (Maybe (NonEmpty OpsAggregator))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator%27"><span class="hs-identifier hs-type">OpsAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800916"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
+aggregators :: Maybe (NonEmpty OpsAggregator)
+$sel:aggregators:OpsAggregator' :: OpsAggregator -&gt; Maybe (NonEmpty OpsAggregator)
+</span><a href="#local-6989586621679800916"><span class="hs-identifier hs-var hs-var">aggregators</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
+</span><a href="#local-6989586621679800916"><span class="hs-identifier hs-var">aggregators</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800915"><span class="annot"><span class="annottext">s :: OpsAggregator
+</span><a href="#local-6989586621679800915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator%27"><span class="hs-identifier hs-type">OpsAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800914"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
+</span><a href="#local-6989586621679800914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsAggregator
+</span><a href="#local-6989586621679800915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregators:OpsAggregator' :: Maybe (NonEmpty OpsAggregator)
+</span><a href="Network.AWS.SSM.Types.OpsAggregator.html#%24sel%3Aaggregators%3AOpsAggregator%27"><span class="hs-identifier hs-var">aggregators</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
+</span><a href="#local-6989586621679800914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty OpsAggregator)
+  -&gt; f (Maybe (NonEmpty OpsAggregator)))
+ -&gt; OpsAggregator -&gt; f OpsAggregator)
+-&gt; ((Maybe (NonEmpty OpsAggregator)
+     -&gt; f (Maybe (NonEmpty OpsAggregator)))
+    -&gt; Maybe (NonEmpty OpsAggregator)
+    -&gt; f (Maybe (NonEmpty OpsAggregator)))
+-&gt; (Maybe (NonEmpty OpsAggregator)
+    -&gt; f (Maybe (NonEmpty OpsAggregator)))
+-&gt; OpsAggregator
+-&gt; f OpsAggregator
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty OpsAggregator)
+  (NonEmpty OpsAggregator)
+  (NonEmpty OpsAggregator)
+  (NonEmpty OpsAggregator)
+-&gt; Iso
+     (Maybe (NonEmpty OpsAggregator))
+     (Maybe (NonEmpty OpsAggregator))
+     (Maybe (NonEmpty OpsAggregator))
+     (Maybe (NonEmpty OpsAggregator))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty OpsAggregator)
+  (NonEmpty OpsAggregator)
+  (NonEmpty OpsAggregator)
+  (NonEmpty OpsAggregator)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800910"><span id="local-6989586621679800912"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800907"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800899"><span id="local-6989586621679800901"><span id="local-6989586621679800903"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679800897"><span class="annot"><span class="annottext">toJSON :: OpsAggregator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator%27"><span class="hs-identifier hs-type">OpsAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800890"><span id="local-6989586621679800891"><span id="local-6989586621679800892"><span id="local-6989586621679800893"><span id="local-6989586621679800894"><span id="local-6989586621679800895"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
+Maybe (NonEmpty OpsAggregator)
+Maybe Text
+Maybe (HashMap Text Text)
+aggregators :: Maybe (NonEmpty OpsAggregator)
+filters :: Maybe (NonEmpty OpsFilter)
+aggregatorType :: Maybe Text
+values :: Maybe (HashMap Text Text)
+attributeName :: Maybe Text
+typeName :: Maybe Text
+$sel:aggregators:OpsAggregator' :: OpsAggregator -&gt; Maybe (NonEmpty OpsAggregator)
+$sel:filters:OpsAggregator' :: OpsAggregator -&gt; Maybe (NonEmpty OpsFilter)
+$sel:aggregatorType:OpsAggregator' :: OpsAggregator -&gt; Maybe Text
+$sel:values:OpsAggregator' :: OpsAggregator -&gt; Maybe (HashMap Text Text)
+$sel:attributeName:OpsAggregator' :: OpsAggregator -&gt; Maybe Text
+$sel:typeName:OpsAggregator' :: OpsAggregator -&gt; Maybe Text
+</span><a href="#local-6989586621679800890"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800895"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttributeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800894"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679800893"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AggregatorType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800892"><span class="hs-identifier hs-var">aggregatorType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty OpsFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty OpsFilter -&gt; Pair)
+-&gt; Maybe (NonEmpty OpsFilter) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
+</span><a href="#local-6989586621679800891"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Aggregators&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty OpsAggregator -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty OpsAggregator -&gt; Pair)
+-&gt; Maybe (NonEmpty OpsAggregator) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
+</span><a href="#local-6989586621679800890"><span class="hs-identifier hs-var">aggregators</span></a></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span></pre></body></html>

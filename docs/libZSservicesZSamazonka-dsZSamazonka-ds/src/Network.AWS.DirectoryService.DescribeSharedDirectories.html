@@ -1,0 +1,822 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DirectoryService.DescribeSharedDirectories</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the shared directories in your account.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DirectoryService.DescribeSharedDirectories</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier">DescribeSharedDirectories</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#newDescribeSharedDirectories"><span class="hs-identifier">newDescribeSharedDirectories</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectories_nextToken"><span class="hs-identifier">describeSharedDirectories_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectories_sharedDirectoryIds"><span class="hs-identifier">describeSharedDirectories_sharedDirectoryIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectories_limit"><span class="hs-identifier">describeSharedDirectories_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectories_ownerDirectoryId"><span class="hs-identifier">describeSharedDirectories_ownerDirectoryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse"><span class="hs-identifier">DescribeSharedDirectoriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#newDescribeSharedDirectoriesResponse"><span class="hs-identifier">newDescribeSharedDirectoriesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectoriesResponse_nextToken"><span class="hs-identifier">describeSharedDirectoriesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectoriesResponse_sharedDirectories"><span class="hs-identifier">describeSharedDirectoriesResponse_sharedDirectories</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectoriesResponse_httpStatus"><span class="hs-identifier">describeSharedDirectoriesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.html"><span class="hs-identifier">Network.AWS.DirectoryService.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeSharedDirectories' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679309194"><span id="local-6989586621679309195"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSharedDirectories"><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-var">DescribeSharedDirectories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSharedDirectories%27"><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories%27"><span class="hs-identifier hs-var">DescribeSharedDirectories'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @DescribeSharedDirectoriesResult.NextToken@ value from a previous</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- call to DescribeSharedDirectories. Pass null if this is the first call.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeSharedDirectories%27"><span class="annot"><span class="annottext">DescribeSharedDirectories -&gt; Maybe Text
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AnextToken%3ADescribeSharedDirectories%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A list of identifiers of all shared directories in your account.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AsharedDirectoryIds%3ADescribeSharedDirectories%27"><span class="annot"><span class="annottext">DescribeSharedDirectories -&gt; Maybe [Text]
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AsharedDirectoryIds%3ADescribeSharedDirectories%27"><span class="hs-identifier hs-var hs-var">sharedDirectoryIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The number of shared directories to return in the response object.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeSharedDirectories%27"><span class="annot"><span class="annottext">DescribeSharedDirectories -&gt; Maybe Natural
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3Alimit%3ADescribeSharedDirectories%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Returns the identifier of the directory in the directory owner account.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AownerDirectoryId%3ADescribeSharedDirectories%27"><span class="annot"><span class="annottext">DescribeSharedDirectories -&gt; Text
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AownerDirectoryId%3ADescribeSharedDirectories%27"><span class="hs-identifier hs-var hs-var">ownerDirectoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309185"><span id="local-6989586621679309187"><span class="annot"><span class="annottext">DescribeSharedDirectories -&gt; DescribeSharedDirectories -&gt; Bool
+(DescribeSharedDirectories -&gt; DescribeSharedDirectories -&gt; Bool)
+-&gt; (DescribeSharedDirectories -&gt; DescribeSharedDirectories -&gt; Bool)
+-&gt; Eq DescribeSharedDirectories
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeSharedDirectories -&gt; DescribeSharedDirectories -&gt; Bool
+$c/= :: DescribeSharedDirectories -&gt; DescribeSharedDirectories -&gt; Bool
+== :: DescribeSharedDirectories -&gt; DescribeSharedDirectories -&gt; Bool
+$c== :: DescribeSharedDirectories -&gt; DescribeSharedDirectories -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309176"><span id="local-6989586621679309178"><span id="local-6989586621679309180"><span id="local-6989586621679309182"><span class="annot"><span class="annottext">ReadPrec [DescribeSharedDirectories]
+ReadPrec DescribeSharedDirectories
+Int -&gt; ReadS DescribeSharedDirectories
+ReadS [DescribeSharedDirectories]
+(Int -&gt; ReadS DescribeSharedDirectories)
+-&gt; ReadS [DescribeSharedDirectories]
+-&gt; ReadPrec DescribeSharedDirectories
+-&gt; ReadPrec [DescribeSharedDirectories]
+-&gt; Read DescribeSharedDirectories
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeSharedDirectories]
+$creadListPrec :: ReadPrec [DescribeSharedDirectories]
+readPrec :: ReadPrec DescribeSharedDirectories
+$creadPrec :: ReadPrec DescribeSharedDirectories
+readList :: ReadS [DescribeSharedDirectories]
+$creadList :: ReadS [DescribeSharedDirectories]
+readsPrec :: Int -&gt; ReadS DescribeSharedDirectories
+$creadsPrec :: Int -&gt; ReadS DescribeSharedDirectories
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309169"><span id="local-6989586621679309171"><span id="local-6989586621679309173"><span class="annot"><span class="annottext">Int -&gt; DescribeSharedDirectories -&gt; ShowS
+[DescribeSharedDirectories] -&gt; ShowS
+DescribeSharedDirectories -&gt; String
+(Int -&gt; DescribeSharedDirectories -&gt; ShowS)
+-&gt; (DescribeSharedDirectories -&gt; String)
+-&gt; ([DescribeSharedDirectories] -&gt; ShowS)
+-&gt; Show DescribeSharedDirectories
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeSharedDirectories] -&gt; ShowS
+$cshowList :: [DescribeSharedDirectories] -&gt; ShowS
+show :: DescribeSharedDirectories -&gt; String
+$cshow :: DescribeSharedDirectories -&gt; String
+showsPrec :: Int -&gt; DescribeSharedDirectories -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeSharedDirectories -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeSharedDirectories -&gt; Rep DescribeSharedDirectories x)
+-&gt; (forall x.
+    Rep DescribeSharedDirectories x -&gt; DescribeSharedDirectories)
+-&gt; Generic DescribeSharedDirectories
+forall x.
+Rep DescribeSharedDirectories x -&gt; DescribeSharedDirectories
+forall x.
+DescribeSharedDirectories -&gt; Rep DescribeSharedDirectories x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeSharedDirectories x -&gt; DescribeSharedDirectories
+$cfrom :: forall x.
+DescribeSharedDirectories -&gt; Rep DescribeSharedDirectories x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'DescribeSharedDirectories' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'nextToken', 'describeSharedDirectories_nextToken' - The @DescribeSharedDirectoriesResult.NextToken@ value from a previous</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- call to DescribeSharedDirectories. Pass null if this is the first call.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'sharedDirectoryIds', 'describeSharedDirectories_sharedDirectoryIds' - A list of identifiers of all shared directories in your account.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'limit', 'describeSharedDirectories_limit' - The number of shared directories to return in the response object.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'ownerDirectoryId', 'describeSharedDirectories_ownerDirectoryId' - Returns the identifier of the directory in the directory owner account.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#newDescribeSharedDirectories"><span class="hs-identifier hs-type">newDescribeSharedDirectories</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'ownerDirectoryId'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span><span>
+</span><span id="line-89"></span><span id="newDescribeSharedDirectories"><span class="annot"><span class="annottext">newDescribeSharedDirectories :: Text -&gt; DescribeSharedDirectories
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#newDescribeSharedDirectories"><span class="hs-identifier hs-var hs-var">newDescribeSharedDirectories</span></a></span></span><span> </span><span id="local-6989586621679309164"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309164"><span class="hs-identifier hs-var">pOwnerDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">DescribeSharedDirectories' :: Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; DescribeSharedDirectories
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories%27"><span class="hs-identifier hs-type">DescribeSharedDirectories'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSharedDirectories' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AnextToken%3ADescribeSharedDirectories%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:sharedDirectoryIds:DescribeSharedDirectories' :: Maybe [Text]
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AsharedDirectoryIds%3ADescribeSharedDirectories%27"><span class="hs-identifier hs-var">sharedDirectoryIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:DescribeSharedDirectories' :: Maybe Natural
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3Alimit%3ADescribeSharedDirectories%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerDirectoryId:DescribeSharedDirectories' :: Text
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AownerDirectoryId%3ADescribeSharedDirectories%27"><span class="hs-identifier hs-var">ownerDirectoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309164"><span class="hs-identifier hs-var">pOwnerDirectoryId_</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The @DescribeSharedDirectoriesResult.NextToken@ value from a previous</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- call to DescribeSharedDirectories. Pass null if this is the first call.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectories_nextToken"><span class="hs-identifier hs-type">describeSharedDirectories_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="describeSharedDirectories_nextToken"><span class="annot"><span class="annottext">describeSharedDirectories_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeSharedDirectories -&gt; f DescribeSharedDirectories
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectories_nextToken"><span class="hs-identifier hs-var hs-var">describeSharedDirectories_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSharedDirectories -&gt; Maybe Text)
+-&gt; (DescribeSharedDirectories
+    -&gt; Maybe Text -&gt; DescribeSharedDirectories)
+-&gt; Lens
+     DescribeSharedDirectories
+     DescribeSharedDirectories
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories%27"><span class="hs-identifier hs-type">DescribeSharedDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309162"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeSharedDirectories' :: DescribeSharedDirectories -&gt; Maybe Text
+</span><a href="#local-6989586621679309162"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309162"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309161"><span class="annot"><span class="annottext">s :: DescribeSharedDirectories
+</span><a href="#local-6989586621679309161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories%27"><span class="hs-identifier hs-type">DescribeSharedDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309160"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSharedDirectories
+</span><a href="#local-6989586621679309161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSharedDirectories' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AnextToken%3ADescribeSharedDirectories%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | A list of identifiers of all shared directories in your account.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectories_sharedDirectoryIds"><span class="hs-identifier hs-type">describeSharedDirectories_sharedDirectoryIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="describeSharedDirectories_sharedDirectoryIds"><span class="annot"><span class="annottext">describeSharedDirectories_sharedDirectoryIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeSharedDirectories -&gt; f DescribeSharedDirectories
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectories_sharedDirectoryIds"><span class="hs-identifier hs-var hs-var">describeSharedDirectories_sharedDirectoryIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSharedDirectories -&gt; Maybe [Text])
+-&gt; (DescribeSharedDirectories
+    -&gt; Maybe [Text] -&gt; DescribeSharedDirectories)
+-&gt; Lens
+     DescribeSharedDirectories
+     DescribeSharedDirectories
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories%27"><span class="hs-identifier hs-type">DescribeSharedDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309159"><span class="annot"><span class="annottext">Maybe [Text]
+sharedDirectoryIds :: Maybe [Text]
+$sel:sharedDirectoryIds:DescribeSharedDirectories' :: DescribeSharedDirectories -&gt; Maybe [Text]
+</span><a href="#local-6989586621679309159"><span class="hs-identifier hs-var hs-var">sharedDirectoryIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679309159"><span class="hs-identifier hs-var">sharedDirectoryIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309158"><span class="annot"><span class="annottext">s :: DescribeSharedDirectories
+</span><a href="#local-6989586621679309158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories%27"><span class="hs-identifier hs-type">DescribeSharedDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309157"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679309157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSharedDirectories
+</span><a href="#local-6989586621679309158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedDirectoryIds:DescribeSharedDirectories' :: Maybe [Text]
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AsharedDirectoryIds%3ADescribeSharedDirectories%27"><span class="hs-identifier hs-var">sharedDirectoryIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679309157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeSharedDirectories -&gt; f DescribeSharedDirectories)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeSharedDirectories
+-&gt; f DescribeSharedDirectories
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The number of shared directories to return in the response object.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectories_limit"><span class="hs-identifier hs-type">describeSharedDirectories_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="describeSharedDirectories_limit"><span class="annot"><span class="annottext">describeSharedDirectories_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeSharedDirectories -&gt; f DescribeSharedDirectories
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectories_limit"><span class="hs-identifier hs-var hs-var">describeSharedDirectories_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSharedDirectories -&gt; Maybe Natural)
+-&gt; (DescribeSharedDirectories
+    -&gt; Maybe Natural -&gt; DescribeSharedDirectories)
+-&gt; Lens
+     DescribeSharedDirectories
+     DescribeSharedDirectories
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories%27"><span class="hs-identifier hs-type">DescribeSharedDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309153"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:DescribeSharedDirectories' :: DescribeSharedDirectories -&gt; Maybe Natural
+</span><a href="#local-6989586621679309153"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679309153"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309152"><span class="annot"><span class="annottext">s :: DescribeSharedDirectories
+</span><a href="#local-6989586621679309152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories%27"><span class="hs-identifier hs-type">DescribeSharedDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309151"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679309151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSharedDirectories
+</span><a href="#local-6989586621679309152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeSharedDirectories' :: Maybe Natural
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3Alimit%3ADescribeSharedDirectories%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679309151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Returns the identifier of the directory in the directory owner account.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectories_ownerDirectoryId"><span class="hs-identifier hs-type">describeSharedDirectories_ownerDirectoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="describeSharedDirectories_ownerDirectoryId"><span class="annot"><span class="annottext">describeSharedDirectories_ownerDirectoryId :: (Text -&gt; f Text)
+-&gt; DescribeSharedDirectories -&gt; f DescribeSharedDirectories
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectories_ownerDirectoryId"><span class="hs-identifier hs-var hs-var">describeSharedDirectories_ownerDirectoryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSharedDirectories -&gt; Text)
+-&gt; (DescribeSharedDirectories -&gt; Text -&gt; DescribeSharedDirectories)
+-&gt; Lens
+     DescribeSharedDirectories DescribeSharedDirectories Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories%27"><span class="hs-identifier hs-type">DescribeSharedDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309150"><span class="annot"><span class="annottext">Text
+ownerDirectoryId :: Text
+$sel:ownerDirectoryId:DescribeSharedDirectories' :: DescribeSharedDirectories -&gt; Text
+</span><a href="#local-6989586621679309150"><span class="hs-identifier hs-var hs-var">ownerDirectoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309150"><span class="hs-identifier hs-var">ownerDirectoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309149"><span class="annot"><span class="annottext">s :: DescribeSharedDirectories
+</span><a href="#local-6989586621679309149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories%27"><span class="hs-identifier hs-type">DescribeSharedDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309148"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSharedDirectories
+</span><a href="#local-6989586621679309149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerDirectoryId:DescribeSharedDirectories' :: Text
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AownerDirectoryId%3ADescribeSharedDirectories%27"><span class="hs-identifier hs-var">ownerDirectoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679309144"><span class="annot"><span class="annottext">page :: DescribeSharedDirectories
+-&gt; AWSResponse DescribeSharedDirectories
+-&gt; Maybe DescribeSharedDirectories
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679309142"><span class="annot"><span class="annottext">DescribeSharedDirectories
+</span><a href="#local-6989586621679309142"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679309141"><span class="annot"><span class="annottext">AWSResponse DescribeSharedDirectories
+</span><a href="#local-6989586621679309141"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSharedDirectories
+DescribeSharedDirectoriesResponse
+</span><a href="#local-6989586621679309141"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">DescribeSharedDirectoriesResponse
+-&gt; Getting (First Text) DescribeSharedDirectoriesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeSharedDirectoriesResponse
+-&gt; Const (First Text) DescribeSharedDirectoriesResponse
+Lens' DescribeSharedDirectoriesResponse (Maybe Text)
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectoriesResponse_nextToken"><span class="hs-identifier hs-var">describeSharedDirectoriesResponse_nextToken</span></a></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeSharedDirectoriesResponse
+ -&gt; Const (First Text) DescribeSharedDirectoriesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeSharedDirectoriesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-121"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeSharedDirectories
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [SharedDirectory] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-124"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSharedDirectories
+DescribeSharedDirectoriesResponse
+</span><a href="#local-6989586621679309141"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">DescribeSharedDirectoriesResponse
+-&gt; Getting
+     (First [SharedDirectory])
+     DescribeSharedDirectoriesResponse
+     [SharedDirectory]
+-&gt; Maybe [SharedDirectory]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [SharedDirectory]
+ -&gt; Const (First [SharedDirectory]) (Maybe [SharedDirectory]))
+-&gt; DescribeSharedDirectoriesResponse
+-&gt; Const
+     (First [SharedDirectory]) DescribeSharedDirectoriesResponse
+Lens' DescribeSharedDirectoriesResponse (Maybe [SharedDirectory])
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectoriesResponse_sharedDirectories"><span class="hs-identifier hs-var">describeSharedDirectoriesResponse_sharedDirectories</span></a></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [SharedDirectory]
+  -&gt; Const (First [SharedDirectory]) (Maybe [SharedDirectory]))
+ -&gt; DescribeSharedDirectoriesResponse
+ -&gt; Const
+      (First [SharedDirectory]) DescribeSharedDirectoriesResponse)
+-&gt; (([SharedDirectory]
+     -&gt; Const (First [SharedDirectory]) [SharedDirectory])
+    -&gt; Maybe [SharedDirectory]
+    -&gt; Const (First [SharedDirectory]) (Maybe [SharedDirectory]))
+-&gt; Getting
+     (First [SharedDirectory])
+     DescribeSharedDirectoriesResponse
+     [SharedDirectory]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([SharedDirectory]
+ -&gt; Const (First [SharedDirectory]) [SharedDirectory])
+-&gt; Maybe [SharedDirectory]
+-&gt; Const (First [SharedDirectory]) (Maybe [SharedDirectory])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-127"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeSharedDirectories
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">DescribeSharedDirectories -&gt; Maybe DescribeSharedDirectories
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeSharedDirectories -&gt; Maybe DescribeSharedDirectories)
+-&gt; DescribeSharedDirectories -&gt; Maybe DescribeSharedDirectories
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">DescribeSharedDirectories
+</span><a href="#local-6989586621679309142"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">DescribeSharedDirectories
+-&gt; (DescribeSharedDirectories -&gt; DescribeSharedDirectories)
+-&gt; DescribeSharedDirectories
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeSharedDirectories -&gt; Identity DescribeSharedDirectories
+Lens
+  DescribeSharedDirectories
+  DescribeSharedDirectories
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectories_nextToken"><span class="hs-identifier hs-var">describeSharedDirectories_nextToken</span></a></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeSharedDirectories -&gt; Identity DescribeSharedDirectories)
+-&gt; Maybe Text
+-&gt; DescribeSharedDirectories
+-&gt; DescribeSharedDirectories
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSharedDirectories
+DescribeSharedDirectoriesResponse
+</span><a href="#local-6989586621679309141"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">DescribeSharedDirectoriesResponse
+-&gt; Getting (First Text) DescribeSharedDirectoriesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeSharedDirectoriesResponse
+-&gt; Const (First Text) DescribeSharedDirectoriesResponse
+Lens' DescribeSharedDirectoriesResponse (Maybe Text)
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectoriesResponse_nextToken"><span class="hs-identifier hs-var">describeSharedDirectoriesResponse_nextToken</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeSharedDirectoriesResponse
+ -&gt; Const (First Text) DescribeSharedDirectoriesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeSharedDirectoriesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-139"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse"><span class="hs-identifier hs-type">DescribeSharedDirectoriesResponse</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679309132"><span class="annot"><span class="annottext">request :: DescribeSharedDirectories -&gt; Request DescribeSharedDirectories
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeSharedDirectories -&gt; Request DescribeSharedDirectories
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679309128"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeSharedDirectories
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeSharedDirectories)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeSharedDirectories))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeSharedDirectories
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeSharedDirectories)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309125"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309125"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309124"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679309124"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309123"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309123"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [SharedDirectory]
+-&gt; Int
+-&gt; DescribeSharedDirectoriesResponse
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-var">DescribeSharedDirectoriesResponse'</span></a></span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [SharedDirectory]
+ -&gt; Int
+ -&gt; DescribeSharedDirectoriesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [SharedDirectory]
+      -&gt; Int -&gt; DescribeSharedDirectoriesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [SharedDirectory]
+   -&gt; Int -&gt; DescribeSharedDirectoriesResponse)
+-&gt; Either String (Maybe [SharedDirectory])
+-&gt; Either String (Int -&gt; DescribeSharedDirectoriesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SharedDirectory]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SharedDirectories&quot;</span></span><span>
+</span><span id="line-148"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SharedDirectory]))
+-&gt; Maybe [SharedDirectory]
+-&gt; Either String (Maybe [SharedDirectory])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SharedDirectory]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-149"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeSharedDirectoriesResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeSharedDirectoriesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309125"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309114"><span id="local-6989586621679309116"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679309107"><span class="annot"><span class="annottext">toHeaders :: DescribeSharedDirectories -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeSharedDirectories -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DirectoryService_20150416.DescribeSharedDirectories&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-164"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-168"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309097"><span id="local-6989586621679309099"><span id="local-6989586621679309101"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679309095"><span class="annot"><span class="annottext">toJSON :: DescribeSharedDirectories -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories%27"><span class="hs-identifier hs-type">DescribeSharedDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309090"><span id="local-6989586621679309091"><span id="local-6989586621679309092"><span id="local-6989586621679309093"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Text]
+Maybe Text
+Text
+ownerDirectoryId :: Text
+limit :: Maybe Natural
+sharedDirectoryIds :: Maybe [Text]
+nextToken :: Maybe Text
+$sel:ownerDirectoryId:DescribeSharedDirectories' :: DescribeSharedDirectories -&gt; Text
+$sel:limit:DescribeSharedDirectories' :: DescribeSharedDirectories -&gt; Maybe Natural
+$sel:sharedDirectoryIds:DescribeSharedDirectories' :: DescribeSharedDirectories -&gt; Maybe [Text]
+$sel:nextToken:DescribeSharedDirectories' :: DescribeSharedDirectories -&gt; Maybe Text
+</span><a href="#local-6989586621679309090"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-176"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309093"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SharedDirectoryIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679309092"><span class="hs-identifier hs-var">sharedDirectoryIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679309091"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-181"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OwnerDirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309090"><span class="hs-identifier hs-var">ownerDirectoryId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679309084"><span class="annot"><span class="annottext">toPath :: DescribeSharedDirectories -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeSharedDirectories -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectories"><span class="hs-identifier hs-type">DescribeSharedDirectories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679309080"><span class="annot"><span class="annottext">toQuery :: DescribeSharedDirectories -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeSharedDirectories -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newDescribeSharedDirectoriesResponse' smart constructor.</span><span>
+</span><span id="line-192"></span><span id="local-6989586621679309077"><span id="local-6989586621679309078"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSharedDirectoriesResponse"><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse"><span class="hs-identifier hs-var">DescribeSharedDirectoriesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSharedDirectoriesResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-var">DescribeSharedDirectoriesResponse'</span></a></span></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If not null, token that indicates that more results are available. Pass</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- this value for the @NextToken@ parameter in a subsequent call to</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- DescribeSharedDirectories to retrieve the next set of items.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeSharedDirectoriesResponse%27"><span class="annot"><span class="annottext">DescribeSharedDirectoriesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AnextToken%3ADescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | A list of all shared directories in your account.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3AsharedDirectories%3ADescribeSharedDirectoriesResponse%27"><span class="annot"><span class="annottext">DescribeSharedDirectoriesResponse -&gt; Maybe [SharedDirectory]
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AsharedDirectories%3ADescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-var hs-var">sharedDirectories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-200"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeSharedDirectoriesResponse%27"><span class="annot"><span class="annottext">DescribeSharedDirectoriesResponse -&gt; Int
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AhttpStatus%3ADescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309070"><span id="local-6989586621679309072"><span class="annot"><span class="annottext">DescribeSharedDirectoriesResponse
+-&gt; DescribeSharedDirectoriesResponse -&gt; Bool
+(DescribeSharedDirectoriesResponse
+ -&gt; DescribeSharedDirectoriesResponse -&gt; Bool)
+-&gt; (DescribeSharedDirectoriesResponse
+    -&gt; DescribeSharedDirectoriesResponse -&gt; Bool)
+-&gt; Eq DescribeSharedDirectoriesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeSharedDirectoriesResponse
+-&gt; DescribeSharedDirectoriesResponse -&gt; Bool
+$c/= :: DescribeSharedDirectoriesResponse
+-&gt; DescribeSharedDirectoriesResponse -&gt; Bool
+== :: DescribeSharedDirectoriesResponse
+-&gt; DescribeSharedDirectoriesResponse -&gt; Bool
+$c== :: DescribeSharedDirectoriesResponse
+-&gt; DescribeSharedDirectoriesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309064"><span id="local-6989586621679309066"><span id="local-6989586621679309068"><span class="annot"><span class="annottext">Int -&gt; DescribeSharedDirectoriesResponse -&gt; ShowS
+[DescribeSharedDirectoriesResponse] -&gt; ShowS
+DescribeSharedDirectoriesResponse -&gt; String
+(Int -&gt; DescribeSharedDirectoriesResponse -&gt; ShowS)
+-&gt; (DescribeSharedDirectoriesResponse -&gt; String)
+-&gt; ([DescribeSharedDirectoriesResponse] -&gt; ShowS)
+-&gt; Show DescribeSharedDirectoriesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeSharedDirectoriesResponse] -&gt; ShowS
+$cshowList :: [DescribeSharedDirectoriesResponse] -&gt; ShowS
+show :: DescribeSharedDirectoriesResponse -&gt; String
+$cshow :: DescribeSharedDirectoriesResponse -&gt; String
+showsPrec :: Int -&gt; DescribeSharedDirectoriesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeSharedDirectoriesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeSharedDirectoriesResponse
+ -&gt; Rep DescribeSharedDirectoriesResponse x)
+-&gt; (forall x.
+    Rep DescribeSharedDirectoriesResponse x
+    -&gt; DescribeSharedDirectoriesResponse)
+-&gt; Generic DescribeSharedDirectoriesResponse
+forall x.
+Rep DescribeSharedDirectoriesResponse x
+-&gt; DescribeSharedDirectoriesResponse
+forall x.
+DescribeSharedDirectoriesResponse
+-&gt; Rep DescribeSharedDirectoriesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeSharedDirectoriesResponse x
+-&gt; DescribeSharedDirectoriesResponse
+$cfrom :: forall x.
+DescribeSharedDirectoriesResponse
+-&gt; Rep DescribeSharedDirectoriesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Create a value of 'DescribeSharedDirectoriesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'nextToken', 'describeSharedDirectoriesResponse_nextToken' - If not null, token that indicates that more results are available. Pass</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- this value for the @NextToken@ parameter in a subsequent call to</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- DescribeSharedDirectories to retrieve the next set of items.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'sharedDirectories', 'describeSharedDirectoriesResponse_sharedDirectories' - A list of all shared directories in your account.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'httpStatus', 'describeSharedDirectoriesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#newDescribeSharedDirectoriesResponse"><span class="hs-identifier hs-type">newDescribeSharedDirectoriesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse"><span class="hs-identifier hs-type">DescribeSharedDirectoriesResponse</span></a></span><span>
+</span><span id="line-223"></span><span id="newDescribeSharedDirectoriesResponse"><span class="annot"><span class="annottext">newDescribeSharedDirectoriesResponse :: Int -&gt; DescribeSharedDirectoriesResponse
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#newDescribeSharedDirectoriesResponse"><span class="hs-identifier hs-var hs-var">newDescribeSharedDirectoriesResponse</span></a></span></span><span> </span><span id="local-6989586621679309061"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309061"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><span class="annottext">DescribeSharedDirectoriesResponse' :: Maybe Text
+-&gt; Maybe [SharedDirectory]
+-&gt; Int
+-&gt; DescribeSharedDirectoriesResponse
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-type">DescribeSharedDirectoriesResponse'</span></a></span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSharedDirectoriesResponse' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AnextToken%3ADescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:sharedDirectories:DescribeSharedDirectoriesResponse' :: Maybe [SharedDirectory]
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AsharedDirectories%3ADescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-var">sharedDirectories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SharedDirectory]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSharedDirectoriesResponse' :: Int
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AhttpStatus%3ADescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309061"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | If not null, token that indicates that more results are available. Pass</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- this value for the @NextToken@ parameter in a subsequent call to</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- DescribeSharedDirectories to retrieve the next set of items.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectoriesResponse_nextToken"><span class="hs-identifier hs-type">describeSharedDirectoriesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse"><span class="hs-identifier hs-type">DescribeSharedDirectoriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="describeSharedDirectoriesResponse_nextToken"><span class="annot"><span class="annottext">describeSharedDirectoriesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeSharedDirectoriesResponse
+-&gt; f DescribeSharedDirectoriesResponse
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectoriesResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeSharedDirectoriesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSharedDirectoriesResponse -&gt; Maybe Text)
+-&gt; (DescribeSharedDirectoriesResponse
+    -&gt; Maybe Text -&gt; DescribeSharedDirectoriesResponse)
+-&gt; Lens' DescribeSharedDirectoriesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-type">DescribeSharedDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309060"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeSharedDirectoriesResponse' :: DescribeSharedDirectoriesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679309060"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309060"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309059"><span class="annot"><span class="annottext">s :: DescribeSharedDirectoriesResponse
+</span><a href="#local-6989586621679309059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-type">DescribeSharedDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309058"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSharedDirectoriesResponse
+</span><a href="#local-6989586621679309059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSharedDirectoriesResponse' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AnextToken%3ADescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse"><span class="hs-identifier hs-type">DescribeSharedDirectoriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | A list of all shared directories in your account.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectoriesResponse_sharedDirectories"><span class="hs-identifier hs-type">describeSharedDirectoriesResponse_sharedDirectories</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse"><span class="hs-identifier hs-type">DescribeSharedDirectoriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="describeSharedDirectoriesResponse_sharedDirectories"><span class="annot"><span class="annottext">describeSharedDirectoriesResponse_sharedDirectories :: (Maybe [SharedDirectory] -&gt; f (Maybe [SharedDirectory]))
+-&gt; DescribeSharedDirectoriesResponse
+-&gt; f DescribeSharedDirectoriesResponse
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectoriesResponse_sharedDirectories"><span class="hs-identifier hs-var hs-var">describeSharedDirectoriesResponse_sharedDirectories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSharedDirectoriesResponse -&gt; Maybe [SharedDirectory])
+-&gt; (DescribeSharedDirectoriesResponse
+    -&gt; Maybe [SharedDirectory] -&gt; DescribeSharedDirectoriesResponse)
+-&gt; Lens'
+     DescribeSharedDirectoriesResponse (Maybe [SharedDirectory])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-type">DescribeSharedDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309057"><span class="annot"><span class="annottext">Maybe [SharedDirectory]
+sharedDirectories :: Maybe [SharedDirectory]
+$sel:sharedDirectories:DescribeSharedDirectoriesResponse' :: DescribeSharedDirectoriesResponse -&gt; Maybe [SharedDirectory]
+</span><a href="#local-6989586621679309057"><span class="hs-identifier hs-var hs-var">sharedDirectories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SharedDirectory]
+</span><a href="#local-6989586621679309057"><span class="hs-identifier hs-var">sharedDirectories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309056"><span class="annot"><span class="annottext">s :: DescribeSharedDirectoriesResponse
+</span><a href="#local-6989586621679309056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-type">DescribeSharedDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309055"><span class="annot"><span class="annottext">Maybe [SharedDirectory]
+</span><a href="#local-6989586621679309055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSharedDirectoriesResponse
+</span><a href="#local-6989586621679309056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedDirectories:DescribeSharedDirectoriesResponse' :: Maybe [SharedDirectory]
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AsharedDirectories%3ADescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-var">sharedDirectories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SharedDirectory]
+</span><a href="#local-6989586621679309055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse"><span class="hs-identifier hs-type">DescribeSharedDirectoriesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SharedDirectory] -&gt; f (Maybe [SharedDirectory]))
+ -&gt; DescribeSharedDirectoriesResponse
+ -&gt; f DescribeSharedDirectoriesResponse)
+-&gt; ((Maybe [SharedDirectory] -&gt; f (Maybe [SharedDirectory]))
+    -&gt; Maybe [SharedDirectory] -&gt; f (Maybe [SharedDirectory]))
+-&gt; (Maybe [SharedDirectory] -&gt; f (Maybe [SharedDirectory]))
+-&gt; DescribeSharedDirectoriesResponse
+-&gt; f DescribeSharedDirectoriesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SharedDirectory]
+  [SharedDirectory]
+  [SharedDirectory]
+  [SharedDirectory]
+-&gt; Iso
+     (Maybe [SharedDirectory])
+     (Maybe [SharedDirectory])
+     (Maybe [SharedDirectory])
+     (Maybe [SharedDirectory])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SharedDirectory]
+  [SharedDirectory]
+  [SharedDirectory]
+  [SharedDirectory]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectoriesResponse_httpStatus"><span class="hs-identifier hs-type">describeSharedDirectoriesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse"><span class="hs-identifier hs-type">DescribeSharedDirectoriesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-243"></span><span id="describeSharedDirectoriesResponse_httpStatus"><span class="annot"><span class="annottext">describeSharedDirectoriesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeSharedDirectoriesResponse
+-&gt; f DescribeSharedDirectoriesResponse
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#describeSharedDirectoriesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeSharedDirectoriesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSharedDirectoriesResponse -&gt; Int)
+-&gt; (DescribeSharedDirectoriesResponse
+    -&gt; Int -&gt; DescribeSharedDirectoriesResponse)
+-&gt; Lens
+     DescribeSharedDirectoriesResponse
+     DescribeSharedDirectoriesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-type">DescribeSharedDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309054"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeSharedDirectoriesResponse' :: DescribeSharedDirectoriesResponse -&gt; Int
+</span><a href="#local-6989586621679309054"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309054"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309053"><span class="annot"><span class="annottext">s :: DescribeSharedDirectoriesResponse
+</span><a href="#local-6989586621679309053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-type">DescribeSharedDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309052"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSharedDirectoriesResponse
+</span><a href="#local-6989586621679309053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSharedDirectoriesResponse' :: Int
+</span><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#%24sel%3AhttpStatus%3ADescribeSharedDirectoriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse"><span class="hs-identifier hs-type">DescribeSharedDirectoriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679309050"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.DescribeSharedDirectories.html#DescribeSharedDirectoriesResponse"><span class="hs-identifier hs-type">DescribeSharedDirectoriesResponse</span></a></span></span><span>
+</span><span id="line-248"></span></pre></body></html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.InputDestinationVpc</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.InputDestinationVpc</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The properties for a VPC type input destination.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newInputDestinationVpc' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679884748"><span id="local-6989586621679884749"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputDestinationVpc"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#InputDestinationVpc"><span class="hs-identifier hs-var">InputDestinationVpc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputDestinationVpc%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#InputDestinationVpc%27"><span class="hs-identifier hs-var">InputDestinationVpc'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The availability zone of the Input destination.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AavailabilityZone%3AInputDestinationVpc%27"><span class="annot"><span class="annottext">InputDestinationVpc -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#%24sel%3AavailabilityZone%3AInputDestinationVpc%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The network interface ID of the Input destination in the VPC.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AnetworkInterfaceId%3AInputDestinationVpc%27"><span class="annot"><span class="annottext">InputDestinationVpc -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#%24sel%3AnetworkInterfaceId%3AInputDestinationVpc%27"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679884741"><span id="local-6989586621679884743"><span class="annot"><span class="annottext">InputDestinationVpc -&gt; InputDestinationVpc -&gt; Bool
+(InputDestinationVpc -&gt; InputDestinationVpc -&gt; Bool)
+-&gt; (InputDestinationVpc -&gt; InputDestinationVpc -&gt; Bool)
+-&gt; Eq InputDestinationVpc
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InputDestinationVpc -&gt; InputDestinationVpc -&gt; Bool
+$c/= :: InputDestinationVpc -&gt; InputDestinationVpc -&gt; Bool
+== :: InputDestinationVpc -&gt; InputDestinationVpc -&gt; Bool
+$c== :: InputDestinationVpc -&gt; InputDestinationVpc -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679884732"><span id="local-6989586621679884734"><span id="local-6989586621679884736"><span id="local-6989586621679884738"><span class="annot"><span class="annottext">ReadPrec [InputDestinationVpc]
+ReadPrec InputDestinationVpc
+Int -&gt; ReadS InputDestinationVpc
+ReadS [InputDestinationVpc]
+(Int -&gt; ReadS InputDestinationVpc)
+-&gt; ReadS [InputDestinationVpc]
+-&gt; ReadPrec InputDestinationVpc
+-&gt; ReadPrec [InputDestinationVpc]
+-&gt; Read InputDestinationVpc
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InputDestinationVpc]
+$creadListPrec :: ReadPrec [InputDestinationVpc]
+readPrec :: ReadPrec InputDestinationVpc
+$creadPrec :: ReadPrec InputDestinationVpc
+readList :: ReadS [InputDestinationVpc]
+$creadList :: ReadS [InputDestinationVpc]
+readsPrec :: Int -&gt; ReadS InputDestinationVpc
+$creadsPrec :: Int -&gt; ReadS InputDestinationVpc
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679884725"><span id="local-6989586621679884727"><span id="local-6989586621679884729"><span class="annot"><span class="annottext">Int -&gt; InputDestinationVpc -&gt; ShowS
+[InputDestinationVpc] -&gt; ShowS
+InputDestinationVpc -&gt; String
+(Int -&gt; InputDestinationVpc -&gt; ShowS)
+-&gt; (InputDestinationVpc -&gt; String)
+-&gt; ([InputDestinationVpc] -&gt; ShowS)
+-&gt; Show InputDestinationVpc
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InputDestinationVpc] -&gt; ShowS
+$cshowList :: [InputDestinationVpc] -&gt; ShowS
+show :: InputDestinationVpc -&gt; String
+$cshow :: InputDestinationVpc -&gt; String
+showsPrec :: Int -&gt; InputDestinationVpc -&gt; ShowS
+$cshowsPrec :: Int -&gt; InputDestinationVpc -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InputDestinationVpc -&gt; Rep InputDestinationVpc x)
+-&gt; (forall x. Rep InputDestinationVpc x -&gt; InputDestinationVpc)
+-&gt; Generic InputDestinationVpc
+forall x. Rep InputDestinationVpc x -&gt; InputDestinationVpc
+forall x. InputDestinationVpc -&gt; Rep InputDestinationVpc x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InputDestinationVpc x -&gt; InputDestinationVpc
+$cfrom :: forall x. InputDestinationVpc -&gt; Rep InputDestinationVpc x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'InputDestinationVpc' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'availabilityZone', 'inputDestinationVpc_availabilityZone' - The availability zone of the Input destination.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'networkInterfaceId', 'inputDestinationVpc_networkInterfaceId' - The network interface ID of the Input destination in the VPC.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#newInputDestinationVpc"><span class="hs-identifier hs-type">newInputDestinationVpc</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#InputDestinationVpc"><span class="hs-identifier hs-type">InputDestinationVpc</span></a></span><span>
+</span><span id="line-50"></span><span id="newInputDestinationVpc"><span class="annot"><span class="annottext">newInputDestinationVpc :: InputDestinationVpc
+</span><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#newInputDestinationVpc"><span class="hs-identifier hs-var hs-var">newInputDestinationVpc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">InputDestinationVpc' :: Maybe Text -&gt; Maybe Text -&gt; InputDestinationVpc
+</span><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#InputDestinationVpc%27"><span class="hs-identifier hs-type">InputDestinationVpc'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:availabilityZone:InputDestinationVpc' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#%24sel%3AavailabilityZone%3AInputDestinationVpc%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkInterfaceId:InputDestinationVpc' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#%24sel%3AnetworkInterfaceId%3AInputDestinationVpc%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The availability zone of the Input destination.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#inputDestinationVpc_availabilityZone"><span class="hs-identifier hs-type">inputDestinationVpc_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#InputDestinationVpc"><span class="hs-identifier hs-type">InputDestinationVpc</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="inputDestinationVpc_availabilityZone"><span class="annot"><span class="annottext">inputDestinationVpc_availabilityZone :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InputDestinationVpc -&gt; f InputDestinationVpc
+</span><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#inputDestinationVpc_availabilityZone"><span class="hs-identifier hs-var hs-var">inputDestinationVpc_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDestinationVpc -&gt; Maybe Text)
+-&gt; (InputDestinationVpc -&gt; Maybe Text -&gt; InputDestinationVpc)
+-&gt; Lens
+     InputDestinationVpc InputDestinationVpc (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#InputDestinationVpc%27"><span class="hs-identifier hs-type">InputDestinationVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679884716"><span class="annot"><span class="annottext">Maybe Text
+availabilityZone :: Maybe Text
+$sel:availabilityZone:InputDestinationVpc' :: InputDestinationVpc -&gt; Maybe Text
+</span><a href="#local-6989586621679884716"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679884716"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679884715"><span class="annot"><span class="annottext">s :: InputDestinationVpc
+</span><a href="#local-6989586621679884715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#InputDestinationVpc%27"><span class="hs-identifier hs-type">InputDestinationVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679884714"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679884714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDestinationVpc
+</span><a href="#local-6989586621679884715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:InputDestinationVpc' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#%24sel%3AavailabilityZone%3AInputDestinationVpc%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679884714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#InputDestinationVpc"><span class="hs-identifier hs-type">InputDestinationVpc</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The network interface ID of the Input destination in the VPC.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#inputDestinationVpc_networkInterfaceId"><span class="hs-identifier hs-type">inputDestinationVpc_networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#InputDestinationVpc"><span class="hs-identifier hs-type">InputDestinationVpc</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="inputDestinationVpc_networkInterfaceId"><span class="annot"><span class="annottext">inputDestinationVpc_networkInterfaceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InputDestinationVpc -&gt; f InputDestinationVpc
+</span><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#inputDestinationVpc_networkInterfaceId"><span class="hs-identifier hs-var hs-var">inputDestinationVpc_networkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDestinationVpc -&gt; Maybe Text)
+-&gt; (InputDestinationVpc -&gt; Maybe Text -&gt; InputDestinationVpc)
+-&gt; Lens
+     InputDestinationVpc InputDestinationVpc (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#InputDestinationVpc%27"><span class="hs-identifier hs-type">InputDestinationVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679884712"><span class="annot"><span class="annottext">Maybe Text
+networkInterfaceId :: Maybe Text
+$sel:networkInterfaceId:InputDestinationVpc' :: InputDestinationVpc -&gt; Maybe Text
+</span><a href="#local-6989586621679884712"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679884712"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679884711"><span class="annot"><span class="annottext">s :: InputDestinationVpc
+</span><a href="#local-6989586621679884711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#InputDestinationVpc%27"><span class="hs-identifier hs-type">InputDestinationVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679884710"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679884710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDestinationVpc
+</span><a href="#local-6989586621679884711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceId:InputDestinationVpc' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#%24sel%3AnetworkInterfaceId%3AInputDestinationVpc%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679884710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#InputDestinationVpc"><span class="hs-identifier hs-type">InputDestinationVpc</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679884707"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#InputDestinationVpc"><span class="hs-identifier hs-type">InputDestinationVpc</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679884705"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputDestinationVpc
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InputDestinationVpc)
+-&gt; Value
+-&gt; Parser InputDestinationVpc
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InputDestinationVpc&quot;</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679884702"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679884702"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; InputDestinationVpc
+</span><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#InputDestinationVpc%27"><span class="hs-identifier hs-var">InputDestinationVpc'</span></a></span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; InputDestinationVpc)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; InputDestinationVpc)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679884702"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;availabilityZone&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; InputDestinationVpc)
+-&gt; Parser (Maybe Text) -&gt; Parser InputDestinationVpc
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679884702"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkInterfaceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679884696"><span id="local-6989586621679884698"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#InputDestinationVpc"><span class="hs-identifier hs-type">InputDestinationVpc</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679884693"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDestinationVpc.html#InputDestinationVpc"><span class="hs-identifier hs-type">InputDestinationVpc</span></a></span></span><span>
+</span><span id="line-78"></span></pre></body></html>

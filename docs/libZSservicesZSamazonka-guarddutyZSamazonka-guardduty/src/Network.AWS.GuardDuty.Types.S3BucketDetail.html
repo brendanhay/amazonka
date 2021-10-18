@@ -1,0 +1,533 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GuardDuty.Types.S3BucketDetail</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GuardDuty.Types.S3BucketDetail</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DefaultServerSideEncryption.html"><span class="hs-identifier">Network.AWS.GuardDuty.Types.DefaultServerSideEncryption</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html"><span class="hs-identifier">Network.AWS.GuardDuty.Types.Owner</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html"><span class="hs-identifier">Network.AWS.GuardDuty.Types.PublicAccess</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Tag.html"><span class="hs-identifier">Network.AWS.GuardDuty.Types.Tag</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Contains information on the S3 bucket.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newS3BucketDetail' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679300773"><span id="local-6989586621679300774"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3BucketDetail"><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-var">S3BucketDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3BucketDetail%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-var">S3BucketDetail'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time the bucket was created at.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreatedAt%3AS3BucketDetail%27"><span class="annot"><span class="annottext">S3BucketDetail -&gt; Maybe POSIX
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3AcreatedAt%3AS3BucketDetail%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Describes the public access policies that apply to the S3 bucket.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3ApublicAccess%3AS3BucketDetail%27"><span class="annot"><span class="annottext">S3BucketDetail -&gt; Maybe PublicAccess
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3ApublicAccess%3AS3BucketDetail%27"><span class="hs-identifier hs-var hs-var">publicAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess"><span class="hs-identifier hs-type">PublicAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the S3 bucket.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aarn%3AS3BucketDetail%27"><span class="annot"><span class="annottext">S3BucketDetail -&gt; Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3Aarn%3AS3BucketDetail%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Describes the server side encryption method used in the S3 bucket.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdefaultServerSideEncryption%3AS3BucketDetail%27"><span class="annot"><span class="annottext">S3BucketDetail -&gt; Maybe DefaultServerSideEncryption
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3AdefaultServerSideEncryption%3AS3BucketDetail%27"><span class="hs-identifier hs-var hs-var">defaultServerSideEncryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DefaultServerSideEncryption.html#DefaultServerSideEncryption"><span class="hs-identifier hs-type">DefaultServerSideEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of the S3 bucket.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aname%3AS3BucketDetail%27"><span class="annot"><span class="annottext">S3BucketDetail -&gt; Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3Aname%3AS3BucketDetail%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | All tags attached to the S3 bucket</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Atags%3AS3BucketDetail%27"><span class="annot"><span class="annottext">S3BucketDetail -&gt; Maybe [Tag]
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3Atags%3AS3BucketDetail%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The owner of the S3 bucket.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aowner%3AS3BucketDetail%27"><span class="annot"><span class="annottext">S3BucketDetail -&gt; Maybe Owner
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3Aowner%3AS3BucketDetail%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Describes whether the bucket is a source or destination bucket.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Atype%27%3AS3BucketDetail%27"><span class="annot"><span class="annottext">S3BucketDetail -&gt; Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3Atype%27%3AS3BucketDetail%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300760"><span id="local-6989586621679300762"><span class="annot"><span class="annottext">S3BucketDetail -&gt; S3BucketDetail -&gt; Bool
+(S3BucketDetail -&gt; S3BucketDetail -&gt; Bool)
+-&gt; (S3BucketDetail -&gt; S3BucketDetail -&gt; Bool) -&gt; Eq S3BucketDetail
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: S3BucketDetail -&gt; S3BucketDetail -&gt; Bool
+$c/= :: S3BucketDetail -&gt; S3BucketDetail -&gt; Bool
+== :: S3BucketDetail -&gt; S3BucketDetail -&gt; Bool
+$c== :: S3BucketDetail -&gt; S3BucketDetail -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300751"><span id="local-6989586621679300753"><span id="local-6989586621679300755"><span id="local-6989586621679300757"><span class="annot"><span class="annottext">ReadPrec [S3BucketDetail]
+ReadPrec S3BucketDetail
+Int -&gt; ReadS S3BucketDetail
+ReadS [S3BucketDetail]
+(Int -&gt; ReadS S3BucketDetail)
+-&gt; ReadS [S3BucketDetail]
+-&gt; ReadPrec S3BucketDetail
+-&gt; ReadPrec [S3BucketDetail]
+-&gt; Read S3BucketDetail
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [S3BucketDetail]
+$creadListPrec :: ReadPrec [S3BucketDetail]
+readPrec :: ReadPrec S3BucketDetail
+$creadPrec :: ReadPrec S3BucketDetail
+readList :: ReadS [S3BucketDetail]
+$creadList :: ReadS [S3BucketDetail]
+readsPrec :: Int -&gt; ReadS S3BucketDetail
+$creadsPrec :: Int -&gt; ReadS S3BucketDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300744"><span id="local-6989586621679300746"><span id="local-6989586621679300748"><span class="annot"><span class="annottext">Int -&gt; S3BucketDetail -&gt; ShowS
+[S3BucketDetail] -&gt; ShowS
+S3BucketDetail -&gt; String
+(Int -&gt; S3BucketDetail -&gt; ShowS)
+-&gt; (S3BucketDetail -&gt; String)
+-&gt; ([S3BucketDetail] -&gt; ShowS)
+-&gt; Show S3BucketDetail
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [S3BucketDetail] -&gt; ShowS
+$cshowList :: [S3BucketDetail] -&gt; ShowS
+show :: S3BucketDetail -&gt; String
+$cshow :: S3BucketDetail -&gt; String
+showsPrec :: Int -&gt; S3BucketDetail -&gt; ShowS
+$cshowsPrec :: Int -&gt; S3BucketDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. S3BucketDetail -&gt; Rep S3BucketDetail x)
+-&gt; (forall x. Rep S3BucketDetail x -&gt; S3BucketDetail)
+-&gt; Generic S3BucketDetail
+forall x. Rep S3BucketDetail x -&gt; S3BucketDetail
+forall x. S3BucketDetail -&gt; Rep S3BucketDetail x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep S3BucketDetail x -&gt; S3BucketDetail
+$cfrom :: forall x. S3BucketDetail -&gt; Rep S3BucketDetail x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'S3BucketDetail' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'createdAt', 's3BucketDetail_createdAt' - The date and time the bucket was created at.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'publicAccess', 's3BucketDetail_publicAccess' - Describes the public access policies that apply to the S3 bucket.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'arn', 's3BucketDetail_arn' - The Amazon Resource Name (ARN) of the S3 bucket.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'defaultServerSideEncryption', 's3BucketDetail_defaultServerSideEncryption' - Describes the server side encryption method used in the S3 bucket.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'name', 's3BucketDetail_name' - The name of the S3 bucket.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'tags', 's3BucketDetail_tags' - All tags attached to the S3 bucket</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'owner', 's3BucketDetail_owner' - The owner of the S3 bucket.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'type'', 's3BucketDetail_type' - Describes whether the bucket is a source or destination bucket.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#newS3BucketDetail"><span class="hs-identifier hs-type">newS3BucketDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span>
+</span><span id="line-78"></span><span id="newS3BucketDetail"><span class="annot"><span class="annottext">newS3BucketDetail :: S3BucketDetail
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#newS3BucketDetail"><span class="hs-identifier hs-var hs-var">newS3BucketDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">S3BucketDetail' :: Maybe POSIX
+-&gt; Maybe PublicAccess
+-&gt; Maybe Text
+-&gt; Maybe DefaultServerSideEncryption
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Maybe Owner
+-&gt; Maybe Text
+-&gt; S3BucketDetail
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdAt:S3BucketDetail' :: Maybe POSIX
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3AcreatedAt%3AS3BucketDetail%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:publicAccess:S3BucketDetail' :: Maybe PublicAccess
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3ApublicAccess%3AS3BucketDetail%27"><span class="hs-identifier hs-var">publicAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PublicAccess
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:S3BucketDetail' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3Aarn%3AS3BucketDetail%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultServerSideEncryption:S3BucketDetail' :: Maybe DefaultServerSideEncryption
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3AdefaultServerSideEncryption%3AS3BucketDetail%27"><span class="hs-identifier hs-var">defaultServerSideEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultServerSideEncryption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:S3BucketDetail' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3Aname%3AS3BucketDetail%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:S3BucketDetail' :: Maybe [Tag]
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3Atags%3AS3BucketDetail%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:owner:S3BucketDetail' :: Maybe Owner
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3Aowner%3AS3BucketDetail%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':S3BucketDetail' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3Atype%27%3AS3BucketDetail%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The date and time the bucket was created at.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#s3BucketDetail_createdAt"><span class="hs-identifier hs-type">s3BucketDetail_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="s3BucketDetail_createdAt"><span class="annot"><span class="annottext">s3BucketDetail_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; S3BucketDetail -&gt; f S3BucketDetail
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#s3BucketDetail_createdAt"><span class="hs-identifier hs-var hs-var">s3BucketDetail_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3BucketDetail -&gt; Maybe POSIX)
+-&gt; (S3BucketDetail -&gt; Maybe POSIX -&gt; S3BucketDetail)
+-&gt; Lens S3BucketDetail S3BucketDetail (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300735"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:S3BucketDetail' :: S3BucketDetail -&gt; Maybe POSIX
+</span><a href="#local-6989586621679300735"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679300735"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300734"><span class="annot"><span class="annottext">s :: S3BucketDetail
+</span><a href="#local-6989586621679300734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300733"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679300733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3BucketDetail
+</span><a href="#local-6989586621679300734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:S3BucketDetail' :: Maybe POSIX
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3AcreatedAt%3AS3BucketDetail%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679300733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; S3BucketDetail -&gt; f S3BucketDetail)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; S3BucketDetail
+-&gt; f S3BucketDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Describes the public access policies that apply to the S3 bucket.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#s3BucketDetail_publicAccess"><span class="hs-identifier hs-type">s3BucketDetail_publicAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess"><span class="hs-identifier hs-type">PublicAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="s3BucketDetail_publicAccess"><span class="annot"><span class="annottext">s3BucketDetail_publicAccess :: (Maybe PublicAccess -&gt; f (Maybe PublicAccess))
+-&gt; S3BucketDetail -&gt; f S3BucketDetail
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#s3BucketDetail_publicAccess"><span class="hs-identifier hs-var hs-var">s3BucketDetail_publicAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3BucketDetail -&gt; Maybe PublicAccess)
+-&gt; (S3BucketDetail -&gt; Maybe PublicAccess -&gt; S3BucketDetail)
+-&gt; Lens
+     S3BucketDetail
+     S3BucketDetail
+     (Maybe PublicAccess)
+     (Maybe PublicAccess)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300728"><span class="annot"><span class="annottext">Maybe PublicAccess
+publicAccess :: Maybe PublicAccess
+$sel:publicAccess:S3BucketDetail' :: S3BucketDetail -&gt; Maybe PublicAccess
+</span><a href="#local-6989586621679300728"><span class="hs-identifier hs-var hs-var">publicAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PublicAccess
+</span><a href="#local-6989586621679300728"><span class="hs-identifier hs-var">publicAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300727"><span class="annot"><span class="annottext">s :: S3BucketDetail
+</span><a href="#local-6989586621679300727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300726"><span class="annot"><span class="annottext">Maybe PublicAccess
+</span><a href="#local-6989586621679300726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3BucketDetail
+</span><a href="#local-6989586621679300727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicAccess:S3BucketDetail' :: Maybe PublicAccess
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3ApublicAccess%3AS3BucketDetail%27"><span class="hs-identifier hs-var">publicAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PublicAccess
+</span><a href="#local-6989586621679300726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the S3 bucket.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#s3BucketDetail_arn"><span class="hs-identifier hs-type">s3BucketDetail_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="s3BucketDetail_arn"><span class="annot"><span class="annottext">s3BucketDetail_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; S3BucketDetail -&gt; f S3BucketDetail
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#s3BucketDetail_arn"><span class="hs-identifier hs-var hs-var">s3BucketDetail_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3BucketDetail -&gt; Maybe Text)
+-&gt; (S3BucketDetail -&gt; Maybe Text -&gt; S3BucketDetail)
+-&gt; Lens S3BucketDetail S3BucketDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300724"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:S3BucketDetail' :: S3BucketDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679300724"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300724"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300723"><span class="annot"><span class="annottext">s :: S3BucketDetail
+</span><a href="#local-6989586621679300723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300722"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3BucketDetail
+</span><a href="#local-6989586621679300723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:S3BucketDetail' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3Aarn%3AS3BucketDetail%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | Describes the server side encryption method used in the S3 bucket.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#s3BucketDetail_defaultServerSideEncryption"><span class="hs-identifier hs-type">s3BucketDetail_defaultServerSideEncryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DefaultServerSideEncryption.html#DefaultServerSideEncryption"><span class="hs-identifier hs-type">DefaultServerSideEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="s3BucketDetail_defaultServerSideEncryption"><span class="annot"><span class="annottext">s3BucketDetail_defaultServerSideEncryption :: (Maybe DefaultServerSideEncryption
+ -&gt; f (Maybe DefaultServerSideEncryption))
+-&gt; S3BucketDetail -&gt; f S3BucketDetail
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#s3BucketDetail_defaultServerSideEncryption"><span class="hs-identifier hs-var hs-var">s3BucketDetail_defaultServerSideEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3BucketDetail -&gt; Maybe DefaultServerSideEncryption)
+-&gt; (S3BucketDetail
+    -&gt; Maybe DefaultServerSideEncryption -&gt; S3BucketDetail)
+-&gt; Lens
+     S3BucketDetail
+     S3BucketDetail
+     (Maybe DefaultServerSideEncryption)
+     (Maybe DefaultServerSideEncryption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300720"><span class="annot"><span class="annottext">Maybe DefaultServerSideEncryption
+defaultServerSideEncryption :: Maybe DefaultServerSideEncryption
+$sel:defaultServerSideEncryption:S3BucketDetail' :: S3BucketDetail -&gt; Maybe DefaultServerSideEncryption
+</span><a href="#local-6989586621679300720"><span class="hs-identifier hs-var hs-var">defaultServerSideEncryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultServerSideEncryption
+</span><a href="#local-6989586621679300720"><span class="hs-identifier hs-var">defaultServerSideEncryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300719"><span class="annot"><span class="annottext">s :: S3BucketDetail
+</span><a href="#local-6989586621679300719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300718"><span class="annot"><span class="annottext">Maybe DefaultServerSideEncryption
+</span><a href="#local-6989586621679300718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3BucketDetail
+</span><a href="#local-6989586621679300719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultServerSideEncryption:S3BucketDetail' :: Maybe DefaultServerSideEncryption
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3AdefaultServerSideEncryption%3AS3BucketDetail%27"><span class="hs-identifier hs-var">defaultServerSideEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultServerSideEncryption
+</span><a href="#local-6989586621679300718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The name of the S3 bucket.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#s3BucketDetail_name"><span class="hs-identifier hs-type">s3BucketDetail_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="s3BucketDetail_name"><span class="annot"><span class="annottext">s3BucketDetail_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; S3BucketDetail -&gt; f S3BucketDetail
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#s3BucketDetail_name"><span class="hs-identifier hs-var hs-var">s3BucketDetail_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3BucketDetail -&gt; Maybe Text)
+-&gt; (S3BucketDetail -&gt; Maybe Text -&gt; S3BucketDetail)
+-&gt; Lens S3BucketDetail S3BucketDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300716"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:S3BucketDetail' :: S3BucketDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679300716"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300716"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300715"><span class="annot"><span class="annottext">s :: S3BucketDetail
+</span><a href="#local-6989586621679300715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300714"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3BucketDetail
+</span><a href="#local-6989586621679300715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:S3BucketDetail' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3Aname%3AS3BucketDetail%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | All tags attached to the S3 bucket</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#s3BucketDetail_tags"><span class="hs-identifier hs-type">s3BucketDetail_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="s3BucketDetail_tags"><span class="annot"><span class="annottext">s3BucketDetail_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; S3BucketDetail -&gt; f S3BucketDetail
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#s3BucketDetail_tags"><span class="hs-identifier hs-var hs-var">s3BucketDetail_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3BucketDetail -&gt; Maybe [Tag])
+-&gt; (S3BucketDetail -&gt; Maybe [Tag] -&gt; S3BucketDetail)
+-&gt; Lens S3BucketDetail S3BucketDetail (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300712"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:S3BucketDetail' :: S3BucketDetail -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679300712"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679300712"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300711"><span class="annot"><span class="annottext">s :: S3BucketDetail
+</span><a href="#local-6989586621679300711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300710"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679300710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3BucketDetail
+</span><a href="#local-6989586621679300711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:S3BucketDetail' :: Maybe [Tag]
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3Atags%3AS3BucketDetail%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679300710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; S3BucketDetail -&gt; f S3BucketDetail)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; S3BucketDetail
+-&gt; f S3BucketDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The owner of the S3 bucket.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#s3BucketDetail_owner"><span class="hs-identifier hs-type">s3BucketDetail_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="s3BucketDetail_owner"><span class="annot"><span class="annottext">s3BucketDetail_owner :: (Maybe Owner -&gt; f (Maybe Owner))
+-&gt; S3BucketDetail -&gt; f S3BucketDetail
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#s3BucketDetail_owner"><span class="hs-identifier hs-var hs-var">s3BucketDetail_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3BucketDetail -&gt; Maybe Owner)
+-&gt; (S3BucketDetail -&gt; Maybe Owner -&gt; S3BucketDetail)
+-&gt; Lens S3BucketDetail S3BucketDetail (Maybe Owner) (Maybe Owner)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300707"><span class="annot"><span class="annottext">Maybe Owner
+owner :: Maybe Owner
+$sel:owner:S3BucketDetail' :: S3BucketDetail -&gt; Maybe Owner
+</span><a href="#local-6989586621679300707"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679300707"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300706"><span class="annot"><span class="annottext">s :: S3BucketDetail
+</span><a href="#local-6989586621679300706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300705"><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679300705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3BucketDetail
+</span><a href="#local-6989586621679300706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:S3BucketDetail' :: Maybe Owner
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3Aowner%3AS3BucketDetail%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679300705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | Describes whether the bucket is a source or destination bucket.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#s3BucketDetail_type"><span class="hs-identifier hs-type">s3BucketDetail_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="s3BucketDetail_type"><span class="annot"><span class="annottext">s3BucketDetail_type :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; S3BucketDetail -&gt; f S3BucketDetail
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#s3BucketDetail_type"><span class="hs-identifier hs-var hs-var">s3BucketDetail_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3BucketDetail -&gt; Maybe Text)
+-&gt; (S3BucketDetail -&gt; Maybe Text -&gt; S3BucketDetail)
+-&gt; Lens S3BucketDetail S3BucketDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300703"><span class="annot"><span class="annottext">Maybe Text
+type' :: Maybe Text
+$sel:type':S3BucketDetail' :: S3BucketDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679300703"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300703"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300702"><span class="annot"><span class="annottext">s :: S3BucketDetail
+</span><a href="#local-6989586621679300702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-type">S3BucketDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300701"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3BucketDetail
+</span><a href="#local-6989586621679300702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':S3BucketDetail' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#%24sel%3Atype%27%3AS3BucketDetail%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300698"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679300696"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3BucketDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser S3BucketDetail)
+-&gt; Value
+-&gt; Parser S3BucketDetail
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;S3BucketDetail&quot;</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300693"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300693"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe PublicAccess
+-&gt; Maybe Text
+-&gt; Maybe DefaultServerSideEncryption
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Maybe Owner
+-&gt; Maybe Text
+-&gt; S3BucketDetail
+</span><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail%27"><span class="hs-identifier hs-var">S3BucketDetail'</span></a></span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe PublicAccess
+ -&gt; Maybe Text
+ -&gt; Maybe DefaultServerSideEncryption
+ -&gt; Maybe Text
+ -&gt; Maybe [Tag]
+ -&gt; Maybe Owner
+ -&gt; Maybe Text
+ -&gt; S3BucketDetail)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe PublicAccess
+      -&gt; Maybe Text
+      -&gt; Maybe DefaultServerSideEncryption
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe Owner
+      -&gt; Maybe Text
+      -&gt; S3BucketDetail)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300693"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PublicAccess
+   -&gt; Maybe Text
+   -&gt; Maybe DefaultServerSideEncryption
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe Owner
+   -&gt; Maybe Text
+   -&gt; S3BucketDetail)
+-&gt; Parser (Maybe PublicAccess)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe DefaultServerSideEncryption
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe Owner
+      -&gt; Maybe Text
+      -&gt; S3BucketDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300693"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PublicAccess)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;publicAccess&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe DefaultServerSideEncryption
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe Owner
+   -&gt; Maybe Text
+   -&gt; S3BucketDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe DefaultServerSideEncryption
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe Owner
+      -&gt; Maybe Text
+      -&gt; S3BucketDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300693"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DefaultServerSideEncryption
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe Owner
+   -&gt; Maybe Text
+   -&gt; S3BucketDetail)
+-&gt; Parser (Maybe DefaultServerSideEncryption)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Tag] -&gt; Maybe Owner -&gt; Maybe Text -&gt; S3BucketDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300693"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DefaultServerSideEncryption)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultServerSideEncryption&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Tag] -&gt; Maybe Owner -&gt; Maybe Text -&gt; S3BucketDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Tag] -&gt; Maybe Owner -&gt; Maybe Text -&gt; S3BucketDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300693"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Tag] -&gt; Maybe Owner -&gt; Maybe Text -&gt; S3BucketDetail)
+-&gt; Parser (Maybe [Tag])
+-&gt; Parser (Maybe Owner -&gt; Maybe Text -&gt; S3BucketDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300693"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Owner -&gt; Maybe Text -&gt; S3BucketDetail)
+-&gt; Parser (Maybe Owner) -&gt; Parser (Maybe Text -&gt; S3BucketDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300693"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Owner)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;owner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; S3BucketDetail)
+-&gt; Parser (Maybe Text) -&gt; Parser S3BucketDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300693"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300686"><span id="local-6989586621679300688"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300683"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3BucketDetail.html#S3BucketDetail"><span class="hs-identifier hs-type">S3BucketDetail</span></a></span></span><span>
+</span><span id="line-141"></span></pre></body></html>

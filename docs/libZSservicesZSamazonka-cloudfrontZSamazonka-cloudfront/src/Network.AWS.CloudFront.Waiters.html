@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-6"></span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-8"></span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFront.Waiters</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-16"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFront.Waiters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-17"></span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html"><span class="hs-identifier">Network.AWS.CloudFront.GetDistribution</span></a></span><span>
+</span><span id="line-19"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetInvalidation.html"><span class="hs-identifier">Network.AWS.CloudFront.GetInvalidation</span></a></span><span>
+</span><span id="line-20"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetStreamingDistribution.html"><span class="hs-identifier">Network.AWS.CloudFront.GetStreamingDistribution</span></a></span><span>
+</span><span id="line-21"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Lens.html"><span class="hs-identifier">Network.AWS.CloudFront.Lens</span></a></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.html"><span class="hs-identifier">Network.AWS.CloudFront.Types</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Polls 'Network.AWS.CloudFront.GetInvalidation' every 20 seconds until a successful state is reached. An error is returned after 30 failed checks.</span><span>
+</span><span id="line-28"></span><span class="annot"><a href="Network.AWS.CloudFront.Waiters.html#newInvalidationCompleted"><span class="hs-identifier hs-type">newInvalidationCompleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetInvalidation.html#GetInvalidation"><span class="hs-identifier hs-type">GetInvalidation</span></a></span><span>
+</span><span id="line-29"></span><span id="newInvalidationCompleted"><span class="annot"><span class="annottext">newInvalidationCompleted :: Wait GetInvalidation
+</span><a href="Network.AWS.CloudFront.Waiters.html#newInvalidationCompleted"><span class="hs-identifier hs-var hs-var">newInvalidationCompleted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-30"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InvalidationCompleted&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">30</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">20</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetInvalidation]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-35"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetInvalidation) (CI Text)
+-&gt; Acceptor GetInvalidation
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-36"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;Completed&quot;</span></span><span>
+</span><span id="line-37"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-38"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Invalidation -&gt; f (Maybe Invalidation))
+-&gt; GetInvalidationResponse -&gt; f GetInvalidationResponse
+Lens' GetInvalidationResponse (Maybe Invalidation)
+</span><a href="Network.AWS.CloudFront.GetInvalidation.html#getInvalidationResponse_invalidation"><span class="hs-identifier hs-var">getInvalidationResponse_invalidation</span></a></span><span>
+</span><span id="line-39"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Invalidation -&gt; f (Maybe Invalidation))
+ -&gt; GetInvalidationResponse -&gt; f GetInvalidationResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe Invalidation -&gt; f (Maybe Invalidation))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetInvalidationResponse
+-&gt; f GetInvalidationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Invalidation -&gt; f Invalidation)
+-&gt; Maybe Invalidation -&gt; f (Maybe Invalidation)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-40"></span><span>                </span><span class="annot"><span class="annottext">((Invalidation -&gt; f Invalidation)
+ -&gt; Maybe Invalidation -&gt; f (Maybe Invalidation))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Invalidation -&gt; f Invalidation)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Invalidation
+-&gt; f (Maybe Invalidation)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Invalidation -&gt; f Invalidation
+Lens' Invalidation Text
+</span><a href="Network.AWS.CloudFront.Types.Invalidation.html#invalidation_status"><span class="hs-identifier hs-var">invalidation_status</span></a></span><span>
+</span><span id="line-41"></span><span>                </span><span class="annot"><span class="annottext">((Text -&gt; f Text) -&gt; Invalidation -&gt; f Invalidation)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Invalidation
+-&gt; f Invalidation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; CI Text) -&gt; (CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-42"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- | Polls 'Network.AWS.CloudFront.GetDistribution' every 60 seconds until a successful state is reached. An error is returned after 35 failed checks.</span><span>
+</span><span id="line-47"></span><span class="annot"><a href="Network.AWS.CloudFront.Waiters.html#newDistributionDeployed"><span class="hs-identifier hs-type">newDistributionDeployed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution"><span class="hs-identifier hs-type">GetDistribution</span></a></span><span>
+</span><span id="line-48"></span><span id="newDistributionDeployed"><span class="annot"><span class="annottext">newDistributionDeployed :: Wait GetDistribution
+</span><a href="Network.AWS.CloudFront.Waiters.html#newDistributionDeployed"><span class="hs-identifier hs-var hs-var">newDistributionDeployed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DistributionDeployed&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">35</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">60</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetDistribution]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetDistribution) (CI Text)
+-&gt; Acceptor GetDistribution
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-55"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;Deployed&quot;</span></span><span>
+</span><span id="line-56"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-57"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Distribution -&gt; f (Maybe Distribution))
+-&gt; GetDistributionResponse -&gt; f GetDistributionResponse
+Lens' GetDistributionResponse (Maybe Distribution)
+</span><a href="Network.AWS.CloudFront.GetDistribution.html#getDistributionResponse_distribution"><span class="hs-identifier hs-var">getDistributionResponse_distribution</span></a></span><span>
+</span><span id="line-58"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Distribution -&gt; f (Maybe Distribution))
+ -&gt; GetDistributionResponse -&gt; f GetDistributionResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe Distribution -&gt; f (Maybe Distribution))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetDistributionResponse
+-&gt; f GetDistributionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; f Distribution)
+-&gt; Maybe Distribution -&gt; f (Maybe Distribution)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-59"></span><span>                </span><span class="annot"><span class="annottext">((Distribution -&gt; f Distribution)
+ -&gt; Maybe Distribution -&gt; f (Maybe Distribution))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Distribution -&gt; f Distribution)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Distribution
+-&gt; f (Maybe Distribution)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Distribution -&gt; f Distribution
+Lens' Distribution Text
+</span><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_status"><span class="hs-identifier hs-var">distribution_status</span></a></span><span>
+</span><span id="line-60"></span><span>                </span><span class="annot"><span class="annottext">((Text -&gt; f Text) -&gt; Distribution -&gt; f Distribution)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Distribution
+-&gt; f Distribution
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; CI Text) -&gt; (CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-61"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | Polls 'Network.AWS.CloudFront.GetStreamingDistribution' every 60 seconds until a successful state is reached. An error is returned after 25 failed checks.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.CloudFront.Waiters.html#newStreamingDistributionDeployed"><span class="hs-identifier hs-type">newStreamingDistributionDeployed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetStreamingDistribution.html#GetStreamingDistribution"><span class="hs-identifier hs-type">GetStreamingDistribution</span></a></span><span>
+</span><span id="line-67"></span><span id="newStreamingDistributionDeployed"><span class="annot"><span class="annottext">newStreamingDistributionDeployed :: Wait GetStreamingDistribution
+</span><a href="Network.AWS.CloudFront.Waiters.html#newStreamingDistributionDeployed"><span class="hs-identifier hs-var hs-var">newStreamingDistributionDeployed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StreamingDistributionDeployed&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">25</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">60</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetStreamingDistribution]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetStreamingDistribution) (CI Text)
+-&gt; Acceptor GetStreamingDistribution
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;Deployed&quot;</span></span><span>
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-77"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe StreamingDistribution -&gt; f (Maybe StreamingDistribution))
+-&gt; GetStreamingDistributionResponse
+-&gt; f GetStreamingDistributionResponse
+Lens'
+  GetStreamingDistributionResponse (Maybe StreamingDistribution)
+</span><a href="Network.AWS.CloudFront.GetStreamingDistribution.html#getStreamingDistributionResponse_streamingDistribution"><span class="hs-identifier hs-var">getStreamingDistributionResponse_streamingDistribution</span></a></span><span>
+</span><span id="line-78"></span><span>                </span><span class="annot"><span class="annottext">((Maybe StreamingDistribution -&gt; f (Maybe StreamingDistribution))
+ -&gt; GetStreamingDistributionResponse
+ -&gt; f GetStreamingDistributionResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe StreamingDistribution -&gt; f (Maybe StreamingDistribution))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetStreamingDistributionResponse
+-&gt; f GetStreamingDistributionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(StreamingDistribution -&gt; f StreamingDistribution)
+-&gt; Maybe StreamingDistribution -&gt; f (Maybe StreamingDistribution)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-79"></span><span>                </span><span class="annot"><span class="annottext">((StreamingDistribution -&gt; f StreamingDistribution)
+ -&gt; Maybe StreamingDistribution -&gt; f (Maybe StreamingDistribution))
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; StreamingDistribution -&gt; f StreamingDistribution)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe StreamingDistribution
+-&gt; f (Maybe StreamingDistribution)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text)
+-&gt; StreamingDistribution -&gt; f StreamingDistribution
+Lens' StreamingDistribution Text
+</span><a href="Network.AWS.CloudFront.Types.StreamingDistribution.html#streamingDistribution_status"><span class="hs-identifier hs-var">streamingDistribution_status</span></a></span><span>
+</span><span id="line-80"></span><span>                </span><span class="annot"><span class="annottext">((Text -&gt; f Text)
+ -&gt; StreamingDistribution -&gt; f StreamingDistribution)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; StreamingDistribution
+-&gt; f StreamingDistribution
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; CI Text) -&gt; (CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-81"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span></pre></body></html>

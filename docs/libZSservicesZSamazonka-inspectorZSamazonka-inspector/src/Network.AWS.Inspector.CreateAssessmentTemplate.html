@@ -1,0 +1,696 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Inspector.CreateAssessmentTemplate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an assessment template for the assessment target that is</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specified by the ARN of the assessment target. If the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/inspector/latest/userguide/inspector_slr.html service-linked role&gt;</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- isn&#8217;t already registered, this action also creates and registers a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- service-linked role to grant Amazon Inspector access to AWS Services</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- needed to perform security assessments.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Inspector.CreateAssessmentTemplate</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier">CreateAssessmentTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#newCreateAssessmentTemplate"><span class="hs-identifier">newCreateAssessmentTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplate_userAttributesForFindings"><span class="hs-identifier">createAssessmentTemplate_userAttributesForFindings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplate_assessmentTargetArn"><span class="hs-identifier">createAssessmentTemplate_assessmentTargetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplate_assessmentTemplateName"><span class="hs-identifier">createAssessmentTemplate_assessmentTemplateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplate_durationInSeconds"><span class="hs-identifier">createAssessmentTemplate_durationInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplate_rulesPackageArns"><span class="hs-identifier">createAssessmentTemplate_rulesPackageArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplateResponse"><span class="hs-identifier">CreateAssessmentTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#newCreateAssessmentTemplateResponse"><span class="hs-identifier">newCreateAssessmentTemplateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplateResponse_httpStatus"><span class="hs-identifier">createAssessmentTemplateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplateResponse_assessmentTemplateArn"><span class="hs-identifier">createAssessmentTemplateResponse_assessmentTemplateArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.html"><span class="hs-identifier">Network.AWS.Inspector.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCreateAssessmentTemplate' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679258449"><span id="local-6989586621679258450"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAssessmentTemplate"><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-var">CreateAssessmentTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAssessmentTemplate%27"><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate%27"><span class="hs-identifier hs-var">CreateAssessmentTemplate'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user-defined attributes that are assigned to every finding that is</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- generated by the assessment run that uses this assessment template. An</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- attribute is a key and value pair (an Attribute object). Within an</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- assessment template, each key must be unique.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AuserAttributesForFindings%3ACreateAssessmentTemplate%27"><span class="annot"><span class="annottext">CreateAssessmentTemplate -&gt; Maybe [Attribute]
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AuserAttributesForFindings%3ACreateAssessmentTemplate%27"><span class="hs-identifier hs-var hs-var">userAttributesForFindings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ARN that specifies the assessment target for which you want to</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- create the assessment template.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AassessmentTargetArn%3ACreateAssessmentTemplate%27"><span class="annot"><span class="annottext">CreateAssessmentTemplate -&gt; Text
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AassessmentTargetArn%3ACreateAssessmentTemplate%27"><span class="hs-identifier hs-var hs-var">assessmentTargetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The user-defined name that identifies the assessment template that you</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- want to create. You can create several assessment templates for an</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- assessment target. The names of the assessment templates that correspond</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- to a particular assessment target must be unique.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AassessmentTemplateName%3ACreateAssessmentTemplate%27"><span class="annot"><span class="annottext">CreateAssessmentTemplate -&gt; Text
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AassessmentTemplateName%3ACreateAssessmentTemplate%27"><span class="hs-identifier hs-var hs-var">assessmentTemplateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The duration of the assessment run in seconds.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AdurationInSeconds%3ACreateAssessmentTemplate%27"><span class="annot"><span class="annottext">CreateAssessmentTemplate -&gt; Natural
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AdurationInSeconds%3ACreateAssessmentTemplate%27"><span class="hs-identifier hs-var hs-var">durationInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The ARNs that specify the rules packages that you want to attach to the</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- assessment template.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3ArulesPackageArns%3ACreateAssessmentTemplate%27"><span class="annot"><span class="annottext">CreateAssessmentTemplate -&gt; [Text]
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3ArulesPackageArns%3ACreateAssessmentTemplate%27"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258439"><span id="local-6989586621679258441"><span class="annot"><span class="annottext">CreateAssessmentTemplate -&gt; CreateAssessmentTemplate -&gt; Bool
+(CreateAssessmentTemplate -&gt; CreateAssessmentTemplate -&gt; Bool)
+-&gt; (CreateAssessmentTemplate -&gt; CreateAssessmentTemplate -&gt; Bool)
+-&gt; Eq CreateAssessmentTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateAssessmentTemplate -&gt; CreateAssessmentTemplate -&gt; Bool
+$c/= :: CreateAssessmentTemplate -&gt; CreateAssessmentTemplate -&gt; Bool
+== :: CreateAssessmentTemplate -&gt; CreateAssessmentTemplate -&gt; Bool
+$c== :: CreateAssessmentTemplate -&gt; CreateAssessmentTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258430"><span id="local-6989586621679258432"><span id="local-6989586621679258434"><span id="local-6989586621679258436"><span class="annot"><span class="annottext">ReadPrec [CreateAssessmentTemplate]
+ReadPrec CreateAssessmentTemplate
+Int -&gt; ReadS CreateAssessmentTemplate
+ReadS [CreateAssessmentTemplate]
+(Int -&gt; ReadS CreateAssessmentTemplate)
+-&gt; ReadS [CreateAssessmentTemplate]
+-&gt; ReadPrec CreateAssessmentTemplate
+-&gt; ReadPrec [CreateAssessmentTemplate]
+-&gt; Read CreateAssessmentTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateAssessmentTemplate]
+$creadListPrec :: ReadPrec [CreateAssessmentTemplate]
+readPrec :: ReadPrec CreateAssessmentTemplate
+$creadPrec :: ReadPrec CreateAssessmentTemplate
+readList :: ReadS [CreateAssessmentTemplate]
+$creadList :: ReadS [CreateAssessmentTemplate]
+readsPrec :: Int -&gt; ReadS CreateAssessmentTemplate
+$creadsPrec :: Int -&gt; ReadS CreateAssessmentTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258423"><span id="local-6989586621679258425"><span id="local-6989586621679258427"><span class="annot"><span class="annottext">Int -&gt; CreateAssessmentTemplate -&gt; ShowS
+[CreateAssessmentTemplate] -&gt; ShowS
+CreateAssessmentTemplate -&gt; String
+(Int -&gt; CreateAssessmentTemplate -&gt; ShowS)
+-&gt; (CreateAssessmentTemplate -&gt; String)
+-&gt; ([CreateAssessmentTemplate] -&gt; ShowS)
+-&gt; Show CreateAssessmentTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateAssessmentTemplate] -&gt; ShowS
+$cshowList :: [CreateAssessmentTemplate] -&gt; ShowS
+show :: CreateAssessmentTemplate -&gt; String
+$cshow :: CreateAssessmentTemplate -&gt; String
+showsPrec :: Int -&gt; CreateAssessmentTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateAssessmentTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateAssessmentTemplate -&gt; Rep CreateAssessmentTemplate x)
+-&gt; (forall x.
+    Rep CreateAssessmentTemplate x -&gt; CreateAssessmentTemplate)
+-&gt; Generic CreateAssessmentTemplate
+forall x.
+Rep CreateAssessmentTemplate x -&gt; CreateAssessmentTemplate
+forall x.
+CreateAssessmentTemplate -&gt; Rep CreateAssessmentTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateAssessmentTemplate x -&gt; CreateAssessmentTemplate
+$cfrom :: forall x.
+CreateAssessmentTemplate -&gt; Rep CreateAssessmentTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Create a value of 'CreateAssessmentTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'userAttributesForFindings', 'createAssessmentTemplate_userAttributesForFindings' - The user-defined attributes that are assigned to every finding that is</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- generated by the assessment run that uses this assessment template. An</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- attribute is a key and value pair (an Attribute object). Within an</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- assessment template, each key must be unique.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'assessmentTargetArn', 'createAssessmentTemplate_assessmentTargetArn' - The ARN that specifies the assessment target for which you want to</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- create the assessment template.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'assessmentTemplateName', 'createAssessmentTemplate_assessmentTemplateName' - The user-defined name that identifies the assessment template that you</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- want to create. You can create several assessment templates for an</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- assessment target. The names of the assessment templates that correspond</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- to a particular assessment target must be unique.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'durationInSeconds', 'createAssessmentTemplate_durationInSeconds' - The duration of the assessment run in seconds.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'rulesPackageArns', 'createAssessmentTemplate_rulesPackageArns' - The ARNs that specify the rules packages that you want to attach to the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- assessment template.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#newCreateAssessmentTemplate"><span class="hs-identifier hs-type">newCreateAssessmentTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'assessmentTargetArn'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-comment">-- | 'assessmentTemplateName'</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-comment">-- | 'durationInSeconds'</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span><span>
+</span><span id="line-114"></span><span id="newCreateAssessmentTemplate"><span class="annot"><span class="annottext">newCreateAssessmentTemplate :: Text -&gt; Text -&gt; Natural -&gt; CreateAssessmentTemplate
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#newCreateAssessmentTemplate"><span class="hs-identifier hs-var hs-var">newCreateAssessmentTemplate</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679258418"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258418"><span class="hs-identifier hs-var">pAssessmentTargetArn_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679258417"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258417"><span class="hs-identifier hs-var">pAssessmentTemplateName_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679258416"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679258416"><span class="hs-identifier hs-var">pDurationInSeconds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">CreateAssessmentTemplate' :: Maybe [Attribute]
+-&gt; Text -&gt; Text -&gt; Natural -&gt; [Text] -&gt; CreateAssessmentTemplate
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate%27"><span class="hs-identifier hs-type">CreateAssessmentTemplate'</span></a></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userAttributesForFindings:CreateAssessmentTemplate' :: Maybe [Attribute]
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AuserAttributesForFindings%3ACreateAssessmentTemplate%27"><span class="hs-identifier hs-var">userAttributesForFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Attribute]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:assessmentTargetArn:CreateAssessmentTemplate' :: Text
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AassessmentTargetArn%3ACreateAssessmentTemplate%27"><span class="hs-identifier hs-var">assessmentTargetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258418"><span class="hs-identifier hs-var">pAssessmentTargetArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:assessmentTemplateName:CreateAssessmentTemplate' :: Text
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AassessmentTemplateName%3ACreateAssessmentTemplate%27"><span class="hs-identifier hs-var">assessmentTemplateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258417"><span class="hs-identifier hs-var">pAssessmentTemplateName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:durationInSeconds:CreateAssessmentTemplate' :: Natural
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AdurationInSeconds%3ACreateAssessmentTemplate%27"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679258416"><span class="hs-identifier hs-var">pDurationInSeconds_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:rulesPackageArns:CreateAssessmentTemplate' :: [Text]
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3ArulesPackageArns%3ACreateAssessmentTemplate%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The user-defined attributes that are assigned to every finding that is</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- generated by the assessment run that uses this assessment template. An</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- attribute is a key and value pair (an Attribute object). Within an</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- assessment template, each key must be unique.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplate_userAttributesForFindings"><span class="hs-identifier hs-type">createAssessmentTemplate_userAttributesForFindings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="createAssessmentTemplate_userAttributesForFindings"><span class="annot"><span class="annottext">createAssessmentTemplate_userAttributesForFindings :: (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; CreateAssessmentTemplate -&gt; f CreateAssessmentTemplate
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplate_userAttributesForFindings"><span class="hs-identifier hs-var hs-var">createAssessmentTemplate_userAttributesForFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAssessmentTemplate -&gt; Maybe [Attribute])
+-&gt; (CreateAssessmentTemplate
+    -&gt; Maybe [Attribute] -&gt; CreateAssessmentTemplate)
+-&gt; Lens
+     CreateAssessmentTemplate
+     CreateAssessmentTemplate
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate%27"><span class="hs-identifier hs-type">CreateAssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258413"><span class="annot"><span class="annottext">Maybe [Attribute]
+userAttributesForFindings :: Maybe [Attribute]
+$sel:userAttributesForFindings:CreateAssessmentTemplate' :: CreateAssessmentTemplate -&gt; Maybe [Attribute]
+</span><a href="#local-6989586621679258413"><span class="hs-identifier hs-var hs-var">userAttributesForFindings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679258413"><span class="hs-identifier hs-var">userAttributesForFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258412"><span class="annot"><span class="annottext">s :: CreateAssessmentTemplate
+</span><a href="#local-6989586621679258412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate%27"><span class="hs-identifier hs-type">CreateAssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258411"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679258411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAssessmentTemplate
+</span><a href="#local-6989586621679258412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributesForFindings:CreateAssessmentTemplate' :: Maybe [Attribute]
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AuserAttributesForFindings%3ACreateAssessmentTemplate%27"><span class="hs-identifier hs-var">userAttributesForFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679258411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+ -&gt; CreateAssessmentTemplate -&gt; f CreateAssessmentTemplate)
+-&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+    -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; CreateAssessmentTemplate
+-&gt; f CreateAssessmentTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+-&gt; Iso
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The ARN that specifies the assessment target for which you want to</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- create the assessment template.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplate_assessmentTargetArn"><span class="hs-identifier hs-type">createAssessmentTemplate_assessmentTargetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-137"></span><span id="createAssessmentTemplate_assessmentTargetArn"><span class="annot"><span class="annottext">createAssessmentTemplate_assessmentTargetArn :: (Text -&gt; f Text)
+-&gt; CreateAssessmentTemplate -&gt; f CreateAssessmentTemplate
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplate_assessmentTargetArn"><span class="hs-identifier hs-var hs-var">createAssessmentTemplate_assessmentTargetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAssessmentTemplate -&gt; Text)
+-&gt; (CreateAssessmentTemplate -&gt; Text -&gt; CreateAssessmentTemplate)
+-&gt; Lens CreateAssessmentTemplate CreateAssessmentTemplate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate%27"><span class="hs-identifier hs-type">CreateAssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258407"><span class="annot"><span class="annottext">Text
+assessmentTargetArn :: Text
+$sel:assessmentTargetArn:CreateAssessmentTemplate' :: CreateAssessmentTemplate -&gt; Text
+</span><a href="#local-6989586621679258407"><span class="hs-identifier hs-var hs-var">assessmentTargetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258407"><span class="hs-identifier hs-var">assessmentTargetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258406"><span class="annot"><span class="annottext">s :: CreateAssessmentTemplate
+</span><a href="#local-6989586621679258406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate%27"><span class="hs-identifier hs-type">CreateAssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258405"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAssessmentTemplate
+</span><a href="#local-6989586621679258406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentTargetArn:CreateAssessmentTemplate' :: Text
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AassessmentTargetArn%3ACreateAssessmentTemplate%27"><span class="hs-identifier hs-var">assessmentTargetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The user-defined name that identifies the assessment template that you</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- want to create. You can create several assessment templates for an</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- assessment target. The names of the assessment templates that correspond</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- to a particular assessment target must be unique.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplate_assessmentTemplateName"><span class="hs-identifier hs-type">createAssessmentTemplate_assessmentTemplateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-144"></span><span id="createAssessmentTemplate_assessmentTemplateName"><span class="annot"><span class="annottext">createAssessmentTemplate_assessmentTemplateName :: (Text -&gt; f Text)
+-&gt; CreateAssessmentTemplate -&gt; f CreateAssessmentTemplate
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplate_assessmentTemplateName"><span class="hs-identifier hs-var hs-var">createAssessmentTemplate_assessmentTemplateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAssessmentTemplate -&gt; Text)
+-&gt; (CreateAssessmentTemplate -&gt; Text -&gt; CreateAssessmentTemplate)
+-&gt; Lens CreateAssessmentTemplate CreateAssessmentTemplate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate%27"><span class="hs-identifier hs-type">CreateAssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258404"><span class="annot"><span class="annottext">Text
+assessmentTemplateName :: Text
+$sel:assessmentTemplateName:CreateAssessmentTemplate' :: CreateAssessmentTemplate -&gt; Text
+</span><a href="#local-6989586621679258404"><span class="hs-identifier hs-var hs-var">assessmentTemplateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258404"><span class="hs-identifier hs-var">assessmentTemplateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258403"><span class="annot"><span class="annottext">s :: CreateAssessmentTemplate
+</span><a href="#local-6989586621679258403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate%27"><span class="hs-identifier hs-type">CreateAssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258402"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAssessmentTemplate
+</span><a href="#local-6989586621679258403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentTemplateName:CreateAssessmentTemplate' :: Text
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AassessmentTemplateName%3ACreateAssessmentTemplate%27"><span class="hs-identifier hs-var">assessmentTemplateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The duration of the assessment run in seconds.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplate_durationInSeconds"><span class="hs-identifier hs-type">createAssessmentTemplate_durationInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-148"></span><span id="createAssessmentTemplate_durationInSeconds"><span class="annot"><span class="annottext">createAssessmentTemplate_durationInSeconds :: (Natural -&gt; f Natural)
+-&gt; CreateAssessmentTemplate -&gt; f CreateAssessmentTemplate
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplate_durationInSeconds"><span class="hs-identifier hs-var hs-var">createAssessmentTemplate_durationInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAssessmentTemplate -&gt; Natural)
+-&gt; (CreateAssessmentTemplate
+    -&gt; Natural -&gt; CreateAssessmentTemplate)
+-&gt; Lens
+     CreateAssessmentTemplate CreateAssessmentTemplate Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate%27"><span class="hs-identifier hs-type">CreateAssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258401"><span class="annot"><span class="annottext">Natural
+durationInSeconds :: Natural
+$sel:durationInSeconds:CreateAssessmentTemplate' :: CreateAssessmentTemplate -&gt; Natural
+</span><a href="#local-6989586621679258401"><span class="hs-identifier hs-var hs-var">durationInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679258401"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258400"><span class="annot"><span class="annottext">s :: CreateAssessmentTemplate
+</span><a href="#local-6989586621679258400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate%27"><span class="hs-identifier hs-type">CreateAssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258399"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679258399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAssessmentTemplate
+</span><a href="#local-6989586621679258400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInSeconds:CreateAssessmentTemplate' :: Natural
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AdurationInSeconds%3ACreateAssessmentTemplate%27"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679258399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The ARNs that specify the rules packages that you want to attach to the</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- assessment template.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplate_rulesPackageArns"><span class="hs-identifier hs-type">createAssessmentTemplate_rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span id="createAssessmentTemplate_rulesPackageArns"><span class="annot"><span class="annottext">createAssessmentTemplate_rulesPackageArns :: ([Text] -&gt; f [Text])
+-&gt; CreateAssessmentTemplate -&gt; f CreateAssessmentTemplate
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplate_rulesPackageArns"><span class="hs-identifier hs-var hs-var">createAssessmentTemplate_rulesPackageArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAssessmentTemplate -&gt; [Text])
+-&gt; (CreateAssessmentTemplate -&gt; [Text] -&gt; CreateAssessmentTemplate)
+-&gt; Lens
+     CreateAssessmentTemplate CreateAssessmentTemplate [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate%27"><span class="hs-identifier hs-type">CreateAssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258398"><span class="annot"><span class="annottext">[Text]
+rulesPackageArns :: [Text]
+$sel:rulesPackageArns:CreateAssessmentTemplate' :: CreateAssessmentTemplate -&gt; [Text]
+</span><a href="#local-6989586621679258398"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679258398"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258397"><span class="annot"><span class="annottext">s :: CreateAssessmentTemplate
+</span><a href="#local-6989586621679258397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate%27"><span class="hs-identifier hs-type">CreateAssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258396"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679258396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAssessmentTemplate
+</span><a href="#local-6989586621679258397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulesPackageArns:CreateAssessmentTemplate' :: [Text]
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3ArulesPackageArns%3ACreateAssessmentTemplate%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679258396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; CreateAssessmentTemplate -&gt; f CreateAssessmentTemplate)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; CreateAssessmentTemplate
+-&gt; f CreateAssessmentTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-157"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplateResponse"><span class="hs-identifier hs-type">CreateAssessmentTemplateResponse</span></a></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679258392"><span class="annot"><span class="annottext">request :: CreateAssessmentTemplate -&gt; Request CreateAssessmentTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateAssessmentTemplate -&gt; Request CreateAssessmentTemplate
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Inspector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679258388"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateAssessmentTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateAssessmentTemplate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateAssessmentTemplate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateAssessmentTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateAssessmentTemplate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258385"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258385"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679258384"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679258384"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679258383"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258383"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateAssessmentTemplateResponse
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplateResponse%27"><span class="hs-identifier hs-var">CreateAssessmentTemplateResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateAssessmentTemplateResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; CreateAssessmentTemplateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258385"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateAssessmentTemplateResponse)
+-&gt; Either String Text
+-&gt; Either String CreateAssessmentTemplateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assessmentTemplateArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258375"><span id="local-6989586621679258377"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span></span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679258368"><span class="annot"><span class="annottext">toHeaders :: CreateAssessmentTemplate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateAssessmentTemplate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-176"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InspectorService.CreateAssessmentTemplate&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-178"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-179"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-181"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-182"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-183"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258358"><span id="local-6989586621679258360"><span id="local-6989586621679258362"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679258356"><span class="annot"><span class="annottext">toJSON :: CreateAssessmentTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate%27"><span class="hs-identifier hs-type">CreateAssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258350"><span id="local-6989586621679258351"><span id="local-6989586621679258352"><span id="local-6989586621679258353"><span id="local-6989586621679258354"><span class="annot"><span class="annottext">Natural
+[Text]
+Maybe [Attribute]
+Text
+rulesPackageArns :: [Text]
+durationInSeconds :: Natural
+assessmentTemplateName :: Text
+assessmentTargetArn :: Text
+userAttributesForFindings :: Maybe [Attribute]
+$sel:rulesPackageArns:CreateAssessmentTemplate' :: CreateAssessmentTemplate -&gt; [Text]
+$sel:durationInSeconds:CreateAssessmentTemplate' :: CreateAssessmentTemplate -&gt; Natural
+$sel:assessmentTemplateName:CreateAssessmentTemplate' :: CreateAssessmentTemplate -&gt; Text
+$sel:assessmentTargetArn:CreateAssessmentTemplate' :: CreateAssessmentTemplate -&gt; Text
+$sel:userAttributesForFindings:CreateAssessmentTemplate' :: CreateAssessmentTemplate -&gt; Maybe [Attribute]
+</span><a href="#local-6989586621679258350"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userAttributesForFindings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Attribute] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>              </span><span class="annot"><span class="annottext">([Attribute] -&gt; Pair) -&gt; Maybe [Attribute] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679258354"><span class="hs-identifier hs-var">userAttributesForFindings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-194"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assessmentTargetArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258353"><span class="hs-identifier hs-var">assessmentTargetArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-196"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assessmentTemplateName&quot;</span></span><span>
+</span><span id="line-197"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258352"><span class="hs-identifier hs-var">assessmentTemplateName</span></a></span><span>
+</span><span id="line-198"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-200"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;durationInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679258351"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-202"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rulesPackageArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679258350"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679258344"><span class="annot"><span class="annottext">toPath :: CreateAssessmentTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateAssessmentTemplate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplate"><span class="hs-identifier hs-type">CreateAssessmentTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679258340"><span class="annot"><span class="annottext">toQuery :: CreateAssessmentTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateAssessmentTemplate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | /See:/ 'newCreateAssessmentTemplateResponse' smart constructor.</span><span>
+</span><span id="line-213"></span><span id="local-6989586621679258337"><span id="local-6989586621679258338"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAssessmentTemplateResponse"><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplateResponse"><span class="hs-identifier hs-var">CreateAssessmentTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAssessmentTemplateResponse%27"><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplateResponse%27"><span class="hs-identifier hs-var">CreateAssessmentTemplateResponse'</span></a></span></span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateAssessmentTemplateResponse%27"><span class="annot"><span class="annottext">CreateAssessmentTemplateResponse -&gt; Int
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AhttpStatus%3ACreateAssessmentTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | The ARN that specifies the assessment template that is created.</span><span>
+</span><span id="line-217"></span><span>    </span><span id="%24sel%3AassessmentTemplateArn%3ACreateAssessmentTemplateResponse%27"><span class="annot"><span class="annottext">CreateAssessmentTemplateResponse -&gt; Text
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AassessmentTemplateArn%3ACreateAssessmentTemplateResponse%27"><span class="hs-identifier hs-var hs-var">assessmentTemplateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258331"><span id="local-6989586621679258333"><span class="annot"><span class="annottext">CreateAssessmentTemplateResponse
+-&gt; CreateAssessmentTemplateResponse -&gt; Bool
+(CreateAssessmentTemplateResponse
+ -&gt; CreateAssessmentTemplateResponse -&gt; Bool)
+-&gt; (CreateAssessmentTemplateResponse
+    -&gt; CreateAssessmentTemplateResponse -&gt; Bool)
+-&gt; Eq CreateAssessmentTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateAssessmentTemplateResponse
+-&gt; CreateAssessmentTemplateResponse -&gt; Bool
+$c/= :: CreateAssessmentTemplateResponse
+-&gt; CreateAssessmentTemplateResponse -&gt; Bool
+== :: CreateAssessmentTemplateResponse
+-&gt; CreateAssessmentTemplateResponse -&gt; Bool
+$c== :: CreateAssessmentTemplateResponse
+-&gt; CreateAssessmentTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258323"><span id="local-6989586621679258325"><span id="local-6989586621679258327"><span id="local-6989586621679258329"><span class="annot"><span class="annottext">ReadPrec [CreateAssessmentTemplateResponse]
+ReadPrec CreateAssessmentTemplateResponse
+Int -&gt; ReadS CreateAssessmentTemplateResponse
+ReadS [CreateAssessmentTemplateResponse]
+(Int -&gt; ReadS CreateAssessmentTemplateResponse)
+-&gt; ReadS [CreateAssessmentTemplateResponse]
+-&gt; ReadPrec CreateAssessmentTemplateResponse
+-&gt; ReadPrec [CreateAssessmentTemplateResponse]
+-&gt; Read CreateAssessmentTemplateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateAssessmentTemplateResponse]
+$creadListPrec :: ReadPrec [CreateAssessmentTemplateResponse]
+readPrec :: ReadPrec CreateAssessmentTemplateResponse
+$creadPrec :: ReadPrec CreateAssessmentTemplateResponse
+readList :: ReadS [CreateAssessmentTemplateResponse]
+$creadList :: ReadS [CreateAssessmentTemplateResponse]
+readsPrec :: Int -&gt; ReadS CreateAssessmentTemplateResponse
+$creadsPrec :: Int -&gt; ReadS CreateAssessmentTemplateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258317"><span id="local-6989586621679258319"><span id="local-6989586621679258321"><span class="annot"><span class="annottext">Int -&gt; CreateAssessmentTemplateResponse -&gt; ShowS
+[CreateAssessmentTemplateResponse] -&gt; ShowS
+CreateAssessmentTemplateResponse -&gt; String
+(Int -&gt; CreateAssessmentTemplateResponse -&gt; ShowS)
+-&gt; (CreateAssessmentTemplateResponse -&gt; String)
+-&gt; ([CreateAssessmentTemplateResponse] -&gt; ShowS)
+-&gt; Show CreateAssessmentTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateAssessmentTemplateResponse] -&gt; ShowS
+$cshowList :: [CreateAssessmentTemplateResponse] -&gt; ShowS
+show :: CreateAssessmentTemplateResponse -&gt; String
+$cshow :: CreateAssessmentTemplateResponse -&gt; String
+showsPrec :: Int -&gt; CreateAssessmentTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateAssessmentTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateAssessmentTemplateResponse
+ -&gt; Rep CreateAssessmentTemplateResponse x)
+-&gt; (forall x.
+    Rep CreateAssessmentTemplateResponse x
+    -&gt; CreateAssessmentTemplateResponse)
+-&gt; Generic CreateAssessmentTemplateResponse
+forall x.
+Rep CreateAssessmentTemplateResponse x
+-&gt; CreateAssessmentTemplateResponse
+forall x.
+CreateAssessmentTemplateResponse
+-&gt; Rep CreateAssessmentTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateAssessmentTemplateResponse x
+-&gt; CreateAssessmentTemplateResponse
+$cfrom :: forall x.
+CreateAssessmentTemplateResponse
+-&gt; Rep CreateAssessmentTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- Create a value of 'CreateAssessmentTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- 'httpStatus', 'createAssessmentTemplateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- 'assessmentTemplateArn', 'createAssessmentTemplateResponse_assessmentTemplateArn' - The ARN that specifies the assessment template that is created.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#newCreateAssessmentTemplateResponse"><span class="hs-identifier hs-type">newCreateAssessmentTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-235"></span><span>  </span><span class="hs-comment">-- | 'assessmentTemplateArn'</span><span>
+</span><span id="line-236"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-237"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplateResponse"><span class="hs-identifier hs-type">CreateAssessmentTemplateResponse</span></a></span><span>
+</span><span id="line-238"></span><span id="newCreateAssessmentTemplateResponse"><span class="annot"><span class="annottext">newCreateAssessmentTemplateResponse :: Int -&gt; Text -&gt; CreateAssessmentTemplateResponse
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#newCreateAssessmentTemplateResponse"><span class="hs-identifier hs-var hs-var">newCreateAssessmentTemplateResponse</span></a></span></span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679258314"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258314"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679258313"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258313"><span class="hs-identifier hs-var">pAssessmentTemplateArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><span class="annottext">CreateAssessmentTemplateResponse' :: Int -&gt; Text -&gt; CreateAssessmentTemplateResponse
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplateResponse%27"><span class="hs-identifier hs-type">CreateAssessmentTemplateResponse'</span></a></span><span>
+</span><span id="line-242"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAssessmentTemplateResponse' :: Int
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AhttpStatus%3ACreateAssessmentTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258314"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">$sel:assessmentTemplateArn:CreateAssessmentTemplateResponse' :: Text
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AassessmentTemplateArn%3ACreateAssessmentTemplateResponse%27"><span class="hs-identifier hs-var">assessmentTemplateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-245"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258313"><span class="hs-identifier hs-var">pAssessmentTemplateArn_</span></a></span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplateResponse_httpStatus"><span class="hs-identifier hs-type">createAssessmentTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplateResponse"><span class="hs-identifier hs-type">CreateAssessmentTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-250"></span><span id="createAssessmentTemplateResponse_httpStatus"><span class="annot"><span class="annottext">createAssessmentTemplateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateAssessmentTemplateResponse
+-&gt; f CreateAssessmentTemplateResponse
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createAssessmentTemplateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAssessmentTemplateResponse -&gt; Int)
+-&gt; (CreateAssessmentTemplateResponse
+    -&gt; Int -&gt; CreateAssessmentTemplateResponse)
+-&gt; Lens
+     CreateAssessmentTemplateResponse
+     CreateAssessmentTemplateResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplateResponse%27"><span class="hs-identifier hs-type">CreateAssessmentTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258312"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateAssessmentTemplateResponse' :: CreateAssessmentTemplateResponse -&gt; Int
+</span><a href="#local-6989586621679258312"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258312"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258311"><span class="annot"><span class="annottext">s :: CreateAssessmentTemplateResponse
+</span><a href="#local-6989586621679258311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplateResponse%27"><span class="hs-identifier hs-type">CreateAssessmentTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258310"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAssessmentTemplateResponse
+</span><a href="#local-6989586621679258311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAssessmentTemplateResponse' :: Int
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AhttpStatus%3ACreateAssessmentTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplateResponse"><span class="hs-identifier hs-type">CreateAssessmentTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The ARN that specifies the assessment template that is created.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplateResponse_assessmentTemplateArn"><span class="hs-identifier hs-type">createAssessmentTemplateResponse_assessmentTemplateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplateResponse"><span class="hs-identifier hs-type">CreateAssessmentTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-254"></span><span id="createAssessmentTemplateResponse_assessmentTemplateArn"><span class="annot"><span class="annottext">createAssessmentTemplateResponse_assessmentTemplateArn :: (Text -&gt; f Text)
+-&gt; CreateAssessmentTemplateResponse
+-&gt; f CreateAssessmentTemplateResponse
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#createAssessmentTemplateResponse_assessmentTemplateArn"><span class="hs-identifier hs-var hs-var">createAssessmentTemplateResponse_assessmentTemplateArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAssessmentTemplateResponse -&gt; Text)
+-&gt; (CreateAssessmentTemplateResponse
+    -&gt; Text -&gt; CreateAssessmentTemplateResponse)
+-&gt; Lens
+     CreateAssessmentTemplateResponse
+     CreateAssessmentTemplateResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplateResponse%27"><span class="hs-identifier hs-type">CreateAssessmentTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258309"><span class="annot"><span class="annottext">Text
+assessmentTemplateArn :: Text
+$sel:assessmentTemplateArn:CreateAssessmentTemplateResponse' :: CreateAssessmentTemplateResponse -&gt; Text
+</span><a href="#local-6989586621679258309"><span class="hs-identifier hs-var hs-var">assessmentTemplateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258309"><span class="hs-identifier hs-var">assessmentTemplateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258308"><span class="annot"><span class="annottext">s :: CreateAssessmentTemplateResponse
+</span><a href="#local-6989586621679258308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplateResponse%27"><span class="hs-identifier hs-type">CreateAssessmentTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258307"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAssessmentTemplateResponse
+</span><a href="#local-6989586621679258308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentTemplateArn:CreateAssessmentTemplateResponse' :: Text
+</span><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#%24sel%3AassessmentTemplateArn%3ACreateAssessmentTemplateResponse%27"><span class="hs-identifier hs-var">assessmentTemplateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplateResponse"><span class="hs-identifier hs-type">CreateAssessmentTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679258305"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.CreateAssessmentTemplate.html#CreateAssessmentTemplateResponse"><span class="hs-identifier hs-type">CreateAssessmentTemplateResponse</span></a></span></span><span>
+</span><span id="line-259"></span></pre></body></html>

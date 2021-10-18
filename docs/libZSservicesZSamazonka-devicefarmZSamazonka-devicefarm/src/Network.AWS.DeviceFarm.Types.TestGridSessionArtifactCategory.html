@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#TestGridSessionArtifactCategory"><span class="hs-identifier">TestGridSessionArtifactCategory</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#TestGridSessionArtifactCategory_LOG"><span class="hs-identifier">TestGridSessionArtifactCategory_LOG</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#TestGridSessionArtifactCategory_VIDEO"><span class="hs-identifier">TestGridSessionArtifactCategory_VIDEO</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679368460"><span id="local-6989586621679368461"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TestGridSessionArtifactCategory"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#TestGridSessionArtifactCategory"><span class="hs-identifier hs-var">TestGridSessionArtifactCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestGridSessionArtifactCategory%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#TestGridSessionArtifactCategory%27"><span class="hs-identifier hs-var">TestGridSessionArtifactCategory'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTestGridSessionArtifactCategory"><span class="annot"><span class="annottext">TestGridSessionArtifactCategory -&gt; Text
+</span><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#fromTestGridSessionArtifactCategory"><span class="hs-identifier hs-var hs-var">fromTestGridSessionArtifactCategory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368452"><span id="local-6989586621679368454"><span id="local-6989586621679368456"><span class="annot"><span class="annottext">Int -&gt; TestGridSessionArtifactCategory -&gt; ShowS
+[TestGridSessionArtifactCategory] -&gt; ShowS
+TestGridSessionArtifactCategory -&gt; String
+(Int -&gt; TestGridSessionArtifactCategory -&gt; ShowS)
+-&gt; (TestGridSessionArtifactCategory -&gt; String)
+-&gt; ([TestGridSessionArtifactCategory] -&gt; ShowS)
+-&gt; Show TestGridSessionArtifactCategory
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TestGridSessionArtifactCategory] -&gt; ShowS
+$cshowList :: [TestGridSessionArtifactCategory] -&gt; ShowS
+show :: TestGridSessionArtifactCategory -&gt; String
+$cshow :: TestGridSessionArtifactCategory -&gt; String
+showsPrec :: Int -&gt; TestGridSessionArtifactCategory -&gt; ShowS
+$cshowsPrec :: Int -&gt; TestGridSessionArtifactCategory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679368443"><span id="local-6989586621679368445"><span id="local-6989586621679368447"><span id="local-6989586621679368449"><span class="annot"><span class="annottext">ReadPrec [TestGridSessionArtifactCategory]
+ReadPrec TestGridSessionArtifactCategory
+Int -&gt; ReadS TestGridSessionArtifactCategory
+ReadS [TestGridSessionArtifactCategory]
+(Int -&gt; ReadS TestGridSessionArtifactCategory)
+-&gt; ReadS [TestGridSessionArtifactCategory]
+-&gt; ReadPrec TestGridSessionArtifactCategory
+-&gt; ReadPrec [TestGridSessionArtifactCategory]
+-&gt; Read TestGridSessionArtifactCategory
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TestGridSessionArtifactCategory]
+$creadListPrec :: ReadPrec [TestGridSessionArtifactCategory]
+readPrec :: ReadPrec TestGridSessionArtifactCategory
+$creadPrec :: ReadPrec TestGridSessionArtifactCategory
+readList :: ReadS [TestGridSessionArtifactCategory]
+$creadList :: ReadS [TestGridSessionArtifactCategory]
+readsPrec :: Int -&gt; ReadS TestGridSessionArtifactCategory
+$creadsPrec :: Int -&gt; ReadS TestGridSessionArtifactCategory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679368438"><span id="local-6989586621679368440"><span class="annot"><span class="annottext">TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Bool
+(TestGridSessionArtifactCategory
+ -&gt; TestGridSessionArtifactCategory -&gt; Bool)
+-&gt; (TestGridSessionArtifactCategory
+    -&gt; TestGridSessionArtifactCategory -&gt; Bool)
+-&gt; Eq TestGridSessionArtifactCategory
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Bool
+$c/= :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Bool
+== :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Bool
+$c== :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679368422"><span id="local-6989586621679368424"><span id="local-6989586621679368426"><span id="local-6989586621679368428"><span id="local-6989586621679368430"><span id="local-6989586621679368432"><span id="local-6989586621679368434"><span class="annot"><span class="annottext">Eq TestGridSessionArtifactCategory
+Eq TestGridSessionArtifactCategory
+-&gt; (TestGridSessionArtifactCategory
+    -&gt; TestGridSessionArtifactCategory -&gt; Ordering)
+-&gt; (TestGridSessionArtifactCategory
+    -&gt; TestGridSessionArtifactCategory -&gt; Bool)
+-&gt; (TestGridSessionArtifactCategory
+    -&gt; TestGridSessionArtifactCategory -&gt; Bool)
+-&gt; (TestGridSessionArtifactCategory
+    -&gt; TestGridSessionArtifactCategory -&gt; Bool)
+-&gt; (TestGridSessionArtifactCategory
+    -&gt; TestGridSessionArtifactCategory -&gt; Bool)
+-&gt; (TestGridSessionArtifactCategory
+    -&gt; TestGridSessionArtifactCategory
+    -&gt; TestGridSessionArtifactCategory)
+-&gt; (TestGridSessionArtifactCategory
+    -&gt; TestGridSessionArtifactCategory
+    -&gt; TestGridSessionArtifactCategory)
+-&gt; Ord TestGridSessionArtifactCategory
+TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Bool
+TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Ordering
+TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory
+$cmin :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory
+max :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory
+$cmax :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory
+&gt;= :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Bool
+$c&gt;= :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Bool
+&gt; :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Bool
+$c&gt; :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Bool
+&lt;= :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Bool
+$c&lt;= :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Bool
+&lt; :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Bool
+$c&lt; :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Bool
+compare :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Ordering
+$ccompare :: TestGridSessionArtifactCategory
+-&gt; TestGridSessionArtifactCategory -&gt; Ordering
+$cp1Ord :: Eq TestGridSessionArtifactCategory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ TestGridSessionArtifactCategory
+ -&gt; Rep TestGridSessionArtifactCategory x)
+-&gt; (forall x.
+    Rep TestGridSessionArtifactCategory x
+    -&gt; TestGridSessionArtifactCategory)
+-&gt; Generic TestGridSessionArtifactCategory
+forall x.
+Rep TestGridSessionArtifactCategory x
+-&gt; TestGridSessionArtifactCategory
+forall x.
+TestGridSessionArtifactCategory
+-&gt; Rep TestGridSessionArtifactCategory x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TestGridSessionArtifactCategory x
+-&gt; TestGridSessionArtifactCategory
+$cfrom :: forall x.
+TestGridSessionArtifactCategory
+-&gt; Rep TestGridSessionArtifactCategory x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368414"><span id="local-6989586621679368416"><span class="annot"><span class="annottext">Int -&gt; TestGridSessionArtifactCategory -&gt; Int
+TestGridSessionArtifactCategory -&gt; Int
+(Int -&gt; TestGridSessionArtifactCategory -&gt; Int)
+-&gt; (TestGridSessionArtifactCategory -&gt; Int)
+-&gt; Hashable TestGridSessionArtifactCategory
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TestGridSessionArtifactCategory -&gt; Int
+$chash :: TestGridSessionArtifactCategory -&gt; Int
+hashWithSalt :: Int -&gt; TestGridSessionArtifactCategory -&gt; Int
+$chashWithSalt :: Int -&gt; TestGridSessionArtifactCategory -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679368411"><span class="annot"><span class="annottext">TestGridSessionArtifactCategory -&gt; ()
+(TestGridSessionArtifactCategory -&gt; ())
+-&gt; NFData TestGridSessionArtifactCategory
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TestGridSessionArtifactCategory -&gt; ()
+$crnf :: TestGridSessionArtifactCategory -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679368408"><span class="annot"><span class="annottext">Text -&gt; Either String TestGridSessionArtifactCategory
+(Text -&gt; Either String TestGridSessionArtifactCategory)
+-&gt; FromText TestGridSessionArtifactCategory
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TestGridSessionArtifactCategory
+$cfromText :: Text -&gt; Either String TestGridSessionArtifactCategory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679368405"><span class="annot"><span class="annottext">TestGridSessionArtifactCategory -&gt; Text
+(TestGridSessionArtifactCategory -&gt; Text)
+-&gt; ToText TestGridSessionArtifactCategory
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TestGridSessionArtifactCategory -&gt; Text
+$ctoText :: TestGridSessionArtifactCategory -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679368402"><span class="annot"><span class="annottext">TestGridSessionArtifactCategory -&gt; ByteString
+(TestGridSessionArtifactCategory -&gt; ByteString)
+-&gt; ToByteString TestGridSessionArtifactCategory
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TestGridSessionArtifactCategory -&gt; ByteString
+$ctoBS :: TestGridSessionArtifactCategory -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679368399"><span class="annot"><span class="annottext">TestGridSessionArtifactCategory -&gt; ByteStringBuilder
+(TestGridSessionArtifactCategory -&gt; ByteStringBuilder)
+-&gt; ToLog TestGridSessionArtifactCategory
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TestGridSessionArtifactCategory -&gt; ByteStringBuilder
+$cbuild :: TestGridSessionArtifactCategory -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679368396"><span class="annot"><span class="annottext">HeaderName -&gt; TestGridSessionArtifactCategory -&gt; [Header]
+(HeaderName -&gt; TestGridSessionArtifactCategory -&gt; [Header])
+-&gt; ToHeader TestGridSessionArtifactCategory
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TestGridSessionArtifactCategory -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TestGridSessionArtifactCategory -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679368393"><span class="annot"><span class="annottext">TestGridSessionArtifactCategory -&gt; QueryString
+(TestGridSessionArtifactCategory -&gt; QueryString)
+-&gt; ToQuery TestGridSessionArtifactCategory
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TestGridSessionArtifactCategory -&gt; QueryString
+$ctoQuery :: TestGridSessionArtifactCategory -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679368388"><span id="local-6989586621679368390"><span class="annot"><span class="annottext">Value -&gt; Parser [TestGridSessionArtifactCategory]
+Value -&gt; Parser TestGridSessionArtifactCategory
+(Value -&gt; Parser TestGridSessionArtifactCategory)
+-&gt; (Value -&gt; Parser [TestGridSessionArtifactCategory])
+-&gt; FromJSON TestGridSessionArtifactCategory
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TestGridSessionArtifactCategory]
+$cparseJSONList :: Value -&gt; Parser [TestGridSessionArtifactCategory]
+parseJSON :: Value -&gt; Parser TestGridSessionArtifactCategory
+$cparseJSON :: Value -&gt; Parser TestGridSessionArtifactCategory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679368383"><span id="local-6989586621679368385"><span class="annot"><span class="annottext">FromJSONKeyFunction [TestGridSessionArtifactCategory]
+FromJSONKeyFunction TestGridSessionArtifactCategory
+FromJSONKeyFunction TestGridSessionArtifactCategory
+-&gt; FromJSONKeyFunction [TestGridSessionArtifactCategory]
+-&gt; FromJSONKey TestGridSessionArtifactCategory
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TestGridSessionArtifactCategory]
+$cfromJSONKeyList :: FromJSONKeyFunction [TestGridSessionArtifactCategory]
+fromJSONKey :: FromJSONKeyFunction TestGridSessionArtifactCategory
+$cfromJSONKey :: FromJSONKeyFunction TestGridSessionArtifactCategory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679368374"><span id="local-6989586621679368376"><span id="local-6989586621679368378"><span id="local-6989586621679368380"><span class="annot"><span class="annottext">[TestGridSessionArtifactCategory] -&gt; Encoding
+[TestGridSessionArtifactCategory] -&gt; Value
+TestGridSessionArtifactCategory -&gt; Encoding
+TestGridSessionArtifactCategory -&gt; Value
+(TestGridSessionArtifactCategory -&gt; Value)
+-&gt; (TestGridSessionArtifactCategory -&gt; Encoding)
+-&gt; ([TestGridSessionArtifactCategory] -&gt; Value)
+-&gt; ([TestGridSessionArtifactCategory] -&gt; Encoding)
+-&gt; ToJSON TestGridSessionArtifactCategory
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TestGridSessionArtifactCategory] -&gt; Encoding
+$ctoEncodingList :: [TestGridSessionArtifactCategory] -&gt; Encoding
+toJSONList :: [TestGridSessionArtifactCategory] -&gt; Value
+$ctoJSONList :: [TestGridSessionArtifactCategory] -&gt; Value
+toEncoding :: TestGridSessionArtifactCategory -&gt; Encoding
+$ctoEncoding :: TestGridSessionArtifactCategory -&gt; Encoding
+toJSON :: TestGridSessionArtifactCategory -&gt; Value
+$ctoJSON :: TestGridSessionArtifactCategory -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679368369"><span id="local-6989586621679368371"><span class="annot"><span class="annottext">ToJSONKeyFunction [TestGridSessionArtifactCategory]
+ToJSONKeyFunction TestGridSessionArtifactCategory
+ToJSONKeyFunction TestGridSessionArtifactCategory
+-&gt; ToJSONKeyFunction [TestGridSessionArtifactCategory]
+-&gt; ToJSONKey TestGridSessionArtifactCategory
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TestGridSessionArtifactCategory]
+$ctoJSONKeyList :: ToJSONKeyFunction [TestGridSessionArtifactCategory]
+toJSONKey :: ToJSONKeyFunction TestGridSessionArtifactCategory
+$ctoJSONKey :: ToJSONKeyFunction TestGridSessionArtifactCategory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679368366"><span class="annot"><span class="annottext">[Node] -&gt; Either String TestGridSessionArtifactCategory
+([Node] -&gt; Either String TestGridSessionArtifactCategory)
+-&gt; FromXML TestGridSessionArtifactCategory
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TestGridSessionArtifactCategory
+$cparseXML :: [Node] -&gt; Either String TestGridSessionArtifactCategory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679368363"><span class="annot"><span class="annottext">TestGridSessionArtifactCategory -&gt; XML
+(TestGridSessionArtifactCategory -&gt; XML)
+-&gt; ToXML TestGridSessionArtifactCategory
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TestGridSessionArtifactCategory -&gt; XML
+$ctoXML :: TestGridSessionArtifactCategory -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#TestGridSessionArtifactCategory_LOG"><span class="hs-identifier hs-type">TestGridSessionArtifactCategory_LOG</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#TestGridSessionArtifactCategory"><span class="hs-identifier hs-type">TestGridSessionArtifactCategory</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTestGridSessionArtifactCategory_LOG"><span id="%24mTestGridSessionArtifactCategory_LOG"><span id="TestGridSessionArtifactCategory_LOG"><span class="annot"><span class="annottext">$bTestGridSessionArtifactCategory_LOG :: TestGridSessionArtifactCategory
+$mTestGridSessionArtifactCategory_LOG :: forall r.
+TestGridSessionArtifactCategory
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#%24bTestGridSessionArtifactCategory_LOG"><span class="hs-identifier hs-var hs-var hs-var">TestGridSessionArtifactCategory_LOG</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#TestGridSessionArtifactCategory%27"><span class="hs-identifier hs-type">TestGridSessionArtifactCategory'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LOG&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#TestGridSessionArtifactCategory_VIDEO"><span class="hs-identifier hs-type">TestGridSessionArtifactCategory_VIDEO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#TestGridSessionArtifactCategory"><span class="hs-identifier hs-type">TestGridSessionArtifactCategory</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTestGridSessionArtifactCategory_VIDEO"><span id="%24mTestGridSessionArtifactCategory_VIDEO"><span id="TestGridSessionArtifactCategory_VIDEO"><span class="annot"><span class="annottext">$bTestGridSessionArtifactCategory_VIDEO :: TestGridSessionArtifactCategory
+$mTestGridSessionArtifactCategory_VIDEO :: forall r.
+TestGridSessionArtifactCategory
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#%24bTestGridSessionArtifactCategory_VIDEO"><span class="hs-identifier hs-var hs-var hs-var">TestGridSessionArtifactCategory_VIDEO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#TestGridSessionArtifactCategory%27"><span class="hs-identifier hs-type">TestGridSessionArtifactCategory'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VIDEO&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#TestGridSessionArtifactCategory_LOG"><span class="hs-pragma hs-type">TestGridSessionArtifactCategory_LOG</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#TestGridSessionArtifactCategory_VIDEO"><span class="hs-pragma hs-type">TestGridSessionArtifactCategory_VIDEO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory.html#TestGridSessionArtifactCategory%27"><span class="hs-pragma hs-type">TestGridSessionArtifactCategory'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.AccelerationMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.AccelerationMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode"><span class="hs-identifier">AccelerationMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode_DISABLED"><span class="hs-identifier">AccelerationMode_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode_ENABLED"><span class="hs-identifier">AccelerationMode_ENABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode_PREFERRED"><span class="hs-identifier">AccelerationMode_PREFERRED</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Specify whether the service runs your job with accelerated transcoding.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Choose DISABLED if you don\'t want accelerated transcoding. Choose</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- ENABLED if you want your job to run with accelerated transcoding and to</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- fail if your input files or your job settings aren\'t compatible with</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- accelerated transcoding. Choose PREFERRED if you want your job to run</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- with accelerated transcoding if the job is compatible with the feature</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- and to run at standard speed if it\'s not.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621679933464"><span id="local-6989586621679933465"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccelerationMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode"><span class="hs-identifier hs-var">AccelerationMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccelerationMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode%27"><span class="hs-identifier hs-var">AccelerationMode'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAccelerationMode"><span class="annot"><span class="annottext">AccelerationMode -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#fromAccelerationMode"><span class="hs-identifier hs-var hs-var">fromAccelerationMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679933456"><span id="local-6989586621679933458"><span id="local-6989586621679933460"><span class="annot"><span class="annottext">Int -&gt; AccelerationMode -&gt; ShowS
+[AccelerationMode] -&gt; ShowS
+AccelerationMode -&gt; String
+(Int -&gt; AccelerationMode -&gt; ShowS)
+-&gt; (AccelerationMode -&gt; String)
+-&gt; ([AccelerationMode] -&gt; ShowS)
+-&gt; Show AccelerationMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AccelerationMode] -&gt; ShowS
+$cshowList :: [AccelerationMode] -&gt; ShowS
+show :: AccelerationMode -&gt; String
+$cshow :: AccelerationMode -&gt; String
+showsPrec :: Int -&gt; AccelerationMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; AccelerationMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679933447"><span id="local-6989586621679933449"><span id="local-6989586621679933451"><span id="local-6989586621679933453"><span class="annot"><span class="annottext">ReadPrec [AccelerationMode]
+ReadPrec AccelerationMode
+Int -&gt; ReadS AccelerationMode
+ReadS [AccelerationMode]
+(Int -&gt; ReadS AccelerationMode)
+-&gt; ReadS [AccelerationMode]
+-&gt; ReadPrec AccelerationMode
+-&gt; ReadPrec [AccelerationMode]
+-&gt; Read AccelerationMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AccelerationMode]
+$creadListPrec :: ReadPrec [AccelerationMode]
+readPrec :: ReadPrec AccelerationMode
+$creadPrec :: ReadPrec AccelerationMode
+readList :: ReadS [AccelerationMode]
+$creadList :: ReadS [AccelerationMode]
+readsPrec :: Int -&gt; ReadS AccelerationMode
+$creadsPrec :: Int -&gt; ReadS AccelerationMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679933442"><span id="local-6989586621679933444"><span class="annot"><span class="annottext">AccelerationMode -&gt; AccelerationMode -&gt; Bool
+(AccelerationMode -&gt; AccelerationMode -&gt; Bool)
+-&gt; (AccelerationMode -&gt; AccelerationMode -&gt; Bool)
+-&gt; Eq AccelerationMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AccelerationMode -&gt; AccelerationMode -&gt; Bool
+$c/= :: AccelerationMode -&gt; AccelerationMode -&gt; Bool
+== :: AccelerationMode -&gt; AccelerationMode -&gt; Bool
+$c== :: AccelerationMode -&gt; AccelerationMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679933426"><span id="local-6989586621679933428"><span id="local-6989586621679933430"><span id="local-6989586621679933432"><span id="local-6989586621679933434"><span id="local-6989586621679933436"><span id="local-6989586621679933438"><span class="annot"><span class="annottext">Eq AccelerationMode
+Eq AccelerationMode
+-&gt; (AccelerationMode -&gt; AccelerationMode -&gt; Ordering)
+-&gt; (AccelerationMode -&gt; AccelerationMode -&gt; Bool)
+-&gt; (AccelerationMode -&gt; AccelerationMode -&gt; Bool)
+-&gt; (AccelerationMode -&gt; AccelerationMode -&gt; Bool)
+-&gt; (AccelerationMode -&gt; AccelerationMode -&gt; Bool)
+-&gt; (AccelerationMode -&gt; AccelerationMode -&gt; AccelerationMode)
+-&gt; (AccelerationMode -&gt; AccelerationMode -&gt; AccelerationMode)
+-&gt; Ord AccelerationMode
+AccelerationMode -&gt; AccelerationMode -&gt; Bool
+AccelerationMode -&gt; AccelerationMode -&gt; Ordering
+AccelerationMode -&gt; AccelerationMode -&gt; AccelerationMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AccelerationMode -&gt; AccelerationMode -&gt; AccelerationMode
+$cmin :: AccelerationMode -&gt; AccelerationMode -&gt; AccelerationMode
+max :: AccelerationMode -&gt; AccelerationMode -&gt; AccelerationMode
+$cmax :: AccelerationMode -&gt; AccelerationMode -&gt; AccelerationMode
+&gt;= :: AccelerationMode -&gt; AccelerationMode -&gt; Bool
+$c&gt;= :: AccelerationMode -&gt; AccelerationMode -&gt; Bool
+&gt; :: AccelerationMode -&gt; AccelerationMode -&gt; Bool
+$c&gt; :: AccelerationMode -&gt; AccelerationMode -&gt; Bool
+&lt;= :: AccelerationMode -&gt; AccelerationMode -&gt; Bool
+$c&lt;= :: AccelerationMode -&gt; AccelerationMode -&gt; Bool
+&lt; :: AccelerationMode -&gt; AccelerationMode -&gt; Bool
+$c&lt; :: AccelerationMode -&gt; AccelerationMode -&gt; Bool
+compare :: AccelerationMode -&gt; AccelerationMode -&gt; Ordering
+$ccompare :: AccelerationMode -&gt; AccelerationMode -&gt; Ordering
+$cp1Ord :: Eq AccelerationMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AccelerationMode -&gt; Rep AccelerationMode x)
+-&gt; (forall x. Rep AccelerationMode x -&gt; AccelerationMode)
+-&gt; Generic AccelerationMode
+forall x. Rep AccelerationMode x -&gt; AccelerationMode
+forall x. AccelerationMode -&gt; Rep AccelerationMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AccelerationMode x -&gt; AccelerationMode
+$cfrom :: forall x. AccelerationMode -&gt; Rep AccelerationMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679933418"><span id="local-6989586621679933420"><span class="annot"><span class="annottext">Int -&gt; AccelerationMode -&gt; Int
+AccelerationMode -&gt; Int
+(Int -&gt; AccelerationMode -&gt; Int)
+-&gt; (AccelerationMode -&gt; Int) -&gt; Hashable AccelerationMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AccelerationMode -&gt; Int
+$chash :: AccelerationMode -&gt; Int
+hashWithSalt :: Int -&gt; AccelerationMode -&gt; Int
+$chashWithSalt :: Int -&gt; AccelerationMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679933415"><span class="annot"><span class="annottext">AccelerationMode -&gt; ()
+(AccelerationMode -&gt; ()) -&gt; NFData AccelerationMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AccelerationMode -&gt; ()
+$crnf :: AccelerationMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679933412"><span class="annot"><span class="annottext">Text -&gt; Either String AccelerationMode
+(Text -&gt; Either String AccelerationMode)
+-&gt; FromText AccelerationMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AccelerationMode
+$cfromText :: Text -&gt; Either String AccelerationMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679933409"><span class="annot"><span class="annottext">AccelerationMode -&gt; Text
+(AccelerationMode -&gt; Text) -&gt; ToText AccelerationMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AccelerationMode -&gt; Text
+$ctoText :: AccelerationMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679933406"><span class="annot"><span class="annottext">AccelerationMode -&gt; ByteString
+(AccelerationMode -&gt; ByteString) -&gt; ToByteString AccelerationMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AccelerationMode -&gt; ByteString
+$ctoBS :: AccelerationMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679933403"><span class="annot"><span class="annottext">AccelerationMode -&gt; ByteStringBuilder
+(AccelerationMode -&gt; ByteStringBuilder) -&gt; ToLog AccelerationMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AccelerationMode -&gt; ByteStringBuilder
+$cbuild :: AccelerationMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679933400"><span class="annot"><span class="annottext">HeaderName -&gt; AccelerationMode -&gt; [Header]
+(HeaderName -&gt; AccelerationMode -&gt; [Header])
+-&gt; ToHeader AccelerationMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AccelerationMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AccelerationMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679933397"><span class="annot"><span class="annottext">AccelerationMode -&gt; QueryString
+(AccelerationMode -&gt; QueryString) -&gt; ToQuery AccelerationMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AccelerationMode -&gt; QueryString
+$ctoQuery :: AccelerationMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679933392"><span id="local-6989586621679933394"><span class="annot"><span class="annottext">Value -&gt; Parser [AccelerationMode]
+Value -&gt; Parser AccelerationMode
+(Value -&gt; Parser AccelerationMode)
+-&gt; (Value -&gt; Parser [AccelerationMode])
+-&gt; FromJSON AccelerationMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AccelerationMode]
+$cparseJSONList :: Value -&gt; Parser [AccelerationMode]
+parseJSON :: Value -&gt; Parser AccelerationMode
+$cparseJSON :: Value -&gt; Parser AccelerationMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679933387"><span id="local-6989586621679933389"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccelerationMode]
+FromJSONKeyFunction AccelerationMode
+FromJSONKeyFunction AccelerationMode
+-&gt; FromJSONKeyFunction [AccelerationMode]
+-&gt; FromJSONKey AccelerationMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AccelerationMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [AccelerationMode]
+fromJSONKey :: FromJSONKeyFunction AccelerationMode
+$cfromJSONKey :: FromJSONKeyFunction AccelerationMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679933378"><span id="local-6989586621679933380"><span id="local-6989586621679933382"><span id="local-6989586621679933384"><span class="annot"><span class="annottext">[AccelerationMode] -&gt; Encoding
+[AccelerationMode] -&gt; Value
+AccelerationMode -&gt; Encoding
+AccelerationMode -&gt; Value
+(AccelerationMode -&gt; Value)
+-&gt; (AccelerationMode -&gt; Encoding)
+-&gt; ([AccelerationMode] -&gt; Value)
+-&gt; ([AccelerationMode] -&gt; Encoding)
+-&gt; ToJSON AccelerationMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AccelerationMode] -&gt; Encoding
+$ctoEncodingList :: [AccelerationMode] -&gt; Encoding
+toJSONList :: [AccelerationMode] -&gt; Value
+$ctoJSONList :: [AccelerationMode] -&gt; Value
+toEncoding :: AccelerationMode -&gt; Encoding
+$ctoEncoding :: AccelerationMode -&gt; Encoding
+toJSON :: AccelerationMode -&gt; Value
+$ctoJSON :: AccelerationMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679933373"><span id="local-6989586621679933375"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccelerationMode]
+ToJSONKeyFunction AccelerationMode
+ToJSONKeyFunction AccelerationMode
+-&gt; ToJSONKeyFunction [AccelerationMode]
+-&gt; ToJSONKey AccelerationMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AccelerationMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [AccelerationMode]
+toJSONKey :: ToJSONKeyFunction AccelerationMode
+$ctoJSONKey :: ToJSONKeyFunction AccelerationMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679933370"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccelerationMode
+([Node] -&gt; Either String AccelerationMode)
+-&gt; FromXML AccelerationMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AccelerationMode
+$cparseXML :: [Node] -&gt; Either String AccelerationMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679933367"><span class="annot"><span class="annottext">AccelerationMode -&gt; XML
+(AccelerationMode -&gt; XML) -&gt; ToXML AccelerationMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AccelerationMode -&gt; XML
+$ctoXML :: AccelerationMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode_DISABLED"><span class="hs-identifier hs-type">AccelerationMode_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode"><span class="hs-identifier hs-type">AccelerationMode</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccelerationMode_DISABLED"><span id="%24mAccelerationMode_DISABLED"><span id="AccelerationMode_DISABLED"><span class="annot"><span class="annottext">$bAccelerationMode_DISABLED :: AccelerationMode
+$mAccelerationMode_DISABLED :: forall r. AccelerationMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#%24bAccelerationMode_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">AccelerationMode_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode%27"><span class="hs-identifier hs-type">AccelerationMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode_ENABLED"><span class="hs-identifier hs-type">AccelerationMode_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode"><span class="hs-identifier hs-type">AccelerationMode</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccelerationMode_ENABLED"><span id="%24mAccelerationMode_ENABLED"><span id="AccelerationMode_ENABLED"><span class="annot"><span class="annottext">$bAccelerationMode_ENABLED :: AccelerationMode
+$mAccelerationMode_ENABLED :: forall r. AccelerationMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#%24bAccelerationMode_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">AccelerationMode_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode%27"><span class="hs-identifier hs-type">AccelerationMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode_PREFERRED"><span class="hs-identifier hs-type">AccelerationMode_PREFERRED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode"><span class="hs-identifier hs-type">AccelerationMode</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccelerationMode_PREFERRED"><span id="%24mAccelerationMode_PREFERRED"><span id="AccelerationMode_PREFERRED"><span class="annot"><span class="annottext">$bAccelerationMode_PREFERRED :: AccelerationMode
+$mAccelerationMode_PREFERRED :: forall r. AccelerationMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#%24bAccelerationMode_PREFERRED"><span class="hs-identifier hs-var hs-var hs-var">AccelerationMode_PREFERRED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode%27"><span class="hs-identifier hs-type">AccelerationMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PREFERRED&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode_DISABLED"><span class="hs-pragma hs-type">AccelerationMode_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode_ENABLED"><span class="hs-pragma hs-type">AccelerationMode_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode_PREFERRED"><span class="hs-pragma hs-type">AccelerationMode_PREFERRED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode%27"><span class="hs-pragma hs-type">AccelerationMode'</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-83"></span></pre></body></html>

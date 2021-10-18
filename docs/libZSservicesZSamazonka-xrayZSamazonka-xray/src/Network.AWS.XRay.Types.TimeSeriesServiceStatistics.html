@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.XRay.Types.TimeSeriesServiceStatistics</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.XRay.Types.TimeSeriesServiceStatistics</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EdgeStatistics.html"><span class="hs-identifier">Network.AWS.XRay.Types.EdgeStatistics</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ForecastStatistics.html"><span class="hs-identifier">Network.AWS.XRay.Types.ForecastStatistics</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html"><span class="hs-identifier">Network.AWS.XRay.Types.HistogramEntry</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ServiceStatistics.html"><span class="hs-identifier">Network.AWS.XRay.Types.ServiceStatistics</span></a></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | A list of TimeSeriesStatistic structures.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newTimeSeriesServiceStatistics' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679256879"><span id="local-6989586621679256880"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimeSeriesServiceStatistics"><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics"><span class="hs-identifier hs-var">TimeSeriesServiceStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeSeriesServiceStatistics%27"><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var">TimeSeriesServiceStatistics'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AserviceSummaryStatistics%3ATimeSeriesServiceStatistics%27"><span class="annot"><span class="annottext">TimeSeriesServiceStatistics -&gt; Maybe ServiceStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#%24sel%3AserviceSummaryStatistics%3ATimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var hs-var">serviceSummaryStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ServiceStatistics.html#ServiceStatistics"><span class="hs-identifier hs-type">ServiceStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The response time histogram for the selected entities.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AresponseTimeHistogram%3ATimeSeriesServiceStatistics%27"><span class="annot"><span class="annottext">TimeSeriesServiceStatistics -&gt; Maybe [HistogramEntry]
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#%24sel%3AresponseTimeHistogram%3ATimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var hs-var">responseTimeHistogram</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The forecasted high and low fault count values.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AserviceForecastStatistics%3ATimeSeriesServiceStatistics%27"><span class="annot"><span class="annottext">TimeSeriesServiceStatistics -&gt; Maybe ForecastStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#%24sel%3AserviceForecastStatistics%3ATimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var hs-var">serviceForecastStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ForecastStatistics.html#ForecastStatistics"><span class="hs-identifier hs-type">ForecastStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AedgeSummaryStatistics%3ATimeSeriesServiceStatistics%27"><span class="annot"><span class="annottext">TimeSeriesServiceStatistics -&gt; Maybe EdgeStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#%24sel%3AedgeSummaryStatistics%3ATimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var hs-var">edgeSummaryStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EdgeStatistics.html#EdgeStatistics"><span class="hs-identifier hs-type">EdgeStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Timestamp of the window for which statistics are aggregated.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Atimestamp%3ATimeSeriesServiceStatistics%27"><span class="annot"><span class="annottext">TimeSeriesServiceStatistics -&gt; Maybe POSIX
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#%24sel%3Atimestamp%3ATimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256869"><span id="local-6989586621679256871"><span class="annot"><span class="annottext">TimeSeriesServiceStatistics -&gt; TimeSeriesServiceStatistics -&gt; Bool
+(TimeSeriesServiceStatistics
+ -&gt; TimeSeriesServiceStatistics -&gt; Bool)
+-&gt; (TimeSeriesServiceStatistics
+    -&gt; TimeSeriesServiceStatistics -&gt; Bool)
+-&gt; Eq TimeSeriesServiceStatistics
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TimeSeriesServiceStatistics -&gt; TimeSeriesServiceStatistics -&gt; Bool
+$c/= :: TimeSeriesServiceStatistics -&gt; TimeSeriesServiceStatistics -&gt; Bool
+== :: TimeSeriesServiceStatistics -&gt; TimeSeriesServiceStatistics -&gt; Bool
+$c== :: TimeSeriesServiceStatistics -&gt; TimeSeriesServiceStatistics -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256860"><span id="local-6989586621679256862"><span id="local-6989586621679256864"><span id="local-6989586621679256866"><span class="annot"><span class="annottext">ReadPrec [TimeSeriesServiceStatistics]
+ReadPrec TimeSeriesServiceStatistics
+Int -&gt; ReadS TimeSeriesServiceStatistics
+ReadS [TimeSeriesServiceStatistics]
+(Int -&gt; ReadS TimeSeriesServiceStatistics)
+-&gt; ReadS [TimeSeriesServiceStatistics]
+-&gt; ReadPrec TimeSeriesServiceStatistics
+-&gt; ReadPrec [TimeSeriesServiceStatistics]
+-&gt; Read TimeSeriesServiceStatistics
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TimeSeriesServiceStatistics]
+$creadListPrec :: ReadPrec [TimeSeriesServiceStatistics]
+readPrec :: ReadPrec TimeSeriesServiceStatistics
+$creadPrec :: ReadPrec TimeSeriesServiceStatistics
+readList :: ReadS [TimeSeriesServiceStatistics]
+$creadList :: ReadS [TimeSeriesServiceStatistics]
+readsPrec :: Int -&gt; ReadS TimeSeriesServiceStatistics
+$creadsPrec :: Int -&gt; ReadS TimeSeriesServiceStatistics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256853"><span id="local-6989586621679256855"><span id="local-6989586621679256857"><span class="annot"><span class="annottext">Int -&gt; TimeSeriesServiceStatistics -&gt; ShowS
+[TimeSeriesServiceStatistics] -&gt; ShowS
+TimeSeriesServiceStatistics -&gt; String
+(Int -&gt; TimeSeriesServiceStatistics -&gt; ShowS)
+-&gt; (TimeSeriesServiceStatistics -&gt; String)
+-&gt; ([TimeSeriesServiceStatistics] -&gt; ShowS)
+-&gt; Show TimeSeriesServiceStatistics
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TimeSeriesServiceStatistics] -&gt; ShowS
+$cshowList :: [TimeSeriesServiceStatistics] -&gt; ShowS
+show :: TimeSeriesServiceStatistics -&gt; String
+$cshow :: TimeSeriesServiceStatistics -&gt; String
+showsPrec :: Int -&gt; TimeSeriesServiceStatistics -&gt; ShowS
+$cshowsPrec :: Int -&gt; TimeSeriesServiceStatistics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ TimeSeriesServiceStatistics -&gt; Rep TimeSeriesServiceStatistics x)
+-&gt; (forall x.
+    Rep TimeSeriesServiceStatistics x -&gt; TimeSeriesServiceStatistics)
+-&gt; Generic TimeSeriesServiceStatistics
+forall x.
+Rep TimeSeriesServiceStatistics x -&gt; TimeSeriesServiceStatistics
+forall x.
+TimeSeriesServiceStatistics -&gt; Rep TimeSeriesServiceStatistics x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TimeSeriesServiceStatistics x -&gt; TimeSeriesServiceStatistics
+$cfrom :: forall x.
+TimeSeriesServiceStatistics -&gt; Rep TimeSeriesServiceStatistics x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'TimeSeriesServiceStatistics' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'serviceSummaryStatistics', 'timeSeriesServiceStatistics_serviceSummaryStatistics' - Undocumented member.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'responseTimeHistogram', 'timeSeriesServiceStatistics_responseTimeHistogram' - The response time histogram for the selected entities.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'serviceForecastStatistics', 'timeSeriesServiceStatistics_serviceForecastStatistics' - The forecasted high and low fault count values.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'edgeSummaryStatistics', 'timeSeriesServiceStatistics_edgeSummaryStatistics' - Undocumented member.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'timestamp', 'timeSeriesServiceStatistics_timestamp' - Timestamp of the window for which statistics are aggregated.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#newTimeSeriesServiceStatistics"><span class="hs-identifier hs-type">newTimeSeriesServiceStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics</span></a></span><span>
+</span><span id="line-64"></span><span id="newTimeSeriesServiceStatistics"><span class="annot"><span class="annottext">newTimeSeriesServiceStatistics :: TimeSeriesServiceStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#newTimeSeriesServiceStatistics"><span class="hs-identifier hs-var hs-var">newTimeSeriesServiceStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">TimeSeriesServiceStatistics' :: Maybe ServiceStatistics
+-&gt; Maybe [HistogramEntry]
+-&gt; Maybe ForecastStatistics
+-&gt; Maybe EdgeStatistics
+-&gt; Maybe POSIX
+-&gt; TimeSeriesServiceStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics%27"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics'</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceSummaryStatistics:TimeSeriesServiceStatistics' :: Maybe ServiceStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#%24sel%3AserviceSummaryStatistics%3ATimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var">serviceSummaryStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe ServiceStatistics
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:responseTimeHistogram:TimeSeriesServiceStatistics' :: Maybe [HistogramEntry]
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#%24sel%3AresponseTimeHistogram%3ATimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var">responseTimeHistogram</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HistogramEntry]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceForecastStatistics:TimeSeriesServiceStatistics' :: Maybe ForecastStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#%24sel%3AserviceForecastStatistics%3ATimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var">serviceForecastStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ForecastStatistics
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:edgeSummaryStatistics:TimeSeriesServiceStatistics' :: Maybe EdgeStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#%24sel%3AedgeSummaryStatistics%3ATimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var">edgeSummaryStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EdgeStatistics
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamp:TimeSeriesServiceStatistics' :: Maybe POSIX
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#%24sel%3Atimestamp%3ATimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#timeSeriesServiceStatistics_serviceSummaryStatistics"><span class="hs-identifier hs-type">timeSeriesServiceStatistics_serviceSummaryStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ServiceStatistics.html#ServiceStatistics"><span class="hs-identifier hs-type">ServiceStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="timeSeriesServiceStatistics_serviceSummaryStatistics"><span class="annot"><span class="annottext">timeSeriesServiceStatistics_serviceSummaryStatistics :: (Maybe ServiceStatistics -&gt; f (Maybe ServiceStatistics))
+-&gt; TimeSeriesServiceStatistics -&gt; f TimeSeriesServiceStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#timeSeriesServiceStatistics_serviceSummaryStatistics"><span class="hs-identifier hs-var hs-var">timeSeriesServiceStatistics_serviceSummaryStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimeSeriesServiceStatistics -&gt; Maybe ServiceStatistics)
+-&gt; (TimeSeriesServiceStatistics
+    -&gt; Maybe ServiceStatistics -&gt; TimeSeriesServiceStatistics)
+-&gt; Lens
+     TimeSeriesServiceStatistics
+     TimeSeriesServiceStatistics
+     (Maybe ServiceStatistics)
+     (Maybe ServiceStatistics)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics%27"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256844"><span class="annot"><span class="annottext">Maybe ServiceStatistics
+serviceSummaryStatistics :: Maybe ServiceStatistics
+$sel:serviceSummaryStatistics:TimeSeriesServiceStatistics' :: TimeSeriesServiceStatistics -&gt; Maybe ServiceStatistics
+</span><a href="#local-6989586621679256844"><span class="hs-identifier hs-var hs-var">serviceSummaryStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceStatistics
+</span><a href="#local-6989586621679256844"><span class="hs-identifier hs-var">serviceSummaryStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256843"><span class="annot"><span class="annottext">s :: TimeSeriesServiceStatistics
+</span><a href="#local-6989586621679256843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics%27"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256842"><span class="annot"><span class="annottext">Maybe ServiceStatistics
+</span><a href="#local-6989586621679256842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeSeriesServiceStatistics
+</span><a href="#local-6989586621679256843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceSummaryStatistics:TimeSeriesServiceStatistics' :: Maybe ServiceStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#%24sel%3AserviceSummaryStatistics%3ATimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var">serviceSummaryStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceStatistics
+</span><a href="#local-6989586621679256842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The response time histogram for the selected entities.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#timeSeriesServiceStatistics_responseTimeHistogram"><span class="hs-identifier hs-type">timeSeriesServiceStatistics_responseTimeHistogram</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="timeSeriesServiceStatistics_responseTimeHistogram"><span class="annot"><span class="annottext">timeSeriesServiceStatistics_responseTimeHistogram :: (Maybe [HistogramEntry] -&gt; f (Maybe [HistogramEntry]))
+-&gt; TimeSeriesServiceStatistics -&gt; f TimeSeriesServiceStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#timeSeriesServiceStatistics_responseTimeHistogram"><span class="hs-identifier hs-var hs-var">timeSeriesServiceStatistics_responseTimeHistogram</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimeSeriesServiceStatistics -&gt; Maybe [HistogramEntry])
+-&gt; (TimeSeriesServiceStatistics
+    -&gt; Maybe [HistogramEntry] -&gt; TimeSeriesServiceStatistics)
+-&gt; Lens
+     TimeSeriesServiceStatistics
+     TimeSeriesServiceStatistics
+     (Maybe [HistogramEntry])
+     (Maybe [HistogramEntry])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics%27"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256840"><span class="annot"><span class="annottext">Maybe [HistogramEntry]
+responseTimeHistogram :: Maybe [HistogramEntry]
+$sel:responseTimeHistogram:TimeSeriesServiceStatistics' :: TimeSeriesServiceStatistics -&gt; Maybe [HistogramEntry]
+</span><a href="#local-6989586621679256840"><span class="hs-identifier hs-var hs-var">responseTimeHistogram</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HistogramEntry]
+</span><a href="#local-6989586621679256840"><span class="hs-identifier hs-var">responseTimeHistogram</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256839"><span class="annot"><span class="annottext">s :: TimeSeriesServiceStatistics
+</span><a href="#local-6989586621679256839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics%27"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256838"><span class="annot"><span class="annottext">Maybe [HistogramEntry]
+</span><a href="#local-6989586621679256838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeSeriesServiceStatistics
+</span><a href="#local-6989586621679256839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseTimeHistogram:TimeSeriesServiceStatistics' :: Maybe [HistogramEntry]
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#%24sel%3AresponseTimeHistogram%3ATimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var">responseTimeHistogram</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HistogramEntry]
+</span><a href="#local-6989586621679256838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HistogramEntry] -&gt; f (Maybe [HistogramEntry]))
+ -&gt; TimeSeriesServiceStatistics -&gt; f TimeSeriesServiceStatistics)
+-&gt; ((Maybe [HistogramEntry] -&gt; f (Maybe [HistogramEntry]))
+    -&gt; Maybe [HistogramEntry] -&gt; f (Maybe [HistogramEntry]))
+-&gt; (Maybe [HistogramEntry] -&gt; f (Maybe [HistogramEntry]))
+-&gt; TimeSeriesServiceStatistics
+-&gt; f TimeSeriesServiceStatistics
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [HistogramEntry] [HistogramEntry] [HistogramEntry] [HistogramEntry]
+-&gt; Iso
+     (Maybe [HistogramEntry])
+     (Maybe [HistogramEntry])
+     (Maybe [HistogramEntry])
+     (Maybe [HistogramEntry])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [HistogramEntry] [HistogramEntry] [HistogramEntry] [HistogramEntry]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The forecasted high and low fault count values.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#timeSeriesServiceStatistics_serviceForecastStatistics"><span class="hs-identifier hs-type">timeSeriesServiceStatistics_serviceForecastStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ForecastStatistics.html#ForecastStatistics"><span class="hs-identifier hs-type">ForecastStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="timeSeriesServiceStatistics_serviceForecastStatistics"><span class="annot"><span class="annottext">timeSeriesServiceStatistics_serviceForecastStatistics :: (Maybe ForecastStatistics -&gt; f (Maybe ForecastStatistics))
+-&gt; TimeSeriesServiceStatistics -&gt; f TimeSeriesServiceStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#timeSeriesServiceStatistics_serviceForecastStatistics"><span class="hs-identifier hs-var hs-var">timeSeriesServiceStatistics_serviceForecastStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimeSeriesServiceStatistics -&gt; Maybe ForecastStatistics)
+-&gt; (TimeSeriesServiceStatistics
+    -&gt; Maybe ForecastStatistics -&gt; TimeSeriesServiceStatistics)
+-&gt; Lens
+     TimeSeriesServiceStatistics
+     TimeSeriesServiceStatistics
+     (Maybe ForecastStatistics)
+     (Maybe ForecastStatistics)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics%27"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256833"><span class="annot"><span class="annottext">Maybe ForecastStatistics
+serviceForecastStatistics :: Maybe ForecastStatistics
+$sel:serviceForecastStatistics:TimeSeriesServiceStatistics' :: TimeSeriesServiceStatistics -&gt; Maybe ForecastStatistics
+</span><a href="#local-6989586621679256833"><span class="hs-identifier hs-var hs-var">serviceForecastStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ForecastStatistics
+</span><a href="#local-6989586621679256833"><span class="hs-identifier hs-var">serviceForecastStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256832"><span class="annot"><span class="annottext">s :: TimeSeriesServiceStatistics
+</span><a href="#local-6989586621679256832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics%27"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256831"><span class="annot"><span class="annottext">Maybe ForecastStatistics
+</span><a href="#local-6989586621679256831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeSeriesServiceStatistics
+</span><a href="#local-6989586621679256832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceForecastStatistics:TimeSeriesServiceStatistics' :: Maybe ForecastStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#%24sel%3AserviceForecastStatistics%3ATimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var">serviceForecastStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ForecastStatistics
+</span><a href="#local-6989586621679256831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#timeSeriesServiceStatistics_edgeSummaryStatistics"><span class="hs-identifier hs-type">timeSeriesServiceStatistics_edgeSummaryStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EdgeStatistics.html#EdgeStatistics"><span class="hs-identifier hs-type">EdgeStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="timeSeriesServiceStatistics_edgeSummaryStatistics"><span class="annot"><span class="annottext">timeSeriesServiceStatistics_edgeSummaryStatistics :: (Maybe EdgeStatistics -&gt; f (Maybe EdgeStatistics))
+-&gt; TimeSeriesServiceStatistics -&gt; f TimeSeriesServiceStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#timeSeriesServiceStatistics_edgeSummaryStatistics"><span class="hs-identifier hs-var hs-var">timeSeriesServiceStatistics_edgeSummaryStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimeSeriesServiceStatistics -&gt; Maybe EdgeStatistics)
+-&gt; (TimeSeriesServiceStatistics
+    -&gt; Maybe EdgeStatistics -&gt; TimeSeriesServiceStatistics)
+-&gt; Lens
+     TimeSeriesServiceStatistics
+     TimeSeriesServiceStatistics
+     (Maybe EdgeStatistics)
+     (Maybe EdgeStatistics)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics%27"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256829"><span class="annot"><span class="annottext">Maybe EdgeStatistics
+edgeSummaryStatistics :: Maybe EdgeStatistics
+$sel:edgeSummaryStatistics:TimeSeriesServiceStatistics' :: TimeSeriesServiceStatistics -&gt; Maybe EdgeStatistics
+</span><a href="#local-6989586621679256829"><span class="hs-identifier hs-var hs-var">edgeSummaryStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EdgeStatistics
+</span><a href="#local-6989586621679256829"><span class="hs-identifier hs-var">edgeSummaryStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256828"><span class="annot"><span class="annottext">s :: TimeSeriesServiceStatistics
+</span><a href="#local-6989586621679256828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics%27"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256827"><span class="annot"><span class="annottext">Maybe EdgeStatistics
+</span><a href="#local-6989586621679256827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeSeriesServiceStatistics
+</span><a href="#local-6989586621679256828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:edgeSummaryStatistics:TimeSeriesServiceStatistics' :: Maybe EdgeStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#%24sel%3AedgeSummaryStatistics%3ATimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var">edgeSummaryStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EdgeStatistics
+</span><a href="#local-6989586621679256827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | Timestamp of the window for which statistics are aggregated.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#timeSeriesServiceStatistics_timestamp"><span class="hs-identifier hs-type">timeSeriesServiceStatistics_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="timeSeriesServiceStatistics_timestamp"><span class="annot"><span class="annottext">timeSeriesServiceStatistics_timestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TimeSeriesServiceStatistics -&gt; f TimeSeriesServiceStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#timeSeriesServiceStatistics_timestamp"><span class="hs-identifier hs-var hs-var">timeSeriesServiceStatistics_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimeSeriesServiceStatistics -&gt; Maybe POSIX)
+-&gt; (TimeSeriesServiceStatistics
+    -&gt; Maybe POSIX -&gt; TimeSeriesServiceStatistics)
+-&gt; Lens
+     TimeSeriesServiceStatistics
+     TimeSeriesServiceStatistics
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics%27"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256825"><span class="annot"><span class="annottext">Maybe POSIX
+timestamp :: Maybe POSIX
+$sel:timestamp:TimeSeriesServiceStatistics' :: TimeSeriesServiceStatistics -&gt; Maybe POSIX
+</span><a href="#local-6989586621679256825"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679256825"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256824"><span class="annot"><span class="annottext">s :: TimeSeriesServiceStatistics
+</span><a href="#local-6989586621679256824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics%27"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256823"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679256823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeSeriesServiceStatistics
+</span><a href="#local-6989586621679256824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:TimeSeriesServiceStatistics' :: Maybe POSIX
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#%24sel%3Atimestamp%3ATimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679256823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; TimeSeriesServiceStatistics -&gt; f TimeSeriesServiceStatistics)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TimeSeriesServiceStatistics
+-&gt; f TimeSeriesServiceStatistics
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256819"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679256817"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimeSeriesServiceStatistics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TimeSeriesServiceStatistics)
+-&gt; Value
+-&gt; Parser TimeSeriesServiceStatistics
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TimeSeriesServiceStatistics&quot;</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256814"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256814"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServiceStatistics
+-&gt; Maybe [HistogramEntry]
+-&gt; Maybe ForecastStatistics
+-&gt; Maybe EdgeStatistics
+-&gt; Maybe POSIX
+-&gt; TimeSeriesServiceStatistics
+</span><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics%27"><span class="hs-identifier hs-var">TimeSeriesServiceStatistics'</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ServiceStatistics
+ -&gt; Maybe [HistogramEntry]
+ -&gt; Maybe ForecastStatistics
+ -&gt; Maybe EdgeStatistics
+ -&gt; Maybe POSIX
+ -&gt; TimeSeriesServiceStatistics)
+-&gt; Parser (Maybe ServiceStatistics)
+-&gt; Parser
+     (Maybe [HistogramEntry]
+      -&gt; Maybe ForecastStatistics
+      -&gt; Maybe EdgeStatistics
+      -&gt; Maybe POSIX
+      -&gt; TimeSeriesServiceStatistics)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceStatistics)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceSummaryStatistics&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [HistogramEntry]
+   -&gt; Maybe ForecastStatistics
+   -&gt; Maybe EdgeStatistics
+   -&gt; Maybe POSIX
+   -&gt; TimeSeriesServiceStatistics)
+-&gt; Parser (Maybe [HistogramEntry])
+-&gt; Parser
+     (Maybe ForecastStatistics
+      -&gt; Maybe EdgeStatistics
+      -&gt; Maybe POSIX
+      -&gt; TimeSeriesServiceStatistics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [HistogramEntry]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResponseTimeHistogram&quot;</span></span><span>
+</span><span id="line-102"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [HistogramEntry]))
+-&gt; Maybe [HistogramEntry] -&gt; Parser (Maybe [HistogramEntry])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [HistogramEntry]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-103"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ForecastStatistics
+   -&gt; Maybe EdgeStatistics
+   -&gt; Maybe POSIX
+   -&gt; TimeSeriesServiceStatistics)
+-&gt; Parser (Maybe ForecastStatistics)
+-&gt; Parser
+     (Maybe EdgeStatistics
+      -&gt; Maybe POSIX -&gt; TimeSeriesServiceStatistics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ForecastStatistics)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceForecastStatistics&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EdgeStatistics
+   -&gt; Maybe POSIX -&gt; TimeSeriesServiceStatistics)
+-&gt; Parser (Maybe EdgeStatistics)
+-&gt; Parser (Maybe POSIX -&gt; TimeSeriesServiceStatistics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EdgeStatistics)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EdgeSummaryStatistics&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; TimeSeriesServiceStatistics)
+-&gt; Parser (Maybe POSIX) -&gt; Parser TimeSeriesServiceStatistics
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256807"><span id="local-6989586621679256809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics</span></a></span></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TimeSeriesServiceStatistics.html#TimeSeriesServiceStatistics"><span class="hs-identifier hs-type">TimeSeriesServiceStatistics</span></a></span></span><span>
+</span><span id="line-112"></span></pre></body></html>

@@ -1,0 +1,842 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeCommit.DescribePullRequestEvents</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about one or more pull request events.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeCommit.DescribePullRequestEvents</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier">DescribePullRequestEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#newDescribePullRequestEvents"><span class="hs-identifier">newDescribePullRequestEvents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEvents_nextToken"><span class="hs-identifier">describePullRequestEvents_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEvents_maxResults"><span class="hs-identifier">describePullRequestEvents_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEvents_pullRequestEventType"><span class="hs-identifier">describePullRequestEvents_pullRequestEventType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEvents_actorArn"><span class="hs-identifier">describePullRequestEvents_actorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEvents_pullRequestId"><span class="hs-identifier">describePullRequestEvents_pullRequestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse"><span class="hs-identifier">DescribePullRequestEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#newDescribePullRequestEventsResponse"><span class="hs-identifier">newDescribePullRequestEventsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEventsResponse_nextToken"><span class="hs-identifier">describePullRequestEventsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEventsResponse_httpStatus"><span class="hs-identifier">describePullRequestEventsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEventsResponse_pullRequestEvents"><span class="hs-identifier">describePullRequestEventsResponse_pullRequestEvents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.html"><span class="hs-identifier">Network.AWS.CodeCommit.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribePullRequestEvents' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679367784"><span id="local-6989586621679367785"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePullRequestEvents"><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-var">DescribePullRequestEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePullRequestEvents%27"><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents%27"><span class="hs-identifier hs-var">DescribePullRequestEvents'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An enumeration token that, when provided in a request, returns the next</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- batch of the results.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribePullRequestEvents%27"><span class="annot"><span class="annottext">DescribePullRequestEvents -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3AnextToken%3ADescribePullRequestEvents%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | A non-zero, non-negative integer used to limit the number of returned</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- results. The default is 100 events, which is also the maximum number of</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- events that can be returned in a result.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribePullRequestEvents%27"><span class="annot"><span class="annottext">DescribePullRequestEvents -&gt; Maybe Int
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3AmaxResults%3ADescribePullRequestEvents%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Optional. The pull request event type about which you want to return</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- information.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3ApullRequestEventType%3ADescribePullRequestEvents%27"><span class="annot"><span class="annottext">DescribePullRequestEvents -&gt; Maybe PullRequestEventType
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3ApullRequestEventType%3ADescribePullRequestEvents%27"><span class="hs-identifier hs-var hs-var">pullRequestEventType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestEventType.html#PullRequestEventType"><span class="hs-identifier hs-type">PullRequestEventType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user whose actions resulted in the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- event. Examples include updating the pull request with more commits or</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- changing the status of a pull request.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AactorArn%3ADescribePullRequestEvents%27"><span class="annot"><span class="annottext">DescribePullRequestEvents -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3AactorArn%3ADescribePullRequestEvents%27"><span class="hs-identifier hs-var hs-var">actorArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The system-generated ID of the pull request. To get this ID, use</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- ListPullRequests.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3ApullRequestId%3ADescribePullRequestEvents%27"><span class="annot"><span class="annottext">DescribePullRequestEvents -&gt; Text
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3ApullRequestId%3ADescribePullRequestEvents%27"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367774"><span id="local-6989586621679367776"><span class="annot"><span class="annottext">DescribePullRequestEvents -&gt; DescribePullRequestEvents -&gt; Bool
+(DescribePullRequestEvents -&gt; DescribePullRequestEvents -&gt; Bool)
+-&gt; (DescribePullRequestEvents -&gt; DescribePullRequestEvents -&gt; Bool)
+-&gt; Eq DescribePullRequestEvents
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePullRequestEvents -&gt; DescribePullRequestEvents -&gt; Bool
+$c/= :: DescribePullRequestEvents -&gt; DescribePullRequestEvents -&gt; Bool
+== :: DescribePullRequestEvents -&gt; DescribePullRequestEvents -&gt; Bool
+$c== :: DescribePullRequestEvents -&gt; DescribePullRequestEvents -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367765"><span id="local-6989586621679367767"><span id="local-6989586621679367769"><span id="local-6989586621679367771"><span class="annot"><span class="annottext">ReadPrec [DescribePullRequestEvents]
+ReadPrec DescribePullRequestEvents
+Int -&gt; ReadS DescribePullRequestEvents
+ReadS [DescribePullRequestEvents]
+(Int -&gt; ReadS DescribePullRequestEvents)
+-&gt; ReadS [DescribePullRequestEvents]
+-&gt; ReadPrec DescribePullRequestEvents
+-&gt; ReadPrec [DescribePullRequestEvents]
+-&gt; Read DescribePullRequestEvents
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePullRequestEvents]
+$creadListPrec :: ReadPrec [DescribePullRequestEvents]
+readPrec :: ReadPrec DescribePullRequestEvents
+$creadPrec :: ReadPrec DescribePullRequestEvents
+readList :: ReadS [DescribePullRequestEvents]
+$creadList :: ReadS [DescribePullRequestEvents]
+readsPrec :: Int -&gt; ReadS DescribePullRequestEvents
+$creadsPrec :: Int -&gt; ReadS DescribePullRequestEvents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367758"><span id="local-6989586621679367760"><span id="local-6989586621679367762"><span class="annot"><span class="annottext">Int -&gt; DescribePullRequestEvents -&gt; ShowS
+[DescribePullRequestEvents] -&gt; ShowS
+DescribePullRequestEvents -&gt; String
+(Int -&gt; DescribePullRequestEvents -&gt; ShowS)
+-&gt; (DescribePullRequestEvents -&gt; String)
+-&gt; ([DescribePullRequestEvents] -&gt; ShowS)
+-&gt; Show DescribePullRequestEvents
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePullRequestEvents] -&gt; ShowS
+$cshowList :: [DescribePullRequestEvents] -&gt; ShowS
+show :: DescribePullRequestEvents -&gt; String
+$cshow :: DescribePullRequestEvents -&gt; String
+showsPrec :: Int -&gt; DescribePullRequestEvents -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePullRequestEvents -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribePullRequestEvents -&gt; Rep DescribePullRequestEvents x)
+-&gt; (forall x.
+    Rep DescribePullRequestEvents x -&gt; DescribePullRequestEvents)
+-&gt; Generic DescribePullRequestEvents
+forall x.
+Rep DescribePullRequestEvents x -&gt; DescribePullRequestEvents
+forall x.
+DescribePullRequestEvents -&gt; Rep DescribePullRequestEvents x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribePullRequestEvents x -&gt; DescribePullRequestEvents
+$cfrom :: forall x.
+DescribePullRequestEvents -&gt; Rep DescribePullRequestEvents x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'DescribePullRequestEvents' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'nextToken', 'describePullRequestEvents_nextToken' - An enumeration token that, when provided in a request, returns the next</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- batch of the results.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'maxResults', 'describePullRequestEvents_maxResults' - A non-zero, non-negative integer used to limit the number of returned</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- results. The default is 100 events, which is also the maximum number of</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- events that can be returned in a result.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'pullRequestEventType', 'describePullRequestEvents_pullRequestEventType' - Optional. The pull request event type about which you want to return</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- information.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'actorArn', 'describePullRequestEvents_actorArn' - The Amazon Resource Name (ARN) of the user whose actions resulted in the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- event. Examples include updating the pull request with more commits or</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- changing the status of a pull request.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'pullRequestId', 'describePullRequestEvents_pullRequestId' - The system-generated ID of the pull request. To get this ID, use</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- ListPullRequests.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#newDescribePullRequestEvents"><span class="hs-identifier hs-type">newDescribePullRequestEvents</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'pullRequestId'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span>
+</span><span id="line-106"></span><span id="newDescribePullRequestEvents"><span class="annot"><span class="annottext">newDescribePullRequestEvents :: Text -&gt; DescribePullRequestEvents
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#newDescribePullRequestEvents"><span class="hs-identifier hs-var hs-var">newDescribePullRequestEvents</span></a></span></span><span> </span><span id="local-6989586621679367753"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367753"><span class="hs-identifier hs-var">pPullRequestId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">DescribePullRequestEvents' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe PullRequestEventType
+-&gt; Maybe Text
+-&gt; Text
+-&gt; DescribePullRequestEvents
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents%27"><span class="hs-identifier hs-type">DescribePullRequestEvents'</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribePullRequestEvents' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3AnextToken%3ADescribePullRequestEvents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribePullRequestEvents' :: Maybe Int
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3AmaxResults%3ADescribePullRequestEvents%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:pullRequestEventType:DescribePullRequestEvents' :: Maybe PullRequestEventType
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3ApullRequestEventType%3ADescribePullRequestEvents%27"><span class="hs-identifier hs-var">pullRequestEventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PullRequestEventType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:actorArn:DescribePullRequestEvents' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3AactorArn%3ADescribePullRequestEvents%27"><span class="hs-identifier hs-var">actorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:pullRequestId:DescribePullRequestEvents' :: Text
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3ApullRequestId%3ADescribePullRequestEvents%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367753"><span class="hs-identifier hs-var">pPullRequestId_</span></a></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | An enumeration token that, when provided in a request, returns the next</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- batch of the results.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEvents_nextToken"><span class="hs-identifier hs-type">describePullRequestEvents_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="describePullRequestEvents_nextToken"><span class="annot"><span class="annottext">describePullRequestEvents_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePullRequestEvents -&gt; f DescribePullRequestEvents
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEvents_nextToken"><span class="hs-identifier hs-var hs-var">describePullRequestEvents_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePullRequestEvents -&gt; Maybe Text)
+-&gt; (DescribePullRequestEvents
+    -&gt; Maybe Text -&gt; DescribePullRequestEvents)
+-&gt; Lens
+     DescribePullRequestEvents
+     DescribePullRequestEvents
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents%27"><span class="hs-identifier hs-type">DescribePullRequestEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367751"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribePullRequestEvents' :: DescribePullRequestEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679367751"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367751"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367750"><span class="annot"><span class="annottext">s :: DescribePullRequestEvents
+</span><a href="#local-6989586621679367750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents%27"><span class="hs-identifier hs-type">DescribePullRequestEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367749"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePullRequestEvents
+</span><a href="#local-6989586621679367750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribePullRequestEvents' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3AnextToken%3ADescribePullRequestEvents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | A non-zero, non-negative integer used to limit the number of returned</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- results. The default is 100 events, which is also the maximum number of</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- events that can be returned in a result.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEvents_maxResults"><span class="hs-identifier hs-type">describePullRequestEvents_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="describePullRequestEvents_maxResults"><span class="annot"><span class="annottext">describePullRequestEvents_maxResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribePullRequestEvents -&gt; f DescribePullRequestEvents
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEvents_maxResults"><span class="hs-identifier hs-var hs-var">describePullRequestEvents_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePullRequestEvents -&gt; Maybe Int)
+-&gt; (DescribePullRequestEvents
+    -&gt; Maybe Int -&gt; DescribePullRequestEvents)
+-&gt; Lens
+     DescribePullRequestEvents
+     DescribePullRequestEvents
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents%27"><span class="hs-identifier hs-type">DescribePullRequestEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367748"><span class="annot"><span class="annottext">Maybe Int
+maxResults :: Maybe Int
+$sel:maxResults:DescribePullRequestEvents' :: DescribePullRequestEvents -&gt; Maybe Int
+</span><a href="#local-6989586621679367748"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679367748"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367747"><span class="annot"><span class="annottext">s :: DescribePullRequestEvents
+</span><a href="#local-6989586621679367747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents%27"><span class="hs-identifier hs-type">DescribePullRequestEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367746"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679367746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePullRequestEvents
+</span><a href="#local-6989586621679367747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribePullRequestEvents' :: Maybe Int
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3AmaxResults%3ADescribePullRequestEvents%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679367746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Optional. The pull request event type about which you want to return</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- information.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEvents_pullRequestEventType"><span class="hs-identifier hs-type">describePullRequestEvents_pullRequestEventType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestEventType.html#PullRequestEventType"><span class="hs-identifier hs-type">PullRequestEventType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="describePullRequestEvents_pullRequestEventType"><span class="annot"><span class="annottext">describePullRequestEvents_pullRequestEventType :: (Maybe PullRequestEventType -&gt; f (Maybe PullRequestEventType))
+-&gt; DescribePullRequestEvents -&gt; f DescribePullRequestEvents
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEvents_pullRequestEventType"><span class="hs-identifier hs-var hs-var">describePullRequestEvents_pullRequestEventType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePullRequestEvents -&gt; Maybe PullRequestEventType)
+-&gt; (DescribePullRequestEvents
+    -&gt; Maybe PullRequestEventType -&gt; DescribePullRequestEvents)
+-&gt; Lens
+     DescribePullRequestEvents
+     DescribePullRequestEvents
+     (Maybe PullRequestEventType)
+     (Maybe PullRequestEventType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents%27"><span class="hs-identifier hs-type">DescribePullRequestEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367745"><span class="annot"><span class="annottext">Maybe PullRequestEventType
+pullRequestEventType :: Maybe PullRequestEventType
+$sel:pullRequestEventType:DescribePullRequestEvents' :: DescribePullRequestEvents -&gt; Maybe PullRequestEventType
+</span><a href="#local-6989586621679367745"><span class="hs-identifier hs-var hs-var">pullRequestEventType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PullRequestEventType
+</span><a href="#local-6989586621679367745"><span class="hs-identifier hs-var">pullRequestEventType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367744"><span class="annot"><span class="annottext">s :: DescribePullRequestEvents
+</span><a href="#local-6989586621679367744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents%27"><span class="hs-identifier hs-type">DescribePullRequestEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367743"><span class="annot"><span class="annottext">Maybe PullRequestEventType
+</span><a href="#local-6989586621679367743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePullRequestEvents
+</span><a href="#local-6989586621679367744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestEventType:DescribePullRequestEvents' :: Maybe PullRequestEventType
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3ApullRequestEventType%3ADescribePullRequestEvents%27"><span class="hs-identifier hs-var">pullRequestEventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PullRequestEventType
+</span><a href="#local-6989586621679367743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user whose actions resulted in the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- event. Examples include updating the pull request with more commits or</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- changing the status of a pull request.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEvents_actorArn"><span class="hs-identifier hs-type">describePullRequestEvents_actorArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="describePullRequestEvents_actorArn"><span class="annot"><span class="annottext">describePullRequestEvents_actorArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePullRequestEvents -&gt; f DescribePullRequestEvents
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEvents_actorArn"><span class="hs-identifier hs-var hs-var">describePullRequestEvents_actorArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePullRequestEvents -&gt; Maybe Text)
+-&gt; (DescribePullRequestEvents
+    -&gt; Maybe Text -&gt; DescribePullRequestEvents)
+-&gt; Lens
+     DescribePullRequestEvents
+     DescribePullRequestEvents
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents%27"><span class="hs-identifier hs-type">DescribePullRequestEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367742"><span class="annot"><span class="annottext">Maybe Text
+actorArn :: Maybe Text
+$sel:actorArn:DescribePullRequestEvents' :: DescribePullRequestEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679367742"><span class="hs-identifier hs-var hs-var">actorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367742"><span class="hs-identifier hs-var">actorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367741"><span class="annot"><span class="annottext">s :: DescribePullRequestEvents
+</span><a href="#local-6989586621679367741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents%27"><span class="hs-identifier hs-type">DescribePullRequestEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367740"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePullRequestEvents
+</span><a href="#local-6989586621679367741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actorArn:DescribePullRequestEvents' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3AactorArn%3ADescribePullRequestEvents%27"><span class="hs-identifier hs-var">actorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The system-generated ID of the pull request. To get this ID, use</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- ListPullRequests.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEvents_pullRequestId"><span class="hs-identifier hs-type">describePullRequestEvents_pullRequestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-141"></span><span id="describePullRequestEvents_pullRequestId"><span class="annot"><span class="annottext">describePullRequestEvents_pullRequestId :: (Text -&gt; f Text)
+-&gt; DescribePullRequestEvents -&gt; f DescribePullRequestEvents
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEvents_pullRequestId"><span class="hs-identifier hs-var hs-var">describePullRequestEvents_pullRequestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePullRequestEvents -&gt; Text)
+-&gt; (DescribePullRequestEvents -&gt; Text -&gt; DescribePullRequestEvents)
+-&gt; Lens
+     DescribePullRequestEvents DescribePullRequestEvents Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents%27"><span class="hs-identifier hs-type">DescribePullRequestEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367739"><span class="annot"><span class="annottext">Text
+pullRequestId :: Text
+$sel:pullRequestId:DescribePullRequestEvents' :: DescribePullRequestEvents -&gt; Text
+</span><a href="#local-6989586621679367739"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367739"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367738"><span class="annot"><span class="annottext">s :: DescribePullRequestEvents
+</span><a href="#local-6989586621679367738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents%27"><span class="hs-identifier hs-type">DescribePullRequestEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367737"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePullRequestEvents
+</span><a href="#local-6989586621679367738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestId:DescribePullRequestEvents' :: Text
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3ApullRequestId%3ADescribePullRequestEvents%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679367733"><span class="annot"><span class="annottext">page :: DescribePullRequestEvents
+-&gt; AWSResponse DescribePullRequestEvents
+-&gt; Maybe DescribePullRequestEvents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679367731"><span class="annot"><span class="annottext">DescribePullRequestEvents
+</span><a href="#local-6989586621679367731"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679367730"><span class="annot"><span class="annottext">AWSResponse DescribePullRequestEvents
+</span><a href="#local-6989586621679367730"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-146"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribePullRequestEvents
+DescribePullRequestEventsResponse
+</span><a href="#local-6989586621679367730"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">DescribePullRequestEventsResponse
+-&gt; Getting (First Text) DescribePullRequestEventsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribePullRequestEventsResponse
+-&gt; Const (First Text) DescribePullRequestEventsResponse
+Lens' DescribePullRequestEventsResponse (Maybe Text)
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEventsResponse_nextToken"><span class="hs-identifier hs-var">describePullRequestEventsResponse_nextToken</span></a></span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribePullRequestEventsResponse
+ -&gt; Const (First Text) DescribePullRequestEventsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribePullRequestEventsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-149"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribePullRequestEvents
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">[PullRequestEvent] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-152"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribePullRequestEvents
+DescribePullRequestEventsResponse
+</span><a href="#local-6989586621679367730"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">DescribePullRequestEventsResponse
+-&gt; Getting
+     [PullRequestEvent]
+     DescribePullRequestEventsResponse
+     [PullRequestEvent]
+-&gt; [PullRequestEvent]
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting
+  [PullRequestEvent]
+  DescribePullRequestEventsResponse
+  [PullRequestEvent]
+Lens' DescribePullRequestEventsResponse [PullRequestEvent]
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEventsResponse_pullRequestEvents"><span class="hs-identifier hs-var">describePullRequestEventsResponse_pullRequestEvents</span></a></span><span>
+</span><span id="line-154"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribePullRequestEvents
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">DescribePullRequestEvents -&gt; Maybe DescribePullRequestEvents
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribePullRequestEvents -&gt; Maybe DescribePullRequestEvents)
+-&gt; DescribePullRequestEvents -&gt; Maybe DescribePullRequestEvents
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">DescribePullRequestEvents
+</span><a href="#local-6989586621679367731"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">DescribePullRequestEvents
+-&gt; (DescribePullRequestEvents -&gt; DescribePullRequestEvents)
+-&gt; DescribePullRequestEvents
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribePullRequestEvents -&gt; Identity DescribePullRequestEvents
+Lens
+  DescribePullRequestEvents
+  DescribePullRequestEvents
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEvents_nextToken"><span class="hs-identifier hs-var">describePullRequestEvents_nextToken</span></a></span><span>
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribePullRequestEvents -&gt; Identity DescribePullRequestEvents)
+-&gt; Maybe Text
+-&gt; DescribePullRequestEvents
+-&gt; DescribePullRequestEvents
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribePullRequestEvents
+DescribePullRequestEventsResponse
+</span><a href="#local-6989586621679367730"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">DescribePullRequestEventsResponse
+-&gt; Getting (First Text) DescribePullRequestEventsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribePullRequestEventsResponse
+-&gt; Const (First Text) DescribePullRequestEventsResponse
+Lens' DescribePullRequestEventsResponse (Maybe Text)
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEventsResponse_nextToken"><span class="hs-identifier hs-var">describePullRequestEventsResponse_nextToken</span></a></span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribePullRequestEventsResponse
+ -&gt; Const (First Text) DescribePullRequestEventsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribePullRequestEventsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-166"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse"><span class="hs-identifier hs-type">DescribePullRequestEventsResponse</span></a></span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679367719"><span class="annot"><span class="annottext">request :: DescribePullRequestEvents -&gt; Request DescribePullRequestEvents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribePullRequestEvents -&gt; Request DescribePullRequestEvents
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679367715"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribePullRequestEvents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribePullRequestEvents)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribePullRequestEvents))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribePullRequestEvents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribePullRequestEvents)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367712"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367712"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679367711"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679367711"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679367710"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367710"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Int -&gt; [PullRequestEvent] -&gt; DescribePullRequestEventsResponse
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse%27"><span class="hs-identifier hs-var">DescribePullRequestEventsResponse'</span></a></span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Int -&gt; [PullRequestEvent] -&gt; DescribePullRequestEventsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Int -&gt; [PullRequestEvent] -&gt; DescribePullRequestEventsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int -&gt; [PullRequestEvent] -&gt; DescribePullRequestEventsResponse)
+-&gt; Either String Int
+-&gt; Either
+     String ([PullRequestEvent] -&gt; DescribePullRequestEventsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367712"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String ([PullRequestEvent] -&gt; DescribePullRequestEventsResponse)
+-&gt; Either String [PullRequestEvent]
+-&gt; Either String DescribePullRequestEventsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [PullRequestEvent])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pullRequestEvents&quot;</span></span><span>
+</span><span id="line-176"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [PullRequestEvent])
+-&gt; [PullRequestEvent] -&gt; Either String [PullRequestEvent]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[PullRequestEvent]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-177"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367701"><span id="local-6989586621679367703"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span></span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679367694"><span class="annot"><span class="annottext">toHeaders :: DescribePullRequestEvents -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribePullRequestEvents -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-189"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeCommit_20150413.DescribePullRequestEvents&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-191"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-193"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-195"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367684"><span id="local-6989586621679367686"><span id="local-6989586621679367688"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679367682"><span class="annot"><span class="annottext">toJSON :: DescribePullRequestEvents -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents%27"><span class="hs-identifier hs-type">DescribePullRequestEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367676"><span id="local-6989586621679367677"><span id="local-6989586621679367678"><span id="local-6989586621679367679"><span id="local-6989586621679367680"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Maybe PullRequestEventType
+Text
+pullRequestId :: Text
+actorArn :: Maybe Text
+pullRequestEventType :: Maybe PullRequestEventType
+maxResults :: Maybe Int
+nextToken :: Maybe Text
+$sel:pullRequestId:DescribePullRequestEvents' :: DescribePullRequestEvents -&gt; Text
+$sel:actorArn:DescribePullRequestEvents' :: DescribePullRequestEvents -&gt; Maybe Text
+$sel:pullRequestEventType:DescribePullRequestEvents' :: DescribePullRequestEvents -&gt; Maybe PullRequestEventType
+$sel:maxResults:DescribePullRequestEvents' :: DescribePullRequestEvents -&gt; Maybe Int
+$sel:nextToken:DescribePullRequestEvents' :: DescribePullRequestEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679367676"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-203"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367680"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679367679"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pullRequestEventType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PullRequestEventType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">(PullRequestEventType -&gt; Pair)
+-&gt; Maybe PullRequestEventType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PullRequestEventType
+</span><a href="#local-6989586621679367678"><span class="hs-identifier hs-var">pullRequestEventType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;actorArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367677"><span class="hs-identifier hs-var">actorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-209"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pullRequestId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367676"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679367670"><span class="annot"><span class="annottext">toPath :: DescribePullRequestEvents -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribePullRequestEvents -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEvents"><span class="hs-identifier hs-type">DescribePullRequestEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679367666"><span class="annot"><span class="annottext">toQuery :: DescribePullRequestEvents -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribePullRequestEvents -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | /See:/ 'newDescribePullRequestEventsResponse' smart constructor.</span><span>
+</span><span id="line-220"></span><span id="local-6989586621679367663"><span id="local-6989586621679367664"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePullRequestEventsResponse"><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse"><span class="hs-identifier hs-var">DescribePullRequestEventsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePullRequestEventsResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse%27"><span class="hs-identifier hs-var">DescribePullRequestEventsResponse'</span></a></span></span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An enumeration token that can be used in a request to return the next</span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- batch of the results.</span><span>
+</span><span id="line-223"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribePullRequestEventsResponse%27"><span class="annot"><span class="annottext">DescribePullRequestEventsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3AnextToken%3ADescribePullRequestEventsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-225"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribePullRequestEventsResponse%27"><span class="annot"><span class="annottext">DescribePullRequestEventsResponse -&gt; Int
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3AhttpStatus%3ADescribePullRequestEventsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- | Information about the pull request events.</span><span>
+</span><span id="line-227"></span><span>    </span><span id="%24sel%3ApullRequestEvents%3ADescribePullRequestEventsResponse%27"><span class="annot"><span class="annottext">DescribePullRequestEventsResponse -&gt; [PullRequestEvent]
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3ApullRequestEvents%3ADescribePullRequestEventsResponse%27"><span class="hs-identifier hs-var hs-var">pullRequestEvents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestEvent.html#PullRequestEvent"><span class="hs-identifier hs-type">PullRequestEvent</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367656"><span id="local-6989586621679367658"><span class="annot"><span class="annottext">DescribePullRequestEventsResponse
+-&gt; DescribePullRequestEventsResponse -&gt; Bool
+(DescribePullRequestEventsResponse
+ -&gt; DescribePullRequestEventsResponse -&gt; Bool)
+-&gt; (DescribePullRequestEventsResponse
+    -&gt; DescribePullRequestEventsResponse -&gt; Bool)
+-&gt; Eq DescribePullRequestEventsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePullRequestEventsResponse
+-&gt; DescribePullRequestEventsResponse -&gt; Bool
+$c/= :: DescribePullRequestEventsResponse
+-&gt; DescribePullRequestEventsResponse -&gt; Bool
+== :: DescribePullRequestEventsResponse
+-&gt; DescribePullRequestEventsResponse -&gt; Bool
+$c== :: DescribePullRequestEventsResponse
+-&gt; DescribePullRequestEventsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367648"><span id="local-6989586621679367650"><span id="local-6989586621679367652"><span id="local-6989586621679367654"><span class="annot"><span class="annottext">ReadPrec [DescribePullRequestEventsResponse]
+ReadPrec DescribePullRequestEventsResponse
+Int -&gt; ReadS DescribePullRequestEventsResponse
+ReadS [DescribePullRequestEventsResponse]
+(Int -&gt; ReadS DescribePullRequestEventsResponse)
+-&gt; ReadS [DescribePullRequestEventsResponse]
+-&gt; ReadPrec DescribePullRequestEventsResponse
+-&gt; ReadPrec [DescribePullRequestEventsResponse]
+-&gt; Read DescribePullRequestEventsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePullRequestEventsResponse]
+$creadListPrec :: ReadPrec [DescribePullRequestEventsResponse]
+readPrec :: ReadPrec DescribePullRequestEventsResponse
+$creadPrec :: ReadPrec DescribePullRequestEventsResponse
+readList :: ReadS [DescribePullRequestEventsResponse]
+$creadList :: ReadS [DescribePullRequestEventsResponse]
+readsPrec :: Int -&gt; ReadS DescribePullRequestEventsResponse
+$creadsPrec :: Int -&gt; ReadS DescribePullRequestEventsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367642"><span id="local-6989586621679367644"><span id="local-6989586621679367646"><span class="annot"><span class="annottext">Int -&gt; DescribePullRequestEventsResponse -&gt; ShowS
+[DescribePullRequestEventsResponse] -&gt; ShowS
+DescribePullRequestEventsResponse -&gt; String
+(Int -&gt; DescribePullRequestEventsResponse -&gt; ShowS)
+-&gt; (DescribePullRequestEventsResponse -&gt; String)
+-&gt; ([DescribePullRequestEventsResponse] -&gt; ShowS)
+-&gt; Show DescribePullRequestEventsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePullRequestEventsResponse] -&gt; ShowS
+$cshowList :: [DescribePullRequestEventsResponse] -&gt; ShowS
+show :: DescribePullRequestEventsResponse -&gt; String
+$cshow :: DescribePullRequestEventsResponse -&gt; String
+showsPrec :: Int -&gt; DescribePullRequestEventsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePullRequestEventsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribePullRequestEventsResponse
+ -&gt; Rep DescribePullRequestEventsResponse x)
+-&gt; (forall x.
+    Rep DescribePullRequestEventsResponse x
+    -&gt; DescribePullRequestEventsResponse)
+-&gt; Generic DescribePullRequestEventsResponse
+forall x.
+Rep DescribePullRequestEventsResponse x
+-&gt; DescribePullRequestEventsResponse
+forall x.
+DescribePullRequestEventsResponse
+-&gt; Rep DescribePullRequestEventsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribePullRequestEventsResponse x
+-&gt; DescribePullRequestEventsResponse
+$cfrom :: forall x.
+DescribePullRequestEventsResponse
+-&gt; Rep DescribePullRequestEventsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- Create a value of 'DescribePullRequestEventsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'nextToken', 'describePullRequestEventsResponse_nextToken' - An enumeration token that can be used in a request to return the next</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- batch of the results.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'httpStatus', 'describePullRequestEventsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'pullRequestEvents', 'describePullRequestEventsResponse_pullRequestEvents' - Information about the pull request events.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#newDescribePullRequestEventsResponse"><span class="hs-identifier hs-type">newDescribePullRequestEventsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse"><span class="hs-identifier hs-type">DescribePullRequestEventsResponse</span></a></span><span>
+</span><span id="line-249"></span><span id="newDescribePullRequestEventsResponse"><span class="annot"><span class="annottext">newDescribePullRequestEventsResponse :: Int -&gt; DescribePullRequestEventsResponse
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#newDescribePullRequestEventsResponse"><span class="hs-identifier hs-var hs-var">newDescribePullRequestEventsResponse</span></a></span></span><span> </span><span id="local-6989586621679367639"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367639"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><span class="annottext">DescribePullRequestEventsResponse' :: Maybe Text
+-&gt; Int -&gt; [PullRequestEvent] -&gt; DescribePullRequestEventsResponse
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse%27"><span class="hs-identifier hs-type">DescribePullRequestEventsResponse'</span></a></span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribePullRequestEventsResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3AnextToken%3ADescribePullRequestEventsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePullRequestEventsResponse' :: Int
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3AhttpStatus%3ADescribePullRequestEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367639"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">$sel:pullRequestEvents:DescribePullRequestEventsResponse' :: [PullRequestEvent]
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3ApullRequestEvents%3ADescribePullRequestEventsResponse%27"><span class="hs-identifier hs-var">pullRequestEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[PullRequestEvent]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | An enumeration token that can be used in a request to return the next</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- batch of the results.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEventsResponse_nextToken"><span class="hs-identifier hs-type">describePullRequestEventsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse"><span class="hs-identifier hs-type">DescribePullRequestEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="describePullRequestEventsResponse_nextToken"><span class="annot"><span class="annottext">describePullRequestEventsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePullRequestEventsResponse
+-&gt; f DescribePullRequestEventsResponse
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEventsResponse_nextToken"><span class="hs-identifier hs-var hs-var">describePullRequestEventsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePullRequestEventsResponse -&gt; Maybe Text)
+-&gt; (DescribePullRequestEventsResponse
+    -&gt; Maybe Text -&gt; DescribePullRequestEventsResponse)
+-&gt; Lens' DescribePullRequestEventsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse%27"><span class="hs-identifier hs-type">DescribePullRequestEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367638"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribePullRequestEventsResponse' :: DescribePullRequestEventsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679367638"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367638"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367637"><span class="annot"><span class="annottext">s :: DescribePullRequestEventsResponse
+</span><a href="#local-6989586621679367637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse%27"><span class="hs-identifier hs-type">DescribePullRequestEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367636"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePullRequestEventsResponse
+</span><a href="#local-6989586621679367637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribePullRequestEventsResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3AnextToken%3ADescribePullRequestEventsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse"><span class="hs-identifier hs-type">DescribePullRequestEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEventsResponse_httpStatus"><span class="hs-identifier hs-type">describePullRequestEventsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse"><span class="hs-identifier hs-type">DescribePullRequestEventsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-264"></span><span id="describePullRequestEventsResponse_httpStatus"><span class="annot"><span class="annottext">describePullRequestEventsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribePullRequestEventsResponse
+-&gt; f DescribePullRequestEventsResponse
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEventsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describePullRequestEventsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePullRequestEventsResponse -&gt; Int)
+-&gt; (DescribePullRequestEventsResponse
+    -&gt; Int -&gt; DescribePullRequestEventsResponse)
+-&gt; Lens
+     DescribePullRequestEventsResponse
+     DescribePullRequestEventsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse%27"><span class="hs-identifier hs-type">DescribePullRequestEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367635"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribePullRequestEventsResponse' :: DescribePullRequestEventsResponse -&gt; Int
+</span><a href="#local-6989586621679367635"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367635"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367634"><span class="annot"><span class="annottext">s :: DescribePullRequestEventsResponse
+</span><a href="#local-6989586621679367634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse%27"><span class="hs-identifier hs-type">DescribePullRequestEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367633"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePullRequestEventsResponse
+</span><a href="#local-6989586621679367634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePullRequestEventsResponse' :: Int
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3AhttpStatus%3ADescribePullRequestEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse"><span class="hs-identifier hs-type">DescribePullRequestEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | Information about the pull request events.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEventsResponse_pullRequestEvents"><span class="hs-identifier hs-type">describePullRequestEventsResponse_pullRequestEvents</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse"><span class="hs-identifier hs-type">DescribePullRequestEventsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestEvent.html#PullRequestEvent"><span class="hs-identifier hs-type">PullRequestEvent</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-268"></span><span id="describePullRequestEventsResponse_pullRequestEvents"><span class="annot"><span class="annottext">describePullRequestEventsResponse_pullRequestEvents :: ([PullRequestEvent] -&gt; f [PullRequestEvent])
+-&gt; DescribePullRequestEventsResponse
+-&gt; f DescribePullRequestEventsResponse
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#describePullRequestEventsResponse_pullRequestEvents"><span class="hs-identifier hs-var hs-var">describePullRequestEventsResponse_pullRequestEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePullRequestEventsResponse -&gt; [PullRequestEvent])
+-&gt; (DescribePullRequestEventsResponse
+    -&gt; [PullRequestEvent] -&gt; DescribePullRequestEventsResponse)
+-&gt; Lens' DescribePullRequestEventsResponse [PullRequestEvent]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse%27"><span class="hs-identifier hs-type">DescribePullRequestEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367632"><span class="annot"><span class="annottext">[PullRequestEvent]
+pullRequestEvents :: [PullRequestEvent]
+$sel:pullRequestEvents:DescribePullRequestEventsResponse' :: DescribePullRequestEventsResponse -&gt; [PullRequestEvent]
+</span><a href="#local-6989586621679367632"><span class="hs-identifier hs-var hs-var">pullRequestEvents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[PullRequestEvent]
+</span><a href="#local-6989586621679367632"><span class="hs-identifier hs-var">pullRequestEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367631"><span class="annot"><span class="annottext">s :: DescribePullRequestEventsResponse
+</span><a href="#local-6989586621679367631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse%27"><span class="hs-identifier hs-type">DescribePullRequestEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367630"><span class="annot"><span class="annottext">[PullRequestEvent]
+</span><a href="#local-6989586621679367630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePullRequestEventsResponse
+</span><a href="#local-6989586621679367631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestEvents:DescribePullRequestEventsResponse' :: [PullRequestEvent]
+</span><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#%24sel%3ApullRequestEvents%3ADescribePullRequestEventsResponse%27"><span class="hs-identifier hs-var">pullRequestEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[PullRequestEvent]
+</span><a href="#local-6989586621679367630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse"><span class="hs-identifier hs-type">DescribePullRequestEventsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([PullRequestEvent] -&gt; f [PullRequestEvent])
+ -&gt; DescribePullRequestEventsResponse
+ -&gt; f DescribePullRequestEventsResponse)
+-&gt; (([PullRequestEvent] -&gt; f [PullRequestEvent])
+    -&gt; [PullRequestEvent] -&gt; f [PullRequestEvent])
+-&gt; ([PullRequestEvent] -&gt; f [PullRequestEvent])
+-&gt; DescribePullRequestEventsResponse
+-&gt; f DescribePullRequestEventsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([PullRequestEvent] -&gt; f [PullRequestEvent])
+-&gt; [PullRequestEvent] -&gt; f [PullRequestEvent]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679367627"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.DescribePullRequestEvents.html#DescribePullRequestEventsResponse"><span class="hs-identifier hs-type">DescribePullRequestEventsResponse</span></a></span></span><span>
+</span><span id="line-273"></span></pre></body></html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.PipelineExecutionStep</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.PipelineExecutionStep</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.CacheHitResult</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StepStatus.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.StepStatus</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | An execution of a step in a pipeline.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPipelineExecutionStep' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621680353535"><span id="local-6989586621680353536"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineExecutionStep"><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-var">PipelineExecutionStep</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineExecutionStep%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-var">PipelineExecutionStep'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Metadata for the step execution.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Ametadata%3APipelineExecutionStep%27"><span class="annot"><span class="annottext">PipelineExecutionStep -&gt; Maybe PipelineExecutionStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3Ametadata%3APipelineExecutionStep%27"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time that the step started executing.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AstartTime%3APipelineExecutionStep%27"><span class="annot"><span class="annottext">PipelineExecutionStep -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AstartTime%3APipelineExecutionStep%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The time that the step stopped executing.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AendTime%3APipelineExecutionStep%27"><span class="annot"><span class="annottext">PipelineExecutionStep -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AendTime%3APipelineExecutionStep%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The reason why the step failed execution. This is only returned if the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- step failed its execution.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AfailureReason%3APipelineExecutionStep%27"><span class="annot"><span class="annottext">PipelineExecutionStep -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AfailureReason%3APipelineExecutionStep%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The status of the step execution.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AstepStatus%3APipelineExecutionStep%27"><span class="annot"><span class="annottext">PipelineExecutionStep -&gt; Maybe StepStatus
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AstepStatus%3APipelineExecutionStep%27"><span class="hs-identifier hs-var hs-var">stepStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StepStatus.html#StepStatus"><span class="hs-identifier hs-type">StepStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | If this pipeline execution step was cached, details on the cache hit.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcacheHitResult%3APipelineExecutionStep%27"><span class="annot"><span class="annottext">PipelineExecutionStep -&gt; Maybe CacheHitResult
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AcacheHitResult%3APipelineExecutionStep%27"><span class="hs-identifier hs-var hs-var">cacheHitResult</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult"><span class="hs-identifier hs-type">CacheHitResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name of the step that is executed.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AstepName%3APipelineExecutionStep%27"><span class="annot"><span class="annottext">PipelineExecutionStep -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AstepName%3APipelineExecutionStep%27"><span class="hs-identifier hs-var hs-var">stepName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680353523"><span id="local-6989586621680353525"><span class="annot"><span class="annottext">PipelineExecutionStep -&gt; PipelineExecutionStep -&gt; Bool
+(PipelineExecutionStep -&gt; PipelineExecutionStep -&gt; Bool)
+-&gt; (PipelineExecutionStep -&gt; PipelineExecutionStep -&gt; Bool)
+-&gt; Eq PipelineExecutionStep
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PipelineExecutionStep -&gt; PipelineExecutionStep -&gt; Bool
+$c/= :: PipelineExecutionStep -&gt; PipelineExecutionStep -&gt; Bool
+== :: PipelineExecutionStep -&gt; PipelineExecutionStep -&gt; Bool
+$c== :: PipelineExecutionStep -&gt; PipelineExecutionStep -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680353514"><span id="local-6989586621680353516"><span id="local-6989586621680353518"><span id="local-6989586621680353520"><span class="annot"><span class="annottext">ReadPrec [PipelineExecutionStep]
+ReadPrec PipelineExecutionStep
+Int -&gt; ReadS PipelineExecutionStep
+ReadS [PipelineExecutionStep]
+(Int -&gt; ReadS PipelineExecutionStep)
+-&gt; ReadS [PipelineExecutionStep]
+-&gt; ReadPrec PipelineExecutionStep
+-&gt; ReadPrec [PipelineExecutionStep]
+-&gt; Read PipelineExecutionStep
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PipelineExecutionStep]
+$creadListPrec :: ReadPrec [PipelineExecutionStep]
+readPrec :: ReadPrec PipelineExecutionStep
+$creadPrec :: ReadPrec PipelineExecutionStep
+readList :: ReadS [PipelineExecutionStep]
+$creadList :: ReadS [PipelineExecutionStep]
+readsPrec :: Int -&gt; ReadS PipelineExecutionStep
+$creadsPrec :: Int -&gt; ReadS PipelineExecutionStep
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680353507"><span id="local-6989586621680353509"><span id="local-6989586621680353511"><span class="annot"><span class="annottext">Int -&gt; PipelineExecutionStep -&gt; ShowS
+[PipelineExecutionStep] -&gt; ShowS
+PipelineExecutionStep -&gt; String
+(Int -&gt; PipelineExecutionStep -&gt; ShowS)
+-&gt; (PipelineExecutionStep -&gt; String)
+-&gt; ([PipelineExecutionStep] -&gt; ShowS)
+-&gt; Show PipelineExecutionStep
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PipelineExecutionStep] -&gt; ShowS
+$cshowList :: [PipelineExecutionStep] -&gt; ShowS
+show :: PipelineExecutionStep -&gt; String
+$cshow :: PipelineExecutionStep -&gt; String
+showsPrec :: Int -&gt; PipelineExecutionStep -&gt; ShowS
+$cshowsPrec :: Int -&gt; PipelineExecutionStep -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PipelineExecutionStep -&gt; Rep PipelineExecutionStep x)
+-&gt; (forall x. Rep PipelineExecutionStep x -&gt; PipelineExecutionStep)
+-&gt; Generic PipelineExecutionStep
+forall x. Rep PipelineExecutionStep x -&gt; PipelineExecutionStep
+forall x. PipelineExecutionStep -&gt; Rep PipelineExecutionStep x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PipelineExecutionStep x -&gt; PipelineExecutionStep
+$cfrom :: forall x. PipelineExecutionStep -&gt; Rep PipelineExecutionStep x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'PipelineExecutionStep' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'metadata', 'pipelineExecutionStep_metadata' - Metadata for the step execution.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'startTime', 'pipelineExecutionStep_startTime' - The time that the step started executing.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'endTime', 'pipelineExecutionStep_endTime' - The time that the step stopped executing.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'failureReason', 'pipelineExecutionStep_failureReason' - The reason why the step failed execution. This is only returned if the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- step failed its execution.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'stepStatus', 'pipelineExecutionStep_stepStatus' - The status of the step execution.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'cacheHitResult', 'pipelineExecutionStep_cacheHitResult' - If this pipeline execution step was cached, details on the cache hit.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'stepName', 'pipelineExecutionStep_stepName' - The name of the step that is executed.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#newPipelineExecutionStep"><span class="hs-identifier hs-type">newPipelineExecutionStep</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span>
+</span><span id="line-75"></span><span id="newPipelineExecutionStep"><span class="annot"><span class="annottext">newPipelineExecutionStep :: PipelineExecutionStep
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#newPipelineExecutionStep"><span class="hs-identifier hs-var hs-var">newPipelineExecutionStep</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">PipelineExecutionStep' :: Maybe PipelineExecutionStepMetadata
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe StepStatus
+-&gt; Maybe CacheHitResult
+-&gt; Maybe Text
+-&gt; PipelineExecutionStep
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-type">PipelineExecutionStep'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metadata:PipelineExecutionStep' :: Maybe PipelineExecutionStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3Ametadata%3APipelineExecutionStep%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExecutionStepMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:PipelineExecutionStep' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AstartTime%3APipelineExecutionStep%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:PipelineExecutionStep' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AendTime%3APipelineExecutionStep%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureReason:PipelineExecutionStep' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AfailureReason%3APipelineExecutionStep%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:stepStatus:PipelineExecutionStep' :: Maybe StepStatus
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AstepStatus%3APipelineExecutionStep%27"><span class="hs-identifier hs-var">stepStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StepStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheHitResult:PipelineExecutionStep' :: Maybe CacheHitResult
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AcacheHitResult%3APipelineExecutionStep%27"><span class="hs-identifier hs-var">cacheHitResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CacheHitResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:stepName:PipelineExecutionStep' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AstepName%3APipelineExecutionStep%27"><span class="hs-identifier hs-var">stepName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | Metadata for the step execution.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#pipelineExecutionStep_metadata"><span class="hs-identifier hs-type">pipelineExecutionStep_metadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="pipelineExecutionStep_metadata"><span class="annot"><span class="annottext">pipelineExecutionStep_metadata :: (Maybe PipelineExecutionStepMetadata
+ -&gt; f (Maybe PipelineExecutionStepMetadata))
+-&gt; PipelineExecutionStep -&gt; f PipelineExecutionStep
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#pipelineExecutionStep_metadata"><span class="hs-identifier hs-var hs-var">pipelineExecutionStep_metadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStep -&gt; Maybe PipelineExecutionStepMetadata)
+-&gt; (PipelineExecutionStep
+    -&gt; Maybe PipelineExecutionStepMetadata -&gt; PipelineExecutionStep)
+-&gt; Lens
+     PipelineExecutionStep
+     PipelineExecutionStep
+     (Maybe PipelineExecutionStepMetadata)
+     (Maybe PipelineExecutionStepMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-type">PipelineExecutionStep'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353498"><span class="annot"><span class="annottext">Maybe PipelineExecutionStepMetadata
+metadata :: Maybe PipelineExecutionStepMetadata
+$sel:metadata:PipelineExecutionStep' :: PipelineExecutionStep -&gt; Maybe PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680353498"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680353498"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353497"><span class="annot"><span class="annottext">s :: PipelineExecutionStep
+</span><a href="#local-6989586621680353497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-type">PipelineExecutionStep'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353496"><span class="annot"><span class="annottext">Maybe PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680353496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStep
+</span><a href="#local-6989586621680353497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata:PipelineExecutionStep' :: Maybe PipelineExecutionStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3Ametadata%3APipelineExecutionStep%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680353496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The time that the step started executing.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#pipelineExecutionStep_startTime"><span class="hs-identifier hs-type">pipelineExecutionStep_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="pipelineExecutionStep_startTime"><span class="annot"><span class="annottext">pipelineExecutionStep_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PipelineExecutionStep -&gt; f PipelineExecutionStep
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#pipelineExecutionStep_startTime"><span class="hs-identifier hs-var hs-var">pipelineExecutionStep_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStep -&gt; Maybe POSIX)
+-&gt; (PipelineExecutionStep -&gt; Maybe POSIX -&gt; PipelineExecutionStep)
+-&gt; Lens
+     PipelineExecutionStep
+     PipelineExecutionStep
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-type">PipelineExecutionStep'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353494"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:PipelineExecutionStep' :: PipelineExecutionStep -&gt; Maybe POSIX
+</span><a href="#local-6989586621680353494"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680353494"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353493"><span class="annot"><span class="annottext">s :: PipelineExecutionStep
+</span><a href="#local-6989586621680353493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-type">PipelineExecutionStep'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353492"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680353492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStep
+</span><a href="#local-6989586621680353493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:PipelineExecutionStep' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AstartTime%3APipelineExecutionStep%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680353492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PipelineExecutionStep -&gt; f PipelineExecutionStep)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PipelineExecutionStep
+-&gt; f PipelineExecutionStep
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The time that the step stopped executing.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#pipelineExecutionStep_endTime"><span class="hs-identifier hs-type">pipelineExecutionStep_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="pipelineExecutionStep_endTime"><span class="annot"><span class="annottext">pipelineExecutionStep_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PipelineExecutionStep -&gt; f PipelineExecutionStep
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#pipelineExecutionStep_endTime"><span class="hs-identifier hs-var hs-var">pipelineExecutionStep_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStep -&gt; Maybe POSIX)
+-&gt; (PipelineExecutionStep -&gt; Maybe POSIX -&gt; PipelineExecutionStep)
+-&gt; Lens
+     PipelineExecutionStep
+     PipelineExecutionStep
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-type">PipelineExecutionStep'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353487"><span class="annot"><span class="annottext">Maybe POSIX
+endTime :: Maybe POSIX
+$sel:endTime:PipelineExecutionStep' :: PipelineExecutionStep -&gt; Maybe POSIX
+</span><a href="#local-6989586621680353487"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680353487"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353486"><span class="annot"><span class="annottext">s :: PipelineExecutionStep
+</span><a href="#local-6989586621680353486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-type">PipelineExecutionStep'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353485"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680353485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStep
+</span><a href="#local-6989586621680353486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:PipelineExecutionStep' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AendTime%3APipelineExecutionStep%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680353485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PipelineExecutionStep -&gt; f PipelineExecutionStep)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PipelineExecutionStep
+-&gt; f PipelineExecutionStep
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The reason why the step failed execution. This is only returned if the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- step failed its execution.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#pipelineExecutionStep_failureReason"><span class="hs-identifier hs-type">pipelineExecutionStep_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="pipelineExecutionStep_failureReason"><span class="annot"><span class="annottext">pipelineExecutionStep_failureReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PipelineExecutionStep -&gt; f PipelineExecutionStep
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#pipelineExecutionStep_failureReason"><span class="hs-identifier hs-var hs-var">pipelineExecutionStep_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStep -&gt; Maybe Text)
+-&gt; (PipelineExecutionStep -&gt; Maybe Text -&gt; PipelineExecutionStep)
+-&gt; Lens
+     PipelineExecutionStep
+     PipelineExecutionStep
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-type">PipelineExecutionStep'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353483"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:PipelineExecutionStep' :: PipelineExecutionStep -&gt; Maybe Text
+</span><a href="#local-6989586621680353483"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680353483"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353482"><span class="annot"><span class="annottext">s :: PipelineExecutionStep
+</span><a href="#local-6989586621680353482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-type">PipelineExecutionStep'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353481"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680353481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStep
+</span><a href="#local-6989586621680353482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:PipelineExecutionStep' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AfailureReason%3APipelineExecutionStep%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680353481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The status of the step execution.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#pipelineExecutionStep_stepStatus"><span class="hs-identifier hs-type">pipelineExecutionStep_stepStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StepStatus.html#StepStatus"><span class="hs-identifier hs-type">StepStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="pipelineExecutionStep_stepStatus"><span class="annot"><span class="annottext">pipelineExecutionStep_stepStatus :: (Maybe StepStatus -&gt; f (Maybe StepStatus))
+-&gt; PipelineExecutionStep -&gt; f PipelineExecutionStep
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#pipelineExecutionStep_stepStatus"><span class="hs-identifier hs-var hs-var">pipelineExecutionStep_stepStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStep -&gt; Maybe StepStatus)
+-&gt; (PipelineExecutionStep
+    -&gt; Maybe StepStatus -&gt; PipelineExecutionStep)
+-&gt; Lens
+     PipelineExecutionStep
+     PipelineExecutionStep
+     (Maybe StepStatus)
+     (Maybe StepStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-type">PipelineExecutionStep'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353479"><span class="annot"><span class="annottext">Maybe StepStatus
+stepStatus :: Maybe StepStatus
+$sel:stepStatus:PipelineExecutionStep' :: PipelineExecutionStep -&gt; Maybe StepStatus
+</span><a href="#local-6989586621680353479"><span class="hs-identifier hs-var hs-var">stepStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StepStatus
+</span><a href="#local-6989586621680353479"><span class="hs-identifier hs-var">stepStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353478"><span class="annot"><span class="annottext">s :: PipelineExecutionStep
+</span><a href="#local-6989586621680353478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-type">PipelineExecutionStep'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353477"><span class="annot"><span class="annottext">Maybe StepStatus
+</span><a href="#local-6989586621680353477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStep
+</span><a href="#local-6989586621680353478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stepStatus:PipelineExecutionStep' :: Maybe StepStatus
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AstepStatus%3APipelineExecutionStep%27"><span class="hs-identifier hs-var">stepStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StepStatus
+</span><a href="#local-6989586621680353477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | If this pipeline execution step was cached, details on the cache hit.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#pipelineExecutionStep_cacheHitResult"><span class="hs-identifier hs-type">pipelineExecutionStep_cacheHitResult</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult"><span class="hs-identifier hs-type">CacheHitResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="pipelineExecutionStep_cacheHitResult"><span class="annot"><span class="annottext">pipelineExecutionStep_cacheHitResult :: (Maybe CacheHitResult -&gt; f (Maybe CacheHitResult))
+-&gt; PipelineExecutionStep -&gt; f PipelineExecutionStep
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#pipelineExecutionStep_cacheHitResult"><span class="hs-identifier hs-var hs-var">pipelineExecutionStep_cacheHitResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStep -&gt; Maybe CacheHitResult)
+-&gt; (PipelineExecutionStep
+    -&gt; Maybe CacheHitResult -&gt; PipelineExecutionStep)
+-&gt; Lens
+     PipelineExecutionStep
+     PipelineExecutionStep
+     (Maybe CacheHitResult)
+     (Maybe CacheHitResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-type">PipelineExecutionStep'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353475"><span class="annot"><span class="annottext">Maybe CacheHitResult
+cacheHitResult :: Maybe CacheHitResult
+$sel:cacheHitResult:PipelineExecutionStep' :: PipelineExecutionStep -&gt; Maybe CacheHitResult
+</span><a href="#local-6989586621680353475"><span class="hs-identifier hs-var hs-var">cacheHitResult</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CacheHitResult
+</span><a href="#local-6989586621680353475"><span class="hs-identifier hs-var">cacheHitResult</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353474"><span class="annot"><span class="annottext">s :: PipelineExecutionStep
+</span><a href="#local-6989586621680353474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-type">PipelineExecutionStep'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353473"><span class="annot"><span class="annottext">Maybe CacheHitResult
+</span><a href="#local-6989586621680353473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStep
+</span><a href="#local-6989586621680353474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheHitResult:PipelineExecutionStep' :: Maybe CacheHitResult
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AcacheHitResult%3APipelineExecutionStep%27"><span class="hs-identifier hs-var">cacheHitResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CacheHitResult
+</span><a href="#local-6989586621680353473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The name of the step that is executed.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#pipelineExecutionStep_stepName"><span class="hs-identifier hs-type">pipelineExecutionStep_stepName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="pipelineExecutionStep_stepName"><span class="annot"><span class="annottext">pipelineExecutionStep_stepName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PipelineExecutionStep -&gt; f PipelineExecutionStep
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#pipelineExecutionStep_stepName"><span class="hs-identifier hs-var hs-var">pipelineExecutionStep_stepName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStep -&gt; Maybe Text)
+-&gt; (PipelineExecutionStep -&gt; Maybe Text -&gt; PipelineExecutionStep)
+-&gt; Lens
+     PipelineExecutionStep
+     PipelineExecutionStep
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-type">PipelineExecutionStep'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353471"><span class="annot"><span class="annottext">Maybe Text
+stepName :: Maybe Text
+$sel:stepName:PipelineExecutionStep' :: PipelineExecutionStep -&gt; Maybe Text
+</span><a href="#local-6989586621680353471"><span class="hs-identifier hs-var hs-var">stepName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680353471"><span class="hs-identifier hs-var">stepName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353470"><span class="annot"><span class="annottext">s :: PipelineExecutionStep
+</span><a href="#local-6989586621680353470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-type">PipelineExecutionStep'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353469"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680353469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStep
+</span><a href="#local-6989586621680353470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stepName:PipelineExecutionStep' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#%24sel%3AstepName%3APipelineExecutionStep%27"><span class="hs-identifier hs-var">stepName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680353469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353466"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621680353464"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineExecutionStep
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PipelineExecutionStep)
+-&gt; Value
+-&gt; Parser PipelineExecutionStep
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PipelineExecutionStep&quot;</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680353461"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680353461"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe PipelineExecutionStepMetadata
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe StepStatus
+-&gt; Maybe CacheHitResult
+-&gt; Maybe Text
+-&gt; PipelineExecutionStep
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep%27"><span class="hs-identifier hs-var">PipelineExecutionStep'</span></a></span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PipelineExecutionStepMetadata
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe StepStatus
+ -&gt; Maybe CacheHitResult
+ -&gt; Maybe Text
+ -&gt; PipelineExecutionStep)
+-&gt; Parser (Maybe PipelineExecutionStepMetadata)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe StepStatus
+      -&gt; Maybe CacheHitResult
+      -&gt; Maybe Text
+      -&gt; PipelineExecutionStep)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680353461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PipelineExecutionStepMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Metadata&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe StepStatus
+   -&gt; Maybe CacheHitResult
+   -&gt; Maybe Text
+   -&gt; PipelineExecutionStep)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe StepStatus
+      -&gt; Maybe CacheHitResult
+      -&gt; Maybe Text
+      -&gt; PipelineExecutionStep)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680353461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe StepStatus
+   -&gt; Maybe CacheHitResult
+   -&gt; Maybe Text
+   -&gt; PipelineExecutionStep)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe StepStatus
+      -&gt; Maybe CacheHitResult
+      -&gt; Maybe Text
+      -&gt; PipelineExecutionStep)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680353461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe StepStatus
+   -&gt; Maybe CacheHitResult
+   -&gt; Maybe Text
+   -&gt; PipelineExecutionStep)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe StepStatus
+      -&gt; Maybe CacheHitResult -&gt; Maybe Text -&gt; PipelineExecutionStep)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680353461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe StepStatus
+   -&gt; Maybe CacheHitResult -&gt; Maybe Text -&gt; PipelineExecutionStep)
+-&gt; Parser (Maybe StepStatus)
+-&gt; Parser
+     (Maybe CacheHitResult -&gt; Maybe Text -&gt; PipelineExecutionStep)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680353461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StepStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StepStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CacheHitResult -&gt; Maybe Text -&gt; PipelineExecutionStep)
+-&gt; Parser (Maybe CacheHitResult)
+-&gt; Parser (Maybe Text -&gt; PipelineExecutionStep)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680353461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CacheHitResult)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CacheHitResult&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PipelineExecutionStep)
+-&gt; Parser (Maybe Text) -&gt; Parser PipelineExecutionStep
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680353461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StepName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353455"><span id="local-6989586621680353457"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353452"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span></span><span>
+</span><span id="line-133"></span></pre></body></html>

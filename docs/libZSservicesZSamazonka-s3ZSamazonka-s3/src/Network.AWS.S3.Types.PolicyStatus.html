@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.S3.Types.PolicyStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.Types.PolicyStatus</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The container element for a bucket\'s policy status.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPolicyStatus' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679547866"><span id="local-6989586621679547867"></span></span><span class="hs-keyword">data</span><span> </span><span id="PolicyStatus"><span class="annot"><a href="Network.AWS.S3.Types.PolicyStatus.html#PolicyStatus"><span class="hs-identifier hs-var">PolicyStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.PolicyStatus.html#PolicyStatus%27"><span class="hs-identifier hs-var">PolicyStatus'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The policy status for this bucket. @TRUE@ indicates that this bucket is</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- public. @FALSE@ indicates that the bucket is not public.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AisPublic%3APolicyStatus%27"><span class="annot"><span class="annottext">PolicyStatus -&gt; Maybe Bool
+</span><a href="Network.AWS.S3.Types.PolicyStatus.html#%24sel%3AisPublic%3APolicyStatus%27"><span class="hs-identifier hs-var hs-var">isPublic</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679547860"><span id="local-6989586621679547862"><span class="annot"><span class="annottext">PolicyStatus -&gt; PolicyStatus -&gt; Bool
+(PolicyStatus -&gt; PolicyStatus -&gt; Bool)
+-&gt; (PolicyStatus -&gt; PolicyStatus -&gt; Bool) -&gt; Eq PolicyStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PolicyStatus -&gt; PolicyStatus -&gt; Bool
+$c/= :: PolicyStatus -&gt; PolicyStatus -&gt; Bool
+== :: PolicyStatus -&gt; PolicyStatus -&gt; Bool
+$c== :: PolicyStatus -&gt; PolicyStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547851"><span id="local-6989586621679547853"><span id="local-6989586621679547855"><span id="local-6989586621679547857"><span class="annot"><span class="annottext">ReadPrec [PolicyStatus]
+ReadPrec PolicyStatus
+Int -&gt; ReadS PolicyStatus
+ReadS [PolicyStatus]
+(Int -&gt; ReadS PolicyStatus)
+-&gt; ReadS [PolicyStatus]
+-&gt; ReadPrec PolicyStatus
+-&gt; ReadPrec [PolicyStatus]
+-&gt; Read PolicyStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PolicyStatus]
+$creadListPrec :: ReadPrec [PolicyStatus]
+readPrec :: ReadPrec PolicyStatus
+$creadPrec :: ReadPrec PolicyStatus
+readList :: ReadS [PolicyStatus]
+$creadList :: ReadS [PolicyStatus]
+readsPrec :: Int -&gt; ReadS PolicyStatus
+$creadsPrec :: Int -&gt; ReadS PolicyStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547844"><span id="local-6989586621679547846"><span id="local-6989586621679547848"><span class="annot"><span class="annottext">Int -&gt; PolicyStatus -&gt; ShowS
+[PolicyStatus] -&gt; ShowS
+PolicyStatus -&gt; String
+(Int -&gt; PolicyStatus -&gt; ShowS)
+-&gt; (PolicyStatus -&gt; String)
+-&gt; ([PolicyStatus] -&gt; ShowS)
+-&gt; Show PolicyStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PolicyStatus] -&gt; ShowS
+$cshowList :: [PolicyStatus] -&gt; ShowS
+show :: PolicyStatus -&gt; String
+$cshow :: PolicyStatus -&gt; String
+showsPrec :: Int -&gt; PolicyStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; PolicyStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PolicyStatus -&gt; Rep PolicyStatus x)
+-&gt; (forall x. Rep PolicyStatus x -&gt; PolicyStatus)
+-&gt; Generic PolicyStatus
+forall x. Rep PolicyStatus x -&gt; PolicyStatus
+forall x. PolicyStatus -&gt; Rep PolicyStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PolicyStatus x -&gt; PolicyStatus
+$cfrom :: forall x. PolicyStatus -&gt; Rep PolicyStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'PolicyStatus' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'isPublic', 'policyStatus_isPublic' - The policy status for this bucket. @TRUE@ indicates that this bucket is</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- public. @FALSE@ indicates that the bucket is not public.</span><span>
+</span><span id="line-47"></span><span class="annot"><a href="Network.AWS.S3.Types.PolicyStatus.html#newPolicyStatus"><span class="hs-identifier hs-type">newPolicyStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.PolicyStatus.html#PolicyStatus"><span class="hs-identifier hs-type">PolicyStatus</span></a></span><span>
+</span><span id="line-49"></span><span id="newPolicyStatus"><span class="annot"><span class="annottext">newPolicyStatus :: PolicyStatus
+</span><a href="Network.AWS.S3.Types.PolicyStatus.html#newPolicyStatus"><span class="hs-identifier hs-var hs-var">newPolicyStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">PolicyStatus' :: Maybe Bool -&gt; PolicyStatus
+</span><a href="Network.AWS.S3.Types.PolicyStatus.html#PolicyStatus%27"><span class="hs-identifier hs-type">PolicyStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isPublic:PolicyStatus' :: Maybe Bool
+</span><a href="Network.AWS.S3.Types.PolicyStatus.html#%24sel%3AisPublic%3APolicyStatus%27"><span class="hs-identifier hs-var">isPublic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | The policy status for this bucket. @TRUE@ indicates that this bucket is</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- public. @FALSE@ indicates that the bucket is not public.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Network.AWS.S3.Types.PolicyStatus.html#policyStatus_isPublic"><span class="hs-identifier hs-type">policyStatus_isPublic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PolicyStatus.html#PolicyStatus"><span class="hs-identifier hs-type">PolicyStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span id="policyStatus_isPublic"><span class="annot"><span class="annottext">policyStatus_isPublic :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; PolicyStatus -&gt; f PolicyStatus
+</span><a href="Network.AWS.S3.Types.PolicyStatus.html#policyStatus_isPublic"><span class="hs-identifier hs-var hs-var">policyStatus_isPublic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyStatus -&gt; Maybe Bool)
+-&gt; (PolicyStatus -&gt; Maybe Bool -&gt; PolicyStatus)
+-&gt; Lens PolicyStatus PolicyStatus (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.PolicyStatus.html#PolicyStatus%27"><span class="hs-identifier hs-type">PolicyStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547835"><span class="annot"><span class="annottext">Maybe Bool
+isPublic :: Maybe Bool
+$sel:isPublic:PolicyStatus' :: PolicyStatus -&gt; Maybe Bool
+</span><a href="#local-6989586621679547835"><span class="hs-identifier hs-var hs-var">isPublic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679547835"><span class="hs-identifier hs-var">isPublic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547834"><span class="annot"><span class="annottext">s :: PolicyStatus
+</span><a href="#local-6989586621679547834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.PolicyStatus.html#PolicyStatus%27"><span class="hs-identifier hs-type">PolicyStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547833"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679547833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyStatus
+</span><a href="#local-6989586621679547834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isPublic:PolicyStatus' :: Maybe Bool
+</span><a href="Network.AWS.S3.Types.PolicyStatus.html#%24sel%3AisPublic%3APolicyStatus%27"><span class="hs-identifier hs-var">isPublic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679547833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PolicyStatus.html#PolicyStatus"><span class="hs-identifier hs-type">PolicyStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PolicyStatus.html#PolicyStatus"><span class="hs-identifier hs-type">PolicyStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679547830"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PolicyStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679547828"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679547828"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool -&gt; PolicyStatus
+</span><a href="Network.AWS.S3.Types.PolicyStatus.html#PolicyStatus%27"><span class="hs-identifier hs-var">PolicyStatus'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; PolicyStatus)
+-&gt; Either String (Maybe Bool) -&gt; Either String PolicyStatus
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679547828"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsPublic&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547822"><span id="local-6989586621679547824"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PolicyStatus.html#PolicyStatus"><span class="hs-identifier hs-type">PolicyStatus</span></a></span></span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547819"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PolicyStatus.html#PolicyStatus"><span class="hs-identifier hs-type">PolicyStatus</span></a></span></span><span>
+</span><span id="line-64"></span></pre></body></html>

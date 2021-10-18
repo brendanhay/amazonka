@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.H265GopSizeUnits</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.H265GopSizeUnits</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#H265GopSizeUnits"><span class="hs-identifier">H265GopSizeUnits</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#H265GopSizeUnits_FRAMES"><span class="hs-identifier">H265GopSizeUnits_FRAMES</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#H265GopSizeUnits_SECONDS"><span class="hs-identifier">H265GopSizeUnits_SECONDS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Indicates if the GOP Size in H265 is specified in frames or seconds. If</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- seconds the system will convert the GOP Size into a frame count at run</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679966839"><span id="local-6989586621679966840"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265GopSizeUnits"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#H265GopSizeUnits"><span class="hs-identifier hs-var">H265GopSizeUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265GopSizeUnits%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#H265GopSizeUnits%27"><span class="hs-identifier hs-var">H265GopSizeUnits'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265GopSizeUnits"><span class="annot"><span class="annottext">H265GopSizeUnits -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#fromH265GopSizeUnits"><span class="hs-identifier hs-var hs-var">fromH265GopSizeUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679966831"><span id="local-6989586621679966833"><span id="local-6989586621679966835"><span class="annot"><span class="annottext">Int -&gt; H265GopSizeUnits -&gt; ShowS
+[H265GopSizeUnits] -&gt; ShowS
+H265GopSizeUnits -&gt; String
+(Int -&gt; H265GopSizeUnits -&gt; ShowS)
+-&gt; (H265GopSizeUnits -&gt; String)
+-&gt; ([H265GopSizeUnits] -&gt; ShowS)
+-&gt; Show H265GopSizeUnits
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [H265GopSizeUnits] -&gt; ShowS
+$cshowList :: [H265GopSizeUnits] -&gt; ShowS
+show :: H265GopSizeUnits -&gt; String
+$cshow :: H265GopSizeUnits -&gt; String
+showsPrec :: Int -&gt; H265GopSizeUnits -&gt; ShowS
+$cshowsPrec :: Int -&gt; H265GopSizeUnits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679966822"><span id="local-6989586621679966824"><span id="local-6989586621679966826"><span id="local-6989586621679966828"><span class="annot"><span class="annottext">ReadPrec [H265GopSizeUnits]
+ReadPrec H265GopSizeUnits
+Int -&gt; ReadS H265GopSizeUnits
+ReadS [H265GopSizeUnits]
+(Int -&gt; ReadS H265GopSizeUnits)
+-&gt; ReadS [H265GopSizeUnits]
+-&gt; ReadPrec H265GopSizeUnits
+-&gt; ReadPrec [H265GopSizeUnits]
+-&gt; Read H265GopSizeUnits
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [H265GopSizeUnits]
+$creadListPrec :: ReadPrec [H265GopSizeUnits]
+readPrec :: ReadPrec H265GopSizeUnits
+$creadPrec :: ReadPrec H265GopSizeUnits
+readList :: ReadS [H265GopSizeUnits]
+$creadList :: ReadS [H265GopSizeUnits]
+readsPrec :: Int -&gt; ReadS H265GopSizeUnits
+$creadsPrec :: Int -&gt; ReadS H265GopSizeUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679966817"><span id="local-6989586621679966819"><span class="annot"><span class="annottext">H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool
+(H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool)
+-&gt; (H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool)
+-&gt; Eq H265GopSizeUnits
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool
+$c/= :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool
+== :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool
+$c== :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679966801"><span id="local-6989586621679966803"><span id="local-6989586621679966805"><span id="local-6989586621679966807"><span id="local-6989586621679966809"><span id="local-6989586621679966811"><span id="local-6989586621679966813"><span class="annot"><span class="annottext">Eq H265GopSizeUnits
+Eq H265GopSizeUnits
+-&gt; (H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Ordering)
+-&gt; (H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool)
+-&gt; (H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool)
+-&gt; (H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool)
+-&gt; (H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool)
+-&gt; (H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; H265GopSizeUnits)
+-&gt; (H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; H265GopSizeUnits)
+-&gt; Ord H265GopSizeUnits
+H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool
+H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Ordering
+H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; H265GopSizeUnits
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; H265GopSizeUnits
+$cmin :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; H265GopSizeUnits
+max :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; H265GopSizeUnits
+$cmax :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; H265GopSizeUnits
+&gt;= :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool
+$c&gt;= :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool
+&gt; :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool
+$c&gt; :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool
+&lt;= :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool
+$c&lt;= :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool
+&lt; :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool
+$c&lt; :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Bool
+compare :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Ordering
+$ccompare :: H265GopSizeUnits -&gt; H265GopSizeUnits -&gt; Ordering
+$cp1Ord :: Eq H265GopSizeUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. H265GopSizeUnits -&gt; Rep H265GopSizeUnits x)
+-&gt; (forall x. Rep H265GopSizeUnits x -&gt; H265GopSizeUnits)
+-&gt; Generic H265GopSizeUnits
+forall x. Rep H265GopSizeUnits x -&gt; H265GopSizeUnits
+forall x. H265GopSizeUnits -&gt; Rep H265GopSizeUnits x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep H265GopSizeUnits x -&gt; H265GopSizeUnits
+$cfrom :: forall x. H265GopSizeUnits -&gt; Rep H265GopSizeUnits x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679966793"><span id="local-6989586621679966795"><span class="annot"><span class="annottext">Int -&gt; H265GopSizeUnits -&gt; Int
+H265GopSizeUnits -&gt; Int
+(Int -&gt; H265GopSizeUnits -&gt; Int)
+-&gt; (H265GopSizeUnits -&gt; Int) -&gt; Hashable H265GopSizeUnits
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: H265GopSizeUnits -&gt; Int
+$chash :: H265GopSizeUnits -&gt; Int
+hashWithSalt :: Int -&gt; H265GopSizeUnits -&gt; Int
+$chashWithSalt :: Int -&gt; H265GopSizeUnits -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679966790"><span class="annot"><span class="annottext">H265GopSizeUnits -&gt; ()
+(H265GopSizeUnits -&gt; ()) -&gt; NFData H265GopSizeUnits
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: H265GopSizeUnits -&gt; ()
+$crnf :: H265GopSizeUnits -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679966787"><span class="annot"><span class="annottext">Text -&gt; Either String H265GopSizeUnits
+(Text -&gt; Either String H265GopSizeUnits)
+-&gt; FromText H265GopSizeUnits
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String H265GopSizeUnits
+$cfromText :: Text -&gt; Either String H265GopSizeUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679966784"><span class="annot"><span class="annottext">H265GopSizeUnits -&gt; Text
+(H265GopSizeUnits -&gt; Text) -&gt; ToText H265GopSizeUnits
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: H265GopSizeUnits -&gt; Text
+$ctoText :: H265GopSizeUnits -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679966781"><span class="annot"><span class="annottext">H265GopSizeUnits -&gt; ByteString
+(H265GopSizeUnits -&gt; ByteString) -&gt; ToByteString H265GopSizeUnits
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: H265GopSizeUnits -&gt; ByteString
+$ctoBS :: H265GopSizeUnits -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679966778"><span class="annot"><span class="annottext">H265GopSizeUnits -&gt; ByteStringBuilder
+(H265GopSizeUnits -&gt; ByteStringBuilder) -&gt; ToLog H265GopSizeUnits
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: H265GopSizeUnits -&gt; ByteStringBuilder
+$cbuild :: H265GopSizeUnits -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679966775"><span class="annot"><span class="annottext">HeaderName -&gt; H265GopSizeUnits -&gt; [Header]
+(HeaderName -&gt; H265GopSizeUnits -&gt; [Header])
+-&gt; ToHeader H265GopSizeUnits
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; H265GopSizeUnits -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; H265GopSizeUnits -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679966772"><span class="annot"><span class="annottext">H265GopSizeUnits -&gt; QueryString
+(H265GopSizeUnits -&gt; QueryString) -&gt; ToQuery H265GopSizeUnits
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: H265GopSizeUnits -&gt; QueryString
+$ctoQuery :: H265GopSizeUnits -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679966767"><span id="local-6989586621679966769"><span class="annot"><span class="annottext">Value -&gt; Parser [H265GopSizeUnits]
+Value -&gt; Parser H265GopSizeUnits
+(Value -&gt; Parser H265GopSizeUnits)
+-&gt; (Value -&gt; Parser [H265GopSizeUnits])
+-&gt; FromJSON H265GopSizeUnits
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [H265GopSizeUnits]
+$cparseJSONList :: Value -&gt; Parser [H265GopSizeUnits]
+parseJSON :: Value -&gt; Parser H265GopSizeUnits
+$cparseJSON :: Value -&gt; Parser H265GopSizeUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679966762"><span id="local-6989586621679966764"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265GopSizeUnits]
+FromJSONKeyFunction H265GopSizeUnits
+FromJSONKeyFunction H265GopSizeUnits
+-&gt; FromJSONKeyFunction [H265GopSizeUnits]
+-&gt; FromJSONKey H265GopSizeUnits
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [H265GopSizeUnits]
+$cfromJSONKeyList :: FromJSONKeyFunction [H265GopSizeUnits]
+fromJSONKey :: FromJSONKeyFunction H265GopSizeUnits
+$cfromJSONKey :: FromJSONKeyFunction H265GopSizeUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679966753"><span id="local-6989586621679966755"><span id="local-6989586621679966757"><span id="local-6989586621679966759"><span class="annot"><span class="annottext">[H265GopSizeUnits] -&gt; Encoding
+[H265GopSizeUnits] -&gt; Value
+H265GopSizeUnits -&gt; Encoding
+H265GopSizeUnits -&gt; Value
+(H265GopSizeUnits -&gt; Value)
+-&gt; (H265GopSizeUnits -&gt; Encoding)
+-&gt; ([H265GopSizeUnits] -&gt; Value)
+-&gt; ([H265GopSizeUnits] -&gt; Encoding)
+-&gt; ToJSON H265GopSizeUnits
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [H265GopSizeUnits] -&gt; Encoding
+$ctoEncodingList :: [H265GopSizeUnits] -&gt; Encoding
+toJSONList :: [H265GopSizeUnits] -&gt; Value
+$ctoJSONList :: [H265GopSizeUnits] -&gt; Value
+toEncoding :: H265GopSizeUnits -&gt; Encoding
+$ctoEncoding :: H265GopSizeUnits -&gt; Encoding
+toJSON :: H265GopSizeUnits -&gt; Value
+$ctoJSON :: H265GopSizeUnits -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679966748"><span id="local-6989586621679966750"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265GopSizeUnits]
+ToJSONKeyFunction H265GopSizeUnits
+ToJSONKeyFunction H265GopSizeUnits
+-&gt; ToJSONKeyFunction [H265GopSizeUnits]
+-&gt; ToJSONKey H265GopSizeUnits
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [H265GopSizeUnits]
+$ctoJSONKeyList :: ToJSONKeyFunction [H265GopSizeUnits]
+toJSONKey :: ToJSONKeyFunction H265GopSizeUnits
+$ctoJSONKey :: ToJSONKeyFunction H265GopSizeUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679966745"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265GopSizeUnits
+([Node] -&gt; Either String H265GopSizeUnits)
+-&gt; FromXML H265GopSizeUnits
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String H265GopSizeUnits
+$cparseXML :: [Node] -&gt; Either String H265GopSizeUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679966742"><span class="annot"><span class="annottext">H265GopSizeUnits -&gt; XML
+(H265GopSizeUnits -&gt; XML) -&gt; ToXML H265GopSizeUnits
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: H265GopSizeUnits -&gt; XML
+$ctoXML :: H265GopSizeUnits -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#H265GopSizeUnits_FRAMES"><span class="hs-identifier hs-type">H265GopSizeUnits_FRAMES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#H265GopSizeUnits"><span class="hs-identifier hs-type">H265GopSizeUnits</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265GopSizeUnits_FRAMES"><span id="%24mH265GopSizeUnits_FRAMES"><span id="H265GopSizeUnits_FRAMES"><span class="annot"><span class="annottext">$bH265GopSizeUnits_FRAMES :: H265GopSizeUnits
+$mH265GopSizeUnits_FRAMES :: forall r. H265GopSizeUnits -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#%24bH265GopSizeUnits_FRAMES"><span class="hs-identifier hs-var hs-var hs-var">H265GopSizeUnits_FRAMES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#H265GopSizeUnits%27"><span class="hs-identifier hs-type">H265GopSizeUnits'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FRAMES&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#H265GopSizeUnits_SECONDS"><span class="hs-identifier hs-type">H265GopSizeUnits_SECONDS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#H265GopSizeUnits"><span class="hs-identifier hs-type">H265GopSizeUnits</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265GopSizeUnits_SECONDS"><span id="%24mH265GopSizeUnits_SECONDS"><span id="H265GopSizeUnits_SECONDS"><span class="annot"><span class="annottext">$bH265GopSizeUnits_SECONDS :: H265GopSizeUnits
+$mH265GopSizeUnits_SECONDS :: forall r. H265GopSizeUnits -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#%24bH265GopSizeUnits_SECONDS"><span class="hs-identifier hs-var hs-var hs-var">H265GopSizeUnits_SECONDS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#H265GopSizeUnits%27"><span class="hs-identifier hs-type">H265GopSizeUnits'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SECONDS&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#H265GopSizeUnits_FRAMES"><span class="hs-pragma hs-type">H265GopSizeUnits_FRAMES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#H265GopSizeUnits_SECONDS"><span class="hs-pragma hs-type">H265GopSizeUnits_SECONDS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopSizeUnits.html#H265GopSizeUnits%27"><span class="hs-pragma hs-type">H265GopSizeUnits'</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-74"></span></pre></body></html>

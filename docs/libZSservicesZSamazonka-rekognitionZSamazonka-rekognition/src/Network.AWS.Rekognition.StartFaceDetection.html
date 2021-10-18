@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Rekognition.StartFaceDetection</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts asynchronous detection of faces in a stored video.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Amazon Rekognition Video can detect faces in a video stored in an Amazon</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- S3 bucket. Use Video to specify the bucket name and the filename of the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- video. @StartFaceDetection@ returns a job identifier (@JobId@) that you</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- use to get the results of the operation. When face detection is</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- finished, Amazon Rekognition Video publishes a completion status to the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Amazon Simple Notification Service topic that you specify in</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- @NotificationChannel@. To get the results of the face detection</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- operation, first check that the status value published to the Amazon SNS</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- topic is @SUCCEEDED@. If so, call GetFaceDetection and pass the job</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- identifier (@JobId@) from the initial call to @StartFaceDetection@.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- For more information, see Detecting Faces in a Stored Video in the</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Amazon Rekognition Developer Guide.</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Rekognition.StartFaceDetection</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier">StartFaceDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#newStartFaceDetection"><span class="hs-identifier">newStartFaceDetection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetection_faceAttributes"><span class="hs-identifier">startFaceDetection_faceAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetection_notificationChannel"><span class="hs-identifier">startFaceDetection_notificationChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetection_clientRequestToken"><span class="hs-identifier">startFaceDetection_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetection_jobTag"><span class="hs-identifier">startFaceDetection_jobTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetection_video"><span class="hs-identifier">startFaceDetection_video</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetectionResponse"><span class="hs-identifier">StartFaceDetectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#newStartFaceDetectionResponse"><span class="hs-identifier">newStartFaceDetectionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetectionResponse_jobId"><span class="hs-identifier">startFaceDetectionResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetectionResponse_httpStatus"><span class="hs-identifier">startFaceDetectionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.html"><span class="hs-identifier">Network.AWS.Rekognition.Types</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newStartFaceDetection' smart constructor.</span><span>
+</span><span id="line-68"></span><span id="local-6989586621679338600"><span id="local-6989586621679338601"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartFaceDetection"><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-var">StartFaceDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartFaceDetection%27"><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection%27"><span class="hs-identifier hs-var">StartFaceDetection'</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The face attributes you want returned.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @DEFAULT@ - The following subset of facial attributes are returned:</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- BoundingBox, Confidence, Pose, Quality and Landmarks.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @ALL@ - All facial attributes are returned.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AfaceAttributes%3AStartFaceDetection%27"><span class="annot"><span class="annottext">StartFaceDetection -&gt; Maybe FaceAttributes
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AfaceAttributes%3AStartFaceDetection%27"><span class="hs-identifier hs-var hs-var">faceAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceAttributes.html#FaceAttributes"><span class="hs-identifier hs-type">FaceAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Video to publish the completion status of the face detection operation.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- The Amazon SNS topic must have a topic name that begins with</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- /AmazonRekognition/ if you are using the AmazonRekognitionServiceRole</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- permissions policy.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AnotificationChannel%3AStartFaceDetection%27"><span class="annot"><span class="annottext">StartFaceDetection -&gt; Maybe NotificationChannel
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AnotificationChannel%3AStartFaceDetection%27"><span class="hs-identifier hs-var hs-var">notificationChannel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Idempotent token used to identify the start request. If you use the same</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- token with multiple @StartFaceDetection@ requests, the same @JobId@ is</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- returned. Use @ClientRequestToken@ to prevent the same job from being</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- accidently started more than once.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AclientRequestToken%3AStartFaceDetection%27"><span class="annot"><span class="annottext">StartFaceDetection -&gt; Maybe Text
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AclientRequestToken%3AStartFaceDetection%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | An identifier you specify that\'s returned in the completion</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- notification that\'s published to your Amazon Simple Notification</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- Service topic. For example, you can use @JobTag@ to group related jobs</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- and identify them in the completion notification.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AjobTag%3AStartFaceDetection%27"><span class="annot"><span class="annottext">StartFaceDetection -&gt; Maybe Text
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AjobTag%3AStartFaceDetection%27"><span class="hs-identifier hs-var hs-var">jobTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The video in which you want to detect faces. The video must be stored in</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- an Amazon S3 bucket.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3Avideo%3AStartFaceDetection%27"><span class="annot"><span class="annottext">StartFaceDetection -&gt; Video
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3Avideo%3AStartFaceDetection%27"><span class="hs-identifier hs-var hs-var">video</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video"><span class="hs-identifier hs-type">Video</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338590"><span id="local-6989586621679338592"><span class="annot"><span class="annottext">StartFaceDetection -&gt; StartFaceDetection -&gt; Bool
+(StartFaceDetection -&gt; StartFaceDetection -&gt; Bool)
+-&gt; (StartFaceDetection -&gt; StartFaceDetection -&gt; Bool)
+-&gt; Eq StartFaceDetection
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartFaceDetection -&gt; StartFaceDetection -&gt; Bool
+$c/= :: StartFaceDetection -&gt; StartFaceDetection -&gt; Bool
+== :: StartFaceDetection -&gt; StartFaceDetection -&gt; Bool
+$c== :: StartFaceDetection -&gt; StartFaceDetection -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338581"><span id="local-6989586621679338583"><span id="local-6989586621679338585"><span id="local-6989586621679338587"><span class="annot"><span class="annottext">ReadPrec [StartFaceDetection]
+ReadPrec StartFaceDetection
+Int -&gt; ReadS StartFaceDetection
+ReadS [StartFaceDetection]
+(Int -&gt; ReadS StartFaceDetection)
+-&gt; ReadS [StartFaceDetection]
+-&gt; ReadPrec StartFaceDetection
+-&gt; ReadPrec [StartFaceDetection]
+-&gt; Read StartFaceDetection
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartFaceDetection]
+$creadListPrec :: ReadPrec [StartFaceDetection]
+readPrec :: ReadPrec StartFaceDetection
+$creadPrec :: ReadPrec StartFaceDetection
+readList :: ReadS [StartFaceDetection]
+$creadList :: ReadS [StartFaceDetection]
+readsPrec :: Int -&gt; ReadS StartFaceDetection
+$creadsPrec :: Int -&gt; ReadS StartFaceDetection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338574"><span id="local-6989586621679338576"><span id="local-6989586621679338578"><span class="annot"><span class="annottext">Int -&gt; StartFaceDetection -&gt; ShowS
+[StartFaceDetection] -&gt; ShowS
+StartFaceDetection -&gt; String
+(Int -&gt; StartFaceDetection -&gt; ShowS)
+-&gt; (StartFaceDetection -&gt; String)
+-&gt; ([StartFaceDetection] -&gt; ShowS)
+-&gt; Show StartFaceDetection
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartFaceDetection] -&gt; ShowS
+$cshowList :: [StartFaceDetection] -&gt; ShowS
+show :: StartFaceDetection -&gt; String
+$cshow :: StartFaceDetection -&gt; String
+showsPrec :: Int -&gt; StartFaceDetection -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartFaceDetection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartFaceDetection -&gt; Rep StartFaceDetection x)
+-&gt; (forall x. Rep StartFaceDetection x -&gt; StartFaceDetection)
+-&gt; Generic StartFaceDetection
+forall x. Rep StartFaceDetection x -&gt; StartFaceDetection
+forall x. StartFaceDetection -&gt; Rep StartFaceDetection x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartFaceDetection x -&gt; StartFaceDetection
+$cfrom :: forall x. StartFaceDetection -&gt; Rep StartFaceDetection x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Create a value of 'StartFaceDetection' with all optional fields omitted.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'faceAttributes', 'startFaceDetection_faceAttributes' - The face attributes you want returned.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @DEFAULT@ - The following subset of facial attributes are returned:</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- BoundingBox, Confidence, Pose, Quality and Landmarks.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- @ALL@ - All facial attributes are returned.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'notificationChannel', 'startFaceDetection_notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Video to publish the completion status of the face detection operation.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- The Amazon SNS topic must have a topic name that begins with</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- /AmazonRekognition/ if you are using the AmazonRekognitionServiceRole</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- permissions policy.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'clientRequestToken', 'startFaceDetection_clientRequestToken' - Idempotent token used to identify the start request. If you use the same</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- token with multiple @StartFaceDetection@ requests, the same @JobId@ is</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- returned. Use @ClientRequestToken@ to prevent the same job from being</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- accidently started more than once.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'jobTag', 'startFaceDetection_jobTag' - An identifier you specify that\'s returned in the completion</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- notification that\'s published to your Amazon Simple Notification</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Service topic. For example, you can use @JobTag@ to group related jobs</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- and identify them in the completion notification.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'video', 'startFaceDetection_video' - The video in which you want to detect faces. The video must be stored in</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- an Amazon S3 bucket.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#newStartFaceDetection"><span class="hs-identifier hs-type">newStartFaceDetection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'video'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video"><span class="hs-identifier hs-type">Video</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span><span>
+</span><span id="line-135"></span><span id="newStartFaceDetection"><span class="annot"><span class="annottext">newStartFaceDetection :: Video -&gt; StartFaceDetection
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#newStartFaceDetection"><span class="hs-identifier hs-var hs-var">newStartFaceDetection</span></a></span></span><span> </span><span id="local-6989586621679338569"><span class="annot"><span class="annottext">Video
+</span><a href="#local-6989586621679338569"><span class="hs-identifier hs-var">pVideo_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">StartFaceDetection' :: Maybe FaceAttributes
+-&gt; Maybe NotificationChannel
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Video
+-&gt; StartFaceDetection
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection%27"><span class="hs-identifier hs-type">StartFaceDetection'</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:faceAttributes:StartFaceDetection' :: Maybe FaceAttributes
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AfaceAttributes%3AStartFaceDetection%27"><span class="hs-identifier hs-var">faceAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Maybe FaceAttributes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:notificationChannel:StartFaceDetection' :: Maybe NotificationChannel
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AnotificationChannel%3AStartFaceDetection%27"><span class="hs-identifier hs-var">notificationChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationChannel
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartFaceDetection' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AclientRequestToken%3AStartFaceDetection%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobTag:StartFaceDetection' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AjobTag%3AStartFaceDetection%27"><span class="hs-identifier hs-var">jobTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:video:StartFaceDetection' :: Video
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3Avideo%3AStartFaceDetection%27"><span class="hs-identifier hs-var">video</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Video
+</span><a href="#local-6989586621679338569"><span class="hs-identifier hs-var">pVideo_</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The face attributes you want returned.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- @DEFAULT@ - The following subset of facial attributes are returned:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- BoundingBox, Confidence, Pose, Quality and Landmarks.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- @ALL@ - All facial attributes are returned.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetection_faceAttributes"><span class="hs-identifier hs-type">startFaceDetection_faceAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceAttributes.html#FaceAttributes"><span class="hs-identifier hs-type">FaceAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="startFaceDetection_faceAttributes"><span class="annot"><span class="annottext">startFaceDetection_faceAttributes :: (Maybe FaceAttributes -&gt; f (Maybe FaceAttributes))
+-&gt; StartFaceDetection -&gt; f StartFaceDetection
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetection_faceAttributes"><span class="hs-identifier hs-var hs-var">startFaceDetection_faceAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFaceDetection -&gt; Maybe FaceAttributes)
+-&gt; (StartFaceDetection
+    -&gt; Maybe FaceAttributes -&gt; StartFaceDetection)
+-&gt; Lens
+     StartFaceDetection
+     StartFaceDetection
+     (Maybe FaceAttributes)
+     (Maybe FaceAttributes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection%27"><span class="hs-identifier hs-type">StartFaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338566"><span class="annot"><span class="annottext">Maybe FaceAttributes
+faceAttributes :: Maybe FaceAttributes
+$sel:faceAttributes:StartFaceDetection' :: StartFaceDetection -&gt; Maybe FaceAttributes
+</span><a href="#local-6989586621679338566"><span class="hs-identifier hs-var hs-var">faceAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FaceAttributes
+</span><a href="#local-6989586621679338566"><span class="hs-identifier hs-var">faceAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338565"><span class="annot"><span class="annottext">s :: StartFaceDetection
+</span><a href="#local-6989586621679338565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection%27"><span class="hs-identifier hs-type">StartFaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338564"><span class="annot"><span class="annottext">Maybe FaceAttributes
+</span><a href="#local-6989586621679338564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFaceDetection
+</span><a href="#local-6989586621679338565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceAttributes:StartFaceDetection' :: Maybe FaceAttributes
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AfaceAttributes%3AStartFaceDetection%27"><span class="hs-identifier hs-var">faceAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FaceAttributes
+</span><a href="#local-6989586621679338564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Video to publish the completion status of the face detection operation.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- The Amazon SNS topic must have a topic name that begins with</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- /AmazonRekognition/ if you are using the AmazonRekognitionServiceRole</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- permissions policy.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetection_notificationChannel"><span class="hs-identifier hs-type">startFaceDetection_notificationChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="startFaceDetection_notificationChannel"><span class="annot"><span class="annottext">startFaceDetection_notificationChannel :: (Maybe NotificationChannel -&gt; f (Maybe NotificationChannel))
+-&gt; StartFaceDetection -&gt; f StartFaceDetection
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetection_notificationChannel"><span class="hs-identifier hs-var hs-var">startFaceDetection_notificationChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFaceDetection -&gt; Maybe NotificationChannel)
+-&gt; (StartFaceDetection
+    -&gt; Maybe NotificationChannel -&gt; StartFaceDetection)
+-&gt; Lens
+     StartFaceDetection
+     StartFaceDetection
+     (Maybe NotificationChannel)
+     (Maybe NotificationChannel)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection%27"><span class="hs-identifier hs-type">StartFaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338563"><span class="annot"><span class="annottext">Maybe NotificationChannel
+notificationChannel :: Maybe NotificationChannel
+$sel:notificationChannel:StartFaceDetection' :: StartFaceDetection -&gt; Maybe NotificationChannel
+</span><a href="#local-6989586621679338563"><span class="hs-identifier hs-var hs-var">notificationChannel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationChannel
+</span><a href="#local-6989586621679338563"><span class="hs-identifier hs-var">notificationChannel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338562"><span class="annot"><span class="annottext">s :: StartFaceDetection
+</span><a href="#local-6989586621679338562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection%27"><span class="hs-identifier hs-type">StartFaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338561"><span class="annot"><span class="annottext">Maybe NotificationChannel
+</span><a href="#local-6989586621679338561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFaceDetection
+</span><a href="#local-6989586621679338562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationChannel:StartFaceDetection' :: Maybe NotificationChannel
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AnotificationChannel%3AStartFaceDetection%27"><span class="hs-identifier hs-var">notificationChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationChannel
+</span><a href="#local-6989586621679338561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | Idempotent token used to identify the start request. If you use the same</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- token with multiple @StartFaceDetection@ requests, the same @JobId@ is</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- returned. Use @ClientRequestToken@ to prevent the same job from being</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- accidently started more than once.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetection_clientRequestToken"><span class="hs-identifier hs-type">startFaceDetection_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="startFaceDetection_clientRequestToken"><span class="annot"><span class="annottext">startFaceDetection_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartFaceDetection -&gt; f StartFaceDetection
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetection_clientRequestToken"><span class="hs-identifier hs-var hs-var">startFaceDetection_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFaceDetection -&gt; Maybe Text)
+-&gt; (StartFaceDetection -&gt; Maybe Text -&gt; StartFaceDetection)
+-&gt; Lens
+     StartFaceDetection StartFaceDetection (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection%27"><span class="hs-identifier hs-type">StartFaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338560"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:StartFaceDetection' :: StartFaceDetection -&gt; Maybe Text
+</span><a href="#local-6989586621679338560"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338560"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338559"><span class="annot"><span class="annottext">s :: StartFaceDetection
+</span><a href="#local-6989586621679338559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection%27"><span class="hs-identifier hs-type">StartFaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338558"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFaceDetection
+</span><a href="#local-6989586621679338559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartFaceDetection' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AclientRequestToken%3AStartFaceDetection%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | An identifier you specify that\'s returned in the completion</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- notification that\'s published to your Amazon Simple Notification</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Service topic. For example, you can use @JobTag@ to group related jobs</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- and identify them in the completion notification.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetection_jobTag"><span class="hs-identifier hs-type">startFaceDetection_jobTag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="startFaceDetection_jobTag"><span class="annot"><span class="annottext">startFaceDetection_jobTag :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartFaceDetection -&gt; f StartFaceDetection
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetection_jobTag"><span class="hs-identifier hs-var hs-var">startFaceDetection_jobTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFaceDetection -&gt; Maybe Text)
+-&gt; (StartFaceDetection -&gt; Maybe Text -&gt; StartFaceDetection)
+-&gt; Lens
+     StartFaceDetection StartFaceDetection (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection%27"><span class="hs-identifier hs-type">StartFaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338557"><span class="annot"><span class="annottext">Maybe Text
+jobTag :: Maybe Text
+$sel:jobTag:StartFaceDetection' :: StartFaceDetection -&gt; Maybe Text
+</span><a href="#local-6989586621679338557"><span class="hs-identifier hs-var hs-var">jobTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338557"><span class="hs-identifier hs-var">jobTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338556"><span class="annot"><span class="annottext">s :: StartFaceDetection
+</span><a href="#local-6989586621679338556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection%27"><span class="hs-identifier hs-type">StartFaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338555"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFaceDetection
+</span><a href="#local-6989586621679338556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobTag:StartFaceDetection' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AjobTag%3AStartFaceDetection%27"><span class="hs-identifier hs-var">jobTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The video in which you want to detect faces. The video must be stored in</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- an Amazon S3 bucket.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetection_video"><span class="hs-identifier hs-type">startFaceDetection_video</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video"><span class="hs-identifier hs-type">Video</span></a></span><span>
+</span><span id="line-179"></span><span id="startFaceDetection_video"><span class="annot"><span class="annottext">startFaceDetection_video :: (Video -&gt; f Video) -&gt; StartFaceDetection -&gt; f StartFaceDetection
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetection_video"><span class="hs-identifier hs-var hs-var">startFaceDetection_video</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFaceDetection -&gt; Video)
+-&gt; (StartFaceDetection -&gt; Video -&gt; StartFaceDetection)
+-&gt; Lens StartFaceDetection StartFaceDetection Video Video
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection%27"><span class="hs-identifier hs-type">StartFaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338554"><span class="annot"><span class="annottext">Video
+video :: Video
+$sel:video:StartFaceDetection' :: StartFaceDetection -&gt; Video
+</span><a href="#local-6989586621679338554"><span class="hs-identifier hs-var hs-var">video</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Video
+</span><a href="#local-6989586621679338554"><span class="hs-identifier hs-var">video</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338553"><span class="annot"><span class="annottext">s :: StartFaceDetection
+</span><a href="#local-6989586621679338553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection%27"><span class="hs-identifier hs-type">StartFaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338552"><span class="annot"><span class="annottext">Video
+</span><a href="#local-6989586621679338552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFaceDetection
+</span><a href="#local-6989586621679338553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:video:StartFaceDetection' :: Video
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3Avideo%3AStartFaceDetection%27"><span class="hs-identifier hs-var">video</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Video
+</span><a href="#local-6989586621679338552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-183"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetectionResponse"><span class="hs-identifier hs-type">StartFaceDetectionResponse</span></a></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679338548"><span class="annot"><span class="annottext">request :: StartFaceDetection -&gt; Request StartFaceDetection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartFaceDetection -&gt; Request StartFaceDetection
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679338544"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartFaceDetection
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartFaceDetection)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartFaceDetection))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartFaceDetection
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartFaceDetection)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338541"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338541"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679338540"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679338540"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679338539"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338539"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-189"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; StartFaceDetectionResponse
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetectionResponse%27"><span class="hs-identifier hs-var">StartFaceDetectionResponse'</span></a></span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; StartFaceDetectionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; StartFaceDetectionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartFaceDetectionResponse)
+-&gt; Either String Int -&gt; Either String StartFaceDetectionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338541"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338531"><span id="local-6989586621679338533"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span></span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338528"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679338524"><span class="annot"><span class="annottext">toHeaders :: StartFaceDetection -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartFaceDetection -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-202"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RekognitionService.StartFaceDetection&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-204"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-205"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-207"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-208"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-209"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338514"><span id="local-6989586621679338516"><span id="local-6989586621679338518"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679338512"><span class="annot"><span class="annottext">toJSON :: StartFaceDetection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection%27"><span class="hs-identifier hs-type">StartFaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338506"><span id="local-6989586621679338507"><span id="local-6989586621679338508"><span id="local-6989586621679338509"><span id="local-6989586621679338510"><span class="annot"><span class="annottext">Maybe Text
+Maybe FaceAttributes
+Maybe NotificationChannel
+Video
+video :: Video
+jobTag :: Maybe Text
+clientRequestToken :: Maybe Text
+notificationChannel :: Maybe NotificationChannel
+faceAttributes :: Maybe FaceAttributes
+$sel:video:StartFaceDetection' :: StartFaceDetection -&gt; Video
+$sel:jobTag:StartFaceDetection' :: StartFaceDetection -&gt; Maybe Text
+$sel:clientRequestToken:StartFaceDetection' :: StartFaceDetection -&gt; Maybe Text
+$sel:notificationChannel:StartFaceDetection' :: StartFaceDetection -&gt; Maybe NotificationChannel
+$sel:faceAttributes:StartFaceDetection' :: StartFaceDetection -&gt; Maybe FaceAttributes
+</span><a href="#local-6989586621679338506"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-217"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FaceAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FaceAttributes -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>              </span><span class="annot"><span class="annottext">(FaceAttributes -&gt; Pair) -&gt; Maybe FaceAttributes -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FaceAttributes
+</span><a href="#local-6989586621679338510"><span class="hs-identifier hs-var">faceAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotificationChannel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NotificationChannel -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>              </span><span class="annot"><span class="annottext">(NotificationChannel -&gt; Pair)
+-&gt; Maybe NotificationChannel -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NotificationChannel
+</span><a href="#local-6989586621679338509"><span class="hs-identifier hs-var">notificationChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338508"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobTag&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338507"><span class="hs-identifier hs-var">jobTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Video&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Video -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Video
+</span><a href="#local-6989586621679338506"><span class="hs-identifier hs-var">video</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679338500"><span class="annot"><span class="annottext">toPath :: StartFaceDetection -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartFaceDetection -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetection"><span class="hs-identifier hs-type">StartFaceDetection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679338496"><span class="annot"><span class="annottext">toQuery :: StartFaceDetection -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartFaceDetection -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | /See:/ 'newStartFaceDetectionResponse' smart constructor.</span><span>
+</span><span id="line-235"></span><span id="local-6989586621679338493"><span id="local-6989586621679338494"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartFaceDetectionResponse"><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetectionResponse"><span class="hs-identifier hs-var">StartFaceDetectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartFaceDetectionResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetectionResponse%27"><span class="hs-identifier hs-var">StartFaceDetectionResponse'</span></a></span></span><span>
+</span><span id="line-236"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the face detection job. Use @JobId@ to identify the</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- job in a subsequent call to @GetFaceDetection@.</span><span>
+</span><span id="line-238"></span><span>    </span><span id="%24sel%3AjobId%3AStartFaceDetectionResponse%27"><span class="annot"><span class="annottext">StartFaceDetectionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AjobId%3AStartFaceDetectionResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-240"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartFaceDetectionResponse%27"><span class="annot"><span class="annottext">StartFaceDetectionResponse -&gt; Int
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AhttpStatus%3AStartFaceDetectionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-241"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338487"><span id="local-6989586621679338489"><span class="annot"><span class="annottext">StartFaceDetectionResponse -&gt; StartFaceDetectionResponse -&gt; Bool
+(StartFaceDetectionResponse -&gt; StartFaceDetectionResponse -&gt; Bool)
+-&gt; (StartFaceDetectionResponse
+    -&gt; StartFaceDetectionResponse -&gt; Bool)
+-&gt; Eq StartFaceDetectionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartFaceDetectionResponse -&gt; StartFaceDetectionResponse -&gt; Bool
+$c/= :: StartFaceDetectionResponse -&gt; StartFaceDetectionResponse -&gt; Bool
+== :: StartFaceDetectionResponse -&gt; StartFaceDetectionResponse -&gt; Bool
+$c== :: StartFaceDetectionResponse -&gt; StartFaceDetectionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338479"><span id="local-6989586621679338481"><span id="local-6989586621679338483"><span id="local-6989586621679338485"><span class="annot"><span class="annottext">ReadPrec [StartFaceDetectionResponse]
+ReadPrec StartFaceDetectionResponse
+Int -&gt; ReadS StartFaceDetectionResponse
+ReadS [StartFaceDetectionResponse]
+(Int -&gt; ReadS StartFaceDetectionResponse)
+-&gt; ReadS [StartFaceDetectionResponse]
+-&gt; ReadPrec StartFaceDetectionResponse
+-&gt; ReadPrec [StartFaceDetectionResponse]
+-&gt; Read StartFaceDetectionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartFaceDetectionResponse]
+$creadListPrec :: ReadPrec [StartFaceDetectionResponse]
+readPrec :: ReadPrec StartFaceDetectionResponse
+$creadPrec :: ReadPrec StartFaceDetectionResponse
+readList :: ReadS [StartFaceDetectionResponse]
+$creadList :: ReadS [StartFaceDetectionResponse]
+readsPrec :: Int -&gt; ReadS StartFaceDetectionResponse
+$creadsPrec :: Int -&gt; ReadS StartFaceDetectionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338473"><span id="local-6989586621679338475"><span id="local-6989586621679338477"><span class="annot"><span class="annottext">Int -&gt; StartFaceDetectionResponse -&gt; ShowS
+[StartFaceDetectionResponse] -&gt; ShowS
+StartFaceDetectionResponse -&gt; String
+(Int -&gt; StartFaceDetectionResponse -&gt; ShowS)
+-&gt; (StartFaceDetectionResponse -&gt; String)
+-&gt; ([StartFaceDetectionResponse] -&gt; ShowS)
+-&gt; Show StartFaceDetectionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartFaceDetectionResponse] -&gt; ShowS
+$cshowList :: [StartFaceDetectionResponse] -&gt; ShowS
+show :: StartFaceDetectionResponse -&gt; String
+$cshow :: StartFaceDetectionResponse -&gt; String
+showsPrec :: Int -&gt; StartFaceDetectionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartFaceDetectionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartFaceDetectionResponse -&gt; Rep StartFaceDetectionResponse x)
+-&gt; (forall x.
+    Rep StartFaceDetectionResponse x -&gt; StartFaceDetectionResponse)
+-&gt; Generic StartFaceDetectionResponse
+forall x.
+Rep StartFaceDetectionResponse x -&gt; StartFaceDetectionResponse
+forall x.
+StartFaceDetectionResponse -&gt; Rep StartFaceDetectionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartFaceDetectionResponse x -&gt; StartFaceDetectionResponse
+$cfrom :: forall x.
+StartFaceDetectionResponse -&gt; Rep StartFaceDetectionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- Create a value of 'StartFaceDetectionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- 'jobId', 'startFaceDetectionResponse_jobId' - The identifier for the face detection job. Use @JobId@ to identify the</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- job in a subsequent call to @GetFaceDetection@.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'httpStatus', 'startFaceDetectionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#newStartFaceDetectionResponse"><span class="hs-identifier hs-type">newStartFaceDetectionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-257"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-258"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-259"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetectionResponse"><span class="hs-identifier hs-type">StartFaceDetectionResponse</span></a></span><span>
+</span><span id="line-260"></span><span id="newStartFaceDetectionResponse"><span class="annot"><span class="annottext">newStartFaceDetectionResponse :: Int -&gt; StartFaceDetectionResponse
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#newStartFaceDetectionResponse"><span class="hs-identifier hs-var hs-var">newStartFaceDetectionResponse</span></a></span></span><span> </span><span id="local-6989586621679338470"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338470"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><span class="annottext">StartFaceDetectionResponse' :: Maybe Text -&gt; Int -&gt; StartFaceDetectionResponse
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetectionResponse%27"><span class="hs-identifier hs-type">StartFaceDetectionResponse'</span></a></span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobId:StartFaceDetectionResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AjobId%3AStartFaceDetectionResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartFaceDetectionResponse' :: Int
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AhttpStatus%3AStartFaceDetectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338470"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-265"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | The identifier for the face detection job. Use @JobId@ to identify the</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- job in a subsequent call to @GetFaceDetection@.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetectionResponse_jobId"><span class="hs-identifier hs-type">startFaceDetectionResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetectionResponse"><span class="hs-identifier hs-type">StartFaceDetectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="startFaceDetectionResponse_jobId"><span class="annot"><span class="annottext">startFaceDetectionResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartFaceDetectionResponse -&gt; f StartFaceDetectionResponse
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetectionResponse_jobId"><span class="hs-identifier hs-var hs-var">startFaceDetectionResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFaceDetectionResponse -&gt; Maybe Text)
+-&gt; (StartFaceDetectionResponse
+    -&gt; Maybe Text -&gt; StartFaceDetectionResponse)
+-&gt; Lens
+     StartFaceDetectionResponse
+     StartFaceDetectionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetectionResponse%27"><span class="hs-identifier hs-type">StartFaceDetectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338469"><span class="annot"><span class="annottext">Maybe Text
+jobId :: Maybe Text
+$sel:jobId:StartFaceDetectionResponse' :: StartFaceDetectionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679338469"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338469"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338468"><span class="annot"><span class="annottext">s :: StartFaceDetectionResponse
+</span><a href="#local-6989586621679338468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetectionResponse%27"><span class="hs-identifier hs-type">StartFaceDetectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338467"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFaceDetectionResponse
+</span><a href="#local-6989586621679338468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StartFaceDetectionResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AjobId%3AStartFaceDetectionResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetectionResponse"><span class="hs-identifier hs-type">StartFaceDetectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetectionResponse_httpStatus"><span class="hs-identifier hs-type">startFaceDetectionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetectionResponse"><span class="hs-identifier hs-type">StartFaceDetectionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-274"></span><span id="startFaceDetectionResponse_httpStatus"><span class="annot"><span class="annottext">startFaceDetectionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartFaceDetectionResponse -&gt; f StartFaceDetectionResponse
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#startFaceDetectionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startFaceDetectionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFaceDetectionResponse -&gt; Int)
+-&gt; (StartFaceDetectionResponse
+    -&gt; Int -&gt; StartFaceDetectionResponse)
+-&gt; Lens
+     StartFaceDetectionResponse StartFaceDetectionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetectionResponse%27"><span class="hs-identifier hs-type">StartFaceDetectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338466"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartFaceDetectionResponse' :: StartFaceDetectionResponse -&gt; Int
+</span><a href="#local-6989586621679338466"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338466"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338465"><span class="annot"><span class="annottext">s :: StartFaceDetectionResponse
+</span><a href="#local-6989586621679338465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetectionResponse%27"><span class="hs-identifier hs-type">StartFaceDetectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338464"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFaceDetectionResponse
+</span><a href="#local-6989586621679338465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartFaceDetectionResponse' :: Int
+</span><a href="Network.AWS.Rekognition.StartFaceDetection.html#%24sel%3AhttpStatus%3AStartFaceDetectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetectionResponse"><span class="hs-identifier hs-type">StartFaceDetectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338462"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StartFaceDetection.html#StartFaceDetectionResponse"><span class="hs-identifier hs-type">StartFaceDetectionResponse</span></a></span></span><span>
+</span><span id="line-277"></span></pre></body></html>

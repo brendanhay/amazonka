@@ -1,0 +1,824 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.GetInventorySchema</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Return a list of inventory type names for the account, or return a list</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- of attribute names for a specific Inventory item type.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.GetInventorySchema</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier">GetInventorySchema</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#newGetInventorySchema"><span class="hs-identifier">newGetInventorySchema</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchema_typeName"><span class="hs-identifier">getInventorySchema_typeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchema_subType"><span class="hs-identifier">getInventorySchema_subType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchema_nextToken"><span class="hs-identifier">getInventorySchema_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchema_aggregator"><span class="hs-identifier">getInventorySchema_aggregator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchema_maxResults"><span class="hs-identifier">getInventorySchema_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse"><span class="hs-identifier">GetInventorySchemaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#newGetInventorySchemaResponse"><span class="hs-identifier">newGetInventorySchemaResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchemaResponse_nextToken"><span class="hs-identifier">getInventorySchemaResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchemaResponse_schemas"><span class="hs-identifier">getInventorySchemaResponse_schemas</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchemaResponse_httpStatus"><span class="hs-identifier">getInventorySchemaResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetInventorySchema' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679836253"><span id="local-6989586621679836254"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInventorySchema"><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-var">GetInventorySchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInventorySchema%27"><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema%27"><span class="hs-identifier hs-var">GetInventorySchema'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of inventory item to return.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AtypeName%3AGetInventorySchema%27"><span class="annot"><span class="annottext">GetInventorySchema -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AtypeName%3AGetInventorySchema%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Returns the sub-type schema for a specified inventory type.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AsubType%3AGetInventorySchema%27"><span class="annot"><span class="annottext">GetInventorySchema -&gt; Maybe Bool
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AsubType%3AGetInventorySchema%27"><span class="hs-identifier hs-var hs-var">subType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3AGetInventorySchema%27"><span class="annot"><span class="annottext">GetInventorySchema -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AnextToken%3AGetInventorySchema%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Returns inventory schemas that support aggregation. For example, this</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- call returns the @AWS:InstanceInformation@ type, because it supports</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- aggregation based on the @PlatformName@, @PlatformType@, and</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- @PlatformVersion@ attributes.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Aaggregator%3AGetInventorySchema%27"><span class="annot"><span class="annottext">GetInventorySchema -&gt; Maybe Bool
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3Aaggregator%3AGetInventorySchema%27"><span class="hs-identifier hs-var hs-var">aggregator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetInventorySchema%27"><span class="annot"><span class="annottext">GetInventorySchema -&gt; Maybe Natural
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AmaxResults%3AGetInventorySchema%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679836243"><span id="local-6989586621679836245"><span class="annot"><span class="annottext">GetInventorySchema -&gt; GetInventorySchema -&gt; Bool
+(GetInventorySchema -&gt; GetInventorySchema -&gt; Bool)
+-&gt; (GetInventorySchema -&gt; GetInventorySchema -&gt; Bool)
+-&gt; Eq GetInventorySchema
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetInventorySchema -&gt; GetInventorySchema -&gt; Bool
+$c/= :: GetInventorySchema -&gt; GetInventorySchema -&gt; Bool
+== :: GetInventorySchema -&gt; GetInventorySchema -&gt; Bool
+$c== :: GetInventorySchema -&gt; GetInventorySchema -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679836234"><span id="local-6989586621679836236"><span id="local-6989586621679836238"><span id="local-6989586621679836240"><span class="annot"><span class="annottext">ReadPrec [GetInventorySchema]
+ReadPrec GetInventorySchema
+Int -&gt; ReadS GetInventorySchema
+ReadS [GetInventorySchema]
+(Int -&gt; ReadS GetInventorySchema)
+-&gt; ReadS [GetInventorySchema]
+-&gt; ReadPrec GetInventorySchema
+-&gt; ReadPrec [GetInventorySchema]
+-&gt; Read GetInventorySchema
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetInventorySchema]
+$creadListPrec :: ReadPrec [GetInventorySchema]
+readPrec :: ReadPrec GetInventorySchema
+$creadPrec :: ReadPrec GetInventorySchema
+readList :: ReadS [GetInventorySchema]
+$creadList :: ReadS [GetInventorySchema]
+readsPrec :: Int -&gt; ReadS GetInventorySchema
+$creadsPrec :: Int -&gt; ReadS GetInventorySchema
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679836227"><span id="local-6989586621679836229"><span id="local-6989586621679836231"><span class="annot"><span class="annottext">Int -&gt; GetInventorySchema -&gt; ShowS
+[GetInventorySchema] -&gt; ShowS
+GetInventorySchema -&gt; String
+(Int -&gt; GetInventorySchema -&gt; ShowS)
+-&gt; (GetInventorySchema -&gt; String)
+-&gt; ([GetInventorySchema] -&gt; ShowS)
+-&gt; Show GetInventorySchema
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetInventorySchema] -&gt; ShowS
+$cshowList :: [GetInventorySchema] -&gt; ShowS
+show :: GetInventorySchema -&gt; String
+$cshow :: GetInventorySchema -&gt; String
+showsPrec :: Int -&gt; GetInventorySchema -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetInventorySchema -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetInventorySchema -&gt; Rep GetInventorySchema x)
+-&gt; (forall x. Rep GetInventorySchema x -&gt; GetInventorySchema)
+-&gt; Generic GetInventorySchema
+forall x. Rep GetInventorySchema x -&gt; GetInventorySchema
+forall x. GetInventorySchema -&gt; Rep GetInventorySchema x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetInventorySchema x -&gt; GetInventorySchema
+$cfrom :: forall x. GetInventorySchema -&gt; Rep GetInventorySchema x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'GetInventorySchema' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'typeName', 'getInventorySchema_typeName' - The type of inventory item to return.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'subType', 'getInventorySchema_subType' - Returns the sub-type schema for a specified inventory type.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'nextToken', 'getInventorySchema_nextToken' - The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'aggregator', 'getInventorySchema_aggregator' - Returns inventory schemas that support aggregation. For example, this</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- call returns the @AWS:InstanceInformation@ type, because it supports</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- aggregation based on the @PlatformName@, @PlatformType@, and</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- @PlatformVersion@ attributes.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'maxResults', 'getInventorySchema_maxResults' - The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#newGetInventorySchema"><span class="hs-identifier hs-type">newGetInventorySchema</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span>
+</span><span id="line-103"></span><span id="newGetInventorySchema"><span class="annot"><span class="annottext">newGetInventorySchema :: GetInventorySchema
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#newGetInventorySchema"><span class="hs-identifier hs-var hs-var">newGetInventorySchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">GetInventorySchema' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; GetInventorySchema
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema%27"><span class="hs-identifier hs-type">GetInventorySchema'</span></a></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:typeName:GetInventorySchema' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AtypeName%3AGetInventorySchema%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:subType:GetInventorySchema' :: Maybe Bool
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AsubType%3AGetInventorySchema%27"><span class="hs-identifier hs-var">subType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetInventorySchema' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AnextToken%3AGetInventorySchema%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:aggregator:GetInventorySchema' :: Maybe Bool
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3Aaggregator%3AGetInventorySchema%27"><span class="hs-identifier hs-var">aggregator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetInventorySchema' :: Maybe Natural
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AmaxResults%3AGetInventorySchema%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The type of inventory item to return.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchema_typeName"><span class="hs-identifier hs-type">getInventorySchema_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="getInventorySchema_typeName"><span class="annot"><span class="annottext">getInventorySchema_typeName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetInventorySchema -&gt; f GetInventorySchema
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchema_typeName"><span class="hs-identifier hs-var hs-var">getInventorySchema_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInventorySchema -&gt; Maybe Text)
+-&gt; (GetInventorySchema -&gt; Maybe Text -&gt; GetInventorySchema)
+-&gt; Lens
+     GetInventorySchema GetInventorySchema (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema%27"><span class="hs-identifier hs-type">GetInventorySchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679836221"><span class="annot"><span class="annottext">Maybe Text
+typeName :: Maybe Text
+$sel:typeName:GetInventorySchema' :: GetInventorySchema -&gt; Maybe Text
+</span><a href="#local-6989586621679836221"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679836221"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679836220"><span class="annot"><span class="annottext">s :: GetInventorySchema
+</span><a href="#local-6989586621679836220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema%27"><span class="hs-identifier hs-type">GetInventorySchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679836219"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679836219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInventorySchema
+</span><a href="#local-6989586621679836220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:GetInventorySchema' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AtypeName%3AGetInventorySchema%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679836219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Returns the sub-type schema for a specified inventory type.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchema_subType"><span class="hs-identifier hs-type">getInventorySchema_subType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="getInventorySchema_subType"><span class="annot"><span class="annottext">getInventorySchema_subType :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GetInventorySchema -&gt; f GetInventorySchema
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchema_subType"><span class="hs-identifier hs-var hs-var">getInventorySchema_subType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInventorySchema -&gt; Maybe Bool)
+-&gt; (GetInventorySchema -&gt; Maybe Bool -&gt; GetInventorySchema)
+-&gt; Lens
+     GetInventorySchema GetInventorySchema (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema%27"><span class="hs-identifier hs-type">GetInventorySchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679836218"><span class="annot"><span class="annottext">Maybe Bool
+subType :: Maybe Bool
+$sel:subType:GetInventorySchema' :: GetInventorySchema -&gt; Maybe Bool
+</span><a href="#local-6989586621679836218"><span class="hs-identifier hs-var hs-var">subType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679836218"><span class="hs-identifier hs-var">subType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679836217"><span class="annot"><span class="annottext">s :: GetInventorySchema
+</span><a href="#local-6989586621679836217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema%27"><span class="hs-identifier hs-type">GetInventorySchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679836216"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679836216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInventorySchema
+</span><a href="#local-6989586621679836217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subType:GetInventorySchema' :: Maybe Bool
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AsubType%3AGetInventorySchema%27"><span class="hs-identifier hs-var">subType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679836216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchema_nextToken"><span class="hs-identifier hs-type">getInventorySchema_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="getInventorySchema_nextToken"><span class="annot"><span class="annottext">getInventorySchema_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetInventorySchema -&gt; f GetInventorySchema
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchema_nextToken"><span class="hs-identifier hs-var hs-var">getInventorySchema_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInventorySchema -&gt; Maybe Text)
+-&gt; (GetInventorySchema -&gt; Maybe Text -&gt; GetInventorySchema)
+-&gt; Lens
+     GetInventorySchema GetInventorySchema (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema%27"><span class="hs-identifier hs-type">GetInventorySchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679836215"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetInventorySchema' :: GetInventorySchema -&gt; Maybe Text
+</span><a href="#local-6989586621679836215"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679836215"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679836214"><span class="annot"><span class="annottext">s :: GetInventorySchema
+</span><a href="#local-6989586621679836214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema%27"><span class="hs-identifier hs-type">GetInventorySchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679836213"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679836213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInventorySchema
+</span><a href="#local-6989586621679836214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetInventorySchema' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AnextToken%3AGetInventorySchema%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679836213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Returns inventory schemas that support aggregation. For example, this</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- call returns the @AWS:InstanceInformation@ type, because it supports</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- aggregation based on the @PlatformName@, @PlatformType@, and</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- @PlatformVersion@ attributes.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchema_aggregator"><span class="hs-identifier hs-type">getInventorySchema_aggregator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="getInventorySchema_aggregator"><span class="annot"><span class="annottext">getInventorySchema_aggregator :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GetInventorySchema -&gt; f GetInventorySchema
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchema_aggregator"><span class="hs-identifier hs-var hs-var">getInventorySchema_aggregator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInventorySchema -&gt; Maybe Bool)
+-&gt; (GetInventorySchema -&gt; Maybe Bool -&gt; GetInventorySchema)
+-&gt; Lens
+     GetInventorySchema GetInventorySchema (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema%27"><span class="hs-identifier hs-type">GetInventorySchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679836212"><span class="annot"><span class="annottext">Maybe Bool
+aggregator :: Maybe Bool
+$sel:aggregator:GetInventorySchema' :: GetInventorySchema -&gt; Maybe Bool
+</span><a href="#local-6989586621679836212"><span class="hs-identifier hs-var hs-var">aggregator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679836212"><span class="hs-identifier hs-var">aggregator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679836211"><span class="annot"><span class="annottext">s :: GetInventorySchema
+</span><a href="#local-6989586621679836211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema%27"><span class="hs-identifier hs-type">GetInventorySchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679836210"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679836210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInventorySchema
+</span><a href="#local-6989586621679836211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregator:GetInventorySchema' :: Maybe Bool
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3Aaggregator%3AGetInventorySchema%27"><span class="hs-identifier hs-var">aggregator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679836210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchema_maxResults"><span class="hs-identifier hs-type">getInventorySchema_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="getInventorySchema_maxResults"><span class="annot"><span class="annottext">getInventorySchema_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetInventorySchema -&gt; f GetInventorySchema
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchema_maxResults"><span class="hs-identifier hs-var hs-var">getInventorySchema_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInventorySchema -&gt; Maybe Natural)
+-&gt; (GetInventorySchema -&gt; Maybe Natural -&gt; GetInventorySchema)
+-&gt; Lens
+     GetInventorySchema
+     GetInventorySchema
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema%27"><span class="hs-identifier hs-type">GetInventorySchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679836209"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetInventorySchema' :: GetInventorySchema -&gt; Maybe Natural
+</span><a href="#local-6989586621679836209"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679836209"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679836208"><span class="annot"><span class="annottext">s :: GetInventorySchema
+</span><a href="#local-6989586621679836208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema%27"><span class="hs-identifier hs-type">GetInventorySchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679836207"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679836207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInventorySchema
+</span><a href="#local-6989586621679836208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetInventorySchema' :: Maybe Natural
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AmaxResults%3AGetInventorySchema%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679836207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679836203"><span class="annot"><span class="annottext">page :: GetInventorySchema
+-&gt; AWSResponse GetInventorySchema -&gt; Maybe GetInventorySchema
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679836201"><span class="annot"><span class="annottext">GetInventorySchema
+</span><a href="#local-6989586621679836201"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679836200"><span class="annot"><span class="annottext">AWSResponse GetInventorySchema
+</span><a href="#local-6989586621679836200"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-141"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetInventorySchema
+GetInventorySchemaResponse
+</span><a href="#local-6989586621679836200"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">GetInventorySchemaResponse
+-&gt; Getting (First Text) GetInventorySchemaResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetInventorySchemaResponse
+-&gt; Const (First Text) GetInventorySchemaResponse
+Lens' GetInventorySchemaResponse (Maybe Text)
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchemaResponse_nextToken"><span class="hs-identifier hs-var">getInventorySchemaResponse_nextToken</span></a></span><span>
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetInventorySchemaResponse
+ -&gt; Const (First Text) GetInventorySchemaResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetInventorySchemaResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-144"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetInventorySchema
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryItemSchema] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-147"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetInventorySchema
+GetInventorySchemaResponse
+</span><a href="#local-6989586621679836200"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">GetInventorySchemaResponse
+-&gt; Getting
+     (First [InventoryItemSchema])
+     GetInventorySchemaResponse
+     [InventoryItemSchema]
+-&gt; Maybe [InventoryItemSchema]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [InventoryItemSchema]
+ -&gt; Const
+      (First [InventoryItemSchema]) (Maybe [InventoryItemSchema]))
+-&gt; GetInventorySchemaResponse
+-&gt; Const (First [InventoryItemSchema]) GetInventorySchemaResponse
+Lens' GetInventorySchemaResponse (Maybe [InventoryItemSchema])
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchemaResponse_schemas"><span class="hs-identifier hs-var">getInventorySchemaResponse_schemas</span></a></span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [InventoryItemSchema]
+  -&gt; Const
+       (First [InventoryItemSchema]) (Maybe [InventoryItemSchema]))
+ -&gt; GetInventorySchemaResponse
+ -&gt; Const (First [InventoryItemSchema]) GetInventorySchemaResponse)
+-&gt; (([InventoryItemSchema]
+     -&gt; Const (First [InventoryItemSchema]) [InventoryItemSchema])
+    -&gt; Maybe [InventoryItemSchema]
+    -&gt; Const
+         (First [InventoryItemSchema]) (Maybe [InventoryItemSchema]))
+-&gt; Getting
+     (First [InventoryItemSchema])
+     GetInventorySchemaResponse
+     [InventoryItemSchema]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([InventoryItemSchema]
+ -&gt; Const (First [InventoryItemSchema]) [InventoryItemSchema])
+-&gt; Maybe [InventoryItemSchema]
+-&gt; Const
+     (First [InventoryItemSchema]) (Maybe [InventoryItemSchema])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-150"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetInventorySchema
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">GetInventorySchema -&gt; Maybe GetInventorySchema
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(GetInventorySchema -&gt; Maybe GetInventorySchema)
+-&gt; GetInventorySchema -&gt; Maybe GetInventorySchema
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">GetInventorySchema
+</span><a href="#local-6989586621679836201"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">GetInventorySchema
+-&gt; (GetInventorySchema -&gt; GetInventorySchema) -&gt; GetInventorySchema
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; GetInventorySchema -&gt; Identity GetInventorySchema
+Lens
+  GetInventorySchema GetInventorySchema (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchema_nextToken"><span class="hs-identifier hs-var">getInventorySchema_nextToken</span></a></span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; GetInventorySchema -&gt; Identity GetInventorySchema)
+-&gt; Maybe Text -&gt; GetInventorySchema -&gt; GetInventorySchema
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetInventorySchema
+GetInventorySchemaResponse
+</span><a href="#local-6989586621679836200"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">GetInventorySchemaResponse
+-&gt; Getting (First Text) GetInventorySchemaResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetInventorySchemaResponse
+-&gt; Const (First Text) GetInventorySchemaResponse
+Lens' GetInventorySchemaResponse (Maybe Text)
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchemaResponse_nextToken"><span class="hs-identifier hs-var">getInventorySchemaResponse_nextToken</span></a></span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetInventorySchemaResponse
+ -&gt; Const (First Text) GetInventorySchemaResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetInventorySchemaResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-162"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse"><span class="hs-identifier hs-type">GetInventorySchemaResponse</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679836190"><span class="annot"><span class="annottext">request :: GetInventorySchema -&gt; Request GetInventorySchema
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetInventorySchema -&gt; Request GetInventorySchema
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679836186"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetInventorySchema
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetInventorySchema)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetInventorySchema))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetInventorySchema
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetInventorySchema)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679836183"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679836183"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679836182"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679836182"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679836181"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679836181"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [InventoryItemSchema] -&gt; Int -&gt; GetInventorySchemaResponse
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse%27"><span class="hs-identifier hs-var">GetInventorySchemaResponse'</span></a></span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [InventoryItemSchema]
+ -&gt; Int
+ -&gt; GetInventorySchemaResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [InventoryItemSchema] -&gt; Int -&gt; GetInventorySchemaResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679836181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [InventoryItemSchema] -&gt; Int -&gt; GetInventorySchemaResponse)
+-&gt; Either String (Maybe [InventoryItemSchema])
+-&gt; Either String (Int -&gt; GetInventorySchemaResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679836181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [InventoryItemSchema]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Schemas&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [InventoryItemSchema]))
+-&gt; Maybe [InventoryItemSchema]
+-&gt; Either String (Maybe [InventoryItemSchema])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryItemSchema]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetInventorySchemaResponse)
+-&gt; Either String Int -&gt; Either String GetInventorySchemaResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679836183"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679836172"><span id="local-6989586621679836174"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679836169"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679836165"><span class="annot"><span class="annottext">toHeaders :: GetInventorySchema -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetInventorySchema -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonSSM.GetInventorySchema&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-185"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-189"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679836155"><span id="local-6989586621679836157"><span id="local-6989586621679836159"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679836153"><span class="annot"><span class="annottext">toJSON :: GetInventorySchema -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema%27"><span class="hs-identifier hs-type">GetInventorySchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679836147"><span id="local-6989586621679836148"><span id="local-6989586621679836149"><span id="local-6989586621679836150"><span id="local-6989586621679836151"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+aggregator :: Maybe Bool
+nextToken :: Maybe Text
+subType :: Maybe Bool
+typeName :: Maybe Text
+$sel:maxResults:GetInventorySchema' :: GetInventorySchema -&gt; Maybe Natural
+$sel:aggregator:GetInventorySchema' :: GetInventorySchema -&gt; Maybe Bool
+$sel:nextToken:GetInventorySchema' :: GetInventorySchema -&gt; Maybe Text
+$sel:subType:GetInventorySchema' :: GetInventorySchema -&gt; Maybe Bool
+$sel:typeName:GetInventorySchema' :: GetInventorySchema -&gt; Maybe Text
+</span><a href="#local-6989586621679836147"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-197"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679836151"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679836150"><span class="hs-identifier hs-var">subType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679836149"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Aggregator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679836148"><span class="hs-identifier hs-var">aggregator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679836147"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-202"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679836141"><span class="annot"><span class="annottext">toPath :: GetInventorySchema -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetInventorySchema -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchema"><span class="hs-identifier hs-type">GetInventorySchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679836137"><span class="annot"><span class="annottext">toQuery :: GetInventorySchema -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetInventorySchema -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | /See:/ 'newGetInventorySchemaResponse' smart constructor.</span><span>
+</span><span id="line-212"></span><span id="local-6989586621679836134"><span id="local-6989586621679836135"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInventorySchemaResponse"><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse"><span class="hs-identifier hs-var">GetInventorySchemaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInventorySchemaResponse%27"><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse%27"><span class="hs-identifier hs-var">GetInventorySchemaResponse'</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3AnextToken%3AGetInventorySchemaResponse%27"><span class="annot"><span class="annottext">GetInventorySchemaResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AnextToken%3AGetInventorySchemaResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | Inventory schemas returned by the request.</span><span>
+</span><span id="line-217"></span><span>    </span><span id="%24sel%3Aschemas%3AGetInventorySchemaResponse%27"><span class="annot"><span class="annottext">GetInventorySchemaResponse -&gt; Maybe [InventoryItemSchema]
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3Aschemas%3AGetInventorySchemaResponse%27"><span class="hs-identifier hs-var hs-var">schemas</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItemSchema.html#InventoryItemSchema"><span class="hs-identifier hs-type">InventoryItemSchema</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetInventorySchemaResponse%27"><span class="annot"><span class="annottext">GetInventorySchemaResponse -&gt; Int
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AhttpStatus%3AGetInventorySchemaResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679836127"><span id="local-6989586621679836129"><span class="annot"><span class="annottext">GetInventorySchemaResponse -&gt; GetInventorySchemaResponse -&gt; Bool
+(GetInventorySchemaResponse -&gt; GetInventorySchemaResponse -&gt; Bool)
+-&gt; (GetInventorySchemaResponse
+    -&gt; GetInventorySchemaResponse -&gt; Bool)
+-&gt; Eq GetInventorySchemaResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetInventorySchemaResponse -&gt; GetInventorySchemaResponse -&gt; Bool
+$c/= :: GetInventorySchemaResponse -&gt; GetInventorySchemaResponse -&gt; Bool
+== :: GetInventorySchemaResponse -&gt; GetInventorySchemaResponse -&gt; Bool
+$c== :: GetInventorySchemaResponse -&gt; GetInventorySchemaResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679836119"><span id="local-6989586621679836121"><span id="local-6989586621679836123"><span id="local-6989586621679836125"><span class="annot"><span class="annottext">ReadPrec [GetInventorySchemaResponse]
+ReadPrec GetInventorySchemaResponse
+Int -&gt; ReadS GetInventorySchemaResponse
+ReadS [GetInventorySchemaResponse]
+(Int -&gt; ReadS GetInventorySchemaResponse)
+-&gt; ReadS [GetInventorySchemaResponse]
+-&gt; ReadPrec GetInventorySchemaResponse
+-&gt; ReadPrec [GetInventorySchemaResponse]
+-&gt; Read GetInventorySchemaResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetInventorySchemaResponse]
+$creadListPrec :: ReadPrec [GetInventorySchemaResponse]
+readPrec :: ReadPrec GetInventorySchemaResponse
+$creadPrec :: ReadPrec GetInventorySchemaResponse
+readList :: ReadS [GetInventorySchemaResponse]
+$creadList :: ReadS [GetInventorySchemaResponse]
+readsPrec :: Int -&gt; ReadS GetInventorySchemaResponse
+$creadsPrec :: Int -&gt; ReadS GetInventorySchemaResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679836113"><span id="local-6989586621679836115"><span id="local-6989586621679836117"><span class="annot"><span class="annottext">Int -&gt; GetInventorySchemaResponse -&gt; ShowS
+[GetInventorySchemaResponse] -&gt; ShowS
+GetInventorySchemaResponse -&gt; String
+(Int -&gt; GetInventorySchemaResponse -&gt; ShowS)
+-&gt; (GetInventorySchemaResponse -&gt; String)
+-&gt; ([GetInventorySchemaResponse] -&gt; ShowS)
+-&gt; Show GetInventorySchemaResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetInventorySchemaResponse] -&gt; ShowS
+$cshowList :: [GetInventorySchemaResponse] -&gt; ShowS
+show :: GetInventorySchemaResponse -&gt; String
+$cshow :: GetInventorySchemaResponse -&gt; String
+showsPrec :: Int -&gt; GetInventorySchemaResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetInventorySchemaResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetInventorySchemaResponse -&gt; Rep GetInventorySchemaResponse x)
+-&gt; (forall x.
+    Rep GetInventorySchemaResponse x -&gt; GetInventorySchemaResponse)
+-&gt; Generic GetInventorySchemaResponse
+forall x.
+Rep GetInventorySchemaResponse x -&gt; GetInventorySchemaResponse
+forall x.
+GetInventorySchemaResponse -&gt; Rep GetInventorySchemaResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetInventorySchemaResponse x -&gt; GetInventorySchemaResponse
+$cfrom :: forall x.
+GetInventorySchemaResponse -&gt; Rep GetInventorySchemaResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Create a value of 'GetInventorySchemaResponse' with all optional fields omitted.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- 'nextToken', 'getInventorySchemaResponse_nextToken' - The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'schemas', 'getInventorySchemaResponse_schemas' - Inventory schemas returned by the request.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'httpStatus', 'getInventorySchemaResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#newGetInventorySchemaResponse"><span class="hs-identifier hs-type">newGetInventorySchemaResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse"><span class="hs-identifier hs-type">GetInventorySchemaResponse</span></a></span><span>
+</span><span id="line-241"></span><span id="newGetInventorySchemaResponse"><span class="annot"><span class="annottext">newGetInventorySchemaResponse :: Int -&gt; GetInventorySchemaResponse
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#newGetInventorySchemaResponse"><span class="hs-identifier hs-var hs-var">newGetInventorySchemaResponse</span></a></span></span><span> </span><span id="local-6989586621679836110"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679836110"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><span class="annottext">GetInventorySchemaResponse' :: Maybe Text
+-&gt; Maybe [InventoryItemSchema] -&gt; Int -&gt; GetInventorySchemaResponse
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse%27"><span class="hs-identifier hs-type">GetInventorySchemaResponse'</span></a></span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetInventorySchemaResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AnextToken%3AGetInventorySchemaResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemas:GetInventorySchemaResponse' :: Maybe [InventoryItemSchema]
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3Aschemas%3AGetInventorySchemaResponse%27"><span class="hs-identifier hs-var">schemas</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryItemSchema]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetInventorySchemaResponse' :: Int
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AhttpStatus%3AGetInventorySchemaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679836110"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchemaResponse_nextToken"><span class="hs-identifier hs-type">getInventorySchemaResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse"><span class="hs-identifier hs-type">GetInventorySchemaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="getInventorySchemaResponse_nextToken"><span class="annot"><span class="annottext">getInventorySchemaResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetInventorySchemaResponse -&gt; f GetInventorySchemaResponse
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchemaResponse_nextToken"><span class="hs-identifier hs-var hs-var">getInventorySchemaResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInventorySchemaResponse -&gt; Maybe Text)
+-&gt; (GetInventorySchemaResponse
+    -&gt; Maybe Text -&gt; GetInventorySchemaResponse)
+-&gt; Lens' GetInventorySchemaResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse%27"><span class="hs-identifier hs-type">GetInventorySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679836109"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetInventorySchemaResponse' :: GetInventorySchemaResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679836109"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679836109"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679836108"><span class="annot"><span class="annottext">s :: GetInventorySchemaResponse
+</span><a href="#local-6989586621679836108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse%27"><span class="hs-identifier hs-type">GetInventorySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679836107"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679836107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInventorySchemaResponse
+</span><a href="#local-6989586621679836108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetInventorySchemaResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AnextToken%3AGetInventorySchemaResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679836107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse"><span class="hs-identifier hs-type">GetInventorySchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | Inventory schemas returned by the request.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchemaResponse_schemas"><span class="hs-identifier hs-type">getInventorySchemaResponse_schemas</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse"><span class="hs-identifier hs-type">GetInventorySchemaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItemSchema.html#InventoryItemSchema"><span class="hs-identifier hs-type">InventoryItemSchema</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="getInventorySchemaResponse_schemas"><span class="annot"><span class="annottext">getInventorySchemaResponse_schemas :: (Maybe [InventoryItemSchema] -&gt; f (Maybe [InventoryItemSchema]))
+-&gt; GetInventorySchemaResponse -&gt; f GetInventorySchemaResponse
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchemaResponse_schemas"><span class="hs-identifier hs-var hs-var">getInventorySchemaResponse_schemas</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInventorySchemaResponse -&gt; Maybe [InventoryItemSchema])
+-&gt; (GetInventorySchemaResponse
+    -&gt; Maybe [InventoryItemSchema] -&gt; GetInventorySchemaResponse)
+-&gt; Lens' GetInventorySchemaResponse (Maybe [InventoryItemSchema])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse%27"><span class="hs-identifier hs-type">GetInventorySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679836106"><span class="annot"><span class="annottext">Maybe [InventoryItemSchema]
+schemas :: Maybe [InventoryItemSchema]
+$sel:schemas:GetInventorySchemaResponse' :: GetInventorySchemaResponse -&gt; Maybe [InventoryItemSchema]
+</span><a href="#local-6989586621679836106"><span class="hs-identifier hs-var hs-var">schemas</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryItemSchema]
+</span><a href="#local-6989586621679836106"><span class="hs-identifier hs-var">schemas</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679836105"><span class="annot"><span class="annottext">s :: GetInventorySchemaResponse
+</span><a href="#local-6989586621679836105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse%27"><span class="hs-identifier hs-type">GetInventorySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679836104"><span class="annot"><span class="annottext">Maybe [InventoryItemSchema]
+</span><a href="#local-6989586621679836104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInventorySchemaResponse
+</span><a href="#local-6989586621679836105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemas:GetInventorySchemaResponse' :: Maybe [InventoryItemSchema]
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3Aschemas%3AGetInventorySchemaResponse%27"><span class="hs-identifier hs-var">schemas</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryItemSchema]
+</span><a href="#local-6989586621679836104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse"><span class="hs-identifier hs-type">GetInventorySchemaResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InventoryItemSchema] -&gt; f (Maybe [InventoryItemSchema]))
+ -&gt; GetInventorySchemaResponse -&gt; f GetInventorySchemaResponse)
+-&gt; ((Maybe [InventoryItemSchema]
+     -&gt; f (Maybe [InventoryItemSchema]))
+    -&gt; Maybe [InventoryItemSchema] -&gt; f (Maybe [InventoryItemSchema]))
+-&gt; (Maybe [InventoryItemSchema] -&gt; f (Maybe [InventoryItemSchema]))
+-&gt; GetInventorySchemaResponse
+-&gt; f GetInventorySchemaResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InventoryItemSchema]
+  [InventoryItemSchema]
+  [InventoryItemSchema]
+  [InventoryItemSchema]
+-&gt; Iso
+     (Maybe [InventoryItemSchema])
+     (Maybe [InventoryItemSchema])
+     (Maybe [InventoryItemSchema])
+     (Maybe [InventoryItemSchema])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InventoryItemSchema]
+  [InventoryItemSchema]
+  [InventoryItemSchema]
+  [InventoryItemSchema]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchemaResponse_httpStatus"><span class="hs-identifier hs-type">getInventorySchemaResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse"><span class="hs-identifier hs-type">GetInventorySchemaResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-260"></span><span id="getInventorySchemaResponse_httpStatus"><span class="annot"><span class="annottext">getInventorySchemaResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetInventorySchemaResponse -&gt; f GetInventorySchemaResponse
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#getInventorySchemaResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getInventorySchemaResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInventorySchemaResponse -&gt; Int)
+-&gt; (GetInventorySchemaResponse
+    -&gt; Int -&gt; GetInventorySchemaResponse)
+-&gt; Lens
+     GetInventorySchemaResponse GetInventorySchemaResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse%27"><span class="hs-identifier hs-type">GetInventorySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679836101"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetInventorySchemaResponse' :: GetInventorySchemaResponse -&gt; Int
+</span><a href="#local-6989586621679836101"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679836101"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679836100"><span class="annot"><span class="annottext">s :: GetInventorySchemaResponse
+</span><a href="#local-6989586621679836100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse%27"><span class="hs-identifier hs-type">GetInventorySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679836099"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679836099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInventorySchemaResponse
+</span><a href="#local-6989586621679836100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInventorySchemaResponse' :: Int
+</span><a href="Network.AWS.SSM.GetInventorySchema.html#%24sel%3AhttpStatus%3AGetInventorySchemaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679836099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse"><span class="hs-identifier hs-type">GetInventorySchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679836097"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetInventorySchema.html#GetInventorySchemaResponse"><span class="hs-identifier hs-type">GetInventorySchemaResponse</span></a></span></span><span>
+</span><span id="line-263"></span></pre></body></html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DirectoryService.Types.DirectoryLimits</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DirectoryService.Types.DirectoryLimits</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains directory limit information for a Region.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDirectoryLimits' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679295268"><span id="local-6989586621679295269"></span></span><span class="hs-keyword">data</span><span> </span><span id="DirectoryLimits"><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-var">DirectoryLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectoryLimits%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-var">DirectoryLimits'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of cloud directories allowed in the Region.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AcloudOnlyDirectoriesLimit%3ADirectoryLimits%27"><span class="annot"><span class="annottext">DirectoryLimits -&gt; Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyDirectoriesLimit%3ADirectoryLimits%27"><span class="hs-identifier hs-var hs-var">cloudOnlyDirectoriesLimit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Indicates if the connected directory limit has been reached.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AconnectedDirectoriesLimitReached%3ADirectoryLimits%27"><span class="annot"><span class="annottext">DirectoryLimits -&gt; Maybe Bool
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AconnectedDirectoriesLimitReached%3ADirectoryLimits%27"><span class="hs-identifier hs-var hs-var">connectedDirectoriesLimitReached</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The current number of Managed Microsoft AD directories in the region.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcloudOnlyMicrosoftADCurrentCount%3ADirectoryLimits%27"><span class="annot"><span class="annottext">DirectoryLimits -&gt; Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyMicrosoftADCurrentCount%3ADirectoryLimits%27"><span class="hs-identifier hs-var hs-var">cloudOnlyMicrosoftADCurrentCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The maximum number of connected directories allowed in the Region.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AconnectedDirectoriesLimit%3ADirectoryLimits%27"><span class="annot"><span class="annottext">DirectoryLimits -&gt; Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AconnectedDirectoriesLimit%3ADirectoryLimits%27"><span class="hs-identifier hs-var hs-var">connectedDirectoriesLimit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The current number of connected directories in the Region.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AconnectedDirectoriesCurrentCount%3ADirectoryLimits%27"><span class="annot"><span class="annottext">DirectoryLimits -&gt; Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AconnectedDirectoriesCurrentCount%3ADirectoryLimits%27"><span class="hs-identifier hs-var hs-var">connectedDirectoriesCurrentCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The maximum number of Managed Microsoft AD directories allowed in the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- region.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcloudOnlyMicrosoftADLimit%3ADirectoryLimits%27"><span class="annot"><span class="annottext">DirectoryLimits -&gt; Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyMicrosoftADLimit%3ADirectoryLimits%27"><span class="hs-identifier hs-var hs-var">cloudOnlyMicrosoftADLimit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Indicates if the cloud directory limit has been reached.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcloudOnlyDirectoriesLimitReached%3ADirectoryLimits%27"><span class="annot"><span class="annottext">DirectoryLimits -&gt; Maybe Bool
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyDirectoriesLimitReached%3ADirectoryLimits%27"><span class="hs-identifier hs-var hs-var">cloudOnlyDirectoriesLimitReached</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The current number of cloud directories in the Region.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AcloudOnlyDirectoriesCurrentCount%3ADirectoryLimits%27"><span class="annot"><span class="annottext">DirectoryLimits -&gt; Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyDirectoriesCurrentCount%3ADirectoryLimits%27"><span class="hs-identifier hs-var hs-var">cloudOnlyDirectoriesCurrentCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Indicates if the Managed Microsoft AD directory limit has been reached.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcloudOnlyMicrosoftADLimitReached%3ADirectoryLimits%27"><span class="annot"><span class="annottext">DirectoryLimits -&gt; Maybe Bool
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyMicrosoftADLimitReached%3ADirectoryLimits%27"><span class="hs-identifier hs-var hs-var">cloudOnlyMicrosoftADLimitReached</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295254"><span id="local-6989586621679295256"><span class="annot"><span class="annottext">DirectoryLimits -&gt; DirectoryLimits -&gt; Bool
+(DirectoryLimits -&gt; DirectoryLimits -&gt; Bool)
+-&gt; (DirectoryLimits -&gt; DirectoryLimits -&gt; Bool)
+-&gt; Eq DirectoryLimits
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DirectoryLimits -&gt; DirectoryLimits -&gt; Bool
+$c/= :: DirectoryLimits -&gt; DirectoryLimits -&gt; Bool
+== :: DirectoryLimits -&gt; DirectoryLimits -&gt; Bool
+$c== :: DirectoryLimits -&gt; DirectoryLimits -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295245"><span id="local-6989586621679295247"><span id="local-6989586621679295249"><span id="local-6989586621679295251"><span class="annot"><span class="annottext">ReadPrec [DirectoryLimits]
+ReadPrec DirectoryLimits
+Int -&gt; ReadS DirectoryLimits
+ReadS [DirectoryLimits]
+(Int -&gt; ReadS DirectoryLimits)
+-&gt; ReadS [DirectoryLimits]
+-&gt; ReadPrec DirectoryLimits
+-&gt; ReadPrec [DirectoryLimits]
+-&gt; Read DirectoryLimits
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DirectoryLimits]
+$creadListPrec :: ReadPrec [DirectoryLimits]
+readPrec :: ReadPrec DirectoryLimits
+$creadPrec :: ReadPrec DirectoryLimits
+readList :: ReadS [DirectoryLimits]
+$creadList :: ReadS [DirectoryLimits]
+readsPrec :: Int -&gt; ReadS DirectoryLimits
+$creadsPrec :: Int -&gt; ReadS DirectoryLimits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295238"><span id="local-6989586621679295240"><span id="local-6989586621679295242"><span class="annot"><span class="annottext">Int -&gt; DirectoryLimits -&gt; ShowS
+[DirectoryLimits] -&gt; ShowS
+DirectoryLimits -&gt; String
+(Int -&gt; DirectoryLimits -&gt; ShowS)
+-&gt; (DirectoryLimits -&gt; String)
+-&gt; ([DirectoryLimits] -&gt; ShowS)
+-&gt; Show DirectoryLimits
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DirectoryLimits] -&gt; ShowS
+$cshowList :: [DirectoryLimits] -&gt; ShowS
+show :: DirectoryLimits -&gt; String
+$cshow :: DirectoryLimits -&gt; String
+showsPrec :: Int -&gt; DirectoryLimits -&gt; ShowS
+$cshowsPrec :: Int -&gt; DirectoryLimits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DirectoryLimits -&gt; Rep DirectoryLimits x)
+-&gt; (forall x. Rep DirectoryLimits x -&gt; DirectoryLimits)
+-&gt; Generic DirectoryLimits
+forall x. Rep DirectoryLimits x -&gt; DirectoryLimits
+forall x. DirectoryLimits -&gt; Rep DirectoryLimits x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DirectoryLimits x -&gt; DirectoryLimits
+$cfrom :: forall x. DirectoryLimits -&gt; Rep DirectoryLimits x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'DirectoryLimits' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'cloudOnlyDirectoriesLimit', 'directoryLimits_cloudOnlyDirectoriesLimit' - The maximum number of cloud directories allowed in the Region.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'connectedDirectoriesLimitReached', 'directoryLimits_connectedDirectoriesLimitReached' - Indicates if the connected directory limit has been reached.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'cloudOnlyMicrosoftADCurrentCount', 'directoryLimits_cloudOnlyMicrosoftADCurrentCount' - The current number of Managed Microsoft AD directories in the region.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'connectedDirectoriesLimit', 'directoryLimits_connectedDirectoriesLimit' - The maximum number of connected directories allowed in the Region.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'connectedDirectoriesCurrentCount', 'directoryLimits_connectedDirectoriesCurrentCount' - The current number of connected directories in the Region.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'cloudOnlyMicrosoftADLimit', 'directoryLimits_cloudOnlyMicrosoftADLimit' - The maximum number of Managed Microsoft AD directories allowed in the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- region.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'cloudOnlyDirectoriesLimitReached', 'directoryLimits_cloudOnlyDirectoriesLimitReached' - Indicates if the cloud directory limit has been reached.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'cloudOnlyDirectoriesCurrentCount', 'directoryLimits_cloudOnlyDirectoriesCurrentCount' - The current number of cloud directories in the Region.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'cloudOnlyMicrosoftADLimitReached', 'directoryLimits_cloudOnlyMicrosoftADLimitReached' - Indicates if the Managed Microsoft AD directory limit has been reached.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#newDirectoryLimits"><span class="hs-identifier hs-type">newDirectoryLimits</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span>
+</span><span id="line-80"></span><span id="newDirectoryLimits"><span class="annot"><span class="annottext">newDirectoryLimits :: DirectoryLimits
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#newDirectoryLimits"><span class="hs-identifier hs-var hs-var">newDirectoryLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">DirectoryLimits' :: Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; Maybe Bool
+-&gt; DirectoryLimits
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cloudOnlyDirectoriesLimit:DirectoryLimits' :: Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyDirectoriesLimit%3ADirectoryLimits%27"><span class="hs-identifier hs-var">cloudOnlyDirectoriesLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectedDirectoriesLimitReached:DirectoryLimits' :: Maybe Bool
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AconnectedDirectoriesLimitReached%3ADirectoryLimits%27"><span class="hs-identifier hs-var">connectedDirectoriesLimitReached</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudOnlyMicrosoftADCurrentCount:DirectoryLimits' :: Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyMicrosoftADCurrentCount%3ADirectoryLimits%27"><span class="hs-identifier hs-var">cloudOnlyMicrosoftADCurrentCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectedDirectoriesLimit:DirectoryLimits' :: Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AconnectedDirectoriesLimit%3ADirectoryLimits%27"><span class="hs-identifier hs-var">connectedDirectoriesLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectedDirectoriesCurrentCount:DirectoryLimits' :: Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AconnectedDirectoriesCurrentCount%3ADirectoryLimits%27"><span class="hs-identifier hs-var">connectedDirectoriesCurrentCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudOnlyMicrosoftADLimit:DirectoryLimits' :: Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyMicrosoftADLimit%3ADirectoryLimits%27"><span class="hs-identifier hs-var">cloudOnlyMicrosoftADLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudOnlyDirectoriesLimitReached:DirectoryLimits' :: Maybe Bool
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyDirectoriesLimitReached%3ADirectoryLimits%27"><span class="hs-identifier hs-var">cloudOnlyDirectoriesLimitReached</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudOnlyDirectoriesCurrentCount:DirectoryLimits' :: Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyDirectoriesCurrentCount%3ADirectoryLimits%27"><span class="hs-identifier hs-var">cloudOnlyDirectoriesCurrentCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudOnlyMicrosoftADLimitReached:DirectoryLimits' :: Maybe Bool
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyMicrosoftADLimitReached%3ADirectoryLimits%27"><span class="hs-identifier hs-var">cloudOnlyMicrosoftADLimitReached</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The maximum number of cloud directories allowed in the Region.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_cloudOnlyDirectoriesLimit"><span class="hs-identifier hs-type">directoryLimits_cloudOnlyDirectoriesLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="directoryLimits_cloudOnlyDirectoriesLimit"><span class="annot"><span class="annottext">directoryLimits_cloudOnlyDirectoriesLimit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DirectoryLimits -&gt; f DirectoryLimits
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_cloudOnlyDirectoriesLimit"><span class="hs-identifier hs-var hs-var">directoryLimits_cloudOnlyDirectoriesLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectoryLimits -&gt; Maybe Natural)
+-&gt; (DirectoryLimits -&gt; Maybe Natural -&gt; DirectoryLimits)
+-&gt; Lens
+     DirectoryLimits DirectoryLimits (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295229"><span class="annot"><span class="annottext">Maybe Natural
+cloudOnlyDirectoriesLimit :: Maybe Natural
+$sel:cloudOnlyDirectoriesLimit:DirectoryLimits' :: DirectoryLimits -&gt; Maybe Natural
+</span><a href="#local-6989586621679295229"><span class="hs-identifier hs-var hs-var">cloudOnlyDirectoriesLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295229"><span class="hs-identifier hs-var">cloudOnlyDirectoriesLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295228"><span class="annot"><span class="annottext">s :: DirectoryLimits
+</span><a href="#local-6989586621679295228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295227"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryLimits
+</span><a href="#local-6989586621679295228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudOnlyDirectoriesLimit:DirectoryLimits' :: Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyDirectoriesLimit%3ADirectoryLimits%27"><span class="hs-identifier hs-var">cloudOnlyDirectoriesLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Indicates if the connected directory limit has been reached.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_connectedDirectoriesLimitReached"><span class="hs-identifier hs-type">directoryLimits_connectedDirectoriesLimitReached</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="directoryLimits_connectedDirectoriesLimitReached"><span class="annot"><span class="annottext">directoryLimits_connectedDirectoriesLimitReached :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DirectoryLimits -&gt; f DirectoryLimits
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_connectedDirectoriesLimitReached"><span class="hs-identifier hs-var hs-var">directoryLimits_connectedDirectoriesLimitReached</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectoryLimits -&gt; Maybe Bool)
+-&gt; (DirectoryLimits -&gt; Maybe Bool -&gt; DirectoryLimits)
+-&gt; Lens DirectoryLimits DirectoryLimits (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295225"><span class="annot"><span class="annottext">Maybe Bool
+connectedDirectoriesLimitReached :: Maybe Bool
+$sel:connectedDirectoriesLimitReached:DirectoryLimits' :: DirectoryLimits -&gt; Maybe Bool
+</span><a href="#local-6989586621679295225"><span class="hs-identifier hs-var hs-var">connectedDirectoriesLimitReached</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679295225"><span class="hs-identifier hs-var">connectedDirectoriesLimitReached</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295224"><span class="annot"><span class="annottext">s :: DirectoryLimits
+</span><a href="#local-6989586621679295224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295223"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679295223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryLimits
+</span><a href="#local-6989586621679295224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectedDirectoriesLimitReached:DirectoryLimits' :: Maybe Bool
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AconnectedDirectoriesLimitReached%3ADirectoryLimits%27"><span class="hs-identifier hs-var">connectedDirectoriesLimitReached</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679295223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The current number of Managed Microsoft AD directories in the region.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_cloudOnlyMicrosoftADCurrentCount"><span class="hs-identifier hs-type">directoryLimits_cloudOnlyMicrosoftADCurrentCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="directoryLimits_cloudOnlyMicrosoftADCurrentCount"><span class="annot"><span class="annottext">directoryLimits_cloudOnlyMicrosoftADCurrentCount :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DirectoryLimits -&gt; f DirectoryLimits
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_cloudOnlyMicrosoftADCurrentCount"><span class="hs-identifier hs-var hs-var">directoryLimits_cloudOnlyMicrosoftADCurrentCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectoryLimits -&gt; Maybe Natural)
+-&gt; (DirectoryLimits -&gt; Maybe Natural -&gt; DirectoryLimits)
+-&gt; Lens
+     DirectoryLimits DirectoryLimits (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295221"><span class="annot"><span class="annottext">Maybe Natural
+cloudOnlyMicrosoftADCurrentCount :: Maybe Natural
+$sel:cloudOnlyMicrosoftADCurrentCount:DirectoryLimits' :: DirectoryLimits -&gt; Maybe Natural
+</span><a href="#local-6989586621679295221"><span class="hs-identifier hs-var hs-var">cloudOnlyMicrosoftADCurrentCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295221"><span class="hs-identifier hs-var">cloudOnlyMicrosoftADCurrentCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295220"><span class="annot"><span class="annottext">s :: DirectoryLimits
+</span><a href="#local-6989586621679295220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295219"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryLimits
+</span><a href="#local-6989586621679295220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudOnlyMicrosoftADCurrentCount:DirectoryLimits' :: Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyMicrosoftADCurrentCount%3ADirectoryLimits%27"><span class="hs-identifier hs-var">cloudOnlyMicrosoftADCurrentCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The maximum number of connected directories allowed in the Region.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_connectedDirectoriesLimit"><span class="hs-identifier hs-type">directoryLimits_connectedDirectoriesLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="directoryLimits_connectedDirectoriesLimit"><span class="annot"><span class="annottext">directoryLimits_connectedDirectoriesLimit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DirectoryLimits -&gt; f DirectoryLimits
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_connectedDirectoriesLimit"><span class="hs-identifier hs-var hs-var">directoryLimits_connectedDirectoriesLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectoryLimits -&gt; Maybe Natural)
+-&gt; (DirectoryLimits -&gt; Maybe Natural -&gt; DirectoryLimits)
+-&gt; Lens
+     DirectoryLimits DirectoryLimits (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295217"><span class="annot"><span class="annottext">Maybe Natural
+connectedDirectoriesLimit :: Maybe Natural
+$sel:connectedDirectoriesLimit:DirectoryLimits' :: DirectoryLimits -&gt; Maybe Natural
+</span><a href="#local-6989586621679295217"><span class="hs-identifier hs-var hs-var">connectedDirectoriesLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295217"><span class="hs-identifier hs-var">connectedDirectoriesLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295216"><span class="annot"><span class="annottext">s :: DirectoryLimits
+</span><a href="#local-6989586621679295216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295215"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryLimits
+</span><a href="#local-6989586621679295216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectedDirectoriesLimit:DirectoryLimits' :: Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AconnectedDirectoriesLimit%3ADirectoryLimits%27"><span class="hs-identifier hs-var">connectedDirectoriesLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The current number of connected directories in the Region.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_connectedDirectoriesCurrentCount"><span class="hs-identifier hs-type">directoryLimits_connectedDirectoriesCurrentCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="directoryLimits_connectedDirectoriesCurrentCount"><span class="annot"><span class="annottext">directoryLimits_connectedDirectoriesCurrentCount :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DirectoryLimits -&gt; f DirectoryLimits
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_connectedDirectoriesCurrentCount"><span class="hs-identifier hs-var hs-var">directoryLimits_connectedDirectoriesCurrentCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectoryLimits -&gt; Maybe Natural)
+-&gt; (DirectoryLimits -&gt; Maybe Natural -&gt; DirectoryLimits)
+-&gt; Lens
+     DirectoryLimits DirectoryLimits (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295213"><span class="annot"><span class="annottext">Maybe Natural
+connectedDirectoriesCurrentCount :: Maybe Natural
+$sel:connectedDirectoriesCurrentCount:DirectoryLimits' :: DirectoryLimits -&gt; Maybe Natural
+</span><a href="#local-6989586621679295213"><span class="hs-identifier hs-var hs-var">connectedDirectoriesCurrentCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295213"><span class="hs-identifier hs-var">connectedDirectoriesCurrentCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295212"><span class="annot"><span class="annottext">s :: DirectoryLimits
+</span><a href="#local-6989586621679295212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295211"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryLimits
+</span><a href="#local-6989586621679295212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectedDirectoriesCurrentCount:DirectoryLimits' :: Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AconnectedDirectoriesCurrentCount%3ADirectoryLimits%27"><span class="hs-identifier hs-var">connectedDirectoriesCurrentCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The maximum number of Managed Microsoft AD directories allowed in the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- region.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_cloudOnlyMicrosoftADLimit"><span class="hs-identifier hs-type">directoryLimits_cloudOnlyMicrosoftADLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="directoryLimits_cloudOnlyMicrosoftADLimit"><span class="annot"><span class="annottext">directoryLimits_cloudOnlyMicrosoftADLimit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DirectoryLimits -&gt; f DirectoryLimits
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_cloudOnlyMicrosoftADLimit"><span class="hs-identifier hs-var hs-var">directoryLimits_cloudOnlyMicrosoftADLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectoryLimits -&gt; Maybe Natural)
+-&gt; (DirectoryLimits -&gt; Maybe Natural -&gt; DirectoryLimits)
+-&gt; Lens
+     DirectoryLimits DirectoryLimits (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295209"><span class="annot"><span class="annottext">Maybe Natural
+cloudOnlyMicrosoftADLimit :: Maybe Natural
+$sel:cloudOnlyMicrosoftADLimit:DirectoryLimits' :: DirectoryLimits -&gt; Maybe Natural
+</span><a href="#local-6989586621679295209"><span class="hs-identifier hs-var hs-var">cloudOnlyMicrosoftADLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295209"><span class="hs-identifier hs-var">cloudOnlyMicrosoftADLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295208"><span class="annot"><span class="annottext">s :: DirectoryLimits
+</span><a href="#local-6989586621679295208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295207"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryLimits
+</span><a href="#local-6989586621679295208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudOnlyMicrosoftADLimit:DirectoryLimits' :: Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyMicrosoftADLimit%3ADirectoryLimits%27"><span class="hs-identifier hs-var">cloudOnlyMicrosoftADLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | Indicates if the cloud directory limit has been reached.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_cloudOnlyDirectoriesLimitReached"><span class="hs-identifier hs-type">directoryLimits_cloudOnlyDirectoriesLimitReached</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="directoryLimits_cloudOnlyDirectoriesLimitReached"><span class="annot"><span class="annottext">directoryLimits_cloudOnlyDirectoriesLimitReached :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DirectoryLimits -&gt; f DirectoryLimits
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_cloudOnlyDirectoriesLimitReached"><span class="hs-identifier hs-var hs-var">directoryLimits_cloudOnlyDirectoriesLimitReached</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectoryLimits -&gt; Maybe Bool)
+-&gt; (DirectoryLimits -&gt; Maybe Bool -&gt; DirectoryLimits)
+-&gt; Lens DirectoryLimits DirectoryLimits (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295205"><span class="annot"><span class="annottext">Maybe Bool
+cloudOnlyDirectoriesLimitReached :: Maybe Bool
+$sel:cloudOnlyDirectoriesLimitReached:DirectoryLimits' :: DirectoryLimits -&gt; Maybe Bool
+</span><a href="#local-6989586621679295205"><span class="hs-identifier hs-var hs-var">cloudOnlyDirectoriesLimitReached</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679295205"><span class="hs-identifier hs-var">cloudOnlyDirectoriesLimitReached</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295204"><span class="annot"><span class="annottext">s :: DirectoryLimits
+</span><a href="#local-6989586621679295204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295203"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679295203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryLimits
+</span><a href="#local-6989586621679295204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudOnlyDirectoriesLimitReached:DirectoryLimits' :: Maybe Bool
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyDirectoriesLimitReached%3ADirectoryLimits%27"><span class="hs-identifier hs-var">cloudOnlyDirectoriesLimitReached</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679295203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The current number of cloud directories in the Region.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_cloudOnlyDirectoriesCurrentCount"><span class="hs-identifier hs-type">directoryLimits_cloudOnlyDirectoriesCurrentCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="directoryLimits_cloudOnlyDirectoriesCurrentCount"><span class="annot"><span class="annottext">directoryLimits_cloudOnlyDirectoriesCurrentCount :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DirectoryLimits -&gt; f DirectoryLimits
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_cloudOnlyDirectoriesCurrentCount"><span class="hs-identifier hs-var hs-var">directoryLimits_cloudOnlyDirectoriesCurrentCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectoryLimits -&gt; Maybe Natural)
+-&gt; (DirectoryLimits -&gt; Maybe Natural -&gt; DirectoryLimits)
+-&gt; Lens
+     DirectoryLimits DirectoryLimits (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295201"><span class="annot"><span class="annottext">Maybe Natural
+cloudOnlyDirectoriesCurrentCount :: Maybe Natural
+$sel:cloudOnlyDirectoriesCurrentCount:DirectoryLimits' :: DirectoryLimits -&gt; Maybe Natural
+</span><a href="#local-6989586621679295201"><span class="hs-identifier hs-var hs-var">cloudOnlyDirectoriesCurrentCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295201"><span class="hs-identifier hs-var">cloudOnlyDirectoriesCurrentCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295200"><span class="annot"><span class="annottext">s :: DirectoryLimits
+</span><a href="#local-6989586621679295200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295199"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryLimits
+</span><a href="#local-6989586621679295200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudOnlyDirectoriesCurrentCount:DirectoryLimits' :: Maybe Natural
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyDirectoriesCurrentCount%3ADirectoryLimits%27"><span class="hs-identifier hs-var">cloudOnlyDirectoriesCurrentCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679295199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Indicates if the Managed Microsoft AD directory limit has been reached.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_cloudOnlyMicrosoftADLimitReached"><span class="hs-identifier hs-type">directoryLimits_cloudOnlyMicrosoftADLimitReached</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="directoryLimits_cloudOnlyMicrosoftADLimitReached"><span class="annot"><span class="annottext">directoryLimits_cloudOnlyMicrosoftADLimitReached :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DirectoryLimits -&gt; f DirectoryLimits
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#directoryLimits_cloudOnlyMicrosoftADLimitReached"><span class="hs-identifier hs-var hs-var">directoryLimits_cloudOnlyMicrosoftADLimitReached</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectoryLimits -&gt; Maybe Bool)
+-&gt; (DirectoryLimits -&gt; Maybe Bool -&gt; DirectoryLimits)
+-&gt; Lens DirectoryLimits DirectoryLimits (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295197"><span class="annot"><span class="annottext">Maybe Bool
+cloudOnlyMicrosoftADLimitReached :: Maybe Bool
+$sel:cloudOnlyMicrosoftADLimitReached:DirectoryLimits' :: DirectoryLimits -&gt; Maybe Bool
+</span><a href="#local-6989586621679295197"><span class="hs-identifier hs-var hs-var">cloudOnlyMicrosoftADLimitReached</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679295197"><span class="hs-identifier hs-var">cloudOnlyMicrosoftADLimitReached</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295196"><span class="annot"><span class="annottext">s :: DirectoryLimits
+</span><a href="#local-6989586621679295196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-type">DirectoryLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295195"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679295195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryLimits
+</span><a href="#local-6989586621679295196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudOnlyMicrosoftADLimitReached:DirectoryLimits' :: Maybe Bool
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#%24sel%3AcloudOnlyMicrosoftADLimitReached%3ADirectoryLimits%27"><span class="hs-identifier hs-var">cloudOnlyMicrosoftADLimitReached</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679295195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295192"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679295190"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DirectoryLimits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DirectoryLimits)
+-&gt; Value
+-&gt; Parser DirectoryLimits
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DirectoryLimits&quot;</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295187"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295187"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; Maybe Bool
+-&gt; DirectoryLimits
+</span><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits%27"><span class="hs-identifier hs-var">DirectoryLimits'</span></a></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe Bool
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Bool
+ -&gt; Maybe Natural
+ -&gt; Maybe Bool
+ -&gt; DirectoryLimits)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; DirectoryLimits)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudOnlyDirectoriesLimit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; DirectoryLimits)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; DirectoryLimits)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectedDirectoriesLimitReached&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; DirectoryLimits)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; DirectoryLimits)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudOnlyMicrosoftADCurrentCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; DirectoryLimits)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; DirectoryLimits)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectedDirectoriesLimit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; DirectoryLimits)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Bool -&gt; Maybe Natural -&gt; Maybe Bool -&gt; DirectoryLimits)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectedDirectoriesCurrentCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Bool -&gt; Maybe Natural -&gt; Maybe Bool -&gt; DirectoryLimits)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Bool -&gt; Maybe Natural -&gt; Maybe Bool -&gt; DirectoryLimits)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudOnlyMicrosoftADLimit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool -&gt; Maybe Natural -&gt; Maybe Bool -&gt; DirectoryLimits)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Natural -&gt; Maybe Bool -&gt; DirectoryLimits)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudOnlyDirectoriesLimitReached&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Bool -&gt; DirectoryLimits)
+-&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Bool -&gt; DirectoryLimits)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudOnlyDirectoriesCurrentCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; DirectoryLimits)
+-&gt; Parser (Maybe Bool) -&gt; Parser DirectoryLimits
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudOnlyMicrosoftADLimitReached&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295181"><span id="local-6989586621679295183"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295178"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryLimits.html#DirectoryLimits"><span class="hs-identifier hs-type">DirectoryLimits</span></a></span></span><span>
+</span><span id="line-151"></span></pre></body></html>

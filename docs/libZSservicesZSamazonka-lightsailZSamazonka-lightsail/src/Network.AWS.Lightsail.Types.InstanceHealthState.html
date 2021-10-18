@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Lightsail.Types.InstanceHealthState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Lightsail.Types.InstanceHealthState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState"><span class="hs-identifier">InstanceHealthState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Draining"><span class="hs-identifier">InstanceHealthState_Draining</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Healthy"><span class="hs-identifier">InstanceHealthState_Healthy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Initial"><span class="hs-identifier">InstanceHealthState_Initial</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Unavailable"><span class="hs-identifier">InstanceHealthState_Unavailable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Unhealthy"><span class="hs-identifier">InstanceHealthState_Unhealthy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Unused"><span class="hs-identifier">InstanceHealthState_Unused</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679611015"><span id="local-6989586621679611016"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceHealthState"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState"><span class="hs-identifier hs-var">InstanceHealthState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceHealthState%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState%27"><span class="hs-identifier hs-var">InstanceHealthState'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceHealthState"><span class="annot"><span class="annottext">InstanceHealthState -&gt; Text
+</span><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#fromInstanceHealthState"><span class="hs-identifier hs-var hs-var">fromInstanceHealthState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679611007"><span id="local-6989586621679611009"><span id="local-6989586621679611011"><span class="annot"><span class="annottext">Int -&gt; InstanceHealthState -&gt; ShowS
+[InstanceHealthState] -&gt; ShowS
+InstanceHealthState -&gt; String
+(Int -&gt; InstanceHealthState -&gt; ShowS)
+-&gt; (InstanceHealthState -&gt; String)
+-&gt; ([InstanceHealthState] -&gt; ShowS)
+-&gt; Show InstanceHealthState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceHealthState] -&gt; ShowS
+$cshowList :: [InstanceHealthState] -&gt; ShowS
+show :: InstanceHealthState -&gt; String
+$cshow :: InstanceHealthState -&gt; String
+showsPrec :: Int -&gt; InstanceHealthState -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceHealthState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679610998"><span id="local-6989586621679611000"><span id="local-6989586621679611002"><span id="local-6989586621679611004"><span class="annot"><span class="annottext">ReadPrec [InstanceHealthState]
+ReadPrec InstanceHealthState
+Int -&gt; ReadS InstanceHealthState
+ReadS [InstanceHealthState]
+(Int -&gt; ReadS InstanceHealthState)
+-&gt; ReadS [InstanceHealthState]
+-&gt; ReadPrec InstanceHealthState
+-&gt; ReadPrec [InstanceHealthState]
+-&gt; Read InstanceHealthState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceHealthState]
+$creadListPrec :: ReadPrec [InstanceHealthState]
+readPrec :: ReadPrec InstanceHealthState
+$creadPrec :: ReadPrec InstanceHealthState
+readList :: ReadS [InstanceHealthState]
+$creadList :: ReadS [InstanceHealthState]
+readsPrec :: Int -&gt; ReadS InstanceHealthState
+$creadsPrec :: Int -&gt; ReadS InstanceHealthState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679610993"><span id="local-6989586621679610995"><span class="annot"><span class="annottext">InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
+(InstanceHealthState -&gt; InstanceHealthState -&gt; Bool)
+-&gt; (InstanceHealthState -&gt; InstanceHealthState -&gt; Bool)
+-&gt; Eq InstanceHealthState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
+$c/= :: InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
+== :: InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
+$c== :: InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679610977"><span id="local-6989586621679610979"><span id="local-6989586621679610981"><span id="local-6989586621679610983"><span id="local-6989586621679610985"><span id="local-6989586621679610987"><span id="local-6989586621679610989"><span class="annot"><span class="annottext">Eq InstanceHealthState
+Eq InstanceHealthState
+-&gt; (InstanceHealthState -&gt; InstanceHealthState -&gt; Ordering)
+-&gt; (InstanceHealthState -&gt; InstanceHealthState -&gt; Bool)
+-&gt; (InstanceHealthState -&gt; InstanceHealthState -&gt; Bool)
+-&gt; (InstanceHealthState -&gt; InstanceHealthState -&gt; Bool)
+-&gt; (InstanceHealthState -&gt; InstanceHealthState -&gt; Bool)
+-&gt; (InstanceHealthState
+    -&gt; InstanceHealthState -&gt; InstanceHealthState)
+-&gt; (InstanceHealthState
+    -&gt; InstanceHealthState -&gt; InstanceHealthState)
+-&gt; Ord InstanceHealthState
+InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
+InstanceHealthState -&gt; InstanceHealthState -&gt; Ordering
+InstanceHealthState -&gt; InstanceHealthState -&gt; InstanceHealthState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InstanceHealthState -&gt; InstanceHealthState -&gt; InstanceHealthState
+$cmin :: InstanceHealthState -&gt; InstanceHealthState -&gt; InstanceHealthState
+max :: InstanceHealthState -&gt; InstanceHealthState -&gt; InstanceHealthState
+$cmax :: InstanceHealthState -&gt; InstanceHealthState -&gt; InstanceHealthState
+&gt;= :: InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
+$c&gt;= :: InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
+&gt; :: InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
+$c&gt; :: InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
+&lt;= :: InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
+$c&lt;= :: InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
+&lt; :: InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
+$c&lt; :: InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
+compare :: InstanceHealthState -&gt; InstanceHealthState -&gt; Ordering
+$ccompare :: InstanceHealthState -&gt; InstanceHealthState -&gt; Ordering
+$cp1Ord :: Eq InstanceHealthState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InstanceHealthState -&gt; Rep InstanceHealthState x)
+-&gt; (forall x. Rep InstanceHealthState x -&gt; InstanceHealthState)
+-&gt; Generic InstanceHealthState
+forall x. Rep InstanceHealthState x -&gt; InstanceHealthState
+forall x. InstanceHealthState -&gt; Rep InstanceHealthState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstanceHealthState x -&gt; InstanceHealthState
+$cfrom :: forall x. InstanceHealthState -&gt; Rep InstanceHealthState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679610969"><span id="local-6989586621679610971"><span class="annot"><span class="annottext">Int -&gt; InstanceHealthState -&gt; Int
+InstanceHealthState -&gt; Int
+(Int -&gt; InstanceHealthState -&gt; Int)
+-&gt; (InstanceHealthState -&gt; Int) -&gt; Hashable InstanceHealthState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InstanceHealthState -&gt; Int
+$chash :: InstanceHealthState -&gt; Int
+hashWithSalt :: Int -&gt; InstanceHealthState -&gt; Int
+$chashWithSalt :: Int -&gt; InstanceHealthState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679610966"><span class="annot"><span class="annottext">InstanceHealthState -&gt; ()
+(InstanceHealthState -&gt; ()) -&gt; NFData InstanceHealthState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InstanceHealthState -&gt; ()
+$crnf :: InstanceHealthState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679610963"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceHealthState
+(Text -&gt; Either String InstanceHealthState)
+-&gt; FromText InstanceHealthState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InstanceHealthState
+$cfromText :: Text -&gt; Either String InstanceHealthState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679610960"><span class="annot"><span class="annottext">InstanceHealthState -&gt; Text
+(InstanceHealthState -&gt; Text) -&gt; ToText InstanceHealthState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InstanceHealthState -&gt; Text
+$ctoText :: InstanceHealthState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679610957"><span class="annot"><span class="annottext">InstanceHealthState -&gt; ByteString
+(InstanceHealthState -&gt; ByteString)
+-&gt; ToByteString InstanceHealthState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InstanceHealthState -&gt; ByteString
+$ctoBS :: InstanceHealthState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679610954"><span class="annot"><span class="annottext">InstanceHealthState -&gt; ByteStringBuilder
+(InstanceHealthState -&gt; ByteStringBuilder)
+-&gt; ToLog InstanceHealthState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InstanceHealthState -&gt; ByteStringBuilder
+$cbuild :: InstanceHealthState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679610951"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceHealthState -&gt; [Header]
+(HeaderName -&gt; InstanceHealthState -&gt; [Header])
+-&gt; ToHeader InstanceHealthState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InstanceHealthState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InstanceHealthState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679610948"><span class="annot"><span class="annottext">InstanceHealthState -&gt; QueryString
+(InstanceHealthState -&gt; QueryString) -&gt; ToQuery InstanceHealthState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InstanceHealthState -&gt; QueryString
+$ctoQuery :: InstanceHealthState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679610943"><span id="local-6989586621679610945"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceHealthState]
+Value -&gt; Parser InstanceHealthState
+(Value -&gt; Parser InstanceHealthState)
+-&gt; (Value -&gt; Parser [InstanceHealthState])
+-&gt; FromJSON InstanceHealthState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InstanceHealthState]
+$cparseJSONList :: Value -&gt; Parser [InstanceHealthState]
+parseJSON :: Value -&gt; Parser InstanceHealthState
+$cparseJSON :: Value -&gt; Parser InstanceHealthState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679610938"><span id="local-6989586621679610940"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceHealthState]
+FromJSONKeyFunction InstanceHealthState
+FromJSONKeyFunction InstanceHealthState
+-&gt; FromJSONKeyFunction [InstanceHealthState]
+-&gt; FromJSONKey InstanceHealthState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InstanceHealthState]
+$cfromJSONKeyList :: FromJSONKeyFunction [InstanceHealthState]
+fromJSONKey :: FromJSONKeyFunction InstanceHealthState
+$cfromJSONKey :: FromJSONKeyFunction InstanceHealthState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679610929"><span id="local-6989586621679610931"><span id="local-6989586621679610933"><span id="local-6989586621679610935"><span class="annot"><span class="annottext">[InstanceHealthState] -&gt; Encoding
+[InstanceHealthState] -&gt; Value
+InstanceHealthState -&gt; Encoding
+InstanceHealthState -&gt; Value
+(InstanceHealthState -&gt; Value)
+-&gt; (InstanceHealthState -&gt; Encoding)
+-&gt; ([InstanceHealthState] -&gt; Value)
+-&gt; ([InstanceHealthState] -&gt; Encoding)
+-&gt; ToJSON InstanceHealthState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InstanceHealthState] -&gt; Encoding
+$ctoEncodingList :: [InstanceHealthState] -&gt; Encoding
+toJSONList :: [InstanceHealthState] -&gt; Value
+$ctoJSONList :: [InstanceHealthState] -&gt; Value
+toEncoding :: InstanceHealthState -&gt; Encoding
+$ctoEncoding :: InstanceHealthState -&gt; Encoding
+toJSON :: InstanceHealthState -&gt; Value
+$ctoJSON :: InstanceHealthState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679610924"><span id="local-6989586621679610926"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceHealthState]
+ToJSONKeyFunction InstanceHealthState
+ToJSONKeyFunction InstanceHealthState
+-&gt; ToJSONKeyFunction [InstanceHealthState]
+-&gt; ToJSONKey InstanceHealthState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InstanceHealthState]
+$ctoJSONKeyList :: ToJSONKeyFunction [InstanceHealthState]
+toJSONKey :: ToJSONKeyFunction InstanceHealthState
+$ctoJSONKey :: ToJSONKeyFunction InstanceHealthState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679610921"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceHealthState
+([Node] -&gt; Either String InstanceHealthState)
+-&gt; FromXML InstanceHealthState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InstanceHealthState
+$cparseXML :: [Node] -&gt; Either String InstanceHealthState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679610918"><span class="annot"><span class="annottext">InstanceHealthState -&gt; XML
+(InstanceHealthState -&gt; XML) -&gt; ToXML InstanceHealthState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InstanceHealthState -&gt; XML
+$ctoXML :: InstanceHealthState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Draining"><span class="hs-identifier hs-type">InstanceHealthState_Draining</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState"><span class="hs-identifier hs-type">InstanceHealthState</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceHealthState_Draining"><span id="%24mInstanceHealthState_Draining"><span id="InstanceHealthState_Draining"><span class="annot"><span class="annottext">$bInstanceHealthState_Draining :: InstanceHealthState
+$mInstanceHealthState_Draining :: forall r. InstanceHealthState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#%24bInstanceHealthState_Draining"><span class="hs-identifier hs-var hs-var hs-var">InstanceHealthState_Draining</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState%27"><span class="hs-identifier hs-type">InstanceHealthState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;draining&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Healthy"><span class="hs-identifier hs-type">InstanceHealthState_Healthy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState"><span class="hs-identifier hs-type">InstanceHealthState</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceHealthState_Healthy"><span id="%24mInstanceHealthState_Healthy"><span id="InstanceHealthState_Healthy"><span class="annot"><span class="annottext">$bInstanceHealthState_Healthy :: InstanceHealthState
+$mInstanceHealthState_Healthy :: forall r. InstanceHealthState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#%24bInstanceHealthState_Healthy"><span class="hs-identifier hs-var hs-var hs-var">InstanceHealthState_Healthy</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState%27"><span class="hs-identifier hs-type">InstanceHealthState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;healthy&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Initial"><span class="hs-identifier hs-type">InstanceHealthState_Initial</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState"><span class="hs-identifier hs-type">InstanceHealthState</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceHealthState_Initial"><span id="%24mInstanceHealthState_Initial"><span id="InstanceHealthState_Initial"><span class="annot"><span class="annottext">$bInstanceHealthState_Initial :: InstanceHealthState
+$mInstanceHealthState_Initial :: forall r. InstanceHealthState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#%24bInstanceHealthState_Initial"><span class="hs-identifier hs-var hs-var hs-var">InstanceHealthState_Initial</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState%27"><span class="hs-identifier hs-type">InstanceHealthState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;initial&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Unavailable"><span class="hs-identifier hs-type">InstanceHealthState_Unavailable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState"><span class="hs-identifier hs-type">InstanceHealthState</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceHealthState_Unavailable"><span id="%24mInstanceHealthState_Unavailable"><span id="InstanceHealthState_Unavailable"><span class="annot"><span class="annottext">$bInstanceHealthState_Unavailable :: InstanceHealthState
+$mInstanceHealthState_Unavailable :: forall r. InstanceHealthState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#%24bInstanceHealthState_Unavailable"><span class="hs-identifier hs-var hs-var hs-var">InstanceHealthState_Unavailable</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState%27"><span class="hs-identifier hs-type">InstanceHealthState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;unavailable&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Unhealthy"><span class="hs-identifier hs-type">InstanceHealthState_Unhealthy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState"><span class="hs-identifier hs-type">InstanceHealthState</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceHealthState_Unhealthy"><span id="%24mInstanceHealthState_Unhealthy"><span id="InstanceHealthState_Unhealthy"><span class="annot"><span class="annottext">$bInstanceHealthState_Unhealthy :: InstanceHealthState
+$mInstanceHealthState_Unhealthy :: forall r. InstanceHealthState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#%24bInstanceHealthState_Unhealthy"><span class="hs-identifier hs-var hs-var hs-var">InstanceHealthState_Unhealthy</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState%27"><span class="hs-identifier hs-type">InstanceHealthState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;unhealthy&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Unused"><span class="hs-identifier hs-type">InstanceHealthState_Unused</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState"><span class="hs-identifier hs-type">InstanceHealthState</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceHealthState_Unused"><span id="%24mInstanceHealthState_Unused"><span id="InstanceHealthState_Unused"><span class="annot"><span class="annottext">$bInstanceHealthState_Unused :: InstanceHealthState
+$mInstanceHealthState_Unused :: forall r. InstanceHealthState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#%24bInstanceHealthState_Unused"><span class="hs-identifier hs-var hs-var hs-var">InstanceHealthState_Unused</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState%27"><span class="hs-identifier hs-type">InstanceHealthState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;unused&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Draining"><span class="hs-pragma hs-type">InstanceHealthState_Draining</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Healthy"><span class="hs-pragma hs-type">InstanceHealthState_Healthy</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Initial"><span class="hs-pragma hs-type">InstanceHealthState_Initial</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Unavailable"><span class="hs-pragma hs-type">InstanceHealthState_Unavailable</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Unhealthy"><span class="hs-pragma hs-type">InstanceHealthState_Unhealthy</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState_Unused"><span class="hs-pragma hs-type">InstanceHealthState_Unused</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState%27"><span class="hs-pragma hs-type">InstanceHealthState'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

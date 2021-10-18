@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType"><span class="hs-identifier">RecoveryOptionNameType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType_Admin_only"><span class="hs-identifier">RecoveryOptionNameType_Admin_only</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType_Verified_email"><span class="hs-identifier">RecoveryOptionNameType_Verified_email</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType_Verified_phone_number"><span class="hs-identifier">RecoveryOptionNameType_Verified_phone_number</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679432113"><span id="local-6989586621679432114"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RecoveryOptionNameType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType"><span class="hs-identifier hs-var">RecoveryOptionNameType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecoveryOptionNameType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType%27"><span class="hs-identifier hs-var">RecoveryOptionNameType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRecoveryOptionNameType"><span class="annot"><span class="annottext">RecoveryOptionNameType -&gt; Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#fromRecoveryOptionNameType"><span class="hs-identifier hs-var hs-var">fromRecoveryOptionNameType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432105"><span id="local-6989586621679432107"><span id="local-6989586621679432109"><span class="annot"><span class="annottext">Int -&gt; RecoveryOptionNameType -&gt; ShowS
+[RecoveryOptionNameType] -&gt; ShowS
+RecoveryOptionNameType -&gt; String
+(Int -&gt; RecoveryOptionNameType -&gt; ShowS)
+-&gt; (RecoveryOptionNameType -&gt; String)
+-&gt; ([RecoveryOptionNameType] -&gt; ShowS)
+-&gt; Show RecoveryOptionNameType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RecoveryOptionNameType] -&gt; ShowS
+$cshowList :: [RecoveryOptionNameType] -&gt; ShowS
+show :: RecoveryOptionNameType -&gt; String
+$cshow :: RecoveryOptionNameType -&gt; String
+showsPrec :: Int -&gt; RecoveryOptionNameType -&gt; ShowS
+$cshowsPrec :: Int -&gt; RecoveryOptionNameType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679432096"><span id="local-6989586621679432098"><span id="local-6989586621679432100"><span id="local-6989586621679432102"><span class="annot"><span class="annottext">ReadPrec [RecoveryOptionNameType]
+ReadPrec RecoveryOptionNameType
+Int -&gt; ReadS RecoveryOptionNameType
+ReadS [RecoveryOptionNameType]
+(Int -&gt; ReadS RecoveryOptionNameType)
+-&gt; ReadS [RecoveryOptionNameType]
+-&gt; ReadPrec RecoveryOptionNameType
+-&gt; ReadPrec [RecoveryOptionNameType]
+-&gt; Read RecoveryOptionNameType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RecoveryOptionNameType]
+$creadListPrec :: ReadPrec [RecoveryOptionNameType]
+readPrec :: ReadPrec RecoveryOptionNameType
+$creadPrec :: ReadPrec RecoveryOptionNameType
+readList :: ReadS [RecoveryOptionNameType]
+$creadList :: ReadS [RecoveryOptionNameType]
+readsPrec :: Int -&gt; ReadS RecoveryOptionNameType
+$creadsPrec :: Int -&gt; ReadS RecoveryOptionNameType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679432091"><span id="local-6989586621679432093"><span class="annot"><span class="annottext">RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool
+(RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool)
+-&gt; (RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool)
+-&gt; Eq RecoveryOptionNameType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool
+$c/= :: RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool
+== :: RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool
+$c== :: RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679432075"><span id="local-6989586621679432077"><span id="local-6989586621679432079"><span id="local-6989586621679432081"><span id="local-6989586621679432083"><span id="local-6989586621679432085"><span id="local-6989586621679432087"><span class="annot"><span class="annottext">Eq RecoveryOptionNameType
+Eq RecoveryOptionNameType
+-&gt; (RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Ordering)
+-&gt; (RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool)
+-&gt; (RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool)
+-&gt; (RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool)
+-&gt; (RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool)
+-&gt; (RecoveryOptionNameType
+    -&gt; RecoveryOptionNameType -&gt; RecoveryOptionNameType)
+-&gt; (RecoveryOptionNameType
+    -&gt; RecoveryOptionNameType -&gt; RecoveryOptionNameType)
+-&gt; Ord RecoveryOptionNameType
+RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool
+RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Ordering
+RecoveryOptionNameType
+-&gt; RecoveryOptionNameType -&gt; RecoveryOptionNameType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RecoveryOptionNameType
+-&gt; RecoveryOptionNameType -&gt; RecoveryOptionNameType
+$cmin :: RecoveryOptionNameType
+-&gt; RecoveryOptionNameType -&gt; RecoveryOptionNameType
+max :: RecoveryOptionNameType
+-&gt; RecoveryOptionNameType -&gt; RecoveryOptionNameType
+$cmax :: RecoveryOptionNameType
+-&gt; RecoveryOptionNameType -&gt; RecoveryOptionNameType
+&gt;= :: RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool
+$c&gt;= :: RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool
+&gt; :: RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool
+$c&gt; :: RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool
+&lt;= :: RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool
+$c&lt;= :: RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool
+&lt; :: RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool
+$c&lt; :: RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Bool
+compare :: RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Ordering
+$ccompare :: RecoveryOptionNameType -&gt; RecoveryOptionNameType -&gt; Ordering
+$cp1Ord :: Eq RecoveryOptionNameType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RecoveryOptionNameType -&gt; Rep RecoveryOptionNameType x)
+-&gt; (forall x.
+    Rep RecoveryOptionNameType x -&gt; RecoveryOptionNameType)
+-&gt; Generic RecoveryOptionNameType
+forall x. Rep RecoveryOptionNameType x -&gt; RecoveryOptionNameType
+forall x. RecoveryOptionNameType -&gt; Rep RecoveryOptionNameType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RecoveryOptionNameType x -&gt; RecoveryOptionNameType
+$cfrom :: forall x. RecoveryOptionNameType -&gt; Rep RecoveryOptionNameType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432067"><span id="local-6989586621679432069"><span class="annot"><span class="annottext">Int -&gt; RecoveryOptionNameType -&gt; Int
+RecoveryOptionNameType -&gt; Int
+(Int -&gt; RecoveryOptionNameType -&gt; Int)
+-&gt; (RecoveryOptionNameType -&gt; Int)
+-&gt; Hashable RecoveryOptionNameType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RecoveryOptionNameType -&gt; Int
+$chash :: RecoveryOptionNameType -&gt; Int
+hashWithSalt :: Int -&gt; RecoveryOptionNameType -&gt; Int
+$chashWithSalt :: Int -&gt; RecoveryOptionNameType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679432064"><span class="annot"><span class="annottext">RecoveryOptionNameType -&gt; ()
+(RecoveryOptionNameType -&gt; ()) -&gt; NFData RecoveryOptionNameType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RecoveryOptionNameType -&gt; ()
+$crnf :: RecoveryOptionNameType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679432061"><span class="annot"><span class="annottext">Text -&gt; Either String RecoveryOptionNameType
+(Text -&gt; Either String RecoveryOptionNameType)
+-&gt; FromText RecoveryOptionNameType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RecoveryOptionNameType
+$cfromText :: Text -&gt; Either String RecoveryOptionNameType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679432058"><span class="annot"><span class="annottext">RecoveryOptionNameType -&gt; Text
+(RecoveryOptionNameType -&gt; Text) -&gt; ToText RecoveryOptionNameType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RecoveryOptionNameType -&gt; Text
+$ctoText :: RecoveryOptionNameType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679432055"><span class="annot"><span class="annottext">RecoveryOptionNameType -&gt; ByteString
+(RecoveryOptionNameType -&gt; ByteString)
+-&gt; ToByteString RecoveryOptionNameType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RecoveryOptionNameType -&gt; ByteString
+$ctoBS :: RecoveryOptionNameType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679432052"><span class="annot"><span class="annottext">RecoveryOptionNameType -&gt; ByteStringBuilder
+(RecoveryOptionNameType -&gt; ByteStringBuilder)
+-&gt; ToLog RecoveryOptionNameType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RecoveryOptionNameType -&gt; ByteStringBuilder
+$cbuild :: RecoveryOptionNameType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679432049"><span class="annot"><span class="annottext">HeaderName -&gt; RecoveryOptionNameType -&gt; [Header]
+(HeaderName -&gt; RecoveryOptionNameType -&gt; [Header])
+-&gt; ToHeader RecoveryOptionNameType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RecoveryOptionNameType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RecoveryOptionNameType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679432046"><span class="annot"><span class="annottext">RecoveryOptionNameType -&gt; QueryString
+(RecoveryOptionNameType -&gt; QueryString)
+-&gt; ToQuery RecoveryOptionNameType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RecoveryOptionNameType -&gt; QueryString
+$ctoQuery :: RecoveryOptionNameType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679432041"><span id="local-6989586621679432043"><span class="annot"><span class="annottext">Value -&gt; Parser [RecoveryOptionNameType]
+Value -&gt; Parser RecoveryOptionNameType
+(Value -&gt; Parser RecoveryOptionNameType)
+-&gt; (Value -&gt; Parser [RecoveryOptionNameType])
+-&gt; FromJSON RecoveryOptionNameType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RecoveryOptionNameType]
+$cparseJSONList :: Value -&gt; Parser [RecoveryOptionNameType]
+parseJSON :: Value -&gt; Parser RecoveryOptionNameType
+$cparseJSON :: Value -&gt; Parser RecoveryOptionNameType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679432036"><span id="local-6989586621679432038"><span class="annot"><span class="annottext">FromJSONKeyFunction [RecoveryOptionNameType]
+FromJSONKeyFunction RecoveryOptionNameType
+FromJSONKeyFunction RecoveryOptionNameType
+-&gt; FromJSONKeyFunction [RecoveryOptionNameType]
+-&gt; FromJSONKey RecoveryOptionNameType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RecoveryOptionNameType]
+$cfromJSONKeyList :: FromJSONKeyFunction [RecoveryOptionNameType]
+fromJSONKey :: FromJSONKeyFunction RecoveryOptionNameType
+$cfromJSONKey :: FromJSONKeyFunction RecoveryOptionNameType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679432027"><span id="local-6989586621679432029"><span id="local-6989586621679432031"><span id="local-6989586621679432033"><span class="annot"><span class="annottext">[RecoveryOptionNameType] -&gt; Encoding
+[RecoveryOptionNameType] -&gt; Value
+RecoveryOptionNameType -&gt; Encoding
+RecoveryOptionNameType -&gt; Value
+(RecoveryOptionNameType -&gt; Value)
+-&gt; (RecoveryOptionNameType -&gt; Encoding)
+-&gt; ([RecoveryOptionNameType] -&gt; Value)
+-&gt; ([RecoveryOptionNameType] -&gt; Encoding)
+-&gt; ToJSON RecoveryOptionNameType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RecoveryOptionNameType] -&gt; Encoding
+$ctoEncodingList :: [RecoveryOptionNameType] -&gt; Encoding
+toJSONList :: [RecoveryOptionNameType] -&gt; Value
+$ctoJSONList :: [RecoveryOptionNameType] -&gt; Value
+toEncoding :: RecoveryOptionNameType -&gt; Encoding
+$ctoEncoding :: RecoveryOptionNameType -&gt; Encoding
+toJSON :: RecoveryOptionNameType -&gt; Value
+$ctoJSON :: RecoveryOptionNameType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679432022"><span id="local-6989586621679432024"><span class="annot"><span class="annottext">ToJSONKeyFunction [RecoveryOptionNameType]
+ToJSONKeyFunction RecoveryOptionNameType
+ToJSONKeyFunction RecoveryOptionNameType
+-&gt; ToJSONKeyFunction [RecoveryOptionNameType]
+-&gt; ToJSONKey RecoveryOptionNameType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RecoveryOptionNameType]
+$ctoJSONKeyList :: ToJSONKeyFunction [RecoveryOptionNameType]
+toJSONKey :: ToJSONKeyFunction RecoveryOptionNameType
+$ctoJSONKey :: ToJSONKeyFunction RecoveryOptionNameType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679432019"><span class="annot"><span class="annottext">[Node] -&gt; Either String RecoveryOptionNameType
+([Node] -&gt; Either String RecoveryOptionNameType)
+-&gt; FromXML RecoveryOptionNameType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RecoveryOptionNameType
+$cparseXML :: [Node] -&gt; Either String RecoveryOptionNameType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679432016"><span class="annot"><span class="annottext">RecoveryOptionNameType -&gt; XML
+(RecoveryOptionNameType -&gt; XML) -&gt; ToXML RecoveryOptionNameType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RecoveryOptionNameType -&gt; XML
+$ctoXML :: RecoveryOptionNameType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType_Admin_only"><span class="hs-identifier hs-type">RecoveryOptionNameType_Admin_only</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType"><span class="hs-identifier hs-type">RecoveryOptionNameType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecoveryOptionNameType_Admin_only"><span id="%24mRecoveryOptionNameType_Admin_only"><span id="RecoveryOptionNameType_Admin_only"><span class="annot"><span class="annottext">$bRecoveryOptionNameType_Admin_only :: RecoveryOptionNameType
+$mRecoveryOptionNameType_Admin_only :: forall r.
+RecoveryOptionNameType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#%24bRecoveryOptionNameType_Admin_only"><span class="hs-identifier hs-var hs-var hs-var">RecoveryOptionNameType_Admin_only</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType%27"><span class="hs-identifier hs-type">RecoveryOptionNameType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;admin_only&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType_Verified_email"><span class="hs-identifier hs-type">RecoveryOptionNameType_Verified_email</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType"><span class="hs-identifier hs-type">RecoveryOptionNameType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecoveryOptionNameType_Verified_email"><span id="%24mRecoveryOptionNameType_Verified_email"><span id="RecoveryOptionNameType_Verified_email"><span class="annot"><span class="annottext">$bRecoveryOptionNameType_Verified_email :: RecoveryOptionNameType
+$mRecoveryOptionNameType_Verified_email :: forall r.
+RecoveryOptionNameType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#%24bRecoveryOptionNameType_Verified_email"><span class="hs-identifier hs-var hs-var hs-var">RecoveryOptionNameType_Verified_email</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType%27"><span class="hs-identifier hs-type">RecoveryOptionNameType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;verified_email&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType_Verified_phone_number"><span class="hs-identifier hs-type">RecoveryOptionNameType_Verified_phone_number</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType"><span class="hs-identifier hs-type">RecoveryOptionNameType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecoveryOptionNameType_Verified_phone_number"><span id="%24mRecoveryOptionNameType_Verified_phone_number"><span id="RecoveryOptionNameType_Verified_phone_number"><span class="annot"><span class="annottext">$bRecoveryOptionNameType_Verified_phone_number :: RecoveryOptionNameType
+$mRecoveryOptionNameType_Verified_phone_number :: forall r.
+RecoveryOptionNameType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#%24bRecoveryOptionNameType_Verified_phone_number"><span class="hs-identifier hs-var hs-var hs-var">RecoveryOptionNameType_Verified_phone_number</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType%27"><span class="hs-identifier hs-type">RecoveryOptionNameType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;verified_phone_number&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType_Admin_only"><span class="hs-pragma hs-type">RecoveryOptionNameType_Admin_only</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType_Verified_email"><span class="hs-pragma hs-type">RecoveryOptionNameType_Verified_email</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType_Verified_phone_number"><span class="hs-pragma hs-type">RecoveryOptionNameType_Verified_phone_number</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType.html#RecoveryOptionNameType%27"><span class="hs-pragma hs-type">RecoveryOptionNameType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

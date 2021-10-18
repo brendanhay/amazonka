@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CostExplorer.Types.RightsizingType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CostExplorer.Types.RightsizingType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#RightsizingType"><span class="hs-identifier">RightsizingType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#RightsizingType_MODIFY"><span class="hs-identifier">RightsizingType_MODIFY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#RightsizingType_TERMINATE"><span class="hs-identifier">RightsizingType_TERMINATE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679335026"><span id="local-6989586621679335027"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RightsizingType"><span class="annot"><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#RightsizingType"><span class="hs-identifier hs-var">RightsizingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RightsizingType%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#RightsizingType%27"><span class="hs-identifier hs-var">RightsizingType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRightsizingType"><span class="annot"><span class="annottext">RightsizingType -&gt; Text
+</span><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#fromRightsizingType"><span class="hs-identifier hs-var hs-var">fromRightsizingType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679335018"><span id="local-6989586621679335020"><span id="local-6989586621679335022"><span class="annot"><span class="annottext">Int -&gt; RightsizingType -&gt; ShowS
+[RightsizingType] -&gt; ShowS
+RightsizingType -&gt; String
+(Int -&gt; RightsizingType -&gt; ShowS)
+-&gt; (RightsizingType -&gt; String)
+-&gt; ([RightsizingType] -&gt; ShowS)
+-&gt; Show RightsizingType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RightsizingType] -&gt; ShowS
+$cshowList :: [RightsizingType] -&gt; ShowS
+show :: RightsizingType -&gt; String
+$cshow :: RightsizingType -&gt; String
+showsPrec :: Int -&gt; RightsizingType -&gt; ShowS
+$cshowsPrec :: Int -&gt; RightsizingType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679335009"><span id="local-6989586621679335011"><span id="local-6989586621679335013"><span id="local-6989586621679335015"><span class="annot"><span class="annottext">ReadPrec [RightsizingType]
+ReadPrec RightsizingType
+Int -&gt; ReadS RightsizingType
+ReadS [RightsizingType]
+(Int -&gt; ReadS RightsizingType)
+-&gt; ReadS [RightsizingType]
+-&gt; ReadPrec RightsizingType
+-&gt; ReadPrec [RightsizingType]
+-&gt; Read RightsizingType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RightsizingType]
+$creadListPrec :: ReadPrec [RightsizingType]
+readPrec :: ReadPrec RightsizingType
+$creadPrec :: ReadPrec RightsizingType
+readList :: ReadS [RightsizingType]
+$creadList :: ReadS [RightsizingType]
+readsPrec :: Int -&gt; ReadS RightsizingType
+$creadsPrec :: Int -&gt; ReadS RightsizingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679335004"><span id="local-6989586621679335006"><span class="annot"><span class="annottext">RightsizingType -&gt; RightsizingType -&gt; Bool
+(RightsizingType -&gt; RightsizingType -&gt; Bool)
+-&gt; (RightsizingType -&gt; RightsizingType -&gt; Bool)
+-&gt; Eq RightsizingType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RightsizingType -&gt; RightsizingType -&gt; Bool
+$c/= :: RightsizingType -&gt; RightsizingType -&gt; Bool
+== :: RightsizingType -&gt; RightsizingType -&gt; Bool
+$c== :: RightsizingType -&gt; RightsizingType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679334988"><span id="local-6989586621679334990"><span id="local-6989586621679334992"><span id="local-6989586621679334994"><span id="local-6989586621679334996"><span id="local-6989586621679334998"><span id="local-6989586621679335000"><span class="annot"><span class="annottext">Eq RightsizingType
+Eq RightsizingType
+-&gt; (RightsizingType -&gt; RightsizingType -&gt; Ordering)
+-&gt; (RightsizingType -&gt; RightsizingType -&gt; Bool)
+-&gt; (RightsizingType -&gt; RightsizingType -&gt; Bool)
+-&gt; (RightsizingType -&gt; RightsizingType -&gt; Bool)
+-&gt; (RightsizingType -&gt; RightsizingType -&gt; Bool)
+-&gt; (RightsizingType -&gt; RightsizingType -&gt; RightsizingType)
+-&gt; (RightsizingType -&gt; RightsizingType -&gt; RightsizingType)
+-&gt; Ord RightsizingType
+RightsizingType -&gt; RightsizingType -&gt; Bool
+RightsizingType -&gt; RightsizingType -&gt; Ordering
+RightsizingType -&gt; RightsizingType -&gt; RightsizingType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RightsizingType -&gt; RightsizingType -&gt; RightsizingType
+$cmin :: RightsizingType -&gt; RightsizingType -&gt; RightsizingType
+max :: RightsizingType -&gt; RightsizingType -&gt; RightsizingType
+$cmax :: RightsizingType -&gt; RightsizingType -&gt; RightsizingType
+&gt;= :: RightsizingType -&gt; RightsizingType -&gt; Bool
+$c&gt;= :: RightsizingType -&gt; RightsizingType -&gt; Bool
+&gt; :: RightsizingType -&gt; RightsizingType -&gt; Bool
+$c&gt; :: RightsizingType -&gt; RightsizingType -&gt; Bool
+&lt;= :: RightsizingType -&gt; RightsizingType -&gt; Bool
+$c&lt;= :: RightsizingType -&gt; RightsizingType -&gt; Bool
+&lt; :: RightsizingType -&gt; RightsizingType -&gt; Bool
+$c&lt; :: RightsizingType -&gt; RightsizingType -&gt; Bool
+compare :: RightsizingType -&gt; RightsizingType -&gt; Ordering
+$ccompare :: RightsizingType -&gt; RightsizingType -&gt; Ordering
+$cp1Ord :: Eq RightsizingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RightsizingType -&gt; Rep RightsizingType x)
+-&gt; (forall x. Rep RightsizingType x -&gt; RightsizingType)
+-&gt; Generic RightsizingType
+forall x. Rep RightsizingType x -&gt; RightsizingType
+forall x. RightsizingType -&gt; Rep RightsizingType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RightsizingType x -&gt; RightsizingType
+$cfrom :: forall x. RightsizingType -&gt; Rep RightsizingType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679334980"><span id="local-6989586621679334982"><span class="annot"><span class="annottext">Int -&gt; RightsizingType -&gt; Int
+RightsizingType -&gt; Int
+(Int -&gt; RightsizingType -&gt; Int)
+-&gt; (RightsizingType -&gt; Int) -&gt; Hashable RightsizingType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RightsizingType -&gt; Int
+$chash :: RightsizingType -&gt; Int
+hashWithSalt :: Int -&gt; RightsizingType -&gt; Int
+$chashWithSalt :: Int -&gt; RightsizingType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679334977"><span class="annot"><span class="annottext">RightsizingType -&gt; ()
+(RightsizingType -&gt; ()) -&gt; NFData RightsizingType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RightsizingType -&gt; ()
+$crnf :: RightsizingType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679334974"><span class="annot"><span class="annottext">Text -&gt; Either String RightsizingType
+(Text -&gt; Either String RightsizingType) -&gt; FromText RightsizingType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RightsizingType
+$cfromText :: Text -&gt; Either String RightsizingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679334971"><span class="annot"><span class="annottext">RightsizingType -&gt; Text
+(RightsizingType -&gt; Text) -&gt; ToText RightsizingType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RightsizingType -&gt; Text
+$ctoText :: RightsizingType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679334968"><span class="annot"><span class="annottext">RightsizingType -&gt; ByteString
+(RightsizingType -&gt; ByteString) -&gt; ToByteString RightsizingType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RightsizingType -&gt; ByteString
+$ctoBS :: RightsizingType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679334965"><span class="annot"><span class="annottext">RightsizingType -&gt; ByteStringBuilder
+(RightsizingType -&gt; ByteStringBuilder) -&gt; ToLog RightsizingType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RightsizingType -&gt; ByteStringBuilder
+$cbuild :: RightsizingType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679334962"><span class="annot"><span class="annottext">HeaderName -&gt; RightsizingType -&gt; [Header]
+(HeaderName -&gt; RightsizingType -&gt; [Header])
+-&gt; ToHeader RightsizingType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RightsizingType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RightsizingType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679334959"><span class="annot"><span class="annottext">RightsizingType -&gt; QueryString
+(RightsizingType -&gt; QueryString) -&gt; ToQuery RightsizingType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RightsizingType -&gt; QueryString
+$ctoQuery :: RightsizingType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679334954"><span id="local-6989586621679334956"><span class="annot"><span class="annottext">Value -&gt; Parser [RightsizingType]
+Value -&gt; Parser RightsizingType
+(Value -&gt; Parser RightsizingType)
+-&gt; (Value -&gt; Parser [RightsizingType]) -&gt; FromJSON RightsizingType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RightsizingType]
+$cparseJSONList :: Value -&gt; Parser [RightsizingType]
+parseJSON :: Value -&gt; Parser RightsizingType
+$cparseJSON :: Value -&gt; Parser RightsizingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679334949"><span id="local-6989586621679334951"><span class="annot"><span class="annottext">FromJSONKeyFunction [RightsizingType]
+FromJSONKeyFunction RightsizingType
+FromJSONKeyFunction RightsizingType
+-&gt; FromJSONKeyFunction [RightsizingType]
+-&gt; FromJSONKey RightsizingType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RightsizingType]
+$cfromJSONKeyList :: FromJSONKeyFunction [RightsizingType]
+fromJSONKey :: FromJSONKeyFunction RightsizingType
+$cfromJSONKey :: FromJSONKeyFunction RightsizingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679334940"><span id="local-6989586621679334942"><span id="local-6989586621679334944"><span id="local-6989586621679334946"><span class="annot"><span class="annottext">[RightsizingType] -&gt; Encoding
+[RightsizingType] -&gt; Value
+RightsizingType -&gt; Encoding
+RightsizingType -&gt; Value
+(RightsizingType -&gt; Value)
+-&gt; (RightsizingType -&gt; Encoding)
+-&gt; ([RightsizingType] -&gt; Value)
+-&gt; ([RightsizingType] -&gt; Encoding)
+-&gt; ToJSON RightsizingType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RightsizingType] -&gt; Encoding
+$ctoEncodingList :: [RightsizingType] -&gt; Encoding
+toJSONList :: [RightsizingType] -&gt; Value
+$ctoJSONList :: [RightsizingType] -&gt; Value
+toEncoding :: RightsizingType -&gt; Encoding
+$ctoEncoding :: RightsizingType -&gt; Encoding
+toJSON :: RightsizingType -&gt; Value
+$ctoJSON :: RightsizingType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679334935"><span id="local-6989586621679334937"><span class="annot"><span class="annottext">ToJSONKeyFunction [RightsizingType]
+ToJSONKeyFunction RightsizingType
+ToJSONKeyFunction RightsizingType
+-&gt; ToJSONKeyFunction [RightsizingType] -&gt; ToJSONKey RightsizingType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RightsizingType]
+$ctoJSONKeyList :: ToJSONKeyFunction [RightsizingType]
+toJSONKey :: ToJSONKeyFunction RightsizingType
+$ctoJSONKey :: ToJSONKeyFunction RightsizingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679334932"><span class="annot"><span class="annottext">[Node] -&gt; Either String RightsizingType
+([Node] -&gt; Either String RightsizingType)
+-&gt; FromXML RightsizingType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RightsizingType
+$cparseXML :: [Node] -&gt; Either String RightsizingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679334929"><span class="annot"><span class="annottext">RightsizingType -&gt; XML
+(RightsizingType -&gt; XML) -&gt; ToXML RightsizingType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RightsizingType -&gt; XML
+$ctoXML :: RightsizingType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#RightsizingType_MODIFY"><span class="hs-identifier hs-type">RightsizingType_MODIFY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#RightsizingType"><span class="hs-identifier hs-type">RightsizingType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRightsizingType_MODIFY"><span id="%24mRightsizingType_MODIFY"><span id="RightsizingType_MODIFY"><span class="annot"><span class="annottext">$bRightsizingType_MODIFY :: RightsizingType
+$mRightsizingType_MODIFY :: forall r. RightsizingType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#%24bRightsizingType_MODIFY"><span class="hs-identifier hs-var hs-var hs-var">RightsizingType_MODIFY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#RightsizingType%27"><span class="hs-identifier hs-type">RightsizingType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MODIFY&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#RightsizingType_TERMINATE"><span class="hs-identifier hs-type">RightsizingType_TERMINATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#RightsizingType"><span class="hs-identifier hs-type">RightsizingType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRightsizingType_TERMINATE"><span id="%24mRightsizingType_TERMINATE"><span id="RightsizingType_TERMINATE"><span class="annot"><span class="annottext">$bRightsizingType_TERMINATE :: RightsizingType
+$mRightsizingType_TERMINATE :: forall r. RightsizingType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#%24bRightsizingType_TERMINATE"><span class="hs-identifier hs-var hs-var hs-var">RightsizingType_TERMINATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#RightsizingType%27"><span class="hs-identifier hs-type">RightsizingType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERMINATE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#RightsizingType_MODIFY"><span class="hs-pragma hs-type">RightsizingType_MODIFY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#RightsizingType_TERMINATE"><span class="hs-pragma hs-type">RightsizingType_TERMINATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RightsizingType.html#RightsizingType%27"><span class="hs-pragma hs-type">RightsizingType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticBeanstalk.Types.PlatformStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticBeanstalk.Types.PlatformStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus"><span class="hs-identifier">PlatformStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus_Creating"><span class="hs-identifier">PlatformStatus_Creating</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus_Deleted"><span class="hs-identifier">PlatformStatus_Deleted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus_Deleting"><span class="hs-identifier">PlatformStatus_Deleting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus_Failed"><span class="hs-identifier">PlatformStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus_Ready"><span class="hs-identifier">PlatformStatus_Ready</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679305420"><span id="local-6989586621679305421"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlatformStatus"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus"><span class="hs-identifier hs-var">PlatformStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlatformStatus%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus%27"><span class="hs-identifier hs-var">PlatformStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPlatformStatus"><span class="annot"><span class="annottext">PlatformStatus -&gt; Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#fromPlatformStatus"><span class="hs-identifier hs-var hs-var">fromPlatformStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305412"><span id="local-6989586621679305414"><span id="local-6989586621679305416"><span class="annot"><span class="annottext">Int -&gt; PlatformStatus -&gt; ShowS
+[PlatformStatus] -&gt; ShowS
+PlatformStatus -&gt; String
+(Int -&gt; PlatformStatus -&gt; ShowS)
+-&gt; (PlatformStatus -&gt; String)
+-&gt; ([PlatformStatus] -&gt; ShowS)
+-&gt; Show PlatformStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PlatformStatus] -&gt; ShowS
+$cshowList :: [PlatformStatus] -&gt; ShowS
+show :: PlatformStatus -&gt; String
+$cshow :: PlatformStatus -&gt; String
+showsPrec :: Int -&gt; PlatformStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; PlatformStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679305403"><span id="local-6989586621679305405"><span id="local-6989586621679305407"><span id="local-6989586621679305409"><span class="annot"><span class="annottext">ReadPrec [PlatformStatus]
+ReadPrec PlatformStatus
+Int -&gt; ReadS PlatformStatus
+ReadS [PlatformStatus]
+(Int -&gt; ReadS PlatformStatus)
+-&gt; ReadS [PlatformStatus]
+-&gt; ReadPrec PlatformStatus
+-&gt; ReadPrec [PlatformStatus]
+-&gt; Read PlatformStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PlatformStatus]
+$creadListPrec :: ReadPrec [PlatformStatus]
+readPrec :: ReadPrec PlatformStatus
+$creadPrec :: ReadPrec PlatformStatus
+readList :: ReadS [PlatformStatus]
+$creadList :: ReadS [PlatformStatus]
+readsPrec :: Int -&gt; ReadS PlatformStatus
+$creadsPrec :: Int -&gt; ReadS PlatformStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679305398"><span id="local-6989586621679305400"><span class="annot"><span class="annottext">PlatformStatus -&gt; PlatformStatus -&gt; Bool
+(PlatformStatus -&gt; PlatformStatus -&gt; Bool)
+-&gt; (PlatformStatus -&gt; PlatformStatus -&gt; Bool) -&gt; Eq PlatformStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PlatformStatus -&gt; PlatformStatus -&gt; Bool
+$c/= :: PlatformStatus -&gt; PlatformStatus -&gt; Bool
+== :: PlatformStatus -&gt; PlatformStatus -&gt; Bool
+$c== :: PlatformStatus -&gt; PlatformStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679305382"><span id="local-6989586621679305384"><span id="local-6989586621679305386"><span id="local-6989586621679305388"><span id="local-6989586621679305390"><span id="local-6989586621679305392"><span id="local-6989586621679305394"><span class="annot"><span class="annottext">Eq PlatformStatus
+Eq PlatformStatus
+-&gt; (PlatformStatus -&gt; PlatformStatus -&gt; Ordering)
+-&gt; (PlatformStatus -&gt; PlatformStatus -&gt; Bool)
+-&gt; (PlatformStatus -&gt; PlatformStatus -&gt; Bool)
+-&gt; (PlatformStatus -&gt; PlatformStatus -&gt; Bool)
+-&gt; (PlatformStatus -&gt; PlatformStatus -&gt; Bool)
+-&gt; (PlatformStatus -&gt; PlatformStatus -&gt; PlatformStatus)
+-&gt; (PlatformStatus -&gt; PlatformStatus -&gt; PlatformStatus)
+-&gt; Ord PlatformStatus
+PlatformStatus -&gt; PlatformStatus -&gt; Bool
+PlatformStatus -&gt; PlatformStatus -&gt; Ordering
+PlatformStatus -&gt; PlatformStatus -&gt; PlatformStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PlatformStatus -&gt; PlatformStatus -&gt; PlatformStatus
+$cmin :: PlatformStatus -&gt; PlatformStatus -&gt; PlatformStatus
+max :: PlatformStatus -&gt; PlatformStatus -&gt; PlatformStatus
+$cmax :: PlatformStatus -&gt; PlatformStatus -&gt; PlatformStatus
+&gt;= :: PlatformStatus -&gt; PlatformStatus -&gt; Bool
+$c&gt;= :: PlatformStatus -&gt; PlatformStatus -&gt; Bool
+&gt; :: PlatformStatus -&gt; PlatformStatus -&gt; Bool
+$c&gt; :: PlatformStatus -&gt; PlatformStatus -&gt; Bool
+&lt;= :: PlatformStatus -&gt; PlatformStatus -&gt; Bool
+$c&lt;= :: PlatformStatus -&gt; PlatformStatus -&gt; Bool
+&lt; :: PlatformStatus -&gt; PlatformStatus -&gt; Bool
+$c&lt; :: PlatformStatus -&gt; PlatformStatus -&gt; Bool
+compare :: PlatformStatus -&gt; PlatformStatus -&gt; Ordering
+$ccompare :: PlatformStatus -&gt; PlatformStatus -&gt; Ordering
+$cp1Ord :: Eq PlatformStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PlatformStatus -&gt; Rep PlatformStatus x)
+-&gt; (forall x. Rep PlatformStatus x -&gt; PlatformStatus)
+-&gt; Generic PlatformStatus
+forall x. Rep PlatformStatus x -&gt; PlatformStatus
+forall x. PlatformStatus -&gt; Rep PlatformStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PlatformStatus x -&gt; PlatformStatus
+$cfrom :: forall x. PlatformStatus -&gt; Rep PlatformStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305374"><span id="local-6989586621679305376"><span class="annot"><span class="annottext">Int -&gt; PlatformStatus -&gt; Int
+PlatformStatus -&gt; Int
+(Int -&gt; PlatformStatus -&gt; Int)
+-&gt; (PlatformStatus -&gt; Int) -&gt; Hashable PlatformStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PlatformStatus -&gt; Int
+$chash :: PlatformStatus -&gt; Int
+hashWithSalt :: Int -&gt; PlatformStatus -&gt; Int
+$chashWithSalt :: Int -&gt; PlatformStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679305371"><span class="annot"><span class="annottext">PlatformStatus -&gt; ()
+(PlatformStatus -&gt; ()) -&gt; NFData PlatformStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PlatformStatus -&gt; ()
+$crnf :: PlatformStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679305368"><span class="annot"><span class="annottext">Text -&gt; Either String PlatformStatus
+(Text -&gt; Either String PlatformStatus) -&gt; FromText PlatformStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PlatformStatus
+$cfromText :: Text -&gt; Either String PlatformStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679305365"><span class="annot"><span class="annottext">PlatformStatus -&gt; Text
+(PlatformStatus -&gt; Text) -&gt; ToText PlatformStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PlatformStatus -&gt; Text
+$ctoText :: PlatformStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679305362"><span class="annot"><span class="annottext">PlatformStatus -&gt; ByteString
+(PlatformStatus -&gt; ByteString) -&gt; ToByteString PlatformStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PlatformStatus -&gt; ByteString
+$ctoBS :: PlatformStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679305359"><span class="annot"><span class="annottext">PlatformStatus -&gt; ByteStringBuilder
+(PlatformStatus -&gt; ByteStringBuilder) -&gt; ToLog PlatformStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PlatformStatus -&gt; ByteStringBuilder
+$cbuild :: PlatformStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679305356"><span class="annot"><span class="annottext">HeaderName -&gt; PlatformStatus -&gt; [Header]
+(HeaderName -&gt; PlatformStatus -&gt; [Header])
+-&gt; ToHeader PlatformStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PlatformStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PlatformStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679305353"><span class="annot"><span class="annottext">PlatformStatus -&gt; QueryString
+(PlatformStatus -&gt; QueryString) -&gt; ToQuery PlatformStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PlatformStatus -&gt; QueryString
+$ctoQuery :: PlatformStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679305348"><span id="local-6989586621679305350"><span class="annot"><span class="annottext">Value -&gt; Parser [PlatformStatus]
+Value -&gt; Parser PlatformStatus
+(Value -&gt; Parser PlatformStatus)
+-&gt; (Value -&gt; Parser [PlatformStatus]) -&gt; FromJSON PlatformStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PlatformStatus]
+$cparseJSONList :: Value -&gt; Parser [PlatformStatus]
+parseJSON :: Value -&gt; Parser PlatformStatus
+$cparseJSON :: Value -&gt; Parser PlatformStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679305343"><span id="local-6989586621679305345"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlatformStatus]
+FromJSONKeyFunction PlatformStatus
+FromJSONKeyFunction PlatformStatus
+-&gt; FromJSONKeyFunction [PlatformStatus]
+-&gt; FromJSONKey PlatformStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PlatformStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [PlatformStatus]
+fromJSONKey :: FromJSONKeyFunction PlatformStatus
+$cfromJSONKey :: FromJSONKeyFunction PlatformStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679305334"><span id="local-6989586621679305336"><span id="local-6989586621679305338"><span id="local-6989586621679305340"><span class="annot"><span class="annottext">[PlatformStatus] -&gt; Encoding
+[PlatformStatus] -&gt; Value
+PlatformStatus -&gt; Encoding
+PlatformStatus -&gt; Value
+(PlatformStatus -&gt; Value)
+-&gt; (PlatformStatus -&gt; Encoding)
+-&gt; ([PlatformStatus] -&gt; Value)
+-&gt; ([PlatformStatus] -&gt; Encoding)
+-&gt; ToJSON PlatformStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PlatformStatus] -&gt; Encoding
+$ctoEncodingList :: [PlatformStatus] -&gt; Encoding
+toJSONList :: [PlatformStatus] -&gt; Value
+$ctoJSONList :: [PlatformStatus] -&gt; Value
+toEncoding :: PlatformStatus -&gt; Encoding
+$ctoEncoding :: PlatformStatus -&gt; Encoding
+toJSON :: PlatformStatus -&gt; Value
+$ctoJSON :: PlatformStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679305329"><span id="local-6989586621679305331"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlatformStatus]
+ToJSONKeyFunction PlatformStatus
+ToJSONKeyFunction PlatformStatus
+-&gt; ToJSONKeyFunction [PlatformStatus] -&gt; ToJSONKey PlatformStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PlatformStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [PlatformStatus]
+toJSONKey :: ToJSONKeyFunction PlatformStatus
+$ctoJSONKey :: ToJSONKeyFunction PlatformStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679305326"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlatformStatus
+([Node] -&gt; Either String PlatformStatus) -&gt; FromXML PlatformStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PlatformStatus
+$cparseXML :: [Node] -&gt; Either String PlatformStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679305323"><span class="annot"><span class="annottext">PlatformStatus -&gt; XML
+(PlatformStatus -&gt; XML) -&gt; ToXML PlatformStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PlatformStatus -&gt; XML
+$ctoXML :: PlatformStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus_Creating"><span class="hs-identifier hs-type">PlatformStatus_Creating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus"><span class="hs-identifier hs-type">PlatformStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlatformStatus_Creating"><span id="%24mPlatformStatus_Creating"><span id="PlatformStatus_Creating"><span class="annot"><span class="annottext">$bPlatformStatus_Creating :: PlatformStatus
+$mPlatformStatus_Creating :: forall r. PlatformStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#%24bPlatformStatus_Creating"><span class="hs-identifier hs-var hs-var hs-var">PlatformStatus_Creating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus%27"><span class="hs-identifier hs-type">PlatformStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Creating&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus_Deleted"><span class="hs-identifier hs-type">PlatformStatus_Deleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus"><span class="hs-identifier hs-type">PlatformStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlatformStatus_Deleted"><span id="%24mPlatformStatus_Deleted"><span id="PlatformStatus_Deleted"><span class="annot"><span class="annottext">$bPlatformStatus_Deleted :: PlatformStatus
+$mPlatformStatus_Deleted :: forall r. PlatformStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#%24bPlatformStatus_Deleted"><span class="hs-identifier hs-var hs-var hs-var">PlatformStatus_Deleted</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus%27"><span class="hs-identifier hs-type">PlatformStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Deleted&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus_Deleting"><span class="hs-identifier hs-type">PlatformStatus_Deleting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus"><span class="hs-identifier hs-type">PlatformStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlatformStatus_Deleting"><span id="%24mPlatformStatus_Deleting"><span id="PlatformStatus_Deleting"><span class="annot"><span class="annottext">$bPlatformStatus_Deleting :: PlatformStatus
+$mPlatformStatus_Deleting :: forall r. PlatformStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#%24bPlatformStatus_Deleting"><span class="hs-identifier hs-var hs-var hs-var">PlatformStatus_Deleting</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus%27"><span class="hs-identifier hs-type">PlatformStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Deleting&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus_Failed"><span class="hs-identifier hs-type">PlatformStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus"><span class="hs-identifier hs-type">PlatformStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlatformStatus_Failed"><span id="%24mPlatformStatus_Failed"><span id="PlatformStatus_Failed"><span class="annot"><span class="annottext">$bPlatformStatus_Failed :: PlatformStatus
+$mPlatformStatus_Failed :: forall r. PlatformStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#%24bPlatformStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">PlatformStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus%27"><span class="hs-identifier hs-type">PlatformStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus_Ready"><span class="hs-identifier hs-type">PlatformStatus_Ready</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus"><span class="hs-identifier hs-type">PlatformStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlatformStatus_Ready"><span id="%24mPlatformStatus_Ready"><span id="PlatformStatus_Ready"><span class="annot"><span class="annottext">$bPlatformStatus_Ready :: PlatformStatus
+$mPlatformStatus_Ready :: forall r. PlatformStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#%24bPlatformStatus_Ready"><span class="hs-identifier hs-var hs-var hs-var">PlatformStatus_Ready</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus%27"><span class="hs-identifier hs-type">PlatformStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Ready&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus_Creating"><span class="hs-pragma hs-type">PlatformStatus_Creating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus_Deleted"><span class="hs-pragma hs-type">PlatformStatus_Deleted</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus_Deleting"><span class="hs-pragma hs-type">PlatformStatus_Deleting</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus_Failed"><span class="hs-pragma hs-type">PlatformStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus_Ready"><span class="hs-pragma hs-type">PlatformStatus_Ready</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformStatus.html#PlatformStatus%27"><span class="hs-pragma hs-type">PlatformStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

@@ -1,0 +1,842 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ECS.ExecuteCommand</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Runs a command remotely on a container within a task.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ECS.ExecuteCommand</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier">ExecuteCommand</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#newExecuteCommand"><span class="hs-identifier">newExecuteCommand</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommand_container"><span class="hs-identifier">executeCommand_container</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommand_cluster"><span class="hs-identifier">executeCommand_cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommand_command"><span class="hs-identifier">executeCommand_command</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommand_interactive"><span class="hs-identifier">executeCommand_interactive</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommand_task"><span class="hs-identifier">executeCommand_task</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier">ExecuteCommandResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#newExecuteCommandResponse"><span class="hs-identifier">newExecuteCommandResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_clusterArn"><span class="hs-identifier">executeCommandResponse_clusterArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_interactive"><span class="hs-identifier">executeCommandResponse_interactive</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_containerArn"><span class="hs-identifier">executeCommandResponse_containerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_session"><span class="hs-identifier">executeCommandResponse_session</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_containerName"><span class="hs-identifier">executeCommandResponse_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_taskArn"><span class="hs-identifier">executeCommandResponse_taskArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_httpStatus"><span class="hs-identifier">executeCommandResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.html"><span class="hs-identifier">Network.AWS.ECS.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newExecuteCommand' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679474685"><span id="local-6989586621679474686"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecuteCommand"><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-var">ExecuteCommand</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecuteCommand%27"><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand%27"><span class="hs-identifier hs-var">ExecuteCommand'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the container to execute the command on. A container name</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- only needs to be specified for tasks containing multiple containers.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Acontainer%3AExecuteCommand%27"><span class="annot"><span class="annottext">ExecuteCommand -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Acontainer%3AExecuteCommand%27"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) or short name of the cluster the task is</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- running in. If you do not specify a cluster, the default cluster is</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- assumed.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Acluster%3AExecuteCommand%27"><span class="annot"><span class="annottext">ExecuteCommand -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Acluster%3AExecuteCommand%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The command to run on the container.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Acommand%3AExecuteCommand%27"><span class="annot"><span class="annottext">ExecuteCommand -&gt; Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Acommand%3AExecuteCommand%27"><span class="hs-identifier hs-var hs-var">command</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Use this flag to run your command in interactive mode.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Ainteractive%3AExecuteCommand%27"><span class="annot"><span class="annottext">ExecuteCommand -&gt; Bool
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Ainteractive%3AExecuteCommand%27"><span class="hs-identifier hs-var hs-var">interactive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) or ID of the task the container is part</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- of.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Atask%3AExecuteCommand%27"><span class="annot"><span class="annottext">ExecuteCommand -&gt; Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Atask%3AExecuteCommand%27"><span class="hs-identifier hs-var hs-var">task</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679474675"><span id="local-6989586621679474677"><span class="annot"><span class="annottext">ExecuteCommand -&gt; ExecuteCommand -&gt; Bool
+(ExecuteCommand -&gt; ExecuteCommand -&gt; Bool)
+-&gt; (ExecuteCommand -&gt; ExecuteCommand -&gt; Bool) -&gt; Eq ExecuteCommand
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExecuteCommand -&gt; ExecuteCommand -&gt; Bool
+$c/= :: ExecuteCommand -&gt; ExecuteCommand -&gt; Bool
+== :: ExecuteCommand -&gt; ExecuteCommand -&gt; Bool
+$c== :: ExecuteCommand -&gt; ExecuteCommand -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679474666"><span id="local-6989586621679474668"><span id="local-6989586621679474670"><span id="local-6989586621679474672"><span class="annot"><span class="annottext">ReadPrec [ExecuteCommand]
+ReadPrec ExecuteCommand
+Int -&gt; ReadS ExecuteCommand
+ReadS [ExecuteCommand]
+(Int -&gt; ReadS ExecuteCommand)
+-&gt; ReadS [ExecuteCommand]
+-&gt; ReadPrec ExecuteCommand
+-&gt; ReadPrec [ExecuteCommand]
+-&gt; Read ExecuteCommand
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExecuteCommand]
+$creadListPrec :: ReadPrec [ExecuteCommand]
+readPrec :: ReadPrec ExecuteCommand
+$creadPrec :: ReadPrec ExecuteCommand
+readList :: ReadS [ExecuteCommand]
+$creadList :: ReadS [ExecuteCommand]
+readsPrec :: Int -&gt; ReadS ExecuteCommand
+$creadsPrec :: Int -&gt; ReadS ExecuteCommand
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679474659"><span id="local-6989586621679474661"><span id="local-6989586621679474663"><span class="annot"><span class="annottext">Int -&gt; ExecuteCommand -&gt; ShowS
+[ExecuteCommand] -&gt; ShowS
+ExecuteCommand -&gt; String
+(Int -&gt; ExecuteCommand -&gt; ShowS)
+-&gt; (ExecuteCommand -&gt; String)
+-&gt; ([ExecuteCommand] -&gt; ShowS)
+-&gt; Show ExecuteCommand
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExecuteCommand] -&gt; ShowS
+$cshowList :: [ExecuteCommand] -&gt; ShowS
+show :: ExecuteCommand -&gt; String
+$cshow :: ExecuteCommand -&gt; String
+showsPrec :: Int -&gt; ExecuteCommand -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExecuteCommand -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ExecuteCommand -&gt; Rep ExecuteCommand x)
+-&gt; (forall x. Rep ExecuteCommand x -&gt; ExecuteCommand)
+-&gt; Generic ExecuteCommand
+forall x. Rep ExecuteCommand x -&gt; ExecuteCommand
+forall x. ExecuteCommand -&gt; Rep ExecuteCommand x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExecuteCommand x -&gt; ExecuteCommand
+$cfrom :: forall x. ExecuteCommand -&gt; Rep ExecuteCommand x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'ExecuteCommand' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'container', 'executeCommand_container' - The name of the container to execute the command on. A container name</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- only needs to be specified for tasks containing multiple containers.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'cluster', 'executeCommand_cluster' - The Amazon Resource Name (ARN) or short name of the cluster the task is</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- running in. If you do not specify a cluster, the default cluster is</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- assumed.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'command', 'executeCommand_command' - The command to run on the container.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'interactive', 'executeCommand_interactive' - Use this flag to run your command in interactive mode.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'task', 'executeCommand_task' - The Amazon Resource Name (ARN) or ID of the task the container is part</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- of.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#newExecuteCommand"><span class="hs-identifier hs-type">newExecuteCommand</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'command'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'interactive'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'task'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span><span>
+</span><span id="line-106"></span><span id="newExecuteCommand"><span class="annot"><span class="annottext">newExecuteCommand :: Text -&gt; Bool -&gt; Text -&gt; ExecuteCommand
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#newExecuteCommand"><span class="hs-identifier hs-var hs-var">newExecuteCommand</span></a></span></span><span> </span><span id="local-6989586621679474654"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679474654"><span class="hs-identifier hs-var">pCommand_</span></a></span></span><span> </span><span id="local-6989586621679474653"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679474653"><span class="hs-identifier hs-var">pInteractive_</span></a></span></span><span> </span><span id="local-6989586621679474652"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679474652"><span class="hs-identifier hs-var">pTask_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">ExecuteCommand' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Bool -&gt; Text -&gt; ExecuteCommand
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand%27"><span class="hs-identifier hs-type">ExecuteCommand'</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:container:ExecuteCommand' :: Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Acontainer%3AExecuteCommand%27"><span class="hs-identifier hs-var">container</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:cluster:ExecuteCommand' :: Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Acluster%3AExecuteCommand%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:command:ExecuteCommand' :: Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Acommand%3AExecuteCommand%27"><span class="hs-identifier hs-var">command</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679474654"><span class="hs-identifier hs-var">pCommand_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:interactive:ExecuteCommand' :: Bool
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Ainteractive%3AExecuteCommand%27"><span class="hs-identifier hs-var">interactive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679474653"><span class="hs-identifier hs-var">pInteractive_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:task:ExecuteCommand' :: Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Atask%3AExecuteCommand%27"><span class="hs-identifier hs-var">task</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679474652"><span class="hs-identifier hs-var">pTask_</span></a></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The name of the container to execute the command on. A container name</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- only needs to be specified for tasks containing multiple containers.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommand_container"><span class="hs-identifier hs-type">executeCommand_container</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="executeCommand_container"><span class="annot"><span class="annottext">executeCommand_container :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExecuteCommand -&gt; f ExecuteCommand
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommand_container"><span class="hs-identifier hs-var hs-var">executeCommand_container</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteCommand -&gt; Maybe Text)
+-&gt; (ExecuteCommand -&gt; Maybe Text -&gt; ExecuteCommand)
+-&gt; Lens ExecuteCommand ExecuteCommand (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand%27"><span class="hs-identifier hs-type">ExecuteCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474649"><span class="annot"><span class="annottext">Maybe Text
+container :: Maybe Text
+$sel:container:ExecuteCommand' :: ExecuteCommand -&gt; Maybe Text
+</span><a href="#local-6989586621679474649"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474649"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474648"><span class="annot"><span class="annottext">s :: ExecuteCommand
+</span><a href="#local-6989586621679474648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand%27"><span class="hs-identifier hs-type">ExecuteCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474647"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommand
+</span><a href="#local-6989586621679474648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:container:ExecuteCommand' :: Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Acontainer%3AExecuteCommand%27"><span class="hs-identifier hs-var">container</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) or short name of the cluster the task is</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- running in. If you do not specify a cluster, the default cluster is</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- assumed.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommand_cluster"><span class="hs-identifier hs-type">executeCommand_cluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="executeCommand_cluster"><span class="annot"><span class="annottext">executeCommand_cluster :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExecuteCommand -&gt; f ExecuteCommand
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommand_cluster"><span class="hs-identifier hs-var hs-var">executeCommand_cluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteCommand -&gt; Maybe Text)
+-&gt; (ExecuteCommand -&gt; Maybe Text -&gt; ExecuteCommand)
+-&gt; Lens ExecuteCommand ExecuteCommand (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand%27"><span class="hs-identifier hs-type">ExecuteCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474646"><span class="annot"><span class="annottext">Maybe Text
+cluster :: Maybe Text
+$sel:cluster:ExecuteCommand' :: ExecuteCommand -&gt; Maybe Text
+</span><a href="#local-6989586621679474646"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474646"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474645"><span class="annot"><span class="annottext">s :: ExecuteCommand
+</span><a href="#local-6989586621679474645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand%27"><span class="hs-identifier hs-type">ExecuteCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474644"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommand
+</span><a href="#local-6989586621679474645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:ExecuteCommand' :: Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Acluster%3AExecuteCommand%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The command to run on the container.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommand_command"><span class="hs-identifier hs-type">executeCommand_command</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-128"></span><span id="executeCommand_command"><span class="annot"><span class="annottext">executeCommand_command :: (Text -&gt; f Text) -&gt; ExecuteCommand -&gt; f ExecuteCommand
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommand_command"><span class="hs-identifier hs-var hs-var">executeCommand_command</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteCommand -&gt; Text)
+-&gt; (ExecuteCommand -&gt; Text -&gt; ExecuteCommand)
+-&gt; Lens ExecuteCommand ExecuteCommand Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand%27"><span class="hs-identifier hs-type">ExecuteCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474643"><span class="annot"><span class="annottext">Text
+command :: Text
+$sel:command:ExecuteCommand' :: ExecuteCommand -&gt; Text
+</span><a href="#local-6989586621679474643"><span class="hs-identifier hs-var hs-var">command</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679474643"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474642"><span class="annot"><span class="annottext">s :: ExecuteCommand
+</span><a href="#local-6989586621679474642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand%27"><span class="hs-identifier hs-type">ExecuteCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474641"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679474641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommand
+</span><a href="#local-6989586621679474642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:command:ExecuteCommand' :: Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Acommand%3AExecuteCommand%27"><span class="hs-identifier hs-var">command</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679474641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | Use this flag to run your command in interactive mode.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommand_interactive"><span class="hs-identifier hs-type">executeCommand_interactive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-132"></span><span id="executeCommand_interactive"><span class="annot"><span class="annottext">executeCommand_interactive :: (Bool -&gt; f Bool) -&gt; ExecuteCommand -&gt; f ExecuteCommand
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommand_interactive"><span class="hs-identifier hs-var hs-var">executeCommand_interactive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteCommand -&gt; Bool)
+-&gt; (ExecuteCommand -&gt; Bool -&gt; ExecuteCommand)
+-&gt; Lens ExecuteCommand ExecuteCommand Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand%27"><span class="hs-identifier hs-type">ExecuteCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474640"><span class="annot"><span class="annottext">Bool
+interactive :: Bool
+$sel:interactive:ExecuteCommand' :: ExecuteCommand -&gt; Bool
+</span><a href="#local-6989586621679474640"><span class="hs-identifier hs-var hs-var">interactive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679474640"><span class="hs-identifier hs-var">interactive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474639"><span class="annot"><span class="annottext">s :: ExecuteCommand
+</span><a href="#local-6989586621679474639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand%27"><span class="hs-identifier hs-type">ExecuteCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474638"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679474638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommand
+</span><a href="#local-6989586621679474639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interactive:ExecuteCommand' :: Bool
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Ainteractive%3AExecuteCommand%27"><span class="hs-identifier hs-var">interactive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679474638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) or ID of the task the container is part</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- of.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommand_task"><span class="hs-identifier hs-type">executeCommand_task</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-137"></span><span id="executeCommand_task"><span class="annot"><span class="annottext">executeCommand_task :: (Text -&gt; f Text) -&gt; ExecuteCommand -&gt; f ExecuteCommand
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommand_task"><span class="hs-identifier hs-var hs-var">executeCommand_task</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteCommand -&gt; Text)
+-&gt; (ExecuteCommand -&gt; Text -&gt; ExecuteCommand)
+-&gt; Lens ExecuteCommand ExecuteCommand Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand%27"><span class="hs-identifier hs-type">ExecuteCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474637"><span class="annot"><span class="annottext">Text
+task :: Text
+$sel:task:ExecuteCommand' :: ExecuteCommand -&gt; Text
+</span><a href="#local-6989586621679474637"><span class="hs-identifier hs-var hs-var">task</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679474637"><span class="hs-identifier hs-var">task</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474636"><span class="annot"><span class="annottext">s :: ExecuteCommand
+</span><a href="#local-6989586621679474636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand%27"><span class="hs-identifier hs-type">ExecuteCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474635"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679474635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommand
+</span><a href="#local-6989586621679474636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:task:ExecuteCommand' :: Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Atask%3AExecuteCommand%27"><span class="hs-identifier hs-var">task</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679474635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679474631"><span class="annot"><span class="annottext">request :: ExecuteCommand -&gt; Request ExecuteCommand
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ExecuteCommand -&gt; Request ExecuteCommand
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679474627"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ExecuteCommand
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ExecuteCommand)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ExecuteCommand))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ExecuteCommand
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ExecuteCommand)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679474624"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679474624"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679474623"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679474623"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679474622"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679474622"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Session
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ExecuteCommandResponse
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-var">ExecuteCommandResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Session
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; ExecuteCommandResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Session
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; ExecuteCommandResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679474622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clusterArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Session
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; ExecuteCommandResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Session
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; ExecuteCommandResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679474622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;interactive&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Session
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; ExecuteCommandResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Session
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ExecuteCommandResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679474622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Session
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ExecuteCommandResponse)
+-&gt; Either String (Maybe Session)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ExecuteCommandResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679474622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Session)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;session&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ExecuteCommandResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ExecuteCommandResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679474622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ExecuteCommandResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ExecuteCommandResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679474622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;taskArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ExecuteCommandResponse)
+-&gt; Either String Int -&gt; Either String ExecuteCommandResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679474624"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679474614"><span id="local-6989586621679474616"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679474611"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679474607"><span class="annot"><span class="annottext">toHeaders :: ExecuteCommand -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ExecuteCommand -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonEC2ContainerServiceV20141113.ExecuteCommand&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-168"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-170"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-172"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679474597"><span id="local-6989586621679474599"><span id="local-6989586621679474601"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679474595"><span class="annot"><span class="annottext">toJSON :: ExecuteCommand -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand%27"><span class="hs-identifier hs-type">ExecuteCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474589"><span id="local-6989586621679474590"><span id="local-6989586621679474591"><span id="local-6989586621679474592"><span id="local-6989586621679474593"><span class="annot"><span class="annottext">Bool
+Maybe Text
+Text
+task :: Text
+interactive :: Bool
+command :: Text
+cluster :: Maybe Text
+container :: Maybe Text
+$sel:task:ExecuteCommand' :: ExecuteCommand -&gt; Text
+$sel:interactive:ExecuteCommand' :: ExecuteCommand -&gt; Bool
+$sel:command:ExecuteCommand' :: ExecuteCommand -&gt; Text
+$sel:cluster:ExecuteCommand' :: ExecuteCommand -&gt; Maybe Text
+$sel:container:ExecuteCommand' :: ExecuteCommand -&gt; Maybe Text
+</span><a href="#local-6989586621679474589"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;container&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474593"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cluster&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474592"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;command&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679474591"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;interactive&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679474590"><span class="hs-identifier hs-var">interactive</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;task&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679474589"><span class="hs-identifier hs-var">task</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679474583"><span class="annot"><span class="annottext">toPath :: ExecuteCommand -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ExecuteCommand -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommand"><span class="hs-identifier hs-type">ExecuteCommand</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679474579"><span class="annot"><span class="annottext">toQuery :: ExecuteCommand -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ExecuteCommand -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | /See:/ 'newExecuteCommandResponse' smart constructor.</span><span>
+</span><span id="line-195"></span><span id="local-6989586621679474576"><span id="local-6989586621679474577"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecuteCommandResponse"><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-var">ExecuteCommandResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecuteCommandResponse%27"><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-var">ExecuteCommandResponse'</span></a></span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the cluster.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AclusterArn%3AExecuteCommandResponse%27"><span class="annot"><span class="annottext">ExecuteCommandResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3AclusterArn%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | Whether or not the execute command session is running in interactive</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- mode. Amazon ECS only supports initiating interactive sessions, so you</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- must specify @true@ for this value.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3Ainteractive%3AExecuteCommandResponse%27"><span class="annot"><span class="annottext">ExecuteCommandResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Ainteractive%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var hs-var">interactive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the container.</span><span>
+</span><span id="line-203"></span><span>    </span><span id="%24sel%3AcontainerArn%3AExecuteCommandResponse%27"><span class="annot"><span class="annottext">ExecuteCommandResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3AcontainerArn%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var hs-var">containerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- | The details of the SSM session that was created for this instance of</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- execute-command.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3Asession%3AExecuteCommandResponse%27"><span class="annot"><span class="annottext">ExecuteCommandResponse -&gt; Maybe Session
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Asession%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var hs-var">session</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- | The name of the container.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3AcontainerName%3AExecuteCommandResponse%27"><span class="annot"><span class="annottext">ExecuteCommandResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3AcontainerName%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the task.</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3AtaskArn%3AExecuteCommandResponse%27"><span class="annot"><span class="annottext">ExecuteCommandResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3AtaskArn%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var hs-var">taskArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3AhttpStatus%3AExecuteCommandResponse%27"><span class="annot"><span class="annottext">ExecuteCommandResponse -&gt; Int
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3AhttpStatus%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679474565"><span id="local-6989586621679474567"><span class="annot"><span class="annottext">ExecuteCommandResponse -&gt; ExecuteCommandResponse -&gt; Bool
+(ExecuteCommandResponse -&gt; ExecuteCommandResponse -&gt; Bool)
+-&gt; (ExecuteCommandResponse -&gt; ExecuteCommandResponse -&gt; Bool)
+-&gt; Eq ExecuteCommandResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExecuteCommandResponse -&gt; ExecuteCommandResponse -&gt; Bool
+$c/= :: ExecuteCommandResponse -&gt; ExecuteCommandResponse -&gt; Bool
+== :: ExecuteCommandResponse -&gt; ExecuteCommandResponse -&gt; Bool
+$c== :: ExecuteCommandResponse -&gt; ExecuteCommandResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679474559"><span id="local-6989586621679474561"><span id="local-6989586621679474563"><span class="annot"><span class="annottext">Int -&gt; ExecuteCommandResponse -&gt; ShowS
+[ExecuteCommandResponse] -&gt; ShowS
+ExecuteCommandResponse -&gt; String
+(Int -&gt; ExecuteCommandResponse -&gt; ShowS)
+-&gt; (ExecuteCommandResponse -&gt; String)
+-&gt; ([ExecuteCommandResponse] -&gt; ShowS)
+-&gt; Show ExecuteCommandResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExecuteCommandResponse] -&gt; ShowS
+$cshowList :: [ExecuteCommandResponse] -&gt; ShowS
+show :: ExecuteCommandResponse -&gt; String
+$cshow :: ExecuteCommandResponse -&gt; String
+showsPrec :: Int -&gt; ExecuteCommandResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExecuteCommandResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ExecuteCommandResponse -&gt; Rep ExecuteCommandResponse x)
+-&gt; (forall x.
+    Rep ExecuteCommandResponse x -&gt; ExecuteCommandResponse)
+-&gt; Generic ExecuteCommandResponse
+forall x. Rep ExecuteCommandResponse x -&gt; ExecuteCommandResponse
+forall x. ExecuteCommandResponse -&gt; Rep ExecuteCommandResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExecuteCommandResponse x -&gt; ExecuteCommandResponse
+$cfrom :: forall x. ExecuteCommandResponse -&gt; Rep ExecuteCommandResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- Create a value of 'ExecuteCommandResponse' with all optional fields omitted.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'clusterArn', 'executeCommandResponse_clusterArn' - The Amazon Resource Name (ARN) of the cluster.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'interactive', 'executeCommandResponse_interactive' - Whether or not the execute command session is running in interactive</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- mode. Amazon ECS only supports initiating interactive sessions, so you</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- must specify @true@ for this value.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'containerArn', 'executeCommandResponse_containerArn' - The Amazon Resource Name (ARN) of the container.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'session', 'executeCommandResponse_session' - The details of the SSM session that was created for this instance of</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- execute-command.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'containerName', 'executeCommandResponse_containerName' - The name of the container.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- 'taskArn', 'executeCommandResponse_taskArn' - The Amazon Resource Name (ARN) of the task.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'httpStatus', 'executeCommandResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#newExecuteCommandResponse"><span class="hs-identifier hs-type">newExecuteCommandResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-241"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span><span>
+</span><span id="line-244"></span><span id="newExecuteCommandResponse"><span class="annot"><span class="annottext">newExecuteCommandResponse :: Int -&gt; ExecuteCommandResponse
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#newExecuteCommandResponse"><span class="hs-identifier hs-var hs-var">newExecuteCommandResponse</span></a></span></span><span> </span><span id="local-6989586621679474556"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679474556"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><span class="annottext">ExecuteCommandResponse' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Session
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ExecuteCommandResponse
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-type">ExecuteCommandResponse'</span></a></span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterArn:ExecuteCommandResponse' :: Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3AclusterArn%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:interactive:ExecuteCommandResponse' :: Maybe Bool
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Ainteractive%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var">interactive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerArn:ExecuteCommandResponse' :: Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3AcontainerArn%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var">containerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:session:ExecuteCommandResponse' :: Maybe Session
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Asession%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var">session</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Session
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerName:ExecuteCommandResponse' :: Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3AcontainerName%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskArn:ExecuteCommandResponse' :: Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3AtaskArn%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var">taskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ExecuteCommandResponse' :: Int
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3AhttpStatus%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679474556"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the cluster.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_clusterArn"><span class="hs-identifier hs-type">executeCommandResponse_clusterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="executeCommandResponse_clusterArn"><span class="annot"><span class="annottext">executeCommandResponse_clusterArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExecuteCommandResponse -&gt; f ExecuteCommandResponse
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_clusterArn"><span class="hs-identifier hs-var hs-var">executeCommandResponse_clusterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteCommandResponse -&gt; Maybe Text)
+-&gt; (ExecuteCommandResponse -&gt; Maybe Text -&gt; ExecuteCommandResponse)
+-&gt; Lens
+     ExecuteCommandResponse
+     ExecuteCommandResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-type">ExecuteCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474555"><span class="annot"><span class="annottext">Maybe Text
+clusterArn :: Maybe Text
+$sel:clusterArn:ExecuteCommandResponse' :: ExecuteCommandResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679474555"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474555"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474554"><span class="annot"><span class="annottext">s :: ExecuteCommandResponse
+</span><a href="#local-6989586621679474554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-type">ExecuteCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474553"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandResponse
+</span><a href="#local-6989586621679474554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterArn:ExecuteCommandResponse' :: Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3AclusterArn%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | Whether or not the execute command session is running in interactive</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- mode. Amazon ECS only supports initiating interactive sessions, so you</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- must specify @true@ for this value.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_interactive"><span class="hs-identifier hs-type">executeCommandResponse_interactive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span id="executeCommandResponse_interactive"><span class="annot"><span class="annottext">executeCommandResponse_interactive :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ExecuteCommandResponse -&gt; f ExecuteCommandResponse
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_interactive"><span class="hs-identifier hs-var hs-var">executeCommandResponse_interactive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteCommandResponse -&gt; Maybe Bool)
+-&gt; (ExecuteCommandResponse -&gt; Maybe Bool -&gt; ExecuteCommandResponse)
+-&gt; Lens
+     ExecuteCommandResponse
+     ExecuteCommandResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-type">ExecuteCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474552"><span class="annot"><span class="annottext">Maybe Bool
+interactive :: Maybe Bool
+$sel:interactive:ExecuteCommandResponse' :: ExecuteCommandResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679474552"><span class="hs-identifier hs-var hs-var">interactive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679474552"><span class="hs-identifier hs-var">interactive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474551"><span class="annot"><span class="annottext">s :: ExecuteCommandResponse
+</span><a href="#local-6989586621679474551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-type">ExecuteCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474550"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679474550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandResponse
+</span><a href="#local-6989586621679474551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interactive:ExecuteCommandResponse' :: Maybe Bool
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Ainteractive%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var">interactive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679474550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the container.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_containerArn"><span class="hs-identifier hs-type">executeCommandResponse_containerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span id="executeCommandResponse_containerArn"><span class="annot"><span class="annottext">executeCommandResponse_containerArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExecuteCommandResponse -&gt; f ExecuteCommandResponse
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_containerArn"><span class="hs-identifier hs-var hs-var">executeCommandResponse_containerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteCommandResponse -&gt; Maybe Text)
+-&gt; (ExecuteCommandResponse -&gt; Maybe Text -&gt; ExecuteCommandResponse)
+-&gt; Lens
+     ExecuteCommandResponse
+     ExecuteCommandResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-type">ExecuteCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474549"><span class="annot"><span class="annottext">Maybe Text
+containerArn :: Maybe Text
+$sel:containerArn:ExecuteCommandResponse' :: ExecuteCommandResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679474549"><span class="hs-identifier hs-var hs-var">containerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474549"><span class="hs-identifier hs-var">containerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474548"><span class="annot"><span class="annottext">s :: ExecuteCommandResponse
+</span><a href="#local-6989586621679474548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-type">ExecuteCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474547"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandResponse
+</span><a href="#local-6989586621679474548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerArn:ExecuteCommandResponse' :: Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3AcontainerArn%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var">containerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | The details of the SSM session that was created for this instance of</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- execute-command.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_session"><span class="hs-identifier hs-type">executeCommandResponse_session</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span id="executeCommandResponse_session"><span class="annot"><span class="annottext">executeCommandResponse_session :: (Maybe Session -&gt; f (Maybe Session))
+-&gt; ExecuteCommandResponse -&gt; f ExecuteCommandResponse
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_session"><span class="hs-identifier hs-var hs-var">executeCommandResponse_session</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteCommandResponse -&gt; Maybe Session)
+-&gt; (ExecuteCommandResponse
+    -&gt; Maybe Session -&gt; ExecuteCommandResponse)
+-&gt; Lens
+     ExecuteCommandResponse
+     ExecuteCommandResponse
+     (Maybe Session)
+     (Maybe Session)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-type">ExecuteCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474546"><span class="annot"><span class="annottext">Maybe Session
+session :: Maybe Session
+$sel:session:ExecuteCommandResponse' :: ExecuteCommandResponse -&gt; Maybe Session
+</span><a href="#local-6989586621679474546"><span class="hs-identifier hs-var hs-var">session</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Session
+</span><a href="#local-6989586621679474546"><span class="hs-identifier hs-var">session</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474545"><span class="annot"><span class="annottext">s :: ExecuteCommandResponse
+</span><a href="#local-6989586621679474545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-type">ExecuteCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474544"><span class="annot"><span class="annottext">Maybe Session
+</span><a href="#local-6989586621679474544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandResponse
+</span><a href="#local-6989586621679474545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:session:ExecuteCommandResponse' :: Maybe Session
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3Asession%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var">session</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Session
+</span><a href="#local-6989586621679474544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | The name of the container.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_containerName"><span class="hs-identifier hs-type">executeCommandResponse_containerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span id="executeCommandResponse_containerName"><span class="annot"><span class="annottext">executeCommandResponse_containerName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExecuteCommandResponse -&gt; f ExecuteCommandResponse
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_containerName"><span class="hs-identifier hs-var hs-var">executeCommandResponse_containerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteCommandResponse -&gt; Maybe Text)
+-&gt; (ExecuteCommandResponse -&gt; Maybe Text -&gt; ExecuteCommandResponse)
+-&gt; Lens
+     ExecuteCommandResponse
+     ExecuteCommandResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-type">ExecuteCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474543"><span class="annot"><span class="annottext">Maybe Text
+containerName :: Maybe Text
+$sel:containerName:ExecuteCommandResponse' :: ExecuteCommandResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679474543"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474543"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474542"><span class="annot"><span class="annottext">s :: ExecuteCommandResponse
+</span><a href="#local-6989586621679474542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-type">ExecuteCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474541"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandResponse
+</span><a href="#local-6989586621679474542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:ExecuteCommandResponse' :: Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3AcontainerName%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the task.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_taskArn"><span class="hs-identifier hs-type">executeCommandResponse_taskArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="executeCommandResponse_taskArn"><span class="annot"><span class="annottext">executeCommandResponse_taskArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExecuteCommandResponse -&gt; f ExecuteCommandResponse
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_taskArn"><span class="hs-identifier hs-var hs-var">executeCommandResponse_taskArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteCommandResponse -&gt; Maybe Text)
+-&gt; (ExecuteCommandResponse -&gt; Maybe Text -&gt; ExecuteCommandResponse)
+-&gt; Lens
+     ExecuteCommandResponse
+     ExecuteCommandResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-type">ExecuteCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474540"><span class="annot"><span class="annottext">Maybe Text
+taskArn :: Maybe Text
+$sel:taskArn:ExecuteCommandResponse' :: ExecuteCommandResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679474540"><span class="hs-identifier hs-var hs-var">taskArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474540"><span class="hs-identifier hs-var">taskArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474539"><span class="annot"><span class="annottext">s :: ExecuteCommandResponse
+</span><a href="#local-6989586621679474539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-type">ExecuteCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474538"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandResponse
+</span><a href="#local-6989586621679474539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskArn:ExecuteCommandResponse' :: Maybe Text
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3AtaskArn%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var">taskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_httpStatus"><span class="hs-identifier hs-type">executeCommandResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-285"></span><span id="executeCommandResponse_httpStatus"><span class="annot"><span class="annottext">executeCommandResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ExecuteCommandResponse -&gt; f ExecuteCommandResponse
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#executeCommandResponse_httpStatus"><span class="hs-identifier hs-var hs-var">executeCommandResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteCommandResponse -&gt; Int)
+-&gt; (ExecuteCommandResponse -&gt; Int -&gt; ExecuteCommandResponse)
+-&gt; Lens ExecuteCommandResponse ExecuteCommandResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-type">ExecuteCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474537"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ExecuteCommandResponse' :: ExecuteCommandResponse -&gt; Int
+</span><a href="#local-6989586621679474537"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679474537"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474536"><span class="annot"><span class="annottext">s :: ExecuteCommandResponse
+</span><a href="#local-6989586621679474536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse%27"><span class="hs-identifier hs-type">ExecuteCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474535"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679474535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandResponse
+</span><a href="#local-6989586621679474536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ExecuteCommandResponse' :: Int
+</span><a href="Network.AWS.ECS.ExecuteCommand.html#%24sel%3AhttpStatus%3AExecuteCommandResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679474535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679474533"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ExecuteCommand.html#ExecuteCommandResponse"><span class="hs-identifier hs-type">ExecuteCommandResponse</span></a></span></span><span>
+</span><span id="line-288"></span></pre></body></html>

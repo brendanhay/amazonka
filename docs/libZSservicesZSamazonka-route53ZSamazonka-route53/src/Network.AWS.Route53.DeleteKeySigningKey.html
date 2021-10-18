@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Route53.DeleteKeySigningKey</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a key-signing key (KSK). Before you can delete a KSK, you must</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- deactivate it. The KSK must be deactivated before you can delete it</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- regardless of whether the hosted zone is enabled for DNSSEC signing.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53.DeleteKeySigningKey</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey"><span class="hs-identifier">DeleteKeySigningKey</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#newDeleteKeySigningKey"><span class="hs-identifier">newDeleteKeySigningKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#deleteKeySigningKey_hostedZoneId"><span class="hs-identifier">deleteKeySigningKey_hostedZoneId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#deleteKeySigningKey_name"><span class="hs-identifier">deleteKeySigningKey_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKeyResponse"><span class="hs-identifier">DeleteKeySigningKeyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#newDeleteKeySigningKeyResponse"><span class="hs-identifier">newDeleteKeySigningKeyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#deleteKeySigningKeyResponse_httpStatus"><span class="hs-identifier">deleteKeySigningKeyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#deleteKeySigningKeyResponse_changeInfo"><span class="hs-identifier">deleteKeySigningKeyResponse_changeInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.html"><span class="hs-identifier">Network.AWS.Route53.Types</span></a></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteKeySigningKey' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679309359"><span id="local-6989586621679309360"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteKeySigningKey"><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey"><span class="hs-identifier hs-var">DeleteKeySigningKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteKeySigningKey%27"><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey%27"><span class="hs-identifier hs-var">DeleteKeySigningKey'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique string used to identify a hosted zone.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AhostedZoneId%3ADeleteKeySigningKey%27"><span class="annot"><span class="annottext">DeleteKeySigningKey -&gt; ResourceId
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#%24sel%3AhostedZoneId%3ADeleteKeySigningKey%27"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | A string used to identify a key-signing key (KSK).</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aname%3ADeleteKeySigningKey%27"><span class="annot"><span class="annottext">DeleteKeySigningKey -&gt; Text
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#%24sel%3Aname%3ADeleteKeySigningKey%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309352"><span id="local-6989586621679309354"><span class="annot"><span class="annottext">DeleteKeySigningKey -&gt; DeleteKeySigningKey -&gt; Bool
+(DeleteKeySigningKey -&gt; DeleteKeySigningKey -&gt; Bool)
+-&gt; (DeleteKeySigningKey -&gt; DeleteKeySigningKey -&gt; Bool)
+-&gt; Eq DeleteKeySigningKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteKeySigningKey -&gt; DeleteKeySigningKey -&gt; Bool
+$c/= :: DeleteKeySigningKey -&gt; DeleteKeySigningKey -&gt; Bool
+== :: DeleteKeySigningKey -&gt; DeleteKeySigningKey -&gt; Bool
+$c== :: DeleteKeySigningKey -&gt; DeleteKeySigningKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309343"><span id="local-6989586621679309345"><span id="local-6989586621679309347"><span id="local-6989586621679309349"><span class="annot"><span class="annottext">ReadPrec [DeleteKeySigningKey]
+ReadPrec DeleteKeySigningKey
+Int -&gt; ReadS DeleteKeySigningKey
+ReadS [DeleteKeySigningKey]
+(Int -&gt; ReadS DeleteKeySigningKey)
+-&gt; ReadS [DeleteKeySigningKey]
+-&gt; ReadPrec DeleteKeySigningKey
+-&gt; ReadPrec [DeleteKeySigningKey]
+-&gt; Read DeleteKeySigningKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteKeySigningKey]
+$creadListPrec :: ReadPrec [DeleteKeySigningKey]
+readPrec :: ReadPrec DeleteKeySigningKey
+$creadPrec :: ReadPrec DeleteKeySigningKey
+readList :: ReadS [DeleteKeySigningKey]
+$creadList :: ReadS [DeleteKeySigningKey]
+readsPrec :: Int -&gt; ReadS DeleteKeySigningKey
+$creadsPrec :: Int -&gt; ReadS DeleteKeySigningKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309336"><span id="local-6989586621679309338"><span id="local-6989586621679309340"><span class="annot"><span class="annottext">Int -&gt; DeleteKeySigningKey -&gt; ShowS
+[DeleteKeySigningKey] -&gt; ShowS
+DeleteKeySigningKey -&gt; String
+(Int -&gt; DeleteKeySigningKey -&gt; ShowS)
+-&gt; (DeleteKeySigningKey -&gt; String)
+-&gt; ([DeleteKeySigningKey] -&gt; ShowS)
+-&gt; Show DeleteKeySigningKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteKeySigningKey] -&gt; ShowS
+$cshowList :: [DeleteKeySigningKey] -&gt; ShowS
+show :: DeleteKeySigningKey -&gt; String
+$cshow :: DeleteKeySigningKey -&gt; String
+showsPrec :: Int -&gt; DeleteKeySigningKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteKeySigningKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteKeySigningKey -&gt; Rep DeleteKeySigningKey x)
+-&gt; (forall x. Rep DeleteKeySigningKey x -&gt; DeleteKeySigningKey)
+-&gt; Generic DeleteKeySigningKey
+forall x. Rep DeleteKeySigningKey x -&gt; DeleteKeySigningKey
+forall x. DeleteKeySigningKey -&gt; Rep DeleteKeySigningKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteKeySigningKey x -&gt; DeleteKeySigningKey
+$cfrom :: forall x. DeleteKeySigningKey -&gt; Rep DeleteKeySigningKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'DeleteKeySigningKey' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'hostedZoneId', 'deleteKeySigningKey_hostedZoneId' - A unique string used to identify a hosted zone.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'name', 'deleteKeySigningKey_name' - A string used to identify a key-signing key (KSK).</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#newDeleteKeySigningKey"><span class="hs-identifier hs-type">newDeleteKeySigningKey</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'hostedZoneId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey"><span class="hs-identifier hs-type">DeleteKeySigningKey</span></a></span><span>
+</span><span id="line-78"></span><span id="newDeleteKeySigningKey"><span class="annot"><span class="annottext">newDeleteKeySigningKey :: ResourceId -&gt; Text -&gt; DeleteKeySigningKey
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#newDeleteKeySigningKey"><span class="hs-identifier hs-var hs-var">newDeleteKeySigningKey</span></a></span></span><span> </span><span id="local-6989586621679309331"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679309331"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span></span><span> </span><span id="local-6989586621679309330"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309330"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DeleteKeySigningKey' :: ResourceId -&gt; Text -&gt; DeleteKeySigningKey
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey%27"><span class="hs-identifier hs-type">DeleteKeySigningKey'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hostedZoneId:DeleteKeySigningKey' :: ResourceId
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#%24sel%3AhostedZoneId%3ADeleteKeySigningKey%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679309331"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DeleteKeySigningKey' :: Text
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#%24sel%3Aname%3ADeleteKeySigningKey%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309330"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | A unique string used to identify a hosted zone.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#deleteKeySigningKey_hostedZoneId"><span class="hs-identifier hs-type">deleteKeySigningKey_hostedZoneId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey"><span class="hs-identifier hs-type">DeleteKeySigningKey</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span>
+</span><span id="line-86"></span><span id="deleteKeySigningKey_hostedZoneId"><span class="annot"><span class="annottext">deleteKeySigningKey_hostedZoneId :: (ResourceId -&gt; f ResourceId)
+-&gt; DeleteKeySigningKey -&gt; f DeleteKeySigningKey
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#deleteKeySigningKey_hostedZoneId"><span class="hs-identifier hs-var hs-var">deleteKeySigningKey_hostedZoneId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteKeySigningKey -&gt; ResourceId)
+-&gt; (DeleteKeySigningKey -&gt; ResourceId -&gt; DeleteKeySigningKey)
+-&gt; Lens
+     DeleteKeySigningKey DeleteKeySigningKey ResourceId ResourceId
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey%27"><span class="hs-identifier hs-type">DeleteKeySigningKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309327"><span class="annot"><span class="annottext">ResourceId
+hostedZoneId :: ResourceId
+$sel:hostedZoneId:DeleteKeySigningKey' :: DeleteKeySigningKey -&gt; ResourceId
+</span><a href="#local-6989586621679309327"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679309327"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309326"><span class="annot"><span class="annottext">s :: DeleteKeySigningKey
+</span><a href="#local-6989586621679309326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey%27"><span class="hs-identifier hs-type">DeleteKeySigningKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309325"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679309325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeySigningKey
+</span><a href="#local-6989586621679309326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:DeleteKeySigningKey' :: ResourceId
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#%24sel%3AhostedZoneId%3ADeleteKeySigningKey%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679309325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey"><span class="hs-identifier hs-type">DeleteKeySigningKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | A string used to identify a key-signing key (KSK).</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#deleteKeySigningKey_name"><span class="hs-identifier hs-type">deleteKeySigningKey_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey"><span class="hs-identifier hs-type">DeleteKeySigningKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="deleteKeySigningKey_name"><span class="annot"><span class="annottext">deleteKeySigningKey_name :: (Text -&gt; f Text) -&gt; DeleteKeySigningKey -&gt; f DeleteKeySigningKey
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#deleteKeySigningKey_name"><span class="hs-identifier hs-var hs-var">deleteKeySigningKey_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteKeySigningKey -&gt; Text)
+-&gt; (DeleteKeySigningKey -&gt; Text -&gt; DeleteKeySigningKey)
+-&gt; Lens DeleteKeySigningKey DeleteKeySigningKey Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey%27"><span class="hs-identifier hs-type">DeleteKeySigningKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309324"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:DeleteKeySigningKey' :: DeleteKeySigningKey -&gt; Text
+</span><a href="#local-6989586621679309324"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309324"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309323"><span class="annot"><span class="annottext">s :: DeleteKeySigningKey
+</span><a href="#local-6989586621679309323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey%27"><span class="hs-identifier hs-type">DeleteKeySigningKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309322"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeySigningKey
+</span><a href="#local-6989586621679309323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteKeySigningKey' :: Text
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#%24sel%3Aname%3ADeleteKeySigningKey%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey"><span class="hs-identifier hs-type">DeleteKeySigningKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey"><span class="hs-identifier hs-type">DeleteKeySigningKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey"><span class="hs-identifier hs-type">DeleteKeySigningKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKeyResponse"><span class="hs-identifier hs-type">DeleteKeySigningKeyResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679309318"><span class="annot"><span class="annottext">request :: DeleteKeySigningKey -&gt; Request DeleteKeySigningKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteKeySigningKey -&gt; Request DeleteKeySigningKey
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679309314"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteKeySigningKey
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteKeySigningKey)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse DeleteKeySigningKey))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteKeySigningKey
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteKeySigningKey)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309311"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309311"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309310"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679309310"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309309"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679309309"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ChangeInfo -&gt; DeleteKeySigningKeyResponse
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKeyResponse%27"><span class="hs-identifier hs-var">DeleteKeySigningKeyResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ChangeInfo -&gt; DeleteKeySigningKeyResponse)
+-&gt; Either String Int
+-&gt; Either String (ChangeInfo -&gt; DeleteKeySigningKeyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309311"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (ChangeInfo -&gt; DeleteKeySigningKeyResponse)
+-&gt; Either String ChangeInfo
+-&gt; Either String DeleteKeySigningKeyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679309309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ChangeInfo
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChangeInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309301"><span id="local-6989586621679309303"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey"><span class="hs-identifier hs-type">DeleteKeySigningKey</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309298"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey"><span class="hs-identifier hs-type">DeleteKeySigningKey</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey"><span class="hs-identifier hs-type">DeleteKeySigningKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679309294"><span class="annot"><span class="annottext">toHeaders :: DeleteKeySigningKey -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteKeySigningKey -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey"><span class="hs-identifier hs-type">DeleteKeySigningKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679309289"><span class="annot"><span class="annottext">toPath :: DeleteKeySigningKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey%27"><span class="hs-identifier hs-type">DeleteKeySigningKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309286"><span id="local-6989586621679309287"><span class="annot"><span class="annottext">Text
+ResourceId
+name :: Text
+hostedZoneId :: ResourceId
+$sel:name:DeleteKeySigningKey' :: DeleteKeySigningKey -&gt; Text
+$sel:hostedZoneId:DeleteKeySigningKey' :: DeleteKeySigningKey -&gt; ResourceId
+</span><a href="#local-6989586621679309286"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2013-04-01/keysigningkey/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">ResourceId -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679309287"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309286"><span class="hs-identifier hs-var">name</span></a></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKey"><span class="hs-identifier hs-type">DeleteKeySigningKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679309282"><span class="annot"><span class="annottext">toQuery :: DeleteKeySigningKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteKeySigningKey -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | /See:/ 'newDeleteKeySigningKeyResponse' smart constructor.</span><span>
+</span><span id="line-125"></span><span id="local-6989586621679309279"><span id="local-6989586621679309280"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteKeySigningKeyResponse"><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKeyResponse"><span class="hs-identifier hs-var">DeleteKeySigningKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteKeySigningKeyResponse%27"><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKeyResponse%27"><span class="hs-identifier hs-var">DeleteKeySigningKeyResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteKeySigningKeyResponse%27"><span class="annot"><span class="annottext">DeleteKeySigningKeyResponse -&gt; Int
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#%24sel%3AhttpStatus%3ADeleteKeySigningKeyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AchangeInfo%3ADeleteKeySigningKeyResponse%27"><span class="annot"><span class="annottext">DeleteKeySigningKeyResponse -&gt; ChangeInfo
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#%24sel%3AchangeInfo%3ADeleteKeySigningKeyResponse%27"><span class="hs-identifier hs-var hs-var">changeInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ChangeInfo.html#ChangeInfo"><span class="hs-identifier hs-type">ChangeInfo</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309273"><span id="local-6989586621679309275"><span class="annot"><span class="annottext">DeleteKeySigningKeyResponse -&gt; DeleteKeySigningKeyResponse -&gt; Bool
+(DeleteKeySigningKeyResponse
+ -&gt; DeleteKeySigningKeyResponse -&gt; Bool)
+-&gt; (DeleteKeySigningKeyResponse
+    -&gt; DeleteKeySigningKeyResponse -&gt; Bool)
+-&gt; Eq DeleteKeySigningKeyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteKeySigningKeyResponse -&gt; DeleteKeySigningKeyResponse -&gt; Bool
+$c/= :: DeleteKeySigningKeyResponse -&gt; DeleteKeySigningKeyResponse -&gt; Bool
+== :: DeleteKeySigningKeyResponse -&gt; DeleteKeySigningKeyResponse -&gt; Bool
+$c== :: DeleteKeySigningKeyResponse -&gt; DeleteKeySigningKeyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309265"><span id="local-6989586621679309267"><span id="local-6989586621679309269"><span id="local-6989586621679309271"><span class="annot"><span class="annottext">ReadPrec [DeleteKeySigningKeyResponse]
+ReadPrec DeleteKeySigningKeyResponse
+Int -&gt; ReadS DeleteKeySigningKeyResponse
+ReadS [DeleteKeySigningKeyResponse]
+(Int -&gt; ReadS DeleteKeySigningKeyResponse)
+-&gt; ReadS [DeleteKeySigningKeyResponse]
+-&gt; ReadPrec DeleteKeySigningKeyResponse
+-&gt; ReadPrec [DeleteKeySigningKeyResponse]
+-&gt; Read DeleteKeySigningKeyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteKeySigningKeyResponse]
+$creadListPrec :: ReadPrec [DeleteKeySigningKeyResponse]
+readPrec :: ReadPrec DeleteKeySigningKeyResponse
+$creadPrec :: ReadPrec DeleteKeySigningKeyResponse
+readList :: ReadS [DeleteKeySigningKeyResponse]
+$creadList :: ReadS [DeleteKeySigningKeyResponse]
+readsPrec :: Int -&gt; ReadS DeleteKeySigningKeyResponse
+$creadsPrec :: Int -&gt; ReadS DeleteKeySigningKeyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309259"><span id="local-6989586621679309261"><span id="local-6989586621679309263"><span class="annot"><span class="annottext">Int -&gt; DeleteKeySigningKeyResponse -&gt; ShowS
+[DeleteKeySigningKeyResponse] -&gt; ShowS
+DeleteKeySigningKeyResponse -&gt; String
+(Int -&gt; DeleteKeySigningKeyResponse -&gt; ShowS)
+-&gt; (DeleteKeySigningKeyResponse -&gt; String)
+-&gt; ([DeleteKeySigningKeyResponse] -&gt; ShowS)
+-&gt; Show DeleteKeySigningKeyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteKeySigningKeyResponse] -&gt; ShowS
+$cshowList :: [DeleteKeySigningKeyResponse] -&gt; ShowS
+show :: DeleteKeySigningKeyResponse -&gt; String
+$cshow :: DeleteKeySigningKeyResponse -&gt; String
+showsPrec :: Int -&gt; DeleteKeySigningKeyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteKeySigningKeyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteKeySigningKeyResponse -&gt; Rep DeleteKeySigningKeyResponse x)
+-&gt; (forall x.
+    Rep DeleteKeySigningKeyResponse x -&gt; DeleteKeySigningKeyResponse)
+-&gt; Generic DeleteKeySigningKeyResponse
+forall x.
+Rep DeleteKeySigningKeyResponse x -&gt; DeleteKeySigningKeyResponse
+forall x.
+DeleteKeySigningKeyResponse -&gt; Rep DeleteKeySigningKeyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteKeySigningKeyResponse x -&gt; DeleteKeySigningKeyResponse
+$cfrom :: forall x.
+DeleteKeySigningKeyResponse -&gt; Rep DeleteKeySigningKeyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Create a value of 'DeleteKeySigningKeyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'httpStatus', 'deleteKeySigningKeyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'changeInfo', 'deleteKeySigningKeyResponse_changeInfo' - Undocumented member.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#newDeleteKeySigningKeyResponse"><span class="hs-identifier hs-type">newDeleteKeySigningKeyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'changeInfo'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.ChangeInfo.html#ChangeInfo"><span class="hs-identifier hs-type">ChangeInfo</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKeyResponse"><span class="hs-identifier hs-type">DeleteKeySigningKeyResponse</span></a></span><span>
+</span><span id="line-149"></span><span id="newDeleteKeySigningKeyResponse"><span class="annot"><span class="annottext">newDeleteKeySigningKeyResponse :: Int -&gt; ChangeInfo -&gt; DeleteKeySigningKeyResponse
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#newDeleteKeySigningKeyResponse"><span class="hs-identifier hs-var hs-var">newDeleteKeySigningKeyResponse</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679309256"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309256"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679309255"><span class="annot"><span class="annottext">ChangeInfo
+</span><a href="#local-6989586621679309255"><span class="hs-identifier hs-var">pChangeInfo_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">DeleteKeySigningKeyResponse' :: Int -&gt; ChangeInfo -&gt; DeleteKeySigningKeyResponse
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKeyResponse%27"><span class="hs-identifier hs-type">DeleteKeySigningKeyResponse'</span></a></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteKeySigningKeyResponse' :: Int
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#%24sel%3AhttpStatus%3ADeleteKeySigningKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309256"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">$sel:changeInfo:DeleteKeySigningKeyResponse' :: ChangeInfo
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#%24sel%3AchangeInfo%3ADeleteKeySigningKeyResponse%27"><span class="hs-identifier hs-var">changeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeInfo
+</span><a href="#local-6989586621679309255"><span class="hs-identifier hs-var">pChangeInfo_</span></a></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#deleteKeySigningKeyResponse_httpStatus"><span class="hs-identifier hs-type">deleteKeySigningKeyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKeyResponse"><span class="hs-identifier hs-type">DeleteKeySigningKeyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-160"></span><span id="deleteKeySigningKeyResponse_httpStatus"><span class="annot"><span class="annottext">deleteKeySigningKeyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteKeySigningKeyResponse -&gt; f DeleteKeySigningKeyResponse
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#deleteKeySigningKeyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteKeySigningKeyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteKeySigningKeyResponse -&gt; Int)
+-&gt; (DeleteKeySigningKeyResponse
+    -&gt; Int -&gt; DeleteKeySigningKeyResponse)
+-&gt; Lens
+     DeleteKeySigningKeyResponse DeleteKeySigningKeyResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKeyResponse%27"><span class="hs-identifier hs-type">DeleteKeySigningKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309254"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteKeySigningKeyResponse' :: DeleteKeySigningKeyResponse -&gt; Int
+</span><a href="#local-6989586621679309254"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309254"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309253"><span class="annot"><span class="annottext">s :: DeleteKeySigningKeyResponse
+</span><a href="#local-6989586621679309253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKeyResponse%27"><span class="hs-identifier hs-type">DeleteKeySigningKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309252"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeySigningKeyResponse
+</span><a href="#local-6989586621679309253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteKeySigningKeyResponse' :: Int
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#%24sel%3AhttpStatus%3ADeleteKeySigningKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKeyResponse"><span class="hs-identifier hs-type">DeleteKeySigningKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#deleteKeySigningKeyResponse_changeInfo"><span class="hs-identifier hs-type">deleteKeySigningKeyResponse_changeInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKeyResponse"><span class="hs-identifier hs-type">DeleteKeySigningKeyResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ChangeInfo.html#ChangeInfo"><span class="hs-identifier hs-type">ChangeInfo</span></a></span><span>
+</span><span id="line-164"></span><span id="deleteKeySigningKeyResponse_changeInfo"><span class="annot"><span class="annottext">deleteKeySigningKeyResponse_changeInfo :: (ChangeInfo -&gt; f ChangeInfo)
+-&gt; DeleteKeySigningKeyResponse -&gt; f DeleteKeySigningKeyResponse
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#deleteKeySigningKeyResponse_changeInfo"><span class="hs-identifier hs-var hs-var">deleteKeySigningKeyResponse_changeInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteKeySigningKeyResponse -&gt; ChangeInfo)
+-&gt; (DeleteKeySigningKeyResponse
+    -&gt; ChangeInfo -&gt; DeleteKeySigningKeyResponse)
+-&gt; Lens
+     DeleteKeySigningKeyResponse
+     DeleteKeySigningKeyResponse
+     ChangeInfo
+     ChangeInfo
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKeyResponse%27"><span class="hs-identifier hs-type">DeleteKeySigningKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309251"><span class="annot"><span class="annottext">ChangeInfo
+changeInfo :: ChangeInfo
+$sel:changeInfo:DeleteKeySigningKeyResponse' :: DeleteKeySigningKeyResponse -&gt; ChangeInfo
+</span><a href="#local-6989586621679309251"><span class="hs-identifier hs-var hs-var">changeInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeInfo
+</span><a href="#local-6989586621679309251"><span class="hs-identifier hs-var">changeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309250"><span class="annot"><span class="annottext">s :: DeleteKeySigningKeyResponse
+</span><a href="#local-6989586621679309250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKeyResponse%27"><span class="hs-identifier hs-type">DeleteKeySigningKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309249"><span class="annot"><span class="annottext">ChangeInfo
+</span><a href="#local-6989586621679309249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeySigningKeyResponse
+</span><a href="#local-6989586621679309250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeInfo:DeleteKeySigningKeyResponse' :: ChangeInfo
+</span><a href="Network.AWS.Route53.DeleteKeySigningKey.html#%24sel%3AchangeInfo%3ADeleteKeySigningKeyResponse%27"><span class="hs-identifier hs-var">changeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeInfo
+</span><a href="#local-6989586621679309249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKeyResponse"><span class="hs-identifier hs-type">DeleteKeySigningKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309247"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteKeySigningKey.html#DeleteKeySigningKeyResponse"><span class="hs-identifier hs-type">DeleteKeySigningKeyResponse</span></a></span></span><span>
+</span><span id="line-167"></span></pre></body></html>

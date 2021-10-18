@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.MxfAfdSignaling</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.MxfAfdSignaling</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling"><span class="hs-identifier">MxfAfdSignaling</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling_COPY_FROM_VIDEO"><span class="hs-identifier">MxfAfdSignaling_COPY_FROM_VIDEO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling_NO_COPY"><span class="hs-identifier">MxfAfdSignaling_NO_COPY</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Optional. When you have AFD signaling set up in your output video</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- stream, use this setting to choose whether to also include it in the MXF</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- wrapper. Choose Don\'t copy (NO_COPY) to exclude AFD signaling from the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- MXF wrapper. Choose Copy from video stream (COPY_FROM_VIDEO) to copy the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- AFD values from the video stream for this output to the MXF wrapper.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Regardless of which option you choose, the AFD values remain in the</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- video stream. Related settings: To set up your output to include or</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- exclude AFD values, see AfdSignaling, under VideoDescription. On the</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- console, find AFD signaling under the output\'s video encoding settings.</span><span>
+</span><span id="line-41"></span><span id="local-6989586621679990130"><span id="local-6989586621679990131"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MxfAfdSignaling"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling"><span class="hs-identifier hs-var">MxfAfdSignaling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MxfAfdSignaling%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling%27"><span class="hs-identifier hs-var">MxfAfdSignaling'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMxfAfdSignaling"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#fromMxfAfdSignaling"><span class="hs-identifier hs-var hs-var">fromMxfAfdSignaling</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679990122"><span id="local-6989586621679990124"><span id="local-6989586621679990126"><span class="annot"><span class="annottext">Int -&gt; MxfAfdSignaling -&gt; ShowS
+[MxfAfdSignaling] -&gt; ShowS
+MxfAfdSignaling -&gt; String
+(Int -&gt; MxfAfdSignaling -&gt; ShowS)
+-&gt; (MxfAfdSignaling -&gt; String)
+-&gt; ([MxfAfdSignaling] -&gt; ShowS)
+-&gt; Show MxfAfdSignaling
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MxfAfdSignaling] -&gt; ShowS
+$cshowList :: [MxfAfdSignaling] -&gt; ShowS
+show :: MxfAfdSignaling -&gt; String
+$cshow :: MxfAfdSignaling -&gt; String
+showsPrec :: Int -&gt; MxfAfdSignaling -&gt; ShowS
+$cshowsPrec :: Int -&gt; MxfAfdSignaling -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679990113"><span id="local-6989586621679990115"><span id="local-6989586621679990117"><span id="local-6989586621679990119"><span class="annot"><span class="annottext">ReadPrec [MxfAfdSignaling]
+ReadPrec MxfAfdSignaling
+Int -&gt; ReadS MxfAfdSignaling
+ReadS [MxfAfdSignaling]
+(Int -&gt; ReadS MxfAfdSignaling)
+-&gt; ReadS [MxfAfdSignaling]
+-&gt; ReadPrec MxfAfdSignaling
+-&gt; ReadPrec [MxfAfdSignaling]
+-&gt; Read MxfAfdSignaling
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MxfAfdSignaling]
+$creadListPrec :: ReadPrec [MxfAfdSignaling]
+readPrec :: ReadPrec MxfAfdSignaling
+$creadPrec :: ReadPrec MxfAfdSignaling
+readList :: ReadS [MxfAfdSignaling]
+$creadList :: ReadS [MxfAfdSignaling]
+readsPrec :: Int -&gt; ReadS MxfAfdSignaling
+$creadsPrec :: Int -&gt; ReadS MxfAfdSignaling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679990108"><span id="local-6989586621679990110"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
+(MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool)
+-&gt; (MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool)
+-&gt; Eq MxfAfdSignaling
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
+$c/= :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
+== :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
+$c== :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679990092"><span id="local-6989586621679990094"><span id="local-6989586621679990096"><span id="local-6989586621679990098"><span id="local-6989586621679990100"><span id="local-6989586621679990102"><span id="local-6989586621679990104"><span class="annot"><span class="annottext">Eq MxfAfdSignaling
+Eq MxfAfdSignaling
+-&gt; (MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Ordering)
+-&gt; (MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool)
+-&gt; (MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool)
+-&gt; (MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool)
+-&gt; (MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool)
+-&gt; (MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; MxfAfdSignaling)
+-&gt; (MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; MxfAfdSignaling)
+-&gt; Ord MxfAfdSignaling
+MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
+MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Ordering
+MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; MxfAfdSignaling
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; MxfAfdSignaling
+$cmin :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; MxfAfdSignaling
+max :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; MxfAfdSignaling
+$cmax :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; MxfAfdSignaling
+&gt;= :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
+$c&gt;= :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
+&gt; :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
+$c&gt; :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
+&lt;= :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
+$c&lt;= :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
+&lt; :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
+$c&lt; :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
+compare :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Ordering
+$ccompare :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Ordering
+$cp1Ord :: Eq MxfAfdSignaling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MxfAfdSignaling -&gt; Rep MxfAfdSignaling x)
+-&gt; (forall x. Rep MxfAfdSignaling x -&gt; MxfAfdSignaling)
+-&gt; Generic MxfAfdSignaling
+forall x. Rep MxfAfdSignaling x -&gt; MxfAfdSignaling
+forall x. MxfAfdSignaling -&gt; Rep MxfAfdSignaling x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MxfAfdSignaling x -&gt; MxfAfdSignaling
+$cfrom :: forall x. MxfAfdSignaling -&gt; Rep MxfAfdSignaling x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679990084"><span id="local-6989586621679990086"><span class="annot"><span class="annottext">Int -&gt; MxfAfdSignaling -&gt; Int
+MxfAfdSignaling -&gt; Int
+(Int -&gt; MxfAfdSignaling -&gt; Int)
+-&gt; (MxfAfdSignaling -&gt; Int) -&gt; Hashable MxfAfdSignaling
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MxfAfdSignaling -&gt; Int
+$chash :: MxfAfdSignaling -&gt; Int
+hashWithSalt :: Int -&gt; MxfAfdSignaling -&gt; Int
+$chashWithSalt :: Int -&gt; MxfAfdSignaling -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679990081"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; ()
+(MxfAfdSignaling -&gt; ()) -&gt; NFData MxfAfdSignaling
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MxfAfdSignaling -&gt; ()
+$crnf :: MxfAfdSignaling -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679990078"><span class="annot"><span class="annottext">Text -&gt; Either String MxfAfdSignaling
+(Text -&gt; Either String MxfAfdSignaling) -&gt; FromText MxfAfdSignaling
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MxfAfdSignaling
+$cfromText :: Text -&gt; Either String MxfAfdSignaling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679990075"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; Text
+(MxfAfdSignaling -&gt; Text) -&gt; ToText MxfAfdSignaling
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MxfAfdSignaling -&gt; Text
+$ctoText :: MxfAfdSignaling -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679990072"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; ByteString
+(MxfAfdSignaling -&gt; ByteString) -&gt; ToByteString MxfAfdSignaling
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MxfAfdSignaling -&gt; ByteString
+$ctoBS :: MxfAfdSignaling -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679990069"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; ByteStringBuilder
+(MxfAfdSignaling -&gt; ByteStringBuilder) -&gt; ToLog MxfAfdSignaling
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MxfAfdSignaling -&gt; ByteStringBuilder
+$cbuild :: MxfAfdSignaling -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679990066"><span class="annot"><span class="annottext">HeaderName -&gt; MxfAfdSignaling -&gt; [Header]
+(HeaderName -&gt; MxfAfdSignaling -&gt; [Header])
+-&gt; ToHeader MxfAfdSignaling
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MxfAfdSignaling -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MxfAfdSignaling -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679990063"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; QueryString
+(MxfAfdSignaling -&gt; QueryString) -&gt; ToQuery MxfAfdSignaling
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MxfAfdSignaling -&gt; QueryString
+$ctoQuery :: MxfAfdSignaling -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679990058"><span id="local-6989586621679990060"><span class="annot"><span class="annottext">Value -&gt; Parser [MxfAfdSignaling]
+Value -&gt; Parser MxfAfdSignaling
+(Value -&gt; Parser MxfAfdSignaling)
+-&gt; (Value -&gt; Parser [MxfAfdSignaling]) -&gt; FromJSON MxfAfdSignaling
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MxfAfdSignaling]
+$cparseJSONList :: Value -&gt; Parser [MxfAfdSignaling]
+parseJSON :: Value -&gt; Parser MxfAfdSignaling
+$cparseJSON :: Value -&gt; Parser MxfAfdSignaling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679990053"><span id="local-6989586621679990055"><span class="annot"><span class="annottext">FromJSONKeyFunction [MxfAfdSignaling]
+FromJSONKeyFunction MxfAfdSignaling
+FromJSONKeyFunction MxfAfdSignaling
+-&gt; FromJSONKeyFunction [MxfAfdSignaling]
+-&gt; FromJSONKey MxfAfdSignaling
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MxfAfdSignaling]
+$cfromJSONKeyList :: FromJSONKeyFunction [MxfAfdSignaling]
+fromJSONKey :: FromJSONKeyFunction MxfAfdSignaling
+$cfromJSONKey :: FromJSONKeyFunction MxfAfdSignaling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679990044"><span id="local-6989586621679990046"><span id="local-6989586621679990048"><span id="local-6989586621679990050"><span class="annot"><span class="annottext">[MxfAfdSignaling] -&gt; Encoding
+[MxfAfdSignaling] -&gt; Value
+MxfAfdSignaling -&gt; Encoding
+MxfAfdSignaling -&gt; Value
+(MxfAfdSignaling -&gt; Value)
+-&gt; (MxfAfdSignaling -&gt; Encoding)
+-&gt; ([MxfAfdSignaling] -&gt; Value)
+-&gt; ([MxfAfdSignaling] -&gt; Encoding)
+-&gt; ToJSON MxfAfdSignaling
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MxfAfdSignaling] -&gt; Encoding
+$ctoEncodingList :: [MxfAfdSignaling] -&gt; Encoding
+toJSONList :: [MxfAfdSignaling] -&gt; Value
+$ctoJSONList :: [MxfAfdSignaling] -&gt; Value
+toEncoding :: MxfAfdSignaling -&gt; Encoding
+$ctoEncoding :: MxfAfdSignaling -&gt; Encoding
+toJSON :: MxfAfdSignaling -&gt; Value
+$ctoJSON :: MxfAfdSignaling -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679990039"><span id="local-6989586621679990041"><span class="annot"><span class="annottext">ToJSONKeyFunction [MxfAfdSignaling]
+ToJSONKeyFunction MxfAfdSignaling
+ToJSONKeyFunction MxfAfdSignaling
+-&gt; ToJSONKeyFunction [MxfAfdSignaling] -&gt; ToJSONKey MxfAfdSignaling
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MxfAfdSignaling]
+$ctoJSONKeyList :: ToJSONKeyFunction [MxfAfdSignaling]
+toJSONKey :: ToJSONKeyFunction MxfAfdSignaling
+$ctoJSONKey :: ToJSONKeyFunction MxfAfdSignaling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679990036"><span class="annot"><span class="annottext">[Node] -&gt; Either String MxfAfdSignaling
+([Node] -&gt; Either String MxfAfdSignaling)
+-&gt; FromXML MxfAfdSignaling
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MxfAfdSignaling
+$cparseXML :: [Node] -&gt; Either String MxfAfdSignaling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679990033"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; XML
+(MxfAfdSignaling -&gt; XML) -&gt; ToXML MxfAfdSignaling
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MxfAfdSignaling -&gt; XML
+$ctoXML :: MxfAfdSignaling -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling_COPY_FROM_VIDEO"><span class="hs-identifier hs-type">MxfAfdSignaling_COPY_FROM_VIDEO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling"><span class="hs-identifier hs-type">MxfAfdSignaling</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMxfAfdSignaling_COPY_FROM_VIDEO"><span id="%24mMxfAfdSignaling_COPY_FROM_VIDEO"><span id="MxfAfdSignaling_COPY_FROM_VIDEO"><span class="annot"><span class="annottext">$bMxfAfdSignaling_COPY_FROM_VIDEO :: MxfAfdSignaling
+$mMxfAfdSignaling_COPY_FROM_VIDEO :: forall r. MxfAfdSignaling -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#%24bMxfAfdSignaling_COPY_FROM_VIDEO"><span class="hs-identifier hs-var hs-var hs-var">MxfAfdSignaling_COPY_FROM_VIDEO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling%27"><span class="hs-identifier hs-type">MxfAfdSignaling'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COPY_FROM_VIDEO&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling_NO_COPY"><span class="hs-identifier hs-type">MxfAfdSignaling_NO_COPY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling"><span class="hs-identifier hs-type">MxfAfdSignaling</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMxfAfdSignaling_NO_COPY"><span id="%24mMxfAfdSignaling_NO_COPY"><span id="MxfAfdSignaling_NO_COPY"><span class="annot"><span class="annottext">$bMxfAfdSignaling_NO_COPY :: MxfAfdSignaling
+$mMxfAfdSignaling_NO_COPY :: forall r. MxfAfdSignaling -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#%24bMxfAfdSignaling_NO_COPY"><span class="hs-identifier hs-var hs-var hs-var">MxfAfdSignaling_NO_COPY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling%27"><span class="hs-identifier hs-type">MxfAfdSignaling'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO_COPY&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling_COPY_FROM_VIDEO"><span class="hs-pragma hs-type">MxfAfdSignaling_COPY_FROM_VIDEO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling_NO_COPY"><span class="hs-pragma hs-type">MxfAfdSignaling_NO_COPY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling%27"><span class="hs-pragma hs-type">MxfAfdSignaling'</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-80"></span></pre></body></html>

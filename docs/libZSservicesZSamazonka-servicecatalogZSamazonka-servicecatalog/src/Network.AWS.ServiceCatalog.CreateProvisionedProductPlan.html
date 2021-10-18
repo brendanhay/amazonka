@@ -1,0 +1,1296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceCatalog.CreateProvisionedProductPlan</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a plan. A plan includes the list of resources to be created</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- (when provisioning a new product) or modified (when updating a</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- provisioned product) when the plan is executed.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- You can create one plan per provisioned product. To create a plan for an</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- existing provisioned product, the product status must be AVAILBLE or</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- TAINTED.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- To view the resource changes in the change set, use</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- DescribeProvisionedProductPlan. To create or modify the provisioned</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- product, use ExecuteProvisionedProductPlan.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceCatalog.CreateProvisionedProductPlan</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier">CreateProvisionedProductPlan</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#newCreateProvisionedProductPlan"><span class="hs-identifier">newCreateProvisionedProductPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_notificationArns"><span class="hs-identifier">createProvisionedProductPlan_notificationArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_tags"><span class="hs-identifier">createProvisionedProductPlan_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_provisioningParameters"><span class="hs-identifier">createProvisionedProductPlan_provisioningParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_pathId"><span class="hs-identifier">createProvisionedProductPlan_pathId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_acceptLanguage"><span class="hs-identifier">createProvisionedProductPlan_acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_planName"><span class="hs-identifier">createProvisionedProductPlan_planName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_planType"><span class="hs-identifier">createProvisionedProductPlan_planType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_productId"><span class="hs-identifier">createProvisionedProductPlan_productId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_provisionedProductName"><span class="hs-identifier">createProvisionedProductPlan_provisionedProductName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_provisioningArtifactId"><span class="hs-identifier">createProvisionedProductPlan_provisioningArtifactId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_idempotencyToken"><span class="hs-identifier">createProvisionedProductPlan_idempotencyToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier">CreateProvisionedProductPlanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#newCreateProvisionedProductPlanResponse"><span class="hs-identifier">newCreateProvisionedProductPlanResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_provisionProductId"><span class="hs-identifier">createProvisionedProductPlanResponse_provisionProductId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_provisionedProductName"><span class="hs-identifier">createProvisionedProductPlanResponse_provisionedProductName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_provisioningArtifactId"><span class="hs-identifier">createProvisionedProductPlanResponse_provisioningArtifactId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_planName"><span class="hs-identifier">createProvisionedProductPlanResponse_planName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_planId"><span class="hs-identifier">createProvisionedProductPlanResponse_planId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_httpStatus"><span class="hs-identifier">createProvisionedProductPlanResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.html"><span class="hs-identifier">Network.AWS.ServiceCatalog.Types</span></a></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | /See:/ 'newCreateProvisionedProductPlan' smart constructor.</span><span>
+</span><span id="line-74"></span><span id="local-6989586621679426357"><span id="local-6989586621679426358"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProvisionedProductPlan"><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-var">CreateProvisionedProductPlan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProvisionedProductPlan%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">CreateProvisionedProductPlan'</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Passed to CloudFormation. The SNS topic ARNs to which to publish</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- stack-related events.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AnotificationArns%3ACreateProvisionedProductPlan%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlan -&gt; Maybe [Text]
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AnotificationArns%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var hs-var">notificationArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | One or more tags.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- If the plan is for an existing provisioned product, the product must</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- have a @RESOURCE_UPDATE@ constraint with</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Atags%3ACreateProvisionedProductPlan%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlan -&gt; Maybe [Tag]
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3Atags%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | Parameters specified by the administrator that are required for</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- provisioning the product.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AprovisioningParameters%3ACreateProvisionedProductPlan%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlan -&gt; Maybe [UpdateProvisioningParameter]
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisioningParameters%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var hs-var">provisioningParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.UpdateProvisioningParameter.html#UpdateProvisioningParameter"><span class="hs-identifier hs-type">UpdateProvisioningParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The path identifier of the product. This value is optional if the</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- product has a default path, and required if the product has more than</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- one path. To list the paths for a product, use ListLaunchPaths.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3ApathId%3ACreateProvisionedProductPlan%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlan -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3ApathId%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var hs-var">pathId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AacceptLanguage%3ACreateProvisionedProductPlan%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlan -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AacceptLanguage%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The name of the plan.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AplanName%3ACreateProvisionedProductPlan%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlan -&gt; Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AplanName%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var hs-var">planName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The plan type.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AplanType%3ACreateProvisionedProductPlan%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlan -&gt; ProvisionedProductPlanType
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AplanType%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var hs-var">planType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType.html#ProvisionedProductPlanType"><span class="hs-identifier hs-type">ProvisionedProductPlanType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The product identifier.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AproductId%3ACreateProvisionedProductPlan%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlan -&gt; Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AproductId%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | A user-friendly name for the provisioned product. This value must be</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- unique for the AWS account and cannot be updated after the product is</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- provisioned.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AprovisionedProductName%3ACreateProvisionedProductPlan%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlan -&gt; Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisionedProductName%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var hs-var">provisionedProductName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The identifier of the provisioning artifact.</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AprovisioningArtifactId%3ACreateProvisionedProductPlan%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlan -&gt; Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisioningArtifactId%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var hs-var">provisioningArtifactId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- | A unique identifier that you provide to ensure idempotency. If multiple</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- requests differ only by the idempotency token, the same response is</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- returned for each repeated request.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AidempotencyToken%3ACreateProvisionedProductPlan%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlan -&gt; Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AidempotencyToken%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426341"><span id="local-6989586621679426343"><span class="annot"><span class="annottext">CreateProvisionedProductPlan
+-&gt; CreateProvisionedProductPlan -&gt; Bool
+(CreateProvisionedProductPlan
+ -&gt; CreateProvisionedProductPlan -&gt; Bool)
+-&gt; (CreateProvisionedProductPlan
+    -&gt; CreateProvisionedProductPlan -&gt; Bool)
+-&gt; Eq CreateProvisionedProductPlan
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateProvisionedProductPlan
+-&gt; CreateProvisionedProductPlan -&gt; Bool
+$c/= :: CreateProvisionedProductPlan
+-&gt; CreateProvisionedProductPlan -&gt; Bool
+== :: CreateProvisionedProductPlan
+-&gt; CreateProvisionedProductPlan -&gt; Bool
+$c== :: CreateProvisionedProductPlan
+-&gt; CreateProvisionedProductPlan -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426332"><span id="local-6989586621679426334"><span id="local-6989586621679426336"><span id="local-6989586621679426338"><span class="annot"><span class="annottext">ReadPrec [CreateProvisionedProductPlan]
+ReadPrec CreateProvisionedProductPlan
+Int -&gt; ReadS CreateProvisionedProductPlan
+ReadS [CreateProvisionedProductPlan]
+(Int -&gt; ReadS CreateProvisionedProductPlan)
+-&gt; ReadS [CreateProvisionedProductPlan]
+-&gt; ReadPrec CreateProvisionedProductPlan
+-&gt; ReadPrec [CreateProvisionedProductPlan]
+-&gt; Read CreateProvisionedProductPlan
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateProvisionedProductPlan]
+$creadListPrec :: ReadPrec [CreateProvisionedProductPlan]
+readPrec :: ReadPrec CreateProvisionedProductPlan
+$creadPrec :: ReadPrec CreateProvisionedProductPlan
+readList :: ReadS [CreateProvisionedProductPlan]
+$creadList :: ReadS [CreateProvisionedProductPlan]
+readsPrec :: Int -&gt; ReadS CreateProvisionedProductPlan
+$creadsPrec :: Int -&gt; ReadS CreateProvisionedProductPlan
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426325"><span id="local-6989586621679426327"><span id="local-6989586621679426329"><span class="annot"><span class="annottext">Int -&gt; CreateProvisionedProductPlan -&gt; ShowS
+[CreateProvisionedProductPlan] -&gt; ShowS
+CreateProvisionedProductPlan -&gt; String
+(Int -&gt; CreateProvisionedProductPlan -&gt; ShowS)
+-&gt; (CreateProvisionedProductPlan -&gt; String)
+-&gt; ([CreateProvisionedProductPlan] -&gt; ShowS)
+-&gt; Show CreateProvisionedProductPlan
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateProvisionedProductPlan] -&gt; ShowS
+$cshowList :: [CreateProvisionedProductPlan] -&gt; ShowS
+show :: CreateProvisionedProductPlan -&gt; String
+$cshow :: CreateProvisionedProductPlan -&gt; String
+showsPrec :: Int -&gt; CreateProvisionedProductPlan -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateProvisionedProductPlan -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateProvisionedProductPlan -&gt; Rep CreateProvisionedProductPlan x)
+-&gt; (forall x.
+    Rep CreateProvisionedProductPlan x -&gt; CreateProvisionedProductPlan)
+-&gt; Generic CreateProvisionedProductPlan
+forall x.
+Rep CreateProvisionedProductPlan x -&gt; CreateProvisionedProductPlan
+forall x.
+CreateProvisionedProductPlan -&gt; Rep CreateProvisionedProductPlan x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateProvisionedProductPlan x -&gt; CreateProvisionedProductPlan
+$cfrom :: forall x.
+CreateProvisionedProductPlan -&gt; Rep CreateProvisionedProductPlan x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Create a value of 'CreateProvisionedProductPlan' with all optional fields omitted.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'notificationArns', 'createProvisionedProductPlan_notificationArns' - Passed to CloudFormation. The SNS topic ARNs to which to publish</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- stack-related events.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'tags', 'createProvisionedProductPlan_tags' - One or more tags.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- If the plan is for an existing provisioned product, the product must</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- have a @RESOURCE_UPDATE@ constraint with</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'provisioningParameters', 'createProvisionedProductPlan_provisioningParameters' - Parameters specified by the administrator that are required for</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- provisioning the product.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'pathId', 'createProvisionedProductPlan_pathId' - The path identifier of the product. This value is optional if the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- product has a default path, and required if the product has more than</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- one path. To list the paths for a product, use ListLaunchPaths.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'acceptLanguage', 'createProvisionedProductPlan_acceptLanguage' - The language code.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'planName', 'createProvisionedProductPlan_planName' - The name of the plan.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'planType', 'createProvisionedProductPlan_planType' - The plan type.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'productId', 'createProvisionedProductPlan_productId' - The product identifier.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'provisionedProductName', 'createProvisionedProductPlan_provisionedProductName' - A user-friendly name for the provisioned product. This value must be</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- unique for the AWS account and cannot be updated after the product is</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- provisioned.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'provisioningArtifactId', 'createProvisionedProductPlan_provisioningArtifactId' - The identifier of the provisioning artifact.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'idempotencyToken', 'createProvisionedProductPlan_idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- requests differ only by the idempotency token, the same response is</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- returned for each repeated request.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#newCreateProvisionedProductPlan"><span class="hs-identifier hs-type">newCreateProvisionedProductPlan</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-comment">-- | 'planName'</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-comment">-- | 'planType'</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType.html#ProvisionedProductPlanType"><span class="hs-identifier hs-type">ProvisionedProductPlanType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-comment">-- | 'productId'</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'provisionedProductName'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-comment">-- | 'provisioningArtifactId'</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-comment">-- | 'idempotencyToken'</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span>
+</span><span id="line-179"></span><span id="newCreateProvisionedProductPlan"><span class="annot"><span class="annottext">newCreateProvisionedProductPlan :: Text
+-&gt; ProvisionedProductPlanType
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CreateProvisionedProductPlan
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#newCreateProvisionedProductPlan"><span class="hs-identifier hs-var hs-var">newCreateProvisionedProductPlan</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679426320"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426320"><span class="hs-identifier hs-var">pPlanName_</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679426319"><span class="annot"><span class="annottext">ProvisionedProductPlanType
+</span><a href="#local-6989586621679426319"><span class="hs-identifier hs-var">pPlanType_</span></a></span></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679426318"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426318"><span class="hs-identifier hs-var">pProductId_</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679426317"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426317"><span class="hs-identifier hs-var">pProvisionedProductName_</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679426316"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426316"><span class="hs-identifier hs-var">pProvisioningArtifactId_</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679426315"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426315"><span class="hs-identifier hs-var">pIdempotencyToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">CreateProvisionedProductPlan' :: Maybe [Text]
+-&gt; Maybe [Tag]
+-&gt; Maybe [UpdateProvisioningParameter]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; ProvisionedProductPlanType
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CreateProvisionedProductPlan
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:notificationArns:CreateProvisionedProductPlan' :: Maybe [Text]
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AnotificationArns%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">notificationArns</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateProvisionedProductPlan' :: Maybe [Tag]
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3Atags%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">$sel:provisioningParameters:CreateProvisionedProductPlan' :: Maybe [UpdateProvisioningParameter]
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisioningParameters%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">provisioningParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateProvisioningParameter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">$sel:pathId:CreateProvisionedProductPlan' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3ApathId%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">pathId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">$sel:acceptLanguage:CreateProvisionedProductPlan' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AacceptLanguage%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">$sel:planName:CreateProvisionedProductPlan' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AplanName%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">planName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426320"><span class="hs-identifier hs-var">pPlanName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">$sel:planType:CreateProvisionedProductPlan' :: ProvisionedProductPlanType
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AplanType%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">planType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanType
+</span><a href="#local-6989586621679426319"><span class="hs-identifier hs-var">pPlanType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">$sel:productId:CreateProvisionedProductPlan' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AproductId%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426318"><span class="hs-identifier hs-var">pProductId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">$sel:provisionedProductName:CreateProvisionedProductPlan' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisionedProductName%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">provisionedProductName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426317"><span class="hs-identifier hs-var">pProvisionedProductName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">$sel:provisioningArtifactId:CreateProvisionedProductPlan' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisioningArtifactId%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426316"><span class="hs-identifier hs-var">pProvisioningArtifactId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">$sel:idempotencyToken:CreateProvisionedProductPlan' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AidempotencyToken%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426315"><span class="hs-identifier hs-var">pIdempotencyToken_</span></a></span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | Passed to CloudFormation. The SNS topic ARNs to which to publish</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- stack-related events.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_notificationArns"><span class="hs-identifier hs-type">createProvisionedProductPlan_notificationArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="createProvisionedProductPlan_notificationArns"><span class="annot"><span class="annottext">createProvisionedProductPlan_notificationArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateProvisionedProductPlan -&gt; f CreateProvisionedProductPlan
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_notificationArns"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlan_notificationArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlan -&gt; Maybe [Text])
+-&gt; (CreateProvisionedProductPlan
+    -&gt; Maybe [Text] -&gt; CreateProvisionedProductPlan)
+-&gt; Lens
+     CreateProvisionedProductPlan
+     CreateProvisionedProductPlan
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426312"><span class="annot"><span class="annottext">Maybe [Text]
+notificationArns :: Maybe [Text]
+$sel:notificationArns:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Maybe [Text]
+</span><a href="#local-6989586621679426312"><span class="hs-identifier hs-var hs-var">notificationArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679426312"><span class="hs-identifier hs-var">notificationArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426311"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426310"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679426310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationArns:CreateProvisionedProductPlan' :: Maybe [Text]
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AnotificationArns%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">notificationArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679426310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateProvisionedProductPlan -&gt; f CreateProvisionedProductPlan)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateProvisionedProductPlan
+-&gt; f CreateProvisionedProductPlan
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | One or more tags.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- If the plan is for an existing provisioned product, the product must</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- have a @RESOURCE_UPDATE@ constraint with</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_tags"><span class="hs-identifier hs-type">createProvisionedProductPlan_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="createProvisionedProductPlan_tags"><span class="annot"><span class="annottext">createProvisionedProductPlan_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateProvisionedProductPlan -&gt; f CreateProvisionedProductPlan
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_tags"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlan_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlan -&gt; Maybe [Tag])
+-&gt; (CreateProvisionedProductPlan
+    -&gt; Maybe [Tag] -&gt; CreateProvisionedProductPlan)
+-&gt; Lens
+     CreateProvisionedProductPlan
+     CreateProvisionedProductPlan
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426306"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679426306"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679426306"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426305"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426304"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679426304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateProvisionedProductPlan' :: Maybe [Tag]
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3Atags%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679426304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateProvisionedProductPlan -&gt; f CreateProvisionedProductPlan)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateProvisionedProductPlan
+-&gt; f CreateProvisionedProductPlan
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | Parameters specified by the administrator that are required for</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- provisioning the product.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_provisioningParameters"><span class="hs-identifier hs-type">createProvisionedProductPlan_provisioningParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.UpdateProvisioningParameter.html#UpdateProvisioningParameter"><span class="hs-identifier hs-type">UpdateProvisioningParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="createProvisionedProductPlan_provisioningParameters"><span class="annot"><span class="annottext">createProvisionedProductPlan_provisioningParameters :: (Maybe [UpdateProvisioningParameter]
+ -&gt; f (Maybe [UpdateProvisioningParameter]))
+-&gt; CreateProvisionedProductPlan -&gt; f CreateProvisionedProductPlan
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_provisioningParameters"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlan_provisioningParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlan
+ -&gt; Maybe [UpdateProvisioningParameter])
+-&gt; (CreateProvisionedProductPlan
+    -&gt; Maybe [UpdateProvisioningParameter]
+    -&gt; CreateProvisionedProductPlan)
+-&gt; Lens
+     CreateProvisionedProductPlan
+     CreateProvisionedProductPlan
+     (Maybe [UpdateProvisioningParameter])
+     (Maybe [UpdateProvisioningParameter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426303"><span class="annot"><span class="annottext">Maybe [UpdateProvisioningParameter]
+provisioningParameters :: Maybe [UpdateProvisioningParameter]
+$sel:provisioningParameters:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Maybe [UpdateProvisioningParameter]
+</span><a href="#local-6989586621679426303"><span class="hs-identifier hs-var hs-var">provisioningParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateProvisioningParameter]
+</span><a href="#local-6989586621679426303"><span class="hs-identifier hs-var">provisioningParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426302"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426301"><span class="annot"><span class="annottext">Maybe [UpdateProvisioningParameter]
+</span><a href="#local-6989586621679426301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningParameters:CreateProvisionedProductPlan' :: Maybe [UpdateProvisioningParameter]
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisioningParameters%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">provisioningParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateProvisioningParameter]
+</span><a href="#local-6989586621679426301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UpdateProvisioningParameter]
+  -&gt; f (Maybe [UpdateProvisioningParameter]))
+ -&gt; CreateProvisionedProductPlan -&gt; f CreateProvisionedProductPlan)
+-&gt; ((Maybe [UpdateProvisioningParameter]
+     -&gt; f (Maybe [UpdateProvisioningParameter]))
+    -&gt; Maybe [UpdateProvisioningParameter]
+    -&gt; f (Maybe [UpdateProvisioningParameter]))
+-&gt; (Maybe [UpdateProvisioningParameter]
+    -&gt; f (Maybe [UpdateProvisioningParameter]))
+-&gt; CreateProvisionedProductPlan
+-&gt; f CreateProvisionedProductPlan
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UpdateProvisioningParameter]
+  [UpdateProvisioningParameter]
+  [UpdateProvisioningParameter]
+  [UpdateProvisioningParameter]
+-&gt; Iso
+     (Maybe [UpdateProvisioningParameter])
+     (Maybe [UpdateProvisioningParameter])
+     (Maybe [UpdateProvisioningParameter])
+     (Maybe [UpdateProvisioningParameter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UpdateProvisioningParameter]
+  [UpdateProvisioningParameter]
+  [UpdateProvisioningParameter]
+  [UpdateProvisioningParameter]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The path identifier of the product. This value is optional if the</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- product has a default path, and required if the product has more than</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- one path. To list the paths for a product, use ListLaunchPaths.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_pathId"><span class="hs-identifier hs-type">createProvisionedProductPlan_pathId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="createProvisionedProductPlan_pathId"><span class="annot"><span class="annottext">createProvisionedProductPlan_pathId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateProvisionedProductPlan -&gt; f CreateProvisionedProductPlan
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_pathId"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlan_pathId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlan -&gt; Maybe Text)
+-&gt; (CreateProvisionedProductPlan
+    -&gt; Maybe Text -&gt; CreateProvisionedProductPlan)
+-&gt; Lens
+     CreateProvisionedProductPlan
+     CreateProvisionedProductPlan
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426300"><span class="annot"><span class="annottext">Maybe Text
+pathId :: Maybe Text
+$sel:pathId:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Maybe Text
+</span><a href="#local-6989586621679426300"><span class="hs-identifier hs-var hs-var">pathId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426300"><span class="hs-identifier hs-var">pathId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426299"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426298"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathId:CreateProvisionedProductPlan' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3ApathId%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">pathId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_acceptLanguage"><span class="hs-identifier hs-type">createProvisionedProductPlan_acceptLanguage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="createProvisionedProductPlan_acceptLanguage"><span class="annot"><span class="annottext">createProvisionedProductPlan_acceptLanguage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateProvisionedProductPlan -&gt; f CreateProvisionedProductPlan
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_acceptLanguage"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlan_acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlan -&gt; Maybe Text)
+-&gt; (CreateProvisionedProductPlan
+    -&gt; Maybe Text -&gt; CreateProvisionedProductPlan)
+-&gt; Lens
+     CreateProvisionedProductPlan
+     CreateProvisionedProductPlan
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426297"><span class="annot"><span class="annottext">Maybe Text
+acceptLanguage :: Maybe Text
+$sel:acceptLanguage:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Maybe Text
+</span><a href="#local-6989586621679426297"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426297"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426296"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426295"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptLanguage:CreateProvisionedProductPlan' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AacceptLanguage%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The name of the plan.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_planName"><span class="hs-identifier hs-type">createProvisionedProductPlan_planName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-239"></span><span id="createProvisionedProductPlan_planName"><span class="annot"><span class="annottext">createProvisionedProductPlan_planName :: (Text -&gt; f Text)
+-&gt; CreateProvisionedProductPlan -&gt; f CreateProvisionedProductPlan
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_planName"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlan_planName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlan -&gt; Text)
+-&gt; (CreateProvisionedProductPlan
+    -&gt; Text -&gt; CreateProvisionedProductPlan)
+-&gt; Lens
+     CreateProvisionedProductPlan CreateProvisionedProductPlan Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426294"><span class="annot"><span class="annottext">Text
+planName :: Text
+$sel:planName:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Text
+</span><a href="#local-6989586621679426294"><span class="hs-identifier hs-var hs-var">planName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426294"><span class="hs-identifier hs-var">planName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426293"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426292"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:planName:CreateProvisionedProductPlan' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AplanName%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">planName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The plan type.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_planType"><span class="hs-identifier hs-type">createProvisionedProductPlan_planType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType.html#ProvisionedProductPlanType"><span class="hs-identifier hs-type">ProvisionedProductPlanType</span></a></span><span>
+</span><span id="line-243"></span><span id="createProvisionedProductPlan_planType"><span class="annot"><span class="annottext">createProvisionedProductPlan_planType :: (ProvisionedProductPlanType -&gt; f ProvisionedProductPlanType)
+-&gt; CreateProvisionedProductPlan -&gt; f CreateProvisionedProductPlan
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_planType"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlan_planType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlan -&gt; ProvisionedProductPlanType)
+-&gt; (CreateProvisionedProductPlan
+    -&gt; ProvisionedProductPlanType -&gt; CreateProvisionedProductPlan)
+-&gt; Lens
+     CreateProvisionedProductPlan
+     CreateProvisionedProductPlan
+     ProvisionedProductPlanType
+     ProvisionedProductPlanType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426291"><span class="annot"><span class="annottext">ProvisionedProductPlanType
+planType :: ProvisionedProductPlanType
+$sel:planType:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; ProvisionedProductPlanType
+</span><a href="#local-6989586621679426291"><span class="hs-identifier hs-var hs-var">planType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanType
+</span><a href="#local-6989586621679426291"><span class="hs-identifier hs-var">planType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426290"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426289"><span class="annot"><span class="annottext">ProvisionedProductPlanType
+</span><a href="#local-6989586621679426289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:planType:CreateProvisionedProductPlan' :: ProvisionedProductPlanType
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AplanType%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">planType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanType
+</span><a href="#local-6989586621679426289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | The product identifier.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_productId"><span class="hs-identifier hs-type">createProvisionedProductPlan_productId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-247"></span><span id="createProvisionedProductPlan_productId"><span class="annot"><span class="annottext">createProvisionedProductPlan_productId :: (Text -&gt; f Text)
+-&gt; CreateProvisionedProductPlan -&gt; f CreateProvisionedProductPlan
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_productId"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlan_productId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlan -&gt; Text)
+-&gt; (CreateProvisionedProductPlan
+    -&gt; Text -&gt; CreateProvisionedProductPlan)
+-&gt; Lens
+     CreateProvisionedProductPlan CreateProvisionedProductPlan Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426288"><span class="annot"><span class="annottext">Text
+productId :: Text
+$sel:productId:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Text
+</span><a href="#local-6989586621679426288"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426288"><span class="hs-identifier hs-var">productId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426287"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426286"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productId:CreateProvisionedProductPlan' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AproductId%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | A user-friendly name for the provisioned product. This value must be</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- unique for the AWS account and cannot be updated after the product is</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- provisioned.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_provisionedProductName"><span class="hs-identifier hs-type">createProvisionedProductPlan_provisionedProductName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-253"></span><span id="createProvisionedProductPlan_provisionedProductName"><span class="annot"><span class="annottext">createProvisionedProductPlan_provisionedProductName :: (Text -&gt; f Text)
+-&gt; CreateProvisionedProductPlan -&gt; f CreateProvisionedProductPlan
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_provisionedProductName"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlan_provisionedProductName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlan -&gt; Text)
+-&gt; (CreateProvisionedProductPlan
+    -&gt; Text -&gt; CreateProvisionedProductPlan)
+-&gt; Lens
+     CreateProvisionedProductPlan CreateProvisionedProductPlan Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426285"><span class="annot"><span class="annottext">Text
+provisionedProductName :: Text
+$sel:provisionedProductName:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Text
+</span><a href="#local-6989586621679426285"><span class="hs-identifier hs-var hs-var">provisionedProductName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426285"><span class="hs-identifier hs-var">provisionedProductName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426284"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426283"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedProductName:CreateProvisionedProductPlan' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisionedProductName%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">provisionedProductName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The identifier of the provisioning artifact.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_provisioningArtifactId"><span class="hs-identifier hs-type">createProvisionedProductPlan_provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-257"></span><span id="createProvisionedProductPlan_provisioningArtifactId"><span class="annot"><span class="annottext">createProvisionedProductPlan_provisioningArtifactId :: (Text -&gt; f Text)
+-&gt; CreateProvisionedProductPlan -&gt; f CreateProvisionedProductPlan
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_provisioningArtifactId"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlan_provisioningArtifactId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlan -&gt; Text)
+-&gt; (CreateProvisionedProductPlan
+    -&gt; Text -&gt; CreateProvisionedProductPlan)
+-&gt; Lens
+     CreateProvisionedProductPlan CreateProvisionedProductPlan Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426282"><span class="annot"><span class="annottext">Text
+provisioningArtifactId :: Text
+$sel:provisioningArtifactId:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Text
+</span><a href="#local-6989586621679426282"><span class="hs-identifier hs-var hs-var">provisioningArtifactId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426282"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426281"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426280"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningArtifactId:CreateProvisionedProductPlan' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisioningArtifactId%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | A unique identifier that you provide to ensure idempotency. If multiple</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- requests differ only by the idempotency token, the same response is</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- returned for each repeated request.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_idempotencyToken"><span class="hs-identifier hs-type">createProvisionedProductPlan_idempotencyToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-263"></span><span id="createProvisionedProductPlan_idempotencyToken"><span class="annot"><span class="annottext">createProvisionedProductPlan_idempotencyToken :: (Text -&gt; f Text)
+-&gt; CreateProvisionedProductPlan -&gt; f CreateProvisionedProductPlan
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlan_idempotencyToken"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlan_idempotencyToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlan -&gt; Text)
+-&gt; (CreateProvisionedProductPlan
+    -&gt; Text -&gt; CreateProvisionedProductPlan)
+-&gt; Lens
+     CreateProvisionedProductPlan CreateProvisionedProductPlan Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426279"><span class="annot"><span class="annottext">Text
+idempotencyToken :: Text
+$sel:idempotencyToken:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Text
+</span><a href="#local-6989586621679426279"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426279"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426278"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426277"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlan
+</span><a href="#local-6989586621679426278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idempotencyToken:CreateProvisionedProductPlan' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AidempotencyToken%3ACreateProvisionedProductPlan%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-266"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-267"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse</span></a></span><span>
+</span><span id="line-269"></span><span>  </span><span id="local-6989586621679426273"><span class="annot"><span class="annottext">request :: CreateProvisionedProductPlan
+-&gt; Request CreateProvisionedProductPlan
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateProvisionedProductPlan
+-&gt; Request CreateProvisionedProductPlan
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ServiceCatalog.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621679426269"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateProvisionedProductPlan
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateProvisionedProductPlan)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateProvisionedProductPlan))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateProvisionedProductPlan
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateProvisionedProductPlan)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-272"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679426266"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426266"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679426265"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679426265"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679426264"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679426264"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-273"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; CreateProvisionedProductPlanResponse
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var">CreateProvisionedProductPlanResponse'</span></a></span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; CreateProvisionedProductPlanResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; CreateProvisionedProductPlanResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679426264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisionProductId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; CreateProvisionedProductPlanResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; CreateProvisionedProductPlanResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679426264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisionedProductName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; CreateProvisionedProductPlanResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Int -&gt; CreateProvisionedProductPlanResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679426264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisioningArtifactId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Int -&gt; CreateProvisionedProductPlanResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; CreateProvisionedProductPlanResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679426264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlanName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; CreateProvisionedProductPlanResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateProvisionedProductPlanResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679426264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlanId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateProvisionedProductPlanResponse)
+-&gt; Either String Int
+-&gt; Either String CreateProvisionedProductPlanResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426266"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679426256"><span id="local-6989586621679426258"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span></span></span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426253"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span></span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-289"></span><span>  </span><span id="local-6989586621679426249"><span class="annot"><span class="annottext">toHeaders :: CreateProvisionedProductPlan -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateProvisionedProductPlan -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-291"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-292"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-293"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWS242ServiceCatalogService.CreateProvisionedProductPlan&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-294"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-295"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-297"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-298"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-299"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-301"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426239"><span id="local-6989586621679426241"><span id="local-6989586621679426243"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-304"></span><span>  </span><span id="local-6989586621679426237"><span class="annot"><span class="annottext">toJSON :: CreateProvisionedProductPlan -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426225"><span id="local-6989586621679426226"><span id="local-6989586621679426227"><span id="local-6989586621679426228"><span id="local-6989586621679426229"><span id="local-6989586621679426230"><span id="local-6989586621679426231"><span id="local-6989586621679426232"><span id="local-6989586621679426233"><span id="local-6989586621679426234"><span id="local-6989586621679426235"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe [Tag]
+Maybe [UpdateProvisioningParameter]
+Maybe Text
+Text
+ProvisionedProductPlanType
+idempotencyToken :: Text
+provisioningArtifactId :: Text
+provisionedProductName :: Text
+productId :: Text
+planType :: ProvisionedProductPlanType
+planName :: Text
+acceptLanguage :: Maybe Text
+pathId :: Maybe Text
+provisioningParameters :: Maybe [UpdateProvisioningParameter]
+tags :: Maybe [Tag]
+notificationArns :: Maybe [Text]
+$sel:idempotencyToken:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Text
+$sel:provisioningArtifactId:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Text
+$sel:provisionedProductName:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Text
+$sel:productId:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Text
+$sel:planType:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; ProvisionedProductPlanType
+$sel:planName:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Text
+$sel:acceptLanguage:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Maybe Text
+$sel:pathId:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Maybe Text
+$sel:provisioningParameters:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Maybe [UpdateProvisioningParameter]
+$sel:tags:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Maybe [Tag]
+$sel:notificationArns:CreateProvisionedProductPlan' :: CreateProvisionedProductPlan -&gt; Maybe [Text]
+</span><a href="#local-6989586621679426225"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-306"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-307"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotificationArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679426235"><span class="hs-identifier hs-var">notificationArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679426234"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisioningParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [UpdateProvisioningParameter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>              </span><span class="annot"><span class="annottext">([UpdateProvisioningParameter] -&gt; Pair)
+-&gt; Maybe [UpdateProvisioningParameter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateProvisioningParameter]
+</span><a href="#local-6989586621679426233"><span class="hs-identifier hs-var">provisioningParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PathId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426232"><span class="hs-identifier hs-var">pathId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AcceptLanguage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426231"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlanName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426230"><span class="hs-identifier hs-var">planName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlanType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProvisionedProductPlanType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanType
+</span><a href="#local-6989586621679426229"><span class="hs-identifier hs-var">planType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProductId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426228"><span class="hs-identifier hs-var">productId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-319"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisionedProductName&quot;</span></span><span>
+</span><span id="line-320"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426227"><span class="hs-identifier hs-var">provisionedProductName</span></a></span><span>
+</span><span id="line-321"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-323"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisioningArtifactId&quot;</span></span><span>
+</span><span id="line-324"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426226"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span>
+</span><span id="line-325"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-327"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdempotencyToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426225"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-329"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-332"></span><span>  </span><span id="local-6989586621679426219"><span class="annot"><span class="annottext">toPath :: CreateProvisionedProductPlan -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateProvisionedProductPlan -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-333"></span><span>
+</span><span id="line-334"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlan"><span class="hs-identifier hs-type">CreateProvisionedProductPlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-335"></span><span>  </span><span id="local-6989586621679426215"><span class="annot"><span class="annottext">toQuery :: CreateProvisionedProductPlan -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateProvisionedProductPlan -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- | /See:/ 'newCreateProvisionedProductPlanResponse' smart constructor.</span><span>
+</span><span id="line-338"></span><span id="local-6989586621679426212"><span id="local-6989586621679426213"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProvisionedProductPlanResponse"><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier hs-var">CreateProvisionedProductPlanResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProvisionedProductPlanResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var">CreateProvisionedProductPlanResponse'</span></a></span></span><span>
+</span><span id="line-339"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The product identifier.</span><span>
+</span><span id="line-340"></span><span>    </span><span id="%24sel%3AprovisionProductId%3ACreateProvisionedProductPlanResponse%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlanResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisionProductId%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var hs-var">provisionProductId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>    </span><span class="hs-comment">-- | The user-friendly name of the provisioned product.</span><span>
+</span><span id="line-342"></span><span>    </span><span id="%24sel%3AprovisionedProductName%3ACreateProvisionedProductPlanResponse%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlanResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisionedProductName%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var hs-var">provisionedProductName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>    </span><span class="hs-comment">-- | The identifier of the provisioning artifact.</span><span>
+</span><span id="line-344"></span><span>    </span><span id="%24sel%3AprovisioningArtifactId%3ACreateProvisionedProductPlanResponse%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlanResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisioningArtifactId%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var hs-var">provisioningArtifactId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>    </span><span class="hs-comment">-- | The name of the plan.</span><span>
+</span><span id="line-346"></span><span>    </span><span id="%24sel%3AplanName%3ACreateProvisionedProductPlanResponse%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlanResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AplanName%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var hs-var">planName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-347"></span><span>    </span><span class="hs-comment">-- | The plan identifier.</span><span>
+</span><span id="line-348"></span><span>    </span><span id="%24sel%3AplanId%3ACreateProvisionedProductPlanResponse%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlanResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AplanId%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var hs-var">planId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-349"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-350"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateProvisionedProductPlanResponse%27"><span class="annot"><span class="annottext">CreateProvisionedProductPlanResponse -&gt; Int
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AhttpStatus%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-351"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-352"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426202"><span id="local-6989586621679426204"><span class="annot"><span class="annottext">CreateProvisionedProductPlanResponse
+-&gt; CreateProvisionedProductPlanResponse -&gt; Bool
+(CreateProvisionedProductPlanResponse
+ -&gt; CreateProvisionedProductPlanResponse -&gt; Bool)
+-&gt; (CreateProvisionedProductPlanResponse
+    -&gt; CreateProvisionedProductPlanResponse -&gt; Bool)
+-&gt; Eq CreateProvisionedProductPlanResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateProvisionedProductPlanResponse
+-&gt; CreateProvisionedProductPlanResponse -&gt; Bool
+$c/= :: CreateProvisionedProductPlanResponse
+-&gt; CreateProvisionedProductPlanResponse -&gt; Bool
+== :: CreateProvisionedProductPlanResponse
+-&gt; CreateProvisionedProductPlanResponse -&gt; Bool
+$c== :: CreateProvisionedProductPlanResponse
+-&gt; CreateProvisionedProductPlanResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426194"><span id="local-6989586621679426196"><span id="local-6989586621679426198"><span id="local-6989586621679426200"><span class="annot"><span class="annottext">ReadPrec [CreateProvisionedProductPlanResponse]
+ReadPrec CreateProvisionedProductPlanResponse
+Int -&gt; ReadS CreateProvisionedProductPlanResponse
+ReadS [CreateProvisionedProductPlanResponse]
+(Int -&gt; ReadS CreateProvisionedProductPlanResponse)
+-&gt; ReadS [CreateProvisionedProductPlanResponse]
+-&gt; ReadPrec CreateProvisionedProductPlanResponse
+-&gt; ReadPrec [CreateProvisionedProductPlanResponse]
+-&gt; Read CreateProvisionedProductPlanResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateProvisionedProductPlanResponse]
+$creadListPrec :: ReadPrec [CreateProvisionedProductPlanResponse]
+readPrec :: ReadPrec CreateProvisionedProductPlanResponse
+$creadPrec :: ReadPrec CreateProvisionedProductPlanResponse
+readList :: ReadS [CreateProvisionedProductPlanResponse]
+$creadList :: ReadS [CreateProvisionedProductPlanResponse]
+readsPrec :: Int -&gt; ReadS CreateProvisionedProductPlanResponse
+$creadsPrec :: Int -&gt; ReadS CreateProvisionedProductPlanResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426188"><span id="local-6989586621679426190"><span id="local-6989586621679426192"><span class="annot"><span class="annottext">Int -&gt; CreateProvisionedProductPlanResponse -&gt; ShowS
+[CreateProvisionedProductPlanResponse] -&gt; ShowS
+CreateProvisionedProductPlanResponse -&gt; String
+(Int -&gt; CreateProvisionedProductPlanResponse -&gt; ShowS)
+-&gt; (CreateProvisionedProductPlanResponse -&gt; String)
+-&gt; ([CreateProvisionedProductPlanResponse] -&gt; ShowS)
+-&gt; Show CreateProvisionedProductPlanResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateProvisionedProductPlanResponse] -&gt; ShowS
+$cshowList :: [CreateProvisionedProductPlanResponse] -&gt; ShowS
+show :: CreateProvisionedProductPlanResponse -&gt; String
+$cshow :: CreateProvisionedProductPlanResponse -&gt; String
+showsPrec :: Int -&gt; CreateProvisionedProductPlanResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateProvisionedProductPlanResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateProvisionedProductPlanResponse
+ -&gt; Rep CreateProvisionedProductPlanResponse x)
+-&gt; (forall x.
+    Rep CreateProvisionedProductPlanResponse x
+    -&gt; CreateProvisionedProductPlanResponse)
+-&gt; Generic CreateProvisionedProductPlanResponse
+forall x.
+Rep CreateProvisionedProductPlanResponse x
+-&gt; CreateProvisionedProductPlanResponse
+forall x.
+CreateProvisionedProductPlanResponse
+-&gt; Rep CreateProvisionedProductPlanResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateProvisionedProductPlanResponse x
+-&gt; CreateProvisionedProductPlanResponse
+$cfrom :: forall x.
+CreateProvisionedProductPlanResponse
+-&gt; Rep CreateProvisionedProductPlanResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- Create a value of 'CreateProvisionedProductPlanResponse' with all optional fields omitted.</span><span>
+</span><span id="line-356"></span><span class="hs-comment">--</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- 'provisionProductId', 'createProvisionedProductPlanResponse_provisionProductId' - The product identifier.</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- 'provisionedProductName', 'createProvisionedProductPlanResponse_provisionedProductName' - The user-friendly name of the provisioned product.</span><span>
+</span><span id="line-365"></span><span class="hs-comment">--</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- 'provisioningArtifactId', 'createProvisionedProductPlanResponse_provisioningArtifactId' - The identifier of the provisioning artifact.</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- 'planName', 'createProvisionedProductPlanResponse_planName' - The name of the plan.</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- 'planId', 'createProvisionedProductPlanResponse_planId' - The plan identifier.</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- 'httpStatus', 'createProvisionedProductPlanResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-373"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#newCreateProvisionedProductPlanResponse"><span class="hs-identifier hs-type">newCreateProvisionedProductPlanResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-374"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-375"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-376"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse</span></a></span><span>
+</span><span id="line-377"></span><span id="newCreateProvisionedProductPlanResponse"><span class="annot"><span class="annottext">newCreateProvisionedProductPlanResponse :: Int -&gt; CreateProvisionedProductPlanResponse
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#newCreateProvisionedProductPlanResponse"><span class="hs-identifier hs-var hs-var">newCreateProvisionedProductPlanResponse</span></a></span></span><span> </span><span id="local-6989586621679426185"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426185"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-378"></span><span>  </span><span class="annot"><span class="annottext">CreateProvisionedProductPlanResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; CreateProvisionedProductPlanResponse
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse'</span></a></span><span>
+</span><span id="line-379"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:provisionProductId:CreateProvisionedProductPlanResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisionProductId%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var">provisionProductId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-380"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-381"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionedProductName:CreateProvisionedProductPlanResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisionedProductName%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var">provisionedProductName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-382"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-383"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisioningArtifactId:CreateProvisionedProductPlanResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisioningArtifactId%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-384"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-385"></span><span>      </span><span class="annot"><span class="annottext">$sel:planName:CreateProvisionedProductPlanResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AplanName%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var">planName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-386"></span><span>      </span><span class="annot"><span class="annottext">$sel:planId:CreateProvisionedProductPlanResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AplanId%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var">planId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-387"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProvisionedProductPlanResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AhttpStatus%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426185"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-388"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-389"></span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- | The product identifier.</span><span>
+</span><span id="line-391"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_provisionProductId"><span class="hs-identifier hs-type">createProvisionedProductPlanResponse_provisionProductId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-392"></span><span id="createProvisionedProductPlanResponse_provisionProductId"><span class="annot"><span class="annottext">createProvisionedProductPlanResponse_provisionProductId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateProvisionedProductPlanResponse
+-&gt; f CreateProvisionedProductPlanResponse
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_provisionProductId"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlanResponse_provisionProductId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlanResponse -&gt; Maybe Text)
+-&gt; (CreateProvisionedProductPlanResponse
+    -&gt; Maybe Text -&gt; CreateProvisionedProductPlanResponse)
+-&gt; Lens
+     CreateProvisionedProductPlanResponse
+     CreateProvisionedProductPlanResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426184"><span class="annot"><span class="annottext">Maybe Text
+provisionProductId :: Maybe Text
+$sel:provisionProductId:CreateProvisionedProductPlanResponse' :: CreateProvisionedProductPlanResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679426184"><span class="hs-identifier hs-var hs-var">provisionProductId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426184"><span class="hs-identifier hs-var">provisionProductId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426183"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlanResponse
+</span><a href="#local-6989586621679426183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426182"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlanResponse
+</span><a href="#local-6989586621679426183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionProductId:CreateProvisionedProductPlanResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisionProductId%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var">provisionProductId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-393"></span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- | The user-friendly name of the provisioned product.</span><span>
+</span><span id="line-395"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_provisionedProductName"><span class="hs-identifier hs-type">createProvisionedProductPlanResponse_provisionedProductName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-396"></span><span id="createProvisionedProductPlanResponse_provisionedProductName"><span class="annot"><span class="annottext">createProvisionedProductPlanResponse_provisionedProductName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateProvisionedProductPlanResponse
+-&gt; f CreateProvisionedProductPlanResponse
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_provisionedProductName"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlanResponse_provisionedProductName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlanResponse -&gt; Maybe Text)
+-&gt; (CreateProvisionedProductPlanResponse
+    -&gt; Maybe Text -&gt; CreateProvisionedProductPlanResponse)
+-&gt; Lens
+     CreateProvisionedProductPlanResponse
+     CreateProvisionedProductPlanResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426181"><span class="annot"><span class="annottext">Maybe Text
+provisionedProductName :: Maybe Text
+$sel:provisionedProductName:CreateProvisionedProductPlanResponse' :: CreateProvisionedProductPlanResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679426181"><span class="hs-identifier hs-var hs-var">provisionedProductName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426181"><span class="hs-identifier hs-var">provisionedProductName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426180"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlanResponse
+</span><a href="#local-6989586621679426180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426179"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlanResponse
+</span><a href="#local-6989586621679426180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedProductName:CreateProvisionedProductPlanResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisionedProductName%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var">provisionedProductName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-397"></span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- | The identifier of the provisioning artifact.</span><span>
+</span><span id="line-399"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_provisioningArtifactId"><span class="hs-identifier hs-type">createProvisionedProductPlanResponse_provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-400"></span><span id="createProvisionedProductPlanResponse_provisioningArtifactId"><span class="annot"><span class="annottext">createProvisionedProductPlanResponse_provisioningArtifactId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateProvisionedProductPlanResponse
+-&gt; f CreateProvisionedProductPlanResponse
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_provisioningArtifactId"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlanResponse_provisioningArtifactId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlanResponse -&gt; Maybe Text)
+-&gt; (CreateProvisionedProductPlanResponse
+    -&gt; Maybe Text -&gt; CreateProvisionedProductPlanResponse)
+-&gt; Lens
+     CreateProvisionedProductPlanResponse
+     CreateProvisionedProductPlanResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426178"><span class="annot"><span class="annottext">Maybe Text
+provisioningArtifactId :: Maybe Text
+$sel:provisioningArtifactId:CreateProvisionedProductPlanResponse' :: CreateProvisionedProductPlanResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679426178"><span class="hs-identifier hs-var hs-var">provisioningArtifactId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426178"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426177"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlanResponse
+</span><a href="#local-6989586621679426177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426176"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlanResponse
+</span><a href="#local-6989586621679426177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningArtifactId:CreateProvisionedProductPlanResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AprovisioningArtifactId%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-401"></span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- | The name of the plan.</span><span>
+</span><span id="line-403"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_planName"><span class="hs-identifier hs-type">createProvisionedProductPlanResponse_planName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-404"></span><span id="createProvisionedProductPlanResponse_planName"><span class="annot"><span class="annottext">createProvisionedProductPlanResponse_planName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateProvisionedProductPlanResponse
+-&gt; f CreateProvisionedProductPlanResponse
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_planName"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlanResponse_planName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlanResponse -&gt; Maybe Text)
+-&gt; (CreateProvisionedProductPlanResponse
+    -&gt; Maybe Text -&gt; CreateProvisionedProductPlanResponse)
+-&gt; Lens
+     CreateProvisionedProductPlanResponse
+     CreateProvisionedProductPlanResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426175"><span class="annot"><span class="annottext">Maybe Text
+planName :: Maybe Text
+$sel:planName:CreateProvisionedProductPlanResponse' :: CreateProvisionedProductPlanResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679426175"><span class="hs-identifier hs-var hs-var">planName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426175"><span class="hs-identifier hs-var">planName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426174"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlanResponse
+</span><a href="#local-6989586621679426174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426173"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlanResponse
+</span><a href="#local-6989586621679426174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:planName:CreateProvisionedProductPlanResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AplanName%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var">planName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-405"></span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- | The plan identifier.</span><span>
+</span><span id="line-407"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_planId"><span class="hs-identifier hs-type">createProvisionedProductPlanResponse_planId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-408"></span><span id="createProvisionedProductPlanResponse_planId"><span class="annot"><span class="annottext">createProvisionedProductPlanResponse_planId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateProvisionedProductPlanResponse
+-&gt; f CreateProvisionedProductPlanResponse
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_planId"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlanResponse_planId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlanResponse -&gt; Maybe Text)
+-&gt; (CreateProvisionedProductPlanResponse
+    -&gt; Maybe Text -&gt; CreateProvisionedProductPlanResponse)
+-&gt; Lens
+     CreateProvisionedProductPlanResponse
+     CreateProvisionedProductPlanResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426172"><span class="annot"><span class="annottext">Maybe Text
+planId :: Maybe Text
+$sel:planId:CreateProvisionedProductPlanResponse' :: CreateProvisionedProductPlanResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679426172"><span class="hs-identifier hs-var hs-var">planId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426172"><span class="hs-identifier hs-var">planId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426171"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlanResponse
+</span><a href="#local-6989586621679426171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426170"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlanResponse
+</span><a href="#local-6989586621679426171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:planId:CreateProvisionedProductPlanResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AplanId%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var">planId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-409"></span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-411"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_httpStatus"><span class="hs-identifier hs-type">createProvisionedProductPlanResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-412"></span><span id="createProvisionedProductPlanResponse_httpStatus"><span class="annot"><span class="annottext">createProvisionedProductPlanResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateProvisionedProductPlanResponse
+-&gt; f CreateProvisionedProductPlanResponse
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#createProvisionedProductPlanResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createProvisionedProductPlanResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisionedProductPlanResponse -&gt; Int)
+-&gt; (CreateProvisionedProductPlanResponse
+    -&gt; Int -&gt; CreateProvisionedProductPlanResponse)
+-&gt; Lens
+     CreateProvisionedProductPlanResponse
+     CreateProvisionedProductPlanResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426169"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateProvisionedProductPlanResponse' :: CreateProvisionedProductPlanResponse -&gt; Int
+</span><a href="#local-6989586621679426169"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426169"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426168"><span class="annot"><span class="annottext">s :: CreateProvisionedProductPlanResponse
+</span><a href="#local-6989586621679426168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426167"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisionedProductPlanResponse
+</span><a href="#local-6989586621679426168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProvisionedProductPlanResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#%24sel%3AhttpStatus%3ACreateProvisionedProductPlanResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-413"></span><span>
+</span><span id="line-414"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-415"></span><span>  </span><span id="local-6989586621679426165"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-416"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateProvisionedProductPlan.html#CreateProvisionedProductPlanResponse"><span class="hs-identifier hs-type">CreateProvisionedProductPlanResponse</span></a></span></span><span>
+</span><span id="line-417"></span></pre></body></html>

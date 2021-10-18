@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AutoScaling.CreateOrUpdateTags</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates or updates tags for the specified Auto Scaling group.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- When you specify a tag with a key that already exists, the operation</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- overwrites the previous tag definition, and you do not get an error</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- message.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html Tagging Auto Scaling groups and instances&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon EC2 Auto Scaling User Guide/.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AutoScaling.CreateOrUpdateTags</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags"><span class="hs-identifier">CreateOrUpdateTags</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#newCreateOrUpdateTags"><span class="hs-identifier">newCreateOrUpdateTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#createOrUpdateTags_tags"><span class="hs-identifier">createOrUpdateTags_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTagsResponse"><span class="hs-identifier">CreateOrUpdateTagsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#newCreateOrUpdateTagsResponse"><span class="hs-identifier">newCreateOrUpdateTagsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.html"><span class="hs-identifier">Network.AWS.AutoScaling.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newCreateOrUpdateTags' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679345528"><span id="local-6989586621679345529"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOrUpdateTags"><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags"><span class="hs-identifier hs-var">CreateOrUpdateTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOrUpdateTags%27"><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags%27"><span class="hs-identifier hs-var">CreateOrUpdateTags'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more tags.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Atags%3ACreateOrUpdateTags%27"><span class="annot"><span class="annottext">CreateOrUpdateTags -&gt; [Tag]
+</span><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#%24sel%3Atags%3ACreateOrUpdateTags%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345522"><span id="local-6989586621679345524"><span class="annot"><span class="annottext">CreateOrUpdateTags -&gt; CreateOrUpdateTags -&gt; Bool
+(CreateOrUpdateTags -&gt; CreateOrUpdateTags -&gt; Bool)
+-&gt; (CreateOrUpdateTags -&gt; CreateOrUpdateTags -&gt; Bool)
+-&gt; Eq CreateOrUpdateTags
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateOrUpdateTags -&gt; CreateOrUpdateTags -&gt; Bool
+$c/= :: CreateOrUpdateTags -&gt; CreateOrUpdateTags -&gt; Bool
+== :: CreateOrUpdateTags -&gt; CreateOrUpdateTags -&gt; Bool
+$c== :: CreateOrUpdateTags -&gt; CreateOrUpdateTags -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345513"><span id="local-6989586621679345515"><span id="local-6989586621679345517"><span id="local-6989586621679345519"><span class="annot"><span class="annottext">ReadPrec [CreateOrUpdateTags]
+ReadPrec CreateOrUpdateTags
+Int -&gt; ReadS CreateOrUpdateTags
+ReadS [CreateOrUpdateTags]
+(Int -&gt; ReadS CreateOrUpdateTags)
+-&gt; ReadS [CreateOrUpdateTags]
+-&gt; ReadPrec CreateOrUpdateTags
+-&gt; ReadPrec [CreateOrUpdateTags]
+-&gt; Read CreateOrUpdateTags
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateOrUpdateTags]
+$creadListPrec :: ReadPrec [CreateOrUpdateTags]
+readPrec :: ReadPrec CreateOrUpdateTags
+$creadPrec :: ReadPrec CreateOrUpdateTags
+readList :: ReadS [CreateOrUpdateTags]
+$creadList :: ReadS [CreateOrUpdateTags]
+readsPrec :: Int -&gt; ReadS CreateOrUpdateTags
+$creadsPrec :: Int -&gt; ReadS CreateOrUpdateTags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345506"><span id="local-6989586621679345508"><span id="local-6989586621679345510"><span class="annot"><span class="annottext">Int -&gt; CreateOrUpdateTags -&gt; ShowS
+[CreateOrUpdateTags] -&gt; ShowS
+CreateOrUpdateTags -&gt; String
+(Int -&gt; CreateOrUpdateTags -&gt; ShowS)
+-&gt; (CreateOrUpdateTags -&gt; String)
+-&gt; ([CreateOrUpdateTags] -&gt; ShowS)
+-&gt; Show CreateOrUpdateTags
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateOrUpdateTags] -&gt; ShowS
+$cshowList :: [CreateOrUpdateTags] -&gt; ShowS
+show :: CreateOrUpdateTags -&gt; String
+$cshow :: CreateOrUpdateTags -&gt; String
+showsPrec :: Int -&gt; CreateOrUpdateTags -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateOrUpdateTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateOrUpdateTags -&gt; Rep CreateOrUpdateTags x)
+-&gt; (forall x. Rep CreateOrUpdateTags x -&gt; CreateOrUpdateTags)
+-&gt; Generic CreateOrUpdateTags
+forall x. Rep CreateOrUpdateTags x -&gt; CreateOrUpdateTags
+forall x. CreateOrUpdateTags -&gt; Rep CreateOrUpdateTags x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateOrUpdateTags x -&gt; CreateOrUpdateTags
+$cfrom :: forall x. CreateOrUpdateTags -&gt; Rep CreateOrUpdateTags x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'CreateOrUpdateTags' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'tags', 'createOrUpdateTags_tags' - One or more tags.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#newCreateOrUpdateTags"><span class="hs-identifier hs-type">newCreateOrUpdateTags</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags"><span class="hs-identifier hs-type">CreateOrUpdateTags</span></a></span><span>
+</span><span id="line-71"></span><span id="newCreateOrUpdateTags"><span class="annot"><span class="annottext">newCreateOrUpdateTags :: CreateOrUpdateTags
+</span><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#newCreateOrUpdateTags"><span class="hs-identifier hs-var hs-var">newCreateOrUpdateTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">CreateOrUpdateTags' :: [Tag] -&gt; CreateOrUpdateTags
+</span><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags%27"><span class="hs-identifier hs-type">CreateOrUpdateTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateOrUpdateTags' :: [Tag]
+</span><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#%24sel%3Atags%3ACreateOrUpdateTags%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | One or more tags.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#createOrUpdateTags_tags"><span class="hs-identifier hs-type">createOrUpdateTags_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags"><span class="hs-identifier hs-type">CreateOrUpdateTags</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-76"></span><span id="createOrUpdateTags_tags"><span class="annot"><span class="annottext">createOrUpdateTags_tags :: ([Tag] -&gt; f [Tag]) -&gt; CreateOrUpdateTags -&gt; f CreateOrUpdateTags
+</span><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#createOrUpdateTags_tags"><span class="hs-identifier hs-var hs-var">createOrUpdateTags_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOrUpdateTags -&gt; [Tag])
+-&gt; (CreateOrUpdateTags -&gt; [Tag] -&gt; CreateOrUpdateTags)
+-&gt; Lens CreateOrUpdateTags CreateOrUpdateTags [Tag] [Tag]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags%27"><span class="hs-identifier hs-type">CreateOrUpdateTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345499"><span class="annot"><span class="annottext">[Tag]
+tags :: [Tag]
+$sel:tags:CreateOrUpdateTags' :: CreateOrUpdateTags -&gt; [Tag]
+</span><a href="#local-6989586621679345499"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679345499"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345498"><span class="annot"><span class="annottext">s :: CreateOrUpdateTags
+</span><a href="#local-6989586621679345498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags%27"><span class="hs-identifier hs-type">CreateOrUpdateTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345497"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679345497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOrUpdateTags
+</span><a href="#local-6989586621679345498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateOrUpdateTags' :: [Tag]
+</span><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#%24sel%3Atags%3ACreateOrUpdateTags%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679345497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags"><span class="hs-identifier hs-type">CreateOrUpdateTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; CreateOrUpdateTags -&gt; f CreateOrUpdateTags)
+-&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
+-&gt; ([Tag] -&gt; f [Tag])
+-&gt; CreateOrUpdateTags
+-&gt; f CreateOrUpdateTags
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags"><span class="hs-identifier hs-type">CreateOrUpdateTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags"><span class="hs-identifier hs-type">CreateOrUpdateTags</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTagsResponse"><span class="hs-identifier hs-type">CreateOrUpdateTagsResponse</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679345491"><span class="annot"><span class="annottext">request :: CreateOrUpdateTags -&gt; Request CreateOrUpdateTags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateOrUpdateTags -&gt; Request CreateOrUpdateTags
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679345487"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateOrUpdateTags
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateOrUpdateTags)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse CreateOrUpdateTags
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateOrUpdateTags
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateOrUpdateTags)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse CreateOrUpdateTags
+CreateOrUpdateTagsResponse
+</span><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTagsResponse%27"><span class="hs-identifier hs-var">CreateOrUpdateTagsResponse'</span></a></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345480"><span id="local-6989586621679345482"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags"><span class="hs-identifier hs-type">CreateOrUpdateTags</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345477"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags"><span class="hs-identifier hs-type">CreateOrUpdateTags</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags"><span class="hs-identifier hs-type">CreateOrUpdateTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679345473"><span class="annot"><span class="annottext">toHeaders :: CreateOrUpdateTags -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; CreateOrUpdateTags -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags"><span class="hs-identifier hs-type">CreateOrUpdateTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679345468"><span class="annot"><span class="annottext">toPath :: CreateOrUpdateTags -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateOrUpdateTags -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags"><span class="hs-identifier hs-type">CreateOrUpdateTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679345464"><span class="annot"><span class="annottext">toQuery :: CreateOrUpdateTags -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTags%27"><span class="hs-identifier hs-type">CreateOrUpdateTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345462"><span class="annot"><span class="annottext">[Tag]
+tags :: [Tag]
+$sel:tags:CreateOrUpdateTags' :: CreateOrUpdateTags -&gt; [Tag]
+</span><a href="#local-6989586621679345462"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateOrUpdateTags&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2011-01-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Tag] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679345462"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | /See:/ 'newCreateOrUpdateTagsResponse' smart constructor.</span><span>
+</span><span id="line-107"></span><span id="local-6989586621679345458"><span id="local-6989586621679345459"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOrUpdateTagsResponse"><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTagsResponse"><span class="hs-identifier hs-var">CreateOrUpdateTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOrUpdateTagsResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTagsResponse%27"><span class="hs-identifier hs-var">CreateOrUpdateTagsResponse'</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345454"><span id="local-6989586621679345456"><span class="annot"><span class="annottext">CreateOrUpdateTagsResponse -&gt; CreateOrUpdateTagsResponse -&gt; Bool
+(CreateOrUpdateTagsResponse -&gt; CreateOrUpdateTagsResponse -&gt; Bool)
+-&gt; (CreateOrUpdateTagsResponse
+    -&gt; CreateOrUpdateTagsResponse -&gt; Bool)
+-&gt; Eq CreateOrUpdateTagsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateOrUpdateTagsResponse -&gt; CreateOrUpdateTagsResponse -&gt; Bool
+$c/= :: CreateOrUpdateTagsResponse -&gt; CreateOrUpdateTagsResponse -&gt; Bool
+== :: CreateOrUpdateTagsResponse -&gt; CreateOrUpdateTagsResponse -&gt; Bool
+$c== :: CreateOrUpdateTagsResponse -&gt; CreateOrUpdateTagsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345446"><span id="local-6989586621679345448"><span id="local-6989586621679345450"><span id="local-6989586621679345452"><span class="annot"><span class="annottext">ReadPrec [CreateOrUpdateTagsResponse]
+ReadPrec CreateOrUpdateTagsResponse
+Int -&gt; ReadS CreateOrUpdateTagsResponse
+ReadS [CreateOrUpdateTagsResponse]
+(Int -&gt; ReadS CreateOrUpdateTagsResponse)
+-&gt; ReadS [CreateOrUpdateTagsResponse]
+-&gt; ReadPrec CreateOrUpdateTagsResponse
+-&gt; ReadPrec [CreateOrUpdateTagsResponse]
+-&gt; Read CreateOrUpdateTagsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateOrUpdateTagsResponse]
+$creadListPrec :: ReadPrec [CreateOrUpdateTagsResponse]
+readPrec :: ReadPrec CreateOrUpdateTagsResponse
+$creadPrec :: ReadPrec CreateOrUpdateTagsResponse
+readList :: ReadS [CreateOrUpdateTagsResponse]
+$creadList :: ReadS [CreateOrUpdateTagsResponse]
+readsPrec :: Int -&gt; ReadS CreateOrUpdateTagsResponse
+$creadsPrec :: Int -&gt; ReadS CreateOrUpdateTagsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345440"><span id="local-6989586621679345442"><span id="local-6989586621679345444"><span class="annot"><span class="annottext">Int -&gt; CreateOrUpdateTagsResponse -&gt; ShowS
+[CreateOrUpdateTagsResponse] -&gt; ShowS
+CreateOrUpdateTagsResponse -&gt; String
+(Int -&gt; CreateOrUpdateTagsResponse -&gt; ShowS)
+-&gt; (CreateOrUpdateTagsResponse -&gt; String)
+-&gt; ([CreateOrUpdateTagsResponse] -&gt; ShowS)
+-&gt; Show CreateOrUpdateTagsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateOrUpdateTagsResponse] -&gt; ShowS
+$cshowList :: [CreateOrUpdateTagsResponse] -&gt; ShowS
+show :: CreateOrUpdateTagsResponse -&gt; String
+$cshow :: CreateOrUpdateTagsResponse -&gt; String
+showsPrec :: Int -&gt; CreateOrUpdateTagsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateOrUpdateTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateOrUpdateTagsResponse -&gt; Rep CreateOrUpdateTagsResponse x)
+-&gt; (forall x.
+    Rep CreateOrUpdateTagsResponse x -&gt; CreateOrUpdateTagsResponse)
+-&gt; Generic CreateOrUpdateTagsResponse
+forall x.
+Rep CreateOrUpdateTagsResponse x -&gt; CreateOrUpdateTagsResponse
+forall x.
+CreateOrUpdateTagsResponse -&gt; Rep CreateOrUpdateTagsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateOrUpdateTagsResponse x -&gt; CreateOrUpdateTagsResponse
+$cfrom :: forall x.
+CreateOrUpdateTagsResponse -&gt; Rep CreateOrUpdateTagsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Create a value of 'CreateOrUpdateTagsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#newCreateOrUpdateTagsResponse"><span class="hs-identifier hs-type">newCreateOrUpdateTagsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTagsResponse"><span class="hs-identifier hs-type">CreateOrUpdateTagsResponse</span></a></span><span>
+</span><span id="line-118"></span><span id="newCreateOrUpdateTagsResponse"><span class="annot"><span class="annottext">newCreateOrUpdateTagsResponse :: CreateOrUpdateTagsResponse
+</span><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#newCreateOrUpdateTagsResponse"><span class="hs-identifier hs-var hs-var">newCreateOrUpdateTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="annottext">CreateOrUpdateTagsResponse
+</span><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTagsResponse%27"><span class="hs-identifier hs-var">CreateOrUpdateTagsResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345436"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.CreateOrUpdateTags.html#CreateOrUpdateTagsResponse"><span class="hs-identifier hs-type">CreateOrUpdateTagsResponse</span></a></span></span><span>
+</span><span id="line-122"></span></pre></body></html>

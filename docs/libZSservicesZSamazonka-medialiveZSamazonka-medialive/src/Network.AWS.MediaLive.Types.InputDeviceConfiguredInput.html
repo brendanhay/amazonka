@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.InputDeviceConfiguredInput</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.InputDeviceConfiguredInput</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput"><span class="hs-identifier">InputDeviceConfiguredInput</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput_AUTO"><span class="hs-identifier">InputDeviceConfiguredInput_AUTO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput_HDMI"><span class="hs-identifier">InputDeviceConfiguredInput_HDMI</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput_SDI"><span class="hs-identifier">InputDeviceConfiguredInput_SDI</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | The source to activate (use) from the input device.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679885166"><span id="local-6989586621679885167"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputDeviceConfiguredInput"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput"><span class="hs-identifier hs-var">InputDeviceConfiguredInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputDeviceConfiguredInput%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput%27"><span class="hs-identifier hs-var">InputDeviceConfiguredInput'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInputDeviceConfiguredInput"><span class="annot"><span class="annottext">InputDeviceConfiguredInput -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#fromInputDeviceConfiguredInput"><span class="hs-identifier hs-var hs-var">fromInputDeviceConfiguredInput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679885158"><span id="local-6989586621679885160"><span id="local-6989586621679885162"><span class="annot"><span class="annottext">Int -&gt; InputDeviceConfiguredInput -&gt; ShowS
+[InputDeviceConfiguredInput] -&gt; ShowS
+InputDeviceConfiguredInput -&gt; String
+(Int -&gt; InputDeviceConfiguredInput -&gt; ShowS)
+-&gt; (InputDeviceConfiguredInput -&gt; String)
+-&gt; ([InputDeviceConfiguredInput] -&gt; ShowS)
+-&gt; Show InputDeviceConfiguredInput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InputDeviceConfiguredInput] -&gt; ShowS
+$cshowList :: [InputDeviceConfiguredInput] -&gt; ShowS
+show :: InputDeviceConfiguredInput -&gt; String
+$cshow :: InputDeviceConfiguredInput -&gt; String
+showsPrec :: Int -&gt; InputDeviceConfiguredInput -&gt; ShowS
+$cshowsPrec :: Int -&gt; InputDeviceConfiguredInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679885149"><span id="local-6989586621679885151"><span id="local-6989586621679885153"><span id="local-6989586621679885155"><span class="annot"><span class="annottext">ReadPrec [InputDeviceConfiguredInput]
+ReadPrec InputDeviceConfiguredInput
+Int -&gt; ReadS InputDeviceConfiguredInput
+ReadS [InputDeviceConfiguredInput]
+(Int -&gt; ReadS InputDeviceConfiguredInput)
+-&gt; ReadS [InputDeviceConfiguredInput]
+-&gt; ReadPrec InputDeviceConfiguredInput
+-&gt; ReadPrec [InputDeviceConfiguredInput]
+-&gt; Read InputDeviceConfiguredInput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InputDeviceConfiguredInput]
+$creadListPrec :: ReadPrec [InputDeviceConfiguredInput]
+readPrec :: ReadPrec InputDeviceConfiguredInput
+$creadPrec :: ReadPrec InputDeviceConfiguredInput
+readList :: ReadS [InputDeviceConfiguredInput]
+$creadList :: ReadS [InputDeviceConfiguredInput]
+readsPrec :: Int -&gt; ReadS InputDeviceConfiguredInput
+$creadsPrec :: Int -&gt; ReadS InputDeviceConfiguredInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679885144"><span id="local-6989586621679885146"><span class="annot"><span class="annottext">InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput -&gt; Bool
+(InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput -&gt; Bool)
+-&gt; (InputDeviceConfiguredInput
+    -&gt; InputDeviceConfiguredInput -&gt; Bool)
+-&gt; Eq InputDeviceConfiguredInput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput -&gt; Bool
+$c/= :: InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput -&gt; Bool
+== :: InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput -&gt; Bool
+$c== :: InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679885128"><span id="local-6989586621679885130"><span id="local-6989586621679885132"><span id="local-6989586621679885134"><span id="local-6989586621679885136"><span id="local-6989586621679885138"><span id="local-6989586621679885140"><span class="annot"><span class="annottext">Eq InputDeviceConfiguredInput
+Eq InputDeviceConfiguredInput
+-&gt; (InputDeviceConfiguredInput
+    -&gt; InputDeviceConfiguredInput -&gt; Ordering)
+-&gt; (InputDeviceConfiguredInput
+    -&gt; InputDeviceConfiguredInput -&gt; Bool)
+-&gt; (InputDeviceConfiguredInput
+    -&gt; InputDeviceConfiguredInput -&gt; Bool)
+-&gt; (InputDeviceConfiguredInput
+    -&gt; InputDeviceConfiguredInput -&gt; Bool)
+-&gt; (InputDeviceConfiguredInput
+    -&gt; InputDeviceConfiguredInput -&gt; Bool)
+-&gt; (InputDeviceConfiguredInput
+    -&gt; InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput)
+-&gt; (InputDeviceConfiguredInput
+    -&gt; InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput)
+-&gt; Ord InputDeviceConfiguredInput
+InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput -&gt; Bool
+InputDeviceConfiguredInput
+-&gt; InputDeviceConfiguredInput -&gt; Ordering
+InputDeviceConfiguredInput
+-&gt; InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InputDeviceConfiguredInput
+-&gt; InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput
+$cmin :: InputDeviceConfiguredInput
+-&gt; InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput
+max :: InputDeviceConfiguredInput
+-&gt; InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput
+$cmax :: InputDeviceConfiguredInput
+-&gt; InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput
+&gt;= :: InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput -&gt; Bool
+$c&gt;= :: InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput -&gt; Bool
+&gt; :: InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput -&gt; Bool
+$c&gt; :: InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput -&gt; Bool
+&lt;= :: InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput -&gt; Bool
+$c&lt;= :: InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput -&gt; Bool
+&lt; :: InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput -&gt; Bool
+$c&lt; :: InputDeviceConfiguredInput -&gt; InputDeviceConfiguredInput -&gt; Bool
+compare :: InputDeviceConfiguredInput
+-&gt; InputDeviceConfiguredInput -&gt; Ordering
+$ccompare :: InputDeviceConfiguredInput
+-&gt; InputDeviceConfiguredInput -&gt; Ordering
+$cp1Ord :: Eq InputDeviceConfiguredInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ InputDeviceConfiguredInput -&gt; Rep InputDeviceConfiguredInput x)
+-&gt; (forall x.
+    Rep InputDeviceConfiguredInput x -&gt; InputDeviceConfiguredInput)
+-&gt; Generic InputDeviceConfiguredInput
+forall x.
+Rep InputDeviceConfiguredInput x -&gt; InputDeviceConfiguredInput
+forall x.
+InputDeviceConfiguredInput -&gt; Rep InputDeviceConfiguredInput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep InputDeviceConfiguredInput x -&gt; InputDeviceConfiguredInput
+$cfrom :: forall x.
+InputDeviceConfiguredInput -&gt; Rep InputDeviceConfiguredInput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679885120"><span id="local-6989586621679885122"><span class="annot"><span class="annottext">Int -&gt; InputDeviceConfiguredInput -&gt; Int
+InputDeviceConfiguredInput -&gt; Int
+(Int -&gt; InputDeviceConfiguredInput -&gt; Int)
+-&gt; (InputDeviceConfiguredInput -&gt; Int)
+-&gt; Hashable InputDeviceConfiguredInput
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InputDeviceConfiguredInput -&gt; Int
+$chash :: InputDeviceConfiguredInput -&gt; Int
+hashWithSalt :: Int -&gt; InputDeviceConfiguredInput -&gt; Int
+$chashWithSalt :: Int -&gt; InputDeviceConfiguredInput -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679885117"><span class="annot"><span class="annottext">InputDeviceConfiguredInput -&gt; ()
+(InputDeviceConfiguredInput -&gt; ())
+-&gt; NFData InputDeviceConfiguredInput
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InputDeviceConfiguredInput -&gt; ()
+$crnf :: InputDeviceConfiguredInput -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679885114"><span class="annot"><span class="annottext">Text -&gt; Either String InputDeviceConfiguredInput
+(Text -&gt; Either String InputDeviceConfiguredInput)
+-&gt; FromText InputDeviceConfiguredInput
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InputDeviceConfiguredInput
+$cfromText :: Text -&gt; Either String InputDeviceConfiguredInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679885111"><span class="annot"><span class="annottext">InputDeviceConfiguredInput -&gt; Text
+(InputDeviceConfiguredInput -&gt; Text)
+-&gt; ToText InputDeviceConfiguredInput
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InputDeviceConfiguredInput -&gt; Text
+$ctoText :: InputDeviceConfiguredInput -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679885108"><span class="annot"><span class="annottext">InputDeviceConfiguredInput -&gt; ByteString
+(InputDeviceConfiguredInput -&gt; ByteString)
+-&gt; ToByteString InputDeviceConfiguredInput
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InputDeviceConfiguredInput -&gt; ByteString
+$ctoBS :: InputDeviceConfiguredInput -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679885105"><span class="annot"><span class="annottext">InputDeviceConfiguredInput -&gt; ByteStringBuilder
+(InputDeviceConfiguredInput -&gt; ByteStringBuilder)
+-&gt; ToLog InputDeviceConfiguredInput
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InputDeviceConfiguredInput -&gt; ByteStringBuilder
+$cbuild :: InputDeviceConfiguredInput -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679885102"><span class="annot"><span class="annottext">HeaderName -&gt; InputDeviceConfiguredInput -&gt; [Header]
+(HeaderName -&gt; InputDeviceConfiguredInput -&gt; [Header])
+-&gt; ToHeader InputDeviceConfiguredInput
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InputDeviceConfiguredInput -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InputDeviceConfiguredInput -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679885099"><span class="annot"><span class="annottext">InputDeviceConfiguredInput -&gt; QueryString
+(InputDeviceConfiguredInput -&gt; QueryString)
+-&gt; ToQuery InputDeviceConfiguredInput
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InputDeviceConfiguredInput -&gt; QueryString
+$ctoQuery :: InputDeviceConfiguredInput -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679885094"><span id="local-6989586621679885096"><span class="annot"><span class="annottext">Value -&gt; Parser [InputDeviceConfiguredInput]
+Value -&gt; Parser InputDeviceConfiguredInput
+(Value -&gt; Parser InputDeviceConfiguredInput)
+-&gt; (Value -&gt; Parser [InputDeviceConfiguredInput])
+-&gt; FromJSON InputDeviceConfiguredInput
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InputDeviceConfiguredInput]
+$cparseJSONList :: Value -&gt; Parser [InputDeviceConfiguredInput]
+parseJSON :: Value -&gt; Parser InputDeviceConfiguredInput
+$cparseJSON :: Value -&gt; Parser InputDeviceConfiguredInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679885089"><span id="local-6989586621679885091"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputDeviceConfiguredInput]
+FromJSONKeyFunction InputDeviceConfiguredInput
+FromJSONKeyFunction InputDeviceConfiguredInput
+-&gt; FromJSONKeyFunction [InputDeviceConfiguredInput]
+-&gt; FromJSONKey InputDeviceConfiguredInput
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InputDeviceConfiguredInput]
+$cfromJSONKeyList :: FromJSONKeyFunction [InputDeviceConfiguredInput]
+fromJSONKey :: FromJSONKeyFunction InputDeviceConfiguredInput
+$cfromJSONKey :: FromJSONKeyFunction InputDeviceConfiguredInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679885080"><span id="local-6989586621679885082"><span id="local-6989586621679885084"><span id="local-6989586621679885086"><span class="annot"><span class="annottext">[InputDeviceConfiguredInput] -&gt; Encoding
+[InputDeviceConfiguredInput] -&gt; Value
+InputDeviceConfiguredInput -&gt; Encoding
+InputDeviceConfiguredInput -&gt; Value
+(InputDeviceConfiguredInput -&gt; Value)
+-&gt; (InputDeviceConfiguredInput -&gt; Encoding)
+-&gt; ([InputDeviceConfiguredInput] -&gt; Value)
+-&gt; ([InputDeviceConfiguredInput] -&gt; Encoding)
+-&gt; ToJSON InputDeviceConfiguredInput
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InputDeviceConfiguredInput] -&gt; Encoding
+$ctoEncodingList :: [InputDeviceConfiguredInput] -&gt; Encoding
+toJSONList :: [InputDeviceConfiguredInput] -&gt; Value
+$ctoJSONList :: [InputDeviceConfiguredInput] -&gt; Value
+toEncoding :: InputDeviceConfiguredInput -&gt; Encoding
+$ctoEncoding :: InputDeviceConfiguredInput -&gt; Encoding
+toJSON :: InputDeviceConfiguredInput -&gt; Value
+$ctoJSON :: InputDeviceConfiguredInput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679885075"><span id="local-6989586621679885077"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputDeviceConfiguredInput]
+ToJSONKeyFunction InputDeviceConfiguredInput
+ToJSONKeyFunction InputDeviceConfiguredInput
+-&gt; ToJSONKeyFunction [InputDeviceConfiguredInput]
+-&gt; ToJSONKey InputDeviceConfiguredInput
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InputDeviceConfiguredInput]
+$ctoJSONKeyList :: ToJSONKeyFunction [InputDeviceConfiguredInput]
+toJSONKey :: ToJSONKeyFunction InputDeviceConfiguredInput
+$ctoJSONKey :: ToJSONKeyFunction InputDeviceConfiguredInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679885072"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputDeviceConfiguredInput
+([Node] -&gt; Either String InputDeviceConfiguredInput)
+-&gt; FromXML InputDeviceConfiguredInput
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InputDeviceConfiguredInput
+$cparseXML :: [Node] -&gt; Either String InputDeviceConfiguredInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679885069"><span class="annot"><span class="annottext">InputDeviceConfiguredInput -&gt; XML
+(InputDeviceConfiguredInput -&gt; XML)
+-&gt; ToXML InputDeviceConfiguredInput
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InputDeviceConfiguredInput -&gt; XML
+$ctoXML :: InputDeviceConfiguredInput -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput_AUTO"><span class="hs-identifier hs-type">InputDeviceConfiguredInput_AUTO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput"><span class="hs-identifier hs-type">InputDeviceConfiguredInput</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputDeviceConfiguredInput_AUTO"><span id="%24mInputDeviceConfiguredInput_AUTO"><span id="InputDeviceConfiguredInput_AUTO"><span class="annot"><span class="annottext">$bInputDeviceConfiguredInput_AUTO :: InputDeviceConfiguredInput
+$mInputDeviceConfiguredInput_AUTO :: forall r.
+InputDeviceConfiguredInput -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#%24bInputDeviceConfiguredInput_AUTO"><span class="hs-identifier hs-var hs-var hs-var">InputDeviceConfiguredInput_AUTO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput%27"><span class="hs-identifier hs-type">InputDeviceConfiguredInput'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTO&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput_HDMI"><span class="hs-identifier hs-type">InputDeviceConfiguredInput_HDMI</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput"><span class="hs-identifier hs-type">InputDeviceConfiguredInput</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputDeviceConfiguredInput_HDMI"><span id="%24mInputDeviceConfiguredInput_HDMI"><span id="InputDeviceConfiguredInput_HDMI"><span class="annot"><span class="annottext">$bInputDeviceConfiguredInput_HDMI :: InputDeviceConfiguredInput
+$mInputDeviceConfiguredInput_HDMI :: forall r.
+InputDeviceConfiguredInput -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#%24bInputDeviceConfiguredInput_HDMI"><span class="hs-identifier hs-var hs-var hs-var">InputDeviceConfiguredInput_HDMI</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput%27"><span class="hs-identifier hs-type">InputDeviceConfiguredInput'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HDMI&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput_SDI"><span class="hs-identifier hs-type">InputDeviceConfiguredInput_SDI</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput"><span class="hs-identifier hs-type">InputDeviceConfiguredInput</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputDeviceConfiguredInput_SDI"><span id="%24mInputDeviceConfiguredInput_SDI"><span id="InputDeviceConfiguredInput_SDI"><span class="annot"><span class="annottext">$bInputDeviceConfiguredInput_SDI :: InputDeviceConfiguredInput
+$mInputDeviceConfiguredInput_SDI :: forall r.
+InputDeviceConfiguredInput -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#%24bInputDeviceConfiguredInput_SDI"><span class="hs-identifier hs-var hs-var hs-var">InputDeviceConfiguredInput_SDI</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput%27"><span class="hs-identifier hs-type">InputDeviceConfiguredInput'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SDI&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput_AUTO"><span class="hs-pragma hs-type">InputDeviceConfiguredInput_AUTO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput_HDMI"><span class="hs-pragma hs-type">InputDeviceConfiguredInput_HDMI</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput_SDI"><span class="hs-pragma hs-type">InputDeviceConfiguredInput_SDI</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConfiguredInput.html#InputDeviceConfiguredInput%27"><span class="hs-pragma hs-type">InputDeviceConfiguredInput'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

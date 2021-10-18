@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.ModelPackageGroupSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.ModelPackageGroupSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupStatus.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.ModelPackageGroupStatus</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Summary information about a model group.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newModelPackageGroupSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621680317265"><span id="local-6989586621680317266"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelPackageGroupSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary"><span class="hs-identifier hs-var">ModelPackageGroupSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelPackageGroupSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary%27"><span class="hs-identifier hs-var">ModelPackageGroupSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the model group.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AmodelPackageGroupDescription%3AModelPackageGroupSummary%27"><span class="annot"><span class="annottext">ModelPackageGroupSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#%24sel%3AmodelPackageGroupDescription%3AModelPackageGroupSummary%27"><span class="hs-identifier hs-var hs-var">modelPackageGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the model group.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AmodelPackageGroupName%3AModelPackageGroupSummary%27"><span class="annot"><span class="annottext">ModelPackageGroupSummary -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#%24sel%3AmodelPackageGroupName%3AModelPackageGroupSummary%27"><span class="hs-identifier hs-var hs-var">modelPackageGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the model group.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AmodelPackageGroupArn%3AModelPackageGroupSummary%27"><span class="annot"><span class="annottext">ModelPackageGroupSummary -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#%24sel%3AmodelPackageGroupArn%3AModelPackageGroupSummary%27"><span class="hs-identifier hs-var hs-var">modelPackageGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The time that the model group was created.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcreationTime%3AModelPackageGroupSummary%27"><span class="annot"><span class="annottext">ModelPackageGroupSummary -&gt; POSIX
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#%24sel%3AcreationTime%3AModelPackageGroupSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The status of the model group.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AmodelPackageGroupStatus%3AModelPackageGroupSummary%27"><span class="annot"><span class="annottext">ModelPackageGroupSummary -&gt; ModelPackageGroupStatus
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#%24sel%3AmodelPackageGroupStatus%3AModelPackageGroupSummary%27"><span class="hs-identifier hs-var hs-var">modelPackageGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupStatus.html#ModelPackageGroupStatus"><span class="hs-identifier hs-type">ModelPackageGroupStatus</span></a></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680317255"><span id="local-6989586621680317257"><span class="annot"><span class="annottext">ModelPackageGroupSummary -&gt; ModelPackageGroupSummary -&gt; Bool
+(ModelPackageGroupSummary -&gt; ModelPackageGroupSummary -&gt; Bool)
+-&gt; (ModelPackageGroupSummary -&gt; ModelPackageGroupSummary -&gt; Bool)
+-&gt; Eq ModelPackageGroupSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModelPackageGroupSummary -&gt; ModelPackageGroupSummary -&gt; Bool
+$c/= :: ModelPackageGroupSummary -&gt; ModelPackageGroupSummary -&gt; Bool
+== :: ModelPackageGroupSummary -&gt; ModelPackageGroupSummary -&gt; Bool
+$c== :: ModelPackageGroupSummary -&gt; ModelPackageGroupSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317246"><span id="local-6989586621680317248"><span id="local-6989586621680317250"><span id="local-6989586621680317252"><span class="annot"><span class="annottext">ReadPrec [ModelPackageGroupSummary]
+ReadPrec ModelPackageGroupSummary
+Int -&gt; ReadS ModelPackageGroupSummary
+ReadS [ModelPackageGroupSummary]
+(Int -&gt; ReadS ModelPackageGroupSummary)
+-&gt; ReadS [ModelPackageGroupSummary]
+-&gt; ReadPrec ModelPackageGroupSummary
+-&gt; ReadPrec [ModelPackageGroupSummary]
+-&gt; Read ModelPackageGroupSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModelPackageGroupSummary]
+$creadListPrec :: ReadPrec [ModelPackageGroupSummary]
+readPrec :: ReadPrec ModelPackageGroupSummary
+$creadPrec :: ReadPrec ModelPackageGroupSummary
+readList :: ReadS [ModelPackageGroupSummary]
+$creadList :: ReadS [ModelPackageGroupSummary]
+readsPrec :: Int -&gt; ReadS ModelPackageGroupSummary
+$creadsPrec :: Int -&gt; ReadS ModelPackageGroupSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317239"><span id="local-6989586621680317241"><span id="local-6989586621680317243"><span class="annot"><span class="annottext">Int -&gt; ModelPackageGroupSummary -&gt; ShowS
+[ModelPackageGroupSummary] -&gt; ShowS
+ModelPackageGroupSummary -&gt; String
+(Int -&gt; ModelPackageGroupSummary -&gt; ShowS)
+-&gt; (ModelPackageGroupSummary -&gt; String)
+-&gt; ([ModelPackageGroupSummary] -&gt; ShowS)
+-&gt; Show ModelPackageGroupSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModelPackageGroupSummary] -&gt; ShowS
+$cshowList :: [ModelPackageGroupSummary] -&gt; ShowS
+show :: ModelPackageGroupSummary -&gt; String
+$cshow :: ModelPackageGroupSummary -&gt; String
+showsPrec :: Int -&gt; ModelPackageGroupSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModelPackageGroupSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModelPackageGroupSummary -&gt; Rep ModelPackageGroupSummary x)
+-&gt; (forall x.
+    Rep ModelPackageGroupSummary x -&gt; ModelPackageGroupSummary)
+-&gt; Generic ModelPackageGroupSummary
+forall x.
+Rep ModelPackageGroupSummary x -&gt; ModelPackageGroupSummary
+forall x.
+ModelPackageGroupSummary -&gt; Rep ModelPackageGroupSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModelPackageGroupSummary x -&gt; ModelPackageGroupSummary
+$cfrom :: forall x.
+ModelPackageGroupSummary -&gt; Rep ModelPackageGroupSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'ModelPackageGroupSummary' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'modelPackageGroupDescription', 'modelPackageGroupSummary_modelPackageGroupDescription' - A description of the model group.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'modelPackageGroupName', 'modelPackageGroupSummary_modelPackageGroupName' - The name of the model group.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'modelPackageGroupArn', 'modelPackageGroupSummary_modelPackageGroupArn' - The Amazon Resource Name (ARN) of the model group.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'creationTime', 'modelPackageGroupSummary_creationTime' - The time that the model group was created.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'modelPackageGroupStatus', 'modelPackageGroupSummary_modelPackageGroupStatus' - The status of the model group.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#newModelPackageGroupSummary"><span class="hs-identifier hs-type">newModelPackageGroupSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-comment">-- | 'modelPackageGroupName'</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-comment">-- | 'modelPackageGroupArn'</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'creationTime'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'modelPackageGroupStatus'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupStatus.html#ModelPackageGroupStatus"><span class="hs-identifier hs-type">ModelPackageGroupStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary"><span class="hs-identifier hs-type">ModelPackageGroupSummary</span></a></span><span>
+</span><span id="line-71"></span><span id="newModelPackageGroupSummary"><span class="annot"><span class="annottext">newModelPackageGroupSummary :: Text
+-&gt; Text
+-&gt; UTCTime
+-&gt; ModelPackageGroupStatus
+-&gt; ModelPackageGroupSummary
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#newModelPackageGroupSummary"><span class="hs-identifier hs-var hs-var">newModelPackageGroupSummary</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621680317233"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680317233"><span class="hs-identifier hs-var">pModelPackageGroupName_</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621680317232"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680317232"><span class="hs-identifier hs-var">pModelPackageGroupArn_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621680317231"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680317231"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621680317230"><span class="annot"><span class="annottext">ModelPackageGroupStatus
+</span><a href="#local-6989586621680317230"><span class="hs-identifier hs-var">pModelPackageGroupStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">ModelPackageGroupSummary' :: Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; ModelPackageGroupStatus
+-&gt; ModelPackageGroupSummary
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary%27"><span class="hs-identifier hs-type">ModelPackageGroupSummary'</span></a></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:modelPackageGroupDescription:ModelPackageGroupSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#%24sel%3AmodelPackageGroupDescription%3AModelPackageGroupSummary%27"><span class="hs-identifier hs-var">modelPackageGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelPackageGroupName:ModelPackageGroupSummary' :: Text
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#%24sel%3AmodelPackageGroupName%3AModelPackageGroupSummary%27"><span class="hs-identifier hs-var">modelPackageGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680317233"><span class="hs-identifier hs-var">pModelPackageGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelPackageGroupArn:ModelPackageGroupSummary' :: Text
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#%24sel%3AmodelPackageGroupArn%3AModelPackageGroupSummary%27"><span class="hs-identifier hs-var">modelPackageGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680317232"><span class="hs-identifier hs-var">pModelPackageGroupArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationTime:ModelPackageGroupSummary' :: POSIX
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#%24sel%3AcreationTime%3AModelPackageGroupSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680317231"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelPackageGroupStatus:ModelPackageGroupSummary' :: ModelPackageGroupStatus
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#%24sel%3AmodelPackageGroupStatus%3AModelPackageGroupSummary%27"><span class="hs-identifier hs-var">modelPackageGroupStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">ModelPackageGroupStatus
+</span><a href="#local-6989586621680317230"><span class="hs-identifier hs-var">pModelPackageGroupStatus_</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | A description of the model group.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#modelPackageGroupSummary_modelPackageGroupDescription"><span class="hs-identifier hs-type">modelPackageGroupSummary_modelPackageGroupDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary"><span class="hs-identifier hs-type">ModelPackageGroupSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="modelPackageGroupSummary_modelPackageGroupDescription"><span class="annot"><span class="annottext">modelPackageGroupSummary_modelPackageGroupDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModelPackageGroupSummary -&gt; f ModelPackageGroupSummary
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#modelPackageGroupSummary_modelPackageGroupDescription"><span class="hs-identifier hs-var hs-var">modelPackageGroupSummary_modelPackageGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelPackageGroupSummary -&gt; Maybe Text)
+-&gt; (ModelPackageGroupSummary
+    -&gt; Maybe Text -&gt; ModelPackageGroupSummary)
+-&gt; Lens
+     ModelPackageGroupSummary
+     ModelPackageGroupSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary%27"><span class="hs-identifier hs-type">ModelPackageGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317224"><span class="annot"><span class="annottext">Maybe Text
+modelPackageGroupDescription :: Maybe Text
+$sel:modelPackageGroupDescription:ModelPackageGroupSummary' :: ModelPackageGroupSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680317224"><span class="hs-identifier hs-var hs-var">modelPackageGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680317224"><span class="hs-identifier hs-var">modelPackageGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317223"><span class="annot"><span class="annottext">s :: ModelPackageGroupSummary
+</span><a href="#local-6989586621680317223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary%27"><span class="hs-identifier hs-type">ModelPackageGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317222"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680317222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageGroupSummary
+</span><a href="#local-6989586621680317223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageGroupDescription:ModelPackageGroupSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#%24sel%3AmodelPackageGroupDescription%3AModelPackageGroupSummary%27"><span class="hs-identifier hs-var">modelPackageGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680317222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary"><span class="hs-identifier hs-type">ModelPackageGroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The name of the model group.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#modelPackageGroupSummary_modelPackageGroupName"><span class="hs-identifier hs-type">modelPackageGroupSummary_modelPackageGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary"><span class="hs-identifier hs-type">ModelPackageGroupSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="modelPackageGroupSummary_modelPackageGroupName"><span class="annot"><span class="annottext">modelPackageGroupSummary_modelPackageGroupName :: (Text -&gt; f Text)
+-&gt; ModelPackageGroupSummary -&gt; f ModelPackageGroupSummary
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#modelPackageGroupSummary_modelPackageGroupName"><span class="hs-identifier hs-var hs-var">modelPackageGroupSummary_modelPackageGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelPackageGroupSummary -&gt; Text)
+-&gt; (ModelPackageGroupSummary -&gt; Text -&gt; ModelPackageGroupSummary)
+-&gt; Lens ModelPackageGroupSummary ModelPackageGroupSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary%27"><span class="hs-identifier hs-type">ModelPackageGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317220"><span class="annot"><span class="annottext">Text
+modelPackageGroupName :: Text
+$sel:modelPackageGroupName:ModelPackageGroupSummary' :: ModelPackageGroupSummary -&gt; Text
+</span><a href="#local-6989586621680317220"><span class="hs-identifier hs-var hs-var">modelPackageGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680317220"><span class="hs-identifier hs-var">modelPackageGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317219"><span class="annot"><span class="annottext">s :: ModelPackageGroupSummary
+</span><a href="#local-6989586621680317219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary%27"><span class="hs-identifier hs-type">ModelPackageGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317218"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680317218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageGroupSummary
+</span><a href="#local-6989586621680317219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageGroupName:ModelPackageGroupSummary' :: Text
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#%24sel%3AmodelPackageGroupName%3AModelPackageGroupSummary%27"><span class="hs-identifier hs-var">modelPackageGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680317218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary"><span class="hs-identifier hs-type">ModelPackageGroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the model group.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#modelPackageGroupSummary_modelPackageGroupArn"><span class="hs-identifier hs-type">modelPackageGroupSummary_modelPackageGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary"><span class="hs-identifier hs-type">ModelPackageGroupSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="modelPackageGroupSummary_modelPackageGroupArn"><span class="annot"><span class="annottext">modelPackageGroupSummary_modelPackageGroupArn :: (Text -&gt; f Text)
+-&gt; ModelPackageGroupSummary -&gt; f ModelPackageGroupSummary
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#modelPackageGroupSummary_modelPackageGroupArn"><span class="hs-identifier hs-var hs-var">modelPackageGroupSummary_modelPackageGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelPackageGroupSummary -&gt; Text)
+-&gt; (ModelPackageGroupSummary -&gt; Text -&gt; ModelPackageGroupSummary)
+-&gt; Lens ModelPackageGroupSummary ModelPackageGroupSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary%27"><span class="hs-identifier hs-type">ModelPackageGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317216"><span class="annot"><span class="annottext">Text
+modelPackageGroupArn :: Text
+$sel:modelPackageGroupArn:ModelPackageGroupSummary' :: ModelPackageGroupSummary -&gt; Text
+</span><a href="#local-6989586621680317216"><span class="hs-identifier hs-var hs-var">modelPackageGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680317216"><span class="hs-identifier hs-var">modelPackageGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317215"><span class="annot"><span class="annottext">s :: ModelPackageGroupSummary
+</span><a href="#local-6989586621680317215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary%27"><span class="hs-identifier hs-type">ModelPackageGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317214"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680317214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageGroupSummary
+</span><a href="#local-6989586621680317215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageGroupArn:ModelPackageGroupSummary' :: Text
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#%24sel%3AmodelPackageGroupArn%3AModelPackageGroupSummary%27"><span class="hs-identifier hs-var">modelPackageGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680317214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary"><span class="hs-identifier hs-type">ModelPackageGroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The time that the model group was created.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#modelPackageGroupSummary_creationTime"><span class="hs-identifier hs-type">modelPackageGroupSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary"><span class="hs-identifier hs-type">ModelPackageGroupSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-100"></span><span id="modelPackageGroupSummary_creationTime"><span class="annot"><span class="annottext">modelPackageGroupSummary_creationTime :: (UTCTime -&gt; f UTCTime)
+-&gt; ModelPackageGroupSummary -&gt; f ModelPackageGroupSummary
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#modelPackageGroupSummary_creationTime"><span class="hs-identifier hs-var hs-var">modelPackageGroupSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelPackageGroupSummary -&gt; POSIX)
+-&gt; (ModelPackageGroupSummary -&gt; POSIX -&gt; ModelPackageGroupSummary)
+-&gt; Lens
+     ModelPackageGroupSummary ModelPackageGroupSummary POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary%27"><span class="hs-identifier hs-type">ModelPackageGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317212"><span class="annot"><span class="annottext">POSIX
+creationTime :: POSIX
+$sel:creationTime:ModelPackageGroupSummary' :: ModelPackageGroupSummary -&gt; POSIX
+</span><a href="#local-6989586621680317212"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680317212"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317211"><span class="annot"><span class="annottext">s :: ModelPackageGroupSummary
+</span><a href="#local-6989586621680317211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary%27"><span class="hs-identifier hs-type">ModelPackageGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317210"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680317210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageGroupSummary
+</span><a href="#local-6989586621680317211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ModelPackageGroupSummary' :: POSIX
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#%24sel%3AcreationTime%3AModelPackageGroupSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680317210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary"><span class="hs-identifier hs-type">ModelPackageGroupSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; ModelPackageGroupSummary -&gt; f ModelPackageGroupSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; ModelPackageGroupSummary
+-&gt; f ModelPackageGroupSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The status of the model group.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#modelPackageGroupSummary_modelPackageGroupStatus"><span class="hs-identifier hs-type">modelPackageGroupSummary_modelPackageGroupStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary"><span class="hs-identifier hs-type">ModelPackageGroupSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupStatus.html#ModelPackageGroupStatus"><span class="hs-identifier hs-type">ModelPackageGroupStatus</span></a></span><span>
+</span><span id="line-104"></span><span id="modelPackageGroupSummary_modelPackageGroupStatus"><span class="annot"><span class="annottext">modelPackageGroupSummary_modelPackageGroupStatus :: (ModelPackageGroupStatus -&gt; f ModelPackageGroupStatus)
+-&gt; ModelPackageGroupSummary -&gt; f ModelPackageGroupSummary
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#modelPackageGroupSummary_modelPackageGroupStatus"><span class="hs-identifier hs-var hs-var">modelPackageGroupSummary_modelPackageGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelPackageGroupSummary -&gt; ModelPackageGroupStatus)
+-&gt; (ModelPackageGroupSummary
+    -&gt; ModelPackageGroupStatus -&gt; ModelPackageGroupSummary)
+-&gt; Lens
+     ModelPackageGroupSummary
+     ModelPackageGroupSummary
+     ModelPackageGroupStatus
+     ModelPackageGroupStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary%27"><span class="hs-identifier hs-type">ModelPackageGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317207"><span class="annot"><span class="annottext">ModelPackageGroupStatus
+modelPackageGroupStatus :: ModelPackageGroupStatus
+$sel:modelPackageGroupStatus:ModelPackageGroupSummary' :: ModelPackageGroupSummary -&gt; ModelPackageGroupStatus
+</span><a href="#local-6989586621680317207"><span class="hs-identifier hs-var hs-var">modelPackageGroupStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageGroupStatus
+</span><a href="#local-6989586621680317207"><span class="hs-identifier hs-var">modelPackageGroupStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317206"><span class="annot"><span class="annottext">s :: ModelPackageGroupSummary
+</span><a href="#local-6989586621680317206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary%27"><span class="hs-identifier hs-type">ModelPackageGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317205"><span class="annot"><span class="annottext">ModelPackageGroupStatus
+</span><a href="#local-6989586621680317205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageGroupSummary
+</span><a href="#local-6989586621680317206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageGroupStatus:ModelPackageGroupSummary' :: ModelPackageGroupStatus
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#%24sel%3AmodelPackageGroupStatus%3AModelPackageGroupSummary%27"><span class="hs-identifier hs-var">modelPackageGroupStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ModelPackageGroupStatus
+</span><a href="#local-6989586621680317205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary"><span class="hs-identifier hs-type">ModelPackageGroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317202"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary"><span class="hs-identifier hs-type">ModelPackageGroupSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621680317200"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelPackageGroupSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ModelPackageGroupSummary)
+-&gt; Value
+-&gt; Parser ModelPackageGroupSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ModelPackageGroupSummary&quot;</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680317197"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680317197"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; ModelPackageGroupStatus
+-&gt; ModelPackageGroupSummary
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary%27"><span class="hs-identifier hs-var">ModelPackageGroupSummary'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; ModelPackageGroupStatus
+ -&gt; ModelPackageGroupSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; ModelPackageGroupStatus
+      -&gt; ModelPackageGroupSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680317197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelPackageGroupDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; ModelPackageGroupStatus
+   -&gt; ModelPackageGroupSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; POSIX -&gt; ModelPackageGroupStatus -&gt; ModelPackageGroupSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680317197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelPackageGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; POSIX -&gt; ModelPackageGroupStatus -&gt; ModelPackageGroupSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (POSIX -&gt; ModelPackageGroupStatus -&gt; ModelPackageGroupSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680317197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelPackageGroupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX -&gt; ModelPackageGroupStatus -&gt; ModelPackageGroupSummary)
+-&gt; Parser POSIX
+-&gt; Parser (ModelPackageGroupStatus -&gt; ModelPackageGroupSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680317197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (ModelPackageGroupStatus -&gt; ModelPackageGroupSummary)
+-&gt; Parser ModelPackageGroupStatus
+-&gt; Parser ModelPackageGroupSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680317197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ModelPackageGroupStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelPackageGroupStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317190"><span id="local-6989586621680317192"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary"><span class="hs-identifier hs-type">ModelPackageGroupSummary</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317187"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSummary.html#ModelPackageGroupSummary"><span class="hs-identifier hs-type">ModelPackageGroupSummary</span></a></span></span><span>
+</span><span id="line-122"></span></pre></body></html>

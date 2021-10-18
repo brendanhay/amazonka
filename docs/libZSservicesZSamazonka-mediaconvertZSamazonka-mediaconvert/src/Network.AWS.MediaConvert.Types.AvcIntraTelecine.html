@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.AvcIntraTelecine</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.AvcIntraTelecine</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine"><span class="hs-identifier">AvcIntraTelecine</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine_HARD"><span class="hs-identifier">AvcIntraTelecine_HARD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine_NONE"><span class="hs-identifier">AvcIntraTelecine_NONE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | When you do frame rate conversion from 23.976 frames per second (fps) to</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- 29.97 fps, and your output scan type is interlaced, you can optionally</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- enable hard telecine (HARD) to create a smoother picture. When you keep</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- the default value, None (NONE), MediaConvert does a standard frame rate</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- conversion to 29.97 without doing anything with the field polarity to</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- create a smoother picture.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679939571"><span id="local-6989586621679939572"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvcIntraTelecine"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine"><span class="hs-identifier hs-var">AvcIntraTelecine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvcIntraTelecine%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine%27"><span class="hs-identifier hs-var">AvcIntraTelecine'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAvcIntraTelecine"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#fromAvcIntraTelecine"><span class="hs-identifier hs-var hs-var">fromAvcIntraTelecine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679939563"><span id="local-6989586621679939565"><span id="local-6989586621679939567"><span class="annot"><span class="annottext">Int -&gt; AvcIntraTelecine -&gt; ShowS
+[AvcIntraTelecine] -&gt; ShowS
+AvcIntraTelecine -&gt; String
+(Int -&gt; AvcIntraTelecine -&gt; ShowS)
+-&gt; (AvcIntraTelecine -&gt; String)
+-&gt; ([AvcIntraTelecine] -&gt; ShowS)
+-&gt; Show AvcIntraTelecine
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AvcIntraTelecine] -&gt; ShowS
+$cshowList :: [AvcIntraTelecine] -&gt; ShowS
+show :: AvcIntraTelecine -&gt; String
+$cshow :: AvcIntraTelecine -&gt; String
+showsPrec :: Int -&gt; AvcIntraTelecine -&gt; ShowS
+$cshowsPrec :: Int -&gt; AvcIntraTelecine -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679939554"><span id="local-6989586621679939556"><span id="local-6989586621679939558"><span id="local-6989586621679939560"><span class="annot"><span class="annottext">ReadPrec [AvcIntraTelecine]
+ReadPrec AvcIntraTelecine
+Int -&gt; ReadS AvcIntraTelecine
+ReadS [AvcIntraTelecine]
+(Int -&gt; ReadS AvcIntraTelecine)
+-&gt; ReadS [AvcIntraTelecine]
+-&gt; ReadPrec AvcIntraTelecine
+-&gt; ReadPrec [AvcIntraTelecine]
+-&gt; Read AvcIntraTelecine
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AvcIntraTelecine]
+$creadListPrec :: ReadPrec [AvcIntraTelecine]
+readPrec :: ReadPrec AvcIntraTelecine
+$creadPrec :: ReadPrec AvcIntraTelecine
+readList :: ReadS [AvcIntraTelecine]
+$creadList :: ReadS [AvcIntraTelecine]
+readsPrec :: Int -&gt; ReadS AvcIntraTelecine
+$creadsPrec :: Int -&gt; ReadS AvcIntraTelecine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679939549"><span id="local-6989586621679939551"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
+(AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool)
+-&gt; (AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool)
+-&gt; Eq AvcIntraTelecine
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
+$c/= :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
+== :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
+$c== :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679939533"><span id="local-6989586621679939535"><span id="local-6989586621679939537"><span id="local-6989586621679939539"><span id="local-6989586621679939541"><span id="local-6989586621679939543"><span id="local-6989586621679939545"><span class="annot"><span class="annottext">Eq AvcIntraTelecine
+Eq AvcIntraTelecine
+-&gt; (AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Ordering)
+-&gt; (AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool)
+-&gt; (AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool)
+-&gt; (AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool)
+-&gt; (AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool)
+-&gt; (AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; AvcIntraTelecine)
+-&gt; (AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; AvcIntraTelecine)
+-&gt; Ord AvcIntraTelecine
+AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
+AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Ordering
+AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; AvcIntraTelecine
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; AvcIntraTelecine
+$cmin :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; AvcIntraTelecine
+max :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; AvcIntraTelecine
+$cmax :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; AvcIntraTelecine
+&gt;= :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
+$c&gt;= :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
+&gt; :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
+$c&gt; :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
+&lt;= :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
+$c&lt;= :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
+&lt; :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
+$c&lt; :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
+compare :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Ordering
+$ccompare :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Ordering
+$cp1Ord :: Eq AvcIntraTelecine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AvcIntraTelecine -&gt; Rep AvcIntraTelecine x)
+-&gt; (forall x. Rep AvcIntraTelecine x -&gt; AvcIntraTelecine)
+-&gt; Generic AvcIntraTelecine
+forall x. Rep AvcIntraTelecine x -&gt; AvcIntraTelecine
+forall x. AvcIntraTelecine -&gt; Rep AvcIntraTelecine x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AvcIntraTelecine x -&gt; AvcIntraTelecine
+$cfrom :: forall x. AvcIntraTelecine -&gt; Rep AvcIntraTelecine x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679939525"><span id="local-6989586621679939527"><span class="annot"><span class="annottext">Int -&gt; AvcIntraTelecine -&gt; Int
+AvcIntraTelecine -&gt; Int
+(Int -&gt; AvcIntraTelecine -&gt; Int)
+-&gt; (AvcIntraTelecine -&gt; Int) -&gt; Hashable AvcIntraTelecine
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AvcIntraTelecine -&gt; Int
+$chash :: AvcIntraTelecine -&gt; Int
+hashWithSalt :: Int -&gt; AvcIntraTelecine -&gt; Int
+$chashWithSalt :: Int -&gt; AvcIntraTelecine -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679939522"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; ()
+(AvcIntraTelecine -&gt; ()) -&gt; NFData AvcIntraTelecine
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AvcIntraTelecine -&gt; ()
+$crnf :: AvcIntraTelecine -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679939519"><span class="annot"><span class="annottext">Text -&gt; Either String AvcIntraTelecine
+(Text -&gt; Either String AvcIntraTelecine)
+-&gt; FromText AvcIntraTelecine
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AvcIntraTelecine
+$cfromText :: Text -&gt; Either String AvcIntraTelecine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679939516"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; Text
+(AvcIntraTelecine -&gt; Text) -&gt; ToText AvcIntraTelecine
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AvcIntraTelecine -&gt; Text
+$ctoText :: AvcIntraTelecine -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679939513"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; ByteString
+(AvcIntraTelecine -&gt; ByteString) -&gt; ToByteString AvcIntraTelecine
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AvcIntraTelecine -&gt; ByteString
+$ctoBS :: AvcIntraTelecine -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679939510"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; ByteStringBuilder
+(AvcIntraTelecine -&gt; ByteStringBuilder) -&gt; ToLog AvcIntraTelecine
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AvcIntraTelecine -&gt; ByteStringBuilder
+$cbuild :: AvcIntraTelecine -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679939507"><span class="annot"><span class="annottext">HeaderName -&gt; AvcIntraTelecine -&gt; [Header]
+(HeaderName -&gt; AvcIntraTelecine -&gt; [Header])
+-&gt; ToHeader AvcIntraTelecine
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AvcIntraTelecine -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AvcIntraTelecine -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679939504"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; QueryString
+(AvcIntraTelecine -&gt; QueryString) -&gt; ToQuery AvcIntraTelecine
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AvcIntraTelecine -&gt; QueryString
+$ctoQuery :: AvcIntraTelecine -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679939499"><span id="local-6989586621679939501"><span class="annot"><span class="annottext">Value -&gt; Parser [AvcIntraTelecine]
+Value -&gt; Parser AvcIntraTelecine
+(Value -&gt; Parser AvcIntraTelecine)
+-&gt; (Value -&gt; Parser [AvcIntraTelecine])
+-&gt; FromJSON AvcIntraTelecine
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AvcIntraTelecine]
+$cparseJSONList :: Value -&gt; Parser [AvcIntraTelecine]
+parseJSON :: Value -&gt; Parser AvcIntraTelecine
+$cparseJSON :: Value -&gt; Parser AvcIntraTelecine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679939494"><span id="local-6989586621679939496"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvcIntraTelecine]
+FromJSONKeyFunction AvcIntraTelecine
+FromJSONKeyFunction AvcIntraTelecine
+-&gt; FromJSONKeyFunction [AvcIntraTelecine]
+-&gt; FromJSONKey AvcIntraTelecine
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AvcIntraTelecine]
+$cfromJSONKeyList :: FromJSONKeyFunction [AvcIntraTelecine]
+fromJSONKey :: FromJSONKeyFunction AvcIntraTelecine
+$cfromJSONKey :: FromJSONKeyFunction AvcIntraTelecine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679939485"><span id="local-6989586621679939487"><span id="local-6989586621679939489"><span id="local-6989586621679939491"><span class="annot"><span class="annottext">[AvcIntraTelecine] -&gt; Encoding
+[AvcIntraTelecine] -&gt; Value
+AvcIntraTelecine -&gt; Encoding
+AvcIntraTelecine -&gt; Value
+(AvcIntraTelecine -&gt; Value)
+-&gt; (AvcIntraTelecine -&gt; Encoding)
+-&gt; ([AvcIntraTelecine] -&gt; Value)
+-&gt; ([AvcIntraTelecine] -&gt; Encoding)
+-&gt; ToJSON AvcIntraTelecine
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AvcIntraTelecine] -&gt; Encoding
+$ctoEncodingList :: [AvcIntraTelecine] -&gt; Encoding
+toJSONList :: [AvcIntraTelecine] -&gt; Value
+$ctoJSONList :: [AvcIntraTelecine] -&gt; Value
+toEncoding :: AvcIntraTelecine -&gt; Encoding
+$ctoEncoding :: AvcIntraTelecine -&gt; Encoding
+toJSON :: AvcIntraTelecine -&gt; Value
+$ctoJSON :: AvcIntraTelecine -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679939480"><span id="local-6989586621679939482"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvcIntraTelecine]
+ToJSONKeyFunction AvcIntraTelecine
+ToJSONKeyFunction AvcIntraTelecine
+-&gt; ToJSONKeyFunction [AvcIntraTelecine]
+-&gt; ToJSONKey AvcIntraTelecine
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AvcIntraTelecine]
+$ctoJSONKeyList :: ToJSONKeyFunction [AvcIntraTelecine]
+toJSONKey :: ToJSONKeyFunction AvcIntraTelecine
+$ctoJSONKey :: ToJSONKeyFunction AvcIntraTelecine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679939477"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvcIntraTelecine
+([Node] -&gt; Either String AvcIntraTelecine)
+-&gt; FromXML AvcIntraTelecine
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AvcIntraTelecine
+$cparseXML :: [Node] -&gt; Either String AvcIntraTelecine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679939474"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; XML
+(AvcIntraTelecine -&gt; XML) -&gt; ToXML AvcIntraTelecine
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AvcIntraTelecine -&gt; XML
+$ctoXML :: AvcIntraTelecine -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine_HARD"><span class="hs-identifier hs-type">AvcIntraTelecine_HARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine"><span class="hs-identifier hs-type">AvcIntraTelecine</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAvcIntraTelecine_HARD"><span id="%24mAvcIntraTelecine_HARD"><span id="AvcIntraTelecine_HARD"><span class="annot"><span class="annottext">$bAvcIntraTelecine_HARD :: AvcIntraTelecine
+$mAvcIntraTelecine_HARD :: forall r. AvcIntraTelecine -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#%24bAvcIntraTelecine_HARD"><span class="hs-identifier hs-var hs-var hs-var">AvcIntraTelecine_HARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine%27"><span class="hs-identifier hs-type">AvcIntraTelecine'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HARD&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine_NONE"><span class="hs-identifier hs-type">AvcIntraTelecine_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine"><span class="hs-identifier hs-type">AvcIntraTelecine</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAvcIntraTelecine_NONE"><span id="%24mAvcIntraTelecine_NONE"><span id="AvcIntraTelecine_NONE"><span class="annot"><span class="annottext">$bAvcIntraTelecine_NONE :: AvcIntraTelecine
+$mAvcIntraTelecine_NONE :: forall r. AvcIntraTelecine -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#%24bAvcIntraTelecine_NONE"><span class="hs-identifier hs-var hs-var hs-var">AvcIntraTelecine_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine%27"><span class="hs-identifier hs-type">AvcIntraTelecine'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine_HARD"><span class="hs-pragma hs-type">AvcIntraTelecine_HARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine_NONE"><span class="hs-pragma hs-type">AvcIntraTelecine_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine%27"><span class="hs-pragma hs-type">AvcIntraTelecine'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

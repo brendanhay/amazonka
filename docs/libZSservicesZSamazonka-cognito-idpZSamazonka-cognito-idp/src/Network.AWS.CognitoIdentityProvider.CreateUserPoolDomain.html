@@ -1,0 +1,547 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new domain for a user pool.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier">CreateUserPoolDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#newCreateUserPoolDomain"><span class="hs-identifier">newCreateUserPoolDomain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#createUserPoolDomain_customDomainConfig"><span class="hs-identifier">createUserPoolDomain_customDomainConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#createUserPoolDomain_domain"><span class="hs-identifier">createUserPoolDomain_domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#createUserPoolDomain_userPoolId"><span class="hs-identifier">createUserPoolDomain_userPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomainResponse"><span class="hs-identifier">CreateUserPoolDomainResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#newCreateUserPoolDomainResponse"><span class="hs-identifier">newCreateUserPoolDomainResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#createUserPoolDomainResponse_cloudFrontDomain"><span class="hs-identifier">createUserPoolDomainResponse_cloudFrontDomain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#createUserPoolDomainResponse_httpStatus"><span class="hs-identifier">createUserPoolDomainResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.html"><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCreateUserPoolDomain' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679450505"><span id="local-6989586621679450506"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUserPoolDomain"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier hs-var">CreateUserPoolDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUserPoolDomain%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain%27"><span class="hs-identifier hs-var">CreateUserPoolDomain'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration for a custom domain that hosts the sign-up and sign-in</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- webpages for your application.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Provide this parameter only if you want to use a custom domain for your</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- user pool. Otherwise, you can exclude this parameter and use the Amazon</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Cognito hosted domain instead.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- For more information about the hosted domain and custom domains, see</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html Configuring a User Pool Domain&gt;.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AcustomDomainConfig%3ACreateUserPoolDomain%27"><span class="annot"><span class="annottext">CreateUserPoolDomain -&gt; Maybe CustomDomainConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#%24sel%3AcustomDomainConfig%3ACreateUserPoolDomain%27"><span class="hs-identifier hs-var hs-var">customDomainConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.CustomDomainConfigType.html#CustomDomainConfigType"><span class="hs-identifier hs-type">CustomDomainConfigType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The domain string.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Adomain%3ACreateUserPoolDomain%27"><span class="annot"><span class="annottext">CreateUserPoolDomain -&gt; Text
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#%24sel%3Adomain%3ACreateUserPoolDomain%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The user pool ID.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AuserPoolId%3ACreateUserPoolDomain%27"><span class="annot"><span class="annottext">CreateUserPoolDomain -&gt; Text
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#%24sel%3AuserPoolId%3ACreateUserPoolDomain%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450497"><span id="local-6989586621679450499"><span class="annot"><span class="annottext">CreateUserPoolDomain -&gt; CreateUserPoolDomain -&gt; Bool
+(CreateUserPoolDomain -&gt; CreateUserPoolDomain -&gt; Bool)
+-&gt; (CreateUserPoolDomain -&gt; CreateUserPoolDomain -&gt; Bool)
+-&gt; Eq CreateUserPoolDomain
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateUserPoolDomain -&gt; CreateUserPoolDomain -&gt; Bool
+$c/= :: CreateUserPoolDomain -&gt; CreateUserPoolDomain -&gt; Bool
+== :: CreateUserPoolDomain -&gt; CreateUserPoolDomain -&gt; Bool
+$c== :: CreateUserPoolDomain -&gt; CreateUserPoolDomain -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450488"><span id="local-6989586621679450490"><span id="local-6989586621679450492"><span id="local-6989586621679450494"><span class="annot"><span class="annottext">ReadPrec [CreateUserPoolDomain]
+ReadPrec CreateUserPoolDomain
+Int -&gt; ReadS CreateUserPoolDomain
+ReadS [CreateUserPoolDomain]
+(Int -&gt; ReadS CreateUserPoolDomain)
+-&gt; ReadS [CreateUserPoolDomain]
+-&gt; ReadPrec CreateUserPoolDomain
+-&gt; ReadPrec [CreateUserPoolDomain]
+-&gt; Read CreateUserPoolDomain
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateUserPoolDomain]
+$creadListPrec :: ReadPrec [CreateUserPoolDomain]
+readPrec :: ReadPrec CreateUserPoolDomain
+$creadPrec :: ReadPrec CreateUserPoolDomain
+readList :: ReadS [CreateUserPoolDomain]
+$creadList :: ReadS [CreateUserPoolDomain]
+readsPrec :: Int -&gt; ReadS CreateUserPoolDomain
+$creadsPrec :: Int -&gt; ReadS CreateUserPoolDomain
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450481"><span id="local-6989586621679450483"><span id="local-6989586621679450485"><span class="annot"><span class="annottext">Int -&gt; CreateUserPoolDomain -&gt; ShowS
+[CreateUserPoolDomain] -&gt; ShowS
+CreateUserPoolDomain -&gt; String
+(Int -&gt; CreateUserPoolDomain -&gt; ShowS)
+-&gt; (CreateUserPoolDomain -&gt; String)
+-&gt; ([CreateUserPoolDomain] -&gt; ShowS)
+-&gt; Show CreateUserPoolDomain
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateUserPoolDomain] -&gt; ShowS
+$cshowList :: [CreateUserPoolDomain] -&gt; ShowS
+show :: CreateUserPoolDomain -&gt; String
+$cshow :: CreateUserPoolDomain -&gt; String
+showsPrec :: Int -&gt; CreateUserPoolDomain -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateUserPoolDomain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateUserPoolDomain -&gt; Rep CreateUserPoolDomain x)
+-&gt; (forall x. Rep CreateUserPoolDomain x -&gt; CreateUserPoolDomain)
+-&gt; Generic CreateUserPoolDomain
+forall x. Rep CreateUserPoolDomain x -&gt; CreateUserPoolDomain
+forall x. CreateUserPoolDomain -&gt; Rep CreateUserPoolDomain x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateUserPoolDomain x -&gt; CreateUserPoolDomain
+$cfrom :: forall x. CreateUserPoolDomain -&gt; Rep CreateUserPoolDomain x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'CreateUserPoolDomain' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'customDomainConfig', 'createUserPoolDomain_customDomainConfig' - The configuration for a custom domain that hosts the sign-up and sign-in</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- webpages for your application.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Provide this parameter only if you want to use a custom domain for your</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- user pool. Otherwise, you can exclude this parameter and use the Amazon</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Cognito hosted domain instead.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- For more information about the hosted domain and custom domains, see</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html Configuring a User Pool Domain&gt;.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'domain', 'createUserPoolDomain_domain' - The domain string.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'userPoolId', 'createUserPoolDomain_userPoolId' - The user pool ID.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#newCreateUserPoolDomain"><span class="hs-identifier hs-type">newCreateUserPoolDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'domain'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'userPoolId'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier hs-type">CreateUserPoolDomain</span></a></span><span>
+</span><span id="line-97"></span><span id="newCreateUserPoolDomain"><span class="annot"><span class="annottext">newCreateUserPoolDomain :: Text -&gt; Text -&gt; CreateUserPoolDomain
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#newCreateUserPoolDomain"><span class="hs-identifier hs-var hs-var">newCreateUserPoolDomain</span></a></span></span><span> </span><span id="local-6989586621679450476"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450476"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span> </span><span id="local-6989586621679450475"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450475"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">CreateUserPoolDomain' :: Maybe CustomDomainConfigType
+-&gt; Text -&gt; Text -&gt; CreateUserPoolDomain
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain%27"><span class="hs-identifier hs-type">CreateUserPoolDomain'</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:customDomainConfig:CreateUserPoolDomain' :: Maybe CustomDomainConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#%24sel%3AcustomDomainConfig%3ACreateUserPoolDomain%27"><span class="hs-identifier hs-var">customDomainConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Maybe CustomDomainConfigType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:domain:CreateUserPoolDomain' :: Text
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#%24sel%3Adomain%3ACreateUserPoolDomain%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450476"><span class="hs-identifier hs-var">pDomain_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolId:CreateUserPoolDomain' :: Text
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#%24sel%3AuserPoolId%3ACreateUserPoolDomain%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450475"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The configuration for a custom domain that hosts the sign-up and sign-in</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- webpages for your application.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Provide this parameter only if you want to use a custom domain for your</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- user pool. Otherwise, you can exclude this parameter and use the Amazon</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Cognito hosted domain instead.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- For more information about the hosted domain and custom domains, see</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html Configuring a User Pool Domain&gt;.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#createUserPoolDomain_customDomainConfig"><span class="hs-identifier hs-type">createUserPoolDomain_customDomainConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier hs-type">CreateUserPoolDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.CustomDomainConfigType.html#CustomDomainConfigType"><span class="hs-identifier hs-type">CustomDomainConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="createUserPoolDomain_customDomainConfig"><span class="annot"><span class="annottext">createUserPoolDomain_customDomainConfig :: (Maybe CustomDomainConfigType -&gt; f (Maybe CustomDomainConfigType))
+-&gt; CreateUserPoolDomain -&gt; f CreateUserPoolDomain
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#createUserPoolDomain_customDomainConfig"><span class="hs-identifier hs-var hs-var">createUserPoolDomain_customDomainConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUserPoolDomain -&gt; Maybe CustomDomainConfigType)
+-&gt; (CreateUserPoolDomain
+    -&gt; Maybe CustomDomainConfigType -&gt; CreateUserPoolDomain)
+-&gt; Lens
+     CreateUserPoolDomain
+     CreateUserPoolDomain
+     (Maybe CustomDomainConfigType)
+     (Maybe CustomDomainConfigType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain%27"><span class="hs-identifier hs-type">CreateUserPoolDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450472"><span class="annot"><span class="annottext">Maybe CustomDomainConfigType
+customDomainConfig :: Maybe CustomDomainConfigType
+$sel:customDomainConfig:CreateUserPoolDomain' :: CreateUserPoolDomain -&gt; Maybe CustomDomainConfigType
+</span><a href="#local-6989586621679450472"><span class="hs-identifier hs-var hs-var">customDomainConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomDomainConfigType
+</span><a href="#local-6989586621679450472"><span class="hs-identifier hs-var">customDomainConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450471"><span class="annot"><span class="annottext">s :: CreateUserPoolDomain
+</span><a href="#local-6989586621679450471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain%27"><span class="hs-identifier hs-type">CreateUserPoolDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450470"><span class="annot"><span class="annottext">Maybe CustomDomainConfigType
+</span><a href="#local-6989586621679450470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserPoolDomain
+</span><a href="#local-6989586621679450471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customDomainConfig:CreateUserPoolDomain' :: Maybe CustomDomainConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#%24sel%3AcustomDomainConfig%3ACreateUserPoolDomain%27"><span class="hs-identifier hs-var">customDomainConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomDomainConfigType
+</span><a href="#local-6989586621679450470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier hs-type">CreateUserPoolDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The domain string.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#createUserPoolDomain_domain"><span class="hs-identifier hs-type">createUserPoolDomain_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier hs-type">CreateUserPoolDomain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-119"></span><span id="createUserPoolDomain_domain"><span class="annot"><span class="annottext">createUserPoolDomain_domain :: (Text -&gt; f Text) -&gt; CreateUserPoolDomain -&gt; f CreateUserPoolDomain
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#createUserPoolDomain_domain"><span class="hs-identifier hs-var hs-var">createUserPoolDomain_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUserPoolDomain -&gt; Text)
+-&gt; (CreateUserPoolDomain -&gt; Text -&gt; CreateUserPoolDomain)
+-&gt; Lens CreateUserPoolDomain CreateUserPoolDomain Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain%27"><span class="hs-identifier hs-type">CreateUserPoolDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450469"><span class="annot"><span class="annottext">Text
+domain :: Text
+$sel:domain:CreateUserPoolDomain' :: CreateUserPoolDomain -&gt; Text
+</span><a href="#local-6989586621679450469"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450469"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450468"><span class="annot"><span class="annottext">s :: CreateUserPoolDomain
+</span><a href="#local-6989586621679450468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain%27"><span class="hs-identifier hs-type">CreateUserPoolDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450467"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserPoolDomain
+</span><a href="#local-6989586621679450468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:CreateUserPoolDomain' :: Text
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#%24sel%3Adomain%3ACreateUserPoolDomain%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier hs-type">CreateUserPoolDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The user pool ID.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#createUserPoolDomain_userPoolId"><span class="hs-identifier hs-type">createUserPoolDomain_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier hs-type">CreateUserPoolDomain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-123"></span><span id="createUserPoolDomain_userPoolId"><span class="annot"><span class="annottext">createUserPoolDomain_userPoolId :: (Text -&gt; f Text) -&gt; CreateUserPoolDomain -&gt; f CreateUserPoolDomain
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#createUserPoolDomain_userPoolId"><span class="hs-identifier hs-var hs-var">createUserPoolDomain_userPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUserPoolDomain -&gt; Text)
+-&gt; (CreateUserPoolDomain -&gt; Text -&gt; CreateUserPoolDomain)
+-&gt; Lens CreateUserPoolDomain CreateUserPoolDomain Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain%27"><span class="hs-identifier hs-type">CreateUserPoolDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450466"><span class="annot"><span class="annottext">Text
+userPoolId :: Text
+$sel:userPoolId:CreateUserPoolDomain' :: CreateUserPoolDomain -&gt; Text
+</span><a href="#local-6989586621679450466"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450466"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450465"><span class="annot"><span class="annottext">s :: CreateUserPoolDomain
+</span><a href="#local-6989586621679450465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain%27"><span class="hs-identifier hs-type">CreateUserPoolDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450464"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserPoolDomain
+</span><a href="#local-6989586621679450465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:CreateUserPoolDomain' :: Text
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#%24sel%3AuserPoolId%3ACreateUserPoolDomain%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier hs-type">CreateUserPoolDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier hs-type">CreateUserPoolDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-127"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier hs-type">CreateUserPoolDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomainResponse"><span class="hs-identifier hs-type">CreateUserPoolDomainResponse</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679450460"><span class="annot"><span class="annottext">request :: CreateUserPoolDomain -&gt; Request CreateUserPoolDomain
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateUserPoolDomain -&gt; Request CreateUserPoolDomain
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679450456"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateUserPoolDomain
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateUserPoolDomain)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateUserPoolDomain))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateUserPoolDomain
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateUserPoolDomain)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679450453"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450453"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679450452"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679450452"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679450451"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679450451"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateUserPoolDomainResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomainResponse%27"><span class="hs-identifier hs-var">CreateUserPoolDomainResponse'</span></a></span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateUserPoolDomainResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateUserPoolDomainResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679450451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudFrontDomain&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateUserPoolDomainResponse)
+-&gt; Either String Int -&gt; Either String CreateUserPoolDomainResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450453"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450443"><span id="local-6989586621679450445"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier hs-type">CreateUserPoolDomain</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450440"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier hs-type">CreateUserPoolDomain</span></a></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier hs-type">CreateUserPoolDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679450436"><span class="annot"><span class="annottext">toHeaders :: CreateUserPoolDomain -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateUserPoolDomain -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSCognitoIdentityProviderService.CreateUserPoolDomain&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-149"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-153"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450426"><span id="local-6989586621679450428"><span id="local-6989586621679450430"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier hs-type">CreateUserPoolDomain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679450424"><span class="annot"><span class="annottext">toJSON :: CreateUserPoolDomain -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain%27"><span class="hs-identifier hs-type">CreateUserPoolDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450420"><span id="local-6989586621679450421"><span id="local-6989586621679450422"><span class="annot"><span class="annottext">Maybe CustomDomainConfigType
+Text
+userPoolId :: Text
+domain :: Text
+customDomainConfig :: Maybe CustomDomainConfigType
+$sel:userPoolId:CreateUserPoolDomain' :: CreateUserPoolDomain -&gt; Text
+$sel:domain:CreateUserPoolDomain' :: CreateUserPoolDomain -&gt; Text
+$sel:customDomainConfig:CreateUserPoolDomain' :: CreateUserPoolDomain -&gt; Maybe CustomDomainConfigType
+</span><a href="#local-6989586621679450420"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomDomainConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CustomDomainConfigType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">(CustomDomainConfigType -&gt; Pair)
+-&gt; Maybe CustomDomainConfigType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CustomDomainConfigType
+</span><a href="#local-6989586621679450422"><span class="hs-identifier hs-var">customDomainConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Domain&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450421"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450420"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier hs-type">CreateUserPoolDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679450414"><span class="annot"><span class="annottext">toPath :: CreateUserPoolDomain -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateUserPoolDomain -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomain"><span class="hs-identifier hs-type">CreateUserPoolDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679450410"><span class="annot"><span class="annottext">toQuery :: CreateUserPoolDomain -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateUserPoolDomain -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newCreateUserPoolDomainResponse' smart constructor.</span><span>
+</span><span id="line-175"></span><span id="local-6989586621679450407"><span id="local-6989586621679450408"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUserPoolDomainResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomainResponse"><span class="hs-identifier hs-var">CreateUserPoolDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUserPoolDomainResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomainResponse%27"><span class="hs-identifier hs-var">CreateUserPoolDomainResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon CloudFront endpoint that you use as the target of the alias</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- that you set up with your Domain Name Service (DNS) provider.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AcloudFrontDomain%3ACreateUserPoolDomainResponse%27"><span class="annot"><span class="annottext">CreateUserPoolDomainResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#%24sel%3AcloudFrontDomain%3ACreateUserPoolDomainResponse%27"><span class="hs-identifier hs-var hs-var">cloudFrontDomain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateUserPoolDomainResponse%27"><span class="annot"><span class="annottext">CreateUserPoolDomainResponse -&gt; Int
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#%24sel%3AhttpStatus%3ACreateUserPoolDomainResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450401"><span id="local-6989586621679450403"><span class="annot"><span class="annottext">CreateUserPoolDomainResponse
+-&gt; CreateUserPoolDomainResponse -&gt; Bool
+(CreateUserPoolDomainResponse
+ -&gt; CreateUserPoolDomainResponse -&gt; Bool)
+-&gt; (CreateUserPoolDomainResponse
+    -&gt; CreateUserPoolDomainResponse -&gt; Bool)
+-&gt; Eq CreateUserPoolDomainResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateUserPoolDomainResponse
+-&gt; CreateUserPoolDomainResponse -&gt; Bool
+$c/= :: CreateUserPoolDomainResponse
+-&gt; CreateUserPoolDomainResponse -&gt; Bool
+== :: CreateUserPoolDomainResponse
+-&gt; CreateUserPoolDomainResponse -&gt; Bool
+$c== :: CreateUserPoolDomainResponse
+-&gt; CreateUserPoolDomainResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450393"><span id="local-6989586621679450395"><span id="local-6989586621679450397"><span id="local-6989586621679450399"><span class="annot"><span class="annottext">ReadPrec [CreateUserPoolDomainResponse]
+ReadPrec CreateUserPoolDomainResponse
+Int -&gt; ReadS CreateUserPoolDomainResponse
+ReadS [CreateUserPoolDomainResponse]
+(Int -&gt; ReadS CreateUserPoolDomainResponse)
+-&gt; ReadS [CreateUserPoolDomainResponse]
+-&gt; ReadPrec CreateUserPoolDomainResponse
+-&gt; ReadPrec [CreateUserPoolDomainResponse]
+-&gt; Read CreateUserPoolDomainResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateUserPoolDomainResponse]
+$creadListPrec :: ReadPrec [CreateUserPoolDomainResponse]
+readPrec :: ReadPrec CreateUserPoolDomainResponse
+$creadPrec :: ReadPrec CreateUserPoolDomainResponse
+readList :: ReadS [CreateUserPoolDomainResponse]
+$creadList :: ReadS [CreateUserPoolDomainResponse]
+readsPrec :: Int -&gt; ReadS CreateUserPoolDomainResponse
+$creadsPrec :: Int -&gt; ReadS CreateUserPoolDomainResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450387"><span id="local-6989586621679450389"><span id="local-6989586621679450391"><span class="annot"><span class="annottext">Int -&gt; CreateUserPoolDomainResponse -&gt; ShowS
+[CreateUserPoolDomainResponse] -&gt; ShowS
+CreateUserPoolDomainResponse -&gt; String
+(Int -&gt; CreateUserPoolDomainResponse -&gt; ShowS)
+-&gt; (CreateUserPoolDomainResponse -&gt; String)
+-&gt; ([CreateUserPoolDomainResponse] -&gt; ShowS)
+-&gt; Show CreateUserPoolDomainResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateUserPoolDomainResponse] -&gt; ShowS
+$cshowList :: [CreateUserPoolDomainResponse] -&gt; ShowS
+show :: CreateUserPoolDomainResponse -&gt; String
+$cshow :: CreateUserPoolDomainResponse -&gt; String
+showsPrec :: Int -&gt; CreateUserPoolDomainResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateUserPoolDomainResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateUserPoolDomainResponse -&gt; Rep CreateUserPoolDomainResponse x)
+-&gt; (forall x.
+    Rep CreateUserPoolDomainResponse x -&gt; CreateUserPoolDomainResponse)
+-&gt; Generic CreateUserPoolDomainResponse
+forall x.
+Rep CreateUserPoolDomainResponse x -&gt; CreateUserPoolDomainResponse
+forall x.
+CreateUserPoolDomainResponse -&gt; Rep CreateUserPoolDomainResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateUserPoolDomainResponse x -&gt; CreateUserPoolDomainResponse
+$cfrom :: forall x.
+CreateUserPoolDomainResponse -&gt; Rep CreateUserPoolDomainResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Create a value of 'CreateUserPoolDomainResponse' with all optional fields omitted.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'cloudFrontDomain', 'createUserPoolDomainResponse_cloudFrontDomain' - The Amazon CloudFront endpoint that you use as the target of the alias</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- that you set up with your Domain Name Service (DNS) provider.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'httpStatus', 'createUserPoolDomainResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#newCreateUserPoolDomainResponse"><span class="hs-identifier hs-type">newCreateUserPoolDomainResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomainResponse"><span class="hs-identifier hs-type">CreateUserPoolDomainResponse</span></a></span><span>
+</span><span id="line-200"></span><span id="newCreateUserPoolDomainResponse"><span class="annot"><span class="annottext">newCreateUserPoolDomainResponse :: Int -&gt; CreateUserPoolDomainResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#newCreateUserPoolDomainResponse"><span class="hs-identifier hs-var hs-var">newCreateUserPoolDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679450384"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450384"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">CreateUserPoolDomainResponse' :: Maybe Text -&gt; Int -&gt; CreateUserPoolDomainResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomainResponse%27"><span class="hs-identifier hs-type">CreateUserPoolDomainResponse'</span></a></span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cloudFrontDomain:CreateUserPoolDomainResponse' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#%24sel%3AcloudFrontDomain%3ACreateUserPoolDomainResponse%27"><span class="hs-identifier hs-var">cloudFrontDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUserPoolDomainResponse' :: Int
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#%24sel%3AhttpStatus%3ACreateUserPoolDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450384"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The Amazon CloudFront endpoint that you use as the target of the alias</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- that you set up with your Domain Name Service (DNS) provider.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#createUserPoolDomainResponse_cloudFrontDomain"><span class="hs-identifier hs-type">createUserPoolDomainResponse_cloudFrontDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomainResponse"><span class="hs-identifier hs-type">CreateUserPoolDomainResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="createUserPoolDomainResponse_cloudFrontDomain"><span class="annot"><span class="annottext">createUserPoolDomainResponse_cloudFrontDomain :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateUserPoolDomainResponse -&gt; f CreateUserPoolDomainResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#createUserPoolDomainResponse_cloudFrontDomain"><span class="hs-identifier hs-var hs-var">createUserPoolDomainResponse_cloudFrontDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUserPoolDomainResponse -&gt; Maybe Text)
+-&gt; (CreateUserPoolDomainResponse
+    -&gt; Maybe Text -&gt; CreateUserPoolDomainResponse)
+-&gt; Lens
+     CreateUserPoolDomainResponse
+     CreateUserPoolDomainResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomainResponse%27"><span class="hs-identifier hs-type">CreateUserPoolDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450383"><span class="annot"><span class="annottext">Maybe Text
+cloudFrontDomain :: Maybe Text
+$sel:cloudFrontDomain:CreateUserPoolDomainResponse' :: CreateUserPoolDomainResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679450383"><span class="hs-identifier hs-var hs-var">cloudFrontDomain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679450383"><span class="hs-identifier hs-var">cloudFrontDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450382"><span class="annot"><span class="annottext">s :: CreateUserPoolDomainResponse
+</span><a href="#local-6989586621679450382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomainResponse%27"><span class="hs-identifier hs-type">CreateUserPoolDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450381"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679450381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserPoolDomainResponse
+</span><a href="#local-6989586621679450382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudFrontDomain:CreateUserPoolDomainResponse' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#%24sel%3AcloudFrontDomain%3ACreateUserPoolDomainResponse%27"><span class="hs-identifier hs-var">cloudFrontDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679450381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomainResponse"><span class="hs-identifier hs-type">CreateUserPoolDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#createUserPoolDomainResponse_httpStatus"><span class="hs-identifier hs-type">createUserPoolDomainResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomainResponse"><span class="hs-identifier hs-type">CreateUserPoolDomainResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-214"></span><span id="createUserPoolDomainResponse_httpStatus"><span class="annot"><span class="annottext">createUserPoolDomainResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateUserPoolDomainResponse -&gt; f CreateUserPoolDomainResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#createUserPoolDomainResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createUserPoolDomainResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUserPoolDomainResponse -&gt; Int)
+-&gt; (CreateUserPoolDomainResponse
+    -&gt; Int -&gt; CreateUserPoolDomainResponse)
+-&gt; Lens
+     CreateUserPoolDomainResponse CreateUserPoolDomainResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomainResponse%27"><span class="hs-identifier hs-type">CreateUserPoolDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450380"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateUserPoolDomainResponse' :: CreateUserPoolDomainResponse -&gt; Int
+</span><a href="#local-6989586621679450380"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450380"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450379"><span class="annot"><span class="annottext">s :: CreateUserPoolDomainResponse
+</span><a href="#local-6989586621679450379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomainResponse%27"><span class="hs-identifier hs-type">CreateUserPoolDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450378"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserPoolDomainResponse
+</span><a href="#local-6989586621679450379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUserPoolDomainResponse' :: Int
+</span><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#%24sel%3AhttpStatus%3ACreateUserPoolDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomainResponse"><span class="hs-identifier hs-type">CreateUserPoolDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain.html#CreateUserPoolDomainResponse"><span class="hs-identifier hs-type">CreateUserPoolDomainResponse</span></a></span></span><span>
+</span><span id="line-217"></span></pre></body></html>

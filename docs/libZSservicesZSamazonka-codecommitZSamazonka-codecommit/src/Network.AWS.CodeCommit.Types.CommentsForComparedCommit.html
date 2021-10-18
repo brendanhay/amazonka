@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeCommit.Types.CommentsForComparedCommit</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeCommit.Types.CommentsForComparedCommit</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Comment.html"><span class="hs-identifier">Network.AWS.CodeCommit.Types.Comment</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html"><span class="hs-identifier">Network.AWS.CodeCommit.Types.Location</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Returns information about comments on the comparison between two</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- commits.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCommentsForComparedCommit' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679353334"><span id="local-6989586621679353335"></span></span><span class="hs-keyword">data</span><span> </span><span id="CommentsForComparedCommit"><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-var">CommentsForComparedCommit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommentsForComparedCommit%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-var">CommentsForComparedCommit'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The full blob ID of the commit used to establish the before of the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- comparison.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AbeforeBlobId%3ACommentsForComparedCommit%27"><span class="annot"><span class="annottext">CommentsForComparedCommit -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3AbeforeBlobId%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var hs-var">beforeBlobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the repository that contains the compared commits.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3ArepositoryName%3ACommentsForComparedCommit%27"><span class="annot"><span class="annottext">CommentsForComparedCommit -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3ArepositoryName%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The full commit ID of the commit used to establish the before of the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- comparison.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AbeforeCommitId%3ACommentsForComparedCommit%27"><span class="annot"><span class="annottext">CommentsForComparedCommit -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3AbeforeCommitId%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var hs-var">beforeCommitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The full blob ID of the commit used to establish the after of the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- comparison.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AafterBlobId%3ACommentsForComparedCommit%27"><span class="annot"><span class="annottext">CommentsForComparedCommit -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3AafterBlobId%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var hs-var">afterBlobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The full commit ID of the commit used to establish the after of the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- comparison.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AafterCommitId%3ACommentsForComparedCommit%27"><span class="annot"><span class="annottext">CommentsForComparedCommit -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3AafterCommitId%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var hs-var">afterCommitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | An array of comment objects. Each comment object contains information</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- about a comment on the comparison between commits.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Acomments%3ACommentsForComparedCommit%27"><span class="annot"><span class="annottext">CommentsForComparedCommit -&gt; Maybe [Comment]
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3Acomments%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var hs-var">comments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Location information about the comment on the comparison, including the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- file name, line number, and whether the version of the file where the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- comment was made is BEFORE or AFTER.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Alocation%3ACommentsForComparedCommit%27"><span class="annot"><span class="annottext">CommentsForComparedCommit -&gt; Maybe Location
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3Alocation%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353322"><span id="local-6989586621679353324"><span class="annot"><span class="annottext">CommentsForComparedCommit -&gt; CommentsForComparedCommit -&gt; Bool
+(CommentsForComparedCommit -&gt; CommentsForComparedCommit -&gt; Bool)
+-&gt; (CommentsForComparedCommit -&gt; CommentsForComparedCommit -&gt; Bool)
+-&gt; Eq CommentsForComparedCommit
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CommentsForComparedCommit -&gt; CommentsForComparedCommit -&gt; Bool
+$c/= :: CommentsForComparedCommit -&gt; CommentsForComparedCommit -&gt; Bool
+== :: CommentsForComparedCommit -&gt; CommentsForComparedCommit -&gt; Bool
+$c== :: CommentsForComparedCommit -&gt; CommentsForComparedCommit -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353313"><span id="local-6989586621679353315"><span id="local-6989586621679353317"><span id="local-6989586621679353319"><span class="annot"><span class="annottext">ReadPrec [CommentsForComparedCommit]
+ReadPrec CommentsForComparedCommit
+Int -&gt; ReadS CommentsForComparedCommit
+ReadS [CommentsForComparedCommit]
+(Int -&gt; ReadS CommentsForComparedCommit)
+-&gt; ReadS [CommentsForComparedCommit]
+-&gt; ReadPrec CommentsForComparedCommit
+-&gt; ReadPrec [CommentsForComparedCommit]
+-&gt; Read CommentsForComparedCommit
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CommentsForComparedCommit]
+$creadListPrec :: ReadPrec [CommentsForComparedCommit]
+readPrec :: ReadPrec CommentsForComparedCommit
+$creadPrec :: ReadPrec CommentsForComparedCommit
+readList :: ReadS [CommentsForComparedCommit]
+$creadList :: ReadS [CommentsForComparedCommit]
+readsPrec :: Int -&gt; ReadS CommentsForComparedCommit
+$creadsPrec :: Int -&gt; ReadS CommentsForComparedCommit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353306"><span id="local-6989586621679353308"><span id="local-6989586621679353310"><span class="annot"><span class="annottext">Int -&gt; CommentsForComparedCommit -&gt; ShowS
+[CommentsForComparedCommit] -&gt; ShowS
+CommentsForComparedCommit -&gt; String
+(Int -&gt; CommentsForComparedCommit -&gt; ShowS)
+-&gt; (CommentsForComparedCommit -&gt; String)
+-&gt; ([CommentsForComparedCommit] -&gt; ShowS)
+-&gt; Show CommentsForComparedCommit
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CommentsForComparedCommit] -&gt; ShowS
+$cshowList :: [CommentsForComparedCommit] -&gt; ShowS
+show :: CommentsForComparedCommit -&gt; String
+$cshow :: CommentsForComparedCommit -&gt; String
+showsPrec :: Int -&gt; CommentsForComparedCommit -&gt; ShowS
+$cshowsPrec :: Int -&gt; CommentsForComparedCommit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CommentsForComparedCommit -&gt; Rep CommentsForComparedCommit x)
+-&gt; (forall x.
+    Rep CommentsForComparedCommit x -&gt; CommentsForComparedCommit)
+-&gt; Generic CommentsForComparedCommit
+forall x.
+Rep CommentsForComparedCommit x -&gt; CommentsForComparedCommit
+forall x.
+CommentsForComparedCommit -&gt; Rep CommentsForComparedCommit x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CommentsForComparedCommit x -&gt; CommentsForComparedCommit
+$cfrom :: forall x.
+CommentsForComparedCommit -&gt; Rep CommentsForComparedCommit x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'CommentsForComparedCommit' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'beforeBlobId', 'commentsForComparedCommit_beforeBlobId' - The full blob ID of the commit used to establish the before of the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- comparison.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'repositoryName', 'commentsForComparedCommit_repositoryName' - The name of the repository that contains the compared commits.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'beforeCommitId', 'commentsForComparedCommit_beforeCommitId' - The full commit ID of the commit used to establish the before of the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- comparison.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'afterBlobId', 'commentsForComparedCommit_afterBlobId' - The full blob ID of the commit used to establish the after of the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- comparison.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'afterCommitId', 'commentsForComparedCommit_afterCommitId' - The full commit ID of the commit used to establish the after of the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- comparison.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'comments', 'commentsForComparedCommit_comments' - An array of comment objects. Each comment object contains information</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- about a comment on the comparison between commits.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'location', 'commentsForComparedCommit_location' - Location information about the comment on the comparison, including the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- file name, line number, and whether the version of the file where the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- comment was made is BEFORE or AFTER.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#newCommentsForComparedCommit"><span class="hs-identifier hs-type">newCommentsForComparedCommit</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span><span>
+</span><span id="line-87"></span><span id="newCommentsForComparedCommit"><span class="annot"><span class="annottext">newCommentsForComparedCommit :: CommentsForComparedCommit
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#newCommentsForComparedCommit"><span class="hs-identifier hs-var hs-var">newCommentsForComparedCommit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">CommentsForComparedCommit' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Comment]
+-&gt; Maybe Location
+-&gt; CommentsForComparedCommit
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-type">CommentsForComparedCommit'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:beforeBlobId:CommentsForComparedCommit' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3AbeforeBlobId%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var">beforeBlobId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:CommentsForComparedCommit' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3ArepositoryName%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:beforeCommitId:CommentsForComparedCommit' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3AbeforeCommitId%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var">beforeCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:afterBlobId:CommentsForComparedCommit' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3AafterBlobId%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var">afterBlobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:afterCommitId:CommentsForComparedCommit' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3AafterCommitId%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var">afterCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:comments:CommentsForComparedCommit' :: Maybe [Comment]
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3Acomments%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var">comments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Comment]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:CommentsForComparedCommit' :: Maybe Location
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3Alocation%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Location
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The full blob ID of the commit used to establish the before of the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- comparison.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#commentsForComparedCommit_beforeBlobId"><span class="hs-identifier hs-type">commentsForComparedCommit_beforeBlobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="commentsForComparedCommit_beforeBlobId"><span class="annot"><span class="annottext">commentsForComparedCommit_beforeBlobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommentsForComparedCommit -&gt; f CommentsForComparedCommit
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#commentsForComparedCommit_beforeBlobId"><span class="hs-identifier hs-var hs-var">commentsForComparedCommit_beforeBlobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForComparedCommit -&gt; Maybe Text)
+-&gt; (CommentsForComparedCommit
+    -&gt; Maybe Text -&gt; CommentsForComparedCommit)
+-&gt; Lens
+     CommentsForComparedCommit
+     CommentsForComparedCommit
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-type">CommentsForComparedCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353297"><span class="annot"><span class="annottext">Maybe Text
+beforeBlobId :: Maybe Text
+$sel:beforeBlobId:CommentsForComparedCommit' :: CommentsForComparedCommit -&gt; Maybe Text
+</span><a href="#local-6989586621679353297"><span class="hs-identifier hs-var hs-var">beforeBlobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353297"><span class="hs-identifier hs-var">beforeBlobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353296"><span class="annot"><span class="annottext">s :: CommentsForComparedCommit
+</span><a href="#local-6989586621679353296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-type">CommentsForComparedCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353295"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForComparedCommit
+</span><a href="#local-6989586621679353296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beforeBlobId:CommentsForComparedCommit' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3AbeforeBlobId%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var">beforeBlobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The name of the repository that contains the compared commits.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#commentsForComparedCommit_repositoryName"><span class="hs-identifier hs-type">commentsForComparedCommit_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="commentsForComparedCommit_repositoryName"><span class="annot"><span class="annottext">commentsForComparedCommit_repositoryName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommentsForComparedCommit -&gt; f CommentsForComparedCommit
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#commentsForComparedCommit_repositoryName"><span class="hs-identifier hs-var hs-var">commentsForComparedCommit_repositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForComparedCommit -&gt; Maybe Text)
+-&gt; (CommentsForComparedCommit
+    -&gt; Maybe Text -&gt; CommentsForComparedCommit)
+-&gt; Lens
+     CommentsForComparedCommit
+     CommentsForComparedCommit
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-type">CommentsForComparedCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353293"><span class="annot"><span class="annottext">Maybe Text
+repositoryName :: Maybe Text
+$sel:repositoryName:CommentsForComparedCommit' :: CommentsForComparedCommit -&gt; Maybe Text
+</span><a href="#local-6989586621679353293"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353293"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353292"><span class="annot"><span class="annottext">s :: CommentsForComparedCommit
+</span><a href="#local-6989586621679353292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-type">CommentsForComparedCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353291"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForComparedCommit
+</span><a href="#local-6989586621679353292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:CommentsForComparedCommit' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3ArepositoryName%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The full commit ID of the commit used to establish the before of the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- comparison.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#commentsForComparedCommit_beforeCommitId"><span class="hs-identifier hs-type">commentsForComparedCommit_beforeCommitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="commentsForComparedCommit_beforeCommitId"><span class="annot"><span class="annottext">commentsForComparedCommit_beforeCommitId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommentsForComparedCommit -&gt; f CommentsForComparedCommit
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#commentsForComparedCommit_beforeCommitId"><span class="hs-identifier hs-var hs-var">commentsForComparedCommit_beforeCommitId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForComparedCommit -&gt; Maybe Text)
+-&gt; (CommentsForComparedCommit
+    -&gt; Maybe Text -&gt; CommentsForComparedCommit)
+-&gt; Lens
+     CommentsForComparedCommit
+     CommentsForComparedCommit
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-type">CommentsForComparedCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353289"><span class="annot"><span class="annottext">Maybe Text
+beforeCommitId :: Maybe Text
+$sel:beforeCommitId:CommentsForComparedCommit' :: CommentsForComparedCommit -&gt; Maybe Text
+</span><a href="#local-6989586621679353289"><span class="hs-identifier hs-var hs-var">beforeCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353289"><span class="hs-identifier hs-var">beforeCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353288"><span class="annot"><span class="annottext">s :: CommentsForComparedCommit
+</span><a href="#local-6989586621679353288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-type">CommentsForComparedCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353287"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForComparedCommit
+</span><a href="#local-6989586621679353288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beforeCommitId:CommentsForComparedCommit' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3AbeforeCommitId%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var">beforeCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The full blob ID of the commit used to establish the after of the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- comparison.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#commentsForComparedCommit_afterBlobId"><span class="hs-identifier hs-type">commentsForComparedCommit_afterBlobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="commentsForComparedCommit_afterBlobId"><span class="annot"><span class="annottext">commentsForComparedCommit_afterBlobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommentsForComparedCommit -&gt; f CommentsForComparedCommit
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#commentsForComparedCommit_afterBlobId"><span class="hs-identifier hs-var hs-var">commentsForComparedCommit_afterBlobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForComparedCommit -&gt; Maybe Text)
+-&gt; (CommentsForComparedCommit
+    -&gt; Maybe Text -&gt; CommentsForComparedCommit)
+-&gt; Lens
+     CommentsForComparedCommit
+     CommentsForComparedCommit
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-type">CommentsForComparedCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353285"><span class="annot"><span class="annottext">Maybe Text
+afterBlobId :: Maybe Text
+$sel:afterBlobId:CommentsForComparedCommit' :: CommentsForComparedCommit -&gt; Maybe Text
+</span><a href="#local-6989586621679353285"><span class="hs-identifier hs-var hs-var">afterBlobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353285"><span class="hs-identifier hs-var">afterBlobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353284"><span class="annot"><span class="annottext">s :: CommentsForComparedCommit
+</span><a href="#local-6989586621679353284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-type">CommentsForComparedCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353283"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForComparedCommit
+</span><a href="#local-6989586621679353284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afterBlobId:CommentsForComparedCommit' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3AafterBlobId%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var">afterBlobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The full commit ID of the commit used to establish the after of the</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- comparison.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#commentsForComparedCommit_afterCommitId"><span class="hs-identifier hs-type">commentsForComparedCommit_afterCommitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="commentsForComparedCommit_afterCommitId"><span class="annot"><span class="annottext">commentsForComparedCommit_afterCommitId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommentsForComparedCommit -&gt; f CommentsForComparedCommit
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#commentsForComparedCommit_afterCommitId"><span class="hs-identifier hs-var hs-var">commentsForComparedCommit_afterCommitId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForComparedCommit -&gt; Maybe Text)
+-&gt; (CommentsForComparedCommit
+    -&gt; Maybe Text -&gt; CommentsForComparedCommit)
+-&gt; Lens
+     CommentsForComparedCommit
+     CommentsForComparedCommit
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-type">CommentsForComparedCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353281"><span class="annot"><span class="annottext">Maybe Text
+afterCommitId :: Maybe Text
+$sel:afterCommitId:CommentsForComparedCommit' :: CommentsForComparedCommit -&gt; Maybe Text
+</span><a href="#local-6989586621679353281"><span class="hs-identifier hs-var hs-var">afterCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353281"><span class="hs-identifier hs-var">afterCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353280"><span class="annot"><span class="annottext">s :: CommentsForComparedCommit
+</span><a href="#local-6989586621679353280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-type">CommentsForComparedCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353279"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForComparedCommit
+</span><a href="#local-6989586621679353280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afterCommitId:CommentsForComparedCommit' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3AafterCommitId%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var">afterCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | An array of comment objects. Each comment object contains information</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- about a comment on the comparison between commits.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#commentsForComparedCommit_comments"><span class="hs-identifier hs-type">commentsForComparedCommit_comments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="commentsForComparedCommit_comments"><span class="annot"><span class="annottext">commentsForComparedCommit_comments :: (Maybe [Comment] -&gt; f (Maybe [Comment]))
+-&gt; CommentsForComparedCommit -&gt; f CommentsForComparedCommit
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#commentsForComparedCommit_comments"><span class="hs-identifier hs-var hs-var">commentsForComparedCommit_comments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForComparedCommit -&gt; Maybe [Comment])
+-&gt; (CommentsForComparedCommit
+    -&gt; Maybe [Comment] -&gt; CommentsForComparedCommit)
+-&gt; Lens
+     CommentsForComparedCommit
+     CommentsForComparedCommit
+     (Maybe [Comment])
+     (Maybe [Comment])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-type">CommentsForComparedCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353277"><span class="annot"><span class="annottext">Maybe [Comment]
+comments :: Maybe [Comment]
+$sel:comments:CommentsForComparedCommit' :: CommentsForComparedCommit -&gt; Maybe [Comment]
+</span><a href="#local-6989586621679353277"><span class="hs-identifier hs-var hs-var">comments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Comment]
+</span><a href="#local-6989586621679353277"><span class="hs-identifier hs-var">comments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353276"><span class="annot"><span class="annottext">s :: CommentsForComparedCommit
+</span><a href="#local-6989586621679353276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-type">CommentsForComparedCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353275"><span class="annot"><span class="annottext">Maybe [Comment]
+</span><a href="#local-6989586621679353275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForComparedCommit
+</span><a href="#local-6989586621679353276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comments:CommentsForComparedCommit' :: Maybe [Comment]
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3Acomments%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var">comments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Comment]
+</span><a href="#local-6989586621679353275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Comment] -&gt; f (Maybe [Comment]))
+ -&gt; CommentsForComparedCommit -&gt; f CommentsForComparedCommit)
+-&gt; ((Maybe [Comment] -&gt; f (Maybe [Comment]))
+    -&gt; Maybe [Comment] -&gt; f (Maybe [Comment]))
+-&gt; (Maybe [Comment] -&gt; f (Maybe [Comment]))
+-&gt; CommentsForComparedCommit
+-&gt; f CommentsForComparedCommit
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Comment] [Comment] [Comment] [Comment]
+-&gt; Iso
+     (Maybe [Comment])
+     (Maybe [Comment])
+     (Maybe [Comment])
+     (Maybe [Comment])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Comment] [Comment] [Comment] [Comment]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Location information about the comment on the comparison, including the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- file name, line number, and whether the version of the file where the</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- comment was made is BEFORE or AFTER.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#commentsForComparedCommit_location"><span class="hs-identifier hs-type">commentsForComparedCommit_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="commentsForComparedCommit_location"><span class="annot"><span class="annottext">commentsForComparedCommit_location :: (Maybe Location -&gt; f (Maybe Location))
+-&gt; CommentsForComparedCommit -&gt; f CommentsForComparedCommit
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#commentsForComparedCommit_location"><span class="hs-identifier hs-var hs-var">commentsForComparedCommit_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForComparedCommit -&gt; Maybe Location)
+-&gt; (CommentsForComparedCommit
+    -&gt; Maybe Location -&gt; CommentsForComparedCommit)
+-&gt; Lens
+     CommentsForComparedCommit
+     CommentsForComparedCommit
+     (Maybe Location)
+     (Maybe Location)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-type">CommentsForComparedCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353270"><span class="annot"><span class="annottext">Maybe Location
+location :: Maybe Location
+$sel:location:CommentsForComparedCommit' :: CommentsForComparedCommit -&gt; Maybe Location
+</span><a href="#local-6989586621679353270"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Location
+</span><a href="#local-6989586621679353270"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353269"><span class="annot"><span class="annottext">s :: CommentsForComparedCommit
+</span><a href="#local-6989586621679353269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-type">CommentsForComparedCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353268"><span class="annot"><span class="annottext">Maybe Location
+</span><a href="#local-6989586621679353268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForComparedCommit
+</span><a href="#local-6989586621679353269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CommentsForComparedCommit' :: Maybe Location
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#%24sel%3Alocation%3ACommentsForComparedCommit%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Location
+</span><a href="#local-6989586621679353268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353265"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679353263"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CommentsForComparedCommit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CommentsForComparedCommit)
+-&gt; Value
+-&gt; Parser CommentsForComparedCommit
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CommentsForComparedCommit&quot;</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679353260"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679353260"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Comment]
+-&gt; Maybe Location
+-&gt; CommentsForComparedCommit
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit%27"><span class="hs-identifier hs-var">CommentsForComparedCommit'</span></a></span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Comment]
+ -&gt; Maybe Location
+ -&gt; CommentsForComparedCommit)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Comment]
+      -&gt; Maybe Location
+      -&gt; CommentsForComparedCommit)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679353260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;beforeBlobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Comment]
+   -&gt; Maybe Location
+   -&gt; CommentsForComparedCommit)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Comment]
+      -&gt; Maybe Location
+      -&gt; CommentsForComparedCommit)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679353260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;repositoryName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Comment]
+   -&gt; Maybe Location
+   -&gt; CommentsForComparedCommit)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Comment]
+      -&gt; Maybe Location
+      -&gt; CommentsForComparedCommit)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679353260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;beforeCommitId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Comment]
+   -&gt; Maybe Location
+   -&gt; CommentsForComparedCommit)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Comment] -&gt; Maybe Location -&gt; CommentsForComparedCommit)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679353260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;afterBlobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Comment] -&gt; Maybe Location -&gt; CommentsForComparedCommit)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Comment] -&gt; Maybe Location -&gt; CommentsForComparedCommit)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679353260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;afterCommitId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Comment] -&gt; Maybe Location -&gt; CommentsForComparedCommit)
+-&gt; Parser (Maybe [Comment])
+-&gt; Parser (Maybe Location -&gt; CommentsForComparedCommit)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679353260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Comment]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;comments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Comment]))
+-&gt; Maybe [Comment] -&gt; Parser (Maybe [Comment])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Comment]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Location -&gt; CommentsForComparedCommit)
+-&gt; Parser (Maybe Location) -&gt; Parser CommentsForComparedCommit
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679353260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Location)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353253"><span id="local-6989586621679353255"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForComparedCommit.html#CommentsForComparedCommit"><span class="hs-identifier hs-type">CommentsForComparedCommit</span></a></span></span><span>
+</span><span id="line-152"></span></pre></body></html>

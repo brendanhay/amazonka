@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.ReservationVideoQuality</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.ReservationVideoQuality</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality"><span class="hs-identifier">ReservationVideoQuality</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality_ENHANCED"><span class="hs-identifier">ReservationVideoQuality_ENHANCED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality_PREMIUM"><span class="hs-identifier">ReservationVideoQuality_PREMIUM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality_STANDARD"><span class="hs-identifier">ReservationVideoQuality_STANDARD</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Video quality, e.g. \'STANDARD\' (Outputs only)</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679906290"><span id="local-6989586621679906291"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReservationVideoQuality"><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality"><span class="hs-identifier hs-var">ReservationVideoQuality</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationVideoQuality%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality%27"><span class="hs-identifier hs-var">ReservationVideoQuality'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReservationVideoQuality"><span class="annot"><span class="annottext">ReservationVideoQuality -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#fromReservationVideoQuality"><span class="hs-identifier hs-var hs-var">fromReservationVideoQuality</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679906282"><span id="local-6989586621679906284"><span id="local-6989586621679906286"><span class="annot"><span class="annottext">Int -&gt; ReservationVideoQuality -&gt; ShowS
+[ReservationVideoQuality] -&gt; ShowS
+ReservationVideoQuality -&gt; String
+(Int -&gt; ReservationVideoQuality -&gt; ShowS)
+-&gt; (ReservationVideoQuality -&gt; String)
+-&gt; ([ReservationVideoQuality] -&gt; ShowS)
+-&gt; Show ReservationVideoQuality
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReservationVideoQuality] -&gt; ShowS
+$cshowList :: [ReservationVideoQuality] -&gt; ShowS
+show :: ReservationVideoQuality -&gt; String
+$cshow :: ReservationVideoQuality -&gt; String
+showsPrec :: Int -&gt; ReservationVideoQuality -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReservationVideoQuality -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679906273"><span id="local-6989586621679906275"><span id="local-6989586621679906277"><span id="local-6989586621679906279"><span class="annot"><span class="annottext">ReadPrec [ReservationVideoQuality]
+ReadPrec ReservationVideoQuality
+Int -&gt; ReadS ReservationVideoQuality
+ReadS [ReservationVideoQuality]
+(Int -&gt; ReadS ReservationVideoQuality)
+-&gt; ReadS [ReservationVideoQuality]
+-&gt; ReadPrec ReservationVideoQuality
+-&gt; ReadPrec [ReservationVideoQuality]
+-&gt; Read ReservationVideoQuality
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReservationVideoQuality]
+$creadListPrec :: ReadPrec [ReservationVideoQuality]
+readPrec :: ReadPrec ReservationVideoQuality
+$creadPrec :: ReadPrec ReservationVideoQuality
+readList :: ReadS [ReservationVideoQuality]
+$creadList :: ReadS [ReservationVideoQuality]
+readsPrec :: Int -&gt; ReadS ReservationVideoQuality
+$creadsPrec :: Int -&gt; ReadS ReservationVideoQuality
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679906268"><span id="local-6989586621679906270"><span class="annot"><span class="annottext">ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool
+(ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool)
+-&gt; (ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool)
+-&gt; Eq ReservationVideoQuality
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool
+$c/= :: ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool
+== :: ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool
+$c== :: ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679906252"><span id="local-6989586621679906254"><span id="local-6989586621679906256"><span id="local-6989586621679906258"><span id="local-6989586621679906260"><span id="local-6989586621679906262"><span id="local-6989586621679906264"><span class="annot"><span class="annottext">Eq ReservationVideoQuality
+Eq ReservationVideoQuality
+-&gt; (ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Ordering)
+-&gt; (ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool)
+-&gt; (ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool)
+-&gt; (ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool)
+-&gt; (ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool)
+-&gt; (ReservationVideoQuality
+    -&gt; ReservationVideoQuality -&gt; ReservationVideoQuality)
+-&gt; (ReservationVideoQuality
+    -&gt; ReservationVideoQuality -&gt; ReservationVideoQuality)
+-&gt; Ord ReservationVideoQuality
+ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool
+ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Ordering
+ReservationVideoQuality
+-&gt; ReservationVideoQuality -&gt; ReservationVideoQuality
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ReservationVideoQuality
+-&gt; ReservationVideoQuality -&gt; ReservationVideoQuality
+$cmin :: ReservationVideoQuality
+-&gt; ReservationVideoQuality -&gt; ReservationVideoQuality
+max :: ReservationVideoQuality
+-&gt; ReservationVideoQuality -&gt; ReservationVideoQuality
+$cmax :: ReservationVideoQuality
+-&gt; ReservationVideoQuality -&gt; ReservationVideoQuality
+&gt;= :: ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool
+$c&gt;= :: ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool
+&gt; :: ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool
+$c&gt; :: ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool
+&lt;= :: ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool
+$c&lt;= :: ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool
+&lt; :: ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool
+$c&lt; :: ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Bool
+compare :: ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Ordering
+$ccompare :: ReservationVideoQuality -&gt; ReservationVideoQuality -&gt; Ordering
+$cp1Ord :: Eq ReservationVideoQuality
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ReservationVideoQuality -&gt; Rep ReservationVideoQuality x)
+-&gt; (forall x.
+    Rep ReservationVideoQuality x -&gt; ReservationVideoQuality)
+-&gt; Generic ReservationVideoQuality
+forall x. Rep ReservationVideoQuality x -&gt; ReservationVideoQuality
+forall x. ReservationVideoQuality -&gt; Rep ReservationVideoQuality x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReservationVideoQuality x -&gt; ReservationVideoQuality
+$cfrom :: forall x. ReservationVideoQuality -&gt; Rep ReservationVideoQuality x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679906244"><span id="local-6989586621679906246"><span class="annot"><span class="annottext">Int -&gt; ReservationVideoQuality -&gt; Int
+ReservationVideoQuality -&gt; Int
+(Int -&gt; ReservationVideoQuality -&gt; Int)
+-&gt; (ReservationVideoQuality -&gt; Int)
+-&gt; Hashable ReservationVideoQuality
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ReservationVideoQuality -&gt; Int
+$chash :: ReservationVideoQuality -&gt; Int
+hashWithSalt :: Int -&gt; ReservationVideoQuality -&gt; Int
+$chashWithSalt :: Int -&gt; ReservationVideoQuality -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679906241"><span class="annot"><span class="annottext">ReservationVideoQuality -&gt; ()
+(ReservationVideoQuality -&gt; ()) -&gt; NFData ReservationVideoQuality
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ReservationVideoQuality -&gt; ()
+$crnf :: ReservationVideoQuality -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679906238"><span class="annot"><span class="annottext">Text -&gt; Either String ReservationVideoQuality
+(Text -&gt; Either String ReservationVideoQuality)
+-&gt; FromText ReservationVideoQuality
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ReservationVideoQuality
+$cfromText :: Text -&gt; Either String ReservationVideoQuality
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679906235"><span class="annot"><span class="annottext">ReservationVideoQuality -&gt; Text
+(ReservationVideoQuality -&gt; Text) -&gt; ToText ReservationVideoQuality
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ReservationVideoQuality -&gt; Text
+$ctoText :: ReservationVideoQuality -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679906232"><span class="annot"><span class="annottext">ReservationVideoQuality -&gt; ByteString
+(ReservationVideoQuality -&gt; ByteString)
+-&gt; ToByteString ReservationVideoQuality
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ReservationVideoQuality -&gt; ByteString
+$ctoBS :: ReservationVideoQuality -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679906229"><span class="annot"><span class="annottext">ReservationVideoQuality -&gt; ByteStringBuilder
+(ReservationVideoQuality -&gt; ByteStringBuilder)
+-&gt; ToLog ReservationVideoQuality
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ReservationVideoQuality -&gt; ByteStringBuilder
+$cbuild :: ReservationVideoQuality -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679906226"><span class="annot"><span class="annottext">HeaderName -&gt; ReservationVideoQuality -&gt; [Header]
+(HeaderName -&gt; ReservationVideoQuality -&gt; [Header])
+-&gt; ToHeader ReservationVideoQuality
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ReservationVideoQuality -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ReservationVideoQuality -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679906223"><span class="annot"><span class="annottext">ReservationVideoQuality -&gt; QueryString
+(ReservationVideoQuality -&gt; QueryString)
+-&gt; ToQuery ReservationVideoQuality
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ReservationVideoQuality -&gt; QueryString
+$ctoQuery :: ReservationVideoQuality -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679906218"><span id="local-6989586621679906220"><span class="annot"><span class="annottext">Value -&gt; Parser [ReservationVideoQuality]
+Value -&gt; Parser ReservationVideoQuality
+(Value -&gt; Parser ReservationVideoQuality)
+-&gt; (Value -&gt; Parser [ReservationVideoQuality])
+-&gt; FromJSON ReservationVideoQuality
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ReservationVideoQuality]
+$cparseJSONList :: Value -&gt; Parser [ReservationVideoQuality]
+parseJSON :: Value -&gt; Parser ReservationVideoQuality
+$cparseJSON :: Value -&gt; Parser ReservationVideoQuality
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679906213"><span id="local-6989586621679906215"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReservationVideoQuality]
+FromJSONKeyFunction ReservationVideoQuality
+FromJSONKeyFunction ReservationVideoQuality
+-&gt; FromJSONKeyFunction [ReservationVideoQuality]
+-&gt; FromJSONKey ReservationVideoQuality
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ReservationVideoQuality]
+$cfromJSONKeyList :: FromJSONKeyFunction [ReservationVideoQuality]
+fromJSONKey :: FromJSONKeyFunction ReservationVideoQuality
+$cfromJSONKey :: FromJSONKeyFunction ReservationVideoQuality
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679906204"><span id="local-6989586621679906206"><span id="local-6989586621679906208"><span id="local-6989586621679906210"><span class="annot"><span class="annottext">[ReservationVideoQuality] -&gt; Encoding
+[ReservationVideoQuality] -&gt; Value
+ReservationVideoQuality -&gt; Encoding
+ReservationVideoQuality -&gt; Value
+(ReservationVideoQuality -&gt; Value)
+-&gt; (ReservationVideoQuality -&gt; Encoding)
+-&gt; ([ReservationVideoQuality] -&gt; Value)
+-&gt; ([ReservationVideoQuality] -&gt; Encoding)
+-&gt; ToJSON ReservationVideoQuality
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ReservationVideoQuality] -&gt; Encoding
+$ctoEncodingList :: [ReservationVideoQuality] -&gt; Encoding
+toJSONList :: [ReservationVideoQuality] -&gt; Value
+$ctoJSONList :: [ReservationVideoQuality] -&gt; Value
+toEncoding :: ReservationVideoQuality -&gt; Encoding
+$ctoEncoding :: ReservationVideoQuality -&gt; Encoding
+toJSON :: ReservationVideoQuality -&gt; Value
+$ctoJSON :: ReservationVideoQuality -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679906199"><span id="local-6989586621679906201"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReservationVideoQuality]
+ToJSONKeyFunction ReservationVideoQuality
+ToJSONKeyFunction ReservationVideoQuality
+-&gt; ToJSONKeyFunction [ReservationVideoQuality]
+-&gt; ToJSONKey ReservationVideoQuality
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ReservationVideoQuality]
+$ctoJSONKeyList :: ToJSONKeyFunction [ReservationVideoQuality]
+toJSONKey :: ToJSONKeyFunction ReservationVideoQuality
+$ctoJSONKey :: ToJSONKeyFunction ReservationVideoQuality
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679906196"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReservationVideoQuality
+([Node] -&gt; Either String ReservationVideoQuality)
+-&gt; FromXML ReservationVideoQuality
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ReservationVideoQuality
+$cparseXML :: [Node] -&gt; Either String ReservationVideoQuality
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679906193"><span class="annot"><span class="annottext">ReservationVideoQuality -&gt; XML
+(ReservationVideoQuality -&gt; XML) -&gt; ToXML ReservationVideoQuality
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ReservationVideoQuality -&gt; XML
+$ctoXML :: ReservationVideoQuality -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality_ENHANCED"><span class="hs-identifier hs-type">ReservationVideoQuality_ENHANCED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality"><span class="hs-identifier hs-type">ReservationVideoQuality</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReservationVideoQuality_ENHANCED"><span id="%24mReservationVideoQuality_ENHANCED"><span id="ReservationVideoQuality_ENHANCED"><span class="annot"><span class="annottext">$bReservationVideoQuality_ENHANCED :: ReservationVideoQuality
+$mReservationVideoQuality_ENHANCED :: forall r.
+ReservationVideoQuality -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#%24bReservationVideoQuality_ENHANCED"><span class="hs-identifier hs-var hs-var hs-var">ReservationVideoQuality_ENHANCED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality%27"><span class="hs-identifier hs-type">ReservationVideoQuality'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENHANCED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality_PREMIUM"><span class="hs-identifier hs-type">ReservationVideoQuality_PREMIUM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality"><span class="hs-identifier hs-type">ReservationVideoQuality</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReservationVideoQuality_PREMIUM"><span id="%24mReservationVideoQuality_PREMIUM"><span id="ReservationVideoQuality_PREMIUM"><span class="annot"><span class="annottext">$bReservationVideoQuality_PREMIUM :: ReservationVideoQuality
+$mReservationVideoQuality_PREMIUM :: forall r.
+ReservationVideoQuality -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#%24bReservationVideoQuality_PREMIUM"><span class="hs-identifier hs-var hs-var hs-var">ReservationVideoQuality_PREMIUM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality%27"><span class="hs-identifier hs-type">ReservationVideoQuality'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PREMIUM&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality_STANDARD"><span class="hs-identifier hs-type">ReservationVideoQuality_STANDARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality"><span class="hs-identifier hs-type">ReservationVideoQuality</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReservationVideoQuality_STANDARD"><span id="%24mReservationVideoQuality_STANDARD"><span id="ReservationVideoQuality_STANDARD"><span class="annot"><span class="annottext">$bReservationVideoQuality_STANDARD :: ReservationVideoQuality
+$mReservationVideoQuality_STANDARD :: forall r.
+ReservationVideoQuality -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#%24bReservationVideoQuality_STANDARD"><span class="hs-identifier hs-var hs-var hs-var">ReservationVideoQuality_STANDARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality%27"><span class="hs-identifier hs-type">ReservationVideoQuality'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STANDARD&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality_ENHANCED"><span class="hs-pragma hs-type">ReservationVideoQuality_ENHANCED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality_PREMIUM"><span class="hs-pragma hs-type">ReservationVideoQuality_PREMIUM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality_STANDARD"><span class="hs-pragma hs-type">ReservationVideoQuality_STANDARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality%27"><span class="hs-pragma hs-type">ReservationVideoQuality'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

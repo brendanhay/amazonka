@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DynamoDB.Types.ProjectionType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DynamoDB.Types.ProjectionType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType"><span class="hs-identifier">ProjectionType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType_ALL"><span class="hs-identifier">ProjectionType_ALL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType_INCLUDE"><span class="hs-identifier">ProjectionType_INCLUDE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType_KEYS_ONLY"><span class="hs-identifier">ProjectionType_KEYS_ONLY</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679374562"><span id="local-6989586621679374563"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProjectionType"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType"><span class="hs-identifier hs-var">ProjectionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectionType%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType%27"><span class="hs-identifier hs-var">ProjectionType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProjectionType"><span class="annot"><span class="annottext">ProjectionType -&gt; Text
+</span><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#fromProjectionType"><span class="hs-identifier hs-var hs-var">fromProjectionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374554"><span id="local-6989586621679374556"><span id="local-6989586621679374558"><span class="annot"><span class="annottext">Int -&gt; ProjectionType -&gt; ShowS
+[ProjectionType] -&gt; ShowS
+ProjectionType -&gt; String
+(Int -&gt; ProjectionType -&gt; ShowS)
+-&gt; (ProjectionType -&gt; String)
+-&gt; ([ProjectionType] -&gt; ShowS)
+-&gt; Show ProjectionType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProjectionType] -&gt; ShowS
+$cshowList :: [ProjectionType] -&gt; ShowS
+show :: ProjectionType -&gt; String
+$cshow :: ProjectionType -&gt; String
+showsPrec :: Int -&gt; ProjectionType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProjectionType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679374545"><span id="local-6989586621679374547"><span id="local-6989586621679374549"><span id="local-6989586621679374551"><span class="annot"><span class="annottext">ReadPrec [ProjectionType]
+ReadPrec ProjectionType
+Int -&gt; ReadS ProjectionType
+ReadS [ProjectionType]
+(Int -&gt; ReadS ProjectionType)
+-&gt; ReadS [ProjectionType]
+-&gt; ReadPrec ProjectionType
+-&gt; ReadPrec [ProjectionType]
+-&gt; Read ProjectionType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProjectionType]
+$creadListPrec :: ReadPrec [ProjectionType]
+readPrec :: ReadPrec ProjectionType
+$creadPrec :: ReadPrec ProjectionType
+readList :: ReadS [ProjectionType]
+$creadList :: ReadS [ProjectionType]
+readsPrec :: Int -&gt; ReadS ProjectionType
+$creadsPrec :: Int -&gt; ReadS ProjectionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679374540"><span id="local-6989586621679374542"><span class="annot"><span class="annottext">ProjectionType -&gt; ProjectionType -&gt; Bool
+(ProjectionType -&gt; ProjectionType -&gt; Bool)
+-&gt; (ProjectionType -&gt; ProjectionType -&gt; Bool) -&gt; Eq ProjectionType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProjectionType -&gt; ProjectionType -&gt; Bool
+$c/= :: ProjectionType -&gt; ProjectionType -&gt; Bool
+== :: ProjectionType -&gt; ProjectionType -&gt; Bool
+$c== :: ProjectionType -&gt; ProjectionType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679374524"><span id="local-6989586621679374526"><span id="local-6989586621679374528"><span id="local-6989586621679374530"><span id="local-6989586621679374532"><span id="local-6989586621679374534"><span id="local-6989586621679374536"><span class="annot"><span class="annottext">Eq ProjectionType
+Eq ProjectionType
+-&gt; (ProjectionType -&gt; ProjectionType -&gt; Ordering)
+-&gt; (ProjectionType -&gt; ProjectionType -&gt; Bool)
+-&gt; (ProjectionType -&gt; ProjectionType -&gt; Bool)
+-&gt; (ProjectionType -&gt; ProjectionType -&gt; Bool)
+-&gt; (ProjectionType -&gt; ProjectionType -&gt; Bool)
+-&gt; (ProjectionType -&gt; ProjectionType -&gt; ProjectionType)
+-&gt; (ProjectionType -&gt; ProjectionType -&gt; ProjectionType)
+-&gt; Ord ProjectionType
+ProjectionType -&gt; ProjectionType -&gt; Bool
+ProjectionType -&gt; ProjectionType -&gt; Ordering
+ProjectionType -&gt; ProjectionType -&gt; ProjectionType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ProjectionType -&gt; ProjectionType -&gt; ProjectionType
+$cmin :: ProjectionType -&gt; ProjectionType -&gt; ProjectionType
+max :: ProjectionType -&gt; ProjectionType -&gt; ProjectionType
+$cmax :: ProjectionType -&gt; ProjectionType -&gt; ProjectionType
+&gt;= :: ProjectionType -&gt; ProjectionType -&gt; Bool
+$c&gt;= :: ProjectionType -&gt; ProjectionType -&gt; Bool
+&gt; :: ProjectionType -&gt; ProjectionType -&gt; Bool
+$c&gt; :: ProjectionType -&gt; ProjectionType -&gt; Bool
+&lt;= :: ProjectionType -&gt; ProjectionType -&gt; Bool
+$c&lt;= :: ProjectionType -&gt; ProjectionType -&gt; Bool
+&lt; :: ProjectionType -&gt; ProjectionType -&gt; Bool
+$c&lt; :: ProjectionType -&gt; ProjectionType -&gt; Bool
+compare :: ProjectionType -&gt; ProjectionType -&gt; Ordering
+$ccompare :: ProjectionType -&gt; ProjectionType -&gt; Ordering
+$cp1Ord :: Eq ProjectionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ProjectionType -&gt; Rep ProjectionType x)
+-&gt; (forall x. Rep ProjectionType x -&gt; ProjectionType)
+-&gt; Generic ProjectionType
+forall x. Rep ProjectionType x -&gt; ProjectionType
+forall x. ProjectionType -&gt; Rep ProjectionType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProjectionType x -&gt; ProjectionType
+$cfrom :: forall x. ProjectionType -&gt; Rep ProjectionType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374516"><span id="local-6989586621679374518"><span class="annot"><span class="annottext">Int -&gt; ProjectionType -&gt; Int
+ProjectionType -&gt; Int
+(Int -&gt; ProjectionType -&gt; Int)
+-&gt; (ProjectionType -&gt; Int) -&gt; Hashable ProjectionType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ProjectionType -&gt; Int
+$chash :: ProjectionType -&gt; Int
+hashWithSalt :: Int -&gt; ProjectionType -&gt; Int
+$chashWithSalt :: Int -&gt; ProjectionType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679374513"><span class="annot"><span class="annottext">ProjectionType -&gt; ()
+(ProjectionType -&gt; ()) -&gt; NFData ProjectionType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ProjectionType -&gt; ()
+$crnf :: ProjectionType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679374510"><span class="annot"><span class="annottext">Text -&gt; Either String ProjectionType
+(Text -&gt; Either String ProjectionType) -&gt; FromText ProjectionType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ProjectionType
+$cfromText :: Text -&gt; Either String ProjectionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679374507"><span class="annot"><span class="annottext">ProjectionType -&gt; Text
+(ProjectionType -&gt; Text) -&gt; ToText ProjectionType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ProjectionType -&gt; Text
+$ctoText :: ProjectionType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679374504"><span class="annot"><span class="annottext">ProjectionType -&gt; ByteString
+(ProjectionType -&gt; ByteString) -&gt; ToByteString ProjectionType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ProjectionType -&gt; ByteString
+$ctoBS :: ProjectionType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679374501"><span class="annot"><span class="annottext">ProjectionType -&gt; ByteStringBuilder
+(ProjectionType -&gt; ByteStringBuilder) -&gt; ToLog ProjectionType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ProjectionType -&gt; ByteStringBuilder
+$cbuild :: ProjectionType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679374498"><span class="annot"><span class="annottext">HeaderName -&gt; ProjectionType -&gt; [Header]
+(HeaderName -&gt; ProjectionType -&gt; [Header])
+-&gt; ToHeader ProjectionType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ProjectionType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ProjectionType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679374495"><span class="annot"><span class="annottext">ProjectionType -&gt; QueryString
+(ProjectionType -&gt; QueryString) -&gt; ToQuery ProjectionType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ProjectionType -&gt; QueryString
+$ctoQuery :: ProjectionType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679374490"><span id="local-6989586621679374492"><span class="annot"><span class="annottext">Value -&gt; Parser [ProjectionType]
+Value -&gt; Parser ProjectionType
+(Value -&gt; Parser ProjectionType)
+-&gt; (Value -&gt; Parser [ProjectionType]) -&gt; FromJSON ProjectionType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ProjectionType]
+$cparseJSONList :: Value -&gt; Parser [ProjectionType]
+parseJSON :: Value -&gt; Parser ProjectionType
+$cparseJSON :: Value -&gt; Parser ProjectionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679374485"><span id="local-6989586621679374487"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProjectionType]
+FromJSONKeyFunction ProjectionType
+FromJSONKeyFunction ProjectionType
+-&gt; FromJSONKeyFunction [ProjectionType]
+-&gt; FromJSONKey ProjectionType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ProjectionType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ProjectionType]
+fromJSONKey :: FromJSONKeyFunction ProjectionType
+$cfromJSONKey :: FromJSONKeyFunction ProjectionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679374476"><span id="local-6989586621679374478"><span id="local-6989586621679374480"><span id="local-6989586621679374482"><span class="annot"><span class="annottext">[ProjectionType] -&gt; Encoding
+[ProjectionType] -&gt; Value
+ProjectionType -&gt; Encoding
+ProjectionType -&gt; Value
+(ProjectionType -&gt; Value)
+-&gt; (ProjectionType -&gt; Encoding)
+-&gt; ([ProjectionType] -&gt; Value)
+-&gt; ([ProjectionType] -&gt; Encoding)
+-&gt; ToJSON ProjectionType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ProjectionType] -&gt; Encoding
+$ctoEncodingList :: [ProjectionType] -&gt; Encoding
+toJSONList :: [ProjectionType] -&gt; Value
+$ctoJSONList :: [ProjectionType] -&gt; Value
+toEncoding :: ProjectionType -&gt; Encoding
+$ctoEncoding :: ProjectionType -&gt; Encoding
+toJSON :: ProjectionType -&gt; Value
+$ctoJSON :: ProjectionType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679374471"><span id="local-6989586621679374473"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProjectionType]
+ToJSONKeyFunction ProjectionType
+ToJSONKeyFunction ProjectionType
+-&gt; ToJSONKeyFunction [ProjectionType] -&gt; ToJSONKey ProjectionType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ProjectionType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ProjectionType]
+toJSONKey :: ToJSONKeyFunction ProjectionType
+$ctoJSONKey :: ToJSONKeyFunction ProjectionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679374468"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProjectionType
+([Node] -&gt; Either String ProjectionType) -&gt; FromXML ProjectionType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ProjectionType
+$cparseXML :: [Node] -&gt; Either String ProjectionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679374465"><span class="annot"><span class="annottext">ProjectionType -&gt; XML
+(ProjectionType -&gt; XML) -&gt; ToXML ProjectionType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ProjectionType -&gt; XML
+$ctoXML :: ProjectionType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType_ALL"><span class="hs-identifier hs-type">ProjectionType_ALL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType"><span class="hs-identifier hs-type">ProjectionType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProjectionType_ALL"><span id="%24mProjectionType_ALL"><span id="ProjectionType_ALL"><span class="annot"><span class="annottext">$bProjectionType_ALL :: ProjectionType
+$mProjectionType_ALL :: forall r. ProjectionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#%24bProjectionType_ALL"><span class="hs-identifier hs-var hs-var hs-var">ProjectionType_ALL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType%27"><span class="hs-identifier hs-type">ProjectionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALL&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType_INCLUDE"><span class="hs-identifier hs-type">ProjectionType_INCLUDE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType"><span class="hs-identifier hs-type">ProjectionType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProjectionType_INCLUDE"><span id="%24mProjectionType_INCLUDE"><span id="ProjectionType_INCLUDE"><span class="annot"><span class="annottext">$bProjectionType_INCLUDE :: ProjectionType
+$mProjectionType_INCLUDE :: forall r. ProjectionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#%24bProjectionType_INCLUDE"><span class="hs-identifier hs-var hs-var hs-var">ProjectionType_INCLUDE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType%27"><span class="hs-identifier hs-type">ProjectionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INCLUDE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType_KEYS_ONLY"><span class="hs-identifier hs-type">ProjectionType_KEYS_ONLY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType"><span class="hs-identifier hs-type">ProjectionType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProjectionType_KEYS_ONLY"><span id="%24mProjectionType_KEYS_ONLY"><span id="ProjectionType_KEYS_ONLY"><span class="annot"><span class="annottext">$bProjectionType_KEYS_ONLY :: ProjectionType
+$mProjectionType_KEYS_ONLY :: forall r. ProjectionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#%24bProjectionType_KEYS_ONLY"><span class="hs-identifier hs-var hs-var hs-var">ProjectionType_KEYS_ONLY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType%27"><span class="hs-identifier hs-type">ProjectionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KEYS_ONLY&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType_ALL"><span class="hs-pragma hs-type">ProjectionType_ALL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType_INCLUDE"><span class="hs-pragma hs-type">ProjectionType_INCLUDE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType_KEYS_ONLY"><span class="hs-pragma hs-type">ProjectionType_KEYS_ONLY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProjectionType.html#ProjectionType%27"><span class="hs-pragma hs-type">ProjectionType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

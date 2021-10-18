@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey"><span class="hs-identifier">AssociationExecutionTargetsFilterKey</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey_ResourceId"><span class="hs-identifier">AssociationExecutionTargetsFilterKey_ResourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey_ResourceType"><span class="hs-identifier">AssociationExecutionTargetsFilterKey_ResourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey_Status"><span class="hs-identifier">AssociationExecutionTargetsFilterKey_Status</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679784971"><span id="local-6989586621679784972"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssociationExecutionTargetsFilterKey"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey"><span class="hs-identifier hs-var">AssociationExecutionTargetsFilterKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationExecutionTargetsFilterKey%27"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey%27"><span class="hs-identifier hs-var">AssociationExecutionTargetsFilterKey'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssociationExecutionTargetsFilterKey"><span class="annot"><span class="annottext">AssociationExecutionTargetsFilterKey -&gt; Text
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#fromAssociationExecutionTargetsFilterKey"><span class="hs-identifier hs-var hs-var">fromAssociationExecutionTargetsFilterKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679784963"><span id="local-6989586621679784965"><span id="local-6989586621679784967"><span class="annot"><span class="annottext">Int -&gt; AssociationExecutionTargetsFilterKey -&gt; ShowS
+[AssociationExecutionTargetsFilterKey] -&gt; ShowS
+AssociationExecutionTargetsFilterKey -&gt; String
+(Int -&gt; AssociationExecutionTargetsFilterKey -&gt; ShowS)
+-&gt; (AssociationExecutionTargetsFilterKey -&gt; String)
+-&gt; ([AssociationExecutionTargetsFilterKey] -&gt; ShowS)
+-&gt; Show AssociationExecutionTargetsFilterKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociationExecutionTargetsFilterKey] -&gt; ShowS
+$cshowList :: [AssociationExecutionTargetsFilterKey] -&gt; ShowS
+show :: AssociationExecutionTargetsFilterKey -&gt; String
+$cshow :: AssociationExecutionTargetsFilterKey -&gt; String
+showsPrec :: Int -&gt; AssociationExecutionTargetsFilterKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociationExecutionTargetsFilterKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679784954"><span id="local-6989586621679784956"><span id="local-6989586621679784958"><span id="local-6989586621679784960"><span class="annot"><span class="annottext">ReadPrec [AssociationExecutionTargetsFilterKey]
+ReadPrec AssociationExecutionTargetsFilterKey
+Int -&gt; ReadS AssociationExecutionTargetsFilterKey
+ReadS [AssociationExecutionTargetsFilterKey]
+(Int -&gt; ReadS AssociationExecutionTargetsFilterKey)
+-&gt; ReadS [AssociationExecutionTargetsFilterKey]
+-&gt; ReadPrec AssociationExecutionTargetsFilterKey
+-&gt; ReadPrec [AssociationExecutionTargetsFilterKey]
+-&gt; Read AssociationExecutionTargetsFilterKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociationExecutionTargetsFilterKey]
+$creadListPrec :: ReadPrec [AssociationExecutionTargetsFilterKey]
+readPrec :: ReadPrec AssociationExecutionTargetsFilterKey
+$creadPrec :: ReadPrec AssociationExecutionTargetsFilterKey
+readList :: ReadS [AssociationExecutionTargetsFilterKey]
+$creadList :: ReadS [AssociationExecutionTargetsFilterKey]
+readsPrec :: Int -&gt; ReadS AssociationExecutionTargetsFilterKey
+$creadsPrec :: Int -&gt; ReadS AssociationExecutionTargetsFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679784949"><span id="local-6989586621679784951"><span class="annot"><span class="annottext">AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Bool
+(AssociationExecutionTargetsFilterKey
+ -&gt; AssociationExecutionTargetsFilterKey -&gt; Bool)
+-&gt; (AssociationExecutionTargetsFilterKey
+    -&gt; AssociationExecutionTargetsFilterKey -&gt; Bool)
+-&gt; Eq AssociationExecutionTargetsFilterKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Bool
+$c/= :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Bool
+== :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Bool
+$c== :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679784933"><span id="local-6989586621679784935"><span id="local-6989586621679784937"><span id="local-6989586621679784939"><span id="local-6989586621679784941"><span id="local-6989586621679784943"><span id="local-6989586621679784945"><span class="annot"><span class="annottext">Eq AssociationExecutionTargetsFilterKey
+Eq AssociationExecutionTargetsFilterKey
+-&gt; (AssociationExecutionTargetsFilterKey
+    -&gt; AssociationExecutionTargetsFilterKey -&gt; Ordering)
+-&gt; (AssociationExecutionTargetsFilterKey
+    -&gt; AssociationExecutionTargetsFilterKey -&gt; Bool)
+-&gt; (AssociationExecutionTargetsFilterKey
+    -&gt; AssociationExecutionTargetsFilterKey -&gt; Bool)
+-&gt; (AssociationExecutionTargetsFilterKey
+    -&gt; AssociationExecutionTargetsFilterKey -&gt; Bool)
+-&gt; (AssociationExecutionTargetsFilterKey
+    -&gt; AssociationExecutionTargetsFilterKey -&gt; Bool)
+-&gt; (AssociationExecutionTargetsFilterKey
+    -&gt; AssociationExecutionTargetsFilterKey
+    -&gt; AssociationExecutionTargetsFilterKey)
+-&gt; (AssociationExecutionTargetsFilterKey
+    -&gt; AssociationExecutionTargetsFilterKey
+    -&gt; AssociationExecutionTargetsFilterKey)
+-&gt; Ord AssociationExecutionTargetsFilterKey
+AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Bool
+AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Ordering
+AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey
+$cmin :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey
+max :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey
+$cmax :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey
+&gt;= :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Bool
+$c&gt;= :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Bool
+&gt; :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Bool
+$c&gt; :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Bool
+&lt;= :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Bool
+$c&lt;= :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Bool
+&lt; :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Bool
+$c&lt; :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Bool
+compare :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Ordering
+$ccompare :: AssociationExecutionTargetsFilterKey
+-&gt; AssociationExecutionTargetsFilterKey -&gt; Ordering
+$cp1Ord :: Eq AssociationExecutionTargetsFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AssociationExecutionTargetsFilterKey
+ -&gt; Rep AssociationExecutionTargetsFilterKey x)
+-&gt; (forall x.
+    Rep AssociationExecutionTargetsFilterKey x
+    -&gt; AssociationExecutionTargetsFilterKey)
+-&gt; Generic AssociationExecutionTargetsFilterKey
+forall x.
+Rep AssociationExecutionTargetsFilterKey x
+-&gt; AssociationExecutionTargetsFilterKey
+forall x.
+AssociationExecutionTargetsFilterKey
+-&gt; Rep AssociationExecutionTargetsFilterKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociationExecutionTargetsFilterKey x
+-&gt; AssociationExecutionTargetsFilterKey
+$cfrom :: forall x.
+AssociationExecutionTargetsFilterKey
+-&gt; Rep AssociationExecutionTargetsFilterKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679784925"><span id="local-6989586621679784927"><span class="annot"><span class="annottext">Int -&gt; AssociationExecutionTargetsFilterKey -&gt; Int
+AssociationExecutionTargetsFilterKey -&gt; Int
+(Int -&gt; AssociationExecutionTargetsFilterKey -&gt; Int)
+-&gt; (AssociationExecutionTargetsFilterKey -&gt; Int)
+-&gt; Hashable AssociationExecutionTargetsFilterKey
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AssociationExecutionTargetsFilterKey -&gt; Int
+$chash :: AssociationExecutionTargetsFilterKey -&gt; Int
+hashWithSalt :: Int -&gt; AssociationExecutionTargetsFilterKey -&gt; Int
+$chashWithSalt :: Int -&gt; AssociationExecutionTargetsFilterKey -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679784922"><span class="annot"><span class="annottext">AssociationExecutionTargetsFilterKey -&gt; ()
+(AssociationExecutionTargetsFilterKey -&gt; ())
+-&gt; NFData AssociationExecutionTargetsFilterKey
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AssociationExecutionTargetsFilterKey -&gt; ()
+$crnf :: AssociationExecutionTargetsFilterKey -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679784919"><span class="annot"><span class="annottext">Text -&gt; Either String AssociationExecutionTargetsFilterKey
+(Text -&gt; Either String AssociationExecutionTargetsFilterKey)
+-&gt; FromText AssociationExecutionTargetsFilterKey
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AssociationExecutionTargetsFilterKey
+$cfromText :: Text -&gt; Either String AssociationExecutionTargetsFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679784916"><span class="annot"><span class="annottext">AssociationExecutionTargetsFilterKey -&gt; Text
+(AssociationExecutionTargetsFilterKey -&gt; Text)
+-&gt; ToText AssociationExecutionTargetsFilterKey
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AssociationExecutionTargetsFilterKey -&gt; Text
+$ctoText :: AssociationExecutionTargetsFilterKey -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679784913"><span class="annot"><span class="annottext">AssociationExecutionTargetsFilterKey -&gt; ByteString
+(AssociationExecutionTargetsFilterKey -&gt; ByteString)
+-&gt; ToByteString AssociationExecutionTargetsFilterKey
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AssociationExecutionTargetsFilterKey -&gt; ByteString
+$ctoBS :: AssociationExecutionTargetsFilterKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679784910"><span class="annot"><span class="annottext">AssociationExecutionTargetsFilterKey -&gt; ByteStringBuilder
+(AssociationExecutionTargetsFilterKey -&gt; ByteStringBuilder)
+-&gt; ToLog AssociationExecutionTargetsFilterKey
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AssociationExecutionTargetsFilterKey -&gt; ByteStringBuilder
+$cbuild :: AssociationExecutionTargetsFilterKey -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679784907"><span class="annot"><span class="annottext">HeaderName -&gt; AssociationExecutionTargetsFilterKey -&gt; [Header]
+(HeaderName -&gt; AssociationExecutionTargetsFilterKey -&gt; [Header])
+-&gt; ToHeader AssociationExecutionTargetsFilterKey
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AssociationExecutionTargetsFilterKey -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AssociationExecutionTargetsFilterKey -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679784904"><span class="annot"><span class="annottext">AssociationExecutionTargetsFilterKey -&gt; QueryString
+(AssociationExecutionTargetsFilterKey -&gt; QueryString)
+-&gt; ToQuery AssociationExecutionTargetsFilterKey
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AssociationExecutionTargetsFilterKey -&gt; QueryString
+$ctoQuery :: AssociationExecutionTargetsFilterKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679784899"><span id="local-6989586621679784901"><span class="annot"><span class="annottext">Value -&gt; Parser [AssociationExecutionTargetsFilterKey]
+Value -&gt; Parser AssociationExecutionTargetsFilterKey
+(Value -&gt; Parser AssociationExecutionTargetsFilterKey)
+-&gt; (Value -&gt; Parser [AssociationExecutionTargetsFilterKey])
+-&gt; FromJSON AssociationExecutionTargetsFilterKey
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AssociationExecutionTargetsFilterKey]
+$cparseJSONList :: Value -&gt; Parser [AssociationExecutionTargetsFilterKey]
+parseJSON :: Value -&gt; Parser AssociationExecutionTargetsFilterKey
+$cparseJSON :: Value -&gt; Parser AssociationExecutionTargetsFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679784894"><span id="local-6989586621679784896"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssociationExecutionTargetsFilterKey]
+FromJSONKeyFunction AssociationExecutionTargetsFilterKey
+FromJSONKeyFunction AssociationExecutionTargetsFilterKey
+-&gt; FromJSONKeyFunction [AssociationExecutionTargetsFilterKey]
+-&gt; FromJSONKey AssociationExecutionTargetsFilterKey
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AssociationExecutionTargetsFilterKey]
+$cfromJSONKeyList :: FromJSONKeyFunction [AssociationExecutionTargetsFilterKey]
+fromJSONKey :: FromJSONKeyFunction AssociationExecutionTargetsFilterKey
+$cfromJSONKey :: FromJSONKeyFunction AssociationExecutionTargetsFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679784885"><span id="local-6989586621679784887"><span id="local-6989586621679784889"><span id="local-6989586621679784891"><span class="annot"><span class="annottext">[AssociationExecutionTargetsFilterKey] -&gt; Encoding
+[AssociationExecutionTargetsFilterKey] -&gt; Value
+AssociationExecutionTargetsFilterKey -&gt; Encoding
+AssociationExecutionTargetsFilterKey -&gt; Value
+(AssociationExecutionTargetsFilterKey -&gt; Value)
+-&gt; (AssociationExecutionTargetsFilterKey -&gt; Encoding)
+-&gt; ([AssociationExecutionTargetsFilterKey] -&gt; Value)
+-&gt; ([AssociationExecutionTargetsFilterKey] -&gt; Encoding)
+-&gt; ToJSON AssociationExecutionTargetsFilterKey
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AssociationExecutionTargetsFilterKey] -&gt; Encoding
+$ctoEncodingList :: [AssociationExecutionTargetsFilterKey] -&gt; Encoding
+toJSONList :: [AssociationExecutionTargetsFilterKey] -&gt; Value
+$ctoJSONList :: [AssociationExecutionTargetsFilterKey] -&gt; Value
+toEncoding :: AssociationExecutionTargetsFilterKey -&gt; Encoding
+$ctoEncoding :: AssociationExecutionTargetsFilterKey -&gt; Encoding
+toJSON :: AssociationExecutionTargetsFilterKey -&gt; Value
+$ctoJSON :: AssociationExecutionTargetsFilterKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679784880"><span id="local-6989586621679784882"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssociationExecutionTargetsFilterKey]
+ToJSONKeyFunction AssociationExecutionTargetsFilterKey
+ToJSONKeyFunction AssociationExecutionTargetsFilterKey
+-&gt; ToJSONKeyFunction [AssociationExecutionTargetsFilterKey]
+-&gt; ToJSONKey AssociationExecutionTargetsFilterKey
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AssociationExecutionTargetsFilterKey]
+$ctoJSONKeyList :: ToJSONKeyFunction [AssociationExecutionTargetsFilterKey]
+toJSONKey :: ToJSONKeyFunction AssociationExecutionTargetsFilterKey
+$ctoJSONKey :: ToJSONKeyFunction AssociationExecutionTargetsFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679784877"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssociationExecutionTargetsFilterKey
+([Node] -&gt; Either String AssociationExecutionTargetsFilterKey)
+-&gt; FromXML AssociationExecutionTargetsFilterKey
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AssociationExecutionTargetsFilterKey
+$cparseXML :: [Node] -&gt; Either String AssociationExecutionTargetsFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679784874"><span class="annot"><span class="annottext">AssociationExecutionTargetsFilterKey -&gt; XML
+(AssociationExecutionTargetsFilterKey -&gt; XML)
+-&gt; ToXML AssociationExecutionTargetsFilterKey
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AssociationExecutionTargetsFilterKey -&gt; XML
+$ctoXML :: AssociationExecutionTargetsFilterKey -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey_ResourceId"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilterKey_ResourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilterKey</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssociationExecutionTargetsFilterKey_ResourceId"><span id="%24mAssociationExecutionTargetsFilterKey_ResourceId"><span id="AssociationExecutionTargetsFilterKey_ResourceId"><span class="annot"><span class="annottext">$bAssociationExecutionTargetsFilterKey_ResourceId :: AssociationExecutionTargetsFilterKey
+$mAssociationExecutionTargetsFilterKey_ResourceId :: forall r.
+AssociationExecutionTargetsFilterKey
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#%24bAssociationExecutionTargetsFilterKey_ResourceId"><span class="hs-identifier hs-var hs-var hs-var">AssociationExecutionTargetsFilterKey_ResourceId</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey%27"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ResourceId&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey_ResourceType"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilterKey_ResourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilterKey</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssociationExecutionTargetsFilterKey_ResourceType"><span id="%24mAssociationExecutionTargetsFilterKey_ResourceType"><span id="AssociationExecutionTargetsFilterKey_ResourceType"><span class="annot"><span class="annottext">$bAssociationExecutionTargetsFilterKey_ResourceType :: AssociationExecutionTargetsFilterKey
+$mAssociationExecutionTargetsFilterKey_ResourceType :: forall r.
+AssociationExecutionTargetsFilterKey
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#%24bAssociationExecutionTargetsFilterKey_ResourceType"><span class="hs-identifier hs-var hs-var hs-var">AssociationExecutionTargetsFilterKey_ResourceType</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey%27"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ResourceType&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey_Status"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilterKey_Status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilterKey</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssociationExecutionTargetsFilterKey_Status"><span id="%24mAssociationExecutionTargetsFilterKey_Status"><span id="AssociationExecutionTargetsFilterKey_Status"><span class="annot"><span class="annottext">$bAssociationExecutionTargetsFilterKey_Status :: AssociationExecutionTargetsFilterKey
+$mAssociationExecutionTargetsFilterKey_Status :: forall r.
+AssociationExecutionTargetsFilterKey
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#%24bAssociationExecutionTargetsFilterKey_Status"><span class="hs-identifier hs-var hs-var hs-var">AssociationExecutionTargetsFilterKey_Status</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey%27"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Status&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey_ResourceId"><span class="hs-pragma hs-type">AssociationExecutionTargetsFilterKey_ResourceId</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey_ResourceType"><span class="hs-pragma hs-type">AssociationExecutionTargetsFilterKey_ResourceType</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey_Status"><span class="hs-pragma hs-type">AssociationExecutionTargetsFilterKey_Status</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey%27"><span class="hs-pragma hs-type">AssociationExecutionTargetsFilterKey'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

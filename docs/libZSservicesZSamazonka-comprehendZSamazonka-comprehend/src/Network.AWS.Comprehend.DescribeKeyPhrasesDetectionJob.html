@@ -1,0 +1,503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the properties associated with a key phrases detection job. Use</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- this operation to get the status of a detection job.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob"><span class="hs-identifier">DescribeKeyPhrasesDetectionJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#newDescribeKeyPhrasesDetectionJob"><span class="hs-identifier">newDescribeKeyPhrasesDetectionJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#describeKeyPhrasesDetectionJob_jobId"><span class="hs-identifier">describeKeyPhrasesDetectionJob_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJobResponse"><span class="hs-identifier">DescribeKeyPhrasesDetectionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#newDescribeKeyPhrasesDetectionJobResponse"><span class="hs-identifier">newDescribeKeyPhrasesDetectionJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#describeKeyPhrasesDetectionJobResponse_keyPhrasesDetectionJobProperties"><span class="hs-identifier">describeKeyPhrasesDetectionJobResponse_keyPhrasesDetectionJobProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#describeKeyPhrasesDetectionJobResponse_httpStatus"><span class="hs-identifier">describeKeyPhrasesDetectionJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.html"><span class="hs-identifier">Network.AWS.Comprehend.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeKeyPhrasesDetectionJob' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679362407"><span id="local-6989586621679362408"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeKeyPhrasesDetectionJob"><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob"><span class="hs-identifier hs-var">DescribeKeyPhrasesDetectionJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeKeyPhrasesDetectionJob%27"><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob%27"><span class="hs-identifier hs-var">DescribeKeyPhrasesDetectionJob'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier that Amazon Comprehend generated for the job. The</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- operation returns this identifier in its response.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AjobId%3ADescribeKeyPhrasesDetectionJob%27"><span class="annot"><span class="annottext">DescribeKeyPhrasesDetectionJob -&gt; Text
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#%24sel%3AjobId%3ADescribeKeyPhrasesDetectionJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679362401"><span id="local-6989586621679362403"><span class="annot"><span class="annottext">DescribeKeyPhrasesDetectionJob
+-&gt; DescribeKeyPhrasesDetectionJob -&gt; Bool
+(DescribeKeyPhrasesDetectionJob
+ -&gt; DescribeKeyPhrasesDetectionJob -&gt; Bool)
+-&gt; (DescribeKeyPhrasesDetectionJob
+    -&gt; DescribeKeyPhrasesDetectionJob -&gt; Bool)
+-&gt; Eq DescribeKeyPhrasesDetectionJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeKeyPhrasesDetectionJob
+-&gt; DescribeKeyPhrasesDetectionJob -&gt; Bool
+$c/= :: DescribeKeyPhrasesDetectionJob
+-&gt; DescribeKeyPhrasesDetectionJob -&gt; Bool
+== :: DescribeKeyPhrasesDetectionJob
+-&gt; DescribeKeyPhrasesDetectionJob -&gt; Bool
+$c== :: DescribeKeyPhrasesDetectionJob
+-&gt; DescribeKeyPhrasesDetectionJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362392"><span id="local-6989586621679362394"><span id="local-6989586621679362396"><span id="local-6989586621679362398"><span class="annot"><span class="annottext">ReadPrec [DescribeKeyPhrasesDetectionJob]
+ReadPrec DescribeKeyPhrasesDetectionJob
+Int -&gt; ReadS DescribeKeyPhrasesDetectionJob
+ReadS [DescribeKeyPhrasesDetectionJob]
+(Int -&gt; ReadS DescribeKeyPhrasesDetectionJob)
+-&gt; ReadS [DescribeKeyPhrasesDetectionJob]
+-&gt; ReadPrec DescribeKeyPhrasesDetectionJob
+-&gt; ReadPrec [DescribeKeyPhrasesDetectionJob]
+-&gt; Read DescribeKeyPhrasesDetectionJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeKeyPhrasesDetectionJob]
+$creadListPrec :: ReadPrec [DescribeKeyPhrasesDetectionJob]
+readPrec :: ReadPrec DescribeKeyPhrasesDetectionJob
+$creadPrec :: ReadPrec DescribeKeyPhrasesDetectionJob
+readList :: ReadS [DescribeKeyPhrasesDetectionJob]
+$creadList :: ReadS [DescribeKeyPhrasesDetectionJob]
+readsPrec :: Int -&gt; ReadS DescribeKeyPhrasesDetectionJob
+$creadsPrec :: Int -&gt; ReadS DescribeKeyPhrasesDetectionJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362385"><span id="local-6989586621679362387"><span id="local-6989586621679362389"><span class="annot"><span class="annottext">Int -&gt; DescribeKeyPhrasesDetectionJob -&gt; ShowS
+[DescribeKeyPhrasesDetectionJob] -&gt; ShowS
+DescribeKeyPhrasesDetectionJob -&gt; String
+(Int -&gt; DescribeKeyPhrasesDetectionJob -&gt; ShowS)
+-&gt; (DescribeKeyPhrasesDetectionJob -&gt; String)
+-&gt; ([DescribeKeyPhrasesDetectionJob] -&gt; ShowS)
+-&gt; Show DescribeKeyPhrasesDetectionJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeKeyPhrasesDetectionJob] -&gt; ShowS
+$cshowList :: [DescribeKeyPhrasesDetectionJob] -&gt; ShowS
+show :: DescribeKeyPhrasesDetectionJob -&gt; String
+$cshow :: DescribeKeyPhrasesDetectionJob -&gt; String
+showsPrec :: Int -&gt; DescribeKeyPhrasesDetectionJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeKeyPhrasesDetectionJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeKeyPhrasesDetectionJob
+ -&gt; Rep DescribeKeyPhrasesDetectionJob x)
+-&gt; (forall x.
+    Rep DescribeKeyPhrasesDetectionJob x
+    -&gt; DescribeKeyPhrasesDetectionJob)
+-&gt; Generic DescribeKeyPhrasesDetectionJob
+forall x.
+Rep DescribeKeyPhrasesDetectionJob x
+-&gt; DescribeKeyPhrasesDetectionJob
+forall x.
+DescribeKeyPhrasesDetectionJob
+-&gt; Rep DescribeKeyPhrasesDetectionJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeKeyPhrasesDetectionJob x
+-&gt; DescribeKeyPhrasesDetectionJob
+$cfrom :: forall x.
+DescribeKeyPhrasesDetectionJob
+-&gt; Rep DescribeKeyPhrasesDetectionJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'DescribeKeyPhrasesDetectionJob' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'jobId', 'describeKeyPhrasesDetectionJob_jobId' - The identifier that Amazon Comprehend generated for the job. The</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- operation returns this identifier in its response.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#newDescribeKeyPhrasesDetectionJob"><span class="hs-identifier hs-type">newDescribeKeyPhrasesDetectionJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJob</span></a></span><span>
+</span><span id="line-72"></span><span id="newDescribeKeyPhrasesDetectionJob"><span class="annot"><span class="annottext">newDescribeKeyPhrasesDetectionJob :: Text -&gt; DescribeKeyPhrasesDetectionJob
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#newDescribeKeyPhrasesDetectionJob"><span class="hs-identifier hs-var hs-var">newDescribeKeyPhrasesDetectionJob</span></a></span></span><span> </span><span id="local-6989586621679362380"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362380"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DescribeKeyPhrasesDetectionJob' :: Text -&gt; DescribeKeyPhrasesDetectionJob
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob%27"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DescribeKeyPhrasesDetectionJob' :: Text
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#%24sel%3AjobId%3ADescribeKeyPhrasesDetectionJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362380"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The identifier that Amazon Comprehend generated for the job. The</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- operation returns this identifier in its response.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#describeKeyPhrasesDetectionJob_jobId"><span class="hs-identifier hs-type">describeKeyPhrasesDetectionJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="describeKeyPhrasesDetectionJob_jobId"><span class="annot"><span class="annottext">describeKeyPhrasesDetectionJob_jobId :: (Text -&gt; f Text)
+-&gt; DescribeKeyPhrasesDetectionJob
+-&gt; f DescribeKeyPhrasesDetectionJob
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#describeKeyPhrasesDetectionJob_jobId"><span class="hs-identifier hs-var hs-var">describeKeyPhrasesDetectionJob_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeKeyPhrasesDetectionJob -&gt; Text)
+-&gt; (DescribeKeyPhrasesDetectionJob
+    -&gt; Text -&gt; DescribeKeyPhrasesDetectionJob)
+-&gt; Lens
+     DescribeKeyPhrasesDetectionJob
+     DescribeKeyPhrasesDetectionJob
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob%27"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362377"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:DescribeKeyPhrasesDetectionJob' :: DescribeKeyPhrasesDetectionJob -&gt; Text
+</span><a href="#local-6989586621679362377"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362377"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362376"><span class="annot"><span class="annottext">s :: DescribeKeyPhrasesDetectionJob
+</span><a href="#local-6989586621679362376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob%27"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362375"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeKeyPhrasesDetectionJob
+</span><a href="#local-6989586621679362376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DescribeKeyPhrasesDetectionJob' :: Text
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#%24sel%3AjobId%3ADescribeKeyPhrasesDetectionJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJob</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJobResponse"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJobResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679362371"><span class="annot"><span class="annottext">request :: DescribeKeyPhrasesDetectionJob
+-&gt; Request DescribeKeyPhrasesDetectionJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeKeyPhrasesDetectionJob
+-&gt; Request DescribeKeyPhrasesDetectionJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679362367"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeKeyPhrasesDetectionJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeKeyPhrasesDetectionJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeKeyPhrasesDetectionJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeKeyPhrasesDetectionJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeKeyPhrasesDetectionJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679362364"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362364"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679362363"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679362363"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679362362"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679362362"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe KeyPhrasesDetectionJobProperties
+-&gt; Int -&gt; DescribeKeyPhrasesDetectionJobResponse
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJobResponse%27"><span class="hs-identifier hs-var">DescribeKeyPhrasesDetectionJobResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe KeyPhrasesDetectionJobProperties
+ -&gt; Int -&gt; DescribeKeyPhrasesDetectionJobResponse)
+-&gt; Either String (Maybe KeyPhrasesDetectionJobProperties)
+-&gt; Either String (Int -&gt; DescribeKeyPhrasesDetectionJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679362362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe KeyPhrasesDetectionJobProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyPhrasesDetectionJobProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeKeyPhrasesDetectionJobResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeKeyPhrasesDetectionJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362364"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679362354"><span id="local-6989586621679362356"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJob</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679362351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJob</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJob</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679362347"><span class="annot"><span class="annottext">toHeaders :: DescribeKeyPhrasesDetectionJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribeKeyPhrasesDetectionJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Comprehend_20171127.DescribeKeyPhrasesDetectionJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679362337"><span id="local-6989586621679362339"><span id="local-6989586621679362341"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679362335"><span class="annot"><span class="annottext">toJSON :: DescribeKeyPhrasesDetectionJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob%27"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362333"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:DescribeKeyPhrasesDetectionJob' :: DescribeKeyPhrasesDetectionJob -&gt; Text
+</span><a href="#local-6989586621679362333"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362333"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679362327"><span class="annot"><span class="annottext">toPath :: DescribeKeyPhrasesDetectionJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeKeyPhrasesDetectionJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJob"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679362323"><span class="annot"><span class="annottext">toQuery :: DescribeKeyPhrasesDetectionJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeKeyPhrasesDetectionJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newDescribeKeyPhrasesDetectionJobResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679362320"><span id="local-6989586621679362321"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeKeyPhrasesDetectionJobResponse"><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJobResponse"><span class="hs-identifier hs-var">DescribeKeyPhrasesDetectionJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeKeyPhrasesDetectionJobResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJobResponse%27"><span class="hs-identifier hs-var">DescribeKeyPhrasesDetectionJobResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that contains the properties associated with a key phrases</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- detection job.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AkeyPhrasesDetectionJobProperties%3ADescribeKeyPhrasesDetectionJobResponse%27"><span class="annot"><span class="annottext">DescribeKeyPhrasesDetectionJobResponse
+-&gt; Maybe KeyPhrasesDetectionJobProperties
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#%24sel%3AkeyPhrasesDetectionJobProperties%3ADescribeKeyPhrasesDetectionJobResponse%27"><span class="hs-identifier hs-var hs-var">keyPhrasesDetectionJobProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobProperties.html#KeyPhrasesDetectionJobProperties"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeKeyPhrasesDetectionJobResponse%27"><span class="annot"><span class="annottext">DescribeKeyPhrasesDetectionJobResponse -&gt; Int
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#%24sel%3AhttpStatus%3ADescribeKeyPhrasesDetectionJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679362314"><span id="local-6989586621679362316"><span class="annot"><span class="annottext">DescribeKeyPhrasesDetectionJobResponse
+-&gt; DescribeKeyPhrasesDetectionJobResponse -&gt; Bool
+(DescribeKeyPhrasesDetectionJobResponse
+ -&gt; DescribeKeyPhrasesDetectionJobResponse -&gt; Bool)
+-&gt; (DescribeKeyPhrasesDetectionJobResponse
+    -&gt; DescribeKeyPhrasesDetectionJobResponse -&gt; Bool)
+-&gt; Eq DescribeKeyPhrasesDetectionJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeKeyPhrasesDetectionJobResponse
+-&gt; DescribeKeyPhrasesDetectionJobResponse -&gt; Bool
+$c/= :: DescribeKeyPhrasesDetectionJobResponse
+-&gt; DescribeKeyPhrasesDetectionJobResponse -&gt; Bool
+== :: DescribeKeyPhrasesDetectionJobResponse
+-&gt; DescribeKeyPhrasesDetectionJobResponse -&gt; Bool
+$c== :: DescribeKeyPhrasesDetectionJobResponse
+-&gt; DescribeKeyPhrasesDetectionJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362306"><span id="local-6989586621679362308"><span id="local-6989586621679362310"><span id="local-6989586621679362312"><span class="annot"><span class="annottext">ReadPrec [DescribeKeyPhrasesDetectionJobResponse]
+ReadPrec DescribeKeyPhrasesDetectionJobResponse
+Int -&gt; ReadS DescribeKeyPhrasesDetectionJobResponse
+ReadS [DescribeKeyPhrasesDetectionJobResponse]
+(Int -&gt; ReadS DescribeKeyPhrasesDetectionJobResponse)
+-&gt; ReadS [DescribeKeyPhrasesDetectionJobResponse]
+-&gt; ReadPrec DescribeKeyPhrasesDetectionJobResponse
+-&gt; ReadPrec [DescribeKeyPhrasesDetectionJobResponse]
+-&gt; Read DescribeKeyPhrasesDetectionJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeKeyPhrasesDetectionJobResponse]
+$creadListPrec :: ReadPrec [DescribeKeyPhrasesDetectionJobResponse]
+readPrec :: ReadPrec DescribeKeyPhrasesDetectionJobResponse
+$creadPrec :: ReadPrec DescribeKeyPhrasesDetectionJobResponse
+readList :: ReadS [DescribeKeyPhrasesDetectionJobResponse]
+$creadList :: ReadS [DescribeKeyPhrasesDetectionJobResponse]
+readsPrec :: Int -&gt; ReadS DescribeKeyPhrasesDetectionJobResponse
+$creadsPrec :: Int -&gt; ReadS DescribeKeyPhrasesDetectionJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362300"><span id="local-6989586621679362302"><span id="local-6989586621679362304"><span class="annot"><span class="annottext">Int -&gt; DescribeKeyPhrasesDetectionJobResponse -&gt; ShowS
+[DescribeKeyPhrasesDetectionJobResponse] -&gt; ShowS
+DescribeKeyPhrasesDetectionJobResponse -&gt; String
+(Int -&gt; DescribeKeyPhrasesDetectionJobResponse -&gt; ShowS)
+-&gt; (DescribeKeyPhrasesDetectionJobResponse -&gt; String)
+-&gt; ([DescribeKeyPhrasesDetectionJobResponse] -&gt; ShowS)
+-&gt; Show DescribeKeyPhrasesDetectionJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeKeyPhrasesDetectionJobResponse] -&gt; ShowS
+$cshowList :: [DescribeKeyPhrasesDetectionJobResponse] -&gt; ShowS
+show :: DescribeKeyPhrasesDetectionJobResponse -&gt; String
+$cshow :: DescribeKeyPhrasesDetectionJobResponse -&gt; String
+showsPrec :: Int -&gt; DescribeKeyPhrasesDetectionJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeKeyPhrasesDetectionJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeKeyPhrasesDetectionJobResponse
+ -&gt; Rep DescribeKeyPhrasesDetectionJobResponse x)
+-&gt; (forall x.
+    Rep DescribeKeyPhrasesDetectionJobResponse x
+    -&gt; DescribeKeyPhrasesDetectionJobResponse)
+-&gt; Generic DescribeKeyPhrasesDetectionJobResponse
+forall x.
+Rep DescribeKeyPhrasesDetectionJobResponse x
+-&gt; DescribeKeyPhrasesDetectionJobResponse
+forall x.
+DescribeKeyPhrasesDetectionJobResponse
+-&gt; Rep DescribeKeyPhrasesDetectionJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeKeyPhrasesDetectionJobResponse x
+-&gt; DescribeKeyPhrasesDetectionJobResponse
+$cfrom :: forall x.
+DescribeKeyPhrasesDetectionJobResponse
+-&gt; Rep DescribeKeyPhrasesDetectionJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Create a value of 'DescribeKeyPhrasesDetectionJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'keyPhrasesDetectionJobProperties', 'describeKeyPhrasesDetectionJobResponse_keyPhrasesDetectionJobProperties' - An object that contains the properties associated with a key phrases</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- detection job.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'httpStatus', 'describeKeyPhrasesDetectionJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#newDescribeKeyPhrasesDetectionJobResponse"><span class="hs-identifier hs-type">newDescribeKeyPhrasesDetectionJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJobResponse"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJobResponse</span></a></span><span>
+</span><span id="line-161"></span><span id="newDescribeKeyPhrasesDetectionJobResponse"><span class="annot"><span class="annottext">newDescribeKeyPhrasesDetectionJobResponse :: Int -&gt; DescribeKeyPhrasesDetectionJobResponse
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#newDescribeKeyPhrasesDetectionJobResponse"><span class="hs-identifier hs-var hs-var">newDescribeKeyPhrasesDetectionJobResponse</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679362297"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362297"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">DescribeKeyPhrasesDetectionJobResponse' :: Maybe KeyPhrasesDetectionJobProperties
+-&gt; Int -&gt; DescribeKeyPhrasesDetectionJobResponse
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJobResponse%27"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJobResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyPhrasesDetectionJobProperties:DescribeKeyPhrasesDetectionJobResponse' :: Maybe KeyPhrasesDetectionJobProperties
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#%24sel%3AkeyPhrasesDetectionJobProperties%3ADescribeKeyPhrasesDetectionJobResponse%27"><span class="hs-identifier hs-var">keyPhrasesDetectionJobProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe KeyPhrasesDetectionJobProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeKeyPhrasesDetectionJobResponse' :: Int
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#%24sel%3AhttpStatus%3ADescribeKeyPhrasesDetectionJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362297"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | An object that contains the properties associated with a key phrases</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- detection job.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#describeKeyPhrasesDetectionJobResponse_keyPhrasesDetectionJobProperties"><span class="hs-identifier hs-type">describeKeyPhrasesDetectionJobResponse_keyPhrasesDetectionJobProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJobResponse"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobProperties.html#KeyPhrasesDetectionJobProperties"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="describeKeyPhrasesDetectionJobResponse_keyPhrasesDetectionJobProperties"><span class="annot"><span class="annottext">describeKeyPhrasesDetectionJobResponse_keyPhrasesDetectionJobProperties :: (Maybe KeyPhrasesDetectionJobProperties
+ -&gt; f (Maybe KeyPhrasesDetectionJobProperties))
+-&gt; DescribeKeyPhrasesDetectionJobResponse
+-&gt; f DescribeKeyPhrasesDetectionJobResponse
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#describeKeyPhrasesDetectionJobResponse_keyPhrasesDetectionJobProperties"><span class="hs-identifier hs-var hs-var">describeKeyPhrasesDetectionJobResponse_keyPhrasesDetectionJobProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeKeyPhrasesDetectionJobResponse
+ -&gt; Maybe KeyPhrasesDetectionJobProperties)
+-&gt; (DescribeKeyPhrasesDetectionJobResponse
+    -&gt; Maybe KeyPhrasesDetectionJobProperties
+    -&gt; DescribeKeyPhrasesDetectionJobResponse)
+-&gt; Lens
+     DescribeKeyPhrasesDetectionJobResponse
+     DescribeKeyPhrasesDetectionJobResponse
+     (Maybe KeyPhrasesDetectionJobProperties)
+     (Maybe KeyPhrasesDetectionJobProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJobResponse%27"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362296"><span class="annot"><span class="annottext">Maybe KeyPhrasesDetectionJobProperties
+keyPhrasesDetectionJobProperties :: Maybe KeyPhrasesDetectionJobProperties
+$sel:keyPhrasesDetectionJobProperties:DescribeKeyPhrasesDetectionJobResponse' :: DescribeKeyPhrasesDetectionJobResponse
+-&gt; Maybe KeyPhrasesDetectionJobProperties
+</span><a href="#local-6989586621679362296"><span class="hs-identifier hs-var hs-var">keyPhrasesDetectionJobProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyPhrasesDetectionJobProperties
+</span><a href="#local-6989586621679362296"><span class="hs-identifier hs-var">keyPhrasesDetectionJobProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362295"><span class="annot"><span class="annottext">s :: DescribeKeyPhrasesDetectionJobResponse
+</span><a href="#local-6989586621679362295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJobResponse%27"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362294"><span class="annot"><span class="annottext">Maybe KeyPhrasesDetectionJobProperties
+</span><a href="#local-6989586621679362294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeKeyPhrasesDetectionJobResponse
+</span><a href="#local-6989586621679362295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPhrasesDetectionJobProperties:DescribeKeyPhrasesDetectionJobResponse' :: Maybe KeyPhrasesDetectionJobProperties
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#%24sel%3AkeyPhrasesDetectionJobProperties%3ADescribeKeyPhrasesDetectionJobResponse%27"><span class="hs-identifier hs-var">keyPhrasesDetectionJobProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyPhrasesDetectionJobProperties
+</span><a href="#local-6989586621679362294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJobResponse"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#describeKeyPhrasesDetectionJobResponse_httpStatus"><span class="hs-identifier hs-type">describeKeyPhrasesDetectionJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJobResponse"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-176"></span><span id="describeKeyPhrasesDetectionJobResponse_httpStatus"><span class="annot"><span class="annottext">describeKeyPhrasesDetectionJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeKeyPhrasesDetectionJobResponse
+-&gt; f DescribeKeyPhrasesDetectionJobResponse
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#describeKeyPhrasesDetectionJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeKeyPhrasesDetectionJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeKeyPhrasesDetectionJobResponse -&gt; Int)
+-&gt; (DescribeKeyPhrasesDetectionJobResponse
+    -&gt; Int -&gt; DescribeKeyPhrasesDetectionJobResponse)
+-&gt; Lens
+     DescribeKeyPhrasesDetectionJobResponse
+     DescribeKeyPhrasesDetectionJobResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJobResponse%27"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362293"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeKeyPhrasesDetectionJobResponse' :: DescribeKeyPhrasesDetectionJobResponse -&gt; Int
+</span><a href="#local-6989586621679362293"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362293"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362292"><span class="annot"><span class="annottext">s :: DescribeKeyPhrasesDetectionJobResponse
+</span><a href="#local-6989586621679362292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJobResponse%27"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362291"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeKeyPhrasesDetectionJobResponse
+</span><a href="#local-6989586621679362292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeKeyPhrasesDetectionJobResponse' :: Int
+</span><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#%24sel%3AhttpStatus%3ADescribeKeyPhrasesDetectionJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJobResponse"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679362289"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob.html#DescribeKeyPhrasesDetectionJobResponse"><span class="hs-identifier hs-type">DescribeKeyPhrasesDetectionJobResponse</span></a></span></span><span>
+</span><span id="line-181"></span></pre></body></html>

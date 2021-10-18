@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Lightsail.Types.InstancePlatform</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Lightsail.Types.InstancePlatform</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform"><span class="hs-identifier">InstancePlatform</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform_LINUX_UNIX"><span class="hs-identifier">InstancePlatform_LINUX_UNIX</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform_WINDOWS"><span class="hs-identifier">InstancePlatform_WINDOWS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679611468"><span id="local-6989586621679611469"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstancePlatform"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform"><span class="hs-identifier hs-var">InstancePlatform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstancePlatform%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform%27"><span class="hs-identifier hs-var">InstancePlatform'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstancePlatform"><span class="annot"><span class="annottext">InstancePlatform -&gt; Text
+</span><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#fromInstancePlatform"><span class="hs-identifier hs-var hs-var">fromInstancePlatform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679611460"><span id="local-6989586621679611462"><span id="local-6989586621679611464"><span class="annot"><span class="annottext">Int -&gt; InstancePlatform -&gt; ShowS
+[InstancePlatform] -&gt; ShowS
+InstancePlatform -&gt; String
+(Int -&gt; InstancePlatform -&gt; ShowS)
+-&gt; (InstancePlatform -&gt; String)
+-&gt; ([InstancePlatform] -&gt; ShowS)
+-&gt; Show InstancePlatform
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstancePlatform] -&gt; ShowS
+$cshowList :: [InstancePlatform] -&gt; ShowS
+show :: InstancePlatform -&gt; String
+$cshow :: InstancePlatform -&gt; String
+showsPrec :: Int -&gt; InstancePlatform -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstancePlatform -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679611451"><span id="local-6989586621679611453"><span id="local-6989586621679611455"><span id="local-6989586621679611457"><span class="annot"><span class="annottext">ReadPrec [InstancePlatform]
+ReadPrec InstancePlatform
+Int -&gt; ReadS InstancePlatform
+ReadS [InstancePlatform]
+(Int -&gt; ReadS InstancePlatform)
+-&gt; ReadS [InstancePlatform]
+-&gt; ReadPrec InstancePlatform
+-&gt; ReadPrec [InstancePlatform]
+-&gt; Read InstancePlatform
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstancePlatform]
+$creadListPrec :: ReadPrec [InstancePlatform]
+readPrec :: ReadPrec InstancePlatform
+$creadPrec :: ReadPrec InstancePlatform
+readList :: ReadS [InstancePlatform]
+$creadList :: ReadS [InstancePlatform]
+readsPrec :: Int -&gt; ReadS InstancePlatform
+$creadsPrec :: Int -&gt; ReadS InstancePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679611446"><span id="local-6989586621679611448"><span class="annot"><span class="annottext">InstancePlatform -&gt; InstancePlatform -&gt; Bool
+(InstancePlatform -&gt; InstancePlatform -&gt; Bool)
+-&gt; (InstancePlatform -&gt; InstancePlatform -&gt; Bool)
+-&gt; Eq InstancePlatform
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstancePlatform -&gt; InstancePlatform -&gt; Bool
+$c/= :: InstancePlatform -&gt; InstancePlatform -&gt; Bool
+== :: InstancePlatform -&gt; InstancePlatform -&gt; Bool
+$c== :: InstancePlatform -&gt; InstancePlatform -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679611430"><span id="local-6989586621679611432"><span id="local-6989586621679611434"><span id="local-6989586621679611436"><span id="local-6989586621679611438"><span id="local-6989586621679611440"><span id="local-6989586621679611442"><span class="annot"><span class="annottext">Eq InstancePlatform
+Eq InstancePlatform
+-&gt; (InstancePlatform -&gt; InstancePlatform -&gt; Ordering)
+-&gt; (InstancePlatform -&gt; InstancePlatform -&gt; Bool)
+-&gt; (InstancePlatform -&gt; InstancePlatform -&gt; Bool)
+-&gt; (InstancePlatform -&gt; InstancePlatform -&gt; Bool)
+-&gt; (InstancePlatform -&gt; InstancePlatform -&gt; Bool)
+-&gt; (InstancePlatform -&gt; InstancePlatform -&gt; InstancePlatform)
+-&gt; (InstancePlatform -&gt; InstancePlatform -&gt; InstancePlatform)
+-&gt; Ord InstancePlatform
+InstancePlatform -&gt; InstancePlatform -&gt; Bool
+InstancePlatform -&gt; InstancePlatform -&gt; Ordering
+InstancePlatform -&gt; InstancePlatform -&gt; InstancePlatform
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InstancePlatform -&gt; InstancePlatform -&gt; InstancePlatform
+$cmin :: InstancePlatform -&gt; InstancePlatform -&gt; InstancePlatform
+max :: InstancePlatform -&gt; InstancePlatform -&gt; InstancePlatform
+$cmax :: InstancePlatform -&gt; InstancePlatform -&gt; InstancePlatform
+&gt;= :: InstancePlatform -&gt; InstancePlatform -&gt; Bool
+$c&gt;= :: InstancePlatform -&gt; InstancePlatform -&gt; Bool
+&gt; :: InstancePlatform -&gt; InstancePlatform -&gt; Bool
+$c&gt; :: InstancePlatform -&gt; InstancePlatform -&gt; Bool
+&lt;= :: InstancePlatform -&gt; InstancePlatform -&gt; Bool
+$c&lt;= :: InstancePlatform -&gt; InstancePlatform -&gt; Bool
+&lt; :: InstancePlatform -&gt; InstancePlatform -&gt; Bool
+$c&lt; :: InstancePlatform -&gt; InstancePlatform -&gt; Bool
+compare :: InstancePlatform -&gt; InstancePlatform -&gt; Ordering
+$ccompare :: InstancePlatform -&gt; InstancePlatform -&gt; Ordering
+$cp1Ord :: Eq InstancePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InstancePlatform -&gt; Rep InstancePlatform x)
+-&gt; (forall x. Rep InstancePlatform x -&gt; InstancePlatform)
+-&gt; Generic InstancePlatform
+forall x. Rep InstancePlatform x -&gt; InstancePlatform
+forall x. InstancePlatform -&gt; Rep InstancePlatform x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstancePlatform x -&gt; InstancePlatform
+$cfrom :: forall x. InstancePlatform -&gt; Rep InstancePlatform x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679611422"><span id="local-6989586621679611424"><span class="annot"><span class="annottext">Int -&gt; InstancePlatform -&gt; Int
+InstancePlatform -&gt; Int
+(Int -&gt; InstancePlatform -&gt; Int)
+-&gt; (InstancePlatform -&gt; Int) -&gt; Hashable InstancePlatform
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InstancePlatform -&gt; Int
+$chash :: InstancePlatform -&gt; Int
+hashWithSalt :: Int -&gt; InstancePlatform -&gt; Int
+$chashWithSalt :: Int -&gt; InstancePlatform -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679611419"><span class="annot"><span class="annottext">InstancePlatform -&gt; ()
+(InstancePlatform -&gt; ()) -&gt; NFData InstancePlatform
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InstancePlatform -&gt; ()
+$crnf :: InstancePlatform -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679611416"><span class="annot"><span class="annottext">Text -&gt; Either String InstancePlatform
+(Text -&gt; Either String InstancePlatform)
+-&gt; FromText InstancePlatform
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InstancePlatform
+$cfromText :: Text -&gt; Either String InstancePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679611413"><span class="annot"><span class="annottext">InstancePlatform -&gt; Text
+(InstancePlatform -&gt; Text) -&gt; ToText InstancePlatform
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InstancePlatform -&gt; Text
+$ctoText :: InstancePlatform -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679611410"><span class="annot"><span class="annottext">InstancePlatform -&gt; ByteString
+(InstancePlatform -&gt; ByteString) -&gt; ToByteString InstancePlatform
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InstancePlatform -&gt; ByteString
+$ctoBS :: InstancePlatform -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679611407"><span class="annot"><span class="annottext">InstancePlatform -&gt; ByteStringBuilder
+(InstancePlatform -&gt; ByteStringBuilder) -&gt; ToLog InstancePlatform
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InstancePlatform -&gt; ByteStringBuilder
+$cbuild :: InstancePlatform -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679611404"><span class="annot"><span class="annottext">HeaderName -&gt; InstancePlatform -&gt; [Header]
+(HeaderName -&gt; InstancePlatform -&gt; [Header])
+-&gt; ToHeader InstancePlatform
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InstancePlatform -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InstancePlatform -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679611401"><span class="annot"><span class="annottext">InstancePlatform -&gt; QueryString
+(InstancePlatform -&gt; QueryString) -&gt; ToQuery InstancePlatform
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InstancePlatform -&gt; QueryString
+$ctoQuery :: InstancePlatform -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679611396"><span id="local-6989586621679611398"><span class="annot"><span class="annottext">Value -&gt; Parser [InstancePlatform]
+Value -&gt; Parser InstancePlatform
+(Value -&gt; Parser InstancePlatform)
+-&gt; (Value -&gt; Parser [InstancePlatform])
+-&gt; FromJSON InstancePlatform
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InstancePlatform]
+$cparseJSONList :: Value -&gt; Parser [InstancePlatform]
+parseJSON :: Value -&gt; Parser InstancePlatform
+$cparseJSON :: Value -&gt; Parser InstancePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679611391"><span id="local-6989586621679611393"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstancePlatform]
+FromJSONKeyFunction InstancePlatform
+FromJSONKeyFunction InstancePlatform
+-&gt; FromJSONKeyFunction [InstancePlatform]
+-&gt; FromJSONKey InstancePlatform
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InstancePlatform]
+$cfromJSONKeyList :: FromJSONKeyFunction [InstancePlatform]
+fromJSONKey :: FromJSONKeyFunction InstancePlatform
+$cfromJSONKey :: FromJSONKeyFunction InstancePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679611382"><span id="local-6989586621679611384"><span id="local-6989586621679611386"><span id="local-6989586621679611388"><span class="annot"><span class="annottext">[InstancePlatform] -&gt; Encoding
+[InstancePlatform] -&gt; Value
+InstancePlatform -&gt; Encoding
+InstancePlatform -&gt; Value
+(InstancePlatform -&gt; Value)
+-&gt; (InstancePlatform -&gt; Encoding)
+-&gt; ([InstancePlatform] -&gt; Value)
+-&gt; ([InstancePlatform] -&gt; Encoding)
+-&gt; ToJSON InstancePlatform
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InstancePlatform] -&gt; Encoding
+$ctoEncodingList :: [InstancePlatform] -&gt; Encoding
+toJSONList :: [InstancePlatform] -&gt; Value
+$ctoJSONList :: [InstancePlatform] -&gt; Value
+toEncoding :: InstancePlatform -&gt; Encoding
+$ctoEncoding :: InstancePlatform -&gt; Encoding
+toJSON :: InstancePlatform -&gt; Value
+$ctoJSON :: InstancePlatform -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679611377"><span id="local-6989586621679611379"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstancePlatform]
+ToJSONKeyFunction InstancePlatform
+ToJSONKeyFunction InstancePlatform
+-&gt; ToJSONKeyFunction [InstancePlatform]
+-&gt; ToJSONKey InstancePlatform
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InstancePlatform]
+$ctoJSONKeyList :: ToJSONKeyFunction [InstancePlatform]
+toJSONKey :: ToJSONKeyFunction InstancePlatform
+$ctoJSONKey :: ToJSONKeyFunction InstancePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679611374"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstancePlatform
+([Node] -&gt; Either String InstancePlatform)
+-&gt; FromXML InstancePlatform
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InstancePlatform
+$cparseXML :: [Node] -&gt; Either String InstancePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679611371"><span class="annot"><span class="annottext">InstancePlatform -&gt; XML
+(InstancePlatform -&gt; XML) -&gt; ToXML InstancePlatform
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InstancePlatform -&gt; XML
+$ctoXML :: InstancePlatform -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform_LINUX_UNIX"><span class="hs-identifier hs-type">InstancePlatform_LINUX_UNIX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform"><span class="hs-identifier hs-type">InstancePlatform</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstancePlatform_LINUX_UNIX"><span id="%24mInstancePlatform_LINUX_UNIX"><span id="InstancePlatform_LINUX_UNIX"><span class="annot"><span class="annottext">$bInstancePlatform_LINUX_UNIX :: InstancePlatform
+$mInstancePlatform_LINUX_UNIX :: forall r. InstancePlatform -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#%24bInstancePlatform_LINUX_UNIX"><span class="hs-identifier hs-var hs-var hs-var">InstancePlatform_LINUX_UNIX</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform%27"><span class="hs-identifier hs-type">InstancePlatform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LINUX_UNIX&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform_WINDOWS"><span class="hs-identifier hs-type">InstancePlatform_WINDOWS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform"><span class="hs-identifier hs-type">InstancePlatform</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstancePlatform_WINDOWS"><span id="%24mInstancePlatform_WINDOWS"><span id="InstancePlatform_WINDOWS"><span class="annot"><span class="annottext">$bInstancePlatform_WINDOWS :: InstancePlatform
+$mInstancePlatform_WINDOWS :: forall r. InstancePlatform -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#%24bInstancePlatform_WINDOWS"><span class="hs-identifier hs-var hs-var hs-var">InstancePlatform_WINDOWS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform%27"><span class="hs-identifier hs-type">InstancePlatform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WINDOWS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform_LINUX_UNIX"><span class="hs-pragma hs-type">InstancePlatform_LINUX_UNIX</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform_WINDOWS"><span class="hs-pragma hs-type">InstancePlatform_WINDOWS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform%27"><span class="hs-pragma hs-type">InstancePlatform'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

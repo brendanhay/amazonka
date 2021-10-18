@@ -1,0 +1,588 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MachineLearning.CreateEvaluation</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new @Evaluation@ of an @MLModel@. An @MLModel@ is evaluated on</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- a set of observations associated to a @DataSource@. Like a @DataSource@</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- for an @MLModel@, the @DataSource@ for an @Evaluation@ contains values</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- for the @Target Variable@. The @Evaluation@ compares the predicted</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- result for each observation to the actual outcome and provides a summary</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- so that you know how effective the @MLModel@ functions on the test data.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Evaluation generates a relevant performance metric, such as BinaryAUC,</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- RegressionRMSE or MulticlassAvgFScore based on the corresponding</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- @MLModelType@: @BINARY@, @REGRESSION@ or @MULTICLASS@.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- @CreateEvaluation@ is an asynchronous operation. In response to</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- @CreateEvaluation@, Amazon Machine Learning (Amazon ML) immediately</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- returns and sets the evaluation status to @PENDING@. After the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @Evaluation@ is created and ready for use, Amazon ML sets the status to</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- @COMPLETED@.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- You can use the @GetEvaluation@ operation to check progress of the</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- evaluation during the creation operation.</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MachineLearning.CreateEvaluation</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier">CreateEvaluation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#newCreateEvaluation"><span class="hs-identifier">newCreateEvaluation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluation_evaluationName"><span class="hs-identifier">createEvaluation_evaluationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluation_evaluationId"><span class="hs-identifier">createEvaluation_evaluationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluation_mLModelId"><span class="hs-identifier">createEvaluation_mLModelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluation_evaluationDataSourceId"><span class="hs-identifier">createEvaluation_evaluationDataSourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluationResponse"><span class="hs-identifier">CreateEvaluationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#newCreateEvaluationResponse"><span class="hs-identifier">newCreateEvaluationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluationResponse_evaluationId"><span class="hs-identifier">createEvaluationResponse_evaluationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluationResponse_httpStatus"><span class="hs-identifier">createEvaluationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.html"><span class="hs-identifier">Network.AWS.MachineLearning.Types</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newCreateEvaluation' smart constructor.</span><span>
+</span><span id="line-70"></span><span id="local-6989586621679259291"><span id="local-6989586621679259292"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateEvaluation"><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-var">CreateEvaluation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateEvaluation%27"><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation%27"><span class="hs-identifier hs-var">CreateEvaluation'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A user-supplied name or description of the @Evaluation@.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AevaluationName%3ACreateEvaluation%27"><span class="annot"><span class="annottext">CreateEvaluation -&gt; Maybe Text
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AevaluationName%3ACreateEvaluation%27"><span class="hs-identifier hs-var hs-var">evaluationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the @Evaluation@.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AevaluationId%3ACreateEvaluation%27"><span class="annot"><span class="annottext">CreateEvaluation -&gt; Text
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AevaluationId%3ACreateEvaluation%27"><span class="hs-identifier hs-var hs-var">evaluationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The ID of the @MLModel@ to evaluate.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- The schema used in creating the @MLModel@ must match the schema of the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- @DataSource@ used in the @Evaluation@.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AmLModelId%3ACreateEvaluation%27"><span class="annot"><span class="annottext">CreateEvaluation -&gt; Text
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AmLModelId%3ACreateEvaluation%27"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The ID of the @DataSource@ for the evaluation. The schema of the</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- @DataSource@ must match the schema used to create the @MLModel@.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AevaluationDataSourceId%3ACreateEvaluation%27"><span class="annot"><span class="annottext">CreateEvaluation -&gt; Text
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AevaluationDataSourceId%3ACreateEvaluation%27"><span class="hs-identifier hs-var hs-var">evaluationDataSourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259282"><span id="local-6989586621679259284"><span class="annot"><span class="annottext">CreateEvaluation -&gt; CreateEvaluation -&gt; Bool
+(CreateEvaluation -&gt; CreateEvaluation -&gt; Bool)
+-&gt; (CreateEvaluation -&gt; CreateEvaluation -&gt; Bool)
+-&gt; Eq CreateEvaluation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateEvaluation -&gt; CreateEvaluation -&gt; Bool
+$c/= :: CreateEvaluation -&gt; CreateEvaluation -&gt; Bool
+== :: CreateEvaluation -&gt; CreateEvaluation -&gt; Bool
+$c== :: CreateEvaluation -&gt; CreateEvaluation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259273"><span id="local-6989586621679259275"><span id="local-6989586621679259277"><span id="local-6989586621679259279"><span class="annot"><span class="annottext">ReadPrec [CreateEvaluation]
+ReadPrec CreateEvaluation
+Int -&gt; ReadS CreateEvaluation
+ReadS [CreateEvaluation]
+(Int -&gt; ReadS CreateEvaluation)
+-&gt; ReadS [CreateEvaluation]
+-&gt; ReadPrec CreateEvaluation
+-&gt; ReadPrec [CreateEvaluation]
+-&gt; Read CreateEvaluation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateEvaluation]
+$creadListPrec :: ReadPrec [CreateEvaluation]
+readPrec :: ReadPrec CreateEvaluation
+$creadPrec :: ReadPrec CreateEvaluation
+readList :: ReadS [CreateEvaluation]
+$creadList :: ReadS [CreateEvaluation]
+readsPrec :: Int -&gt; ReadS CreateEvaluation
+$creadsPrec :: Int -&gt; ReadS CreateEvaluation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259266"><span id="local-6989586621679259268"><span id="local-6989586621679259270"><span class="annot"><span class="annottext">Int -&gt; CreateEvaluation -&gt; ShowS
+[CreateEvaluation] -&gt; ShowS
+CreateEvaluation -&gt; String
+(Int -&gt; CreateEvaluation -&gt; ShowS)
+-&gt; (CreateEvaluation -&gt; String)
+-&gt; ([CreateEvaluation] -&gt; ShowS)
+-&gt; Show CreateEvaluation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateEvaluation] -&gt; ShowS
+$cshowList :: [CreateEvaluation] -&gt; ShowS
+show :: CreateEvaluation -&gt; String
+$cshow :: CreateEvaluation -&gt; String
+showsPrec :: Int -&gt; CreateEvaluation -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateEvaluation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateEvaluation -&gt; Rep CreateEvaluation x)
+-&gt; (forall x. Rep CreateEvaluation x -&gt; CreateEvaluation)
+-&gt; Generic CreateEvaluation
+forall x. Rep CreateEvaluation x -&gt; CreateEvaluation
+forall x. CreateEvaluation -&gt; Rep CreateEvaluation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateEvaluation x -&gt; CreateEvaluation
+$cfrom :: forall x. CreateEvaluation -&gt; Rep CreateEvaluation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Create a value of 'CreateEvaluation' with all optional fields omitted.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'evaluationName', 'createEvaluation_evaluationName' - A user-supplied name or description of the @Evaluation@.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'evaluationId', 'createEvaluation_evaluationId' - A user-supplied ID that uniquely identifies the @Evaluation@.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'mLModelId', 'createEvaluation_mLModelId' - The ID of the @MLModel@ to evaluate.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- The schema used in creating the @MLModel@ must match the schema of the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- @DataSource@ used in the @Evaluation@.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'evaluationDataSourceId', 'createEvaluation_evaluationDataSourceId' - The ID of the @DataSource@ for the evaluation. The schema of the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- @DataSource@ must match the schema used to create the @MLModel@.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#newCreateEvaluation"><span class="hs-identifier hs-type">newCreateEvaluation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-comment">-- | 'evaluationId'</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'mLModelId'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'evaluationDataSourceId'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span><span>
+</span><span id="line-113"></span><span id="newCreateEvaluation"><span class="annot"><span class="annottext">newCreateEvaluation :: Text -&gt; Text -&gt; Text -&gt; CreateEvaluation
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#newCreateEvaluation"><span class="hs-identifier hs-var hs-var">newCreateEvaluation</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679259261"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259261"><span class="hs-identifier hs-var">pEvaluationId_</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679259260"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259260"><span class="hs-identifier hs-var">pMLModelId_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679259259"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259259"><span class="hs-identifier hs-var">pEvaluationDataSourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">CreateEvaluation' :: Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateEvaluation
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation%27"><span class="hs-identifier hs-type">CreateEvaluation'</span></a></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:evaluationName:CreateEvaluation' :: Maybe Text
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AevaluationName%3ACreateEvaluation%27"><span class="hs-identifier hs-var">evaluationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:evaluationId:CreateEvaluation' :: Text
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AevaluationId%3ACreateEvaluation%27"><span class="hs-identifier hs-var">evaluationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259261"><span class="hs-identifier hs-var">pEvaluationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:mLModelId:CreateEvaluation' :: Text
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AmLModelId%3ACreateEvaluation%27"><span class="hs-identifier hs-var">mLModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259260"><span class="hs-identifier hs-var">pMLModelId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:evaluationDataSourceId:CreateEvaluation' :: Text
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AevaluationDataSourceId%3ACreateEvaluation%27"><span class="hs-identifier hs-var">evaluationDataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259259"><span class="hs-identifier hs-var">pEvaluationDataSourceId_</span></a></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | A user-supplied name or description of the @Evaluation@.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluation_evaluationName"><span class="hs-identifier hs-type">createEvaluation_evaluationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="createEvaluation_evaluationName"><span class="annot"><span class="annottext">createEvaluation_evaluationName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateEvaluation -&gt; f CreateEvaluation
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluation_evaluationName"><span class="hs-identifier hs-var hs-var">createEvaluation_evaluationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEvaluation -&gt; Maybe Text)
+-&gt; (CreateEvaluation -&gt; Maybe Text -&gt; CreateEvaluation)
+-&gt; Lens CreateEvaluation CreateEvaluation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation%27"><span class="hs-identifier hs-type">CreateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259256"><span class="annot"><span class="annottext">Maybe Text
+evaluationName :: Maybe Text
+$sel:evaluationName:CreateEvaluation' :: CreateEvaluation -&gt; Maybe Text
+</span><a href="#local-6989586621679259256"><span class="hs-identifier hs-var hs-var">evaluationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259256"><span class="hs-identifier hs-var">evaluationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259255"><span class="annot"><span class="annottext">s :: CreateEvaluation
+</span><a href="#local-6989586621679259255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation%27"><span class="hs-identifier hs-type">CreateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259254"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEvaluation
+</span><a href="#local-6989586621679259255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationName:CreateEvaluation' :: Maybe Text
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AevaluationName%3ACreateEvaluation%27"><span class="hs-identifier hs-var">evaluationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the @Evaluation@.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluation_evaluationId"><span class="hs-identifier hs-type">createEvaluation_evaluationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span id="createEvaluation_evaluationId"><span class="annot"><span class="annottext">createEvaluation_evaluationId :: (Text -&gt; f Text) -&gt; CreateEvaluation -&gt; f CreateEvaluation
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluation_evaluationId"><span class="hs-identifier hs-var hs-var">createEvaluation_evaluationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEvaluation -&gt; Text)
+-&gt; (CreateEvaluation -&gt; Text -&gt; CreateEvaluation)
+-&gt; Lens CreateEvaluation CreateEvaluation Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation%27"><span class="hs-identifier hs-type">CreateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259253"><span class="annot"><span class="annottext">Text
+evaluationId :: Text
+$sel:evaluationId:CreateEvaluation' :: CreateEvaluation -&gt; Text
+</span><a href="#local-6989586621679259253"><span class="hs-identifier hs-var hs-var">evaluationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259253"><span class="hs-identifier hs-var">evaluationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259252"><span class="annot"><span class="annottext">s :: CreateEvaluation
+</span><a href="#local-6989586621679259252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation%27"><span class="hs-identifier hs-type">CreateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259251"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEvaluation
+</span><a href="#local-6989586621679259252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationId:CreateEvaluation' :: Text
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AevaluationId%3ACreateEvaluation%27"><span class="hs-identifier hs-var">evaluationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The ID of the @MLModel@ to evaluate.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- The schema used in creating the @MLModel@ must match the schema of the</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- @DataSource@ used in the @Evaluation@.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluation_mLModelId"><span class="hs-identifier hs-type">createEvaluation_mLModelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-137"></span><span id="createEvaluation_mLModelId"><span class="annot"><span class="annottext">createEvaluation_mLModelId :: (Text -&gt; f Text) -&gt; CreateEvaluation -&gt; f CreateEvaluation
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluation_mLModelId"><span class="hs-identifier hs-var hs-var">createEvaluation_mLModelId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEvaluation -&gt; Text)
+-&gt; (CreateEvaluation -&gt; Text -&gt; CreateEvaluation)
+-&gt; Lens CreateEvaluation CreateEvaluation Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation%27"><span class="hs-identifier hs-type">CreateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259250"><span class="annot"><span class="annottext">Text
+mLModelId :: Text
+$sel:mLModelId:CreateEvaluation' :: CreateEvaluation -&gt; Text
+</span><a href="#local-6989586621679259250"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259250"><span class="hs-identifier hs-var">mLModelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259249"><span class="annot"><span class="annottext">s :: CreateEvaluation
+</span><a href="#local-6989586621679259249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation%27"><span class="hs-identifier hs-type">CreateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259248"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEvaluation
+</span><a href="#local-6989586621679259249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mLModelId:CreateEvaluation' :: Text
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AmLModelId%3ACreateEvaluation%27"><span class="hs-identifier hs-var">mLModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The ID of the @DataSource@ for the evaluation. The schema of the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- @DataSource@ must match the schema used to create the @MLModel@.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluation_evaluationDataSourceId"><span class="hs-identifier hs-type">createEvaluation_evaluationDataSourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-142"></span><span id="createEvaluation_evaluationDataSourceId"><span class="annot"><span class="annottext">createEvaluation_evaluationDataSourceId :: (Text -&gt; f Text) -&gt; CreateEvaluation -&gt; f CreateEvaluation
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluation_evaluationDataSourceId"><span class="hs-identifier hs-var hs-var">createEvaluation_evaluationDataSourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEvaluation -&gt; Text)
+-&gt; (CreateEvaluation -&gt; Text -&gt; CreateEvaluation)
+-&gt; Lens CreateEvaluation CreateEvaluation Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation%27"><span class="hs-identifier hs-type">CreateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259247"><span class="annot"><span class="annottext">Text
+evaluationDataSourceId :: Text
+$sel:evaluationDataSourceId:CreateEvaluation' :: CreateEvaluation -&gt; Text
+</span><a href="#local-6989586621679259247"><span class="hs-identifier hs-var hs-var">evaluationDataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259247"><span class="hs-identifier hs-var">evaluationDataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259246"><span class="annot"><span class="annottext">s :: CreateEvaluation
+</span><a href="#local-6989586621679259246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation%27"><span class="hs-identifier hs-type">CreateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259245"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEvaluation
+</span><a href="#local-6989586621679259246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationDataSourceId:CreateEvaluation' :: Text
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AevaluationDataSourceId%3ACreateEvaluation%27"><span class="hs-identifier hs-var">evaluationDataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-146"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluationResponse"><span class="hs-identifier hs-type">CreateEvaluationResponse</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679259241"><span class="annot"><span class="annottext">request :: CreateEvaluation -&gt; Request CreateEvaluation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateEvaluation -&gt; Request CreateEvaluation
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MachineLearning.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679259237"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateEvaluation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateEvaluation)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateEvaluation))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateEvaluation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateEvaluation)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259234"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259234"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259233"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679259233"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259232"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259232"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateEvaluationResponse
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluationResponse%27"><span class="hs-identifier hs-var">CreateEvaluationResponse'</span></a></span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateEvaluationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateEvaluationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EvaluationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateEvaluationResponse)
+-&gt; Either String Int -&gt; Either String CreateEvaluationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259234"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259224"><span id="local-6989586621679259226"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259221"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679259217"><span class="annot"><span class="annottext">toHeaders :: CreateEvaluation -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateEvaluation -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonML_20141212.CreateEvaluation&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-168"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-170"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-172"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259207"><span id="local-6989586621679259209"><span id="local-6989586621679259211"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679259205"><span class="annot"><span class="annottext">toJSON :: CreateEvaluation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation%27"><span class="hs-identifier hs-type">CreateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259200"><span id="local-6989586621679259201"><span id="local-6989586621679259202"><span id="local-6989586621679259203"><span class="annot"><span class="annottext">Maybe Text
+Text
+evaluationDataSourceId :: Text
+mLModelId :: Text
+evaluationId :: Text
+evaluationName :: Maybe Text
+$sel:evaluationDataSourceId:CreateEvaluation' :: CreateEvaluation -&gt; Text
+$sel:mLModelId:CreateEvaluation' :: CreateEvaluation -&gt; Text
+$sel:evaluationId:CreateEvaluation' :: CreateEvaluation -&gt; Text
+$sel:evaluationName:CreateEvaluation' :: CreateEvaluation -&gt; Maybe Text
+</span><a href="#local-6989586621679259200"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EvaluationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259203"><span class="hs-identifier hs-var">evaluationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EvaluationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259202"><span class="hs-identifier hs-var">evaluationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MLModelId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259201"><span class="hs-identifier hs-var">mLModelId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-185"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EvaluationDataSourceId&quot;</span></span><span>
+</span><span id="line-186"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259200"><span class="hs-identifier hs-var">evaluationDataSourceId</span></a></span><span>
+</span><span id="line-187"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679259194"><span class="annot"><span class="annottext">toPath :: CreateEvaluation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateEvaluation -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluation"><span class="hs-identifier hs-type">CreateEvaluation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679259190"><span class="annot"><span class="annottext">toQuery :: CreateEvaluation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateEvaluation -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | Represents the output of a @CreateEvaluation@ operation, and is an</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- acknowledgement that Amazon ML received the request.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- @CreateEvaluation@ operation is asynchronous. You can poll for status</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- updates by using the @GetEvcaluation@ operation and checking the</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- @Status@ parameter.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- /See:/ 'newCreateEvaluationResponse' smart constructor.</span><span>
+</span><span id="line-205"></span><span id="local-6989586621679259187"><span id="local-6989586621679259188"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateEvaluationResponse"><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluationResponse"><span class="hs-identifier hs-var">CreateEvaluationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateEvaluationResponse%27"><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluationResponse%27"><span class="hs-identifier hs-var">CreateEvaluationResponse'</span></a></span></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user-supplied ID that uniquely identifies the @Evaluation@. This</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- value should be identical to the value of the @EvaluationId@ in the</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3AevaluationId%3ACreateEvaluationResponse%27"><span class="annot"><span class="annottext">CreateEvaluationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AevaluationId%3ACreateEvaluationResponse%27"><span class="hs-identifier hs-var hs-var">evaluationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateEvaluationResponse%27"><span class="annot"><span class="annottext">CreateEvaluationResponse -&gt; Int
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AhttpStatus%3ACreateEvaluationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259181"><span id="local-6989586621679259183"><span class="annot"><span class="annottext">CreateEvaluationResponse -&gt; CreateEvaluationResponse -&gt; Bool
+(CreateEvaluationResponse -&gt; CreateEvaluationResponse -&gt; Bool)
+-&gt; (CreateEvaluationResponse -&gt; CreateEvaluationResponse -&gt; Bool)
+-&gt; Eq CreateEvaluationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateEvaluationResponse -&gt; CreateEvaluationResponse -&gt; Bool
+$c/= :: CreateEvaluationResponse -&gt; CreateEvaluationResponse -&gt; Bool
+== :: CreateEvaluationResponse -&gt; CreateEvaluationResponse -&gt; Bool
+$c== :: CreateEvaluationResponse -&gt; CreateEvaluationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259173"><span id="local-6989586621679259175"><span id="local-6989586621679259177"><span id="local-6989586621679259179"><span class="annot"><span class="annottext">ReadPrec [CreateEvaluationResponse]
+ReadPrec CreateEvaluationResponse
+Int -&gt; ReadS CreateEvaluationResponse
+ReadS [CreateEvaluationResponse]
+(Int -&gt; ReadS CreateEvaluationResponse)
+-&gt; ReadS [CreateEvaluationResponse]
+-&gt; ReadPrec CreateEvaluationResponse
+-&gt; ReadPrec [CreateEvaluationResponse]
+-&gt; Read CreateEvaluationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateEvaluationResponse]
+$creadListPrec :: ReadPrec [CreateEvaluationResponse]
+readPrec :: ReadPrec CreateEvaluationResponse
+$creadPrec :: ReadPrec CreateEvaluationResponse
+readList :: ReadS [CreateEvaluationResponse]
+$creadList :: ReadS [CreateEvaluationResponse]
+readsPrec :: Int -&gt; ReadS CreateEvaluationResponse
+$creadsPrec :: Int -&gt; ReadS CreateEvaluationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259167"><span id="local-6989586621679259169"><span id="local-6989586621679259171"><span class="annot"><span class="annottext">Int -&gt; CreateEvaluationResponse -&gt; ShowS
+[CreateEvaluationResponse] -&gt; ShowS
+CreateEvaluationResponse -&gt; String
+(Int -&gt; CreateEvaluationResponse -&gt; ShowS)
+-&gt; (CreateEvaluationResponse -&gt; String)
+-&gt; ([CreateEvaluationResponse] -&gt; ShowS)
+-&gt; Show CreateEvaluationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateEvaluationResponse] -&gt; ShowS
+$cshowList :: [CreateEvaluationResponse] -&gt; ShowS
+show :: CreateEvaluationResponse -&gt; String
+$cshow :: CreateEvaluationResponse -&gt; String
+showsPrec :: Int -&gt; CreateEvaluationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateEvaluationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateEvaluationResponse -&gt; Rep CreateEvaluationResponse x)
+-&gt; (forall x.
+    Rep CreateEvaluationResponse x -&gt; CreateEvaluationResponse)
+-&gt; Generic CreateEvaluationResponse
+forall x.
+Rep CreateEvaluationResponse x -&gt; CreateEvaluationResponse
+forall x.
+CreateEvaluationResponse -&gt; Rep CreateEvaluationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateEvaluationResponse x -&gt; CreateEvaluationResponse
+$cfrom :: forall x.
+CreateEvaluationResponse -&gt; Rep CreateEvaluationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- Create a value of 'CreateEvaluationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'evaluationId', 'createEvaluationResponse_evaluationId' - The user-supplied ID that uniquely identifies the @Evaluation@. This</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- value should be identical to the value of the @EvaluationId@ in the</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'httpStatus', 'createEvaluationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#newCreateEvaluationResponse"><span class="hs-identifier hs-type">newCreateEvaluationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-230"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluationResponse"><span class="hs-identifier hs-type">CreateEvaluationResponse</span></a></span><span>
+</span><span id="line-232"></span><span id="newCreateEvaluationResponse"><span class="annot"><span class="annottext">newCreateEvaluationResponse :: Int -&gt; CreateEvaluationResponse
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#newCreateEvaluationResponse"><span class="hs-identifier hs-var hs-var">newCreateEvaluationResponse</span></a></span></span><span> </span><span id="local-6989586621679259164"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259164"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><span class="annottext">CreateEvaluationResponse' :: Maybe Text -&gt; Int -&gt; CreateEvaluationResponse
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluationResponse%27"><span class="hs-identifier hs-type">CreateEvaluationResponse'</span></a></span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:evaluationId:CreateEvaluationResponse' :: Maybe Text
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AevaluationId%3ACreateEvaluationResponse%27"><span class="hs-identifier hs-var">evaluationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateEvaluationResponse' :: Int
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AhttpStatus%3ACreateEvaluationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259164"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | The user-supplied ID that uniquely identifies the @Evaluation@. This</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- value should be identical to the value of the @EvaluationId@ in the</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluationResponse_evaluationId"><span class="hs-identifier hs-type">createEvaluationResponse_evaluationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluationResponse"><span class="hs-identifier hs-type">CreateEvaluationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="createEvaluationResponse_evaluationId"><span class="annot"><span class="annottext">createEvaluationResponse_evaluationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateEvaluationResponse -&gt; f CreateEvaluationResponse
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluationResponse_evaluationId"><span class="hs-identifier hs-var hs-var">createEvaluationResponse_evaluationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEvaluationResponse -&gt; Maybe Text)
+-&gt; (CreateEvaluationResponse
+    -&gt; Maybe Text -&gt; CreateEvaluationResponse)
+-&gt; Lens
+     CreateEvaluationResponse
+     CreateEvaluationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluationResponse%27"><span class="hs-identifier hs-type">CreateEvaluationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259163"><span class="annot"><span class="annottext">Maybe Text
+evaluationId :: Maybe Text
+$sel:evaluationId:CreateEvaluationResponse' :: CreateEvaluationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679259163"><span class="hs-identifier hs-var hs-var">evaluationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259163"><span class="hs-identifier hs-var">evaluationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259162"><span class="annot"><span class="annottext">s :: CreateEvaluationResponse
+</span><a href="#local-6989586621679259162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluationResponse%27"><span class="hs-identifier hs-type">CreateEvaluationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259161"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEvaluationResponse
+</span><a href="#local-6989586621679259162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationId:CreateEvaluationResponse' :: Maybe Text
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AevaluationId%3ACreateEvaluationResponse%27"><span class="hs-identifier hs-var">evaluationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluationResponse"><span class="hs-identifier hs-type">CreateEvaluationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluationResponse_httpStatus"><span class="hs-identifier hs-type">createEvaluationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluationResponse"><span class="hs-identifier hs-type">CreateEvaluationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-247"></span><span id="createEvaluationResponse_httpStatus"><span class="annot"><span class="annottext">createEvaluationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateEvaluationResponse -&gt; f CreateEvaluationResponse
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#createEvaluationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createEvaluationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEvaluationResponse -&gt; Int)
+-&gt; (CreateEvaluationResponse -&gt; Int -&gt; CreateEvaluationResponse)
+-&gt; Lens CreateEvaluationResponse CreateEvaluationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluationResponse%27"><span class="hs-identifier hs-type">CreateEvaluationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259160"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateEvaluationResponse' :: CreateEvaluationResponse -&gt; Int
+</span><a href="#local-6989586621679259160"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259160"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259159"><span class="annot"><span class="annottext">s :: CreateEvaluationResponse
+</span><a href="#local-6989586621679259159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluationResponse%27"><span class="hs-identifier hs-type">CreateEvaluationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259158"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEvaluationResponse
+</span><a href="#local-6989586621679259159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateEvaluationResponse' :: Int
+</span><a href="Network.AWS.MachineLearning.CreateEvaluation.html#%24sel%3AhttpStatus%3ACreateEvaluationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluationResponse"><span class="hs-identifier hs-type">CreateEvaluationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259156"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateEvaluation.html#CreateEvaluationResponse"><span class="hs-identifier hs-type">CreateEvaluationResponse</span></a></span></span><span>
+</span><span id="line-250"></span></pre></body></html>

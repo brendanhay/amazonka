@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.ActionSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.ActionSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSource.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.ActionSource</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionStatus.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.ActionStatus</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Lists the properties of an /action/. An action represents an action or</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- activity. Some examples are a workflow step and a model deployment.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Generally, an action involves at least one input artifact or output</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- artifact.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newActionSummary' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621680286867"><span id="local-6989586621680286868"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-var">ActionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-var">ActionSummary'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When the action was created.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreationTime%3AActionSummary%27"><span class="annot"><span class="annottext">ActionSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3AcreationTime%3AActionSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The status of the action.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astatus%3AActionSummary%27"><span class="annot"><span class="annottext">ActionSummary -&gt; Maybe ActionStatus
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3Astatus%3AActionSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionStatus.html#ActionStatus"><span class="hs-identifier hs-type">ActionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the action.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AactionName%3AActionSummary%27"><span class="annot"><span class="annottext">ActionSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3AactionName%3AActionSummary%27"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The type of the action.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AactionType%3AActionSummary%27"><span class="annot"><span class="annottext">ActionSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3AactionType%3AActionSummary%27"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the action.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AactionArn%3AActionSummary%27"><span class="annot"><span class="annottext">ActionSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3AactionArn%3AActionSummary%27"><span class="hs-identifier hs-var hs-var">actionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The source of the action.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Asource%3AActionSummary%27"><span class="annot"><span class="annottext">ActionSummary -&gt; Maybe ActionSource
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3Asource%3AActionSummary%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSource.html#ActionSource"><span class="hs-identifier hs-type">ActionSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | When the action was last modified.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AActionSummary%27"><span class="annot"><span class="annottext">ActionSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3AlastModifiedTime%3AActionSummary%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680286855"><span id="local-6989586621680286857"><span class="annot"><span class="annottext">ActionSummary -&gt; ActionSummary -&gt; Bool
+(ActionSummary -&gt; ActionSummary -&gt; Bool)
+-&gt; (ActionSummary -&gt; ActionSummary -&gt; Bool) -&gt; Eq ActionSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ActionSummary -&gt; ActionSummary -&gt; Bool
+$c/= :: ActionSummary -&gt; ActionSummary -&gt; Bool
+== :: ActionSummary -&gt; ActionSummary -&gt; Bool
+$c== :: ActionSummary -&gt; ActionSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680286846"><span id="local-6989586621680286848"><span id="local-6989586621680286850"><span id="local-6989586621680286852"><span class="annot"><span class="annottext">ReadPrec [ActionSummary]
+ReadPrec ActionSummary
+Int -&gt; ReadS ActionSummary
+ReadS [ActionSummary]
+(Int -&gt; ReadS ActionSummary)
+-&gt; ReadS [ActionSummary]
+-&gt; ReadPrec ActionSummary
+-&gt; ReadPrec [ActionSummary]
+-&gt; Read ActionSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ActionSummary]
+$creadListPrec :: ReadPrec [ActionSummary]
+readPrec :: ReadPrec ActionSummary
+$creadPrec :: ReadPrec ActionSummary
+readList :: ReadS [ActionSummary]
+$creadList :: ReadS [ActionSummary]
+readsPrec :: Int -&gt; ReadS ActionSummary
+$creadsPrec :: Int -&gt; ReadS ActionSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680286839"><span id="local-6989586621680286841"><span id="local-6989586621680286843"><span class="annot"><span class="annottext">Int -&gt; ActionSummary -&gt; ShowS
+[ActionSummary] -&gt; ShowS
+ActionSummary -&gt; String
+(Int -&gt; ActionSummary -&gt; ShowS)
+-&gt; (ActionSummary -&gt; String)
+-&gt; ([ActionSummary] -&gt; ShowS)
+-&gt; Show ActionSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ActionSummary] -&gt; ShowS
+$cshowList :: [ActionSummary] -&gt; ShowS
+show :: ActionSummary -&gt; String
+$cshow :: ActionSummary -&gt; String
+showsPrec :: Int -&gt; ActionSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; ActionSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ActionSummary -&gt; Rep ActionSummary x)
+-&gt; (forall x. Rep ActionSummary x -&gt; ActionSummary)
+-&gt; Generic ActionSummary
+forall x. Rep ActionSummary x -&gt; ActionSummary
+forall x. ActionSummary -&gt; Rep ActionSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ActionSummary x -&gt; ActionSummary
+$cfrom :: forall x. ActionSummary -&gt; Rep ActionSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'ActionSummary' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'creationTime', 'actionSummary_creationTime' - When the action was created.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'status', 'actionSummary_status' - The status of the action.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'actionName', 'actionSummary_actionName' - The name of the action.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'actionType', 'actionSummary_actionType' - The type of the action.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'actionArn', 'actionSummary_actionArn' - The Amazon Resource Name (ARN) of the action.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'source', 'actionSummary_source' - The source of the action.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'lastModifiedTime', 'actionSummary_lastModifiedTime' - When the action was last modified.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#newActionSummary"><span class="hs-identifier hs-type">newActionSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span><span>
+</span><span id="line-75"></span><span id="newActionSummary"><span class="annot"><span class="annottext">newActionSummary :: ActionSummary
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#newActionSummary"><span class="hs-identifier hs-var hs-var">newActionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">ActionSummary' :: Maybe POSIX
+-&gt; Maybe ActionStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ActionSource
+-&gt; Maybe POSIX
+-&gt; ActionSummary
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-type">ActionSummary'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:ActionSummary' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3AcreationTime%3AActionSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ActionSummary' :: Maybe ActionStatus
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3Astatus%3AActionSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionName:ActionSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3AactionName%3AActionSummary%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionType:ActionSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3AactionType%3AActionSummary%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionArn:ActionSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3AactionArn%3AActionSummary%27"><span class="hs-identifier hs-var">actionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:ActionSummary' :: Maybe ActionSource
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3Asource%3AActionSummary%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionSource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:ActionSummary' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3AlastModifiedTime%3AActionSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | When the action was created.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#actionSummary_creationTime"><span class="hs-identifier hs-type">actionSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="actionSummary_creationTime"><span class="annot"><span class="annottext">actionSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ActionSummary -&gt; f ActionSummary
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#actionSummary_creationTime"><span class="hs-identifier hs-var hs-var">actionSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionSummary -&gt; Maybe POSIX)
+-&gt; (ActionSummary -&gt; Maybe POSIX -&gt; ActionSummary)
+-&gt; Lens ActionSummary ActionSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-type">ActionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680286830"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:ActionSummary' :: ActionSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621680286830"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680286830"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680286829"><span class="annot"><span class="annottext">s :: ActionSummary
+</span><a href="#local-6989586621680286829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-type">ActionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680286828"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680286828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionSummary
+</span><a href="#local-6989586621680286829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ActionSummary' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3AcreationTime%3AActionSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680286828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ActionSummary -&gt; f ActionSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ActionSummary
+-&gt; f ActionSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The status of the action.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#actionSummary_status"><span class="hs-identifier hs-type">actionSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionStatus.html#ActionStatus"><span class="hs-identifier hs-type">ActionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="actionSummary_status"><span class="annot"><span class="annottext">actionSummary_status :: (Maybe ActionStatus -&gt; f (Maybe ActionStatus))
+-&gt; ActionSummary -&gt; f ActionSummary
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#actionSummary_status"><span class="hs-identifier hs-var hs-var">actionSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionSummary -&gt; Maybe ActionStatus)
+-&gt; (ActionSummary -&gt; Maybe ActionStatus -&gt; ActionSummary)
+-&gt; Lens
+     ActionSummary
+     ActionSummary
+     (Maybe ActionStatus)
+     (Maybe ActionStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-type">ActionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680286823"><span class="annot"><span class="annottext">Maybe ActionStatus
+status :: Maybe ActionStatus
+$sel:status:ActionSummary' :: ActionSummary -&gt; Maybe ActionStatus
+</span><a href="#local-6989586621680286823"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionStatus
+</span><a href="#local-6989586621680286823"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680286822"><span class="annot"><span class="annottext">s :: ActionSummary
+</span><a href="#local-6989586621680286822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-type">ActionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680286821"><span class="annot"><span class="annottext">Maybe ActionStatus
+</span><a href="#local-6989586621680286821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionSummary
+</span><a href="#local-6989586621680286822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ActionSummary' :: Maybe ActionStatus
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3Astatus%3AActionSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionStatus
+</span><a href="#local-6989586621680286821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The name of the action.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#actionSummary_actionName"><span class="hs-identifier hs-type">actionSummary_actionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="actionSummary_actionName"><span class="annot"><span class="annottext">actionSummary_actionName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ActionSummary -&gt; f ActionSummary
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#actionSummary_actionName"><span class="hs-identifier hs-var hs-var">actionSummary_actionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionSummary -&gt; Maybe Text)
+-&gt; (ActionSummary -&gt; Maybe Text -&gt; ActionSummary)
+-&gt; Lens ActionSummary ActionSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-type">ActionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680286819"><span class="annot"><span class="annottext">Maybe Text
+actionName :: Maybe Text
+$sel:actionName:ActionSummary' :: ActionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680286819"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680286819"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680286818"><span class="annot"><span class="annottext">s :: ActionSummary
+</span><a href="#local-6989586621680286818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-type">ActionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680286817"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680286817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionSummary
+</span><a href="#local-6989586621680286818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionName:ActionSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3AactionName%3AActionSummary%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680286817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The type of the action.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#actionSummary_actionType"><span class="hs-identifier hs-type">actionSummary_actionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="actionSummary_actionType"><span class="annot"><span class="annottext">actionSummary_actionType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ActionSummary -&gt; f ActionSummary
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#actionSummary_actionType"><span class="hs-identifier hs-var hs-var">actionSummary_actionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionSummary -&gt; Maybe Text)
+-&gt; (ActionSummary -&gt; Maybe Text -&gt; ActionSummary)
+-&gt; Lens ActionSummary ActionSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-type">ActionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680286815"><span class="annot"><span class="annottext">Maybe Text
+actionType :: Maybe Text
+$sel:actionType:ActionSummary' :: ActionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680286815"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680286815"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680286814"><span class="annot"><span class="annottext">s :: ActionSummary
+</span><a href="#local-6989586621680286814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-type">ActionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680286813"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680286813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionSummary
+</span><a href="#local-6989586621680286814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionType:ActionSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3AactionType%3AActionSummary%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680286813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the action.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#actionSummary_actionArn"><span class="hs-identifier hs-type">actionSummary_actionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="actionSummary_actionArn"><span class="annot"><span class="annottext">actionSummary_actionArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ActionSummary -&gt; f ActionSummary
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#actionSummary_actionArn"><span class="hs-identifier hs-var hs-var">actionSummary_actionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionSummary -&gt; Maybe Text)
+-&gt; (ActionSummary -&gt; Maybe Text -&gt; ActionSummary)
+-&gt; Lens ActionSummary ActionSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-type">ActionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680286811"><span class="annot"><span class="annottext">Maybe Text
+actionArn :: Maybe Text
+$sel:actionArn:ActionSummary' :: ActionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680286811"><span class="hs-identifier hs-var hs-var">actionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680286811"><span class="hs-identifier hs-var">actionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680286810"><span class="annot"><span class="annottext">s :: ActionSummary
+</span><a href="#local-6989586621680286810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-type">ActionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680286809"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680286809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionSummary
+</span><a href="#local-6989586621680286810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionArn:ActionSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3AactionArn%3AActionSummary%27"><span class="hs-identifier hs-var">actionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680286809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The source of the action.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#actionSummary_source"><span class="hs-identifier hs-type">actionSummary_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSource.html#ActionSource"><span class="hs-identifier hs-type">ActionSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="actionSummary_source"><span class="annot"><span class="annottext">actionSummary_source :: (Maybe ActionSource -&gt; f (Maybe ActionSource))
+-&gt; ActionSummary -&gt; f ActionSummary
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#actionSummary_source"><span class="hs-identifier hs-var hs-var">actionSummary_source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionSummary -&gt; Maybe ActionSource)
+-&gt; (ActionSummary -&gt; Maybe ActionSource -&gt; ActionSummary)
+-&gt; Lens
+     ActionSummary
+     ActionSummary
+     (Maybe ActionSource)
+     (Maybe ActionSource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-type">ActionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680286807"><span class="annot"><span class="annottext">Maybe ActionSource
+source :: Maybe ActionSource
+$sel:source:ActionSummary' :: ActionSummary -&gt; Maybe ActionSource
+</span><a href="#local-6989586621680286807"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionSource
+</span><a href="#local-6989586621680286807"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680286806"><span class="annot"><span class="annottext">s :: ActionSummary
+</span><a href="#local-6989586621680286806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-type">ActionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680286805"><span class="annot"><span class="annottext">Maybe ActionSource
+</span><a href="#local-6989586621680286805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionSummary
+</span><a href="#local-6989586621680286806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:ActionSummary' :: Maybe ActionSource
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3Asource%3AActionSummary%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionSource
+</span><a href="#local-6989586621680286805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | When the action was last modified.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#actionSummary_lastModifiedTime"><span class="hs-identifier hs-type">actionSummary_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="actionSummary_lastModifiedTime"><span class="annot"><span class="annottext">actionSummary_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ActionSummary -&gt; f ActionSummary
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#actionSummary_lastModifiedTime"><span class="hs-identifier hs-var hs-var">actionSummary_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionSummary -&gt; Maybe POSIX)
+-&gt; (ActionSummary -&gt; Maybe POSIX -&gt; ActionSummary)
+-&gt; Lens ActionSummary ActionSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-type">ActionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680286803"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedTime :: Maybe POSIX
+$sel:lastModifiedTime:ActionSummary' :: ActionSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621680286803"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680286803"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680286802"><span class="annot"><span class="annottext">s :: ActionSummary
+</span><a href="#local-6989586621680286802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-type">ActionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680286801"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680286801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionSummary
+</span><a href="#local-6989586621680286802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:ActionSummary' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#%24sel%3AlastModifiedTime%3AActionSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680286801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ActionSummary -&gt; f ActionSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ActionSummary
+-&gt; f ActionSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680286798"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621680286796"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ActionSummary)
+-&gt; Value
+-&gt; Parser ActionSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ActionSummary&quot;</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680286793"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680286793"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe ActionStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ActionSource
+-&gt; Maybe POSIX
+-&gt; ActionSummary
+</span><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary%27"><span class="hs-identifier hs-var">ActionSummary'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe ActionStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ActionSource
+ -&gt; Maybe POSIX
+ -&gt; ActionSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ActionStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ActionSource
+      -&gt; Maybe POSIX
+      -&gt; ActionSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680286793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ActionStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ActionSource
+   -&gt; Maybe POSIX
+   -&gt; ActionSummary)
+-&gt; Parser (Maybe ActionStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ActionSource
+      -&gt; Maybe POSIX
+      -&gt; ActionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680286793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ActionStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ActionSource
+   -&gt; Maybe POSIX
+   -&gt; ActionSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ActionSource
+      -&gt; Maybe POSIX
+      -&gt; ActionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680286793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ActionSource
+   -&gt; Maybe POSIX
+   -&gt; ActionSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe ActionSource -&gt; Maybe POSIX -&gt; ActionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680286793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe ActionSource -&gt; Maybe POSIX -&gt; ActionSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ActionSource -&gt; Maybe POSIX -&gt; ActionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680286793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ActionSource -&gt; Maybe POSIX -&gt; ActionSummary)
+-&gt; Parser (Maybe ActionSource)
+-&gt; Parser (Maybe POSIX -&gt; ActionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680286793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ActionSource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Source&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; ActionSummary)
+-&gt; Parser (Maybe POSIX) -&gt; Parser ActionSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680286793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680286787"><span id="local-6989586621680286789"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680286784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ActionSummary.html#ActionSummary"><span class="hs-identifier hs-type">ActionSummary</span></a></span></span><span>
+</span><span id="line-132"></span></pre></body></html>

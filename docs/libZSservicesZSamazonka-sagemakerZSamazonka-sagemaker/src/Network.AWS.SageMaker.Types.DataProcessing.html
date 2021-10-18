@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.DataProcessing</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.DataProcessing</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.JoinSource.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.JoinSource</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The data structure used to specify the data to be used for inference in</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- a batch transform job and to associate the data that is relevant to the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- prediction results in the output. The input filter provided allows you</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- to exclude input data that is not needed for inference in a batch</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- transform job. The output filter provided allows you to include input</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- data relevant to interpreting the predictions in the output from the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- job. For more information, see</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html Associate Prediction Results with their Corresponding Input Records&gt;.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newDataProcessing' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621680310940"><span id="local-6989586621680310941"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataProcessing"><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing"><span class="hs-identifier hs-var">DataProcessing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataProcessing%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing%27"><span class="hs-identifier hs-var">DataProcessing'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators JSONPath&gt;</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- expression used to select a portion of the joined dataset to save in the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- output file for a batch transform job. If you want Amazon SageMaker to</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- store the entire input dataset in the output file, leave the default</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- value, @$@. If you specify indexes that aren\'t within the dimension</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- size of the joined dataset, you get an error.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- Examples: @\&quot;$\&quot;@, @\&quot;$[0,5:]\&quot;@, @\&quot;$[\'id\',\'SageMakerOutput\']\&quot;@</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AoutputFilter%3ADataProcessing%27"><span class="annot"><span class="annottext">DataProcessing -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DataProcessing.html#%24sel%3AoutputFilter%3ADataProcessing%27"><span class="hs-identifier hs-var hs-var">outputFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Specifies the source of the data to join with the transformed data. The</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- valid values are @None@ and @Input@. The default value is @None@, which</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- specifies not to join the input with the transformed data. If you want</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- the batch transform job to join the original input data with the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- transformed data, set @JoinSource@ to @Input@. You can specify</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @OutputFilter@ as an additional filter to select a portion of the joined</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- dataset and store it in the output file.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- For JSON or JSONLines objects, such as a JSON array, Amazon SageMaker</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- adds the transformed data to the input JSON object in an attribute</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- called @SageMakerOutput@. The joined result for JSON must be a key-value</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- pair object. If the input is not a key-value pair object, Amazon</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- SageMaker creates a new JSON file. In the new JSON file, and the input</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- data is stored under the @SageMakerInput@ key and the results are stored</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- in @SageMakerOutput@.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- For CSV data, Amazon SageMaker takes each row as a JSON array and joins</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the transformed data with the input by appending each transformed row to</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- the end of the input. The joined data has the original input data</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- followed by the transformed data and the output is a CSV file.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- For information on how joining in applied, see</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow Workflow for Associating Inferences with Input Records&gt;.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AjoinSource%3ADataProcessing%27"><span class="annot"><span class="annottext">DataProcessing -&gt; Maybe JoinSource
+</span><a href="Network.AWS.SageMaker.Types.DataProcessing.html#%24sel%3AjoinSource%3ADataProcessing%27"><span class="hs-identifier hs-var hs-var">joinSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.JoinSource.html#JoinSource"><span class="hs-identifier hs-type">JoinSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | A</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators JSONPath&gt;</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- expression used to select a portion of the input data to pass to the</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- algorithm. Use the @InputFilter@ parameter to exclude fields, such as an</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- ID column, from the input. If you want Amazon SageMaker to pass the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- entire input dataset to the algorithm, accept the default value @$@.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- Examples: @\&quot;$\&quot;@, @\&quot;$[1:]\&quot;@, @\&quot;$.features\&quot;@</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AinputFilter%3ADataProcessing%27"><span class="annot"><span class="annottext">DataProcessing -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DataProcessing.html#%24sel%3AinputFilter%3ADataProcessing%27"><span class="hs-identifier hs-var hs-var">inputFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680310932"><span id="local-6989586621680310934"><span class="annot"><span class="annottext">DataProcessing -&gt; DataProcessing -&gt; Bool
+(DataProcessing -&gt; DataProcessing -&gt; Bool)
+-&gt; (DataProcessing -&gt; DataProcessing -&gt; Bool) -&gt; Eq DataProcessing
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataProcessing -&gt; DataProcessing -&gt; Bool
+$c/= :: DataProcessing -&gt; DataProcessing -&gt; Bool
+== :: DataProcessing -&gt; DataProcessing -&gt; Bool
+$c== :: DataProcessing -&gt; DataProcessing -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680310923"><span id="local-6989586621680310925"><span id="local-6989586621680310927"><span id="local-6989586621680310929"><span class="annot"><span class="annottext">ReadPrec [DataProcessing]
+ReadPrec DataProcessing
+Int -&gt; ReadS DataProcessing
+ReadS [DataProcessing]
+(Int -&gt; ReadS DataProcessing)
+-&gt; ReadS [DataProcessing]
+-&gt; ReadPrec DataProcessing
+-&gt; ReadPrec [DataProcessing]
+-&gt; Read DataProcessing
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataProcessing]
+$creadListPrec :: ReadPrec [DataProcessing]
+readPrec :: ReadPrec DataProcessing
+$creadPrec :: ReadPrec DataProcessing
+readList :: ReadS [DataProcessing]
+$creadList :: ReadS [DataProcessing]
+readsPrec :: Int -&gt; ReadS DataProcessing
+$creadsPrec :: Int -&gt; ReadS DataProcessing
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680310916"><span id="local-6989586621680310918"><span id="local-6989586621680310920"><span class="annot"><span class="annottext">Int -&gt; DataProcessing -&gt; ShowS
+[DataProcessing] -&gt; ShowS
+DataProcessing -&gt; String
+(Int -&gt; DataProcessing -&gt; ShowS)
+-&gt; (DataProcessing -&gt; String)
+-&gt; ([DataProcessing] -&gt; ShowS)
+-&gt; Show DataProcessing
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataProcessing] -&gt; ShowS
+$cshowList :: [DataProcessing] -&gt; ShowS
+show :: DataProcessing -&gt; String
+$cshow :: DataProcessing -&gt; String
+showsPrec :: Int -&gt; DataProcessing -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataProcessing -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DataProcessing -&gt; Rep DataProcessing x)
+-&gt; (forall x. Rep DataProcessing x -&gt; DataProcessing)
+-&gt; Generic DataProcessing
+forall x. Rep DataProcessing x -&gt; DataProcessing
+forall x. DataProcessing -&gt; Rep DataProcessing x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DataProcessing x -&gt; DataProcessing
+$cfrom :: forall x. DataProcessing -&gt; Rep DataProcessing x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'DataProcessing' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'outputFilter', 'dataProcessing_outputFilter' - A</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators JSONPath&gt;</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- expression used to select a portion of the joined dataset to save in the</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- output file for a batch transform job. If you want Amazon SageMaker to</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- store the entire input dataset in the output file, leave the default</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- value, @$@. If you specify indexes that aren\'t within the dimension</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- size of the joined dataset, you get an error.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Examples: @\&quot;$\&quot;@, @\&quot;$[0,5:]\&quot;@, @\&quot;$[\'id\',\'SageMakerOutput\']\&quot;@</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'joinSource', 'dataProcessing_joinSource' - Specifies the source of the data to join with the transformed data. The</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- valid values are @None@ and @Input@. The default value is @None@, which</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- specifies not to join the input with the transformed data. If you want</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- the batch transform job to join the original input data with the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- transformed data, set @JoinSource@ to @Input@. You can specify</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- @OutputFilter@ as an additional filter to select a portion of the joined</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- dataset and store it in the output file.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- For JSON or JSONLines objects, such as a JSON array, Amazon SageMaker</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- adds the transformed data to the input JSON object in an attribute</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- called @SageMakerOutput@. The joined result for JSON must be a key-value</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- pair object. If the input is not a key-value pair object, Amazon</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- SageMaker creates a new JSON file. In the new JSON file, and the input</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- data is stored under the @SageMakerInput@ key and the results are stored</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- in @SageMakerOutput@.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- For CSV data, Amazon SageMaker takes each row as a JSON array and joins</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- the transformed data with the input by appending each transformed row to</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- the end of the input. The joined data has the original input data</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- followed by the transformed data and the output is a CSV file.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- For information on how joining in applied, see</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow Workflow for Associating Inferences with Input Records&gt;.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'inputFilter', 'dataProcessing_inputFilter' - A</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators JSONPath&gt;</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- expression used to select a portion of the input data to pass to the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- algorithm. Use the @InputFilter@ parameter to exclude fields, such as an</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- ID column, from the input. If you want Amazon SageMaker to pass the</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- entire input dataset to the algorithm, accept the default value @$@.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Examples: @\&quot;$\&quot;@, @\&quot;$[1:]\&quot;@, @\&quot;$.features\&quot;@</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#newDataProcessing"><span class="hs-identifier hs-type">newDataProcessing</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing"><span class="hs-identifier hs-type">DataProcessing</span></a></span><span>
+</span><span id="line-136"></span><span id="newDataProcessing"><span class="annot"><span class="annottext">newDataProcessing :: DataProcessing
+</span><a href="Network.AWS.SageMaker.Types.DataProcessing.html#newDataProcessing"><span class="hs-identifier hs-var hs-var">newDataProcessing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">DataProcessing' :: Maybe Text -&gt; Maybe JoinSource -&gt; Maybe Text -&gt; DataProcessing
+</span><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing%27"><span class="hs-identifier hs-type">DataProcessing'</span></a></span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:outputFilter:DataProcessing' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DataProcessing.html#%24sel%3AoutputFilter%3ADataProcessing%27"><span class="hs-identifier hs-var">outputFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:joinSource:DataProcessing' :: Maybe JoinSource
+</span><a href="Network.AWS.SageMaker.Types.DataProcessing.html#%24sel%3AjoinSource%3ADataProcessing%27"><span class="hs-identifier hs-var">joinSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JoinSource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputFilter:DataProcessing' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DataProcessing.html#%24sel%3AinputFilter%3ADataProcessing%27"><span class="hs-identifier hs-var">inputFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | A</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators JSONPath&gt;</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- expression used to select a portion of the joined dataset to save in the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- output file for a batch transform job. If you want Amazon SageMaker to</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- store the entire input dataset in the output file, leave the default</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- value, @$@. If you specify indexes that aren\'t within the dimension</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- size of the joined dataset, you get an error.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Examples: @\&quot;$\&quot;@, @\&quot;$[0,5:]\&quot;@, @\&quot;$[\'id\',\'SageMakerOutput\']\&quot;@</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#dataProcessing_outputFilter"><span class="hs-identifier hs-type">dataProcessing_outputFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing"><span class="hs-identifier hs-type">DataProcessing</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="dataProcessing_outputFilter"><span class="annot"><span class="annottext">dataProcessing_outputFilter :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DataProcessing -&gt; f DataProcessing
+</span><a href="Network.AWS.SageMaker.Types.DataProcessing.html#dataProcessing_outputFilter"><span class="hs-identifier hs-var hs-var">dataProcessing_outputFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataProcessing -&gt; Maybe Text)
+-&gt; (DataProcessing -&gt; Maybe Text -&gt; DataProcessing)
+-&gt; Lens DataProcessing DataProcessing (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing%27"><span class="hs-identifier hs-type">DataProcessing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310907"><span class="annot"><span class="annottext">Maybe Text
+outputFilter :: Maybe Text
+$sel:outputFilter:DataProcessing' :: DataProcessing -&gt; Maybe Text
+</span><a href="#local-6989586621680310907"><span class="hs-identifier hs-var hs-var">outputFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680310907"><span class="hs-identifier hs-var">outputFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310906"><span class="annot"><span class="annottext">s :: DataProcessing
+</span><a href="#local-6989586621680310906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing%27"><span class="hs-identifier hs-type">DataProcessing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310905"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680310905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataProcessing
+</span><a href="#local-6989586621680310906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputFilter:DataProcessing' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DataProcessing.html#%24sel%3AoutputFilter%3ADataProcessing%27"><span class="hs-identifier hs-var">outputFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680310905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing"><span class="hs-identifier hs-type">DataProcessing</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | Specifies the source of the data to join with the transformed data. The</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- valid values are @None@ and @Input@. The default value is @None@, which</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- specifies not to join the input with the transformed data. If you want</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- the batch transform job to join the original input data with the</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- transformed data, set @JoinSource@ to @Input@. You can specify</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- @OutputFilter@ as an additional filter to select a portion of the joined</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- dataset and store it in the output file.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- For JSON or JSONLines objects, such as a JSON array, Amazon SageMaker</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- adds the transformed data to the input JSON object in an attribute</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- called @SageMakerOutput@. The joined result for JSON must be a key-value</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- pair object. If the input is not a key-value pair object, Amazon</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- SageMaker creates a new JSON file. In the new JSON file, and the input</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- data is stored under the @SageMakerInput@ key and the results are stored</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- in @SageMakerOutput@.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- For CSV data, Amazon SageMaker takes each row as a JSON array and joins</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- the transformed data with the input by appending each transformed row to</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- the end of the input. The joined data has the original input data</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- followed by the transformed data and the output is a CSV file.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- For information on how joining in applied, see</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow Workflow for Associating Inferences with Input Records&gt;.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#dataProcessing_joinSource"><span class="hs-identifier hs-type">dataProcessing_joinSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing"><span class="hs-identifier hs-type">DataProcessing</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.JoinSource.html#JoinSource"><span class="hs-identifier hs-type">JoinSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="dataProcessing_joinSource"><span class="annot"><span class="annottext">dataProcessing_joinSource :: (Maybe JoinSource -&gt; f (Maybe JoinSource))
+-&gt; DataProcessing -&gt; f DataProcessing
+</span><a href="Network.AWS.SageMaker.Types.DataProcessing.html#dataProcessing_joinSource"><span class="hs-identifier hs-var hs-var">dataProcessing_joinSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataProcessing -&gt; Maybe JoinSource)
+-&gt; (DataProcessing -&gt; Maybe JoinSource -&gt; DataProcessing)
+-&gt; Lens
+     DataProcessing DataProcessing (Maybe JoinSource) (Maybe JoinSource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing%27"><span class="hs-identifier hs-type">DataProcessing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310903"><span class="annot"><span class="annottext">Maybe JoinSource
+joinSource :: Maybe JoinSource
+$sel:joinSource:DataProcessing' :: DataProcessing -&gt; Maybe JoinSource
+</span><a href="#local-6989586621680310903"><span class="hs-identifier hs-var hs-var">joinSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JoinSource
+</span><a href="#local-6989586621680310903"><span class="hs-identifier hs-var">joinSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310902"><span class="annot"><span class="annottext">s :: DataProcessing
+</span><a href="#local-6989586621680310902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing%27"><span class="hs-identifier hs-type">DataProcessing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310901"><span class="annot"><span class="annottext">Maybe JoinSource
+</span><a href="#local-6989586621680310901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataProcessing
+</span><a href="#local-6989586621680310902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:joinSource:DataProcessing' :: Maybe JoinSource
+</span><a href="Network.AWS.SageMaker.Types.DataProcessing.html#%24sel%3AjoinSource%3ADataProcessing%27"><span class="hs-identifier hs-var">joinSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JoinSource
+</span><a href="#local-6989586621680310901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing"><span class="hs-identifier hs-type">DataProcessing</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | A</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators JSONPath&gt;</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- expression used to select a portion of the input data to pass to the</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- algorithm. Use the @InputFilter@ parameter to exclude fields, such as an</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- ID column, from the input. If you want Amazon SageMaker to pass the</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- entire input dataset to the algorithm, accept the default value @$@.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Examples: @\&quot;$\&quot;@, @\&quot;$[1:]\&quot;@, @\&quot;$.features\&quot;@</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#dataProcessing_inputFilter"><span class="hs-identifier hs-type">dataProcessing_inputFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing"><span class="hs-identifier hs-type">DataProcessing</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="dataProcessing_inputFilter"><span class="annot"><span class="annottext">dataProcessing_inputFilter :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DataProcessing -&gt; f DataProcessing
+</span><a href="Network.AWS.SageMaker.Types.DataProcessing.html#dataProcessing_inputFilter"><span class="hs-identifier hs-var hs-var">dataProcessing_inputFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataProcessing -&gt; Maybe Text)
+-&gt; (DataProcessing -&gt; Maybe Text -&gt; DataProcessing)
+-&gt; Lens DataProcessing DataProcessing (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing%27"><span class="hs-identifier hs-type">DataProcessing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310899"><span class="annot"><span class="annottext">Maybe Text
+inputFilter :: Maybe Text
+$sel:inputFilter:DataProcessing' :: DataProcessing -&gt; Maybe Text
+</span><a href="#local-6989586621680310899"><span class="hs-identifier hs-var hs-var">inputFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680310899"><span class="hs-identifier hs-var">inputFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310898"><span class="annot"><span class="annottext">s :: DataProcessing
+</span><a href="#local-6989586621680310898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing%27"><span class="hs-identifier hs-type">DataProcessing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310897"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680310897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataProcessing
+</span><a href="#local-6989586621680310898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputFilter:DataProcessing' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DataProcessing.html#%24sel%3AinputFilter%3ADataProcessing%27"><span class="hs-identifier hs-var">inputFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680310897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing"><span class="hs-identifier hs-type">DataProcessing</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680310894"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing"><span class="hs-identifier hs-type">DataProcessing</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621680310892"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataProcessing
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DataProcessing)
+-&gt; Value
+-&gt; Parser DataProcessing
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DataProcessing&quot;</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680310889"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680310889"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe JoinSource -&gt; Maybe Text -&gt; DataProcessing
+</span><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing%27"><span class="hs-identifier hs-var">DataProcessing'</span></a></span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe JoinSource -&gt; Maybe Text -&gt; DataProcessing)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe JoinSource -&gt; Maybe Text -&gt; DataProcessing)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680310889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputFilter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe JoinSource -&gt; Maybe Text -&gt; DataProcessing)
+-&gt; Parser (Maybe JoinSource)
+-&gt; Parser (Maybe Text -&gt; DataProcessing)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680310889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JoinSource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JoinSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DataProcessing)
+-&gt; Parser (Maybe Text) -&gt; Parser DataProcessing
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680310889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputFilter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680310883"><span id="local-6989586621680310885"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing"><span class="hs-identifier hs-type">DataProcessing</span></a></span></span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680310880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing"><span class="hs-identifier hs-type">DataProcessing</span></a></span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680310872"><span id="local-6989586621680310874"><span id="local-6989586621680310876"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing"><span class="hs-identifier hs-type">DataProcessing</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621680310870"><span class="annot"><span class="annottext">toJSON :: DataProcessing -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataProcessing.html#DataProcessing%27"><span class="hs-identifier hs-type">DataProcessing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310866"><span id="local-6989586621680310867"><span id="local-6989586621680310868"><span class="annot"><span class="annottext">Maybe Text
+Maybe JoinSource
+inputFilter :: Maybe Text
+joinSource :: Maybe JoinSource
+outputFilter :: Maybe Text
+$sel:inputFilter:DataProcessing' :: DataProcessing -&gt; Maybe Text
+$sel:joinSource:DataProcessing' :: DataProcessing -&gt; Maybe JoinSource
+$sel:outputFilter:DataProcessing' :: DataProcessing -&gt; Maybe Text
+</span><a href="#local-6989586621680310866"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-211"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680310868"><span class="hs-identifier hs-var">outputFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JoinSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JoinSource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(JoinSource -&gt; Pair) -&gt; Maybe JoinSource -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JoinSource
+</span><a href="#local-6989586621680310867"><span class="hs-identifier hs-var">joinSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680310866"><span class="hs-identifier hs-var">inputFilter</span></a></span><span>
+</span><span id="line-214"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span></pre></body></html>

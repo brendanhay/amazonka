@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.Types.PercentPair</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.Types.PercentPair</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Describes the percentile and percentile value.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPercentPair' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679791050"><span id="local-6989586621679791051"></span></span><span class="hs-keyword">data</span><span> </span><span id="PercentPair"><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair"><span class="hs-identifier hs-var">PercentPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PercentPair%27"><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair%27"><span class="hs-identifier hs-var">PercentPair'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The percentile.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Apercent%3APercentPair%27"><span class="annot"><span class="annottext">PercentPair -&gt; Maybe Double
+</span><a href="Network.AWS.IoT.Types.PercentPair.html#%24sel%3Apercent%3APercentPair%27"><span class="hs-identifier hs-var hs-var">percent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The value of the percentile.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Avalue%3APercentPair%27"><span class="annot"><span class="annottext">PercentPair -&gt; Maybe Double
+</span><a href="Network.AWS.IoT.Types.PercentPair.html#%24sel%3Avalue%3APercentPair%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791043"><span id="local-6989586621679791045"><span class="annot"><span class="annottext">PercentPair -&gt; PercentPair -&gt; Bool
+(PercentPair -&gt; PercentPair -&gt; Bool)
+-&gt; (PercentPair -&gt; PercentPair -&gt; Bool) -&gt; Eq PercentPair
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PercentPair -&gt; PercentPair -&gt; Bool
+$c/= :: PercentPair -&gt; PercentPair -&gt; Bool
+== :: PercentPair -&gt; PercentPair -&gt; Bool
+$c== :: PercentPair -&gt; PercentPair -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791034"><span id="local-6989586621679791036"><span id="local-6989586621679791038"><span id="local-6989586621679791040"><span class="annot"><span class="annottext">ReadPrec [PercentPair]
+ReadPrec PercentPair
+Int -&gt; ReadS PercentPair
+ReadS [PercentPair]
+(Int -&gt; ReadS PercentPair)
+-&gt; ReadS [PercentPair]
+-&gt; ReadPrec PercentPair
+-&gt; ReadPrec [PercentPair]
+-&gt; Read PercentPair
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PercentPair]
+$creadListPrec :: ReadPrec [PercentPair]
+readPrec :: ReadPrec PercentPair
+$creadPrec :: ReadPrec PercentPair
+readList :: ReadS [PercentPair]
+$creadList :: ReadS [PercentPair]
+readsPrec :: Int -&gt; ReadS PercentPair
+$creadsPrec :: Int -&gt; ReadS PercentPair
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791027"><span id="local-6989586621679791029"><span id="local-6989586621679791031"><span class="annot"><span class="annottext">Int -&gt; PercentPair -&gt; ShowS
+[PercentPair] -&gt; ShowS
+PercentPair -&gt; String
+(Int -&gt; PercentPair -&gt; ShowS)
+-&gt; (PercentPair -&gt; String)
+-&gt; ([PercentPair] -&gt; ShowS)
+-&gt; Show PercentPair
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PercentPair] -&gt; ShowS
+$cshowList :: [PercentPair] -&gt; ShowS
+show :: PercentPair -&gt; String
+$cshow :: PercentPair -&gt; String
+showsPrec :: Int -&gt; PercentPair -&gt; ShowS
+$cshowsPrec :: Int -&gt; PercentPair -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PercentPair -&gt; Rep PercentPair x)
+-&gt; (forall x. Rep PercentPair x -&gt; PercentPair)
+-&gt; Generic PercentPair
+forall x. Rep PercentPair x -&gt; PercentPair
+forall x. PercentPair -&gt; Rep PercentPair x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PercentPair x -&gt; PercentPair
+$cfrom :: forall x. PercentPair -&gt; Rep PercentPair x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'PercentPair' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'percent', 'percentPair_percent' - The percentile.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'value', 'percentPair_value' - The value of the percentile.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#newPercentPair"><span class="hs-identifier hs-type">newPercentPair</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair"><span class="hs-identifier hs-type">PercentPair</span></a></span><span>
+</span><span id="line-50"></span><span id="newPercentPair"><span class="annot"><span class="annottext">newPercentPair :: PercentPair
+</span><a href="Network.AWS.IoT.Types.PercentPair.html#newPercentPair"><span class="hs-identifier hs-var hs-var">newPercentPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">PercentPair' :: Maybe Double -&gt; Maybe Double -&gt; PercentPair
+</span><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair%27"><span class="hs-identifier hs-type">PercentPair'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:percent:PercentPair' :: Maybe Double
+</span><a href="Network.AWS.IoT.Types.PercentPair.html#%24sel%3Apercent%3APercentPair%27"><span class="hs-identifier hs-var">percent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:PercentPair' :: Maybe Double
+</span><a href="Network.AWS.IoT.Types.PercentPair.html#%24sel%3Avalue%3APercentPair%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | The percentile.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#percentPair_percent"><span class="hs-identifier hs-type">percentPair_percent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair"><span class="hs-identifier hs-type">PercentPair</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="percentPair_percent"><span class="annot"><span class="annottext">percentPair_percent :: (Maybe Double -&gt; f (Maybe Double)) -&gt; PercentPair -&gt; f PercentPair
+</span><a href="Network.AWS.IoT.Types.PercentPair.html#percentPair_percent"><span class="hs-identifier hs-var hs-var">percentPair_percent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PercentPair -&gt; Maybe Double)
+-&gt; (PercentPair -&gt; Maybe Double -&gt; PercentPair)
+-&gt; Lens PercentPair PercentPair (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair%27"><span class="hs-identifier hs-type">PercentPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791018"><span class="annot"><span class="annottext">Maybe Double
+percent :: Maybe Double
+$sel:percent:PercentPair' :: PercentPair -&gt; Maybe Double
+</span><a href="#local-6989586621679791018"><span class="hs-identifier hs-var hs-var">percent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679791018"><span class="hs-identifier hs-var">percent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791017"><span class="annot"><span class="annottext">s :: PercentPair
+</span><a href="#local-6989586621679791017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair%27"><span class="hs-identifier hs-type">PercentPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791016"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679791016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PercentPair
+</span><a href="#local-6989586621679791017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percent:PercentPair' :: Maybe Double
+</span><a href="Network.AWS.IoT.Types.PercentPair.html#%24sel%3Apercent%3APercentPair%27"><span class="hs-identifier hs-var">percent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679791016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair"><span class="hs-identifier hs-type">PercentPair</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The value of the percentile.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#percentPair_value"><span class="hs-identifier hs-type">percentPair_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair"><span class="hs-identifier hs-type">PercentPair</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="percentPair_value"><span class="annot"><span class="annottext">percentPair_value :: (Maybe Double -&gt; f (Maybe Double)) -&gt; PercentPair -&gt; f PercentPair
+</span><a href="Network.AWS.IoT.Types.PercentPair.html#percentPair_value"><span class="hs-identifier hs-var hs-var">percentPair_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PercentPair -&gt; Maybe Double)
+-&gt; (PercentPair -&gt; Maybe Double -&gt; PercentPair)
+-&gt; Lens PercentPair PercentPair (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair%27"><span class="hs-identifier hs-type">PercentPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791014"><span class="annot"><span class="annottext">Maybe Double
+value :: Maybe Double
+$sel:value:PercentPair' :: PercentPair -&gt; Maybe Double
+</span><a href="#local-6989586621679791014"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679791014"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791013"><span class="annot"><span class="annottext">s :: PercentPair
+</span><a href="#local-6989586621679791013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair%27"><span class="hs-identifier hs-type">PercentPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791012"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679791012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PercentPair
+</span><a href="#local-6989586621679791013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:PercentPair' :: Maybe Double
+</span><a href="Network.AWS.IoT.Types.PercentPair.html#%24sel%3Avalue%3APercentPair%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679791012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair"><span class="hs-identifier hs-type">PercentPair</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791009"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair"><span class="hs-identifier hs-type">PercentPair</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679791007"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PercentPair
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PercentPair) -&gt; Value -&gt; Parser PercentPair
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PercentPair&quot;</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679791004"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679791004"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Double -&gt; PercentPair
+</span><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair%27"><span class="hs-identifier hs-var">PercentPair'</span></a></span><span>
+</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Double -&gt; PercentPair)
+-&gt; Parser (Maybe Double) -&gt; Parser (Maybe Double -&gt; PercentPair)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679791004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;percent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; PercentPair)
+-&gt; Parser (Maybe Double) -&gt; Parser PercentPair
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679791004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790998"><span id="local-6989586621679791000"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair"><span class="hs-identifier hs-type">PercentPair</span></a></span></span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790995"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair"><span class="hs-identifier hs-type">PercentPair</span></a></span></span><span>
+</span><span id="line-77"></span></pre></body></html>

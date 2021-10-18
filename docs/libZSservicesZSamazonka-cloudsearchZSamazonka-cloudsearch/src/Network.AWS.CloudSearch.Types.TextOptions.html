@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudSearch.Types.TextOptions</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudSearch.Types.TextOptions</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Options for text field. Present if @IndexFieldType@ specifies the field</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- is of type @text@. A @text@ field is always searchable. All options are</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- enabled by default.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTextOptions' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679210734"><span id="local-6989586621679210735"></span></span><span class="hs-keyword">data</span><span> </span><span id="TextOptions"><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-var">TextOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TextOptions%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions%27"><span class="hs-identifier hs-var">TextOptions'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether the field can be used to sort the search results.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsortEnabled%3ATextOptions%27"><span class="annot"><span class="annottext">TextOptions -&gt; Maybe Bool
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AsortEnabled%3ATextOptions%27"><span class="hs-identifier hs-var hs-var">sortEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of an analysis scheme for a @text@ field.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AanalysisScheme%3ATextOptions%27"><span class="annot"><span class="annottext">TextOptions -&gt; Maybe Text
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AanalysisScheme%3ATextOptions%27"><span class="hs-identifier hs-var hs-var">analysisScheme</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Whether the contents of the field can be returned in the search results.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AreturnEnabled%3ATextOptions%27"><span class="annot"><span class="annottext">TextOptions -&gt; Maybe Bool
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AreturnEnabled%3ATextOptions%27"><span class="hs-identifier hs-var hs-var">returnEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsourceField%3ATextOptions%27"><span class="annot"><span class="annottext">TextOptions -&gt; Maybe Text
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AsourceField%3ATextOptions%27"><span class="hs-identifier hs-var hs-var">sourceField</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A value to use for the field if the field isn\'t specified for a</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- document.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdefaultValue%3ATextOptions%27"><span class="annot"><span class="annottext">TextOptions -&gt; Maybe Text
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AdefaultValue%3ATextOptions%27"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Whether highlights can be returned for the field.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AhighlightEnabled%3ATextOptions%27"><span class="annot"><span class="annottext">TextOptions -&gt; Maybe Bool
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AhighlightEnabled%3ATextOptions%27"><span class="hs-identifier hs-var hs-var">highlightEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210723"><span id="local-6989586621679210725"><span class="annot"><span class="annottext">TextOptions -&gt; TextOptions -&gt; Bool
+(TextOptions -&gt; TextOptions -&gt; Bool)
+-&gt; (TextOptions -&gt; TextOptions -&gt; Bool) -&gt; Eq TextOptions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TextOptions -&gt; TextOptions -&gt; Bool
+$c/= :: TextOptions -&gt; TextOptions -&gt; Bool
+== :: TextOptions -&gt; TextOptions -&gt; Bool
+$c== :: TextOptions -&gt; TextOptions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210714"><span id="local-6989586621679210716"><span id="local-6989586621679210718"><span id="local-6989586621679210720"><span class="annot"><span class="annottext">ReadPrec [TextOptions]
+ReadPrec TextOptions
+Int -&gt; ReadS TextOptions
+ReadS [TextOptions]
+(Int -&gt; ReadS TextOptions)
+-&gt; ReadS [TextOptions]
+-&gt; ReadPrec TextOptions
+-&gt; ReadPrec [TextOptions]
+-&gt; Read TextOptions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TextOptions]
+$creadListPrec :: ReadPrec [TextOptions]
+readPrec :: ReadPrec TextOptions
+$creadPrec :: ReadPrec TextOptions
+readList :: ReadS [TextOptions]
+$creadList :: ReadS [TextOptions]
+readsPrec :: Int -&gt; ReadS TextOptions
+$creadsPrec :: Int -&gt; ReadS TextOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210707"><span id="local-6989586621679210709"><span id="local-6989586621679210711"><span class="annot"><span class="annottext">Int -&gt; TextOptions -&gt; ShowS
+[TextOptions] -&gt; ShowS
+TextOptions -&gt; String
+(Int -&gt; TextOptions -&gt; ShowS)
+-&gt; (TextOptions -&gt; String)
+-&gt; ([TextOptions] -&gt; ShowS)
+-&gt; Show TextOptions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TextOptions] -&gt; ShowS
+$cshowList :: [TextOptions] -&gt; ShowS
+show :: TextOptions -&gt; String
+$cshow :: TextOptions -&gt; String
+showsPrec :: Int -&gt; TextOptions -&gt; ShowS
+$cshowsPrec :: Int -&gt; TextOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TextOptions -&gt; Rep TextOptions x)
+-&gt; (forall x. Rep TextOptions x -&gt; TextOptions)
+-&gt; Generic TextOptions
+forall x. Rep TextOptions x -&gt; TextOptions
+forall x. TextOptions -&gt; Rep TextOptions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TextOptions x -&gt; TextOptions
+$cfrom :: forall x. TextOptions -&gt; Rep TextOptions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'TextOptions' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'sortEnabled', 'textOptions_sortEnabled' - Whether the field can be used to sort the search results.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'analysisScheme', 'textOptions_analysisScheme' - The name of an analysis scheme for a @text@ field.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'returnEnabled', 'textOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'sourceField', 'textOptions_sourceField' - Undocumented member.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'defaultValue', 'textOptions_defaultValue' - A value to use for the field if the field isn\'t specified for a</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- document.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'highlightEnabled', 'textOptions_highlightEnabled' - Whether highlights can be returned for the field.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#newTextOptions"><span class="hs-identifier hs-type">newTextOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span><span>
+</span><span id="line-69"></span><span id="newTextOptions"><span class="annot"><span class="annottext">newTextOptions :: TextOptions
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#newTextOptions"><span class="hs-identifier hs-var hs-var">newTextOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">TextOptions' :: Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; TextOptions
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions%27"><span class="hs-identifier hs-type">TextOptions'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sortEnabled:TextOptions' :: Maybe Bool
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AsortEnabled%3ATextOptions%27"><span class="hs-identifier hs-var">sortEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:analysisScheme:TextOptions' :: Maybe Text
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AanalysisScheme%3ATextOptions%27"><span class="hs-identifier hs-var">analysisScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:returnEnabled:TextOptions' :: Maybe Bool
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AreturnEnabled%3ATextOptions%27"><span class="hs-identifier hs-var">returnEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceField:TextOptions' :: Maybe Text
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AsourceField%3ATextOptions%27"><span class="hs-identifier hs-var">sourceField</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultValue:TextOptions' :: Maybe Text
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AdefaultValue%3ATextOptions%27"><span class="hs-identifier hs-var">defaultValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:highlightEnabled:TextOptions' :: Maybe Bool
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AhighlightEnabled%3ATextOptions%27"><span class="hs-identifier hs-var">highlightEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Whether the field can be used to sort the search results.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#textOptions_sortEnabled"><span class="hs-identifier hs-type">textOptions_sortEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="textOptions_sortEnabled"><span class="annot"><span class="annottext">textOptions_sortEnabled :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; TextOptions -&gt; f TextOptions
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#textOptions_sortEnabled"><span class="hs-identifier hs-var hs-var">textOptions_sortEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TextOptions -&gt; Maybe Bool)
+-&gt; (TextOptions -&gt; Maybe Bool -&gt; TextOptions)
+-&gt; Lens TextOptions TextOptions (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions%27"><span class="hs-identifier hs-type">TextOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210698"><span class="annot"><span class="annottext">Maybe Bool
+sortEnabled :: Maybe Bool
+$sel:sortEnabled:TextOptions' :: TextOptions -&gt; Maybe Bool
+</span><a href="#local-6989586621679210698"><span class="hs-identifier hs-var hs-var">sortEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679210698"><span class="hs-identifier hs-var">sortEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210697"><span class="annot"><span class="annottext">s :: TextOptions
+</span><a href="#local-6989586621679210697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions%27"><span class="hs-identifier hs-type">TextOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210696"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679210696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TextOptions
+</span><a href="#local-6989586621679210697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortEnabled:TextOptions' :: Maybe Bool
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AsortEnabled%3ATextOptions%27"><span class="hs-identifier hs-var">sortEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679210696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The name of an analysis scheme for a @text@ field.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#textOptions_analysisScheme"><span class="hs-identifier hs-type">textOptions_analysisScheme</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="textOptions_analysisScheme"><span class="annot"><span class="annottext">textOptions_analysisScheme :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TextOptions -&gt; f TextOptions
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#textOptions_analysisScheme"><span class="hs-identifier hs-var hs-var">textOptions_analysisScheme</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TextOptions -&gt; Maybe Text)
+-&gt; (TextOptions -&gt; Maybe Text -&gt; TextOptions)
+-&gt; Lens TextOptions TextOptions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions%27"><span class="hs-identifier hs-type">TextOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210694"><span class="annot"><span class="annottext">Maybe Text
+analysisScheme :: Maybe Text
+$sel:analysisScheme:TextOptions' :: TextOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679210694"><span class="hs-identifier hs-var hs-var">analysisScheme</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210694"><span class="hs-identifier hs-var">analysisScheme</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210693"><span class="annot"><span class="annottext">s :: TextOptions
+</span><a href="#local-6989586621679210693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions%27"><span class="hs-identifier hs-type">TextOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210692"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TextOptions
+</span><a href="#local-6989586621679210693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analysisScheme:TextOptions' :: Maybe Text
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AanalysisScheme%3ATextOptions%27"><span class="hs-identifier hs-var">analysisScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Whether the contents of the field can be returned in the search results.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#textOptions_returnEnabled"><span class="hs-identifier hs-type">textOptions_returnEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="textOptions_returnEnabled"><span class="annot"><span class="annottext">textOptions_returnEnabled :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; TextOptions -&gt; f TextOptions
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#textOptions_returnEnabled"><span class="hs-identifier hs-var hs-var">textOptions_returnEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TextOptions -&gt; Maybe Bool)
+-&gt; (TextOptions -&gt; Maybe Bool -&gt; TextOptions)
+-&gt; Lens TextOptions TextOptions (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions%27"><span class="hs-identifier hs-type">TextOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210690"><span class="annot"><span class="annottext">Maybe Bool
+returnEnabled :: Maybe Bool
+$sel:returnEnabled:TextOptions' :: TextOptions -&gt; Maybe Bool
+</span><a href="#local-6989586621679210690"><span class="hs-identifier hs-var hs-var">returnEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679210690"><span class="hs-identifier hs-var">returnEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210689"><span class="annot"><span class="annottext">s :: TextOptions
+</span><a href="#local-6989586621679210689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions%27"><span class="hs-identifier hs-type">TextOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210688"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679210688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TextOptions
+</span><a href="#local-6989586621679210689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnEnabled:TextOptions' :: Maybe Bool
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AreturnEnabled%3ATextOptions%27"><span class="hs-identifier hs-var">returnEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679210688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#textOptions_sourceField"><span class="hs-identifier hs-type">textOptions_sourceField</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="textOptions_sourceField"><span class="annot"><span class="annottext">textOptions_sourceField :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TextOptions -&gt; f TextOptions
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#textOptions_sourceField"><span class="hs-identifier hs-var hs-var">textOptions_sourceField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TextOptions -&gt; Maybe Text)
+-&gt; (TextOptions -&gt; Maybe Text -&gt; TextOptions)
+-&gt; Lens TextOptions TextOptions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions%27"><span class="hs-identifier hs-type">TextOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210686"><span class="annot"><span class="annottext">Maybe Text
+sourceField :: Maybe Text
+$sel:sourceField:TextOptions' :: TextOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679210686"><span class="hs-identifier hs-var hs-var">sourceField</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210686"><span class="hs-identifier hs-var">sourceField</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210685"><span class="annot"><span class="annottext">s :: TextOptions
+</span><a href="#local-6989586621679210685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions%27"><span class="hs-identifier hs-type">TextOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210684"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TextOptions
+</span><a href="#local-6989586621679210685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceField:TextOptions' :: Maybe Text
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AsourceField%3ATextOptions%27"><span class="hs-identifier hs-var">sourceField</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | A value to use for the field if the field isn\'t specified for a</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- document.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#textOptions_defaultValue"><span class="hs-identifier hs-type">textOptions_defaultValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="textOptions_defaultValue"><span class="annot"><span class="annottext">textOptions_defaultValue :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TextOptions -&gt; f TextOptions
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#textOptions_defaultValue"><span class="hs-identifier hs-var hs-var">textOptions_defaultValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TextOptions -&gt; Maybe Text)
+-&gt; (TextOptions -&gt; Maybe Text -&gt; TextOptions)
+-&gt; Lens TextOptions TextOptions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions%27"><span class="hs-identifier hs-type">TextOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210682"><span class="annot"><span class="annottext">Maybe Text
+defaultValue :: Maybe Text
+$sel:defaultValue:TextOptions' :: TextOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679210682"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210682"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210681"><span class="annot"><span class="annottext">s :: TextOptions
+</span><a href="#local-6989586621679210681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions%27"><span class="hs-identifier hs-type">TextOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210680"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TextOptions
+</span><a href="#local-6989586621679210681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValue:TextOptions' :: Maybe Text
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AdefaultValue%3ATextOptions%27"><span class="hs-identifier hs-var">defaultValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Whether highlights can be returned for the field.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#textOptions_highlightEnabled"><span class="hs-identifier hs-type">textOptions_highlightEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="textOptions_highlightEnabled"><span class="annot"><span class="annottext">textOptions_highlightEnabled :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; TextOptions -&gt; f TextOptions
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#textOptions_highlightEnabled"><span class="hs-identifier hs-var hs-var">textOptions_highlightEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TextOptions -&gt; Maybe Bool)
+-&gt; (TextOptions -&gt; Maybe Bool -&gt; TextOptions)
+-&gt; Lens TextOptions TextOptions (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions%27"><span class="hs-identifier hs-type">TextOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210678"><span class="annot"><span class="annottext">Maybe Bool
+highlightEnabled :: Maybe Bool
+$sel:highlightEnabled:TextOptions' :: TextOptions -&gt; Maybe Bool
+</span><a href="#local-6989586621679210678"><span class="hs-identifier hs-var hs-var">highlightEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679210678"><span class="hs-identifier hs-var">highlightEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210677"><span class="annot"><span class="annottext">s :: TextOptions
+</span><a href="#local-6989586621679210677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions%27"><span class="hs-identifier hs-type">TextOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210676"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679210676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TextOptions
+</span><a href="#local-6989586621679210677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:highlightEnabled:TextOptions' :: Maybe Bool
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#%24sel%3AhighlightEnabled%3ATextOptions%27"><span class="hs-identifier hs-var">highlightEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679210676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679210673"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TextOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679210671"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679210671"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; TextOptions
+</span><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions%27"><span class="hs-identifier hs-var">TextOptions'</span></a></span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; TextOptions)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; TextOptions)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679210671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; TextOptions)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; TextOptions)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679210671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnalysisScheme&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; TextOptions)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; TextOptions)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679210671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReturnEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; TextOptions)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Maybe Bool -&gt; TextOptions)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679210671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceField&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Bool -&gt; TextOptions)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Bool -&gt; TextOptions)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679210671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; TextOptions)
+-&gt; Either String (Maybe Bool) -&gt; Either String TextOptions
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679210671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HighlightEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210665"><span id="local-6989586621679210667"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210662"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions"><span class="hs-identifier hs-type">TextOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679210658"><span class="annot"><span class="annottext">toQuery :: TextOptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.TextOptions.html#TextOptions%27"><span class="hs-identifier hs-type">TextOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210651"><span id="local-6989586621679210652"><span id="local-6989586621679210653"><span id="local-6989586621679210654"><span id="local-6989586621679210655"><span id="local-6989586621679210656"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+highlightEnabled :: Maybe Bool
+defaultValue :: Maybe Text
+sourceField :: Maybe Text
+returnEnabled :: Maybe Bool
+analysisScheme :: Maybe Text
+sortEnabled :: Maybe Bool
+$sel:highlightEnabled:TextOptions' :: TextOptions -&gt; Maybe Bool
+$sel:defaultValue:TextOptions' :: TextOptions -&gt; Maybe Text
+$sel:sourceField:TextOptions' :: TextOptions -&gt; Maybe Text
+$sel:returnEnabled:TextOptions' :: TextOptions -&gt; Maybe Bool
+$sel:analysisScheme:TextOptions' :: TextOptions -&gt; Maybe Text
+$sel:sortEnabled:TextOptions' :: TextOptions -&gt; Maybe Bool
+</span><a href="#local-6989586621679210651"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SortEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679210656"><span class="hs-identifier hs-var">sortEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AnalysisScheme&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210655"><span class="hs-identifier hs-var">analysisScheme</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ReturnEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679210654"><span class="hs-identifier hs-var">returnEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SourceField&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210653"><span class="hs-identifier hs-var">sourceField</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DefaultValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210652"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;HighlightEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679210651"><span class="hs-identifier hs-var">highlightEnabled</span></a></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span></pre></body></html>

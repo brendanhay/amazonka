@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.DolbyVision</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.DolbyVision</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVisionLevel6Metadata.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.DolbyVisionLevel6Metadata</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVisionLevel6Mode.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.DolbyVisionLevel6Mode</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVisionProfile.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.DolbyVisionProfile</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | With AWS Elemental MediaConvert, you can create profile 5 Dolby Vision</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- outputs from MXF and IMF sources that contain mastering information as</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- frame-interleaved Dolby Vision metadata.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newDolbyVision' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679951264"><span id="local-6989586621679951265"></span></span><span class="hs-keyword">data</span><span> </span><span id="DolbyVision"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision"><span class="hs-identifier hs-var">DolbyVision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DolbyVision%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision%27"><span class="hs-identifier hs-var">DolbyVision'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use Dolby Vision Mode to choose how the service will handle Dolby Vision</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- MaxCLL and MaxFALL properies.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Al6Mode%3ADolbyVision%27"><span class="annot"><span class="annottext">DolbyVision -&gt; Maybe DolbyVisionLevel6Mode
+</span><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#%24sel%3Al6Mode%3ADolbyVision%27"><span class="hs-identifier hs-var hs-var">l6Mode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVisionLevel6Mode.html#DolbyVisionLevel6Mode"><span class="hs-identifier hs-type">DolbyVisionLevel6Mode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- override the MaxCLL and MaxFALL values in your input with new values.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Al6Metadata%3ADolbyVision%27"><span class="annot"><span class="annottext">DolbyVision -&gt; Maybe DolbyVisionLevel6Metadata
+</span><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#%24sel%3Al6Metadata%3ADolbyVision%27"><span class="hs-identifier hs-var hs-var">l6Metadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVisionLevel6Metadata.html#DolbyVisionLevel6Metadata"><span class="hs-identifier hs-type">DolbyVisionLevel6Metadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | In the current MediaConvert implementation, the Dolby Vision profile is</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Vision frame interleaved data.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aprofile%3ADolbyVision%27"><span class="annot"><span class="annottext">DolbyVision -&gt; Maybe DolbyVisionProfile
+</span><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#%24sel%3Aprofile%3ADolbyVision%27"><span class="hs-identifier hs-var hs-var">profile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVisionProfile.html#DolbyVisionProfile"><span class="hs-identifier hs-type">DolbyVisionProfile</span></a></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679951256"><span id="local-6989586621679951258"><span class="annot"><span class="annottext">DolbyVision -&gt; DolbyVision -&gt; Bool
+(DolbyVision -&gt; DolbyVision -&gt; Bool)
+-&gt; (DolbyVision -&gt; DolbyVision -&gt; Bool) -&gt; Eq DolbyVision
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DolbyVision -&gt; DolbyVision -&gt; Bool
+$c/= :: DolbyVision -&gt; DolbyVision -&gt; Bool
+== :: DolbyVision -&gt; DolbyVision -&gt; Bool
+$c== :: DolbyVision -&gt; DolbyVision -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679951247"><span id="local-6989586621679951249"><span id="local-6989586621679951251"><span id="local-6989586621679951253"><span class="annot"><span class="annottext">ReadPrec [DolbyVision]
+ReadPrec DolbyVision
+Int -&gt; ReadS DolbyVision
+ReadS [DolbyVision]
+(Int -&gt; ReadS DolbyVision)
+-&gt; ReadS [DolbyVision]
+-&gt; ReadPrec DolbyVision
+-&gt; ReadPrec [DolbyVision]
+-&gt; Read DolbyVision
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DolbyVision]
+$creadListPrec :: ReadPrec [DolbyVision]
+readPrec :: ReadPrec DolbyVision
+$creadPrec :: ReadPrec DolbyVision
+readList :: ReadS [DolbyVision]
+$creadList :: ReadS [DolbyVision]
+readsPrec :: Int -&gt; ReadS DolbyVision
+$creadsPrec :: Int -&gt; ReadS DolbyVision
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679951240"><span id="local-6989586621679951242"><span id="local-6989586621679951244"><span class="annot"><span class="annottext">Int -&gt; DolbyVision -&gt; ShowS
+[DolbyVision] -&gt; ShowS
+DolbyVision -&gt; String
+(Int -&gt; DolbyVision -&gt; ShowS)
+-&gt; (DolbyVision -&gt; String)
+-&gt; ([DolbyVision] -&gt; ShowS)
+-&gt; Show DolbyVision
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DolbyVision] -&gt; ShowS
+$cshowList :: [DolbyVision] -&gt; ShowS
+show :: DolbyVision -&gt; String
+$cshow :: DolbyVision -&gt; String
+showsPrec :: Int -&gt; DolbyVision -&gt; ShowS
+$cshowsPrec :: Int -&gt; DolbyVision -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DolbyVision -&gt; Rep DolbyVision x)
+-&gt; (forall x. Rep DolbyVision x -&gt; DolbyVision)
+-&gt; Generic DolbyVision
+forall x. Rep DolbyVision x -&gt; DolbyVision
+forall x. DolbyVision -&gt; Rep DolbyVision x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DolbyVision x -&gt; DolbyVision
+$cfrom :: forall x. DolbyVision -&gt; Rep DolbyVision x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'DolbyVision' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'l6Mode', 'dolbyVision_l6Mode' - Use Dolby Vision Mode to choose how the service will handle Dolby Vision</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- MaxCLL and MaxFALL properies.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'l6Metadata', 'dolbyVision_l6Metadata' - Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- override the MaxCLL and MaxFALL values in your input with new values.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'profile', 'dolbyVision_profile' - In the current MediaConvert implementation, the Dolby Vision profile is</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Vision frame interleaved data.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#newDolbyVision"><span class="hs-identifier hs-type">newDolbyVision</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision"><span class="hs-identifier hs-type">DolbyVision</span></a></span><span>
+</span><span id="line-67"></span><span id="newDolbyVision"><span class="annot"><span class="annottext">newDolbyVision :: DolbyVision
+</span><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#newDolbyVision"><span class="hs-identifier hs-var hs-var">newDolbyVision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">DolbyVision' :: Maybe DolbyVisionLevel6Mode
+-&gt; Maybe DolbyVisionLevel6Metadata
+-&gt; Maybe DolbyVisionProfile
+-&gt; DolbyVision
+</span><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision%27"><span class="hs-identifier hs-type">DolbyVision'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:l6Mode:DolbyVision' :: Maybe DolbyVisionLevel6Mode
+</span><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#%24sel%3Al6Mode%3ADolbyVision%27"><span class="hs-identifier hs-var">l6Mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DolbyVisionLevel6Mode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:l6Metadata:DolbyVision' :: Maybe DolbyVisionLevel6Metadata
+</span><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#%24sel%3Al6Metadata%3ADolbyVision%27"><span class="hs-identifier hs-var">l6Metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DolbyVisionLevel6Metadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:profile:DolbyVision' :: Maybe DolbyVisionProfile
+</span><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#%24sel%3Aprofile%3ADolbyVision%27"><span class="hs-identifier hs-var">profile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DolbyVisionProfile
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | Use Dolby Vision Mode to choose how the service will handle Dolby Vision</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- MaxCLL and MaxFALL properies.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#dolbyVision_l6Mode"><span class="hs-identifier hs-type">dolbyVision_l6Mode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision"><span class="hs-identifier hs-type">DolbyVision</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVisionLevel6Mode.html#DolbyVisionLevel6Mode"><span class="hs-identifier hs-type">DolbyVisionLevel6Mode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="dolbyVision_l6Mode"><span class="annot"><span class="annottext">dolbyVision_l6Mode :: (Maybe DolbyVisionLevel6Mode -&gt; f (Maybe DolbyVisionLevel6Mode))
+-&gt; DolbyVision -&gt; f DolbyVision
+</span><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#dolbyVision_l6Mode"><span class="hs-identifier hs-var hs-var">dolbyVision_l6Mode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DolbyVision -&gt; Maybe DolbyVisionLevel6Mode)
+-&gt; (DolbyVision -&gt; Maybe DolbyVisionLevel6Mode -&gt; DolbyVision)
+-&gt; Lens
+     DolbyVision
+     DolbyVision
+     (Maybe DolbyVisionLevel6Mode)
+     (Maybe DolbyVisionLevel6Mode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision%27"><span class="hs-identifier hs-type">DolbyVision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951231"><span class="annot"><span class="annottext">Maybe DolbyVisionLevel6Mode
+l6Mode :: Maybe DolbyVisionLevel6Mode
+$sel:l6Mode:DolbyVision' :: DolbyVision -&gt; Maybe DolbyVisionLevel6Mode
+</span><a href="#local-6989586621679951231"><span class="hs-identifier hs-var hs-var">l6Mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DolbyVisionLevel6Mode
+</span><a href="#local-6989586621679951231"><span class="hs-identifier hs-var">l6Mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951230"><span class="annot"><span class="annottext">s :: DolbyVision
+</span><a href="#local-6989586621679951230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision%27"><span class="hs-identifier hs-type">DolbyVision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951229"><span class="annot"><span class="annottext">Maybe DolbyVisionLevel6Mode
+</span><a href="#local-6989586621679951229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DolbyVision
+</span><a href="#local-6989586621679951230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:l6Mode:DolbyVision' :: Maybe DolbyVisionLevel6Mode
+</span><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#%24sel%3Al6Mode%3ADolbyVision%27"><span class="hs-identifier hs-var">l6Mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DolbyVisionLevel6Mode
+</span><a href="#local-6989586621679951229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision"><span class="hs-identifier hs-type">DolbyVision</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- override the MaxCLL and MaxFALL values in your input with new values.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#dolbyVision_l6Metadata"><span class="hs-identifier hs-type">dolbyVision_l6Metadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision"><span class="hs-identifier hs-type">DolbyVision</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVisionLevel6Metadata.html#DolbyVisionLevel6Metadata"><span class="hs-identifier hs-type">DolbyVisionLevel6Metadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="dolbyVision_l6Metadata"><span class="annot"><span class="annottext">dolbyVision_l6Metadata :: (Maybe DolbyVisionLevel6Metadata
+ -&gt; f (Maybe DolbyVisionLevel6Metadata))
+-&gt; DolbyVision -&gt; f DolbyVision
+</span><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#dolbyVision_l6Metadata"><span class="hs-identifier hs-var hs-var">dolbyVision_l6Metadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DolbyVision -&gt; Maybe DolbyVisionLevel6Metadata)
+-&gt; (DolbyVision -&gt; Maybe DolbyVisionLevel6Metadata -&gt; DolbyVision)
+-&gt; Lens
+     DolbyVision
+     DolbyVision
+     (Maybe DolbyVisionLevel6Metadata)
+     (Maybe DolbyVisionLevel6Metadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision%27"><span class="hs-identifier hs-type">DolbyVision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951227"><span class="annot"><span class="annottext">Maybe DolbyVisionLevel6Metadata
+l6Metadata :: Maybe DolbyVisionLevel6Metadata
+$sel:l6Metadata:DolbyVision' :: DolbyVision -&gt; Maybe DolbyVisionLevel6Metadata
+</span><a href="#local-6989586621679951227"><span class="hs-identifier hs-var hs-var">l6Metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DolbyVisionLevel6Metadata
+</span><a href="#local-6989586621679951227"><span class="hs-identifier hs-var">l6Metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951226"><span class="annot"><span class="annottext">s :: DolbyVision
+</span><a href="#local-6989586621679951226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision%27"><span class="hs-identifier hs-type">DolbyVision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951225"><span class="annot"><span class="annottext">Maybe DolbyVisionLevel6Metadata
+</span><a href="#local-6989586621679951225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DolbyVision
+</span><a href="#local-6989586621679951226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:l6Metadata:DolbyVision' :: Maybe DolbyVisionLevel6Metadata
+</span><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#%24sel%3Al6Metadata%3ADolbyVision%27"><span class="hs-identifier hs-var">l6Metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DolbyVisionLevel6Metadata
+</span><a href="#local-6989586621679951225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision"><span class="hs-identifier hs-type">DolbyVision</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | In the current MediaConvert implementation, the Dolby Vision profile is</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Vision frame interleaved data.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#dolbyVision_profile"><span class="hs-identifier hs-type">dolbyVision_profile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision"><span class="hs-identifier hs-type">DolbyVision</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVisionProfile.html#DolbyVisionProfile"><span class="hs-identifier hs-type">DolbyVisionProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="dolbyVision_profile"><span class="annot"><span class="annottext">dolbyVision_profile :: (Maybe DolbyVisionProfile -&gt; f (Maybe DolbyVisionProfile))
+-&gt; DolbyVision -&gt; f DolbyVision
+</span><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#dolbyVision_profile"><span class="hs-identifier hs-var hs-var">dolbyVision_profile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DolbyVision -&gt; Maybe DolbyVisionProfile)
+-&gt; (DolbyVision -&gt; Maybe DolbyVisionProfile -&gt; DolbyVision)
+-&gt; Lens
+     DolbyVision
+     DolbyVision
+     (Maybe DolbyVisionProfile)
+     (Maybe DolbyVisionProfile)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision%27"><span class="hs-identifier hs-type">DolbyVision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951223"><span class="annot"><span class="annottext">Maybe DolbyVisionProfile
+profile :: Maybe DolbyVisionProfile
+$sel:profile:DolbyVision' :: DolbyVision -&gt; Maybe DolbyVisionProfile
+</span><a href="#local-6989586621679951223"><span class="hs-identifier hs-var hs-var">profile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DolbyVisionProfile
+</span><a href="#local-6989586621679951223"><span class="hs-identifier hs-var">profile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951222"><span class="annot"><span class="annottext">s :: DolbyVision
+</span><a href="#local-6989586621679951222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision%27"><span class="hs-identifier hs-type">DolbyVision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951221"><span class="annot"><span class="annottext">Maybe DolbyVisionProfile
+</span><a href="#local-6989586621679951221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DolbyVision
+</span><a href="#local-6989586621679951222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profile:DolbyVision' :: Maybe DolbyVisionProfile
+</span><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#%24sel%3Aprofile%3ADolbyVision%27"><span class="hs-identifier hs-var">profile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DolbyVisionProfile
+</span><a href="#local-6989586621679951221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision"><span class="hs-identifier hs-type">DolbyVision</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679951218"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision"><span class="hs-identifier hs-type">DolbyVision</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679951216"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DolbyVision
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DolbyVision) -&gt; Value -&gt; Parser DolbyVision
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DolbyVision&quot;</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679951213"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679951213"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe DolbyVisionLevel6Mode
+-&gt; Maybe DolbyVisionLevel6Metadata
+-&gt; Maybe DolbyVisionProfile
+-&gt; DolbyVision
+</span><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision%27"><span class="hs-identifier hs-var">DolbyVision'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DolbyVisionLevel6Mode
+ -&gt; Maybe DolbyVisionLevel6Metadata
+ -&gt; Maybe DolbyVisionProfile
+ -&gt; DolbyVision)
+-&gt; Parser (Maybe DolbyVisionLevel6Mode)
+-&gt; Parser
+     (Maybe DolbyVisionLevel6Metadata
+      -&gt; Maybe DolbyVisionProfile -&gt; DolbyVision)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679951213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DolbyVisionLevel6Mode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;l6Mode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DolbyVisionLevel6Metadata
+   -&gt; Maybe DolbyVisionProfile -&gt; DolbyVision)
+-&gt; Parser (Maybe DolbyVisionLevel6Metadata)
+-&gt; Parser (Maybe DolbyVisionProfile -&gt; DolbyVision)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679951213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DolbyVisionLevel6Metadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;l6Metadata&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DolbyVisionProfile -&gt; DolbyVision)
+-&gt; Parser (Maybe DolbyVisionProfile) -&gt; Parser DolbyVision
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679951213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DolbyVisionProfile)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;profile&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679951207"><span id="local-6989586621679951209"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision"><span class="hs-identifier hs-type">DolbyVision</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679951204"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision"><span class="hs-identifier hs-type">DolbyVision</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679951196"><span id="local-6989586621679951198"><span id="local-6989586621679951200"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision"><span class="hs-identifier hs-type">DolbyVision</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679951194"><span class="annot"><span class="annottext">toJSON :: DolbyVision -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVision.html#DolbyVision%27"><span class="hs-identifier hs-type">DolbyVision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951190"><span id="local-6989586621679951191"><span id="local-6989586621679951192"><span class="annot"><span class="annottext">Maybe DolbyVisionLevel6Metadata
+Maybe DolbyVisionLevel6Mode
+Maybe DolbyVisionProfile
+profile :: Maybe DolbyVisionProfile
+l6Metadata :: Maybe DolbyVisionLevel6Metadata
+l6Mode :: Maybe DolbyVisionLevel6Mode
+$sel:profile:DolbyVision' :: DolbyVision -&gt; Maybe DolbyVisionProfile
+$sel:l6Metadata:DolbyVision' :: DolbyVision -&gt; Maybe DolbyVisionLevel6Metadata
+$sel:l6Mode:DolbyVision' :: DolbyVision -&gt; Maybe DolbyVisionLevel6Mode
+</span><a href="#local-6989586621679951190"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;l6Mode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DolbyVisionLevel6Mode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DolbyVisionLevel6Mode -&gt; Pair)
+-&gt; Maybe DolbyVisionLevel6Mode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DolbyVisionLevel6Mode
+</span><a href="#local-6989586621679951192"><span class="hs-identifier hs-var">l6Mode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;l6Metadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DolbyVisionLevel6Metadata -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DolbyVisionLevel6Metadata -&gt; Pair)
+-&gt; Maybe DolbyVisionLevel6Metadata -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DolbyVisionLevel6Metadata
+</span><a href="#local-6989586621679951191"><span class="hs-identifier hs-var">l6Metadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;profile&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DolbyVisionProfile -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DolbyVisionProfile -&gt; Pair)
+-&gt; Maybe DolbyVisionProfile -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DolbyVisionProfile
+</span><a href="#local-6989586621679951190"><span class="hs-identifier hs-var">profile</span></a></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span></pre></body></html>

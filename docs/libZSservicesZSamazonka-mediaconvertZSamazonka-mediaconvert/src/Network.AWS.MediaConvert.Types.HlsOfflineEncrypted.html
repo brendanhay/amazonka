@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.HlsOfflineEncrypted</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.HlsOfflineEncrypted</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#HlsOfflineEncrypted"><span class="hs-identifier">HlsOfflineEncrypted</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#HlsOfflineEncrypted_DISABLED"><span class="hs-identifier">HlsOfflineEncrypted_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#HlsOfflineEncrypted_ENABLED"><span class="hs-identifier">HlsOfflineEncrypted_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Enable this setting to insert the EXT-X-SESSION-KEY element into the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- master playlist. This allows for offline Apple HLS FairPlay content</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- protection.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679973395"><span id="local-6989586621679973396"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsOfflineEncrypted"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#HlsOfflineEncrypted"><span class="hs-identifier hs-var">HlsOfflineEncrypted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsOfflineEncrypted%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#HlsOfflineEncrypted%27"><span class="hs-identifier hs-var">HlsOfflineEncrypted'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsOfflineEncrypted"><span class="annot"><span class="annottext">HlsOfflineEncrypted -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#fromHlsOfflineEncrypted"><span class="hs-identifier hs-var hs-var">fromHlsOfflineEncrypted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679973387"><span id="local-6989586621679973389"><span id="local-6989586621679973391"><span class="annot"><span class="annottext">Int -&gt; HlsOfflineEncrypted -&gt; ShowS
+[HlsOfflineEncrypted] -&gt; ShowS
+HlsOfflineEncrypted -&gt; String
+(Int -&gt; HlsOfflineEncrypted -&gt; ShowS)
+-&gt; (HlsOfflineEncrypted -&gt; String)
+-&gt; ([HlsOfflineEncrypted] -&gt; ShowS)
+-&gt; Show HlsOfflineEncrypted
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HlsOfflineEncrypted] -&gt; ShowS
+$cshowList :: [HlsOfflineEncrypted] -&gt; ShowS
+show :: HlsOfflineEncrypted -&gt; String
+$cshow :: HlsOfflineEncrypted -&gt; String
+showsPrec :: Int -&gt; HlsOfflineEncrypted -&gt; ShowS
+$cshowsPrec :: Int -&gt; HlsOfflineEncrypted -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679973378"><span id="local-6989586621679973380"><span id="local-6989586621679973382"><span id="local-6989586621679973384"><span class="annot"><span class="annottext">ReadPrec [HlsOfflineEncrypted]
+ReadPrec HlsOfflineEncrypted
+Int -&gt; ReadS HlsOfflineEncrypted
+ReadS [HlsOfflineEncrypted]
+(Int -&gt; ReadS HlsOfflineEncrypted)
+-&gt; ReadS [HlsOfflineEncrypted]
+-&gt; ReadPrec HlsOfflineEncrypted
+-&gt; ReadPrec [HlsOfflineEncrypted]
+-&gt; Read HlsOfflineEncrypted
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HlsOfflineEncrypted]
+$creadListPrec :: ReadPrec [HlsOfflineEncrypted]
+readPrec :: ReadPrec HlsOfflineEncrypted
+$creadPrec :: ReadPrec HlsOfflineEncrypted
+readList :: ReadS [HlsOfflineEncrypted]
+$creadList :: ReadS [HlsOfflineEncrypted]
+readsPrec :: Int -&gt; ReadS HlsOfflineEncrypted
+$creadsPrec :: Int -&gt; ReadS HlsOfflineEncrypted
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679973373"><span id="local-6989586621679973375"><span class="annot"><span class="annottext">HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool
+(HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool)
+-&gt; (HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool)
+-&gt; Eq HlsOfflineEncrypted
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool
+$c/= :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool
+== :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool
+$c== :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679973357"><span id="local-6989586621679973359"><span id="local-6989586621679973361"><span id="local-6989586621679973363"><span id="local-6989586621679973365"><span id="local-6989586621679973367"><span id="local-6989586621679973369"><span class="annot"><span class="annottext">Eq HlsOfflineEncrypted
+Eq HlsOfflineEncrypted
+-&gt; (HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Ordering)
+-&gt; (HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool)
+-&gt; (HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool)
+-&gt; (HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool)
+-&gt; (HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool)
+-&gt; (HlsOfflineEncrypted
+    -&gt; HlsOfflineEncrypted -&gt; HlsOfflineEncrypted)
+-&gt; (HlsOfflineEncrypted
+    -&gt; HlsOfflineEncrypted -&gt; HlsOfflineEncrypted)
+-&gt; Ord HlsOfflineEncrypted
+HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool
+HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Ordering
+HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; HlsOfflineEncrypted
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; HlsOfflineEncrypted
+$cmin :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; HlsOfflineEncrypted
+max :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; HlsOfflineEncrypted
+$cmax :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; HlsOfflineEncrypted
+&gt;= :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool
+$c&gt;= :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool
+&gt; :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool
+$c&gt; :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool
+&lt;= :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool
+$c&lt;= :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool
+&lt; :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool
+$c&lt; :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Bool
+compare :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Ordering
+$ccompare :: HlsOfflineEncrypted -&gt; HlsOfflineEncrypted -&gt; Ordering
+$cp1Ord :: Eq HlsOfflineEncrypted
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HlsOfflineEncrypted -&gt; Rep HlsOfflineEncrypted x)
+-&gt; (forall x. Rep HlsOfflineEncrypted x -&gt; HlsOfflineEncrypted)
+-&gt; Generic HlsOfflineEncrypted
+forall x. Rep HlsOfflineEncrypted x -&gt; HlsOfflineEncrypted
+forall x. HlsOfflineEncrypted -&gt; Rep HlsOfflineEncrypted x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HlsOfflineEncrypted x -&gt; HlsOfflineEncrypted
+$cfrom :: forall x. HlsOfflineEncrypted -&gt; Rep HlsOfflineEncrypted x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679973349"><span id="local-6989586621679973351"><span class="annot"><span class="annottext">Int -&gt; HlsOfflineEncrypted -&gt; Int
+HlsOfflineEncrypted -&gt; Int
+(Int -&gt; HlsOfflineEncrypted -&gt; Int)
+-&gt; (HlsOfflineEncrypted -&gt; Int) -&gt; Hashable HlsOfflineEncrypted
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HlsOfflineEncrypted -&gt; Int
+$chash :: HlsOfflineEncrypted -&gt; Int
+hashWithSalt :: Int -&gt; HlsOfflineEncrypted -&gt; Int
+$chashWithSalt :: Int -&gt; HlsOfflineEncrypted -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679973346"><span class="annot"><span class="annottext">HlsOfflineEncrypted -&gt; ()
+(HlsOfflineEncrypted -&gt; ()) -&gt; NFData HlsOfflineEncrypted
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HlsOfflineEncrypted -&gt; ()
+$crnf :: HlsOfflineEncrypted -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679973343"><span class="annot"><span class="annottext">Text -&gt; Either String HlsOfflineEncrypted
+(Text -&gt; Either String HlsOfflineEncrypted)
+-&gt; FromText HlsOfflineEncrypted
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HlsOfflineEncrypted
+$cfromText :: Text -&gt; Either String HlsOfflineEncrypted
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679973340"><span class="annot"><span class="annottext">HlsOfflineEncrypted -&gt; Text
+(HlsOfflineEncrypted -&gt; Text) -&gt; ToText HlsOfflineEncrypted
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HlsOfflineEncrypted -&gt; Text
+$ctoText :: HlsOfflineEncrypted -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679973337"><span class="annot"><span class="annottext">HlsOfflineEncrypted -&gt; ByteString
+(HlsOfflineEncrypted -&gt; ByteString)
+-&gt; ToByteString HlsOfflineEncrypted
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HlsOfflineEncrypted -&gt; ByteString
+$ctoBS :: HlsOfflineEncrypted -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679973334"><span class="annot"><span class="annottext">HlsOfflineEncrypted -&gt; ByteStringBuilder
+(HlsOfflineEncrypted -&gt; ByteStringBuilder)
+-&gt; ToLog HlsOfflineEncrypted
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HlsOfflineEncrypted -&gt; ByteStringBuilder
+$cbuild :: HlsOfflineEncrypted -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679973331"><span class="annot"><span class="annottext">HeaderName -&gt; HlsOfflineEncrypted -&gt; [Header]
+(HeaderName -&gt; HlsOfflineEncrypted -&gt; [Header])
+-&gt; ToHeader HlsOfflineEncrypted
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HlsOfflineEncrypted -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HlsOfflineEncrypted -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679973328"><span class="annot"><span class="annottext">HlsOfflineEncrypted -&gt; QueryString
+(HlsOfflineEncrypted -&gt; QueryString) -&gt; ToQuery HlsOfflineEncrypted
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HlsOfflineEncrypted -&gt; QueryString
+$ctoQuery :: HlsOfflineEncrypted -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679973323"><span id="local-6989586621679973325"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsOfflineEncrypted]
+Value -&gt; Parser HlsOfflineEncrypted
+(Value -&gt; Parser HlsOfflineEncrypted)
+-&gt; (Value -&gt; Parser [HlsOfflineEncrypted])
+-&gt; FromJSON HlsOfflineEncrypted
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HlsOfflineEncrypted]
+$cparseJSONList :: Value -&gt; Parser [HlsOfflineEncrypted]
+parseJSON :: Value -&gt; Parser HlsOfflineEncrypted
+$cparseJSON :: Value -&gt; Parser HlsOfflineEncrypted
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679973318"><span id="local-6989586621679973320"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsOfflineEncrypted]
+FromJSONKeyFunction HlsOfflineEncrypted
+FromJSONKeyFunction HlsOfflineEncrypted
+-&gt; FromJSONKeyFunction [HlsOfflineEncrypted]
+-&gt; FromJSONKey HlsOfflineEncrypted
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HlsOfflineEncrypted]
+$cfromJSONKeyList :: FromJSONKeyFunction [HlsOfflineEncrypted]
+fromJSONKey :: FromJSONKeyFunction HlsOfflineEncrypted
+$cfromJSONKey :: FromJSONKeyFunction HlsOfflineEncrypted
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679973309"><span id="local-6989586621679973311"><span id="local-6989586621679973313"><span id="local-6989586621679973315"><span class="annot"><span class="annottext">[HlsOfflineEncrypted] -&gt; Encoding
+[HlsOfflineEncrypted] -&gt; Value
+HlsOfflineEncrypted -&gt; Encoding
+HlsOfflineEncrypted -&gt; Value
+(HlsOfflineEncrypted -&gt; Value)
+-&gt; (HlsOfflineEncrypted -&gt; Encoding)
+-&gt; ([HlsOfflineEncrypted] -&gt; Value)
+-&gt; ([HlsOfflineEncrypted] -&gt; Encoding)
+-&gt; ToJSON HlsOfflineEncrypted
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HlsOfflineEncrypted] -&gt; Encoding
+$ctoEncodingList :: [HlsOfflineEncrypted] -&gt; Encoding
+toJSONList :: [HlsOfflineEncrypted] -&gt; Value
+$ctoJSONList :: [HlsOfflineEncrypted] -&gt; Value
+toEncoding :: HlsOfflineEncrypted -&gt; Encoding
+$ctoEncoding :: HlsOfflineEncrypted -&gt; Encoding
+toJSON :: HlsOfflineEncrypted -&gt; Value
+$ctoJSON :: HlsOfflineEncrypted -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679973304"><span id="local-6989586621679973306"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsOfflineEncrypted]
+ToJSONKeyFunction HlsOfflineEncrypted
+ToJSONKeyFunction HlsOfflineEncrypted
+-&gt; ToJSONKeyFunction [HlsOfflineEncrypted]
+-&gt; ToJSONKey HlsOfflineEncrypted
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HlsOfflineEncrypted]
+$ctoJSONKeyList :: ToJSONKeyFunction [HlsOfflineEncrypted]
+toJSONKey :: ToJSONKeyFunction HlsOfflineEncrypted
+$ctoJSONKey :: ToJSONKeyFunction HlsOfflineEncrypted
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679973301"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsOfflineEncrypted
+([Node] -&gt; Either String HlsOfflineEncrypted)
+-&gt; FromXML HlsOfflineEncrypted
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HlsOfflineEncrypted
+$cparseXML :: [Node] -&gt; Either String HlsOfflineEncrypted
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679973298"><span class="annot"><span class="annottext">HlsOfflineEncrypted -&gt; XML
+(HlsOfflineEncrypted -&gt; XML) -&gt; ToXML HlsOfflineEncrypted
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HlsOfflineEncrypted -&gt; XML
+$ctoXML :: HlsOfflineEncrypted -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#HlsOfflineEncrypted_DISABLED"><span class="hs-identifier hs-type">HlsOfflineEncrypted_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#HlsOfflineEncrypted"><span class="hs-identifier hs-type">HlsOfflineEncrypted</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsOfflineEncrypted_DISABLED"><span id="%24mHlsOfflineEncrypted_DISABLED"><span id="HlsOfflineEncrypted_DISABLED"><span class="annot"><span class="annottext">$bHlsOfflineEncrypted_DISABLED :: HlsOfflineEncrypted
+$mHlsOfflineEncrypted_DISABLED :: forall r. HlsOfflineEncrypted -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#%24bHlsOfflineEncrypted_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">HlsOfflineEncrypted_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#HlsOfflineEncrypted%27"><span class="hs-identifier hs-type">HlsOfflineEncrypted'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#HlsOfflineEncrypted_ENABLED"><span class="hs-identifier hs-type">HlsOfflineEncrypted_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#HlsOfflineEncrypted"><span class="hs-identifier hs-type">HlsOfflineEncrypted</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsOfflineEncrypted_ENABLED"><span id="%24mHlsOfflineEncrypted_ENABLED"><span id="HlsOfflineEncrypted_ENABLED"><span class="annot"><span class="annottext">$bHlsOfflineEncrypted_ENABLED :: HlsOfflineEncrypted
+$mHlsOfflineEncrypted_ENABLED :: forall r. HlsOfflineEncrypted -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#%24bHlsOfflineEncrypted_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">HlsOfflineEncrypted_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#HlsOfflineEncrypted%27"><span class="hs-identifier hs-type">HlsOfflineEncrypted'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#HlsOfflineEncrypted_DISABLED"><span class="hs-pragma hs-type">HlsOfflineEncrypted_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#HlsOfflineEncrypted_ENABLED"><span class="hs-pragma hs-type">HlsOfflineEncrypted_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#HlsOfflineEncrypted%27"><span class="hs-pragma hs-type">HlsOfflineEncrypted'</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-74"></span></pre></body></html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.DvbNitSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.DvbNitSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Use these settings to insert a DVB Network Information Table (NIT) in</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- the transport stream of this output. When you work directly in your JSON</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- job specification, include this object only when your job has a</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- transport stream output and the container settings contain the object</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- M2tsSettings.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDvbNitSettings' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679951557"><span id="local-6989586621679951558"></span></span><span class="hs-keyword">data</span><span> </span><span id="DvbNitSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings"><span class="hs-identifier hs-var">DvbNitSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbNitSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings%27"><span class="hs-identifier hs-var">DvbNitSettings'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of milliseconds between instances of this table in the output</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- transport stream.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AnitInterval%3ADvbNitSettings%27"><span class="annot"><span class="annottext">DvbNitSettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#%24sel%3AnitInterval%3ADvbNitSettings%27"><span class="hs-identifier hs-var hs-var">nitInterval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The network name text placed in the network_name_descriptor inside the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Network Information Table. Maximum length is 256 characters.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AnetworkName%3ADvbNitSettings%27"><span class="annot"><span class="annottext">DvbNitSettings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#%24sel%3AnetworkName%3ADvbNitSettings%27"><span class="hs-identifier hs-var hs-var">networkName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The numeric value placed in the Network Information Table (NIT).</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AnetworkId%3ADvbNitSettings%27"><span class="annot"><span class="annottext">DvbNitSettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#%24sel%3AnetworkId%3ADvbNitSettings%27"><span class="hs-identifier hs-var hs-var">networkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679951549"><span id="local-6989586621679951551"><span class="annot"><span class="annottext">DvbNitSettings -&gt; DvbNitSettings -&gt; Bool
+(DvbNitSettings -&gt; DvbNitSettings -&gt; Bool)
+-&gt; (DvbNitSettings -&gt; DvbNitSettings -&gt; Bool) -&gt; Eq DvbNitSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DvbNitSettings -&gt; DvbNitSettings -&gt; Bool
+$c/= :: DvbNitSettings -&gt; DvbNitSettings -&gt; Bool
+== :: DvbNitSettings -&gt; DvbNitSettings -&gt; Bool
+$c== :: DvbNitSettings -&gt; DvbNitSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679951540"><span id="local-6989586621679951542"><span id="local-6989586621679951544"><span id="local-6989586621679951546"><span class="annot"><span class="annottext">ReadPrec [DvbNitSettings]
+ReadPrec DvbNitSettings
+Int -&gt; ReadS DvbNitSettings
+ReadS [DvbNitSettings]
+(Int -&gt; ReadS DvbNitSettings)
+-&gt; ReadS [DvbNitSettings]
+-&gt; ReadPrec DvbNitSettings
+-&gt; ReadPrec [DvbNitSettings]
+-&gt; Read DvbNitSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DvbNitSettings]
+$creadListPrec :: ReadPrec [DvbNitSettings]
+readPrec :: ReadPrec DvbNitSettings
+$creadPrec :: ReadPrec DvbNitSettings
+readList :: ReadS [DvbNitSettings]
+$creadList :: ReadS [DvbNitSettings]
+readsPrec :: Int -&gt; ReadS DvbNitSettings
+$creadsPrec :: Int -&gt; ReadS DvbNitSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679951533"><span id="local-6989586621679951535"><span id="local-6989586621679951537"><span class="annot"><span class="annottext">Int -&gt; DvbNitSettings -&gt; ShowS
+[DvbNitSettings] -&gt; ShowS
+DvbNitSettings -&gt; String
+(Int -&gt; DvbNitSettings -&gt; ShowS)
+-&gt; (DvbNitSettings -&gt; String)
+-&gt; ([DvbNitSettings] -&gt; ShowS)
+-&gt; Show DvbNitSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DvbNitSettings] -&gt; ShowS
+$cshowList :: [DvbNitSettings] -&gt; ShowS
+show :: DvbNitSettings -&gt; String
+$cshow :: DvbNitSettings -&gt; String
+showsPrec :: Int -&gt; DvbNitSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; DvbNitSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DvbNitSettings -&gt; Rep DvbNitSettings x)
+-&gt; (forall x. Rep DvbNitSettings x -&gt; DvbNitSettings)
+-&gt; Generic DvbNitSettings
+forall x. Rep DvbNitSettings x -&gt; DvbNitSettings
+forall x. DvbNitSettings -&gt; Rep DvbNitSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DvbNitSettings x -&gt; DvbNitSettings
+$cfrom :: forall x. DvbNitSettings -&gt; Rep DvbNitSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'DvbNitSettings' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'nitInterval', 'dvbNitSettings_nitInterval' - The number of milliseconds between instances of this table in the output</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- transport stream.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'networkName', 'dvbNitSettings_networkName' - The network name text placed in the network_name_descriptor inside the</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Network Information Table. Maximum length is 256 characters.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'networkId', 'dvbNitSettings_networkId' - The numeric value placed in the Network Information Table (NIT).</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#newDvbNitSettings"><span class="hs-identifier hs-type">newDvbNitSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings"><span class="hs-identifier hs-type">DvbNitSettings</span></a></span><span>
+</span><span id="line-62"></span><span id="newDvbNitSettings"><span class="annot"><span class="annottext">newDvbNitSettings :: DvbNitSettings
+</span><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#newDvbNitSettings"><span class="hs-identifier hs-var hs-var">newDvbNitSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">DvbNitSettings' :: Maybe Natural -&gt; Maybe Text -&gt; Maybe Natural -&gt; DvbNitSettings
+</span><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings%27"><span class="hs-identifier hs-type">DvbNitSettings'</span></a></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nitInterval:DvbNitSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#%24sel%3AnitInterval%3ADvbNitSettings%27"><span class="hs-identifier hs-var">nitInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkName:DvbNitSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#%24sel%3AnetworkName%3ADvbNitSettings%27"><span class="hs-identifier hs-var">networkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkId:DvbNitSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#%24sel%3AnetworkId%3ADvbNitSettings%27"><span class="hs-identifier hs-var">networkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The number of milliseconds between instances of this table in the output</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- transport stream.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#dvbNitSettings_nitInterval"><span class="hs-identifier hs-type">dvbNitSettings_nitInterval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings"><span class="hs-identifier hs-type">DvbNitSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="dvbNitSettings_nitInterval"><span class="annot"><span class="annottext">dvbNitSettings_nitInterval :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DvbNitSettings -&gt; f DvbNitSettings
+</span><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#dvbNitSettings_nitInterval"><span class="hs-identifier hs-var hs-var">dvbNitSettings_nitInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DvbNitSettings -&gt; Maybe Natural)
+-&gt; (DvbNitSettings -&gt; Maybe Natural -&gt; DvbNitSettings)
+-&gt; Lens
+     DvbNitSettings DvbNitSettings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings%27"><span class="hs-identifier hs-type">DvbNitSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951524"><span class="annot"><span class="annottext">Maybe Natural
+nitInterval :: Maybe Natural
+$sel:nitInterval:DvbNitSettings' :: DvbNitSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679951524"><span class="hs-identifier hs-var hs-var">nitInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679951524"><span class="hs-identifier hs-var">nitInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951523"><span class="annot"><span class="annottext">s :: DvbNitSettings
+</span><a href="#local-6989586621679951523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings%27"><span class="hs-identifier hs-type">DvbNitSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951522"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679951522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DvbNitSettings
+</span><a href="#local-6989586621679951523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nitInterval:DvbNitSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#%24sel%3AnitInterval%3ADvbNitSettings%27"><span class="hs-identifier hs-var">nitInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679951522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings"><span class="hs-identifier hs-type">DvbNitSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The network name text placed in the network_name_descriptor inside the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Network Information Table. Maximum length is 256 characters.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#dvbNitSettings_networkName"><span class="hs-identifier hs-type">dvbNitSettings_networkName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings"><span class="hs-identifier hs-type">DvbNitSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="dvbNitSettings_networkName"><span class="annot"><span class="annottext">dvbNitSettings_networkName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DvbNitSettings -&gt; f DvbNitSettings
+</span><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#dvbNitSettings_networkName"><span class="hs-identifier hs-var hs-var">dvbNitSettings_networkName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DvbNitSettings -&gt; Maybe Text)
+-&gt; (DvbNitSettings -&gt; Maybe Text -&gt; DvbNitSettings)
+-&gt; Lens DvbNitSettings DvbNitSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings%27"><span class="hs-identifier hs-type">DvbNitSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951520"><span class="annot"><span class="annottext">Maybe Text
+networkName :: Maybe Text
+$sel:networkName:DvbNitSettings' :: DvbNitSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679951520"><span class="hs-identifier hs-var hs-var">networkName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679951520"><span class="hs-identifier hs-var">networkName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951519"><span class="annot"><span class="annottext">s :: DvbNitSettings
+</span><a href="#local-6989586621679951519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings%27"><span class="hs-identifier hs-type">DvbNitSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951518"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679951518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DvbNitSettings
+</span><a href="#local-6989586621679951519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkName:DvbNitSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#%24sel%3AnetworkName%3ADvbNitSettings%27"><span class="hs-identifier hs-var">networkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679951518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings"><span class="hs-identifier hs-type">DvbNitSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The numeric value placed in the Network Information Table (NIT).</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#dvbNitSettings_networkId"><span class="hs-identifier hs-type">dvbNitSettings_networkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings"><span class="hs-identifier hs-type">DvbNitSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="dvbNitSettings_networkId"><span class="annot"><span class="annottext">dvbNitSettings_networkId :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DvbNitSettings -&gt; f DvbNitSettings
+</span><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#dvbNitSettings_networkId"><span class="hs-identifier hs-var hs-var">dvbNitSettings_networkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DvbNitSettings -&gt; Maybe Natural)
+-&gt; (DvbNitSettings -&gt; Maybe Natural -&gt; DvbNitSettings)
+-&gt; Lens
+     DvbNitSettings DvbNitSettings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings%27"><span class="hs-identifier hs-type">DvbNitSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951516"><span class="annot"><span class="annottext">Maybe Natural
+networkId :: Maybe Natural
+$sel:networkId:DvbNitSettings' :: DvbNitSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679951516"><span class="hs-identifier hs-var hs-var">networkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679951516"><span class="hs-identifier hs-var">networkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951515"><span class="annot"><span class="annottext">s :: DvbNitSettings
+</span><a href="#local-6989586621679951515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings%27"><span class="hs-identifier hs-type">DvbNitSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951514"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679951514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DvbNitSettings
+</span><a href="#local-6989586621679951515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkId:DvbNitSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#%24sel%3AnetworkId%3ADvbNitSettings%27"><span class="hs-identifier hs-var">networkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679951514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings"><span class="hs-identifier hs-type">DvbNitSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679951511"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings"><span class="hs-identifier hs-type">DvbNitSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679951509"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DvbNitSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DvbNitSettings)
+-&gt; Value
+-&gt; Parser DvbNitSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DvbNitSettings&quot;</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679951506"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679951506"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Text -&gt; Maybe Natural -&gt; DvbNitSettings
+</span><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings%27"><span class="hs-identifier hs-var">DvbNitSettings'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Text -&gt; Maybe Natural -&gt; DvbNitSettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Text -&gt; Maybe Natural -&gt; DvbNitSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679951506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nitInterval&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Natural -&gt; DvbNitSettings)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Natural -&gt; DvbNitSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679951506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; DvbNitSettings)
+-&gt; Parser (Maybe Natural) -&gt; Parser DvbNitSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679951506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679951500"><span id="local-6989586621679951502"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings"><span class="hs-identifier hs-type">DvbNitSettings</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679951497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings"><span class="hs-identifier hs-type">DvbNitSettings</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679951489"><span id="local-6989586621679951491"><span id="local-6989586621679951493"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings"><span class="hs-identifier hs-type">DvbNitSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679951487"><span class="annot"><span class="annottext">toJSON :: DvbNitSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbNitSettings.html#DvbNitSettings%27"><span class="hs-identifier hs-type">DvbNitSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951483"><span id="local-6989586621679951484"><span id="local-6989586621679951485"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+networkId :: Maybe Natural
+networkName :: Maybe Text
+nitInterval :: Maybe Natural
+$sel:networkId:DvbNitSettings' :: DvbNitSettings -&gt; Maybe Natural
+$sel:networkName:DvbNitSettings' :: DvbNitSettings -&gt; Maybe Text
+$sel:nitInterval:DvbNitSettings' :: DvbNitSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679951483"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nitInterval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679951485"><span class="hs-identifier hs-var">nitInterval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679951484"><span class="hs-identifier hs-var">networkName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679951483"><span class="hs-identifier hs-var">networkId</span></a></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span></pre></body></html>

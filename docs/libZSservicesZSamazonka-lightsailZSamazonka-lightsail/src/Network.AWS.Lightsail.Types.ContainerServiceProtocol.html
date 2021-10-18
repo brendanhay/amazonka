@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Lightsail.Types.ContainerServiceProtocol</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Lightsail.Types.ContainerServiceProtocol</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol"><span class="hs-identifier">ContainerServiceProtocol</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol_HTTP"><span class="hs-identifier">ContainerServiceProtocol_HTTP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol_HTTPS"><span class="hs-identifier">ContainerServiceProtocol_HTTPS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol_TCP"><span class="hs-identifier">ContainerServiceProtocol_TCP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol_UDP"><span class="hs-identifier">ContainerServiceProtocol_UDP</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679607208"><span id="local-6989586621679607209"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerServiceProtocol"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol"><span class="hs-identifier hs-var">ContainerServiceProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServiceProtocol%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol%27"><span class="hs-identifier hs-var">ContainerServiceProtocol'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContainerServiceProtocol"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; Text
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#fromContainerServiceProtocol"><span class="hs-identifier hs-var hs-var">fromContainerServiceProtocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679607200"><span id="local-6989586621679607202"><span id="local-6989586621679607204"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceProtocol -&gt; ShowS
+[ContainerServiceProtocol] -&gt; ShowS
+ContainerServiceProtocol -&gt; String
+(Int -&gt; ContainerServiceProtocol -&gt; ShowS)
+-&gt; (ContainerServiceProtocol -&gt; String)
+-&gt; ([ContainerServiceProtocol] -&gt; ShowS)
+-&gt; Show ContainerServiceProtocol
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContainerServiceProtocol] -&gt; ShowS
+$cshowList :: [ContainerServiceProtocol] -&gt; ShowS
+show :: ContainerServiceProtocol -&gt; String
+$cshow :: ContainerServiceProtocol -&gt; String
+showsPrec :: Int -&gt; ContainerServiceProtocol -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContainerServiceProtocol -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679607191"><span id="local-6989586621679607193"><span id="local-6989586621679607195"><span id="local-6989586621679607197"><span class="annot"><span class="annottext">ReadPrec [ContainerServiceProtocol]
+ReadPrec ContainerServiceProtocol
+Int -&gt; ReadS ContainerServiceProtocol
+ReadS [ContainerServiceProtocol]
+(Int -&gt; ReadS ContainerServiceProtocol)
+-&gt; ReadS [ContainerServiceProtocol]
+-&gt; ReadPrec ContainerServiceProtocol
+-&gt; ReadPrec [ContainerServiceProtocol]
+-&gt; Read ContainerServiceProtocol
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContainerServiceProtocol]
+$creadListPrec :: ReadPrec [ContainerServiceProtocol]
+readPrec :: ReadPrec ContainerServiceProtocol
+$creadPrec :: ReadPrec ContainerServiceProtocol
+readList :: ReadS [ContainerServiceProtocol]
+$creadList :: ReadS [ContainerServiceProtocol]
+readsPrec :: Int -&gt; ReadS ContainerServiceProtocol
+$creadsPrec :: Int -&gt; ReadS ContainerServiceProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679607186"><span id="local-6989586621679607188"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
+(ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool)
+-&gt; (ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool)
+-&gt; Eq ContainerServiceProtocol
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
+$c/= :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
+== :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
+$c== :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679607170"><span id="local-6989586621679607172"><span id="local-6989586621679607174"><span id="local-6989586621679607176"><span id="local-6989586621679607178"><span id="local-6989586621679607180"><span id="local-6989586621679607182"><span class="annot"><span class="annottext">Eq ContainerServiceProtocol
+Eq ContainerServiceProtocol
+-&gt; (ContainerServiceProtocol
+    -&gt; ContainerServiceProtocol -&gt; Ordering)
+-&gt; (ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool)
+-&gt; (ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool)
+-&gt; (ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool)
+-&gt; (ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool)
+-&gt; (ContainerServiceProtocol
+    -&gt; ContainerServiceProtocol -&gt; ContainerServiceProtocol)
+-&gt; (ContainerServiceProtocol
+    -&gt; ContainerServiceProtocol -&gt; ContainerServiceProtocol)
+-&gt; Ord ContainerServiceProtocol
+ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
+ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Ordering
+ContainerServiceProtocol
+-&gt; ContainerServiceProtocol -&gt; ContainerServiceProtocol
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ContainerServiceProtocol
+-&gt; ContainerServiceProtocol -&gt; ContainerServiceProtocol
+$cmin :: ContainerServiceProtocol
+-&gt; ContainerServiceProtocol -&gt; ContainerServiceProtocol
+max :: ContainerServiceProtocol
+-&gt; ContainerServiceProtocol -&gt; ContainerServiceProtocol
+$cmax :: ContainerServiceProtocol
+-&gt; ContainerServiceProtocol -&gt; ContainerServiceProtocol
+&gt;= :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
+$c&gt;= :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
+&gt; :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
+$c&gt; :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
+&lt;= :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
+$c&lt;= :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
+&lt; :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
+$c&lt; :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
+compare :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Ordering
+$ccompare :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Ordering
+$cp1Ord :: Eq ContainerServiceProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ContainerServiceProtocol -&gt; Rep ContainerServiceProtocol x)
+-&gt; (forall x.
+    Rep ContainerServiceProtocol x -&gt; ContainerServiceProtocol)
+-&gt; Generic ContainerServiceProtocol
+forall x.
+Rep ContainerServiceProtocol x -&gt; ContainerServiceProtocol
+forall x.
+ContainerServiceProtocol -&gt; Rep ContainerServiceProtocol x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ContainerServiceProtocol x -&gt; ContainerServiceProtocol
+$cfrom :: forall x.
+ContainerServiceProtocol -&gt; Rep ContainerServiceProtocol x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679607162"><span id="local-6989586621679607164"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceProtocol -&gt; Int
+ContainerServiceProtocol -&gt; Int
+(Int -&gt; ContainerServiceProtocol -&gt; Int)
+-&gt; (ContainerServiceProtocol -&gt; Int)
+-&gt; Hashable ContainerServiceProtocol
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ContainerServiceProtocol -&gt; Int
+$chash :: ContainerServiceProtocol -&gt; Int
+hashWithSalt :: Int -&gt; ContainerServiceProtocol -&gt; Int
+$chashWithSalt :: Int -&gt; ContainerServiceProtocol -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679607159"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; ()
+(ContainerServiceProtocol -&gt; ()) -&gt; NFData ContainerServiceProtocol
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ContainerServiceProtocol -&gt; ()
+$crnf :: ContainerServiceProtocol -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679607156"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerServiceProtocol
+(Text -&gt; Either String ContainerServiceProtocol)
+-&gt; FromText ContainerServiceProtocol
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ContainerServiceProtocol
+$cfromText :: Text -&gt; Either String ContainerServiceProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679607153"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; Text
+(ContainerServiceProtocol -&gt; Text)
+-&gt; ToText ContainerServiceProtocol
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ContainerServiceProtocol -&gt; Text
+$ctoText :: ContainerServiceProtocol -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679607150"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; ByteString
+(ContainerServiceProtocol -&gt; ByteString)
+-&gt; ToByteString ContainerServiceProtocol
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ContainerServiceProtocol -&gt; ByteString
+$ctoBS :: ContainerServiceProtocol -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679607147"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; ByteStringBuilder
+(ContainerServiceProtocol -&gt; ByteStringBuilder)
+-&gt; ToLog ContainerServiceProtocol
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ContainerServiceProtocol -&gt; ByteStringBuilder
+$cbuild :: ContainerServiceProtocol -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679607144"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerServiceProtocol -&gt; [Header]
+(HeaderName -&gt; ContainerServiceProtocol -&gt; [Header])
+-&gt; ToHeader ContainerServiceProtocol
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ContainerServiceProtocol -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ContainerServiceProtocol -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679607141"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; QueryString
+(ContainerServiceProtocol -&gt; QueryString)
+-&gt; ToQuery ContainerServiceProtocol
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ContainerServiceProtocol -&gt; QueryString
+$ctoQuery :: ContainerServiceProtocol -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679607136"><span id="local-6989586621679607138"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerServiceProtocol]
+Value -&gt; Parser ContainerServiceProtocol
+(Value -&gt; Parser ContainerServiceProtocol)
+-&gt; (Value -&gt; Parser [ContainerServiceProtocol])
+-&gt; FromJSON ContainerServiceProtocol
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ContainerServiceProtocol]
+$cparseJSONList :: Value -&gt; Parser [ContainerServiceProtocol]
+parseJSON :: Value -&gt; Parser ContainerServiceProtocol
+$cparseJSON :: Value -&gt; Parser ContainerServiceProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679607131"><span id="local-6989586621679607133"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerServiceProtocol]
+FromJSONKeyFunction ContainerServiceProtocol
+FromJSONKeyFunction ContainerServiceProtocol
+-&gt; FromJSONKeyFunction [ContainerServiceProtocol]
+-&gt; FromJSONKey ContainerServiceProtocol
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ContainerServiceProtocol]
+$cfromJSONKeyList :: FromJSONKeyFunction [ContainerServiceProtocol]
+fromJSONKey :: FromJSONKeyFunction ContainerServiceProtocol
+$cfromJSONKey :: FromJSONKeyFunction ContainerServiceProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679607122"><span id="local-6989586621679607124"><span id="local-6989586621679607126"><span id="local-6989586621679607128"><span class="annot"><span class="annottext">[ContainerServiceProtocol] -&gt; Encoding
+[ContainerServiceProtocol] -&gt; Value
+ContainerServiceProtocol -&gt; Encoding
+ContainerServiceProtocol -&gt; Value
+(ContainerServiceProtocol -&gt; Value)
+-&gt; (ContainerServiceProtocol -&gt; Encoding)
+-&gt; ([ContainerServiceProtocol] -&gt; Value)
+-&gt; ([ContainerServiceProtocol] -&gt; Encoding)
+-&gt; ToJSON ContainerServiceProtocol
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ContainerServiceProtocol] -&gt; Encoding
+$ctoEncodingList :: [ContainerServiceProtocol] -&gt; Encoding
+toJSONList :: [ContainerServiceProtocol] -&gt; Value
+$ctoJSONList :: [ContainerServiceProtocol] -&gt; Value
+toEncoding :: ContainerServiceProtocol -&gt; Encoding
+$ctoEncoding :: ContainerServiceProtocol -&gt; Encoding
+toJSON :: ContainerServiceProtocol -&gt; Value
+$ctoJSON :: ContainerServiceProtocol -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679607117"><span id="local-6989586621679607119"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerServiceProtocol]
+ToJSONKeyFunction ContainerServiceProtocol
+ToJSONKeyFunction ContainerServiceProtocol
+-&gt; ToJSONKeyFunction [ContainerServiceProtocol]
+-&gt; ToJSONKey ContainerServiceProtocol
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ContainerServiceProtocol]
+$ctoJSONKeyList :: ToJSONKeyFunction [ContainerServiceProtocol]
+toJSONKey :: ToJSONKeyFunction ContainerServiceProtocol
+$ctoJSONKey :: ToJSONKeyFunction ContainerServiceProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679607114"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerServiceProtocol
+([Node] -&gt; Either String ContainerServiceProtocol)
+-&gt; FromXML ContainerServiceProtocol
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ContainerServiceProtocol
+$cparseXML :: [Node] -&gt; Either String ContainerServiceProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679607111"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; XML
+(ContainerServiceProtocol -&gt; XML) -&gt; ToXML ContainerServiceProtocol
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ContainerServiceProtocol -&gt; XML
+$ctoXML :: ContainerServiceProtocol -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol_HTTP"><span class="hs-identifier hs-type">ContainerServiceProtocol_HTTP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol"><span class="hs-identifier hs-type">ContainerServiceProtocol</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContainerServiceProtocol_HTTP"><span id="%24mContainerServiceProtocol_HTTP"><span id="ContainerServiceProtocol_HTTP"><span class="annot"><span class="annottext">$bContainerServiceProtocol_HTTP :: ContainerServiceProtocol
+$mContainerServiceProtocol_HTTP :: forall r.
+ContainerServiceProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#%24bContainerServiceProtocol_HTTP"><span class="hs-identifier hs-var hs-var hs-var">ContainerServiceProtocol_HTTP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol%27"><span class="hs-identifier hs-type">ContainerServiceProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HTTP&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol_HTTPS"><span class="hs-identifier hs-type">ContainerServiceProtocol_HTTPS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol"><span class="hs-identifier hs-type">ContainerServiceProtocol</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContainerServiceProtocol_HTTPS"><span id="%24mContainerServiceProtocol_HTTPS"><span id="ContainerServiceProtocol_HTTPS"><span class="annot"><span class="annottext">$bContainerServiceProtocol_HTTPS :: ContainerServiceProtocol
+$mContainerServiceProtocol_HTTPS :: forall r.
+ContainerServiceProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#%24bContainerServiceProtocol_HTTPS"><span class="hs-identifier hs-var hs-var hs-var">ContainerServiceProtocol_HTTPS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol%27"><span class="hs-identifier hs-type">ContainerServiceProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HTTPS&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol_TCP"><span class="hs-identifier hs-type">ContainerServiceProtocol_TCP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol"><span class="hs-identifier hs-type">ContainerServiceProtocol</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContainerServiceProtocol_TCP"><span id="%24mContainerServiceProtocol_TCP"><span id="ContainerServiceProtocol_TCP"><span class="annot"><span class="annottext">$bContainerServiceProtocol_TCP :: ContainerServiceProtocol
+$mContainerServiceProtocol_TCP :: forall r.
+ContainerServiceProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#%24bContainerServiceProtocol_TCP"><span class="hs-identifier hs-var hs-var hs-var">ContainerServiceProtocol_TCP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol%27"><span class="hs-identifier hs-type">ContainerServiceProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TCP&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol_UDP"><span class="hs-identifier hs-type">ContainerServiceProtocol_UDP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol"><span class="hs-identifier hs-type">ContainerServiceProtocol</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContainerServiceProtocol_UDP"><span id="%24mContainerServiceProtocol_UDP"><span id="ContainerServiceProtocol_UDP"><span class="annot"><span class="annottext">$bContainerServiceProtocol_UDP :: ContainerServiceProtocol
+$mContainerServiceProtocol_UDP :: forall r.
+ContainerServiceProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#%24bContainerServiceProtocol_UDP"><span class="hs-identifier hs-var hs-var hs-var">ContainerServiceProtocol_UDP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol%27"><span class="hs-identifier hs-type">ContainerServiceProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UDP&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol_HTTP"><span class="hs-pragma hs-type">ContainerServiceProtocol_HTTP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol_HTTPS"><span class="hs-pragma hs-type">ContainerServiceProtocol_HTTPS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol_TCP"><span class="hs-pragma hs-type">ContainerServiceProtocol_TCP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol_UDP"><span class="hs-pragma hs-type">ContainerServiceProtocol_UDP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol%27"><span class="hs-pragma hs-type">ContainerServiceProtocol'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

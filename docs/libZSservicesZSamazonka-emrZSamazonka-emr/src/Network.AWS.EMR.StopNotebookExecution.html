@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EMR.StopNotebookExecution</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Stops a notebook execution.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EMR.StopNotebookExecution</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution"><span class="hs-identifier">StopNotebookExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#newStopNotebookExecution"><span class="hs-identifier">newStopNotebookExecution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#stopNotebookExecution_notebookExecutionId"><span class="hs-identifier">stopNotebookExecution_notebookExecutionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecutionResponse"><span class="hs-identifier">StopNotebookExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#newStopNotebookExecutionResponse"><span class="hs-identifier">newStopNotebookExecutionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.html"><span class="hs-identifier">Network.AWS.EMR.Types</span></a></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- | /See:/ 'newStopNotebookExecution' smart constructor.</span><span>
+</span><span id="line-46"></span><span id="local-6989586621679383105"><span id="local-6989586621679383106"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopNotebookExecution"><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution"><span class="hs-identifier hs-var">StopNotebookExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopNotebookExecution%27"><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution%27"><span class="hs-identifier hs-var">StopNotebookExecution'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier of the notebook execution.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AnotebookExecutionId%3AStopNotebookExecution%27"><span class="annot"><span class="annottext">StopNotebookExecution -&gt; Text
+</span><a href="Network.AWS.EMR.StopNotebookExecution.html#%24sel%3AnotebookExecutionId%3AStopNotebookExecution%27"><span class="hs-identifier hs-var hs-var">notebookExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383099"><span id="local-6989586621679383101"><span class="annot"><span class="annottext">StopNotebookExecution -&gt; StopNotebookExecution -&gt; Bool
+(StopNotebookExecution -&gt; StopNotebookExecution -&gt; Bool)
+-&gt; (StopNotebookExecution -&gt; StopNotebookExecution -&gt; Bool)
+-&gt; Eq StopNotebookExecution
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopNotebookExecution -&gt; StopNotebookExecution -&gt; Bool
+$c/= :: StopNotebookExecution -&gt; StopNotebookExecution -&gt; Bool
+== :: StopNotebookExecution -&gt; StopNotebookExecution -&gt; Bool
+$c== :: StopNotebookExecution -&gt; StopNotebookExecution -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383090"><span id="local-6989586621679383092"><span id="local-6989586621679383094"><span id="local-6989586621679383096"><span class="annot"><span class="annottext">ReadPrec [StopNotebookExecution]
+ReadPrec StopNotebookExecution
+Int -&gt; ReadS StopNotebookExecution
+ReadS [StopNotebookExecution]
+(Int -&gt; ReadS StopNotebookExecution)
+-&gt; ReadS [StopNotebookExecution]
+-&gt; ReadPrec StopNotebookExecution
+-&gt; ReadPrec [StopNotebookExecution]
+-&gt; Read StopNotebookExecution
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopNotebookExecution]
+$creadListPrec :: ReadPrec [StopNotebookExecution]
+readPrec :: ReadPrec StopNotebookExecution
+$creadPrec :: ReadPrec StopNotebookExecution
+readList :: ReadS [StopNotebookExecution]
+$creadList :: ReadS [StopNotebookExecution]
+readsPrec :: Int -&gt; ReadS StopNotebookExecution
+$creadsPrec :: Int -&gt; ReadS StopNotebookExecution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383083"><span id="local-6989586621679383085"><span id="local-6989586621679383087"><span class="annot"><span class="annottext">Int -&gt; StopNotebookExecution -&gt; ShowS
+[StopNotebookExecution] -&gt; ShowS
+StopNotebookExecution -&gt; String
+(Int -&gt; StopNotebookExecution -&gt; ShowS)
+-&gt; (StopNotebookExecution -&gt; String)
+-&gt; ([StopNotebookExecution] -&gt; ShowS)
+-&gt; Show StopNotebookExecution
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopNotebookExecution] -&gt; ShowS
+$cshowList :: [StopNotebookExecution] -&gt; ShowS
+show :: StopNotebookExecution -&gt; String
+$cshow :: StopNotebookExecution -&gt; String
+showsPrec :: Int -&gt; StopNotebookExecution -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopNotebookExecution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopNotebookExecution -&gt; Rep StopNotebookExecution x)
+-&gt; (forall x. Rep StopNotebookExecution x -&gt; StopNotebookExecution)
+-&gt; Generic StopNotebookExecution
+forall x. Rep StopNotebookExecution x -&gt; StopNotebookExecution
+forall x. StopNotebookExecution -&gt; Rep StopNotebookExecution x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopNotebookExecution x -&gt; StopNotebookExecution
+$cfrom :: forall x. StopNotebookExecution -&gt; Rep StopNotebookExecution x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'StopNotebookExecution' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'notebookExecutionId', 'stopNotebookExecution_notebookExecutionId' - The unique identifier of the notebook execution.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#newStopNotebookExecution"><span class="hs-identifier hs-type">newStopNotebookExecution</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-comment">-- | 'notebookExecutionId'</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution"><span class="hs-identifier hs-type">StopNotebookExecution</span></a></span><span>
+</span><span id="line-65"></span><span id="newStopNotebookExecution"><span class="annot"><span class="annottext">newStopNotebookExecution :: Text -&gt; StopNotebookExecution
+</span><a href="Network.AWS.EMR.StopNotebookExecution.html#newStopNotebookExecution"><span class="hs-identifier hs-var hs-var">newStopNotebookExecution</span></a></span></span><span> </span><span id="local-6989586621679383078"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383078"><span class="hs-identifier hs-var">pNotebookExecutionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">StopNotebookExecution' :: Text -&gt; StopNotebookExecution
+</span><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution%27"><span class="hs-identifier hs-type">StopNotebookExecution'</span></a></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:notebookExecutionId:StopNotebookExecution' :: Text
+</span><a href="Network.AWS.EMR.StopNotebookExecution.html#%24sel%3AnotebookExecutionId%3AStopNotebookExecution%27"><span class="hs-identifier hs-var">notebookExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383078"><span class="hs-identifier hs-var">pNotebookExecutionId_</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The unique identifier of the notebook execution.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#stopNotebookExecution_notebookExecutionId"><span class="hs-identifier hs-type">stopNotebookExecution_notebookExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution"><span class="hs-identifier hs-type">StopNotebookExecution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="stopNotebookExecution_notebookExecutionId"><span class="annot"><span class="annottext">stopNotebookExecution_notebookExecutionId :: (Text -&gt; f Text)
+-&gt; StopNotebookExecution -&gt; f StopNotebookExecution
+</span><a href="Network.AWS.EMR.StopNotebookExecution.html#stopNotebookExecution_notebookExecutionId"><span class="hs-identifier hs-var hs-var">stopNotebookExecution_notebookExecutionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopNotebookExecution -&gt; Text)
+-&gt; (StopNotebookExecution -&gt; Text -&gt; StopNotebookExecution)
+-&gt; Lens StopNotebookExecution StopNotebookExecution Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution%27"><span class="hs-identifier hs-type">StopNotebookExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383075"><span class="annot"><span class="annottext">Text
+notebookExecutionId :: Text
+$sel:notebookExecutionId:StopNotebookExecution' :: StopNotebookExecution -&gt; Text
+</span><a href="#local-6989586621679383075"><span class="hs-identifier hs-var hs-var">notebookExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383075"><span class="hs-identifier hs-var">notebookExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383074"><span class="annot"><span class="annottext">s :: StopNotebookExecution
+</span><a href="#local-6989586621679383074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution%27"><span class="hs-identifier hs-type">StopNotebookExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383073"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopNotebookExecution
+</span><a href="#local-6989586621679383074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notebookExecutionId:StopNotebookExecution' :: Text
+</span><a href="Network.AWS.EMR.StopNotebookExecution.html#%24sel%3AnotebookExecutionId%3AStopNotebookExecution%27"><span class="hs-identifier hs-var">notebookExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution"><span class="hs-identifier hs-type">StopNotebookExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution"><span class="hs-identifier hs-type">StopNotebookExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution"><span class="hs-identifier hs-type">StopNotebookExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecutionResponse"><span class="hs-identifier hs-type">StopNotebookExecutionResponse</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679383069"><span class="annot"><span class="annottext">request :: StopNotebookExecution -&gt; Request StopNotebookExecution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopNotebookExecution -&gt; Request StopNotebookExecution
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EMR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679383065"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StopNotebookExecution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StopNotebookExecution)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse StopNotebookExecution
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StopNotebookExecution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StopNotebookExecution)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse StopNotebookExecution
+StopNotebookExecutionResponse
+</span><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecutionResponse%27"><span class="hs-identifier hs-var">StopNotebookExecutionResponse'</span></a></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383058"><span id="local-6989586621679383060"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution"><span class="hs-identifier hs-type">StopNotebookExecution</span></a></span></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383055"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution"><span class="hs-identifier hs-type">StopNotebookExecution</span></a></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution"><span class="hs-identifier hs-type">StopNotebookExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679383051"><span class="annot"><span class="annottext">toHeaders :: StopNotebookExecution -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; StopNotebookExecution -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-91"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-92"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ElasticMapReduce.StopNotebookExecution&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-94"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-98"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383041"><span id="local-6989586621679383043"><span id="local-6989586621679383045"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution"><span class="hs-identifier hs-type">StopNotebookExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679383039"><span class="annot"><span class="annottext">toJSON :: StopNotebookExecution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution%27"><span class="hs-identifier hs-type">StopNotebookExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383037"><span class="annot"><span class="annottext">Text
+notebookExecutionId :: Text
+$sel:notebookExecutionId:StopNotebookExecution' :: StopNotebookExecution -&gt; Text
+</span><a href="#local-6989586621679383037"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-107"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotebookExecutionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383037"><span class="hs-identifier hs-var">notebookExecutionId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution"><span class="hs-identifier hs-type">StopNotebookExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679383031"><span class="annot"><span class="annottext">toPath :: StopNotebookExecution -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopNotebookExecution -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecution"><span class="hs-identifier hs-type">StopNotebookExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679383027"><span class="annot"><span class="annottext">toQuery :: StopNotebookExecution -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopNotebookExecution -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | /See:/ 'newStopNotebookExecutionResponse' smart constructor.</span><span>
+</span><span id="line-118"></span><span id="local-6989586621679383024"><span id="local-6989586621679383025"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopNotebookExecutionResponse"><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecutionResponse"><span class="hs-identifier hs-var">StopNotebookExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopNotebookExecutionResponse%27"><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecutionResponse%27"><span class="hs-identifier hs-var">StopNotebookExecutionResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383020"><span id="local-6989586621679383022"><span class="annot"><span class="annottext">StopNotebookExecutionResponse
+-&gt; StopNotebookExecutionResponse -&gt; Bool
+(StopNotebookExecutionResponse
+ -&gt; StopNotebookExecutionResponse -&gt; Bool)
+-&gt; (StopNotebookExecutionResponse
+    -&gt; StopNotebookExecutionResponse -&gt; Bool)
+-&gt; Eq StopNotebookExecutionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopNotebookExecutionResponse
+-&gt; StopNotebookExecutionResponse -&gt; Bool
+$c/= :: StopNotebookExecutionResponse
+-&gt; StopNotebookExecutionResponse -&gt; Bool
+== :: StopNotebookExecutionResponse
+-&gt; StopNotebookExecutionResponse -&gt; Bool
+$c== :: StopNotebookExecutionResponse
+-&gt; StopNotebookExecutionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383012"><span id="local-6989586621679383014"><span id="local-6989586621679383016"><span id="local-6989586621679383018"><span class="annot"><span class="annottext">ReadPrec [StopNotebookExecutionResponse]
+ReadPrec StopNotebookExecutionResponse
+Int -&gt; ReadS StopNotebookExecutionResponse
+ReadS [StopNotebookExecutionResponse]
+(Int -&gt; ReadS StopNotebookExecutionResponse)
+-&gt; ReadS [StopNotebookExecutionResponse]
+-&gt; ReadPrec StopNotebookExecutionResponse
+-&gt; ReadPrec [StopNotebookExecutionResponse]
+-&gt; Read StopNotebookExecutionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopNotebookExecutionResponse]
+$creadListPrec :: ReadPrec [StopNotebookExecutionResponse]
+readPrec :: ReadPrec StopNotebookExecutionResponse
+$creadPrec :: ReadPrec StopNotebookExecutionResponse
+readList :: ReadS [StopNotebookExecutionResponse]
+$creadList :: ReadS [StopNotebookExecutionResponse]
+readsPrec :: Int -&gt; ReadS StopNotebookExecutionResponse
+$creadsPrec :: Int -&gt; ReadS StopNotebookExecutionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383006"><span id="local-6989586621679383008"><span id="local-6989586621679383010"><span class="annot"><span class="annottext">Int -&gt; StopNotebookExecutionResponse -&gt; ShowS
+[StopNotebookExecutionResponse] -&gt; ShowS
+StopNotebookExecutionResponse -&gt; String
+(Int -&gt; StopNotebookExecutionResponse -&gt; ShowS)
+-&gt; (StopNotebookExecutionResponse -&gt; String)
+-&gt; ([StopNotebookExecutionResponse] -&gt; ShowS)
+-&gt; Show StopNotebookExecutionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopNotebookExecutionResponse] -&gt; ShowS
+$cshowList :: [StopNotebookExecutionResponse] -&gt; ShowS
+show :: StopNotebookExecutionResponse -&gt; String
+$cshow :: StopNotebookExecutionResponse -&gt; String
+showsPrec :: Int -&gt; StopNotebookExecutionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopNotebookExecutionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StopNotebookExecutionResponse
+ -&gt; Rep StopNotebookExecutionResponse x)
+-&gt; (forall x.
+    Rep StopNotebookExecutionResponse x
+    -&gt; StopNotebookExecutionResponse)
+-&gt; Generic StopNotebookExecutionResponse
+forall x.
+Rep StopNotebookExecutionResponse x
+-&gt; StopNotebookExecutionResponse
+forall x.
+StopNotebookExecutionResponse
+-&gt; Rep StopNotebookExecutionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StopNotebookExecutionResponse x
+-&gt; StopNotebookExecutionResponse
+$cfrom :: forall x.
+StopNotebookExecutionResponse
+-&gt; Rep StopNotebookExecutionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Create a value of 'StopNotebookExecutionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#newStopNotebookExecutionResponse"><span class="hs-identifier hs-type">newStopNotebookExecutionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecutionResponse"><span class="hs-identifier hs-type">StopNotebookExecutionResponse</span></a></span><span>
+</span><span id="line-129"></span><span id="newStopNotebookExecutionResponse"><span class="annot"><span class="annottext">newStopNotebookExecutionResponse :: StopNotebookExecutionResponse
+</span><a href="Network.AWS.EMR.StopNotebookExecution.html#newStopNotebookExecutionResponse"><span class="hs-identifier hs-var hs-var">newStopNotebookExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">StopNotebookExecutionResponse
+</span><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecutionResponse%27"><span class="hs-identifier hs-var">StopNotebookExecutionResponse'</span></a></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383002"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.StopNotebookExecution.html#StopNotebookExecutionResponse"><span class="hs-identifier hs-type">StopNotebookExecutionResponse</span></a></span></span><span>
+</span><span id="line-133"></span></pre></body></html>

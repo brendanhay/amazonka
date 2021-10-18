@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.HlsManifestDurationFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.HlsManifestDurationFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#HlsManifestDurationFormat"><span class="hs-identifier">HlsManifestDurationFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#HlsManifestDurationFormat_FLOATING_POINT"><span class="hs-identifier">HlsManifestDurationFormat_FLOATING_POINT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#HlsManifestDurationFormat_INTEGER"><span class="hs-identifier">HlsManifestDurationFormat_INTEGER</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Hls Manifest Duration Format</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679880954"><span id="local-6989586621679880955"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsManifestDurationFormat"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#HlsManifestDurationFormat"><span class="hs-identifier hs-var">HlsManifestDurationFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsManifestDurationFormat%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#HlsManifestDurationFormat%27"><span class="hs-identifier hs-var">HlsManifestDurationFormat'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsManifestDurationFormat"><span class="annot"><span class="annottext">HlsManifestDurationFormat -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#fromHlsManifestDurationFormat"><span class="hs-identifier hs-var hs-var">fromHlsManifestDurationFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679880946"><span id="local-6989586621679880948"><span id="local-6989586621679880950"><span class="annot"><span class="annottext">Int -&gt; HlsManifestDurationFormat -&gt; ShowS
+[HlsManifestDurationFormat] -&gt; ShowS
+HlsManifestDurationFormat -&gt; String
+(Int -&gt; HlsManifestDurationFormat -&gt; ShowS)
+-&gt; (HlsManifestDurationFormat -&gt; String)
+-&gt; ([HlsManifestDurationFormat] -&gt; ShowS)
+-&gt; Show HlsManifestDurationFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HlsManifestDurationFormat] -&gt; ShowS
+$cshowList :: [HlsManifestDurationFormat] -&gt; ShowS
+show :: HlsManifestDurationFormat -&gt; String
+$cshow :: HlsManifestDurationFormat -&gt; String
+showsPrec :: Int -&gt; HlsManifestDurationFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; HlsManifestDurationFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679880937"><span id="local-6989586621679880939"><span id="local-6989586621679880941"><span id="local-6989586621679880943"><span class="annot"><span class="annottext">ReadPrec [HlsManifestDurationFormat]
+ReadPrec HlsManifestDurationFormat
+Int -&gt; ReadS HlsManifestDurationFormat
+ReadS [HlsManifestDurationFormat]
+(Int -&gt; ReadS HlsManifestDurationFormat)
+-&gt; ReadS [HlsManifestDurationFormat]
+-&gt; ReadPrec HlsManifestDurationFormat
+-&gt; ReadPrec [HlsManifestDurationFormat]
+-&gt; Read HlsManifestDurationFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HlsManifestDurationFormat]
+$creadListPrec :: ReadPrec [HlsManifestDurationFormat]
+readPrec :: ReadPrec HlsManifestDurationFormat
+$creadPrec :: ReadPrec HlsManifestDurationFormat
+readList :: ReadS [HlsManifestDurationFormat]
+$creadList :: ReadS [HlsManifestDurationFormat]
+readsPrec :: Int -&gt; ReadS HlsManifestDurationFormat
+$creadsPrec :: Int -&gt; ReadS HlsManifestDurationFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679880932"><span id="local-6989586621679880934"><span class="annot"><span class="annottext">HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool
+(HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool)
+-&gt; (HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool)
+-&gt; Eq HlsManifestDurationFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool
+$c/= :: HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool
+== :: HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool
+$c== :: HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679880916"><span id="local-6989586621679880918"><span id="local-6989586621679880920"><span id="local-6989586621679880922"><span id="local-6989586621679880924"><span id="local-6989586621679880926"><span id="local-6989586621679880928"><span class="annot"><span class="annottext">Eq HlsManifestDurationFormat
+Eq HlsManifestDurationFormat
+-&gt; (HlsManifestDurationFormat
+    -&gt; HlsManifestDurationFormat -&gt; Ordering)
+-&gt; (HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool)
+-&gt; (HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool)
+-&gt; (HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool)
+-&gt; (HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool)
+-&gt; (HlsManifestDurationFormat
+    -&gt; HlsManifestDurationFormat -&gt; HlsManifestDurationFormat)
+-&gt; (HlsManifestDurationFormat
+    -&gt; HlsManifestDurationFormat -&gt; HlsManifestDurationFormat)
+-&gt; Ord HlsManifestDurationFormat
+HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool
+HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Ordering
+HlsManifestDurationFormat
+-&gt; HlsManifestDurationFormat -&gt; HlsManifestDurationFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HlsManifestDurationFormat
+-&gt; HlsManifestDurationFormat -&gt; HlsManifestDurationFormat
+$cmin :: HlsManifestDurationFormat
+-&gt; HlsManifestDurationFormat -&gt; HlsManifestDurationFormat
+max :: HlsManifestDurationFormat
+-&gt; HlsManifestDurationFormat -&gt; HlsManifestDurationFormat
+$cmax :: HlsManifestDurationFormat
+-&gt; HlsManifestDurationFormat -&gt; HlsManifestDurationFormat
+&gt;= :: HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool
+$c&gt;= :: HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool
+&gt; :: HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool
+$c&gt; :: HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool
+&lt;= :: HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool
+$c&lt;= :: HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool
+&lt; :: HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool
+$c&lt; :: HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Bool
+compare :: HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Ordering
+$ccompare :: HlsManifestDurationFormat -&gt; HlsManifestDurationFormat -&gt; Ordering
+$cp1Ord :: Eq HlsManifestDurationFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ HlsManifestDurationFormat -&gt; Rep HlsManifestDurationFormat x)
+-&gt; (forall x.
+    Rep HlsManifestDurationFormat x -&gt; HlsManifestDurationFormat)
+-&gt; Generic HlsManifestDurationFormat
+forall x.
+Rep HlsManifestDurationFormat x -&gt; HlsManifestDurationFormat
+forall x.
+HlsManifestDurationFormat -&gt; Rep HlsManifestDurationFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep HlsManifestDurationFormat x -&gt; HlsManifestDurationFormat
+$cfrom :: forall x.
+HlsManifestDurationFormat -&gt; Rep HlsManifestDurationFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679880908"><span id="local-6989586621679880910"><span class="annot"><span class="annottext">Int -&gt; HlsManifestDurationFormat -&gt; Int
+HlsManifestDurationFormat -&gt; Int
+(Int -&gt; HlsManifestDurationFormat -&gt; Int)
+-&gt; (HlsManifestDurationFormat -&gt; Int)
+-&gt; Hashable HlsManifestDurationFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HlsManifestDurationFormat -&gt; Int
+$chash :: HlsManifestDurationFormat -&gt; Int
+hashWithSalt :: Int -&gt; HlsManifestDurationFormat -&gt; Int
+$chashWithSalt :: Int -&gt; HlsManifestDurationFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679880905"><span class="annot"><span class="annottext">HlsManifestDurationFormat -&gt; ()
+(HlsManifestDurationFormat -&gt; ())
+-&gt; NFData HlsManifestDurationFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HlsManifestDurationFormat -&gt; ()
+$crnf :: HlsManifestDurationFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679880902"><span class="annot"><span class="annottext">Text -&gt; Either String HlsManifestDurationFormat
+(Text -&gt; Either String HlsManifestDurationFormat)
+-&gt; FromText HlsManifestDurationFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HlsManifestDurationFormat
+$cfromText :: Text -&gt; Either String HlsManifestDurationFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679880899"><span class="annot"><span class="annottext">HlsManifestDurationFormat -&gt; Text
+(HlsManifestDurationFormat -&gt; Text)
+-&gt; ToText HlsManifestDurationFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HlsManifestDurationFormat -&gt; Text
+$ctoText :: HlsManifestDurationFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679880896"><span class="annot"><span class="annottext">HlsManifestDurationFormat -&gt; ByteString
+(HlsManifestDurationFormat -&gt; ByteString)
+-&gt; ToByteString HlsManifestDurationFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HlsManifestDurationFormat -&gt; ByteString
+$ctoBS :: HlsManifestDurationFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679880893"><span class="annot"><span class="annottext">HlsManifestDurationFormat -&gt; ByteStringBuilder
+(HlsManifestDurationFormat -&gt; ByteStringBuilder)
+-&gt; ToLog HlsManifestDurationFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HlsManifestDurationFormat -&gt; ByteStringBuilder
+$cbuild :: HlsManifestDurationFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679880890"><span class="annot"><span class="annottext">HeaderName -&gt; HlsManifestDurationFormat -&gt; [Header]
+(HeaderName -&gt; HlsManifestDurationFormat -&gt; [Header])
+-&gt; ToHeader HlsManifestDurationFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HlsManifestDurationFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HlsManifestDurationFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679880887"><span class="annot"><span class="annottext">HlsManifestDurationFormat -&gt; QueryString
+(HlsManifestDurationFormat -&gt; QueryString)
+-&gt; ToQuery HlsManifestDurationFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HlsManifestDurationFormat -&gt; QueryString
+$ctoQuery :: HlsManifestDurationFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679880882"><span id="local-6989586621679880884"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsManifestDurationFormat]
+Value -&gt; Parser HlsManifestDurationFormat
+(Value -&gt; Parser HlsManifestDurationFormat)
+-&gt; (Value -&gt; Parser [HlsManifestDurationFormat])
+-&gt; FromJSON HlsManifestDurationFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HlsManifestDurationFormat]
+$cparseJSONList :: Value -&gt; Parser [HlsManifestDurationFormat]
+parseJSON :: Value -&gt; Parser HlsManifestDurationFormat
+$cparseJSON :: Value -&gt; Parser HlsManifestDurationFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679880877"><span id="local-6989586621679880879"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsManifestDurationFormat]
+FromJSONKeyFunction HlsManifestDurationFormat
+FromJSONKeyFunction HlsManifestDurationFormat
+-&gt; FromJSONKeyFunction [HlsManifestDurationFormat]
+-&gt; FromJSONKey HlsManifestDurationFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HlsManifestDurationFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [HlsManifestDurationFormat]
+fromJSONKey :: FromJSONKeyFunction HlsManifestDurationFormat
+$cfromJSONKey :: FromJSONKeyFunction HlsManifestDurationFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679880868"><span id="local-6989586621679880870"><span id="local-6989586621679880872"><span id="local-6989586621679880874"><span class="annot"><span class="annottext">[HlsManifestDurationFormat] -&gt; Encoding
+[HlsManifestDurationFormat] -&gt; Value
+HlsManifestDurationFormat -&gt; Encoding
+HlsManifestDurationFormat -&gt; Value
+(HlsManifestDurationFormat -&gt; Value)
+-&gt; (HlsManifestDurationFormat -&gt; Encoding)
+-&gt; ([HlsManifestDurationFormat] -&gt; Value)
+-&gt; ([HlsManifestDurationFormat] -&gt; Encoding)
+-&gt; ToJSON HlsManifestDurationFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HlsManifestDurationFormat] -&gt; Encoding
+$ctoEncodingList :: [HlsManifestDurationFormat] -&gt; Encoding
+toJSONList :: [HlsManifestDurationFormat] -&gt; Value
+$ctoJSONList :: [HlsManifestDurationFormat] -&gt; Value
+toEncoding :: HlsManifestDurationFormat -&gt; Encoding
+$ctoEncoding :: HlsManifestDurationFormat -&gt; Encoding
+toJSON :: HlsManifestDurationFormat -&gt; Value
+$ctoJSON :: HlsManifestDurationFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679880863"><span id="local-6989586621679880865"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsManifestDurationFormat]
+ToJSONKeyFunction HlsManifestDurationFormat
+ToJSONKeyFunction HlsManifestDurationFormat
+-&gt; ToJSONKeyFunction [HlsManifestDurationFormat]
+-&gt; ToJSONKey HlsManifestDurationFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HlsManifestDurationFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [HlsManifestDurationFormat]
+toJSONKey :: ToJSONKeyFunction HlsManifestDurationFormat
+$ctoJSONKey :: ToJSONKeyFunction HlsManifestDurationFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679880860"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsManifestDurationFormat
+([Node] -&gt; Either String HlsManifestDurationFormat)
+-&gt; FromXML HlsManifestDurationFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HlsManifestDurationFormat
+$cparseXML :: [Node] -&gt; Either String HlsManifestDurationFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679880857"><span class="annot"><span class="annottext">HlsManifestDurationFormat -&gt; XML
+(HlsManifestDurationFormat -&gt; XML)
+-&gt; ToXML HlsManifestDurationFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HlsManifestDurationFormat -&gt; XML
+$ctoXML :: HlsManifestDurationFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#HlsManifestDurationFormat_FLOATING_POINT"><span class="hs-identifier hs-type">HlsManifestDurationFormat_FLOATING_POINT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#HlsManifestDurationFormat"><span class="hs-identifier hs-type">HlsManifestDurationFormat</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsManifestDurationFormat_FLOATING_POINT"><span id="%24mHlsManifestDurationFormat_FLOATING_POINT"><span id="HlsManifestDurationFormat_FLOATING_POINT"><span class="annot"><span class="annottext">$bHlsManifestDurationFormat_FLOATING_POINT :: HlsManifestDurationFormat
+$mHlsManifestDurationFormat_FLOATING_POINT :: forall r.
+HlsManifestDurationFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#%24bHlsManifestDurationFormat_FLOATING_POINT"><span class="hs-identifier hs-var hs-var hs-var">HlsManifestDurationFormat_FLOATING_POINT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#HlsManifestDurationFormat%27"><span class="hs-identifier hs-type">HlsManifestDurationFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FLOATING_POINT&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#HlsManifestDurationFormat_INTEGER"><span class="hs-identifier hs-type">HlsManifestDurationFormat_INTEGER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#HlsManifestDurationFormat"><span class="hs-identifier hs-type">HlsManifestDurationFormat</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsManifestDurationFormat_INTEGER"><span id="%24mHlsManifestDurationFormat_INTEGER"><span id="HlsManifestDurationFormat_INTEGER"><span class="annot"><span class="annottext">$bHlsManifestDurationFormat_INTEGER :: HlsManifestDurationFormat
+$mHlsManifestDurationFormat_INTEGER :: forall r.
+HlsManifestDurationFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#%24bHlsManifestDurationFormat_INTEGER"><span class="hs-identifier hs-var hs-var hs-var">HlsManifestDurationFormat_INTEGER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#HlsManifestDurationFormat%27"><span class="hs-identifier hs-type">HlsManifestDurationFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTEGER&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#HlsManifestDurationFormat_FLOATING_POINT"><span class="hs-pragma hs-type">HlsManifestDurationFormat_FLOATING_POINT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#HlsManifestDurationFormat_INTEGER"><span class="hs-pragma hs-type">HlsManifestDurationFormat_INTEGER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsManifestDurationFormat.html#HlsManifestDurationFormat%27"><span class="hs-pragma hs-type">HlsManifestDurationFormat'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

@@ -1,0 +1,658 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Athena.ListPreparedStatements</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the prepared statements in the specfied workgroup.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Athena.ListPreparedStatements</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier">ListPreparedStatements</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#newListPreparedStatements"><span class="hs-identifier">newListPreparedStatements</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatements_nextToken"><span class="hs-identifier">listPreparedStatements_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatements_maxResults"><span class="hs-identifier">listPreparedStatements_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatements_workGroup"><span class="hs-identifier">listPreparedStatements_workGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse"><span class="hs-identifier">ListPreparedStatementsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#newListPreparedStatementsResponse"><span class="hs-identifier">newListPreparedStatementsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatementsResponse_nextToken"><span class="hs-identifier">listPreparedStatementsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatementsResponse_preparedStatements"><span class="hs-identifier">listPreparedStatementsResponse_preparedStatements</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatementsResponse_httpStatus"><span class="hs-identifier">listPreparedStatementsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.html"><span class="hs-identifier">Network.AWS.Athena.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newListPreparedStatements' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679222258"><span id="local-6989586621679222259"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPreparedStatements"><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier hs-var">ListPreparedStatements</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPreparedStatements%27"><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements%27"><span class="hs-identifier hs-var">ListPreparedStatements'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token generated by the Athena service that specifies where to continue</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- pagination if a previous request was truncated. To obtain the next set</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- of pages, pass in the @NextToken@ from the response object of the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- previous page call.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListPreparedStatements%27"><span class="annot"><span class="annottext">ListPreparedStatements -&gt; Maybe Text
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3AnextToken%3AListPreparedStatements%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return in this request.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListPreparedStatements%27"><span class="annot"><span class="annottext">ListPreparedStatements -&gt; Maybe Natural
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3AmaxResults%3AListPreparedStatements%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The workgroup to list the prepared statements for.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AworkGroup%3AListPreparedStatements%27"><span class="annot"><span class="annottext">ListPreparedStatements -&gt; Text
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3AworkGroup%3AListPreparedStatements%27"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222250"><span id="local-6989586621679222252"><span class="annot"><span class="annottext">ListPreparedStatements -&gt; ListPreparedStatements -&gt; Bool
+(ListPreparedStatements -&gt; ListPreparedStatements -&gt; Bool)
+-&gt; (ListPreparedStatements -&gt; ListPreparedStatements -&gt; Bool)
+-&gt; Eq ListPreparedStatements
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPreparedStatements -&gt; ListPreparedStatements -&gt; Bool
+$c/= :: ListPreparedStatements -&gt; ListPreparedStatements -&gt; Bool
+== :: ListPreparedStatements -&gt; ListPreparedStatements -&gt; Bool
+$c== :: ListPreparedStatements -&gt; ListPreparedStatements -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222241"><span id="local-6989586621679222243"><span id="local-6989586621679222245"><span id="local-6989586621679222247"><span class="annot"><span class="annottext">ReadPrec [ListPreparedStatements]
+ReadPrec ListPreparedStatements
+Int -&gt; ReadS ListPreparedStatements
+ReadS [ListPreparedStatements]
+(Int -&gt; ReadS ListPreparedStatements)
+-&gt; ReadS [ListPreparedStatements]
+-&gt; ReadPrec ListPreparedStatements
+-&gt; ReadPrec [ListPreparedStatements]
+-&gt; Read ListPreparedStatements
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPreparedStatements]
+$creadListPrec :: ReadPrec [ListPreparedStatements]
+readPrec :: ReadPrec ListPreparedStatements
+$creadPrec :: ReadPrec ListPreparedStatements
+readList :: ReadS [ListPreparedStatements]
+$creadList :: ReadS [ListPreparedStatements]
+readsPrec :: Int -&gt; ReadS ListPreparedStatements
+$creadsPrec :: Int -&gt; ReadS ListPreparedStatements
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222234"><span id="local-6989586621679222236"><span id="local-6989586621679222238"><span class="annot"><span class="annottext">Int -&gt; ListPreparedStatements -&gt; ShowS
+[ListPreparedStatements] -&gt; ShowS
+ListPreparedStatements -&gt; String
+(Int -&gt; ListPreparedStatements -&gt; ShowS)
+-&gt; (ListPreparedStatements -&gt; String)
+-&gt; ([ListPreparedStatements] -&gt; ShowS)
+-&gt; Show ListPreparedStatements
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPreparedStatements] -&gt; ShowS
+$cshowList :: [ListPreparedStatements] -&gt; ShowS
+show :: ListPreparedStatements -&gt; String
+$cshow :: ListPreparedStatements -&gt; String
+showsPrec :: Int -&gt; ListPreparedStatements -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPreparedStatements -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListPreparedStatements -&gt; Rep ListPreparedStatements x)
+-&gt; (forall x.
+    Rep ListPreparedStatements x -&gt; ListPreparedStatements)
+-&gt; Generic ListPreparedStatements
+forall x. Rep ListPreparedStatements x -&gt; ListPreparedStatements
+forall x. ListPreparedStatements -&gt; Rep ListPreparedStatements x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListPreparedStatements x -&gt; ListPreparedStatements
+$cfrom :: forall x. ListPreparedStatements -&gt; Rep ListPreparedStatements x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'ListPreparedStatements' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'nextToken', 'listPreparedStatements_nextToken' - A token generated by the Athena service that specifies where to continue</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- pagination if a previous request was truncated. To obtain the next set</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- of pages, pass in the @NextToken@ from the response object of the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- previous page call.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'maxResults', 'listPreparedStatements_maxResults' - The maximum number of results to return in this request.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'workGroup', 'listPreparedStatements_workGroup' - The workgroup to list the prepared statements for.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#newListPreparedStatements"><span class="hs-identifier hs-type">newListPreparedStatements</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'workGroup'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier hs-type">ListPreparedStatements</span></a></span><span>
+</span><span id="line-86"></span><span id="newListPreparedStatements"><span class="annot"><span class="annottext">newListPreparedStatements :: Text -&gt; ListPreparedStatements
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#newListPreparedStatements"><span class="hs-identifier hs-var hs-var">newListPreparedStatements</span></a></span></span><span> </span><span id="local-6989586621679222229"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222229"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">ListPreparedStatements' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListPreparedStatements
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements%27"><span class="hs-identifier hs-type">ListPreparedStatements'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPreparedStatements' :: Maybe Text
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3AnextToken%3AListPreparedStatements%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListPreparedStatements' :: Maybe Natural
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3AmaxResults%3AListPreparedStatements%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:workGroup:ListPreparedStatements' :: Text
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3AworkGroup%3AListPreparedStatements%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222229"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | A token generated by the Athena service that specifies where to continue</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- pagination if a previous request was truncated. To obtain the next set</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- of pages, pass in the @NextToken@ from the response object of the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- previous page call.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatements_nextToken"><span class="hs-identifier hs-type">listPreparedStatements_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier hs-type">ListPreparedStatements</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="listPreparedStatements_nextToken"><span class="annot"><span class="annottext">listPreparedStatements_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPreparedStatements -&gt; f ListPreparedStatements
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatements_nextToken"><span class="hs-identifier hs-var hs-var">listPreparedStatements_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPreparedStatements -&gt; Maybe Text)
+-&gt; (ListPreparedStatements -&gt; Maybe Text -&gt; ListPreparedStatements)
+-&gt; Lens
+     ListPreparedStatements
+     ListPreparedStatements
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements%27"><span class="hs-identifier hs-type">ListPreparedStatements'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222226"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPreparedStatements' :: ListPreparedStatements -&gt; Maybe Text
+</span><a href="#local-6989586621679222226"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222226"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222225"><span class="annot"><span class="annottext">s :: ListPreparedStatements
+</span><a href="#local-6989586621679222225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements%27"><span class="hs-identifier hs-type">ListPreparedStatements'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222224"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPreparedStatements
+</span><a href="#local-6989586621679222225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPreparedStatements' :: Maybe Text
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3AnextToken%3AListPreparedStatements%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier hs-type">ListPreparedStatements</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The maximum number of results to return in this request.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatements_maxResults"><span class="hs-identifier hs-type">listPreparedStatements_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier hs-type">ListPreparedStatements</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="listPreparedStatements_maxResults"><span class="annot"><span class="annottext">listPreparedStatements_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListPreparedStatements -&gt; f ListPreparedStatements
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatements_maxResults"><span class="hs-identifier hs-var hs-var">listPreparedStatements_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPreparedStatements -&gt; Maybe Natural)
+-&gt; (ListPreparedStatements
+    -&gt; Maybe Natural -&gt; ListPreparedStatements)
+-&gt; Lens
+     ListPreparedStatements
+     ListPreparedStatements
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements%27"><span class="hs-identifier hs-type">ListPreparedStatements'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222223"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListPreparedStatements' :: ListPreparedStatements -&gt; Maybe Natural
+</span><a href="#local-6989586621679222223"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679222223"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222222"><span class="annot"><span class="annottext">s :: ListPreparedStatements
+</span><a href="#local-6989586621679222222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements%27"><span class="hs-identifier hs-type">ListPreparedStatements'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222221"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679222221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPreparedStatements
+</span><a href="#local-6989586621679222222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListPreparedStatements' :: Maybe Natural
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3AmaxResults%3AListPreparedStatements%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679222221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier hs-type">ListPreparedStatements</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The workgroup to list the prepared statements for.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatements_workGroup"><span class="hs-identifier hs-type">listPreparedStatements_workGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier hs-type">ListPreparedStatements</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="listPreparedStatements_workGroup"><span class="annot"><span class="annottext">listPreparedStatements_workGroup :: (Text -&gt; f Text)
+-&gt; ListPreparedStatements -&gt; f ListPreparedStatements
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatements_workGroup"><span class="hs-identifier hs-var hs-var">listPreparedStatements_workGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPreparedStatements -&gt; Text)
+-&gt; (ListPreparedStatements -&gt; Text -&gt; ListPreparedStatements)
+-&gt; Lens ListPreparedStatements ListPreparedStatements Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements%27"><span class="hs-identifier hs-type">ListPreparedStatements'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222220"><span class="annot"><span class="annottext">Text
+workGroup :: Text
+$sel:workGroup:ListPreparedStatements' :: ListPreparedStatements -&gt; Text
+</span><a href="#local-6989586621679222220"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222220"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222219"><span class="annot"><span class="annottext">s :: ListPreparedStatements
+</span><a href="#local-6989586621679222219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements%27"><span class="hs-identifier hs-type">ListPreparedStatements'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222218"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPreparedStatements
+</span><a href="#local-6989586621679222219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workGroup:ListPreparedStatements' :: Text
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3AworkGroup%3AListPreparedStatements%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier hs-type">ListPreparedStatements</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier hs-type">ListPreparedStatements</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier hs-type">ListPreparedStatements</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse"><span class="hs-identifier hs-type">ListPreparedStatementsResponse</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679222214"><span class="annot"><span class="annottext">request :: ListPreparedStatements -&gt; Request ListPreparedStatements
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListPreparedStatements -&gt; Request ListPreparedStatements
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Athena.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679222210"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListPreparedStatements
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListPreparedStatements)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListPreparedStatements))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListPreparedStatements
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListPreparedStatements)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222207"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222207"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679222206"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679222206"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679222205"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222205"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [PreparedStatementSummary]
+-&gt; Int
+-&gt; ListPreparedStatementsResponse
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse%27"><span class="hs-identifier hs-var">ListPreparedStatementsResponse'</span></a></span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [PreparedStatementSummary]
+ -&gt; Int
+ -&gt; ListPreparedStatementsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [PreparedStatementSummary]
+      -&gt; Int -&gt; ListPreparedStatementsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [PreparedStatementSummary]
+   -&gt; Int -&gt; ListPreparedStatementsResponse)
+-&gt; Either String (Maybe [PreparedStatementSummary])
+-&gt; Either String (Int -&gt; ListPreparedStatementsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [PreparedStatementSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PreparedStatements&quot;</span></span><span>
+</span><span id="line-120"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PreparedStatementSummary]))
+-&gt; Maybe [PreparedStatementSummary]
+-&gt; Either String (Maybe [PreparedStatementSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PreparedStatementSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListPreparedStatementsResponse)
+-&gt; Either String Int
+-&gt; Either String ListPreparedStatementsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222207"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222196"><span id="local-6989586621679222198"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier hs-type">ListPreparedStatements</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222193"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier hs-type">ListPreparedStatements</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier hs-type">ListPreparedStatements</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679222189"><span class="annot"><span class="annottext">toHeaders :: ListPreparedStatements -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListPreparedStatements -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonAthena.ListPreparedStatements&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-136"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-140"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222179"><span id="local-6989586621679222181"><span id="local-6989586621679222183"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier hs-type">ListPreparedStatements</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679222177"><span class="annot"><span class="annottext">toJSON :: ListPreparedStatements -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements%27"><span class="hs-identifier hs-type">ListPreparedStatements'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222173"><span id="local-6989586621679222174"><span id="local-6989586621679222175"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+workGroup :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:workGroup:ListPreparedStatements' :: ListPreparedStatements -&gt; Text
+$sel:maxResults:ListPreparedStatements' :: ListPreparedStatements -&gt; Maybe Natural
+$sel:nextToken:ListPreparedStatements' :: ListPreparedStatements -&gt; Maybe Text
+</span><a href="#local-6989586621679222173"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222175"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679222174"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222173"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier hs-type">ListPreparedStatements</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679222167"><span class="annot"><span class="annottext">toPath :: ListPreparedStatements -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListPreparedStatements -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatements"><span class="hs-identifier hs-type">ListPreparedStatements</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679222163"><span class="annot"><span class="annottext">toQuery :: ListPreparedStatements -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListPreparedStatements -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | /See:/ 'newListPreparedStatementsResponse' smart constructor.</span><span>
+</span><span id="line-161"></span><span id="local-6989586621679222160"><span id="local-6989586621679222161"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPreparedStatementsResponse"><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse"><span class="hs-identifier hs-var">ListPreparedStatementsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPreparedStatementsResponse%27"><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse%27"><span class="hs-identifier hs-var">ListPreparedStatementsResponse'</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token generated by the Athena service that specifies where to continue</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- pagination if a previous request was truncated. To obtain the next set</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- of pages, pass in the @NextToken@ from the response object of the</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- previous page call.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AnextToken%3AListPreparedStatementsResponse%27"><span class="annot"><span class="annottext">ListPreparedStatementsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3AnextToken%3AListPreparedStatementsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | The list of prepared statements for the workgroup.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3ApreparedStatements%3AListPreparedStatementsResponse%27"><span class="annot"><span class="annottext">ListPreparedStatementsResponse -&gt; Maybe [PreparedStatementSummary]
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3ApreparedStatements%3AListPreparedStatementsResponse%27"><span class="hs-identifier hs-var hs-var">preparedStatements</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Athena.Types.PreparedStatementSummary.html#PreparedStatementSummary"><span class="hs-identifier hs-type">PreparedStatementSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPreparedStatementsResponse%27"><span class="annot"><span class="annottext">ListPreparedStatementsResponse -&gt; Int
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3AhttpStatus%3AListPreparedStatementsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222153"><span id="local-6989586621679222155"><span class="annot"><span class="annottext">ListPreparedStatementsResponse
+-&gt; ListPreparedStatementsResponse -&gt; Bool
+(ListPreparedStatementsResponse
+ -&gt; ListPreparedStatementsResponse -&gt; Bool)
+-&gt; (ListPreparedStatementsResponse
+    -&gt; ListPreparedStatementsResponse -&gt; Bool)
+-&gt; Eq ListPreparedStatementsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPreparedStatementsResponse
+-&gt; ListPreparedStatementsResponse -&gt; Bool
+$c/= :: ListPreparedStatementsResponse
+-&gt; ListPreparedStatementsResponse -&gt; Bool
+== :: ListPreparedStatementsResponse
+-&gt; ListPreparedStatementsResponse -&gt; Bool
+$c== :: ListPreparedStatementsResponse
+-&gt; ListPreparedStatementsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222145"><span id="local-6989586621679222147"><span id="local-6989586621679222149"><span id="local-6989586621679222151"><span class="annot"><span class="annottext">ReadPrec [ListPreparedStatementsResponse]
+ReadPrec ListPreparedStatementsResponse
+Int -&gt; ReadS ListPreparedStatementsResponse
+ReadS [ListPreparedStatementsResponse]
+(Int -&gt; ReadS ListPreparedStatementsResponse)
+-&gt; ReadS [ListPreparedStatementsResponse]
+-&gt; ReadPrec ListPreparedStatementsResponse
+-&gt; ReadPrec [ListPreparedStatementsResponse]
+-&gt; Read ListPreparedStatementsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPreparedStatementsResponse]
+$creadListPrec :: ReadPrec [ListPreparedStatementsResponse]
+readPrec :: ReadPrec ListPreparedStatementsResponse
+$creadPrec :: ReadPrec ListPreparedStatementsResponse
+readList :: ReadS [ListPreparedStatementsResponse]
+$creadList :: ReadS [ListPreparedStatementsResponse]
+readsPrec :: Int -&gt; ReadS ListPreparedStatementsResponse
+$creadsPrec :: Int -&gt; ReadS ListPreparedStatementsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222139"><span id="local-6989586621679222141"><span id="local-6989586621679222143"><span class="annot"><span class="annottext">Int -&gt; ListPreparedStatementsResponse -&gt; ShowS
+[ListPreparedStatementsResponse] -&gt; ShowS
+ListPreparedStatementsResponse -&gt; String
+(Int -&gt; ListPreparedStatementsResponse -&gt; ShowS)
+-&gt; (ListPreparedStatementsResponse -&gt; String)
+-&gt; ([ListPreparedStatementsResponse] -&gt; ShowS)
+-&gt; Show ListPreparedStatementsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPreparedStatementsResponse] -&gt; ShowS
+$cshowList :: [ListPreparedStatementsResponse] -&gt; ShowS
+show :: ListPreparedStatementsResponse -&gt; String
+$cshow :: ListPreparedStatementsResponse -&gt; String
+showsPrec :: Int -&gt; ListPreparedStatementsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPreparedStatementsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListPreparedStatementsResponse
+ -&gt; Rep ListPreparedStatementsResponse x)
+-&gt; (forall x.
+    Rep ListPreparedStatementsResponse x
+    -&gt; ListPreparedStatementsResponse)
+-&gt; Generic ListPreparedStatementsResponse
+forall x.
+Rep ListPreparedStatementsResponse x
+-&gt; ListPreparedStatementsResponse
+forall x.
+ListPreparedStatementsResponse
+-&gt; Rep ListPreparedStatementsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListPreparedStatementsResponse x
+-&gt; ListPreparedStatementsResponse
+$cfrom :: forall x.
+ListPreparedStatementsResponse
+-&gt; Rep ListPreparedStatementsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Create a value of 'ListPreparedStatementsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'nextToken', 'listPreparedStatementsResponse_nextToken' - A token generated by the Athena service that specifies where to continue</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- pagination if a previous request was truncated. To obtain the next set</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- of pages, pass in the @NextToken@ from the response object of the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- previous page call.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'preparedStatements', 'listPreparedStatementsResponse_preparedStatements' - The list of prepared statements for the workgroup.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'httpStatus', 'listPreparedStatementsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#newListPreparedStatementsResponse"><span class="hs-identifier hs-type">newListPreparedStatementsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse"><span class="hs-identifier hs-type">ListPreparedStatementsResponse</span></a></span><span>
+</span><span id="line-194"></span><span id="newListPreparedStatementsResponse"><span class="annot"><span class="annottext">newListPreparedStatementsResponse :: Int -&gt; ListPreparedStatementsResponse
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#newListPreparedStatementsResponse"><span class="hs-identifier hs-var hs-var">newListPreparedStatementsResponse</span></a></span></span><span> </span><span id="local-6989586621679222136"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222136"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="annottext">ListPreparedStatementsResponse' :: Maybe Text
+-&gt; Maybe [PreparedStatementSummary]
+-&gt; Int
+-&gt; ListPreparedStatementsResponse
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse%27"><span class="hs-identifier hs-type">ListPreparedStatementsResponse'</span></a></span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPreparedStatementsResponse' :: Maybe Text
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3AnextToken%3AListPreparedStatementsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:preparedStatements:ListPreparedStatementsResponse' :: Maybe [PreparedStatementSummary]
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3ApreparedStatements%3AListPreparedStatementsResponse%27"><span class="hs-identifier hs-var">preparedStatements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PreparedStatementSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPreparedStatementsResponse' :: Int
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3AhttpStatus%3AListPreparedStatementsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222136"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | A token generated by the Athena service that specifies where to continue</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- pagination if a previous request was truncated. To obtain the next set</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- of pages, pass in the @NextToken@ from the response object of the</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- previous page call.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatementsResponse_nextToken"><span class="hs-identifier hs-type">listPreparedStatementsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse"><span class="hs-identifier hs-type">ListPreparedStatementsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="listPreparedStatementsResponse_nextToken"><span class="annot"><span class="annottext">listPreparedStatementsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPreparedStatementsResponse
+-&gt; f ListPreparedStatementsResponse
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatementsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listPreparedStatementsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPreparedStatementsResponse -&gt; Maybe Text)
+-&gt; (ListPreparedStatementsResponse
+    -&gt; Maybe Text -&gt; ListPreparedStatementsResponse)
+-&gt; Lens
+     ListPreparedStatementsResponse
+     ListPreparedStatementsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse%27"><span class="hs-identifier hs-type">ListPreparedStatementsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222135"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPreparedStatementsResponse' :: ListPreparedStatementsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679222135"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222135"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222134"><span class="annot"><span class="annottext">s :: ListPreparedStatementsResponse
+</span><a href="#local-6989586621679222134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse%27"><span class="hs-identifier hs-type">ListPreparedStatementsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222133"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPreparedStatementsResponse
+</span><a href="#local-6989586621679222134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPreparedStatementsResponse' :: Maybe Text
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3AnextToken%3AListPreparedStatementsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse"><span class="hs-identifier hs-type">ListPreparedStatementsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The list of prepared statements for the workgroup.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatementsResponse_preparedStatements"><span class="hs-identifier hs-type">listPreparedStatementsResponse_preparedStatements</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse"><span class="hs-identifier hs-type">ListPreparedStatementsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Athena.Types.PreparedStatementSummary.html#PreparedStatementSummary"><span class="hs-identifier hs-type">PreparedStatementSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="listPreparedStatementsResponse_preparedStatements"><span class="annot"><span class="annottext">listPreparedStatementsResponse_preparedStatements :: (Maybe [PreparedStatementSummary]
+ -&gt; f (Maybe [PreparedStatementSummary]))
+-&gt; ListPreparedStatementsResponse
+-&gt; f ListPreparedStatementsResponse
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatementsResponse_preparedStatements"><span class="hs-identifier hs-var hs-var">listPreparedStatementsResponse_preparedStatements</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPreparedStatementsResponse
+ -&gt; Maybe [PreparedStatementSummary])
+-&gt; (ListPreparedStatementsResponse
+    -&gt; Maybe [PreparedStatementSummary]
+    -&gt; ListPreparedStatementsResponse)
+-&gt; Lens
+     ListPreparedStatementsResponse
+     ListPreparedStatementsResponse
+     (Maybe [PreparedStatementSummary])
+     (Maybe [PreparedStatementSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse%27"><span class="hs-identifier hs-type">ListPreparedStatementsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222132"><span class="annot"><span class="annottext">Maybe [PreparedStatementSummary]
+preparedStatements :: Maybe [PreparedStatementSummary]
+$sel:preparedStatements:ListPreparedStatementsResponse' :: ListPreparedStatementsResponse -&gt; Maybe [PreparedStatementSummary]
+</span><a href="#local-6989586621679222132"><span class="hs-identifier hs-var hs-var">preparedStatements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PreparedStatementSummary]
+</span><a href="#local-6989586621679222132"><span class="hs-identifier hs-var">preparedStatements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222131"><span class="annot"><span class="annottext">s :: ListPreparedStatementsResponse
+</span><a href="#local-6989586621679222131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse%27"><span class="hs-identifier hs-type">ListPreparedStatementsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222130"><span class="annot"><span class="annottext">Maybe [PreparedStatementSummary]
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPreparedStatementsResponse
+</span><a href="#local-6989586621679222131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preparedStatements:ListPreparedStatementsResponse' :: Maybe [PreparedStatementSummary]
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3ApreparedStatements%3AListPreparedStatementsResponse%27"><span class="hs-identifier hs-var">preparedStatements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PreparedStatementSummary]
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse"><span class="hs-identifier hs-type">ListPreparedStatementsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PreparedStatementSummary]
+  -&gt; f (Maybe [PreparedStatementSummary]))
+ -&gt; ListPreparedStatementsResponse
+ -&gt; f ListPreparedStatementsResponse)
+-&gt; ((Maybe [PreparedStatementSummary]
+     -&gt; f (Maybe [PreparedStatementSummary]))
+    -&gt; Maybe [PreparedStatementSummary]
+    -&gt; f (Maybe [PreparedStatementSummary]))
+-&gt; (Maybe [PreparedStatementSummary]
+    -&gt; f (Maybe [PreparedStatementSummary]))
+-&gt; ListPreparedStatementsResponse
+-&gt; f ListPreparedStatementsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PreparedStatementSummary]
+  [PreparedStatementSummary]
+  [PreparedStatementSummary]
+  [PreparedStatementSummary]
+-&gt; Iso
+     (Maybe [PreparedStatementSummary])
+     (Maybe [PreparedStatementSummary])
+     (Maybe [PreparedStatementSummary])
+     (Maybe [PreparedStatementSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PreparedStatementSummary]
+  [PreparedStatementSummary]
+  [PreparedStatementSummary]
+  [PreparedStatementSummary]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatementsResponse_httpStatus"><span class="hs-identifier hs-type">listPreparedStatementsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse"><span class="hs-identifier hs-type">ListPreparedStatementsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-215"></span><span id="listPreparedStatementsResponse_httpStatus"><span class="annot"><span class="annottext">listPreparedStatementsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListPreparedStatementsResponse
+-&gt; f ListPreparedStatementsResponse
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#listPreparedStatementsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listPreparedStatementsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPreparedStatementsResponse -&gt; Int)
+-&gt; (ListPreparedStatementsResponse
+    -&gt; Int -&gt; ListPreparedStatementsResponse)
+-&gt; Lens
+     ListPreparedStatementsResponse
+     ListPreparedStatementsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse%27"><span class="hs-identifier hs-type">ListPreparedStatementsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222126"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListPreparedStatementsResponse' :: ListPreparedStatementsResponse -&gt; Int
+</span><a href="#local-6989586621679222126"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222126"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222125"><span class="annot"><span class="annottext">s :: ListPreparedStatementsResponse
+</span><a href="#local-6989586621679222125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse%27"><span class="hs-identifier hs-type">ListPreparedStatementsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222124"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPreparedStatementsResponse
+</span><a href="#local-6989586621679222125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPreparedStatementsResponse' :: Int
+</span><a href="Network.AWS.Athena.ListPreparedStatements.html#%24sel%3AhttpStatus%3AListPreparedStatementsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse"><span class="hs-identifier hs-type">ListPreparedStatementsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679222122"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListPreparedStatements.html#ListPreparedStatementsResponse"><span class="hs-identifier hs-type">ListPreparedStatementsResponse</span></a></span></span><span>
+</span><span id="line-220"></span></pre></body></html>

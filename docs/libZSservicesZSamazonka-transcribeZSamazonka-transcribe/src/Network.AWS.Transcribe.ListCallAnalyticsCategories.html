@@ -1,0 +1,628 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Transcribe.ListCallAnalyticsCategories</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Provides more information about the call analytics categories that</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- you\'ve created. You can use the information in this list to find a</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- specific category. You can then use the operation to get more</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- information about it.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Transcribe.ListCallAnalyticsCategories</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories"><span class="hs-identifier">ListCallAnalyticsCategories</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#newListCallAnalyticsCategories"><span class="hs-identifier">newListCallAnalyticsCategories</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#listCallAnalyticsCategories_nextToken"><span class="hs-identifier">listCallAnalyticsCategories_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#listCallAnalyticsCategories_maxResults"><span class="hs-identifier">listCallAnalyticsCategories_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse"><span class="hs-identifier">ListCallAnalyticsCategoriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#newListCallAnalyticsCategoriesResponse"><span class="hs-identifier">newListCallAnalyticsCategoriesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#listCallAnalyticsCategoriesResponse_nextToken"><span class="hs-identifier">listCallAnalyticsCategoriesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#listCallAnalyticsCategoriesResponse_categories"><span class="hs-identifier">listCallAnalyticsCategoriesResponse_categories</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#listCallAnalyticsCategoriesResponse_httpStatus"><span class="hs-identifier">listCallAnalyticsCategoriesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.html"><span class="hs-identifier">Network.AWS.Transcribe.Types</span></a></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListCallAnalyticsCategories' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679282508"><span id="local-6989586621679282509"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCallAnalyticsCategories"><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories"><span class="hs-identifier hs-var">ListCallAnalyticsCategories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCallAnalyticsCategories%27"><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories%27"><span class="hs-identifier hs-var">ListCallAnalyticsCategories'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When included, @NextToken@fetches the next set of categories if the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- result of the previous request was truncated.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListCallAnalyticsCategories%27"><span class="annot"><span class="annottext">ListCallAnalyticsCategories -&gt; Maybe Text
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#%24sel%3AnextToken%3AListCallAnalyticsCategories%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of categories to return in each page of results. If</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- there are fewer results than the value you specify, only the actual</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- results are returned. If you do not specify a value, the default of 5 is</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3AListCallAnalyticsCategories%27"><span class="annot"><span class="annottext">ListCallAnalyticsCategories -&gt; Maybe Natural
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#%24sel%3AmaxResults%3AListCallAnalyticsCategories%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282501"><span id="local-6989586621679282503"><span class="annot"><span class="annottext">ListCallAnalyticsCategories -&gt; ListCallAnalyticsCategories -&gt; Bool
+(ListCallAnalyticsCategories
+ -&gt; ListCallAnalyticsCategories -&gt; Bool)
+-&gt; (ListCallAnalyticsCategories
+    -&gt; ListCallAnalyticsCategories -&gt; Bool)
+-&gt; Eq ListCallAnalyticsCategories
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListCallAnalyticsCategories -&gt; ListCallAnalyticsCategories -&gt; Bool
+$c/= :: ListCallAnalyticsCategories -&gt; ListCallAnalyticsCategories -&gt; Bool
+== :: ListCallAnalyticsCategories -&gt; ListCallAnalyticsCategories -&gt; Bool
+$c== :: ListCallAnalyticsCategories -&gt; ListCallAnalyticsCategories -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282492"><span id="local-6989586621679282494"><span id="local-6989586621679282496"><span id="local-6989586621679282498"><span class="annot"><span class="annottext">ReadPrec [ListCallAnalyticsCategories]
+ReadPrec ListCallAnalyticsCategories
+Int -&gt; ReadS ListCallAnalyticsCategories
+ReadS [ListCallAnalyticsCategories]
+(Int -&gt; ReadS ListCallAnalyticsCategories)
+-&gt; ReadS [ListCallAnalyticsCategories]
+-&gt; ReadPrec ListCallAnalyticsCategories
+-&gt; ReadPrec [ListCallAnalyticsCategories]
+-&gt; Read ListCallAnalyticsCategories
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListCallAnalyticsCategories]
+$creadListPrec :: ReadPrec [ListCallAnalyticsCategories]
+readPrec :: ReadPrec ListCallAnalyticsCategories
+$creadPrec :: ReadPrec ListCallAnalyticsCategories
+readList :: ReadS [ListCallAnalyticsCategories]
+$creadList :: ReadS [ListCallAnalyticsCategories]
+readsPrec :: Int -&gt; ReadS ListCallAnalyticsCategories
+$creadsPrec :: Int -&gt; ReadS ListCallAnalyticsCategories
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282485"><span id="local-6989586621679282487"><span id="local-6989586621679282489"><span class="annot"><span class="annottext">Int -&gt; ListCallAnalyticsCategories -&gt; ShowS
+[ListCallAnalyticsCategories] -&gt; ShowS
+ListCallAnalyticsCategories -&gt; String
+(Int -&gt; ListCallAnalyticsCategories -&gt; ShowS)
+-&gt; (ListCallAnalyticsCategories -&gt; String)
+-&gt; ([ListCallAnalyticsCategories] -&gt; ShowS)
+-&gt; Show ListCallAnalyticsCategories
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListCallAnalyticsCategories] -&gt; ShowS
+$cshowList :: [ListCallAnalyticsCategories] -&gt; ShowS
+show :: ListCallAnalyticsCategories -&gt; String
+$cshow :: ListCallAnalyticsCategories -&gt; String
+showsPrec :: Int -&gt; ListCallAnalyticsCategories -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListCallAnalyticsCategories -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListCallAnalyticsCategories -&gt; Rep ListCallAnalyticsCategories x)
+-&gt; (forall x.
+    Rep ListCallAnalyticsCategories x -&gt; ListCallAnalyticsCategories)
+-&gt; Generic ListCallAnalyticsCategories
+forall x.
+Rep ListCallAnalyticsCategories x -&gt; ListCallAnalyticsCategories
+forall x.
+ListCallAnalyticsCategories -&gt; Rep ListCallAnalyticsCategories x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListCallAnalyticsCategories x -&gt; ListCallAnalyticsCategories
+$cfrom :: forall x.
+ListCallAnalyticsCategories -&gt; Rep ListCallAnalyticsCategories x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'ListCallAnalyticsCategories' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'nextToken', 'listCallAnalyticsCategories_nextToken' - When included, @NextToken@fetches the next set of categories if the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- result of the previous request was truncated.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'maxResults', 'listCallAnalyticsCategories_maxResults' - The maximum number of categories to return in each page of results. If</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- there are fewer results than the value you specify, only the actual</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- results are returned. If you do not specify a value, the default of 5 is</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#newListCallAnalyticsCategories"><span class="hs-identifier hs-type">newListCallAnalyticsCategories</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories"><span class="hs-identifier hs-type">ListCallAnalyticsCategories</span></a></span><span>
+</span><span id="line-84"></span><span id="newListCallAnalyticsCategories"><span class="annot"><span class="annottext">newListCallAnalyticsCategories :: ListCallAnalyticsCategories
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#newListCallAnalyticsCategories"><span class="hs-identifier hs-var hs-var">newListCallAnalyticsCategories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">ListCallAnalyticsCategories' :: Maybe Text -&gt; Maybe Natural -&gt; ListCallAnalyticsCategories
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories%27"><span class="hs-identifier hs-type">ListCallAnalyticsCategories'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListCallAnalyticsCategories' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#%24sel%3AnextToken%3AListCallAnalyticsCategories%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListCallAnalyticsCategories' :: Maybe Natural
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#%24sel%3AmaxResults%3AListCallAnalyticsCategories%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | When included, @NextToken@fetches the next set of categories if the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- result of the previous request was truncated.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#listCallAnalyticsCategories_nextToken"><span class="hs-identifier hs-type">listCallAnalyticsCategories_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories"><span class="hs-identifier hs-type">ListCallAnalyticsCategories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="listCallAnalyticsCategories_nextToken"><span class="annot"><span class="annottext">listCallAnalyticsCategories_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListCallAnalyticsCategories -&gt; f ListCallAnalyticsCategories
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#listCallAnalyticsCategories_nextToken"><span class="hs-identifier hs-var hs-var">listCallAnalyticsCategories_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCallAnalyticsCategories -&gt; Maybe Text)
+-&gt; (ListCallAnalyticsCategories
+    -&gt; Maybe Text -&gt; ListCallAnalyticsCategories)
+-&gt; Lens
+     ListCallAnalyticsCategories
+     ListCallAnalyticsCategories
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories%27"><span class="hs-identifier hs-type">ListCallAnalyticsCategories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282478"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListCallAnalyticsCategories' :: ListCallAnalyticsCategories -&gt; Maybe Text
+</span><a href="#local-6989586621679282478"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282478"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282477"><span class="annot"><span class="annottext">s :: ListCallAnalyticsCategories
+</span><a href="#local-6989586621679282477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories%27"><span class="hs-identifier hs-type">ListCallAnalyticsCategories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282476"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCallAnalyticsCategories
+</span><a href="#local-6989586621679282477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCallAnalyticsCategories' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#%24sel%3AnextToken%3AListCallAnalyticsCategories%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories"><span class="hs-identifier hs-type">ListCallAnalyticsCategories</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The maximum number of categories to return in each page of results. If</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- there are fewer results than the value you specify, only the actual</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- results are returned. If you do not specify a value, the default of 5 is</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#listCallAnalyticsCategories_maxResults"><span class="hs-identifier hs-type">listCallAnalyticsCategories_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories"><span class="hs-identifier hs-type">ListCallAnalyticsCategories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="listCallAnalyticsCategories_maxResults"><span class="annot"><span class="annottext">listCallAnalyticsCategories_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListCallAnalyticsCategories -&gt; f ListCallAnalyticsCategories
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#listCallAnalyticsCategories_maxResults"><span class="hs-identifier hs-var hs-var">listCallAnalyticsCategories_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCallAnalyticsCategories -&gt; Maybe Natural)
+-&gt; (ListCallAnalyticsCategories
+    -&gt; Maybe Natural -&gt; ListCallAnalyticsCategories)
+-&gt; Lens
+     ListCallAnalyticsCategories
+     ListCallAnalyticsCategories
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories%27"><span class="hs-identifier hs-type">ListCallAnalyticsCategories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282475"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListCallAnalyticsCategories' :: ListCallAnalyticsCategories -&gt; Maybe Natural
+</span><a href="#local-6989586621679282475"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679282475"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282474"><span class="annot"><span class="annottext">s :: ListCallAnalyticsCategories
+</span><a href="#local-6989586621679282474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories%27"><span class="hs-identifier hs-type">ListCallAnalyticsCategories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282473"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679282473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCallAnalyticsCategories
+</span><a href="#local-6989586621679282474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListCallAnalyticsCategories' :: Maybe Natural
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#%24sel%3AmaxResults%3AListCallAnalyticsCategories%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679282473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories"><span class="hs-identifier hs-type">ListCallAnalyticsCategories</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories"><span class="hs-identifier hs-type">ListCallAnalyticsCategories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories"><span class="hs-identifier hs-type">ListCallAnalyticsCategories</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse"><span class="hs-identifier hs-type">ListCallAnalyticsCategoriesResponse</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679282469"><span class="annot"><span class="annottext">request :: ListCallAnalyticsCategories -&gt; Request ListCallAnalyticsCategories
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListCallAnalyticsCategories
+-&gt; Request ListCallAnalyticsCategories
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Transcribe.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679282465"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListCallAnalyticsCategories
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListCallAnalyticsCategories)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListCallAnalyticsCategories))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListCallAnalyticsCategories
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListCallAnalyticsCategories)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679282462"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282462"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679282461"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679282461"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679282460"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679282460"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [CategoryProperties]
+-&gt; Int
+-&gt; ListCallAnalyticsCategoriesResponse
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-var">ListCallAnalyticsCategoriesResponse'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [CategoryProperties]
+ -&gt; Int
+ -&gt; ListCallAnalyticsCategoriesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [CategoryProperties]
+      -&gt; Int -&gt; ListCallAnalyticsCategoriesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679282460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [CategoryProperties]
+   -&gt; Int -&gt; ListCallAnalyticsCategoriesResponse)
+-&gt; Either String (Maybe [CategoryProperties])
+-&gt; Either String (Int -&gt; ListCallAnalyticsCategoriesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679282460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [CategoryProperties]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Categories&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [CategoryProperties]))
+-&gt; Maybe [CategoryProperties]
+-&gt; Either String (Maybe [CategoryProperties])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CategoryProperties]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListCallAnalyticsCategoriesResponse)
+-&gt; Either String Int
+-&gt; Either String ListCallAnalyticsCategoriesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282462"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282451"><span id="local-6989586621679282453"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories"><span class="hs-identifier hs-type">ListCallAnalyticsCategories</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories"><span class="hs-identifier hs-type">ListCallAnalyticsCategories</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories"><span class="hs-identifier hs-type">ListCallAnalyticsCategories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679282444"><span class="annot"><span class="annottext">toHeaders :: ListCallAnalyticsCategories -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListCallAnalyticsCategories -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Transcribe.ListCallAnalyticsCategories&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282434"><span id="local-6989586621679282436"><span id="local-6989586621679282438"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories"><span class="hs-identifier hs-type">ListCallAnalyticsCategories</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679282432"><span class="annot"><span class="annottext">toJSON :: ListCallAnalyticsCategories -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories%27"><span class="hs-identifier hs-type">ListCallAnalyticsCategories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282429"><span id="local-6989586621679282430"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListCallAnalyticsCategories' :: ListCallAnalyticsCategories -&gt; Maybe Natural
+$sel:nextToken:ListCallAnalyticsCategories' :: ListCallAnalyticsCategories -&gt; Maybe Text
+</span><a href="#local-6989586621679282429"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282430"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679282429"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories"><span class="hs-identifier hs-type">ListCallAnalyticsCategories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679282423"><span class="annot"><span class="annottext">toPath :: ListCallAnalyticsCategories -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListCallAnalyticsCategories -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategories"><span class="hs-identifier hs-type">ListCallAnalyticsCategories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679282419"><span class="annot"><span class="annottext">toQuery :: ListCallAnalyticsCategories -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListCallAnalyticsCategories -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newListCallAnalyticsCategoriesResponse' smart constructor.</span><span>
+</span><span id="line-152"></span><span id="local-6989586621679282416"><span id="local-6989586621679282417"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCallAnalyticsCategoriesResponse"><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse"><span class="hs-identifier hs-var">ListCallAnalyticsCategoriesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCallAnalyticsCategoriesResponse%27"><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-var">ListCallAnalyticsCategoriesResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The operation returns a page of jobs at a time. The maximum size of the</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- list is set by the @MaxResults@ parameter. If there are more categories</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- in the list than the page size, Amazon Transcribe returns the @NextPage@</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- token. Include the token in the next request to the operation to return</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- the next page of analytics categories.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AnextToken%3AListCallAnalyticsCategoriesResponse%27"><span class="annot"><span class="annottext">ListCallAnalyticsCategoriesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#%24sel%3AnextToken%3AListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | A list of objects containing information about analytics categories.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3Acategories%3AListCallAnalyticsCategoriesResponse%27"><span class="annot"><span class="annottext">ListCallAnalyticsCategoriesResponse -&gt; Maybe [CategoryProperties]
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#%24sel%3Acategories%3AListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-var hs-var">categories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CategoryProperties.html#CategoryProperties"><span class="hs-identifier hs-type">CategoryProperties</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListCallAnalyticsCategoriesResponse%27"><span class="annot"><span class="annottext">ListCallAnalyticsCategoriesResponse -&gt; Int
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#%24sel%3AhttpStatus%3AListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282409"><span id="local-6989586621679282411"><span class="annot"><span class="annottext">ListCallAnalyticsCategoriesResponse
+-&gt; ListCallAnalyticsCategoriesResponse -&gt; Bool
+(ListCallAnalyticsCategoriesResponse
+ -&gt; ListCallAnalyticsCategoriesResponse -&gt; Bool)
+-&gt; (ListCallAnalyticsCategoriesResponse
+    -&gt; ListCallAnalyticsCategoriesResponse -&gt; Bool)
+-&gt; Eq ListCallAnalyticsCategoriesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListCallAnalyticsCategoriesResponse
+-&gt; ListCallAnalyticsCategoriesResponse -&gt; Bool
+$c/= :: ListCallAnalyticsCategoriesResponse
+-&gt; ListCallAnalyticsCategoriesResponse -&gt; Bool
+== :: ListCallAnalyticsCategoriesResponse
+-&gt; ListCallAnalyticsCategoriesResponse -&gt; Bool
+$c== :: ListCallAnalyticsCategoriesResponse
+-&gt; ListCallAnalyticsCategoriesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282401"><span id="local-6989586621679282403"><span id="local-6989586621679282405"><span id="local-6989586621679282407"><span class="annot"><span class="annottext">ReadPrec [ListCallAnalyticsCategoriesResponse]
+ReadPrec ListCallAnalyticsCategoriesResponse
+Int -&gt; ReadS ListCallAnalyticsCategoriesResponse
+ReadS [ListCallAnalyticsCategoriesResponse]
+(Int -&gt; ReadS ListCallAnalyticsCategoriesResponse)
+-&gt; ReadS [ListCallAnalyticsCategoriesResponse]
+-&gt; ReadPrec ListCallAnalyticsCategoriesResponse
+-&gt; ReadPrec [ListCallAnalyticsCategoriesResponse]
+-&gt; Read ListCallAnalyticsCategoriesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListCallAnalyticsCategoriesResponse]
+$creadListPrec :: ReadPrec [ListCallAnalyticsCategoriesResponse]
+readPrec :: ReadPrec ListCallAnalyticsCategoriesResponse
+$creadPrec :: ReadPrec ListCallAnalyticsCategoriesResponse
+readList :: ReadS [ListCallAnalyticsCategoriesResponse]
+$creadList :: ReadS [ListCallAnalyticsCategoriesResponse]
+readsPrec :: Int -&gt; ReadS ListCallAnalyticsCategoriesResponse
+$creadsPrec :: Int -&gt; ReadS ListCallAnalyticsCategoriesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282395"><span id="local-6989586621679282397"><span id="local-6989586621679282399"><span class="annot"><span class="annottext">Int -&gt; ListCallAnalyticsCategoriesResponse -&gt; ShowS
+[ListCallAnalyticsCategoriesResponse] -&gt; ShowS
+ListCallAnalyticsCategoriesResponse -&gt; String
+(Int -&gt; ListCallAnalyticsCategoriesResponse -&gt; ShowS)
+-&gt; (ListCallAnalyticsCategoriesResponse -&gt; String)
+-&gt; ([ListCallAnalyticsCategoriesResponse] -&gt; ShowS)
+-&gt; Show ListCallAnalyticsCategoriesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListCallAnalyticsCategoriesResponse] -&gt; ShowS
+$cshowList :: [ListCallAnalyticsCategoriesResponse] -&gt; ShowS
+show :: ListCallAnalyticsCategoriesResponse -&gt; String
+$cshow :: ListCallAnalyticsCategoriesResponse -&gt; String
+showsPrec :: Int -&gt; ListCallAnalyticsCategoriesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListCallAnalyticsCategoriesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListCallAnalyticsCategoriesResponse
+ -&gt; Rep ListCallAnalyticsCategoriesResponse x)
+-&gt; (forall x.
+    Rep ListCallAnalyticsCategoriesResponse x
+    -&gt; ListCallAnalyticsCategoriesResponse)
+-&gt; Generic ListCallAnalyticsCategoriesResponse
+forall x.
+Rep ListCallAnalyticsCategoriesResponse x
+-&gt; ListCallAnalyticsCategoriesResponse
+forall x.
+ListCallAnalyticsCategoriesResponse
+-&gt; Rep ListCallAnalyticsCategoriesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListCallAnalyticsCategoriesResponse x
+-&gt; ListCallAnalyticsCategoriesResponse
+$cfrom :: forall x.
+ListCallAnalyticsCategoriesResponse
+-&gt; Rep ListCallAnalyticsCategoriesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Create a value of 'ListCallAnalyticsCategoriesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'nextToken', 'listCallAnalyticsCategoriesResponse_nextToken' - The operation returns a page of jobs at a time. The maximum size of the</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- list is set by the @MaxResults@ parameter. If there are more categories</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- in the list than the page size, Amazon Transcribe returns the @NextPage@</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- token. Include the token in the next request to the operation to return</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- the next page of analytics categories.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'categories', 'listCallAnalyticsCategoriesResponse_categories' - A list of objects containing information about analytics categories.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'httpStatus', 'listCallAnalyticsCategoriesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#newListCallAnalyticsCategoriesResponse"><span class="hs-identifier hs-type">newListCallAnalyticsCategoriesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse"><span class="hs-identifier hs-type">ListCallAnalyticsCategoriesResponse</span></a></span><span>
+</span><span id="line-187"></span><span id="newListCallAnalyticsCategoriesResponse"><span class="annot"><span class="annottext">newListCallAnalyticsCategoriesResponse :: Int -&gt; ListCallAnalyticsCategoriesResponse
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#newListCallAnalyticsCategoriesResponse"><span class="hs-identifier hs-var hs-var">newListCallAnalyticsCategoriesResponse</span></a></span></span><span> </span><span id="local-6989586621679282392"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282392"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="annottext">ListCallAnalyticsCategoriesResponse' :: Maybe Text
+-&gt; Maybe [CategoryProperties]
+-&gt; Int
+-&gt; ListCallAnalyticsCategoriesResponse
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-type">ListCallAnalyticsCategoriesResponse'</span></a></span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListCallAnalyticsCategoriesResponse' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#%24sel%3AnextToken%3AListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:categories:ListCallAnalyticsCategoriesResponse' :: Maybe [CategoryProperties]
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#%24sel%3Acategories%3AListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-var">categories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CategoryProperties]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListCallAnalyticsCategoriesResponse' :: Int
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#%24sel%3AhttpStatus%3AListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282392"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The operation returns a page of jobs at a time. The maximum size of the</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- list is set by the @MaxResults@ parameter. If there are more categories</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- in the list than the page size, Amazon Transcribe returns the @NextPage@</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- token. Include the token in the next request to the operation to return</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- the next page of analytics categories.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#listCallAnalyticsCategoriesResponse_nextToken"><span class="hs-identifier hs-type">listCallAnalyticsCategoriesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse"><span class="hs-identifier hs-type">ListCallAnalyticsCategoriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="listCallAnalyticsCategoriesResponse_nextToken"><span class="annot"><span class="annottext">listCallAnalyticsCategoriesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListCallAnalyticsCategoriesResponse
+-&gt; f ListCallAnalyticsCategoriesResponse
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#listCallAnalyticsCategoriesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listCallAnalyticsCategoriesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCallAnalyticsCategoriesResponse -&gt; Maybe Text)
+-&gt; (ListCallAnalyticsCategoriesResponse
+    -&gt; Maybe Text -&gt; ListCallAnalyticsCategoriesResponse)
+-&gt; Lens
+     ListCallAnalyticsCategoriesResponse
+     ListCallAnalyticsCategoriesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-type">ListCallAnalyticsCategoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282391"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListCallAnalyticsCategoriesResponse' :: ListCallAnalyticsCategoriesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679282391"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282391"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282390"><span class="annot"><span class="annottext">s :: ListCallAnalyticsCategoriesResponse
+</span><a href="#local-6989586621679282390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-type">ListCallAnalyticsCategoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282389"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCallAnalyticsCategoriesResponse
+</span><a href="#local-6989586621679282390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCallAnalyticsCategoriesResponse' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#%24sel%3AnextToken%3AListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse"><span class="hs-identifier hs-type">ListCallAnalyticsCategoriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | A list of objects containing information about analytics categories.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#listCallAnalyticsCategoriesResponse_categories"><span class="hs-identifier hs-type">listCallAnalyticsCategoriesResponse_categories</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse"><span class="hs-identifier hs-type">ListCallAnalyticsCategoriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CategoryProperties.html#CategoryProperties"><span class="hs-identifier hs-type">CategoryProperties</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="listCallAnalyticsCategoriesResponse_categories"><span class="annot"><span class="annottext">listCallAnalyticsCategoriesResponse_categories :: (Maybe [CategoryProperties] -&gt; f (Maybe [CategoryProperties]))
+-&gt; ListCallAnalyticsCategoriesResponse
+-&gt; f ListCallAnalyticsCategoriesResponse
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#listCallAnalyticsCategoriesResponse_categories"><span class="hs-identifier hs-var hs-var">listCallAnalyticsCategoriesResponse_categories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCallAnalyticsCategoriesResponse -&gt; Maybe [CategoryProperties])
+-&gt; (ListCallAnalyticsCategoriesResponse
+    -&gt; Maybe [CategoryProperties]
+    -&gt; ListCallAnalyticsCategoriesResponse)
+-&gt; Lens
+     ListCallAnalyticsCategoriesResponse
+     ListCallAnalyticsCategoriesResponse
+     (Maybe [CategoryProperties])
+     (Maybe [CategoryProperties])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-type">ListCallAnalyticsCategoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282388"><span class="annot"><span class="annottext">Maybe [CategoryProperties]
+categories :: Maybe [CategoryProperties]
+$sel:categories:ListCallAnalyticsCategoriesResponse' :: ListCallAnalyticsCategoriesResponse -&gt; Maybe [CategoryProperties]
+</span><a href="#local-6989586621679282388"><span class="hs-identifier hs-var hs-var">categories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CategoryProperties]
+</span><a href="#local-6989586621679282388"><span class="hs-identifier hs-var">categories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282387"><span class="annot"><span class="annottext">s :: ListCallAnalyticsCategoriesResponse
+</span><a href="#local-6989586621679282387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-type">ListCallAnalyticsCategoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282386"><span class="annot"><span class="annottext">Maybe [CategoryProperties]
+</span><a href="#local-6989586621679282386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCallAnalyticsCategoriesResponse
+</span><a href="#local-6989586621679282387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:categories:ListCallAnalyticsCategoriesResponse' :: Maybe [CategoryProperties]
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#%24sel%3Acategories%3AListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-var">categories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CategoryProperties]
+</span><a href="#local-6989586621679282386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse"><span class="hs-identifier hs-type">ListCallAnalyticsCategoriesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CategoryProperties] -&gt; f (Maybe [CategoryProperties]))
+ -&gt; ListCallAnalyticsCategoriesResponse
+ -&gt; f ListCallAnalyticsCategoriesResponse)
+-&gt; ((Maybe [CategoryProperties] -&gt; f (Maybe [CategoryProperties]))
+    -&gt; Maybe [CategoryProperties] -&gt; f (Maybe [CategoryProperties]))
+-&gt; (Maybe [CategoryProperties] -&gt; f (Maybe [CategoryProperties]))
+-&gt; ListCallAnalyticsCategoriesResponse
+-&gt; f ListCallAnalyticsCategoriesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CategoryProperties]
+  [CategoryProperties]
+  [CategoryProperties]
+  [CategoryProperties]
+-&gt; Iso
+     (Maybe [CategoryProperties])
+     (Maybe [CategoryProperties])
+     (Maybe [CategoryProperties])
+     (Maybe [CategoryProperties])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CategoryProperties]
+  [CategoryProperties]
+  [CategoryProperties]
+  [CategoryProperties]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#listCallAnalyticsCategoriesResponse_httpStatus"><span class="hs-identifier hs-type">listCallAnalyticsCategoriesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse"><span class="hs-identifier hs-type">ListCallAnalyticsCategoriesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-209"></span><span id="listCallAnalyticsCategoriesResponse_httpStatus"><span class="annot"><span class="annottext">listCallAnalyticsCategoriesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListCallAnalyticsCategoriesResponse
+-&gt; f ListCallAnalyticsCategoriesResponse
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#listCallAnalyticsCategoriesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listCallAnalyticsCategoriesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCallAnalyticsCategoriesResponse -&gt; Int)
+-&gt; (ListCallAnalyticsCategoriesResponse
+    -&gt; Int -&gt; ListCallAnalyticsCategoriesResponse)
+-&gt; Lens
+     ListCallAnalyticsCategoriesResponse
+     ListCallAnalyticsCategoriesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-type">ListCallAnalyticsCategoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282382"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListCallAnalyticsCategoriesResponse' :: ListCallAnalyticsCategoriesResponse -&gt; Int
+</span><a href="#local-6989586621679282382"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282382"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282381"><span class="annot"><span class="annottext">s :: ListCallAnalyticsCategoriesResponse
+</span><a href="#local-6989586621679282381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-type">ListCallAnalyticsCategoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282380"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCallAnalyticsCategoriesResponse
+</span><a href="#local-6989586621679282381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListCallAnalyticsCategoriesResponse' :: Int
+</span><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#%24sel%3AhttpStatus%3AListCallAnalyticsCategoriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse"><span class="hs-identifier hs-type">ListCallAnalyticsCategoriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679282378"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListCallAnalyticsCategories.html#ListCallAnalyticsCategoriesResponse"><span class="hs-identifier hs-type">ListCallAnalyticsCategoriesResponse</span></a></span></span><span>
+</span><span id="line-214"></span></pre></body></html>

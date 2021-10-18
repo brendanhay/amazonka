@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IAM.Types.PolicyScopeType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IAM.Types.PolicyScopeType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType"><span class="hs-identifier">PolicyScopeType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType_AWS"><span class="hs-identifier">PolicyScopeType_AWS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType_All"><span class="hs-identifier">PolicyScopeType_All</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType_Local"><span class="hs-identifier">PolicyScopeType_Local</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679427251"><span id="local-6989586621679427252"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PolicyScopeType"><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType"><span class="hs-identifier hs-var">PolicyScopeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyScopeType%27"><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType%27"><span class="hs-identifier hs-var">PolicyScopeType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPolicyScopeType"><span class="annot"><span class="annottext">PolicyScopeType -&gt; Text
+</span><a href="Network.AWS.IAM.Types.PolicyScopeType.html#fromPolicyScopeType"><span class="hs-identifier hs-var hs-var">fromPolicyScopeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427243"><span id="local-6989586621679427245"><span id="local-6989586621679427247"><span class="annot"><span class="annottext">Int -&gt; PolicyScopeType -&gt; ShowS
+[PolicyScopeType] -&gt; ShowS
+PolicyScopeType -&gt; String
+(Int -&gt; PolicyScopeType -&gt; ShowS)
+-&gt; (PolicyScopeType -&gt; String)
+-&gt; ([PolicyScopeType] -&gt; ShowS)
+-&gt; Show PolicyScopeType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PolicyScopeType] -&gt; ShowS
+$cshowList :: [PolicyScopeType] -&gt; ShowS
+show :: PolicyScopeType -&gt; String
+$cshow :: PolicyScopeType -&gt; String
+showsPrec :: Int -&gt; PolicyScopeType -&gt; ShowS
+$cshowsPrec :: Int -&gt; PolicyScopeType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679427234"><span id="local-6989586621679427236"><span id="local-6989586621679427238"><span id="local-6989586621679427240"><span class="annot"><span class="annottext">ReadPrec [PolicyScopeType]
+ReadPrec PolicyScopeType
+Int -&gt; ReadS PolicyScopeType
+ReadS [PolicyScopeType]
+(Int -&gt; ReadS PolicyScopeType)
+-&gt; ReadS [PolicyScopeType]
+-&gt; ReadPrec PolicyScopeType
+-&gt; ReadPrec [PolicyScopeType]
+-&gt; Read PolicyScopeType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PolicyScopeType]
+$creadListPrec :: ReadPrec [PolicyScopeType]
+readPrec :: ReadPrec PolicyScopeType
+$creadPrec :: ReadPrec PolicyScopeType
+readList :: ReadS [PolicyScopeType]
+$creadList :: ReadS [PolicyScopeType]
+readsPrec :: Int -&gt; ReadS PolicyScopeType
+$creadsPrec :: Int -&gt; ReadS PolicyScopeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679427229"><span id="local-6989586621679427231"><span class="annot"><span class="annottext">PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
+(PolicyScopeType -&gt; PolicyScopeType -&gt; Bool)
+-&gt; (PolicyScopeType -&gt; PolicyScopeType -&gt; Bool)
+-&gt; Eq PolicyScopeType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
+$c/= :: PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
+== :: PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
+$c== :: PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679427213"><span id="local-6989586621679427215"><span id="local-6989586621679427217"><span id="local-6989586621679427219"><span id="local-6989586621679427221"><span id="local-6989586621679427223"><span id="local-6989586621679427225"><span class="annot"><span class="annottext">Eq PolicyScopeType
+Eq PolicyScopeType
+-&gt; (PolicyScopeType -&gt; PolicyScopeType -&gt; Ordering)
+-&gt; (PolicyScopeType -&gt; PolicyScopeType -&gt; Bool)
+-&gt; (PolicyScopeType -&gt; PolicyScopeType -&gt; Bool)
+-&gt; (PolicyScopeType -&gt; PolicyScopeType -&gt; Bool)
+-&gt; (PolicyScopeType -&gt; PolicyScopeType -&gt; Bool)
+-&gt; (PolicyScopeType -&gt; PolicyScopeType -&gt; PolicyScopeType)
+-&gt; (PolicyScopeType -&gt; PolicyScopeType -&gt; PolicyScopeType)
+-&gt; Ord PolicyScopeType
+PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
+PolicyScopeType -&gt; PolicyScopeType -&gt; Ordering
+PolicyScopeType -&gt; PolicyScopeType -&gt; PolicyScopeType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PolicyScopeType -&gt; PolicyScopeType -&gt; PolicyScopeType
+$cmin :: PolicyScopeType -&gt; PolicyScopeType -&gt; PolicyScopeType
+max :: PolicyScopeType -&gt; PolicyScopeType -&gt; PolicyScopeType
+$cmax :: PolicyScopeType -&gt; PolicyScopeType -&gt; PolicyScopeType
+&gt;= :: PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
+$c&gt;= :: PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
+&gt; :: PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
+$c&gt; :: PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
+&lt;= :: PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
+$c&lt;= :: PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
+&lt; :: PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
+$c&lt; :: PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
+compare :: PolicyScopeType -&gt; PolicyScopeType -&gt; Ordering
+$ccompare :: PolicyScopeType -&gt; PolicyScopeType -&gt; Ordering
+$cp1Ord :: Eq PolicyScopeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PolicyScopeType -&gt; Rep PolicyScopeType x)
+-&gt; (forall x. Rep PolicyScopeType x -&gt; PolicyScopeType)
+-&gt; Generic PolicyScopeType
+forall x. Rep PolicyScopeType x -&gt; PolicyScopeType
+forall x. PolicyScopeType -&gt; Rep PolicyScopeType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PolicyScopeType x -&gt; PolicyScopeType
+$cfrom :: forall x. PolicyScopeType -&gt; Rep PolicyScopeType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427205"><span id="local-6989586621679427207"><span class="annot"><span class="annottext">Int -&gt; PolicyScopeType -&gt; Int
+PolicyScopeType -&gt; Int
+(Int -&gt; PolicyScopeType -&gt; Int)
+-&gt; (PolicyScopeType -&gt; Int) -&gt; Hashable PolicyScopeType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PolicyScopeType -&gt; Int
+$chash :: PolicyScopeType -&gt; Int
+hashWithSalt :: Int -&gt; PolicyScopeType -&gt; Int
+$chashWithSalt :: Int -&gt; PolicyScopeType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679427202"><span class="annot"><span class="annottext">PolicyScopeType -&gt; ()
+(PolicyScopeType -&gt; ()) -&gt; NFData PolicyScopeType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PolicyScopeType -&gt; ()
+$crnf :: PolicyScopeType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679427199"><span class="annot"><span class="annottext">Text -&gt; Either String PolicyScopeType
+(Text -&gt; Either String PolicyScopeType) -&gt; FromText PolicyScopeType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PolicyScopeType
+$cfromText :: Text -&gt; Either String PolicyScopeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679427196"><span class="annot"><span class="annottext">PolicyScopeType -&gt; Text
+(PolicyScopeType -&gt; Text) -&gt; ToText PolicyScopeType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PolicyScopeType -&gt; Text
+$ctoText :: PolicyScopeType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679427193"><span class="annot"><span class="annottext">PolicyScopeType -&gt; ByteString
+(PolicyScopeType -&gt; ByteString) -&gt; ToByteString PolicyScopeType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PolicyScopeType -&gt; ByteString
+$ctoBS :: PolicyScopeType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679427190"><span class="annot"><span class="annottext">PolicyScopeType -&gt; ByteStringBuilder
+(PolicyScopeType -&gt; ByteStringBuilder) -&gt; ToLog PolicyScopeType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PolicyScopeType -&gt; ByteStringBuilder
+$cbuild :: PolicyScopeType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679427187"><span class="annot"><span class="annottext">HeaderName -&gt; PolicyScopeType -&gt; [Header]
+(HeaderName -&gt; PolicyScopeType -&gt; [Header])
+-&gt; ToHeader PolicyScopeType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PolicyScopeType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PolicyScopeType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679427184"><span class="annot"><span class="annottext">PolicyScopeType -&gt; QueryString
+(PolicyScopeType -&gt; QueryString) -&gt; ToQuery PolicyScopeType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PolicyScopeType -&gt; QueryString
+$ctoQuery :: PolicyScopeType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679427179"><span id="local-6989586621679427181"><span class="annot"><span class="annottext">Value -&gt; Parser [PolicyScopeType]
+Value -&gt; Parser PolicyScopeType
+(Value -&gt; Parser PolicyScopeType)
+-&gt; (Value -&gt; Parser [PolicyScopeType]) -&gt; FromJSON PolicyScopeType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PolicyScopeType]
+$cparseJSONList :: Value -&gt; Parser [PolicyScopeType]
+parseJSON :: Value -&gt; Parser PolicyScopeType
+$cparseJSON :: Value -&gt; Parser PolicyScopeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679427174"><span id="local-6989586621679427176"><span class="annot"><span class="annottext">FromJSONKeyFunction [PolicyScopeType]
+FromJSONKeyFunction PolicyScopeType
+FromJSONKeyFunction PolicyScopeType
+-&gt; FromJSONKeyFunction [PolicyScopeType]
+-&gt; FromJSONKey PolicyScopeType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PolicyScopeType]
+$cfromJSONKeyList :: FromJSONKeyFunction [PolicyScopeType]
+fromJSONKey :: FromJSONKeyFunction PolicyScopeType
+$cfromJSONKey :: FromJSONKeyFunction PolicyScopeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679427165"><span id="local-6989586621679427167"><span id="local-6989586621679427169"><span id="local-6989586621679427171"><span class="annot"><span class="annottext">[PolicyScopeType] -&gt; Encoding
+[PolicyScopeType] -&gt; Value
+PolicyScopeType -&gt; Encoding
+PolicyScopeType -&gt; Value
+(PolicyScopeType -&gt; Value)
+-&gt; (PolicyScopeType -&gt; Encoding)
+-&gt; ([PolicyScopeType] -&gt; Value)
+-&gt; ([PolicyScopeType] -&gt; Encoding)
+-&gt; ToJSON PolicyScopeType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PolicyScopeType] -&gt; Encoding
+$ctoEncodingList :: [PolicyScopeType] -&gt; Encoding
+toJSONList :: [PolicyScopeType] -&gt; Value
+$ctoJSONList :: [PolicyScopeType] -&gt; Value
+toEncoding :: PolicyScopeType -&gt; Encoding
+$ctoEncoding :: PolicyScopeType -&gt; Encoding
+toJSON :: PolicyScopeType -&gt; Value
+$ctoJSON :: PolicyScopeType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679427160"><span id="local-6989586621679427162"><span class="annot"><span class="annottext">ToJSONKeyFunction [PolicyScopeType]
+ToJSONKeyFunction PolicyScopeType
+ToJSONKeyFunction PolicyScopeType
+-&gt; ToJSONKeyFunction [PolicyScopeType] -&gt; ToJSONKey PolicyScopeType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PolicyScopeType]
+$ctoJSONKeyList :: ToJSONKeyFunction [PolicyScopeType]
+toJSONKey :: ToJSONKeyFunction PolicyScopeType
+$ctoJSONKey :: ToJSONKeyFunction PolicyScopeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679427157"><span class="annot"><span class="annottext">[Node] -&gt; Either String PolicyScopeType
+([Node] -&gt; Either String PolicyScopeType)
+-&gt; FromXML PolicyScopeType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PolicyScopeType
+$cparseXML :: [Node] -&gt; Either String PolicyScopeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679427154"><span class="annot"><span class="annottext">PolicyScopeType -&gt; XML
+(PolicyScopeType -&gt; XML) -&gt; ToXML PolicyScopeType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PolicyScopeType -&gt; XML
+$ctoXML :: PolicyScopeType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType_AWS"><span class="hs-identifier hs-type">PolicyScopeType_AWS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType"><span class="hs-identifier hs-type">PolicyScopeType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPolicyScopeType_AWS"><span id="%24mPolicyScopeType_AWS"><span id="PolicyScopeType_AWS"><span class="annot"><span class="annottext">$bPolicyScopeType_AWS :: PolicyScopeType
+$mPolicyScopeType_AWS :: forall r. PolicyScopeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IAM.Types.PolicyScopeType.html#%24bPolicyScopeType_AWS"><span class="hs-identifier hs-var hs-var hs-var">PolicyScopeType_AWS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType%27"><span class="hs-identifier hs-type">PolicyScopeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWS&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType_All"><span class="hs-identifier hs-type">PolicyScopeType_All</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType"><span class="hs-identifier hs-type">PolicyScopeType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPolicyScopeType_All"><span id="%24mPolicyScopeType_All"><span id="PolicyScopeType_All"><span class="annot"><span class="annottext">$bPolicyScopeType_All :: PolicyScopeType
+$mPolicyScopeType_All :: forall r. PolicyScopeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IAM.Types.PolicyScopeType.html#%24bPolicyScopeType_All"><span class="hs-identifier hs-var hs-var hs-var">PolicyScopeType_All</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType%27"><span class="hs-identifier hs-type">PolicyScopeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;All&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType_Local"><span class="hs-identifier hs-type">PolicyScopeType_Local</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType"><span class="hs-identifier hs-type">PolicyScopeType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPolicyScopeType_Local"><span id="%24mPolicyScopeType_Local"><span id="PolicyScopeType_Local"><span class="annot"><span class="annottext">$bPolicyScopeType_Local :: PolicyScopeType
+$mPolicyScopeType_Local :: forall r. PolicyScopeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IAM.Types.PolicyScopeType.html#%24bPolicyScopeType_Local"><span class="hs-identifier hs-var hs-var hs-var">PolicyScopeType_Local</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType%27"><span class="hs-identifier hs-type">PolicyScopeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Local&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType_AWS"><span class="hs-pragma hs-type">PolicyScopeType_AWS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType_All"><span class="hs-pragma hs-type">PolicyScopeType_All</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType_Local"><span class="hs-pragma hs-type">PolicyScopeType_Local</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType%27"><span class="hs-pragma hs-type">PolicyScopeType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

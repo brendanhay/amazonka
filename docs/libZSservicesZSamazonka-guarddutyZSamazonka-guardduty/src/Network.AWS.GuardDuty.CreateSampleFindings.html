@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.GuardDuty.CreateSampleFindings</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Generates example findings of types specified by the list of finding</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- types. If \'NULL\' is specified for @findingTypes@, the API generates</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- example findings of all supported finding types.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GuardDuty.CreateSampleFindings</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings"><span class="hs-identifier">CreateSampleFindings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#newCreateSampleFindings"><span class="hs-identifier">newCreateSampleFindings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#createSampleFindings_findingTypes"><span class="hs-identifier">createSampleFindings_findingTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#createSampleFindings_detectorId"><span class="hs-identifier">createSampleFindings_detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindingsResponse"><span class="hs-identifier">CreateSampleFindingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#newCreateSampleFindingsResponse"><span class="hs-identifier">newCreateSampleFindingsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#createSampleFindingsResponse_httpStatus"><span class="hs-identifier">createSampleFindingsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.html"><span class="hs-identifier">Network.AWS.GuardDuty.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCreateSampleFindings' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679313168"><span id="local-6989586621679313169"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSampleFindings"><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings"><span class="hs-identifier hs-var">CreateSampleFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSampleFindings%27"><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings%27"><span class="hs-identifier hs-var">CreateSampleFindings'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The types of sample findings to generate.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AfindingTypes%3ACreateSampleFindings%27"><span class="annot"><span class="annottext">CreateSampleFindings -&gt; Maybe [Text]
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#%24sel%3AfindingTypes%3ACreateSampleFindings%27"><span class="hs-identifier hs-var hs-var">findingTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The ID of the detector to create sample findings for.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AdetectorId%3ACreateSampleFindings%27"><span class="annot"><span class="annottext">CreateSampleFindings -&gt; Text
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#%24sel%3AdetectorId%3ACreateSampleFindings%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313161"><span id="local-6989586621679313163"><span class="annot"><span class="annottext">CreateSampleFindings -&gt; CreateSampleFindings -&gt; Bool
+(CreateSampleFindings -&gt; CreateSampleFindings -&gt; Bool)
+-&gt; (CreateSampleFindings -&gt; CreateSampleFindings -&gt; Bool)
+-&gt; Eq CreateSampleFindings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSampleFindings -&gt; CreateSampleFindings -&gt; Bool
+$c/= :: CreateSampleFindings -&gt; CreateSampleFindings -&gt; Bool
+== :: CreateSampleFindings -&gt; CreateSampleFindings -&gt; Bool
+$c== :: CreateSampleFindings -&gt; CreateSampleFindings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313152"><span id="local-6989586621679313154"><span id="local-6989586621679313156"><span id="local-6989586621679313158"><span class="annot"><span class="annottext">ReadPrec [CreateSampleFindings]
+ReadPrec CreateSampleFindings
+Int -&gt; ReadS CreateSampleFindings
+ReadS [CreateSampleFindings]
+(Int -&gt; ReadS CreateSampleFindings)
+-&gt; ReadS [CreateSampleFindings]
+-&gt; ReadPrec CreateSampleFindings
+-&gt; ReadPrec [CreateSampleFindings]
+-&gt; Read CreateSampleFindings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSampleFindings]
+$creadListPrec :: ReadPrec [CreateSampleFindings]
+readPrec :: ReadPrec CreateSampleFindings
+$creadPrec :: ReadPrec CreateSampleFindings
+readList :: ReadS [CreateSampleFindings]
+$creadList :: ReadS [CreateSampleFindings]
+readsPrec :: Int -&gt; ReadS CreateSampleFindings
+$creadsPrec :: Int -&gt; ReadS CreateSampleFindings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313145"><span id="local-6989586621679313147"><span id="local-6989586621679313149"><span class="annot"><span class="annottext">Int -&gt; CreateSampleFindings -&gt; ShowS
+[CreateSampleFindings] -&gt; ShowS
+CreateSampleFindings -&gt; String
+(Int -&gt; CreateSampleFindings -&gt; ShowS)
+-&gt; (CreateSampleFindings -&gt; String)
+-&gt; ([CreateSampleFindings] -&gt; ShowS)
+-&gt; Show CreateSampleFindings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSampleFindings] -&gt; ShowS
+$cshowList :: [CreateSampleFindings] -&gt; ShowS
+show :: CreateSampleFindings -&gt; String
+$cshow :: CreateSampleFindings -&gt; String
+showsPrec :: Int -&gt; CreateSampleFindings -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSampleFindings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateSampleFindings -&gt; Rep CreateSampleFindings x)
+-&gt; (forall x. Rep CreateSampleFindings x -&gt; CreateSampleFindings)
+-&gt; Generic CreateSampleFindings
+forall x. Rep CreateSampleFindings x -&gt; CreateSampleFindings
+forall x. CreateSampleFindings -&gt; Rep CreateSampleFindings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateSampleFindings x -&gt; CreateSampleFindings
+$cfrom :: forall x. CreateSampleFindings -&gt; Rep CreateSampleFindings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'CreateSampleFindings' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'findingTypes', 'createSampleFindings_findingTypes' - The types of sample findings to generate.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'detectorId', 'createSampleFindings_detectorId' - The ID of the detector to create sample findings for.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#newCreateSampleFindings"><span class="hs-identifier hs-type">newCreateSampleFindings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'detectorId'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings"><span class="hs-identifier hs-type">CreateSampleFindings</span></a></span><span>
+</span><span id="line-75"></span><span id="newCreateSampleFindings"><span class="annot"><span class="annottext">newCreateSampleFindings :: Text -&gt; CreateSampleFindings
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#newCreateSampleFindings"><span class="hs-identifier hs-var hs-var">newCreateSampleFindings</span></a></span></span><span> </span><span id="local-6989586621679313140"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313140"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">CreateSampleFindings' :: Maybe [Text] -&gt; Text -&gt; CreateSampleFindings
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings%27"><span class="hs-identifier hs-type">CreateSampleFindings'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:findingTypes:CreateSampleFindings' :: Maybe [Text]
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#%24sel%3AfindingTypes%3ACreateSampleFindings%27"><span class="hs-identifier hs-var">findingTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:detectorId:CreateSampleFindings' :: Text
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#%24sel%3AdetectorId%3ACreateSampleFindings%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313140"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The types of sample findings to generate.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#createSampleFindings_findingTypes"><span class="hs-identifier hs-type">createSampleFindings_findingTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings"><span class="hs-identifier hs-type">CreateSampleFindings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="createSampleFindings_findingTypes"><span class="annot"><span class="annottext">createSampleFindings_findingTypes :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateSampleFindings -&gt; f CreateSampleFindings
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#createSampleFindings_findingTypes"><span class="hs-identifier hs-var hs-var">createSampleFindings_findingTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSampleFindings -&gt; Maybe [Text])
+-&gt; (CreateSampleFindings -&gt; Maybe [Text] -&gt; CreateSampleFindings)
+-&gt; Lens
+     CreateSampleFindings
+     CreateSampleFindings
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings%27"><span class="hs-identifier hs-type">CreateSampleFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313137"><span class="annot"><span class="annottext">Maybe [Text]
+findingTypes :: Maybe [Text]
+$sel:findingTypes:CreateSampleFindings' :: CreateSampleFindings -&gt; Maybe [Text]
+</span><a href="#local-6989586621679313137"><span class="hs-identifier hs-var hs-var">findingTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679313137"><span class="hs-identifier hs-var">findingTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313136"><span class="annot"><span class="annottext">s :: CreateSampleFindings
+</span><a href="#local-6989586621679313136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings%27"><span class="hs-identifier hs-type">CreateSampleFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313135"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679313135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSampleFindings
+</span><a href="#local-6989586621679313136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingTypes:CreateSampleFindings' :: Maybe [Text]
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#%24sel%3AfindingTypes%3ACreateSampleFindings%27"><span class="hs-identifier hs-var">findingTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679313135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings"><span class="hs-identifier hs-type">CreateSampleFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateSampleFindings -&gt; f CreateSampleFindings)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateSampleFindings
+-&gt; f CreateSampleFindings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The ID of the detector to create sample findings for.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#createSampleFindings_detectorId"><span class="hs-identifier hs-type">createSampleFindings_detectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings"><span class="hs-identifier hs-type">CreateSampleFindings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="createSampleFindings_detectorId"><span class="annot"><span class="annottext">createSampleFindings_detectorId :: (Text -&gt; f Text) -&gt; CreateSampleFindings -&gt; f CreateSampleFindings
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#createSampleFindings_detectorId"><span class="hs-identifier hs-var hs-var">createSampleFindings_detectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSampleFindings -&gt; Text)
+-&gt; (CreateSampleFindings -&gt; Text -&gt; CreateSampleFindings)
+-&gt; Lens CreateSampleFindings CreateSampleFindings Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings%27"><span class="hs-identifier hs-type">CreateSampleFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313131"><span class="annot"><span class="annottext">Text
+detectorId :: Text
+$sel:detectorId:CreateSampleFindings' :: CreateSampleFindings -&gt; Text
+</span><a href="#local-6989586621679313131"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313131"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313130"><span class="annot"><span class="annottext">s :: CreateSampleFindings
+</span><a href="#local-6989586621679313130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings%27"><span class="hs-identifier hs-type">CreateSampleFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313129"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSampleFindings
+</span><a href="#local-6989586621679313130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:CreateSampleFindings' :: Text
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#%24sel%3AdetectorId%3ACreateSampleFindings%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings"><span class="hs-identifier hs-type">CreateSampleFindings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings"><span class="hs-identifier hs-type">CreateSampleFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings"><span class="hs-identifier hs-type">CreateSampleFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindingsResponse"><span class="hs-identifier hs-type">CreateSampleFindingsResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679313125"><span class="annot"><span class="annottext">request :: CreateSampleFindings -&gt; Request CreateSampleFindings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateSampleFindings -&gt; Request CreateSampleFindings
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679313121"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateSampleFindings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateSampleFindings)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse CreateSampleFindings))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateSampleFindings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateSampleFindings)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313118"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313118"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313117"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679313117"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313116"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679313116"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateSampleFindingsResponse
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindingsResponse%27"><span class="hs-identifier hs-var">CreateSampleFindingsResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateSampleFindingsResponse)
+-&gt; Either String Int -&gt; Either String CreateSampleFindingsResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313118"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313109"><span id="local-6989586621679313111"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings"><span class="hs-identifier hs-type">CreateSampleFindings</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313106"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings"><span class="hs-identifier hs-type">CreateSampleFindings</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings"><span class="hs-identifier hs-type">CreateSampleFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679313102"><span class="annot"><span class="annottext">toHeaders :: CreateSampleFindings -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateSampleFindings -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-113"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313092"><span id="local-6989586621679313094"><span id="local-6989586621679313096"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings"><span class="hs-identifier hs-type">CreateSampleFindings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679313090"><span class="annot"><span class="annottext">toJSON :: CreateSampleFindings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings%27"><span class="hs-identifier hs-type">CreateSampleFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313087"><span id="local-6989586621679313088"><span class="annot"><span class="annottext">Maybe [Text]
+Text
+detectorId :: Text
+findingTypes :: Maybe [Text]
+$sel:detectorId:CreateSampleFindings' :: CreateSampleFindings -&gt; Text
+$sel:findingTypes:CreateSampleFindings' :: CreateSampleFindings -&gt; Maybe [Text]
+</span><a href="#local-6989586621679313087"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;findingTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679313088"><span class="hs-identifier hs-var">findingTypes</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings"><span class="hs-identifier hs-type">CreateSampleFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679313081"><span class="annot"><span class="annottext">toPath :: CreateSampleFindings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings%27"><span class="hs-identifier hs-type">CreateSampleFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313078"><span id="local-6989586621679313079"><span class="annot"><span class="annottext">Maybe [Text]
+Text
+detectorId :: Text
+findingTypes :: Maybe [Text]
+$sel:detectorId:CreateSampleFindings' :: CreateSampleFindings -&gt; Text
+$sel:findingTypes:CreateSampleFindings' :: CreateSampleFindings -&gt; Maybe [Text]
+</span><a href="#local-6989586621679313078"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/detector/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313078"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/findings/create&quot;</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindings"><span class="hs-identifier hs-type">CreateSampleFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679313074"><span class="annot"><span class="annottext">toQuery :: CreateSampleFindings -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateSampleFindings -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newCreateSampleFindingsResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679313071"><span id="local-6989586621679313072"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSampleFindingsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindingsResponse"><span class="hs-identifier hs-var">CreateSampleFindingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSampleFindingsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindingsResponse%27"><span class="hs-identifier hs-var">CreateSampleFindingsResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateSampleFindingsResponse%27"><span class="annot"><span class="annottext">CreateSampleFindingsResponse -&gt; Int
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#%24sel%3AhttpStatus%3ACreateSampleFindingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313066"><span id="local-6989586621679313068"><span class="annot"><span class="annottext">CreateSampleFindingsResponse
+-&gt; CreateSampleFindingsResponse -&gt; Bool
+(CreateSampleFindingsResponse
+ -&gt; CreateSampleFindingsResponse -&gt; Bool)
+-&gt; (CreateSampleFindingsResponse
+    -&gt; CreateSampleFindingsResponse -&gt; Bool)
+-&gt; Eq CreateSampleFindingsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSampleFindingsResponse
+-&gt; CreateSampleFindingsResponse -&gt; Bool
+$c/= :: CreateSampleFindingsResponse
+-&gt; CreateSampleFindingsResponse -&gt; Bool
+== :: CreateSampleFindingsResponse
+-&gt; CreateSampleFindingsResponse -&gt; Bool
+$c== :: CreateSampleFindingsResponse
+-&gt; CreateSampleFindingsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313058"><span id="local-6989586621679313060"><span id="local-6989586621679313062"><span id="local-6989586621679313064"><span class="annot"><span class="annottext">ReadPrec [CreateSampleFindingsResponse]
+ReadPrec CreateSampleFindingsResponse
+Int -&gt; ReadS CreateSampleFindingsResponse
+ReadS [CreateSampleFindingsResponse]
+(Int -&gt; ReadS CreateSampleFindingsResponse)
+-&gt; ReadS [CreateSampleFindingsResponse]
+-&gt; ReadPrec CreateSampleFindingsResponse
+-&gt; ReadPrec [CreateSampleFindingsResponse]
+-&gt; Read CreateSampleFindingsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSampleFindingsResponse]
+$creadListPrec :: ReadPrec [CreateSampleFindingsResponse]
+readPrec :: ReadPrec CreateSampleFindingsResponse
+$creadPrec :: ReadPrec CreateSampleFindingsResponse
+readList :: ReadS [CreateSampleFindingsResponse]
+$creadList :: ReadS [CreateSampleFindingsResponse]
+readsPrec :: Int -&gt; ReadS CreateSampleFindingsResponse
+$creadsPrec :: Int -&gt; ReadS CreateSampleFindingsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313052"><span id="local-6989586621679313054"><span id="local-6989586621679313056"><span class="annot"><span class="annottext">Int -&gt; CreateSampleFindingsResponse -&gt; ShowS
+[CreateSampleFindingsResponse] -&gt; ShowS
+CreateSampleFindingsResponse -&gt; String
+(Int -&gt; CreateSampleFindingsResponse -&gt; ShowS)
+-&gt; (CreateSampleFindingsResponse -&gt; String)
+-&gt; ([CreateSampleFindingsResponse] -&gt; ShowS)
+-&gt; Show CreateSampleFindingsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSampleFindingsResponse] -&gt; ShowS
+$cshowList :: [CreateSampleFindingsResponse] -&gt; ShowS
+show :: CreateSampleFindingsResponse -&gt; String
+$cshow :: CreateSampleFindingsResponse -&gt; String
+showsPrec :: Int -&gt; CreateSampleFindingsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSampleFindingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateSampleFindingsResponse -&gt; Rep CreateSampleFindingsResponse x)
+-&gt; (forall x.
+    Rep CreateSampleFindingsResponse x -&gt; CreateSampleFindingsResponse)
+-&gt; Generic CreateSampleFindingsResponse
+forall x.
+Rep CreateSampleFindingsResponse x -&gt; CreateSampleFindingsResponse
+forall x.
+CreateSampleFindingsResponse -&gt; Rep CreateSampleFindingsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateSampleFindingsResponse x -&gt; CreateSampleFindingsResponse
+$cfrom :: forall x.
+CreateSampleFindingsResponse -&gt; Rep CreateSampleFindingsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'CreateSampleFindingsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'createSampleFindingsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#newCreateSampleFindingsResponse"><span class="hs-identifier hs-type">newCreateSampleFindingsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindingsResponse"><span class="hs-identifier hs-type">CreateSampleFindingsResponse</span></a></span><span>
+</span><span id="line-155"></span><span id="newCreateSampleFindingsResponse"><span class="annot"><span class="annottext">newCreateSampleFindingsResponse :: Int -&gt; CreateSampleFindingsResponse
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#newCreateSampleFindingsResponse"><span class="hs-identifier hs-var hs-var">newCreateSampleFindingsResponse</span></a></span></span><span> </span><span id="local-6989586621679313049"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313049"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">CreateSampleFindingsResponse' :: Int -&gt; CreateSampleFindingsResponse
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindingsResponse%27"><span class="hs-identifier hs-type">CreateSampleFindingsResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSampleFindingsResponse' :: Int
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#%24sel%3AhttpStatus%3ACreateSampleFindingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313049"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#createSampleFindingsResponse_httpStatus"><span class="hs-identifier hs-type">createSampleFindingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindingsResponse"><span class="hs-identifier hs-type">CreateSampleFindingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span id="createSampleFindingsResponse_httpStatus"><span class="annot"><span class="annottext">createSampleFindingsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateSampleFindingsResponse -&gt; f CreateSampleFindingsResponse
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#createSampleFindingsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createSampleFindingsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSampleFindingsResponse -&gt; Int)
+-&gt; (CreateSampleFindingsResponse
+    -&gt; Int -&gt; CreateSampleFindingsResponse)
+-&gt; Lens
+     CreateSampleFindingsResponse CreateSampleFindingsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindingsResponse%27"><span class="hs-identifier hs-type">CreateSampleFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313048"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateSampleFindingsResponse' :: CreateSampleFindingsResponse -&gt; Int
+</span><a href="#local-6989586621679313048"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313048"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313047"><span class="annot"><span class="annottext">s :: CreateSampleFindingsResponse
+</span><a href="#local-6989586621679313047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindingsResponse%27"><span class="hs-identifier hs-type">CreateSampleFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313046"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSampleFindingsResponse
+</span><a href="#local-6989586621679313047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSampleFindingsResponse' :: Int
+</span><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#%24sel%3AhttpStatus%3ACreateSampleFindingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindingsResponse"><span class="hs-identifier hs-type">CreateSampleFindingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateSampleFindings.html#CreateSampleFindingsResponse"><span class="hs-identifier hs-type">CreateSampleFindingsResponse</span></a></span></span><span>
+</span><span id="line-166"></span></pre></body></html>

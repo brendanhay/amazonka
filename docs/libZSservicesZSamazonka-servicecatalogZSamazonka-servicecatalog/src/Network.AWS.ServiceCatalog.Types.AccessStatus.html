@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceCatalog.Types.AccessStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceCatalog.Types.AccessStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus"><span class="hs-identifier">AccessStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus_DISABLED"><span class="hs-identifier">AccessStatus_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus_ENABLED"><span class="hs-identifier">AccessStatus_ENABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus_UNDER_CHANGE"><span class="hs-identifier">AccessStatus_UNDER_CHANGE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679397394"><span id="local-6989586621679397395"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccessStatus"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus"><span class="hs-identifier hs-var">AccessStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessStatus%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus%27"><span class="hs-identifier hs-var">AccessStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAccessStatus"><span class="annot"><span class="annottext">AccessStatus -&gt; Text
+</span><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#fromAccessStatus"><span class="hs-identifier hs-var hs-var">fromAccessStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397386"><span id="local-6989586621679397388"><span id="local-6989586621679397390"><span class="annot"><span class="annottext">Int -&gt; AccessStatus -&gt; ShowS
+[AccessStatus] -&gt; ShowS
+AccessStatus -&gt; String
+(Int -&gt; AccessStatus -&gt; ShowS)
+-&gt; (AccessStatus -&gt; String)
+-&gt; ([AccessStatus] -&gt; ShowS)
+-&gt; Show AccessStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AccessStatus] -&gt; ShowS
+$cshowList :: [AccessStatus] -&gt; ShowS
+show :: AccessStatus -&gt; String
+$cshow :: AccessStatus -&gt; String
+showsPrec :: Int -&gt; AccessStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AccessStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679397377"><span id="local-6989586621679397379"><span id="local-6989586621679397381"><span id="local-6989586621679397383"><span class="annot"><span class="annottext">ReadPrec [AccessStatus]
+ReadPrec AccessStatus
+Int -&gt; ReadS AccessStatus
+ReadS [AccessStatus]
+(Int -&gt; ReadS AccessStatus)
+-&gt; ReadS [AccessStatus]
+-&gt; ReadPrec AccessStatus
+-&gt; ReadPrec [AccessStatus]
+-&gt; Read AccessStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AccessStatus]
+$creadListPrec :: ReadPrec [AccessStatus]
+readPrec :: ReadPrec AccessStatus
+$creadPrec :: ReadPrec AccessStatus
+readList :: ReadS [AccessStatus]
+$creadList :: ReadS [AccessStatus]
+readsPrec :: Int -&gt; ReadS AccessStatus
+$creadsPrec :: Int -&gt; ReadS AccessStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679397372"><span id="local-6989586621679397374"><span class="annot"><span class="annottext">AccessStatus -&gt; AccessStatus -&gt; Bool
+(AccessStatus -&gt; AccessStatus -&gt; Bool)
+-&gt; (AccessStatus -&gt; AccessStatus -&gt; Bool) -&gt; Eq AccessStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AccessStatus -&gt; AccessStatus -&gt; Bool
+$c/= :: AccessStatus -&gt; AccessStatus -&gt; Bool
+== :: AccessStatus -&gt; AccessStatus -&gt; Bool
+$c== :: AccessStatus -&gt; AccessStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679397356"><span id="local-6989586621679397358"><span id="local-6989586621679397360"><span id="local-6989586621679397362"><span id="local-6989586621679397364"><span id="local-6989586621679397366"><span id="local-6989586621679397368"><span class="annot"><span class="annottext">Eq AccessStatus
+Eq AccessStatus
+-&gt; (AccessStatus -&gt; AccessStatus -&gt; Ordering)
+-&gt; (AccessStatus -&gt; AccessStatus -&gt; Bool)
+-&gt; (AccessStatus -&gt; AccessStatus -&gt; Bool)
+-&gt; (AccessStatus -&gt; AccessStatus -&gt; Bool)
+-&gt; (AccessStatus -&gt; AccessStatus -&gt; Bool)
+-&gt; (AccessStatus -&gt; AccessStatus -&gt; AccessStatus)
+-&gt; (AccessStatus -&gt; AccessStatus -&gt; AccessStatus)
+-&gt; Ord AccessStatus
+AccessStatus -&gt; AccessStatus -&gt; Bool
+AccessStatus -&gt; AccessStatus -&gt; Ordering
+AccessStatus -&gt; AccessStatus -&gt; AccessStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AccessStatus -&gt; AccessStatus -&gt; AccessStatus
+$cmin :: AccessStatus -&gt; AccessStatus -&gt; AccessStatus
+max :: AccessStatus -&gt; AccessStatus -&gt; AccessStatus
+$cmax :: AccessStatus -&gt; AccessStatus -&gt; AccessStatus
+&gt;= :: AccessStatus -&gt; AccessStatus -&gt; Bool
+$c&gt;= :: AccessStatus -&gt; AccessStatus -&gt; Bool
+&gt; :: AccessStatus -&gt; AccessStatus -&gt; Bool
+$c&gt; :: AccessStatus -&gt; AccessStatus -&gt; Bool
+&lt;= :: AccessStatus -&gt; AccessStatus -&gt; Bool
+$c&lt;= :: AccessStatus -&gt; AccessStatus -&gt; Bool
+&lt; :: AccessStatus -&gt; AccessStatus -&gt; Bool
+$c&lt; :: AccessStatus -&gt; AccessStatus -&gt; Bool
+compare :: AccessStatus -&gt; AccessStatus -&gt; Ordering
+$ccompare :: AccessStatus -&gt; AccessStatus -&gt; Ordering
+$cp1Ord :: Eq AccessStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AccessStatus -&gt; Rep AccessStatus x)
+-&gt; (forall x. Rep AccessStatus x -&gt; AccessStatus)
+-&gt; Generic AccessStatus
+forall x. Rep AccessStatus x -&gt; AccessStatus
+forall x. AccessStatus -&gt; Rep AccessStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AccessStatus x -&gt; AccessStatus
+$cfrom :: forall x. AccessStatus -&gt; Rep AccessStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397348"><span id="local-6989586621679397350"><span class="annot"><span class="annottext">Int -&gt; AccessStatus -&gt; Int
+AccessStatus -&gt; Int
+(Int -&gt; AccessStatus -&gt; Int)
+-&gt; (AccessStatus -&gt; Int) -&gt; Hashable AccessStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AccessStatus -&gt; Int
+$chash :: AccessStatus -&gt; Int
+hashWithSalt :: Int -&gt; AccessStatus -&gt; Int
+$chashWithSalt :: Int -&gt; AccessStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679397345"><span class="annot"><span class="annottext">AccessStatus -&gt; ()
+(AccessStatus -&gt; ()) -&gt; NFData AccessStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AccessStatus -&gt; ()
+$crnf :: AccessStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679397342"><span class="annot"><span class="annottext">Text -&gt; Either String AccessStatus
+(Text -&gt; Either String AccessStatus) -&gt; FromText AccessStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AccessStatus
+$cfromText :: Text -&gt; Either String AccessStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679397339"><span class="annot"><span class="annottext">AccessStatus -&gt; Text
+(AccessStatus -&gt; Text) -&gt; ToText AccessStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AccessStatus -&gt; Text
+$ctoText :: AccessStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679397336"><span class="annot"><span class="annottext">AccessStatus -&gt; ByteString
+(AccessStatus -&gt; ByteString) -&gt; ToByteString AccessStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AccessStatus -&gt; ByteString
+$ctoBS :: AccessStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679397333"><span class="annot"><span class="annottext">AccessStatus -&gt; ByteStringBuilder
+(AccessStatus -&gt; ByteStringBuilder) -&gt; ToLog AccessStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AccessStatus -&gt; ByteStringBuilder
+$cbuild :: AccessStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679397330"><span class="annot"><span class="annottext">HeaderName -&gt; AccessStatus -&gt; [Header]
+(HeaderName -&gt; AccessStatus -&gt; [Header]) -&gt; ToHeader AccessStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AccessStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AccessStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679397327"><span class="annot"><span class="annottext">AccessStatus -&gt; QueryString
+(AccessStatus -&gt; QueryString) -&gt; ToQuery AccessStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AccessStatus -&gt; QueryString
+$ctoQuery :: AccessStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679397322"><span id="local-6989586621679397324"><span class="annot"><span class="annottext">Value -&gt; Parser [AccessStatus]
+Value -&gt; Parser AccessStatus
+(Value -&gt; Parser AccessStatus)
+-&gt; (Value -&gt; Parser [AccessStatus]) -&gt; FromJSON AccessStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AccessStatus]
+$cparseJSONList :: Value -&gt; Parser [AccessStatus]
+parseJSON :: Value -&gt; Parser AccessStatus
+$cparseJSON :: Value -&gt; Parser AccessStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679397317"><span id="local-6989586621679397319"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccessStatus]
+FromJSONKeyFunction AccessStatus
+FromJSONKeyFunction AccessStatus
+-&gt; FromJSONKeyFunction [AccessStatus] -&gt; FromJSONKey AccessStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AccessStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [AccessStatus]
+fromJSONKey :: FromJSONKeyFunction AccessStatus
+$cfromJSONKey :: FromJSONKeyFunction AccessStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679397308"><span id="local-6989586621679397310"><span id="local-6989586621679397312"><span id="local-6989586621679397314"><span class="annot"><span class="annottext">[AccessStatus] -&gt; Encoding
+[AccessStatus] -&gt; Value
+AccessStatus -&gt; Encoding
+AccessStatus -&gt; Value
+(AccessStatus -&gt; Value)
+-&gt; (AccessStatus -&gt; Encoding)
+-&gt; ([AccessStatus] -&gt; Value)
+-&gt; ([AccessStatus] -&gt; Encoding)
+-&gt; ToJSON AccessStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AccessStatus] -&gt; Encoding
+$ctoEncodingList :: [AccessStatus] -&gt; Encoding
+toJSONList :: [AccessStatus] -&gt; Value
+$ctoJSONList :: [AccessStatus] -&gt; Value
+toEncoding :: AccessStatus -&gt; Encoding
+$ctoEncoding :: AccessStatus -&gt; Encoding
+toJSON :: AccessStatus -&gt; Value
+$ctoJSON :: AccessStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679397303"><span id="local-6989586621679397305"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccessStatus]
+ToJSONKeyFunction AccessStatus
+ToJSONKeyFunction AccessStatus
+-&gt; ToJSONKeyFunction [AccessStatus] -&gt; ToJSONKey AccessStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AccessStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [AccessStatus]
+toJSONKey :: ToJSONKeyFunction AccessStatus
+$ctoJSONKey :: ToJSONKeyFunction AccessStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679397300"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccessStatus
+([Node] -&gt; Either String AccessStatus) -&gt; FromXML AccessStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AccessStatus
+$cparseXML :: [Node] -&gt; Either String AccessStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679397297"><span class="annot"><span class="annottext">AccessStatus -&gt; XML
+(AccessStatus -&gt; XML) -&gt; ToXML AccessStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AccessStatus -&gt; XML
+$ctoXML :: AccessStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus_DISABLED"><span class="hs-identifier hs-type">AccessStatus_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus"><span class="hs-identifier hs-type">AccessStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccessStatus_DISABLED"><span id="%24mAccessStatus_DISABLED"><span id="AccessStatus_DISABLED"><span class="annot"><span class="annottext">$bAccessStatus_DISABLED :: AccessStatus
+$mAccessStatus_DISABLED :: forall r. AccessStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#%24bAccessStatus_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">AccessStatus_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus%27"><span class="hs-identifier hs-type">AccessStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus_ENABLED"><span class="hs-identifier hs-type">AccessStatus_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus"><span class="hs-identifier hs-type">AccessStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccessStatus_ENABLED"><span id="%24mAccessStatus_ENABLED"><span id="AccessStatus_ENABLED"><span class="annot"><span class="annottext">$bAccessStatus_ENABLED :: AccessStatus
+$mAccessStatus_ENABLED :: forall r. AccessStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#%24bAccessStatus_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">AccessStatus_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus%27"><span class="hs-identifier hs-type">AccessStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus_UNDER_CHANGE"><span class="hs-identifier hs-type">AccessStatus_UNDER_CHANGE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus"><span class="hs-identifier hs-type">AccessStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccessStatus_UNDER_CHANGE"><span id="%24mAccessStatus_UNDER_CHANGE"><span id="AccessStatus_UNDER_CHANGE"><span class="annot"><span class="annottext">$bAccessStatus_UNDER_CHANGE :: AccessStatus
+$mAccessStatus_UNDER_CHANGE :: forall r. AccessStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#%24bAccessStatus_UNDER_CHANGE"><span class="hs-identifier hs-var hs-var hs-var">AccessStatus_UNDER_CHANGE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus%27"><span class="hs-identifier hs-type">AccessStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNDER_CHANGE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus_DISABLED"><span class="hs-pragma hs-type">AccessStatus_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus_ENABLED"><span class="hs-pragma hs-type">AccessStatus_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus_UNDER_CHANGE"><span class="hs-pragma hs-type">AccessStatus_UNDER_CHANGE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus%27"><span class="hs-pragma hs-type">AccessStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

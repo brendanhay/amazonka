@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Lightsail.Types.AlarmState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Lightsail.Types.AlarmState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState"><span class="hs-identifier">AlarmState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState_ALARM"><span class="hs-identifier">AlarmState_ALARM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState_INSUFFICIENT_DATA"><span class="hs-identifier">AlarmState_INSUFFICIENT_DATA</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState_OK"><span class="hs-identifier">AlarmState_OK</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679603181"><span id="local-6989586621679603182"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AlarmState"><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-var">AlarmState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlarmState%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState%27"><span class="hs-identifier hs-var">AlarmState'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAlarmState"><span class="annot"><span class="annottext">AlarmState -&gt; Text
+</span><a href="Network.AWS.Lightsail.Types.AlarmState.html#fromAlarmState"><span class="hs-identifier hs-var hs-var">fromAlarmState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679603173"><span id="local-6989586621679603175"><span id="local-6989586621679603177"><span class="annot"><span class="annottext">Int -&gt; AlarmState -&gt; ShowS
+[AlarmState] -&gt; ShowS
+AlarmState -&gt; String
+(Int -&gt; AlarmState -&gt; ShowS)
+-&gt; (AlarmState -&gt; String)
+-&gt; ([AlarmState] -&gt; ShowS)
+-&gt; Show AlarmState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AlarmState] -&gt; ShowS
+$cshowList :: [AlarmState] -&gt; ShowS
+show :: AlarmState -&gt; String
+$cshow :: AlarmState -&gt; String
+showsPrec :: Int -&gt; AlarmState -&gt; ShowS
+$cshowsPrec :: Int -&gt; AlarmState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679603164"><span id="local-6989586621679603166"><span id="local-6989586621679603168"><span id="local-6989586621679603170"><span class="annot"><span class="annottext">ReadPrec [AlarmState]
+ReadPrec AlarmState
+Int -&gt; ReadS AlarmState
+ReadS [AlarmState]
+(Int -&gt; ReadS AlarmState)
+-&gt; ReadS [AlarmState]
+-&gt; ReadPrec AlarmState
+-&gt; ReadPrec [AlarmState]
+-&gt; Read AlarmState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AlarmState]
+$creadListPrec :: ReadPrec [AlarmState]
+readPrec :: ReadPrec AlarmState
+$creadPrec :: ReadPrec AlarmState
+readList :: ReadS [AlarmState]
+$creadList :: ReadS [AlarmState]
+readsPrec :: Int -&gt; ReadS AlarmState
+$creadsPrec :: Int -&gt; ReadS AlarmState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679603159"><span id="local-6989586621679603161"><span class="annot"><span class="annottext">AlarmState -&gt; AlarmState -&gt; Bool
+(AlarmState -&gt; AlarmState -&gt; Bool)
+-&gt; (AlarmState -&gt; AlarmState -&gt; Bool) -&gt; Eq AlarmState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AlarmState -&gt; AlarmState -&gt; Bool
+$c/= :: AlarmState -&gt; AlarmState -&gt; Bool
+== :: AlarmState -&gt; AlarmState -&gt; Bool
+$c== :: AlarmState -&gt; AlarmState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679603143"><span id="local-6989586621679603145"><span id="local-6989586621679603147"><span id="local-6989586621679603149"><span id="local-6989586621679603151"><span id="local-6989586621679603153"><span id="local-6989586621679603155"><span class="annot"><span class="annottext">Eq AlarmState
+Eq AlarmState
+-&gt; (AlarmState -&gt; AlarmState -&gt; Ordering)
+-&gt; (AlarmState -&gt; AlarmState -&gt; Bool)
+-&gt; (AlarmState -&gt; AlarmState -&gt; Bool)
+-&gt; (AlarmState -&gt; AlarmState -&gt; Bool)
+-&gt; (AlarmState -&gt; AlarmState -&gt; Bool)
+-&gt; (AlarmState -&gt; AlarmState -&gt; AlarmState)
+-&gt; (AlarmState -&gt; AlarmState -&gt; AlarmState)
+-&gt; Ord AlarmState
+AlarmState -&gt; AlarmState -&gt; Bool
+AlarmState -&gt; AlarmState -&gt; Ordering
+AlarmState -&gt; AlarmState -&gt; AlarmState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AlarmState -&gt; AlarmState -&gt; AlarmState
+$cmin :: AlarmState -&gt; AlarmState -&gt; AlarmState
+max :: AlarmState -&gt; AlarmState -&gt; AlarmState
+$cmax :: AlarmState -&gt; AlarmState -&gt; AlarmState
+&gt;= :: AlarmState -&gt; AlarmState -&gt; Bool
+$c&gt;= :: AlarmState -&gt; AlarmState -&gt; Bool
+&gt; :: AlarmState -&gt; AlarmState -&gt; Bool
+$c&gt; :: AlarmState -&gt; AlarmState -&gt; Bool
+&lt;= :: AlarmState -&gt; AlarmState -&gt; Bool
+$c&lt;= :: AlarmState -&gt; AlarmState -&gt; Bool
+&lt; :: AlarmState -&gt; AlarmState -&gt; Bool
+$c&lt; :: AlarmState -&gt; AlarmState -&gt; Bool
+compare :: AlarmState -&gt; AlarmState -&gt; Ordering
+$ccompare :: AlarmState -&gt; AlarmState -&gt; Ordering
+$cp1Ord :: Eq AlarmState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AlarmState -&gt; Rep AlarmState x)
+-&gt; (forall x. Rep AlarmState x -&gt; AlarmState) -&gt; Generic AlarmState
+forall x. Rep AlarmState x -&gt; AlarmState
+forall x. AlarmState -&gt; Rep AlarmState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AlarmState x -&gt; AlarmState
+$cfrom :: forall x. AlarmState -&gt; Rep AlarmState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679603135"><span id="local-6989586621679603137"><span class="annot"><span class="annottext">Int -&gt; AlarmState -&gt; Int
+AlarmState -&gt; Int
+(Int -&gt; AlarmState -&gt; Int)
+-&gt; (AlarmState -&gt; Int) -&gt; Hashable AlarmState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AlarmState -&gt; Int
+$chash :: AlarmState -&gt; Int
+hashWithSalt :: Int -&gt; AlarmState -&gt; Int
+$chashWithSalt :: Int -&gt; AlarmState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679603132"><span class="annot"><span class="annottext">AlarmState -&gt; ()
+(AlarmState -&gt; ()) -&gt; NFData AlarmState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AlarmState -&gt; ()
+$crnf :: AlarmState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679603129"><span class="annot"><span class="annottext">Text -&gt; Either String AlarmState
+(Text -&gt; Either String AlarmState) -&gt; FromText AlarmState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AlarmState
+$cfromText :: Text -&gt; Either String AlarmState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679603126"><span class="annot"><span class="annottext">AlarmState -&gt; Text
+(AlarmState -&gt; Text) -&gt; ToText AlarmState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AlarmState -&gt; Text
+$ctoText :: AlarmState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679603123"><span class="annot"><span class="annottext">AlarmState -&gt; ByteString
+(AlarmState -&gt; ByteString) -&gt; ToByteString AlarmState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AlarmState -&gt; ByteString
+$ctoBS :: AlarmState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679603120"><span class="annot"><span class="annottext">AlarmState -&gt; ByteStringBuilder
+(AlarmState -&gt; ByteStringBuilder) -&gt; ToLog AlarmState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AlarmState -&gt; ByteStringBuilder
+$cbuild :: AlarmState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679603117"><span class="annot"><span class="annottext">HeaderName -&gt; AlarmState -&gt; [Header]
+(HeaderName -&gt; AlarmState -&gt; [Header]) -&gt; ToHeader AlarmState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AlarmState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AlarmState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679603114"><span class="annot"><span class="annottext">AlarmState -&gt; QueryString
+(AlarmState -&gt; QueryString) -&gt; ToQuery AlarmState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AlarmState -&gt; QueryString
+$ctoQuery :: AlarmState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679603109"><span id="local-6989586621679603111"><span class="annot"><span class="annottext">Value -&gt; Parser [AlarmState]
+Value -&gt; Parser AlarmState
+(Value -&gt; Parser AlarmState)
+-&gt; (Value -&gt; Parser [AlarmState]) -&gt; FromJSON AlarmState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AlarmState]
+$cparseJSONList :: Value -&gt; Parser [AlarmState]
+parseJSON :: Value -&gt; Parser AlarmState
+$cparseJSON :: Value -&gt; Parser AlarmState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679603104"><span id="local-6989586621679603106"><span class="annot"><span class="annottext">FromJSONKeyFunction [AlarmState]
+FromJSONKeyFunction AlarmState
+FromJSONKeyFunction AlarmState
+-&gt; FromJSONKeyFunction [AlarmState] -&gt; FromJSONKey AlarmState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AlarmState]
+$cfromJSONKeyList :: FromJSONKeyFunction [AlarmState]
+fromJSONKey :: FromJSONKeyFunction AlarmState
+$cfromJSONKey :: FromJSONKeyFunction AlarmState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679603095"><span id="local-6989586621679603097"><span id="local-6989586621679603099"><span id="local-6989586621679603101"><span class="annot"><span class="annottext">[AlarmState] -&gt; Encoding
+[AlarmState] -&gt; Value
+AlarmState -&gt; Encoding
+AlarmState -&gt; Value
+(AlarmState -&gt; Value)
+-&gt; (AlarmState -&gt; Encoding)
+-&gt; ([AlarmState] -&gt; Value)
+-&gt; ([AlarmState] -&gt; Encoding)
+-&gt; ToJSON AlarmState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AlarmState] -&gt; Encoding
+$ctoEncodingList :: [AlarmState] -&gt; Encoding
+toJSONList :: [AlarmState] -&gt; Value
+$ctoJSONList :: [AlarmState] -&gt; Value
+toEncoding :: AlarmState -&gt; Encoding
+$ctoEncoding :: AlarmState -&gt; Encoding
+toJSON :: AlarmState -&gt; Value
+$ctoJSON :: AlarmState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679603090"><span id="local-6989586621679603092"><span class="annot"><span class="annottext">ToJSONKeyFunction [AlarmState]
+ToJSONKeyFunction AlarmState
+ToJSONKeyFunction AlarmState
+-&gt; ToJSONKeyFunction [AlarmState] -&gt; ToJSONKey AlarmState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AlarmState]
+$ctoJSONKeyList :: ToJSONKeyFunction [AlarmState]
+toJSONKey :: ToJSONKeyFunction AlarmState
+$ctoJSONKey :: ToJSONKeyFunction AlarmState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679603087"><span class="annot"><span class="annottext">[Node] -&gt; Either String AlarmState
+([Node] -&gt; Either String AlarmState) -&gt; FromXML AlarmState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AlarmState
+$cparseXML :: [Node] -&gt; Either String AlarmState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679603084"><span class="annot"><span class="annottext">AlarmState -&gt; XML
+(AlarmState -&gt; XML) -&gt; ToXML AlarmState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AlarmState -&gt; XML
+$ctoXML :: AlarmState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState_ALARM"><span class="hs-identifier hs-type">AlarmState_ALARM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlarmState_ALARM"><span id="%24mAlarmState_ALARM"><span id="AlarmState_ALARM"><span class="annot"><span class="annottext">$bAlarmState_ALARM :: AlarmState
+$mAlarmState_ALARM :: forall r. AlarmState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.AlarmState.html#%24bAlarmState_ALARM"><span class="hs-identifier hs-var hs-var hs-var">AlarmState_ALARM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState%27"><span class="hs-identifier hs-type">AlarmState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALARM&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState_INSUFFICIENT_DATA"><span class="hs-identifier hs-type">AlarmState_INSUFFICIENT_DATA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlarmState_INSUFFICIENT_DATA"><span id="%24mAlarmState_INSUFFICIENT_DATA"><span id="AlarmState_INSUFFICIENT_DATA"><span class="annot"><span class="annottext">$bAlarmState_INSUFFICIENT_DATA :: AlarmState
+$mAlarmState_INSUFFICIENT_DATA :: forall r. AlarmState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.AlarmState.html#%24bAlarmState_INSUFFICIENT_DATA"><span class="hs-identifier hs-var hs-var hs-var">AlarmState_INSUFFICIENT_DATA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState%27"><span class="hs-identifier hs-type">AlarmState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INSUFFICIENT_DATA&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState_OK"><span class="hs-identifier hs-type">AlarmState_OK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlarmState_OK"><span id="%24mAlarmState_OK"><span id="AlarmState_OK"><span class="annot"><span class="annottext">$bAlarmState_OK :: AlarmState
+$mAlarmState_OK :: forall r. AlarmState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.AlarmState.html#%24bAlarmState_OK"><span class="hs-identifier hs-var hs-var hs-var">AlarmState_OK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState%27"><span class="hs-identifier hs-type">AlarmState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OK&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState_ALARM"><span class="hs-pragma hs-type">AlarmState_ALARM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState_INSUFFICIENT_DATA"><span class="hs-pragma hs-type">AlarmState_INSUFFICIENT_DATA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState_OK"><span class="hs-pragma hs-type">AlarmState_OK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AlarmState.html#AlarmState%27"><span class="hs-pragma hs-type">AlarmState'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

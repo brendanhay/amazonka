@@ -1,0 +1,948 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all provisioning artifacts (also known as versions) for the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specified self-service action.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier">ListProvisioningArtifactsForServiceAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#newListProvisioningArtifactsForServiceAction"><span class="hs-identifier">newListProvisioningArtifactsForServiceAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceAction_pageSize"><span class="hs-identifier">listProvisioningArtifactsForServiceAction_pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceAction_pageToken"><span class="hs-identifier">listProvisioningArtifactsForServiceAction_pageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceAction_acceptLanguage"><span class="hs-identifier">listProvisioningArtifactsForServiceAction_acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceAction_serviceActionId"><span class="hs-identifier">listProvisioningArtifactsForServiceAction_serviceActionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse"><span class="hs-identifier">ListProvisioningArtifactsForServiceActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#newListProvisioningArtifactsForServiceActionResponse"><span class="hs-identifier">newListProvisioningArtifactsForServiceActionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews"><span class="hs-identifier">listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceActionResponse_nextPageToken"><span class="hs-identifier">listProvisioningArtifactsForServiceActionResponse_nextPageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceActionResponse_httpStatus"><span class="hs-identifier">listProvisioningArtifactsForServiceActionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.html"><span class="hs-identifier">Network.AWS.ServiceCatalog.Types</span></a></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListProvisioningArtifactsForServiceAction' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679413958"><span id="local-6989586621679413959"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProvisioningArtifactsForServiceAction"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-var">ListProvisioningArtifactsForServiceAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProvisioningArtifactsForServiceAction%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-var">ListProvisioningArtifactsForServiceAction'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3ApageSize%3AListProvisioningArtifactsForServiceAction%27"><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceAction -&gt; Maybe Natural
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3ApageSize%3AListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The page token for the next set of results. To retrieve the first set of</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- results, use null.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3ApageToken%3AListProvisioningArtifactsForServiceAction%27"><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceAction -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3ApageToken%3AListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AacceptLanguage%3AListProvisioningArtifactsForServiceAction%27"><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceAction -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3AacceptLanguage%3AListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AserviceActionId%3AListProvisioningArtifactsForServiceAction%27"><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceAction -&gt; Text
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3AserviceActionId%3AListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-var hs-var">serviceActionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413949"><span id="local-6989586621679413951"><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceAction
+-&gt; ListProvisioningArtifactsForServiceAction -&gt; Bool
+(ListProvisioningArtifactsForServiceAction
+ -&gt; ListProvisioningArtifactsForServiceAction -&gt; Bool)
+-&gt; (ListProvisioningArtifactsForServiceAction
+    -&gt; ListProvisioningArtifactsForServiceAction -&gt; Bool)
+-&gt; Eq ListProvisioningArtifactsForServiceAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListProvisioningArtifactsForServiceAction
+-&gt; ListProvisioningArtifactsForServiceAction -&gt; Bool
+$c/= :: ListProvisioningArtifactsForServiceAction
+-&gt; ListProvisioningArtifactsForServiceAction -&gt; Bool
+== :: ListProvisioningArtifactsForServiceAction
+-&gt; ListProvisioningArtifactsForServiceAction -&gt; Bool
+$c== :: ListProvisioningArtifactsForServiceAction
+-&gt; ListProvisioningArtifactsForServiceAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413940"><span id="local-6989586621679413942"><span id="local-6989586621679413944"><span id="local-6989586621679413946"><span class="annot"><span class="annottext">ReadPrec [ListProvisioningArtifactsForServiceAction]
+ReadPrec ListProvisioningArtifactsForServiceAction
+Int -&gt; ReadS ListProvisioningArtifactsForServiceAction
+ReadS [ListProvisioningArtifactsForServiceAction]
+(Int -&gt; ReadS ListProvisioningArtifactsForServiceAction)
+-&gt; ReadS [ListProvisioningArtifactsForServiceAction]
+-&gt; ReadPrec ListProvisioningArtifactsForServiceAction
+-&gt; ReadPrec [ListProvisioningArtifactsForServiceAction]
+-&gt; Read ListProvisioningArtifactsForServiceAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListProvisioningArtifactsForServiceAction]
+$creadListPrec :: ReadPrec [ListProvisioningArtifactsForServiceAction]
+readPrec :: ReadPrec ListProvisioningArtifactsForServiceAction
+$creadPrec :: ReadPrec ListProvisioningArtifactsForServiceAction
+readList :: ReadS [ListProvisioningArtifactsForServiceAction]
+$creadList :: ReadS [ListProvisioningArtifactsForServiceAction]
+readsPrec :: Int -&gt; ReadS ListProvisioningArtifactsForServiceAction
+$creadsPrec :: Int -&gt; ReadS ListProvisioningArtifactsForServiceAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413933"><span id="local-6989586621679413935"><span id="local-6989586621679413937"><span class="annot"><span class="annottext">Int -&gt; ListProvisioningArtifactsForServiceAction -&gt; ShowS
+[ListProvisioningArtifactsForServiceAction] -&gt; ShowS
+ListProvisioningArtifactsForServiceAction -&gt; String
+(Int -&gt; ListProvisioningArtifactsForServiceAction -&gt; ShowS)
+-&gt; (ListProvisioningArtifactsForServiceAction -&gt; String)
+-&gt; ([ListProvisioningArtifactsForServiceAction] -&gt; ShowS)
+-&gt; Show ListProvisioningArtifactsForServiceAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListProvisioningArtifactsForServiceAction] -&gt; ShowS
+$cshowList :: [ListProvisioningArtifactsForServiceAction] -&gt; ShowS
+show :: ListProvisioningArtifactsForServiceAction -&gt; String
+$cshow :: ListProvisioningArtifactsForServiceAction -&gt; String
+showsPrec :: Int -&gt; ListProvisioningArtifactsForServiceAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListProvisioningArtifactsForServiceAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListProvisioningArtifactsForServiceAction
+ -&gt; Rep ListProvisioningArtifactsForServiceAction x)
+-&gt; (forall x.
+    Rep ListProvisioningArtifactsForServiceAction x
+    -&gt; ListProvisioningArtifactsForServiceAction)
+-&gt; Generic ListProvisioningArtifactsForServiceAction
+forall x.
+Rep ListProvisioningArtifactsForServiceAction x
+-&gt; ListProvisioningArtifactsForServiceAction
+forall x.
+ListProvisioningArtifactsForServiceAction
+-&gt; Rep ListProvisioningArtifactsForServiceAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListProvisioningArtifactsForServiceAction x
+-&gt; ListProvisioningArtifactsForServiceAction
+$cfrom :: forall x.
+ListProvisioningArtifactsForServiceAction
+-&gt; Rep ListProvisioningArtifactsForServiceAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'ListProvisioningArtifactsForServiceAction' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'pageSize', 'listProvisioningArtifactsForServiceAction_pageSize' - The maximum number of items to return with this call.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'pageToken', 'listProvisioningArtifactsForServiceAction_pageToken' - The page token for the next set of results. To retrieve the first set of</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- results, use null.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'acceptLanguage', 'listProvisioningArtifactsForServiceAction_acceptLanguage' - The language code.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'serviceActionId', 'listProvisioningArtifactsForServiceAction_serviceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#newListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">newListProvisioningArtifactsForServiceAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'serviceActionId'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span><span>
+</span><span id="line-102"></span><span id="newListProvisioningArtifactsForServiceAction"><span class="annot"><span class="annottext">newListProvisioningArtifactsForServiceAction :: Text -&gt; ListProvisioningArtifactsForServiceAction
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#newListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-var hs-var">newListProvisioningArtifactsForServiceAction</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679413928"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413928"><span class="hs-identifier hs-var">pServiceActionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceAction' :: Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; ListProvisioningArtifactsForServiceAction
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction'</span></a></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pageSize:ListProvisioningArtifactsForServiceAction' :: Maybe Natural
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3ApageSize%3AListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:pageToken:ListProvisioningArtifactsForServiceAction' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3ApageToken%3AListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:acceptLanguage:ListProvisioningArtifactsForServiceAction' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3AacceptLanguage%3AListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceActionId:ListProvisioningArtifactsForServiceAction' :: Text
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3AserviceActionId%3AListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-var">serviceActionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413928"><span class="hs-identifier hs-var">pServiceActionId_</span></a></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceAction_pageSize"><span class="hs-identifier hs-type">listProvisioningArtifactsForServiceAction_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="listProvisioningArtifactsForServiceAction_pageSize"><span class="annot"><span class="annottext">listProvisioningArtifactsForServiceAction_pageSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListProvisioningArtifactsForServiceAction
+-&gt; f ListProvisioningArtifactsForServiceAction
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceAction_pageSize"><span class="hs-identifier hs-var hs-var">listProvisioningArtifactsForServiceAction_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProvisioningArtifactsForServiceAction -&gt; Maybe Natural)
+-&gt; (ListProvisioningArtifactsForServiceAction
+    -&gt; Maybe Natural -&gt; ListProvisioningArtifactsForServiceAction)
+-&gt; Lens
+     ListProvisioningArtifactsForServiceAction
+     ListProvisioningArtifactsForServiceAction
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413926"><span class="annot"><span class="annottext">Maybe Natural
+pageSize :: Maybe Natural
+$sel:pageSize:ListProvisioningArtifactsForServiceAction' :: ListProvisioningArtifactsForServiceAction -&gt; Maybe Natural
+</span><a href="#local-6989586621679413926"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679413926"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413925"><span class="annot"><span class="annottext">s :: ListProvisioningArtifactsForServiceAction
+</span><a href="#local-6989586621679413925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413924"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679413924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceAction
+</span><a href="#local-6989586621679413925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListProvisioningArtifactsForServiceAction' :: Maybe Natural
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3ApageSize%3AListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679413924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The page token for the next set of results. To retrieve the first set of</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- results, use null.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceAction_pageToken"><span class="hs-identifier hs-type">listProvisioningArtifactsForServiceAction_pageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="listProvisioningArtifactsForServiceAction_pageToken"><span class="annot"><span class="annottext">listProvisioningArtifactsForServiceAction_pageToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListProvisioningArtifactsForServiceAction
+-&gt; f ListProvisioningArtifactsForServiceAction
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceAction_pageToken"><span class="hs-identifier hs-var hs-var">listProvisioningArtifactsForServiceAction_pageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProvisioningArtifactsForServiceAction -&gt; Maybe Text)
+-&gt; (ListProvisioningArtifactsForServiceAction
+    -&gt; Maybe Text -&gt; ListProvisioningArtifactsForServiceAction)
+-&gt; Lens
+     ListProvisioningArtifactsForServiceAction
+     ListProvisioningArtifactsForServiceAction
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413923"><span class="annot"><span class="annottext">Maybe Text
+pageToken :: Maybe Text
+$sel:pageToken:ListProvisioningArtifactsForServiceAction' :: ListProvisioningArtifactsForServiceAction -&gt; Maybe Text
+</span><a href="#local-6989586621679413923"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413923"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413922"><span class="annot"><span class="annottext">s :: ListProvisioningArtifactsForServiceAction
+</span><a href="#local-6989586621679413922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413921"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceAction
+</span><a href="#local-6989586621679413922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:ListProvisioningArtifactsForServiceAction' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3ApageToken%3AListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceAction_acceptLanguage"><span class="hs-identifier hs-type">listProvisioningArtifactsForServiceAction_acceptLanguage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="listProvisioningArtifactsForServiceAction_acceptLanguage"><span class="annot"><span class="annottext">listProvisioningArtifactsForServiceAction_acceptLanguage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListProvisioningArtifactsForServiceAction
+-&gt; f ListProvisioningArtifactsForServiceAction
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceAction_acceptLanguage"><span class="hs-identifier hs-var hs-var">listProvisioningArtifactsForServiceAction_acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProvisioningArtifactsForServiceAction -&gt; Maybe Text)
+-&gt; (ListProvisioningArtifactsForServiceAction
+    -&gt; Maybe Text -&gt; ListProvisioningArtifactsForServiceAction)
+-&gt; Lens
+     ListProvisioningArtifactsForServiceAction
+     ListProvisioningArtifactsForServiceAction
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413920"><span class="annot"><span class="annottext">Maybe Text
+acceptLanguage :: Maybe Text
+$sel:acceptLanguage:ListProvisioningArtifactsForServiceAction' :: ListProvisioningArtifactsForServiceAction -&gt; Maybe Text
+</span><a href="#local-6989586621679413920"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413920"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413919"><span class="annot"><span class="annottext">s :: ListProvisioningArtifactsForServiceAction
+</span><a href="#local-6989586621679413919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413918"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceAction
+</span><a href="#local-6989586621679413919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptLanguage:ListProvisioningArtifactsForServiceAction' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3AacceptLanguage%3AListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceAction_serviceActionId"><span class="hs-identifier hs-type">listProvisioningArtifactsForServiceAction_serviceActionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-134"></span><span id="listProvisioningArtifactsForServiceAction_serviceActionId"><span class="annot"><span class="annottext">listProvisioningArtifactsForServiceAction_serviceActionId :: (Text -&gt; f Text)
+-&gt; ListProvisioningArtifactsForServiceAction
+-&gt; f ListProvisioningArtifactsForServiceAction
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceAction_serviceActionId"><span class="hs-identifier hs-var hs-var">listProvisioningArtifactsForServiceAction_serviceActionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProvisioningArtifactsForServiceAction -&gt; Text)
+-&gt; (ListProvisioningArtifactsForServiceAction
+    -&gt; Text -&gt; ListProvisioningArtifactsForServiceAction)
+-&gt; Lens
+     ListProvisioningArtifactsForServiceAction
+     ListProvisioningArtifactsForServiceAction
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413917"><span class="annot"><span class="annottext">Text
+serviceActionId :: Text
+$sel:serviceActionId:ListProvisioningArtifactsForServiceAction' :: ListProvisioningArtifactsForServiceAction -&gt; Text
+</span><a href="#local-6989586621679413917"><span class="hs-identifier hs-var hs-var">serviceActionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413917"><span class="hs-identifier hs-var">serviceActionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413916"><span class="annot"><span class="annottext">s :: ListProvisioningArtifactsForServiceAction
+</span><a href="#local-6989586621679413916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413915"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceAction
+</span><a href="#local-6989586621679413916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceActionId:ListProvisioningArtifactsForServiceAction' :: Text
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3AserviceActionId%3AListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-var">serviceActionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679413911"><span class="annot"><span class="annottext">page :: ListProvisioningArtifactsForServiceAction
+-&gt; AWSResponse ListProvisioningArtifactsForServiceAction
+-&gt; Maybe ListProvisioningArtifactsForServiceAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679413909"><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceAction
+</span><a href="#local-6989586621679413909"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679413908"><span class="annot"><span class="annottext">AWSResponse ListProvisioningArtifactsForServiceAction
+</span><a href="#local-6989586621679413908"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-142"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListProvisioningArtifactsForServiceAction
+ListProvisioningArtifactsForServiceActionResponse
+</span><a href="#local-6989586621679413908"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceActionResponse
+-&gt; Getting
+     (First Text) ListProvisioningArtifactsForServiceActionResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListProvisioningArtifactsForServiceActionResponse
+-&gt; Const
+     (First Text) ListProvisioningArtifactsForServiceActionResponse
+Lens'
+  ListProvisioningArtifactsForServiceActionResponse (Maybe Text)
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceActionResponse_nextPageToken"><span class="hs-identifier hs-var">listProvisioningArtifactsForServiceActionResponse_nextPageToken</span></a></span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListProvisioningArtifactsForServiceActionResponse
+ -&gt; Const
+      (First Text) ListProvisioningArtifactsForServiceActionResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) ListProvisioningArtifactsForServiceActionResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-145"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListProvisioningArtifactsForServiceAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactView] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-148"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListProvisioningArtifactsForServiceAction
+ListProvisioningArtifactsForServiceActionResponse
+</span><a href="#local-6989586621679413908"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceActionResponse
+-&gt; Getting
+     (First [ProvisioningArtifactView])
+     ListProvisioningArtifactsForServiceActionResponse
+     [ProvisioningArtifactView]
+-&gt; Maybe [ProvisioningArtifactView]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ProvisioningArtifactView]
+ -&gt; Const
+      (First [ProvisioningArtifactView])
+      (Maybe [ProvisioningArtifactView]))
+-&gt; ListProvisioningArtifactsForServiceActionResponse
+-&gt; Const
+     (First [ProvisioningArtifactView])
+     ListProvisioningArtifactsForServiceActionResponse
+Lens'
+  ListProvisioningArtifactsForServiceActionResponse
+  (Maybe [ProvisioningArtifactView])
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews"><span class="hs-identifier hs-var">listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews</span></a></span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ProvisioningArtifactView]
+  -&gt; Const
+       (First [ProvisioningArtifactView])
+       (Maybe [ProvisioningArtifactView]))
+ -&gt; ListProvisioningArtifactsForServiceActionResponse
+ -&gt; Const
+      (First [ProvisioningArtifactView])
+      ListProvisioningArtifactsForServiceActionResponse)
+-&gt; (([ProvisioningArtifactView]
+     -&gt; Const
+          (First [ProvisioningArtifactView]) [ProvisioningArtifactView])
+    -&gt; Maybe [ProvisioningArtifactView]
+    -&gt; Const
+         (First [ProvisioningArtifactView])
+         (Maybe [ProvisioningArtifactView]))
+-&gt; Getting
+     (First [ProvisioningArtifactView])
+     ListProvisioningArtifactsForServiceActionResponse
+     [ProvisioningArtifactView]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ProvisioningArtifactView]
+ -&gt; Const
+      (First [ProvisioningArtifactView]) [ProvisioningArtifactView])
+-&gt; Maybe [ProvisioningArtifactView]
+-&gt; Const
+     (First [ProvisioningArtifactView])
+     (Maybe [ProvisioningArtifactView])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-151"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListProvisioningArtifactsForServiceAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceAction
+-&gt; Maybe ListProvisioningArtifactsForServiceAction
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListProvisioningArtifactsForServiceAction
+ -&gt; Maybe ListProvisioningArtifactsForServiceAction)
+-&gt; ListProvisioningArtifactsForServiceAction
+-&gt; Maybe ListProvisioningArtifactsForServiceAction
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceAction
+</span><a href="#local-6989586621679413909"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceAction
+-&gt; (ListProvisioningArtifactsForServiceAction
+    -&gt; ListProvisioningArtifactsForServiceAction)
+-&gt; ListProvisioningArtifactsForServiceAction
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListProvisioningArtifactsForServiceAction
+-&gt; Identity ListProvisioningArtifactsForServiceAction
+Lens
+  ListProvisioningArtifactsForServiceAction
+  ListProvisioningArtifactsForServiceAction
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceAction_pageToken"><span class="hs-identifier hs-var">listProvisioningArtifactsForServiceAction_pageToken</span></a></span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListProvisioningArtifactsForServiceAction
+ -&gt; Identity ListProvisioningArtifactsForServiceAction)
+-&gt; Maybe Text
+-&gt; ListProvisioningArtifactsForServiceAction
+-&gt; ListProvisioningArtifactsForServiceAction
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListProvisioningArtifactsForServiceAction
+ListProvisioningArtifactsForServiceActionResponse
+</span><a href="#local-6989586621679413908"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceActionResponse
+-&gt; Getting
+     (First Text) ListProvisioningArtifactsForServiceActionResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListProvisioningArtifactsForServiceActionResponse
+-&gt; Const
+     (First Text) ListProvisioningArtifactsForServiceActionResponse
+Lens'
+  ListProvisioningArtifactsForServiceActionResponse (Maybe Text)
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceActionResponse_nextPageToken"><span class="hs-identifier hs-var">listProvisioningArtifactsForServiceActionResponse_nextPageToken</span></a></span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListProvisioningArtifactsForServiceActionResponse
+ -&gt; Const
+      (First Text) ListProvisioningArtifactsForServiceActionResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) ListProvisioningArtifactsForServiceActionResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-166"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceActionResponse</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679413898"><span class="annot"><span class="annottext">request :: ListProvisioningArtifactsForServiceAction
+-&gt; Request ListProvisioningArtifactsForServiceAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListProvisioningArtifactsForServiceAction
+-&gt; Request ListProvisioningArtifactsForServiceAction
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ServiceCatalog.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679413894"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListProvisioningArtifactsForServiceAction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse ListProvisioningArtifactsForServiceAction)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse ListProvisioningArtifactsForServiceAction))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListProvisioningArtifactsForServiceAction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse ListProvisioningArtifactsForServiceAction)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679413891"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413891"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679413890"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679413890"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679413889"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679413889"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactView]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ListProvisioningArtifactsForServiceActionResponse
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-var">ListProvisioningArtifactsForServiceActionResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ProvisioningArtifactView]
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; ListProvisioningArtifactsForServiceActionResponse)
+-&gt; Either String (Maybe [ProvisioningArtifactView])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Int -&gt; ListProvisioningArtifactsForServiceActionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679413889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [ProvisioningArtifactView]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisioningArtifactViews&quot;</span></span><span>
+</span><span id="line-175"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ProvisioningArtifactView]))
+-&gt; Maybe [ProvisioningArtifactView]
+-&gt; Either String (Maybe [ProvisioningArtifactView])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactView]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-176"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Int -&gt; ListProvisioningArtifactsForServiceActionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; ListProvisioningArtifactsForServiceActionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679413889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextPageToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; ListProvisioningArtifactsForServiceActionResponse)
+-&gt; Either String Int
+-&gt; Either String ListProvisioningArtifactsForServiceActionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413891"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679413880"><span id="local-6989586621679413882"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span></span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679413877"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679413873"><span class="annot"><span class="annottext">toHeaders :: ListProvisioningArtifactsForServiceAction -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ListProvisioningArtifactsForServiceAction -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-197"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWS242ServiceCatalogService.ListProvisioningArtifactsForServiceAction&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-199"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-201"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-202"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-203"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679413863"><span id="local-6989586621679413865"><span id="local-6989586621679413867"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span></span></span></span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679413861"><span class="annot"><span class="annottext">toJSON :: ListProvisioningArtifactsForServiceAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413856"><span id="local-6989586621679413857"><span id="local-6989586621679413858"><span id="local-6989586621679413859"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+serviceActionId :: Text
+acceptLanguage :: Maybe Text
+pageToken :: Maybe Text
+pageSize :: Maybe Natural
+$sel:serviceActionId:ListProvisioningArtifactsForServiceAction' :: ListProvisioningArtifactsForServiceAction -&gt; Text
+$sel:acceptLanguage:ListProvisioningArtifactsForServiceAction' :: ListProvisioningArtifactsForServiceAction -&gt; Maybe Text
+$sel:pageToken:ListProvisioningArtifactsForServiceAction' :: ListProvisioningArtifactsForServiceAction -&gt; Maybe Text
+$sel:pageSize:ListProvisioningArtifactsForServiceAction' :: ListProvisioningArtifactsForServiceAction -&gt; Maybe Natural
+</span><a href="#local-6989586621679413856"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-214"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679413859"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PageToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413858"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AcceptLanguage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413857"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-219"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceActionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413856"><span class="hs-identifier hs-var">serviceActionId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679413850"><span class="annot"><span class="annottext">toPath :: ListProvisioningArtifactsForServiceAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+-&gt; ListProvisioningArtifactsForServiceAction -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-230"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceAction"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceAction</span></a></span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679413846"><span class="annot"><span class="annottext">toQuery :: ListProvisioningArtifactsForServiceAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
+-&gt; ListProvisioningArtifactsForServiceAction -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | /See:/ 'newListProvisioningArtifactsForServiceActionResponse' smart constructor.</span><span>
+</span><span id="line-236"></span><span id="local-6989586621679413843"><span id="local-6989586621679413844"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProvisioningArtifactsForServiceActionResponse"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse"><span class="hs-identifier hs-var">ListProvisioningArtifactsForServiceActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProvisioningArtifactsForServiceActionResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-var">ListProvisioningArtifactsForServiceActionResponse'</span></a></span></span><span>
+</span><span id="line-237"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects with information about product views and</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- provisioning artifacts.</span><span>
+</span><span id="line-239"></span><span>    </span><span id="%24sel%3AprovisioningArtifactViews%3AListProvisioningArtifactsForServiceActionResponse%27"><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceActionResponse
+-&gt; Maybe [ProvisioningArtifactView]
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3AprovisioningArtifactViews%3AListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-var hs-var">provisioningArtifactViews</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactView.html#ProvisioningArtifactView"><span class="hs-identifier hs-type">ProvisioningArtifactView</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- | The page token to use to retrieve the next set of results. If there are</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-242"></span><span>    </span><span id="%24sel%3AnextPageToken%3AListProvisioningArtifactsForServiceActionResponse%27"><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceActionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3AnextPageToken%3AListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-244"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListProvisioningArtifactsForServiceActionResponse%27"><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceActionResponse -&gt; Int
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3AhttpStatus%3AListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-245"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413836"><span id="local-6989586621679413838"><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceActionResponse
+-&gt; ListProvisioningArtifactsForServiceActionResponse -&gt; Bool
+(ListProvisioningArtifactsForServiceActionResponse
+ -&gt; ListProvisioningArtifactsForServiceActionResponse -&gt; Bool)
+-&gt; (ListProvisioningArtifactsForServiceActionResponse
+    -&gt; ListProvisioningArtifactsForServiceActionResponse -&gt; Bool)
+-&gt; Eq ListProvisioningArtifactsForServiceActionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListProvisioningArtifactsForServiceActionResponse
+-&gt; ListProvisioningArtifactsForServiceActionResponse -&gt; Bool
+$c/= :: ListProvisioningArtifactsForServiceActionResponse
+-&gt; ListProvisioningArtifactsForServiceActionResponse -&gt; Bool
+== :: ListProvisioningArtifactsForServiceActionResponse
+-&gt; ListProvisioningArtifactsForServiceActionResponse -&gt; Bool
+$c== :: ListProvisioningArtifactsForServiceActionResponse
+-&gt; ListProvisioningArtifactsForServiceActionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413828"><span id="local-6989586621679413830"><span id="local-6989586621679413832"><span id="local-6989586621679413834"><span class="annot"><span class="annottext">ReadPrec [ListProvisioningArtifactsForServiceActionResponse]
+ReadPrec ListProvisioningArtifactsForServiceActionResponse
+Int -&gt; ReadS ListProvisioningArtifactsForServiceActionResponse
+ReadS [ListProvisioningArtifactsForServiceActionResponse]
+(Int -&gt; ReadS ListProvisioningArtifactsForServiceActionResponse)
+-&gt; ReadS [ListProvisioningArtifactsForServiceActionResponse]
+-&gt; ReadPrec ListProvisioningArtifactsForServiceActionResponse
+-&gt; ReadPrec [ListProvisioningArtifactsForServiceActionResponse]
+-&gt; Read ListProvisioningArtifactsForServiceActionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListProvisioningArtifactsForServiceActionResponse]
+$creadListPrec :: ReadPrec [ListProvisioningArtifactsForServiceActionResponse]
+readPrec :: ReadPrec ListProvisioningArtifactsForServiceActionResponse
+$creadPrec :: ReadPrec ListProvisioningArtifactsForServiceActionResponse
+readList :: ReadS [ListProvisioningArtifactsForServiceActionResponse]
+$creadList :: ReadS [ListProvisioningArtifactsForServiceActionResponse]
+readsPrec :: Int -&gt; ReadS ListProvisioningArtifactsForServiceActionResponse
+$creadsPrec :: Int -&gt; ReadS ListProvisioningArtifactsForServiceActionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413822"><span id="local-6989586621679413824"><span id="local-6989586621679413826"><span class="annot"><span class="annottext">Int -&gt; ListProvisioningArtifactsForServiceActionResponse -&gt; ShowS
+[ListProvisioningArtifactsForServiceActionResponse] -&gt; ShowS
+ListProvisioningArtifactsForServiceActionResponse -&gt; String
+(Int -&gt; ListProvisioningArtifactsForServiceActionResponse -&gt; ShowS)
+-&gt; (ListProvisioningArtifactsForServiceActionResponse -&gt; String)
+-&gt; ([ListProvisioningArtifactsForServiceActionResponse] -&gt; ShowS)
+-&gt; Show ListProvisioningArtifactsForServiceActionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListProvisioningArtifactsForServiceActionResponse] -&gt; ShowS
+$cshowList :: [ListProvisioningArtifactsForServiceActionResponse] -&gt; ShowS
+show :: ListProvisioningArtifactsForServiceActionResponse -&gt; String
+$cshow :: ListProvisioningArtifactsForServiceActionResponse -&gt; String
+showsPrec :: Int -&gt; ListProvisioningArtifactsForServiceActionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListProvisioningArtifactsForServiceActionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListProvisioningArtifactsForServiceActionResponse
+ -&gt; Rep ListProvisioningArtifactsForServiceActionResponse x)
+-&gt; (forall x.
+    Rep ListProvisioningArtifactsForServiceActionResponse x
+    -&gt; ListProvisioningArtifactsForServiceActionResponse)
+-&gt; Generic ListProvisioningArtifactsForServiceActionResponse
+forall x.
+Rep ListProvisioningArtifactsForServiceActionResponse x
+-&gt; ListProvisioningArtifactsForServiceActionResponse
+forall x.
+ListProvisioningArtifactsForServiceActionResponse
+-&gt; Rep ListProvisioningArtifactsForServiceActionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListProvisioningArtifactsForServiceActionResponse x
+-&gt; ListProvisioningArtifactsForServiceActionResponse
+$cfrom :: forall x.
+ListProvisioningArtifactsForServiceActionResponse
+-&gt; Rep ListProvisioningArtifactsForServiceActionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- Create a value of 'ListProvisioningArtifactsForServiceActionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- 'provisioningArtifactViews', 'listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews' - An array of objects with information about product views and</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- provisioning artifacts.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- 'nextPageToken', 'listProvisioningArtifactsForServiceActionResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- 'httpStatus', 'listProvisioningArtifactsForServiceActionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#newListProvisioningArtifactsForServiceActionResponse"><span class="hs-identifier hs-type">newListProvisioningArtifactsForServiceActionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-266"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceActionResponse</span></a></span><span>
+</span><span id="line-267"></span><span id="newListProvisioningArtifactsForServiceActionResponse"><span class="annot"><span class="annottext">newListProvisioningArtifactsForServiceActionResponse :: Int -&gt; ListProvisioningArtifactsForServiceActionResponse
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#newListProvisioningArtifactsForServiceActionResponse"><span class="hs-identifier hs-var hs-var">newListProvisioningArtifactsForServiceActionResponse</span></a></span></span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679413819"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413819"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceActionResponse' :: Maybe [ProvisioningArtifactView]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ListProvisioningArtifactsForServiceActionResponse
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceActionResponse'</span></a></span><span>
+</span><span id="line-270"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:provisioningArtifactViews:ListProvisioningArtifactsForServiceActionResponse' :: Maybe [ProvisioningArtifactView]
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3AprovisioningArtifactViews%3AListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-var">provisioningArtifactViews</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-271"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactView]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextPageToken:ListProvisioningArtifactsForServiceActionResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3AnextPageToken%3AListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-273"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListProvisioningArtifactsForServiceActionResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3AhttpStatus%3AListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-275"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413819"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | An array of objects with information about product views and</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- provisioning artifacts.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews"><span class="hs-identifier hs-type">listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactView.html#ProvisioningArtifactView"><span class="hs-identifier hs-type">ProvisioningArtifactView</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews"><span class="annot"><span class="annottext">listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews :: (Maybe [ProvisioningArtifactView]
+ -&gt; f (Maybe [ProvisioningArtifactView]))
+-&gt; ListProvisioningArtifactsForServiceActionResponse
+-&gt; f ListProvisioningArtifactsForServiceActionResponse
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews"><span class="hs-identifier hs-var hs-var">listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProvisioningArtifactsForServiceActionResponse
+ -&gt; Maybe [ProvisioningArtifactView])
+-&gt; (ListProvisioningArtifactsForServiceActionResponse
+    -&gt; Maybe [ProvisioningArtifactView]
+    -&gt; ListProvisioningArtifactsForServiceActionResponse)
+-&gt; Lens'
+     ListProvisioningArtifactsForServiceActionResponse
+     (Maybe [ProvisioningArtifactView])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413818"><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactView]
+provisioningArtifactViews :: Maybe [ProvisioningArtifactView]
+$sel:provisioningArtifactViews:ListProvisioningArtifactsForServiceActionResponse' :: ListProvisioningArtifactsForServiceActionResponse
+-&gt; Maybe [ProvisioningArtifactView]
+</span><a href="#local-6989586621679413818"><span class="hs-identifier hs-var hs-var">provisioningArtifactViews</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactView]
+</span><a href="#local-6989586621679413818"><span class="hs-identifier hs-var">provisioningArtifactViews</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413817"><span class="annot"><span class="annottext">s :: ListProvisioningArtifactsForServiceActionResponse
+</span><a href="#local-6989586621679413817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413816"><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactView]
+</span><a href="#local-6989586621679413816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceActionResponse
+</span><a href="#local-6989586621679413817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningArtifactViews:ListProvisioningArtifactsForServiceActionResponse' :: Maybe [ProvisioningArtifactView]
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3AprovisioningArtifactViews%3AListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-var">provisioningArtifactViews</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactView]
+</span><a href="#local-6989586621679413816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceActionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProvisioningArtifactView]
+  -&gt; f (Maybe [ProvisioningArtifactView]))
+ -&gt; ListProvisioningArtifactsForServiceActionResponse
+ -&gt; f ListProvisioningArtifactsForServiceActionResponse)
+-&gt; ((Maybe [ProvisioningArtifactView]
+     -&gt; f (Maybe [ProvisioningArtifactView]))
+    -&gt; Maybe [ProvisioningArtifactView]
+    -&gt; f (Maybe [ProvisioningArtifactView]))
+-&gt; (Maybe [ProvisioningArtifactView]
+    -&gt; f (Maybe [ProvisioningArtifactView]))
+-&gt; ListProvisioningArtifactsForServiceActionResponse
+-&gt; f ListProvisioningArtifactsForServiceActionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ProvisioningArtifactView]
+  [ProvisioningArtifactView]
+  [ProvisioningArtifactView]
+  [ProvisioningArtifactView]
+-&gt; Iso
+     (Maybe [ProvisioningArtifactView])
+     (Maybe [ProvisioningArtifactView])
+     (Maybe [ProvisioningArtifactView])
+     (Maybe [ProvisioningArtifactView])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ProvisioningArtifactView]
+  [ProvisioningArtifactView]
+  [ProvisioningArtifactView]
+  [ProvisioningArtifactView]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | The page token to use to retrieve the next set of results. If there are</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceActionResponse_nextPageToken"><span class="hs-identifier hs-type">listProvisioningArtifactsForServiceActionResponse_nextPageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="listProvisioningArtifactsForServiceActionResponse_nextPageToken"><span class="annot"><span class="annottext">listProvisioningArtifactsForServiceActionResponse_nextPageToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListProvisioningArtifactsForServiceActionResponse
+-&gt; f ListProvisioningArtifactsForServiceActionResponse
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceActionResponse_nextPageToken"><span class="hs-identifier hs-var hs-var">listProvisioningArtifactsForServiceActionResponse_nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProvisioningArtifactsForServiceActionResponse -&gt; Maybe Text)
+-&gt; (ListProvisioningArtifactsForServiceActionResponse
+    -&gt; Maybe Text -&gt; ListProvisioningArtifactsForServiceActionResponse)
+-&gt; Lens'
+     ListProvisioningArtifactsForServiceActionResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413813"><span class="annot"><span class="annottext">Maybe Text
+nextPageToken :: Maybe Text
+$sel:nextPageToken:ListProvisioningArtifactsForServiceActionResponse' :: ListProvisioningArtifactsForServiceActionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679413813"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413813"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413812"><span class="annot"><span class="annottext">s :: ListProvisioningArtifactsForServiceActionResponse
+</span><a href="#local-6989586621679413812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413811"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceActionResponse
+</span><a href="#local-6989586621679413812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:ListProvisioningArtifactsForServiceActionResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3AnextPageToken%3AListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceActionResponse_httpStatus"><span class="hs-identifier hs-type">listProvisioningArtifactsForServiceActionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-290"></span><span id="listProvisioningArtifactsForServiceActionResponse_httpStatus"><span class="annot"><span class="annottext">listProvisioningArtifactsForServiceActionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListProvisioningArtifactsForServiceActionResponse
+-&gt; f ListProvisioningArtifactsForServiceActionResponse
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#listProvisioningArtifactsForServiceActionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listProvisioningArtifactsForServiceActionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProvisioningArtifactsForServiceActionResponse -&gt; Int)
+-&gt; (ListProvisioningArtifactsForServiceActionResponse
+    -&gt; Int -&gt; ListProvisioningArtifactsForServiceActionResponse)
+-&gt; Lens
+     ListProvisioningArtifactsForServiceActionResponse
+     ListProvisioningArtifactsForServiceActionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413810"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListProvisioningArtifactsForServiceActionResponse' :: ListProvisioningArtifactsForServiceActionResponse -&gt; Int
+</span><a href="#local-6989586621679413810"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413810"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413809"><span class="annot"><span class="annottext">s :: ListProvisioningArtifactsForServiceActionResponse
+</span><a href="#local-6989586621679413809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413808"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningArtifactsForServiceActionResponse
+</span><a href="#local-6989586621679413809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListProvisioningArtifactsForServiceActionResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#%24sel%3AhttpStatus%3AListProvisioningArtifactsForServiceActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-293"></span><span>  </span><span id="local-6989586621679413806"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction.html#ListProvisioningArtifactsForServiceActionResponse"><span class="hs-identifier hs-type">ListProvisioningArtifactsForServiceActionResponse</span></a></span></span><span>
+</span><span id="line-295"></span></pre></body></html>

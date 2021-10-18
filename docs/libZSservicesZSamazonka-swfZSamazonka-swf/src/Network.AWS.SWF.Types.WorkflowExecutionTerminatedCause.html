@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause"><span class="hs-identifier">WorkflowExecutionTerminatedCause</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause_CHILD_POLICY_APPLIED"><span class="hs-identifier">WorkflowExecutionTerminatedCause_CHILD_POLICY_APPLIED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause_EVENT_LIMIT_EXCEEDED"><span class="hs-identifier">WorkflowExecutionTerminatedCause_EVENT_LIMIT_EXCEEDED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause_OPERATOR_INITIATED"><span class="hs-identifier">WorkflowExecutionTerminatedCause_OPERATOR_INITIATED</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679353801"><span id="local-6989586621679353802"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkflowExecutionTerminatedCause"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause"><span class="hs-identifier hs-var">WorkflowExecutionTerminatedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowExecutionTerminatedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause%27"><span class="hs-identifier hs-var">WorkflowExecutionTerminatedCause'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWorkflowExecutionTerminatedCause"><span class="annot"><span class="annottext">WorkflowExecutionTerminatedCause -&gt; Text
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#fromWorkflowExecutionTerminatedCause"><span class="hs-identifier hs-var hs-var">fromWorkflowExecutionTerminatedCause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679353793"><span id="local-6989586621679353795"><span id="local-6989586621679353797"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionTerminatedCause -&gt; ShowS
+[WorkflowExecutionTerminatedCause] -&gt; ShowS
+WorkflowExecutionTerminatedCause -&gt; String
+(Int -&gt; WorkflowExecutionTerminatedCause -&gt; ShowS)
+-&gt; (WorkflowExecutionTerminatedCause -&gt; String)
+-&gt; ([WorkflowExecutionTerminatedCause] -&gt; ShowS)
+-&gt; Show WorkflowExecutionTerminatedCause
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WorkflowExecutionTerminatedCause] -&gt; ShowS
+$cshowList :: [WorkflowExecutionTerminatedCause] -&gt; ShowS
+show :: WorkflowExecutionTerminatedCause -&gt; String
+$cshow :: WorkflowExecutionTerminatedCause -&gt; String
+showsPrec :: Int -&gt; WorkflowExecutionTerminatedCause -&gt; ShowS
+$cshowsPrec :: Int -&gt; WorkflowExecutionTerminatedCause -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679353784"><span id="local-6989586621679353786"><span id="local-6989586621679353788"><span id="local-6989586621679353790"><span class="annot"><span class="annottext">ReadPrec [WorkflowExecutionTerminatedCause]
+ReadPrec WorkflowExecutionTerminatedCause
+Int -&gt; ReadS WorkflowExecutionTerminatedCause
+ReadS [WorkflowExecutionTerminatedCause]
+(Int -&gt; ReadS WorkflowExecutionTerminatedCause)
+-&gt; ReadS [WorkflowExecutionTerminatedCause]
+-&gt; ReadPrec WorkflowExecutionTerminatedCause
+-&gt; ReadPrec [WorkflowExecutionTerminatedCause]
+-&gt; Read WorkflowExecutionTerminatedCause
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WorkflowExecutionTerminatedCause]
+$creadListPrec :: ReadPrec [WorkflowExecutionTerminatedCause]
+readPrec :: ReadPrec WorkflowExecutionTerminatedCause
+$creadPrec :: ReadPrec WorkflowExecutionTerminatedCause
+readList :: ReadS [WorkflowExecutionTerminatedCause]
+$creadList :: ReadS [WorkflowExecutionTerminatedCause]
+readsPrec :: Int -&gt; ReadS WorkflowExecutionTerminatedCause
+$creadsPrec :: Int -&gt; ReadS WorkflowExecutionTerminatedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679353779"><span id="local-6989586621679353781"><span class="annot"><span class="annottext">WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Bool
+(WorkflowExecutionTerminatedCause
+ -&gt; WorkflowExecutionTerminatedCause -&gt; Bool)
+-&gt; (WorkflowExecutionTerminatedCause
+    -&gt; WorkflowExecutionTerminatedCause -&gt; Bool)
+-&gt; Eq WorkflowExecutionTerminatedCause
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Bool
+$c/= :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Bool
+== :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Bool
+$c== :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679353763"><span id="local-6989586621679353765"><span id="local-6989586621679353767"><span id="local-6989586621679353769"><span id="local-6989586621679353771"><span id="local-6989586621679353773"><span id="local-6989586621679353775"><span class="annot"><span class="annottext">Eq WorkflowExecutionTerminatedCause
+Eq WorkflowExecutionTerminatedCause
+-&gt; (WorkflowExecutionTerminatedCause
+    -&gt; WorkflowExecutionTerminatedCause -&gt; Ordering)
+-&gt; (WorkflowExecutionTerminatedCause
+    -&gt; WorkflowExecutionTerminatedCause -&gt; Bool)
+-&gt; (WorkflowExecutionTerminatedCause
+    -&gt; WorkflowExecutionTerminatedCause -&gt; Bool)
+-&gt; (WorkflowExecutionTerminatedCause
+    -&gt; WorkflowExecutionTerminatedCause -&gt; Bool)
+-&gt; (WorkflowExecutionTerminatedCause
+    -&gt; WorkflowExecutionTerminatedCause -&gt; Bool)
+-&gt; (WorkflowExecutionTerminatedCause
+    -&gt; WorkflowExecutionTerminatedCause
+    -&gt; WorkflowExecutionTerminatedCause)
+-&gt; (WorkflowExecutionTerminatedCause
+    -&gt; WorkflowExecutionTerminatedCause
+    -&gt; WorkflowExecutionTerminatedCause)
+-&gt; Ord WorkflowExecutionTerminatedCause
+WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Bool
+WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Ordering
+WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause
+$cmin :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause
+max :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause
+$cmax :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause
+&gt;= :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Bool
+$c&gt;= :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Bool
+&gt; :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Bool
+$c&gt; :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Bool
+&lt;= :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Bool
+$c&lt;= :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Bool
+&lt; :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Bool
+$c&lt; :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Bool
+compare :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Ordering
+$ccompare :: WorkflowExecutionTerminatedCause
+-&gt; WorkflowExecutionTerminatedCause -&gt; Ordering
+$cp1Ord :: Eq WorkflowExecutionTerminatedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ WorkflowExecutionTerminatedCause
+ -&gt; Rep WorkflowExecutionTerminatedCause x)
+-&gt; (forall x.
+    Rep WorkflowExecutionTerminatedCause x
+    -&gt; WorkflowExecutionTerminatedCause)
+-&gt; Generic WorkflowExecutionTerminatedCause
+forall x.
+Rep WorkflowExecutionTerminatedCause x
+-&gt; WorkflowExecutionTerminatedCause
+forall x.
+WorkflowExecutionTerminatedCause
+-&gt; Rep WorkflowExecutionTerminatedCause x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep WorkflowExecutionTerminatedCause x
+-&gt; WorkflowExecutionTerminatedCause
+$cfrom :: forall x.
+WorkflowExecutionTerminatedCause
+-&gt; Rep WorkflowExecutionTerminatedCause x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679353755"><span id="local-6989586621679353757"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionTerminatedCause -&gt; Int
+WorkflowExecutionTerminatedCause -&gt; Int
+(Int -&gt; WorkflowExecutionTerminatedCause -&gt; Int)
+-&gt; (WorkflowExecutionTerminatedCause -&gt; Int)
+-&gt; Hashable WorkflowExecutionTerminatedCause
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: WorkflowExecutionTerminatedCause -&gt; Int
+$chash :: WorkflowExecutionTerminatedCause -&gt; Int
+hashWithSalt :: Int -&gt; WorkflowExecutionTerminatedCause -&gt; Int
+$chashWithSalt :: Int -&gt; WorkflowExecutionTerminatedCause -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679353752"><span class="annot"><span class="annottext">WorkflowExecutionTerminatedCause -&gt; ()
+(WorkflowExecutionTerminatedCause -&gt; ())
+-&gt; NFData WorkflowExecutionTerminatedCause
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: WorkflowExecutionTerminatedCause -&gt; ()
+$crnf :: WorkflowExecutionTerminatedCause -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679353749"><span class="annot"><span class="annottext">Text -&gt; Either String WorkflowExecutionTerminatedCause
+(Text -&gt; Either String WorkflowExecutionTerminatedCause)
+-&gt; FromText WorkflowExecutionTerminatedCause
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String WorkflowExecutionTerminatedCause
+$cfromText :: Text -&gt; Either String WorkflowExecutionTerminatedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679353746"><span class="annot"><span class="annottext">WorkflowExecutionTerminatedCause -&gt; Text
+(WorkflowExecutionTerminatedCause -&gt; Text)
+-&gt; ToText WorkflowExecutionTerminatedCause
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: WorkflowExecutionTerminatedCause -&gt; Text
+$ctoText :: WorkflowExecutionTerminatedCause -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679353743"><span class="annot"><span class="annottext">WorkflowExecutionTerminatedCause -&gt; ByteString
+(WorkflowExecutionTerminatedCause -&gt; ByteString)
+-&gt; ToByteString WorkflowExecutionTerminatedCause
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: WorkflowExecutionTerminatedCause -&gt; ByteString
+$ctoBS :: WorkflowExecutionTerminatedCause -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679353740"><span class="annot"><span class="annottext">WorkflowExecutionTerminatedCause -&gt; ByteStringBuilder
+(WorkflowExecutionTerminatedCause -&gt; ByteStringBuilder)
+-&gt; ToLog WorkflowExecutionTerminatedCause
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: WorkflowExecutionTerminatedCause -&gt; ByteStringBuilder
+$cbuild :: WorkflowExecutionTerminatedCause -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679353737"><span class="annot"><span class="annottext">HeaderName -&gt; WorkflowExecutionTerminatedCause -&gt; [Header]
+(HeaderName -&gt; WorkflowExecutionTerminatedCause -&gt; [Header])
+-&gt; ToHeader WorkflowExecutionTerminatedCause
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; WorkflowExecutionTerminatedCause -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; WorkflowExecutionTerminatedCause -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679353734"><span class="annot"><span class="annottext">WorkflowExecutionTerminatedCause -&gt; QueryString
+(WorkflowExecutionTerminatedCause -&gt; QueryString)
+-&gt; ToQuery WorkflowExecutionTerminatedCause
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: WorkflowExecutionTerminatedCause -&gt; QueryString
+$ctoQuery :: WorkflowExecutionTerminatedCause -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679353729"><span id="local-6989586621679353731"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkflowExecutionTerminatedCause]
+Value -&gt; Parser WorkflowExecutionTerminatedCause
+(Value -&gt; Parser WorkflowExecutionTerminatedCause)
+-&gt; (Value -&gt; Parser [WorkflowExecutionTerminatedCause])
+-&gt; FromJSON WorkflowExecutionTerminatedCause
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [WorkflowExecutionTerminatedCause]
+$cparseJSONList :: Value -&gt; Parser [WorkflowExecutionTerminatedCause]
+parseJSON :: Value -&gt; Parser WorkflowExecutionTerminatedCause
+$cparseJSON :: Value -&gt; Parser WorkflowExecutionTerminatedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679353724"><span id="local-6989586621679353726"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkflowExecutionTerminatedCause]
+FromJSONKeyFunction WorkflowExecutionTerminatedCause
+FromJSONKeyFunction WorkflowExecutionTerminatedCause
+-&gt; FromJSONKeyFunction [WorkflowExecutionTerminatedCause]
+-&gt; FromJSONKey WorkflowExecutionTerminatedCause
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [WorkflowExecutionTerminatedCause]
+$cfromJSONKeyList :: FromJSONKeyFunction [WorkflowExecutionTerminatedCause]
+fromJSONKey :: FromJSONKeyFunction WorkflowExecutionTerminatedCause
+$cfromJSONKey :: FromJSONKeyFunction WorkflowExecutionTerminatedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679353715"><span id="local-6989586621679353717"><span id="local-6989586621679353719"><span id="local-6989586621679353721"><span class="annot"><span class="annottext">[WorkflowExecutionTerminatedCause] -&gt; Encoding
+[WorkflowExecutionTerminatedCause] -&gt; Value
+WorkflowExecutionTerminatedCause -&gt; Encoding
+WorkflowExecutionTerminatedCause -&gt; Value
+(WorkflowExecutionTerminatedCause -&gt; Value)
+-&gt; (WorkflowExecutionTerminatedCause -&gt; Encoding)
+-&gt; ([WorkflowExecutionTerminatedCause] -&gt; Value)
+-&gt; ([WorkflowExecutionTerminatedCause] -&gt; Encoding)
+-&gt; ToJSON WorkflowExecutionTerminatedCause
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [WorkflowExecutionTerminatedCause] -&gt; Encoding
+$ctoEncodingList :: [WorkflowExecutionTerminatedCause] -&gt; Encoding
+toJSONList :: [WorkflowExecutionTerminatedCause] -&gt; Value
+$ctoJSONList :: [WorkflowExecutionTerminatedCause] -&gt; Value
+toEncoding :: WorkflowExecutionTerminatedCause -&gt; Encoding
+$ctoEncoding :: WorkflowExecutionTerminatedCause -&gt; Encoding
+toJSON :: WorkflowExecutionTerminatedCause -&gt; Value
+$ctoJSON :: WorkflowExecutionTerminatedCause -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679353710"><span id="local-6989586621679353712"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkflowExecutionTerminatedCause]
+ToJSONKeyFunction WorkflowExecutionTerminatedCause
+ToJSONKeyFunction WorkflowExecutionTerminatedCause
+-&gt; ToJSONKeyFunction [WorkflowExecutionTerminatedCause]
+-&gt; ToJSONKey WorkflowExecutionTerminatedCause
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [WorkflowExecutionTerminatedCause]
+$ctoJSONKeyList :: ToJSONKeyFunction [WorkflowExecutionTerminatedCause]
+toJSONKey :: ToJSONKeyFunction WorkflowExecutionTerminatedCause
+$ctoJSONKey :: ToJSONKeyFunction WorkflowExecutionTerminatedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679353707"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkflowExecutionTerminatedCause
+([Node] -&gt; Either String WorkflowExecutionTerminatedCause)
+-&gt; FromXML WorkflowExecutionTerminatedCause
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String WorkflowExecutionTerminatedCause
+$cparseXML :: [Node] -&gt; Either String WorkflowExecutionTerminatedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679353704"><span class="annot"><span class="annottext">WorkflowExecutionTerminatedCause -&gt; XML
+(WorkflowExecutionTerminatedCause -&gt; XML)
+-&gt; ToXML WorkflowExecutionTerminatedCause
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: WorkflowExecutionTerminatedCause -&gt; XML
+$ctoXML :: WorkflowExecutionTerminatedCause -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause_CHILD_POLICY_APPLIED"><span class="hs-identifier hs-type">WorkflowExecutionTerminatedCause_CHILD_POLICY_APPLIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause"><span class="hs-identifier hs-type">WorkflowExecutionTerminatedCause</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkflowExecutionTerminatedCause_CHILD_POLICY_APPLIED"><span id="%24mWorkflowExecutionTerminatedCause_CHILD_POLICY_APPLIED"><span id="WorkflowExecutionTerminatedCause_CHILD_POLICY_APPLIED"><span class="annot"><span class="annottext">$bWorkflowExecutionTerminatedCause_CHILD_POLICY_APPLIED :: WorkflowExecutionTerminatedCause
+$mWorkflowExecutionTerminatedCause_CHILD_POLICY_APPLIED :: forall r.
+WorkflowExecutionTerminatedCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#%24bWorkflowExecutionTerminatedCause_CHILD_POLICY_APPLIED"><span class="hs-identifier hs-var hs-var hs-var">WorkflowExecutionTerminatedCause_CHILD_POLICY_APPLIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause%27"><span class="hs-identifier hs-type">WorkflowExecutionTerminatedCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CHILD_POLICY_APPLIED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause_EVENT_LIMIT_EXCEEDED"><span class="hs-identifier hs-type">WorkflowExecutionTerminatedCause_EVENT_LIMIT_EXCEEDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause"><span class="hs-identifier hs-type">WorkflowExecutionTerminatedCause</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkflowExecutionTerminatedCause_EVENT_LIMIT_EXCEEDED"><span id="%24mWorkflowExecutionTerminatedCause_EVENT_LIMIT_EXCEEDED"><span id="WorkflowExecutionTerminatedCause_EVENT_LIMIT_EXCEEDED"><span class="annot"><span class="annottext">$bWorkflowExecutionTerminatedCause_EVENT_LIMIT_EXCEEDED :: WorkflowExecutionTerminatedCause
+$mWorkflowExecutionTerminatedCause_EVENT_LIMIT_EXCEEDED :: forall r.
+WorkflowExecutionTerminatedCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#%24bWorkflowExecutionTerminatedCause_EVENT_LIMIT_EXCEEDED"><span class="hs-identifier hs-var hs-var hs-var">WorkflowExecutionTerminatedCause_EVENT_LIMIT_EXCEEDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause%27"><span class="hs-identifier hs-type">WorkflowExecutionTerminatedCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EVENT_LIMIT_EXCEEDED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause_OPERATOR_INITIATED"><span class="hs-identifier hs-type">WorkflowExecutionTerminatedCause_OPERATOR_INITIATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause"><span class="hs-identifier hs-type">WorkflowExecutionTerminatedCause</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkflowExecutionTerminatedCause_OPERATOR_INITIATED"><span id="%24mWorkflowExecutionTerminatedCause_OPERATOR_INITIATED"><span id="WorkflowExecutionTerminatedCause_OPERATOR_INITIATED"><span class="annot"><span class="annottext">$bWorkflowExecutionTerminatedCause_OPERATOR_INITIATED :: WorkflowExecutionTerminatedCause
+$mWorkflowExecutionTerminatedCause_OPERATOR_INITIATED :: forall r.
+WorkflowExecutionTerminatedCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#%24bWorkflowExecutionTerminatedCause_OPERATOR_INITIATED"><span class="hs-identifier hs-var hs-var hs-var">WorkflowExecutionTerminatedCause_OPERATOR_INITIATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause%27"><span class="hs-identifier hs-type">WorkflowExecutionTerminatedCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OPERATOR_INITIATED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause_CHILD_POLICY_APPLIED"><span class="hs-pragma hs-type">WorkflowExecutionTerminatedCause_CHILD_POLICY_APPLIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause_EVENT_LIMIT_EXCEEDED"><span class="hs-pragma hs-type">WorkflowExecutionTerminatedCause_EVENT_LIMIT_EXCEEDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause_OPERATOR_INITIATED"><span class="hs-pragma hs-type">WorkflowExecutionTerminatedCause_OPERATOR_INITIATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause.html#WorkflowExecutionTerminatedCause%27"><span class="hs-pragma hs-type">WorkflowExecutionTerminatedCause'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

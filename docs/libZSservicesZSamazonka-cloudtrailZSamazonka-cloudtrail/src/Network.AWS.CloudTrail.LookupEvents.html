@@ -1,0 +1,933 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudTrail.LookupEvents</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Looks up</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events management events&gt;</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- or</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-insights-events CloudTrail Insights events&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- that are captured by CloudTrail. You can look up events that occurred in</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- a region within the last 90 days. Lookup supports the following</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- attributes for management events:</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- -   Amazon Web Services access key</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- -   Event ID</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   Event name</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- -   Event source</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- -   Read only</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- -   Resource name</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- -   Resource type</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- -   User name</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Lookup supports the following attributes for Insights events:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- -   Event ID</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- -   Event name</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- -   Event source</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- All attributes are optional. The default number of results returned is</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 50, with a maximum of 50 possible. The response includes a token that</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- you can use to get the next page of results.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The rate of lookup requests is limited to two per second, per account,</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- per region. If this limit is exceeded, a throttling error occurs.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-63"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudTrail.LookupEvents</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier">LookupEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#newLookupEvents"><span class="hs-identifier">newLookupEvents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_nextToken"><span class="hs-identifier">lookupEvents_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_maxResults"><span class="hs-identifier">lookupEvents_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_startTime"><span class="hs-identifier">lookupEvents_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_endTime"><span class="hs-identifier">lookupEvents_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_eventCategory"><span class="hs-identifier">lookupEvents_eventCategory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_lookupAttributes"><span class="hs-identifier">lookupEvents_lookupAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse"><span class="hs-identifier">LookupEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#newLookupEventsResponse"><span class="hs-identifier">newLookupEventsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEventsResponse_nextToken"><span class="hs-identifier">lookupEventsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEventsResponse_events"><span class="hs-identifier">lookupEventsResponse_events</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEventsResponse_httpStatus"><span class="hs-identifier">lookupEventsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.html"><span class="hs-identifier">Network.AWS.CloudTrail.Types</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Contains a request for LookupEvents.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- /See:/ 'newLookupEvents' smart constructor.</span><span>
+</span><span id="line-97"></span><span id="local-6989586621679198492"><span id="local-6989586621679198493"></span></span><span class="hs-keyword">data</span><span> </span><span id="LookupEvents"><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-var">LookupEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LookupEvents%27"><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents%27"><span class="hs-identifier hs-var">LookupEvents'</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- call. This token must be passed in with the same parameters that were</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- specified in the the original call. For example, if the original call</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- specified an AttributeKey of \'Username\' with a value of \'root\', the</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- call with NextToken should include those same parameters.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AnextToken%3ALookupEvents%27"><span class="annot"><span class="annottext">LookupEvents -&gt; Maybe Text
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AnextToken%3ALookupEvents%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | The number of events to return. Possible values are 1 through 50. The</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- default is 50.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AmaxResults%3ALookupEvents%27"><span class="annot"><span class="annottext">LookupEvents -&gt; Maybe Natural
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AmaxResults%3ALookupEvents%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | Specifies that only events that occur after or at the specified time are</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- returned. If the specified start time is after the specified end time,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- an error is returned.</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AstartTime%3ALookupEvents%27"><span class="annot"><span class="annottext">LookupEvents -&gt; Maybe POSIX
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AstartTime%3ALookupEvents%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- | Specifies that only events that occur before or at the specified time</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- are returned. If the specified end time is before the specified start</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- time, an error is returned.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AendTime%3ALookupEvents%27"><span class="annot"><span class="annottext">LookupEvents -&gt; Maybe POSIX
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AendTime%3ALookupEvents%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | Specifies the event category. If you do not specify an event category,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- events of the category are not returned in the response. For example, if</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- you do not specify @insight@ as the value of @EventCategory@, no</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- Insights events are returned.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AeventCategory%3ALookupEvents%27"><span class="annot"><span class="annottext">LookupEvents -&gt; Maybe EventCategory
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AeventCategory%3ALookupEvents%27"><span class="hs-identifier hs-var hs-var">eventCategory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventCategory.html#EventCategory"><span class="hs-identifier hs-type">EventCategory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | Contains a list of lookup attributes. Currently the list can contain</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- only one item.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AlookupAttributes%3ALookupEvents%27"><span class="annot"><span class="annottext">LookupEvents -&gt; Maybe [LookupAttribute]
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AlookupAttributes%3ALookupEvents%27"><span class="hs-identifier hs-var hs-var">lookupAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.LookupAttribute.html#LookupAttribute"><span class="hs-identifier hs-type">LookupAttribute</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198481"><span id="local-6989586621679198483"><span class="annot"><span class="annottext">LookupEvents -&gt; LookupEvents -&gt; Bool
+(LookupEvents -&gt; LookupEvents -&gt; Bool)
+-&gt; (LookupEvents -&gt; LookupEvents -&gt; Bool) -&gt; Eq LookupEvents
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LookupEvents -&gt; LookupEvents -&gt; Bool
+$c/= :: LookupEvents -&gt; LookupEvents -&gt; Bool
+== :: LookupEvents -&gt; LookupEvents -&gt; Bool
+$c== :: LookupEvents -&gt; LookupEvents -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198472"><span id="local-6989586621679198474"><span id="local-6989586621679198476"><span id="local-6989586621679198478"><span class="annot"><span class="annottext">ReadPrec [LookupEvents]
+ReadPrec LookupEvents
+Int -&gt; ReadS LookupEvents
+ReadS [LookupEvents]
+(Int -&gt; ReadS LookupEvents)
+-&gt; ReadS [LookupEvents]
+-&gt; ReadPrec LookupEvents
+-&gt; ReadPrec [LookupEvents]
+-&gt; Read LookupEvents
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LookupEvents]
+$creadListPrec :: ReadPrec [LookupEvents]
+readPrec :: ReadPrec LookupEvents
+$creadPrec :: ReadPrec LookupEvents
+readList :: ReadS [LookupEvents]
+$creadList :: ReadS [LookupEvents]
+readsPrec :: Int -&gt; ReadS LookupEvents
+$creadsPrec :: Int -&gt; ReadS LookupEvents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198465"><span id="local-6989586621679198467"><span id="local-6989586621679198469"><span class="annot"><span class="annottext">Int -&gt; LookupEvents -&gt; ShowS
+[LookupEvents] -&gt; ShowS
+LookupEvents -&gt; String
+(Int -&gt; LookupEvents -&gt; ShowS)
+-&gt; (LookupEvents -&gt; String)
+-&gt; ([LookupEvents] -&gt; ShowS)
+-&gt; Show LookupEvents
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LookupEvents] -&gt; ShowS
+$cshowList :: [LookupEvents] -&gt; ShowS
+show :: LookupEvents -&gt; String
+$cshow :: LookupEvents -&gt; String
+showsPrec :: Int -&gt; LookupEvents -&gt; ShowS
+$cshowsPrec :: Int -&gt; LookupEvents -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LookupEvents -&gt; Rep LookupEvents x)
+-&gt; (forall x. Rep LookupEvents x -&gt; LookupEvents)
+-&gt; Generic LookupEvents
+forall x. Rep LookupEvents x -&gt; LookupEvents
+forall x. LookupEvents -&gt; Rep LookupEvents x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LookupEvents x -&gt; LookupEvents
+$cfrom :: forall x. LookupEvents -&gt; Rep LookupEvents x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Create a value of 'LookupEvents' with all optional fields omitted.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'nextToken', 'lookupEvents_nextToken' - The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- call. This token must be passed in with the same parameters that were</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- specified in the the original call. For example, if the original call</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- specified an AttributeKey of \'Username\' with a value of \'root\', the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- call with NextToken should include those same parameters.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'maxResults', 'lookupEvents_maxResults' - The number of events to return. Possible values are 1 through 50. The</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- default is 50.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'startTime', 'lookupEvents_startTime' - Specifies that only events that occur after or at the specified time are</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- returned. If the specified start time is after the specified end time,</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- an error is returned.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'endTime', 'lookupEvents_endTime' - Specifies that only events that occur before or at the specified time</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- are returned. If the specified end time is before the specified start</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- time, an error is returned.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'eventCategory', 'lookupEvents_eventCategory' - Specifies the event category. If you do not specify an event category,</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- events of the category are not returned in the response. For example, if</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- you do not specify @insight@ as the value of @EventCategory@, no</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Insights events are returned.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'lookupAttributes', 'lookupEvents_lookupAttributes' - Contains a list of lookup attributes. Currently the list can contain</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- only one item.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#newLookupEvents"><span class="hs-identifier hs-type">newLookupEvents</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span>
+</span><span id="line-160"></span><span id="newLookupEvents"><span class="annot"><span class="annottext">newLookupEvents :: LookupEvents
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#newLookupEvents"><span class="hs-identifier hs-var hs-var">newLookupEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">LookupEvents' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe EventCategory
+-&gt; Maybe [LookupAttribute]
+-&gt; LookupEvents
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents%27"><span class="hs-identifier hs-type">LookupEvents'</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:LookupEvents' :: Maybe Text
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AnextToken%3ALookupEvents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:LookupEvents' :: Maybe Natural
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AmaxResults%3ALookupEvents%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:LookupEvents' :: Maybe POSIX
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AstartTime%3ALookupEvents%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:LookupEvents' :: Maybe POSIX
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AendTime%3ALookupEvents%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventCategory:LookupEvents' :: Maybe EventCategory
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AeventCategory%3ALookupEvents%27"><span class="hs-identifier hs-var">eventCategory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventCategory
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:lookupAttributes:LookupEvents' :: Maybe [LookupAttribute]
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AlookupAttributes%3ALookupEvents%27"><span class="hs-identifier hs-var">lookupAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LookupAttribute]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- call. This token must be passed in with the same parameters that were</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- specified in the the original call. For example, if the original call</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- specified an AttributeKey of \'Username\' with a value of \'root\', the</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- call with NextToken should include those same parameters.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_nextToken"><span class="hs-identifier hs-type">lookupEvents_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="lookupEvents_nextToken"><span class="annot"><span class="annottext">lookupEvents_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LookupEvents -&gt; f LookupEvents
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_nextToken"><span class="hs-identifier hs-var hs-var">lookupEvents_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupEvents -&gt; Maybe Text)
+-&gt; (LookupEvents -&gt; Maybe Text -&gt; LookupEvents)
+-&gt; Lens LookupEvents LookupEvents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents%27"><span class="hs-identifier hs-type">LookupEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198459"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:LookupEvents' :: LookupEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679198459"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198459"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198458"><span class="annot"><span class="annottext">s :: LookupEvents
+</span><a href="#local-6989586621679198458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents%27"><span class="hs-identifier hs-type">LookupEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198457"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupEvents
+</span><a href="#local-6989586621679198458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:LookupEvents' :: Maybe Text
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AnextToken%3ALookupEvents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The number of events to return. Possible values are 1 through 50. The</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- default is 50.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_maxResults"><span class="hs-identifier hs-type">lookupEvents_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="lookupEvents_maxResults"><span class="annot"><span class="annottext">lookupEvents_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; LookupEvents -&gt; f LookupEvents
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_maxResults"><span class="hs-identifier hs-var hs-var">lookupEvents_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupEvents -&gt; Maybe Natural)
+-&gt; (LookupEvents -&gt; Maybe Natural -&gt; LookupEvents)
+-&gt; Lens LookupEvents LookupEvents (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents%27"><span class="hs-identifier hs-type">LookupEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198456"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:LookupEvents' :: LookupEvents -&gt; Maybe Natural
+</span><a href="#local-6989586621679198456"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679198456"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198455"><span class="annot"><span class="annottext">s :: LookupEvents
+</span><a href="#local-6989586621679198455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents%27"><span class="hs-identifier hs-type">LookupEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198454"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679198454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupEvents
+</span><a href="#local-6989586621679198455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:LookupEvents' :: Maybe Natural
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AmaxResults%3ALookupEvents%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679198454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | Specifies that only events that occur after or at the specified time are</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- returned. If the specified start time is after the specified end time,</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- an error is returned.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_startTime"><span class="hs-identifier hs-type">lookupEvents_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="lookupEvents_startTime"><span class="annot"><span class="annottext">lookupEvents_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; LookupEvents -&gt; f LookupEvents
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_startTime"><span class="hs-identifier hs-var hs-var">lookupEvents_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupEvents -&gt; Maybe POSIX)
+-&gt; (LookupEvents -&gt; Maybe POSIX -&gt; LookupEvents)
+-&gt; Lens LookupEvents LookupEvents (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents%27"><span class="hs-identifier hs-type">LookupEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198453"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:LookupEvents' :: LookupEvents -&gt; Maybe POSIX
+</span><a href="#local-6989586621679198453"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198453"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198452"><span class="annot"><span class="annottext">s :: LookupEvents
+</span><a href="#local-6989586621679198452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents%27"><span class="hs-identifier hs-type">LookupEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198451"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupEvents
+</span><a href="#local-6989586621679198452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:LookupEvents' :: Maybe POSIX
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AstartTime%3ALookupEvents%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; LookupEvents -&gt; f LookupEvents)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; LookupEvents
+-&gt; f LookupEvents
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | Specifies that only events that occur before or at the specified time</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- are returned. If the specified end time is before the specified start</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- time, an error is returned.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_endTime"><span class="hs-identifier hs-type">lookupEvents_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="lookupEvents_endTime"><span class="annot"><span class="annottext">lookupEvents_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; LookupEvents -&gt; f LookupEvents
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_endTime"><span class="hs-identifier hs-var hs-var">lookupEvents_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupEvents -&gt; Maybe POSIX)
+-&gt; (LookupEvents -&gt; Maybe POSIX -&gt; LookupEvents)
+-&gt; Lens LookupEvents LookupEvents (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents%27"><span class="hs-identifier hs-type">LookupEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198447"><span class="annot"><span class="annottext">Maybe POSIX
+endTime :: Maybe POSIX
+$sel:endTime:LookupEvents' :: LookupEvents -&gt; Maybe POSIX
+</span><a href="#local-6989586621679198447"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198447"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198446"><span class="annot"><span class="annottext">s :: LookupEvents
+</span><a href="#local-6989586621679198446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents%27"><span class="hs-identifier hs-type">LookupEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198445"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupEvents
+</span><a href="#local-6989586621679198446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:LookupEvents' :: Maybe POSIX
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AendTime%3ALookupEvents%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; LookupEvents -&gt; f LookupEvents)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; LookupEvents
+-&gt; f LookupEvents
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | Specifies the event category. If you do not specify an event category,</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- events of the category are not returned in the response. For example, if</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- you do not specify @insight@ as the value of @EventCategory@, no</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Insights events are returned.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_eventCategory"><span class="hs-identifier hs-type">lookupEvents_eventCategory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventCategory.html#EventCategory"><span class="hs-identifier hs-type">EventCategory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="lookupEvents_eventCategory"><span class="annot"><span class="annottext">lookupEvents_eventCategory :: (Maybe EventCategory -&gt; f (Maybe EventCategory))
+-&gt; LookupEvents -&gt; f LookupEvents
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_eventCategory"><span class="hs-identifier hs-var hs-var">lookupEvents_eventCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupEvents -&gt; Maybe EventCategory)
+-&gt; (LookupEvents -&gt; Maybe EventCategory -&gt; LookupEvents)
+-&gt; Lens
+     LookupEvents
+     LookupEvents
+     (Maybe EventCategory)
+     (Maybe EventCategory)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents%27"><span class="hs-identifier hs-type">LookupEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198444"><span class="annot"><span class="annottext">Maybe EventCategory
+eventCategory :: Maybe EventCategory
+$sel:eventCategory:LookupEvents' :: LookupEvents -&gt; Maybe EventCategory
+</span><a href="#local-6989586621679198444"><span class="hs-identifier hs-var hs-var">eventCategory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventCategory
+</span><a href="#local-6989586621679198444"><span class="hs-identifier hs-var">eventCategory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198443"><span class="annot"><span class="annottext">s :: LookupEvents
+</span><a href="#local-6989586621679198443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents%27"><span class="hs-identifier hs-type">LookupEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198442"><span class="annot"><span class="annottext">Maybe EventCategory
+</span><a href="#local-6989586621679198442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupEvents
+</span><a href="#local-6989586621679198443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventCategory:LookupEvents' :: Maybe EventCategory
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AeventCategory%3ALookupEvents%27"><span class="hs-identifier hs-var">eventCategory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventCategory
+</span><a href="#local-6989586621679198442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | Contains a list of lookup attributes. Currently the list can contain</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- only one item.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_lookupAttributes"><span class="hs-identifier hs-type">lookupEvents_lookupAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.LookupAttribute.html#LookupAttribute"><span class="hs-identifier hs-type">LookupAttribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="lookupEvents_lookupAttributes"><span class="annot"><span class="annottext">lookupEvents_lookupAttributes :: (Maybe [LookupAttribute] -&gt; f (Maybe [LookupAttribute]))
+-&gt; LookupEvents -&gt; f LookupEvents
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_lookupAttributes"><span class="hs-identifier hs-var hs-var">lookupEvents_lookupAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupEvents -&gt; Maybe [LookupAttribute])
+-&gt; (LookupEvents -&gt; Maybe [LookupAttribute] -&gt; LookupEvents)
+-&gt; Lens
+     LookupEvents
+     LookupEvents
+     (Maybe [LookupAttribute])
+     (Maybe [LookupAttribute])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents%27"><span class="hs-identifier hs-type">LookupEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198441"><span class="annot"><span class="annottext">Maybe [LookupAttribute]
+lookupAttributes :: Maybe [LookupAttribute]
+$sel:lookupAttributes:LookupEvents' :: LookupEvents -&gt; Maybe [LookupAttribute]
+</span><a href="#local-6989586621679198441"><span class="hs-identifier hs-var hs-var">lookupAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LookupAttribute]
+</span><a href="#local-6989586621679198441"><span class="hs-identifier hs-var">lookupAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198440"><span class="annot"><span class="annottext">s :: LookupEvents
+</span><a href="#local-6989586621679198440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents%27"><span class="hs-identifier hs-type">LookupEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198439"><span class="annot"><span class="annottext">Maybe [LookupAttribute]
+</span><a href="#local-6989586621679198439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupEvents
+</span><a href="#local-6989586621679198440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lookupAttributes:LookupEvents' :: Maybe [LookupAttribute]
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AlookupAttributes%3ALookupEvents%27"><span class="hs-identifier hs-var">lookupAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LookupAttribute]
+</span><a href="#local-6989586621679198439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LookupAttribute] -&gt; f (Maybe [LookupAttribute]))
+ -&gt; LookupEvents -&gt; f LookupEvents)
+-&gt; ((Maybe [LookupAttribute] -&gt; f (Maybe [LookupAttribute]))
+    -&gt; Maybe [LookupAttribute] -&gt; f (Maybe [LookupAttribute]))
+-&gt; (Maybe [LookupAttribute] -&gt; f (Maybe [LookupAttribute]))
+-&gt; LookupEvents
+-&gt; f LookupEvents
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LookupAttribute]
+  [LookupAttribute]
+  [LookupAttribute]
+  [LookupAttribute]
+-&gt; Iso
+     (Maybe [LookupAttribute])
+     (Maybe [LookupAttribute])
+     (Maybe [LookupAttribute])
+     (Maybe [LookupAttribute])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LookupAttribute]
+  [LookupAttribute]
+  [LookupAttribute]
+  [LookupAttribute]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679198434"><span class="annot"><span class="annottext">page :: LookupEvents -&gt; AWSResponse LookupEvents -&gt; Maybe LookupEvents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679198432"><span class="annot"><span class="annottext">LookupEvents
+</span><a href="#local-6989586621679198432"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679198431"><span class="annot"><span class="annottext">AWSResponse LookupEvents
+</span><a href="#local-6989586621679198431"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-210"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse LookupEvents
+LookupEventsResponse
+</span><a href="#local-6989586621679198431"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">LookupEventsResponse
+-&gt; Getting (First Text) LookupEventsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; LookupEventsResponse -&gt; Const (First Text) LookupEventsResponse
+Lens' LookupEventsResponse (Maybe Text)
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEventsResponse_nextToken"><span class="hs-identifier hs-var">lookupEventsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; LookupEventsResponse -&gt; Const (First Text) LookupEventsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) LookupEventsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-212"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">Maybe LookupEvents
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Event] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-215"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse LookupEvents
+LookupEventsResponse
+</span><a href="#local-6989586621679198431"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">LookupEventsResponse
+-&gt; Getting (First [Event]) LookupEventsResponse [Event]
+-&gt; Maybe [Event]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Event] -&gt; Const (First [Event]) (Maybe [Event]))
+-&gt; LookupEventsResponse
+-&gt; Const (First [Event]) LookupEventsResponse
+Lens' LookupEventsResponse (Maybe [Event])
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEventsResponse_events"><span class="hs-identifier hs-var">lookupEventsResponse_events</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [Event] -&gt; Const (First [Event]) (Maybe [Event]))
+ -&gt; LookupEventsResponse
+ -&gt; Const (First [Event]) LookupEventsResponse)
+-&gt; (([Event] -&gt; Const (First [Event]) [Event])
+    -&gt; Maybe [Event] -&gt; Const (First [Event]) (Maybe [Event]))
+-&gt; Getting (First [Event]) LookupEventsResponse [Event]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Event] -&gt; Const (First [Event]) [Event])
+-&gt; Maybe [Event] -&gt; Const (First [Event]) (Maybe [Event])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-217"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">Maybe LookupEvents
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">LookupEvents -&gt; Maybe LookupEvents
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(LookupEvents -&gt; Maybe LookupEvents)
+-&gt; LookupEvents -&gt; Maybe LookupEvents
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">LookupEvents
+</span><a href="#local-6989586621679198432"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">LookupEvents -&gt; (LookupEvents -&gt; LookupEvents) -&gt; LookupEvents
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; LookupEvents -&gt; Identity LookupEvents
+Lens LookupEvents LookupEvents (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEvents_nextToken"><span class="hs-identifier hs-var">lookupEvents_nextToken</span></a></span><span>
+</span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; LookupEvents -&gt; Identity LookupEvents)
+-&gt; Maybe Text -&gt; LookupEvents -&gt; LookupEvents
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse LookupEvents
+LookupEventsResponse
+</span><a href="#local-6989586621679198431"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-224"></span><span>          </span><span class="annot"><span class="annottext">LookupEventsResponse
+-&gt; Getting (First Text) LookupEventsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; LookupEventsResponse -&gt; Const (First Text) LookupEventsResponse
+Lens' LookupEventsResponse (Maybe Text)
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEventsResponse_nextToken"><span class="hs-identifier hs-var">lookupEventsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; LookupEventsResponse -&gt; Const (First Text) LookupEventsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) LookupEventsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse"><span class="hs-identifier hs-type">LookupEventsResponse</span></a></span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679198422"><span class="annot"><span class="annottext">request :: LookupEvents -&gt; Request LookupEvents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; LookupEvents -&gt; Request LookupEvents
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudTrail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679198418"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy LookupEvents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse LookupEvents)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse LookupEvents))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy LookupEvents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse LookupEvents)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679198415"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198415"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679198414"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679198414"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679198413"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198413"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Event] -&gt; Int -&gt; LookupEventsResponse
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse%27"><span class="hs-identifier hs-var">LookupEventsResponse'</span></a></span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Event] -&gt; Int -&gt; LookupEventsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Event] -&gt; Int -&gt; LookupEventsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Event] -&gt; Int -&gt; LookupEventsResponse)
+-&gt; Either String (Maybe [Event])
+-&gt; Either String (Int -&gt; LookupEventsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Event]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Events&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Event]))
+-&gt; Maybe [Event] -&gt; Either String (Maybe [Event])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Event]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; LookupEventsResponse)
+-&gt; Either String Int -&gt; Either String LookupEventsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198415"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198404"><span id="local-6989586621679198406"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span></span></span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198401"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679198397"><span class="annot"><span class="annottext">toHeaders :: LookupEvents -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; LookupEvents -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-246"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-247"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.LookupEvents&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-248"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-249"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-251"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-252"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-253"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-255"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198387"><span id="local-6989586621679198389"><span id="local-6989586621679198391"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679198385"><span class="annot"><span class="annottext">toJSON :: LookupEvents -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents%27"><span class="hs-identifier hs-type">LookupEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198378"><span id="local-6989586621679198379"><span id="local-6989586621679198380"><span id="local-6989586621679198381"><span id="local-6989586621679198382"><span id="local-6989586621679198383"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [LookupAttribute]
+Maybe Text
+Maybe POSIX
+Maybe EventCategory
+lookupAttributes :: Maybe [LookupAttribute]
+eventCategory :: Maybe EventCategory
+endTime :: Maybe POSIX
+startTime :: Maybe POSIX
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:lookupAttributes:LookupEvents' :: LookupEvents -&gt; Maybe [LookupAttribute]
+$sel:eventCategory:LookupEvents' :: LookupEvents -&gt; Maybe EventCategory
+$sel:endTime:LookupEvents' :: LookupEvents -&gt; Maybe POSIX
+$sel:startTime:LookupEvents' :: LookupEvents -&gt; Maybe POSIX
+$sel:maxResults:LookupEvents' :: LookupEvents -&gt; Maybe Natural
+$sel:nextToken:LookupEvents' :: LookupEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679198378"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-260"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-261"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198383"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679198382"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198381"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198380"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventCategory&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EventCategory -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EventCategory -&gt; Pair) -&gt; Maybe EventCategory -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EventCategory
+</span><a href="#local-6989586621679198379"><span class="hs-identifier hs-var">eventCategory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LookupAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [LookupAttribute] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>              </span><span class="annot"><span class="annottext">([LookupAttribute] -&gt; Pair)
+-&gt; Maybe [LookupAttribute] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LookupAttribute]
+</span><a href="#local-6989586621679198378"><span class="hs-identifier hs-var">lookupAttributes</span></a></span><span>
+</span><span id="line-268"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-269"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-272"></span><span>  </span><span id="local-6989586621679198372"><span class="annot"><span class="annottext">toPath :: LookupEvents -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; LookupEvents -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEvents"><span class="hs-identifier hs-type">LookupEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-275"></span><span>  </span><span id="local-6989586621679198368"><span class="annot"><span class="annottext">toQuery :: LookupEvents -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; LookupEvents -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | Contains a response to a LookupEvents action.</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- /See:/ 'newLookupEventsResponse' smart constructor.</span><span>
+</span><span id="line-280"></span><span id="local-6989586621679198365"><span id="local-6989586621679198366"></span></span><span class="hs-keyword">data</span><span> </span><span id="LookupEventsResponse"><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse"><span class="hs-identifier hs-var">LookupEventsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LookupEventsResponse%27"><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse%27"><span class="hs-identifier hs-var">LookupEventsResponse'</span></a></span></span><span>
+</span><span id="line-281"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-282"></span><span>    </span><span class="hs-comment">-- call. If the token does not appear, there are no more results to return.</span><span>
+</span><span id="line-283"></span><span>    </span><span class="hs-comment">-- The token must be passed in with the same parameters as the previous</span><span>
+</span><span id="line-284"></span><span>    </span><span class="hs-comment">-- call. For example, if the original call specified an AttributeKey of</span><span>
+</span><span id="line-285"></span><span>    </span><span class="hs-comment">-- \'Username\' with a value of \'root\', the call with NextToken should</span><span>
+</span><span id="line-286"></span><span>    </span><span class="hs-comment">-- include those same parameters.</span><span>
+</span><span id="line-287"></span><span>    </span><span id="%24sel%3AnextToken%3ALookupEventsResponse%27"><span class="annot"><span class="annottext">LookupEventsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AnextToken%3ALookupEventsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>    </span><span class="hs-comment">-- | A list of events returned based on the lookup attributes specified and</span><span>
+</span><span id="line-289"></span><span>    </span><span class="hs-comment">-- the CloudTrail event. The events list is sorted by time. The most recent</span><span>
+</span><span id="line-290"></span><span>    </span><span class="hs-comment">-- event is listed first.</span><span>
+</span><span id="line-291"></span><span>    </span><span id="%24sel%3Aevents%3ALookupEventsResponse%27"><span class="annot"><span class="annottext">LookupEventsResponse -&gt; Maybe [Event]
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3Aevents%3ALookupEventsResponse%27"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-293"></span><span>    </span><span id="%24sel%3AhttpStatus%3ALookupEventsResponse%27"><span class="annot"><span class="annottext">LookupEventsResponse -&gt; Int
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AhttpStatus%3ALookupEventsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-294"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-295"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198358"><span id="local-6989586621679198360"><span class="annot"><span class="annottext">LookupEventsResponse -&gt; LookupEventsResponse -&gt; Bool
+(LookupEventsResponse -&gt; LookupEventsResponse -&gt; Bool)
+-&gt; (LookupEventsResponse -&gt; LookupEventsResponse -&gt; Bool)
+-&gt; Eq LookupEventsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LookupEventsResponse -&gt; LookupEventsResponse -&gt; Bool
+$c/= :: LookupEventsResponse -&gt; LookupEventsResponse -&gt; Bool
+== :: LookupEventsResponse -&gt; LookupEventsResponse -&gt; Bool
+$c== :: LookupEventsResponse -&gt; LookupEventsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198350"><span id="local-6989586621679198352"><span id="local-6989586621679198354"><span id="local-6989586621679198356"><span class="annot"><span class="annottext">ReadPrec [LookupEventsResponse]
+ReadPrec LookupEventsResponse
+Int -&gt; ReadS LookupEventsResponse
+ReadS [LookupEventsResponse]
+(Int -&gt; ReadS LookupEventsResponse)
+-&gt; ReadS [LookupEventsResponse]
+-&gt; ReadPrec LookupEventsResponse
+-&gt; ReadPrec [LookupEventsResponse]
+-&gt; Read LookupEventsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LookupEventsResponse]
+$creadListPrec :: ReadPrec [LookupEventsResponse]
+readPrec :: ReadPrec LookupEventsResponse
+$creadPrec :: ReadPrec LookupEventsResponse
+readList :: ReadS [LookupEventsResponse]
+$creadList :: ReadS [LookupEventsResponse]
+readsPrec :: Int -&gt; ReadS LookupEventsResponse
+$creadsPrec :: Int -&gt; ReadS LookupEventsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198344"><span id="local-6989586621679198346"><span id="local-6989586621679198348"><span class="annot"><span class="annottext">Int -&gt; LookupEventsResponse -&gt; ShowS
+[LookupEventsResponse] -&gt; ShowS
+LookupEventsResponse -&gt; String
+(Int -&gt; LookupEventsResponse -&gt; ShowS)
+-&gt; (LookupEventsResponse -&gt; String)
+-&gt; ([LookupEventsResponse] -&gt; ShowS)
+-&gt; Show LookupEventsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LookupEventsResponse] -&gt; ShowS
+$cshowList :: [LookupEventsResponse] -&gt; ShowS
+show :: LookupEventsResponse -&gt; String
+$cshow :: LookupEventsResponse -&gt; String
+showsPrec :: Int -&gt; LookupEventsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; LookupEventsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LookupEventsResponse -&gt; Rep LookupEventsResponse x)
+-&gt; (forall x. Rep LookupEventsResponse x -&gt; LookupEventsResponse)
+-&gt; Generic LookupEventsResponse
+forall x. Rep LookupEventsResponse x -&gt; LookupEventsResponse
+forall x. LookupEventsResponse -&gt; Rep LookupEventsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LookupEventsResponse x -&gt; LookupEventsResponse
+$cfrom :: forall x. LookupEventsResponse -&gt; Rep LookupEventsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- Create a value of 'LookupEventsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- 'nextToken', 'lookupEventsResponse_nextToken' - The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- call. If the token does not appear, there are no more results to return.</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- The token must be passed in with the same parameters as the previous</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- call. For example, if the original call specified an AttributeKey of</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- \'Username\' with a value of \'root\', the call with NextToken should</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- include those same parameters.</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- 'events', 'lookupEventsResponse_events' - A list of events returned based on the lookup attributes specified and</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- the CloudTrail event. The events list is sorted by time. The most recent</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- event is listed first.</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- 'httpStatus', 'lookupEventsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#newLookupEventsResponse"><span class="hs-identifier hs-type">newLookupEventsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-318"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-319"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-320"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse"><span class="hs-identifier hs-type">LookupEventsResponse</span></a></span><span>
+</span><span id="line-321"></span><span id="newLookupEventsResponse"><span class="annot"><span class="annottext">newLookupEventsResponse :: Int -&gt; LookupEventsResponse
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#newLookupEventsResponse"><span class="hs-identifier hs-var hs-var">newLookupEventsResponse</span></a></span></span><span> </span><span id="local-6989586621679198341"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198341"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-322"></span><span>  </span><span class="annot"><span class="annottext">LookupEventsResponse' :: Maybe Text -&gt; Maybe [Event] -&gt; Int -&gt; LookupEventsResponse
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse%27"><span class="hs-identifier hs-type">LookupEventsResponse'</span></a></span><span>
+</span><span id="line-323"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:LookupEventsResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AnextToken%3ALookupEventsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>      </span><span class="annot"><span class="annottext">$sel:events:LookupEventsResponse' :: Maybe [Event]
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3Aevents%3ALookupEventsResponse%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Event]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:LookupEventsResponse' :: Int
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AhttpStatus%3ALookupEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198341"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-326"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- | The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- call. If the token does not appear, there are no more results to return.</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- The token must be passed in with the same parameters as the previous</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- call. For example, if the original call specified an AttributeKey of</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- \'Username\' with a value of \'root\', the call with NextToken should</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- include those same parameters.</span><span>
+</span><span id="line-334"></span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEventsResponse_nextToken"><span class="hs-identifier hs-type">lookupEventsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse"><span class="hs-identifier hs-type">LookupEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span id="lookupEventsResponse_nextToken"><span class="annot"><span class="annottext">lookupEventsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LookupEventsResponse -&gt; f LookupEventsResponse
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEventsResponse_nextToken"><span class="hs-identifier hs-var hs-var">lookupEventsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupEventsResponse -&gt; Maybe Text)
+-&gt; (LookupEventsResponse -&gt; Maybe Text -&gt; LookupEventsResponse)
+-&gt; Lens' LookupEventsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse%27"><span class="hs-identifier hs-type">LookupEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198340"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:LookupEventsResponse' :: LookupEventsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679198340"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198340"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198339"><span class="annot"><span class="annottext">s :: LookupEventsResponse
+</span><a href="#local-6989586621679198339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse%27"><span class="hs-identifier hs-type">LookupEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198338"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupEventsResponse
+</span><a href="#local-6989586621679198339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:LookupEventsResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AnextToken%3ALookupEventsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse"><span class="hs-identifier hs-type">LookupEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- | A list of events returned based on the lookup attributes specified and</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- the CloudTrail event. The events list is sorted by time. The most recent</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- event is listed first.</span><span>
+</span><span id="line-340"></span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEventsResponse_events"><span class="hs-identifier hs-type">lookupEventsResponse_events</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse"><span class="hs-identifier hs-type">LookupEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span id="lookupEventsResponse_events"><span class="annot"><span class="annottext">lookupEventsResponse_events :: (Maybe [Event] -&gt; f (Maybe [Event]))
+-&gt; LookupEventsResponse -&gt; f LookupEventsResponse
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEventsResponse_events"><span class="hs-identifier hs-var hs-var">lookupEventsResponse_events</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupEventsResponse -&gt; Maybe [Event])
+-&gt; (LookupEventsResponse -&gt; Maybe [Event] -&gt; LookupEventsResponse)
+-&gt; Lens' LookupEventsResponse (Maybe [Event])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse%27"><span class="hs-identifier hs-type">LookupEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198337"><span class="annot"><span class="annottext">Maybe [Event]
+events :: Maybe [Event]
+$sel:events:LookupEventsResponse' :: LookupEventsResponse -&gt; Maybe [Event]
+</span><a href="#local-6989586621679198337"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Event]
+</span><a href="#local-6989586621679198337"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198336"><span class="annot"><span class="annottext">s :: LookupEventsResponse
+</span><a href="#local-6989586621679198336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse%27"><span class="hs-identifier hs-type">LookupEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198335"><span class="annot"><span class="annottext">Maybe [Event]
+</span><a href="#local-6989586621679198335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupEventsResponse
+</span><a href="#local-6989586621679198336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:LookupEventsResponse' :: Maybe [Event]
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3Aevents%3ALookupEventsResponse%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Event]
+</span><a href="#local-6989586621679198335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse"><span class="hs-identifier hs-type">LookupEventsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Event] -&gt; f (Maybe [Event]))
+ -&gt; LookupEventsResponse -&gt; f LookupEventsResponse)
+-&gt; ((Maybe [Event] -&gt; f (Maybe [Event]))
+    -&gt; Maybe [Event] -&gt; f (Maybe [Event]))
+-&gt; (Maybe [Event] -&gt; f (Maybe [Event]))
+-&gt; LookupEventsResponse
+-&gt; f LookupEventsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Event] [Event] [Event] [Event]
+-&gt; Iso
+     (Maybe [Event]) (Maybe [Event]) (Maybe [Event]) (Maybe [Event])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Event] [Event] [Event] [Event]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-342"></span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-344"></span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEventsResponse_httpStatus"><span class="hs-identifier hs-type">lookupEventsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse"><span class="hs-identifier hs-type">LookupEventsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-345"></span><span id="lookupEventsResponse_httpStatus"><span class="annot"><span class="annottext">lookupEventsResponse_httpStatus :: (Int -&gt; f Int) -&gt; LookupEventsResponse -&gt; f LookupEventsResponse
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#lookupEventsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">lookupEventsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupEventsResponse -&gt; Int)
+-&gt; (LookupEventsResponse -&gt; Int -&gt; LookupEventsResponse)
+-&gt; Lens LookupEventsResponse LookupEventsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse%27"><span class="hs-identifier hs-type">LookupEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198334"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:LookupEventsResponse' :: LookupEventsResponse -&gt; Int
+</span><a href="#local-6989586621679198334"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198334"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198333"><span class="annot"><span class="annottext">s :: LookupEventsResponse
+</span><a href="#local-6989586621679198333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse%27"><span class="hs-identifier hs-type">LookupEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198332"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupEventsResponse
+</span><a href="#local-6989586621679198333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:LookupEventsResponse' :: Int
+</span><a href="Network.AWS.CloudTrail.LookupEvents.html#%24sel%3AhttpStatus%3ALookupEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse"><span class="hs-identifier hs-type">LookupEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-346"></span><span>
+</span><span id="line-347"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198330"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.LookupEvents.html#LookupEventsResponse"><span class="hs-identifier hs-type">LookupEventsResponse</span></a></span></span><span>
+</span><span id="line-348"></span></pre></body></html>

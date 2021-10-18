@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.ProcessorInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.ProcessorInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ArchitectureType.html"><span class="hs-identifier">Network.AWS.EC2.Types.ArchitectureType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the processor used by the instance type.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newProcessorInfo' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621681105564"><span id="local-6989586621681105565"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProcessorInfo"><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#ProcessorInfo"><span class="hs-identifier hs-var">ProcessorInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessorInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#ProcessorInfo%27"><span class="hs-identifier hs-var">ProcessorInfo'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The speed of the processor, in GHz.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsustainedClockSpeedInGhz%3AProcessorInfo%27"><span class="annot"><span class="annottext">ProcessorInfo -&gt; Maybe Double
+</span><a href="Network.AWS.EC2.Types.ProcessorInfo.html#%24sel%3AsustainedClockSpeedInGhz%3AProcessorInfo%27"><span class="hs-identifier hs-var hs-var">sustainedClockSpeedInGhz</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The architectures supported by the instance type.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsupportedArchitectures%3AProcessorInfo%27"><span class="annot"><span class="annottext">ProcessorInfo -&gt; Maybe [ArchitectureType]
+</span><a href="Network.AWS.EC2.Types.ProcessorInfo.html#%24sel%3AsupportedArchitectures%3AProcessorInfo%27"><span class="hs-identifier hs-var hs-var">supportedArchitectures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.ArchitectureType.html#ArchitectureType"><span class="hs-identifier hs-type">ArchitectureType</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681105557"><span id="local-6989586621681105559"><span class="annot"><span class="annottext">ProcessorInfo -&gt; ProcessorInfo -&gt; Bool
+(ProcessorInfo -&gt; ProcessorInfo -&gt; Bool)
+-&gt; (ProcessorInfo -&gt; ProcessorInfo -&gt; Bool) -&gt; Eq ProcessorInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProcessorInfo -&gt; ProcessorInfo -&gt; Bool
+$c/= :: ProcessorInfo -&gt; ProcessorInfo -&gt; Bool
+== :: ProcessorInfo -&gt; ProcessorInfo -&gt; Bool
+$c== :: ProcessorInfo -&gt; ProcessorInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681105548"><span id="local-6989586621681105550"><span id="local-6989586621681105552"><span id="local-6989586621681105554"><span class="annot"><span class="annottext">ReadPrec [ProcessorInfo]
+ReadPrec ProcessorInfo
+Int -&gt; ReadS ProcessorInfo
+ReadS [ProcessorInfo]
+(Int -&gt; ReadS ProcessorInfo)
+-&gt; ReadS [ProcessorInfo]
+-&gt; ReadPrec ProcessorInfo
+-&gt; ReadPrec [ProcessorInfo]
+-&gt; Read ProcessorInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProcessorInfo]
+$creadListPrec :: ReadPrec [ProcessorInfo]
+readPrec :: ReadPrec ProcessorInfo
+$creadPrec :: ReadPrec ProcessorInfo
+readList :: ReadS [ProcessorInfo]
+$creadList :: ReadS [ProcessorInfo]
+readsPrec :: Int -&gt; ReadS ProcessorInfo
+$creadsPrec :: Int -&gt; ReadS ProcessorInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681105541"><span id="local-6989586621681105543"><span id="local-6989586621681105545"><span class="annot"><span class="annottext">Int -&gt; ProcessorInfo -&gt; ShowS
+[ProcessorInfo] -&gt; ShowS
+ProcessorInfo -&gt; String
+(Int -&gt; ProcessorInfo -&gt; ShowS)
+-&gt; (ProcessorInfo -&gt; String)
+-&gt; ([ProcessorInfo] -&gt; ShowS)
+-&gt; Show ProcessorInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProcessorInfo] -&gt; ShowS
+$cshowList :: [ProcessorInfo] -&gt; ShowS
+show :: ProcessorInfo -&gt; String
+$cshow :: ProcessorInfo -&gt; String
+showsPrec :: Int -&gt; ProcessorInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProcessorInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ProcessorInfo -&gt; Rep ProcessorInfo x)
+-&gt; (forall x. Rep ProcessorInfo x -&gt; ProcessorInfo)
+-&gt; Generic ProcessorInfo
+forall x. Rep ProcessorInfo x -&gt; ProcessorInfo
+forall x. ProcessorInfo -&gt; Rep ProcessorInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProcessorInfo x -&gt; ProcessorInfo
+$cfrom :: forall x. ProcessorInfo -&gt; Rep ProcessorInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'ProcessorInfo' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'sustainedClockSpeedInGhz', 'processorInfo_sustainedClockSpeedInGhz' - The speed of the processor, in GHz.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'supportedArchitectures', 'processorInfo_supportedArchitectures' - The architectures supported by the instance type.</span><span>
+</span><span id="line-50"></span><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#newProcessorInfo"><span class="hs-identifier hs-type">newProcessorInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#ProcessorInfo"><span class="hs-identifier hs-type">ProcessorInfo</span></a></span><span>
+</span><span id="line-52"></span><span id="newProcessorInfo"><span class="annot"><span class="annottext">newProcessorInfo :: ProcessorInfo
+</span><a href="Network.AWS.EC2.Types.ProcessorInfo.html#newProcessorInfo"><span class="hs-identifier hs-var hs-var">newProcessorInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">ProcessorInfo' :: Maybe Double -&gt; Maybe [ArchitectureType] -&gt; ProcessorInfo
+</span><a href="Network.AWS.EC2.Types.ProcessorInfo.html#ProcessorInfo%27"><span class="hs-identifier hs-type">ProcessorInfo'</span></a></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sustainedClockSpeedInGhz:ProcessorInfo' :: Maybe Double
+</span><a href="Network.AWS.EC2.Types.ProcessorInfo.html#%24sel%3AsustainedClockSpeedInGhz%3AProcessorInfo%27"><span class="hs-identifier hs-var">sustainedClockSpeedInGhz</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedArchitectures:ProcessorInfo' :: Maybe [ArchitectureType]
+</span><a href="Network.AWS.EC2.Types.ProcessorInfo.html#%24sel%3AsupportedArchitectures%3AProcessorInfo%27"><span class="hs-identifier hs-var">supportedArchitectures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ArchitectureType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The speed of the processor, in GHz.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#processorInfo_sustainedClockSpeedInGhz"><span class="hs-identifier hs-type">processorInfo_sustainedClockSpeedInGhz</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#ProcessorInfo"><span class="hs-identifier hs-type">ProcessorInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="processorInfo_sustainedClockSpeedInGhz"><span class="annot"><span class="annottext">processorInfo_sustainedClockSpeedInGhz :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; ProcessorInfo -&gt; f ProcessorInfo
+</span><a href="Network.AWS.EC2.Types.ProcessorInfo.html#processorInfo_sustainedClockSpeedInGhz"><span class="hs-identifier hs-var hs-var">processorInfo_sustainedClockSpeedInGhz</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProcessorInfo -&gt; Maybe Double)
+-&gt; (ProcessorInfo -&gt; Maybe Double -&gt; ProcessorInfo)
+-&gt; Lens ProcessorInfo ProcessorInfo (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#ProcessorInfo%27"><span class="hs-identifier hs-type">ProcessorInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681105532"><span class="annot"><span class="annottext">Maybe Double
+sustainedClockSpeedInGhz :: Maybe Double
+$sel:sustainedClockSpeedInGhz:ProcessorInfo' :: ProcessorInfo -&gt; Maybe Double
+</span><a href="#local-6989586621681105532"><span class="hs-identifier hs-var hs-var">sustainedClockSpeedInGhz</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621681105532"><span class="hs-identifier hs-var">sustainedClockSpeedInGhz</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681105531"><span class="annot"><span class="annottext">s :: ProcessorInfo
+</span><a href="#local-6989586621681105531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#ProcessorInfo%27"><span class="hs-identifier hs-type">ProcessorInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681105530"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621681105530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessorInfo
+</span><a href="#local-6989586621681105531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sustainedClockSpeedInGhz:ProcessorInfo' :: Maybe Double
+</span><a href="Network.AWS.EC2.Types.ProcessorInfo.html#%24sel%3AsustainedClockSpeedInGhz%3AProcessorInfo%27"><span class="hs-identifier hs-var">sustainedClockSpeedInGhz</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621681105530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#ProcessorInfo"><span class="hs-identifier hs-type">ProcessorInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The architectures supported by the instance type.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#processorInfo_supportedArchitectures"><span class="hs-identifier hs-type">processorInfo_supportedArchitectures</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#ProcessorInfo"><span class="hs-identifier hs-type">ProcessorInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.ArchitectureType.html#ArchitectureType"><span class="hs-identifier hs-type">ArchitectureType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="processorInfo_supportedArchitectures"><span class="annot"><span class="annottext">processorInfo_supportedArchitectures :: (Maybe [ArchitectureType] -&gt; f (Maybe [ArchitectureType]))
+-&gt; ProcessorInfo -&gt; f ProcessorInfo
+</span><a href="Network.AWS.EC2.Types.ProcessorInfo.html#processorInfo_supportedArchitectures"><span class="hs-identifier hs-var hs-var">processorInfo_supportedArchitectures</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProcessorInfo -&gt; Maybe [ArchitectureType])
+-&gt; (ProcessorInfo -&gt; Maybe [ArchitectureType] -&gt; ProcessorInfo)
+-&gt; Lens
+     ProcessorInfo
+     ProcessorInfo
+     (Maybe [ArchitectureType])
+     (Maybe [ArchitectureType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#ProcessorInfo%27"><span class="hs-identifier hs-type">ProcessorInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681105528"><span class="annot"><span class="annottext">Maybe [ArchitectureType]
+supportedArchitectures :: Maybe [ArchitectureType]
+$sel:supportedArchitectures:ProcessorInfo' :: ProcessorInfo -&gt; Maybe [ArchitectureType]
+</span><a href="#local-6989586621681105528"><span class="hs-identifier hs-var hs-var">supportedArchitectures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ArchitectureType]
+</span><a href="#local-6989586621681105528"><span class="hs-identifier hs-var">supportedArchitectures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681105527"><span class="annot"><span class="annottext">s :: ProcessorInfo
+</span><a href="#local-6989586621681105527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#ProcessorInfo%27"><span class="hs-identifier hs-type">ProcessorInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681105526"><span class="annot"><span class="annottext">Maybe [ArchitectureType]
+</span><a href="#local-6989586621681105526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessorInfo
+</span><a href="#local-6989586621681105527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedArchitectures:ProcessorInfo' :: Maybe [ArchitectureType]
+</span><a href="Network.AWS.EC2.Types.ProcessorInfo.html#%24sel%3AsupportedArchitectures%3AProcessorInfo%27"><span class="hs-identifier hs-var">supportedArchitectures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ArchitectureType]
+</span><a href="#local-6989586621681105526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#ProcessorInfo"><span class="hs-identifier hs-type">ProcessorInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ArchitectureType] -&gt; f (Maybe [ArchitectureType]))
+ -&gt; ProcessorInfo -&gt; f ProcessorInfo)
+-&gt; ((Maybe [ArchitectureType] -&gt; f (Maybe [ArchitectureType]))
+    -&gt; Maybe [ArchitectureType] -&gt; f (Maybe [ArchitectureType]))
+-&gt; (Maybe [ArchitectureType] -&gt; f (Maybe [ArchitectureType]))
+-&gt; ProcessorInfo
+-&gt; f ProcessorInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ArchitectureType]
+  [ArchitectureType]
+  [ArchitectureType]
+  [ArchitectureType]
+-&gt; Iso
+     (Maybe [ArchitectureType])
+     (Maybe [ArchitectureType])
+     (Maybe [ArchitectureType])
+     (Maybe [ArchitectureType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ArchitectureType]
+  [ArchitectureType]
+  [ArchitectureType]
+  [ArchitectureType]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#ProcessorInfo"><span class="hs-identifier hs-type">ProcessorInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621681105520"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ProcessorInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681105518"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681105518"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe [ArchitectureType] -&gt; ProcessorInfo
+</span><a href="Network.AWS.EC2.Types.ProcessorInfo.html#ProcessorInfo%27"><span class="hs-identifier hs-var">ProcessorInfo'</span></a></span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe [ArchitectureType] -&gt; ProcessorInfo)
+-&gt; Either String (Maybe Double)
+-&gt; Either String (Maybe [ArchitectureType] -&gt; ProcessorInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681105518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sustainedClockSpeedInGhz&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [ArchitectureType] -&gt; ProcessorInfo)
+-&gt; Either String (Maybe [ArchitectureType])
+-&gt; Either String ProcessorInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681105518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;supportedArchitectures&quot;</span></span><span>
+</span><span id="line-72"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-73"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [ArchitectureType]))
+-&gt; Either String (Maybe [ArchitectureType])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [ArchitectureType])
+-&gt; [Node] -&gt; Either String (Maybe [ArchitectureType])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [ArchitectureType]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681105509"><span id="local-6989586621681105511"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#ProcessorInfo"><span class="hs-identifier hs-type">ProcessorInfo</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681105506"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProcessorInfo.html#ProcessorInfo"><span class="hs-identifier hs-type">ProcessorInfo</span></a></span></span><span>
+</span><span id="line-79"></span></pre></body></html>

@@ -1,0 +1,685 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.S3.AbortMultipartUpload</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This action aborts a multipart upload. After a multipart upload is</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- aborted, no additional parts can be uploaded using that upload ID. The</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- storage consumed by any previously uploaded parts will be freed.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- However, if any part uploads are currently in progress, those part</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- uploads might or might not succeed. As a result, it might be necessary</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- to abort a given multipart upload multiple times in order to completely</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- free all storage consumed by all parts.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- To verify that all parts have been removed, so you don\'t get charged</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- for the part storage, you should call the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html ListParts&gt;</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- action and ensure that the parts list is empty.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- For information about permissions required to use the multipart upload,</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html Multipart Upload and Permissions&gt;.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- The following operations are related to @AbortMultipartUpload@:</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html CreateMultipartUpload&gt;</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html UploadPart&gt;</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html CompleteMultipartUpload&gt;</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html ListParts&gt;</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html ListMultipartUploads&gt;</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.AbortMultipartUpload</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier">AbortMultipartUpload</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#newAbortMultipartUpload"><span class="hs-identifier">newAbortMultipartUpload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUpload_expectedBucketOwner"><span class="hs-identifier">abortMultipartUpload_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUpload_requestPayer"><span class="hs-identifier">abortMultipartUpload_requestPayer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUpload_bucket"><span class="hs-identifier">abortMultipartUpload_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUpload_key"><span class="hs-identifier">abortMultipartUpload_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUpload_uploadId"><span class="hs-identifier">abortMultipartUpload_uploadId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUploadResponse"><span class="hs-identifier">AbortMultipartUploadResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#newAbortMultipartUploadResponse"><span class="hs-identifier">newAbortMultipartUploadResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUploadResponse_requestCharged"><span class="hs-identifier">abortMultipartUploadResponse_requestCharged</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUploadResponse_httpStatus"><span class="hs-identifier">abortMultipartUploadResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | /See:/ 'newAbortMultipartUpload' smart constructor.</span><span>
+</span><span id="line-81"></span><span id="local-6989586621679582169"><span id="local-6989586621679582170"></span></span><span class="hs-keyword">data</span><span> </span><span id="AbortMultipartUpload"><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-var">AbortMultipartUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AbortMultipartUpload%27"><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload%27"><span class="hs-identifier hs-var">AbortMultipartUpload'</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3AAbortMultipartUpload%27"><span class="annot"><span class="annottext">AbortMultipartUpload -&gt; Maybe Text
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3AexpectedBucketOwner%3AAbortMultipartUpload%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3ArequestPayer%3AAbortMultipartUpload%27"><span class="annot"><span class="annottext">AbortMultipartUpload -&gt; Maybe RequestPayer
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3ArequestPayer%3AAbortMultipartUpload%27"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-type">RequestPayer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The bucket name to which the upload was taking place.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- When using this action with an access point, you must direct requests to</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- the access point hostname. The access point hostname takes the form</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- When using this action with an access point through the Amazon Web</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- Services SDKs, you provide the access point ARN in place of the bucket</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- name. For more information about access point ARNs, see</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points&gt;</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- When using this action with Amazon S3 on Outposts, you must direct</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- takes the form</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- When using this action using S3 on Outposts through the Amazon Web</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- Services SDKs, you provide the Outposts bucket ARN in place of the</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- bucket name. For more information about S3 on Outposts ARNs, see</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts&gt;</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3Abucket%3AAbortMultipartUpload%27"><span class="annot"><span class="annottext">AbortMultipartUpload -&gt; BucketName
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3Abucket%3AAbortMultipartUpload%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | Key of the object for which the multipart upload was initiated.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3Akey%3AAbortMultipartUpload%27"><span class="annot"><span class="annottext">AbortMultipartUpload -&gt; ObjectKey
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3Akey%3AAbortMultipartUpload%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | Upload ID that identifies the multipart upload.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AuploadId%3AAbortMultipartUpload%27"><span class="annot"><span class="annottext">AbortMultipartUpload -&gt; Text
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3AuploadId%3AAbortMultipartUpload%27"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679582159"><span id="local-6989586621679582161"><span class="annot"><span class="annottext">AbortMultipartUpload -&gt; AbortMultipartUpload -&gt; Bool
+(AbortMultipartUpload -&gt; AbortMultipartUpload -&gt; Bool)
+-&gt; (AbortMultipartUpload -&gt; AbortMultipartUpload -&gt; Bool)
+-&gt; Eq AbortMultipartUpload
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AbortMultipartUpload -&gt; AbortMultipartUpload -&gt; Bool
+$c/= :: AbortMultipartUpload -&gt; AbortMultipartUpload -&gt; Bool
+== :: AbortMultipartUpload -&gt; AbortMultipartUpload -&gt; Bool
+$c== :: AbortMultipartUpload -&gt; AbortMultipartUpload -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679582150"><span id="local-6989586621679582152"><span id="local-6989586621679582154"><span id="local-6989586621679582156"><span class="annot"><span class="annottext">ReadPrec [AbortMultipartUpload]
+ReadPrec AbortMultipartUpload
+Int -&gt; ReadS AbortMultipartUpload
+ReadS [AbortMultipartUpload]
+(Int -&gt; ReadS AbortMultipartUpload)
+-&gt; ReadS [AbortMultipartUpload]
+-&gt; ReadPrec AbortMultipartUpload
+-&gt; ReadPrec [AbortMultipartUpload]
+-&gt; Read AbortMultipartUpload
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AbortMultipartUpload]
+$creadListPrec :: ReadPrec [AbortMultipartUpload]
+readPrec :: ReadPrec AbortMultipartUpload
+$creadPrec :: ReadPrec AbortMultipartUpload
+readList :: ReadS [AbortMultipartUpload]
+$creadList :: ReadS [AbortMultipartUpload]
+readsPrec :: Int -&gt; ReadS AbortMultipartUpload
+$creadsPrec :: Int -&gt; ReadS AbortMultipartUpload
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679582143"><span id="local-6989586621679582145"><span id="local-6989586621679582147"><span class="annot"><span class="annottext">Int -&gt; AbortMultipartUpload -&gt; ShowS
+[AbortMultipartUpload] -&gt; ShowS
+AbortMultipartUpload -&gt; String
+(Int -&gt; AbortMultipartUpload -&gt; ShowS)
+-&gt; (AbortMultipartUpload -&gt; String)
+-&gt; ([AbortMultipartUpload] -&gt; ShowS)
+-&gt; Show AbortMultipartUpload
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AbortMultipartUpload] -&gt; ShowS
+$cshowList :: [AbortMultipartUpload] -&gt; ShowS
+show :: AbortMultipartUpload -&gt; String
+$cshow :: AbortMultipartUpload -&gt; String
+showsPrec :: Int -&gt; AbortMultipartUpload -&gt; ShowS
+$cshowsPrec :: Int -&gt; AbortMultipartUpload -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AbortMultipartUpload -&gt; Rep AbortMultipartUpload x)
+-&gt; (forall x. Rep AbortMultipartUpload x -&gt; AbortMultipartUpload)
+-&gt; Generic AbortMultipartUpload
+forall x. Rep AbortMultipartUpload x -&gt; AbortMultipartUpload
+forall x. AbortMultipartUpload -&gt; Rep AbortMultipartUpload x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AbortMultipartUpload x -&gt; AbortMultipartUpload
+$cfrom :: forall x. AbortMultipartUpload -&gt; Rep AbortMultipartUpload x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Create a value of 'AbortMultipartUpload' with all optional fields omitted.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'expectedBucketOwner', 'abortMultipartUpload_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'requestPayer', 'abortMultipartUpload_requestPayer' - Undocumented member.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'bucket', 'abortMultipartUpload_bucket' - The bucket name to which the upload was taking place.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- When using this action with an access point, you must direct requests to</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- the access point hostname. The access point hostname takes the form</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- When using this action with an access point through the Amazon Web</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Services SDKs, you provide the access point ARN in place of the bucket</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- name. For more information about access point ARNs, see</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points&gt;</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- When using this action with Amazon S3 on Outposts, you must direct</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- takes the form</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- When using this action using S3 on Outposts through the Amazon Web</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Services SDKs, you provide the Outposts bucket ARN in place of the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- bucket name. For more information about S3 on Outposts ARNs, see</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts&gt;</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'key', 'abortMultipartUpload_key' - Key of the object for which the multipart upload was initiated.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'uploadId', 'abortMultipartUpload_uploadId' - Upload ID that identifies the multipart upload.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#newAbortMultipartUpload"><span class="hs-identifier hs-type">newAbortMultipartUpload</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'bucket'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'key'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'uploadId'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span><span>
+</span><span id="line-161"></span><span id="newAbortMultipartUpload"><span class="annot"><span class="annottext">newAbortMultipartUpload :: BucketName -&gt; ObjectKey -&gt; Text -&gt; AbortMultipartUpload
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#newAbortMultipartUpload"><span class="hs-identifier hs-var hs-var">newAbortMultipartUpload</span></a></span></span><span> </span><span id="local-6989586621679582138"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679582138"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679582137"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679582137"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679582136"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582136"><span class="hs-identifier hs-var">pUploadId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">AbortMultipartUpload' :: Maybe Text
+-&gt; Maybe RequestPayer
+-&gt; BucketName
+-&gt; ObjectKey
+-&gt; Text
+-&gt; AbortMultipartUpload
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload%27"><span class="hs-identifier hs-type">AbortMultipartUpload'</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:AbortMultipartUpload' :: Maybe Text
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3AexpectedBucketOwner%3AAbortMultipartUpload%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestPayer:AbortMultipartUpload' :: Maybe RequestPayer
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3ArequestPayer%3AAbortMultipartUpload%27"><span class="hs-identifier hs-var">requestPayer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:AbortMultipartUpload' :: BucketName
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3Abucket%3AAbortMultipartUpload%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679582138"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:AbortMultipartUpload' :: ObjectKey
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3Akey%3AAbortMultipartUpload%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679582137"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:uploadId:AbortMultipartUpload' :: Text
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3AuploadId%3AAbortMultipartUpload%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582136"><span class="hs-identifier hs-var">pUploadId_</span></a></span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUpload_expectedBucketOwner"><span class="hs-identifier hs-type">abortMultipartUpload_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="abortMultipartUpload_expectedBucketOwner"><span class="annot"><span class="annottext">abortMultipartUpload_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AbortMultipartUpload -&gt; f AbortMultipartUpload
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUpload_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">abortMultipartUpload_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AbortMultipartUpload -&gt; Maybe Text)
+-&gt; (AbortMultipartUpload -&gt; Maybe Text -&gt; AbortMultipartUpload)
+-&gt; Lens
+     AbortMultipartUpload AbortMultipartUpload (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload%27"><span class="hs-identifier hs-type">AbortMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582133"><span class="annot"><span class="annottext">Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:expectedBucketOwner:AbortMultipartUpload' :: AbortMultipartUpload -&gt; Maybe Text
+</span><a href="#local-6989586621679582133"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582133"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582132"><span class="annot"><span class="annottext">s :: AbortMultipartUpload
+</span><a href="#local-6989586621679582132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload%27"><span class="hs-identifier hs-type">AbortMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582131"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbortMultipartUpload
+</span><a href="#local-6989586621679582132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:AbortMultipartUpload' :: Maybe Text
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3AexpectedBucketOwner%3AAbortMultipartUpload%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUpload_requestPayer"><span class="hs-identifier hs-type">abortMultipartUpload_requestPayer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-type">RequestPayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="abortMultipartUpload_requestPayer"><span class="annot"><span class="annottext">abortMultipartUpload_requestPayer :: (Maybe RequestPayer -&gt; f (Maybe RequestPayer))
+-&gt; AbortMultipartUpload -&gt; f AbortMultipartUpload
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUpload_requestPayer"><span class="hs-identifier hs-var hs-var">abortMultipartUpload_requestPayer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AbortMultipartUpload -&gt; Maybe RequestPayer)
+-&gt; (AbortMultipartUpload
+    -&gt; Maybe RequestPayer -&gt; AbortMultipartUpload)
+-&gt; Lens
+     AbortMultipartUpload
+     AbortMultipartUpload
+     (Maybe RequestPayer)
+     (Maybe RequestPayer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload%27"><span class="hs-identifier hs-type">AbortMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582130"><span class="annot"><span class="annottext">Maybe RequestPayer
+requestPayer :: Maybe RequestPayer
+$sel:requestPayer:AbortMultipartUpload' :: AbortMultipartUpload -&gt; Maybe RequestPayer
+</span><a href="#local-6989586621679582130"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679582130"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582129"><span class="annot"><span class="annottext">s :: AbortMultipartUpload
+</span><a href="#local-6989586621679582129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload%27"><span class="hs-identifier hs-type">AbortMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582128"><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679582128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbortMultipartUpload
+</span><a href="#local-6989586621679582129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestPayer:AbortMultipartUpload' :: Maybe RequestPayer
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3ArequestPayer%3AAbortMultipartUpload%27"><span class="hs-identifier hs-var">requestPayer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679582128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The bucket name to which the upload was taking place.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- When using this action with an access point, you must direct requests to</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- the access point hostname. The access point hostname takes the form</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- When using this action with an access point through the Amazon Web</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Services SDKs, you provide the access point ARN in place of the bucket</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- name. For more information about access point ARNs, see</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points&gt;</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- When using this action with Amazon S3 on Outposts, you must direct</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- takes the form</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- When using this action using S3 on Outposts through the Amazon Web</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Services SDKs, you provide the Outposts bucket ARN in place of the</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- bucket name. For more information about S3 on Outposts ARNs, see</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts&gt;</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUpload_bucket"><span class="hs-identifier hs-type">abortMultipartUpload_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
+</span><span id="line-202"></span><span id="abortMultipartUpload_bucket"><span class="annot"><span class="annottext">abortMultipartUpload_bucket :: (BucketName -&gt; f BucketName)
+-&gt; AbortMultipartUpload -&gt; f AbortMultipartUpload
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUpload_bucket"><span class="hs-identifier hs-var hs-var">abortMultipartUpload_bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AbortMultipartUpload -&gt; BucketName)
+-&gt; (AbortMultipartUpload -&gt; BucketName -&gt; AbortMultipartUpload)
+-&gt; Lens
+     AbortMultipartUpload AbortMultipartUpload BucketName BucketName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload%27"><span class="hs-identifier hs-type">AbortMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582127"><span class="annot"><span class="annottext">BucketName
+bucket :: BucketName
+$sel:bucket:AbortMultipartUpload' :: AbortMultipartUpload -&gt; BucketName
+</span><a href="#local-6989586621679582127"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679582127"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582126"><span class="annot"><span class="annottext">s :: AbortMultipartUpload
+</span><a href="#local-6989586621679582126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload%27"><span class="hs-identifier hs-type">AbortMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582125"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679582125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbortMultipartUpload
+</span><a href="#local-6989586621679582126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:AbortMultipartUpload' :: BucketName
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3Abucket%3AAbortMultipartUpload%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679582125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | Key of the object for which the multipart upload was initiated.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUpload_key"><span class="hs-identifier hs-type">abortMultipartUpload_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
+</span><span id="line-206"></span><span id="abortMultipartUpload_key"><span class="annot"><span class="annottext">abortMultipartUpload_key :: (ObjectKey -&gt; f ObjectKey)
+-&gt; AbortMultipartUpload -&gt; f AbortMultipartUpload
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUpload_key"><span class="hs-identifier hs-var hs-var">abortMultipartUpload_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AbortMultipartUpload -&gt; ObjectKey)
+-&gt; (AbortMultipartUpload -&gt; ObjectKey -&gt; AbortMultipartUpload)
+-&gt; Lens
+     AbortMultipartUpload AbortMultipartUpload ObjectKey ObjectKey
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload%27"><span class="hs-identifier hs-type">AbortMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582124"><span class="annot"><span class="annottext">ObjectKey
+key :: ObjectKey
+$sel:key:AbortMultipartUpload' :: AbortMultipartUpload -&gt; ObjectKey
+</span><a href="#local-6989586621679582124"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679582124"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582123"><span class="annot"><span class="annottext">s :: AbortMultipartUpload
+</span><a href="#local-6989586621679582123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload%27"><span class="hs-identifier hs-type">AbortMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582122"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679582122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbortMultipartUpload
+</span><a href="#local-6989586621679582123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:AbortMultipartUpload' :: ObjectKey
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3Akey%3AAbortMultipartUpload%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679582122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | Upload ID that identifies the multipart upload.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUpload_uploadId"><span class="hs-identifier hs-type">abortMultipartUpload_uploadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-210"></span><span id="abortMultipartUpload_uploadId"><span class="annot"><span class="annottext">abortMultipartUpload_uploadId :: (Text -&gt; f Text) -&gt; AbortMultipartUpload -&gt; f AbortMultipartUpload
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUpload_uploadId"><span class="hs-identifier hs-var hs-var">abortMultipartUpload_uploadId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AbortMultipartUpload -&gt; Text)
+-&gt; (AbortMultipartUpload -&gt; Text -&gt; AbortMultipartUpload)
+-&gt; Lens AbortMultipartUpload AbortMultipartUpload Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload%27"><span class="hs-identifier hs-type">AbortMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582121"><span class="annot"><span class="annottext">Text
+uploadId :: Text
+$sel:uploadId:AbortMultipartUpload' :: AbortMultipartUpload -&gt; Text
+</span><a href="#local-6989586621679582121"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582121"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582120"><span class="annot"><span class="annottext">s :: AbortMultipartUpload
+</span><a href="#local-6989586621679582120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload%27"><span class="hs-identifier hs-type">AbortMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582119"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbortMultipartUpload
+</span><a href="#local-6989586621679582120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:AbortMultipartUpload' :: Text
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3AuploadId%3AAbortMultipartUpload%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-214"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUploadResponse"><span class="hs-identifier hs-type">AbortMultipartUploadResponse</span></a></span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679582115"><span class="annot"><span class="annottext">request :: AbortMultipartUpload -&gt; Request AbortMultipartUpload
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AbortMultipartUpload -&gt; Request AbortMultipartUpload
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679582111"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AbortMultipartUpload
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AbortMultipartUpload)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse AbortMultipartUpload))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AbortMultipartUpload
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AbortMultipartUpload)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679582108"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582108"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679582107"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679582107"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679582106"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679582106"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">Maybe RequestCharged -&gt; Int -&gt; AbortMultipartUploadResponse
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUploadResponse%27"><span class="hs-identifier hs-var">AbortMultipartUploadResponse'</span></a></span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RequestCharged -&gt; Int -&gt; AbortMultipartUploadResponse)
+-&gt; Either String (Maybe RequestCharged)
+-&gt; Either String (Int -&gt; AbortMultipartUploadResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679582107"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; HeaderName -&gt; Either String (Maybe RequestCharged)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-request-charged&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; AbortMultipartUploadResponse)
+-&gt; Either String Int -&gt; Either String AbortMultipartUploadResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582108"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679582098"><span id="local-6989586621679582100"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span></span></span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679582095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span></span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679582091"><span class="annot"><span class="annottext">toHeaders :: AbortMultipartUpload -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload%27"><span class="hs-identifier hs-type">AbortMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582085"><span id="local-6989586621679582086"><span id="local-6989586621679582087"><span id="local-6989586621679582088"><span id="local-6989586621679582089"><span class="annot"><span class="annottext">Maybe Text
+Maybe RequestPayer
+Text
+ObjectKey
+BucketName
+uploadId :: Text
+key :: ObjectKey
+bucket :: BucketName
+requestPayer :: Maybe RequestPayer
+expectedBucketOwner :: Maybe Text
+$sel:uploadId:AbortMultipartUpload' :: AbortMultipartUpload -&gt; Text
+$sel:key:AbortMultipartUpload' :: AbortMultipartUpload -&gt; ObjectKey
+$sel:bucket:AbortMultipartUpload' :: AbortMultipartUpload -&gt; BucketName
+$sel:requestPayer:AbortMultipartUpload' :: AbortMultipartUpload -&gt; Maybe RequestPayer
+$sel:expectedBucketOwner:AbortMultipartUpload' :: AbortMultipartUpload -&gt; Maybe Text
+</span><a href="#local-6989586621679582085"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-232"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
+</span><span id="line-233"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582089"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-request-payer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe RequestPayer -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679582088"><span class="hs-identifier hs-var">requestPayer</span></a></span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679582081"><span class="annot"><span class="annottext">toPath :: AbortMultipartUpload -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload%27"><span class="hs-identifier hs-type">AbortMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582075"><span id="local-6989586621679582076"><span id="local-6989586621679582077"><span id="local-6989586621679582078"><span id="local-6989586621679582079"><span class="annot"><span class="annottext">Maybe Text
+Maybe RequestPayer
+Text
+ObjectKey
+BucketName
+uploadId :: Text
+key :: ObjectKey
+bucket :: BucketName
+requestPayer :: Maybe RequestPayer
+expectedBucketOwner :: Maybe Text
+$sel:uploadId:AbortMultipartUpload' :: AbortMultipartUpload -&gt; Text
+$sel:key:AbortMultipartUpload' :: AbortMultipartUpload -&gt; ObjectKey
+$sel:bucket:AbortMultipartUpload' :: AbortMultipartUpload -&gt; BucketName
+$sel:requestPayer:AbortMultipartUpload' :: AbortMultipartUpload -&gt; Maybe RequestPayer
+$sel:expectedBucketOwner:AbortMultipartUpload' :: AbortMultipartUpload -&gt; Maybe Text
+</span><a href="#local-6989586621679582075"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679582077"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ObjectKey -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679582076"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload"><span class="hs-identifier hs-type">AbortMultipartUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679582071"><span class="annot"><span class="annottext">toQuery :: AbortMultipartUpload -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUpload%27"><span class="hs-identifier hs-type">AbortMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582065"><span id="local-6989586621679582066"><span id="local-6989586621679582067"><span id="local-6989586621679582068"><span id="local-6989586621679582069"><span class="annot"><span class="annottext">Maybe Text
+Maybe RequestPayer
+Text
+ObjectKey
+BucketName
+uploadId :: Text
+key :: ObjectKey
+bucket :: BucketName
+requestPayer :: Maybe RequestPayer
+expectedBucketOwner :: Maybe Text
+$sel:uploadId:AbortMultipartUpload' :: AbortMultipartUpload -&gt; Text
+$sel:key:AbortMultipartUpload' :: AbortMultipartUpload -&gt; ObjectKey
+$sel:bucket:AbortMultipartUpload' :: AbortMultipartUpload -&gt; BucketName
+$sel:requestPayer:AbortMultipartUpload' :: AbortMultipartUpload -&gt; Maybe RequestPayer
+$sel:expectedBucketOwner:AbortMultipartUpload' :: AbortMultipartUpload -&gt; Maybe Text
+</span><a href="#local-6989586621679582065"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;uploadId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582065"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | /See:/ 'newAbortMultipartUploadResponse' smart constructor.</span><span>
+</span><span id="line-247"></span><span id="local-6989586621679582062"><span id="local-6989586621679582063"></span></span><span class="hs-keyword">data</span><span> </span><span id="AbortMultipartUploadResponse"><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUploadResponse"><span class="hs-identifier hs-var">AbortMultipartUploadResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AbortMultipartUploadResponse%27"><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUploadResponse%27"><span class="hs-identifier hs-var">AbortMultipartUploadResponse'</span></a></span></span><span>
+</span><span id="line-248"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3ArequestCharged%3AAbortMultipartUploadResponse%27"><span class="annot"><span class="annottext">AbortMultipartUploadResponse -&gt; Maybe RequestCharged
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3ArequestCharged%3AAbortMultipartUploadResponse%27"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestCharged.html#RequestCharged"><span class="hs-identifier hs-type">RequestCharged</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-250"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAbortMultipartUploadResponse%27"><span class="annot"><span class="annottext">AbortMultipartUploadResponse -&gt; Int
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3AhttpStatus%3AAbortMultipartUploadResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-251"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-252"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679582056"><span id="local-6989586621679582058"><span class="annot"><span class="annottext">AbortMultipartUploadResponse
+-&gt; AbortMultipartUploadResponse -&gt; Bool
+(AbortMultipartUploadResponse
+ -&gt; AbortMultipartUploadResponse -&gt; Bool)
+-&gt; (AbortMultipartUploadResponse
+    -&gt; AbortMultipartUploadResponse -&gt; Bool)
+-&gt; Eq AbortMultipartUploadResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AbortMultipartUploadResponse
+-&gt; AbortMultipartUploadResponse -&gt; Bool
+$c/= :: AbortMultipartUploadResponse
+-&gt; AbortMultipartUploadResponse -&gt; Bool
+== :: AbortMultipartUploadResponse
+-&gt; AbortMultipartUploadResponse -&gt; Bool
+$c== :: AbortMultipartUploadResponse
+-&gt; AbortMultipartUploadResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679582048"><span id="local-6989586621679582050"><span id="local-6989586621679582052"><span id="local-6989586621679582054"><span class="annot"><span class="annottext">ReadPrec [AbortMultipartUploadResponse]
+ReadPrec AbortMultipartUploadResponse
+Int -&gt; ReadS AbortMultipartUploadResponse
+ReadS [AbortMultipartUploadResponse]
+(Int -&gt; ReadS AbortMultipartUploadResponse)
+-&gt; ReadS [AbortMultipartUploadResponse]
+-&gt; ReadPrec AbortMultipartUploadResponse
+-&gt; ReadPrec [AbortMultipartUploadResponse]
+-&gt; Read AbortMultipartUploadResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AbortMultipartUploadResponse]
+$creadListPrec :: ReadPrec [AbortMultipartUploadResponse]
+readPrec :: ReadPrec AbortMultipartUploadResponse
+$creadPrec :: ReadPrec AbortMultipartUploadResponse
+readList :: ReadS [AbortMultipartUploadResponse]
+$creadList :: ReadS [AbortMultipartUploadResponse]
+readsPrec :: Int -&gt; ReadS AbortMultipartUploadResponse
+$creadsPrec :: Int -&gt; ReadS AbortMultipartUploadResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679582042"><span id="local-6989586621679582044"><span id="local-6989586621679582046"><span class="annot"><span class="annottext">Int -&gt; AbortMultipartUploadResponse -&gt; ShowS
+[AbortMultipartUploadResponse] -&gt; ShowS
+AbortMultipartUploadResponse -&gt; String
+(Int -&gt; AbortMultipartUploadResponse -&gt; ShowS)
+-&gt; (AbortMultipartUploadResponse -&gt; String)
+-&gt; ([AbortMultipartUploadResponse] -&gt; ShowS)
+-&gt; Show AbortMultipartUploadResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AbortMultipartUploadResponse] -&gt; ShowS
+$cshowList :: [AbortMultipartUploadResponse] -&gt; ShowS
+show :: AbortMultipartUploadResponse -&gt; String
+$cshow :: AbortMultipartUploadResponse -&gt; String
+showsPrec :: Int -&gt; AbortMultipartUploadResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AbortMultipartUploadResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AbortMultipartUploadResponse -&gt; Rep AbortMultipartUploadResponse x)
+-&gt; (forall x.
+    Rep AbortMultipartUploadResponse x -&gt; AbortMultipartUploadResponse)
+-&gt; Generic AbortMultipartUploadResponse
+forall x.
+Rep AbortMultipartUploadResponse x -&gt; AbortMultipartUploadResponse
+forall x.
+AbortMultipartUploadResponse -&gt; Rep AbortMultipartUploadResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AbortMultipartUploadResponse x -&gt; AbortMultipartUploadResponse
+$cfrom :: forall x.
+AbortMultipartUploadResponse -&gt; Rep AbortMultipartUploadResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- Create a value of 'AbortMultipartUploadResponse' with all optional fields omitted.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- 'requestCharged', 'abortMultipartUploadResponse_requestCharged' - Undocumented member.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- 'httpStatus', 'abortMultipartUploadResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#newAbortMultipartUploadResponse"><span class="hs-identifier hs-type">newAbortMultipartUploadResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-266"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-267"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-268"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUploadResponse"><span class="hs-identifier hs-type">AbortMultipartUploadResponse</span></a></span><span>
+</span><span id="line-269"></span><span id="newAbortMultipartUploadResponse"><span class="annot"><span class="annottext">newAbortMultipartUploadResponse :: Int -&gt; AbortMultipartUploadResponse
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#newAbortMultipartUploadResponse"><span class="hs-identifier hs-var hs-var">newAbortMultipartUploadResponse</span></a></span></span><span> </span><span id="local-6989586621679582039"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582039"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><span class="annottext">AbortMultipartUploadResponse' :: Maybe RequestCharged -&gt; Int -&gt; AbortMultipartUploadResponse
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUploadResponse%27"><span class="hs-identifier hs-type">AbortMultipartUploadResponse'</span></a></span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestCharged:AbortMultipartUploadResponse' :: Maybe RequestCharged
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3ArequestCharged%3AAbortMultipartUploadResponse%27"><span class="hs-identifier hs-var">requestCharged</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">Maybe RequestCharged
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AbortMultipartUploadResponse' :: Int
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3AhttpStatus%3AAbortMultipartUploadResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582039"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-274"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUploadResponse_requestCharged"><span class="hs-identifier hs-type">abortMultipartUploadResponse_requestCharged</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUploadResponse"><span class="hs-identifier hs-type">AbortMultipartUploadResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestCharged.html#RequestCharged"><span class="hs-identifier hs-type">RequestCharged</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="abortMultipartUploadResponse_requestCharged"><span class="annot"><span class="annottext">abortMultipartUploadResponse_requestCharged :: (Maybe RequestCharged -&gt; f (Maybe RequestCharged))
+-&gt; AbortMultipartUploadResponse -&gt; f AbortMultipartUploadResponse
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUploadResponse_requestCharged"><span class="hs-identifier hs-var hs-var">abortMultipartUploadResponse_requestCharged</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AbortMultipartUploadResponse -&gt; Maybe RequestCharged)
+-&gt; (AbortMultipartUploadResponse
+    -&gt; Maybe RequestCharged -&gt; AbortMultipartUploadResponse)
+-&gt; Lens
+     AbortMultipartUploadResponse
+     AbortMultipartUploadResponse
+     (Maybe RequestCharged)
+     (Maybe RequestCharged)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUploadResponse%27"><span class="hs-identifier hs-type">AbortMultipartUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582038"><span class="annot"><span class="annottext">Maybe RequestCharged
+requestCharged :: Maybe RequestCharged
+$sel:requestCharged:AbortMultipartUploadResponse' :: AbortMultipartUploadResponse -&gt; Maybe RequestCharged
+</span><a href="#local-6989586621679582038"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><a href="#local-6989586621679582038"><span class="hs-identifier hs-var">requestCharged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582037"><span class="annot"><span class="annottext">s :: AbortMultipartUploadResponse
+</span><a href="#local-6989586621679582037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUploadResponse%27"><span class="hs-identifier hs-type">AbortMultipartUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582036"><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><a href="#local-6989586621679582036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbortMultipartUploadResponse
+</span><a href="#local-6989586621679582037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestCharged:AbortMultipartUploadResponse' :: Maybe RequestCharged
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3ArequestCharged%3AAbortMultipartUploadResponse%27"><span class="hs-identifier hs-var">requestCharged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><a href="#local-6989586621679582036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUploadResponse"><span class="hs-identifier hs-type">AbortMultipartUploadResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUploadResponse_httpStatus"><span class="hs-identifier hs-type">abortMultipartUploadResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUploadResponse"><span class="hs-identifier hs-type">AbortMultipartUploadResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-282"></span><span id="abortMultipartUploadResponse_httpStatus"><span class="annot"><span class="annottext">abortMultipartUploadResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AbortMultipartUploadResponse -&gt; f AbortMultipartUploadResponse
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#abortMultipartUploadResponse_httpStatus"><span class="hs-identifier hs-var hs-var">abortMultipartUploadResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AbortMultipartUploadResponse -&gt; Int)
+-&gt; (AbortMultipartUploadResponse
+    -&gt; Int -&gt; AbortMultipartUploadResponse)
+-&gt; Lens
+     AbortMultipartUploadResponse AbortMultipartUploadResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUploadResponse%27"><span class="hs-identifier hs-type">AbortMultipartUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582035"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AbortMultipartUploadResponse' :: AbortMultipartUploadResponse -&gt; Int
+</span><a href="#local-6989586621679582035"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582035"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582034"><span class="annot"><span class="annottext">s :: AbortMultipartUploadResponse
+</span><a href="#local-6989586621679582034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUploadResponse%27"><span class="hs-identifier hs-type">AbortMultipartUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582033"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbortMultipartUploadResponse
+</span><a href="#local-6989586621679582034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AbortMultipartUploadResponse' :: Int
+</span><a href="Network.AWS.S3.AbortMultipartUpload.html#%24sel%3AhttpStatus%3AAbortMultipartUploadResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUploadResponse"><span class="hs-identifier hs-type">AbortMultipartUploadResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679582031"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.AbortMultipartUpload.html#AbortMultipartUploadResponse"><span class="hs-identifier hs-type">AbortMultipartUploadResponse</span></a></span></span><span>
+</span><span id="line-285"></span></pre></body></html>

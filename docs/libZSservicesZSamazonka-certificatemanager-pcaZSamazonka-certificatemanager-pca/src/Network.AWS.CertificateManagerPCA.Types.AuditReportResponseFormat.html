@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#AuditReportResponseFormat"><span class="hs-identifier">AuditReportResponseFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#AuditReportResponseFormat_CSV"><span class="hs-identifier">AuditReportResponseFormat_CSV</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#AuditReportResponseFormat_JSON"><span class="hs-identifier">AuditReportResponseFormat_JSON</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679208255"><span id="local-6989586621679208256"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuditReportResponseFormat"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#AuditReportResponseFormat"><span class="hs-identifier hs-var">AuditReportResponseFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuditReportResponseFormat%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#AuditReportResponseFormat%27"><span class="hs-identifier hs-var">AuditReportResponseFormat'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuditReportResponseFormat"><span class="annot"><span class="annottext">AuditReportResponseFormat -&gt; Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#fromAuditReportResponseFormat"><span class="hs-identifier hs-var hs-var">fromAuditReportResponseFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208247"><span id="local-6989586621679208249"><span id="local-6989586621679208251"><span class="annot"><span class="annottext">Int -&gt; AuditReportResponseFormat -&gt; ShowS
+[AuditReportResponseFormat] -&gt; ShowS
+AuditReportResponseFormat -&gt; String
+(Int -&gt; AuditReportResponseFormat -&gt; ShowS)
+-&gt; (AuditReportResponseFormat -&gt; String)
+-&gt; ([AuditReportResponseFormat] -&gt; ShowS)
+-&gt; Show AuditReportResponseFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AuditReportResponseFormat] -&gt; ShowS
+$cshowList :: [AuditReportResponseFormat] -&gt; ShowS
+show :: AuditReportResponseFormat -&gt; String
+$cshow :: AuditReportResponseFormat -&gt; String
+showsPrec :: Int -&gt; AuditReportResponseFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; AuditReportResponseFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679208238"><span id="local-6989586621679208240"><span id="local-6989586621679208242"><span id="local-6989586621679208244"><span class="annot"><span class="annottext">ReadPrec [AuditReportResponseFormat]
+ReadPrec AuditReportResponseFormat
+Int -&gt; ReadS AuditReportResponseFormat
+ReadS [AuditReportResponseFormat]
+(Int -&gt; ReadS AuditReportResponseFormat)
+-&gt; ReadS [AuditReportResponseFormat]
+-&gt; ReadPrec AuditReportResponseFormat
+-&gt; ReadPrec [AuditReportResponseFormat]
+-&gt; Read AuditReportResponseFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AuditReportResponseFormat]
+$creadListPrec :: ReadPrec [AuditReportResponseFormat]
+readPrec :: ReadPrec AuditReportResponseFormat
+$creadPrec :: ReadPrec AuditReportResponseFormat
+readList :: ReadS [AuditReportResponseFormat]
+$creadList :: ReadS [AuditReportResponseFormat]
+readsPrec :: Int -&gt; ReadS AuditReportResponseFormat
+$creadsPrec :: Int -&gt; ReadS AuditReportResponseFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679208233"><span id="local-6989586621679208235"><span class="annot"><span class="annottext">AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool
+(AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool)
+-&gt; (AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool)
+-&gt; Eq AuditReportResponseFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool
+$c/= :: AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool
+== :: AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool
+$c== :: AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679208217"><span id="local-6989586621679208219"><span id="local-6989586621679208221"><span id="local-6989586621679208223"><span id="local-6989586621679208225"><span id="local-6989586621679208227"><span id="local-6989586621679208229"><span class="annot"><span class="annottext">Eq AuditReportResponseFormat
+Eq AuditReportResponseFormat
+-&gt; (AuditReportResponseFormat
+    -&gt; AuditReportResponseFormat -&gt; Ordering)
+-&gt; (AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool)
+-&gt; (AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool)
+-&gt; (AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool)
+-&gt; (AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool)
+-&gt; (AuditReportResponseFormat
+    -&gt; AuditReportResponseFormat -&gt; AuditReportResponseFormat)
+-&gt; (AuditReportResponseFormat
+    -&gt; AuditReportResponseFormat -&gt; AuditReportResponseFormat)
+-&gt; Ord AuditReportResponseFormat
+AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool
+AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Ordering
+AuditReportResponseFormat
+-&gt; AuditReportResponseFormat -&gt; AuditReportResponseFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AuditReportResponseFormat
+-&gt; AuditReportResponseFormat -&gt; AuditReportResponseFormat
+$cmin :: AuditReportResponseFormat
+-&gt; AuditReportResponseFormat -&gt; AuditReportResponseFormat
+max :: AuditReportResponseFormat
+-&gt; AuditReportResponseFormat -&gt; AuditReportResponseFormat
+$cmax :: AuditReportResponseFormat
+-&gt; AuditReportResponseFormat -&gt; AuditReportResponseFormat
+&gt;= :: AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool
+$c&gt;= :: AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool
+&gt; :: AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool
+$c&gt; :: AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool
+&lt;= :: AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool
+$c&lt;= :: AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool
+&lt; :: AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool
+$c&lt; :: AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Bool
+compare :: AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Ordering
+$ccompare :: AuditReportResponseFormat -&gt; AuditReportResponseFormat -&gt; Ordering
+$cp1Ord :: Eq AuditReportResponseFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AuditReportResponseFormat -&gt; Rep AuditReportResponseFormat x)
+-&gt; (forall x.
+    Rep AuditReportResponseFormat x -&gt; AuditReportResponseFormat)
+-&gt; Generic AuditReportResponseFormat
+forall x.
+Rep AuditReportResponseFormat x -&gt; AuditReportResponseFormat
+forall x.
+AuditReportResponseFormat -&gt; Rep AuditReportResponseFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AuditReportResponseFormat x -&gt; AuditReportResponseFormat
+$cfrom :: forall x.
+AuditReportResponseFormat -&gt; Rep AuditReportResponseFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208209"><span id="local-6989586621679208211"><span class="annot"><span class="annottext">Int -&gt; AuditReportResponseFormat -&gt; Int
+AuditReportResponseFormat -&gt; Int
+(Int -&gt; AuditReportResponseFormat -&gt; Int)
+-&gt; (AuditReportResponseFormat -&gt; Int)
+-&gt; Hashable AuditReportResponseFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AuditReportResponseFormat -&gt; Int
+$chash :: AuditReportResponseFormat -&gt; Int
+hashWithSalt :: Int -&gt; AuditReportResponseFormat -&gt; Int
+$chashWithSalt :: Int -&gt; AuditReportResponseFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679208206"><span class="annot"><span class="annottext">AuditReportResponseFormat -&gt; ()
+(AuditReportResponseFormat -&gt; ())
+-&gt; NFData AuditReportResponseFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AuditReportResponseFormat -&gt; ()
+$crnf :: AuditReportResponseFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679208203"><span class="annot"><span class="annottext">Text -&gt; Either String AuditReportResponseFormat
+(Text -&gt; Either String AuditReportResponseFormat)
+-&gt; FromText AuditReportResponseFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AuditReportResponseFormat
+$cfromText :: Text -&gt; Either String AuditReportResponseFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679208200"><span class="annot"><span class="annottext">AuditReportResponseFormat -&gt; Text
+(AuditReportResponseFormat -&gt; Text)
+-&gt; ToText AuditReportResponseFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AuditReportResponseFormat -&gt; Text
+$ctoText :: AuditReportResponseFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679208197"><span class="annot"><span class="annottext">AuditReportResponseFormat -&gt; ByteString
+(AuditReportResponseFormat -&gt; ByteString)
+-&gt; ToByteString AuditReportResponseFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AuditReportResponseFormat -&gt; ByteString
+$ctoBS :: AuditReportResponseFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679208194"><span class="annot"><span class="annottext">AuditReportResponseFormat -&gt; ByteStringBuilder
+(AuditReportResponseFormat -&gt; ByteStringBuilder)
+-&gt; ToLog AuditReportResponseFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AuditReportResponseFormat -&gt; ByteStringBuilder
+$cbuild :: AuditReportResponseFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679208191"><span class="annot"><span class="annottext">HeaderName -&gt; AuditReportResponseFormat -&gt; [Header]
+(HeaderName -&gt; AuditReportResponseFormat -&gt; [Header])
+-&gt; ToHeader AuditReportResponseFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AuditReportResponseFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AuditReportResponseFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679208188"><span class="annot"><span class="annottext">AuditReportResponseFormat -&gt; QueryString
+(AuditReportResponseFormat -&gt; QueryString)
+-&gt; ToQuery AuditReportResponseFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AuditReportResponseFormat -&gt; QueryString
+$ctoQuery :: AuditReportResponseFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679208183"><span id="local-6989586621679208185"><span class="annot"><span class="annottext">Value -&gt; Parser [AuditReportResponseFormat]
+Value -&gt; Parser AuditReportResponseFormat
+(Value -&gt; Parser AuditReportResponseFormat)
+-&gt; (Value -&gt; Parser [AuditReportResponseFormat])
+-&gt; FromJSON AuditReportResponseFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AuditReportResponseFormat]
+$cparseJSONList :: Value -&gt; Parser [AuditReportResponseFormat]
+parseJSON :: Value -&gt; Parser AuditReportResponseFormat
+$cparseJSON :: Value -&gt; Parser AuditReportResponseFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679208178"><span id="local-6989586621679208180"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuditReportResponseFormat]
+FromJSONKeyFunction AuditReportResponseFormat
+FromJSONKeyFunction AuditReportResponseFormat
+-&gt; FromJSONKeyFunction [AuditReportResponseFormat]
+-&gt; FromJSONKey AuditReportResponseFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AuditReportResponseFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [AuditReportResponseFormat]
+fromJSONKey :: FromJSONKeyFunction AuditReportResponseFormat
+$cfromJSONKey :: FromJSONKeyFunction AuditReportResponseFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679208169"><span id="local-6989586621679208171"><span id="local-6989586621679208173"><span id="local-6989586621679208175"><span class="annot"><span class="annottext">[AuditReportResponseFormat] -&gt; Encoding
+[AuditReportResponseFormat] -&gt; Value
+AuditReportResponseFormat -&gt; Encoding
+AuditReportResponseFormat -&gt; Value
+(AuditReportResponseFormat -&gt; Value)
+-&gt; (AuditReportResponseFormat -&gt; Encoding)
+-&gt; ([AuditReportResponseFormat] -&gt; Value)
+-&gt; ([AuditReportResponseFormat] -&gt; Encoding)
+-&gt; ToJSON AuditReportResponseFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AuditReportResponseFormat] -&gt; Encoding
+$ctoEncodingList :: [AuditReportResponseFormat] -&gt; Encoding
+toJSONList :: [AuditReportResponseFormat] -&gt; Value
+$ctoJSONList :: [AuditReportResponseFormat] -&gt; Value
+toEncoding :: AuditReportResponseFormat -&gt; Encoding
+$ctoEncoding :: AuditReportResponseFormat -&gt; Encoding
+toJSON :: AuditReportResponseFormat -&gt; Value
+$ctoJSON :: AuditReportResponseFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679208164"><span id="local-6989586621679208166"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuditReportResponseFormat]
+ToJSONKeyFunction AuditReportResponseFormat
+ToJSONKeyFunction AuditReportResponseFormat
+-&gt; ToJSONKeyFunction [AuditReportResponseFormat]
+-&gt; ToJSONKey AuditReportResponseFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AuditReportResponseFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [AuditReportResponseFormat]
+toJSONKey :: ToJSONKeyFunction AuditReportResponseFormat
+$ctoJSONKey :: ToJSONKeyFunction AuditReportResponseFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679208161"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuditReportResponseFormat
+([Node] -&gt; Either String AuditReportResponseFormat)
+-&gt; FromXML AuditReportResponseFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AuditReportResponseFormat
+$cparseXML :: [Node] -&gt; Either String AuditReportResponseFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679208158"><span class="annot"><span class="annottext">AuditReportResponseFormat -&gt; XML
+(AuditReportResponseFormat -&gt; XML)
+-&gt; ToXML AuditReportResponseFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AuditReportResponseFormat -&gt; XML
+$ctoXML :: AuditReportResponseFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#AuditReportResponseFormat_CSV"><span class="hs-identifier hs-type">AuditReportResponseFormat_CSV</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#AuditReportResponseFormat"><span class="hs-identifier hs-type">AuditReportResponseFormat</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuditReportResponseFormat_CSV"><span id="%24mAuditReportResponseFormat_CSV"><span id="AuditReportResponseFormat_CSV"><span class="annot"><span class="annottext">$bAuditReportResponseFormat_CSV :: AuditReportResponseFormat
+$mAuditReportResponseFormat_CSV :: forall r.
+AuditReportResponseFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#%24bAuditReportResponseFormat_CSV"><span class="hs-identifier hs-var hs-var hs-var">AuditReportResponseFormat_CSV</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#AuditReportResponseFormat%27"><span class="hs-identifier hs-type">AuditReportResponseFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CSV&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#AuditReportResponseFormat_JSON"><span class="hs-identifier hs-type">AuditReportResponseFormat_JSON</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#AuditReportResponseFormat"><span class="hs-identifier hs-type">AuditReportResponseFormat</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuditReportResponseFormat_JSON"><span id="%24mAuditReportResponseFormat_JSON"><span id="AuditReportResponseFormat_JSON"><span class="annot"><span class="annottext">$bAuditReportResponseFormat_JSON :: AuditReportResponseFormat
+$mAuditReportResponseFormat_JSON :: forall r.
+AuditReportResponseFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#%24bAuditReportResponseFormat_JSON"><span class="hs-identifier hs-var hs-var hs-var">AuditReportResponseFormat_JSON</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#AuditReportResponseFormat%27"><span class="hs-identifier hs-type">AuditReportResponseFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;JSON&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#AuditReportResponseFormat_CSV"><span class="hs-pragma hs-type">AuditReportResponseFormat_CSV</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#AuditReportResponseFormat_JSON"><span class="hs-pragma hs-type">AuditReportResponseFormat_JSON</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat.html#AuditReportResponseFormat%27"><span class="hs-pragma hs-type">AuditReportResponseFormat'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

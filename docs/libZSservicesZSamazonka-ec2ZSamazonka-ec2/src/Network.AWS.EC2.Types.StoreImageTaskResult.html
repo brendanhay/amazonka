@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.StoreImageTaskResult</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.StoreImageTaskResult</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The information about the AMI store task, including the progress of the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- task.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newStoreImageTaskResult' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621681119622"><span id="local-6989586621681119623"></span></span><span class="hs-keyword">data</span><span> </span><span id="StoreImageTaskResult"><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-var">StoreImageTaskResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StoreImageTaskResult%27"><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-var">StoreImageTaskResult'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the tasks fails, the reason for the failure is returned. If the task</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- succeeds, @null@ is returned.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AstoreTaskFailureReason%3AStoreImageTaskResult%27"><span class="annot"><span class="annottext">StoreImageTaskResult -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3AstoreTaskFailureReason%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var hs-var">storeTaskFailureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ID of the AMI that is being stored.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AamiId%3AStoreImageTaskResult%27"><span class="annot"><span class="annottext">StoreImageTaskResult -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3AamiId%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var hs-var">amiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The progress of the task as a percentage.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AprogressPercentage%3AStoreImageTaskResult%27"><span class="annot"><span class="annottext">StoreImageTaskResult -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3AprogressPercentage%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var hs-var">progressPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon S3 bucket that contains the stored AMI object.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Abucket%3AStoreImageTaskResult%27"><span class="annot"><span class="annottext">StoreImageTaskResult -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3Abucket%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The time the task started.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AtaskStartTime%3AStoreImageTaskResult%27"><span class="annot"><span class="annottext">StoreImageTaskResult -&gt; Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3AtaskStartTime%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var hs-var">taskStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The state of the store task (@InProgress@, @Completed@, or @Failed@).</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AstoreTaskState%3AStoreImageTaskResult%27"><span class="annot"><span class="annottext">StoreImageTaskResult -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3AstoreTaskState%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var hs-var">storeTaskState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The name of the stored AMI object in the bucket.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3As3objectKey%3AStoreImageTaskResult%27"><span class="annot"><span class="annottext">StoreImageTaskResult -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3As3objectKey%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var hs-var">s3objectKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681119610"><span id="local-6989586621681119612"><span class="annot"><span class="annottext">StoreImageTaskResult -&gt; StoreImageTaskResult -&gt; Bool
+(StoreImageTaskResult -&gt; StoreImageTaskResult -&gt; Bool)
+-&gt; (StoreImageTaskResult -&gt; StoreImageTaskResult -&gt; Bool)
+-&gt; Eq StoreImageTaskResult
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StoreImageTaskResult -&gt; StoreImageTaskResult -&gt; Bool
+$c/= :: StoreImageTaskResult -&gt; StoreImageTaskResult -&gt; Bool
+== :: StoreImageTaskResult -&gt; StoreImageTaskResult -&gt; Bool
+$c== :: StoreImageTaskResult -&gt; StoreImageTaskResult -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681119601"><span id="local-6989586621681119603"><span id="local-6989586621681119605"><span id="local-6989586621681119607"><span class="annot"><span class="annottext">ReadPrec [StoreImageTaskResult]
+ReadPrec StoreImageTaskResult
+Int -&gt; ReadS StoreImageTaskResult
+ReadS [StoreImageTaskResult]
+(Int -&gt; ReadS StoreImageTaskResult)
+-&gt; ReadS [StoreImageTaskResult]
+-&gt; ReadPrec StoreImageTaskResult
+-&gt; ReadPrec [StoreImageTaskResult]
+-&gt; Read StoreImageTaskResult
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StoreImageTaskResult]
+$creadListPrec :: ReadPrec [StoreImageTaskResult]
+readPrec :: ReadPrec StoreImageTaskResult
+$creadPrec :: ReadPrec StoreImageTaskResult
+readList :: ReadS [StoreImageTaskResult]
+$creadList :: ReadS [StoreImageTaskResult]
+readsPrec :: Int -&gt; ReadS StoreImageTaskResult
+$creadsPrec :: Int -&gt; ReadS StoreImageTaskResult
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681119594"><span id="local-6989586621681119596"><span id="local-6989586621681119598"><span class="annot"><span class="annottext">Int -&gt; StoreImageTaskResult -&gt; ShowS
+[StoreImageTaskResult] -&gt; ShowS
+StoreImageTaskResult -&gt; String
+(Int -&gt; StoreImageTaskResult -&gt; ShowS)
+-&gt; (StoreImageTaskResult -&gt; String)
+-&gt; ([StoreImageTaskResult] -&gt; ShowS)
+-&gt; Show StoreImageTaskResult
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StoreImageTaskResult] -&gt; ShowS
+$cshowList :: [StoreImageTaskResult] -&gt; ShowS
+show :: StoreImageTaskResult -&gt; String
+$cshow :: StoreImageTaskResult -&gt; String
+showsPrec :: Int -&gt; StoreImageTaskResult -&gt; ShowS
+$cshowsPrec :: Int -&gt; StoreImageTaskResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StoreImageTaskResult -&gt; Rep StoreImageTaskResult x)
+-&gt; (forall x. Rep StoreImageTaskResult x -&gt; StoreImageTaskResult)
+-&gt; Generic StoreImageTaskResult
+forall x. Rep StoreImageTaskResult x -&gt; StoreImageTaskResult
+forall x. StoreImageTaskResult -&gt; Rep StoreImageTaskResult x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StoreImageTaskResult x -&gt; StoreImageTaskResult
+$cfrom :: forall x. StoreImageTaskResult -&gt; Rep StoreImageTaskResult x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Create a value of 'StoreImageTaskResult' with all optional fields omitted.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'storeTaskFailureReason', 'storeImageTaskResult_storeTaskFailureReason' - If the tasks fails, the reason for the failure is returned. If the task</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- succeeds, @null@ is returned.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'amiId', 'storeImageTaskResult_amiId' - The ID of the AMI that is being stored.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'progressPercentage', 'storeImageTaskResult_progressPercentage' - The progress of the task as a percentage.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'bucket', 'storeImageTaskResult_bucket' - The name of the Amazon S3 bucket that contains the stored AMI object.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'taskStartTime', 'storeImageTaskResult_taskStartTime' - The time the task started.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'storeTaskState', 'storeImageTaskResult_storeTaskState' - The state of the store task (@InProgress@, @Completed@, or @Failed@).</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 's3objectKey', 'storeImageTaskResult_s3objectKey' - The name of the stored AMI object in the bucket.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#newStoreImageTaskResult"><span class="hs-identifier hs-type">newStoreImageTaskResult</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span><span>
+</span><span id="line-74"></span><span id="newStoreImageTaskResult"><span class="annot"><span class="annottext">newStoreImageTaskResult :: StoreImageTaskResult
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#newStoreImageTaskResult"><span class="hs-identifier hs-var hs-var">newStoreImageTaskResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">StoreImageTaskResult' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; StoreImageTaskResult
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-type">StoreImageTaskResult'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:storeTaskFailureReason:StoreImageTaskResult' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3AstoreTaskFailureReason%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var">storeTaskFailureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:amiId:StoreImageTaskResult' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3AamiId%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var">amiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:progressPercentage:StoreImageTaskResult' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3AprogressPercentage%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var">progressPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:StoreImageTaskResult' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3Abucket%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskStartTime:StoreImageTaskResult' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3AtaskStartTime%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var">taskStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:storeTaskState:StoreImageTaskResult' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3AstoreTaskState%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var">storeTaskState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3objectKey:StoreImageTaskResult' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3As3objectKey%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var">s3objectKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | If the tasks fails, the reason for the failure is returned. If the task</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- succeeds, @null@ is returned.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#storeImageTaskResult_storeTaskFailureReason"><span class="hs-identifier hs-type">storeImageTaskResult_storeTaskFailureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="storeImageTaskResult_storeTaskFailureReason"><span class="annot"><span class="annottext">storeImageTaskResult_storeTaskFailureReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StoreImageTaskResult -&gt; f StoreImageTaskResult
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#storeImageTaskResult_storeTaskFailureReason"><span class="hs-identifier hs-var hs-var">storeImageTaskResult_storeTaskFailureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StoreImageTaskResult -&gt; Maybe Text)
+-&gt; (StoreImageTaskResult -&gt; Maybe Text -&gt; StoreImageTaskResult)
+-&gt; Lens
+     StoreImageTaskResult StoreImageTaskResult (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-type">StoreImageTaskResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119585"><span class="annot"><span class="annottext">Maybe Text
+storeTaskFailureReason :: Maybe Text
+$sel:storeTaskFailureReason:StoreImageTaskResult' :: StoreImageTaskResult -&gt; Maybe Text
+</span><a href="#local-6989586621681119585"><span class="hs-identifier hs-var hs-var">storeTaskFailureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681119585"><span class="hs-identifier hs-var">storeTaskFailureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119584"><span class="annot"><span class="annottext">s :: StoreImageTaskResult
+</span><a href="#local-6989586621681119584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-type">StoreImageTaskResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119583"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681119583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoreImageTaskResult
+</span><a href="#local-6989586621681119584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storeTaskFailureReason:StoreImageTaskResult' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3AstoreTaskFailureReason%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var">storeTaskFailureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681119583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The ID of the AMI that is being stored.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#storeImageTaskResult_amiId"><span class="hs-identifier hs-type">storeImageTaskResult_amiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="storeImageTaskResult_amiId"><span class="annot"><span class="annottext">storeImageTaskResult_amiId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StoreImageTaskResult -&gt; f StoreImageTaskResult
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#storeImageTaskResult_amiId"><span class="hs-identifier hs-var hs-var">storeImageTaskResult_amiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StoreImageTaskResult -&gt; Maybe Text)
+-&gt; (StoreImageTaskResult -&gt; Maybe Text -&gt; StoreImageTaskResult)
+-&gt; Lens
+     StoreImageTaskResult StoreImageTaskResult (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-type">StoreImageTaskResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119581"><span class="annot"><span class="annottext">Maybe Text
+amiId :: Maybe Text
+$sel:amiId:StoreImageTaskResult' :: StoreImageTaskResult -&gt; Maybe Text
+</span><a href="#local-6989586621681119581"><span class="hs-identifier hs-var hs-var">amiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681119581"><span class="hs-identifier hs-var">amiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119580"><span class="annot"><span class="annottext">s :: StoreImageTaskResult
+</span><a href="#local-6989586621681119580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-type">StoreImageTaskResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119579"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681119579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoreImageTaskResult
+</span><a href="#local-6989586621681119580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amiId:StoreImageTaskResult' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3AamiId%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var">amiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681119579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The progress of the task as a percentage.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#storeImageTaskResult_progressPercentage"><span class="hs-identifier hs-type">storeImageTaskResult_progressPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="storeImageTaskResult_progressPercentage"><span class="annot"><span class="annottext">storeImageTaskResult_progressPercentage :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; StoreImageTaskResult -&gt; f StoreImageTaskResult
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#storeImageTaskResult_progressPercentage"><span class="hs-identifier hs-var hs-var">storeImageTaskResult_progressPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StoreImageTaskResult -&gt; Maybe Int)
+-&gt; (StoreImageTaskResult -&gt; Maybe Int -&gt; StoreImageTaskResult)
+-&gt; Lens
+     StoreImageTaskResult StoreImageTaskResult (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-type">StoreImageTaskResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119577"><span class="annot"><span class="annottext">Maybe Int
+progressPercentage :: Maybe Int
+$sel:progressPercentage:StoreImageTaskResult' :: StoreImageTaskResult -&gt; Maybe Int
+</span><a href="#local-6989586621681119577"><span class="hs-identifier hs-var hs-var">progressPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681119577"><span class="hs-identifier hs-var">progressPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119576"><span class="annot"><span class="annottext">s :: StoreImageTaskResult
+</span><a href="#local-6989586621681119576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-type">StoreImageTaskResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119575"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681119575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoreImageTaskResult
+</span><a href="#local-6989586621681119576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressPercentage:StoreImageTaskResult' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3AprogressPercentage%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var">progressPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681119575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket that contains the stored AMI object.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#storeImageTaskResult_bucket"><span class="hs-identifier hs-type">storeImageTaskResult_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="storeImageTaskResult_bucket"><span class="annot"><span class="annottext">storeImageTaskResult_bucket :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StoreImageTaskResult -&gt; f StoreImageTaskResult
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#storeImageTaskResult_bucket"><span class="hs-identifier hs-var hs-var">storeImageTaskResult_bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StoreImageTaskResult -&gt; Maybe Text)
+-&gt; (StoreImageTaskResult -&gt; Maybe Text -&gt; StoreImageTaskResult)
+-&gt; Lens
+     StoreImageTaskResult StoreImageTaskResult (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-type">StoreImageTaskResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119573"><span class="annot"><span class="annottext">Maybe Text
+bucket :: Maybe Text
+$sel:bucket:StoreImageTaskResult' :: StoreImageTaskResult -&gt; Maybe Text
+</span><a href="#local-6989586621681119573"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681119573"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119572"><span class="annot"><span class="annottext">s :: StoreImageTaskResult
+</span><a href="#local-6989586621681119572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-type">StoreImageTaskResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119571"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681119571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoreImageTaskResult
+</span><a href="#local-6989586621681119572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:StoreImageTaskResult' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3Abucket%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681119571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The time the task started.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#storeImageTaskResult_taskStartTime"><span class="hs-identifier hs-type">storeImageTaskResult_taskStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="storeImageTaskResult_taskStartTime"><span class="annot"><span class="annottext">storeImageTaskResult_taskStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; StoreImageTaskResult -&gt; f StoreImageTaskResult
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#storeImageTaskResult_taskStartTime"><span class="hs-identifier hs-var hs-var">storeImageTaskResult_taskStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StoreImageTaskResult -&gt; Maybe ISO8601)
+-&gt; (StoreImageTaskResult -&gt; Maybe ISO8601 -&gt; StoreImageTaskResult)
+-&gt; Lens
+     StoreImageTaskResult
+     StoreImageTaskResult
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-type">StoreImageTaskResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119569"><span class="annot"><span class="annottext">Maybe ISO8601
+taskStartTime :: Maybe ISO8601
+$sel:taskStartTime:StoreImageTaskResult' :: StoreImageTaskResult -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681119569"><span class="hs-identifier hs-var hs-var">taskStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681119569"><span class="hs-identifier hs-var">taskStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119568"><span class="annot"><span class="annottext">s :: StoreImageTaskResult
+</span><a href="#local-6989586621681119568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-type">StoreImageTaskResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119567"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681119567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoreImageTaskResult
+</span><a href="#local-6989586621681119568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStartTime:StoreImageTaskResult' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3AtaskStartTime%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var">taskStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681119567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; StoreImageTaskResult -&gt; f StoreImageTaskResult)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; StoreImageTaskResult
+-&gt; f StoreImageTaskResult
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The state of the store task (@InProgress@, @Completed@, or @Failed@).</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#storeImageTaskResult_storeTaskState"><span class="hs-identifier hs-type">storeImageTaskResult_storeTaskState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="storeImageTaskResult_storeTaskState"><span class="annot"><span class="annottext">storeImageTaskResult_storeTaskState :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StoreImageTaskResult -&gt; f StoreImageTaskResult
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#storeImageTaskResult_storeTaskState"><span class="hs-identifier hs-var hs-var">storeImageTaskResult_storeTaskState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StoreImageTaskResult -&gt; Maybe Text)
+-&gt; (StoreImageTaskResult -&gt; Maybe Text -&gt; StoreImageTaskResult)
+-&gt; Lens
+     StoreImageTaskResult StoreImageTaskResult (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-type">StoreImageTaskResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119562"><span class="annot"><span class="annottext">Maybe Text
+storeTaskState :: Maybe Text
+$sel:storeTaskState:StoreImageTaskResult' :: StoreImageTaskResult -&gt; Maybe Text
+</span><a href="#local-6989586621681119562"><span class="hs-identifier hs-var hs-var">storeTaskState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681119562"><span class="hs-identifier hs-var">storeTaskState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119561"><span class="annot"><span class="annottext">s :: StoreImageTaskResult
+</span><a href="#local-6989586621681119561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-type">StoreImageTaskResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119560"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681119560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoreImageTaskResult
+</span><a href="#local-6989586621681119561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storeTaskState:StoreImageTaskResult' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3AstoreTaskState%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var">storeTaskState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681119560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The name of the stored AMI object in the bucket.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#storeImageTaskResult_s3objectKey"><span class="hs-identifier hs-type">storeImageTaskResult_s3objectKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="storeImageTaskResult_s3objectKey"><span class="annot"><span class="annottext">storeImageTaskResult_s3objectKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StoreImageTaskResult -&gt; f StoreImageTaskResult
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#storeImageTaskResult_s3objectKey"><span class="hs-identifier hs-var hs-var">storeImageTaskResult_s3objectKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StoreImageTaskResult -&gt; Maybe Text)
+-&gt; (StoreImageTaskResult -&gt; Maybe Text -&gt; StoreImageTaskResult)
+-&gt; Lens
+     StoreImageTaskResult StoreImageTaskResult (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-type">StoreImageTaskResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119558"><span class="annot"><span class="annottext">Maybe Text
+s3objectKey :: Maybe Text
+$sel:s3objectKey:StoreImageTaskResult' :: StoreImageTaskResult -&gt; Maybe Text
+</span><a href="#local-6989586621681119558"><span class="hs-identifier hs-var hs-var">s3objectKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681119558"><span class="hs-identifier hs-var">s3objectKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119557"><span class="annot"><span class="annottext">s :: StoreImageTaskResult
+</span><a href="#local-6989586621681119557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-type">StoreImageTaskResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119556"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681119556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoreImageTaskResult
+</span><a href="#local-6989586621681119557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3objectKey:StoreImageTaskResult' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#%24sel%3As3objectKey%3AStoreImageTaskResult%27"><span class="hs-identifier hs-var">s3objectKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681119556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621681119553"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StoreImageTaskResult
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681119551"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119551"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; StoreImageTaskResult
+</span><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult%27"><span class="hs-identifier hs-var">StoreImageTaskResult'</span></a></span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; StoreImageTaskResult)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; StoreImageTaskResult)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;storeTaskFailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; StoreImageTaskResult)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; StoreImageTaskResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;amiId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; StoreImageTaskResult)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; StoreImageTaskResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;progressPercentage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; StoreImageTaskResult)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ISO8601 -&gt; Maybe Text -&gt; Maybe Text -&gt; StoreImageTaskResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bucket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601 -&gt; Maybe Text -&gt; Maybe Text -&gt; StoreImageTaskResult)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; StoreImageTaskResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;taskStartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; StoreImageTaskResult)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; StoreImageTaskResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;storeTaskState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; StoreImageTaskResult)
+-&gt; Either String (Maybe Text) -&gt; Either String StoreImageTaskResult
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3objectKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681119545"><span id="local-6989586621681119547"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681119542"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StoreImageTaskResult.html#StoreImageTaskResult"><span class="hs-identifier hs-type">StoreImageTaskResult</span></a></span></span><span>
+</span><span id="line-129"></span></pre></body></html>

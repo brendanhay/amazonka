@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Kinesis.Types.MetricsName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Kinesis.Types.MetricsName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName"><span class="hs-identifier">MetricsName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_ALL"><span class="hs-identifier">MetricsName_ALL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_IncomingBytes"><span class="hs-identifier">MetricsName_IncomingBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_IncomingRecords"><span class="hs-identifier">MetricsName_IncomingRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_IteratorAgeMilliseconds"><span class="hs-identifier">MetricsName_IteratorAgeMilliseconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_OutgoingBytes"><span class="hs-identifier">MetricsName_OutgoingBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_OutgoingRecords"><span class="hs-identifier">MetricsName_OutgoingRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_ReadProvisionedThroughputExceeded"><span class="hs-identifier">MetricsName_ReadProvisionedThroughputExceeded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_WriteProvisionedThroughputExceeded"><span class="hs-identifier">MetricsName_WriteProvisionedThroughputExceeded</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679197059"><span id="local-6989586621679197060"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MetricsName"><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName"><span class="hs-identifier hs-var">MetricsName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricsName%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName%27"><span class="hs-identifier hs-var">MetricsName'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMetricsName"><span class="annot"><span class="annottext">MetricsName -&gt; Text
+</span><a href="Network.AWS.Kinesis.Types.MetricsName.html#fromMetricsName"><span class="hs-identifier hs-var hs-var">fromMetricsName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679197051"><span id="local-6989586621679197053"><span id="local-6989586621679197055"><span class="annot"><span class="annottext">Int -&gt; MetricsName -&gt; ShowS
+[MetricsName] -&gt; ShowS
+MetricsName -&gt; String
+(Int -&gt; MetricsName -&gt; ShowS)
+-&gt; (MetricsName -&gt; String)
+-&gt; ([MetricsName] -&gt; ShowS)
+-&gt; Show MetricsName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MetricsName] -&gt; ShowS
+$cshowList :: [MetricsName] -&gt; ShowS
+show :: MetricsName -&gt; String
+$cshow :: MetricsName -&gt; String
+showsPrec :: Int -&gt; MetricsName -&gt; ShowS
+$cshowsPrec :: Int -&gt; MetricsName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679197042"><span id="local-6989586621679197044"><span id="local-6989586621679197046"><span id="local-6989586621679197048"><span class="annot"><span class="annottext">ReadPrec [MetricsName]
+ReadPrec MetricsName
+Int -&gt; ReadS MetricsName
+ReadS [MetricsName]
+(Int -&gt; ReadS MetricsName)
+-&gt; ReadS [MetricsName]
+-&gt; ReadPrec MetricsName
+-&gt; ReadPrec [MetricsName]
+-&gt; Read MetricsName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MetricsName]
+$creadListPrec :: ReadPrec [MetricsName]
+readPrec :: ReadPrec MetricsName
+$creadPrec :: ReadPrec MetricsName
+readList :: ReadS [MetricsName]
+$creadList :: ReadS [MetricsName]
+readsPrec :: Int -&gt; ReadS MetricsName
+$creadsPrec :: Int -&gt; ReadS MetricsName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679197037"><span id="local-6989586621679197039"><span class="annot"><span class="annottext">MetricsName -&gt; MetricsName -&gt; Bool
+(MetricsName -&gt; MetricsName -&gt; Bool)
+-&gt; (MetricsName -&gt; MetricsName -&gt; Bool) -&gt; Eq MetricsName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MetricsName -&gt; MetricsName -&gt; Bool
+$c/= :: MetricsName -&gt; MetricsName -&gt; Bool
+== :: MetricsName -&gt; MetricsName -&gt; Bool
+$c== :: MetricsName -&gt; MetricsName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679197021"><span id="local-6989586621679197023"><span id="local-6989586621679197025"><span id="local-6989586621679197027"><span id="local-6989586621679197029"><span id="local-6989586621679197031"><span id="local-6989586621679197033"><span class="annot"><span class="annottext">Eq MetricsName
+Eq MetricsName
+-&gt; (MetricsName -&gt; MetricsName -&gt; Ordering)
+-&gt; (MetricsName -&gt; MetricsName -&gt; Bool)
+-&gt; (MetricsName -&gt; MetricsName -&gt; Bool)
+-&gt; (MetricsName -&gt; MetricsName -&gt; Bool)
+-&gt; (MetricsName -&gt; MetricsName -&gt; Bool)
+-&gt; (MetricsName -&gt; MetricsName -&gt; MetricsName)
+-&gt; (MetricsName -&gt; MetricsName -&gt; MetricsName)
+-&gt; Ord MetricsName
+MetricsName -&gt; MetricsName -&gt; Bool
+MetricsName -&gt; MetricsName -&gt; Ordering
+MetricsName -&gt; MetricsName -&gt; MetricsName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MetricsName -&gt; MetricsName -&gt; MetricsName
+$cmin :: MetricsName -&gt; MetricsName -&gt; MetricsName
+max :: MetricsName -&gt; MetricsName -&gt; MetricsName
+$cmax :: MetricsName -&gt; MetricsName -&gt; MetricsName
+&gt;= :: MetricsName -&gt; MetricsName -&gt; Bool
+$c&gt;= :: MetricsName -&gt; MetricsName -&gt; Bool
+&gt; :: MetricsName -&gt; MetricsName -&gt; Bool
+$c&gt; :: MetricsName -&gt; MetricsName -&gt; Bool
+&lt;= :: MetricsName -&gt; MetricsName -&gt; Bool
+$c&lt;= :: MetricsName -&gt; MetricsName -&gt; Bool
+&lt; :: MetricsName -&gt; MetricsName -&gt; Bool
+$c&lt; :: MetricsName -&gt; MetricsName -&gt; Bool
+compare :: MetricsName -&gt; MetricsName -&gt; Ordering
+$ccompare :: MetricsName -&gt; MetricsName -&gt; Ordering
+$cp1Ord :: Eq MetricsName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MetricsName -&gt; Rep MetricsName x)
+-&gt; (forall x. Rep MetricsName x -&gt; MetricsName)
+-&gt; Generic MetricsName
+forall x. Rep MetricsName x -&gt; MetricsName
+forall x. MetricsName -&gt; Rep MetricsName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MetricsName x -&gt; MetricsName
+$cfrom :: forall x. MetricsName -&gt; Rep MetricsName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679197013"><span id="local-6989586621679197015"><span class="annot"><span class="annottext">Int -&gt; MetricsName -&gt; Int
+MetricsName -&gt; Int
+(Int -&gt; MetricsName -&gt; Int)
+-&gt; (MetricsName -&gt; Int) -&gt; Hashable MetricsName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MetricsName -&gt; Int
+$chash :: MetricsName -&gt; Int
+hashWithSalt :: Int -&gt; MetricsName -&gt; Int
+$chashWithSalt :: Int -&gt; MetricsName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679197010"><span class="annot"><span class="annottext">MetricsName -&gt; ()
+(MetricsName -&gt; ()) -&gt; NFData MetricsName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MetricsName -&gt; ()
+$crnf :: MetricsName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679197007"><span class="annot"><span class="annottext">Text -&gt; Either String MetricsName
+(Text -&gt; Either String MetricsName) -&gt; FromText MetricsName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MetricsName
+$cfromText :: Text -&gt; Either String MetricsName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679197004"><span class="annot"><span class="annottext">MetricsName -&gt; Text
+(MetricsName -&gt; Text) -&gt; ToText MetricsName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MetricsName -&gt; Text
+$ctoText :: MetricsName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679197001"><span class="annot"><span class="annottext">MetricsName -&gt; ByteString
+(MetricsName -&gt; ByteString) -&gt; ToByteString MetricsName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MetricsName -&gt; ByteString
+$ctoBS :: MetricsName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679196998"><span class="annot"><span class="annottext">MetricsName -&gt; ByteStringBuilder
+(MetricsName -&gt; ByteStringBuilder) -&gt; ToLog MetricsName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MetricsName -&gt; ByteStringBuilder
+$cbuild :: MetricsName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679196995"><span class="annot"><span class="annottext">HeaderName -&gt; MetricsName -&gt; [Header]
+(HeaderName -&gt; MetricsName -&gt; [Header]) -&gt; ToHeader MetricsName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MetricsName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MetricsName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679196992"><span class="annot"><span class="annottext">MetricsName -&gt; QueryString
+(MetricsName -&gt; QueryString) -&gt; ToQuery MetricsName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MetricsName -&gt; QueryString
+$ctoQuery :: MetricsName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679196987"><span id="local-6989586621679196989"><span class="annot"><span class="annottext">Value -&gt; Parser [MetricsName]
+Value -&gt; Parser MetricsName
+(Value -&gt; Parser MetricsName)
+-&gt; (Value -&gt; Parser [MetricsName]) -&gt; FromJSON MetricsName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MetricsName]
+$cparseJSONList :: Value -&gt; Parser [MetricsName]
+parseJSON :: Value -&gt; Parser MetricsName
+$cparseJSON :: Value -&gt; Parser MetricsName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679196982"><span id="local-6989586621679196984"><span class="annot"><span class="annottext">FromJSONKeyFunction [MetricsName]
+FromJSONKeyFunction MetricsName
+FromJSONKeyFunction MetricsName
+-&gt; FromJSONKeyFunction [MetricsName] -&gt; FromJSONKey MetricsName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MetricsName]
+$cfromJSONKeyList :: FromJSONKeyFunction [MetricsName]
+fromJSONKey :: FromJSONKeyFunction MetricsName
+$cfromJSONKey :: FromJSONKeyFunction MetricsName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679196973"><span id="local-6989586621679196975"><span id="local-6989586621679196977"><span id="local-6989586621679196979"><span class="annot"><span class="annottext">[MetricsName] -&gt; Encoding
+[MetricsName] -&gt; Value
+MetricsName -&gt; Encoding
+MetricsName -&gt; Value
+(MetricsName -&gt; Value)
+-&gt; (MetricsName -&gt; Encoding)
+-&gt; ([MetricsName] -&gt; Value)
+-&gt; ([MetricsName] -&gt; Encoding)
+-&gt; ToJSON MetricsName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MetricsName] -&gt; Encoding
+$ctoEncodingList :: [MetricsName] -&gt; Encoding
+toJSONList :: [MetricsName] -&gt; Value
+$ctoJSONList :: [MetricsName] -&gt; Value
+toEncoding :: MetricsName -&gt; Encoding
+$ctoEncoding :: MetricsName -&gt; Encoding
+toJSON :: MetricsName -&gt; Value
+$ctoJSON :: MetricsName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679196968"><span id="local-6989586621679196970"><span class="annot"><span class="annottext">ToJSONKeyFunction [MetricsName]
+ToJSONKeyFunction MetricsName
+ToJSONKeyFunction MetricsName
+-&gt; ToJSONKeyFunction [MetricsName] -&gt; ToJSONKey MetricsName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MetricsName]
+$ctoJSONKeyList :: ToJSONKeyFunction [MetricsName]
+toJSONKey :: ToJSONKeyFunction MetricsName
+$ctoJSONKey :: ToJSONKeyFunction MetricsName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679196965"><span class="annot"><span class="annottext">[Node] -&gt; Either String MetricsName
+([Node] -&gt; Either String MetricsName) -&gt; FromXML MetricsName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MetricsName
+$cparseXML :: [Node] -&gt; Either String MetricsName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679196962"><span class="annot"><span class="annottext">MetricsName -&gt; XML
+(MetricsName -&gt; XML) -&gt; ToXML MetricsName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MetricsName -&gt; XML
+$ctoXML :: MetricsName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_ALL"><span class="hs-identifier hs-type">MetricsName_ALL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName"><span class="hs-identifier hs-type">MetricsName</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricsName_ALL"><span id="%24mMetricsName_ALL"><span id="MetricsName_ALL"><span class="annot"><span class="annottext">$bMetricsName_ALL :: MetricsName
+$mMetricsName_ALL :: forall r. MetricsName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Kinesis.Types.MetricsName.html#%24bMetricsName_ALL"><span class="hs-identifier hs-var hs-var hs-var">MetricsName_ALL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName%27"><span class="hs-identifier hs-type">MetricsName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALL&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_IncomingBytes"><span class="hs-identifier hs-type">MetricsName_IncomingBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName"><span class="hs-identifier hs-type">MetricsName</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricsName_IncomingBytes"><span id="%24mMetricsName_IncomingBytes"><span id="MetricsName_IncomingBytes"><span class="annot"><span class="annottext">$bMetricsName_IncomingBytes :: MetricsName
+$mMetricsName_IncomingBytes :: forall r. MetricsName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Kinesis.Types.MetricsName.html#%24bMetricsName_IncomingBytes"><span class="hs-identifier hs-var hs-var hs-var">MetricsName_IncomingBytes</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName%27"><span class="hs-identifier hs-type">MetricsName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IncomingBytes&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_IncomingRecords"><span class="hs-identifier hs-type">MetricsName_IncomingRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName"><span class="hs-identifier hs-type">MetricsName</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricsName_IncomingRecords"><span id="%24mMetricsName_IncomingRecords"><span id="MetricsName_IncomingRecords"><span class="annot"><span class="annottext">$bMetricsName_IncomingRecords :: MetricsName
+$mMetricsName_IncomingRecords :: forall r. MetricsName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Kinesis.Types.MetricsName.html#%24bMetricsName_IncomingRecords"><span class="hs-identifier hs-var hs-var hs-var">MetricsName_IncomingRecords</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName%27"><span class="hs-identifier hs-type">MetricsName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IncomingRecords&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_IteratorAgeMilliseconds"><span class="hs-identifier hs-type">MetricsName_IteratorAgeMilliseconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName"><span class="hs-identifier hs-type">MetricsName</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricsName_IteratorAgeMilliseconds"><span id="%24mMetricsName_IteratorAgeMilliseconds"><span id="MetricsName_IteratorAgeMilliseconds"><span class="annot"><span class="annottext">$bMetricsName_IteratorAgeMilliseconds :: MetricsName
+$mMetricsName_IteratorAgeMilliseconds :: forall r. MetricsName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Kinesis.Types.MetricsName.html#%24bMetricsName_IteratorAgeMilliseconds"><span class="hs-identifier hs-var hs-var hs-var">MetricsName_IteratorAgeMilliseconds</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName%27"><span class="hs-identifier hs-type">MetricsName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IteratorAgeMilliseconds&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_OutgoingBytes"><span class="hs-identifier hs-type">MetricsName_OutgoingBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName"><span class="hs-identifier hs-type">MetricsName</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricsName_OutgoingBytes"><span id="%24mMetricsName_OutgoingBytes"><span id="MetricsName_OutgoingBytes"><span class="annot"><span class="annottext">$bMetricsName_OutgoingBytes :: MetricsName
+$mMetricsName_OutgoingBytes :: forall r. MetricsName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Kinesis.Types.MetricsName.html#%24bMetricsName_OutgoingBytes"><span class="hs-identifier hs-var hs-var hs-var">MetricsName_OutgoingBytes</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName%27"><span class="hs-identifier hs-type">MetricsName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OutgoingBytes&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_OutgoingRecords"><span class="hs-identifier hs-type">MetricsName_OutgoingRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName"><span class="hs-identifier hs-type">MetricsName</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricsName_OutgoingRecords"><span id="%24mMetricsName_OutgoingRecords"><span id="MetricsName_OutgoingRecords"><span class="annot"><span class="annottext">$bMetricsName_OutgoingRecords :: MetricsName
+$mMetricsName_OutgoingRecords :: forall r. MetricsName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Kinesis.Types.MetricsName.html#%24bMetricsName_OutgoingRecords"><span class="hs-identifier hs-var hs-var hs-var">MetricsName_OutgoingRecords</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName%27"><span class="hs-identifier hs-type">MetricsName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OutgoingRecords&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_ReadProvisionedThroughputExceeded"><span class="hs-identifier hs-type">MetricsName_ReadProvisionedThroughputExceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName"><span class="hs-identifier hs-type">MetricsName</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricsName_ReadProvisionedThroughputExceeded"><span id="%24mMetricsName_ReadProvisionedThroughputExceeded"><span id="MetricsName_ReadProvisionedThroughputExceeded"><span class="annot"><span class="annottext">$bMetricsName_ReadProvisionedThroughputExceeded :: MetricsName
+$mMetricsName_ReadProvisionedThroughputExceeded :: forall r. MetricsName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Kinesis.Types.MetricsName.html#%24bMetricsName_ReadProvisionedThroughputExceeded"><span class="hs-identifier hs-var hs-var hs-var">MetricsName_ReadProvisionedThroughputExceeded</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName%27"><span class="hs-identifier hs-type">MetricsName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ReadProvisionedThroughputExceeded&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_WriteProvisionedThroughputExceeded"><span class="hs-identifier hs-type">MetricsName_WriteProvisionedThroughputExceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName"><span class="hs-identifier hs-type">MetricsName</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricsName_WriteProvisionedThroughputExceeded"><span id="%24mMetricsName_WriteProvisionedThroughputExceeded"><span id="MetricsName_WriteProvisionedThroughputExceeded"><span class="annot"><span class="annottext">$bMetricsName_WriteProvisionedThroughputExceeded :: MetricsName
+$mMetricsName_WriteProvisionedThroughputExceeded :: forall r. MetricsName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Kinesis.Types.MetricsName.html#%24bMetricsName_WriteProvisionedThroughputExceeded"><span class="hs-identifier hs-var hs-var hs-var">MetricsName_WriteProvisionedThroughputExceeded</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName%27"><span class="hs-identifier hs-type">MetricsName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WriteProvisionedThroughputExceeded&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_ALL"><span class="hs-pragma hs-type">MetricsName_ALL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_IncomingBytes"><span class="hs-pragma hs-type">MetricsName_IncomingBytes</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_IncomingRecords"><span class="hs-pragma hs-type">MetricsName_IncomingRecords</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_IteratorAgeMilliseconds"><span class="hs-pragma hs-type">MetricsName_IteratorAgeMilliseconds</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_OutgoingBytes"><span class="hs-pragma hs-type">MetricsName_OutgoingBytes</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_OutgoingRecords"><span class="hs-pragma hs-type">MetricsName_OutgoingRecords</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_ReadProvisionedThroughputExceeded"><span class="hs-pragma hs-type">MetricsName_ReadProvisionedThroughputExceeded</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName_WriteProvisionedThroughputExceeded"><span class="hs-pragma hs-type">MetricsName_WriteProvisionedThroughputExceeded</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName%27"><span class="hs-pragma hs-type">MetricsName'</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-101"></span></pre></body></html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodePipeline.Types.ExecutionDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodePipeline.Types.ExecutionDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The details of the actions taken and results produced on an artifact as</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- it passes through stages in the pipeline.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newExecutionDetails' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679277609"><span id="local-6989586621679277610"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecutionDetails"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails"><span class="hs-identifier hs-var">ExecutionDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionDetails%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails%27"><span class="hs-identifier hs-var">ExecutionDetails'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The percentage of work completed on the action, represented on a scale</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- of 0 to 100 percent.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3ApercentComplete%3AExecutionDetails%27"><span class="annot"><span class="annottext">ExecutionDetails -&gt; Maybe Natural
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#%24sel%3ApercentComplete%3AExecutionDetails%27"><span class="hs-identifier hs-var hs-var">percentComplete</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The system-generated unique ID of this action used to identify this job</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- worker in any external systems, such as AWS CodeDeploy.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AexternalExecutionId%3AExecutionDetails%27"><span class="annot"><span class="annottext">ExecutionDetails -&gt; Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#%24sel%3AexternalExecutionId%3AExecutionDetails%27"><span class="hs-identifier hs-var hs-var">externalExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The summary of the current status of the actions.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Asummary%3AExecutionDetails%27"><span class="annot"><span class="annottext">ExecutionDetails -&gt; Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#%24sel%3Asummary%3AExecutionDetails%27"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277601"><span id="local-6989586621679277603"><span class="annot"><span class="annottext">ExecutionDetails -&gt; ExecutionDetails -&gt; Bool
+(ExecutionDetails -&gt; ExecutionDetails -&gt; Bool)
+-&gt; (ExecutionDetails -&gt; ExecutionDetails -&gt; Bool)
+-&gt; Eq ExecutionDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExecutionDetails -&gt; ExecutionDetails -&gt; Bool
+$c/= :: ExecutionDetails -&gt; ExecutionDetails -&gt; Bool
+== :: ExecutionDetails -&gt; ExecutionDetails -&gt; Bool
+$c== :: ExecutionDetails -&gt; ExecutionDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277592"><span id="local-6989586621679277594"><span id="local-6989586621679277596"><span id="local-6989586621679277598"><span class="annot"><span class="annottext">ReadPrec [ExecutionDetails]
+ReadPrec ExecutionDetails
+Int -&gt; ReadS ExecutionDetails
+ReadS [ExecutionDetails]
+(Int -&gt; ReadS ExecutionDetails)
+-&gt; ReadS [ExecutionDetails]
+-&gt; ReadPrec ExecutionDetails
+-&gt; ReadPrec [ExecutionDetails]
+-&gt; Read ExecutionDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExecutionDetails]
+$creadListPrec :: ReadPrec [ExecutionDetails]
+readPrec :: ReadPrec ExecutionDetails
+$creadPrec :: ReadPrec ExecutionDetails
+readList :: ReadS [ExecutionDetails]
+$creadList :: ReadS [ExecutionDetails]
+readsPrec :: Int -&gt; ReadS ExecutionDetails
+$creadsPrec :: Int -&gt; ReadS ExecutionDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277585"><span id="local-6989586621679277587"><span id="local-6989586621679277589"><span class="annot"><span class="annottext">Int -&gt; ExecutionDetails -&gt; ShowS
+[ExecutionDetails] -&gt; ShowS
+ExecutionDetails -&gt; String
+(Int -&gt; ExecutionDetails -&gt; ShowS)
+-&gt; (ExecutionDetails -&gt; String)
+-&gt; ([ExecutionDetails] -&gt; ShowS)
+-&gt; Show ExecutionDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExecutionDetails] -&gt; ShowS
+$cshowList :: [ExecutionDetails] -&gt; ShowS
+show :: ExecutionDetails -&gt; String
+$cshow :: ExecutionDetails -&gt; String
+showsPrec :: Int -&gt; ExecutionDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExecutionDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ExecutionDetails -&gt; Rep ExecutionDetails x)
+-&gt; (forall x. Rep ExecutionDetails x -&gt; ExecutionDetails)
+-&gt; Generic ExecutionDetails
+forall x. Rep ExecutionDetails x -&gt; ExecutionDetails
+forall x. ExecutionDetails -&gt; Rep ExecutionDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExecutionDetails x -&gt; ExecutionDetails
+$cfrom :: forall x. ExecutionDetails -&gt; Rep ExecutionDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'ExecutionDetails' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'percentComplete', 'executionDetails_percentComplete' - The percentage of work completed on the action, represented on a scale</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- of 0 to 100 percent.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'externalExecutionId', 'executionDetails_externalExecutionId' - The system-generated unique ID of this action used to identify this job</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- worker in any external systems, such as AWS CodeDeploy.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'summary', 'executionDetails_summary' - The summary of the current status of the actions.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#newExecutionDetails"><span class="hs-identifier hs-type">newExecutionDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails"><span class="hs-identifier hs-type">ExecutionDetails</span></a></span><span>
+</span><span id="line-59"></span><span id="newExecutionDetails"><span class="annot"><span class="annottext">newExecutionDetails :: ExecutionDetails
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#newExecutionDetails"><span class="hs-identifier hs-var hs-var">newExecutionDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">ExecutionDetails' :: Maybe Natural -&gt; Maybe Text -&gt; Maybe Text -&gt; ExecutionDetails
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails%27"><span class="hs-identifier hs-type">ExecutionDetails'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:percentComplete:ExecutionDetails' :: Maybe Natural
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#%24sel%3ApercentComplete%3AExecutionDetails%27"><span class="hs-identifier hs-var">percentComplete</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:externalExecutionId:ExecutionDetails' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#%24sel%3AexternalExecutionId%3AExecutionDetails%27"><span class="hs-identifier hs-var">externalExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:summary:ExecutionDetails' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#%24sel%3Asummary%3AExecutionDetails%27"><span class="hs-identifier hs-var">summary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The percentage of work completed on the action, represented on a scale</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- of 0 to 100 percent.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#executionDetails_percentComplete"><span class="hs-identifier hs-type">executionDetails_percentComplete</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails"><span class="hs-identifier hs-type">ExecutionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="executionDetails_percentComplete"><span class="annot"><span class="annottext">executionDetails_percentComplete :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ExecutionDetails -&gt; f ExecutionDetails
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#executionDetails_percentComplete"><span class="hs-identifier hs-var hs-var">executionDetails_percentComplete</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecutionDetails -&gt; Maybe Natural)
+-&gt; (ExecutionDetails -&gt; Maybe Natural -&gt; ExecutionDetails)
+-&gt; Lens
+     ExecutionDetails ExecutionDetails (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails%27"><span class="hs-identifier hs-type">ExecutionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277576"><span class="annot"><span class="annottext">Maybe Natural
+percentComplete :: Maybe Natural
+$sel:percentComplete:ExecutionDetails' :: ExecutionDetails -&gt; Maybe Natural
+</span><a href="#local-6989586621679277576"><span class="hs-identifier hs-var hs-var">percentComplete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679277576"><span class="hs-identifier hs-var">percentComplete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277575"><span class="annot"><span class="annottext">s :: ExecutionDetails
+</span><a href="#local-6989586621679277575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails%27"><span class="hs-identifier hs-type">ExecutionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277574"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679277574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionDetails
+</span><a href="#local-6989586621679277575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percentComplete:ExecutionDetails' :: Maybe Natural
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#%24sel%3ApercentComplete%3AExecutionDetails%27"><span class="hs-identifier hs-var">percentComplete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679277574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails"><span class="hs-identifier hs-type">ExecutionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The system-generated unique ID of this action used to identify this job</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- worker in any external systems, such as AWS CodeDeploy.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#executionDetails_externalExecutionId"><span class="hs-identifier hs-type">executionDetails_externalExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails"><span class="hs-identifier hs-type">ExecutionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="executionDetails_externalExecutionId"><span class="annot"><span class="annottext">executionDetails_externalExecutionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExecutionDetails -&gt; f ExecutionDetails
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#executionDetails_externalExecutionId"><span class="hs-identifier hs-var hs-var">executionDetails_externalExecutionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecutionDetails -&gt; Maybe Text)
+-&gt; (ExecutionDetails -&gt; Maybe Text -&gt; ExecutionDetails)
+-&gt; Lens ExecutionDetails ExecutionDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails%27"><span class="hs-identifier hs-type">ExecutionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277572"><span class="annot"><span class="annottext">Maybe Text
+externalExecutionId :: Maybe Text
+$sel:externalExecutionId:ExecutionDetails' :: ExecutionDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679277572"><span class="hs-identifier hs-var hs-var">externalExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277572"><span class="hs-identifier hs-var">externalExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277571"><span class="annot"><span class="annottext">s :: ExecutionDetails
+</span><a href="#local-6989586621679277571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails%27"><span class="hs-identifier hs-type">ExecutionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277570"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionDetails
+</span><a href="#local-6989586621679277571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:externalExecutionId:ExecutionDetails' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#%24sel%3AexternalExecutionId%3AExecutionDetails%27"><span class="hs-identifier hs-var">externalExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails"><span class="hs-identifier hs-type">ExecutionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The summary of the current status of the actions.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#executionDetails_summary"><span class="hs-identifier hs-type">executionDetails_summary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails"><span class="hs-identifier hs-type">ExecutionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="executionDetails_summary"><span class="annot"><span class="annottext">executionDetails_summary :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExecutionDetails -&gt; f ExecutionDetails
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#executionDetails_summary"><span class="hs-identifier hs-var hs-var">executionDetails_summary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecutionDetails -&gt; Maybe Text)
+-&gt; (ExecutionDetails -&gt; Maybe Text -&gt; ExecutionDetails)
+-&gt; Lens ExecutionDetails ExecutionDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails%27"><span class="hs-identifier hs-type">ExecutionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277568"><span class="annot"><span class="annottext">Maybe Text
+summary :: Maybe Text
+$sel:summary:ExecutionDetails' :: ExecutionDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679277568"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277568"><span class="hs-identifier hs-var">summary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277567"><span class="annot"><span class="annottext">s :: ExecutionDetails
+</span><a href="#local-6989586621679277567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails%27"><span class="hs-identifier hs-type">ExecutionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277566"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionDetails
+</span><a href="#local-6989586621679277567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summary:ExecutionDetails' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#%24sel%3Asummary%3AExecutionDetails%27"><span class="hs-identifier hs-var">summary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails"><span class="hs-identifier hs-type">ExecutionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277562"><span id="local-6989586621679277564"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails"><span class="hs-identifier hs-type">ExecutionDetails</span></a></span></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails"><span class="hs-identifier hs-type">ExecutionDetails</span></a></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277551"><span id="local-6989586621679277553"><span id="local-6989586621679277555"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails"><span class="hs-identifier hs-type">ExecutionDetails</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679277549"><span class="annot"><span class="annottext">toJSON :: ExecutionDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionDetails.html#ExecutionDetails%27"><span class="hs-identifier hs-type">ExecutionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277545"><span id="local-6989586621679277546"><span id="local-6989586621679277547"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+summary :: Maybe Text
+externalExecutionId :: Maybe Text
+percentComplete :: Maybe Natural
+$sel:summary:ExecutionDetails' :: ExecutionDetails -&gt; Maybe Text
+$sel:externalExecutionId:ExecutionDetails' :: ExecutionDetails -&gt; Maybe Text
+$sel:percentComplete:ExecutionDetails' :: ExecutionDetails -&gt; Maybe Natural
+</span><a href="#local-6989586621679277545"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-89"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;percentComplete&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679277547"><span class="hs-identifier hs-var">percentComplete</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;externalExecutionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277546"><span class="hs-identifier hs-var">externalExecutionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;summary&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277545"><span class="hs-identifier hs-var">summary</span></a></span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span></pre></body></html>

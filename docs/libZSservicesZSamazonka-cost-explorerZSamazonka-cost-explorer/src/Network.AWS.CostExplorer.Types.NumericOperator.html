@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CostExplorer.Types.NumericOperator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CostExplorer.Types.NumericOperator</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator"><span class="hs-identifier">NumericOperator</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_BETWEEN"><span class="hs-identifier">NumericOperator_BETWEEN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_EQUAL"><span class="hs-identifier">NumericOperator_EQUAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_GREATER_THAN"><span class="hs-identifier">NumericOperator_GREATER_THAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_GREATER_THAN_OR_EQUAL"><span class="hs-identifier">NumericOperator_GREATER_THAN_OR_EQUAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_LESS_THAN"><span class="hs-identifier">NumericOperator_LESS_THAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_LESS_THAN_OR_EQUAL"><span class="hs-identifier">NumericOperator_LESS_THAN_OR_EQUAL</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679332085"><span id="local-6989586621679332086"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NumericOperator"><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator"><span class="hs-identifier hs-var">NumericOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NumericOperator%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator%27"><span class="hs-identifier hs-var">NumericOperator'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNumericOperator"><span class="annot"><span class="annottext">NumericOperator -&gt; Text
+</span><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#fromNumericOperator"><span class="hs-identifier hs-var hs-var">fromNumericOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332077"><span id="local-6989586621679332079"><span id="local-6989586621679332081"><span class="annot"><span class="annottext">Int -&gt; NumericOperator -&gt; ShowS
+[NumericOperator] -&gt; ShowS
+NumericOperator -&gt; String
+(Int -&gt; NumericOperator -&gt; ShowS)
+-&gt; (NumericOperator -&gt; String)
+-&gt; ([NumericOperator] -&gt; ShowS)
+-&gt; Show NumericOperator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NumericOperator] -&gt; ShowS
+$cshowList :: [NumericOperator] -&gt; ShowS
+show :: NumericOperator -&gt; String
+$cshow :: NumericOperator -&gt; String
+showsPrec :: Int -&gt; NumericOperator -&gt; ShowS
+$cshowsPrec :: Int -&gt; NumericOperator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679332068"><span id="local-6989586621679332070"><span id="local-6989586621679332072"><span id="local-6989586621679332074"><span class="annot"><span class="annottext">ReadPrec [NumericOperator]
+ReadPrec NumericOperator
+Int -&gt; ReadS NumericOperator
+ReadS [NumericOperator]
+(Int -&gt; ReadS NumericOperator)
+-&gt; ReadS [NumericOperator]
+-&gt; ReadPrec NumericOperator
+-&gt; ReadPrec [NumericOperator]
+-&gt; Read NumericOperator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NumericOperator]
+$creadListPrec :: ReadPrec [NumericOperator]
+readPrec :: ReadPrec NumericOperator
+$creadPrec :: ReadPrec NumericOperator
+readList :: ReadS [NumericOperator]
+$creadList :: ReadS [NumericOperator]
+readsPrec :: Int -&gt; ReadS NumericOperator
+$creadsPrec :: Int -&gt; ReadS NumericOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679332063"><span id="local-6989586621679332065"><span class="annot"><span class="annottext">NumericOperator -&gt; NumericOperator -&gt; Bool
+(NumericOperator -&gt; NumericOperator -&gt; Bool)
+-&gt; (NumericOperator -&gt; NumericOperator -&gt; Bool)
+-&gt; Eq NumericOperator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NumericOperator -&gt; NumericOperator -&gt; Bool
+$c/= :: NumericOperator -&gt; NumericOperator -&gt; Bool
+== :: NumericOperator -&gt; NumericOperator -&gt; Bool
+$c== :: NumericOperator -&gt; NumericOperator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679332047"><span id="local-6989586621679332049"><span id="local-6989586621679332051"><span id="local-6989586621679332053"><span id="local-6989586621679332055"><span id="local-6989586621679332057"><span id="local-6989586621679332059"><span class="annot"><span class="annottext">Eq NumericOperator
+Eq NumericOperator
+-&gt; (NumericOperator -&gt; NumericOperator -&gt; Ordering)
+-&gt; (NumericOperator -&gt; NumericOperator -&gt; Bool)
+-&gt; (NumericOperator -&gt; NumericOperator -&gt; Bool)
+-&gt; (NumericOperator -&gt; NumericOperator -&gt; Bool)
+-&gt; (NumericOperator -&gt; NumericOperator -&gt; Bool)
+-&gt; (NumericOperator -&gt; NumericOperator -&gt; NumericOperator)
+-&gt; (NumericOperator -&gt; NumericOperator -&gt; NumericOperator)
+-&gt; Ord NumericOperator
+NumericOperator -&gt; NumericOperator -&gt; Bool
+NumericOperator -&gt; NumericOperator -&gt; Ordering
+NumericOperator -&gt; NumericOperator -&gt; NumericOperator
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: NumericOperator -&gt; NumericOperator -&gt; NumericOperator
+$cmin :: NumericOperator -&gt; NumericOperator -&gt; NumericOperator
+max :: NumericOperator -&gt; NumericOperator -&gt; NumericOperator
+$cmax :: NumericOperator -&gt; NumericOperator -&gt; NumericOperator
+&gt;= :: NumericOperator -&gt; NumericOperator -&gt; Bool
+$c&gt;= :: NumericOperator -&gt; NumericOperator -&gt; Bool
+&gt; :: NumericOperator -&gt; NumericOperator -&gt; Bool
+$c&gt; :: NumericOperator -&gt; NumericOperator -&gt; Bool
+&lt;= :: NumericOperator -&gt; NumericOperator -&gt; Bool
+$c&lt;= :: NumericOperator -&gt; NumericOperator -&gt; Bool
+&lt; :: NumericOperator -&gt; NumericOperator -&gt; Bool
+$c&lt; :: NumericOperator -&gt; NumericOperator -&gt; Bool
+compare :: NumericOperator -&gt; NumericOperator -&gt; Ordering
+$ccompare :: NumericOperator -&gt; NumericOperator -&gt; Ordering
+$cp1Ord :: Eq NumericOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. NumericOperator -&gt; Rep NumericOperator x)
+-&gt; (forall x. Rep NumericOperator x -&gt; NumericOperator)
+-&gt; Generic NumericOperator
+forall x. Rep NumericOperator x -&gt; NumericOperator
+forall x. NumericOperator -&gt; Rep NumericOperator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NumericOperator x -&gt; NumericOperator
+$cfrom :: forall x. NumericOperator -&gt; Rep NumericOperator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332039"><span id="local-6989586621679332041"><span class="annot"><span class="annottext">Int -&gt; NumericOperator -&gt; Int
+NumericOperator -&gt; Int
+(Int -&gt; NumericOperator -&gt; Int)
+-&gt; (NumericOperator -&gt; Int) -&gt; Hashable NumericOperator
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: NumericOperator -&gt; Int
+$chash :: NumericOperator -&gt; Int
+hashWithSalt :: Int -&gt; NumericOperator -&gt; Int
+$chashWithSalt :: Int -&gt; NumericOperator -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679332036"><span class="annot"><span class="annottext">NumericOperator -&gt; ()
+(NumericOperator -&gt; ()) -&gt; NFData NumericOperator
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: NumericOperator -&gt; ()
+$crnf :: NumericOperator -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679332033"><span class="annot"><span class="annottext">Text -&gt; Either String NumericOperator
+(Text -&gt; Either String NumericOperator) -&gt; FromText NumericOperator
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String NumericOperator
+$cfromText :: Text -&gt; Either String NumericOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679332030"><span class="annot"><span class="annottext">NumericOperator -&gt; Text
+(NumericOperator -&gt; Text) -&gt; ToText NumericOperator
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: NumericOperator -&gt; Text
+$ctoText :: NumericOperator -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679332027"><span class="annot"><span class="annottext">NumericOperator -&gt; ByteString
+(NumericOperator -&gt; ByteString) -&gt; ToByteString NumericOperator
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: NumericOperator -&gt; ByteString
+$ctoBS :: NumericOperator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679332024"><span class="annot"><span class="annottext">NumericOperator -&gt; ByteStringBuilder
+(NumericOperator -&gt; ByteStringBuilder) -&gt; ToLog NumericOperator
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: NumericOperator -&gt; ByteStringBuilder
+$cbuild :: NumericOperator -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679332021"><span class="annot"><span class="annottext">HeaderName -&gt; NumericOperator -&gt; [Header]
+(HeaderName -&gt; NumericOperator -&gt; [Header])
+-&gt; ToHeader NumericOperator
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; NumericOperator -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; NumericOperator -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679332018"><span class="annot"><span class="annottext">NumericOperator -&gt; QueryString
+(NumericOperator -&gt; QueryString) -&gt; ToQuery NumericOperator
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: NumericOperator -&gt; QueryString
+$ctoQuery :: NumericOperator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679332013"><span id="local-6989586621679332015"><span class="annot"><span class="annottext">Value -&gt; Parser [NumericOperator]
+Value -&gt; Parser NumericOperator
+(Value -&gt; Parser NumericOperator)
+-&gt; (Value -&gt; Parser [NumericOperator]) -&gt; FromJSON NumericOperator
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [NumericOperator]
+$cparseJSONList :: Value -&gt; Parser [NumericOperator]
+parseJSON :: Value -&gt; Parser NumericOperator
+$cparseJSON :: Value -&gt; Parser NumericOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679332008"><span id="local-6989586621679332010"><span class="annot"><span class="annottext">FromJSONKeyFunction [NumericOperator]
+FromJSONKeyFunction NumericOperator
+FromJSONKeyFunction NumericOperator
+-&gt; FromJSONKeyFunction [NumericOperator]
+-&gt; FromJSONKey NumericOperator
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [NumericOperator]
+$cfromJSONKeyList :: FromJSONKeyFunction [NumericOperator]
+fromJSONKey :: FromJSONKeyFunction NumericOperator
+$cfromJSONKey :: FromJSONKeyFunction NumericOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679331999"><span id="local-6989586621679332001"><span id="local-6989586621679332003"><span id="local-6989586621679332005"><span class="annot"><span class="annottext">[NumericOperator] -&gt; Encoding
+[NumericOperator] -&gt; Value
+NumericOperator -&gt; Encoding
+NumericOperator -&gt; Value
+(NumericOperator -&gt; Value)
+-&gt; (NumericOperator -&gt; Encoding)
+-&gt; ([NumericOperator] -&gt; Value)
+-&gt; ([NumericOperator] -&gt; Encoding)
+-&gt; ToJSON NumericOperator
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [NumericOperator] -&gt; Encoding
+$ctoEncodingList :: [NumericOperator] -&gt; Encoding
+toJSONList :: [NumericOperator] -&gt; Value
+$ctoJSONList :: [NumericOperator] -&gt; Value
+toEncoding :: NumericOperator -&gt; Encoding
+$ctoEncoding :: NumericOperator -&gt; Encoding
+toJSON :: NumericOperator -&gt; Value
+$ctoJSON :: NumericOperator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679331994"><span id="local-6989586621679331996"><span class="annot"><span class="annottext">ToJSONKeyFunction [NumericOperator]
+ToJSONKeyFunction NumericOperator
+ToJSONKeyFunction NumericOperator
+-&gt; ToJSONKeyFunction [NumericOperator] -&gt; ToJSONKey NumericOperator
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [NumericOperator]
+$ctoJSONKeyList :: ToJSONKeyFunction [NumericOperator]
+toJSONKey :: ToJSONKeyFunction NumericOperator
+$ctoJSONKey :: ToJSONKeyFunction NumericOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679331991"><span class="annot"><span class="annottext">[Node] -&gt; Either String NumericOperator
+([Node] -&gt; Either String NumericOperator)
+-&gt; FromXML NumericOperator
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String NumericOperator
+$cparseXML :: [Node] -&gt; Either String NumericOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679331988"><span class="annot"><span class="annottext">NumericOperator -&gt; XML
+(NumericOperator -&gt; XML) -&gt; ToXML NumericOperator
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: NumericOperator -&gt; XML
+$ctoXML :: NumericOperator -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_BETWEEN"><span class="hs-identifier hs-type">NumericOperator_BETWEEN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator"><span class="hs-identifier hs-type">NumericOperator</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNumericOperator_BETWEEN"><span id="%24mNumericOperator_BETWEEN"><span id="NumericOperator_BETWEEN"><span class="annot"><span class="annottext">$bNumericOperator_BETWEEN :: NumericOperator
+$mNumericOperator_BETWEEN :: forall r. NumericOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#%24bNumericOperator_BETWEEN"><span class="hs-identifier hs-var hs-var hs-var">NumericOperator_BETWEEN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator%27"><span class="hs-identifier hs-type">NumericOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BETWEEN&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_EQUAL"><span class="hs-identifier hs-type">NumericOperator_EQUAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator"><span class="hs-identifier hs-type">NumericOperator</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNumericOperator_EQUAL"><span id="%24mNumericOperator_EQUAL"><span id="NumericOperator_EQUAL"><span class="annot"><span class="annottext">$bNumericOperator_EQUAL :: NumericOperator
+$mNumericOperator_EQUAL :: forall r. NumericOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#%24bNumericOperator_EQUAL"><span class="hs-identifier hs-var hs-var hs-var">NumericOperator_EQUAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator%27"><span class="hs-identifier hs-type">NumericOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EQUAL&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_GREATER_THAN"><span class="hs-identifier hs-type">NumericOperator_GREATER_THAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator"><span class="hs-identifier hs-type">NumericOperator</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNumericOperator_GREATER_THAN"><span id="%24mNumericOperator_GREATER_THAN"><span id="NumericOperator_GREATER_THAN"><span class="annot"><span class="annottext">$bNumericOperator_GREATER_THAN :: NumericOperator
+$mNumericOperator_GREATER_THAN :: forall r. NumericOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#%24bNumericOperator_GREATER_THAN"><span class="hs-identifier hs-var hs-var hs-var">NumericOperator_GREATER_THAN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator%27"><span class="hs-identifier hs-type">NumericOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GREATER_THAN&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_GREATER_THAN_OR_EQUAL"><span class="hs-identifier hs-type">NumericOperator_GREATER_THAN_OR_EQUAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator"><span class="hs-identifier hs-type">NumericOperator</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNumericOperator_GREATER_THAN_OR_EQUAL"><span id="%24mNumericOperator_GREATER_THAN_OR_EQUAL"><span id="NumericOperator_GREATER_THAN_OR_EQUAL"><span class="annot"><span class="annottext">$bNumericOperator_GREATER_THAN_OR_EQUAL :: NumericOperator
+$mNumericOperator_GREATER_THAN_OR_EQUAL :: forall r. NumericOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#%24bNumericOperator_GREATER_THAN_OR_EQUAL"><span class="hs-identifier hs-var hs-var hs-var">NumericOperator_GREATER_THAN_OR_EQUAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator%27"><span class="hs-identifier hs-type">NumericOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GREATER_THAN_OR_EQUAL&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_LESS_THAN"><span class="hs-identifier hs-type">NumericOperator_LESS_THAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator"><span class="hs-identifier hs-type">NumericOperator</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNumericOperator_LESS_THAN"><span id="%24mNumericOperator_LESS_THAN"><span id="NumericOperator_LESS_THAN"><span class="annot"><span class="annottext">$bNumericOperator_LESS_THAN :: NumericOperator
+$mNumericOperator_LESS_THAN :: forall r. NumericOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#%24bNumericOperator_LESS_THAN"><span class="hs-identifier hs-var hs-var hs-var">NumericOperator_LESS_THAN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator%27"><span class="hs-identifier hs-type">NumericOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LESS_THAN&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_LESS_THAN_OR_EQUAL"><span class="hs-identifier hs-type">NumericOperator_LESS_THAN_OR_EQUAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator"><span class="hs-identifier hs-type">NumericOperator</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNumericOperator_LESS_THAN_OR_EQUAL"><span id="%24mNumericOperator_LESS_THAN_OR_EQUAL"><span id="NumericOperator_LESS_THAN_OR_EQUAL"><span class="annot"><span class="annottext">$bNumericOperator_LESS_THAN_OR_EQUAL :: NumericOperator
+$mNumericOperator_LESS_THAN_OR_EQUAL :: forall r. NumericOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#%24bNumericOperator_LESS_THAN_OR_EQUAL"><span class="hs-identifier hs-var hs-var hs-var">NumericOperator_LESS_THAN_OR_EQUAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator%27"><span class="hs-identifier hs-type">NumericOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LESS_THAN_OR_EQUAL&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_BETWEEN"><span class="hs-pragma hs-type">NumericOperator_BETWEEN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_EQUAL"><span class="hs-pragma hs-type">NumericOperator_EQUAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_GREATER_THAN"><span class="hs-pragma hs-type">NumericOperator_GREATER_THAN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_GREATER_THAN_OR_EQUAL"><span class="hs-pragma hs-type">NumericOperator_GREATER_THAN_OR_EQUAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_LESS_THAN"><span class="hs-pragma hs-type">NumericOperator_LESS_THAN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator_LESS_THAN_OR_EQUAL"><span class="hs-pragma hs-type">NumericOperator_LESS_THAN_OR_EQUAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator%27"><span class="hs-pragma hs-type">NumericOperator'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.GuardDuty.AcceptInvitation</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Accepts the invitation to be monitored by a GuardDuty administrator</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GuardDuty.AcceptInvitation</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier">AcceptInvitation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#newAcceptInvitation"><span class="hs-identifier">newAcceptInvitation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#acceptInvitation_detectorId"><span class="hs-identifier">acceptInvitation_detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#acceptInvitation_masterId"><span class="hs-identifier">acceptInvitation_masterId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#acceptInvitation_invitationId"><span class="hs-identifier">acceptInvitation_invitationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitationResponse"><span class="hs-identifier">AcceptInvitationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#newAcceptInvitationResponse"><span class="hs-identifier">newAcceptInvitationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#acceptInvitationResponse_httpStatus"><span class="hs-identifier">acceptInvitationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.html"><span class="hs-identifier">Network.AWS.GuardDuty.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newAcceptInvitation' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679314920"><span id="local-6989586621679314921"></span></span><span class="hs-keyword">data</span><span> </span><span id="AcceptInvitation"><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier hs-var">AcceptInvitation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptInvitation%27"><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation%27"><span class="hs-identifier hs-var">AcceptInvitation'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the detector of the GuardDuty member account.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AdetectorId%3AAcceptInvitation%27"><span class="annot"><span class="annottext">AcceptInvitation -&gt; Text
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#%24sel%3AdetectorId%3AAcceptInvitation%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The account ID of the GuardDuty administrator account whose invitation</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- you\'re accepting.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AmasterId%3AAcceptInvitation%27"><span class="annot"><span class="annottext">AcceptInvitation -&gt; Text
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#%24sel%3AmasterId%3AAcceptInvitation%27"><span class="hs-identifier hs-var hs-var">masterId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The value that is used to validate the administrator account to the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- member account.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AinvitationId%3AAcceptInvitation%27"><span class="annot"><span class="annottext">AcceptInvitation -&gt; Text
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#%24sel%3AinvitationId%3AAcceptInvitation%27"><span class="hs-identifier hs-var hs-var">invitationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314912"><span id="local-6989586621679314914"><span class="annot"><span class="annottext">AcceptInvitation -&gt; AcceptInvitation -&gt; Bool
+(AcceptInvitation -&gt; AcceptInvitation -&gt; Bool)
+-&gt; (AcceptInvitation -&gt; AcceptInvitation -&gt; Bool)
+-&gt; Eq AcceptInvitation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AcceptInvitation -&gt; AcceptInvitation -&gt; Bool
+$c/= :: AcceptInvitation -&gt; AcceptInvitation -&gt; Bool
+== :: AcceptInvitation -&gt; AcceptInvitation -&gt; Bool
+$c== :: AcceptInvitation -&gt; AcceptInvitation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314903"><span id="local-6989586621679314905"><span id="local-6989586621679314907"><span id="local-6989586621679314909"><span class="annot"><span class="annottext">ReadPrec [AcceptInvitation]
+ReadPrec AcceptInvitation
+Int -&gt; ReadS AcceptInvitation
+ReadS [AcceptInvitation]
+(Int -&gt; ReadS AcceptInvitation)
+-&gt; ReadS [AcceptInvitation]
+-&gt; ReadPrec AcceptInvitation
+-&gt; ReadPrec [AcceptInvitation]
+-&gt; Read AcceptInvitation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AcceptInvitation]
+$creadListPrec :: ReadPrec [AcceptInvitation]
+readPrec :: ReadPrec AcceptInvitation
+$creadPrec :: ReadPrec AcceptInvitation
+readList :: ReadS [AcceptInvitation]
+$creadList :: ReadS [AcceptInvitation]
+readsPrec :: Int -&gt; ReadS AcceptInvitation
+$creadsPrec :: Int -&gt; ReadS AcceptInvitation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314896"><span id="local-6989586621679314898"><span id="local-6989586621679314900"><span class="annot"><span class="annottext">Int -&gt; AcceptInvitation -&gt; ShowS
+[AcceptInvitation] -&gt; ShowS
+AcceptInvitation -&gt; String
+(Int -&gt; AcceptInvitation -&gt; ShowS)
+-&gt; (AcceptInvitation -&gt; String)
+-&gt; ([AcceptInvitation] -&gt; ShowS)
+-&gt; Show AcceptInvitation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AcceptInvitation] -&gt; ShowS
+$cshowList :: [AcceptInvitation] -&gt; ShowS
+show :: AcceptInvitation -&gt; String
+$cshow :: AcceptInvitation -&gt; String
+showsPrec :: Int -&gt; AcceptInvitation -&gt; ShowS
+$cshowsPrec :: Int -&gt; AcceptInvitation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AcceptInvitation -&gt; Rep AcceptInvitation x)
+-&gt; (forall x. Rep AcceptInvitation x -&gt; AcceptInvitation)
+-&gt; Generic AcceptInvitation
+forall x. Rep AcceptInvitation x -&gt; AcceptInvitation
+forall x. AcceptInvitation -&gt; Rep AcceptInvitation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AcceptInvitation x -&gt; AcceptInvitation
+$cfrom :: forall x. AcceptInvitation -&gt; Rep AcceptInvitation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'AcceptInvitation' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'detectorId', 'acceptInvitation_detectorId' - The unique ID of the detector of the GuardDuty member account.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'masterId', 'acceptInvitation_masterId' - The account ID of the GuardDuty administrator account whose invitation</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- you\'re accepting.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'invitationId', 'acceptInvitation_invitationId' - The value that is used to validate the administrator account to the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- member account.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#newAcceptInvitation"><span class="hs-identifier hs-type">newAcceptInvitation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'detectorId'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'masterId'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'invitationId'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier hs-type">AcceptInvitation</span></a></span><span>
+</span><span id="line-87"></span><span id="newAcceptInvitation"><span class="annot"><span class="annottext">newAcceptInvitation :: Text -&gt; Text -&gt; Text -&gt; AcceptInvitation
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#newAcceptInvitation"><span class="hs-identifier hs-var hs-var">newAcceptInvitation</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679314891"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314891"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679314890"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314890"><span class="hs-identifier hs-var">pMasterId_</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679314889"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314889"><span class="hs-identifier hs-var">pInvitationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">AcceptInvitation' :: Text -&gt; Text -&gt; Text -&gt; AcceptInvitation
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation%27"><span class="hs-identifier hs-type">AcceptInvitation'</span></a></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detectorId:AcceptInvitation' :: Text
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#%24sel%3AdetectorId%3AAcceptInvitation%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314891"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:masterId:AcceptInvitation' :: Text
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#%24sel%3AmasterId%3AAcceptInvitation%27"><span class="hs-identifier hs-var">masterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314890"><span class="hs-identifier hs-var">pMasterId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:invitationId:AcceptInvitation' :: Text
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#%24sel%3AinvitationId%3AAcceptInvitation%27"><span class="hs-identifier hs-var">invitationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314889"><span class="hs-identifier hs-var">pInvitationId_</span></a></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The unique ID of the detector of the GuardDuty member account.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#acceptInvitation_detectorId"><span class="hs-identifier hs-type">acceptInvitation_detectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier hs-type">AcceptInvitation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="acceptInvitation_detectorId"><span class="annot"><span class="annottext">acceptInvitation_detectorId :: (Text -&gt; f Text) -&gt; AcceptInvitation -&gt; f AcceptInvitation
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#acceptInvitation_detectorId"><span class="hs-identifier hs-var hs-var">acceptInvitation_detectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptInvitation -&gt; Text)
+-&gt; (AcceptInvitation -&gt; Text -&gt; AcceptInvitation)
+-&gt; Lens AcceptInvitation AcceptInvitation Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation%27"><span class="hs-identifier hs-type">AcceptInvitation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314886"><span class="annot"><span class="annottext">Text
+detectorId :: Text
+$sel:detectorId:AcceptInvitation' :: AcceptInvitation -&gt; Text
+</span><a href="#local-6989586621679314886"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314886"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314885"><span class="annot"><span class="annottext">s :: AcceptInvitation
+</span><a href="#local-6989586621679314885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation%27"><span class="hs-identifier hs-type">AcceptInvitation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314884"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptInvitation
+</span><a href="#local-6989586621679314885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:AcceptInvitation' :: Text
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#%24sel%3AdetectorId%3AAcceptInvitation%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier hs-type">AcceptInvitation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The account ID of the GuardDuty administrator account whose invitation</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- you\'re accepting.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#acceptInvitation_masterId"><span class="hs-identifier hs-type">acceptInvitation_masterId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier hs-type">AcceptInvitation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span id="acceptInvitation_masterId"><span class="annot"><span class="annottext">acceptInvitation_masterId :: (Text -&gt; f Text) -&gt; AcceptInvitation -&gt; f AcceptInvitation
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#acceptInvitation_masterId"><span class="hs-identifier hs-var hs-var">acceptInvitation_masterId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptInvitation -&gt; Text)
+-&gt; (AcceptInvitation -&gt; Text -&gt; AcceptInvitation)
+-&gt; Lens AcceptInvitation AcceptInvitation Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation%27"><span class="hs-identifier hs-type">AcceptInvitation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314883"><span class="annot"><span class="annottext">Text
+masterId :: Text
+$sel:masterId:AcceptInvitation' :: AcceptInvitation -&gt; Text
+</span><a href="#local-6989586621679314883"><span class="hs-identifier hs-var hs-var">masterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314883"><span class="hs-identifier hs-var">masterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314882"><span class="annot"><span class="annottext">s :: AcceptInvitation
+</span><a href="#local-6989586621679314882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation%27"><span class="hs-identifier hs-type">AcceptInvitation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314881"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptInvitation
+</span><a href="#local-6989586621679314882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:masterId:AcceptInvitation' :: Text
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#%24sel%3AmasterId%3AAcceptInvitation%27"><span class="hs-identifier hs-var">masterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier hs-type">AcceptInvitation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The value that is used to validate the administrator account to the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- member account.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#acceptInvitation_invitationId"><span class="hs-identifier hs-type">acceptInvitation_invitationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier hs-type">AcceptInvitation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="acceptInvitation_invitationId"><span class="annot"><span class="annottext">acceptInvitation_invitationId :: (Text -&gt; f Text) -&gt; AcceptInvitation -&gt; f AcceptInvitation
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#acceptInvitation_invitationId"><span class="hs-identifier hs-var hs-var">acceptInvitation_invitationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptInvitation -&gt; Text)
+-&gt; (AcceptInvitation -&gt; Text -&gt; AcceptInvitation)
+-&gt; Lens AcceptInvitation AcceptInvitation Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation%27"><span class="hs-identifier hs-type">AcceptInvitation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314880"><span class="annot"><span class="annottext">Text
+invitationId :: Text
+$sel:invitationId:AcceptInvitation' :: AcceptInvitation -&gt; Text
+</span><a href="#local-6989586621679314880"><span class="hs-identifier hs-var hs-var">invitationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314880"><span class="hs-identifier hs-var">invitationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314879"><span class="annot"><span class="annottext">s :: AcceptInvitation
+</span><a href="#local-6989586621679314879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation%27"><span class="hs-identifier hs-type">AcceptInvitation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314878"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptInvitation
+</span><a href="#local-6989586621679314879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invitationId:AcceptInvitation' :: Text
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#%24sel%3AinvitationId%3AAcceptInvitation%27"><span class="hs-identifier hs-var">invitationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier hs-type">AcceptInvitation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier hs-type">AcceptInvitation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier hs-type">AcceptInvitation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitationResponse"><span class="hs-identifier hs-type">AcceptInvitationResponse</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679314874"><span class="annot"><span class="annottext">request :: AcceptInvitation -&gt; Request AcceptInvitation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AcceptInvitation -&gt; Request AcceptInvitation
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679314870"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AcceptInvitation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AcceptInvitation)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse AcceptInvitation))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AcceptInvitation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AcceptInvitation)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314867"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314867"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679314866"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679314866"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679314865"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679314865"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AcceptInvitationResponse
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitationResponse%27"><span class="hs-identifier hs-var">AcceptInvitationResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AcceptInvitationResponse)
+-&gt; Either String Int -&gt; Either String AcceptInvitationResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314867"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314858"><span id="local-6989586621679314860"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier hs-type">AcceptInvitation</span></a></span></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314855"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier hs-type">AcceptInvitation</span></a></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier hs-type">AcceptInvitation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679314851"><span class="annot"><span class="annottext">toHeaders :: AcceptInvitation -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AcceptInvitation -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-134"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314841"><span id="local-6989586621679314843"><span id="local-6989586621679314845"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier hs-type">AcceptInvitation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679314839"><span class="annot"><span class="annottext">toJSON :: AcceptInvitation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation%27"><span class="hs-identifier hs-type">AcceptInvitation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314835"><span id="local-6989586621679314836"><span id="local-6989586621679314837"><span class="annot"><span class="annottext">Text
+invitationId :: Text
+masterId :: Text
+detectorId :: Text
+$sel:invitationId:AcceptInvitation' :: AcceptInvitation -&gt; Text
+$sel:masterId:AcceptInvitation' :: AcceptInvitation -&gt; Text
+$sel:detectorId:AcceptInvitation' :: AcceptInvitation -&gt; Text
+</span><a href="#local-6989586621679314835"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;masterId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314836"><span class="hs-identifier hs-var">masterId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;invitationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314835"><span class="hs-identifier hs-var">invitationId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier hs-type">AcceptInvitation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679314829"><span class="annot"><span class="annottext">toPath :: AcceptInvitation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation%27"><span class="hs-identifier hs-type">AcceptInvitation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314825"><span id="local-6989586621679314826"><span id="local-6989586621679314827"><span class="annot"><span class="annottext">Text
+invitationId :: Text
+masterId :: Text
+detectorId :: Text
+$sel:invitationId:AcceptInvitation' :: AcceptInvitation -&gt; Text
+$sel:masterId:AcceptInvitation' :: AcceptInvitation -&gt; Text
+$sel:detectorId:AcceptInvitation' :: AcceptInvitation -&gt; Text
+</span><a href="#local-6989586621679314825"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/detector/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314827"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/master&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitation"><span class="hs-identifier hs-type">AcceptInvitation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679314821"><span class="annot"><span class="annottext">toQuery :: AcceptInvitation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AcceptInvitation -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | /See:/ 'newAcceptInvitationResponse' smart constructor.</span><span>
+</span><span id="line-156"></span><span id="local-6989586621679314818"><span id="local-6989586621679314819"></span></span><span class="hs-keyword">data</span><span> </span><span id="AcceptInvitationResponse"><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitationResponse"><span class="hs-identifier hs-var">AcceptInvitationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptInvitationResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitationResponse%27"><span class="hs-identifier hs-var">AcceptInvitationResponse'</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAcceptInvitationResponse%27"><span class="annot"><span class="annottext">AcceptInvitationResponse -&gt; Int
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#%24sel%3AhttpStatus%3AAcceptInvitationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314813"><span id="local-6989586621679314815"><span class="annot"><span class="annottext">AcceptInvitationResponse -&gt; AcceptInvitationResponse -&gt; Bool
+(AcceptInvitationResponse -&gt; AcceptInvitationResponse -&gt; Bool)
+-&gt; (AcceptInvitationResponse -&gt; AcceptInvitationResponse -&gt; Bool)
+-&gt; Eq AcceptInvitationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AcceptInvitationResponse -&gt; AcceptInvitationResponse -&gt; Bool
+$c/= :: AcceptInvitationResponse -&gt; AcceptInvitationResponse -&gt; Bool
+== :: AcceptInvitationResponse -&gt; AcceptInvitationResponse -&gt; Bool
+$c== :: AcceptInvitationResponse -&gt; AcceptInvitationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314805"><span id="local-6989586621679314807"><span id="local-6989586621679314809"><span id="local-6989586621679314811"><span class="annot"><span class="annottext">ReadPrec [AcceptInvitationResponse]
+ReadPrec AcceptInvitationResponse
+Int -&gt; ReadS AcceptInvitationResponse
+ReadS [AcceptInvitationResponse]
+(Int -&gt; ReadS AcceptInvitationResponse)
+-&gt; ReadS [AcceptInvitationResponse]
+-&gt; ReadPrec AcceptInvitationResponse
+-&gt; ReadPrec [AcceptInvitationResponse]
+-&gt; Read AcceptInvitationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AcceptInvitationResponse]
+$creadListPrec :: ReadPrec [AcceptInvitationResponse]
+readPrec :: ReadPrec AcceptInvitationResponse
+$creadPrec :: ReadPrec AcceptInvitationResponse
+readList :: ReadS [AcceptInvitationResponse]
+$creadList :: ReadS [AcceptInvitationResponse]
+readsPrec :: Int -&gt; ReadS AcceptInvitationResponse
+$creadsPrec :: Int -&gt; ReadS AcceptInvitationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314799"><span id="local-6989586621679314801"><span id="local-6989586621679314803"><span class="annot"><span class="annottext">Int -&gt; AcceptInvitationResponse -&gt; ShowS
+[AcceptInvitationResponse] -&gt; ShowS
+AcceptInvitationResponse -&gt; String
+(Int -&gt; AcceptInvitationResponse -&gt; ShowS)
+-&gt; (AcceptInvitationResponse -&gt; String)
+-&gt; ([AcceptInvitationResponse] -&gt; ShowS)
+-&gt; Show AcceptInvitationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AcceptInvitationResponse] -&gt; ShowS
+$cshowList :: [AcceptInvitationResponse] -&gt; ShowS
+show :: AcceptInvitationResponse -&gt; String
+$cshow :: AcceptInvitationResponse -&gt; String
+showsPrec :: Int -&gt; AcceptInvitationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AcceptInvitationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AcceptInvitationResponse -&gt; Rep AcceptInvitationResponse x)
+-&gt; (forall x.
+    Rep AcceptInvitationResponse x -&gt; AcceptInvitationResponse)
+-&gt; Generic AcceptInvitationResponse
+forall x.
+Rep AcceptInvitationResponse x -&gt; AcceptInvitationResponse
+forall x.
+AcceptInvitationResponse -&gt; Rep AcceptInvitationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AcceptInvitationResponse x -&gt; AcceptInvitationResponse
+$cfrom :: forall x.
+AcceptInvitationResponse -&gt; Rep AcceptInvitationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Create a value of 'AcceptInvitationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'httpStatus', 'acceptInvitationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#newAcceptInvitationResponse"><span class="hs-identifier hs-type">newAcceptInvitationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitationResponse"><span class="hs-identifier hs-type">AcceptInvitationResponse</span></a></span><span>
+</span><span id="line-175"></span><span id="newAcceptInvitationResponse"><span class="annot"><span class="annottext">newAcceptInvitationResponse :: Int -&gt; AcceptInvitationResponse
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#newAcceptInvitationResponse"><span class="hs-identifier hs-var hs-var">newAcceptInvitationResponse</span></a></span></span><span> </span><span id="local-6989586621679314796"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314796"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">AcceptInvitationResponse' :: Int -&gt; AcceptInvitationResponse
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitationResponse%27"><span class="hs-identifier hs-type">AcceptInvitationResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AcceptInvitationResponse' :: Int
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#%24sel%3AhttpStatus%3AAcceptInvitationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314796"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#acceptInvitationResponse_httpStatus"><span class="hs-identifier hs-type">acceptInvitationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitationResponse"><span class="hs-identifier hs-type">AcceptInvitationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span id="acceptInvitationResponse_httpStatus"><span class="annot"><span class="annottext">acceptInvitationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AcceptInvitationResponse -&gt; f AcceptInvitationResponse
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#acceptInvitationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">acceptInvitationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptInvitationResponse -&gt; Int)
+-&gt; (AcceptInvitationResponse -&gt; Int -&gt; AcceptInvitationResponse)
+-&gt; Lens AcceptInvitationResponse AcceptInvitationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitationResponse%27"><span class="hs-identifier hs-type">AcceptInvitationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314795"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AcceptInvitationResponse' :: AcceptInvitationResponse -&gt; Int
+</span><a href="#local-6989586621679314795"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314795"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314794"><span class="annot"><span class="annottext">s :: AcceptInvitationResponse
+</span><a href="#local-6989586621679314794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitationResponse%27"><span class="hs-identifier hs-type">AcceptInvitationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314793"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptInvitationResponse
+</span><a href="#local-6989586621679314794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AcceptInvitationResponse' :: Int
+</span><a href="Network.AWS.GuardDuty.AcceptInvitation.html#%24sel%3AhttpStatus%3AAcceptInvitationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitationResponse"><span class="hs-identifier hs-type">AcceptInvitationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314791"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.AcceptInvitation.html#AcceptInvitationResponse"><span class="hs-identifier hs-type">AcceptInvitationResponse</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

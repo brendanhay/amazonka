@@ -1,0 +1,1190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DeviceFarm.Types.Job</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DeviceFarm.Types.Job</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html"><span class="hs-identifier">Network.AWS.DeviceFarm.Types.Counters</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Device.html"><span class="hs-identifier">Network.AWS.DeviceFarm.Types.Device</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html"><span class="hs-identifier">Network.AWS.DeviceFarm.Types.DeviceMinutes</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ExecutionResult.html"><span class="hs-identifier">Network.AWS.DeviceFarm.Types.ExecutionResult</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ExecutionStatus.html"><span class="hs-identifier">Network.AWS.DeviceFarm.Types.ExecutionStatus</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestType.html"><span class="hs-identifier">Network.AWS.DeviceFarm.Types.TestType</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Represents a device.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newJob' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679370528"><span id="local-6989586621679370529"></span></span><span class="hs-keyword">data</span><span> </span><span id="Job"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-var">Job</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Job%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-var">Job'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The job\'s result counters.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Acounters%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Counters
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Acounters%3AJob%27"><span class="hs-identifier hs-var hs-var">counters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The job\'s status.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Allowed values include:</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   PENDING</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   PENDING_CONCURRENCY</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   PENDING_DEVICE</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   PROCESSING</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   SCHEDULING</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   PREPARING</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   RUNNING</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   COMPLETED</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   STOPPING</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Astatus%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe ExecutionStatus
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Astatus%3AJob%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The job\'s start time.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Astarted%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Astarted%3AJob%27"><span class="hs-identifier hs-var hs-var">started</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The job\'s result.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Allowed values include:</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   PENDING</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   PASSED</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   WARNED</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   FAILED</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   SKIPPED</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   ERRORED</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- -   STOPPED</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Aresult%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe ExecutionResult
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Aresult%3AJob%27"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ExecutionResult.html#ExecutionResult"><span class="hs-identifier hs-type">ExecutionResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | A message about the job\'s result.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Amessage%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Amessage%3AJob%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The device (phone or tablet).</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Adevice%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Device
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Adevice%3AJob%27"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The job\'s ARN.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3Aarn%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Aarn%3AJob%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | This value is set to true if video capture is enabled. Otherwise, it is</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- set to false.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AvideoCapture%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Bool
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3AvideoCapture%3AJob%27"><span class="hs-identifier hs-var hs-var">videoCapture</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The endpoint for streaming device video.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AvideoEndpoint%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3AvideoEndpoint%3AJob%27"><span class="hs-identifier hs-var hs-var">videoEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The job\'s name.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3Aname%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Aname%3AJob%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The ARN of the instance.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AinstanceArn%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3AinstanceArn%3AJob%27"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The job\'s stop time.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3Astopped%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Astopped%3AJob%27"><span class="hs-identifier hs-var hs-var">stopped</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The job\'s type.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- Allowed values include the following:</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   BUILTIN_FUZZ</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- -   BUILTIN_EXPLORER. For Android, an app explorer that traverses an</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--     Android app, interacting with it and capturing screenshots at the</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--     same time.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- -   APPIUM_JAVA_JUNIT</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- -   APPIUM_JAVA_TESTNG</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- -   APPIUM_PYTHON</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- -   APPIUM_NODE</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- -   APPIUM_RUBY</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- -   APPIUM_WEB_JAVA_JUNIT</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- -   APPIUM_WEB_JAVA_TESTNG</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- -   APPIUM_WEB_PYTHON</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- -   APPIUM_WEB_NODE</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- -   APPIUM_WEB_RUBY</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- -   CALABASH</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- -   INSTRUMENTATION</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- -   UIAUTOMATION</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- -   UIAUTOMATOR</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- -   XCTEST</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- -   XCTEST_UI</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3Atype%27%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe TestType
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Atype%27%3AJob%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | When the job was created.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3Acreated%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Acreated%3AJob%27"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | Represents the total (metered or unmetered) minutes used by the job.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AdeviceMinutes%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe DeviceMinutes
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3AdeviceMinutes%3AJob%27"><span class="hs-identifier hs-var hs-var">deviceMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-type">DeviceMinutes</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370508"><span id="local-6989586621679370510"><span class="annot"><span class="annottext">Job -&gt; Job -&gt; Bool
+(Job -&gt; Job -&gt; Bool) -&gt; (Job -&gt; Job -&gt; Bool) -&gt; Eq Job
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Job -&gt; Job -&gt; Bool
+$c/= :: Job -&gt; Job -&gt; Bool
+== :: Job -&gt; Job -&gt; Bool
+$c== :: Job -&gt; Job -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370499"><span id="local-6989586621679370501"><span id="local-6989586621679370503"><span id="local-6989586621679370505"><span class="annot"><span class="annottext">ReadPrec [Job]
+ReadPrec Job
+Int -&gt; ReadS Job
+ReadS [Job]
+(Int -&gt; ReadS Job)
+-&gt; ReadS [Job] -&gt; ReadPrec Job -&gt; ReadPrec [Job] -&gt; Read Job
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Job]
+$creadListPrec :: ReadPrec [Job]
+readPrec :: ReadPrec Job
+$creadPrec :: ReadPrec Job
+readList :: ReadS [Job]
+$creadList :: ReadS [Job]
+readsPrec :: Int -&gt; ReadS Job
+$creadsPrec :: Int -&gt; ReadS Job
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370492"><span id="local-6989586621679370494"><span id="local-6989586621679370496"><span class="annot"><span class="annottext">Int -&gt; Job -&gt; ShowS
+[Job] -&gt; ShowS
+Job -&gt; String
+(Int -&gt; Job -&gt; ShowS)
+-&gt; (Job -&gt; String) -&gt; ([Job] -&gt; ShowS) -&gt; Show Job
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Job] -&gt; ShowS
+$cshowList :: [Job] -&gt; ShowS
+show :: Job -&gt; String
+$cshow :: Job -&gt; String
+showsPrec :: Int -&gt; Job -&gt; ShowS
+$cshowsPrec :: Int -&gt; Job -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Job -&gt; Rep Job x)
+-&gt; (forall x. Rep Job x -&gt; Job) -&gt; Generic Job
+forall x. Rep Job x -&gt; Job
+forall x. Job -&gt; Rep Job x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Job x -&gt; Job
+$cfrom :: forall x. Job -&gt; Rep Job x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'Job' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'counters', 'job_counters' - The job\'s result counters.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'status', 'job_status' - The job\'s status.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Allowed values include:</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   PENDING</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   PENDING_CONCURRENCY</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   PENDING_DEVICE</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- -   PROCESSING</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- -   SCHEDULING</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- -   PREPARING</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- -   RUNNING</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- -   COMPLETED</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- -   STOPPING</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'started', 'job_started' - The job\'s start time.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'result', 'job_result' - The job\'s result.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Allowed values include:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- -   PENDING</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- -   PASSED</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -   WARNED</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- -   FAILED</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   SKIPPED</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- -   ERRORED</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- -   STOPPED</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'message', 'job_message' - A message about the job\'s result.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'device', 'job_device' - The device (phone or tablet).</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'arn', 'job_arn' - The job\'s ARN.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'videoCapture', 'job_videoCapture' - This value is set to true if video capture is enabled. Otherwise, it is</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- set to false.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'videoEndpoint', 'job_videoEndpoint' - The endpoint for streaming device video.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'name', 'job_name' - The job\'s name.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'instanceArn', 'job_instanceArn' - The ARN of the instance.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'stopped', 'job_stopped' - The job\'s stop time.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'type'', 'job_type' - The job\'s type.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- Allowed values include the following:</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- -   BUILTIN_FUZZ</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- -   BUILTIN_EXPLORER. For Android, an app explorer that traverses an</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--     Android app, interacting with it and capturing screenshots at the</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--     same time.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- -   APPIUM_JAVA_JUNIT</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- -   APPIUM_JAVA_TESTNG</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- -   APPIUM_PYTHON</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- -   APPIUM_NODE</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- -   APPIUM_RUBY</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- -   APPIUM_WEB_JAVA_JUNIT</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- -   APPIUM_WEB_JAVA_TESTNG</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- -   APPIUM_WEB_PYTHON</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- -   APPIUM_WEB_NODE</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- -   APPIUM_WEB_RUBY</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- -   CALABASH</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- -   INSTRUMENTATION</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- -   UIAUTOMATION</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- -   UIAUTOMATOR</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- -   XCTEST</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- -   XCTEST_UI</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'created', 'job_created' - When the job was created.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- 'deviceMinutes', 'job_deviceMinutes' - Represents the total (metered or unmetered) minutes used by the job.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#newJob"><span class="hs-identifier hs-type">newJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span>
+</span><span id="line-262"></span><span id="newJob"><span class="annot"><span class="annottext">newJob :: Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#newJob"><span class="hs-identifier hs-var hs-var">newJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>  </span><span class="annot"><span class="annottext">Job' :: Maybe Counters
+-&gt; Maybe ExecutionStatus
+-&gt; Maybe POSIX
+-&gt; Maybe ExecutionResult
+-&gt; Maybe Text
+-&gt; Maybe Device
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe TestType
+-&gt; Maybe POSIX
+-&gt; Maybe DeviceMinutes
+-&gt; Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:counters:Job' :: Maybe Counters
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Acounters%3AJob%27"><span class="hs-identifier hs-var">counters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Counters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:Job' :: Maybe ExecutionStatus
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Astatus%3AJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:started:Job' :: Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Astarted%3AJob%27"><span class="hs-identifier hs-var">started</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">$sel:result:Job' :: Maybe ExecutionResult
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Aresult%3AJob%27"><span class="hs-identifier hs-var">result</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:Job' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Amessage%3AJob%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">$sel:device:Job' :: Maybe Device
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Adevice%3AJob%27"><span class="hs-identifier hs-var">device</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Device
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Job' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Aarn%3AJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>      </span><span class="annot"><span class="annottext">$sel:videoCapture:Job' :: Maybe Bool
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3AvideoCapture%3AJob%27"><span class="hs-identifier hs-var">videoCapture</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">$sel:videoEndpoint:Job' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3AvideoEndpoint%3AJob%27"><span class="hs-identifier hs-var">videoEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Job' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Aname%3AJob%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceArn:Job' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3AinstanceArn%3AJob%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">$sel:stopped:Job' :: Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Astopped%3AJob%27"><span class="hs-identifier hs-var">stopped</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Job' :: Maybe TestType
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Atype%27%3AJob%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TestType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>      </span><span class="annot"><span class="annottext">$sel:created:Job' :: Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Acreated%3AJob%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceMinutes:Job' :: Maybe DeviceMinutes
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3AdeviceMinutes%3AJob%27"><span class="hs-identifier hs-var">deviceMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceMinutes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-279"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | The job\'s result counters.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#job_counters"><span class="hs-identifier hs-type">job_counters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="job_counters"><span class="annot"><span class="annottext">job_counters :: (Maybe Counters -&gt; f (Maybe Counters)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#job_counters"><span class="hs-identifier hs-var hs-var">job_counters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Counters)
+-&gt; (Job -&gt; Maybe Counters -&gt; Job)
+-&gt; Lens Job Job (Maybe Counters) (Maybe Counters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370483"><span class="annot"><span class="annottext">Maybe Counters
+counters :: Maybe Counters
+$sel:counters:Job' :: Job -&gt; Maybe Counters
+</span><a href="#local-6989586621679370483"><span class="hs-identifier hs-var hs-var">counters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Counters
+</span><a href="#local-6989586621679370483"><span class="hs-identifier hs-var">counters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370482"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679370482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370481"><span class="annot"><span class="annottext">Maybe Counters
+</span><a href="#local-6989586621679370481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679370482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:counters:Job' :: Maybe Counters
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Acounters%3AJob%27"><span class="hs-identifier hs-var">counters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Counters
+</span><a href="#local-6989586621679370481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The job\'s status.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- Allowed values include:</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- -   PENDING</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- -   PENDING_CONCURRENCY</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- -   PENDING_DEVICE</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- -   PROCESSING</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- -   SCHEDULING</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- -   PREPARING</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- -   RUNNING</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- -   COMPLETED</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- -   STOPPING</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#job_status"><span class="hs-identifier hs-type">job_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span id="job_status"><span class="annot"><span class="annottext">job_status :: (Maybe ExecutionStatus -&gt; f (Maybe ExecutionStatus))
+-&gt; Job -&gt; f Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#job_status"><span class="hs-identifier hs-var hs-var">job_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe ExecutionStatus)
+-&gt; (Job -&gt; Maybe ExecutionStatus -&gt; Job)
+-&gt; Lens Job Job (Maybe ExecutionStatus) (Maybe ExecutionStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370479"><span class="annot"><span class="annottext">Maybe ExecutionStatus
+status :: Maybe ExecutionStatus
+$sel:status:Job' :: Job -&gt; Maybe ExecutionStatus
+</span><a href="#local-6989586621679370479"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
+</span><a href="#local-6989586621679370479"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370478"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679370478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370477"><span class="annot"><span class="annottext">Maybe ExecutionStatus
+</span><a href="#local-6989586621679370477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679370478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Job' :: Maybe ExecutionStatus
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Astatus%3AJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
+</span><a href="#local-6989586621679370477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | The job\'s start time.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#job_started"><span class="hs-identifier hs-type">job_started</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span id="job_started"><span class="annot"><span class="annottext">job_started :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#job_started"><span class="hs-identifier hs-var hs-var">job_started</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe POSIX)
+-&gt; (Job -&gt; Maybe POSIX -&gt; Job)
+-&gt; Lens Job Job (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370475"><span class="annot"><span class="annottext">Maybe POSIX
+started :: Maybe POSIX
+$sel:started:Job' :: Job -&gt; Maybe POSIX
+</span><a href="#local-6989586621679370475"><span class="hs-identifier hs-var hs-var">started</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679370475"><span class="hs-identifier hs-var">started</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370474"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679370474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370473"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679370473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679370474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:started:Job' :: Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Astarted%3AJob%27"><span class="hs-identifier hs-var">started</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679370473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Job -&gt; f Job)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Job
+-&gt; f Job
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | The job\'s result.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- Allowed values include:</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- -   PENDING</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- -   PASSED</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- -   WARNED</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- -   FAILED</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- -   SKIPPED</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- -   ERRORED</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- -   STOPPED</span><span>
+</span><span id="line-330"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#job_result"><span class="hs-identifier hs-type">job_result</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ExecutionResult.html#ExecutionResult"><span class="hs-identifier hs-type">ExecutionResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span id="job_result"><span class="annot"><span class="annottext">job_result :: (Maybe ExecutionResult -&gt; f (Maybe ExecutionResult))
+-&gt; Job -&gt; f Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#job_result"><span class="hs-identifier hs-var hs-var">job_result</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe ExecutionResult)
+-&gt; (Job -&gt; Maybe ExecutionResult -&gt; Job)
+-&gt; Lens Job Job (Maybe ExecutionResult) (Maybe ExecutionResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370468"><span class="annot"><span class="annottext">Maybe ExecutionResult
+result :: Maybe ExecutionResult
+$sel:result:Job' :: Job -&gt; Maybe ExecutionResult
+</span><a href="#local-6989586621679370468"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionResult
+</span><a href="#local-6989586621679370468"><span class="hs-identifier hs-var">result</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370467"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679370467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370466"><span class="annot"><span class="annottext">Maybe ExecutionResult
+</span><a href="#local-6989586621679370466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679370467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:result:Job' :: Maybe ExecutionResult
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Aresult%3AJob%27"><span class="hs-identifier hs-var">result</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionResult
+</span><a href="#local-6989586621679370466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- | A message about the job\'s result.</span><span>
+</span><span id="line-334"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#job_message"><span class="hs-identifier hs-type">job_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span id="job_message"><span class="annot"><span class="annottext">job_message :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#job_message"><span class="hs-identifier hs-var hs-var">job_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370464"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679370464"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370464"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370463"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679370463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370462"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679370463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Job' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Amessage%3AJob%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- | The device (phone or tablet).</span><span>
+</span><span id="line-338"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#job_device"><span class="hs-identifier hs-type">job_device</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span id="job_device"><span class="annot"><span class="annottext">job_device :: (Maybe Device -&gt; f (Maybe Device)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#job_device"><span class="hs-identifier hs-var hs-var">job_device</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Device)
+-&gt; (Job -&gt; Maybe Device -&gt; Job)
+-&gt; Lens Job Job (Maybe Device) (Maybe Device)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370460"><span class="annot"><span class="annottext">Maybe Device
+device :: Maybe Device
+$sel:device:Job' :: Job -&gt; Maybe Device
+</span><a href="#local-6989586621679370460"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Device
+</span><a href="#local-6989586621679370460"><span class="hs-identifier hs-var">device</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370459"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679370459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370458"><span class="annot"><span class="annottext">Maybe Device
+</span><a href="#local-6989586621679370458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679370459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:device:Job' :: Maybe Device
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Adevice%3AJob%27"><span class="hs-identifier hs-var">device</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Device
+</span><a href="#local-6989586621679370458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- | The job\'s ARN.</span><span>
+</span><span id="line-342"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#job_arn"><span class="hs-identifier hs-type">job_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span id="job_arn"><span class="annot"><span class="annottext">job_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#job_arn"><span class="hs-identifier hs-var hs-var">job_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370456"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679370456"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370456"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370455"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679370455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370454"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679370455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Job' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Aarn%3AJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- | This value is set to true if video capture is enabled. Otherwise, it is</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- set to false.</span><span>
+</span><span id="line-347"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#job_videoCapture"><span class="hs-identifier hs-type">job_videoCapture</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span id="job_videoCapture"><span class="annot"><span class="annottext">job_videoCapture :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#job_videoCapture"><span class="hs-identifier hs-var hs-var">job_videoCapture</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Bool)
+-&gt; (Job -&gt; Maybe Bool -&gt; Job)
+-&gt; Lens Job Job (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370452"><span class="annot"><span class="annottext">Maybe Bool
+videoCapture :: Maybe Bool
+$sel:videoCapture:Job' :: Job -&gt; Maybe Bool
+</span><a href="#local-6989586621679370452"><span class="hs-identifier hs-var hs-var">videoCapture</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679370452"><span class="hs-identifier hs-var">videoCapture</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370451"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679370451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370450"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679370450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679370451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoCapture:Job' :: Maybe Bool
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3AvideoCapture%3AJob%27"><span class="hs-identifier hs-var">videoCapture</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679370450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- | The endpoint for streaming device video.</span><span>
+</span><span id="line-351"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#job_videoEndpoint"><span class="hs-identifier hs-type">job_videoEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span id="job_videoEndpoint"><span class="annot"><span class="annottext">job_videoEndpoint :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#job_videoEndpoint"><span class="hs-identifier hs-var hs-var">job_videoEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370448"><span class="annot"><span class="annottext">Maybe Text
+videoEndpoint :: Maybe Text
+$sel:videoEndpoint:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679370448"><span class="hs-identifier hs-var hs-var">videoEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370448"><span class="hs-identifier hs-var">videoEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370447"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679370447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370446"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679370447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoEndpoint:Job' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3AvideoEndpoint%3AJob%27"><span class="hs-identifier hs-var">videoEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- | The job\'s name.</span><span>
+</span><span id="line-355"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#job_name"><span class="hs-identifier hs-type">job_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span id="job_name"><span class="annot"><span class="annottext">job_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#job_name"><span class="hs-identifier hs-var hs-var">job_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370444"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679370444"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370444"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370443"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679370443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370442"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679370443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Job' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Aname%3AJob%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- | The ARN of the instance.</span><span>
+</span><span id="line-359"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#job_instanceArn"><span class="hs-identifier hs-type">job_instanceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-360"></span><span id="job_instanceArn"><span class="annot"><span class="annottext">job_instanceArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#job_instanceArn"><span class="hs-identifier hs-var hs-var">job_instanceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370440"><span class="annot"><span class="annottext">Maybe Text
+instanceArn :: Maybe Text
+$sel:instanceArn:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679370440"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370440"><span class="hs-identifier hs-var">instanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370439"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679370439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370438"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679370439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceArn:Job' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3AinstanceArn%3AJob%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- | The job\'s stop time.</span><span>
+</span><span id="line-363"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#job_stopped"><span class="hs-identifier hs-type">job_stopped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-364"></span><span id="job_stopped"><span class="annot"><span class="annottext">job_stopped :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#job_stopped"><span class="hs-identifier hs-var hs-var">job_stopped</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe POSIX)
+-&gt; (Job -&gt; Maybe POSIX -&gt; Job)
+-&gt; Lens Job Job (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370436"><span class="annot"><span class="annottext">Maybe POSIX
+stopped :: Maybe POSIX
+$sel:stopped:Job' :: Job -&gt; Maybe POSIX
+</span><a href="#local-6989586621679370436"><span class="hs-identifier hs-var hs-var">stopped</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679370436"><span class="hs-identifier hs-var">stopped</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370435"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679370435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370434"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679370434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679370435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopped:Job' :: Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Astopped%3AJob%27"><span class="hs-identifier hs-var">stopped</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679370434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Job -&gt; f Job)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Job
+-&gt; f Job
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-365"></span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- | The job\'s type.</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- Allowed values include the following:</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- -   BUILTIN_FUZZ</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- -   BUILTIN_EXPLORER. For Android, an app explorer that traverses an</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--     Android app, interacting with it and capturing screenshots at the</span><span>
+</span><span id="line-374"></span><span class="hs-comment">--     same time.</span><span>
+</span><span id="line-375"></span><span class="hs-comment">--</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- -   APPIUM_JAVA_JUNIT</span><span>
+</span><span id="line-377"></span><span class="hs-comment">--</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- -   APPIUM_JAVA_TESTNG</span><span>
+</span><span id="line-379"></span><span class="hs-comment">--</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- -   APPIUM_PYTHON</span><span>
+</span><span id="line-381"></span><span class="hs-comment">--</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- -   APPIUM_NODE</span><span>
+</span><span id="line-383"></span><span class="hs-comment">--</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- -   APPIUM_RUBY</span><span>
+</span><span id="line-385"></span><span class="hs-comment">--</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- -   APPIUM_WEB_JAVA_JUNIT</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- -   APPIUM_WEB_JAVA_TESTNG</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- -   APPIUM_WEB_PYTHON</span><span>
+</span><span id="line-391"></span><span class="hs-comment">--</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- -   APPIUM_WEB_NODE</span><span>
+</span><span id="line-393"></span><span class="hs-comment">--</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- -   APPIUM_WEB_RUBY</span><span>
+</span><span id="line-395"></span><span class="hs-comment">--</span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- -   CALABASH</span><span>
+</span><span id="line-397"></span><span class="hs-comment">--</span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- -   INSTRUMENTATION</span><span>
+</span><span id="line-399"></span><span class="hs-comment">--</span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- -   UIAUTOMATION</span><span>
+</span><span id="line-401"></span><span class="hs-comment">--</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- -   UIAUTOMATOR</span><span>
+</span><span id="line-403"></span><span class="hs-comment">--</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- -   XCTEST</span><span>
+</span><span id="line-405"></span><span class="hs-comment">--</span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- -   XCTEST_UI</span><span>
+</span><span id="line-407"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#job_type"><span class="hs-identifier hs-type">job_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-408"></span><span id="job_type"><span class="annot"><span class="annottext">job_type :: (Maybe TestType -&gt; f (Maybe TestType)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#job_type"><span class="hs-identifier hs-var hs-var">job_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe TestType)
+-&gt; (Job -&gt; Maybe TestType -&gt; Job)
+-&gt; Lens Job Job (Maybe TestType) (Maybe TestType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370432"><span class="annot"><span class="annottext">Maybe TestType
+type' :: Maybe TestType
+$sel:type':Job' :: Job -&gt; Maybe TestType
+</span><a href="#local-6989586621679370432"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TestType
+</span><a href="#local-6989586621679370432"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370431"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679370431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370430"><span class="annot"><span class="annottext">Maybe TestType
+</span><a href="#local-6989586621679370430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679370431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Job' :: Maybe TestType
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Atype%27%3AJob%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TestType
+</span><a href="#local-6989586621679370430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-409"></span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- | When the job was created.</span><span>
+</span><span id="line-411"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#job_created"><span class="hs-identifier hs-type">job_created</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-412"></span><span id="job_created"><span class="annot"><span class="annottext">job_created :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#job_created"><span class="hs-identifier hs-var hs-var">job_created</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe POSIX)
+-&gt; (Job -&gt; Maybe POSIX -&gt; Job)
+-&gt; Lens Job Job (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370428"><span class="annot"><span class="annottext">Maybe POSIX
+created :: Maybe POSIX
+$sel:created:Job' :: Job -&gt; Maybe POSIX
+</span><a href="#local-6989586621679370428"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679370428"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370427"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679370427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370426"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679370426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679370427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:Job' :: Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3Acreated%3AJob%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679370426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Job -&gt; f Job)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Job
+-&gt; f Job
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-413"></span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- | Represents the total (metered or unmetered) minutes used by the job.</span><span>
+</span><span id="line-415"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#job_deviceMinutes"><span class="hs-identifier hs-type">job_deviceMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-type">DeviceMinutes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-416"></span><span id="job_deviceMinutes"><span class="annot"><span class="annottext">job_deviceMinutes :: (Maybe DeviceMinutes -&gt; f (Maybe DeviceMinutes)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#job_deviceMinutes"><span class="hs-identifier hs-var hs-var">job_deviceMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe DeviceMinutes)
+-&gt; (Job -&gt; Maybe DeviceMinutes -&gt; Job)
+-&gt; Lens Job Job (Maybe DeviceMinutes) (Maybe DeviceMinutes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370424"><span class="annot"><span class="annottext">Maybe DeviceMinutes
+deviceMinutes :: Maybe DeviceMinutes
+$sel:deviceMinutes:Job' :: Job -&gt; Maybe DeviceMinutes
+</span><a href="#local-6989586621679370424"><span class="hs-identifier hs-var hs-var">deviceMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceMinutes
+</span><a href="#local-6989586621679370424"><span class="hs-identifier hs-var">deviceMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370423"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679370423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370422"><span class="annot"><span class="annottext">Maybe DeviceMinutes
+</span><a href="#local-6989586621679370422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679370423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceMinutes:Job' :: Maybe DeviceMinutes
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#%24sel%3AdeviceMinutes%3AJob%27"><span class="hs-identifier hs-var">deviceMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceMinutes
+</span><a href="#local-6989586621679370422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-417"></span><span>
+</span><span id="line-418"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370419"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-419"></span><span>  </span><span id="local-6989586621679370417"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Job
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-420"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Job) -&gt; Value -&gt; Parser Job
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-421"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Job&quot;</span></span><span>
+</span><span id="line-422"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370414"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370414"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-423"></span><span>          </span><span class="annot"><span class="annottext">Maybe Counters
+-&gt; Maybe ExecutionStatus
+-&gt; Maybe POSIX
+-&gt; Maybe ExecutionResult
+-&gt; Maybe Text
+-&gt; Maybe Device
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe TestType
+-&gt; Maybe POSIX
+-&gt; Maybe DeviceMinutes
+-&gt; Job
+</span><a href="Network.AWS.DeviceFarm.Types.Job.html#Job%27"><span class="hs-identifier hs-var">Job'</span></a></span><span>
+</span><span id="line-424"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Counters
+ -&gt; Maybe ExecutionStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe ExecutionResult
+ -&gt; Maybe Text
+ -&gt; Maybe Device
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe TestType
+ -&gt; Maybe POSIX
+ -&gt; Maybe DeviceMinutes
+ -&gt; Job)
+-&gt; Parser (Maybe Counters)
+-&gt; Parser
+     (Maybe ExecutionStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe ExecutionResult
+      -&gt; Maybe Text
+      -&gt; Maybe Device
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe TestType
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeviceMinutes
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Counters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;counters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-425"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ExecutionStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe ExecutionResult
+   -&gt; Maybe Text
+   -&gt; Maybe Device
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe TestType
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeviceMinutes
+   -&gt; Job)
+-&gt; Parser (Maybe ExecutionStatus)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe ExecutionResult
+      -&gt; Maybe Text
+      -&gt; Maybe Device
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe TestType
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeviceMinutes
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExecutionStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-426"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe ExecutionResult
+   -&gt; Maybe Text
+   -&gt; Maybe Device
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe TestType
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeviceMinutes
+   -&gt; Job)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ExecutionResult
+      -&gt; Maybe Text
+      -&gt; Maybe Device
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe TestType
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeviceMinutes
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;started&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-427"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ExecutionResult
+   -&gt; Maybe Text
+   -&gt; Maybe Device
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe TestType
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeviceMinutes
+   -&gt; Job)
+-&gt; Parser (Maybe ExecutionResult)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Device
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe TestType
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeviceMinutes
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExecutionResult)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;result&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-428"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Device
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe TestType
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeviceMinutes
+   -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Device
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe TestType
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeviceMinutes
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-429"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Device
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe TestType
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeviceMinutes
+   -&gt; Job)
+-&gt; Parser (Maybe Device)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe TestType
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeviceMinutes
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Device)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;device&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-430"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe TestType
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeviceMinutes
+   -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe TestType
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeviceMinutes
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-431"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe TestType
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeviceMinutes
+   -&gt; Job)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe TestType
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeviceMinutes
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;videoCapture&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-432"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe TestType
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeviceMinutes
+   -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe TestType
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeviceMinutes
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;videoEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-433"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe TestType
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeviceMinutes
+   -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe TestType
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeviceMinutes
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-434"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe TestType
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeviceMinutes
+   -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe TestType -&gt; Maybe POSIX -&gt; Maybe DeviceMinutes -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-435"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe TestType -&gt; Maybe POSIX -&gt; Maybe DeviceMinutes -&gt; Job)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe TestType -&gt; Maybe POSIX -&gt; Maybe DeviceMinutes -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stopped&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-436"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TestType -&gt; Maybe POSIX -&gt; Maybe DeviceMinutes -&gt; Job)
+-&gt; Parser (Maybe TestType)
+-&gt; Parser (Maybe POSIX -&gt; Maybe DeviceMinutes -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TestType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-437"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe DeviceMinutes -&gt; Job)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe DeviceMinutes -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;created&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-438"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DeviceMinutes -&gt; Job)
+-&gt; Parser (Maybe DeviceMinutes) -&gt; Parser Job
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceMinutes)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceMinutes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-439"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-440"></span><span>
+</span><span id="line-441"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370408"><span id="local-6989586621679370410"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span></span><span>
+</span><span id="line-442"></span><span>
+</span><span id="line-443"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370405"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span><span>
+</span><span id="line-444"></span></pre></body></html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoIdentityProvider.Types.UserContextDataType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.UserContextDataType</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Cognito advanced security.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newUserContextDataType' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679435046"><span id="local-6989586621679435047"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserContextDataType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-var">UserContextDataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserContextDataType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType%27"><span class="hs-identifier hs-var">UserContextDataType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Cognito advanced security.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AencodedData%3AUserContextDataType%27"><span class="annot"><span class="annottext">UserContextDataType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#%24sel%3AencodedData%3AUserContextDataType%27"><span class="hs-identifier hs-var hs-var">encodedData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435040"><span id="local-6989586621679435042"><span class="annot"><span class="annottext">UserContextDataType -&gt; UserContextDataType -&gt; Bool
+(UserContextDataType -&gt; UserContextDataType -&gt; Bool)
+-&gt; (UserContextDataType -&gt; UserContextDataType -&gt; Bool)
+-&gt; Eq UserContextDataType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UserContextDataType -&gt; UserContextDataType -&gt; Bool
+$c/= :: UserContextDataType -&gt; UserContextDataType -&gt; Bool
+== :: UserContextDataType -&gt; UserContextDataType -&gt; Bool
+$c== :: UserContextDataType -&gt; UserContextDataType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435031"><span id="local-6989586621679435033"><span id="local-6989586621679435035"><span id="local-6989586621679435037"><span class="annot"><span class="annottext">ReadPrec [UserContextDataType]
+ReadPrec UserContextDataType
+Int -&gt; ReadS UserContextDataType
+ReadS [UserContextDataType]
+(Int -&gt; ReadS UserContextDataType)
+-&gt; ReadS [UserContextDataType]
+-&gt; ReadPrec UserContextDataType
+-&gt; ReadPrec [UserContextDataType]
+-&gt; Read UserContextDataType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UserContextDataType]
+$creadListPrec :: ReadPrec [UserContextDataType]
+readPrec :: ReadPrec UserContextDataType
+$creadPrec :: ReadPrec UserContextDataType
+readList :: ReadS [UserContextDataType]
+$creadList :: ReadS [UserContextDataType]
+readsPrec :: Int -&gt; ReadS UserContextDataType
+$creadsPrec :: Int -&gt; ReadS UserContextDataType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435024"><span id="local-6989586621679435026"><span id="local-6989586621679435028"><span class="annot"><span class="annottext">Int -&gt; UserContextDataType -&gt; ShowS
+[UserContextDataType] -&gt; ShowS
+UserContextDataType -&gt; String
+(Int -&gt; UserContextDataType -&gt; ShowS)
+-&gt; (UserContextDataType -&gt; String)
+-&gt; ([UserContextDataType] -&gt; ShowS)
+-&gt; Show UserContextDataType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UserContextDataType] -&gt; ShowS
+$cshowList :: [UserContextDataType] -&gt; ShowS
+show :: UserContextDataType -&gt; String
+$cshow :: UserContextDataType -&gt; String
+showsPrec :: Int -&gt; UserContextDataType -&gt; ShowS
+$cshowsPrec :: Int -&gt; UserContextDataType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UserContextDataType -&gt; Rep UserContextDataType x)
+-&gt; (forall x. Rep UserContextDataType x -&gt; UserContextDataType)
+-&gt; Generic UserContextDataType
+forall x. Rep UserContextDataType x -&gt; UserContextDataType
+forall x. UserContextDataType -&gt; Rep UserContextDataType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UserContextDataType x -&gt; UserContextDataType
+$cfrom :: forall x. UserContextDataType -&gt; Rep UserContextDataType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'UserContextDataType' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'encodedData', 'userContextDataType_encodedData' - Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Cognito advanced security.</span><span>
+</span><span id="line-50"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#newUserContextDataType"><span class="hs-identifier hs-type">newUserContextDataType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-type">UserContextDataType</span></a></span><span>
+</span><span id="line-52"></span><span id="newUserContextDataType"><span class="annot"><span class="annottext">newUserContextDataType :: UserContextDataType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#newUserContextDataType"><span class="hs-identifier hs-var hs-var">newUserContextDataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">UserContextDataType' :: Maybe Text -&gt; UserContextDataType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType%27"><span class="hs-identifier hs-type">UserContextDataType'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encodedData:UserContextDataType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#%24sel%3AencodedData%3AUserContextDataType%27"><span class="hs-identifier hs-var">encodedData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Cognito advanced security.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#userContextDataType_encodedData"><span class="hs-identifier hs-type">userContextDataType_encodedData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-type">UserContextDataType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="userContextDataType_encodedData"><span class="annot"><span class="annottext">userContextDataType_encodedData :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UserContextDataType -&gt; f UserContextDataType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#userContextDataType_encodedData"><span class="hs-identifier hs-var hs-var">userContextDataType_encodedData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserContextDataType -&gt; Maybe Text)
+-&gt; (UserContextDataType -&gt; Maybe Text -&gt; UserContextDataType)
+-&gt; Lens
+     UserContextDataType UserContextDataType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType%27"><span class="hs-identifier hs-type">UserContextDataType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435015"><span class="annot"><span class="annottext">Maybe Text
+encodedData :: Maybe Text
+$sel:encodedData:UserContextDataType' :: UserContextDataType -&gt; Maybe Text
+</span><a href="#local-6989586621679435015"><span class="hs-identifier hs-var hs-var">encodedData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679435015"><span class="hs-identifier hs-var">encodedData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435014"><span class="annot"><span class="annottext">s :: UserContextDataType
+</span><a href="#local-6989586621679435014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType%27"><span class="hs-identifier hs-type">UserContextDataType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435013"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679435013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserContextDataType
+</span><a href="#local-6989586621679435014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encodedData:UserContextDataType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#%24sel%3AencodedData%3AUserContextDataType%27"><span class="hs-identifier hs-var">encodedData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679435013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-type">UserContextDataType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435009"><span id="local-6989586621679435011"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-type">UserContextDataType</span></a></span></span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435006"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-type">UserContextDataType</span></a></span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434998"><span id="local-6989586621679435000"><span id="local-6989586621679435002"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-type">UserContextDataType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679434996"><span class="annot"><span class="annottext">toJSON :: UserContextDataType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType%27"><span class="hs-identifier hs-type">UserContextDataType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434994"><span class="annot"><span class="annottext">Maybe Text
+encodedData :: Maybe Text
+$sel:encodedData:UserContextDataType' :: UserContextDataType -&gt; Maybe Text
+</span><a href="#local-6989586621679434994"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-69"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncodedData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434994"><span class="hs-identifier hs-var">encodedData</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span></pre></body></html>

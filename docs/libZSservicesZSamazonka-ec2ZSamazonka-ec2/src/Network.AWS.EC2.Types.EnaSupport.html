@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.EnaSupport</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.EnaSupport</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport"><span class="hs-identifier">EnaSupport</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport_Required"><span class="hs-identifier">EnaSupport_Required</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport_Supported"><span class="hs-identifier">EnaSupport_Supported</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport_Unsupported"><span class="hs-identifier">EnaSupport_Unsupported</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681069632"><span id="local-6989586621681069633"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EnaSupport"><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport"><span class="hs-identifier hs-var">EnaSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnaSupport%27"><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport%27"><span class="hs-identifier hs-var">EnaSupport'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEnaSupport"><span class="annot"><span class="annottext">EnaSupport -&gt; Text
+</span><a href="Network.AWS.EC2.Types.EnaSupport.html#fromEnaSupport"><span class="hs-identifier hs-var hs-var">fromEnaSupport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681069624"><span id="local-6989586621681069626"><span id="local-6989586621681069628"><span class="annot"><span class="annottext">Int -&gt; EnaSupport -&gt; ShowS
+[EnaSupport] -&gt; ShowS
+EnaSupport -&gt; String
+(Int -&gt; EnaSupport -&gt; ShowS)
+-&gt; (EnaSupport -&gt; String)
+-&gt; ([EnaSupport] -&gt; ShowS)
+-&gt; Show EnaSupport
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnaSupport] -&gt; ShowS
+$cshowList :: [EnaSupport] -&gt; ShowS
+show :: EnaSupport -&gt; String
+$cshow :: EnaSupport -&gt; String
+showsPrec :: Int -&gt; EnaSupport -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnaSupport -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681069615"><span id="local-6989586621681069617"><span id="local-6989586621681069619"><span id="local-6989586621681069621"><span class="annot"><span class="annottext">ReadPrec [EnaSupport]
+ReadPrec EnaSupport
+Int -&gt; ReadS EnaSupport
+ReadS [EnaSupport]
+(Int -&gt; ReadS EnaSupport)
+-&gt; ReadS [EnaSupport]
+-&gt; ReadPrec EnaSupport
+-&gt; ReadPrec [EnaSupport]
+-&gt; Read EnaSupport
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EnaSupport]
+$creadListPrec :: ReadPrec [EnaSupport]
+readPrec :: ReadPrec EnaSupport
+$creadPrec :: ReadPrec EnaSupport
+readList :: ReadS [EnaSupport]
+$creadList :: ReadS [EnaSupport]
+readsPrec :: Int -&gt; ReadS EnaSupport
+$creadsPrec :: Int -&gt; ReadS EnaSupport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681069610"><span id="local-6989586621681069612"><span class="annot"><span class="annottext">EnaSupport -&gt; EnaSupport -&gt; Bool
+(EnaSupport -&gt; EnaSupport -&gt; Bool)
+-&gt; (EnaSupport -&gt; EnaSupport -&gt; Bool) -&gt; Eq EnaSupport
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnaSupport -&gt; EnaSupport -&gt; Bool
+$c/= :: EnaSupport -&gt; EnaSupport -&gt; Bool
+== :: EnaSupport -&gt; EnaSupport -&gt; Bool
+$c== :: EnaSupport -&gt; EnaSupport -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681069594"><span id="local-6989586621681069596"><span id="local-6989586621681069598"><span id="local-6989586621681069600"><span id="local-6989586621681069602"><span id="local-6989586621681069604"><span id="local-6989586621681069606"><span class="annot"><span class="annottext">Eq EnaSupport
+Eq EnaSupport
+-&gt; (EnaSupport -&gt; EnaSupport -&gt; Ordering)
+-&gt; (EnaSupport -&gt; EnaSupport -&gt; Bool)
+-&gt; (EnaSupport -&gt; EnaSupport -&gt; Bool)
+-&gt; (EnaSupport -&gt; EnaSupport -&gt; Bool)
+-&gt; (EnaSupport -&gt; EnaSupport -&gt; Bool)
+-&gt; (EnaSupport -&gt; EnaSupport -&gt; EnaSupport)
+-&gt; (EnaSupport -&gt; EnaSupport -&gt; EnaSupport)
+-&gt; Ord EnaSupport
+EnaSupport -&gt; EnaSupport -&gt; Bool
+EnaSupport -&gt; EnaSupport -&gt; Ordering
+EnaSupport -&gt; EnaSupport -&gt; EnaSupport
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EnaSupport -&gt; EnaSupport -&gt; EnaSupport
+$cmin :: EnaSupport -&gt; EnaSupport -&gt; EnaSupport
+max :: EnaSupport -&gt; EnaSupport -&gt; EnaSupport
+$cmax :: EnaSupport -&gt; EnaSupport -&gt; EnaSupport
+&gt;= :: EnaSupport -&gt; EnaSupport -&gt; Bool
+$c&gt;= :: EnaSupport -&gt; EnaSupport -&gt; Bool
+&gt; :: EnaSupport -&gt; EnaSupport -&gt; Bool
+$c&gt; :: EnaSupport -&gt; EnaSupport -&gt; Bool
+&lt;= :: EnaSupport -&gt; EnaSupport -&gt; Bool
+$c&lt;= :: EnaSupport -&gt; EnaSupport -&gt; Bool
+&lt; :: EnaSupport -&gt; EnaSupport -&gt; Bool
+$c&lt; :: EnaSupport -&gt; EnaSupport -&gt; Bool
+compare :: EnaSupport -&gt; EnaSupport -&gt; Ordering
+$ccompare :: EnaSupport -&gt; EnaSupport -&gt; Ordering
+$cp1Ord :: Eq EnaSupport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. EnaSupport -&gt; Rep EnaSupport x)
+-&gt; (forall x. Rep EnaSupport x -&gt; EnaSupport) -&gt; Generic EnaSupport
+forall x. Rep EnaSupport x -&gt; EnaSupport
+forall x. EnaSupport -&gt; Rep EnaSupport x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EnaSupport x -&gt; EnaSupport
+$cfrom :: forall x. EnaSupport -&gt; Rep EnaSupport x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681069586"><span id="local-6989586621681069588"><span class="annot"><span class="annottext">Int -&gt; EnaSupport -&gt; Int
+EnaSupport -&gt; Int
+(Int -&gt; EnaSupport -&gt; Int)
+-&gt; (EnaSupport -&gt; Int) -&gt; Hashable EnaSupport
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EnaSupport -&gt; Int
+$chash :: EnaSupport -&gt; Int
+hashWithSalt :: Int -&gt; EnaSupport -&gt; Int
+$chashWithSalt :: Int -&gt; EnaSupport -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681069583"><span class="annot"><span class="annottext">EnaSupport -&gt; ()
+(EnaSupport -&gt; ()) -&gt; NFData EnaSupport
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EnaSupport -&gt; ()
+$crnf :: EnaSupport -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681069580"><span class="annot"><span class="annottext">Text -&gt; Either String EnaSupport
+(Text -&gt; Either String EnaSupport) -&gt; FromText EnaSupport
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EnaSupport
+$cfromText :: Text -&gt; Either String EnaSupport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681069577"><span class="annot"><span class="annottext">EnaSupport -&gt; Text
+(EnaSupport -&gt; Text) -&gt; ToText EnaSupport
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EnaSupport -&gt; Text
+$ctoText :: EnaSupport -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681069574"><span class="annot"><span class="annottext">EnaSupport -&gt; ByteString
+(EnaSupport -&gt; ByteString) -&gt; ToByteString EnaSupport
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EnaSupport -&gt; ByteString
+$ctoBS :: EnaSupport -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681069571"><span class="annot"><span class="annottext">EnaSupport -&gt; ByteStringBuilder
+(EnaSupport -&gt; ByteStringBuilder) -&gt; ToLog EnaSupport
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EnaSupport -&gt; ByteStringBuilder
+$cbuild :: EnaSupport -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681069568"><span class="annot"><span class="annottext">HeaderName -&gt; EnaSupport -&gt; [Header]
+(HeaderName -&gt; EnaSupport -&gt; [Header]) -&gt; ToHeader EnaSupport
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EnaSupport -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EnaSupport -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681069565"><span class="annot"><span class="annottext">EnaSupport -&gt; QueryString
+(EnaSupport -&gt; QueryString) -&gt; ToQuery EnaSupport
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EnaSupport -&gt; QueryString
+$ctoQuery :: EnaSupport -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681069560"><span id="local-6989586621681069562"><span class="annot"><span class="annottext">Value -&gt; Parser [EnaSupport]
+Value -&gt; Parser EnaSupport
+(Value -&gt; Parser EnaSupport)
+-&gt; (Value -&gt; Parser [EnaSupport]) -&gt; FromJSON EnaSupport
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EnaSupport]
+$cparseJSONList :: Value -&gt; Parser [EnaSupport]
+parseJSON :: Value -&gt; Parser EnaSupport
+$cparseJSON :: Value -&gt; Parser EnaSupport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681069555"><span id="local-6989586621681069557"><span class="annot"><span class="annottext">FromJSONKeyFunction [EnaSupport]
+FromJSONKeyFunction EnaSupport
+FromJSONKeyFunction EnaSupport
+-&gt; FromJSONKeyFunction [EnaSupport] -&gt; FromJSONKey EnaSupport
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EnaSupport]
+$cfromJSONKeyList :: FromJSONKeyFunction [EnaSupport]
+fromJSONKey :: FromJSONKeyFunction EnaSupport
+$cfromJSONKey :: FromJSONKeyFunction EnaSupport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681069546"><span id="local-6989586621681069548"><span id="local-6989586621681069550"><span id="local-6989586621681069552"><span class="annot"><span class="annottext">[EnaSupport] -&gt; Encoding
+[EnaSupport] -&gt; Value
+EnaSupport -&gt; Encoding
+EnaSupport -&gt; Value
+(EnaSupport -&gt; Value)
+-&gt; (EnaSupport -&gt; Encoding)
+-&gt; ([EnaSupport] -&gt; Value)
+-&gt; ([EnaSupport] -&gt; Encoding)
+-&gt; ToJSON EnaSupport
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EnaSupport] -&gt; Encoding
+$ctoEncodingList :: [EnaSupport] -&gt; Encoding
+toJSONList :: [EnaSupport] -&gt; Value
+$ctoJSONList :: [EnaSupport] -&gt; Value
+toEncoding :: EnaSupport -&gt; Encoding
+$ctoEncoding :: EnaSupport -&gt; Encoding
+toJSON :: EnaSupport -&gt; Value
+$ctoJSON :: EnaSupport -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681069541"><span id="local-6989586621681069543"><span class="annot"><span class="annottext">ToJSONKeyFunction [EnaSupport]
+ToJSONKeyFunction EnaSupport
+ToJSONKeyFunction EnaSupport
+-&gt; ToJSONKeyFunction [EnaSupport] -&gt; ToJSONKey EnaSupport
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EnaSupport]
+$ctoJSONKeyList :: ToJSONKeyFunction [EnaSupport]
+toJSONKey :: ToJSONKeyFunction EnaSupport
+$ctoJSONKey :: ToJSONKeyFunction EnaSupport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681069538"><span class="annot"><span class="annottext">[Node] -&gt; Either String EnaSupport
+([Node] -&gt; Either String EnaSupport) -&gt; FromXML EnaSupport
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EnaSupport
+$cparseXML :: [Node] -&gt; Either String EnaSupport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681069535"><span class="annot"><span class="annottext">EnaSupport -&gt; XML
+(EnaSupport -&gt; XML) -&gt; ToXML EnaSupport
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EnaSupport -&gt; XML
+$ctoXML :: EnaSupport -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport_Required"><span class="hs-identifier hs-type">EnaSupport_Required</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport"><span class="hs-identifier hs-type">EnaSupport</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnaSupport_Required"><span id="%24mEnaSupport_Required"><span id="EnaSupport_Required"><span class="annot"><span class="annottext">$bEnaSupport_Required :: EnaSupport
+$mEnaSupport_Required :: forall r. EnaSupport -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.EnaSupport.html#%24bEnaSupport_Required"><span class="hs-identifier hs-var hs-var hs-var">EnaSupport_Required</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport%27"><span class="hs-identifier hs-type">EnaSupport'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;required&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport_Supported"><span class="hs-identifier hs-type">EnaSupport_Supported</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport"><span class="hs-identifier hs-type">EnaSupport</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnaSupport_Supported"><span id="%24mEnaSupport_Supported"><span id="EnaSupport_Supported"><span class="annot"><span class="annottext">$bEnaSupport_Supported :: EnaSupport
+$mEnaSupport_Supported :: forall r. EnaSupport -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.EnaSupport.html#%24bEnaSupport_Supported"><span class="hs-identifier hs-var hs-var hs-var">EnaSupport_Supported</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport%27"><span class="hs-identifier hs-type">EnaSupport'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;supported&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport_Unsupported"><span class="hs-identifier hs-type">EnaSupport_Unsupported</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport"><span class="hs-identifier hs-type">EnaSupport</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnaSupport_Unsupported"><span id="%24mEnaSupport_Unsupported"><span id="EnaSupport_Unsupported"><span class="annot"><span class="annottext">$bEnaSupport_Unsupported :: EnaSupport
+$mEnaSupport_Unsupported :: forall r. EnaSupport -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.EnaSupport.html#%24bEnaSupport_Unsupported"><span class="hs-identifier hs-var hs-var hs-var">EnaSupport_Unsupported</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport%27"><span class="hs-identifier hs-type">EnaSupport'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;unsupported&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport_Required"><span class="hs-pragma hs-type">EnaSupport_Required</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport_Supported"><span class="hs-pragma hs-type">EnaSupport_Supported</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport_Unsupported"><span class="hs-pragma hs-type">EnaSupport_Unsupported</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.EnaSupport.html#EnaSupport%27"><span class="hs-pragma hs-type">EnaSupport'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

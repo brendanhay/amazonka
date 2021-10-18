@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Config.PutDeliveryChannel</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a delivery channel object to deliver configuration information</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- to an Amazon S3 bucket and Amazon SNS topic.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Before you can create a delivery channel, you must create a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- configuration recorder.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- You can use this action to change the Amazon S3 bucket or an Amazon SNS</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- topic of the existing delivery channel. To change the Amazon S3 bucket</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- or an Amazon SNS topic, call this action and specify the changed values</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- for the S3 bucket and the SNS topic. If you specify a different value</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- for either the S3 bucket or the SNS topic, this action will keep the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- existing value for the parameter that is not changed.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- You can have only one delivery channel per region in your account.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Config.PutDeliveryChannel</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel"><span class="hs-identifier">PutDeliveryChannel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#newPutDeliveryChannel"><span class="hs-identifier">newPutDeliveryChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#putDeliveryChannel_deliveryChannel"><span class="hs-identifier">putDeliveryChannel_deliveryChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannelResponse"><span class="hs-identifier">PutDeliveryChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#newPutDeliveryChannelResponse"><span class="hs-identifier">newPutDeliveryChannelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.html"><span class="hs-identifier">Network.AWS.Config.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The input for the PutDeliveryChannel action.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newPutDeliveryChannel' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679415365"><span id="local-6989586621679415366"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDeliveryChannel"><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel"><span class="hs-identifier hs-var">PutDeliveryChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDeliveryChannel%27"><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel%27"><span class="hs-identifier hs-var">PutDeliveryChannel'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration delivery channel object that delivers the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- configuration information to an Amazon S3 bucket and to an Amazon SNS</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- topic.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AdeliveryChannel%3APutDeliveryChannel%27"><span class="annot"><span class="annottext">PutDeliveryChannel -&gt; DeliveryChannel
+</span><a href="Network.AWS.Config.PutDeliveryChannel.html#%24sel%3AdeliveryChannel%3APutDeliveryChannel%27"><span class="hs-identifier hs-var hs-var">deliveryChannel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415359"><span id="local-6989586621679415361"><span class="annot"><span class="annottext">PutDeliveryChannel -&gt; PutDeliveryChannel -&gt; Bool
+(PutDeliveryChannel -&gt; PutDeliveryChannel -&gt; Bool)
+-&gt; (PutDeliveryChannel -&gt; PutDeliveryChannel -&gt; Bool)
+-&gt; Eq PutDeliveryChannel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutDeliveryChannel -&gt; PutDeliveryChannel -&gt; Bool
+$c/= :: PutDeliveryChannel -&gt; PutDeliveryChannel -&gt; Bool
+== :: PutDeliveryChannel -&gt; PutDeliveryChannel -&gt; Bool
+$c== :: PutDeliveryChannel -&gt; PutDeliveryChannel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415350"><span id="local-6989586621679415352"><span id="local-6989586621679415354"><span id="local-6989586621679415356"><span class="annot"><span class="annottext">ReadPrec [PutDeliveryChannel]
+ReadPrec PutDeliveryChannel
+Int -&gt; ReadS PutDeliveryChannel
+ReadS [PutDeliveryChannel]
+(Int -&gt; ReadS PutDeliveryChannel)
+-&gt; ReadS [PutDeliveryChannel]
+-&gt; ReadPrec PutDeliveryChannel
+-&gt; ReadPrec [PutDeliveryChannel]
+-&gt; Read PutDeliveryChannel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutDeliveryChannel]
+$creadListPrec :: ReadPrec [PutDeliveryChannel]
+readPrec :: ReadPrec PutDeliveryChannel
+$creadPrec :: ReadPrec PutDeliveryChannel
+readList :: ReadS [PutDeliveryChannel]
+$creadList :: ReadS [PutDeliveryChannel]
+readsPrec :: Int -&gt; ReadS PutDeliveryChannel
+$creadsPrec :: Int -&gt; ReadS PutDeliveryChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415343"><span id="local-6989586621679415345"><span id="local-6989586621679415347"><span class="annot"><span class="annottext">Int -&gt; PutDeliveryChannel -&gt; ShowS
+[PutDeliveryChannel] -&gt; ShowS
+PutDeliveryChannel -&gt; String
+(Int -&gt; PutDeliveryChannel -&gt; ShowS)
+-&gt; (PutDeliveryChannel -&gt; String)
+-&gt; ([PutDeliveryChannel] -&gt; ShowS)
+-&gt; Show PutDeliveryChannel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutDeliveryChannel] -&gt; ShowS
+$cshowList :: [PutDeliveryChannel] -&gt; ShowS
+show :: PutDeliveryChannel -&gt; String
+$cshow :: PutDeliveryChannel -&gt; String
+showsPrec :: Int -&gt; PutDeliveryChannel -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutDeliveryChannel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutDeliveryChannel -&gt; Rep PutDeliveryChannel x)
+-&gt; (forall x. Rep PutDeliveryChannel x -&gt; PutDeliveryChannel)
+-&gt; Generic PutDeliveryChannel
+forall x. Rep PutDeliveryChannel x -&gt; PutDeliveryChannel
+forall x. PutDeliveryChannel -&gt; Rep PutDeliveryChannel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutDeliveryChannel x -&gt; PutDeliveryChannel
+$cfrom :: forall x. PutDeliveryChannel -&gt; Rep PutDeliveryChannel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'PutDeliveryChannel' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'deliveryChannel', 'putDeliveryChannel_deliveryChannel' - The configuration delivery channel object that delivers the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- configuration information to an Amazon S3 bucket and to an Amazon SNS</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- topic.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#newPutDeliveryChannel"><span class="hs-identifier hs-type">newPutDeliveryChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'deliveryChannel'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel"><span class="hs-identifier hs-type">PutDeliveryChannel</span></a></span><span>
+</span><span id="line-84"></span><span id="newPutDeliveryChannel"><span class="annot"><span class="annottext">newPutDeliveryChannel :: DeliveryChannel -&gt; PutDeliveryChannel
+</span><a href="Network.AWS.Config.PutDeliveryChannel.html#newPutDeliveryChannel"><span class="hs-identifier hs-var hs-var">newPutDeliveryChannel</span></a></span></span><span> </span><span id="local-6989586621679415338"><span class="annot"><span class="annottext">DeliveryChannel
+</span><a href="#local-6989586621679415338"><span class="hs-identifier hs-var">pDeliveryChannel_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">PutDeliveryChannel' :: DeliveryChannel -&gt; PutDeliveryChannel
+</span><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel%27"><span class="hs-identifier hs-type">PutDeliveryChannel'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deliveryChannel:PutDeliveryChannel' :: DeliveryChannel
+</span><a href="Network.AWS.Config.PutDeliveryChannel.html#%24sel%3AdeliveryChannel%3APutDeliveryChannel%27"><span class="hs-identifier hs-var">deliveryChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">DeliveryChannel
+</span><a href="#local-6989586621679415338"><span class="hs-identifier hs-var">pDeliveryChannel_</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The configuration delivery channel object that delivers the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- configuration information to an Amazon S3 bucket and to an Amazon SNS</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- topic.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#putDeliveryChannel_deliveryChannel"><span class="hs-identifier hs-type">putDeliveryChannel_deliveryChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel"><span class="hs-identifier hs-type">PutDeliveryChannel</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span><span>
+</span><span id="line-94"></span><span id="putDeliveryChannel_deliveryChannel"><span class="annot"><span class="annottext">putDeliveryChannel_deliveryChannel :: (DeliveryChannel -&gt; f DeliveryChannel)
+-&gt; PutDeliveryChannel -&gt; f PutDeliveryChannel
+</span><a href="Network.AWS.Config.PutDeliveryChannel.html#putDeliveryChannel_deliveryChannel"><span class="hs-identifier hs-var hs-var">putDeliveryChannel_deliveryChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutDeliveryChannel -&gt; DeliveryChannel)
+-&gt; (PutDeliveryChannel -&gt; DeliveryChannel -&gt; PutDeliveryChannel)
+-&gt; Lens
+     PutDeliveryChannel
+     PutDeliveryChannel
+     DeliveryChannel
+     DeliveryChannel
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel%27"><span class="hs-identifier hs-type">PutDeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415335"><span class="annot"><span class="annottext">DeliveryChannel
+deliveryChannel :: DeliveryChannel
+$sel:deliveryChannel:PutDeliveryChannel' :: PutDeliveryChannel -&gt; DeliveryChannel
+</span><a href="#local-6989586621679415335"><span class="hs-identifier hs-var hs-var">deliveryChannel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannel
+</span><a href="#local-6989586621679415335"><span class="hs-identifier hs-var">deliveryChannel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415334"><span class="annot"><span class="annottext">s :: PutDeliveryChannel
+</span><a href="#local-6989586621679415334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel%27"><span class="hs-identifier hs-type">PutDeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415333"><span class="annot"><span class="annottext">DeliveryChannel
+</span><a href="#local-6989586621679415333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDeliveryChannel
+</span><a href="#local-6989586621679415334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryChannel:PutDeliveryChannel' :: DeliveryChannel
+</span><a href="Network.AWS.Config.PutDeliveryChannel.html#%24sel%3AdeliveryChannel%3APutDeliveryChannel%27"><span class="hs-identifier hs-var">deliveryChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeliveryChannel
+</span><a href="#local-6989586621679415333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel"><span class="hs-identifier hs-type">PutDeliveryChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel"><span class="hs-identifier hs-type">PutDeliveryChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel"><span class="hs-identifier hs-type">PutDeliveryChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannelResponse"><span class="hs-identifier hs-type">PutDeliveryChannelResponse</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679415329"><span class="annot"><span class="annottext">request :: PutDeliveryChannel -&gt; Request PutDeliveryChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutDeliveryChannel -&gt; Request PutDeliveryChannel
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679415325"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutDeliveryChannel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutDeliveryChannel)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse PutDeliveryChannel
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutDeliveryChannel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutDeliveryChannel)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse PutDeliveryChannel
+PutDeliveryChannelResponse
+</span><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannelResponse%27"><span class="hs-identifier hs-var">PutDeliveryChannelResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415318"><span id="local-6989586621679415320"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel"><span class="hs-identifier hs-type">PutDeliveryChannel</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel"><span class="hs-identifier hs-type">PutDeliveryChannel</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel"><span class="hs-identifier hs-type">PutDeliveryChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679415311"><span class="annot"><span class="annottext">toHeaders :: PutDeliveryChannel -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PutDeliveryChannel -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StarlingDoveService.PutDeliveryChannel&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-119"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415301"><span id="local-6989586621679415303"><span id="local-6989586621679415305"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel"><span class="hs-identifier hs-type">PutDeliveryChannel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679415299"><span class="annot"><span class="annottext">toJSON :: PutDeliveryChannel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel%27"><span class="hs-identifier hs-type">PutDeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415297"><span class="annot"><span class="annottext">DeliveryChannel
+deliveryChannel :: DeliveryChannel
+$sel:deliveryChannel:PutDeliveryChannel' :: PutDeliveryChannel -&gt; DeliveryChannel
+</span><a href="#local-6989586621679415297"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryChannel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeliveryChannel -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DeliveryChannel
+</span><a href="#local-6989586621679415297"><span class="hs-identifier hs-var">deliveryChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel"><span class="hs-identifier hs-type">PutDeliveryChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679415291"><span class="annot"><span class="annottext">toPath :: PutDeliveryChannel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutDeliveryChannel -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannel"><span class="hs-identifier hs-type">PutDeliveryChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679415287"><span class="annot"><span class="annottext">toQuery :: PutDeliveryChannel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutDeliveryChannel -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | /See:/ 'newPutDeliveryChannelResponse' smart constructor.</span><span>
+</span><span id="line-139"></span><span id="local-6989586621679415284"><span id="local-6989586621679415285"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDeliveryChannelResponse"><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannelResponse"><span class="hs-identifier hs-var">PutDeliveryChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDeliveryChannelResponse%27"><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannelResponse%27"><span class="hs-identifier hs-var">PutDeliveryChannelResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415280"><span id="local-6989586621679415282"><span class="annot"><span class="annottext">PutDeliveryChannelResponse -&gt; PutDeliveryChannelResponse -&gt; Bool
+(PutDeliveryChannelResponse -&gt; PutDeliveryChannelResponse -&gt; Bool)
+-&gt; (PutDeliveryChannelResponse
+    -&gt; PutDeliveryChannelResponse -&gt; Bool)
+-&gt; Eq PutDeliveryChannelResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutDeliveryChannelResponse -&gt; PutDeliveryChannelResponse -&gt; Bool
+$c/= :: PutDeliveryChannelResponse -&gt; PutDeliveryChannelResponse -&gt; Bool
+== :: PutDeliveryChannelResponse -&gt; PutDeliveryChannelResponse -&gt; Bool
+$c== :: PutDeliveryChannelResponse -&gt; PutDeliveryChannelResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415272"><span id="local-6989586621679415274"><span id="local-6989586621679415276"><span id="local-6989586621679415278"><span class="annot"><span class="annottext">ReadPrec [PutDeliveryChannelResponse]
+ReadPrec PutDeliveryChannelResponse
+Int -&gt; ReadS PutDeliveryChannelResponse
+ReadS [PutDeliveryChannelResponse]
+(Int -&gt; ReadS PutDeliveryChannelResponse)
+-&gt; ReadS [PutDeliveryChannelResponse]
+-&gt; ReadPrec PutDeliveryChannelResponse
+-&gt; ReadPrec [PutDeliveryChannelResponse]
+-&gt; Read PutDeliveryChannelResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutDeliveryChannelResponse]
+$creadListPrec :: ReadPrec [PutDeliveryChannelResponse]
+readPrec :: ReadPrec PutDeliveryChannelResponse
+$creadPrec :: ReadPrec PutDeliveryChannelResponse
+readList :: ReadS [PutDeliveryChannelResponse]
+$creadList :: ReadS [PutDeliveryChannelResponse]
+readsPrec :: Int -&gt; ReadS PutDeliveryChannelResponse
+$creadsPrec :: Int -&gt; ReadS PutDeliveryChannelResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415266"><span id="local-6989586621679415268"><span id="local-6989586621679415270"><span class="annot"><span class="annottext">Int -&gt; PutDeliveryChannelResponse -&gt; ShowS
+[PutDeliveryChannelResponse] -&gt; ShowS
+PutDeliveryChannelResponse -&gt; String
+(Int -&gt; PutDeliveryChannelResponse -&gt; ShowS)
+-&gt; (PutDeliveryChannelResponse -&gt; String)
+-&gt; ([PutDeliveryChannelResponse] -&gt; ShowS)
+-&gt; Show PutDeliveryChannelResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutDeliveryChannelResponse] -&gt; ShowS
+$cshowList :: [PutDeliveryChannelResponse] -&gt; ShowS
+show :: PutDeliveryChannelResponse -&gt; String
+$cshow :: PutDeliveryChannelResponse -&gt; String
+showsPrec :: Int -&gt; PutDeliveryChannelResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutDeliveryChannelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutDeliveryChannelResponse -&gt; Rep PutDeliveryChannelResponse x)
+-&gt; (forall x.
+    Rep PutDeliveryChannelResponse x -&gt; PutDeliveryChannelResponse)
+-&gt; Generic PutDeliveryChannelResponse
+forall x.
+Rep PutDeliveryChannelResponse x -&gt; PutDeliveryChannelResponse
+forall x.
+PutDeliveryChannelResponse -&gt; Rep PutDeliveryChannelResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutDeliveryChannelResponse x -&gt; PutDeliveryChannelResponse
+$cfrom :: forall x.
+PutDeliveryChannelResponse -&gt; Rep PutDeliveryChannelResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Create a value of 'PutDeliveryChannelResponse' with all optional fields omitted.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#newPutDeliveryChannelResponse"><span class="hs-identifier hs-type">newPutDeliveryChannelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannelResponse"><span class="hs-identifier hs-type">PutDeliveryChannelResponse</span></a></span><span>
+</span><span id="line-150"></span><span id="newPutDeliveryChannelResponse"><span class="annot"><span class="annottext">newPutDeliveryChannelResponse :: PutDeliveryChannelResponse
+</span><a href="Network.AWS.Config.PutDeliveryChannel.html#newPutDeliveryChannelResponse"><span class="hs-identifier hs-var hs-var">newPutDeliveryChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">PutDeliveryChannelResponse
+</span><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannelResponse%27"><span class="hs-identifier hs-var">PutDeliveryChannelResponse'</span></a></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415262"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutDeliveryChannel.html#PutDeliveryChannelResponse"><span class="hs-identifier hs-type">PutDeliveryChannelResponse</span></a></span></span><span>
+</span><span id="line-154"></span></pre></body></html>

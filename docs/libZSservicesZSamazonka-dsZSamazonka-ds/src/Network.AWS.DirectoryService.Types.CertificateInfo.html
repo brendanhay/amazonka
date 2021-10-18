@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DirectoryService.Types.CertificateInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DirectoryService.Types.CertificateInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateState.html"><span class="hs-identifier">Network.AWS.DirectoryService.Types.CertificateState</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateType.html"><span class="hs-identifier">Network.AWS.DirectoryService.Types.CertificateType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Contains general information about a certificate.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCertificateInfo' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679293849"><span id="local-6989586621679293850"></span></span><span class="hs-keyword">data</span><span> </span><span id="CertificateInfo"><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo"><span class="hs-identifier hs-var">CertificateInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CertificateInfo%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo%27"><span class="hs-identifier hs-var">CertificateInfo'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The common name for the certificate.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcommonName%3ACertificateInfo%27"><span class="annot"><span class="annottext">CertificateInfo -&gt; Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#%24sel%3AcommonName%3ACertificateInfo%27"><span class="hs-identifier hs-var hs-var">commonName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The state of the certificate.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astate%3ACertificateInfo%27"><span class="annot"><span class="annottext">CertificateInfo -&gt; Maybe CertificateState
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#%24sel%3Astate%3ACertificateInfo%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateState.html#CertificateState"><span class="hs-identifier hs-type">CertificateState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The date and time when the certificate will expire.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AexpiryDateTime%3ACertificateInfo%27"><span class="annot"><span class="annottext">CertificateInfo -&gt; Maybe POSIX
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#%24sel%3AexpiryDateTime%3ACertificateInfo%27"><span class="hs-identifier hs-var hs-var">expiryDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The identifier of the certificate.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcertificateId%3ACertificateInfo%27"><span class="annot"><span class="annottext">CertificateInfo -&gt; Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#%24sel%3AcertificateId%3ACertificateInfo%27"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The function that the registered certificate performs. Valid values</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- include @ClientLDAPS@ or @ClientCertAuth@. The default value is</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- @ClientLDAPS@.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atype%27%3ACertificateInfo%27"><span class="annot"><span class="annottext">CertificateInfo -&gt; Maybe CertificateType
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#%24sel%3Atype%27%3ACertificateInfo%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateType.html#CertificateType"><span class="hs-identifier hs-type">CertificateType</span></a></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293839"><span id="local-6989586621679293841"><span class="annot"><span class="annottext">CertificateInfo -&gt; CertificateInfo -&gt; Bool
+(CertificateInfo -&gt; CertificateInfo -&gt; Bool)
+-&gt; (CertificateInfo -&gt; CertificateInfo -&gt; Bool)
+-&gt; Eq CertificateInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CertificateInfo -&gt; CertificateInfo -&gt; Bool
+$c/= :: CertificateInfo -&gt; CertificateInfo -&gt; Bool
+== :: CertificateInfo -&gt; CertificateInfo -&gt; Bool
+$c== :: CertificateInfo -&gt; CertificateInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293830"><span id="local-6989586621679293832"><span id="local-6989586621679293834"><span id="local-6989586621679293836"><span class="annot"><span class="annottext">ReadPrec [CertificateInfo]
+ReadPrec CertificateInfo
+Int -&gt; ReadS CertificateInfo
+ReadS [CertificateInfo]
+(Int -&gt; ReadS CertificateInfo)
+-&gt; ReadS [CertificateInfo]
+-&gt; ReadPrec CertificateInfo
+-&gt; ReadPrec [CertificateInfo]
+-&gt; Read CertificateInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CertificateInfo]
+$creadListPrec :: ReadPrec [CertificateInfo]
+readPrec :: ReadPrec CertificateInfo
+$creadPrec :: ReadPrec CertificateInfo
+readList :: ReadS [CertificateInfo]
+$creadList :: ReadS [CertificateInfo]
+readsPrec :: Int -&gt; ReadS CertificateInfo
+$creadsPrec :: Int -&gt; ReadS CertificateInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293823"><span id="local-6989586621679293825"><span id="local-6989586621679293827"><span class="annot"><span class="annottext">Int -&gt; CertificateInfo -&gt; ShowS
+[CertificateInfo] -&gt; ShowS
+CertificateInfo -&gt; String
+(Int -&gt; CertificateInfo -&gt; ShowS)
+-&gt; (CertificateInfo -&gt; String)
+-&gt; ([CertificateInfo] -&gt; ShowS)
+-&gt; Show CertificateInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CertificateInfo] -&gt; ShowS
+$cshowList :: [CertificateInfo] -&gt; ShowS
+show :: CertificateInfo -&gt; String
+$cshow :: CertificateInfo -&gt; String
+showsPrec :: Int -&gt; CertificateInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; CertificateInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CertificateInfo -&gt; Rep CertificateInfo x)
+-&gt; (forall x. Rep CertificateInfo x -&gt; CertificateInfo)
+-&gt; Generic CertificateInfo
+forall x. Rep CertificateInfo x -&gt; CertificateInfo
+forall x. CertificateInfo -&gt; Rep CertificateInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CertificateInfo x -&gt; CertificateInfo
+$cfrom :: forall x. CertificateInfo -&gt; Rep CertificateInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'CertificateInfo' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'commonName', 'certificateInfo_commonName' - The common name for the certificate.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'state', 'certificateInfo_state' - The state of the certificate.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'expiryDateTime', 'certificateInfo_expiryDateTime' - The date and time when the certificate will expire.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'certificateId', 'certificateInfo_certificateId' - The identifier of the certificate.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'type'', 'certificateInfo_type' - The function that the registered certificate performs. Valid values</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- include @ClientLDAPS@ or @ClientCertAuth@. The default value is</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- @ClientLDAPS@.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#newCertificateInfo"><span class="hs-identifier hs-type">newCertificateInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo"><span class="hs-identifier hs-type">CertificateInfo</span></a></span><span>
+</span><span id="line-68"></span><span id="newCertificateInfo"><span class="annot"><span class="annottext">newCertificateInfo :: CertificateInfo
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#newCertificateInfo"><span class="hs-identifier hs-var hs-var">newCertificateInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">CertificateInfo' :: Maybe Text
+-&gt; Maybe CertificateState
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe CertificateType
+-&gt; CertificateInfo
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo%27"><span class="hs-identifier hs-type">CertificateInfo'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:commonName:CertificateInfo' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#%24sel%3AcommonName%3ACertificateInfo%27"><span class="hs-identifier hs-var">commonName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:CertificateInfo' :: Maybe CertificateState
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#%24sel%3Astate%3ACertificateInfo%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:expiryDateTime:CertificateInfo' :: Maybe POSIX
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#%24sel%3AexpiryDateTime%3ACertificateInfo%27"><span class="hs-identifier hs-var">expiryDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateId:CertificateInfo' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#%24sel%3AcertificateId%3ACertificateInfo%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':CertificateInfo' :: Maybe CertificateType
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#%24sel%3Atype%27%3ACertificateInfo%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The common name for the certificate.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#certificateInfo_commonName"><span class="hs-identifier hs-type">certificateInfo_commonName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo"><span class="hs-identifier hs-type">CertificateInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="certificateInfo_commonName"><span class="annot"><span class="annottext">certificateInfo_commonName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CertificateInfo -&gt; f CertificateInfo
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#certificateInfo_commonName"><span class="hs-identifier hs-var hs-var">certificateInfo_commonName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateInfo -&gt; Maybe Text)
+-&gt; (CertificateInfo -&gt; Maybe Text -&gt; CertificateInfo)
+-&gt; Lens CertificateInfo CertificateInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo%27"><span class="hs-identifier hs-type">CertificateInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293814"><span class="annot"><span class="annottext">Maybe Text
+commonName :: Maybe Text
+$sel:commonName:CertificateInfo' :: CertificateInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679293814"><span class="hs-identifier hs-var hs-var">commonName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293814"><span class="hs-identifier hs-var">commonName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293813"><span class="annot"><span class="annottext">s :: CertificateInfo
+</span><a href="#local-6989586621679293813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo%27"><span class="hs-identifier hs-type">CertificateInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293812"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateInfo
+</span><a href="#local-6989586621679293813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commonName:CertificateInfo' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#%24sel%3AcommonName%3ACertificateInfo%27"><span class="hs-identifier hs-var">commonName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo"><span class="hs-identifier hs-type">CertificateInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The state of the certificate.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#certificateInfo_state"><span class="hs-identifier hs-type">certificateInfo_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo"><span class="hs-identifier hs-type">CertificateInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateState.html#CertificateState"><span class="hs-identifier hs-type">CertificateState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="certificateInfo_state"><span class="annot"><span class="annottext">certificateInfo_state :: (Maybe CertificateState -&gt; f (Maybe CertificateState))
+-&gt; CertificateInfo -&gt; f CertificateInfo
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#certificateInfo_state"><span class="hs-identifier hs-var hs-var">certificateInfo_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateInfo -&gt; Maybe CertificateState)
+-&gt; (CertificateInfo -&gt; Maybe CertificateState -&gt; CertificateInfo)
+-&gt; Lens
+     CertificateInfo
+     CertificateInfo
+     (Maybe CertificateState)
+     (Maybe CertificateState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo%27"><span class="hs-identifier hs-type">CertificateInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293810"><span class="annot"><span class="annottext">Maybe CertificateState
+state :: Maybe CertificateState
+$sel:state:CertificateInfo' :: CertificateInfo -&gt; Maybe CertificateState
+</span><a href="#local-6989586621679293810"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateState
+</span><a href="#local-6989586621679293810"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293809"><span class="annot"><span class="annottext">s :: CertificateInfo
+</span><a href="#local-6989586621679293809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo%27"><span class="hs-identifier hs-type">CertificateInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293808"><span class="annot"><span class="annottext">Maybe CertificateState
+</span><a href="#local-6989586621679293808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateInfo
+</span><a href="#local-6989586621679293809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:CertificateInfo' :: Maybe CertificateState
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#%24sel%3Astate%3ACertificateInfo%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateState
+</span><a href="#local-6989586621679293808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo"><span class="hs-identifier hs-type">CertificateInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The date and time when the certificate will expire.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#certificateInfo_expiryDateTime"><span class="hs-identifier hs-type">certificateInfo_expiryDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo"><span class="hs-identifier hs-type">CertificateInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="certificateInfo_expiryDateTime"><span class="annot"><span class="annottext">certificateInfo_expiryDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CertificateInfo -&gt; f CertificateInfo
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#certificateInfo_expiryDateTime"><span class="hs-identifier hs-var hs-var">certificateInfo_expiryDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateInfo -&gt; Maybe POSIX)
+-&gt; (CertificateInfo -&gt; Maybe POSIX -&gt; CertificateInfo)
+-&gt; Lens CertificateInfo CertificateInfo (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo%27"><span class="hs-identifier hs-type">CertificateInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293806"><span class="annot"><span class="annottext">Maybe POSIX
+expiryDateTime :: Maybe POSIX
+$sel:expiryDateTime:CertificateInfo' :: CertificateInfo -&gt; Maybe POSIX
+</span><a href="#local-6989586621679293806"><span class="hs-identifier hs-var hs-var">expiryDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679293806"><span class="hs-identifier hs-var">expiryDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293805"><span class="annot"><span class="annottext">s :: CertificateInfo
+</span><a href="#local-6989586621679293805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo%27"><span class="hs-identifier hs-type">CertificateInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293804"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679293804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateInfo
+</span><a href="#local-6989586621679293805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expiryDateTime:CertificateInfo' :: Maybe POSIX
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#%24sel%3AexpiryDateTime%3ACertificateInfo%27"><span class="hs-identifier hs-var">expiryDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679293804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo"><span class="hs-identifier hs-type">CertificateInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CertificateInfo -&gt; f CertificateInfo)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CertificateInfo
+-&gt; f CertificateInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The identifier of the certificate.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#certificateInfo_certificateId"><span class="hs-identifier hs-type">certificateInfo_certificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo"><span class="hs-identifier hs-type">CertificateInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="certificateInfo_certificateId"><span class="annot"><span class="annottext">certificateInfo_certificateId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CertificateInfo -&gt; f CertificateInfo
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#certificateInfo_certificateId"><span class="hs-identifier hs-var hs-var">certificateInfo_certificateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateInfo -&gt; Maybe Text)
+-&gt; (CertificateInfo -&gt; Maybe Text -&gt; CertificateInfo)
+-&gt; Lens CertificateInfo CertificateInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo%27"><span class="hs-identifier hs-type">CertificateInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293799"><span class="annot"><span class="annottext">Maybe Text
+certificateId :: Maybe Text
+$sel:certificateId:CertificateInfo' :: CertificateInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679293799"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293799"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293798"><span class="annot"><span class="annottext">s :: CertificateInfo
+</span><a href="#local-6989586621679293798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo%27"><span class="hs-identifier hs-type">CertificateInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293797"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateInfo
+</span><a href="#local-6989586621679293798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:CertificateInfo' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#%24sel%3AcertificateId%3ACertificateInfo%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo"><span class="hs-identifier hs-type">CertificateInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The function that the registered certificate performs. Valid values</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- include @ClientLDAPS@ or @ClientCertAuth@. The default value is</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- @ClientLDAPS@.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#certificateInfo_type"><span class="hs-identifier hs-type">certificateInfo_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo"><span class="hs-identifier hs-type">CertificateInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateType.html#CertificateType"><span class="hs-identifier hs-type">CertificateType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="certificateInfo_type"><span class="annot"><span class="annottext">certificateInfo_type :: (Maybe CertificateType -&gt; f (Maybe CertificateType))
+-&gt; CertificateInfo -&gt; f CertificateInfo
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#certificateInfo_type"><span class="hs-identifier hs-var hs-var">certificateInfo_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateInfo -&gt; Maybe CertificateType)
+-&gt; (CertificateInfo -&gt; Maybe CertificateType -&gt; CertificateInfo)
+-&gt; Lens
+     CertificateInfo
+     CertificateInfo
+     (Maybe CertificateType)
+     (Maybe CertificateType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo%27"><span class="hs-identifier hs-type">CertificateInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293795"><span class="annot"><span class="annottext">Maybe CertificateType
+type' :: Maybe CertificateType
+$sel:type':CertificateInfo' :: CertificateInfo -&gt; Maybe CertificateType
+</span><a href="#local-6989586621679293795"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateType
+</span><a href="#local-6989586621679293795"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293794"><span class="annot"><span class="annottext">s :: CertificateInfo
+</span><a href="#local-6989586621679293794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo%27"><span class="hs-identifier hs-type">CertificateInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293793"><span class="annot"><span class="annottext">Maybe CertificateType
+</span><a href="#local-6989586621679293793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateInfo
+</span><a href="#local-6989586621679293794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CertificateInfo' :: Maybe CertificateType
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#%24sel%3Atype%27%3ACertificateInfo%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateType
+</span><a href="#local-6989586621679293793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo"><span class="hs-identifier hs-type">CertificateInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293790"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo"><span class="hs-identifier hs-type">CertificateInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679293788"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CertificateInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CertificateInfo)
+-&gt; Value
+-&gt; Parser CertificateInfo
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CertificateInfo&quot;</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293785"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293785"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe CertificateState
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe CertificateType
+-&gt; CertificateInfo
+</span><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo%27"><span class="hs-identifier hs-var">CertificateInfo'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe CertificateState
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe CertificateType
+ -&gt; CertificateInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe CertificateState
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe CertificateType
+      -&gt; CertificateInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293785"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CommonName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CertificateState
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe CertificateType
+   -&gt; CertificateInfo)
+-&gt; Parser (Maybe CertificateState)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text -&gt; Maybe CertificateType -&gt; CertificateInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293785"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CertificateState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text -&gt; Maybe CertificateType -&gt; CertificateInfo)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe CertificateType -&gt; CertificateInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293785"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExpiryDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe CertificateType -&gt; CertificateInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe CertificateType -&gt; CertificateInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293785"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CertificateId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CertificateType -&gt; CertificateInfo)
+-&gt; Parser (Maybe CertificateType) -&gt; Parser CertificateInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293785"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CertificateType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293779"><span id="local-6989586621679293781"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo"><span class="hs-identifier hs-type">CertificateInfo</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293776"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateInfo.html#CertificateInfo"><span class="hs-identifier hs-type">CertificateInfo</span></a></span></span><span>
+</span><span id="line-115"></span></pre></body></html>

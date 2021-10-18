@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Config.Types.RemediationExecutionStepState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Config.Types.RemediationExecutionStepState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState"><span class="hs-identifier">RemediationExecutionStepState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState_FAILED"><span class="hs-identifier">RemediationExecutionStepState_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState_PENDING"><span class="hs-identifier">RemediationExecutionStepState_PENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState_SUCCEEDED"><span class="hs-identifier">RemediationExecutionStepState_SUCCEEDED</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679405048"><span id="local-6989586621679405049"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RemediationExecutionStepState"><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState"><span class="hs-identifier hs-var">RemediationExecutionStepState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemediationExecutionStepState%27"><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState%27"><span class="hs-identifier hs-var">RemediationExecutionStepState'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRemediationExecutionStepState"><span class="annot"><span class="annottext">RemediationExecutionStepState -&gt; Text
+</span><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#fromRemediationExecutionStepState"><span class="hs-identifier hs-var hs-var">fromRemediationExecutionStepState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405040"><span id="local-6989586621679405042"><span id="local-6989586621679405044"><span class="annot"><span class="annottext">Int -&gt; RemediationExecutionStepState -&gt; ShowS
+[RemediationExecutionStepState] -&gt; ShowS
+RemediationExecutionStepState -&gt; String
+(Int -&gt; RemediationExecutionStepState -&gt; ShowS)
+-&gt; (RemediationExecutionStepState -&gt; String)
+-&gt; ([RemediationExecutionStepState] -&gt; ShowS)
+-&gt; Show RemediationExecutionStepState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemediationExecutionStepState] -&gt; ShowS
+$cshowList :: [RemediationExecutionStepState] -&gt; ShowS
+show :: RemediationExecutionStepState -&gt; String
+$cshow :: RemediationExecutionStepState -&gt; String
+showsPrec :: Int -&gt; RemediationExecutionStepState -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemediationExecutionStepState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679405031"><span id="local-6989586621679405033"><span id="local-6989586621679405035"><span id="local-6989586621679405037"><span class="annot"><span class="annottext">ReadPrec [RemediationExecutionStepState]
+ReadPrec RemediationExecutionStepState
+Int -&gt; ReadS RemediationExecutionStepState
+ReadS [RemediationExecutionStepState]
+(Int -&gt; ReadS RemediationExecutionStepState)
+-&gt; ReadS [RemediationExecutionStepState]
+-&gt; ReadPrec RemediationExecutionStepState
+-&gt; ReadPrec [RemediationExecutionStepState]
+-&gt; Read RemediationExecutionStepState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemediationExecutionStepState]
+$creadListPrec :: ReadPrec [RemediationExecutionStepState]
+readPrec :: ReadPrec RemediationExecutionStepState
+$creadPrec :: ReadPrec RemediationExecutionStepState
+readList :: ReadS [RemediationExecutionStepState]
+$creadList :: ReadS [RemediationExecutionStepState]
+readsPrec :: Int -&gt; ReadS RemediationExecutionStepState
+$creadsPrec :: Int -&gt; ReadS RemediationExecutionStepState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679405026"><span id="local-6989586621679405028"><span class="annot"><span class="annottext">RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Bool
+(RemediationExecutionStepState
+ -&gt; RemediationExecutionStepState -&gt; Bool)
+-&gt; (RemediationExecutionStepState
+    -&gt; RemediationExecutionStepState -&gt; Bool)
+-&gt; Eq RemediationExecutionStepState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Bool
+$c/= :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Bool
+== :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Bool
+$c== :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679405010"><span id="local-6989586621679405012"><span id="local-6989586621679405014"><span id="local-6989586621679405016"><span id="local-6989586621679405018"><span id="local-6989586621679405020"><span id="local-6989586621679405022"><span class="annot"><span class="annottext">Eq RemediationExecutionStepState
+Eq RemediationExecutionStepState
+-&gt; (RemediationExecutionStepState
+    -&gt; RemediationExecutionStepState -&gt; Ordering)
+-&gt; (RemediationExecutionStepState
+    -&gt; RemediationExecutionStepState -&gt; Bool)
+-&gt; (RemediationExecutionStepState
+    -&gt; RemediationExecutionStepState -&gt; Bool)
+-&gt; (RemediationExecutionStepState
+    -&gt; RemediationExecutionStepState -&gt; Bool)
+-&gt; (RemediationExecutionStepState
+    -&gt; RemediationExecutionStepState -&gt; Bool)
+-&gt; (RemediationExecutionStepState
+    -&gt; RemediationExecutionStepState -&gt; RemediationExecutionStepState)
+-&gt; (RemediationExecutionStepState
+    -&gt; RemediationExecutionStepState -&gt; RemediationExecutionStepState)
+-&gt; Ord RemediationExecutionStepState
+RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Bool
+RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Ordering
+RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; RemediationExecutionStepState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; RemediationExecutionStepState
+$cmin :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; RemediationExecutionStepState
+max :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; RemediationExecutionStepState
+$cmax :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; RemediationExecutionStepState
+&gt;= :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Bool
+$c&gt;= :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Bool
+&gt; :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Bool
+$c&gt; :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Bool
+&lt;= :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Bool
+$c&lt;= :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Bool
+&lt; :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Bool
+$c&lt; :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Bool
+compare :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Ordering
+$ccompare :: RemediationExecutionStepState
+-&gt; RemediationExecutionStepState -&gt; Ordering
+$cp1Ord :: Eq RemediationExecutionStepState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ RemediationExecutionStepState
+ -&gt; Rep RemediationExecutionStepState x)
+-&gt; (forall x.
+    Rep RemediationExecutionStepState x
+    -&gt; RemediationExecutionStepState)
+-&gt; Generic RemediationExecutionStepState
+forall x.
+Rep RemediationExecutionStepState x
+-&gt; RemediationExecutionStepState
+forall x.
+RemediationExecutionStepState
+-&gt; Rep RemediationExecutionStepState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RemediationExecutionStepState x
+-&gt; RemediationExecutionStepState
+$cfrom :: forall x.
+RemediationExecutionStepState
+-&gt; Rep RemediationExecutionStepState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405002"><span id="local-6989586621679405004"><span class="annot"><span class="annottext">Int -&gt; RemediationExecutionStepState -&gt; Int
+RemediationExecutionStepState -&gt; Int
+(Int -&gt; RemediationExecutionStepState -&gt; Int)
+-&gt; (RemediationExecutionStepState -&gt; Int)
+-&gt; Hashable RemediationExecutionStepState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RemediationExecutionStepState -&gt; Int
+$chash :: RemediationExecutionStepState -&gt; Int
+hashWithSalt :: Int -&gt; RemediationExecutionStepState -&gt; Int
+$chashWithSalt :: Int -&gt; RemediationExecutionStepState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679404999"><span class="annot"><span class="annottext">RemediationExecutionStepState -&gt; ()
+(RemediationExecutionStepState -&gt; ())
+-&gt; NFData RemediationExecutionStepState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RemediationExecutionStepState -&gt; ()
+$crnf :: RemediationExecutionStepState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679404996"><span class="annot"><span class="annottext">Text -&gt; Either String RemediationExecutionStepState
+(Text -&gt; Either String RemediationExecutionStepState)
+-&gt; FromText RemediationExecutionStepState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RemediationExecutionStepState
+$cfromText :: Text -&gt; Either String RemediationExecutionStepState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679404993"><span class="annot"><span class="annottext">RemediationExecutionStepState -&gt; Text
+(RemediationExecutionStepState -&gt; Text)
+-&gt; ToText RemediationExecutionStepState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RemediationExecutionStepState -&gt; Text
+$ctoText :: RemediationExecutionStepState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679404990"><span class="annot"><span class="annottext">RemediationExecutionStepState -&gt; ByteString
+(RemediationExecutionStepState -&gt; ByteString)
+-&gt; ToByteString RemediationExecutionStepState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RemediationExecutionStepState -&gt; ByteString
+$ctoBS :: RemediationExecutionStepState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679404987"><span class="annot"><span class="annottext">RemediationExecutionStepState -&gt; ByteStringBuilder
+(RemediationExecutionStepState -&gt; ByteStringBuilder)
+-&gt; ToLog RemediationExecutionStepState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RemediationExecutionStepState -&gt; ByteStringBuilder
+$cbuild :: RemediationExecutionStepState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679404984"><span class="annot"><span class="annottext">HeaderName -&gt; RemediationExecutionStepState -&gt; [Header]
+(HeaderName -&gt; RemediationExecutionStepState -&gt; [Header])
+-&gt; ToHeader RemediationExecutionStepState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RemediationExecutionStepState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RemediationExecutionStepState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679404981"><span class="annot"><span class="annottext">RemediationExecutionStepState -&gt; QueryString
+(RemediationExecutionStepState -&gt; QueryString)
+-&gt; ToQuery RemediationExecutionStepState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RemediationExecutionStepState -&gt; QueryString
+$ctoQuery :: RemediationExecutionStepState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679404976"><span id="local-6989586621679404978"><span class="annot"><span class="annottext">Value -&gt; Parser [RemediationExecutionStepState]
+Value -&gt; Parser RemediationExecutionStepState
+(Value -&gt; Parser RemediationExecutionStepState)
+-&gt; (Value -&gt; Parser [RemediationExecutionStepState])
+-&gt; FromJSON RemediationExecutionStepState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RemediationExecutionStepState]
+$cparseJSONList :: Value -&gt; Parser [RemediationExecutionStepState]
+parseJSON :: Value -&gt; Parser RemediationExecutionStepState
+$cparseJSON :: Value -&gt; Parser RemediationExecutionStepState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679404971"><span id="local-6989586621679404973"><span class="annot"><span class="annottext">FromJSONKeyFunction [RemediationExecutionStepState]
+FromJSONKeyFunction RemediationExecutionStepState
+FromJSONKeyFunction RemediationExecutionStepState
+-&gt; FromJSONKeyFunction [RemediationExecutionStepState]
+-&gt; FromJSONKey RemediationExecutionStepState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RemediationExecutionStepState]
+$cfromJSONKeyList :: FromJSONKeyFunction [RemediationExecutionStepState]
+fromJSONKey :: FromJSONKeyFunction RemediationExecutionStepState
+$cfromJSONKey :: FromJSONKeyFunction RemediationExecutionStepState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679404962"><span id="local-6989586621679404964"><span id="local-6989586621679404966"><span id="local-6989586621679404968"><span class="annot"><span class="annottext">[RemediationExecutionStepState] -&gt; Encoding
+[RemediationExecutionStepState] -&gt; Value
+RemediationExecutionStepState -&gt; Encoding
+RemediationExecutionStepState -&gt; Value
+(RemediationExecutionStepState -&gt; Value)
+-&gt; (RemediationExecutionStepState -&gt; Encoding)
+-&gt; ([RemediationExecutionStepState] -&gt; Value)
+-&gt; ([RemediationExecutionStepState] -&gt; Encoding)
+-&gt; ToJSON RemediationExecutionStepState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RemediationExecutionStepState] -&gt; Encoding
+$ctoEncodingList :: [RemediationExecutionStepState] -&gt; Encoding
+toJSONList :: [RemediationExecutionStepState] -&gt; Value
+$ctoJSONList :: [RemediationExecutionStepState] -&gt; Value
+toEncoding :: RemediationExecutionStepState -&gt; Encoding
+$ctoEncoding :: RemediationExecutionStepState -&gt; Encoding
+toJSON :: RemediationExecutionStepState -&gt; Value
+$ctoJSON :: RemediationExecutionStepState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679404957"><span id="local-6989586621679404959"><span class="annot"><span class="annottext">ToJSONKeyFunction [RemediationExecutionStepState]
+ToJSONKeyFunction RemediationExecutionStepState
+ToJSONKeyFunction RemediationExecutionStepState
+-&gt; ToJSONKeyFunction [RemediationExecutionStepState]
+-&gt; ToJSONKey RemediationExecutionStepState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RemediationExecutionStepState]
+$ctoJSONKeyList :: ToJSONKeyFunction [RemediationExecutionStepState]
+toJSONKey :: ToJSONKeyFunction RemediationExecutionStepState
+$ctoJSONKey :: ToJSONKeyFunction RemediationExecutionStepState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679404954"><span class="annot"><span class="annottext">[Node] -&gt; Either String RemediationExecutionStepState
+([Node] -&gt; Either String RemediationExecutionStepState)
+-&gt; FromXML RemediationExecutionStepState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RemediationExecutionStepState
+$cparseXML :: [Node] -&gt; Either String RemediationExecutionStepState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679404951"><span class="annot"><span class="annottext">RemediationExecutionStepState -&gt; XML
+(RemediationExecutionStepState -&gt; XML)
+-&gt; ToXML RemediationExecutionStepState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RemediationExecutionStepState -&gt; XML
+$ctoXML :: RemediationExecutionStepState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState_FAILED"><span class="hs-identifier hs-type">RemediationExecutionStepState_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState"><span class="hs-identifier hs-type">RemediationExecutionStepState</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRemediationExecutionStepState_FAILED"><span id="%24mRemediationExecutionStepState_FAILED"><span id="RemediationExecutionStepState_FAILED"><span class="annot"><span class="annottext">$bRemediationExecutionStepState_FAILED :: RemediationExecutionStepState
+$mRemediationExecutionStepState_FAILED :: forall r.
+RemediationExecutionStepState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#%24bRemediationExecutionStepState_FAILED"><span class="hs-identifier hs-var hs-var hs-var">RemediationExecutionStepState_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState%27"><span class="hs-identifier hs-type">RemediationExecutionStepState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState_PENDING"><span class="hs-identifier hs-type">RemediationExecutionStepState_PENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState"><span class="hs-identifier hs-type">RemediationExecutionStepState</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRemediationExecutionStepState_PENDING"><span id="%24mRemediationExecutionStepState_PENDING"><span id="RemediationExecutionStepState_PENDING"><span class="annot"><span class="annottext">$bRemediationExecutionStepState_PENDING :: RemediationExecutionStepState
+$mRemediationExecutionStepState_PENDING :: forall r.
+RemediationExecutionStepState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#%24bRemediationExecutionStepState_PENDING"><span class="hs-identifier hs-var hs-var hs-var">RemediationExecutionStepState_PENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState%27"><span class="hs-identifier hs-type">RemediationExecutionStepState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState_SUCCEEDED"><span class="hs-identifier hs-type">RemediationExecutionStepState_SUCCEEDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState"><span class="hs-identifier hs-type">RemediationExecutionStepState</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRemediationExecutionStepState_SUCCEEDED"><span id="%24mRemediationExecutionStepState_SUCCEEDED"><span id="RemediationExecutionStepState_SUCCEEDED"><span class="annot"><span class="annottext">$bRemediationExecutionStepState_SUCCEEDED :: RemediationExecutionStepState
+$mRemediationExecutionStepState_SUCCEEDED :: forall r.
+RemediationExecutionStepState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#%24bRemediationExecutionStepState_SUCCEEDED"><span class="hs-identifier hs-var hs-var hs-var">RemediationExecutionStepState_SUCCEEDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState%27"><span class="hs-identifier hs-type">RemediationExecutionStepState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUCCEEDED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState_FAILED"><span class="hs-pragma hs-type">RemediationExecutionStepState_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState_PENDING"><span class="hs-pragma hs-type">RemediationExecutionStepState_PENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState_SUCCEEDED"><span class="hs-pragma hs-type">RemediationExecutionStepState_SUCCEEDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStepState.html#RemediationExecutionStepState%27"><span class="hs-pragma hs-type">RemediationExecutionStepState'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

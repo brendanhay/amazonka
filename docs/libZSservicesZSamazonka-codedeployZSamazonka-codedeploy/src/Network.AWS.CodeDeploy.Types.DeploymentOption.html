@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeDeploy.Types.DeploymentOption</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeDeploy.Types.DeploymentOption</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#DeploymentOption"><span class="hs-identifier">DeploymentOption</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#DeploymentOption_WITHOUT_TRAFFIC_CONTROL"><span class="hs-identifier">DeploymentOption_WITHOUT_TRAFFIC_CONTROL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#DeploymentOption_WITH_TRAFFIC_CONTROL"><span class="hs-identifier">DeploymentOption_WITH_TRAFFIC_CONTROL</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679306182"><span id="local-6989586621679306183"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentOption"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#DeploymentOption"><span class="hs-identifier hs-var">DeploymentOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentOption%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#DeploymentOption%27"><span class="hs-identifier hs-var">DeploymentOption'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeploymentOption"><span class="annot"><span class="annottext">DeploymentOption -&gt; Text
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#fromDeploymentOption"><span class="hs-identifier hs-var hs-var">fromDeploymentOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306174"><span id="local-6989586621679306176"><span id="local-6989586621679306178"><span class="annot"><span class="annottext">Int -&gt; DeploymentOption -&gt; ShowS
+[DeploymentOption] -&gt; ShowS
+DeploymentOption -&gt; String
+(Int -&gt; DeploymentOption -&gt; ShowS)
+-&gt; (DeploymentOption -&gt; String)
+-&gt; ([DeploymentOption] -&gt; ShowS)
+-&gt; Show DeploymentOption
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeploymentOption] -&gt; ShowS
+$cshowList :: [DeploymentOption] -&gt; ShowS
+show :: DeploymentOption -&gt; String
+$cshow :: DeploymentOption -&gt; String
+showsPrec :: Int -&gt; DeploymentOption -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeploymentOption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679306165"><span id="local-6989586621679306167"><span id="local-6989586621679306169"><span id="local-6989586621679306171"><span class="annot"><span class="annottext">ReadPrec [DeploymentOption]
+ReadPrec DeploymentOption
+Int -&gt; ReadS DeploymentOption
+ReadS [DeploymentOption]
+(Int -&gt; ReadS DeploymentOption)
+-&gt; ReadS [DeploymentOption]
+-&gt; ReadPrec DeploymentOption
+-&gt; ReadPrec [DeploymentOption]
+-&gt; Read DeploymentOption
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeploymentOption]
+$creadListPrec :: ReadPrec [DeploymentOption]
+readPrec :: ReadPrec DeploymentOption
+$creadPrec :: ReadPrec DeploymentOption
+readList :: ReadS [DeploymentOption]
+$creadList :: ReadS [DeploymentOption]
+readsPrec :: Int -&gt; ReadS DeploymentOption
+$creadsPrec :: Int -&gt; ReadS DeploymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679306160"><span id="local-6989586621679306162"><span class="annot"><span class="annottext">DeploymentOption -&gt; DeploymentOption -&gt; Bool
+(DeploymentOption -&gt; DeploymentOption -&gt; Bool)
+-&gt; (DeploymentOption -&gt; DeploymentOption -&gt; Bool)
+-&gt; Eq DeploymentOption
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeploymentOption -&gt; DeploymentOption -&gt; Bool
+$c/= :: DeploymentOption -&gt; DeploymentOption -&gt; Bool
+== :: DeploymentOption -&gt; DeploymentOption -&gt; Bool
+$c== :: DeploymentOption -&gt; DeploymentOption -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679306144"><span id="local-6989586621679306146"><span id="local-6989586621679306148"><span id="local-6989586621679306150"><span id="local-6989586621679306152"><span id="local-6989586621679306154"><span id="local-6989586621679306156"><span class="annot"><span class="annottext">Eq DeploymentOption
+Eq DeploymentOption
+-&gt; (DeploymentOption -&gt; DeploymentOption -&gt; Ordering)
+-&gt; (DeploymentOption -&gt; DeploymentOption -&gt; Bool)
+-&gt; (DeploymentOption -&gt; DeploymentOption -&gt; Bool)
+-&gt; (DeploymentOption -&gt; DeploymentOption -&gt; Bool)
+-&gt; (DeploymentOption -&gt; DeploymentOption -&gt; Bool)
+-&gt; (DeploymentOption -&gt; DeploymentOption -&gt; DeploymentOption)
+-&gt; (DeploymentOption -&gt; DeploymentOption -&gt; DeploymentOption)
+-&gt; Ord DeploymentOption
+DeploymentOption -&gt; DeploymentOption -&gt; Bool
+DeploymentOption -&gt; DeploymentOption -&gt; Ordering
+DeploymentOption -&gt; DeploymentOption -&gt; DeploymentOption
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeploymentOption -&gt; DeploymentOption -&gt; DeploymentOption
+$cmin :: DeploymentOption -&gt; DeploymentOption -&gt; DeploymentOption
+max :: DeploymentOption -&gt; DeploymentOption -&gt; DeploymentOption
+$cmax :: DeploymentOption -&gt; DeploymentOption -&gt; DeploymentOption
+&gt;= :: DeploymentOption -&gt; DeploymentOption -&gt; Bool
+$c&gt;= :: DeploymentOption -&gt; DeploymentOption -&gt; Bool
+&gt; :: DeploymentOption -&gt; DeploymentOption -&gt; Bool
+$c&gt; :: DeploymentOption -&gt; DeploymentOption -&gt; Bool
+&lt;= :: DeploymentOption -&gt; DeploymentOption -&gt; Bool
+$c&lt;= :: DeploymentOption -&gt; DeploymentOption -&gt; Bool
+&lt; :: DeploymentOption -&gt; DeploymentOption -&gt; Bool
+$c&lt; :: DeploymentOption -&gt; DeploymentOption -&gt; Bool
+compare :: DeploymentOption -&gt; DeploymentOption -&gt; Ordering
+$ccompare :: DeploymentOption -&gt; DeploymentOption -&gt; Ordering
+$cp1Ord :: Eq DeploymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DeploymentOption -&gt; Rep DeploymentOption x)
+-&gt; (forall x. Rep DeploymentOption x -&gt; DeploymentOption)
+-&gt; Generic DeploymentOption
+forall x. Rep DeploymentOption x -&gt; DeploymentOption
+forall x. DeploymentOption -&gt; Rep DeploymentOption x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeploymentOption x -&gt; DeploymentOption
+$cfrom :: forall x. DeploymentOption -&gt; Rep DeploymentOption x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306136"><span id="local-6989586621679306138"><span class="annot"><span class="annottext">Int -&gt; DeploymentOption -&gt; Int
+DeploymentOption -&gt; Int
+(Int -&gt; DeploymentOption -&gt; Int)
+-&gt; (DeploymentOption -&gt; Int) -&gt; Hashable DeploymentOption
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeploymentOption -&gt; Int
+$chash :: DeploymentOption -&gt; Int
+hashWithSalt :: Int -&gt; DeploymentOption -&gt; Int
+$chashWithSalt :: Int -&gt; DeploymentOption -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679306133"><span class="annot"><span class="annottext">DeploymentOption -&gt; ()
+(DeploymentOption -&gt; ()) -&gt; NFData DeploymentOption
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeploymentOption -&gt; ()
+$crnf :: DeploymentOption -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679306130"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentOption
+(Text -&gt; Either String DeploymentOption)
+-&gt; FromText DeploymentOption
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeploymentOption
+$cfromText :: Text -&gt; Either String DeploymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679306127"><span class="annot"><span class="annottext">DeploymentOption -&gt; Text
+(DeploymentOption -&gt; Text) -&gt; ToText DeploymentOption
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeploymentOption -&gt; Text
+$ctoText :: DeploymentOption -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679306124"><span class="annot"><span class="annottext">DeploymentOption -&gt; ByteString
+(DeploymentOption -&gt; ByteString) -&gt; ToByteString DeploymentOption
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeploymentOption -&gt; ByteString
+$ctoBS :: DeploymentOption -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679306121"><span class="annot"><span class="annottext">DeploymentOption -&gt; ByteStringBuilder
+(DeploymentOption -&gt; ByteStringBuilder) -&gt; ToLog DeploymentOption
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeploymentOption -&gt; ByteStringBuilder
+$cbuild :: DeploymentOption -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679306118"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentOption -&gt; [Header]
+(HeaderName -&gt; DeploymentOption -&gt; [Header])
+-&gt; ToHeader DeploymentOption
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeploymentOption -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeploymentOption -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679306115"><span class="annot"><span class="annottext">DeploymentOption -&gt; QueryString
+(DeploymentOption -&gt; QueryString) -&gt; ToQuery DeploymentOption
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeploymentOption -&gt; QueryString
+$ctoQuery :: DeploymentOption -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679306110"><span id="local-6989586621679306112"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentOption]
+Value -&gt; Parser DeploymentOption
+(Value -&gt; Parser DeploymentOption)
+-&gt; (Value -&gt; Parser [DeploymentOption])
+-&gt; FromJSON DeploymentOption
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeploymentOption]
+$cparseJSONList :: Value -&gt; Parser [DeploymentOption]
+parseJSON :: Value -&gt; Parser DeploymentOption
+$cparseJSON :: Value -&gt; Parser DeploymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679306105"><span id="local-6989586621679306107"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentOption]
+FromJSONKeyFunction DeploymentOption
+FromJSONKeyFunction DeploymentOption
+-&gt; FromJSONKeyFunction [DeploymentOption]
+-&gt; FromJSONKey DeploymentOption
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeploymentOption]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeploymentOption]
+fromJSONKey :: FromJSONKeyFunction DeploymentOption
+$cfromJSONKey :: FromJSONKeyFunction DeploymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679306096"><span id="local-6989586621679306098"><span id="local-6989586621679306100"><span id="local-6989586621679306102"><span class="annot"><span class="annottext">[DeploymentOption] -&gt; Encoding
+[DeploymentOption] -&gt; Value
+DeploymentOption -&gt; Encoding
+DeploymentOption -&gt; Value
+(DeploymentOption -&gt; Value)
+-&gt; (DeploymentOption -&gt; Encoding)
+-&gt; ([DeploymentOption] -&gt; Value)
+-&gt; ([DeploymentOption] -&gt; Encoding)
+-&gt; ToJSON DeploymentOption
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeploymentOption] -&gt; Encoding
+$ctoEncodingList :: [DeploymentOption] -&gt; Encoding
+toJSONList :: [DeploymentOption] -&gt; Value
+$ctoJSONList :: [DeploymentOption] -&gt; Value
+toEncoding :: DeploymentOption -&gt; Encoding
+$ctoEncoding :: DeploymentOption -&gt; Encoding
+toJSON :: DeploymentOption -&gt; Value
+$ctoJSON :: DeploymentOption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679306091"><span id="local-6989586621679306093"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentOption]
+ToJSONKeyFunction DeploymentOption
+ToJSONKeyFunction DeploymentOption
+-&gt; ToJSONKeyFunction [DeploymentOption]
+-&gt; ToJSONKey DeploymentOption
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeploymentOption]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeploymentOption]
+toJSONKey :: ToJSONKeyFunction DeploymentOption
+$ctoJSONKey :: ToJSONKeyFunction DeploymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679306088"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentOption
+([Node] -&gt; Either String DeploymentOption)
+-&gt; FromXML DeploymentOption
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeploymentOption
+$cparseXML :: [Node] -&gt; Either String DeploymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679306085"><span class="annot"><span class="annottext">DeploymentOption -&gt; XML
+(DeploymentOption -&gt; XML) -&gt; ToXML DeploymentOption
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeploymentOption -&gt; XML
+$ctoXML :: DeploymentOption -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#DeploymentOption_WITHOUT_TRAFFIC_CONTROL"><span class="hs-identifier hs-type">DeploymentOption_WITHOUT_TRAFFIC_CONTROL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#DeploymentOption"><span class="hs-identifier hs-type">DeploymentOption</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentOption_WITHOUT_TRAFFIC_CONTROL"><span id="%24mDeploymentOption_WITHOUT_TRAFFIC_CONTROL"><span id="DeploymentOption_WITHOUT_TRAFFIC_CONTROL"><span class="annot"><span class="annottext">$bDeploymentOption_WITHOUT_TRAFFIC_CONTROL :: DeploymentOption
+$mDeploymentOption_WITHOUT_TRAFFIC_CONTROL :: forall r. DeploymentOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#%24bDeploymentOption_WITHOUT_TRAFFIC_CONTROL"><span class="hs-identifier hs-var hs-var hs-var">DeploymentOption_WITHOUT_TRAFFIC_CONTROL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#DeploymentOption%27"><span class="hs-identifier hs-type">DeploymentOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WITHOUT_TRAFFIC_CONTROL&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#DeploymentOption_WITH_TRAFFIC_CONTROL"><span class="hs-identifier hs-type">DeploymentOption_WITH_TRAFFIC_CONTROL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#DeploymentOption"><span class="hs-identifier hs-type">DeploymentOption</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentOption_WITH_TRAFFIC_CONTROL"><span id="%24mDeploymentOption_WITH_TRAFFIC_CONTROL"><span id="DeploymentOption_WITH_TRAFFIC_CONTROL"><span class="annot"><span class="annottext">$bDeploymentOption_WITH_TRAFFIC_CONTROL :: DeploymentOption
+$mDeploymentOption_WITH_TRAFFIC_CONTROL :: forall r. DeploymentOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#%24bDeploymentOption_WITH_TRAFFIC_CONTROL"><span class="hs-identifier hs-var hs-var hs-var">DeploymentOption_WITH_TRAFFIC_CONTROL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#DeploymentOption%27"><span class="hs-identifier hs-type">DeploymentOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WITH_TRAFFIC_CONTROL&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#DeploymentOption_WITHOUT_TRAFFIC_CONTROL"><span class="hs-pragma hs-type">DeploymentOption_WITHOUT_TRAFFIC_CONTROL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#DeploymentOption_WITH_TRAFFIC_CONTROL"><span class="hs-pragma hs-type">DeploymentOption_WITH_TRAFFIC_CONTROL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentOption.html#DeploymentOption%27"><span class="hs-pragma hs-type">DeploymentOption'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.CancelExportTask</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Cancels an active export task. The request removes all artifacts of the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- export, including any partially-created Amazon S3 objects. If the export</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- task is complete or is in the process of transferring the final disk</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- image, the command fails and returns an error.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.CancelExportTask</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask"><span class="hs-identifier">CancelExportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#newCancelExportTask"><span class="hs-identifier">newCancelExportTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#cancelExportTask_exportTaskId"><span class="hs-identifier">cancelExportTask_exportTaskId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTaskResponse"><span class="hs-identifier">CancelExportTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#newCancelExportTaskResponse"><span class="hs-identifier">newCancelExportTaskResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newCancelExportTask' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621681265859"><span id="local-6989586621681265860"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelExportTask"><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask"><span class="hs-identifier hs-var">CancelExportTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelExportTask%27"><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask%27"><span class="hs-identifier hs-var">CancelExportTask'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the export task. This is the ID returned by</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @CreateInstanceExportTask@.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AexportTaskId%3ACancelExportTask%27"><span class="annot"><span class="annottext">CancelExportTask -&gt; Text
+</span><a href="Network.AWS.EC2.CancelExportTask.html#%24sel%3AexportTaskId%3ACancelExportTask%27"><span class="hs-identifier hs-var hs-var">exportTaskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681265853"><span id="local-6989586621681265855"><span class="annot"><span class="annottext">CancelExportTask -&gt; CancelExportTask -&gt; Bool
+(CancelExportTask -&gt; CancelExportTask -&gt; Bool)
+-&gt; (CancelExportTask -&gt; CancelExportTask -&gt; Bool)
+-&gt; Eq CancelExportTask
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelExportTask -&gt; CancelExportTask -&gt; Bool
+$c/= :: CancelExportTask -&gt; CancelExportTask -&gt; Bool
+== :: CancelExportTask -&gt; CancelExportTask -&gt; Bool
+$c== :: CancelExportTask -&gt; CancelExportTask -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265844"><span id="local-6989586621681265846"><span id="local-6989586621681265848"><span id="local-6989586621681265850"><span class="annot"><span class="annottext">ReadPrec [CancelExportTask]
+ReadPrec CancelExportTask
+Int -&gt; ReadS CancelExportTask
+ReadS [CancelExportTask]
+(Int -&gt; ReadS CancelExportTask)
+-&gt; ReadS [CancelExportTask]
+-&gt; ReadPrec CancelExportTask
+-&gt; ReadPrec [CancelExportTask]
+-&gt; Read CancelExportTask
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelExportTask]
+$creadListPrec :: ReadPrec [CancelExportTask]
+readPrec :: ReadPrec CancelExportTask
+$creadPrec :: ReadPrec CancelExportTask
+readList :: ReadS [CancelExportTask]
+$creadList :: ReadS [CancelExportTask]
+readsPrec :: Int -&gt; ReadS CancelExportTask
+$creadsPrec :: Int -&gt; ReadS CancelExportTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265837"><span id="local-6989586621681265839"><span id="local-6989586621681265841"><span class="annot"><span class="annottext">Int -&gt; CancelExportTask -&gt; ShowS
+[CancelExportTask] -&gt; ShowS
+CancelExportTask -&gt; String
+(Int -&gt; CancelExportTask -&gt; ShowS)
+-&gt; (CancelExportTask -&gt; String)
+-&gt; ([CancelExportTask] -&gt; ShowS)
+-&gt; Show CancelExportTask
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelExportTask] -&gt; ShowS
+$cshowList :: [CancelExportTask] -&gt; ShowS
+show :: CancelExportTask -&gt; String
+$cshow :: CancelExportTask -&gt; String
+showsPrec :: Int -&gt; CancelExportTask -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelExportTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CancelExportTask -&gt; Rep CancelExportTask x)
+-&gt; (forall x. Rep CancelExportTask x -&gt; CancelExportTask)
+-&gt; Generic CancelExportTask
+forall x. Rep CancelExportTask x -&gt; CancelExportTask
+forall x. CancelExportTask -&gt; Rep CancelExportTask x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CancelExportTask x -&gt; CancelExportTask
+$cfrom :: forall x. CancelExportTask -&gt; Rep CancelExportTask x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'CancelExportTask' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'exportTaskId', 'cancelExportTask_exportTaskId' - The ID of the export task. This is the ID returned by</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- @CreateInstanceExportTask@.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#newCancelExportTask"><span class="hs-identifier hs-type">newCancelExportTask</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'exportTaskId'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask"><span class="hs-identifier hs-type">CancelExportTask</span></a></span><span>
+</span><span id="line-70"></span><span id="newCancelExportTask"><span class="annot"><span class="annottext">newCancelExportTask :: Text -&gt; CancelExportTask
+</span><a href="Network.AWS.EC2.CancelExportTask.html#newCancelExportTask"><span class="hs-identifier hs-var hs-var">newCancelExportTask</span></a></span></span><span> </span><span id="local-6989586621681265832"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681265832"><span class="hs-identifier hs-var">pExportTaskId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">CancelExportTask' :: Text -&gt; CancelExportTask
+</span><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask%27"><span class="hs-identifier hs-type">CancelExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportTaskId:CancelExportTask' :: Text
+</span><a href="Network.AWS.EC2.CancelExportTask.html#%24sel%3AexportTaskId%3ACancelExportTask%27"><span class="hs-identifier hs-var">exportTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681265832"><span class="hs-identifier hs-var">pExportTaskId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The ID of the export task. This is the ID returned by</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- @CreateInstanceExportTask@.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#cancelExportTask_exportTaskId"><span class="hs-identifier hs-type">cancelExportTask_exportTaskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask"><span class="hs-identifier hs-type">CancelExportTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="cancelExportTask_exportTaskId"><span class="annot"><span class="annottext">cancelExportTask_exportTaskId :: (Text -&gt; f Text) -&gt; CancelExportTask -&gt; f CancelExportTask
+</span><a href="Network.AWS.EC2.CancelExportTask.html#cancelExportTask_exportTaskId"><span class="hs-identifier hs-var hs-var">cancelExportTask_exportTaskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelExportTask -&gt; Text)
+-&gt; (CancelExportTask -&gt; Text -&gt; CancelExportTask)
+-&gt; Lens CancelExportTask CancelExportTask Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask%27"><span class="hs-identifier hs-type">CancelExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265829"><span class="annot"><span class="annottext">Text
+exportTaskId :: Text
+$sel:exportTaskId:CancelExportTask' :: CancelExportTask -&gt; Text
+</span><a href="#local-6989586621681265829"><span class="hs-identifier hs-var hs-var">exportTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681265829"><span class="hs-identifier hs-var">exportTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265828"><span class="annot"><span class="annottext">s :: CancelExportTask
+</span><a href="#local-6989586621681265828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask%27"><span class="hs-identifier hs-type">CancelExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265827"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681265827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelExportTask
+</span><a href="#local-6989586621681265828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportTaskId:CancelExportTask' :: Text
+</span><a href="Network.AWS.EC2.CancelExportTask.html#%24sel%3AexportTaskId%3ACancelExportTask%27"><span class="hs-identifier hs-var">exportTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681265827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask"><span class="hs-identifier hs-type">CancelExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask"><span class="hs-identifier hs-type">CancelExportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask"><span class="hs-identifier hs-type">CancelExportTask</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTaskResponse"><span class="hs-identifier hs-type">CancelExportTaskResponse</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621681265823"><span class="annot"><span class="annottext">request :: CancelExportTask -&gt; Request CancelExportTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CancelExportTask -&gt; Request CancelExportTask
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621681265819"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CancelExportTask
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CancelExportTask)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse CancelExportTask
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CancelExportTask
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CancelExportTask)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse CancelExportTask
+CancelExportTaskResponse
+</span><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTaskResponse%27"><span class="hs-identifier hs-var">CancelExportTaskResponse'</span></a></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681265812"><span id="local-6989586621681265814"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask"><span class="hs-identifier hs-type">CancelExportTask</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681265809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask"><span class="hs-identifier hs-type">CancelExportTask</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask"><span class="hs-identifier hs-type">CancelExportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621681265805"><span class="annot"><span class="annottext">toHeaders :: CancelExportTask -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; CancelExportTask -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask"><span class="hs-identifier hs-type">CancelExportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621681265800"><span class="annot"><span class="annottext">toPath :: CancelExportTask -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CancelExportTask -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask"><span class="hs-identifier hs-type">CancelExportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621681265796"><span class="annot"><span class="annottext">toQuery :: CancelExportTask -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTask%27"><span class="hs-identifier hs-type">CancelExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265794"><span class="annot"><span class="annottext">Text
+exportTaskId :: Text
+$sel:exportTaskId:CancelExportTask' :: CancelExportTask -&gt; Text
+</span><a href="#local-6989586621681265794"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CancelExportTask&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ExportTaskId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681265794"><span class="hs-identifier hs-var">exportTaskId</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | /See:/ 'newCancelExportTaskResponse' smart constructor.</span><span>
+</span><span id="line-107"></span><span id="local-6989586621681265791"><span id="local-6989586621681265792"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelExportTaskResponse"><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTaskResponse"><span class="hs-identifier hs-var">CancelExportTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelExportTaskResponse%27"><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTaskResponse%27"><span class="hs-identifier hs-var">CancelExportTaskResponse'</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681265787"><span id="local-6989586621681265789"><span class="annot"><span class="annottext">CancelExportTaskResponse -&gt; CancelExportTaskResponse -&gt; Bool
+(CancelExportTaskResponse -&gt; CancelExportTaskResponse -&gt; Bool)
+-&gt; (CancelExportTaskResponse -&gt; CancelExportTaskResponse -&gt; Bool)
+-&gt; Eq CancelExportTaskResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelExportTaskResponse -&gt; CancelExportTaskResponse -&gt; Bool
+$c/= :: CancelExportTaskResponse -&gt; CancelExportTaskResponse -&gt; Bool
+== :: CancelExportTaskResponse -&gt; CancelExportTaskResponse -&gt; Bool
+$c== :: CancelExportTaskResponse -&gt; CancelExportTaskResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265779"><span id="local-6989586621681265781"><span id="local-6989586621681265783"><span id="local-6989586621681265785"><span class="annot"><span class="annottext">ReadPrec [CancelExportTaskResponse]
+ReadPrec CancelExportTaskResponse
+Int -&gt; ReadS CancelExportTaskResponse
+ReadS [CancelExportTaskResponse]
+(Int -&gt; ReadS CancelExportTaskResponse)
+-&gt; ReadS [CancelExportTaskResponse]
+-&gt; ReadPrec CancelExportTaskResponse
+-&gt; ReadPrec [CancelExportTaskResponse]
+-&gt; Read CancelExportTaskResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelExportTaskResponse]
+$creadListPrec :: ReadPrec [CancelExportTaskResponse]
+readPrec :: ReadPrec CancelExportTaskResponse
+$creadPrec :: ReadPrec CancelExportTaskResponse
+readList :: ReadS [CancelExportTaskResponse]
+$creadList :: ReadS [CancelExportTaskResponse]
+readsPrec :: Int -&gt; ReadS CancelExportTaskResponse
+$creadsPrec :: Int -&gt; ReadS CancelExportTaskResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265773"><span id="local-6989586621681265775"><span id="local-6989586621681265777"><span class="annot"><span class="annottext">Int -&gt; CancelExportTaskResponse -&gt; ShowS
+[CancelExportTaskResponse] -&gt; ShowS
+CancelExportTaskResponse -&gt; String
+(Int -&gt; CancelExportTaskResponse -&gt; ShowS)
+-&gt; (CancelExportTaskResponse -&gt; String)
+-&gt; ([CancelExportTaskResponse] -&gt; ShowS)
+-&gt; Show CancelExportTaskResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelExportTaskResponse] -&gt; ShowS
+$cshowList :: [CancelExportTaskResponse] -&gt; ShowS
+show :: CancelExportTaskResponse -&gt; String
+$cshow :: CancelExportTaskResponse -&gt; String
+showsPrec :: Int -&gt; CancelExportTaskResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelExportTaskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CancelExportTaskResponse -&gt; Rep CancelExportTaskResponse x)
+-&gt; (forall x.
+    Rep CancelExportTaskResponse x -&gt; CancelExportTaskResponse)
+-&gt; Generic CancelExportTaskResponse
+forall x.
+Rep CancelExportTaskResponse x -&gt; CancelExportTaskResponse
+forall x.
+CancelExportTaskResponse -&gt; Rep CancelExportTaskResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CancelExportTaskResponse x -&gt; CancelExportTaskResponse
+$cfrom :: forall x.
+CancelExportTaskResponse -&gt; Rep CancelExportTaskResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Create a value of 'CancelExportTaskResponse' with all optional fields omitted.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#newCancelExportTaskResponse"><span class="hs-identifier hs-type">newCancelExportTaskResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTaskResponse"><span class="hs-identifier hs-type">CancelExportTaskResponse</span></a></span><span>
+</span><span id="line-118"></span><span id="newCancelExportTaskResponse"><span class="annot"><span class="annottext">newCancelExportTaskResponse :: CancelExportTaskResponse
+</span><a href="Network.AWS.EC2.CancelExportTask.html#newCancelExportTaskResponse"><span class="hs-identifier hs-var hs-var">newCancelExportTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="annottext">CancelExportTaskResponse
+</span><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTaskResponse%27"><span class="hs-identifier hs-var">CancelExportTaskResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681265769"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelExportTask.html#CancelExportTaskResponse"><span class="hs-identifier hs-type">CancelExportTaskResponse</span></a></span></span><span>
+</span><span id="line-122"></span></pre></body></html>

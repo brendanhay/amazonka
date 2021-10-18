@@ -1,0 +1,867 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.ListAlgorithms</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the machine learning algorithms that have been created.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.ListAlgorithms</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier">ListAlgorithms</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#newListAlgorithms"><span class="hs-identifier">newListAlgorithms</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_nextToken"><span class="hs-identifier">listAlgorithms_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_sortOrder"><span class="hs-identifier">listAlgorithms_sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_nameContains"><span class="hs-identifier">listAlgorithms_nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_maxResults"><span class="hs-identifier">listAlgorithms_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_creationTimeBefore"><span class="hs-identifier">listAlgorithms_creationTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_sortBy"><span class="hs-identifier">listAlgorithms_sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_creationTimeAfter"><span class="hs-identifier">listAlgorithms_creationTimeAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse"><span class="hs-identifier">ListAlgorithmsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#newListAlgorithmsResponse"><span class="hs-identifier">newListAlgorithmsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithmsResponse_nextToken"><span class="hs-identifier">listAlgorithmsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithmsResponse_httpStatus"><span class="hs-identifier">listAlgorithmsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithmsResponse_algorithmSummaryList"><span class="hs-identifier">listAlgorithmsResponse_algorithmSummaryList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListAlgorithms' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621680386862"><span id="local-6989586621680386863"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAlgorithms"><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-var">ListAlgorithms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAlgorithms%27"><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-var">ListAlgorithms'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the response to a previous @ListAlgorithms@ request was truncated,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the response includes a @NextToken@. To retrieve the next set of</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- algorithms, use the token in the next request.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3AListAlgorithms%27"><span class="annot"><span class="annottext">ListAlgorithms -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AnextToken%3AListAlgorithms%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The sort order for the results. The default is @Ascending@.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AsortOrder%3AListAlgorithms%27"><span class="annot"><span class="annottext">ListAlgorithms -&gt; Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AsortOrder%3AListAlgorithms%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | A string in the algorithm name. This filter returns only algorithms</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- whose name contains the specified string.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AnameContains%3AListAlgorithms%27"><span class="annot"><span class="annottext">ListAlgorithms -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AnameContains%3AListAlgorithms%27"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The maximum number of algorithms to return in the response.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AmaxResults%3AListAlgorithms%27"><span class="annot"><span class="annottext">ListAlgorithms -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AmaxResults%3AListAlgorithms%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | A filter that returns only algorithms created before the specified time</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- (timestamp).</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AcreationTimeBefore%3AListAlgorithms%27"><span class="annot"><span class="annottext">ListAlgorithms -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AcreationTimeBefore%3AListAlgorithms%27"><span class="hs-identifier hs-var hs-var">creationTimeBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The parameter by which to sort the results. The default is</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- @CreationTime@.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AsortBy%3AListAlgorithms%27"><span class="annot"><span class="annottext">ListAlgorithms -&gt; Maybe AlgorithmSortBy
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AsortBy%3AListAlgorithms%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSortBy.html#AlgorithmSortBy"><span class="hs-identifier hs-type">AlgorithmSortBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | A filter that returns only algorithms created after the specified time</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- (timestamp).</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AcreationTimeAfter%3AListAlgorithms%27"><span class="annot"><span class="annottext">ListAlgorithms -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AcreationTimeAfter%3AListAlgorithms%27"><span class="hs-identifier hs-var hs-var">creationTimeAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680386850"><span id="local-6989586621680386852"><span class="annot"><span class="annottext">ListAlgorithms -&gt; ListAlgorithms -&gt; Bool
+(ListAlgorithms -&gt; ListAlgorithms -&gt; Bool)
+-&gt; (ListAlgorithms -&gt; ListAlgorithms -&gt; Bool) -&gt; Eq ListAlgorithms
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAlgorithms -&gt; ListAlgorithms -&gt; Bool
+$c/= :: ListAlgorithms -&gt; ListAlgorithms -&gt; Bool
+== :: ListAlgorithms -&gt; ListAlgorithms -&gt; Bool
+$c== :: ListAlgorithms -&gt; ListAlgorithms -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680386841"><span id="local-6989586621680386843"><span id="local-6989586621680386845"><span id="local-6989586621680386847"><span class="annot"><span class="annottext">ReadPrec [ListAlgorithms]
+ReadPrec ListAlgorithms
+Int -&gt; ReadS ListAlgorithms
+ReadS [ListAlgorithms]
+(Int -&gt; ReadS ListAlgorithms)
+-&gt; ReadS [ListAlgorithms]
+-&gt; ReadPrec ListAlgorithms
+-&gt; ReadPrec [ListAlgorithms]
+-&gt; Read ListAlgorithms
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAlgorithms]
+$creadListPrec :: ReadPrec [ListAlgorithms]
+readPrec :: ReadPrec ListAlgorithms
+$creadPrec :: ReadPrec ListAlgorithms
+readList :: ReadS [ListAlgorithms]
+$creadList :: ReadS [ListAlgorithms]
+readsPrec :: Int -&gt; ReadS ListAlgorithms
+$creadsPrec :: Int -&gt; ReadS ListAlgorithms
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680386834"><span id="local-6989586621680386836"><span id="local-6989586621680386838"><span class="annot"><span class="annottext">Int -&gt; ListAlgorithms -&gt; ShowS
+[ListAlgorithms] -&gt; ShowS
+ListAlgorithms -&gt; String
+(Int -&gt; ListAlgorithms -&gt; ShowS)
+-&gt; (ListAlgorithms -&gt; String)
+-&gt; ([ListAlgorithms] -&gt; ShowS)
+-&gt; Show ListAlgorithms
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAlgorithms] -&gt; ShowS
+$cshowList :: [ListAlgorithms] -&gt; ShowS
+show :: ListAlgorithms -&gt; String
+$cshow :: ListAlgorithms -&gt; String
+showsPrec :: Int -&gt; ListAlgorithms -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAlgorithms -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListAlgorithms -&gt; Rep ListAlgorithms x)
+-&gt; (forall x. Rep ListAlgorithms x -&gt; ListAlgorithms)
+-&gt; Generic ListAlgorithms
+forall x. Rep ListAlgorithms x -&gt; ListAlgorithms
+forall x. ListAlgorithms -&gt; Rep ListAlgorithms x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAlgorithms x -&gt; ListAlgorithms
+$cfrom :: forall x. ListAlgorithms -&gt; Rep ListAlgorithms x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Create a value of 'ListAlgorithms' with all optional fields omitted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'nextToken', 'listAlgorithms_nextToken' - If the response to a previous @ListAlgorithms@ request was truncated,</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- the response includes a @NextToken@. To retrieve the next set of</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- algorithms, use the token in the next request.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'sortOrder', 'listAlgorithms_sortOrder' - The sort order for the results. The default is @Ascending@.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'nameContains', 'listAlgorithms_nameContains' - A string in the algorithm name. This filter returns only algorithms</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- whose name contains the specified string.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'maxResults', 'listAlgorithms_maxResults' - The maximum number of algorithms to return in the response.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'creationTimeBefore', 'listAlgorithms_creationTimeBefore' - A filter that returns only algorithms created before the specified time</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- (timestamp).</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'sortBy', 'listAlgorithms_sortBy' - The parameter by which to sort the results. The default is</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- @CreationTime@.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'creationTimeAfter', 'listAlgorithms_creationTimeAfter' - A filter that returns only algorithms created after the specified time</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- (timestamp).</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#newListAlgorithms"><span class="hs-identifier hs-type">newListAlgorithms</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span>
+</span><span id="line-112"></span><span id="newListAlgorithms"><span class="annot"><span class="annottext">newListAlgorithms :: ListAlgorithms
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#newListAlgorithms"><span class="hs-identifier hs-var hs-var">newListAlgorithms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">ListAlgorithms' :: Maybe Text
+-&gt; Maybe SortOrder
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe POSIX
+-&gt; Maybe AlgorithmSortBy
+-&gt; Maybe POSIX
+-&gt; ListAlgorithms
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-type">ListAlgorithms'</span></a></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAlgorithms' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AnextToken%3AListAlgorithms%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortOrder:ListAlgorithms' :: Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AsortOrder%3AListAlgorithms%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:nameContains:ListAlgorithms' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AnameContains%3AListAlgorithms%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListAlgorithms' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AmaxResults%3AListAlgorithms%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTimeBefore:ListAlgorithms' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AcreationTimeBefore%3AListAlgorithms%27"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortBy:ListAlgorithms' :: Maybe AlgorithmSortBy
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AsortBy%3AListAlgorithms%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlgorithmSortBy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTimeAfter:ListAlgorithms' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AcreationTimeAfter%3AListAlgorithms%27"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | If the response to a previous @ListAlgorithms@ request was truncated,</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- the response includes a @NextToken@. To retrieve the next set of</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- algorithms, use the token in the next request.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_nextToken"><span class="hs-identifier hs-type">listAlgorithms_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="listAlgorithms_nextToken"><span class="annot"><span class="annottext">listAlgorithms_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAlgorithms -&gt; f ListAlgorithms
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_nextToken"><span class="hs-identifier hs-var hs-var">listAlgorithms_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAlgorithms -&gt; Maybe Text)
+-&gt; (ListAlgorithms -&gt; Maybe Text -&gt; ListAlgorithms)
+-&gt; Lens ListAlgorithms ListAlgorithms (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-type">ListAlgorithms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386828"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAlgorithms' :: ListAlgorithms -&gt; Maybe Text
+</span><a href="#local-6989586621680386828"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386828"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386827"><span class="annot"><span class="annottext">s :: ListAlgorithms
+</span><a href="#local-6989586621680386827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-type">ListAlgorithms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386826"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAlgorithms
+</span><a href="#local-6989586621680386827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAlgorithms' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AnextToken%3AListAlgorithms%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The sort order for the results. The default is @Ascending@.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_sortOrder"><span class="hs-identifier hs-type">listAlgorithms_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="listAlgorithms_sortOrder"><span class="annot"><span class="annottext">listAlgorithms_sortOrder :: (Maybe SortOrder -&gt; f (Maybe SortOrder))
+-&gt; ListAlgorithms -&gt; f ListAlgorithms
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_sortOrder"><span class="hs-identifier hs-var hs-var">listAlgorithms_sortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAlgorithms -&gt; Maybe SortOrder)
+-&gt; (ListAlgorithms -&gt; Maybe SortOrder -&gt; ListAlgorithms)
+-&gt; Lens
+     ListAlgorithms ListAlgorithms (Maybe SortOrder) (Maybe SortOrder)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-type">ListAlgorithms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386825"><span class="annot"><span class="annottext">Maybe SortOrder
+sortOrder :: Maybe SortOrder
+$sel:sortOrder:ListAlgorithms' :: ListAlgorithms -&gt; Maybe SortOrder
+</span><a href="#local-6989586621680386825"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680386825"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386824"><span class="annot"><span class="annottext">s :: ListAlgorithms
+</span><a href="#local-6989586621680386824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-type">ListAlgorithms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386823"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680386823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAlgorithms
+</span><a href="#local-6989586621680386824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListAlgorithms' :: Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AsortOrder%3AListAlgorithms%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680386823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | A string in the algorithm name. This filter returns only algorithms</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- whose name contains the specified string.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_nameContains"><span class="hs-identifier hs-type">listAlgorithms_nameContains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="listAlgorithms_nameContains"><span class="annot"><span class="annottext">listAlgorithms_nameContains :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAlgorithms -&gt; f ListAlgorithms
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_nameContains"><span class="hs-identifier hs-var hs-var">listAlgorithms_nameContains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAlgorithms -&gt; Maybe Text)
+-&gt; (ListAlgorithms -&gt; Maybe Text -&gt; ListAlgorithms)
+-&gt; Lens ListAlgorithms ListAlgorithms (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-type">ListAlgorithms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386822"><span class="annot"><span class="annottext">Maybe Text
+nameContains :: Maybe Text
+$sel:nameContains:ListAlgorithms' :: ListAlgorithms -&gt; Maybe Text
+</span><a href="#local-6989586621680386822"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386822"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386821"><span class="annot"><span class="annottext">s :: ListAlgorithms
+</span><a href="#local-6989586621680386821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-type">ListAlgorithms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386820"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAlgorithms
+</span><a href="#local-6989586621680386821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:ListAlgorithms' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AnameContains%3AListAlgorithms%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The maximum number of algorithms to return in the response.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_maxResults"><span class="hs-identifier hs-type">listAlgorithms_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="listAlgorithms_maxResults"><span class="annot"><span class="annottext">listAlgorithms_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListAlgorithms -&gt; f ListAlgorithms
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_maxResults"><span class="hs-identifier hs-var hs-var">listAlgorithms_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAlgorithms -&gt; Maybe Natural)
+-&gt; (ListAlgorithms -&gt; Maybe Natural -&gt; ListAlgorithms)
+-&gt; Lens
+     ListAlgorithms ListAlgorithms (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-type">ListAlgorithms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386819"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListAlgorithms' :: ListAlgorithms -&gt; Maybe Natural
+</span><a href="#local-6989586621680386819"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680386819"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386818"><span class="annot"><span class="annottext">s :: ListAlgorithms
+</span><a href="#local-6989586621680386818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-type">ListAlgorithms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386817"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680386817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAlgorithms
+</span><a href="#local-6989586621680386818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAlgorithms' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AmaxResults%3AListAlgorithms%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680386817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | A filter that returns only algorithms created before the specified time</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- (timestamp).</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_creationTimeBefore"><span class="hs-identifier hs-type">listAlgorithms_creationTimeBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="listAlgorithms_creationTimeBefore"><span class="annot"><span class="annottext">listAlgorithms_creationTimeBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListAlgorithms -&gt; f ListAlgorithms
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_creationTimeBefore"><span class="hs-identifier hs-var hs-var">listAlgorithms_creationTimeBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAlgorithms -&gt; Maybe POSIX)
+-&gt; (ListAlgorithms -&gt; Maybe POSIX -&gt; ListAlgorithms)
+-&gt; Lens ListAlgorithms ListAlgorithms (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-type">ListAlgorithms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386816"><span class="annot"><span class="annottext">Maybe POSIX
+creationTimeBefore :: Maybe POSIX
+$sel:creationTimeBefore:ListAlgorithms' :: ListAlgorithms -&gt; Maybe POSIX
+</span><a href="#local-6989586621680386816"><span class="hs-identifier hs-var hs-var">creationTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680386816"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386815"><span class="annot"><span class="annottext">s :: ListAlgorithms
+</span><a href="#local-6989586621680386815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-type">ListAlgorithms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386814"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680386814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAlgorithms
+</span><a href="#local-6989586621680386815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeBefore:ListAlgorithms' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AcreationTimeBefore%3AListAlgorithms%27"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680386814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListAlgorithms -&gt; f ListAlgorithms)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListAlgorithms
+-&gt; f ListAlgorithms
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The parameter by which to sort the results. The default is</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- @CreationTime@.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_sortBy"><span class="hs-identifier hs-type">listAlgorithms_sortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSortBy.html#AlgorithmSortBy"><span class="hs-identifier hs-type">AlgorithmSortBy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="listAlgorithms_sortBy"><span class="annot"><span class="annottext">listAlgorithms_sortBy :: (Maybe AlgorithmSortBy -&gt; f (Maybe AlgorithmSortBy))
+-&gt; ListAlgorithms -&gt; f ListAlgorithms
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_sortBy"><span class="hs-identifier hs-var hs-var">listAlgorithms_sortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAlgorithms -&gt; Maybe AlgorithmSortBy)
+-&gt; (ListAlgorithms -&gt; Maybe AlgorithmSortBy -&gt; ListAlgorithms)
+-&gt; Lens
+     ListAlgorithms
+     ListAlgorithms
+     (Maybe AlgorithmSortBy)
+     (Maybe AlgorithmSortBy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-type">ListAlgorithms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386810"><span class="annot"><span class="annottext">Maybe AlgorithmSortBy
+sortBy :: Maybe AlgorithmSortBy
+$sel:sortBy:ListAlgorithms' :: ListAlgorithms -&gt; Maybe AlgorithmSortBy
+</span><a href="#local-6989586621680386810"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AlgorithmSortBy
+</span><a href="#local-6989586621680386810"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386809"><span class="annot"><span class="annottext">s :: ListAlgorithms
+</span><a href="#local-6989586621680386809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-type">ListAlgorithms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386808"><span class="annot"><span class="annottext">Maybe AlgorithmSortBy
+</span><a href="#local-6989586621680386808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAlgorithms
+</span><a href="#local-6989586621680386809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListAlgorithms' :: Maybe AlgorithmSortBy
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AsortBy%3AListAlgorithms%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlgorithmSortBy
+</span><a href="#local-6989586621680386808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | A filter that returns only algorithms created after the specified time</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- (timestamp).</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_creationTimeAfter"><span class="hs-identifier hs-type">listAlgorithms_creationTimeAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="listAlgorithms_creationTimeAfter"><span class="annot"><span class="annottext">listAlgorithms_creationTimeAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListAlgorithms -&gt; f ListAlgorithms
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_creationTimeAfter"><span class="hs-identifier hs-var hs-var">listAlgorithms_creationTimeAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAlgorithms -&gt; Maybe POSIX)
+-&gt; (ListAlgorithms -&gt; Maybe POSIX -&gt; ListAlgorithms)
+-&gt; Lens ListAlgorithms ListAlgorithms (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-type">ListAlgorithms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386807"><span class="annot"><span class="annottext">Maybe POSIX
+creationTimeAfter :: Maybe POSIX
+$sel:creationTimeAfter:ListAlgorithms' :: ListAlgorithms -&gt; Maybe POSIX
+</span><a href="#local-6989586621680386807"><span class="hs-identifier hs-var hs-var">creationTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680386807"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386806"><span class="annot"><span class="annottext">s :: ListAlgorithms
+</span><a href="#local-6989586621680386806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-type">ListAlgorithms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386805"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680386805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAlgorithms
+</span><a href="#local-6989586621680386806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeAfter:ListAlgorithms' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AcreationTimeAfter%3AListAlgorithms%27"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680386805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListAlgorithms -&gt; f ListAlgorithms)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListAlgorithms
+-&gt; f ListAlgorithms
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621680386801"><span class="annot"><span class="annottext">page :: ListAlgorithms
+-&gt; AWSResponse ListAlgorithms -&gt; Maybe ListAlgorithms
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680386799"><span class="annot"><span class="annottext">ListAlgorithms
+</span><a href="#local-6989586621680386799"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680386798"><span class="annot"><span class="annottext">AWSResponse ListAlgorithms
+</span><a href="#local-6989586621680386798"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-160"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAlgorithms
+ListAlgorithmsResponse
+</span><a href="#local-6989586621680386798"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">ListAlgorithmsResponse
+-&gt; Getting (First Text) ListAlgorithmsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAlgorithmsResponse
+-&gt; Const (First Text) ListAlgorithmsResponse
+Lens' ListAlgorithmsResponse (Maybe Text)
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithmsResponse_nextToken"><span class="hs-identifier hs-var">listAlgorithmsResponse_nextToken</span></a></span><span>
+</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAlgorithmsResponse
+ -&gt; Const (First Text) ListAlgorithmsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAlgorithmsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-163"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAlgorithms
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">[AlgorithmSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-166"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAlgorithms
+ListAlgorithmsResponse
+</span><a href="#local-6989586621680386798"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">ListAlgorithmsResponse
+-&gt; Getting
+     [AlgorithmSummary] ListAlgorithmsResponse [AlgorithmSummary]
+-&gt; [AlgorithmSummary]
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting
+  [AlgorithmSummary] ListAlgorithmsResponse [AlgorithmSummary]
+Lens' ListAlgorithmsResponse [AlgorithmSummary]
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithmsResponse_algorithmSummaryList"><span class="hs-identifier hs-var">listAlgorithmsResponse_algorithmSummaryList</span></a></span><span>
+</span><span id="line-168"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAlgorithms
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">ListAlgorithms -&gt; Maybe ListAlgorithms
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListAlgorithms -&gt; Maybe ListAlgorithms)
+-&gt; ListAlgorithms -&gt; Maybe ListAlgorithms
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ListAlgorithms
+</span><a href="#local-6989586621680386799"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">ListAlgorithms
+-&gt; (ListAlgorithms -&gt; ListAlgorithms) -&gt; ListAlgorithms
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListAlgorithms -&gt; Identity ListAlgorithms
+Lens ListAlgorithms ListAlgorithms (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithms_nextToken"><span class="hs-identifier hs-var">listAlgorithms_nextToken</span></a></span><span>
+</span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListAlgorithms -&gt; Identity ListAlgorithms)
+-&gt; Maybe Text -&gt; ListAlgorithms -&gt; ListAlgorithms
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAlgorithms
+ListAlgorithmsResponse
+</span><a href="#local-6989586621680386798"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">ListAlgorithmsResponse
+-&gt; Getting (First Text) ListAlgorithmsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAlgorithmsResponse
+-&gt; Const (First Text) ListAlgorithmsResponse
+Lens' ListAlgorithmsResponse (Maybe Text)
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithmsResponse_nextToken"><span class="hs-identifier hs-var">listAlgorithmsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAlgorithmsResponse
+ -&gt; Const (First Text) ListAlgorithmsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAlgorithmsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-179"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse"><span class="hs-identifier hs-type">ListAlgorithmsResponse</span></a></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621680386788"><span class="annot"><span class="annottext">request :: ListAlgorithms -&gt; Request ListAlgorithms
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAlgorithms -&gt; Request ListAlgorithms
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621680386784"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListAlgorithms
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListAlgorithms)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListAlgorithms))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListAlgorithms
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListAlgorithms)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680386781"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680386781"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680386780"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680386780"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680386779"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680386779"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [AlgorithmSummary] -&gt; ListAlgorithmsResponse
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse%27"><span class="hs-identifier hs-var">ListAlgorithmsResponse'</span></a></span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [AlgorithmSummary] -&gt; ListAlgorithmsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; [AlgorithmSummary] -&gt; ListAlgorithmsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680386779"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; [AlgorithmSummary] -&gt; ListAlgorithmsResponse)
+-&gt; Either String Int
+-&gt; Either String ([AlgorithmSummary] -&gt; ListAlgorithmsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680386781"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Either String ([AlgorithmSummary] -&gt; ListAlgorithmsResponse)
+-&gt; Either String [AlgorithmSummary]
+-&gt; Either String ListAlgorithmsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680386779"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [AlgorithmSummary])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AlgorithmSummaryList&quot;</span></span><span>
+</span><span id="line-189"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [AlgorithmSummary])
+-&gt; [AlgorithmSummary] -&gt; Either String [AlgorithmSummary]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[AlgorithmSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-190"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680386770"><span id="local-6989586621680386772"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span></span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680386767"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621680386763"><span class="annot"><span class="annottext">toHeaders :: ListAlgorithms -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAlgorithms -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-201"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.ListAlgorithms&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-204"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-205"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-206"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-208"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680386753"><span id="local-6989586621680386755"><span id="local-6989586621680386757"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621680386751"><span class="annot"><span class="annottext">toJSON :: ListAlgorithms -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms%27"><span class="hs-identifier hs-type">ListAlgorithms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386743"><span id="local-6989586621680386744"><span id="local-6989586621680386745"><span id="local-6989586621680386746"><span id="local-6989586621680386747"><span id="local-6989586621680386748"><span id="local-6989586621680386749"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe POSIX
+Maybe AlgorithmSortBy
+Maybe SortOrder
+creationTimeAfter :: Maybe POSIX
+sortBy :: Maybe AlgorithmSortBy
+creationTimeBefore :: Maybe POSIX
+maxResults :: Maybe Natural
+nameContains :: Maybe Text
+sortOrder :: Maybe SortOrder
+nextToken :: Maybe Text
+$sel:creationTimeAfter:ListAlgorithms' :: ListAlgorithms -&gt; Maybe POSIX
+$sel:sortBy:ListAlgorithms' :: ListAlgorithms -&gt; Maybe AlgorithmSortBy
+$sel:creationTimeBefore:ListAlgorithms' :: ListAlgorithms -&gt; Maybe POSIX
+$sel:maxResults:ListAlgorithms' :: ListAlgorithms -&gt; Maybe Natural
+$sel:nameContains:ListAlgorithms' :: ListAlgorithms -&gt; Maybe Text
+$sel:sortOrder:ListAlgorithms' :: ListAlgorithms -&gt; Maybe SortOrder
+$sel:nextToken:ListAlgorithms' :: ListAlgorithms -&gt; Maybe Text
+</span><a href="#local-6989586621680386743"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-214"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386749"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680386748"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NameContains&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386747"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680386746"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTimeBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680386745"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AlgorithmSortBy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AlgorithmSortBy -&gt; Pair) -&gt; Maybe AlgorithmSortBy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AlgorithmSortBy
+</span><a href="#local-6989586621680386744"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTimeAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680386743"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span>
+</span><span id="line-223"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621680386737"><span class="annot"><span class="annottext">toPath :: ListAlgorithms -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAlgorithms -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithms"><span class="hs-identifier hs-type">ListAlgorithms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621680386733"><span class="annot"><span class="annottext">toQuery :: ListAlgorithms -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListAlgorithms -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | /See:/ 'newListAlgorithmsResponse' smart constructor.</span><span>
+</span><span id="line-233"></span><span id="local-6989586621680386730"><span id="local-6989586621680386731"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAlgorithmsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse"><span class="hs-identifier hs-var">ListAlgorithmsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAlgorithmsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse%27"><span class="hs-identifier hs-var">ListAlgorithmsResponse'</span></a></span></span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the response is truncated, Amazon SageMaker returns this token. To</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- retrieve the next set of algorithms, use it in the subsequent request.</span><span>
+</span><span id="line-236"></span><span>    </span><span id="%24sel%3AnextToken%3AListAlgorithmsResponse%27"><span class="annot"><span class="annottext">ListAlgorithmsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AnextToken%3AListAlgorithmsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-238"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAlgorithmsResponse%27"><span class="annot"><span class="annottext">ListAlgorithmsResponse -&gt; Int
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AhttpStatus%3AListAlgorithmsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- | &gt;An array of @AlgorithmSummary@ objects, each of which lists an</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- algorithm.</span><span>
+</span><span id="line-241"></span><span>    </span><span id="%24sel%3AalgorithmSummaryList%3AListAlgorithmsResponse%27"><span class="annot"><span class="annottext">ListAlgorithmsResponse -&gt; [AlgorithmSummary]
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AalgorithmSummaryList%3AListAlgorithmsResponse%27"><span class="hs-identifier hs-var hs-var">algorithmSummaryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680386723"><span id="local-6989586621680386725"><span class="annot"><span class="annottext">ListAlgorithmsResponse -&gt; ListAlgorithmsResponse -&gt; Bool
+(ListAlgorithmsResponse -&gt; ListAlgorithmsResponse -&gt; Bool)
+-&gt; (ListAlgorithmsResponse -&gt; ListAlgorithmsResponse -&gt; Bool)
+-&gt; Eq ListAlgorithmsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAlgorithmsResponse -&gt; ListAlgorithmsResponse -&gt; Bool
+$c/= :: ListAlgorithmsResponse -&gt; ListAlgorithmsResponse -&gt; Bool
+== :: ListAlgorithmsResponse -&gt; ListAlgorithmsResponse -&gt; Bool
+$c== :: ListAlgorithmsResponse -&gt; ListAlgorithmsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680386715"><span id="local-6989586621680386717"><span id="local-6989586621680386719"><span id="local-6989586621680386721"><span class="annot"><span class="annottext">ReadPrec [ListAlgorithmsResponse]
+ReadPrec ListAlgorithmsResponse
+Int -&gt; ReadS ListAlgorithmsResponse
+ReadS [ListAlgorithmsResponse]
+(Int -&gt; ReadS ListAlgorithmsResponse)
+-&gt; ReadS [ListAlgorithmsResponse]
+-&gt; ReadPrec ListAlgorithmsResponse
+-&gt; ReadPrec [ListAlgorithmsResponse]
+-&gt; Read ListAlgorithmsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAlgorithmsResponse]
+$creadListPrec :: ReadPrec [ListAlgorithmsResponse]
+readPrec :: ReadPrec ListAlgorithmsResponse
+$creadPrec :: ReadPrec ListAlgorithmsResponse
+readList :: ReadS [ListAlgorithmsResponse]
+$creadList :: ReadS [ListAlgorithmsResponse]
+readsPrec :: Int -&gt; ReadS ListAlgorithmsResponse
+$creadsPrec :: Int -&gt; ReadS ListAlgorithmsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680386709"><span id="local-6989586621680386711"><span id="local-6989586621680386713"><span class="annot"><span class="annottext">Int -&gt; ListAlgorithmsResponse -&gt; ShowS
+[ListAlgorithmsResponse] -&gt; ShowS
+ListAlgorithmsResponse -&gt; String
+(Int -&gt; ListAlgorithmsResponse -&gt; ShowS)
+-&gt; (ListAlgorithmsResponse -&gt; String)
+-&gt; ([ListAlgorithmsResponse] -&gt; ShowS)
+-&gt; Show ListAlgorithmsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAlgorithmsResponse] -&gt; ShowS
+$cshowList :: [ListAlgorithmsResponse] -&gt; ShowS
+show :: ListAlgorithmsResponse -&gt; String
+$cshow :: ListAlgorithmsResponse -&gt; String
+showsPrec :: Int -&gt; ListAlgorithmsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAlgorithmsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListAlgorithmsResponse -&gt; Rep ListAlgorithmsResponse x)
+-&gt; (forall x.
+    Rep ListAlgorithmsResponse x -&gt; ListAlgorithmsResponse)
+-&gt; Generic ListAlgorithmsResponse
+forall x. Rep ListAlgorithmsResponse x -&gt; ListAlgorithmsResponse
+forall x. ListAlgorithmsResponse -&gt; Rep ListAlgorithmsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAlgorithmsResponse x -&gt; ListAlgorithmsResponse
+$cfrom :: forall x. ListAlgorithmsResponse -&gt; Rep ListAlgorithmsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- Create a value of 'ListAlgorithmsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- 'nextToken', 'listAlgorithmsResponse_nextToken' - If the response is truncated, Amazon SageMaker returns this token. To</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- retrieve the next set of algorithms, use it in the subsequent request.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- 'httpStatus', 'listAlgorithmsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- 'algorithmSummaryList', 'listAlgorithmsResponse_algorithmSummaryList' - &gt;An array of @AlgorithmSummary@ objects, each of which lists an</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- algorithm.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#newListAlgorithmsResponse"><span class="hs-identifier hs-type">newListAlgorithmsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-261"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-262"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-263"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse"><span class="hs-identifier hs-type">ListAlgorithmsResponse</span></a></span><span>
+</span><span id="line-264"></span><span id="newListAlgorithmsResponse"><span class="annot"><span class="annottext">newListAlgorithmsResponse :: Int -&gt; ListAlgorithmsResponse
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#newListAlgorithmsResponse"><span class="hs-identifier hs-var hs-var">newListAlgorithmsResponse</span></a></span></span><span> </span><span id="local-6989586621680386706"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680386706"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><span class="annottext">ListAlgorithmsResponse' :: Maybe Text -&gt; Int -&gt; [AlgorithmSummary] -&gt; ListAlgorithmsResponse
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse%27"><span class="hs-identifier hs-type">ListAlgorithmsResponse'</span></a></span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAlgorithmsResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AnextToken%3AListAlgorithmsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAlgorithmsResponse' :: Int
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AhttpStatus%3AListAlgorithmsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680386706"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">$sel:algorithmSummaryList:ListAlgorithmsResponse' :: [AlgorithmSummary]
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AalgorithmSummaryList%3AListAlgorithmsResponse%27"><span class="hs-identifier hs-var">algorithmSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AlgorithmSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | If the response is truncated, Amazon SageMaker returns this token. To</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- retrieve the next set of algorithms, use it in the subsequent request.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithmsResponse_nextToken"><span class="hs-identifier hs-type">listAlgorithmsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse"><span class="hs-identifier hs-type">ListAlgorithmsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="listAlgorithmsResponse_nextToken"><span class="annot"><span class="annottext">listAlgorithmsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAlgorithmsResponse -&gt; f ListAlgorithmsResponse
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithmsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAlgorithmsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAlgorithmsResponse -&gt; Maybe Text)
+-&gt; (ListAlgorithmsResponse -&gt; Maybe Text -&gt; ListAlgorithmsResponse)
+-&gt; Lens' ListAlgorithmsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse%27"><span class="hs-identifier hs-type">ListAlgorithmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386705"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAlgorithmsResponse' :: ListAlgorithmsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680386705"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386705"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386704"><span class="annot"><span class="annottext">s :: ListAlgorithmsResponse
+</span><a href="#local-6989586621680386704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse%27"><span class="hs-identifier hs-type">ListAlgorithmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386703"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAlgorithmsResponse
+</span><a href="#local-6989586621680386704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAlgorithmsResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AnextToken%3AListAlgorithmsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse"><span class="hs-identifier hs-type">ListAlgorithmsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithmsResponse_httpStatus"><span class="hs-identifier hs-type">listAlgorithmsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse"><span class="hs-identifier hs-type">ListAlgorithmsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-279"></span><span id="listAlgorithmsResponse_httpStatus"><span class="annot"><span class="annottext">listAlgorithmsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListAlgorithmsResponse -&gt; f ListAlgorithmsResponse
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithmsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listAlgorithmsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAlgorithmsResponse -&gt; Int)
+-&gt; (ListAlgorithmsResponse -&gt; Int -&gt; ListAlgorithmsResponse)
+-&gt; Lens ListAlgorithmsResponse ListAlgorithmsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse%27"><span class="hs-identifier hs-type">ListAlgorithmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386702"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListAlgorithmsResponse' :: ListAlgorithmsResponse -&gt; Int
+</span><a href="#local-6989586621680386702"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680386702"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386701"><span class="annot"><span class="annottext">s :: ListAlgorithmsResponse
+</span><a href="#local-6989586621680386701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse%27"><span class="hs-identifier hs-type">ListAlgorithmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386700"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680386700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAlgorithmsResponse
+</span><a href="#local-6989586621680386701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAlgorithmsResponse' :: Int
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AhttpStatus%3AListAlgorithmsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680386700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse"><span class="hs-identifier hs-type">ListAlgorithmsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | &gt;An array of @AlgorithmSummary@ objects, each of which lists an</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- algorithm.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithmsResponse_algorithmSummaryList"><span class="hs-identifier hs-type">listAlgorithmsResponse_algorithmSummaryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse"><span class="hs-identifier hs-type">ListAlgorithmsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-284"></span><span id="listAlgorithmsResponse_algorithmSummaryList"><span class="annot"><span class="annottext">listAlgorithmsResponse_algorithmSummaryList :: ([AlgorithmSummary] -&gt; f [AlgorithmSummary])
+-&gt; ListAlgorithmsResponse -&gt; f ListAlgorithmsResponse
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#listAlgorithmsResponse_algorithmSummaryList"><span class="hs-identifier hs-var hs-var">listAlgorithmsResponse_algorithmSummaryList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAlgorithmsResponse -&gt; [AlgorithmSummary])
+-&gt; (ListAlgorithmsResponse
+    -&gt; [AlgorithmSummary] -&gt; ListAlgorithmsResponse)
+-&gt; Lens' ListAlgorithmsResponse [AlgorithmSummary]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse%27"><span class="hs-identifier hs-type">ListAlgorithmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386699"><span class="annot"><span class="annottext">[AlgorithmSummary]
+algorithmSummaryList :: [AlgorithmSummary]
+$sel:algorithmSummaryList:ListAlgorithmsResponse' :: ListAlgorithmsResponse -&gt; [AlgorithmSummary]
+</span><a href="#local-6989586621680386699"><span class="hs-identifier hs-var hs-var">algorithmSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AlgorithmSummary]
+</span><a href="#local-6989586621680386699"><span class="hs-identifier hs-var">algorithmSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386698"><span class="annot"><span class="annottext">s :: ListAlgorithmsResponse
+</span><a href="#local-6989586621680386698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse%27"><span class="hs-identifier hs-type">ListAlgorithmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386697"><span class="annot"><span class="annottext">[AlgorithmSummary]
+</span><a href="#local-6989586621680386697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAlgorithmsResponse
+</span><a href="#local-6989586621680386698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmSummaryList:ListAlgorithmsResponse' :: [AlgorithmSummary]
+</span><a href="Network.AWS.SageMaker.ListAlgorithms.html#%24sel%3AalgorithmSummaryList%3AListAlgorithmsResponse%27"><span class="hs-identifier hs-var">algorithmSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AlgorithmSummary]
+</span><a href="#local-6989586621680386697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse"><span class="hs-identifier hs-type">ListAlgorithmsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AlgorithmSummary] -&gt; f [AlgorithmSummary])
+ -&gt; ListAlgorithmsResponse -&gt; f ListAlgorithmsResponse)
+-&gt; (([AlgorithmSummary] -&gt; f [AlgorithmSummary])
+    -&gt; [AlgorithmSummary] -&gt; f [AlgorithmSummary])
+-&gt; ([AlgorithmSummary] -&gt; f [AlgorithmSummary])
+-&gt; ListAlgorithmsResponse
+-&gt; f ListAlgorithmsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AlgorithmSummary] -&gt; f [AlgorithmSummary])
+-&gt; [AlgorithmSummary] -&gt; f [AlgorithmSummary]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680386694"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAlgorithms.html#ListAlgorithmsResponse"><span class="hs-identifier hs-type">ListAlgorithmsResponse</span></a></span></span><span>
+</span><span id="line-287"></span></pre></body></html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticBeanstalk.DeleteApplicationVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified version from the specified application.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You cannot delete an application version that is associated with a</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- running environment.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticBeanstalk.DeleteApplicationVersion</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion"><span class="hs-identifier">DeleteApplicationVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#newDeleteApplicationVersion"><span class="hs-identifier">newDeleteApplicationVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#deleteApplicationVersion_deleteSourceBundle"><span class="hs-identifier">deleteApplicationVersion_deleteSourceBundle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#deleteApplicationVersion_applicationName"><span class="hs-identifier">deleteApplicationVersion_applicationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#deleteApplicationVersion_versionLabel"><span class="hs-identifier">deleteApplicationVersion_versionLabel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersionResponse"><span class="hs-identifier">DeleteApplicationVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#newDeleteApplicationVersionResponse"><span class="hs-identifier">newDeleteApplicationVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.html"><span class="hs-identifier">Network.AWS.ElasticBeanstalk.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | Request to delete an application version.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newDeleteApplicationVersion' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679315341"><span id="local-6989586621679315342"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteApplicationVersion"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion"><span class="hs-identifier hs-var">DeleteApplicationVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteApplicationVersion%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion%27"><span class="hs-identifier hs-var">DeleteApplicationVersion'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set to @true@ to delete the source bundle from your storage bucket.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Otherwise, the application version is deleted only from Elastic</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Beanstalk and the source bundle remains in Amazon S3.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdeleteSourceBundle%3ADeleteApplicationVersion%27"><span class="annot"><span class="annottext">DeleteApplicationVersion -&gt; Maybe Bool
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#%24sel%3AdeleteSourceBundle%3ADeleteApplicationVersion%27"><span class="hs-identifier hs-var hs-var">deleteSourceBundle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The name of the application to which the version belongs.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AapplicationName%3ADeleteApplicationVersion%27"><span class="annot"><span class="annottext">DeleteApplicationVersion -&gt; Text
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#%24sel%3AapplicationName%3ADeleteApplicationVersion%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The label of the version to delete.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AversionLabel%3ADeleteApplicationVersion%27"><span class="annot"><span class="annottext">DeleteApplicationVersion -&gt; Text
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#%24sel%3AversionLabel%3ADeleteApplicationVersion%27"><span class="hs-identifier hs-var hs-var">versionLabel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315333"><span id="local-6989586621679315335"><span class="annot"><span class="annottext">DeleteApplicationVersion -&gt; DeleteApplicationVersion -&gt; Bool
+(DeleteApplicationVersion -&gt; DeleteApplicationVersion -&gt; Bool)
+-&gt; (DeleteApplicationVersion -&gt; DeleteApplicationVersion -&gt; Bool)
+-&gt; Eq DeleteApplicationVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteApplicationVersion -&gt; DeleteApplicationVersion -&gt; Bool
+$c/= :: DeleteApplicationVersion -&gt; DeleteApplicationVersion -&gt; Bool
+== :: DeleteApplicationVersion -&gt; DeleteApplicationVersion -&gt; Bool
+$c== :: DeleteApplicationVersion -&gt; DeleteApplicationVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315324"><span id="local-6989586621679315326"><span id="local-6989586621679315328"><span id="local-6989586621679315330"><span class="annot"><span class="annottext">ReadPrec [DeleteApplicationVersion]
+ReadPrec DeleteApplicationVersion
+Int -&gt; ReadS DeleteApplicationVersion
+ReadS [DeleteApplicationVersion]
+(Int -&gt; ReadS DeleteApplicationVersion)
+-&gt; ReadS [DeleteApplicationVersion]
+-&gt; ReadPrec DeleteApplicationVersion
+-&gt; ReadPrec [DeleteApplicationVersion]
+-&gt; Read DeleteApplicationVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteApplicationVersion]
+$creadListPrec :: ReadPrec [DeleteApplicationVersion]
+readPrec :: ReadPrec DeleteApplicationVersion
+$creadPrec :: ReadPrec DeleteApplicationVersion
+readList :: ReadS [DeleteApplicationVersion]
+$creadList :: ReadS [DeleteApplicationVersion]
+readsPrec :: Int -&gt; ReadS DeleteApplicationVersion
+$creadsPrec :: Int -&gt; ReadS DeleteApplicationVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315317"><span id="local-6989586621679315319"><span id="local-6989586621679315321"><span class="annot"><span class="annottext">Int -&gt; DeleteApplicationVersion -&gt; ShowS
+[DeleteApplicationVersion] -&gt; ShowS
+DeleteApplicationVersion -&gt; String
+(Int -&gt; DeleteApplicationVersion -&gt; ShowS)
+-&gt; (DeleteApplicationVersion -&gt; String)
+-&gt; ([DeleteApplicationVersion] -&gt; ShowS)
+-&gt; Show DeleteApplicationVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteApplicationVersion] -&gt; ShowS
+$cshowList :: [DeleteApplicationVersion] -&gt; ShowS
+show :: DeleteApplicationVersion -&gt; String
+$cshow :: DeleteApplicationVersion -&gt; String
+showsPrec :: Int -&gt; DeleteApplicationVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteApplicationVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteApplicationVersion -&gt; Rep DeleteApplicationVersion x)
+-&gt; (forall x.
+    Rep DeleteApplicationVersion x -&gt; DeleteApplicationVersion)
+-&gt; Generic DeleteApplicationVersion
+forall x.
+Rep DeleteApplicationVersion x -&gt; DeleteApplicationVersion
+forall x.
+DeleteApplicationVersion -&gt; Rep DeleteApplicationVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteApplicationVersion x -&gt; DeleteApplicationVersion
+$cfrom :: forall x.
+DeleteApplicationVersion -&gt; Rep DeleteApplicationVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'DeleteApplicationVersion' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'deleteSourceBundle', 'deleteApplicationVersion_deleteSourceBundle' - Set to @true@ to delete the source bundle from your storage bucket.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Otherwise, the application version is deleted only from Elastic</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Beanstalk and the source bundle remains in Amazon S3.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'applicationName', 'deleteApplicationVersion_applicationName' - The name of the application to which the version belongs.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'versionLabel', 'deleteApplicationVersion_versionLabel' - The label of the version to delete.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#newDeleteApplicationVersion"><span class="hs-identifier hs-type">newDeleteApplicationVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'applicationName'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'versionLabel'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion"><span class="hs-identifier hs-type">DeleteApplicationVersion</span></a></span><span>
+</span><span id="line-86"></span><span id="newDeleteApplicationVersion"><span class="annot"><span class="annottext">newDeleteApplicationVersion :: Text -&gt; Text -&gt; DeleteApplicationVersion
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#newDeleteApplicationVersion"><span class="hs-identifier hs-var hs-var">newDeleteApplicationVersion</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679315312"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315312"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679315311"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315311"><span class="hs-identifier hs-var">pVersionLabel_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">DeleteApplicationVersion' :: Maybe Bool -&gt; Text -&gt; Text -&gt; DeleteApplicationVersion
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion%27"><span class="hs-identifier hs-type">DeleteApplicationVersion'</span></a></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deleteSourceBundle:DeleteApplicationVersion' :: Maybe Bool
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#%24sel%3AdeleteSourceBundle%3ADeleteApplicationVersion%27"><span class="hs-identifier hs-var">deleteSourceBundle</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationName:DeleteApplicationVersion' :: Text
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#%24sel%3AapplicationName%3ADeleteApplicationVersion%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315312"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:versionLabel:DeleteApplicationVersion' :: Text
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#%24sel%3AversionLabel%3ADeleteApplicationVersion%27"><span class="hs-identifier hs-var">versionLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315311"><span class="hs-identifier hs-var">pVersionLabel_</span></a></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | Set to @true@ to delete the source bundle from your storage bucket.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Otherwise, the application version is deleted only from Elastic</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Beanstalk and the source bundle remains in Amazon S3.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#deleteApplicationVersion_deleteSourceBundle"><span class="hs-identifier hs-type">deleteApplicationVersion_deleteSourceBundle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion"><span class="hs-identifier hs-type">DeleteApplicationVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="deleteApplicationVersion_deleteSourceBundle"><span class="annot"><span class="annottext">deleteApplicationVersion_deleteSourceBundle :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DeleteApplicationVersion -&gt; f DeleteApplicationVersion
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#deleteApplicationVersion_deleteSourceBundle"><span class="hs-identifier hs-var hs-var">deleteApplicationVersion_deleteSourceBundle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteApplicationVersion -&gt; Maybe Bool)
+-&gt; (DeleteApplicationVersion
+    -&gt; Maybe Bool -&gt; DeleteApplicationVersion)
+-&gt; Lens
+     DeleteApplicationVersion
+     DeleteApplicationVersion
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion%27"><span class="hs-identifier hs-type">DeleteApplicationVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315308"><span class="annot"><span class="annottext">Maybe Bool
+deleteSourceBundle :: Maybe Bool
+$sel:deleteSourceBundle:DeleteApplicationVersion' :: DeleteApplicationVersion -&gt; Maybe Bool
+</span><a href="#local-6989586621679315308"><span class="hs-identifier hs-var hs-var">deleteSourceBundle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679315308"><span class="hs-identifier hs-var">deleteSourceBundle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315307"><span class="annot"><span class="annottext">s :: DeleteApplicationVersion
+</span><a href="#local-6989586621679315307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion%27"><span class="hs-identifier hs-type">DeleteApplicationVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315306"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679315306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteApplicationVersion
+</span><a href="#local-6989586621679315307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteSourceBundle:DeleteApplicationVersion' :: Maybe Bool
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#%24sel%3AdeleteSourceBundle%3ADeleteApplicationVersion%27"><span class="hs-identifier hs-var">deleteSourceBundle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679315306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion"><span class="hs-identifier hs-type">DeleteApplicationVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The name of the application to which the version belongs.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#deleteApplicationVersion_applicationName"><span class="hs-identifier hs-type">deleteApplicationVersion_applicationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion"><span class="hs-identifier hs-type">DeleteApplicationVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span id="deleteApplicationVersion_applicationName"><span class="annot"><span class="annottext">deleteApplicationVersion_applicationName :: (Text -&gt; f Text)
+-&gt; DeleteApplicationVersion -&gt; f DeleteApplicationVersion
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#deleteApplicationVersion_applicationName"><span class="hs-identifier hs-var hs-var">deleteApplicationVersion_applicationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteApplicationVersion -&gt; Text)
+-&gt; (DeleteApplicationVersion -&gt; Text -&gt; DeleteApplicationVersion)
+-&gt; Lens DeleteApplicationVersion DeleteApplicationVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion%27"><span class="hs-identifier hs-type">DeleteApplicationVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315305"><span class="annot"><span class="annottext">Text
+applicationName :: Text
+$sel:applicationName:DeleteApplicationVersion' :: DeleteApplicationVersion -&gt; Text
+</span><a href="#local-6989586621679315305"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315305"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315304"><span class="annot"><span class="annottext">s :: DeleteApplicationVersion
+</span><a href="#local-6989586621679315304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion%27"><span class="hs-identifier hs-type">DeleteApplicationVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315303"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteApplicationVersion
+</span><a href="#local-6989586621679315304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:DeleteApplicationVersion' :: Text
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#%24sel%3AapplicationName%3ADeleteApplicationVersion%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion"><span class="hs-identifier hs-type">DeleteApplicationVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The label of the version to delete.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#deleteApplicationVersion_versionLabel"><span class="hs-identifier hs-type">deleteApplicationVersion_versionLabel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion"><span class="hs-identifier hs-type">DeleteApplicationVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="deleteApplicationVersion_versionLabel"><span class="annot"><span class="annottext">deleteApplicationVersion_versionLabel :: (Text -&gt; f Text)
+-&gt; DeleteApplicationVersion -&gt; f DeleteApplicationVersion
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#deleteApplicationVersion_versionLabel"><span class="hs-identifier hs-var hs-var">deleteApplicationVersion_versionLabel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteApplicationVersion -&gt; Text)
+-&gt; (DeleteApplicationVersion -&gt; Text -&gt; DeleteApplicationVersion)
+-&gt; Lens DeleteApplicationVersion DeleteApplicationVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion%27"><span class="hs-identifier hs-type">DeleteApplicationVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315302"><span class="annot"><span class="annottext">Text
+versionLabel :: Text
+$sel:versionLabel:DeleteApplicationVersion' :: DeleteApplicationVersion -&gt; Text
+</span><a href="#local-6989586621679315302"><span class="hs-identifier hs-var hs-var">versionLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315302"><span class="hs-identifier hs-var">versionLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315301"><span class="annot"><span class="annottext">s :: DeleteApplicationVersion
+</span><a href="#local-6989586621679315301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion%27"><span class="hs-identifier hs-type">DeleteApplicationVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315300"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteApplicationVersion
+</span><a href="#local-6989586621679315301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionLabel:DeleteApplicationVersion' :: Text
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#%24sel%3AversionLabel%3ADeleteApplicationVersion%27"><span class="hs-identifier hs-var">versionLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion"><span class="hs-identifier hs-type">DeleteApplicationVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion"><span class="hs-identifier hs-type">DeleteApplicationVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion"><span class="hs-identifier hs-type">DeleteApplicationVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersionResponse"><span class="hs-identifier hs-type">DeleteApplicationVersionResponse</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679315296"><span class="annot"><span class="annottext">request :: DeleteApplicationVersion -&gt; Request DeleteApplicationVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteApplicationVersion -&gt; Request DeleteApplicationVersion
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ElasticBeanstalk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679315292"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteApplicationVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteApplicationVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteApplicationVersion
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteApplicationVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteApplicationVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DeleteApplicationVersion
+DeleteApplicationVersionResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersionResponse%27"><span class="hs-identifier hs-var">DeleteApplicationVersionResponse'</span></a></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315285"><span id="local-6989586621679315287"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion"><span class="hs-identifier hs-type">DeleteApplicationVersion</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion"><span class="hs-identifier hs-type">DeleteApplicationVersion</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion"><span class="hs-identifier hs-type">DeleteApplicationVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679315278"><span class="annot"><span class="annottext">toHeaders :: DeleteApplicationVersion -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteApplicationVersion -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion"><span class="hs-identifier hs-type">DeleteApplicationVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679315273"><span class="annot"><span class="annottext">toPath :: DeleteApplicationVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteApplicationVersion -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion"><span class="hs-identifier hs-type">DeleteApplicationVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679315269"><span class="annot"><span class="annottext">toQuery :: DeleteApplicationVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersion%27"><span class="hs-identifier hs-type">DeleteApplicationVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315265"><span id="local-6989586621679315266"><span id="local-6989586621679315267"><span class="annot"><span class="annottext">Maybe Bool
+Text
+versionLabel :: Text
+applicationName :: Text
+deleteSourceBundle :: Maybe Bool
+$sel:versionLabel:DeleteApplicationVersion' :: DeleteApplicationVersion -&gt; Text
+$sel:applicationName:DeleteApplicationVersion' :: DeleteApplicationVersion -&gt; Text
+$sel:deleteSourceBundle:DeleteApplicationVersion' :: DeleteApplicationVersion -&gt; Maybe Bool
+</span><a href="#local-6989586621679315265"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteApplicationVersion&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteSourceBundle&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679315267"><span class="hs-identifier hs-var">deleteSourceBundle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ApplicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315266"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VersionLabel&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315265"><span class="hs-identifier hs-var">versionLabel</span></a></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newDeleteApplicationVersionResponse' smart constructor.</span><span>
+</span><span id="line-142"></span><span id="local-6989586621679315262"><span id="local-6989586621679315263"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteApplicationVersionResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersionResponse"><span class="hs-identifier hs-var">DeleteApplicationVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteApplicationVersionResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersionResponse%27"><span class="hs-identifier hs-var">DeleteApplicationVersionResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315258"><span id="local-6989586621679315260"><span class="annot"><span class="annottext">DeleteApplicationVersionResponse
+-&gt; DeleteApplicationVersionResponse -&gt; Bool
+(DeleteApplicationVersionResponse
+ -&gt; DeleteApplicationVersionResponse -&gt; Bool)
+-&gt; (DeleteApplicationVersionResponse
+    -&gt; DeleteApplicationVersionResponse -&gt; Bool)
+-&gt; Eq DeleteApplicationVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteApplicationVersionResponse
+-&gt; DeleteApplicationVersionResponse -&gt; Bool
+$c/= :: DeleteApplicationVersionResponse
+-&gt; DeleteApplicationVersionResponse -&gt; Bool
+== :: DeleteApplicationVersionResponse
+-&gt; DeleteApplicationVersionResponse -&gt; Bool
+$c== :: DeleteApplicationVersionResponse
+-&gt; DeleteApplicationVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315250"><span id="local-6989586621679315252"><span id="local-6989586621679315254"><span id="local-6989586621679315256"><span class="annot"><span class="annottext">ReadPrec [DeleteApplicationVersionResponse]
+ReadPrec DeleteApplicationVersionResponse
+Int -&gt; ReadS DeleteApplicationVersionResponse
+ReadS [DeleteApplicationVersionResponse]
+(Int -&gt; ReadS DeleteApplicationVersionResponse)
+-&gt; ReadS [DeleteApplicationVersionResponse]
+-&gt; ReadPrec DeleteApplicationVersionResponse
+-&gt; ReadPrec [DeleteApplicationVersionResponse]
+-&gt; Read DeleteApplicationVersionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteApplicationVersionResponse]
+$creadListPrec :: ReadPrec [DeleteApplicationVersionResponse]
+readPrec :: ReadPrec DeleteApplicationVersionResponse
+$creadPrec :: ReadPrec DeleteApplicationVersionResponse
+readList :: ReadS [DeleteApplicationVersionResponse]
+$creadList :: ReadS [DeleteApplicationVersionResponse]
+readsPrec :: Int -&gt; ReadS DeleteApplicationVersionResponse
+$creadsPrec :: Int -&gt; ReadS DeleteApplicationVersionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315244"><span id="local-6989586621679315246"><span id="local-6989586621679315248"><span class="annot"><span class="annottext">Int -&gt; DeleteApplicationVersionResponse -&gt; ShowS
+[DeleteApplicationVersionResponse] -&gt; ShowS
+DeleteApplicationVersionResponse -&gt; String
+(Int -&gt; DeleteApplicationVersionResponse -&gt; ShowS)
+-&gt; (DeleteApplicationVersionResponse -&gt; String)
+-&gt; ([DeleteApplicationVersionResponse] -&gt; ShowS)
+-&gt; Show DeleteApplicationVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteApplicationVersionResponse] -&gt; ShowS
+$cshowList :: [DeleteApplicationVersionResponse] -&gt; ShowS
+show :: DeleteApplicationVersionResponse -&gt; String
+$cshow :: DeleteApplicationVersionResponse -&gt; String
+showsPrec :: Int -&gt; DeleteApplicationVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteApplicationVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteApplicationVersionResponse
+ -&gt; Rep DeleteApplicationVersionResponse x)
+-&gt; (forall x.
+    Rep DeleteApplicationVersionResponse x
+    -&gt; DeleteApplicationVersionResponse)
+-&gt; Generic DeleteApplicationVersionResponse
+forall x.
+Rep DeleteApplicationVersionResponse x
+-&gt; DeleteApplicationVersionResponse
+forall x.
+DeleteApplicationVersionResponse
+-&gt; Rep DeleteApplicationVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteApplicationVersionResponse x
+-&gt; DeleteApplicationVersionResponse
+$cfrom :: forall x.
+DeleteApplicationVersionResponse
+-&gt; Rep DeleteApplicationVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Create a value of 'DeleteApplicationVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#newDeleteApplicationVersionResponse"><span class="hs-identifier hs-type">newDeleteApplicationVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersionResponse"><span class="hs-identifier hs-type">DeleteApplicationVersionResponse</span></a></span><span>
+</span><span id="line-153"></span><span id="newDeleteApplicationVersionResponse"><span class="annot"><span class="annottext">newDeleteApplicationVersionResponse :: DeleteApplicationVersionResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#newDeleteApplicationVersionResponse"><span class="hs-identifier hs-var hs-var">newDeleteApplicationVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">DeleteApplicationVersionResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersionResponse%27"><span class="hs-identifier hs-var">DeleteApplicationVersionResponse'</span></a></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679315240"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteApplicationVersion.html#DeleteApplicationVersionResponse"><span class="hs-identifier hs-type">DeleteApplicationVersionResponse</span></a></span></span><span>
+</span><span id="line-159"></span></pre></body></html>

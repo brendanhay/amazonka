@@ -1,0 +1,551 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaseKpiResult.html"><span class="hs-identifier">Network.AWS.Pinpoint.Types.BaseKpiResult</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Provides the results of a query that retrieved the data for a standard</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- metric that applies to a campaign, and provides information about that</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- query.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCampaignDateRangeKpiResponse' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679607775"><span id="local-6989586621679607776"></span></span><span class="hs-keyword">data</span><span> </span><span id="CampaignDateRangeKpiResponse"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-var">CampaignDateRangeKpiResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CampaignDateRangeKpiResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">CampaignDateRangeKpiResponse'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The string to use in a subsequent request to get the next page of</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- results in a paginated response. This value is null for the Campaign</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Metrics resource because the resource returns all results in a single</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- page.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AnextToken%3ACampaignDateRangeKpiResponse%27"><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AnextToken%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | An array of objects that contains the results of the query. Each object</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- contains the value for the metric and metadata about that value.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AkpiResult%3ACampaignDateRangeKpiResponse%27"><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse -&gt; BaseKpiResult
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AkpiResult%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var hs-var">kpiResult</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaseKpiResult.html#BaseKpiResult"><span class="hs-identifier hs-type">BaseKpiResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the metric, also referred to as a /key performance indicator</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- (KPI)/, that the data was retrieved for. This value describes the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- associated metric and consists of two or more terms, which are comprised</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- of lowercase alphanumeric characters, separated by a hyphen. For a list</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- of possible values, see the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide&gt;.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AkpiName%3ACampaignDateRangeKpiResponse%27"><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse -&gt; Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AkpiName%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var hs-var">kpiName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The last date and time of the date range that was used to filter the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- query results, in extended ISO 8601 format. The date range is inclusive.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AendTime%3ACampaignDateRangeKpiResponse%27"><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse -&gt; POSIX
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AendTime%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the campaign that the metric applies to.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcampaignId%3ACampaignDateRangeKpiResponse%27"><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse -&gt; Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AcampaignId%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var hs-var">campaignId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The first date and time of the date range that was used to filter the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- query results, in extended ISO 8601 format. The date range is inclusive.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AstartTime%3ACampaignDateRangeKpiResponse%27"><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse -&gt; POSIX
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AstartTime%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the application that the metric applies to.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AapplicationId%3ACampaignDateRangeKpiResponse%27"><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse -&gt; Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AapplicationId%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679607763"><span id="local-6989586621679607765"><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse
+-&gt; CampaignDateRangeKpiResponse -&gt; Bool
+(CampaignDateRangeKpiResponse
+ -&gt; CampaignDateRangeKpiResponse -&gt; Bool)
+-&gt; (CampaignDateRangeKpiResponse
+    -&gt; CampaignDateRangeKpiResponse -&gt; Bool)
+-&gt; Eq CampaignDateRangeKpiResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CampaignDateRangeKpiResponse
+-&gt; CampaignDateRangeKpiResponse -&gt; Bool
+$c/= :: CampaignDateRangeKpiResponse
+-&gt; CampaignDateRangeKpiResponse -&gt; Bool
+== :: CampaignDateRangeKpiResponse
+-&gt; CampaignDateRangeKpiResponse -&gt; Bool
+$c== :: CampaignDateRangeKpiResponse
+-&gt; CampaignDateRangeKpiResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679607754"><span id="local-6989586621679607756"><span id="local-6989586621679607758"><span id="local-6989586621679607760"><span class="annot"><span class="annottext">ReadPrec [CampaignDateRangeKpiResponse]
+ReadPrec CampaignDateRangeKpiResponse
+Int -&gt; ReadS CampaignDateRangeKpiResponse
+ReadS [CampaignDateRangeKpiResponse]
+(Int -&gt; ReadS CampaignDateRangeKpiResponse)
+-&gt; ReadS [CampaignDateRangeKpiResponse]
+-&gt; ReadPrec CampaignDateRangeKpiResponse
+-&gt; ReadPrec [CampaignDateRangeKpiResponse]
+-&gt; Read CampaignDateRangeKpiResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CampaignDateRangeKpiResponse]
+$creadListPrec :: ReadPrec [CampaignDateRangeKpiResponse]
+readPrec :: ReadPrec CampaignDateRangeKpiResponse
+$creadPrec :: ReadPrec CampaignDateRangeKpiResponse
+readList :: ReadS [CampaignDateRangeKpiResponse]
+$creadList :: ReadS [CampaignDateRangeKpiResponse]
+readsPrec :: Int -&gt; ReadS CampaignDateRangeKpiResponse
+$creadsPrec :: Int -&gt; ReadS CampaignDateRangeKpiResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679607747"><span id="local-6989586621679607749"><span id="local-6989586621679607751"><span class="annot"><span class="annottext">Int -&gt; CampaignDateRangeKpiResponse -&gt; ShowS
+[CampaignDateRangeKpiResponse] -&gt; ShowS
+CampaignDateRangeKpiResponse -&gt; String
+(Int -&gt; CampaignDateRangeKpiResponse -&gt; ShowS)
+-&gt; (CampaignDateRangeKpiResponse -&gt; String)
+-&gt; ([CampaignDateRangeKpiResponse] -&gt; ShowS)
+-&gt; Show CampaignDateRangeKpiResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CampaignDateRangeKpiResponse] -&gt; ShowS
+$cshowList :: [CampaignDateRangeKpiResponse] -&gt; ShowS
+show :: CampaignDateRangeKpiResponse -&gt; String
+$cshow :: CampaignDateRangeKpiResponse -&gt; String
+showsPrec :: Int -&gt; CampaignDateRangeKpiResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CampaignDateRangeKpiResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CampaignDateRangeKpiResponse -&gt; Rep CampaignDateRangeKpiResponse x)
+-&gt; (forall x.
+    Rep CampaignDateRangeKpiResponse x -&gt; CampaignDateRangeKpiResponse)
+-&gt; Generic CampaignDateRangeKpiResponse
+forall x.
+Rep CampaignDateRangeKpiResponse x -&gt; CampaignDateRangeKpiResponse
+forall x.
+CampaignDateRangeKpiResponse -&gt; Rep CampaignDateRangeKpiResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CampaignDateRangeKpiResponse x -&gt; CampaignDateRangeKpiResponse
+$cfrom :: forall x.
+CampaignDateRangeKpiResponse -&gt; Rep CampaignDateRangeKpiResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'CampaignDateRangeKpiResponse' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'nextToken', 'campaignDateRangeKpiResponse_nextToken' - The string to use in a subsequent request to get the next page of</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- results in a paginated response. This value is null for the Campaign</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Metrics resource because the resource returns all results in a single</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- page.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'kpiResult', 'campaignDateRangeKpiResponse_kpiResult' - An array of objects that contains the results of the query. Each object</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- contains the value for the metric and metadata about that value.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'kpiName', 'campaignDateRangeKpiResponse_kpiName' - The name of the metric, also referred to as a /key performance indicator</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- (KPI)/, that the data was retrieved for. This value describes the</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- associated metric and consists of two or more terms, which are comprised</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- of lowercase alphanumeric characters, separated by a hyphen. For a list</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- of possible values, see the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide&gt;.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'endTime', 'campaignDateRangeKpiResponse_endTime' - The last date and time of the date range that was used to filter the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- query results, in extended ISO 8601 format. The date range is inclusive.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'campaignId', 'campaignDateRangeKpiResponse_campaignId' - The unique identifier for the campaign that the metric applies to.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'startTime', 'campaignDateRangeKpiResponse_startTime' - The first date and time of the date range that was used to filter the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- query results, in extended ISO 8601 format. The date range is inclusive.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'applicationId', 'campaignDateRangeKpiResponse_applicationId' - The unique identifier for the application that the metric applies to.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#newCampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">newCampaignDateRangeKpiResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'kpiResult'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaseKpiResult.html#BaseKpiResult"><span class="hs-identifier hs-type">BaseKpiResult</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'kpiName'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'endTime'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'campaignId'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'startTime'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span>
+</span><span id="line-107"></span><span id="newCampaignDateRangeKpiResponse"><span class="annot"><span class="annottext">newCampaignDateRangeKpiResponse :: BaseKpiResult
+-&gt; Text
+-&gt; UTCTime
+-&gt; Text
+-&gt; UTCTime
+-&gt; Text
+-&gt; CampaignDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#newCampaignDateRangeKpiResponse"><span class="hs-identifier hs-var hs-var">newCampaignDateRangeKpiResponse</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679607741"><span class="annot"><span class="annottext">BaseKpiResult
+</span><a href="#local-6989586621679607741"><span class="hs-identifier hs-var">pKpiResult_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679607740"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607740"><span class="hs-identifier hs-var">pKpiName_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679607739"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679607739"><span class="hs-identifier hs-var">pEndTime_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679607738"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607738"><span class="hs-identifier hs-var">pCampaignId_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679607737"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679607737"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679607736"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607736"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse' :: Maybe Text
+-&gt; BaseKpiResult
+-&gt; Text
+-&gt; POSIX
+-&gt; Text
+-&gt; POSIX
+-&gt; Text
+-&gt; CampaignDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse'</span></a></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:CampaignDateRangeKpiResponse' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AnextToken%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:kpiResult:CampaignDateRangeKpiResponse' :: BaseKpiResult
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AkpiResult%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">kpiResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BaseKpiResult
+</span><a href="#local-6989586621679607741"><span class="hs-identifier hs-var">pKpiResult_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:kpiName:CampaignDateRangeKpiResponse' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AkpiName%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">kpiName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607740"><span class="hs-identifier hs-var">pKpiName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:endTime:CampaignDateRangeKpiResponse' :: POSIX
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AendTime%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679607739"><span class="hs-identifier hs-var">pEndTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:campaignId:CampaignDateRangeKpiResponse' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AcampaignId%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">campaignId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607738"><span class="hs-identifier hs-var">pCampaignId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:startTime:CampaignDateRangeKpiResponse' :: POSIX
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AstartTime%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679607737"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationId:CampaignDateRangeKpiResponse' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AapplicationId%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607736"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The string to use in a subsequent request to get the next page of</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- results in a paginated response. This value is null for the Campaign</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Metrics resource because the resource returns all results in a single</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- page.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#campaignDateRangeKpiResponse_nextToken"><span class="hs-identifier hs-type">campaignDateRangeKpiResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="campaignDateRangeKpiResponse_nextToken"><span class="annot"><span class="annottext">campaignDateRangeKpiResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CampaignDateRangeKpiResponse -&gt; f CampaignDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#campaignDateRangeKpiResponse_nextToken"><span class="hs-identifier hs-var hs-var">campaignDateRangeKpiResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CampaignDateRangeKpiResponse -&gt; Maybe Text)
+-&gt; (CampaignDateRangeKpiResponse
+    -&gt; Maybe Text -&gt; CampaignDateRangeKpiResponse)
+-&gt; Lens
+     CampaignDateRangeKpiResponse
+     CampaignDateRangeKpiResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607730"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:CampaignDateRangeKpiResponse' :: CampaignDateRangeKpiResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679607730"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607730"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607729"><span class="annot"><span class="annottext">s :: CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679607729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607728"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679607729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:CampaignDateRangeKpiResponse' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AnextToken%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | An array of objects that contains the results of the query. Each object</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- contains the value for the metric and metadata about that value.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#campaignDateRangeKpiResponse_kpiResult"><span class="hs-identifier hs-type">campaignDateRangeKpiResponse_kpiResult</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaseKpiResult.html#BaseKpiResult"><span class="hs-identifier hs-type">BaseKpiResult</span></a></span><span>
+</span><span id="line-135"></span><span id="campaignDateRangeKpiResponse_kpiResult"><span class="annot"><span class="annottext">campaignDateRangeKpiResponse_kpiResult :: (BaseKpiResult -&gt; f BaseKpiResult)
+-&gt; CampaignDateRangeKpiResponse -&gt; f CampaignDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#campaignDateRangeKpiResponse_kpiResult"><span class="hs-identifier hs-var hs-var">campaignDateRangeKpiResponse_kpiResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CampaignDateRangeKpiResponse -&gt; BaseKpiResult)
+-&gt; (CampaignDateRangeKpiResponse
+    -&gt; BaseKpiResult -&gt; CampaignDateRangeKpiResponse)
+-&gt; Lens
+     CampaignDateRangeKpiResponse
+     CampaignDateRangeKpiResponse
+     BaseKpiResult
+     BaseKpiResult
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607726"><span class="annot"><span class="annottext">BaseKpiResult
+kpiResult :: BaseKpiResult
+$sel:kpiResult:CampaignDateRangeKpiResponse' :: CampaignDateRangeKpiResponse -&gt; BaseKpiResult
+</span><a href="#local-6989586621679607726"><span class="hs-identifier hs-var hs-var">kpiResult</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaseKpiResult
+</span><a href="#local-6989586621679607726"><span class="hs-identifier hs-var">kpiResult</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607725"><span class="annot"><span class="annottext">s :: CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679607725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607724"><span class="annot"><span class="annottext">BaseKpiResult
+</span><a href="#local-6989586621679607724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679607725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kpiResult:CampaignDateRangeKpiResponse' :: BaseKpiResult
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AkpiResult%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">kpiResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BaseKpiResult
+</span><a href="#local-6989586621679607724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The name of the metric, also referred to as a /key performance indicator</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- (KPI)/, that the data was retrieved for. This value describes the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- associated metric and consists of two or more terms, which are comprised</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- of lowercase alphanumeric characters, separated by a hyphen. For a list</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- of possible values, see the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide&gt;.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#campaignDateRangeKpiResponse_kpiName"><span class="hs-identifier hs-type">campaignDateRangeKpiResponse_kpiName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-144"></span><span id="campaignDateRangeKpiResponse_kpiName"><span class="annot"><span class="annottext">campaignDateRangeKpiResponse_kpiName :: (Text -&gt; f Text)
+-&gt; CampaignDateRangeKpiResponse -&gt; f CampaignDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#campaignDateRangeKpiResponse_kpiName"><span class="hs-identifier hs-var hs-var">campaignDateRangeKpiResponse_kpiName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CampaignDateRangeKpiResponse -&gt; Text)
+-&gt; (CampaignDateRangeKpiResponse
+    -&gt; Text -&gt; CampaignDateRangeKpiResponse)
+-&gt; Lens
+     CampaignDateRangeKpiResponse CampaignDateRangeKpiResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607722"><span class="annot"><span class="annottext">Text
+kpiName :: Text
+$sel:kpiName:CampaignDateRangeKpiResponse' :: CampaignDateRangeKpiResponse -&gt; Text
+</span><a href="#local-6989586621679607722"><span class="hs-identifier hs-var hs-var">kpiName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607722"><span class="hs-identifier hs-var">kpiName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607721"><span class="annot"><span class="annottext">s :: CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679607721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607720"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679607721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kpiName:CampaignDateRangeKpiResponse' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AkpiName%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">kpiName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The last date and time of the date range that was used to filter the</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- query results, in extended ISO 8601 format. The date range is inclusive.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#campaignDateRangeKpiResponse_endTime"><span class="hs-identifier hs-type">campaignDateRangeKpiResponse_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-149"></span><span id="campaignDateRangeKpiResponse_endTime"><span class="annot"><span class="annottext">campaignDateRangeKpiResponse_endTime :: (UTCTime -&gt; f UTCTime)
+-&gt; CampaignDateRangeKpiResponse -&gt; f CampaignDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#campaignDateRangeKpiResponse_endTime"><span class="hs-identifier hs-var hs-var">campaignDateRangeKpiResponse_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CampaignDateRangeKpiResponse -&gt; POSIX)
+-&gt; (CampaignDateRangeKpiResponse
+    -&gt; POSIX -&gt; CampaignDateRangeKpiResponse)
+-&gt; Lens
+     CampaignDateRangeKpiResponse
+     CampaignDateRangeKpiResponse
+     POSIX
+     POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607718"><span class="annot"><span class="annottext">POSIX
+endTime :: POSIX
+$sel:endTime:CampaignDateRangeKpiResponse' :: CampaignDateRangeKpiResponse -&gt; POSIX
+</span><a href="#local-6989586621679607718"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679607718"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607717"><span class="annot"><span class="annottext">s :: CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679607717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607716"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679607716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679607717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:CampaignDateRangeKpiResponse' :: POSIX
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AendTime%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679607716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; CampaignDateRangeKpiResponse -&gt; f CampaignDateRangeKpiResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; CampaignDateRangeKpiResponse
+-&gt; f CampaignDateRangeKpiResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The unique identifier for the campaign that the metric applies to.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#campaignDateRangeKpiResponse_campaignId"><span class="hs-identifier hs-type">campaignDateRangeKpiResponse_campaignId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-153"></span><span id="campaignDateRangeKpiResponse_campaignId"><span class="annot"><span class="annottext">campaignDateRangeKpiResponse_campaignId :: (Text -&gt; f Text)
+-&gt; CampaignDateRangeKpiResponse -&gt; f CampaignDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#campaignDateRangeKpiResponse_campaignId"><span class="hs-identifier hs-var hs-var">campaignDateRangeKpiResponse_campaignId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CampaignDateRangeKpiResponse -&gt; Text)
+-&gt; (CampaignDateRangeKpiResponse
+    -&gt; Text -&gt; CampaignDateRangeKpiResponse)
+-&gt; Lens
+     CampaignDateRangeKpiResponse CampaignDateRangeKpiResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607713"><span class="annot"><span class="annottext">Text
+campaignId :: Text
+$sel:campaignId:CampaignDateRangeKpiResponse' :: CampaignDateRangeKpiResponse -&gt; Text
+</span><a href="#local-6989586621679607713"><span class="hs-identifier hs-var hs-var">campaignId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607713"><span class="hs-identifier hs-var">campaignId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607712"><span class="annot"><span class="annottext">s :: CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679607712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607711"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679607712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignId:CampaignDateRangeKpiResponse' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AcampaignId%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">campaignId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The first date and time of the date range that was used to filter the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- query results, in extended ISO 8601 format. The date range is inclusive.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#campaignDateRangeKpiResponse_startTime"><span class="hs-identifier hs-type">campaignDateRangeKpiResponse_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-158"></span><span id="campaignDateRangeKpiResponse_startTime"><span class="annot"><span class="annottext">campaignDateRangeKpiResponse_startTime :: (UTCTime -&gt; f UTCTime)
+-&gt; CampaignDateRangeKpiResponse -&gt; f CampaignDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#campaignDateRangeKpiResponse_startTime"><span class="hs-identifier hs-var hs-var">campaignDateRangeKpiResponse_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CampaignDateRangeKpiResponse -&gt; POSIX)
+-&gt; (CampaignDateRangeKpiResponse
+    -&gt; POSIX -&gt; CampaignDateRangeKpiResponse)
+-&gt; Lens
+     CampaignDateRangeKpiResponse
+     CampaignDateRangeKpiResponse
+     POSIX
+     POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607709"><span class="annot"><span class="annottext">POSIX
+startTime :: POSIX
+$sel:startTime:CampaignDateRangeKpiResponse' :: CampaignDateRangeKpiResponse -&gt; POSIX
+</span><a href="#local-6989586621679607709"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679607709"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607708"><span class="annot"><span class="annottext">s :: CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679607708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607707"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679607707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679607708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:CampaignDateRangeKpiResponse' :: POSIX
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AstartTime%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679607707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; CampaignDateRangeKpiResponse -&gt; f CampaignDateRangeKpiResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; CampaignDateRangeKpiResponse
+-&gt; f CampaignDateRangeKpiResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The unique identifier for the application that the metric applies to.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#campaignDateRangeKpiResponse_applicationId"><span class="hs-identifier hs-type">campaignDateRangeKpiResponse_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-162"></span><span id="campaignDateRangeKpiResponse_applicationId"><span class="annot"><span class="annottext">campaignDateRangeKpiResponse_applicationId :: (Text -&gt; f Text)
+-&gt; CampaignDateRangeKpiResponse -&gt; f CampaignDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#campaignDateRangeKpiResponse_applicationId"><span class="hs-identifier hs-var hs-var">campaignDateRangeKpiResponse_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CampaignDateRangeKpiResponse -&gt; Text)
+-&gt; (CampaignDateRangeKpiResponse
+    -&gt; Text -&gt; CampaignDateRangeKpiResponse)
+-&gt; Lens
+     CampaignDateRangeKpiResponse CampaignDateRangeKpiResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607705"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:CampaignDateRangeKpiResponse' :: CampaignDateRangeKpiResponse -&gt; Text
+</span><a href="#local-6989586621679607705"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607705"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607704"><span class="annot"><span class="annottext">s :: CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679607704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607703"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignDateRangeKpiResponse
+</span><a href="#local-6989586621679607704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:CampaignDateRangeKpiResponse' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#%24sel%3AapplicationId%3ACampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607700"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679607698"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CampaignDateRangeKpiResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CampaignDateRangeKpiResponse)
+-&gt; Value
+-&gt; Parser CampaignDateRangeKpiResponse
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CampaignDateRangeKpiResponse&quot;</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679607695"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607695"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; BaseKpiResult
+-&gt; Text
+-&gt; POSIX
+-&gt; Text
+-&gt; POSIX
+-&gt; Text
+-&gt; CampaignDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse%27"><span class="hs-identifier hs-var">CampaignDateRangeKpiResponse'</span></a></span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; BaseKpiResult
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; CampaignDateRangeKpiResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (BaseKpiResult
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; CampaignDateRangeKpiResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (BaseKpiResult
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; CampaignDateRangeKpiResponse)
+-&gt; Parser BaseKpiResult
+-&gt; Parser
+     (Text
+      -&gt; POSIX -&gt; Text -&gt; POSIX -&gt; Text -&gt; CampaignDateRangeKpiResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser BaseKpiResult
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KpiResult&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; POSIX -&gt; Text -&gt; POSIX -&gt; Text -&gt; CampaignDateRangeKpiResponse)
+-&gt; Parser Text
+-&gt; Parser
+     (POSIX -&gt; Text -&gt; POSIX -&gt; Text -&gt; CampaignDateRangeKpiResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KpiName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX -&gt; Text -&gt; POSIX -&gt; Text -&gt; CampaignDateRangeKpiResponse)
+-&gt; Parser POSIX
+-&gt; Parser (Text -&gt; POSIX -&gt; Text -&gt; CampaignDateRangeKpiResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; POSIX -&gt; Text -&gt; CampaignDateRangeKpiResponse)
+-&gt; Parser Text
+-&gt; Parser (POSIX -&gt; Text -&gt; CampaignDateRangeKpiResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CampaignId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; Text -&gt; CampaignDateRangeKpiResponse)
+-&gt; Parser POSIX -&gt; Parser (Text -&gt; CampaignDateRangeKpiResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; CampaignDateRangeKpiResponse)
+-&gt; Parser Text -&gt; Parser CampaignDateRangeKpiResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679607688"><span id="local-6989586621679607690"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span></span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse.html#CampaignDateRangeKpiResponse"><span class="hs-identifier hs-type">CampaignDateRangeKpiResponse</span></a></span></span><span>
+</span><span id="line-184"></span></pre></body></html>

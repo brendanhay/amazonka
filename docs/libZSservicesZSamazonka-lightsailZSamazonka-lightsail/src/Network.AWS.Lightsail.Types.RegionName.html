@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Lightsail.Types.RegionName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Lightsail.Types.RegionName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier">RegionName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ap_northeast_1"><span class="hs-identifier">RegionName_Ap_northeast_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ap_northeast_2"><span class="hs-identifier">RegionName_Ap_northeast_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ap_south_1"><span class="hs-identifier">RegionName_Ap_south_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ap_southeast_1"><span class="hs-identifier">RegionName_Ap_southeast_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ap_southeast_2"><span class="hs-identifier">RegionName_Ap_southeast_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ca_central_1"><span class="hs-identifier">RegionName_Ca_central_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Eu_central_1"><span class="hs-identifier">RegionName_Eu_central_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Eu_north_1"><span class="hs-identifier">RegionName_Eu_north_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Eu_west_1"><span class="hs-identifier">RegionName_Eu_west_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Eu_west_2"><span class="hs-identifier">RegionName_Eu_west_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Eu_west_3"><span class="hs-identifier">RegionName_Eu_west_3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Us_east_1"><span class="hs-identifier">RegionName_Us_east_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Us_east_2"><span class="hs-identifier">RegionName_Us_east_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Us_west_1"><span class="hs-identifier">RegionName_Us_west_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Us_west_2"><span class="hs-identifier">RegionName_Us_west_2</span></a></span><span>
+</span><span id="line-38"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679618761"><span id="local-6989586621679618762"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RegionName"><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-var">RegionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegionName%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-var">RegionName'</span></a></span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRegionName"><span class="annot"><span class="annottext">RegionName -&gt; Text
+</span><a href="Network.AWS.Lightsail.Types.RegionName.html#fromRegionName"><span class="hs-identifier hs-var hs-var">fromRegionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679618753"><span id="local-6989586621679618755"><span id="local-6989586621679618757"><span class="annot"><span class="annottext">Int -&gt; RegionName -&gt; ShowS
+[RegionName] -&gt; ShowS
+RegionName -&gt; String
+(Int -&gt; RegionName -&gt; ShowS)
+-&gt; (RegionName -&gt; String)
+-&gt; ([RegionName] -&gt; ShowS)
+-&gt; Show RegionName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegionName] -&gt; ShowS
+$cshowList :: [RegionName] -&gt; ShowS
+show :: RegionName -&gt; String
+$cshow :: RegionName -&gt; String
+showsPrec :: Int -&gt; RegionName -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegionName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679618744"><span id="local-6989586621679618746"><span id="local-6989586621679618748"><span id="local-6989586621679618750"><span class="annot"><span class="annottext">ReadPrec [RegionName]
+ReadPrec RegionName
+Int -&gt; ReadS RegionName
+ReadS [RegionName]
+(Int -&gt; ReadS RegionName)
+-&gt; ReadS [RegionName]
+-&gt; ReadPrec RegionName
+-&gt; ReadPrec [RegionName]
+-&gt; Read RegionName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegionName]
+$creadListPrec :: ReadPrec [RegionName]
+readPrec :: ReadPrec RegionName
+$creadPrec :: ReadPrec RegionName
+readList :: ReadS [RegionName]
+$creadList :: ReadS [RegionName]
+readsPrec :: Int -&gt; ReadS RegionName
+$creadsPrec :: Int -&gt; ReadS RegionName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679618739"><span id="local-6989586621679618741"><span class="annot"><span class="annottext">RegionName -&gt; RegionName -&gt; Bool
+(RegionName -&gt; RegionName -&gt; Bool)
+-&gt; (RegionName -&gt; RegionName -&gt; Bool) -&gt; Eq RegionName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegionName -&gt; RegionName -&gt; Bool
+$c/= :: RegionName -&gt; RegionName -&gt; Bool
+== :: RegionName -&gt; RegionName -&gt; Bool
+$c== :: RegionName -&gt; RegionName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679618723"><span id="local-6989586621679618725"><span id="local-6989586621679618727"><span id="local-6989586621679618729"><span id="local-6989586621679618731"><span id="local-6989586621679618733"><span id="local-6989586621679618735"><span class="annot"><span class="annottext">Eq RegionName
+Eq RegionName
+-&gt; (RegionName -&gt; RegionName -&gt; Ordering)
+-&gt; (RegionName -&gt; RegionName -&gt; Bool)
+-&gt; (RegionName -&gt; RegionName -&gt; Bool)
+-&gt; (RegionName -&gt; RegionName -&gt; Bool)
+-&gt; (RegionName -&gt; RegionName -&gt; Bool)
+-&gt; (RegionName -&gt; RegionName -&gt; RegionName)
+-&gt; (RegionName -&gt; RegionName -&gt; RegionName)
+-&gt; Ord RegionName
+RegionName -&gt; RegionName -&gt; Bool
+RegionName -&gt; RegionName -&gt; Ordering
+RegionName -&gt; RegionName -&gt; RegionName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RegionName -&gt; RegionName -&gt; RegionName
+$cmin :: RegionName -&gt; RegionName -&gt; RegionName
+max :: RegionName -&gt; RegionName -&gt; RegionName
+$cmax :: RegionName -&gt; RegionName -&gt; RegionName
+&gt;= :: RegionName -&gt; RegionName -&gt; Bool
+$c&gt;= :: RegionName -&gt; RegionName -&gt; Bool
+&gt; :: RegionName -&gt; RegionName -&gt; Bool
+$c&gt; :: RegionName -&gt; RegionName -&gt; Bool
+&lt;= :: RegionName -&gt; RegionName -&gt; Bool
+$c&lt;= :: RegionName -&gt; RegionName -&gt; Bool
+&lt; :: RegionName -&gt; RegionName -&gt; Bool
+$c&lt; :: RegionName -&gt; RegionName -&gt; Bool
+compare :: RegionName -&gt; RegionName -&gt; Ordering
+$ccompare :: RegionName -&gt; RegionName -&gt; Ordering
+$cp1Ord :: Eq RegionName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RegionName -&gt; Rep RegionName x)
+-&gt; (forall x. Rep RegionName x -&gt; RegionName) -&gt; Generic RegionName
+forall x. Rep RegionName x -&gt; RegionName
+forall x. RegionName -&gt; Rep RegionName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RegionName x -&gt; RegionName
+$cfrom :: forall x. RegionName -&gt; Rep RegionName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679618715"><span id="local-6989586621679618717"><span class="annot"><span class="annottext">Int -&gt; RegionName -&gt; Int
+RegionName -&gt; Int
+(Int -&gt; RegionName -&gt; Int)
+-&gt; (RegionName -&gt; Int) -&gt; Hashable RegionName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RegionName -&gt; Int
+$chash :: RegionName -&gt; Int
+hashWithSalt :: Int -&gt; RegionName -&gt; Int
+$chashWithSalt :: Int -&gt; RegionName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679618712"><span class="annot"><span class="annottext">RegionName -&gt; ()
+(RegionName -&gt; ()) -&gt; NFData RegionName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RegionName -&gt; ()
+$crnf :: RegionName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679618709"><span class="annot"><span class="annottext">Text -&gt; Either String RegionName
+(Text -&gt; Either String RegionName) -&gt; FromText RegionName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RegionName
+$cfromText :: Text -&gt; Either String RegionName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679618706"><span class="annot"><span class="annottext">RegionName -&gt; Text
+(RegionName -&gt; Text) -&gt; ToText RegionName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RegionName -&gt; Text
+$ctoText :: RegionName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679618703"><span class="annot"><span class="annottext">RegionName -&gt; ByteString
+(RegionName -&gt; ByteString) -&gt; ToByteString RegionName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RegionName -&gt; ByteString
+$ctoBS :: RegionName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679618700"><span class="annot"><span class="annottext">RegionName -&gt; ByteStringBuilder
+(RegionName -&gt; ByteStringBuilder) -&gt; ToLog RegionName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RegionName -&gt; ByteStringBuilder
+$cbuild :: RegionName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679618697"><span class="annot"><span class="annottext">HeaderName -&gt; RegionName -&gt; [Header]
+(HeaderName -&gt; RegionName -&gt; [Header]) -&gt; ToHeader RegionName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RegionName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RegionName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679618694"><span class="annot"><span class="annottext">RegionName -&gt; QueryString
+(RegionName -&gt; QueryString) -&gt; ToQuery RegionName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RegionName -&gt; QueryString
+$ctoQuery :: RegionName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679618689"><span id="local-6989586621679618691"><span class="annot"><span class="annottext">Value -&gt; Parser [RegionName]
+Value -&gt; Parser RegionName
+(Value -&gt; Parser RegionName)
+-&gt; (Value -&gt; Parser [RegionName]) -&gt; FromJSON RegionName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RegionName]
+$cparseJSONList :: Value -&gt; Parser [RegionName]
+parseJSON :: Value -&gt; Parser RegionName
+$cparseJSON :: Value -&gt; Parser RegionName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679618684"><span id="local-6989586621679618686"><span class="annot"><span class="annottext">FromJSONKeyFunction [RegionName]
+FromJSONKeyFunction RegionName
+FromJSONKeyFunction RegionName
+-&gt; FromJSONKeyFunction [RegionName] -&gt; FromJSONKey RegionName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RegionName]
+$cfromJSONKeyList :: FromJSONKeyFunction [RegionName]
+fromJSONKey :: FromJSONKeyFunction RegionName
+$cfromJSONKey :: FromJSONKeyFunction RegionName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679618675"><span id="local-6989586621679618677"><span id="local-6989586621679618679"><span id="local-6989586621679618681"><span class="annot"><span class="annottext">[RegionName] -&gt; Encoding
+[RegionName] -&gt; Value
+RegionName -&gt; Encoding
+RegionName -&gt; Value
+(RegionName -&gt; Value)
+-&gt; (RegionName -&gt; Encoding)
+-&gt; ([RegionName] -&gt; Value)
+-&gt; ([RegionName] -&gt; Encoding)
+-&gt; ToJSON RegionName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RegionName] -&gt; Encoding
+$ctoEncodingList :: [RegionName] -&gt; Encoding
+toJSONList :: [RegionName] -&gt; Value
+$ctoJSONList :: [RegionName] -&gt; Value
+toEncoding :: RegionName -&gt; Encoding
+$ctoEncoding :: RegionName -&gt; Encoding
+toJSON :: RegionName -&gt; Value
+$ctoJSON :: RegionName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679618670"><span id="local-6989586621679618672"><span class="annot"><span class="annottext">ToJSONKeyFunction [RegionName]
+ToJSONKeyFunction RegionName
+ToJSONKeyFunction RegionName
+-&gt; ToJSONKeyFunction [RegionName] -&gt; ToJSONKey RegionName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RegionName]
+$ctoJSONKeyList :: ToJSONKeyFunction [RegionName]
+toJSONKey :: ToJSONKeyFunction RegionName
+$ctoJSONKey :: ToJSONKeyFunction RegionName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679618667"><span class="annot"><span class="annottext">[Node] -&gt; Either String RegionName
+([Node] -&gt; Either String RegionName) -&gt; FromXML RegionName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RegionName
+$cparseXML :: [Node] -&gt; Either String RegionName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679618664"><span class="annot"><span class="annottext">RegionName -&gt; XML
+(RegionName -&gt; XML) -&gt; ToXML RegionName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RegionName -&gt; XML
+$ctoXML :: RegionName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ap_northeast_1"><span class="hs-identifier hs-type">RegionName_Ap_northeast_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRegionName_Ap_northeast_1"><span id="%24mRegionName_Ap_northeast_1"><span id="RegionName_Ap_northeast_1"><span class="annot"><span class="annottext">$bRegionName_Ap_northeast_1 :: RegionName
+$mRegionName_Ap_northeast_1 :: forall r. RegionName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.RegionName.html#%24bRegionName_Ap_northeast_1"><span class="hs-identifier hs-var hs-var hs-var">RegionName_Ap_northeast_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-type">RegionName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ap-northeast-1&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ap_northeast_2"><span class="hs-identifier hs-type">RegionName_Ap_northeast_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRegionName_Ap_northeast_2"><span id="%24mRegionName_Ap_northeast_2"><span id="RegionName_Ap_northeast_2"><span class="annot"><span class="annottext">$bRegionName_Ap_northeast_2 :: RegionName
+$mRegionName_Ap_northeast_2 :: forall r. RegionName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.RegionName.html#%24bRegionName_Ap_northeast_2"><span class="hs-identifier hs-var hs-var hs-var">RegionName_Ap_northeast_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-type">RegionName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ap-northeast-2&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ap_south_1"><span class="hs-identifier hs-type">RegionName_Ap_south_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRegionName_Ap_south_1"><span id="%24mRegionName_Ap_south_1"><span id="RegionName_Ap_south_1"><span class="annot"><span class="annottext">$bRegionName_Ap_south_1 :: RegionName
+$mRegionName_Ap_south_1 :: forall r. RegionName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.RegionName.html#%24bRegionName_Ap_south_1"><span class="hs-identifier hs-var hs-var hs-var">RegionName_Ap_south_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-type">RegionName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ap-south-1&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ap_southeast_1"><span class="hs-identifier hs-type">RegionName_Ap_southeast_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRegionName_Ap_southeast_1"><span id="%24mRegionName_Ap_southeast_1"><span id="RegionName_Ap_southeast_1"><span class="annot"><span class="annottext">$bRegionName_Ap_southeast_1 :: RegionName
+$mRegionName_Ap_southeast_1 :: forall r. RegionName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.RegionName.html#%24bRegionName_Ap_southeast_1"><span class="hs-identifier hs-var hs-var hs-var">RegionName_Ap_southeast_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-type">RegionName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ap-southeast-1&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ap_southeast_2"><span class="hs-identifier hs-type">RegionName_Ap_southeast_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRegionName_Ap_southeast_2"><span id="%24mRegionName_Ap_southeast_2"><span id="RegionName_Ap_southeast_2"><span class="annot"><span class="annottext">$bRegionName_Ap_southeast_2 :: RegionName
+$mRegionName_Ap_southeast_2 :: forall r. RegionName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.RegionName.html#%24bRegionName_Ap_southeast_2"><span class="hs-identifier hs-var hs-var hs-var">RegionName_Ap_southeast_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-type">RegionName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ap-southeast-2&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ca_central_1"><span class="hs-identifier hs-type">RegionName_Ca_central_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRegionName_Ca_central_1"><span id="%24mRegionName_Ca_central_1"><span id="RegionName_Ca_central_1"><span class="annot"><span class="annottext">$bRegionName_Ca_central_1 :: RegionName
+$mRegionName_Ca_central_1 :: forall r. RegionName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.RegionName.html#%24bRegionName_Ca_central_1"><span class="hs-identifier hs-var hs-var hs-var">RegionName_Ca_central_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-type">RegionName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ca-central-1&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Eu_central_1"><span class="hs-identifier hs-type">RegionName_Eu_central_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRegionName_Eu_central_1"><span id="%24mRegionName_Eu_central_1"><span id="RegionName_Eu_central_1"><span class="annot"><span class="annottext">$bRegionName_Eu_central_1 :: RegionName
+$mRegionName_Eu_central_1 :: forall r. RegionName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.RegionName.html#%24bRegionName_Eu_central_1"><span class="hs-identifier hs-var hs-var hs-var">RegionName_Eu_central_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-type">RegionName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;eu-central-1&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Eu_north_1"><span class="hs-identifier hs-type">RegionName_Eu_north_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRegionName_Eu_north_1"><span id="%24mRegionName_Eu_north_1"><span id="RegionName_Eu_north_1"><span class="annot"><span class="annottext">$bRegionName_Eu_north_1 :: RegionName
+$mRegionName_Eu_north_1 :: forall r. RegionName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.RegionName.html#%24bRegionName_Eu_north_1"><span class="hs-identifier hs-var hs-var hs-var">RegionName_Eu_north_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-type">RegionName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;eu-north-1&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Eu_west_1"><span class="hs-identifier hs-type">RegionName_Eu_west_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRegionName_Eu_west_1"><span id="%24mRegionName_Eu_west_1"><span id="RegionName_Eu_west_1"><span class="annot"><span class="annottext">$bRegionName_Eu_west_1 :: RegionName
+$mRegionName_Eu_west_1 :: forall r. RegionName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.RegionName.html#%24bRegionName_Eu_west_1"><span class="hs-identifier hs-var hs-var hs-var">RegionName_Eu_west_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-type">RegionName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;eu-west-1&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Eu_west_2"><span class="hs-identifier hs-type">RegionName_Eu_west_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRegionName_Eu_west_2"><span id="%24mRegionName_Eu_west_2"><span id="RegionName_Eu_west_2"><span class="annot"><span class="annottext">$bRegionName_Eu_west_2 :: RegionName
+$mRegionName_Eu_west_2 :: forall r. RegionName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.RegionName.html#%24bRegionName_Eu_west_2"><span class="hs-identifier hs-var hs-var hs-var">RegionName_Eu_west_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-type">RegionName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;eu-west-2&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Eu_west_3"><span class="hs-identifier hs-type">RegionName_Eu_west_3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRegionName_Eu_west_3"><span id="%24mRegionName_Eu_west_3"><span id="RegionName_Eu_west_3"><span class="annot"><span class="annottext">$bRegionName_Eu_west_3 :: RegionName
+$mRegionName_Eu_west_3 :: forall r. RegionName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.RegionName.html#%24bRegionName_Eu_west_3"><span class="hs-identifier hs-var hs-var hs-var">RegionName_Eu_west_3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-type">RegionName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;eu-west-3&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Us_east_1"><span class="hs-identifier hs-type">RegionName_Us_east_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRegionName_Us_east_1"><span id="%24mRegionName_Us_east_1"><span id="RegionName_Us_east_1"><span class="annot"><span class="annottext">$bRegionName_Us_east_1 :: RegionName
+$mRegionName_Us_east_1 :: forall r. RegionName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.RegionName.html#%24bRegionName_Us_east_1"><span class="hs-identifier hs-var hs-var hs-var">RegionName_Us_east_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-type">RegionName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;us-east-1&quot;</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Us_east_2"><span class="hs-identifier hs-type">RegionName_Us_east_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRegionName_Us_east_2"><span id="%24mRegionName_Us_east_2"><span id="RegionName_Us_east_2"><span class="annot"><span class="annottext">$bRegionName_Us_east_2 :: RegionName
+$mRegionName_Us_east_2 :: forall r. RegionName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.RegionName.html#%24bRegionName_Us_east_2"><span class="hs-identifier hs-var hs-var hs-var">RegionName_Us_east_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-type">RegionName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;us-east-2&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Us_west_1"><span class="hs-identifier hs-type">RegionName_Us_west_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRegionName_Us_west_1"><span id="%24mRegionName_Us_west_1"><span id="RegionName_Us_west_1"><span class="annot"><span class="annottext">$bRegionName_Us_west_1 :: RegionName
+$mRegionName_Us_west_1 :: forall r. RegionName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.RegionName.html#%24bRegionName_Us_west_1"><span class="hs-identifier hs-var hs-var hs-var">RegionName_Us_west_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-type">RegionName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;us-west-1&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Us_west_2"><span class="hs-identifier hs-type">RegionName_Us_west_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRegionName_Us_west_2"><span id="%24mRegionName_Us_west_2"><span id="RegionName_Us_west_2"><span class="annot"><span class="annottext">$bRegionName_Us_west_2 :: RegionName
+$mRegionName_Us_west_2 :: forall r. RegionName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.RegionName.html#%24bRegionName_Us_west_2"><span class="hs-identifier hs-var hs-var hs-var">RegionName_Us_west_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-type">RegionName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;us-west-2&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ap_northeast_1"><span class="hs-pragma hs-type">RegionName_Ap_northeast_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ap_northeast_2"><span class="hs-pragma hs-type">RegionName_Ap_northeast_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ap_south_1"><span class="hs-pragma hs-type">RegionName_Ap_south_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ap_southeast_1"><span class="hs-pragma hs-type">RegionName_Ap_southeast_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ap_southeast_2"><span class="hs-pragma hs-type">RegionName_Ap_southeast_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Ca_central_1"><span class="hs-pragma hs-type">RegionName_Ca_central_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Eu_central_1"><span class="hs-pragma hs-type">RegionName_Eu_central_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Eu_north_1"><span class="hs-pragma hs-type">RegionName_Eu_north_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Eu_west_1"><span class="hs-pragma hs-type">RegionName_Eu_west_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Eu_west_2"><span class="hs-pragma hs-type">RegionName_Eu_west_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Eu_west_3"><span class="hs-pragma hs-type">RegionName_Eu_west_3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Us_east_1"><span class="hs-pragma hs-type">RegionName_Us_east_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Us_east_2"><span class="hs-pragma hs-type">RegionName_Us_east_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Us_west_1"><span class="hs-pragma hs-type">RegionName_Us_west_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName_Us_west_2"><span class="hs-pragma hs-type">RegionName_Us_west_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-pragma hs-type">RegionName'</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-136"></span></pre></body></html>

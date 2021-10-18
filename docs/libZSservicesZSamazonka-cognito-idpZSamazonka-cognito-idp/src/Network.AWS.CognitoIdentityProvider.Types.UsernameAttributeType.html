@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#UsernameAttributeType"><span class="hs-identifier">UsernameAttributeType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#UsernameAttributeType_Email"><span class="hs-identifier">UsernameAttributeType_Email</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#UsernameAttributeType_Phone_number"><span class="hs-identifier">UsernameAttributeType_Phone_number</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679436761"><span id="local-6989586621679436762"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UsernameAttributeType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#UsernameAttributeType"><span class="hs-identifier hs-var">UsernameAttributeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsernameAttributeType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#UsernameAttributeType%27"><span class="hs-identifier hs-var">UsernameAttributeType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUsernameAttributeType"><span class="annot"><span class="annottext">UsernameAttributeType -&gt; Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#fromUsernameAttributeType"><span class="hs-identifier hs-var hs-var">fromUsernameAttributeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436753"><span id="local-6989586621679436755"><span id="local-6989586621679436757"><span class="annot"><span class="annottext">Int -&gt; UsernameAttributeType -&gt; ShowS
+[UsernameAttributeType] -&gt; ShowS
+UsernameAttributeType -&gt; String
+(Int -&gt; UsernameAttributeType -&gt; ShowS)
+-&gt; (UsernameAttributeType -&gt; String)
+-&gt; ([UsernameAttributeType] -&gt; ShowS)
+-&gt; Show UsernameAttributeType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UsernameAttributeType] -&gt; ShowS
+$cshowList :: [UsernameAttributeType] -&gt; ShowS
+show :: UsernameAttributeType -&gt; String
+$cshow :: UsernameAttributeType -&gt; String
+showsPrec :: Int -&gt; UsernameAttributeType -&gt; ShowS
+$cshowsPrec :: Int -&gt; UsernameAttributeType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679436744"><span id="local-6989586621679436746"><span id="local-6989586621679436748"><span id="local-6989586621679436750"><span class="annot"><span class="annottext">ReadPrec [UsernameAttributeType]
+ReadPrec UsernameAttributeType
+Int -&gt; ReadS UsernameAttributeType
+ReadS [UsernameAttributeType]
+(Int -&gt; ReadS UsernameAttributeType)
+-&gt; ReadS [UsernameAttributeType]
+-&gt; ReadPrec UsernameAttributeType
+-&gt; ReadPrec [UsernameAttributeType]
+-&gt; Read UsernameAttributeType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UsernameAttributeType]
+$creadListPrec :: ReadPrec [UsernameAttributeType]
+readPrec :: ReadPrec UsernameAttributeType
+$creadPrec :: ReadPrec UsernameAttributeType
+readList :: ReadS [UsernameAttributeType]
+$creadList :: ReadS [UsernameAttributeType]
+readsPrec :: Int -&gt; ReadS UsernameAttributeType
+$creadsPrec :: Int -&gt; ReadS UsernameAttributeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679436739"><span id="local-6989586621679436741"><span class="annot"><span class="annottext">UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool
+(UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool)
+-&gt; (UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool)
+-&gt; Eq UsernameAttributeType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool
+$c/= :: UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool
+== :: UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool
+$c== :: UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679436723"><span id="local-6989586621679436725"><span id="local-6989586621679436727"><span id="local-6989586621679436729"><span id="local-6989586621679436731"><span id="local-6989586621679436733"><span id="local-6989586621679436735"><span class="annot"><span class="annottext">Eq UsernameAttributeType
+Eq UsernameAttributeType
+-&gt; (UsernameAttributeType -&gt; UsernameAttributeType -&gt; Ordering)
+-&gt; (UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool)
+-&gt; (UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool)
+-&gt; (UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool)
+-&gt; (UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool)
+-&gt; (UsernameAttributeType
+    -&gt; UsernameAttributeType -&gt; UsernameAttributeType)
+-&gt; (UsernameAttributeType
+    -&gt; UsernameAttributeType -&gt; UsernameAttributeType)
+-&gt; Ord UsernameAttributeType
+UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool
+UsernameAttributeType -&gt; UsernameAttributeType -&gt; Ordering
+UsernameAttributeType
+-&gt; UsernameAttributeType -&gt; UsernameAttributeType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: UsernameAttributeType
+-&gt; UsernameAttributeType -&gt; UsernameAttributeType
+$cmin :: UsernameAttributeType
+-&gt; UsernameAttributeType -&gt; UsernameAttributeType
+max :: UsernameAttributeType
+-&gt; UsernameAttributeType -&gt; UsernameAttributeType
+$cmax :: UsernameAttributeType
+-&gt; UsernameAttributeType -&gt; UsernameAttributeType
+&gt;= :: UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool
+$c&gt;= :: UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool
+&gt; :: UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool
+$c&gt; :: UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool
+&lt;= :: UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool
+$c&lt;= :: UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool
+&lt; :: UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool
+$c&lt; :: UsernameAttributeType -&gt; UsernameAttributeType -&gt; Bool
+compare :: UsernameAttributeType -&gt; UsernameAttributeType -&gt; Ordering
+$ccompare :: UsernameAttributeType -&gt; UsernameAttributeType -&gt; Ordering
+$cp1Ord :: Eq UsernameAttributeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. UsernameAttributeType -&gt; Rep UsernameAttributeType x)
+-&gt; (forall x. Rep UsernameAttributeType x -&gt; UsernameAttributeType)
+-&gt; Generic UsernameAttributeType
+forall x. Rep UsernameAttributeType x -&gt; UsernameAttributeType
+forall x. UsernameAttributeType -&gt; Rep UsernameAttributeType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UsernameAttributeType x -&gt; UsernameAttributeType
+$cfrom :: forall x. UsernameAttributeType -&gt; Rep UsernameAttributeType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436715"><span id="local-6989586621679436717"><span class="annot"><span class="annottext">Int -&gt; UsernameAttributeType -&gt; Int
+UsernameAttributeType -&gt; Int
+(Int -&gt; UsernameAttributeType -&gt; Int)
+-&gt; (UsernameAttributeType -&gt; Int) -&gt; Hashable UsernameAttributeType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: UsernameAttributeType -&gt; Int
+$chash :: UsernameAttributeType -&gt; Int
+hashWithSalt :: Int -&gt; UsernameAttributeType -&gt; Int
+$chashWithSalt :: Int -&gt; UsernameAttributeType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679436712"><span class="annot"><span class="annottext">UsernameAttributeType -&gt; ()
+(UsernameAttributeType -&gt; ()) -&gt; NFData UsernameAttributeType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: UsernameAttributeType -&gt; ()
+$crnf :: UsernameAttributeType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679436709"><span class="annot"><span class="annottext">Text -&gt; Either String UsernameAttributeType
+(Text -&gt; Either String UsernameAttributeType)
+-&gt; FromText UsernameAttributeType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String UsernameAttributeType
+$cfromText :: Text -&gt; Either String UsernameAttributeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679436706"><span class="annot"><span class="annottext">UsernameAttributeType -&gt; Text
+(UsernameAttributeType -&gt; Text) -&gt; ToText UsernameAttributeType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: UsernameAttributeType -&gt; Text
+$ctoText :: UsernameAttributeType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679436703"><span class="annot"><span class="annottext">UsernameAttributeType -&gt; ByteString
+(UsernameAttributeType -&gt; ByteString)
+-&gt; ToByteString UsernameAttributeType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: UsernameAttributeType -&gt; ByteString
+$ctoBS :: UsernameAttributeType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679436700"><span class="annot"><span class="annottext">UsernameAttributeType -&gt; ByteStringBuilder
+(UsernameAttributeType -&gt; ByteStringBuilder)
+-&gt; ToLog UsernameAttributeType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: UsernameAttributeType -&gt; ByteStringBuilder
+$cbuild :: UsernameAttributeType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679436697"><span class="annot"><span class="annottext">HeaderName -&gt; UsernameAttributeType -&gt; [Header]
+(HeaderName -&gt; UsernameAttributeType -&gt; [Header])
+-&gt; ToHeader UsernameAttributeType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; UsernameAttributeType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; UsernameAttributeType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679436694"><span class="annot"><span class="annottext">UsernameAttributeType -&gt; QueryString
+(UsernameAttributeType -&gt; QueryString)
+-&gt; ToQuery UsernameAttributeType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: UsernameAttributeType -&gt; QueryString
+$ctoQuery :: UsernameAttributeType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679436689"><span id="local-6989586621679436691"><span class="annot"><span class="annottext">Value -&gt; Parser [UsernameAttributeType]
+Value -&gt; Parser UsernameAttributeType
+(Value -&gt; Parser UsernameAttributeType)
+-&gt; (Value -&gt; Parser [UsernameAttributeType])
+-&gt; FromJSON UsernameAttributeType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [UsernameAttributeType]
+$cparseJSONList :: Value -&gt; Parser [UsernameAttributeType]
+parseJSON :: Value -&gt; Parser UsernameAttributeType
+$cparseJSON :: Value -&gt; Parser UsernameAttributeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679436684"><span id="local-6989586621679436686"><span class="annot"><span class="annottext">FromJSONKeyFunction [UsernameAttributeType]
+FromJSONKeyFunction UsernameAttributeType
+FromJSONKeyFunction UsernameAttributeType
+-&gt; FromJSONKeyFunction [UsernameAttributeType]
+-&gt; FromJSONKey UsernameAttributeType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [UsernameAttributeType]
+$cfromJSONKeyList :: FromJSONKeyFunction [UsernameAttributeType]
+fromJSONKey :: FromJSONKeyFunction UsernameAttributeType
+$cfromJSONKey :: FromJSONKeyFunction UsernameAttributeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679436675"><span id="local-6989586621679436677"><span id="local-6989586621679436679"><span id="local-6989586621679436681"><span class="annot"><span class="annottext">[UsernameAttributeType] -&gt; Encoding
+[UsernameAttributeType] -&gt; Value
+UsernameAttributeType -&gt; Encoding
+UsernameAttributeType -&gt; Value
+(UsernameAttributeType -&gt; Value)
+-&gt; (UsernameAttributeType -&gt; Encoding)
+-&gt; ([UsernameAttributeType] -&gt; Value)
+-&gt; ([UsernameAttributeType] -&gt; Encoding)
+-&gt; ToJSON UsernameAttributeType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [UsernameAttributeType] -&gt; Encoding
+$ctoEncodingList :: [UsernameAttributeType] -&gt; Encoding
+toJSONList :: [UsernameAttributeType] -&gt; Value
+$ctoJSONList :: [UsernameAttributeType] -&gt; Value
+toEncoding :: UsernameAttributeType -&gt; Encoding
+$ctoEncoding :: UsernameAttributeType -&gt; Encoding
+toJSON :: UsernameAttributeType -&gt; Value
+$ctoJSON :: UsernameAttributeType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679436670"><span id="local-6989586621679436672"><span class="annot"><span class="annottext">ToJSONKeyFunction [UsernameAttributeType]
+ToJSONKeyFunction UsernameAttributeType
+ToJSONKeyFunction UsernameAttributeType
+-&gt; ToJSONKeyFunction [UsernameAttributeType]
+-&gt; ToJSONKey UsernameAttributeType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [UsernameAttributeType]
+$ctoJSONKeyList :: ToJSONKeyFunction [UsernameAttributeType]
+toJSONKey :: ToJSONKeyFunction UsernameAttributeType
+$ctoJSONKey :: ToJSONKeyFunction UsernameAttributeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679436667"><span class="annot"><span class="annottext">[Node] -&gt; Either String UsernameAttributeType
+([Node] -&gt; Either String UsernameAttributeType)
+-&gt; FromXML UsernameAttributeType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String UsernameAttributeType
+$cparseXML :: [Node] -&gt; Either String UsernameAttributeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679436664"><span class="annot"><span class="annottext">UsernameAttributeType -&gt; XML
+(UsernameAttributeType -&gt; XML) -&gt; ToXML UsernameAttributeType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: UsernameAttributeType -&gt; XML
+$ctoXML :: UsernameAttributeType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#UsernameAttributeType_Email"><span class="hs-identifier hs-type">UsernameAttributeType_Email</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#UsernameAttributeType"><span class="hs-identifier hs-type">UsernameAttributeType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUsernameAttributeType_Email"><span id="%24mUsernameAttributeType_Email"><span id="UsernameAttributeType_Email"><span class="annot"><span class="annottext">$bUsernameAttributeType_Email :: UsernameAttributeType
+$mUsernameAttributeType_Email :: forall r.
+UsernameAttributeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#%24bUsernameAttributeType_Email"><span class="hs-identifier hs-var hs-var hs-var">UsernameAttributeType_Email</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#UsernameAttributeType%27"><span class="hs-identifier hs-type">UsernameAttributeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;email&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#UsernameAttributeType_Phone_number"><span class="hs-identifier hs-type">UsernameAttributeType_Phone_number</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#UsernameAttributeType"><span class="hs-identifier hs-type">UsernameAttributeType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUsernameAttributeType_Phone_number"><span id="%24mUsernameAttributeType_Phone_number"><span id="UsernameAttributeType_Phone_number"><span class="annot"><span class="annottext">$bUsernameAttributeType_Phone_number :: UsernameAttributeType
+$mUsernameAttributeType_Phone_number :: forall r.
+UsernameAttributeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#%24bUsernameAttributeType_Phone_number"><span class="hs-identifier hs-var hs-var hs-var">UsernameAttributeType_Phone_number</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#UsernameAttributeType%27"><span class="hs-identifier hs-type">UsernameAttributeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;phone_number&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#UsernameAttributeType_Email"><span class="hs-pragma hs-type">UsernameAttributeType_Email</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#UsernameAttributeType_Phone_number"><span class="hs-pragma hs-type">UsernameAttributeType_Phone_number</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType.html#UsernameAttributeType%27"><span class="hs-pragma hs-type">UsernameAttributeType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

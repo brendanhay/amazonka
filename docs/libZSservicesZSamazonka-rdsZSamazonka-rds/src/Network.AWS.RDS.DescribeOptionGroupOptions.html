@@ -1,0 +1,983 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.RDS.DescribeOptionGroupOptions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes all available options.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RDS.DescribeOptionGroupOptions</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier">DescribeOptionGroupOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#newDescribeOptionGroupOptions"><span class="hs-identifier">newDescribeOptionGroupOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptions_majorEngineVersion"><span class="hs-identifier">describeOptionGroupOptions_majorEngineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptions_filters"><span class="hs-identifier">describeOptionGroupOptions_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptions_maxRecords"><span class="hs-identifier">describeOptionGroupOptions_maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptions_marker"><span class="hs-identifier">describeOptionGroupOptions_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptions_engineName"><span class="hs-identifier">describeOptionGroupOptions_engineName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse"><span class="hs-identifier">DescribeOptionGroupOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#newDescribeOptionGroupOptionsResponse"><span class="hs-identifier">newDescribeOptionGroupOptionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptionsResponse_optionGroupOptions"><span class="hs-identifier">describeOptionGroupOptionsResponse_optionGroupOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptionsResponse_marker"><span class="hs-identifier">describeOptionGroupOptionsResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptionsResponse_httpStatus"><span class="hs-identifier">describeOptionGroupOptionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.html"><span class="hs-identifier">Network.AWS.RDS.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newDescribeOptionGroupOptions' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679786774"><span id="local-6989586621679786775"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOptionGroupOptions"><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-var">DescribeOptionGroupOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOptionGroupOptions%27"><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions%27"><span class="hs-identifier hs-var">DescribeOptionGroupOptions'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If specified, filters the results to include only options for the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- specified major engine version.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmajorEngineVersion%3ADescribeOptionGroupOptions%27"><span class="annot"><span class="annottext">DescribeOptionGroupOptions -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3AmajorEngineVersion%3ADescribeOptionGroupOptions%27"><span class="hs-identifier hs-var hs-var">majorEngineVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | This parameter isn\'t currently supported.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeOptionGroupOptions%27"><span class="annot"><span class="annottext">DescribeOptionGroupOptions -&gt; Maybe [Filter]
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3Afilters%3ADescribeOptionGroupOptions%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- called a marker is included in the response so that you can retrieve the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- remaining results.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeOptionGroupOptions%27"><span class="annot"><span class="annottext">DescribeOptionGroupOptions -&gt; Maybe Int
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3AmaxRecords%3ADescribeOptionGroupOptions%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeOptionGroupOptions%27"><span class="annot"><span class="annottext">DescribeOptionGroupOptions -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3Amarker%3ADescribeOptionGroupOptions%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | A required parameter. Options available for the given engine name are</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- described.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- Valid Values:</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   @mariadb@</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   @mysql@</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- -   @oracle-ee@</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   @oracle-ee-cdb@</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   @oracle-se2@</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   @oracle-se2-cdb@</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- -   @postgres@</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- -   @sqlserver-ee@</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- -   @sqlserver-se@</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   @sqlserver-ex@</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- -   @sqlserver-web@</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AengineName%3ADescribeOptionGroupOptions%27"><span class="annot"><span class="annottext">DescribeOptionGroupOptions -&gt; Text
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3AengineName%3ADescribeOptionGroupOptions%27"><span class="hs-identifier hs-var hs-var">engineName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679786764"><span id="local-6989586621679786766"><span class="annot"><span class="annottext">DescribeOptionGroupOptions -&gt; DescribeOptionGroupOptions -&gt; Bool
+(DescribeOptionGroupOptions -&gt; DescribeOptionGroupOptions -&gt; Bool)
+-&gt; (DescribeOptionGroupOptions
+    -&gt; DescribeOptionGroupOptions -&gt; Bool)
+-&gt; Eq DescribeOptionGroupOptions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeOptionGroupOptions -&gt; DescribeOptionGroupOptions -&gt; Bool
+$c/= :: DescribeOptionGroupOptions -&gt; DescribeOptionGroupOptions -&gt; Bool
+== :: DescribeOptionGroupOptions -&gt; DescribeOptionGroupOptions -&gt; Bool
+$c== :: DescribeOptionGroupOptions -&gt; DescribeOptionGroupOptions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679786755"><span id="local-6989586621679786757"><span id="local-6989586621679786759"><span id="local-6989586621679786761"><span class="annot"><span class="annottext">ReadPrec [DescribeOptionGroupOptions]
+ReadPrec DescribeOptionGroupOptions
+Int -&gt; ReadS DescribeOptionGroupOptions
+ReadS [DescribeOptionGroupOptions]
+(Int -&gt; ReadS DescribeOptionGroupOptions)
+-&gt; ReadS [DescribeOptionGroupOptions]
+-&gt; ReadPrec DescribeOptionGroupOptions
+-&gt; ReadPrec [DescribeOptionGroupOptions]
+-&gt; Read DescribeOptionGroupOptions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeOptionGroupOptions]
+$creadListPrec :: ReadPrec [DescribeOptionGroupOptions]
+readPrec :: ReadPrec DescribeOptionGroupOptions
+$creadPrec :: ReadPrec DescribeOptionGroupOptions
+readList :: ReadS [DescribeOptionGroupOptions]
+$creadList :: ReadS [DescribeOptionGroupOptions]
+readsPrec :: Int -&gt; ReadS DescribeOptionGroupOptions
+$creadsPrec :: Int -&gt; ReadS DescribeOptionGroupOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679786748"><span id="local-6989586621679786750"><span id="local-6989586621679786752"><span class="annot"><span class="annottext">Int -&gt; DescribeOptionGroupOptions -&gt; ShowS
+[DescribeOptionGroupOptions] -&gt; ShowS
+DescribeOptionGroupOptions -&gt; String
+(Int -&gt; DescribeOptionGroupOptions -&gt; ShowS)
+-&gt; (DescribeOptionGroupOptions -&gt; String)
+-&gt; ([DescribeOptionGroupOptions] -&gt; ShowS)
+-&gt; Show DescribeOptionGroupOptions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeOptionGroupOptions] -&gt; ShowS
+$cshowList :: [DescribeOptionGroupOptions] -&gt; ShowS
+show :: DescribeOptionGroupOptions -&gt; String
+$cshow :: DescribeOptionGroupOptions -&gt; String
+showsPrec :: Int -&gt; DescribeOptionGroupOptions -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeOptionGroupOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeOptionGroupOptions -&gt; Rep DescribeOptionGroupOptions x)
+-&gt; (forall x.
+    Rep DescribeOptionGroupOptions x -&gt; DescribeOptionGroupOptions)
+-&gt; Generic DescribeOptionGroupOptions
+forall x.
+Rep DescribeOptionGroupOptions x -&gt; DescribeOptionGroupOptions
+forall x.
+DescribeOptionGroupOptions -&gt; Rep DescribeOptionGroupOptions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeOptionGroupOptions x -&gt; DescribeOptionGroupOptions
+$cfrom :: forall x.
+DescribeOptionGroupOptions -&gt; Rep DescribeOptionGroupOptions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Create a value of 'DescribeOptionGroupOptions' with all optional fields omitted.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'majorEngineVersion', 'describeOptionGroupOptions_majorEngineVersion' - If specified, filters the results to include only options for the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- specified major engine version.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'filters', 'describeOptionGroupOptions_filters' - This parameter isn\'t currently supported.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'maxRecords', 'describeOptionGroupOptions_maxRecords' - The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- called a marker is included in the response so that you can retrieve the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- remaining results.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'marker', 'describeOptionGroupOptions_marker' - An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'engineName', 'describeOptionGroupOptions_engineName' - A required parameter. Options available for the given engine name are</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- described.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Valid Values:</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- -   @mariadb@</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- -   @mysql@</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- -   @oracle-ee@</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- -   @oracle-ee-cdb@</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- -   @oracle-se2@</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- -   @oracle-se2-cdb@</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   @postgres@</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- -   @sqlserver-ee@</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- -   @sqlserver-se@</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- -   @sqlserver-ex@</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- -   @sqlserver-web@</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#newDescribeOptionGroupOptions"><span class="hs-identifier hs-type">newDescribeOptionGroupOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-comment">-- | 'engineName'</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span>
+</span><span id="line-164"></span><span id="newDescribeOptionGroupOptions"><span class="annot"><span class="annottext">newDescribeOptionGroupOptions :: Text -&gt; DescribeOptionGroupOptions
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#newDescribeOptionGroupOptions"><span class="hs-identifier hs-var hs-var">newDescribeOptionGroupOptions</span></a></span></span><span> </span><span id="local-6989586621679786743"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679786743"><span class="hs-identifier hs-var">pEngineName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">DescribeOptionGroupOptions' :: Maybe Text
+-&gt; Maybe [Filter]
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Text
+-&gt; DescribeOptionGroupOptions
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptions'</span></a></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:majorEngineVersion:DescribeOptionGroupOptions' :: Maybe Text
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3AmajorEngineVersion%3ADescribeOptionGroupOptions%27"><span class="hs-identifier hs-var">majorEngineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeOptionGroupOptions' :: Maybe [Filter]
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3Afilters%3ADescribeOptionGroupOptions%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeOptionGroupOptions' :: Maybe Int
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3AmaxRecords%3ADescribeOptionGroupOptions%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeOptionGroupOptions' :: Maybe Text
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3Amarker%3ADescribeOptionGroupOptions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:engineName:DescribeOptionGroupOptions' :: Text
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3AengineName%3ADescribeOptionGroupOptions%27"><span class="hs-identifier hs-var">engineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679786743"><span class="hs-identifier hs-var">pEngineName_</span></a></span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | If specified, filters the results to include only options for the</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- specified major engine version.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptions_majorEngineVersion"><span class="hs-identifier hs-type">describeOptionGroupOptions_majorEngineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="describeOptionGroupOptions_majorEngineVersion"><span class="annot"><span class="annottext">describeOptionGroupOptions_majorEngineVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeOptionGroupOptions -&gt; f DescribeOptionGroupOptions
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptions_majorEngineVersion"><span class="hs-identifier hs-var hs-var">describeOptionGroupOptions_majorEngineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOptionGroupOptions -&gt; Maybe Text)
+-&gt; (DescribeOptionGroupOptions
+    -&gt; Maybe Text -&gt; DescribeOptionGroupOptions)
+-&gt; Lens
+     DescribeOptionGroupOptions
+     DescribeOptionGroupOptions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786741"><span class="annot"><span class="annottext">Maybe Text
+majorEngineVersion :: Maybe Text
+$sel:majorEngineVersion:DescribeOptionGroupOptions' :: DescribeOptionGroupOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679786741"><span class="hs-identifier hs-var hs-var">majorEngineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679786741"><span class="hs-identifier hs-var">majorEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786740"><span class="annot"><span class="annottext">s :: DescribeOptionGroupOptions
+</span><a href="#local-6989586621679786740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786739"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679786739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOptionGroupOptions
+</span><a href="#local-6989586621679786740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:majorEngineVersion:DescribeOptionGroupOptions' :: Maybe Text
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3AmajorEngineVersion%3ADescribeOptionGroupOptions%27"><span class="hs-identifier hs-var">majorEngineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679786739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | This parameter isn\'t currently supported.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptions_filters"><span class="hs-identifier hs-type">describeOptionGroupOptions_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="describeOptionGroupOptions_filters"><span class="annot"><span class="annottext">describeOptionGroupOptions_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeOptionGroupOptions -&gt; f DescribeOptionGroupOptions
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptions_filters"><span class="hs-identifier hs-var hs-var">describeOptionGroupOptions_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOptionGroupOptions -&gt; Maybe [Filter])
+-&gt; (DescribeOptionGroupOptions
+    -&gt; Maybe [Filter] -&gt; DescribeOptionGroupOptions)
+-&gt; Lens
+     DescribeOptionGroupOptions
+     DescribeOptionGroupOptions
+     (Maybe [Filter])
+     (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786738"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:DescribeOptionGroupOptions' :: DescribeOptionGroupOptions -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679786738"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679786738"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786737"><span class="annot"><span class="annottext">s :: DescribeOptionGroupOptions
+</span><a href="#local-6989586621679786737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786736"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679786736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOptionGroupOptions
+</span><a href="#local-6989586621679786737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeOptionGroupOptions' :: Maybe [Filter]
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3Afilters%3ADescribeOptionGroupOptions%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679786736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; DescribeOptionGroupOptions -&gt; f DescribeOptionGroupOptions)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeOptionGroupOptions
+-&gt; f DescribeOptionGroupOptions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- called a marker is included in the response so that you can retrieve the</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- remaining results.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptions_maxRecords"><span class="hs-identifier hs-type">describeOptionGroupOptions_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="describeOptionGroupOptions_maxRecords"><span class="annot"><span class="annottext">describeOptionGroupOptions_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeOptionGroupOptions -&gt; f DescribeOptionGroupOptions
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptions_maxRecords"><span class="hs-identifier hs-var hs-var">describeOptionGroupOptions_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOptionGroupOptions -&gt; Maybe Int)
+-&gt; (DescribeOptionGroupOptions
+    -&gt; Maybe Int -&gt; DescribeOptionGroupOptions)
+-&gt; Lens
+     DescribeOptionGroupOptions
+     DescribeOptionGroupOptions
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786732"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribeOptionGroupOptions' :: DescribeOptionGroupOptions -&gt; Maybe Int
+</span><a href="#local-6989586621679786732"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679786732"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786731"><span class="annot"><span class="annottext">s :: DescribeOptionGroupOptions
+</span><a href="#local-6989586621679786731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786730"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679786730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOptionGroupOptions
+</span><a href="#local-6989586621679786731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeOptionGroupOptions' :: Maybe Int
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3AmaxRecords%3ADescribeOptionGroupOptions%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679786730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptions_marker"><span class="hs-identifier hs-type">describeOptionGroupOptions_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="describeOptionGroupOptions_marker"><span class="annot"><span class="annottext">describeOptionGroupOptions_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeOptionGroupOptions -&gt; f DescribeOptionGroupOptions
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptions_marker"><span class="hs-identifier hs-var hs-var">describeOptionGroupOptions_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOptionGroupOptions -&gt; Maybe Text)
+-&gt; (DescribeOptionGroupOptions
+    -&gt; Maybe Text -&gt; DescribeOptionGroupOptions)
+-&gt; Lens
+     DescribeOptionGroupOptions
+     DescribeOptionGroupOptions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786729"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeOptionGroupOptions' :: DescribeOptionGroupOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679786729"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679786729"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786728"><span class="annot"><span class="annottext">s :: DescribeOptionGroupOptions
+</span><a href="#local-6989586621679786728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786727"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679786727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOptionGroupOptions
+</span><a href="#local-6989586621679786728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeOptionGroupOptions' :: Maybe Text
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3Amarker%3ADescribeOptionGroupOptions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679786727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | A required parameter. Options available for the given engine name are</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- described.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Valid Values:</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- -   @mariadb@</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- -   @mysql@</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- -   @oracle-ee@</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- -   @oracle-ee-cdb@</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- -   @oracle-se2@</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- -   @oracle-se2-cdb@</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- -   @postgres@</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- -   @sqlserver-ee@</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- -   @sqlserver-se@</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- -   @sqlserver-ex@</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- -   @sqlserver-web@</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptions_engineName"><span class="hs-identifier hs-type">describeOptionGroupOptions_engineName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-227"></span><span id="describeOptionGroupOptions_engineName"><span class="annot"><span class="annottext">describeOptionGroupOptions_engineName :: (Text -&gt; f Text)
+-&gt; DescribeOptionGroupOptions -&gt; f DescribeOptionGroupOptions
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptions_engineName"><span class="hs-identifier hs-var hs-var">describeOptionGroupOptions_engineName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOptionGroupOptions -&gt; Text)
+-&gt; (DescribeOptionGroupOptions
+    -&gt; Text -&gt; DescribeOptionGroupOptions)
+-&gt; Lens
+     DescribeOptionGroupOptions DescribeOptionGroupOptions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786726"><span class="annot"><span class="annottext">Text
+engineName :: Text
+$sel:engineName:DescribeOptionGroupOptions' :: DescribeOptionGroupOptions -&gt; Text
+</span><a href="#local-6989586621679786726"><span class="hs-identifier hs-var hs-var">engineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679786726"><span class="hs-identifier hs-var">engineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786725"><span class="annot"><span class="annottext">s :: DescribeOptionGroupOptions
+</span><a href="#local-6989586621679786725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786724"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679786724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOptionGroupOptions
+</span><a href="#local-6989586621679786725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineName:DescribeOptionGroupOptions' :: Text
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3AengineName%3ADescribeOptionGroupOptions%27"><span class="hs-identifier hs-var">engineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679786724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679786720"><span class="annot"><span class="annottext">page :: DescribeOptionGroupOptions
+-&gt; AWSResponse DescribeOptionGroupOptions
+-&gt; Maybe DescribeOptionGroupOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679786718"><span class="annot"><span class="annottext">DescribeOptionGroupOptions
+</span><a href="#local-6989586621679786718"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679786717"><span class="annot"><span class="annottext">AWSResponse DescribeOptionGroupOptions
+</span><a href="#local-6989586621679786717"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-232"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeOptionGroupOptions
+DescribeOptionGroupOptionsResponse
+</span><a href="#local-6989586621679786717"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">DescribeOptionGroupOptionsResponse
+-&gt; Getting (First Text) DescribeOptionGroupOptionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeOptionGroupOptionsResponse
+-&gt; Const (First Text) DescribeOptionGroupOptionsResponse
+Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptionsResponse_marker"><span class="hs-identifier hs-var">describeOptionGroupOptionsResponse_marker</span></a></span><span>
+</span><span id="line-234"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeOptionGroupOptionsResponse
+ -&gt; Const (First Text) DescribeOptionGroupOptionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeOptionGroupOptionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-235"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeOptionGroupOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [OptionGroupOption] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-238"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeOptionGroupOptions
+DescribeOptionGroupOptionsResponse
+</span><a href="#local-6989586621679786717"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">DescribeOptionGroupOptionsResponse
+-&gt; Getting
+     (First [OptionGroupOption])
+     DescribeOptionGroupOptionsResponse
+     [OptionGroupOption]
+-&gt; Maybe [OptionGroupOption]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [OptionGroupOption]
+ -&gt; Const (First [OptionGroupOption]) (Maybe [OptionGroupOption]))
+-&gt; DescribeOptionGroupOptionsResponse
+-&gt; Const
+     (First [OptionGroupOption]) DescribeOptionGroupOptionsResponse
+Lens'
+  DescribeOptionGroupOptionsResponse (Maybe [OptionGroupOption])
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptionsResponse_optionGroupOptions"><span class="hs-identifier hs-var">describeOptionGroupOptionsResponse_optionGroupOptions</span></a></span><span>
+</span><span id="line-240"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [OptionGroupOption]
+  -&gt; Const (First [OptionGroupOption]) (Maybe [OptionGroupOption]))
+ -&gt; DescribeOptionGroupOptionsResponse
+ -&gt; Const
+      (First [OptionGroupOption]) DescribeOptionGroupOptionsResponse)
+-&gt; (([OptionGroupOption]
+     -&gt; Const (First [OptionGroupOption]) [OptionGroupOption])
+    -&gt; Maybe [OptionGroupOption]
+    -&gt; Const (First [OptionGroupOption]) (Maybe [OptionGroupOption]))
+-&gt; Getting
+     (First [OptionGroupOption])
+     DescribeOptionGroupOptionsResponse
+     [OptionGroupOption]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([OptionGroupOption]
+ -&gt; Const (First [OptionGroupOption]) [OptionGroupOption])
+-&gt; Maybe [OptionGroupOption]
+-&gt; Const (First [OptionGroupOption]) (Maybe [OptionGroupOption])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-241"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeOptionGroupOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">DescribeOptionGroupOptions -&gt; Maybe DescribeOptionGroupOptions
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeOptionGroupOptions -&gt; Maybe DescribeOptionGroupOptions)
+-&gt; DescribeOptionGroupOptions -&gt; Maybe DescribeOptionGroupOptions
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">DescribeOptionGroupOptions
+</span><a href="#local-6989586621679786718"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-246"></span><span>          </span><span class="annot"><span class="annottext">DescribeOptionGroupOptions
+-&gt; (DescribeOptionGroupOptions -&gt; DescribeOptionGroupOptions)
+-&gt; DescribeOptionGroupOptions
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeOptionGroupOptions
+-&gt; Identity DescribeOptionGroupOptions
+Lens
+  DescribeOptionGroupOptions
+  DescribeOptionGroupOptions
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptions_marker"><span class="hs-identifier hs-var">describeOptionGroupOptions_marker</span></a></span><span>
+</span><span id="line-247"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeOptionGroupOptions
+ -&gt; Identity DescribeOptionGroupOptions)
+-&gt; Maybe Text
+-&gt; DescribeOptionGroupOptions
+-&gt; DescribeOptionGroupOptions
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeOptionGroupOptions
+DescribeOptionGroupOptionsResponse
+</span><a href="#local-6989586621679786717"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-248"></span><span>          </span><span class="annot"><span class="annottext">DescribeOptionGroupOptionsResponse
+-&gt; Getting (First Text) DescribeOptionGroupOptionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeOptionGroupOptionsResponse
+-&gt; Const (First Text) DescribeOptionGroupOptionsResponse
+Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptionsResponse_marker"><span class="hs-identifier hs-var">describeOptionGroupOptionsResponse_marker</span></a></span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeOptionGroupOptionsResponse
+ -&gt; Const (First Text) DescribeOptionGroupOptionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeOptionGroupOptionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-252"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-253"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse"><span class="hs-identifier hs-type">DescribeOptionGroupOptionsResponse</span></a></span><span>
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679786708"><span class="annot"><span class="annottext">request :: DescribeOptionGroupOptions -&gt; Request DescribeOptionGroupOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeOptionGroupOptions -&gt; Request DescribeOptionGroupOptions
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679786704"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeOptionGroupOptions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeOptionGroupOptions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DescribeOptionGroupOptions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeOptionGroupOptions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeOptionGroupOptions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribeOptionGroupOptionsResult&quot;</span></span><span>
+</span><span id="line-259"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679786701"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679786701"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679786700"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679786700"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679786699"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679786699"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-260"></span><span>          </span><span class="annot"><span class="annottext">Maybe [OptionGroupOption]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeOptionGroupOptionsResponse
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-var">DescribeOptionGroupOptionsResponse'</span></a></span><span>
+</span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [OptionGroupOption]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeOptionGroupOptionsResponse)
+-&gt; Either String (Maybe [OptionGroupOption])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeOptionGroupOptionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679786699"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OptionGroupOptions&quot;</span></span><span>
+</span><span id="line-262"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-263"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [OptionGroupOption]))
+-&gt; Either String (Maybe [OptionGroupOption])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [OptionGroupOption])
+-&gt; [Node] -&gt; Either String (Maybe [OptionGroupOption])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [OptionGroupOption]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OptionGroupOption&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DescribeOptionGroupOptionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeOptionGroupOptionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679786699"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeOptionGroupOptionsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeOptionGroupOptionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679786701"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679786688"><span id="local-6989586621679786690"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span></span></span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679786685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679786681"><span class="annot"><span class="annottext">toHeaders :: DescribeOptionGroupOptions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeOptionGroupOptions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-277"></span><span>  </span><span id="local-6989586621679786676"><span class="annot"><span class="annottext">toPath :: DescribeOptionGroupOptions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeOptionGroupOptions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions"><span class="hs-identifier hs-type">DescribeOptionGroupOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621679786672"><span class="annot"><span class="annottext">toQuery :: DescribeOptionGroupOptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptions%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786666"><span id="local-6989586621679786667"><span id="local-6989586621679786668"><span id="local-6989586621679786669"><span id="local-6989586621679786670"><span class="annot"><span class="annottext">Maybe Int
+Maybe [Filter]
+Maybe Text
+Text
+engineName :: Text
+marker :: Maybe Text
+maxRecords :: Maybe Int
+filters :: Maybe [Filter]
+majorEngineVersion :: Maybe Text
+$sel:engineName:DescribeOptionGroupOptions' :: DescribeOptionGroupOptions -&gt; Text
+$sel:marker:DescribeOptionGroupOptions' :: DescribeOptionGroupOptions -&gt; Maybe Text
+$sel:maxRecords:DescribeOptionGroupOptions' :: DescribeOptionGroupOptions -&gt; Maybe Int
+$sel:filters:DescribeOptionGroupOptions' :: DescribeOptionGroupOptions -&gt; Maybe [Filter]
+$sel:majorEngineVersion:DescribeOptionGroupOptions' :: DescribeOptionGroupOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679786666"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-282"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-283"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeOptionGroupOptions&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-285"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MajorEngineVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679786670"><span class="hs-identifier hs-var">majorEngineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span>
+</span><span id="line-288"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-289"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679786669"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679786668"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679786667"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EngineName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679786666"><span class="hs-identifier hs-var">engineName</span></a></span><span>
+</span><span id="line-293"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- /See:/ 'newDescribeOptionGroupOptionsResponse' smart constructor.</span><span>
+</span><span id="line-298"></span><span id="local-6989586621679786662"><span id="local-6989586621679786663"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOptionGroupOptionsResponse"><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse"><span class="hs-identifier hs-var">DescribeOptionGroupOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOptionGroupOptionsResponse%27"><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-var">DescribeOptionGroupOptionsResponse'</span></a></span></span><span>
+</span><span id="line-299"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AoptionGroupOptions%3ADescribeOptionGroupOptionsResponse%27"><span class="annot"><span class="annottext">DescribeOptionGroupOptionsResponse -&gt; Maybe [OptionGroupOption]
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3AoptionGroupOptions%3ADescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-var hs-var">optionGroupOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.OptionGroupOption.html#OptionGroupOption"><span class="hs-identifier hs-type">OptionGroupOption</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-301"></span><span>    </span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-302"></span><span>    </span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-303"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeOptionGroupOptionsResponse%27"><span class="annot"><span class="annottext">DescribeOptionGroupOptionsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3Amarker%3ADescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-305"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeOptionGroupOptionsResponse%27"><span class="annot"><span class="annottext">DescribeOptionGroupOptionsResponse -&gt; Int
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3AhttpStatus%3ADescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-306"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-307"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679786655"><span id="local-6989586621679786657"><span class="annot"><span class="annottext">DescribeOptionGroupOptionsResponse
+-&gt; DescribeOptionGroupOptionsResponse -&gt; Bool
+(DescribeOptionGroupOptionsResponse
+ -&gt; DescribeOptionGroupOptionsResponse -&gt; Bool)
+-&gt; (DescribeOptionGroupOptionsResponse
+    -&gt; DescribeOptionGroupOptionsResponse -&gt; Bool)
+-&gt; Eq DescribeOptionGroupOptionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeOptionGroupOptionsResponse
+-&gt; DescribeOptionGroupOptionsResponse -&gt; Bool
+$c/= :: DescribeOptionGroupOptionsResponse
+-&gt; DescribeOptionGroupOptionsResponse -&gt; Bool
+== :: DescribeOptionGroupOptionsResponse
+-&gt; DescribeOptionGroupOptionsResponse -&gt; Bool
+$c== :: DescribeOptionGroupOptionsResponse
+-&gt; DescribeOptionGroupOptionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679786647"><span id="local-6989586621679786649"><span id="local-6989586621679786651"><span id="local-6989586621679786653"><span class="annot"><span class="annottext">ReadPrec [DescribeOptionGroupOptionsResponse]
+ReadPrec DescribeOptionGroupOptionsResponse
+Int -&gt; ReadS DescribeOptionGroupOptionsResponse
+ReadS [DescribeOptionGroupOptionsResponse]
+(Int -&gt; ReadS DescribeOptionGroupOptionsResponse)
+-&gt; ReadS [DescribeOptionGroupOptionsResponse]
+-&gt; ReadPrec DescribeOptionGroupOptionsResponse
+-&gt; ReadPrec [DescribeOptionGroupOptionsResponse]
+-&gt; Read DescribeOptionGroupOptionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeOptionGroupOptionsResponse]
+$creadListPrec :: ReadPrec [DescribeOptionGroupOptionsResponse]
+readPrec :: ReadPrec DescribeOptionGroupOptionsResponse
+$creadPrec :: ReadPrec DescribeOptionGroupOptionsResponse
+readList :: ReadS [DescribeOptionGroupOptionsResponse]
+$creadList :: ReadS [DescribeOptionGroupOptionsResponse]
+readsPrec :: Int -&gt; ReadS DescribeOptionGroupOptionsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeOptionGroupOptionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679786641"><span id="local-6989586621679786643"><span id="local-6989586621679786645"><span class="annot"><span class="annottext">Int -&gt; DescribeOptionGroupOptionsResponse -&gt; ShowS
+[DescribeOptionGroupOptionsResponse] -&gt; ShowS
+DescribeOptionGroupOptionsResponse -&gt; String
+(Int -&gt; DescribeOptionGroupOptionsResponse -&gt; ShowS)
+-&gt; (DescribeOptionGroupOptionsResponse -&gt; String)
+-&gt; ([DescribeOptionGroupOptionsResponse] -&gt; ShowS)
+-&gt; Show DescribeOptionGroupOptionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeOptionGroupOptionsResponse] -&gt; ShowS
+$cshowList :: [DescribeOptionGroupOptionsResponse] -&gt; ShowS
+show :: DescribeOptionGroupOptionsResponse -&gt; String
+$cshow :: DescribeOptionGroupOptionsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeOptionGroupOptionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeOptionGroupOptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeOptionGroupOptionsResponse
+ -&gt; Rep DescribeOptionGroupOptionsResponse x)
+-&gt; (forall x.
+    Rep DescribeOptionGroupOptionsResponse x
+    -&gt; DescribeOptionGroupOptionsResponse)
+-&gt; Generic DescribeOptionGroupOptionsResponse
+forall x.
+Rep DescribeOptionGroupOptionsResponse x
+-&gt; DescribeOptionGroupOptionsResponse
+forall x.
+DescribeOptionGroupOptionsResponse
+-&gt; Rep DescribeOptionGroupOptionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeOptionGroupOptionsResponse x
+-&gt; DescribeOptionGroupOptionsResponse
+$cfrom :: forall x.
+DescribeOptionGroupOptionsResponse
+-&gt; Rep DescribeOptionGroupOptionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- Create a value of 'DescribeOptionGroupOptionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- 'optionGroupOptions', 'describeOptionGroupOptionsResponse_optionGroupOptions' - Undocumented member.</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- 'marker', 'describeOptionGroupOptionsResponse_marker' - An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- 'httpStatus', 'describeOptionGroupOptionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-324"></span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#newDescribeOptionGroupOptionsResponse"><span class="hs-identifier hs-type">newDescribeOptionGroupOptionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-325"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-326"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-327"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse"><span class="hs-identifier hs-type">DescribeOptionGroupOptionsResponse</span></a></span><span>
+</span><span id="line-328"></span><span id="newDescribeOptionGroupOptionsResponse"><span class="annot"><span class="annottext">newDescribeOptionGroupOptionsResponse :: Int -&gt; DescribeOptionGroupOptionsResponse
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#newDescribeOptionGroupOptionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeOptionGroupOptionsResponse</span></a></span></span><span> </span><span id="local-6989586621679786638"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679786638"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-329"></span><span>  </span><span class="annot"><span class="annottext">DescribeOptionGroupOptionsResponse' :: Maybe [OptionGroupOption]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeOptionGroupOptionsResponse
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptionsResponse'</span></a></span><span>
+</span><span id="line-330"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:optionGroupOptions:DescribeOptionGroupOptionsResponse' :: Maybe [OptionGroupOption]
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3AoptionGroupOptions%3ADescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-var">optionGroupOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-331"></span><span>        </span><span class="annot"><span class="annottext">Maybe [OptionGroupOption]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeOptionGroupOptionsResponse' :: Maybe Text
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3Amarker%3ADescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOptionGroupOptionsResponse' :: Int
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3AhttpStatus%3ADescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679786638"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-334"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-335"></span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-337"></span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptionsResponse_optionGroupOptions"><span class="hs-identifier hs-type">describeOptionGroupOptionsResponse_optionGroupOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse"><span class="hs-identifier hs-type">DescribeOptionGroupOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.OptionGroupOption.html#OptionGroupOption"><span class="hs-identifier hs-type">OptionGroupOption</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span id="describeOptionGroupOptionsResponse_optionGroupOptions"><span class="annot"><span class="annottext">describeOptionGroupOptionsResponse_optionGroupOptions :: (Maybe [OptionGroupOption] -&gt; f (Maybe [OptionGroupOption]))
+-&gt; DescribeOptionGroupOptionsResponse
+-&gt; f DescribeOptionGroupOptionsResponse
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptionsResponse_optionGroupOptions"><span class="hs-identifier hs-var hs-var">describeOptionGroupOptionsResponse_optionGroupOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOptionGroupOptionsResponse -&gt; Maybe [OptionGroupOption])
+-&gt; (DescribeOptionGroupOptionsResponse
+    -&gt; Maybe [OptionGroupOption] -&gt; DescribeOptionGroupOptionsResponse)
+-&gt; Lens'
+     DescribeOptionGroupOptionsResponse (Maybe [OptionGroupOption])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786637"><span class="annot"><span class="annottext">Maybe [OptionGroupOption]
+optionGroupOptions :: Maybe [OptionGroupOption]
+$sel:optionGroupOptions:DescribeOptionGroupOptionsResponse' :: DescribeOptionGroupOptionsResponse -&gt; Maybe [OptionGroupOption]
+</span><a href="#local-6989586621679786637"><span class="hs-identifier hs-var hs-var">optionGroupOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OptionGroupOption]
+</span><a href="#local-6989586621679786637"><span class="hs-identifier hs-var">optionGroupOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786636"><span class="annot"><span class="annottext">s :: DescribeOptionGroupOptionsResponse
+</span><a href="#local-6989586621679786636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786635"><span class="annot"><span class="annottext">Maybe [OptionGroupOption]
+</span><a href="#local-6989586621679786635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOptionGroupOptionsResponse
+</span><a href="#local-6989586621679786636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroupOptions:DescribeOptionGroupOptionsResponse' :: Maybe [OptionGroupOption]
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3AoptionGroupOptions%3ADescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-var">optionGroupOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OptionGroupOption]
+</span><a href="#local-6989586621679786635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse"><span class="hs-identifier hs-type">DescribeOptionGroupOptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OptionGroupOption] -&gt; f (Maybe [OptionGroupOption]))
+ -&gt; DescribeOptionGroupOptionsResponse
+ -&gt; f DescribeOptionGroupOptionsResponse)
+-&gt; ((Maybe [OptionGroupOption] -&gt; f (Maybe [OptionGroupOption]))
+    -&gt; Maybe [OptionGroupOption] -&gt; f (Maybe [OptionGroupOption]))
+-&gt; (Maybe [OptionGroupOption] -&gt; f (Maybe [OptionGroupOption]))
+-&gt; DescribeOptionGroupOptionsResponse
+-&gt; f DescribeOptionGroupOptionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [OptionGroupOption]
+  [OptionGroupOption]
+  [OptionGroupOption]
+  [OptionGroupOption]
+-&gt; Iso
+     (Maybe [OptionGroupOption])
+     (Maybe [OptionGroupOption])
+     (Maybe [OptionGroupOption])
+     (Maybe [OptionGroupOption])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [OptionGroupOption]
+  [OptionGroupOption]
+  [OptionGroupOption]
+  [OptionGroupOption]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-339"></span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-343"></span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptionsResponse_marker"><span class="hs-identifier hs-type">describeOptionGroupOptionsResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse"><span class="hs-identifier hs-type">DescribeOptionGroupOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span id="describeOptionGroupOptionsResponse_marker"><span class="annot"><span class="annottext">describeOptionGroupOptionsResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeOptionGroupOptionsResponse
+-&gt; f DescribeOptionGroupOptionsResponse
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptionsResponse_marker"><span class="hs-identifier hs-var hs-var">describeOptionGroupOptionsResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOptionGroupOptionsResponse -&gt; Maybe Text)
+-&gt; (DescribeOptionGroupOptionsResponse
+    -&gt; Maybe Text -&gt; DescribeOptionGroupOptionsResponse)
+-&gt; Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786634"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeOptionGroupOptionsResponse' :: DescribeOptionGroupOptionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679786634"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679786634"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786633"><span class="annot"><span class="annottext">s :: DescribeOptionGroupOptionsResponse
+</span><a href="#local-6989586621679786633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786632"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679786632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOptionGroupOptionsResponse
+</span><a href="#local-6989586621679786633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeOptionGroupOptionsResponse' :: Maybe Text
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3Amarker%3ADescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679786632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse"><span class="hs-identifier hs-type">DescribeOptionGroupOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-347"></span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptionsResponse_httpStatus"><span class="hs-identifier hs-type">describeOptionGroupOptionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse"><span class="hs-identifier hs-type">DescribeOptionGroupOptionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-348"></span><span id="describeOptionGroupOptionsResponse_httpStatus"><span class="annot"><span class="annottext">describeOptionGroupOptionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeOptionGroupOptionsResponse
+-&gt; f DescribeOptionGroupOptionsResponse
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#describeOptionGroupOptionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeOptionGroupOptionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOptionGroupOptionsResponse -&gt; Int)
+-&gt; (DescribeOptionGroupOptionsResponse
+    -&gt; Int -&gt; DescribeOptionGroupOptionsResponse)
+-&gt; Lens
+     DescribeOptionGroupOptionsResponse
+     DescribeOptionGroupOptionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786631"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeOptionGroupOptionsResponse' :: DescribeOptionGroupOptionsResponse -&gt; Int
+</span><a href="#local-6989586621679786631"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679786631"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786630"><span class="annot"><span class="annottext">s :: DescribeOptionGroupOptionsResponse
+</span><a href="#local-6989586621679786630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-type">DescribeOptionGroupOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786629"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679786629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOptionGroupOptionsResponse
+</span><a href="#local-6989586621679786630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOptionGroupOptionsResponse' :: Int
+</span><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#%24sel%3AhttpStatus%3ADescribeOptionGroupOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679786629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse"><span class="hs-identifier hs-type">DescribeOptionGroupOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>
+</span><span id="line-350"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-351"></span><span>  </span><span id="local-6989586621679786627"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-352"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeOptionGroupOptions.html#DescribeOptionGroupOptionsResponse"><span class="hs-identifier hs-type">DescribeOptionGroupOptionsResponse</span></a></span></span><span>
+</span><span id="line-353"></span></pre></body></html>

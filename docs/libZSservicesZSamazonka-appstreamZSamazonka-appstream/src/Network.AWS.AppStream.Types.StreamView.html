@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppStream.Types.StreamView</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppStream.Types.StreamView</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StreamView.html#StreamView"><span class="hs-identifier">StreamView</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AppStream.Types.StreamView.html#StreamView_APP"><span class="hs-identifier">StreamView_APP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AppStream.Types.StreamView.html#StreamView_DESKTOP"><span class="hs-identifier">StreamView_DESKTOP</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679289847"><span id="local-6989586621679289848"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StreamView"><span class="annot"><a href="Network.AWS.AppStream.Types.StreamView.html#StreamView"><span class="hs-identifier hs-var">StreamView</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamView%27"><span class="annot"><a href="Network.AWS.AppStream.Types.StreamView.html#StreamView%27"><span class="hs-identifier hs-var">StreamView'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStreamView"><span class="annot"><span class="annottext">StreamView -&gt; Text
+</span><a href="Network.AWS.AppStream.Types.StreamView.html#fromStreamView"><span class="hs-identifier hs-var hs-var">fromStreamView</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679289839"><span id="local-6989586621679289841"><span id="local-6989586621679289843"><span class="annot"><span class="annottext">Int -&gt; StreamView -&gt; ShowS
+[StreamView] -&gt; ShowS
+StreamView -&gt; String
+(Int -&gt; StreamView -&gt; ShowS)
+-&gt; (StreamView -&gt; String)
+-&gt; ([StreamView] -&gt; ShowS)
+-&gt; Show StreamView
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StreamView] -&gt; ShowS
+$cshowList :: [StreamView] -&gt; ShowS
+show :: StreamView -&gt; String
+$cshow :: StreamView -&gt; String
+showsPrec :: Int -&gt; StreamView -&gt; ShowS
+$cshowsPrec :: Int -&gt; StreamView -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679289830"><span id="local-6989586621679289832"><span id="local-6989586621679289834"><span id="local-6989586621679289836"><span class="annot"><span class="annottext">ReadPrec [StreamView]
+ReadPrec StreamView
+Int -&gt; ReadS StreamView
+ReadS [StreamView]
+(Int -&gt; ReadS StreamView)
+-&gt; ReadS [StreamView]
+-&gt; ReadPrec StreamView
+-&gt; ReadPrec [StreamView]
+-&gt; Read StreamView
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StreamView]
+$creadListPrec :: ReadPrec [StreamView]
+readPrec :: ReadPrec StreamView
+$creadPrec :: ReadPrec StreamView
+readList :: ReadS [StreamView]
+$creadList :: ReadS [StreamView]
+readsPrec :: Int -&gt; ReadS StreamView
+$creadsPrec :: Int -&gt; ReadS StreamView
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679289825"><span id="local-6989586621679289827"><span class="annot"><span class="annottext">StreamView -&gt; StreamView -&gt; Bool
+(StreamView -&gt; StreamView -&gt; Bool)
+-&gt; (StreamView -&gt; StreamView -&gt; Bool) -&gt; Eq StreamView
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StreamView -&gt; StreamView -&gt; Bool
+$c/= :: StreamView -&gt; StreamView -&gt; Bool
+== :: StreamView -&gt; StreamView -&gt; Bool
+$c== :: StreamView -&gt; StreamView -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679289809"><span id="local-6989586621679289811"><span id="local-6989586621679289813"><span id="local-6989586621679289815"><span id="local-6989586621679289817"><span id="local-6989586621679289819"><span id="local-6989586621679289821"><span class="annot"><span class="annottext">Eq StreamView
+Eq StreamView
+-&gt; (StreamView -&gt; StreamView -&gt; Ordering)
+-&gt; (StreamView -&gt; StreamView -&gt; Bool)
+-&gt; (StreamView -&gt; StreamView -&gt; Bool)
+-&gt; (StreamView -&gt; StreamView -&gt; Bool)
+-&gt; (StreamView -&gt; StreamView -&gt; Bool)
+-&gt; (StreamView -&gt; StreamView -&gt; StreamView)
+-&gt; (StreamView -&gt; StreamView -&gt; StreamView)
+-&gt; Ord StreamView
+StreamView -&gt; StreamView -&gt; Bool
+StreamView -&gt; StreamView -&gt; Ordering
+StreamView -&gt; StreamView -&gt; StreamView
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StreamView -&gt; StreamView -&gt; StreamView
+$cmin :: StreamView -&gt; StreamView -&gt; StreamView
+max :: StreamView -&gt; StreamView -&gt; StreamView
+$cmax :: StreamView -&gt; StreamView -&gt; StreamView
+&gt;= :: StreamView -&gt; StreamView -&gt; Bool
+$c&gt;= :: StreamView -&gt; StreamView -&gt; Bool
+&gt; :: StreamView -&gt; StreamView -&gt; Bool
+$c&gt; :: StreamView -&gt; StreamView -&gt; Bool
+&lt;= :: StreamView -&gt; StreamView -&gt; Bool
+$c&lt;= :: StreamView -&gt; StreamView -&gt; Bool
+&lt; :: StreamView -&gt; StreamView -&gt; Bool
+$c&lt; :: StreamView -&gt; StreamView -&gt; Bool
+compare :: StreamView -&gt; StreamView -&gt; Ordering
+$ccompare :: StreamView -&gt; StreamView -&gt; Ordering
+$cp1Ord :: Eq StreamView
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. StreamView -&gt; Rep StreamView x)
+-&gt; (forall x. Rep StreamView x -&gt; StreamView) -&gt; Generic StreamView
+forall x. Rep StreamView x -&gt; StreamView
+forall x. StreamView -&gt; Rep StreamView x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StreamView x -&gt; StreamView
+$cfrom :: forall x. StreamView -&gt; Rep StreamView x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679289801"><span id="local-6989586621679289803"><span class="annot"><span class="annottext">Int -&gt; StreamView -&gt; Int
+StreamView -&gt; Int
+(Int -&gt; StreamView -&gt; Int)
+-&gt; (StreamView -&gt; Int) -&gt; Hashable StreamView
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StreamView -&gt; Int
+$chash :: StreamView -&gt; Int
+hashWithSalt :: Int -&gt; StreamView -&gt; Int
+$chashWithSalt :: Int -&gt; StreamView -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679289798"><span class="annot"><span class="annottext">StreamView -&gt; ()
+(StreamView -&gt; ()) -&gt; NFData StreamView
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StreamView -&gt; ()
+$crnf :: StreamView -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679289795"><span class="annot"><span class="annottext">Text -&gt; Either String StreamView
+(Text -&gt; Either String StreamView) -&gt; FromText StreamView
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StreamView
+$cfromText :: Text -&gt; Either String StreamView
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679289792"><span class="annot"><span class="annottext">StreamView -&gt; Text
+(StreamView -&gt; Text) -&gt; ToText StreamView
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StreamView -&gt; Text
+$ctoText :: StreamView -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679289789"><span class="annot"><span class="annottext">StreamView -&gt; ByteString
+(StreamView -&gt; ByteString) -&gt; ToByteString StreamView
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StreamView -&gt; ByteString
+$ctoBS :: StreamView -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679289786"><span class="annot"><span class="annottext">StreamView -&gt; ByteStringBuilder
+(StreamView -&gt; ByteStringBuilder) -&gt; ToLog StreamView
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StreamView -&gt; ByteStringBuilder
+$cbuild :: StreamView -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679289783"><span class="annot"><span class="annottext">HeaderName -&gt; StreamView -&gt; [Header]
+(HeaderName -&gt; StreamView -&gt; [Header]) -&gt; ToHeader StreamView
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StreamView -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StreamView -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679289780"><span class="annot"><span class="annottext">StreamView -&gt; QueryString
+(StreamView -&gt; QueryString) -&gt; ToQuery StreamView
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StreamView -&gt; QueryString
+$ctoQuery :: StreamView -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679289775"><span id="local-6989586621679289777"><span class="annot"><span class="annottext">Value -&gt; Parser [StreamView]
+Value -&gt; Parser StreamView
+(Value -&gt; Parser StreamView)
+-&gt; (Value -&gt; Parser [StreamView]) -&gt; FromJSON StreamView
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StreamView]
+$cparseJSONList :: Value -&gt; Parser [StreamView]
+parseJSON :: Value -&gt; Parser StreamView
+$cparseJSON :: Value -&gt; Parser StreamView
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679289770"><span id="local-6989586621679289772"><span class="annot"><span class="annottext">FromJSONKeyFunction [StreamView]
+FromJSONKeyFunction StreamView
+FromJSONKeyFunction StreamView
+-&gt; FromJSONKeyFunction [StreamView] -&gt; FromJSONKey StreamView
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StreamView]
+$cfromJSONKeyList :: FromJSONKeyFunction [StreamView]
+fromJSONKey :: FromJSONKeyFunction StreamView
+$cfromJSONKey :: FromJSONKeyFunction StreamView
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679289761"><span id="local-6989586621679289763"><span id="local-6989586621679289765"><span id="local-6989586621679289767"><span class="annot"><span class="annottext">[StreamView] -&gt; Encoding
+[StreamView] -&gt; Value
+StreamView -&gt; Encoding
+StreamView -&gt; Value
+(StreamView -&gt; Value)
+-&gt; (StreamView -&gt; Encoding)
+-&gt; ([StreamView] -&gt; Value)
+-&gt; ([StreamView] -&gt; Encoding)
+-&gt; ToJSON StreamView
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StreamView] -&gt; Encoding
+$ctoEncodingList :: [StreamView] -&gt; Encoding
+toJSONList :: [StreamView] -&gt; Value
+$ctoJSONList :: [StreamView] -&gt; Value
+toEncoding :: StreamView -&gt; Encoding
+$ctoEncoding :: StreamView -&gt; Encoding
+toJSON :: StreamView -&gt; Value
+$ctoJSON :: StreamView -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679289756"><span id="local-6989586621679289758"><span class="annot"><span class="annottext">ToJSONKeyFunction [StreamView]
+ToJSONKeyFunction StreamView
+ToJSONKeyFunction StreamView
+-&gt; ToJSONKeyFunction [StreamView] -&gt; ToJSONKey StreamView
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StreamView]
+$ctoJSONKeyList :: ToJSONKeyFunction [StreamView]
+toJSONKey :: ToJSONKeyFunction StreamView
+$ctoJSONKey :: ToJSONKeyFunction StreamView
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679289753"><span class="annot"><span class="annottext">[Node] -&gt; Either String StreamView
+([Node] -&gt; Either String StreamView) -&gt; FromXML StreamView
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StreamView
+$cparseXML :: [Node] -&gt; Either String StreamView
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679289750"><span class="annot"><span class="annottext">StreamView -&gt; XML
+(StreamView -&gt; XML) -&gt; ToXML StreamView
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StreamView -&gt; XML
+$ctoXML :: StreamView -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StreamView.html#StreamView_APP"><span class="hs-identifier hs-type">StreamView_APP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StreamView.html#StreamView"><span class="hs-identifier hs-type">StreamView</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamView_APP"><span id="%24mStreamView_APP"><span id="StreamView_APP"><span class="annot"><span class="annottext">$bStreamView_APP :: StreamView
+$mStreamView_APP :: forall r. StreamView -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppStream.Types.StreamView.html#%24bStreamView_APP"><span class="hs-identifier hs-var hs-var hs-var">StreamView_APP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StreamView.html#StreamView%27"><span class="hs-identifier hs-type">StreamView'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;APP&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StreamView.html#StreamView_DESKTOP"><span class="hs-identifier hs-type">StreamView_DESKTOP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StreamView.html#StreamView"><span class="hs-identifier hs-type">StreamView</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamView_DESKTOP"><span id="%24mStreamView_DESKTOP"><span id="StreamView_DESKTOP"><span class="annot"><span class="annottext">$bStreamView_DESKTOP :: StreamView
+$mStreamView_DESKTOP :: forall r. StreamView -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppStream.Types.StreamView.html#%24bStreamView_DESKTOP"><span class="hs-identifier hs-var hs-var hs-var">StreamView_DESKTOP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StreamView.html#StreamView%27"><span class="hs-identifier hs-type">StreamView'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DESKTOP&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.StreamView.html#StreamView_APP"><span class="hs-pragma hs-type">StreamView_APP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.StreamView.html#StreamView_DESKTOP"><span class="hs-pragma hs-type">StreamView_DESKTOP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.StreamView.html#StreamView%27"><span class="hs-pragma hs-type">StreamView'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

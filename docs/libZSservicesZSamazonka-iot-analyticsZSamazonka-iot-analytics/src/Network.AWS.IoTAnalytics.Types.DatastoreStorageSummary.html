@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary.html"><span class="hs-identifier">Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreIotSiteWiseMultiLayerStorageSummary.html"><span class="hs-identifier">Network.AWS.IoTAnalytics.Types.DatastoreIotSiteWiseMultiLayerStorageSummary</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3StorageSummary.html"><span class="hs-identifier">Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3StorageSummary</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Contains information about your data store.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDatastoreStorageSummary' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679260761"><span id="local-6989586621679260762"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatastoreStorageSummary"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary"><span class="hs-identifier hs-var">DatastoreStorageSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatastoreStorageSummary%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary%27"><span class="hs-identifier hs-var">DatastoreStorageSummary'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Used to store data in an Amazon S3 bucket managed by IoT Analytics.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AserviceManagedS3%3ADatastoreStorageSummary%27"><span class="annot"><span class="annottext">DatastoreStorageSummary
+-&gt; Maybe ServiceManagedDatastoreS3StorageSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#%24sel%3AserviceManagedS3%3ADatastoreStorageSummary%27"><span class="hs-identifier hs-var hs-var">serviceManagedS3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3StorageSummary.html#ServiceManagedDatastoreS3StorageSummary"><span class="hs-identifier hs-type">ServiceManagedDatastoreS3StorageSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Used to store data in an Amazon S3 bucket managed by IoT Analytics.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcustomerManagedS3%3ADatastoreStorageSummary%27"><span class="annot"><span class="annottext">DatastoreStorageSummary
+-&gt; Maybe CustomerManagedDatastoreS3StorageSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#%24sel%3AcustomerManagedS3%3ADatastoreStorageSummary%27"><span class="hs-identifier hs-var hs-var">customerManagedS3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary.html#CustomerManagedDatastoreS3StorageSummary"><span class="hs-identifier hs-type">CustomerManagedDatastoreS3StorageSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Used to store data used by IoT SiteWise in an Amazon S3 bucket that you</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- manage.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AiotSiteWiseMultiLayerStorage%3ADatastoreStorageSummary%27"><span class="annot"><span class="annottext">DatastoreStorageSummary
+-&gt; Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#%24sel%3AiotSiteWiseMultiLayerStorage%3ADatastoreStorageSummary%27"><span class="hs-identifier hs-var hs-var">iotSiteWiseMultiLayerStorage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreIotSiteWiseMultiLayerStorageSummary.html#DatastoreIotSiteWiseMultiLayerStorageSummary"><span class="hs-identifier hs-type">DatastoreIotSiteWiseMultiLayerStorageSummary</span></a></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260753"><span id="local-6989586621679260755"><span class="annot"><span class="annottext">DatastoreStorageSummary -&gt; DatastoreStorageSummary -&gt; Bool
+(DatastoreStorageSummary -&gt; DatastoreStorageSummary -&gt; Bool)
+-&gt; (DatastoreStorageSummary -&gt; DatastoreStorageSummary -&gt; Bool)
+-&gt; Eq DatastoreStorageSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DatastoreStorageSummary -&gt; DatastoreStorageSummary -&gt; Bool
+$c/= :: DatastoreStorageSummary -&gt; DatastoreStorageSummary -&gt; Bool
+== :: DatastoreStorageSummary -&gt; DatastoreStorageSummary -&gt; Bool
+$c== :: DatastoreStorageSummary -&gt; DatastoreStorageSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260744"><span id="local-6989586621679260746"><span id="local-6989586621679260748"><span id="local-6989586621679260750"><span class="annot"><span class="annottext">ReadPrec [DatastoreStorageSummary]
+ReadPrec DatastoreStorageSummary
+Int -&gt; ReadS DatastoreStorageSummary
+ReadS [DatastoreStorageSummary]
+(Int -&gt; ReadS DatastoreStorageSummary)
+-&gt; ReadS [DatastoreStorageSummary]
+-&gt; ReadPrec DatastoreStorageSummary
+-&gt; ReadPrec [DatastoreStorageSummary]
+-&gt; Read DatastoreStorageSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DatastoreStorageSummary]
+$creadListPrec :: ReadPrec [DatastoreStorageSummary]
+readPrec :: ReadPrec DatastoreStorageSummary
+$creadPrec :: ReadPrec DatastoreStorageSummary
+readList :: ReadS [DatastoreStorageSummary]
+$creadList :: ReadS [DatastoreStorageSummary]
+readsPrec :: Int -&gt; ReadS DatastoreStorageSummary
+$creadsPrec :: Int -&gt; ReadS DatastoreStorageSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260737"><span id="local-6989586621679260739"><span id="local-6989586621679260741"><span class="annot"><span class="annottext">Int -&gt; DatastoreStorageSummary -&gt; ShowS
+[DatastoreStorageSummary] -&gt; ShowS
+DatastoreStorageSummary -&gt; String
+(Int -&gt; DatastoreStorageSummary -&gt; ShowS)
+-&gt; (DatastoreStorageSummary -&gt; String)
+-&gt; ([DatastoreStorageSummary] -&gt; ShowS)
+-&gt; Show DatastoreStorageSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DatastoreStorageSummary] -&gt; ShowS
+$cshowList :: [DatastoreStorageSummary] -&gt; ShowS
+show :: DatastoreStorageSummary -&gt; String
+$cshow :: DatastoreStorageSummary -&gt; String
+showsPrec :: Int -&gt; DatastoreStorageSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; DatastoreStorageSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DatastoreStorageSummary -&gt; Rep DatastoreStorageSummary x)
+-&gt; (forall x.
+    Rep DatastoreStorageSummary x -&gt; DatastoreStorageSummary)
+-&gt; Generic DatastoreStorageSummary
+forall x. Rep DatastoreStorageSummary x -&gt; DatastoreStorageSummary
+forall x. DatastoreStorageSummary -&gt; Rep DatastoreStorageSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DatastoreStorageSummary x -&gt; DatastoreStorageSummary
+$cfrom :: forall x. DatastoreStorageSummary -&gt; Rep DatastoreStorageSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'DatastoreStorageSummary' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'serviceManagedS3', 'datastoreStorageSummary_serviceManagedS3' - Used to store data in an Amazon S3 bucket managed by IoT Analytics.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'customerManagedS3', 'datastoreStorageSummary_customerManagedS3' - Used to store data in an Amazon S3 bucket managed by IoT Analytics.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'iotSiteWiseMultiLayerStorage', 'datastoreStorageSummary_iotSiteWiseMultiLayerStorage' - Used to store data used by IoT SiteWise in an Amazon S3 bucket that you</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- manage.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#newDatastoreStorageSummary"><span class="hs-identifier hs-type">newDatastoreStorageSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary"><span class="hs-identifier hs-type">DatastoreStorageSummary</span></a></span><span>
+</span><span id="line-59"></span><span id="newDatastoreStorageSummary"><span class="annot"><span class="annottext">newDatastoreStorageSummary :: DatastoreStorageSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#newDatastoreStorageSummary"><span class="hs-identifier hs-var hs-var">newDatastoreStorageSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">DatastoreStorageSummary' :: Maybe ServiceManagedDatastoreS3StorageSummary
+-&gt; Maybe CustomerManagedDatastoreS3StorageSummary
+-&gt; Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+-&gt; DatastoreStorageSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary%27"><span class="hs-identifier hs-type">DatastoreStorageSummary'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceManagedS3:DatastoreStorageSummary' :: Maybe ServiceManagedDatastoreS3StorageSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#%24sel%3AserviceManagedS3%3ADatastoreStorageSummary%27"><span class="hs-identifier hs-var">serviceManagedS3</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe ServiceManagedDatastoreS3StorageSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:customerManagedS3:DatastoreStorageSummary' :: Maybe CustomerManagedDatastoreS3StorageSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#%24sel%3AcustomerManagedS3%3ADatastoreStorageSummary%27"><span class="hs-identifier hs-var">customerManagedS3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerManagedDatastoreS3StorageSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:iotSiteWiseMultiLayerStorage:DatastoreStorageSummary' :: Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#%24sel%3AiotSiteWiseMultiLayerStorage%3ADatastoreStorageSummary%27"><span class="hs-identifier hs-var">iotSiteWiseMultiLayerStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | Used to store data in an Amazon S3 bucket managed by IoT Analytics.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#datastoreStorageSummary_serviceManagedS3"><span class="hs-identifier hs-type">datastoreStorageSummary_serviceManagedS3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary"><span class="hs-identifier hs-type">DatastoreStorageSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3StorageSummary.html#ServiceManagedDatastoreS3StorageSummary"><span class="hs-identifier hs-type">ServiceManagedDatastoreS3StorageSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="datastoreStorageSummary_serviceManagedS3"><span class="annot"><span class="annottext">datastoreStorageSummary_serviceManagedS3 :: (Maybe ServiceManagedDatastoreS3StorageSummary
+ -&gt; f (Maybe ServiceManagedDatastoreS3StorageSummary))
+-&gt; DatastoreStorageSummary -&gt; f DatastoreStorageSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#datastoreStorageSummary_serviceManagedS3"><span class="hs-identifier hs-var hs-var">datastoreStorageSummary_serviceManagedS3</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatastoreStorageSummary
+ -&gt; Maybe ServiceManagedDatastoreS3StorageSummary)
+-&gt; (DatastoreStorageSummary
+    -&gt; Maybe ServiceManagedDatastoreS3StorageSummary
+    -&gt; DatastoreStorageSummary)
+-&gt; Lens
+     DatastoreStorageSummary
+     DatastoreStorageSummary
+     (Maybe ServiceManagedDatastoreS3StorageSummary)
+     (Maybe ServiceManagedDatastoreS3StorageSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary%27"><span class="hs-identifier hs-type">DatastoreStorageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260728"><span class="annot"><span class="annottext">Maybe ServiceManagedDatastoreS3StorageSummary
+serviceManagedS3 :: Maybe ServiceManagedDatastoreS3StorageSummary
+$sel:serviceManagedS3:DatastoreStorageSummary' :: DatastoreStorageSummary
+-&gt; Maybe ServiceManagedDatastoreS3StorageSummary
+</span><a href="#local-6989586621679260728"><span class="hs-identifier hs-var hs-var">serviceManagedS3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceManagedDatastoreS3StorageSummary
+</span><a href="#local-6989586621679260728"><span class="hs-identifier hs-var">serviceManagedS3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260727"><span class="annot"><span class="annottext">s :: DatastoreStorageSummary
+</span><a href="#local-6989586621679260727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary%27"><span class="hs-identifier hs-type">DatastoreStorageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260726"><span class="annot"><span class="annottext">Maybe ServiceManagedDatastoreS3StorageSummary
+</span><a href="#local-6989586621679260726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreStorageSummary
+</span><a href="#local-6989586621679260727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceManagedS3:DatastoreStorageSummary' :: Maybe ServiceManagedDatastoreS3StorageSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#%24sel%3AserviceManagedS3%3ADatastoreStorageSummary%27"><span class="hs-identifier hs-var">serviceManagedS3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceManagedDatastoreS3StorageSummary
+</span><a href="#local-6989586621679260726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary"><span class="hs-identifier hs-type">DatastoreStorageSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | Used to store data in an Amazon S3 bucket managed by IoT Analytics.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#datastoreStorageSummary_customerManagedS3"><span class="hs-identifier hs-type">datastoreStorageSummary_customerManagedS3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary"><span class="hs-identifier hs-type">DatastoreStorageSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary.html#CustomerManagedDatastoreS3StorageSummary"><span class="hs-identifier hs-type">CustomerManagedDatastoreS3StorageSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="datastoreStorageSummary_customerManagedS3"><span class="annot"><span class="annottext">datastoreStorageSummary_customerManagedS3 :: (Maybe CustomerManagedDatastoreS3StorageSummary
+ -&gt; f (Maybe CustomerManagedDatastoreS3StorageSummary))
+-&gt; DatastoreStorageSummary -&gt; f DatastoreStorageSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#datastoreStorageSummary_customerManagedS3"><span class="hs-identifier hs-var hs-var">datastoreStorageSummary_customerManagedS3</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatastoreStorageSummary
+ -&gt; Maybe CustomerManagedDatastoreS3StorageSummary)
+-&gt; (DatastoreStorageSummary
+    -&gt; Maybe CustomerManagedDatastoreS3StorageSummary
+    -&gt; DatastoreStorageSummary)
+-&gt; Lens
+     DatastoreStorageSummary
+     DatastoreStorageSummary
+     (Maybe CustomerManagedDatastoreS3StorageSummary)
+     (Maybe CustomerManagedDatastoreS3StorageSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary%27"><span class="hs-identifier hs-type">DatastoreStorageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260724"><span class="annot"><span class="annottext">Maybe CustomerManagedDatastoreS3StorageSummary
+customerManagedS3 :: Maybe CustomerManagedDatastoreS3StorageSummary
+$sel:customerManagedS3:DatastoreStorageSummary' :: DatastoreStorageSummary
+-&gt; Maybe CustomerManagedDatastoreS3StorageSummary
+</span><a href="#local-6989586621679260724"><span class="hs-identifier hs-var hs-var">customerManagedS3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerManagedDatastoreS3StorageSummary
+</span><a href="#local-6989586621679260724"><span class="hs-identifier hs-var">customerManagedS3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260723"><span class="annot"><span class="annottext">s :: DatastoreStorageSummary
+</span><a href="#local-6989586621679260723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary%27"><span class="hs-identifier hs-type">DatastoreStorageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260722"><span class="annot"><span class="annottext">Maybe CustomerManagedDatastoreS3StorageSummary
+</span><a href="#local-6989586621679260722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreStorageSummary
+</span><a href="#local-6989586621679260723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerManagedS3:DatastoreStorageSummary' :: Maybe CustomerManagedDatastoreS3StorageSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#%24sel%3AcustomerManagedS3%3ADatastoreStorageSummary%27"><span class="hs-identifier hs-var">customerManagedS3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerManagedDatastoreS3StorageSummary
+</span><a href="#local-6989586621679260722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary"><span class="hs-identifier hs-type">DatastoreStorageSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | Used to store data used by IoT SiteWise in an Amazon S3 bucket that you</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- manage.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#datastoreStorageSummary_iotSiteWiseMultiLayerStorage"><span class="hs-identifier hs-type">datastoreStorageSummary_iotSiteWiseMultiLayerStorage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary"><span class="hs-identifier hs-type">DatastoreStorageSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreIotSiteWiseMultiLayerStorageSummary.html#DatastoreIotSiteWiseMultiLayerStorageSummary"><span class="hs-identifier hs-type">DatastoreIotSiteWiseMultiLayerStorageSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="datastoreStorageSummary_iotSiteWiseMultiLayerStorage"><span class="annot"><span class="annottext">datastoreStorageSummary_iotSiteWiseMultiLayerStorage :: (Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+ -&gt; f (Maybe DatastoreIotSiteWiseMultiLayerStorageSummary))
+-&gt; DatastoreStorageSummary -&gt; f DatastoreStorageSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#datastoreStorageSummary_iotSiteWiseMultiLayerStorage"><span class="hs-identifier hs-var hs-var">datastoreStorageSummary_iotSiteWiseMultiLayerStorage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatastoreStorageSummary
+ -&gt; Maybe DatastoreIotSiteWiseMultiLayerStorageSummary)
+-&gt; (DatastoreStorageSummary
+    -&gt; Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+    -&gt; DatastoreStorageSummary)
+-&gt; Lens
+     DatastoreStorageSummary
+     DatastoreStorageSummary
+     (Maybe DatastoreIotSiteWiseMultiLayerStorageSummary)
+     (Maybe DatastoreIotSiteWiseMultiLayerStorageSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary%27"><span class="hs-identifier hs-type">DatastoreStorageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260720"><span class="annot"><span class="annottext">Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+iotSiteWiseMultiLayerStorage :: Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+$sel:iotSiteWiseMultiLayerStorage:DatastoreStorageSummary' :: DatastoreStorageSummary
+-&gt; Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+</span><a href="#local-6989586621679260720"><span class="hs-identifier hs-var hs-var">iotSiteWiseMultiLayerStorage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+</span><a href="#local-6989586621679260720"><span class="hs-identifier hs-var">iotSiteWiseMultiLayerStorage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260719"><span class="annot"><span class="annottext">s :: DatastoreStorageSummary
+</span><a href="#local-6989586621679260719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary%27"><span class="hs-identifier hs-type">DatastoreStorageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260718"><span class="annot"><span class="annottext">Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+</span><a href="#local-6989586621679260718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreStorageSummary
+</span><a href="#local-6989586621679260719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotSiteWiseMultiLayerStorage:DatastoreStorageSummary' :: Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#%24sel%3AiotSiteWiseMultiLayerStorage%3ADatastoreStorageSummary%27"><span class="hs-identifier hs-var">iotSiteWiseMultiLayerStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+</span><a href="#local-6989586621679260718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary"><span class="hs-identifier hs-type">DatastoreStorageSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260715"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary"><span class="hs-identifier hs-type">DatastoreStorageSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679260713"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatastoreStorageSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DatastoreStorageSummary)
+-&gt; Value
+-&gt; Parser DatastoreStorageSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DatastoreStorageSummary&quot;</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260710"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260710"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServiceManagedDatastoreS3StorageSummary
+-&gt; Maybe CustomerManagedDatastoreS3StorageSummary
+-&gt; Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+-&gt; DatastoreStorageSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary%27"><span class="hs-identifier hs-var">DatastoreStorageSummary'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ServiceManagedDatastoreS3StorageSummary
+ -&gt; Maybe CustomerManagedDatastoreS3StorageSummary
+ -&gt; Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+ -&gt; DatastoreStorageSummary)
+-&gt; Parser (Maybe ServiceManagedDatastoreS3StorageSummary)
+-&gt; Parser
+     (Maybe CustomerManagedDatastoreS3StorageSummary
+      -&gt; Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+      -&gt; DatastoreStorageSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe ServiceManagedDatastoreS3StorageSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceManagedS3&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CustomerManagedDatastoreS3StorageSummary
+   -&gt; Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+   -&gt; DatastoreStorageSummary)
+-&gt; Parser (Maybe CustomerManagedDatastoreS3StorageSummary)
+-&gt; Parser
+     (Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+      -&gt; DatastoreStorageSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe CustomerManagedDatastoreS3StorageSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;customerManagedS3&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DatastoreIotSiteWiseMultiLayerStorageSummary
+   -&gt; DatastoreStorageSummary)
+-&gt; Parser (Maybe DatastoreIotSiteWiseMultiLayerStorageSummary)
+-&gt; Parser DatastoreStorageSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe DatastoreIotSiteWiseMultiLayerStorageSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iotSiteWiseMultiLayerStorage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260704"><span id="local-6989586621679260706"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary"><span class="hs-identifier hs-type">DatastoreStorageSummary</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260701"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary.html#DatastoreStorageSummary"><span class="hs-identifier hs-type">DatastoreStorageSummary</span></a></span></span><span>
+</span><span id="line-94"></span></pre></body></html>

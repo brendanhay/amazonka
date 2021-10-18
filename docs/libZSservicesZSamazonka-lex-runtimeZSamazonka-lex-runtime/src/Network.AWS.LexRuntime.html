@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-3"></span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Module      : Network.AWS.LexRuntime</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-11"></span><span class="hs-comment">--</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Derived from API version @2016-11-28@ of the AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">--</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Amazon Lex provides both build and runtime endpoints. Each endpoint</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- provides a set of operations (API). Your conversational bot uses the</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- runtime API to understand user utterances (user input text or voice).</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- For example, suppose a user says \&quot;I want pizza\&quot;, your bot sends this</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- input to Amazon Lex using the runtime API. Amazon Lex recognizes that</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- the user request is for the OrderPizza intent (one of the intents</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- defined in the bot). Then Amazon Lex engages in user conversation on</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- behalf of the bot to elicit required information (slot values, such as</span><span>
+</span><span id="line-22"></span><span class="hs-comment">-- pizza size and crust type), and then performs fulfillment activity (that</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- you configured when you created the bot). You use the build-time API to</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- create and manage your Amazon Lex bot. For a list of build-time</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- operations, see the build-time API, .</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LexRuntime</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- $errors</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** NotFoundException</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.html#_NotFoundException"><span class="hs-identifier">_NotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** BadRequestException</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.html#_BadRequestException"><span class="hs-identifier">_BadRequestException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UnsupportedMediaTypeException</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.html#_UnsupportedMediaTypeException"><span class="hs-identifier">_UnsupportedMediaTypeException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** NotAcceptableException</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.html#_NotAcceptableException"><span class="hs-identifier">_NotAcceptableException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** BadGatewayException</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.html#_BadGatewayException"><span class="hs-identifier">_BadGatewayException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ConflictException</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.html#_ConflictException"><span class="hs-identifier">_ConflictException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** LimitExceededException</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DependencyFailedException</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.html#_DependencyFailedException"><span class="hs-identifier">_DependencyFailedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InternalFailureException</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.html#_InternalFailureException"><span class="hs-identifier">_InternalFailureException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** LoopDetectedException</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.html#_LoopDetectedException"><span class="hs-identifier">_LoopDetectedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** RequestTimeoutException</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.html#_RequestTimeoutException"><span class="hs-identifier">_RequestTimeoutException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Waiters</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- $waiters</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- $operations</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PutSession</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.PutSession.html#PutSession"><span class="hs-identifier">PutSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.PutSession.html#PutSession%27"><span class="hs-identifier">PutSession'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.PutSession.html#newPutSession"><span class="hs-identifier">newPutSession</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.PutSession.html#PutSessionResponse"><span class="hs-identifier">PutSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.PutSession.html#PutSessionResponse%27"><span class="hs-identifier">PutSessionResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.PutSession.html#newPutSessionResponse"><span class="hs-identifier">newPutSessionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteSession</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.DeleteSession.html#DeleteSession"><span class="hs-identifier">DeleteSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.DeleteSession.html#DeleteSession%27"><span class="hs-identifier">DeleteSession'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.DeleteSession.html#newDeleteSession"><span class="hs-identifier">newDeleteSession</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.DeleteSession.html#DeleteSessionResponse"><span class="hs-identifier">DeleteSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.DeleteSession.html#DeleteSessionResponse%27"><span class="hs-identifier">DeleteSessionResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.DeleteSession.html#newDeleteSessionResponse"><span class="hs-identifier">newDeleteSessionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PostContent</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.PostContent.html#PostContent"><span class="hs-identifier">PostContent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.PostContent.html#PostContent%27"><span class="hs-identifier">PostContent'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.PostContent.html#newPostContent"><span class="hs-identifier">newPostContent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.PostContent.html#PostContentResponse"><span class="hs-identifier">PostContentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.PostContent.html#PostContentResponse%27"><span class="hs-identifier">PostContentResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.PostContent.html#newPostContentResponse"><span class="hs-identifier">newPostContentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetSession</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.GetSession.html#GetSession"><span class="hs-identifier">GetSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.GetSession.html#GetSession%27"><span class="hs-identifier">GetSession'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.GetSession.html#newGetSession"><span class="hs-identifier">newGetSession</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.GetSession.html#GetSessionResponse"><span class="hs-identifier">GetSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.GetSession.html#GetSessionResponse%27"><span class="hs-identifier">GetSessionResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.GetSession.html#newGetSessionResponse"><span class="hs-identifier">newGetSessionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PostText</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.PostText.html#PostText"><span class="hs-identifier">PostText</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.PostText.html#PostText%27"><span class="hs-identifier">PostText'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.PostText.html#newPostText"><span class="hs-identifier">newPostText</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.PostText.html#PostTextResponse"><span class="hs-identifier">PostTextResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.PostText.html#PostTextResponse%27"><span class="hs-identifier">PostTextResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.PostText.html#newPostTextResponse"><span class="hs-identifier">newPostTextResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ConfirmationStatus</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ConfirmationStatus.html#ConfirmationStatus"><span class="hs-identifier">ConfirmationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ContentType</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ContentType.html#ContentType"><span class="hs-identifier">ContentType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DialogActionType</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogActionType.html#DialogActionType"><span class="hs-identifier">DialogActionType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DialogState</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogState.html#DialogState"><span class="hs-identifier">DialogState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** FulfillmentState</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.FulfillmentState.html#FulfillmentState"><span class="hs-identifier">FulfillmentState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** MessageFormatType</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.MessageFormatType.html#MessageFormatType"><span class="hs-identifier">MessageFormatType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ActiveContext</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContext.html#ActiveContext"><span class="hs-identifier">ActiveContext</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContext.html#ActiveContext%27"><span class="hs-identifier">ActiveContext'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContext.html#newActiveContext"><span class="hs-identifier">newActiveContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ActiveContextTimeToLive</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive"><span class="hs-identifier">ActiveContextTimeToLive</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive%27"><span class="hs-identifier">ActiveContextTimeToLive'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#newActiveContextTimeToLive"><span class="hs-identifier">newActiveContextTimeToLive</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Button</span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier">Button</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button%27"><span class="hs-identifier">Button'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#newButton"><span class="hs-identifier">newButton</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DialogAction</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier">DialogAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier">DialogAction'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#newDialogAction"><span class="hs-identifier">newDialogAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GenericAttachment</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier">GenericAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier">GenericAttachment'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#newGenericAttachment"><span class="hs-identifier">newGenericAttachment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** IntentConfidence</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentConfidence.html#IntentConfidence"><span class="hs-identifier">IntentConfidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentConfidence.html#IntentConfidence%27"><span class="hs-identifier">IntentConfidence'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentConfidence.html#newIntentConfidence"><span class="hs-identifier">newIntentConfidence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** IntentSummary</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier">IntentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier">IntentSummary'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#newIntentSummary"><span class="hs-identifier">newIntentSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PredictedIntent</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier">PredictedIntent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier">PredictedIntent'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#newPredictedIntent"><span class="hs-identifier">newPredictedIntent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ResponseCard</span></span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier">ResponseCard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier">ResponseCard'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#newResponseCard"><span class="hs-identifier">newResponseCard</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** SentimentResponse</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse"><span class="hs-identifier">SentimentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse%27"><span class="hs-identifier">SentimentResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#newSentimentResponse"><span class="hs-identifier">newSentimentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.DeleteSession.html"><span class="hs-identifier">Network.AWS.LexRuntime.DeleteSession</span></a></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.GetSession.html"><span class="hs-identifier">Network.AWS.LexRuntime.GetSession</span></a></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Lens.html"><span class="hs-identifier">Network.AWS.LexRuntime.Lens</span></a></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.PostContent.html"><span class="hs-identifier">Network.AWS.LexRuntime.PostContent</span></a></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.PostText.html"><span class="hs-identifier">Network.AWS.LexRuntime.PostText</span></a></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.PutSession.html"><span class="hs-identifier">Network.AWS.LexRuntime.PutSession</span></a></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.html"><span class="hs-identifier">Network.AWS.LexRuntime.Types</span></a></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Waiters.html"><span class="hs-identifier">Network.AWS.LexRuntime.Waiters</span></a></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- $errors</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Error matchers are designed for use with the functions provided by</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens&gt;.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- This allows catching (and rethrowing) service specific errors returned</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- by 'LexRuntime'.</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- $operations</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Some AWS operations return results that are incomplete and require subsequent</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- requests in order to obtain the entire result set. The process of sending</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- subsequent requests to continue where a previous request left off is called</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 1000 objects at a time, and you must send subsequent requests with the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- appropriate Marker in order to retrieve the next page of results.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Operations that have an 'AWSPager' instance can transparently perform subsequent</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- requests, correctly setting Markers and other request facets to iterate through</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- the entire result set of a truncated API operation. Operations which support</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- this have an additional note in the documentation.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Many operations have the ability to filter results on the server side. See the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- individual operation parameters for details.</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- $waiters</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- Waiters poll by repeatedly sending a request until some remote success condition</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- determines how many attempts should be made, in addition to delay and retry strategies.</span><span>
+</span><span id="line-199"></span></pre></body></html>

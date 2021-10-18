@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeBuild.Types.EnvironmentLanguage</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeBuild.Types.EnvironmentLanguage</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentImage.html"><span class="hs-identifier">Network.AWS.CodeBuild.Types.EnvironmentImage</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LanguageType.html"><span class="hs-identifier">Network.AWS.CodeBuild.Types.LanguageType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A set of Docker images that are related by programming language and are</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- managed by CodeBuild.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEnvironmentLanguage' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679370487"><span id="local-6989586621679370488"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnvironmentLanguage"><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#EnvironmentLanguage"><span class="hs-identifier hs-var">EnvironmentLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentLanguage%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#EnvironmentLanguage%27"><span class="hs-identifier hs-var">EnvironmentLanguage'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of Docker images that are related by the specified programming</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- language.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aimages%3AEnvironmentLanguage%27"><span class="annot"><span class="annottext">EnvironmentLanguage -&gt; Maybe [EnvironmentImage]
+</span><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#%24sel%3Aimages%3AEnvironmentLanguage%27"><span class="hs-identifier hs-var hs-var">images</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentImage.html#EnvironmentImage"><span class="hs-identifier hs-type">EnvironmentImage</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The programming language for the Docker images.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Alanguage%3AEnvironmentLanguage%27"><span class="annot"><span class="annottext">EnvironmentLanguage -&gt; Maybe LanguageType
+</span><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#%24sel%3Alanguage%3AEnvironmentLanguage%27"><span class="hs-identifier hs-var hs-var">language</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LanguageType.html#LanguageType"><span class="hs-identifier hs-type">LanguageType</span></a></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370480"><span id="local-6989586621679370482"><span class="annot"><span class="annottext">EnvironmentLanguage -&gt; EnvironmentLanguage -&gt; Bool
+(EnvironmentLanguage -&gt; EnvironmentLanguage -&gt; Bool)
+-&gt; (EnvironmentLanguage -&gt; EnvironmentLanguage -&gt; Bool)
+-&gt; Eq EnvironmentLanguage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnvironmentLanguage -&gt; EnvironmentLanguage -&gt; Bool
+$c/= :: EnvironmentLanguage -&gt; EnvironmentLanguage -&gt; Bool
+== :: EnvironmentLanguage -&gt; EnvironmentLanguage -&gt; Bool
+$c== :: EnvironmentLanguage -&gt; EnvironmentLanguage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370471"><span id="local-6989586621679370473"><span id="local-6989586621679370475"><span id="local-6989586621679370477"><span class="annot"><span class="annottext">ReadPrec [EnvironmentLanguage]
+ReadPrec EnvironmentLanguage
+Int -&gt; ReadS EnvironmentLanguage
+ReadS [EnvironmentLanguage]
+(Int -&gt; ReadS EnvironmentLanguage)
+-&gt; ReadS [EnvironmentLanguage]
+-&gt; ReadPrec EnvironmentLanguage
+-&gt; ReadPrec [EnvironmentLanguage]
+-&gt; Read EnvironmentLanguage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EnvironmentLanguage]
+$creadListPrec :: ReadPrec [EnvironmentLanguage]
+readPrec :: ReadPrec EnvironmentLanguage
+$creadPrec :: ReadPrec EnvironmentLanguage
+readList :: ReadS [EnvironmentLanguage]
+$creadList :: ReadS [EnvironmentLanguage]
+readsPrec :: Int -&gt; ReadS EnvironmentLanguage
+$creadsPrec :: Int -&gt; ReadS EnvironmentLanguage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370464"><span id="local-6989586621679370466"><span id="local-6989586621679370468"><span class="annot"><span class="annottext">Int -&gt; EnvironmentLanguage -&gt; ShowS
+[EnvironmentLanguage] -&gt; ShowS
+EnvironmentLanguage -&gt; String
+(Int -&gt; EnvironmentLanguage -&gt; ShowS)
+-&gt; (EnvironmentLanguage -&gt; String)
+-&gt; ([EnvironmentLanguage] -&gt; ShowS)
+-&gt; Show EnvironmentLanguage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnvironmentLanguage] -&gt; ShowS
+$cshowList :: [EnvironmentLanguage] -&gt; ShowS
+show :: EnvironmentLanguage -&gt; String
+$cshow :: EnvironmentLanguage -&gt; String
+showsPrec :: Int -&gt; EnvironmentLanguage -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnvironmentLanguage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EnvironmentLanguage -&gt; Rep EnvironmentLanguage x)
+-&gt; (forall x. Rep EnvironmentLanguage x -&gt; EnvironmentLanguage)
+-&gt; Generic EnvironmentLanguage
+forall x. Rep EnvironmentLanguage x -&gt; EnvironmentLanguage
+forall x. EnvironmentLanguage -&gt; Rep EnvironmentLanguage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EnvironmentLanguage x -&gt; EnvironmentLanguage
+$cfrom :: forall x. EnvironmentLanguage -&gt; Rep EnvironmentLanguage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'EnvironmentLanguage' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'images', 'environmentLanguage_images' - The list of Docker images that are related by the specified programming</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- language.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'language', 'environmentLanguage_language' - The programming language for the Docker images.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#newEnvironmentLanguage"><span class="hs-identifier hs-type">newEnvironmentLanguage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#EnvironmentLanguage"><span class="hs-identifier hs-type">EnvironmentLanguage</span></a></span><span>
+</span><span id="line-55"></span><span id="newEnvironmentLanguage"><span class="annot"><span class="annottext">newEnvironmentLanguage :: EnvironmentLanguage
+</span><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#newEnvironmentLanguage"><span class="hs-identifier hs-var hs-var">newEnvironmentLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">EnvironmentLanguage' :: Maybe [EnvironmentImage]
+-&gt; Maybe LanguageType -&gt; EnvironmentLanguage
+</span><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#EnvironmentLanguage%27"><span class="hs-identifier hs-type">EnvironmentLanguage'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:images:EnvironmentLanguage' :: Maybe [EnvironmentImage]
+</span><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#%24sel%3Aimages%3AEnvironmentLanguage%27"><span class="hs-identifier hs-var">images</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentImage]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:language:EnvironmentLanguage' :: Maybe LanguageType
+</span><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#%24sel%3Alanguage%3AEnvironmentLanguage%27"><span class="hs-identifier hs-var">language</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The list of Docker images that are related by the specified programming</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- language.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#environmentLanguage_images"><span class="hs-identifier hs-type">environmentLanguage_images</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#EnvironmentLanguage"><span class="hs-identifier hs-type">EnvironmentLanguage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentImage.html#EnvironmentImage"><span class="hs-identifier hs-type">EnvironmentImage</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="environmentLanguage_images"><span class="annot"><span class="annottext">environmentLanguage_images :: (Maybe [EnvironmentImage] -&gt; f (Maybe [EnvironmentImage]))
+-&gt; EnvironmentLanguage -&gt; f EnvironmentLanguage
+</span><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#environmentLanguage_images"><span class="hs-identifier hs-var hs-var">environmentLanguage_images</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentLanguage -&gt; Maybe [EnvironmentImage])
+-&gt; (EnvironmentLanguage
+    -&gt; Maybe [EnvironmentImage] -&gt; EnvironmentLanguage)
+-&gt; Lens
+     EnvironmentLanguage
+     EnvironmentLanguage
+     (Maybe [EnvironmentImage])
+     (Maybe [EnvironmentImage])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#EnvironmentLanguage%27"><span class="hs-identifier hs-type">EnvironmentLanguage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370455"><span class="annot"><span class="annottext">Maybe [EnvironmentImage]
+images :: Maybe [EnvironmentImage]
+$sel:images:EnvironmentLanguage' :: EnvironmentLanguage -&gt; Maybe [EnvironmentImage]
+</span><a href="#local-6989586621679370455"><span class="hs-identifier hs-var hs-var">images</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentImage]
+</span><a href="#local-6989586621679370455"><span class="hs-identifier hs-var">images</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370454"><span class="annot"><span class="annottext">s :: EnvironmentLanguage
+</span><a href="#local-6989586621679370454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#EnvironmentLanguage%27"><span class="hs-identifier hs-type">EnvironmentLanguage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370453"><span class="annot"><span class="annottext">Maybe [EnvironmentImage]
+</span><a href="#local-6989586621679370453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentLanguage
+</span><a href="#local-6989586621679370454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:images:EnvironmentLanguage' :: Maybe [EnvironmentImage]
+</span><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#%24sel%3Aimages%3AEnvironmentLanguage%27"><span class="hs-identifier hs-var">images</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentImage]
+</span><a href="#local-6989586621679370453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#EnvironmentLanguage"><span class="hs-identifier hs-type">EnvironmentLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EnvironmentImage] -&gt; f (Maybe [EnvironmentImage]))
+ -&gt; EnvironmentLanguage -&gt; f EnvironmentLanguage)
+-&gt; ((Maybe [EnvironmentImage] -&gt; f (Maybe [EnvironmentImage]))
+    -&gt; Maybe [EnvironmentImage] -&gt; f (Maybe [EnvironmentImage]))
+-&gt; (Maybe [EnvironmentImage] -&gt; f (Maybe [EnvironmentImage]))
+-&gt; EnvironmentLanguage
+-&gt; f EnvironmentLanguage
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EnvironmentImage]
+  [EnvironmentImage]
+  [EnvironmentImage]
+  [EnvironmentImage]
+-&gt; Iso
+     (Maybe [EnvironmentImage])
+     (Maybe [EnvironmentImage])
+     (Maybe [EnvironmentImage])
+     (Maybe [EnvironmentImage])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EnvironmentImage]
+  [EnvironmentImage]
+  [EnvironmentImage]
+  [EnvironmentImage]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The programming language for the Docker images.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#environmentLanguage_language"><span class="hs-identifier hs-type">environmentLanguage_language</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#EnvironmentLanguage"><span class="hs-identifier hs-type">EnvironmentLanguage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LanguageType.html#LanguageType"><span class="hs-identifier hs-type">LanguageType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="environmentLanguage_language"><span class="annot"><span class="annottext">environmentLanguage_language :: (Maybe LanguageType -&gt; f (Maybe LanguageType))
+-&gt; EnvironmentLanguage -&gt; f EnvironmentLanguage
+</span><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#environmentLanguage_language"><span class="hs-identifier hs-var hs-var">environmentLanguage_language</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentLanguage -&gt; Maybe LanguageType)
+-&gt; (EnvironmentLanguage
+    -&gt; Maybe LanguageType -&gt; EnvironmentLanguage)
+-&gt; Lens
+     EnvironmentLanguage
+     EnvironmentLanguage
+     (Maybe LanguageType)
+     (Maybe LanguageType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#EnvironmentLanguage%27"><span class="hs-identifier hs-type">EnvironmentLanguage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370448"><span class="annot"><span class="annottext">Maybe LanguageType
+language :: Maybe LanguageType
+$sel:language:EnvironmentLanguage' :: EnvironmentLanguage -&gt; Maybe LanguageType
+</span><a href="#local-6989586621679370448"><span class="hs-identifier hs-var hs-var">language</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageType
+</span><a href="#local-6989586621679370448"><span class="hs-identifier hs-var">language</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370447"><span class="annot"><span class="annottext">s :: EnvironmentLanguage
+</span><a href="#local-6989586621679370447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#EnvironmentLanguage%27"><span class="hs-identifier hs-type">EnvironmentLanguage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370446"><span class="annot"><span class="annottext">Maybe LanguageType
+</span><a href="#local-6989586621679370446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentLanguage
+</span><a href="#local-6989586621679370447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:language:EnvironmentLanguage' :: Maybe LanguageType
+</span><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#%24sel%3Alanguage%3AEnvironmentLanguage%27"><span class="hs-identifier hs-var">language</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageType
+</span><a href="#local-6989586621679370446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#EnvironmentLanguage"><span class="hs-identifier hs-type">EnvironmentLanguage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370443"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#EnvironmentLanguage"><span class="hs-identifier hs-type">EnvironmentLanguage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679370441"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EnvironmentLanguage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser EnvironmentLanguage)
+-&gt; Value
+-&gt; Parser EnvironmentLanguage
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;EnvironmentLanguage&quot;</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370438"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370438"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe [EnvironmentImage]
+-&gt; Maybe LanguageType -&gt; EnvironmentLanguage
+</span><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#EnvironmentLanguage%27"><span class="hs-identifier hs-var">EnvironmentLanguage'</span></a></span><span>
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [EnvironmentImage]
+ -&gt; Maybe LanguageType -&gt; EnvironmentLanguage)
+-&gt; Parser (Maybe [EnvironmentImage])
+-&gt; Parser (Maybe LanguageType -&gt; EnvironmentLanguage)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370438"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [EnvironmentImage]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;images&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [EnvironmentImage]))
+-&gt; Maybe [EnvironmentImage] -&gt; Parser (Maybe [EnvironmentImage])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentImage]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe LanguageType -&gt; EnvironmentLanguage)
+-&gt; Parser (Maybe LanguageType) -&gt; Parser EnvironmentLanguage
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370438"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LanguageType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;language&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370431"><span id="local-6989586621679370433"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#EnvironmentLanguage"><span class="hs-identifier hs-type">EnvironmentLanguage</span></a></span></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370428"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentLanguage.html#EnvironmentLanguage"><span class="hs-identifier hs-type">EnvironmentLanguage</span></a></span></span><span>
+</span><span id="line-83"></span></pre></body></html>

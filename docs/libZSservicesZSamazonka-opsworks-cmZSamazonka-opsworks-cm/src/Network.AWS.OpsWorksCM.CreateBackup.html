@@ -1,0 +1,567 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.OpsWorksCM.CreateBackup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an application-level backup of a server. While the server is in</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the @BACKING_UP@ state, the server cannot be changed, and no additional</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- backup can be created.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Backups can be created for servers in @RUNNING@, @HEALTHY@, and</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- @UNHEALTHY@ states. By default, you can create a maximum of 50 manual</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- backups.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- This operation is asynchronous.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- A @LimitExceededException@ is thrown when the maximum number of manual</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- backups is reached. An @InvalidStateException@ is thrown when the server</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- is not in any of the following states: RUNNING, HEALTHY, or UNHEALTHY. A</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @ResourceNotFoundException@ is thrown when the server is not found. A</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- @ValidationException@ is thrown when parameters of the request are not</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- valid.</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.OpsWorksCM.CreateBackup</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier">CreateBackup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#newCreateBackup"><span class="hs-identifier">newCreateBackup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#createBackup_tags"><span class="hs-identifier">createBackup_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#createBackup_description"><span class="hs-identifier">createBackup_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#createBackup_serverName"><span class="hs-identifier">createBackup_serverName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackupResponse"><span class="hs-identifier">CreateBackupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#newCreateBackupResponse"><span class="hs-identifier">newCreateBackupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#createBackupResponse_backup"><span class="hs-identifier">createBackupResponse_backup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#createBackupResponse_httpStatus"><span class="hs-identifier">createBackupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html"><span class="hs-identifier">Network.AWS.OpsWorksCM.Types</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newCreateBackup' smart constructor.</span><span>
+</span><span id="line-67"></span><span id="local-6989586621679195279"><span id="local-6989586621679195280"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBackup"><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier hs-var">CreateBackup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBackup%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup%27"><span class="hs-identifier hs-var">CreateBackup'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A map that contains tag keys and tag values to attach to an AWS</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- OpsWorks-CM server backup.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   The key cannot be empty.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   The key can be a maximum of 127 characters, and can contain only</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     Unicode letters, numbers, or separators, or the following special</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     characters: @+ - = . _ : \/@</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   The value can be a maximum 255 characters, and contain only Unicode</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     letters, numbers, or separators, or the following special</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     characters: @+ - = . _ : \/@</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   Leading and trailing white spaces are trimmed from both the key and</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     value.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- -   A maximum of 50 user-applied tags is allowed for tag-supported AWS</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     OpsWorks-CM resources.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Atags%3ACreateBackup%27"><span class="annot"><span class="annottext">CreateBackup -&gt; Maybe [Tag]
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#%24sel%3Atags%3ACreateBackup%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | A user-defined description of the backup.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Adescription%3ACreateBackup%27"><span class="annot"><span class="annottext">CreateBackup -&gt; Maybe Text
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#%24sel%3Adescription%3ACreateBackup%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The name of the server that you want to back up.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AserverName%3ACreateBackup%27"><span class="annot"><span class="annottext">CreateBackup -&gt; Text
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#%24sel%3AserverName%3ACreateBackup%27"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195271"><span id="local-6989586621679195273"><span class="annot"><span class="annottext">CreateBackup -&gt; CreateBackup -&gt; Bool
+(CreateBackup -&gt; CreateBackup -&gt; Bool)
+-&gt; (CreateBackup -&gt; CreateBackup -&gt; Bool) -&gt; Eq CreateBackup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateBackup -&gt; CreateBackup -&gt; Bool
+$c/= :: CreateBackup -&gt; CreateBackup -&gt; Bool
+== :: CreateBackup -&gt; CreateBackup -&gt; Bool
+$c== :: CreateBackup -&gt; CreateBackup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195262"><span id="local-6989586621679195264"><span id="local-6989586621679195266"><span id="local-6989586621679195268"><span class="annot"><span class="annottext">ReadPrec [CreateBackup]
+ReadPrec CreateBackup
+Int -&gt; ReadS CreateBackup
+ReadS [CreateBackup]
+(Int -&gt; ReadS CreateBackup)
+-&gt; ReadS [CreateBackup]
+-&gt; ReadPrec CreateBackup
+-&gt; ReadPrec [CreateBackup]
+-&gt; Read CreateBackup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateBackup]
+$creadListPrec :: ReadPrec [CreateBackup]
+readPrec :: ReadPrec CreateBackup
+$creadPrec :: ReadPrec CreateBackup
+readList :: ReadS [CreateBackup]
+$creadList :: ReadS [CreateBackup]
+readsPrec :: Int -&gt; ReadS CreateBackup
+$creadsPrec :: Int -&gt; ReadS CreateBackup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195255"><span id="local-6989586621679195257"><span id="local-6989586621679195259"><span class="annot"><span class="annottext">Int -&gt; CreateBackup -&gt; ShowS
+[CreateBackup] -&gt; ShowS
+CreateBackup -&gt; String
+(Int -&gt; CreateBackup -&gt; ShowS)
+-&gt; (CreateBackup -&gt; String)
+-&gt; ([CreateBackup] -&gt; ShowS)
+-&gt; Show CreateBackup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateBackup] -&gt; ShowS
+$cshowList :: [CreateBackup] -&gt; ShowS
+show :: CreateBackup -&gt; String
+$cshow :: CreateBackup -&gt; String
+showsPrec :: Int -&gt; CreateBackup -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateBackup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateBackup -&gt; Rep CreateBackup x)
+-&gt; (forall x. Rep CreateBackup x -&gt; CreateBackup)
+-&gt; Generic CreateBackup
+forall x. Rep CreateBackup x -&gt; CreateBackup
+forall x. CreateBackup -&gt; Rep CreateBackup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateBackup x -&gt; CreateBackup
+$cfrom :: forall x. CreateBackup -&gt; Rep CreateBackup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Create a value of 'CreateBackup' with all optional fields omitted.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'tags', 'createBackup_tags' - A map that contains tag keys and tag values to attach to an AWS</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- OpsWorks-CM server backup.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -   The key cannot be empty.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- -   The key can be a maximum of 127 characters, and can contain only</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--     Unicode letters, numbers, or separators, or the following special</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--     characters: @+ - = . _ : \/@</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- -   The value can be a maximum 255 characters, and contain only Unicode</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--     letters, numbers, or separators, or the following special</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--     characters: @+ - = . _ : \/@</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   Leading and trailing white spaces are trimmed from both the key and</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     value.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   A maximum of 50 user-applied tags is allowed for tag-supported AWS</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     OpsWorks-CM resources.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'description', 'createBackup_description' - A user-defined description of the backup.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'serverName', 'createBackup_serverName' - The name of the server that you want to back up.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#newCreateBackup"><span class="hs-identifier hs-type">newCreateBackup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-comment">-- | 'serverName'</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier hs-type">CreateBackup</span></a></span><span>
+</span><span id="line-128"></span><span id="newCreateBackup"><span class="annot"><span class="annottext">newCreateBackup :: Text -&gt; CreateBackup
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#newCreateBackup"><span class="hs-identifier hs-var hs-var">newCreateBackup</span></a></span></span><span> </span><span id="local-6989586621679195250"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195250"><span class="hs-identifier hs-var">pServerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">CreateBackup' :: Maybe [Tag] -&gt; Maybe Text -&gt; Text -&gt; CreateBackup
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup%27"><span class="hs-identifier hs-type">CreateBackup'</span></a></span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateBackup' :: Maybe [Tag]
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#%24sel%3Atags%3ACreateBackup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateBackup' :: Maybe Text
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#%24sel%3Adescription%3ACreateBackup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverName:CreateBackup' :: Text
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#%24sel%3AserverName%3ACreateBackup%27"><span class="hs-identifier hs-var">serverName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195250"><span class="hs-identifier hs-var">pServerName_</span></a></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | A map that contains tag keys and tag values to attach to an AWS</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- OpsWorks-CM server backup.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   The key cannot be empty.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   The key can be a maximum of 127 characters, and can contain only</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--     Unicode letters, numbers, or separators, or the following special</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--     characters: @+ - = . _ : \/@</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   The value can be a maximum 255 characters, and contain only Unicode</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     letters, numbers, or separators, or the following special</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--     characters: @+ - = . _ : \/@</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   Leading and trailing white spaces are trimmed from both the key and</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--     value.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   A maximum of 50 user-applied tags is allowed for tag-supported AWS</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--     OpsWorks-CM resources.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#createBackup_tags"><span class="hs-identifier hs-type">createBackup_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier hs-type">CreateBackup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="createBackup_tags"><span class="annot"><span class="annottext">createBackup_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateBackup -&gt; f CreateBackup
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#createBackup_tags"><span class="hs-identifier hs-var hs-var">createBackup_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBackup -&gt; Maybe [Tag])
+-&gt; (CreateBackup -&gt; Maybe [Tag] -&gt; CreateBackup)
+-&gt; Lens CreateBackup CreateBackup (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup%27"><span class="hs-identifier hs-type">CreateBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195247"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateBackup' :: CreateBackup -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679195247"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679195247"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195246"><span class="annot"><span class="annottext">s :: CreateBackup
+</span><a href="#local-6989586621679195246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup%27"><span class="hs-identifier hs-type">CreateBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195245"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679195245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBackup
+</span><a href="#local-6989586621679195246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateBackup' :: Maybe [Tag]
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#%24sel%3Atags%3ACreateBackup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679195245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier hs-type">CreateBackup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateBackup -&gt; f CreateBackup)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateBackup
+-&gt; f CreateBackup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | A user-defined description of the backup.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#createBackup_description"><span class="hs-identifier hs-type">createBackup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier hs-type">CreateBackup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="createBackup_description"><span class="annot"><span class="annottext">createBackup_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateBackup -&gt; f CreateBackup
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#createBackup_description"><span class="hs-identifier hs-var hs-var">createBackup_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBackup -&gt; Maybe Text)
+-&gt; (CreateBackup -&gt; Maybe Text -&gt; CreateBackup)
+-&gt; Lens CreateBackup CreateBackup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup%27"><span class="hs-identifier hs-type">CreateBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195241"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateBackup' :: CreateBackup -&gt; Maybe Text
+</span><a href="#local-6989586621679195241"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195241"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195240"><span class="annot"><span class="annottext">s :: CreateBackup
+</span><a href="#local-6989586621679195240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup%27"><span class="hs-identifier hs-type">CreateBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195239"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBackup
+</span><a href="#local-6989586621679195240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateBackup' :: Maybe Text
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#%24sel%3Adescription%3ACreateBackup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier hs-type">CreateBackup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The name of the server that you want to back up.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#createBackup_serverName"><span class="hs-identifier hs-type">createBackup_serverName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier hs-type">CreateBackup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-162"></span><span id="createBackup_serverName"><span class="annot"><span class="annottext">createBackup_serverName :: (Text -&gt; f Text) -&gt; CreateBackup -&gt; f CreateBackup
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#createBackup_serverName"><span class="hs-identifier hs-var hs-var">createBackup_serverName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBackup -&gt; Text)
+-&gt; (CreateBackup -&gt; Text -&gt; CreateBackup)
+-&gt; Lens CreateBackup CreateBackup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup%27"><span class="hs-identifier hs-type">CreateBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195238"><span class="annot"><span class="annottext">Text
+serverName :: Text
+$sel:serverName:CreateBackup' :: CreateBackup -&gt; Text
+</span><a href="#local-6989586621679195238"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195238"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195237"><span class="annot"><span class="annottext">s :: CreateBackup
+</span><a href="#local-6989586621679195237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup%27"><span class="hs-identifier hs-type">CreateBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195236"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBackup
+</span><a href="#local-6989586621679195237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverName:CreateBackup' :: Text
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#%24sel%3AserverName%3ACreateBackup%27"><span class="hs-identifier hs-var">serverName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier hs-type">CreateBackup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier hs-type">CreateBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier hs-type">CreateBackup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackupResponse"><span class="hs-identifier hs-type">CreateBackupResponse</span></a></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679195232"><span class="annot"><span class="annottext">request :: CreateBackup -&gt; Request CreateBackup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateBackup -&gt; Request CreateBackup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.OpsWorksCM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679195228"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateBackup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateBackup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateBackup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateBackup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateBackup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679195225"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195225"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679195224"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679195224"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679195223"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195223"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe Backup -&gt; Int -&gt; CreateBackupResponse
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackupResponse%27"><span class="hs-identifier hs-var">CreateBackupResponse'</span></a></span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Backup -&gt; Int -&gt; CreateBackupResponse)
+-&gt; Either String (Maybe Backup)
+-&gt; Either String (Int -&gt; CreateBackupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Backup)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Backup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateBackupResponse)
+-&gt; Either String Int -&gt; Either String CreateBackupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195225"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195215"><span id="local-6989586621679195217"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier hs-type">CreateBackup</span></a></span></span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier hs-type">CreateBackup</span></a></span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier hs-type">CreateBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679195208"><span class="annot"><span class="annottext">toHeaders :: CreateBackup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateBackup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-183"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OpsWorksCM_V2016_11_01.CreateBackup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-185"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-186"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-189"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-190"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195198"><span id="local-6989586621679195200"><span id="local-6989586621679195202"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier hs-type">CreateBackup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679195196"><span class="annot"><span class="annottext">toJSON :: CreateBackup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup%27"><span class="hs-identifier hs-type">CreateBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195192"><span id="local-6989586621679195193"><span id="local-6989586621679195194"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+Text
+serverName :: Text
+description :: Maybe Text
+tags :: Maybe [Tag]
+$sel:serverName:CreateBackup' :: CreateBackup -&gt; Text
+$sel:description:CreateBackup' :: CreateBackup -&gt; Maybe Text
+$sel:tags:CreateBackup' :: CreateBackup -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679195192"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-198"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679195194"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195193"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195192"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier hs-type">CreateBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679195186"><span class="annot"><span class="annottext">toPath :: CreateBackup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateBackup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackup"><span class="hs-identifier hs-type">CreateBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679195182"><span class="annot"><span class="annottext">toQuery :: CreateBackup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateBackup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | /See:/ 'newCreateBackupResponse' smart constructor.</span><span>
+</span><span id="line-211"></span><span id="local-6989586621679195179"><span id="local-6989586621679195180"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBackupResponse"><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackupResponse"><span class="hs-identifier hs-var">CreateBackupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBackupResponse%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackupResponse%27"><span class="hs-identifier hs-var">CreateBackupResponse'</span></a></span></span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Backup created by request.</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3Abackup%3ACreateBackupResponse%27"><span class="annot"><span class="annottext">CreateBackupResponse -&gt; Maybe Backup
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#%24sel%3Abackup%3ACreateBackupResponse%27"><span class="hs-identifier hs-var hs-var">backup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateBackupResponse%27"><span class="annot"><span class="annottext">CreateBackupResponse -&gt; Int
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#%24sel%3AhttpStatus%3ACreateBackupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195173"><span id="local-6989586621679195175"><span class="annot"><span class="annottext">CreateBackupResponse -&gt; CreateBackupResponse -&gt; Bool
+(CreateBackupResponse -&gt; CreateBackupResponse -&gt; Bool)
+-&gt; (CreateBackupResponse -&gt; CreateBackupResponse -&gt; Bool)
+-&gt; Eq CreateBackupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateBackupResponse -&gt; CreateBackupResponse -&gt; Bool
+$c/= :: CreateBackupResponse -&gt; CreateBackupResponse -&gt; Bool
+== :: CreateBackupResponse -&gt; CreateBackupResponse -&gt; Bool
+$c== :: CreateBackupResponse -&gt; CreateBackupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195165"><span id="local-6989586621679195167"><span id="local-6989586621679195169"><span id="local-6989586621679195171"><span class="annot"><span class="annottext">ReadPrec [CreateBackupResponse]
+ReadPrec CreateBackupResponse
+Int -&gt; ReadS CreateBackupResponse
+ReadS [CreateBackupResponse]
+(Int -&gt; ReadS CreateBackupResponse)
+-&gt; ReadS [CreateBackupResponse]
+-&gt; ReadPrec CreateBackupResponse
+-&gt; ReadPrec [CreateBackupResponse]
+-&gt; Read CreateBackupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateBackupResponse]
+$creadListPrec :: ReadPrec [CreateBackupResponse]
+readPrec :: ReadPrec CreateBackupResponse
+$creadPrec :: ReadPrec CreateBackupResponse
+readList :: ReadS [CreateBackupResponse]
+$creadList :: ReadS [CreateBackupResponse]
+readsPrec :: Int -&gt; ReadS CreateBackupResponse
+$creadsPrec :: Int -&gt; ReadS CreateBackupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195159"><span id="local-6989586621679195161"><span id="local-6989586621679195163"><span class="annot"><span class="annottext">Int -&gt; CreateBackupResponse -&gt; ShowS
+[CreateBackupResponse] -&gt; ShowS
+CreateBackupResponse -&gt; String
+(Int -&gt; CreateBackupResponse -&gt; ShowS)
+-&gt; (CreateBackupResponse -&gt; String)
+-&gt; ([CreateBackupResponse] -&gt; ShowS)
+-&gt; Show CreateBackupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateBackupResponse] -&gt; ShowS
+$cshowList :: [CreateBackupResponse] -&gt; ShowS
+show :: CreateBackupResponse -&gt; String
+$cshow :: CreateBackupResponse -&gt; String
+showsPrec :: Int -&gt; CreateBackupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateBackupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateBackupResponse -&gt; Rep CreateBackupResponse x)
+-&gt; (forall x. Rep CreateBackupResponse x -&gt; CreateBackupResponse)
+-&gt; Generic CreateBackupResponse
+forall x. Rep CreateBackupResponse x -&gt; CreateBackupResponse
+forall x. CreateBackupResponse -&gt; Rep CreateBackupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateBackupResponse x -&gt; CreateBackupResponse
+$cfrom :: forall x. CreateBackupResponse -&gt; Rep CreateBackupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Create a value of 'CreateBackupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'backup', 'createBackupResponse_backup' - Backup created by request.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- 'httpStatus', 'createBackupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#newCreateBackupResponse"><span class="hs-identifier hs-type">newCreateBackupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-231"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-232"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackupResponse"><span class="hs-identifier hs-type">CreateBackupResponse</span></a></span><span>
+</span><span id="line-234"></span><span id="newCreateBackupResponse"><span class="annot"><span class="annottext">newCreateBackupResponse :: Int -&gt; CreateBackupResponse
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#newCreateBackupResponse"><span class="hs-identifier hs-var hs-var">newCreateBackupResponse</span></a></span></span><span> </span><span id="local-6989586621679195156"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195156"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>  </span><span class="annot"><span class="annottext">CreateBackupResponse' :: Maybe Backup -&gt; Int -&gt; CreateBackupResponse
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackupResponse%27"><span class="hs-identifier hs-type">CreateBackupResponse'</span></a></span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backup:CreateBackupResponse' :: Maybe Backup
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#%24sel%3Abackup%3ACreateBackupResponse%27"><span class="hs-identifier hs-var">backup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Backup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBackupResponse' :: Int
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#%24sel%3AhttpStatus%3ACreateBackupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195156"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | Backup created by request.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#createBackupResponse_backup"><span class="hs-identifier hs-type">createBackupResponse_backup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackupResponse"><span class="hs-identifier hs-type">CreateBackupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="createBackupResponse_backup"><span class="annot"><span class="annottext">createBackupResponse_backup :: (Maybe Backup -&gt; f (Maybe Backup))
+-&gt; CreateBackupResponse -&gt; f CreateBackupResponse
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#createBackupResponse_backup"><span class="hs-identifier hs-var hs-var">createBackupResponse_backup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBackupResponse -&gt; Maybe Backup)
+-&gt; (CreateBackupResponse -&gt; Maybe Backup -&gt; CreateBackupResponse)
+-&gt; Lens
+     CreateBackupResponse
+     CreateBackupResponse
+     (Maybe Backup)
+     (Maybe Backup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackupResponse%27"><span class="hs-identifier hs-type">CreateBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195155"><span class="annot"><span class="annottext">Maybe Backup
+backup :: Maybe Backup
+$sel:backup:CreateBackupResponse' :: CreateBackupResponse -&gt; Maybe Backup
+</span><a href="#local-6989586621679195155"><span class="hs-identifier hs-var hs-var">backup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Backup
+</span><a href="#local-6989586621679195155"><span class="hs-identifier hs-var">backup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195154"><span class="annot"><span class="annottext">s :: CreateBackupResponse
+</span><a href="#local-6989586621679195154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackupResponse%27"><span class="hs-identifier hs-type">CreateBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195153"><span class="annot"><span class="annottext">Maybe Backup
+</span><a href="#local-6989586621679195153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBackupResponse
+</span><a href="#local-6989586621679195154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backup:CreateBackupResponse' :: Maybe Backup
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#%24sel%3Abackup%3ACreateBackupResponse%27"><span class="hs-identifier hs-var">backup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Backup
+</span><a href="#local-6989586621679195153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackupResponse"><span class="hs-identifier hs-type">CreateBackupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#createBackupResponse_httpStatus"><span class="hs-identifier hs-type">createBackupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackupResponse"><span class="hs-identifier hs-type">CreateBackupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-246"></span><span id="createBackupResponse_httpStatus"><span class="annot"><span class="annottext">createBackupResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateBackupResponse -&gt; f CreateBackupResponse
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#createBackupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createBackupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBackupResponse -&gt; Int)
+-&gt; (CreateBackupResponse -&gt; Int -&gt; CreateBackupResponse)
+-&gt; Lens CreateBackupResponse CreateBackupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackupResponse%27"><span class="hs-identifier hs-type">CreateBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195152"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateBackupResponse' :: CreateBackupResponse -&gt; Int
+</span><a href="#local-6989586621679195152"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195152"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195151"><span class="annot"><span class="annottext">s :: CreateBackupResponse
+</span><a href="#local-6989586621679195151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackupResponse%27"><span class="hs-identifier hs-type">CreateBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195150"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBackupResponse
+</span><a href="#local-6989586621679195151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBackupResponse' :: Int
+</span><a href="Network.AWS.OpsWorksCM.CreateBackup.html#%24sel%3AhttpStatus%3ACreateBackupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackupResponse"><span class="hs-identifier hs-type">CreateBackupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.CreateBackup.html#CreateBackupResponse"><span class="hs-identifier hs-type">CreateBackupResponse</span></a></span></span><span>
+</span><span id="line-249"></span></pre></body></html>

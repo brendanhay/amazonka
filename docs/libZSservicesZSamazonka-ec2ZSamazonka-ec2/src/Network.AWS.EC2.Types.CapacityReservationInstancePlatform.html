@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.CapacityReservationInstancePlatform</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.CapacityReservationInstancePlatform</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform"><span class="hs-identifier">CapacityReservationInstancePlatform</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Linux_UNIX"><span class="hs-identifier">CapacityReservationInstancePlatform_Linux_UNIX</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Linux_with_SQL_Server_Enterprise"><span class="hs-identifier">CapacityReservationInstancePlatform_Linux_with_SQL_Server_Enterprise</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Linux_with_SQL_Server_Standard"><span class="hs-identifier">CapacityReservationInstancePlatform_Linux_with_SQL_Server_Standard</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Linux_with_SQL_Server_Web"><span class="hs-identifier">CapacityReservationInstancePlatform_Linux_with_SQL_Server_Web</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux"><span class="hs-identifier">CapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_SUSE_Linux"><span class="hs-identifier">CapacityReservationInstancePlatform_SUSE_Linux</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Windows"><span class="hs-identifier">CapacityReservationInstancePlatform_Windows</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Windows_with_SQL_Server"><span class="hs-identifier">CapacityReservationInstancePlatform_Windows_with_SQL_Server</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Windows_with_SQL_Server_Enterprise"><span class="hs-identifier">CapacityReservationInstancePlatform_Windows_with_SQL_Server_Enterprise</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Windows_with_SQL_Server_Standard"><span class="hs-identifier">CapacityReservationInstancePlatform_Windows_with_SQL_Server_Standard</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Windows_with_SQL_Server_Web"><span class="hs-identifier">CapacityReservationInstancePlatform_Windows_with_SQL_Server_Web</span></a></span><span>
+</span><span id="line-34"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span id="local-6989586621681057882"><span id="local-6989586621681057883"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CapacityReservationInstancePlatform"><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform"><span class="hs-identifier hs-var">CapacityReservationInstancePlatform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityReservationInstancePlatform%27"><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform%27"><span class="hs-identifier hs-var">CapacityReservationInstancePlatform'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCapacityReservationInstancePlatform"><span class="annot"><span class="annottext">CapacityReservationInstancePlatform -&gt; Text
+</span><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#fromCapacityReservationInstancePlatform"><span class="hs-identifier hs-var hs-var">fromCapacityReservationInstancePlatform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681057874"><span id="local-6989586621681057876"><span id="local-6989586621681057878"><span class="annot"><span class="annottext">Int -&gt; CapacityReservationInstancePlatform -&gt; ShowS
+[CapacityReservationInstancePlatform] -&gt; ShowS
+CapacityReservationInstancePlatform -&gt; String
+(Int -&gt; CapacityReservationInstancePlatform -&gt; ShowS)
+-&gt; (CapacityReservationInstancePlatform -&gt; String)
+-&gt; ([CapacityReservationInstancePlatform] -&gt; ShowS)
+-&gt; Show CapacityReservationInstancePlatform
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CapacityReservationInstancePlatform] -&gt; ShowS
+$cshowList :: [CapacityReservationInstancePlatform] -&gt; ShowS
+show :: CapacityReservationInstancePlatform -&gt; String
+$cshow :: CapacityReservationInstancePlatform -&gt; String
+showsPrec :: Int -&gt; CapacityReservationInstancePlatform -&gt; ShowS
+$cshowsPrec :: Int -&gt; CapacityReservationInstancePlatform -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681057865"><span id="local-6989586621681057867"><span id="local-6989586621681057869"><span id="local-6989586621681057871"><span class="annot"><span class="annottext">ReadPrec [CapacityReservationInstancePlatform]
+ReadPrec CapacityReservationInstancePlatform
+Int -&gt; ReadS CapacityReservationInstancePlatform
+ReadS [CapacityReservationInstancePlatform]
+(Int -&gt; ReadS CapacityReservationInstancePlatform)
+-&gt; ReadS [CapacityReservationInstancePlatform]
+-&gt; ReadPrec CapacityReservationInstancePlatform
+-&gt; ReadPrec [CapacityReservationInstancePlatform]
+-&gt; Read CapacityReservationInstancePlatform
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CapacityReservationInstancePlatform]
+$creadListPrec :: ReadPrec [CapacityReservationInstancePlatform]
+readPrec :: ReadPrec CapacityReservationInstancePlatform
+$creadPrec :: ReadPrec CapacityReservationInstancePlatform
+readList :: ReadS [CapacityReservationInstancePlatform]
+$creadList :: ReadS [CapacityReservationInstancePlatform]
+readsPrec :: Int -&gt; ReadS CapacityReservationInstancePlatform
+$creadsPrec :: Int -&gt; ReadS CapacityReservationInstancePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681057860"><span id="local-6989586621681057862"><span class="annot"><span class="annottext">CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Bool
+(CapacityReservationInstancePlatform
+ -&gt; CapacityReservationInstancePlatform -&gt; Bool)
+-&gt; (CapacityReservationInstancePlatform
+    -&gt; CapacityReservationInstancePlatform -&gt; Bool)
+-&gt; Eq CapacityReservationInstancePlatform
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Bool
+$c/= :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Bool
+== :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Bool
+$c== :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681057844"><span id="local-6989586621681057846"><span id="local-6989586621681057848"><span id="local-6989586621681057850"><span id="local-6989586621681057852"><span id="local-6989586621681057854"><span id="local-6989586621681057856"><span class="annot"><span class="annottext">Eq CapacityReservationInstancePlatform
+Eq CapacityReservationInstancePlatform
+-&gt; (CapacityReservationInstancePlatform
+    -&gt; CapacityReservationInstancePlatform -&gt; Ordering)
+-&gt; (CapacityReservationInstancePlatform
+    -&gt; CapacityReservationInstancePlatform -&gt; Bool)
+-&gt; (CapacityReservationInstancePlatform
+    -&gt; CapacityReservationInstancePlatform -&gt; Bool)
+-&gt; (CapacityReservationInstancePlatform
+    -&gt; CapacityReservationInstancePlatform -&gt; Bool)
+-&gt; (CapacityReservationInstancePlatform
+    -&gt; CapacityReservationInstancePlatform -&gt; Bool)
+-&gt; (CapacityReservationInstancePlatform
+    -&gt; CapacityReservationInstancePlatform
+    -&gt; CapacityReservationInstancePlatform)
+-&gt; (CapacityReservationInstancePlatform
+    -&gt; CapacityReservationInstancePlatform
+    -&gt; CapacityReservationInstancePlatform)
+-&gt; Ord CapacityReservationInstancePlatform
+CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Bool
+CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Ordering
+CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform
+$cmin :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform
+max :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform
+$cmax :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform
+&gt;= :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Bool
+$c&gt;= :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Bool
+&gt; :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Bool
+$c&gt; :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Bool
+&lt;= :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Bool
+$c&lt;= :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Bool
+&lt; :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Bool
+$c&lt; :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Bool
+compare :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Ordering
+$ccompare :: CapacityReservationInstancePlatform
+-&gt; CapacityReservationInstancePlatform -&gt; Ordering
+$cp1Ord :: Eq CapacityReservationInstancePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ CapacityReservationInstancePlatform
+ -&gt; Rep CapacityReservationInstancePlatform x)
+-&gt; (forall x.
+    Rep CapacityReservationInstancePlatform x
+    -&gt; CapacityReservationInstancePlatform)
+-&gt; Generic CapacityReservationInstancePlatform
+forall x.
+Rep CapacityReservationInstancePlatform x
+-&gt; CapacityReservationInstancePlatform
+forall x.
+CapacityReservationInstancePlatform
+-&gt; Rep CapacityReservationInstancePlatform x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CapacityReservationInstancePlatform x
+-&gt; CapacityReservationInstancePlatform
+$cfrom :: forall x.
+CapacityReservationInstancePlatform
+-&gt; Rep CapacityReservationInstancePlatform x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681057836"><span id="local-6989586621681057838"><span class="annot"><span class="annottext">Int -&gt; CapacityReservationInstancePlatform -&gt; Int
+CapacityReservationInstancePlatform -&gt; Int
+(Int -&gt; CapacityReservationInstancePlatform -&gt; Int)
+-&gt; (CapacityReservationInstancePlatform -&gt; Int)
+-&gt; Hashable CapacityReservationInstancePlatform
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CapacityReservationInstancePlatform -&gt; Int
+$chash :: CapacityReservationInstancePlatform -&gt; Int
+hashWithSalt :: Int -&gt; CapacityReservationInstancePlatform -&gt; Int
+$chashWithSalt :: Int -&gt; CapacityReservationInstancePlatform -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681057833"><span class="annot"><span class="annottext">CapacityReservationInstancePlatform -&gt; ()
+(CapacityReservationInstancePlatform -&gt; ())
+-&gt; NFData CapacityReservationInstancePlatform
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CapacityReservationInstancePlatform -&gt; ()
+$crnf :: CapacityReservationInstancePlatform -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681057830"><span class="annot"><span class="annottext">Text -&gt; Either String CapacityReservationInstancePlatform
+(Text -&gt; Either String CapacityReservationInstancePlatform)
+-&gt; FromText CapacityReservationInstancePlatform
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CapacityReservationInstancePlatform
+$cfromText :: Text -&gt; Either String CapacityReservationInstancePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681057827"><span class="annot"><span class="annottext">CapacityReservationInstancePlatform -&gt; Text
+(CapacityReservationInstancePlatform -&gt; Text)
+-&gt; ToText CapacityReservationInstancePlatform
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CapacityReservationInstancePlatform -&gt; Text
+$ctoText :: CapacityReservationInstancePlatform -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681057824"><span class="annot"><span class="annottext">CapacityReservationInstancePlatform -&gt; ByteString
+(CapacityReservationInstancePlatform -&gt; ByteString)
+-&gt; ToByteString CapacityReservationInstancePlatform
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CapacityReservationInstancePlatform -&gt; ByteString
+$ctoBS :: CapacityReservationInstancePlatform -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681057821"><span class="annot"><span class="annottext">CapacityReservationInstancePlatform -&gt; ByteStringBuilder
+(CapacityReservationInstancePlatform -&gt; ByteStringBuilder)
+-&gt; ToLog CapacityReservationInstancePlatform
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CapacityReservationInstancePlatform -&gt; ByteStringBuilder
+$cbuild :: CapacityReservationInstancePlatform -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681057818"><span class="annot"><span class="annottext">HeaderName -&gt; CapacityReservationInstancePlatform -&gt; [Header]
+(HeaderName -&gt; CapacityReservationInstancePlatform -&gt; [Header])
+-&gt; ToHeader CapacityReservationInstancePlatform
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CapacityReservationInstancePlatform -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CapacityReservationInstancePlatform -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681057815"><span class="annot"><span class="annottext">CapacityReservationInstancePlatform -&gt; QueryString
+(CapacityReservationInstancePlatform -&gt; QueryString)
+-&gt; ToQuery CapacityReservationInstancePlatform
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CapacityReservationInstancePlatform -&gt; QueryString
+$ctoQuery :: CapacityReservationInstancePlatform -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681057810"><span id="local-6989586621681057812"><span class="annot"><span class="annottext">Value -&gt; Parser [CapacityReservationInstancePlatform]
+Value -&gt; Parser CapacityReservationInstancePlatform
+(Value -&gt; Parser CapacityReservationInstancePlatform)
+-&gt; (Value -&gt; Parser [CapacityReservationInstancePlatform])
+-&gt; FromJSON CapacityReservationInstancePlatform
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CapacityReservationInstancePlatform]
+$cparseJSONList :: Value -&gt; Parser [CapacityReservationInstancePlatform]
+parseJSON :: Value -&gt; Parser CapacityReservationInstancePlatform
+$cparseJSON :: Value -&gt; Parser CapacityReservationInstancePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621681057805"><span id="local-6989586621681057807"><span class="annot"><span class="annottext">FromJSONKeyFunction [CapacityReservationInstancePlatform]
+FromJSONKeyFunction CapacityReservationInstancePlatform
+FromJSONKeyFunction CapacityReservationInstancePlatform
+-&gt; FromJSONKeyFunction [CapacityReservationInstancePlatform]
+-&gt; FromJSONKey CapacityReservationInstancePlatform
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CapacityReservationInstancePlatform]
+$cfromJSONKeyList :: FromJSONKeyFunction [CapacityReservationInstancePlatform]
+fromJSONKey :: FromJSONKeyFunction CapacityReservationInstancePlatform
+$cfromJSONKey :: FromJSONKeyFunction CapacityReservationInstancePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621681057796"><span id="local-6989586621681057798"><span id="local-6989586621681057800"><span id="local-6989586621681057802"><span class="annot"><span class="annottext">[CapacityReservationInstancePlatform] -&gt; Encoding
+[CapacityReservationInstancePlatform] -&gt; Value
+CapacityReservationInstancePlatform -&gt; Encoding
+CapacityReservationInstancePlatform -&gt; Value
+(CapacityReservationInstancePlatform -&gt; Value)
+-&gt; (CapacityReservationInstancePlatform -&gt; Encoding)
+-&gt; ([CapacityReservationInstancePlatform] -&gt; Value)
+-&gt; ([CapacityReservationInstancePlatform] -&gt; Encoding)
+-&gt; ToJSON CapacityReservationInstancePlatform
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CapacityReservationInstancePlatform] -&gt; Encoding
+$ctoEncodingList :: [CapacityReservationInstancePlatform] -&gt; Encoding
+toJSONList :: [CapacityReservationInstancePlatform] -&gt; Value
+$ctoJSONList :: [CapacityReservationInstancePlatform] -&gt; Value
+toEncoding :: CapacityReservationInstancePlatform -&gt; Encoding
+$ctoEncoding :: CapacityReservationInstancePlatform -&gt; Encoding
+toJSON :: CapacityReservationInstancePlatform -&gt; Value
+$ctoJSON :: CapacityReservationInstancePlatform -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621681057791"><span id="local-6989586621681057793"><span class="annot"><span class="annottext">ToJSONKeyFunction [CapacityReservationInstancePlatform]
+ToJSONKeyFunction CapacityReservationInstancePlatform
+ToJSONKeyFunction CapacityReservationInstancePlatform
+-&gt; ToJSONKeyFunction [CapacityReservationInstancePlatform]
+-&gt; ToJSONKey CapacityReservationInstancePlatform
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CapacityReservationInstancePlatform]
+$ctoJSONKeyList :: ToJSONKeyFunction [CapacityReservationInstancePlatform]
+toJSONKey :: ToJSONKeyFunction CapacityReservationInstancePlatform
+$ctoJSONKey :: ToJSONKeyFunction CapacityReservationInstancePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621681057788"><span class="annot"><span class="annottext">[Node] -&gt; Either String CapacityReservationInstancePlatform
+([Node] -&gt; Either String CapacityReservationInstancePlatform)
+-&gt; FromXML CapacityReservationInstancePlatform
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CapacityReservationInstancePlatform
+$cparseXML :: [Node] -&gt; Either String CapacityReservationInstancePlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621681057785"><span class="annot"><span class="annottext">CapacityReservationInstancePlatform -&gt; XML
+(CapacityReservationInstancePlatform -&gt; XML)
+-&gt; ToXML CapacityReservationInstancePlatform
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CapacityReservationInstancePlatform -&gt; XML
+$ctoXML :: CapacityReservationInstancePlatform -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Linux_UNIX"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform_Linux_UNIX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCapacityReservationInstancePlatform_Linux_UNIX"><span id="%24mCapacityReservationInstancePlatform_Linux_UNIX"><span id="CapacityReservationInstancePlatform_Linux_UNIX"><span class="annot"><span class="annottext">$bCapacityReservationInstancePlatform_Linux_UNIX :: CapacityReservationInstancePlatform
+$mCapacityReservationInstancePlatform_Linux_UNIX :: forall r.
+CapacityReservationInstancePlatform
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#%24bCapacityReservationInstancePlatform_Linux_UNIX"><span class="hs-identifier hs-var hs-var hs-var">CapacityReservationInstancePlatform_Linux_UNIX</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform%27"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Linux/UNIX&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Linux_with_SQL_Server_Enterprise"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform_Linux_with_SQL_Server_Enterprise</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCapacityReservationInstancePlatform_Linux_with_SQL_Server_Enterprise"><span id="%24mCapacityReservationInstancePlatform_Linux_with_SQL_Server_Enterprise"><span id="CapacityReservationInstancePlatform_Linux_with_SQL_Server_Enterprise"><span class="annot"><span class="annottext">$bCapacityReservationInstancePlatform_Linux_with_SQL_Server_Enterprise :: CapacityReservationInstancePlatform
+$mCapacityReservationInstancePlatform_Linux_with_SQL_Server_Enterprise :: forall r.
+CapacityReservationInstancePlatform
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#%24bCapacityReservationInstancePlatform_Linux_with_SQL_Server_Enterprise"><span class="hs-identifier hs-var hs-var hs-var">CapacityReservationInstancePlatform_Linux_with_SQL_Server_Enterprise</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform%27"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Linux with SQL Server Enterprise&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Linux_with_SQL_Server_Standard"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform_Linux_with_SQL_Server_Standard</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCapacityReservationInstancePlatform_Linux_with_SQL_Server_Standard"><span id="%24mCapacityReservationInstancePlatform_Linux_with_SQL_Server_Standard"><span id="CapacityReservationInstancePlatform_Linux_with_SQL_Server_Standard"><span class="annot"><span class="annottext">$bCapacityReservationInstancePlatform_Linux_with_SQL_Server_Standard :: CapacityReservationInstancePlatform
+$mCapacityReservationInstancePlatform_Linux_with_SQL_Server_Standard :: forall r.
+CapacityReservationInstancePlatform
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#%24bCapacityReservationInstancePlatform_Linux_with_SQL_Server_Standard"><span class="hs-identifier hs-var hs-var hs-var">CapacityReservationInstancePlatform_Linux_with_SQL_Server_Standard</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform%27"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Linux with SQL Server Standard&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Linux_with_SQL_Server_Web"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform_Linux_with_SQL_Server_Web</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCapacityReservationInstancePlatform_Linux_with_SQL_Server_Web"><span id="%24mCapacityReservationInstancePlatform_Linux_with_SQL_Server_Web"><span id="CapacityReservationInstancePlatform_Linux_with_SQL_Server_Web"><span class="annot"><span class="annottext">$bCapacityReservationInstancePlatform_Linux_with_SQL_Server_Web :: CapacityReservationInstancePlatform
+$mCapacityReservationInstancePlatform_Linux_with_SQL_Server_Web :: forall r.
+CapacityReservationInstancePlatform
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#%24bCapacityReservationInstancePlatform_Linux_with_SQL_Server_Web"><span class="hs-identifier hs-var hs-var hs-var">CapacityReservationInstancePlatform_Linux_with_SQL_Server_Web</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform%27"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Linux with SQL Server Web&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux"><span id="%24mCapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux"><span id="CapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux"><span class="annot"><span class="annottext">$bCapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux :: CapacityReservationInstancePlatform
+$mCapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux :: forall r.
+CapacityReservationInstancePlatform
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#%24bCapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux"><span class="hs-identifier hs-var hs-var hs-var">CapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform%27"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Red Hat Enterprise Linux&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_SUSE_Linux"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform_SUSE_Linux</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCapacityReservationInstancePlatform_SUSE_Linux"><span id="%24mCapacityReservationInstancePlatform_SUSE_Linux"><span id="CapacityReservationInstancePlatform_SUSE_Linux"><span class="annot"><span class="annottext">$bCapacityReservationInstancePlatform_SUSE_Linux :: CapacityReservationInstancePlatform
+$mCapacityReservationInstancePlatform_SUSE_Linux :: forall r.
+CapacityReservationInstancePlatform
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#%24bCapacityReservationInstancePlatform_SUSE_Linux"><span class="hs-identifier hs-var hs-var hs-var">CapacityReservationInstancePlatform_SUSE_Linux</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform%27"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUSE Linux&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Windows"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform_Windows</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCapacityReservationInstancePlatform_Windows"><span id="%24mCapacityReservationInstancePlatform_Windows"><span id="CapacityReservationInstancePlatform_Windows"><span class="annot"><span class="annottext">$bCapacityReservationInstancePlatform_Windows :: CapacityReservationInstancePlatform
+$mCapacityReservationInstancePlatform_Windows :: forall r.
+CapacityReservationInstancePlatform
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#%24bCapacityReservationInstancePlatform_Windows"><span class="hs-identifier hs-var hs-var hs-var">CapacityReservationInstancePlatform_Windows</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform%27"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Windows&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Windows_with_SQL_Server"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform_Windows_with_SQL_Server</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCapacityReservationInstancePlatform_Windows_with_SQL_Server"><span id="%24mCapacityReservationInstancePlatform_Windows_with_SQL_Server"><span id="CapacityReservationInstancePlatform_Windows_with_SQL_Server"><span class="annot"><span class="annottext">$bCapacityReservationInstancePlatform_Windows_with_SQL_Server :: CapacityReservationInstancePlatform
+$mCapacityReservationInstancePlatform_Windows_with_SQL_Server :: forall r.
+CapacityReservationInstancePlatform
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#%24bCapacityReservationInstancePlatform_Windows_with_SQL_Server"><span class="hs-identifier hs-var hs-var hs-var">CapacityReservationInstancePlatform_Windows_with_SQL_Server</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform%27"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Windows with SQL Server&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Windows_with_SQL_Server_Enterprise"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform_Windows_with_SQL_Server_Enterprise</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCapacityReservationInstancePlatform_Windows_with_SQL_Server_Enterprise"><span id="%24mCapacityReservationInstancePlatform_Windows_with_SQL_Server_Enterprise"><span id="CapacityReservationInstancePlatform_Windows_with_SQL_Server_Enterprise"><span class="annot"><span class="annottext">$bCapacityReservationInstancePlatform_Windows_with_SQL_Server_Enterprise :: CapacityReservationInstancePlatform
+$mCapacityReservationInstancePlatform_Windows_with_SQL_Server_Enterprise :: forall r.
+CapacityReservationInstancePlatform
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#%24bCapacityReservationInstancePlatform_Windows_with_SQL_Server_Enterprise"><span class="hs-identifier hs-var hs-var hs-var">CapacityReservationInstancePlatform_Windows_with_SQL_Server_Enterprise</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform%27"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Windows with SQL Server Enterprise&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Windows_with_SQL_Server_Standard"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform_Windows_with_SQL_Server_Standard</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCapacityReservationInstancePlatform_Windows_with_SQL_Server_Standard"><span id="%24mCapacityReservationInstancePlatform_Windows_with_SQL_Server_Standard"><span id="CapacityReservationInstancePlatform_Windows_with_SQL_Server_Standard"><span class="annot"><span class="annottext">$bCapacityReservationInstancePlatform_Windows_with_SQL_Server_Standard :: CapacityReservationInstancePlatform
+$mCapacityReservationInstancePlatform_Windows_with_SQL_Server_Standard :: forall r.
+CapacityReservationInstancePlatform
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#%24bCapacityReservationInstancePlatform_Windows_with_SQL_Server_Standard"><span class="hs-identifier hs-var hs-var hs-var">CapacityReservationInstancePlatform_Windows_with_SQL_Server_Standard</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform%27"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Windows with SQL Server Standard&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Windows_with_SQL_Server_Web"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform_Windows_with_SQL_Server_Web</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCapacityReservationInstancePlatform_Windows_with_SQL_Server_Web"><span id="%24mCapacityReservationInstancePlatform_Windows_with_SQL_Server_Web"><span id="CapacityReservationInstancePlatform_Windows_with_SQL_Server_Web"><span class="annot"><span class="annottext">$bCapacityReservationInstancePlatform_Windows_with_SQL_Server_Web :: CapacityReservationInstancePlatform
+$mCapacityReservationInstancePlatform_Windows_with_SQL_Server_Web :: forall r.
+CapacityReservationInstancePlatform
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#%24bCapacityReservationInstancePlatform_Windows_with_SQL_Server_Web"><span class="hs-identifier hs-var hs-var hs-var">CapacityReservationInstancePlatform_Windows_with_SQL_Server_Web</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform%27"><span class="hs-identifier hs-type">CapacityReservationInstancePlatform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Windows with SQL Server Web&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Linux_UNIX"><span class="hs-pragma hs-type">CapacityReservationInstancePlatform_Linux_UNIX</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Linux_with_SQL_Server_Enterprise"><span class="hs-pragma hs-type">CapacityReservationInstancePlatform_Linux_with_SQL_Server_Enterprise</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Linux_with_SQL_Server_Standard"><span class="hs-pragma hs-type">CapacityReservationInstancePlatform_Linux_with_SQL_Server_Standard</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Linux_with_SQL_Server_Web"><span class="hs-pragma hs-type">CapacityReservationInstancePlatform_Linux_with_SQL_Server_Web</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux"><span class="hs-pragma hs-type">CapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_SUSE_Linux"><span class="hs-pragma hs-type">CapacityReservationInstancePlatform_SUSE_Linux</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Windows"><span class="hs-pragma hs-type">CapacityReservationInstancePlatform_Windows</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Windows_with_SQL_Server"><span class="hs-pragma hs-type">CapacityReservationInstancePlatform_Windows_with_SQL_Server</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Windows_with_SQL_Server_Enterprise"><span class="hs-pragma hs-type">CapacityReservationInstancePlatform_Windows_with_SQL_Server_Enterprise</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Windows_with_SQL_Server_Standard"><span class="hs-pragma hs-type">CapacityReservationInstancePlatform_Windows_with_SQL_Server_Standard</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform_Windows_with_SQL_Server_Web"><span class="hs-pragma hs-type">CapacityReservationInstancePlatform_Windows_with_SQL_Server_Web</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationInstancePlatform.html#CapacityReservationInstancePlatform%27"><span class="hs-pragma hs-type">CapacityReservationInstancePlatform'</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-117"></span></pre></body></html>

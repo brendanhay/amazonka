@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.RDS.DeleteDBClusterEndpoint</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a custom endpoint and removes it from an Amazon Aurora DB</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This action only applies to Aurora DB clusters.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RDS.DeleteDBClusterEndpoint</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint"><span class="hs-identifier">DeleteDBClusterEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#newDeleteDBClusterEndpoint"><span class="hs-identifier">newDeleteDBClusterEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#deleteDBClusterEndpoint_dbClusterEndpointIdentifier"><span class="hs-identifier">deleteDBClusterEndpoint_dbClusterEndpointIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterEndpoint.html#DBClusterEndpoint"><span class="hs-identifier">DBClusterEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterEndpoint.html#newDBClusterEndpoint"><span class="hs-identifier">newDBClusterEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterEndpoint.html#dbClusterEndpoint_status"><span class="hs-identifier">dbClusterEndpoint_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterEndpoint.html#dbClusterEndpoint_dbClusterEndpointIdentifier"><span class="hs-identifier">dbClusterEndpoint_dbClusterEndpointIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterEndpoint.html#dbClusterEndpoint_excludedMembers"><span class="hs-identifier">dbClusterEndpoint_excludedMembers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterEndpoint.html#dbClusterEndpoint_endpointType"><span class="hs-identifier">dbClusterEndpoint_endpointType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterEndpoint.html#dbClusterEndpoint_customEndpointType"><span class="hs-identifier">dbClusterEndpoint_customEndpointType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterEndpoint.html#dbClusterEndpoint_dbClusterEndpointArn"><span class="hs-identifier">dbClusterEndpoint_dbClusterEndpointArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterEndpoint.html#dbClusterEndpoint_dbClusterIdentifier"><span class="hs-identifier">dbClusterEndpoint_dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterEndpoint.html#dbClusterEndpoint_dbClusterEndpointResourceIdentifier"><span class="hs-identifier">dbClusterEndpoint_dbClusterEndpointResourceIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterEndpoint.html#dbClusterEndpoint_endpoint"><span class="hs-identifier">dbClusterEndpoint_endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterEndpoint.html#dbClusterEndpoint_staticMembers"><span class="hs-identifier">dbClusterEndpoint_staticMembers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.html"><span class="hs-identifier">Network.AWS.RDS.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDeleteDBClusterEndpoint' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679798410"><span id="local-6989586621679798411"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBClusterEndpoint"><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint"><span class="hs-identifier hs-var">DeleteDBClusterEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBClusterEndpoint%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint%27"><span class="hs-identifier hs-var">DeleteDBClusterEndpoint'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier associated with the custom endpoint. This parameter is</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- stored as a lowercase string.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdbClusterEndpointIdentifier%3ADeleteDBClusterEndpoint%27"><span class="annot"><span class="annottext">DeleteDBClusterEndpoint -&gt; Text
+</span><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#%24sel%3AdbClusterEndpointIdentifier%3ADeleteDBClusterEndpoint%27"><span class="hs-identifier hs-var hs-var">dbClusterEndpointIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679798404"><span id="local-6989586621679798406"><span class="annot"><span class="annottext">DeleteDBClusterEndpoint -&gt; DeleteDBClusterEndpoint -&gt; Bool
+(DeleteDBClusterEndpoint -&gt; DeleteDBClusterEndpoint -&gt; Bool)
+-&gt; (DeleteDBClusterEndpoint -&gt; DeleteDBClusterEndpoint -&gt; Bool)
+-&gt; Eq DeleteDBClusterEndpoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteDBClusterEndpoint -&gt; DeleteDBClusterEndpoint -&gt; Bool
+$c/= :: DeleteDBClusterEndpoint -&gt; DeleteDBClusterEndpoint -&gt; Bool
+== :: DeleteDBClusterEndpoint -&gt; DeleteDBClusterEndpoint -&gt; Bool
+$c== :: DeleteDBClusterEndpoint -&gt; DeleteDBClusterEndpoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798395"><span id="local-6989586621679798397"><span id="local-6989586621679798399"><span id="local-6989586621679798401"><span class="annot"><span class="annottext">ReadPrec [DeleteDBClusterEndpoint]
+ReadPrec DeleteDBClusterEndpoint
+Int -&gt; ReadS DeleteDBClusterEndpoint
+ReadS [DeleteDBClusterEndpoint]
+(Int -&gt; ReadS DeleteDBClusterEndpoint)
+-&gt; ReadS [DeleteDBClusterEndpoint]
+-&gt; ReadPrec DeleteDBClusterEndpoint
+-&gt; ReadPrec [DeleteDBClusterEndpoint]
+-&gt; Read DeleteDBClusterEndpoint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteDBClusterEndpoint]
+$creadListPrec :: ReadPrec [DeleteDBClusterEndpoint]
+readPrec :: ReadPrec DeleteDBClusterEndpoint
+$creadPrec :: ReadPrec DeleteDBClusterEndpoint
+readList :: ReadS [DeleteDBClusterEndpoint]
+$creadList :: ReadS [DeleteDBClusterEndpoint]
+readsPrec :: Int -&gt; ReadS DeleteDBClusterEndpoint
+$creadsPrec :: Int -&gt; ReadS DeleteDBClusterEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798388"><span id="local-6989586621679798390"><span id="local-6989586621679798392"><span class="annot"><span class="annottext">Int -&gt; DeleteDBClusterEndpoint -&gt; ShowS
+[DeleteDBClusterEndpoint] -&gt; ShowS
+DeleteDBClusterEndpoint -&gt; String
+(Int -&gt; DeleteDBClusterEndpoint -&gt; ShowS)
+-&gt; (DeleteDBClusterEndpoint -&gt; String)
+-&gt; ([DeleteDBClusterEndpoint] -&gt; ShowS)
+-&gt; Show DeleteDBClusterEndpoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteDBClusterEndpoint] -&gt; ShowS
+$cshowList :: [DeleteDBClusterEndpoint] -&gt; ShowS
+show :: DeleteDBClusterEndpoint -&gt; String
+$cshow :: DeleteDBClusterEndpoint -&gt; String
+showsPrec :: Int -&gt; DeleteDBClusterEndpoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteDBClusterEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteDBClusterEndpoint -&gt; Rep DeleteDBClusterEndpoint x)
+-&gt; (forall x.
+    Rep DeleteDBClusterEndpoint x -&gt; DeleteDBClusterEndpoint)
+-&gt; Generic DeleteDBClusterEndpoint
+forall x. Rep DeleteDBClusterEndpoint x -&gt; DeleteDBClusterEndpoint
+forall x. DeleteDBClusterEndpoint -&gt; Rep DeleteDBClusterEndpoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteDBClusterEndpoint x -&gt; DeleteDBClusterEndpoint
+$cfrom :: forall x. DeleteDBClusterEndpoint -&gt; Rep DeleteDBClusterEndpoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'DeleteDBClusterEndpoint' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'dbClusterEndpointIdentifier', 'deleteDBClusterEndpoint_dbClusterEndpointIdentifier' - The identifier associated with the custom endpoint. This parameter is</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- stored as a lowercase string.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#newDeleteDBClusterEndpoint"><span class="hs-identifier hs-type">newDeleteDBClusterEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'dbClusterEndpointIdentifier'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint"><span class="hs-identifier hs-type">DeleteDBClusterEndpoint</span></a></span><span>
+</span><span id="line-82"></span><span id="newDeleteDBClusterEndpoint"><span class="annot"><span class="annottext">newDeleteDBClusterEndpoint :: Text -&gt; DeleteDBClusterEndpoint
+</span><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#newDeleteDBClusterEndpoint"><span class="hs-identifier hs-var hs-var">newDeleteDBClusterEndpoint</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679798383"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798383"><span class="hs-identifier hs-var">pDBClusterEndpointIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">DeleteDBClusterEndpoint' :: Text -&gt; DeleteDBClusterEndpoint
+</span><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint%27"><span class="hs-identifier hs-type">DeleteDBClusterEndpoint'</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbClusterEndpointIdentifier:DeleteDBClusterEndpoint' :: Text
+</span><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#%24sel%3AdbClusterEndpointIdentifier%3ADeleteDBClusterEndpoint%27"><span class="hs-identifier hs-var">dbClusterEndpointIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798383"><span class="hs-identifier hs-var">pDBClusterEndpointIdentifier_</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The identifier associated with the custom endpoint. This parameter is</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- stored as a lowercase string.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#deleteDBClusterEndpoint_dbClusterEndpointIdentifier"><span class="hs-identifier hs-type">deleteDBClusterEndpoint_dbClusterEndpointIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint"><span class="hs-identifier hs-type">DeleteDBClusterEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="deleteDBClusterEndpoint_dbClusterEndpointIdentifier"><span class="annot"><span class="annottext">deleteDBClusterEndpoint_dbClusterEndpointIdentifier :: (Text -&gt; f Text)
+-&gt; DeleteDBClusterEndpoint -&gt; f DeleteDBClusterEndpoint
+</span><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#deleteDBClusterEndpoint_dbClusterEndpointIdentifier"><span class="hs-identifier hs-var hs-var">deleteDBClusterEndpoint_dbClusterEndpointIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteDBClusterEndpoint -&gt; Text)
+-&gt; (DeleteDBClusterEndpoint -&gt; Text -&gt; DeleteDBClusterEndpoint)
+-&gt; Lens DeleteDBClusterEndpoint DeleteDBClusterEndpoint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint%27"><span class="hs-identifier hs-type">DeleteDBClusterEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798380"><span class="annot"><span class="annottext">Text
+dbClusterEndpointIdentifier :: Text
+$sel:dbClusterEndpointIdentifier:DeleteDBClusterEndpoint' :: DeleteDBClusterEndpoint -&gt; Text
+</span><a href="#local-6989586621679798380"><span class="hs-identifier hs-var hs-var">dbClusterEndpointIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798380"><span class="hs-identifier hs-var">dbClusterEndpointIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798379"><span class="annot"><span class="annottext">s :: DeleteDBClusterEndpoint
+</span><a href="#local-6989586621679798379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint%27"><span class="hs-identifier hs-type">DeleteDBClusterEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798378"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBClusterEndpoint
+</span><a href="#local-6989586621679798379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterEndpointIdentifier:DeleteDBClusterEndpoint' :: Text
+</span><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#%24sel%3AdbClusterEndpointIdentifier%3ADeleteDBClusterEndpoint%27"><span class="hs-identifier hs-var">dbClusterEndpointIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint"><span class="hs-identifier hs-type">DeleteDBClusterEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint"><span class="hs-identifier hs-type">DeleteDBClusterEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint"><span class="hs-identifier hs-type">DeleteDBClusterEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterEndpoint.html#DBClusterEndpoint"><span class="hs-identifier hs-type">DBClusterEndpoint</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679798374"><span class="annot"><span class="annottext">request :: DeleteDBClusterEndpoint -&gt; Request DeleteDBClusterEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteDBClusterEndpoint -&gt; Request DeleteDBClusterEndpoint
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679798370"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteDBClusterEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteDBClusterEndpoint)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DeleteDBClusterEndpoint))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteDBClusterEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteDBClusterEndpoint)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeleteDBClusterEndpointResult&quot;</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798367"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679798367"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679798366"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679798366"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679798365"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679798365"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String DBClusterEndpoint
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679798365"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798360"><span id="local-6989586621679798362"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint"><span class="hs-identifier hs-type">DeleteDBClusterEndpoint</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798357"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint"><span class="hs-identifier hs-type">DeleteDBClusterEndpoint</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint"><span class="hs-identifier hs-type">DeleteDBClusterEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679798353"><span class="annot"><span class="annottext">toHeaders :: DeleteDBClusterEndpoint -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDBClusterEndpoint -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint"><span class="hs-identifier hs-type">DeleteDBClusterEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679798348"><span class="annot"><span class="annottext">toPath :: DeleteDBClusterEndpoint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDBClusterEndpoint -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint"><span class="hs-identifier hs-type">DeleteDBClusterEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679798344"><span class="annot"><span class="annottext">toQuery :: DeleteDBClusterEndpoint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBClusterEndpoint.html#DeleteDBClusterEndpoint%27"><span class="hs-identifier hs-type">DeleteDBClusterEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798342"><span class="annot"><span class="annottext">Text
+dbClusterEndpointIdentifier :: Text
+$sel:dbClusterEndpointIdentifier:DeleteDBClusterEndpoint' :: DeleteDBClusterEndpoint -&gt; Text
+</span><a href="#local-6989586621679798342"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteDBClusterEndpoint&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBClusterEndpointIdentifier&quot;</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798342"><span class="hs-identifier hs-var">dbClusterEndpointIdentifier</span></a></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span></pre></body></html>

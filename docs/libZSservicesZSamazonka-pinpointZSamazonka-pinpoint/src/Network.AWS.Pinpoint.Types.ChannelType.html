@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Pinpoint.Types.ChannelType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pinpoint.Types.ChannelType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType"><span class="hs-identifier">ChannelType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_ADM"><span class="hs-identifier">ChannelType_ADM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_APNS"><span class="hs-identifier">ChannelType_APNS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_APNS_SANDBOX"><span class="hs-identifier">ChannelType_APNS_SANDBOX</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_APNS_VOIP"><span class="hs-identifier">ChannelType_APNS_VOIP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_APNS_VOIP_SANDBOX"><span class="hs-identifier">ChannelType_APNS_VOIP_SANDBOX</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_BAIDU"><span class="hs-identifier">ChannelType_BAIDU</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_CUSTOM"><span class="hs-identifier">ChannelType_CUSTOM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_EMAIL"><span class="hs-identifier">ChannelType_EMAIL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_GCM"><span class="hs-identifier">ChannelType_GCM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_IN_APP"><span class="hs-identifier">ChannelType_IN_APP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_PUSH"><span class="hs-identifier">ChannelType_PUSH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_SMS"><span class="hs-identifier">ChannelType_SMS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_VOICE"><span class="hs-identifier">ChannelType_VOICE</span></a></span><span>
+</span><span id="line-36"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679593388"><span id="local-6989586621679593389"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChannelType"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-var">ChannelType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelType%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType%27"><span class="hs-identifier hs-var">ChannelType'</span></a></span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromChannelType"><span class="annot"><span class="annottext">ChannelType -&gt; Text
+</span><a href="Network.AWS.Pinpoint.Types.ChannelType.html#fromChannelType"><span class="hs-identifier hs-var hs-var">fromChannelType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679593380"><span id="local-6989586621679593382"><span id="local-6989586621679593384"><span class="annot"><span class="annottext">Int -&gt; ChannelType -&gt; ShowS
+[ChannelType] -&gt; ShowS
+ChannelType -&gt; String
+(Int -&gt; ChannelType -&gt; ShowS)
+-&gt; (ChannelType -&gt; String)
+-&gt; ([ChannelType] -&gt; ShowS)
+-&gt; Show ChannelType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChannelType] -&gt; ShowS
+$cshowList :: [ChannelType] -&gt; ShowS
+show :: ChannelType -&gt; String
+$cshow :: ChannelType -&gt; String
+showsPrec :: Int -&gt; ChannelType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChannelType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679593371"><span id="local-6989586621679593373"><span id="local-6989586621679593375"><span id="local-6989586621679593377"><span class="annot"><span class="annottext">ReadPrec [ChannelType]
+ReadPrec ChannelType
+Int -&gt; ReadS ChannelType
+ReadS [ChannelType]
+(Int -&gt; ReadS ChannelType)
+-&gt; ReadS [ChannelType]
+-&gt; ReadPrec ChannelType
+-&gt; ReadPrec [ChannelType]
+-&gt; Read ChannelType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChannelType]
+$creadListPrec :: ReadPrec [ChannelType]
+readPrec :: ReadPrec ChannelType
+$creadPrec :: ReadPrec ChannelType
+readList :: ReadS [ChannelType]
+$creadList :: ReadS [ChannelType]
+readsPrec :: Int -&gt; ReadS ChannelType
+$creadsPrec :: Int -&gt; ReadS ChannelType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679593366"><span id="local-6989586621679593368"><span class="annot"><span class="annottext">ChannelType -&gt; ChannelType -&gt; Bool
+(ChannelType -&gt; ChannelType -&gt; Bool)
+-&gt; (ChannelType -&gt; ChannelType -&gt; Bool) -&gt; Eq ChannelType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChannelType -&gt; ChannelType -&gt; Bool
+$c/= :: ChannelType -&gt; ChannelType -&gt; Bool
+== :: ChannelType -&gt; ChannelType -&gt; Bool
+$c== :: ChannelType -&gt; ChannelType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679593350"><span id="local-6989586621679593352"><span id="local-6989586621679593354"><span id="local-6989586621679593356"><span id="local-6989586621679593358"><span id="local-6989586621679593360"><span id="local-6989586621679593362"><span class="annot"><span class="annottext">Eq ChannelType
+Eq ChannelType
+-&gt; (ChannelType -&gt; ChannelType -&gt; Ordering)
+-&gt; (ChannelType -&gt; ChannelType -&gt; Bool)
+-&gt; (ChannelType -&gt; ChannelType -&gt; Bool)
+-&gt; (ChannelType -&gt; ChannelType -&gt; Bool)
+-&gt; (ChannelType -&gt; ChannelType -&gt; Bool)
+-&gt; (ChannelType -&gt; ChannelType -&gt; ChannelType)
+-&gt; (ChannelType -&gt; ChannelType -&gt; ChannelType)
+-&gt; Ord ChannelType
+ChannelType -&gt; ChannelType -&gt; Bool
+ChannelType -&gt; ChannelType -&gt; Ordering
+ChannelType -&gt; ChannelType -&gt; ChannelType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ChannelType -&gt; ChannelType -&gt; ChannelType
+$cmin :: ChannelType -&gt; ChannelType -&gt; ChannelType
+max :: ChannelType -&gt; ChannelType -&gt; ChannelType
+$cmax :: ChannelType -&gt; ChannelType -&gt; ChannelType
+&gt;= :: ChannelType -&gt; ChannelType -&gt; Bool
+$c&gt;= :: ChannelType -&gt; ChannelType -&gt; Bool
+&gt; :: ChannelType -&gt; ChannelType -&gt; Bool
+$c&gt; :: ChannelType -&gt; ChannelType -&gt; Bool
+&lt;= :: ChannelType -&gt; ChannelType -&gt; Bool
+$c&lt;= :: ChannelType -&gt; ChannelType -&gt; Bool
+&lt; :: ChannelType -&gt; ChannelType -&gt; Bool
+$c&lt; :: ChannelType -&gt; ChannelType -&gt; Bool
+compare :: ChannelType -&gt; ChannelType -&gt; Ordering
+$ccompare :: ChannelType -&gt; ChannelType -&gt; Ordering
+$cp1Ord :: Eq ChannelType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ChannelType -&gt; Rep ChannelType x)
+-&gt; (forall x. Rep ChannelType x -&gt; ChannelType)
+-&gt; Generic ChannelType
+forall x. Rep ChannelType x -&gt; ChannelType
+forall x. ChannelType -&gt; Rep ChannelType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ChannelType x -&gt; ChannelType
+$cfrom :: forall x. ChannelType -&gt; Rep ChannelType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679593342"><span id="local-6989586621679593344"><span class="annot"><span class="annottext">Int -&gt; ChannelType -&gt; Int
+ChannelType -&gt; Int
+(Int -&gt; ChannelType -&gt; Int)
+-&gt; (ChannelType -&gt; Int) -&gt; Hashable ChannelType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ChannelType -&gt; Int
+$chash :: ChannelType -&gt; Int
+hashWithSalt :: Int -&gt; ChannelType -&gt; Int
+$chashWithSalt :: Int -&gt; ChannelType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679593339"><span class="annot"><span class="annottext">ChannelType -&gt; ()
+(ChannelType -&gt; ()) -&gt; NFData ChannelType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ChannelType -&gt; ()
+$crnf :: ChannelType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679593336"><span class="annot"><span class="annottext">Text -&gt; Either String ChannelType
+(Text -&gt; Either String ChannelType) -&gt; FromText ChannelType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ChannelType
+$cfromText :: Text -&gt; Either String ChannelType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679593333"><span class="annot"><span class="annottext">ChannelType -&gt; Text
+(ChannelType -&gt; Text) -&gt; ToText ChannelType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ChannelType -&gt; Text
+$ctoText :: ChannelType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679593330"><span class="annot"><span class="annottext">ChannelType -&gt; ByteString
+(ChannelType -&gt; ByteString) -&gt; ToByteString ChannelType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ChannelType -&gt; ByteString
+$ctoBS :: ChannelType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679593327"><span class="annot"><span class="annottext">ChannelType -&gt; ByteStringBuilder
+(ChannelType -&gt; ByteStringBuilder) -&gt; ToLog ChannelType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ChannelType -&gt; ByteStringBuilder
+$cbuild :: ChannelType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679593324"><span class="annot"><span class="annottext">HeaderName -&gt; ChannelType -&gt; [Header]
+(HeaderName -&gt; ChannelType -&gt; [Header]) -&gt; ToHeader ChannelType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ChannelType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ChannelType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679593321"><span class="annot"><span class="annottext">ChannelType -&gt; QueryString
+(ChannelType -&gt; QueryString) -&gt; ToQuery ChannelType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ChannelType -&gt; QueryString
+$ctoQuery :: ChannelType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679593316"><span id="local-6989586621679593318"><span class="annot"><span class="annottext">Value -&gt; Parser [ChannelType]
+Value -&gt; Parser ChannelType
+(Value -&gt; Parser ChannelType)
+-&gt; (Value -&gt; Parser [ChannelType]) -&gt; FromJSON ChannelType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ChannelType]
+$cparseJSONList :: Value -&gt; Parser [ChannelType]
+parseJSON :: Value -&gt; Parser ChannelType
+$cparseJSON :: Value -&gt; Parser ChannelType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679593311"><span id="local-6989586621679593313"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChannelType]
+FromJSONKeyFunction ChannelType
+FromJSONKeyFunction ChannelType
+-&gt; FromJSONKeyFunction [ChannelType] -&gt; FromJSONKey ChannelType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ChannelType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ChannelType]
+fromJSONKey :: FromJSONKeyFunction ChannelType
+$cfromJSONKey :: FromJSONKeyFunction ChannelType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679593302"><span id="local-6989586621679593304"><span id="local-6989586621679593306"><span id="local-6989586621679593308"><span class="annot"><span class="annottext">[ChannelType] -&gt; Encoding
+[ChannelType] -&gt; Value
+ChannelType -&gt; Encoding
+ChannelType -&gt; Value
+(ChannelType -&gt; Value)
+-&gt; (ChannelType -&gt; Encoding)
+-&gt; ([ChannelType] -&gt; Value)
+-&gt; ([ChannelType] -&gt; Encoding)
+-&gt; ToJSON ChannelType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ChannelType] -&gt; Encoding
+$ctoEncodingList :: [ChannelType] -&gt; Encoding
+toJSONList :: [ChannelType] -&gt; Value
+$ctoJSONList :: [ChannelType] -&gt; Value
+toEncoding :: ChannelType -&gt; Encoding
+$ctoEncoding :: ChannelType -&gt; Encoding
+toJSON :: ChannelType -&gt; Value
+$ctoJSON :: ChannelType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679593297"><span id="local-6989586621679593299"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChannelType]
+ToJSONKeyFunction ChannelType
+ToJSONKeyFunction ChannelType
+-&gt; ToJSONKeyFunction [ChannelType] -&gt; ToJSONKey ChannelType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ChannelType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ChannelType]
+toJSONKey :: ToJSONKeyFunction ChannelType
+$ctoJSONKey :: ToJSONKeyFunction ChannelType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679593294"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChannelType
+([Node] -&gt; Either String ChannelType) -&gt; FromXML ChannelType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ChannelType
+$cparseXML :: [Node] -&gt; Either String ChannelType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679593291"><span class="annot"><span class="annottext">ChannelType -&gt; XML
+(ChannelType -&gt; XML) -&gt; ToXML ChannelType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ChannelType -&gt; XML
+$ctoXML :: ChannelType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_ADM"><span class="hs-identifier hs-type">ChannelType_ADM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelType_ADM"><span id="%24mChannelType_ADM"><span id="ChannelType_ADM"><span class="annot"><span class="annottext">$bChannelType_ADM :: ChannelType
+$mChannelType_ADM :: forall r. ChannelType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.ChannelType.html#%24bChannelType_ADM"><span class="hs-identifier hs-var hs-var hs-var">ChannelType_ADM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType%27"><span class="hs-identifier hs-type">ChannelType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ADM&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_APNS"><span class="hs-identifier hs-type">ChannelType_APNS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelType_APNS"><span id="%24mChannelType_APNS"><span id="ChannelType_APNS"><span class="annot"><span class="annottext">$bChannelType_APNS :: ChannelType
+$mChannelType_APNS :: forall r. ChannelType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.ChannelType.html#%24bChannelType_APNS"><span class="hs-identifier hs-var hs-var hs-var">ChannelType_APNS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType%27"><span class="hs-identifier hs-type">ChannelType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;APNS&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_APNS_SANDBOX"><span class="hs-identifier hs-type">ChannelType_APNS_SANDBOX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelType_APNS_SANDBOX"><span id="%24mChannelType_APNS_SANDBOX"><span id="ChannelType_APNS_SANDBOX"><span class="annot"><span class="annottext">$bChannelType_APNS_SANDBOX :: ChannelType
+$mChannelType_APNS_SANDBOX :: forall r. ChannelType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.ChannelType.html#%24bChannelType_APNS_SANDBOX"><span class="hs-identifier hs-var hs-var hs-var">ChannelType_APNS_SANDBOX</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType%27"><span class="hs-identifier hs-type">ChannelType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;APNS_SANDBOX&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_APNS_VOIP"><span class="hs-identifier hs-type">ChannelType_APNS_VOIP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelType_APNS_VOIP"><span id="%24mChannelType_APNS_VOIP"><span id="ChannelType_APNS_VOIP"><span class="annot"><span class="annottext">$bChannelType_APNS_VOIP :: ChannelType
+$mChannelType_APNS_VOIP :: forall r. ChannelType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.ChannelType.html#%24bChannelType_APNS_VOIP"><span class="hs-identifier hs-var hs-var hs-var">ChannelType_APNS_VOIP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType%27"><span class="hs-identifier hs-type">ChannelType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;APNS_VOIP&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_APNS_VOIP_SANDBOX"><span class="hs-identifier hs-type">ChannelType_APNS_VOIP_SANDBOX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelType_APNS_VOIP_SANDBOX"><span id="%24mChannelType_APNS_VOIP_SANDBOX"><span id="ChannelType_APNS_VOIP_SANDBOX"><span class="annot"><span class="annottext">$bChannelType_APNS_VOIP_SANDBOX :: ChannelType
+$mChannelType_APNS_VOIP_SANDBOX :: forall r. ChannelType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.ChannelType.html#%24bChannelType_APNS_VOIP_SANDBOX"><span class="hs-identifier hs-var hs-var hs-var">ChannelType_APNS_VOIP_SANDBOX</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType%27"><span class="hs-identifier hs-type">ChannelType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;APNS_VOIP_SANDBOX&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_BAIDU"><span class="hs-identifier hs-type">ChannelType_BAIDU</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelType_BAIDU"><span id="%24mChannelType_BAIDU"><span id="ChannelType_BAIDU"><span class="annot"><span class="annottext">$bChannelType_BAIDU :: ChannelType
+$mChannelType_BAIDU :: forall r. ChannelType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.ChannelType.html#%24bChannelType_BAIDU"><span class="hs-identifier hs-var hs-var hs-var">ChannelType_BAIDU</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType%27"><span class="hs-identifier hs-type">ChannelType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BAIDU&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_CUSTOM"><span class="hs-identifier hs-type">ChannelType_CUSTOM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelType_CUSTOM"><span id="%24mChannelType_CUSTOM"><span id="ChannelType_CUSTOM"><span class="annot"><span class="annottext">$bChannelType_CUSTOM :: ChannelType
+$mChannelType_CUSTOM :: forall r. ChannelType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.ChannelType.html#%24bChannelType_CUSTOM"><span class="hs-identifier hs-var hs-var hs-var">ChannelType_CUSTOM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType%27"><span class="hs-identifier hs-type">ChannelType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CUSTOM&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_EMAIL"><span class="hs-identifier hs-type">ChannelType_EMAIL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelType_EMAIL"><span id="%24mChannelType_EMAIL"><span id="ChannelType_EMAIL"><span class="annot"><span class="annottext">$bChannelType_EMAIL :: ChannelType
+$mChannelType_EMAIL :: forall r. ChannelType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.ChannelType.html#%24bChannelType_EMAIL"><span class="hs-identifier hs-var hs-var hs-var">ChannelType_EMAIL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType%27"><span class="hs-identifier hs-type">ChannelType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EMAIL&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_GCM"><span class="hs-identifier hs-type">ChannelType_GCM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelType_GCM"><span id="%24mChannelType_GCM"><span id="ChannelType_GCM"><span class="annot"><span class="annottext">$bChannelType_GCM :: ChannelType
+$mChannelType_GCM :: forall r. ChannelType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.ChannelType.html#%24bChannelType_GCM"><span class="hs-identifier hs-var hs-var hs-var">ChannelType_GCM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType%27"><span class="hs-identifier hs-type">ChannelType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GCM&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_IN_APP"><span class="hs-identifier hs-type">ChannelType_IN_APP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelType_IN_APP"><span id="%24mChannelType_IN_APP"><span id="ChannelType_IN_APP"><span class="annot"><span class="annottext">$bChannelType_IN_APP :: ChannelType
+$mChannelType_IN_APP :: forall r. ChannelType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.ChannelType.html#%24bChannelType_IN_APP"><span class="hs-identifier hs-var hs-var hs-var">ChannelType_IN_APP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType%27"><span class="hs-identifier hs-type">ChannelType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_APP&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_PUSH"><span class="hs-identifier hs-type">ChannelType_PUSH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelType_PUSH"><span id="%24mChannelType_PUSH"><span id="ChannelType_PUSH"><span class="annot"><span class="annottext">$bChannelType_PUSH :: ChannelType
+$mChannelType_PUSH :: forall r. ChannelType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.ChannelType.html#%24bChannelType_PUSH"><span class="hs-identifier hs-var hs-var hs-var">ChannelType_PUSH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType%27"><span class="hs-identifier hs-type">ChannelType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PUSH&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_SMS"><span class="hs-identifier hs-type">ChannelType_SMS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelType_SMS"><span id="%24mChannelType_SMS"><span id="ChannelType_SMS"><span class="annot"><span class="annottext">$bChannelType_SMS :: ChannelType
+$mChannelType_SMS :: forall r. ChannelType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.ChannelType.html#%24bChannelType_SMS"><span class="hs-identifier hs-var hs-var hs-var">ChannelType_SMS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType%27"><span class="hs-identifier hs-type">ChannelType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SMS&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_VOICE"><span class="hs-identifier hs-type">ChannelType_VOICE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelType_VOICE"><span id="%24mChannelType_VOICE"><span id="ChannelType_VOICE"><span class="annot"><span class="annottext">$bChannelType_VOICE :: ChannelType
+$mChannelType_VOICE :: forall r. ChannelType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.ChannelType.html#%24bChannelType_VOICE"><span class="hs-identifier hs-var hs-var hs-var">ChannelType_VOICE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType%27"><span class="hs-identifier hs-type">ChannelType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VOICE&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_ADM"><span class="hs-pragma hs-type">ChannelType_ADM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_APNS"><span class="hs-pragma hs-type">ChannelType_APNS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_APNS_SANDBOX"><span class="hs-pragma hs-type">ChannelType_APNS_SANDBOX</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_APNS_VOIP"><span class="hs-pragma hs-type">ChannelType_APNS_VOIP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_APNS_VOIP_SANDBOX"><span class="hs-pragma hs-type">ChannelType_APNS_VOIP_SANDBOX</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_BAIDU"><span class="hs-pragma hs-type">ChannelType_BAIDU</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_CUSTOM"><span class="hs-pragma hs-type">ChannelType_CUSTOM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_EMAIL"><span class="hs-pragma hs-type">ChannelType_EMAIL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_GCM"><span class="hs-pragma hs-type">ChannelType_GCM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_IN_APP"><span class="hs-pragma hs-type">ChannelType_IN_APP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_PUSH"><span class="hs-pragma hs-type">ChannelType_PUSH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_SMS"><span class="hs-pragma hs-type">ChannelType_SMS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType_VOICE"><span class="hs-pragma hs-type">ChannelType_VOICE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelType.html#ChannelType%27"><span class="hs-pragma hs-type">ChannelType'</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-126"></span></pre></body></html>

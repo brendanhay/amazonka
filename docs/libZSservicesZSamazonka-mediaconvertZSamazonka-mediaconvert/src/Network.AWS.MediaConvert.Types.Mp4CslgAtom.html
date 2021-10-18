@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.Mp4CslgAtom</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.Mp4CslgAtom</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#Mp4CslgAtom"><span class="hs-identifier">Mp4CslgAtom</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#Mp4CslgAtom_EXCLUDE"><span class="hs-identifier">Mp4CslgAtom_EXCLUDE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#Mp4CslgAtom_INCLUDE"><span class="hs-identifier">Mp4CslgAtom_INCLUDE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | When enabled, file composition times will start at zero, composition</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- times in the \'ctts\' (composition time to sample) box for B-frames will</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- be negative, and a \'cslg\' (composition shift least greatest) box will</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- be included per 14496-1 amendment 1. This improves compatibility with</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Apple players and tools.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679984414"><span id="local-6989586621679984415"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mp4CslgAtom"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#Mp4CslgAtom"><span class="hs-identifier hs-var">Mp4CslgAtom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mp4CslgAtom%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#Mp4CslgAtom%27"><span class="hs-identifier hs-var">Mp4CslgAtom'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMp4CslgAtom"><span class="annot"><span class="annottext">Mp4CslgAtom -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#fromMp4CslgAtom"><span class="hs-identifier hs-var hs-var">fromMp4CslgAtom</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679984406"><span id="local-6989586621679984408"><span id="local-6989586621679984410"><span class="annot"><span class="annottext">Int -&gt; Mp4CslgAtom -&gt; ShowS
+[Mp4CslgAtom] -&gt; ShowS
+Mp4CslgAtom -&gt; String
+(Int -&gt; Mp4CslgAtom -&gt; ShowS)
+-&gt; (Mp4CslgAtom -&gt; String)
+-&gt; ([Mp4CslgAtom] -&gt; ShowS)
+-&gt; Show Mp4CslgAtom
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Mp4CslgAtom] -&gt; ShowS
+$cshowList :: [Mp4CslgAtom] -&gt; ShowS
+show :: Mp4CslgAtom -&gt; String
+$cshow :: Mp4CslgAtom -&gt; String
+showsPrec :: Int -&gt; Mp4CslgAtom -&gt; ShowS
+$cshowsPrec :: Int -&gt; Mp4CslgAtom -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679984397"><span id="local-6989586621679984399"><span id="local-6989586621679984401"><span id="local-6989586621679984403"><span class="annot"><span class="annottext">ReadPrec [Mp4CslgAtom]
+ReadPrec Mp4CslgAtom
+Int -&gt; ReadS Mp4CslgAtom
+ReadS [Mp4CslgAtom]
+(Int -&gt; ReadS Mp4CslgAtom)
+-&gt; ReadS [Mp4CslgAtom]
+-&gt; ReadPrec Mp4CslgAtom
+-&gt; ReadPrec [Mp4CslgAtom]
+-&gt; Read Mp4CslgAtom
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Mp4CslgAtom]
+$creadListPrec :: ReadPrec [Mp4CslgAtom]
+readPrec :: ReadPrec Mp4CslgAtom
+$creadPrec :: ReadPrec Mp4CslgAtom
+readList :: ReadS [Mp4CslgAtom]
+$creadList :: ReadS [Mp4CslgAtom]
+readsPrec :: Int -&gt; ReadS Mp4CslgAtom
+$creadsPrec :: Int -&gt; ReadS Mp4CslgAtom
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679984392"><span id="local-6989586621679984394"><span class="annot"><span class="annottext">Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool
+(Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool)
+-&gt; (Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool) -&gt; Eq Mp4CslgAtom
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool
+$c/= :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool
+== :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool
+$c== :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679984376"><span id="local-6989586621679984378"><span id="local-6989586621679984380"><span id="local-6989586621679984382"><span id="local-6989586621679984384"><span id="local-6989586621679984386"><span id="local-6989586621679984388"><span class="annot"><span class="annottext">Eq Mp4CslgAtom
+Eq Mp4CslgAtom
+-&gt; (Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Ordering)
+-&gt; (Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool)
+-&gt; (Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool)
+-&gt; (Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool)
+-&gt; (Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool)
+-&gt; (Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Mp4CslgAtom)
+-&gt; (Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Mp4CslgAtom)
+-&gt; Ord Mp4CslgAtom
+Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool
+Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Ordering
+Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Mp4CslgAtom
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Mp4CslgAtom
+$cmin :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Mp4CslgAtom
+max :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Mp4CslgAtom
+$cmax :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Mp4CslgAtom
+&gt;= :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool
+$c&gt;= :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool
+&gt; :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool
+$c&gt; :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool
+&lt;= :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool
+$c&lt;= :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool
+&lt; :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool
+$c&lt; :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Bool
+compare :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Ordering
+$ccompare :: Mp4CslgAtom -&gt; Mp4CslgAtom -&gt; Ordering
+$cp1Ord :: Eq Mp4CslgAtom
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Mp4CslgAtom -&gt; Rep Mp4CslgAtom x)
+-&gt; (forall x. Rep Mp4CslgAtom x -&gt; Mp4CslgAtom)
+-&gt; Generic Mp4CslgAtom
+forall x. Rep Mp4CslgAtom x -&gt; Mp4CslgAtom
+forall x. Mp4CslgAtom -&gt; Rep Mp4CslgAtom x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Mp4CslgAtom x -&gt; Mp4CslgAtom
+$cfrom :: forall x. Mp4CslgAtom -&gt; Rep Mp4CslgAtom x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679984368"><span id="local-6989586621679984370"><span class="annot"><span class="annottext">Int -&gt; Mp4CslgAtom -&gt; Int
+Mp4CslgAtom -&gt; Int
+(Int -&gt; Mp4CslgAtom -&gt; Int)
+-&gt; (Mp4CslgAtom -&gt; Int) -&gt; Hashable Mp4CslgAtom
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Mp4CslgAtom -&gt; Int
+$chash :: Mp4CslgAtom -&gt; Int
+hashWithSalt :: Int -&gt; Mp4CslgAtom -&gt; Int
+$chashWithSalt :: Int -&gt; Mp4CslgAtom -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679984365"><span class="annot"><span class="annottext">Mp4CslgAtom -&gt; ()
+(Mp4CslgAtom -&gt; ()) -&gt; NFData Mp4CslgAtom
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Mp4CslgAtom -&gt; ()
+$crnf :: Mp4CslgAtom -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679984362"><span class="annot"><span class="annottext">Text -&gt; Either String Mp4CslgAtom
+(Text -&gt; Either String Mp4CslgAtom) -&gt; FromText Mp4CslgAtom
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Mp4CslgAtom
+$cfromText :: Text -&gt; Either String Mp4CslgAtom
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679984359"><span class="annot"><span class="annottext">Mp4CslgAtom -&gt; Text
+(Mp4CslgAtom -&gt; Text) -&gt; ToText Mp4CslgAtom
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Mp4CslgAtom -&gt; Text
+$ctoText :: Mp4CslgAtom -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679984356"><span class="annot"><span class="annottext">Mp4CslgAtom -&gt; ByteString
+(Mp4CslgAtom -&gt; ByteString) -&gt; ToByteString Mp4CslgAtom
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Mp4CslgAtom -&gt; ByteString
+$ctoBS :: Mp4CslgAtom -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679984353"><span class="annot"><span class="annottext">Mp4CslgAtom -&gt; ByteStringBuilder
+(Mp4CslgAtom -&gt; ByteStringBuilder) -&gt; ToLog Mp4CslgAtom
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Mp4CslgAtom -&gt; ByteStringBuilder
+$cbuild :: Mp4CslgAtom -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679984350"><span class="annot"><span class="annottext">HeaderName -&gt; Mp4CslgAtom -&gt; [Header]
+(HeaderName -&gt; Mp4CslgAtom -&gt; [Header]) -&gt; ToHeader Mp4CslgAtom
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Mp4CslgAtom -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Mp4CslgAtom -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679984347"><span class="annot"><span class="annottext">Mp4CslgAtom -&gt; QueryString
+(Mp4CslgAtom -&gt; QueryString) -&gt; ToQuery Mp4CslgAtom
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Mp4CslgAtom -&gt; QueryString
+$ctoQuery :: Mp4CslgAtom -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679984342"><span id="local-6989586621679984344"><span class="annot"><span class="annottext">Value -&gt; Parser [Mp4CslgAtom]
+Value -&gt; Parser Mp4CslgAtom
+(Value -&gt; Parser Mp4CslgAtom)
+-&gt; (Value -&gt; Parser [Mp4CslgAtom]) -&gt; FromJSON Mp4CslgAtom
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Mp4CslgAtom]
+$cparseJSONList :: Value -&gt; Parser [Mp4CslgAtom]
+parseJSON :: Value -&gt; Parser Mp4CslgAtom
+$cparseJSON :: Value -&gt; Parser Mp4CslgAtom
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679984337"><span id="local-6989586621679984339"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mp4CslgAtom]
+FromJSONKeyFunction Mp4CslgAtom
+FromJSONKeyFunction Mp4CslgAtom
+-&gt; FromJSONKeyFunction [Mp4CslgAtom] -&gt; FromJSONKey Mp4CslgAtom
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Mp4CslgAtom]
+$cfromJSONKeyList :: FromJSONKeyFunction [Mp4CslgAtom]
+fromJSONKey :: FromJSONKeyFunction Mp4CslgAtom
+$cfromJSONKey :: FromJSONKeyFunction Mp4CslgAtom
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679984328"><span id="local-6989586621679984330"><span id="local-6989586621679984332"><span id="local-6989586621679984334"><span class="annot"><span class="annottext">[Mp4CslgAtom] -&gt; Encoding
+[Mp4CslgAtom] -&gt; Value
+Mp4CslgAtom -&gt; Encoding
+Mp4CslgAtom -&gt; Value
+(Mp4CslgAtom -&gt; Value)
+-&gt; (Mp4CslgAtom -&gt; Encoding)
+-&gt; ([Mp4CslgAtom] -&gt; Value)
+-&gt; ([Mp4CslgAtom] -&gt; Encoding)
+-&gt; ToJSON Mp4CslgAtom
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Mp4CslgAtom] -&gt; Encoding
+$ctoEncodingList :: [Mp4CslgAtom] -&gt; Encoding
+toJSONList :: [Mp4CslgAtom] -&gt; Value
+$ctoJSONList :: [Mp4CslgAtom] -&gt; Value
+toEncoding :: Mp4CslgAtom -&gt; Encoding
+$ctoEncoding :: Mp4CslgAtom -&gt; Encoding
+toJSON :: Mp4CslgAtom -&gt; Value
+$ctoJSON :: Mp4CslgAtom -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679984323"><span id="local-6989586621679984325"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mp4CslgAtom]
+ToJSONKeyFunction Mp4CslgAtom
+ToJSONKeyFunction Mp4CslgAtom
+-&gt; ToJSONKeyFunction [Mp4CslgAtom] -&gt; ToJSONKey Mp4CslgAtom
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Mp4CslgAtom]
+$ctoJSONKeyList :: ToJSONKeyFunction [Mp4CslgAtom]
+toJSONKey :: ToJSONKeyFunction Mp4CslgAtom
+$ctoJSONKey :: ToJSONKeyFunction Mp4CslgAtom
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679984320"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mp4CslgAtom
+([Node] -&gt; Either String Mp4CslgAtom) -&gt; FromXML Mp4CslgAtom
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Mp4CslgAtom
+$cparseXML :: [Node] -&gt; Either String Mp4CslgAtom
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679984317"><span class="annot"><span class="annottext">Mp4CslgAtom -&gt; XML
+(Mp4CslgAtom -&gt; XML) -&gt; ToXML Mp4CslgAtom
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Mp4CslgAtom -&gt; XML
+$ctoXML :: Mp4CslgAtom -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#Mp4CslgAtom_EXCLUDE"><span class="hs-identifier hs-type">Mp4CslgAtom_EXCLUDE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#Mp4CslgAtom"><span class="hs-identifier hs-type">Mp4CslgAtom</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMp4CslgAtom_EXCLUDE"><span id="%24mMp4CslgAtom_EXCLUDE"><span id="Mp4CslgAtom_EXCLUDE"><span class="annot"><span class="annottext">$bMp4CslgAtom_EXCLUDE :: Mp4CslgAtom
+$mMp4CslgAtom_EXCLUDE :: forall r. Mp4CslgAtom -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#%24bMp4CslgAtom_EXCLUDE"><span class="hs-identifier hs-var hs-var hs-var">Mp4CslgAtom_EXCLUDE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#Mp4CslgAtom%27"><span class="hs-identifier hs-type">Mp4CslgAtom'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EXCLUDE&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#Mp4CslgAtom_INCLUDE"><span class="hs-identifier hs-type">Mp4CslgAtom_INCLUDE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#Mp4CslgAtom"><span class="hs-identifier hs-type">Mp4CslgAtom</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMp4CslgAtom_INCLUDE"><span id="%24mMp4CslgAtom_INCLUDE"><span id="Mp4CslgAtom_INCLUDE"><span class="annot"><span class="annottext">$bMp4CslgAtom_INCLUDE :: Mp4CslgAtom
+$mMp4CslgAtom_INCLUDE :: forall r. Mp4CslgAtom -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#%24bMp4CslgAtom_INCLUDE"><span class="hs-identifier hs-var hs-var hs-var">Mp4CslgAtom_INCLUDE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#Mp4CslgAtom%27"><span class="hs-identifier hs-type">Mp4CslgAtom'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INCLUDE&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#Mp4CslgAtom_EXCLUDE"><span class="hs-pragma hs-type">Mp4CslgAtom_EXCLUDE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#Mp4CslgAtom_INCLUDE"><span class="hs-pragma hs-type">Mp4CslgAtom_INCLUDE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#Mp4CslgAtom%27"><span class="hs-pragma hs-type">Mp4CslgAtom'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -1,0 +1,799 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Pricing.DescribeServices</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the metadata for one service or a list of the metadata for all</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- services. Use this without a service code to get the service codes for</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- all services. Use it with a service code, such as @AmazonEC2@, to get</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- information specific to that service, such as the attribute names</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- available for that service. For example, some of the attribute names</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- available for EC2 are @volumeType@, @maxIopsVolume@, @operation@,</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- @locationType@, and @instanceCapacity10xlarge@.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pricing.DescribeServices</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier">DescribeServices</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#newDescribeServices"><span class="hs-identifier">newDescribeServices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#describeServices_nextToken"><span class="hs-identifier">describeServices_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#describeServices_maxResults"><span class="hs-identifier">describeServices_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#describeServices_serviceCode"><span class="hs-identifier">describeServices_serviceCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#describeServices_formatVersion"><span class="hs-identifier">describeServices_formatVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse"><span class="hs-identifier">DescribeServicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#newDescribeServicesResponse"><span class="hs-identifier">newDescribeServicesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#describeServicesResponse_nextToken"><span class="hs-identifier">describeServicesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#describeServicesResponse_services"><span class="hs-identifier">describeServicesResponse_services</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#describeServicesResponse_formatVersion"><span class="hs-identifier">describeServicesResponse_formatVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#describeServicesResponse_httpStatus"><span class="hs-identifier">describeServicesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.html"><span class="hs-identifier">Network.AWS.Pricing.Types</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newDescribeServices' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679144523"><span id="local-6989586621679144524"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeServices"><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-var">DescribeServices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeServices%27"><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices%27"><span class="hs-identifier hs-var">DescribeServices'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token that indicates the next set of results that you</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- want to retrieve.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeServices%27"><span class="annot"><span class="annottext">DescribeServices -&gt; Maybe Text
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AnextToken%3ADescribeServices%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The maximum number of results that you want returned in the response.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeServices%27"><span class="annot"><span class="annottext">DescribeServices -&gt; Maybe Natural
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AmaxResults%3ADescribeServices%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The code for the service whose information you want to retrieve, such as</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @AmazonEC2@. You can use the @ServiceCode@ to filter the results in a</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @GetProducts@ call. To retrieve a list of all services, leave this</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- blank.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AserviceCode%3ADescribeServices%27"><span class="annot"><span class="annottext">DescribeServices -&gt; Maybe Text
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AserviceCode%3ADescribeServices%27"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The format version that you want the response to be in.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- Valid values are: @aws_v1@</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AformatVersion%3ADescribeServices%27"><span class="annot"><span class="annottext">DescribeServices -&gt; Maybe Text
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AformatVersion%3ADescribeServices%27"><span class="hs-identifier hs-var hs-var">formatVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679144514"><span id="local-6989586621679144516"><span class="annot"><span class="annottext">DescribeServices -&gt; DescribeServices -&gt; Bool
+(DescribeServices -&gt; DescribeServices -&gt; Bool)
+-&gt; (DescribeServices -&gt; DescribeServices -&gt; Bool)
+-&gt; Eq DescribeServices
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeServices -&gt; DescribeServices -&gt; Bool
+$c/= :: DescribeServices -&gt; DescribeServices -&gt; Bool
+== :: DescribeServices -&gt; DescribeServices -&gt; Bool
+$c== :: DescribeServices -&gt; DescribeServices -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144505"><span id="local-6989586621679144507"><span id="local-6989586621679144509"><span id="local-6989586621679144511"><span class="annot"><span class="annottext">ReadPrec [DescribeServices]
+ReadPrec DescribeServices
+Int -&gt; ReadS DescribeServices
+ReadS [DescribeServices]
+(Int -&gt; ReadS DescribeServices)
+-&gt; ReadS [DescribeServices]
+-&gt; ReadPrec DescribeServices
+-&gt; ReadPrec [DescribeServices]
+-&gt; Read DescribeServices
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeServices]
+$creadListPrec :: ReadPrec [DescribeServices]
+readPrec :: ReadPrec DescribeServices
+$creadPrec :: ReadPrec DescribeServices
+readList :: ReadS [DescribeServices]
+$creadList :: ReadS [DescribeServices]
+readsPrec :: Int -&gt; ReadS DescribeServices
+$creadsPrec :: Int -&gt; ReadS DescribeServices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144498"><span id="local-6989586621679144500"><span id="local-6989586621679144502"><span class="annot"><span class="annottext">Int -&gt; DescribeServices -&gt; ShowS
+[DescribeServices] -&gt; ShowS
+DescribeServices -&gt; String
+(Int -&gt; DescribeServices -&gt; ShowS)
+-&gt; (DescribeServices -&gt; String)
+-&gt; ([DescribeServices] -&gt; ShowS)
+-&gt; Show DescribeServices
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeServices] -&gt; ShowS
+$cshowList :: [DescribeServices] -&gt; ShowS
+show :: DescribeServices -&gt; String
+$cshow :: DescribeServices -&gt; String
+showsPrec :: Int -&gt; DescribeServices -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeServices -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeServices -&gt; Rep DescribeServices x)
+-&gt; (forall x. Rep DescribeServices x -&gt; DescribeServices)
+-&gt; Generic DescribeServices
+forall x. Rep DescribeServices x -&gt; DescribeServices
+forall x. DescribeServices -&gt; Rep DescribeServices x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeServices x -&gt; DescribeServices
+$cfrom :: forall x. DescribeServices -&gt; Rep DescribeServices x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Create a value of 'DescribeServices' with all optional fields omitted.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'nextToken', 'describeServices_nextToken' - The pagination token that indicates the next set of results that you</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- want to retrieve.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'maxResults', 'describeServices_maxResults' - The maximum number of results that you want returned in the response.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'serviceCode', 'describeServices_serviceCode' - The code for the service whose information you want to retrieve, such as</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- @AmazonEC2@. You can use the @ServiceCode@ to filter the results in a</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- @GetProducts@ call. To retrieve a list of all services, leave this</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- blank.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'formatVersion', 'describeServices_formatVersion' - The format version that you want the response to be in.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Valid values are: @aws_v1@</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#newDescribeServices"><span class="hs-identifier hs-type">newDescribeServices</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span><span>
+</span><span id="line-104"></span><span id="newDescribeServices"><span class="annot"><span class="annottext">newDescribeServices :: DescribeServices
+</span><a href="Network.AWS.Pricing.DescribeServices.html#newDescribeServices"><span class="hs-identifier hs-var hs-var">newDescribeServices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">DescribeServices' :: Maybe Text
+-&gt; Maybe Natural -&gt; Maybe Text -&gt; Maybe Text -&gt; DescribeServices
+</span><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices%27"><span class="hs-identifier hs-type">DescribeServices'</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeServices' :: Maybe Text
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AnextToken%3ADescribeServices%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeServices' :: Maybe Natural
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AmaxResults%3ADescribeServices%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceCode:DescribeServices' :: Maybe Text
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AserviceCode%3ADescribeServices%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:formatVersion:DescribeServices' :: Maybe Text
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AformatVersion%3ADescribeServices%27"><span class="hs-identifier hs-var">formatVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The pagination token that indicates the next set of results that you</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- want to retrieve.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#describeServices_nextToken"><span class="hs-identifier hs-type">describeServices_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="describeServices_nextToken"><span class="annot"><span class="annottext">describeServices_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeServices -&gt; f DescribeServices
+</span><a href="Network.AWS.Pricing.DescribeServices.html#describeServices_nextToken"><span class="hs-identifier hs-var hs-var">describeServices_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeServices -&gt; Maybe Text)
+-&gt; (DescribeServices -&gt; Maybe Text -&gt; DescribeServices)
+-&gt; Lens DescribeServices DescribeServices (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices%27"><span class="hs-identifier hs-type">DescribeServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144492"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeServices' :: DescribeServices -&gt; Maybe Text
+</span><a href="#local-6989586621679144492"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144492"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144491"><span class="annot"><span class="annottext">s :: DescribeServices
+</span><a href="#local-6989586621679144491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices%27"><span class="hs-identifier hs-type">DescribeServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144490"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServices
+</span><a href="#local-6989586621679144491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeServices' :: Maybe Text
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AnextToken%3ADescribeServices%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The maximum number of results that you want returned in the response.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#describeServices_maxResults"><span class="hs-identifier hs-type">describeServices_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="describeServices_maxResults"><span class="annot"><span class="annottext">describeServices_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeServices -&gt; f DescribeServices
+</span><a href="Network.AWS.Pricing.DescribeServices.html#describeServices_maxResults"><span class="hs-identifier hs-var hs-var">describeServices_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeServices -&gt; Maybe Natural)
+-&gt; (DescribeServices -&gt; Maybe Natural -&gt; DescribeServices)
+-&gt; Lens
+     DescribeServices DescribeServices (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices%27"><span class="hs-identifier hs-type">DescribeServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144489"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeServices' :: DescribeServices -&gt; Maybe Natural
+</span><a href="#local-6989586621679144489"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679144489"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144488"><span class="annot"><span class="annottext">s :: DescribeServices
+</span><a href="#local-6989586621679144488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices%27"><span class="hs-identifier hs-type">DescribeServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144487"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679144487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServices
+</span><a href="#local-6989586621679144488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeServices' :: Maybe Natural
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AmaxResults%3ADescribeServices%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679144487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The code for the service whose information you want to retrieve, such as</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- @AmazonEC2@. You can use the @ServiceCode@ to filter the results in a</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- @GetProducts@ call. To retrieve a list of all services, leave this</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- blank.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#describeServices_serviceCode"><span class="hs-identifier hs-type">describeServices_serviceCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="describeServices_serviceCode"><span class="annot"><span class="annottext">describeServices_serviceCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeServices -&gt; f DescribeServices
+</span><a href="Network.AWS.Pricing.DescribeServices.html#describeServices_serviceCode"><span class="hs-identifier hs-var hs-var">describeServices_serviceCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeServices -&gt; Maybe Text)
+-&gt; (DescribeServices -&gt; Maybe Text -&gt; DescribeServices)
+-&gt; Lens DescribeServices DescribeServices (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices%27"><span class="hs-identifier hs-type">DescribeServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144486"><span class="annot"><span class="annottext">Maybe Text
+serviceCode :: Maybe Text
+$sel:serviceCode:DescribeServices' :: DescribeServices -&gt; Maybe Text
+</span><a href="#local-6989586621679144486"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144486"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144485"><span class="annot"><span class="annottext">s :: DescribeServices
+</span><a href="#local-6989586621679144485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices%27"><span class="hs-identifier hs-type">DescribeServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144484"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServices
+</span><a href="#local-6989586621679144485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCode:DescribeServices' :: Maybe Text
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AserviceCode%3ADescribeServices%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The format version that you want the response to be in.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Valid values are: @aws_v1@</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#describeServices_formatVersion"><span class="hs-identifier hs-type">describeServices_formatVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="describeServices_formatVersion"><span class="annot"><span class="annottext">describeServices_formatVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeServices -&gt; f DescribeServices
+</span><a href="Network.AWS.Pricing.DescribeServices.html#describeServices_formatVersion"><span class="hs-identifier hs-var hs-var">describeServices_formatVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeServices -&gt; Maybe Text)
+-&gt; (DescribeServices -&gt; Maybe Text -&gt; DescribeServices)
+-&gt; Lens DescribeServices DescribeServices (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices%27"><span class="hs-identifier hs-type">DescribeServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144483"><span class="annot"><span class="annottext">Maybe Text
+formatVersion :: Maybe Text
+$sel:formatVersion:DescribeServices' :: DescribeServices -&gt; Maybe Text
+</span><a href="#local-6989586621679144483"><span class="hs-identifier hs-var hs-var">formatVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144483"><span class="hs-identifier hs-var">formatVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144482"><span class="annot"><span class="annottext">s :: DescribeServices
+</span><a href="#local-6989586621679144482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices%27"><span class="hs-identifier hs-type">DescribeServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144481"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServices
+</span><a href="#local-6989586621679144482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:formatVersion:DescribeServices' :: Maybe Text
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AformatVersion%3ADescribeServices%27"><span class="hs-identifier hs-var">formatVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679144477"><span class="annot"><span class="annottext">page :: DescribeServices
+-&gt; AWSResponse DescribeServices -&gt; Maybe DescribeServices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679144475"><span class="annot"><span class="annottext">DescribeServices
+</span><a href="#local-6989586621679144475"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679144474"><span class="annot"><span class="annottext">AWSResponse DescribeServices
+</span><a href="#local-6989586621679144474"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-137"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeServices
+DescribeServicesResponse
+</span><a href="#local-6989586621679144474"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">DescribeServicesResponse
+-&gt; Getting (First Text) DescribeServicesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeServicesResponse
+-&gt; Const (First Text) DescribeServicesResponse
+Lens' DescribeServicesResponse (Maybe Text)
+</span><a href="Network.AWS.Pricing.DescribeServices.html#describeServicesResponse_nextToken"><span class="hs-identifier hs-var">describeServicesResponse_nextToken</span></a></span><span>
+</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeServicesResponse
+ -&gt; Const (First Text) DescribeServicesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeServicesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-140"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeServices
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [PricingService] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-143"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeServices
+DescribeServicesResponse
+</span><a href="#local-6989586621679144474"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">DescribeServicesResponse
+-&gt; Getting
+     (First [PricingService]) DescribeServicesResponse [PricingService]
+-&gt; Maybe [PricingService]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [PricingService]
+ -&gt; Const (First [PricingService]) (Maybe [PricingService]))
+-&gt; DescribeServicesResponse
+-&gt; Const (First [PricingService]) DescribeServicesResponse
+Lens' DescribeServicesResponse (Maybe [PricingService])
+</span><a href="Network.AWS.Pricing.DescribeServices.html#describeServicesResponse_services"><span class="hs-identifier hs-var">describeServicesResponse_services</span></a></span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [PricingService]
+  -&gt; Const (First [PricingService]) (Maybe [PricingService]))
+ -&gt; DescribeServicesResponse
+ -&gt; Const (First [PricingService]) DescribeServicesResponse)
+-&gt; (([PricingService]
+     -&gt; Const (First [PricingService]) [PricingService])
+    -&gt; Maybe [PricingService]
+    -&gt; Const (First [PricingService]) (Maybe [PricingService]))
+-&gt; Getting
+     (First [PricingService]) DescribeServicesResponse [PricingService]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([PricingService]
+ -&gt; Const (First [PricingService]) [PricingService])
+-&gt; Maybe [PricingService]
+-&gt; Const (First [PricingService]) (Maybe [PricingService])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-146"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeServices
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">DescribeServices -&gt; Maybe DescribeServices
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeServices -&gt; Maybe DescribeServices)
+-&gt; DescribeServices -&gt; Maybe DescribeServices
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">DescribeServices
+</span><a href="#local-6989586621679144475"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">DescribeServices
+-&gt; (DescribeServices -&gt; DescribeServices) -&gt; DescribeServices
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeServices -&gt; Identity DescribeServices
+Lens DescribeServices DescribeServices (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.Pricing.DescribeServices.html#describeServices_nextToken"><span class="hs-identifier hs-var">describeServices_nextToken</span></a></span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeServices -&gt; Identity DescribeServices)
+-&gt; Maybe Text -&gt; DescribeServices -&gt; DescribeServices
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeServices
+DescribeServicesResponse
+</span><a href="#local-6989586621679144474"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">DescribeServicesResponse
+-&gt; Getting (First Text) DescribeServicesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeServicesResponse
+-&gt; Const (First Text) DescribeServicesResponse
+Lens' DescribeServicesResponse (Maybe Text)
+</span><a href="Network.AWS.Pricing.DescribeServices.html#describeServicesResponse_nextToken"><span class="hs-identifier hs-var">describeServicesResponse_nextToken</span></a></span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeServicesResponse
+ -&gt; Const (First Text) DescribeServicesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeServicesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-158"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse"><span class="hs-identifier hs-type">DescribeServicesResponse</span></a></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679144464"><span class="annot"><span class="annottext">request :: DescribeServices -&gt; Request DescribeServices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeServices -&gt; Request DescribeServices
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Pricing.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679144460"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeServices
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeServices)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeServices))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeServices
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeServices)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679144457"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144457"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679144456"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679144456"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679144455"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679144455"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [PricingService]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeServicesResponse
+</span><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse%27"><span class="hs-identifier hs-var">DescribeServicesResponse'</span></a></span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [PricingService]
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DescribeServicesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [PricingService]
+      -&gt; Maybe Text -&gt; Int -&gt; DescribeServicesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679144455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [PricingService]
+   -&gt; Maybe Text -&gt; Int -&gt; DescribeServicesResponse)
+-&gt; Either String (Maybe [PricingService])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeServicesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679144455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PricingService]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Services&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PricingService]))
+-&gt; Maybe [PricingService] -&gt; Either String (Maybe [PricingService])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PricingService]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeServicesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeServicesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679144455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FormatVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeServicesResponse)
+-&gt; Either String Int -&gt; Either String DescribeServicesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144457"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144446"><span id="local-6989586621679144448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span></span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679144439"><span class="annot"><span class="annottext">toHeaders :: DescribeServices -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeServices -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-179"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSPriceListService.DescribeServices&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-181"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-182"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-185"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-186"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144429"><span id="local-6989586621679144431"><span id="local-6989586621679144433"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679144427"><span class="annot"><span class="annottext">toJSON :: DescribeServices -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices%27"><span class="hs-identifier hs-type">DescribeServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144422"><span id="local-6989586621679144423"><span id="local-6989586621679144424"><span id="local-6989586621679144425"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+formatVersion :: Maybe Text
+serviceCode :: Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:formatVersion:DescribeServices' :: DescribeServices -&gt; Maybe Text
+$sel:serviceCode:DescribeServices' :: DescribeServices -&gt; Maybe Text
+$sel:maxResults:DescribeServices' :: DescribeServices -&gt; Maybe Natural
+$sel:nextToken:DescribeServices' :: DescribeServices -&gt; Maybe Text
+</span><a href="#local-6989586621679144422"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-194"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144425"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679144424"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144423"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FormatVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144422"><span class="hs-identifier hs-var">formatVersion</span></a></span><span>
+</span><span id="line-198"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679144416"><span class="annot"><span class="annottext">toPath :: DescribeServices -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeServices -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679144412"><span class="annot"><span class="annottext">toQuery :: DescribeServices -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeServices -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | /See:/ 'newDescribeServicesResponse' smart constructor.</span><span>
+</span><span id="line-208"></span><span id="local-6989586621679144409"><span id="local-6989586621679144410"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeServicesResponse"><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse"><span class="hs-identifier hs-var">DescribeServicesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeServicesResponse%27"><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse%27"><span class="hs-identifier hs-var">DescribeServicesResponse'</span></a></span></span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token for the next set of retreivable results.</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeServicesResponse%27"><span class="annot"><span class="annottext">DescribeServicesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AnextToken%3ADescribeServicesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- | The service metadata for the service or services in the response.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3Aservices%3ADescribeServicesResponse%27"><span class="annot"><span class="annottext">DescribeServicesResponse -&gt; Maybe [PricingService]
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3Aservices%3ADescribeServicesResponse%27"><span class="hs-identifier hs-var hs-var">services</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService"><span class="hs-identifier hs-type">PricingService</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | The format version of the response. For example, @aws_v1@.</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3AformatVersion%3ADescribeServicesResponse%27"><span class="annot"><span class="annottext">DescribeServicesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AformatVersion%3ADescribeServicesResponse%27"><span class="hs-identifier hs-var hs-var">formatVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeServicesResponse%27"><span class="annot"><span class="annottext">DescribeServicesResponse -&gt; Int
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AhttpStatus%3ADescribeServicesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679144401"><span id="local-6989586621679144403"><span class="annot"><span class="annottext">DescribeServicesResponse -&gt; DescribeServicesResponse -&gt; Bool
+(DescribeServicesResponse -&gt; DescribeServicesResponse -&gt; Bool)
+-&gt; (DescribeServicesResponse -&gt; DescribeServicesResponse -&gt; Bool)
+-&gt; Eq DescribeServicesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeServicesResponse -&gt; DescribeServicesResponse -&gt; Bool
+$c/= :: DescribeServicesResponse -&gt; DescribeServicesResponse -&gt; Bool
+== :: DescribeServicesResponse -&gt; DescribeServicesResponse -&gt; Bool
+$c== :: DescribeServicesResponse -&gt; DescribeServicesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144393"><span id="local-6989586621679144395"><span id="local-6989586621679144397"><span id="local-6989586621679144399"><span class="annot"><span class="annottext">ReadPrec [DescribeServicesResponse]
+ReadPrec DescribeServicesResponse
+Int -&gt; ReadS DescribeServicesResponse
+ReadS [DescribeServicesResponse]
+(Int -&gt; ReadS DescribeServicesResponse)
+-&gt; ReadS [DescribeServicesResponse]
+-&gt; ReadPrec DescribeServicesResponse
+-&gt; ReadPrec [DescribeServicesResponse]
+-&gt; Read DescribeServicesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeServicesResponse]
+$creadListPrec :: ReadPrec [DescribeServicesResponse]
+readPrec :: ReadPrec DescribeServicesResponse
+$creadPrec :: ReadPrec DescribeServicesResponse
+readList :: ReadS [DescribeServicesResponse]
+$creadList :: ReadS [DescribeServicesResponse]
+readsPrec :: Int -&gt; ReadS DescribeServicesResponse
+$creadsPrec :: Int -&gt; ReadS DescribeServicesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144387"><span id="local-6989586621679144389"><span id="local-6989586621679144391"><span class="annot"><span class="annottext">Int -&gt; DescribeServicesResponse -&gt; ShowS
+[DescribeServicesResponse] -&gt; ShowS
+DescribeServicesResponse -&gt; String
+(Int -&gt; DescribeServicesResponse -&gt; ShowS)
+-&gt; (DescribeServicesResponse -&gt; String)
+-&gt; ([DescribeServicesResponse] -&gt; ShowS)
+-&gt; Show DescribeServicesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeServicesResponse] -&gt; ShowS
+$cshowList :: [DescribeServicesResponse] -&gt; ShowS
+show :: DescribeServicesResponse -&gt; String
+$cshow :: DescribeServicesResponse -&gt; String
+showsPrec :: Int -&gt; DescribeServicesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeServicesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeServicesResponse -&gt; Rep DescribeServicesResponse x)
+-&gt; (forall x.
+    Rep DescribeServicesResponse x -&gt; DescribeServicesResponse)
+-&gt; Generic DescribeServicesResponse
+forall x.
+Rep DescribeServicesResponse x -&gt; DescribeServicesResponse
+forall x.
+DescribeServicesResponse -&gt; Rep DescribeServicesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeServicesResponse x -&gt; DescribeServicesResponse
+$cfrom :: forall x.
+DescribeServicesResponse -&gt; Rep DescribeServicesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- Create a value of 'DescribeServicesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'nextToken', 'describeServicesResponse_nextToken' - The pagination token for the next set of retreivable results.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'services', 'describeServicesResponse_services' - The service metadata for the service or services in the response.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'formatVersion', 'describeServicesResponse_formatVersion' - The format version of the response. For example, @aws_v1@.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'httpStatus', 'describeServicesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#newDescribeServicesResponse"><span class="hs-identifier hs-type">newDescribeServicesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-236"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-237"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse"><span class="hs-identifier hs-type">DescribeServicesResponse</span></a></span><span>
+</span><span id="line-239"></span><span id="newDescribeServicesResponse"><span class="annot"><span class="annottext">newDescribeServicesResponse :: Int -&gt; DescribeServicesResponse
+</span><a href="Network.AWS.Pricing.DescribeServices.html#newDescribeServicesResponse"><span class="hs-identifier hs-var hs-var">newDescribeServicesResponse</span></a></span></span><span> </span><span id="local-6989586621679144384"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144384"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><span class="annottext">DescribeServicesResponse' :: Maybe Text
+-&gt; Maybe [PricingService]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeServicesResponse
+</span><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse%27"><span class="hs-identifier hs-type">DescribeServicesResponse'</span></a></span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeServicesResponse' :: Maybe Text
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AnextToken%3ADescribeServicesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:services:DescribeServicesResponse' :: Maybe [PricingService]
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3Aservices%3ADescribeServicesResponse%27"><span class="hs-identifier hs-var">services</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PricingService]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:formatVersion:DescribeServicesResponse' :: Maybe Text
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AformatVersion%3ADescribeServicesResponse%27"><span class="hs-identifier hs-var">formatVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeServicesResponse' :: Int
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AhttpStatus%3ADescribeServicesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144384"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The pagination token for the next set of retreivable results.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#describeServicesResponse_nextToken"><span class="hs-identifier hs-type">describeServicesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse"><span class="hs-identifier hs-type">DescribeServicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="describeServicesResponse_nextToken"><span class="annot"><span class="annottext">describeServicesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeServicesResponse -&gt; f DescribeServicesResponse
+</span><a href="Network.AWS.Pricing.DescribeServices.html#describeServicesResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeServicesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeServicesResponse -&gt; Maybe Text)
+-&gt; (DescribeServicesResponse
+    -&gt; Maybe Text -&gt; DescribeServicesResponse)
+-&gt; Lens' DescribeServicesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse%27"><span class="hs-identifier hs-type">DescribeServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144383"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeServicesResponse' :: DescribeServicesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679144383"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144383"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144382"><span class="annot"><span class="annottext">s :: DescribeServicesResponse
+</span><a href="#local-6989586621679144382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse%27"><span class="hs-identifier hs-type">DescribeServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144381"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServicesResponse
+</span><a href="#local-6989586621679144382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeServicesResponse' :: Maybe Text
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AnextToken%3ADescribeServicesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse"><span class="hs-identifier hs-type">DescribeServicesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The service metadata for the service or services in the response.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#describeServicesResponse_services"><span class="hs-identifier hs-type">describeServicesResponse_services</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse"><span class="hs-identifier hs-type">DescribeServicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService"><span class="hs-identifier hs-type">PricingService</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="describeServicesResponse_services"><span class="annot"><span class="annottext">describeServicesResponse_services :: (Maybe [PricingService] -&gt; f (Maybe [PricingService]))
+-&gt; DescribeServicesResponse -&gt; f DescribeServicesResponse
+</span><a href="Network.AWS.Pricing.DescribeServices.html#describeServicesResponse_services"><span class="hs-identifier hs-var hs-var">describeServicesResponse_services</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeServicesResponse -&gt; Maybe [PricingService])
+-&gt; (DescribeServicesResponse
+    -&gt; Maybe [PricingService] -&gt; DescribeServicesResponse)
+-&gt; Lens' DescribeServicesResponse (Maybe [PricingService])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse%27"><span class="hs-identifier hs-type">DescribeServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144380"><span class="annot"><span class="annottext">Maybe [PricingService]
+services :: Maybe [PricingService]
+$sel:services:DescribeServicesResponse' :: DescribeServicesResponse -&gt; Maybe [PricingService]
+</span><a href="#local-6989586621679144380"><span class="hs-identifier hs-var hs-var">services</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PricingService]
+</span><a href="#local-6989586621679144380"><span class="hs-identifier hs-var">services</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144379"><span class="annot"><span class="annottext">s :: DescribeServicesResponse
+</span><a href="#local-6989586621679144379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse%27"><span class="hs-identifier hs-type">DescribeServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144378"><span class="annot"><span class="annottext">Maybe [PricingService]
+</span><a href="#local-6989586621679144378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServicesResponse
+</span><a href="#local-6989586621679144379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:services:DescribeServicesResponse' :: Maybe [PricingService]
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3Aservices%3ADescribeServicesResponse%27"><span class="hs-identifier hs-var">services</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PricingService]
+</span><a href="#local-6989586621679144378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse"><span class="hs-identifier hs-type">DescribeServicesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PricingService] -&gt; f (Maybe [PricingService]))
+ -&gt; DescribeServicesResponse -&gt; f DescribeServicesResponse)
+-&gt; ((Maybe [PricingService] -&gt; f (Maybe [PricingService]))
+    -&gt; Maybe [PricingService] -&gt; f (Maybe [PricingService]))
+-&gt; (Maybe [PricingService] -&gt; f (Maybe [PricingService]))
+-&gt; DescribeServicesResponse
+-&gt; f DescribeServicesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PricingService] [PricingService] [PricingService] [PricingService]
+-&gt; Iso
+     (Maybe [PricingService])
+     (Maybe [PricingService])
+     (Maybe [PricingService])
+     (Maybe [PricingService])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PricingService] [PricingService] [PricingService] [PricingService]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The format version of the response. For example, @aws_v1@.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#describeServicesResponse_formatVersion"><span class="hs-identifier hs-type">describeServicesResponse_formatVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse"><span class="hs-identifier hs-type">DescribeServicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="describeServicesResponse_formatVersion"><span class="annot"><span class="annottext">describeServicesResponse_formatVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeServicesResponse -&gt; f DescribeServicesResponse
+</span><a href="Network.AWS.Pricing.DescribeServices.html#describeServicesResponse_formatVersion"><span class="hs-identifier hs-var hs-var">describeServicesResponse_formatVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeServicesResponse -&gt; Maybe Text)
+-&gt; (DescribeServicesResponse
+    -&gt; Maybe Text -&gt; DescribeServicesResponse)
+-&gt; Lens' DescribeServicesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse%27"><span class="hs-identifier hs-type">DescribeServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144375"><span class="annot"><span class="annottext">Maybe Text
+formatVersion :: Maybe Text
+$sel:formatVersion:DescribeServicesResponse' :: DescribeServicesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679144375"><span class="hs-identifier hs-var hs-var">formatVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144375"><span class="hs-identifier hs-var">formatVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144374"><span class="annot"><span class="annottext">s :: DescribeServicesResponse
+</span><a href="#local-6989586621679144374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse%27"><span class="hs-identifier hs-type">DescribeServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144373"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServicesResponse
+</span><a href="#local-6989586621679144374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:formatVersion:DescribeServicesResponse' :: Maybe Text
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AformatVersion%3ADescribeServicesResponse%27"><span class="hs-identifier hs-var">formatVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse"><span class="hs-identifier hs-type">DescribeServicesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#describeServicesResponse_httpStatus"><span class="hs-identifier hs-type">describeServicesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse"><span class="hs-identifier hs-type">DescribeServicesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-262"></span><span id="describeServicesResponse_httpStatus"><span class="annot"><span class="annottext">describeServicesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeServicesResponse -&gt; f DescribeServicesResponse
+</span><a href="Network.AWS.Pricing.DescribeServices.html#describeServicesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeServicesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeServicesResponse -&gt; Int)
+-&gt; (DescribeServicesResponse -&gt; Int -&gt; DescribeServicesResponse)
+-&gt; Lens DescribeServicesResponse DescribeServicesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse%27"><span class="hs-identifier hs-type">DescribeServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144372"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeServicesResponse' :: DescribeServicesResponse -&gt; Int
+</span><a href="#local-6989586621679144372"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144372"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144371"><span class="annot"><span class="annottext">s :: DescribeServicesResponse
+</span><a href="#local-6989586621679144371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse%27"><span class="hs-identifier hs-type">DescribeServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144370"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServicesResponse
+</span><a href="#local-6989586621679144371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeServicesResponse' :: Int
+</span><a href="Network.AWS.Pricing.DescribeServices.html#%24sel%3AhttpStatus%3ADescribeServicesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse"><span class="hs-identifier hs-type">DescribeServicesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144368"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.DescribeServices.html#DescribeServicesResponse"><span class="hs-identifier hs-type">DescribeServicesResponse</span></a></span></span><span>
+</span><span id="line-265"></span></pre></body></html>

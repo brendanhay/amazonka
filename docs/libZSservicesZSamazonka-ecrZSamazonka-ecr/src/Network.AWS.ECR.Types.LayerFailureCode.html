@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ECR.Types.LayerFailureCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ECR.Types.LayerFailureCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LayerFailureCode.html#LayerFailureCode"><span class="hs-identifier">LayerFailureCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ECR.Types.LayerFailureCode.html#LayerFailureCode_InvalidLayerDigest"><span class="hs-identifier">LayerFailureCode_InvalidLayerDigest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ECR.Types.LayerFailureCode.html#LayerFailureCode_MissingLayerDigest"><span class="hs-identifier">LayerFailureCode_MissingLayerDigest</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679233346"><span id="local-6989586621679233347"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LayerFailureCode"><span class="annot"><a href="Network.AWS.ECR.Types.LayerFailureCode.html#LayerFailureCode"><span class="hs-identifier hs-var">LayerFailureCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LayerFailureCode%27"><span class="annot"><a href="Network.AWS.ECR.Types.LayerFailureCode.html#LayerFailureCode%27"><span class="hs-identifier hs-var">LayerFailureCode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLayerFailureCode"><span class="annot"><span class="annottext">LayerFailureCode -&gt; Text
+</span><a href="Network.AWS.ECR.Types.LayerFailureCode.html#fromLayerFailureCode"><span class="hs-identifier hs-var hs-var">fromLayerFailureCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679233338"><span id="local-6989586621679233340"><span id="local-6989586621679233342"><span class="annot"><span class="annottext">Int -&gt; LayerFailureCode -&gt; ShowS
+[LayerFailureCode] -&gt; ShowS
+LayerFailureCode -&gt; String
+(Int -&gt; LayerFailureCode -&gt; ShowS)
+-&gt; (LayerFailureCode -&gt; String)
+-&gt; ([LayerFailureCode] -&gt; ShowS)
+-&gt; Show LayerFailureCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LayerFailureCode] -&gt; ShowS
+$cshowList :: [LayerFailureCode] -&gt; ShowS
+show :: LayerFailureCode -&gt; String
+$cshow :: LayerFailureCode -&gt; String
+showsPrec :: Int -&gt; LayerFailureCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; LayerFailureCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679233329"><span id="local-6989586621679233331"><span id="local-6989586621679233333"><span id="local-6989586621679233335"><span class="annot"><span class="annottext">ReadPrec [LayerFailureCode]
+ReadPrec LayerFailureCode
+Int -&gt; ReadS LayerFailureCode
+ReadS [LayerFailureCode]
+(Int -&gt; ReadS LayerFailureCode)
+-&gt; ReadS [LayerFailureCode]
+-&gt; ReadPrec LayerFailureCode
+-&gt; ReadPrec [LayerFailureCode]
+-&gt; Read LayerFailureCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LayerFailureCode]
+$creadListPrec :: ReadPrec [LayerFailureCode]
+readPrec :: ReadPrec LayerFailureCode
+$creadPrec :: ReadPrec LayerFailureCode
+readList :: ReadS [LayerFailureCode]
+$creadList :: ReadS [LayerFailureCode]
+readsPrec :: Int -&gt; ReadS LayerFailureCode
+$creadsPrec :: Int -&gt; ReadS LayerFailureCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679233324"><span id="local-6989586621679233326"><span class="annot"><span class="annottext">LayerFailureCode -&gt; LayerFailureCode -&gt; Bool
+(LayerFailureCode -&gt; LayerFailureCode -&gt; Bool)
+-&gt; (LayerFailureCode -&gt; LayerFailureCode -&gt; Bool)
+-&gt; Eq LayerFailureCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LayerFailureCode -&gt; LayerFailureCode -&gt; Bool
+$c/= :: LayerFailureCode -&gt; LayerFailureCode -&gt; Bool
+== :: LayerFailureCode -&gt; LayerFailureCode -&gt; Bool
+$c== :: LayerFailureCode -&gt; LayerFailureCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679233308"><span id="local-6989586621679233310"><span id="local-6989586621679233312"><span id="local-6989586621679233314"><span id="local-6989586621679233316"><span id="local-6989586621679233318"><span id="local-6989586621679233320"><span class="annot"><span class="annottext">Eq LayerFailureCode
+Eq LayerFailureCode
+-&gt; (LayerFailureCode -&gt; LayerFailureCode -&gt; Ordering)
+-&gt; (LayerFailureCode -&gt; LayerFailureCode -&gt; Bool)
+-&gt; (LayerFailureCode -&gt; LayerFailureCode -&gt; Bool)
+-&gt; (LayerFailureCode -&gt; LayerFailureCode -&gt; Bool)
+-&gt; (LayerFailureCode -&gt; LayerFailureCode -&gt; Bool)
+-&gt; (LayerFailureCode -&gt; LayerFailureCode -&gt; LayerFailureCode)
+-&gt; (LayerFailureCode -&gt; LayerFailureCode -&gt; LayerFailureCode)
+-&gt; Ord LayerFailureCode
+LayerFailureCode -&gt; LayerFailureCode -&gt; Bool
+LayerFailureCode -&gt; LayerFailureCode -&gt; Ordering
+LayerFailureCode -&gt; LayerFailureCode -&gt; LayerFailureCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LayerFailureCode -&gt; LayerFailureCode -&gt; LayerFailureCode
+$cmin :: LayerFailureCode -&gt; LayerFailureCode -&gt; LayerFailureCode
+max :: LayerFailureCode -&gt; LayerFailureCode -&gt; LayerFailureCode
+$cmax :: LayerFailureCode -&gt; LayerFailureCode -&gt; LayerFailureCode
+&gt;= :: LayerFailureCode -&gt; LayerFailureCode -&gt; Bool
+$c&gt;= :: LayerFailureCode -&gt; LayerFailureCode -&gt; Bool
+&gt; :: LayerFailureCode -&gt; LayerFailureCode -&gt; Bool
+$c&gt; :: LayerFailureCode -&gt; LayerFailureCode -&gt; Bool
+&lt;= :: LayerFailureCode -&gt; LayerFailureCode -&gt; Bool
+$c&lt;= :: LayerFailureCode -&gt; LayerFailureCode -&gt; Bool
+&lt; :: LayerFailureCode -&gt; LayerFailureCode -&gt; Bool
+$c&lt; :: LayerFailureCode -&gt; LayerFailureCode -&gt; Bool
+compare :: LayerFailureCode -&gt; LayerFailureCode -&gt; Ordering
+$ccompare :: LayerFailureCode -&gt; LayerFailureCode -&gt; Ordering
+$cp1Ord :: Eq LayerFailureCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. LayerFailureCode -&gt; Rep LayerFailureCode x)
+-&gt; (forall x. Rep LayerFailureCode x -&gt; LayerFailureCode)
+-&gt; Generic LayerFailureCode
+forall x. Rep LayerFailureCode x -&gt; LayerFailureCode
+forall x. LayerFailureCode -&gt; Rep LayerFailureCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LayerFailureCode x -&gt; LayerFailureCode
+$cfrom :: forall x. LayerFailureCode -&gt; Rep LayerFailureCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679233300"><span id="local-6989586621679233302"><span class="annot"><span class="annottext">Int -&gt; LayerFailureCode -&gt; Int
+LayerFailureCode -&gt; Int
+(Int -&gt; LayerFailureCode -&gt; Int)
+-&gt; (LayerFailureCode -&gt; Int) -&gt; Hashable LayerFailureCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LayerFailureCode -&gt; Int
+$chash :: LayerFailureCode -&gt; Int
+hashWithSalt :: Int -&gt; LayerFailureCode -&gt; Int
+$chashWithSalt :: Int -&gt; LayerFailureCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679233297"><span class="annot"><span class="annottext">LayerFailureCode -&gt; ()
+(LayerFailureCode -&gt; ()) -&gt; NFData LayerFailureCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LayerFailureCode -&gt; ()
+$crnf :: LayerFailureCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679233294"><span class="annot"><span class="annottext">Text -&gt; Either String LayerFailureCode
+(Text -&gt; Either String LayerFailureCode)
+-&gt; FromText LayerFailureCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LayerFailureCode
+$cfromText :: Text -&gt; Either String LayerFailureCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679233291"><span class="annot"><span class="annottext">LayerFailureCode -&gt; Text
+(LayerFailureCode -&gt; Text) -&gt; ToText LayerFailureCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LayerFailureCode -&gt; Text
+$ctoText :: LayerFailureCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679233288"><span class="annot"><span class="annottext">LayerFailureCode -&gt; ByteString
+(LayerFailureCode -&gt; ByteString) -&gt; ToByteString LayerFailureCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LayerFailureCode -&gt; ByteString
+$ctoBS :: LayerFailureCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679233285"><span class="annot"><span class="annottext">LayerFailureCode -&gt; ByteStringBuilder
+(LayerFailureCode -&gt; ByteStringBuilder) -&gt; ToLog LayerFailureCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LayerFailureCode -&gt; ByteStringBuilder
+$cbuild :: LayerFailureCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679233282"><span class="annot"><span class="annottext">HeaderName -&gt; LayerFailureCode -&gt; [Header]
+(HeaderName -&gt; LayerFailureCode -&gt; [Header])
+-&gt; ToHeader LayerFailureCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LayerFailureCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LayerFailureCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679233279"><span class="annot"><span class="annottext">LayerFailureCode -&gt; QueryString
+(LayerFailureCode -&gt; QueryString) -&gt; ToQuery LayerFailureCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LayerFailureCode -&gt; QueryString
+$ctoQuery :: LayerFailureCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679233274"><span id="local-6989586621679233276"><span class="annot"><span class="annottext">Value -&gt; Parser [LayerFailureCode]
+Value -&gt; Parser LayerFailureCode
+(Value -&gt; Parser LayerFailureCode)
+-&gt; (Value -&gt; Parser [LayerFailureCode])
+-&gt; FromJSON LayerFailureCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LayerFailureCode]
+$cparseJSONList :: Value -&gt; Parser [LayerFailureCode]
+parseJSON :: Value -&gt; Parser LayerFailureCode
+$cparseJSON :: Value -&gt; Parser LayerFailureCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679233269"><span id="local-6989586621679233271"><span class="annot"><span class="annottext">FromJSONKeyFunction [LayerFailureCode]
+FromJSONKeyFunction LayerFailureCode
+FromJSONKeyFunction LayerFailureCode
+-&gt; FromJSONKeyFunction [LayerFailureCode]
+-&gt; FromJSONKey LayerFailureCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LayerFailureCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [LayerFailureCode]
+fromJSONKey :: FromJSONKeyFunction LayerFailureCode
+$cfromJSONKey :: FromJSONKeyFunction LayerFailureCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679233260"><span id="local-6989586621679233262"><span id="local-6989586621679233264"><span id="local-6989586621679233266"><span class="annot"><span class="annottext">[LayerFailureCode] -&gt; Encoding
+[LayerFailureCode] -&gt; Value
+LayerFailureCode -&gt; Encoding
+LayerFailureCode -&gt; Value
+(LayerFailureCode -&gt; Value)
+-&gt; (LayerFailureCode -&gt; Encoding)
+-&gt; ([LayerFailureCode] -&gt; Value)
+-&gt; ([LayerFailureCode] -&gt; Encoding)
+-&gt; ToJSON LayerFailureCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LayerFailureCode] -&gt; Encoding
+$ctoEncodingList :: [LayerFailureCode] -&gt; Encoding
+toJSONList :: [LayerFailureCode] -&gt; Value
+$ctoJSONList :: [LayerFailureCode] -&gt; Value
+toEncoding :: LayerFailureCode -&gt; Encoding
+$ctoEncoding :: LayerFailureCode -&gt; Encoding
+toJSON :: LayerFailureCode -&gt; Value
+$ctoJSON :: LayerFailureCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679233255"><span id="local-6989586621679233257"><span class="annot"><span class="annottext">ToJSONKeyFunction [LayerFailureCode]
+ToJSONKeyFunction LayerFailureCode
+ToJSONKeyFunction LayerFailureCode
+-&gt; ToJSONKeyFunction [LayerFailureCode]
+-&gt; ToJSONKey LayerFailureCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LayerFailureCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [LayerFailureCode]
+toJSONKey :: ToJSONKeyFunction LayerFailureCode
+$ctoJSONKey :: ToJSONKeyFunction LayerFailureCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679233252"><span class="annot"><span class="annottext">[Node] -&gt; Either String LayerFailureCode
+([Node] -&gt; Either String LayerFailureCode)
+-&gt; FromXML LayerFailureCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LayerFailureCode
+$cparseXML :: [Node] -&gt; Either String LayerFailureCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679233249"><span class="annot"><span class="annottext">LayerFailureCode -&gt; XML
+(LayerFailureCode -&gt; XML) -&gt; ToXML LayerFailureCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LayerFailureCode -&gt; XML
+$ctoXML :: LayerFailureCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LayerFailureCode.html#LayerFailureCode_InvalidLayerDigest"><span class="hs-identifier hs-type">LayerFailureCode_InvalidLayerDigest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LayerFailureCode.html#LayerFailureCode"><span class="hs-identifier hs-type">LayerFailureCode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLayerFailureCode_InvalidLayerDigest"><span id="%24mLayerFailureCode_InvalidLayerDigest"><span id="LayerFailureCode_InvalidLayerDigest"><span class="annot"><span class="annottext">$bLayerFailureCode_InvalidLayerDigest :: LayerFailureCode
+$mLayerFailureCode_InvalidLayerDigest :: forall r. LayerFailureCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECR.Types.LayerFailureCode.html#%24bLayerFailureCode_InvalidLayerDigest"><span class="hs-identifier hs-var hs-var hs-var">LayerFailureCode_InvalidLayerDigest</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LayerFailureCode.html#LayerFailureCode%27"><span class="hs-identifier hs-type">LayerFailureCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InvalidLayerDigest&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LayerFailureCode.html#LayerFailureCode_MissingLayerDigest"><span class="hs-identifier hs-type">LayerFailureCode_MissingLayerDigest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LayerFailureCode.html#LayerFailureCode"><span class="hs-identifier hs-type">LayerFailureCode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLayerFailureCode_MissingLayerDigest"><span id="%24mLayerFailureCode_MissingLayerDigest"><span id="LayerFailureCode_MissingLayerDigest"><span class="annot"><span class="annottext">$bLayerFailureCode_MissingLayerDigest :: LayerFailureCode
+$mLayerFailureCode_MissingLayerDigest :: forall r. LayerFailureCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECR.Types.LayerFailureCode.html#%24bLayerFailureCode_MissingLayerDigest"><span class="hs-identifier hs-var hs-var hs-var">LayerFailureCode_MissingLayerDigest</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.LayerFailureCode.html#LayerFailureCode%27"><span class="hs-identifier hs-type">LayerFailureCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MissingLayerDigest&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.LayerFailureCode.html#LayerFailureCode_InvalidLayerDigest"><span class="hs-pragma hs-type">LayerFailureCode_InvalidLayerDigest</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.LayerFailureCode.html#LayerFailureCode_MissingLayerDigest"><span class="hs-pragma hs-type">LayerFailureCode_MissingLayerDigest</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.LayerFailureCode.html#LayerFailureCode%27"><span class="hs-pragma hs-type">LayerFailureCode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

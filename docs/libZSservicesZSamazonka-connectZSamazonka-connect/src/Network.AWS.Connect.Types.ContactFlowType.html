@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Connect.Types.ContactFlowType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Connect.Types.ContactFlowType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType"><span class="hs-identifier">ContactFlowType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_AGENT_HOLD"><span class="hs-identifier">ContactFlowType_AGENT_HOLD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_AGENT_TRANSFER"><span class="hs-identifier">ContactFlowType_AGENT_TRANSFER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_AGENT_WHISPER"><span class="hs-identifier">ContactFlowType_AGENT_WHISPER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_CONTACT_FLOW"><span class="hs-identifier">ContactFlowType_CONTACT_FLOW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_CUSTOMER_HOLD"><span class="hs-identifier">ContactFlowType_CUSTOMER_HOLD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_CUSTOMER_QUEUE"><span class="hs-identifier">ContactFlowType_CUSTOMER_QUEUE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_CUSTOMER_WHISPER"><span class="hs-identifier">ContactFlowType_CUSTOMER_WHISPER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_OUTBOUND_WHISPER"><span class="hs-identifier">ContactFlowType_OUTBOUND_WHISPER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_QUEUE_TRANSFER"><span class="hs-identifier">ContactFlowType_QUEUE_TRANSFER</span></a></span><span>
+</span><span id="line-32"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679394790"><span id="local-6989586621679394791"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContactFlowType"><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType"><span class="hs-identifier hs-var">ContactFlowType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContactFlowType%27"><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType%27"><span class="hs-identifier hs-var">ContactFlowType'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContactFlowType"><span class="annot"><span class="annottext">ContactFlowType -&gt; Text
+</span><a href="Network.AWS.Connect.Types.ContactFlowType.html#fromContactFlowType"><span class="hs-identifier hs-var hs-var">fromContactFlowType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679394782"><span id="local-6989586621679394784"><span id="local-6989586621679394786"><span class="annot"><span class="annottext">Int -&gt; ContactFlowType -&gt; ShowS
+[ContactFlowType] -&gt; ShowS
+ContactFlowType -&gt; String
+(Int -&gt; ContactFlowType -&gt; ShowS)
+-&gt; (ContactFlowType -&gt; String)
+-&gt; ([ContactFlowType] -&gt; ShowS)
+-&gt; Show ContactFlowType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContactFlowType] -&gt; ShowS
+$cshowList :: [ContactFlowType] -&gt; ShowS
+show :: ContactFlowType -&gt; String
+$cshow :: ContactFlowType -&gt; String
+showsPrec :: Int -&gt; ContactFlowType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContactFlowType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679394773"><span id="local-6989586621679394775"><span id="local-6989586621679394777"><span id="local-6989586621679394779"><span class="annot"><span class="annottext">ReadPrec [ContactFlowType]
+ReadPrec ContactFlowType
+Int -&gt; ReadS ContactFlowType
+ReadS [ContactFlowType]
+(Int -&gt; ReadS ContactFlowType)
+-&gt; ReadS [ContactFlowType]
+-&gt; ReadPrec ContactFlowType
+-&gt; ReadPrec [ContactFlowType]
+-&gt; Read ContactFlowType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContactFlowType]
+$creadListPrec :: ReadPrec [ContactFlowType]
+readPrec :: ReadPrec ContactFlowType
+$creadPrec :: ReadPrec ContactFlowType
+readList :: ReadS [ContactFlowType]
+$creadList :: ReadS [ContactFlowType]
+readsPrec :: Int -&gt; ReadS ContactFlowType
+$creadsPrec :: Int -&gt; ReadS ContactFlowType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679394768"><span id="local-6989586621679394770"><span class="annot"><span class="annottext">ContactFlowType -&gt; ContactFlowType -&gt; Bool
+(ContactFlowType -&gt; ContactFlowType -&gt; Bool)
+-&gt; (ContactFlowType -&gt; ContactFlowType -&gt; Bool)
+-&gt; Eq ContactFlowType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContactFlowType -&gt; ContactFlowType -&gt; Bool
+$c/= :: ContactFlowType -&gt; ContactFlowType -&gt; Bool
+== :: ContactFlowType -&gt; ContactFlowType -&gt; Bool
+$c== :: ContactFlowType -&gt; ContactFlowType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679394752"><span id="local-6989586621679394754"><span id="local-6989586621679394756"><span id="local-6989586621679394758"><span id="local-6989586621679394760"><span id="local-6989586621679394762"><span id="local-6989586621679394764"><span class="annot"><span class="annottext">Eq ContactFlowType
+Eq ContactFlowType
+-&gt; (ContactFlowType -&gt; ContactFlowType -&gt; Ordering)
+-&gt; (ContactFlowType -&gt; ContactFlowType -&gt; Bool)
+-&gt; (ContactFlowType -&gt; ContactFlowType -&gt; Bool)
+-&gt; (ContactFlowType -&gt; ContactFlowType -&gt; Bool)
+-&gt; (ContactFlowType -&gt; ContactFlowType -&gt; Bool)
+-&gt; (ContactFlowType -&gt; ContactFlowType -&gt; ContactFlowType)
+-&gt; (ContactFlowType -&gt; ContactFlowType -&gt; ContactFlowType)
+-&gt; Ord ContactFlowType
+ContactFlowType -&gt; ContactFlowType -&gt; Bool
+ContactFlowType -&gt; ContactFlowType -&gt; Ordering
+ContactFlowType -&gt; ContactFlowType -&gt; ContactFlowType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ContactFlowType -&gt; ContactFlowType -&gt; ContactFlowType
+$cmin :: ContactFlowType -&gt; ContactFlowType -&gt; ContactFlowType
+max :: ContactFlowType -&gt; ContactFlowType -&gt; ContactFlowType
+$cmax :: ContactFlowType -&gt; ContactFlowType -&gt; ContactFlowType
+&gt;= :: ContactFlowType -&gt; ContactFlowType -&gt; Bool
+$c&gt;= :: ContactFlowType -&gt; ContactFlowType -&gt; Bool
+&gt; :: ContactFlowType -&gt; ContactFlowType -&gt; Bool
+$c&gt; :: ContactFlowType -&gt; ContactFlowType -&gt; Bool
+&lt;= :: ContactFlowType -&gt; ContactFlowType -&gt; Bool
+$c&lt;= :: ContactFlowType -&gt; ContactFlowType -&gt; Bool
+&lt; :: ContactFlowType -&gt; ContactFlowType -&gt; Bool
+$c&lt; :: ContactFlowType -&gt; ContactFlowType -&gt; Bool
+compare :: ContactFlowType -&gt; ContactFlowType -&gt; Ordering
+$ccompare :: ContactFlowType -&gt; ContactFlowType -&gt; Ordering
+$cp1Ord :: Eq ContactFlowType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ContactFlowType -&gt; Rep ContactFlowType x)
+-&gt; (forall x. Rep ContactFlowType x -&gt; ContactFlowType)
+-&gt; Generic ContactFlowType
+forall x. Rep ContactFlowType x -&gt; ContactFlowType
+forall x. ContactFlowType -&gt; Rep ContactFlowType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ContactFlowType x -&gt; ContactFlowType
+$cfrom :: forall x. ContactFlowType -&gt; Rep ContactFlowType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679394744"><span id="local-6989586621679394746"><span class="annot"><span class="annottext">Int -&gt; ContactFlowType -&gt; Int
+ContactFlowType -&gt; Int
+(Int -&gt; ContactFlowType -&gt; Int)
+-&gt; (ContactFlowType -&gt; Int) -&gt; Hashable ContactFlowType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ContactFlowType -&gt; Int
+$chash :: ContactFlowType -&gt; Int
+hashWithSalt :: Int -&gt; ContactFlowType -&gt; Int
+$chashWithSalt :: Int -&gt; ContactFlowType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679394741"><span class="annot"><span class="annottext">ContactFlowType -&gt; ()
+(ContactFlowType -&gt; ()) -&gt; NFData ContactFlowType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ContactFlowType -&gt; ()
+$crnf :: ContactFlowType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679394738"><span class="annot"><span class="annottext">Text -&gt; Either String ContactFlowType
+(Text -&gt; Either String ContactFlowType) -&gt; FromText ContactFlowType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ContactFlowType
+$cfromText :: Text -&gt; Either String ContactFlowType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679394735"><span class="annot"><span class="annottext">ContactFlowType -&gt; Text
+(ContactFlowType -&gt; Text) -&gt; ToText ContactFlowType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ContactFlowType -&gt; Text
+$ctoText :: ContactFlowType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679394732"><span class="annot"><span class="annottext">ContactFlowType -&gt; ByteString
+(ContactFlowType -&gt; ByteString) -&gt; ToByteString ContactFlowType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ContactFlowType -&gt; ByteString
+$ctoBS :: ContactFlowType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679394729"><span class="annot"><span class="annottext">ContactFlowType -&gt; ByteStringBuilder
+(ContactFlowType -&gt; ByteStringBuilder) -&gt; ToLog ContactFlowType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ContactFlowType -&gt; ByteStringBuilder
+$cbuild :: ContactFlowType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679394726"><span class="annot"><span class="annottext">HeaderName -&gt; ContactFlowType -&gt; [Header]
+(HeaderName -&gt; ContactFlowType -&gt; [Header])
+-&gt; ToHeader ContactFlowType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ContactFlowType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ContactFlowType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679394723"><span class="annot"><span class="annottext">ContactFlowType -&gt; QueryString
+(ContactFlowType -&gt; QueryString) -&gt; ToQuery ContactFlowType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ContactFlowType -&gt; QueryString
+$ctoQuery :: ContactFlowType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679394718"><span id="local-6989586621679394720"><span class="annot"><span class="annottext">Value -&gt; Parser [ContactFlowType]
+Value -&gt; Parser ContactFlowType
+(Value -&gt; Parser ContactFlowType)
+-&gt; (Value -&gt; Parser [ContactFlowType]) -&gt; FromJSON ContactFlowType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ContactFlowType]
+$cparseJSONList :: Value -&gt; Parser [ContactFlowType]
+parseJSON :: Value -&gt; Parser ContactFlowType
+$cparseJSON :: Value -&gt; Parser ContactFlowType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679394713"><span id="local-6989586621679394715"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContactFlowType]
+FromJSONKeyFunction ContactFlowType
+FromJSONKeyFunction ContactFlowType
+-&gt; FromJSONKeyFunction [ContactFlowType]
+-&gt; FromJSONKey ContactFlowType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ContactFlowType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ContactFlowType]
+fromJSONKey :: FromJSONKeyFunction ContactFlowType
+$cfromJSONKey :: FromJSONKeyFunction ContactFlowType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679394704"><span id="local-6989586621679394706"><span id="local-6989586621679394708"><span id="local-6989586621679394710"><span class="annot"><span class="annottext">[ContactFlowType] -&gt; Encoding
+[ContactFlowType] -&gt; Value
+ContactFlowType -&gt; Encoding
+ContactFlowType -&gt; Value
+(ContactFlowType -&gt; Value)
+-&gt; (ContactFlowType -&gt; Encoding)
+-&gt; ([ContactFlowType] -&gt; Value)
+-&gt; ([ContactFlowType] -&gt; Encoding)
+-&gt; ToJSON ContactFlowType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ContactFlowType] -&gt; Encoding
+$ctoEncodingList :: [ContactFlowType] -&gt; Encoding
+toJSONList :: [ContactFlowType] -&gt; Value
+$ctoJSONList :: [ContactFlowType] -&gt; Value
+toEncoding :: ContactFlowType -&gt; Encoding
+$ctoEncoding :: ContactFlowType -&gt; Encoding
+toJSON :: ContactFlowType -&gt; Value
+$ctoJSON :: ContactFlowType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679394699"><span id="local-6989586621679394701"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContactFlowType]
+ToJSONKeyFunction ContactFlowType
+ToJSONKeyFunction ContactFlowType
+-&gt; ToJSONKeyFunction [ContactFlowType] -&gt; ToJSONKey ContactFlowType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ContactFlowType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ContactFlowType]
+toJSONKey :: ToJSONKeyFunction ContactFlowType
+$ctoJSONKey :: ToJSONKeyFunction ContactFlowType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679394696"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContactFlowType
+([Node] -&gt; Either String ContactFlowType)
+-&gt; FromXML ContactFlowType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ContactFlowType
+$cparseXML :: [Node] -&gt; Either String ContactFlowType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679394693"><span class="annot"><span class="annottext">ContactFlowType -&gt; XML
+(ContactFlowType -&gt; XML) -&gt; ToXML ContactFlowType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ContactFlowType -&gt; XML
+$ctoXML :: ContactFlowType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_AGENT_HOLD"><span class="hs-identifier hs-type">ContactFlowType_AGENT_HOLD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType"><span class="hs-identifier hs-type">ContactFlowType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContactFlowType_AGENT_HOLD"><span id="%24mContactFlowType_AGENT_HOLD"><span id="ContactFlowType_AGENT_HOLD"><span class="annot"><span class="annottext">$bContactFlowType_AGENT_HOLD :: ContactFlowType
+$mContactFlowType_AGENT_HOLD :: forall r. ContactFlowType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.ContactFlowType.html#%24bContactFlowType_AGENT_HOLD"><span class="hs-identifier hs-var hs-var hs-var">ContactFlowType_AGENT_HOLD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType%27"><span class="hs-identifier hs-type">ContactFlowType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AGENT_HOLD&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_AGENT_TRANSFER"><span class="hs-identifier hs-type">ContactFlowType_AGENT_TRANSFER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType"><span class="hs-identifier hs-type">ContactFlowType</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContactFlowType_AGENT_TRANSFER"><span id="%24mContactFlowType_AGENT_TRANSFER"><span id="ContactFlowType_AGENT_TRANSFER"><span class="annot"><span class="annottext">$bContactFlowType_AGENT_TRANSFER :: ContactFlowType
+$mContactFlowType_AGENT_TRANSFER :: forall r. ContactFlowType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.ContactFlowType.html#%24bContactFlowType_AGENT_TRANSFER"><span class="hs-identifier hs-var hs-var hs-var">ContactFlowType_AGENT_TRANSFER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType%27"><span class="hs-identifier hs-type">ContactFlowType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AGENT_TRANSFER&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_AGENT_WHISPER"><span class="hs-identifier hs-type">ContactFlowType_AGENT_WHISPER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType"><span class="hs-identifier hs-type">ContactFlowType</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContactFlowType_AGENT_WHISPER"><span id="%24mContactFlowType_AGENT_WHISPER"><span id="ContactFlowType_AGENT_WHISPER"><span class="annot"><span class="annottext">$bContactFlowType_AGENT_WHISPER :: ContactFlowType
+$mContactFlowType_AGENT_WHISPER :: forall r. ContactFlowType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.ContactFlowType.html#%24bContactFlowType_AGENT_WHISPER"><span class="hs-identifier hs-var hs-var hs-var">ContactFlowType_AGENT_WHISPER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType%27"><span class="hs-identifier hs-type">ContactFlowType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AGENT_WHISPER&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_CONTACT_FLOW"><span class="hs-identifier hs-type">ContactFlowType_CONTACT_FLOW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType"><span class="hs-identifier hs-type">ContactFlowType</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContactFlowType_CONTACT_FLOW"><span id="%24mContactFlowType_CONTACT_FLOW"><span id="ContactFlowType_CONTACT_FLOW"><span class="annot"><span class="annottext">$bContactFlowType_CONTACT_FLOW :: ContactFlowType
+$mContactFlowType_CONTACT_FLOW :: forall r. ContactFlowType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.ContactFlowType.html#%24bContactFlowType_CONTACT_FLOW"><span class="hs-identifier hs-var hs-var hs-var">ContactFlowType_CONTACT_FLOW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType%27"><span class="hs-identifier hs-type">ContactFlowType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACT_FLOW&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_CUSTOMER_HOLD"><span class="hs-identifier hs-type">ContactFlowType_CUSTOMER_HOLD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType"><span class="hs-identifier hs-type">ContactFlowType</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContactFlowType_CUSTOMER_HOLD"><span id="%24mContactFlowType_CUSTOMER_HOLD"><span id="ContactFlowType_CUSTOMER_HOLD"><span class="annot"><span class="annottext">$bContactFlowType_CUSTOMER_HOLD :: ContactFlowType
+$mContactFlowType_CUSTOMER_HOLD :: forall r. ContactFlowType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.ContactFlowType.html#%24bContactFlowType_CUSTOMER_HOLD"><span class="hs-identifier hs-var hs-var hs-var">ContactFlowType_CUSTOMER_HOLD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType%27"><span class="hs-identifier hs-type">ContactFlowType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CUSTOMER_HOLD&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_CUSTOMER_QUEUE"><span class="hs-identifier hs-type">ContactFlowType_CUSTOMER_QUEUE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType"><span class="hs-identifier hs-type">ContactFlowType</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContactFlowType_CUSTOMER_QUEUE"><span id="%24mContactFlowType_CUSTOMER_QUEUE"><span id="ContactFlowType_CUSTOMER_QUEUE"><span class="annot"><span class="annottext">$bContactFlowType_CUSTOMER_QUEUE :: ContactFlowType
+$mContactFlowType_CUSTOMER_QUEUE :: forall r. ContactFlowType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.ContactFlowType.html#%24bContactFlowType_CUSTOMER_QUEUE"><span class="hs-identifier hs-var hs-var hs-var">ContactFlowType_CUSTOMER_QUEUE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType%27"><span class="hs-identifier hs-type">ContactFlowType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CUSTOMER_QUEUE&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_CUSTOMER_WHISPER"><span class="hs-identifier hs-type">ContactFlowType_CUSTOMER_WHISPER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType"><span class="hs-identifier hs-type">ContactFlowType</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContactFlowType_CUSTOMER_WHISPER"><span id="%24mContactFlowType_CUSTOMER_WHISPER"><span id="ContactFlowType_CUSTOMER_WHISPER"><span class="annot"><span class="annottext">$bContactFlowType_CUSTOMER_WHISPER :: ContactFlowType
+$mContactFlowType_CUSTOMER_WHISPER :: forall r. ContactFlowType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.ContactFlowType.html#%24bContactFlowType_CUSTOMER_WHISPER"><span class="hs-identifier hs-var hs-var hs-var">ContactFlowType_CUSTOMER_WHISPER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType%27"><span class="hs-identifier hs-type">ContactFlowType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CUSTOMER_WHISPER&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_OUTBOUND_WHISPER"><span class="hs-identifier hs-type">ContactFlowType_OUTBOUND_WHISPER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType"><span class="hs-identifier hs-type">ContactFlowType</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContactFlowType_OUTBOUND_WHISPER"><span id="%24mContactFlowType_OUTBOUND_WHISPER"><span id="ContactFlowType_OUTBOUND_WHISPER"><span class="annot"><span class="annottext">$bContactFlowType_OUTBOUND_WHISPER :: ContactFlowType
+$mContactFlowType_OUTBOUND_WHISPER :: forall r. ContactFlowType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.ContactFlowType.html#%24bContactFlowType_OUTBOUND_WHISPER"><span class="hs-identifier hs-var hs-var hs-var">ContactFlowType_OUTBOUND_WHISPER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType%27"><span class="hs-identifier hs-type">ContactFlowType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OUTBOUND_WHISPER&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_QUEUE_TRANSFER"><span class="hs-identifier hs-type">ContactFlowType_QUEUE_TRANSFER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType"><span class="hs-identifier hs-type">ContactFlowType</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContactFlowType_QUEUE_TRANSFER"><span id="%24mContactFlowType_QUEUE_TRANSFER"><span id="ContactFlowType_QUEUE_TRANSFER"><span class="annot"><span class="annottext">$bContactFlowType_QUEUE_TRANSFER :: ContactFlowType
+$mContactFlowType_QUEUE_TRANSFER :: forall r. ContactFlowType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.ContactFlowType.html#%24bContactFlowType_QUEUE_TRANSFER"><span class="hs-identifier hs-var hs-var hs-var">ContactFlowType_QUEUE_TRANSFER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType%27"><span class="hs-identifier hs-type">ContactFlowType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;QUEUE_TRANSFER&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_AGENT_HOLD"><span class="hs-pragma hs-type">ContactFlowType_AGENT_HOLD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_AGENT_TRANSFER"><span class="hs-pragma hs-type">ContactFlowType_AGENT_TRANSFER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_AGENT_WHISPER"><span class="hs-pragma hs-type">ContactFlowType_AGENT_WHISPER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_CONTACT_FLOW"><span class="hs-pragma hs-type">ContactFlowType_CONTACT_FLOW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_CUSTOMER_HOLD"><span class="hs-pragma hs-type">ContactFlowType_CUSTOMER_HOLD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_CUSTOMER_QUEUE"><span class="hs-pragma hs-type">ContactFlowType_CUSTOMER_QUEUE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_CUSTOMER_WHISPER"><span class="hs-pragma hs-type">ContactFlowType_CUSTOMER_WHISPER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_OUTBOUND_WHISPER"><span class="hs-pragma hs-type">ContactFlowType_OUTBOUND_WHISPER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType_QUEUE_TRANSFER"><span class="hs-pragma hs-type">ContactFlowType_QUEUE_TRANSFER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType%27"><span class="hs-pragma hs-type">ContactFlowType'</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-106"></span></pre></body></html>

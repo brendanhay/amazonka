@@ -1,0 +1,1178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">-- |</span><span>
+</span><span id="line-2"></span><span class="hs-comment">-- Module      : Network.AWS.Sign.V4.Base</span><span>
+</span><span id="line-3"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Stability   : provisional</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-8"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Sign.V4.Base</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-9"></span><span>
+</span><span id="line-10"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.ByteString</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">BS</span></span><span>
+</span><span id="line-11"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.ByteString.Char8</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">BS8</span></span><span>
+</span><span id="line-12"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.CaseInsensitive</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">CI</span></span><span>
+</span><span id="line-13"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.Foldable</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Foldable</span></span><span>
+</span><span id="line-14"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.Function</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Function</span></span><span>
+</span><span id="line-15"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.List</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">List</span></span><span>
+</span><span id="line-16"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><a href="Network.AWS.Bytes.html"><span class="hs-identifier">Network.AWS.Bytes</span></a></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Bytes</span></span><span>
+</span><span id="line-17"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><a href="Network.AWS.Crypto.html"><span class="hs-identifier">Network.AWS.Crypto</span></a></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Crypto</span></span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Data.html"><span class="hs-identifier">Network.AWS.Data</span></a></span><span> </span><span class="hs-keyword">hiding</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Data.Path.html#Path"><span class="hs-identifier">Path</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-19"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lens.html"><span class="hs-identifier">Network.AWS.Lens</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-operator">(%~)</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-operator">(&lt;&gt;~)</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-operator">(^.)</span></span><span class="hs-special">)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Prelude.html"><span class="hs-identifier">Network.AWS.Prelude</span></a></span><span>
+</span><span id="line-21"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Request.html"><span class="hs-identifier">Network.AWS.Request</span></a></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Types.html"><span class="hs-identifier">Network.AWS.Types</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.HTTP.Client</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Client</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.HTTP.Types</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">HTTP</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">data</span><span> </span><span id="V4"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#V4"><span class="hs-identifier hs-var">V4</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="V4"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#V4"><span class="hs-identifier hs-var">V4</span></a></span></span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AmetaTime%3AV4"><span class="annot"><span class="annottext">V4 -&gt; UTCTime
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaTime%3AV4"><span class="hs-identifier hs-var hs-var">metaTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">UTCTime</span></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span id="%24sel%3AmetaMethod%3AV4"><span class="annot"><span class="annottext">V4 -&gt; Method
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaMethod%3AV4"><span class="hs-identifier hs-var hs-var">metaMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span id="%24sel%3AmetaPath%3AV4"><span class="annot"><span class="annottext">V4 -&gt; Path
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaPath%3AV4"><span class="hs-identifier hs-var hs-var">metaPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Path"><span class="hs-identifier hs-type">Path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span id="%24sel%3AmetaEndpoint%3AV4"><span class="annot"><span class="annottext">V4 -&gt; Endpoint
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaEndpoint%3AV4"><span class="hs-identifier hs-var hs-var">metaEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AmetaCredential%3AV4"><span class="annot"><span class="annottext">V4 -&gt; Credential
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaCredential%3AV4"><span class="hs-identifier hs-var hs-var">metaCredential</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Credential"><span class="hs-identifier hs-type">Credential</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AmetaCanonicalQuery%3AV4"><span class="annot"><span class="annottext">V4 -&gt; CanonicalQuery
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaCanonicalQuery%3AV4"><span class="hs-identifier hs-var hs-var">metaCanonicalQuery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CanonicalQuery"><span class="hs-identifier hs-type">CanonicalQuery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AmetaCanonicalRequest%3AV4"><span class="annot"><span class="annottext">V4 -&gt; CanonicalRequest
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaCanonicalRequest%3AV4"><span class="hs-identifier hs-var hs-var">metaCanonicalRequest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CanonicalRequest"><span class="hs-identifier hs-type">CanonicalRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AmetaCanonicalHeaders%3AV4"><span class="annot"><span class="annottext">V4 -&gt; CanonicalHeaders
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaCanonicalHeaders%3AV4"><span class="hs-identifier hs-var hs-var">metaCanonicalHeaders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CanonicalHeaders"><span class="hs-identifier hs-type">CanonicalHeaders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AmetaSignedHeaders%3AV4"><span class="annot"><span class="annottext">V4 -&gt; SignedHeaders
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaSignedHeaders%3AV4"><span class="hs-identifier hs-var hs-var">metaSignedHeaders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#SignedHeaders"><span class="hs-identifier hs-type">SignedHeaders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AmetaStringToSign%3AV4"><span class="annot"><span class="annottext">V4 -&gt; StringToSign
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaStringToSign%3AV4"><span class="hs-identifier hs-var hs-var">metaStringToSign</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#StringToSign"><span class="hs-identifier hs-type">StringToSign</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AmetaSignature%3AV4"><span class="annot"><span class="annottext">V4 -&gt; Signature
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaSignature%3AV4"><span class="hs-identifier hs-var hs-var">metaSignature</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Signature"><span class="hs-identifier hs-type">Signature</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmetaHeaders%3AV4"><span class="annot"><span class="annottext">V4 -&gt; [Header]
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaHeaders%3AV4"><span class="hs-identifier hs-var hs-var">metaHeaders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AmetaTimeout%3AV4"><span class="annot"><span class="annottext">V4 -&gt; Maybe Seconds
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaTimeout%3AV4"><span class="hs-identifier hs-var hs-var">metaTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Seconds"><span class="hs-identifier hs-type">Seconds</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#V4"><span class="hs-identifier hs-type">V4</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>  </span><span id="local-6989586621679202594"><span class="annot"><span class="annottext">build :: V4 -&gt; ByteStringBuilder
+</span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#V4"><span class="hs-identifier hs-type">V4</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202580"><span id="local-6989586621679202581"><span id="local-6989586621679202582"><span id="local-6989586621679202583"><span id="local-6989586621679202584"><span id="local-6989586621679202585"><span id="local-6989586621679202586"><span id="local-6989586621679202587"><span id="local-6989586621679202588"><span id="local-6989586621679202589"><span id="local-6989586621679202590"><span id="local-6989586621679202591"><span id="local-6989586621679202592"><span class="annot"><span class="annottext">[Header]
+Maybe Seconds
+UTCTime
+Endpoint
+CanonicalHeaders
+CanonicalQuery
+CanonicalRequest
+Credential
+Method
+Path
+Signature
+SignedHeaders
+StringToSign
+metaTimeout :: Maybe Seconds
+metaHeaders :: [Header]
+metaSignature :: Signature
+metaStringToSign :: StringToSign
+metaSignedHeaders :: SignedHeaders
+metaCanonicalHeaders :: CanonicalHeaders
+metaCanonicalRequest :: CanonicalRequest
+metaCanonicalQuery :: CanonicalQuery
+metaCredential :: Credential
+metaEndpoint :: Endpoint
+metaPath :: Path
+metaMethod :: Method
+metaTime :: UTCTime
+$sel:metaTimeout:V4 :: V4 -&gt; Maybe Seconds
+$sel:metaHeaders:V4 :: V4 -&gt; [Header]
+$sel:metaSignature:V4 :: V4 -&gt; Signature
+$sel:metaStringToSign:V4 :: V4 -&gt; StringToSign
+$sel:metaSignedHeaders:V4 :: V4 -&gt; SignedHeaders
+$sel:metaCanonicalHeaders:V4 :: V4 -&gt; CanonicalHeaders
+$sel:metaCanonicalRequest:V4 :: V4 -&gt; CanonicalRequest
+$sel:metaCanonicalQuery:V4 :: V4 -&gt; CanonicalQuery
+$sel:metaCredential:V4 :: V4 -&gt; Credential
+$sel:metaEndpoint:V4 :: V4 -&gt; Endpoint
+$sel:metaPath:V4 :: V4 -&gt; Path
+$sel:metaMethod:V4 :: V4 -&gt; Method
+$sel:metaTime:V4 :: V4 -&gt; UTCTime
+</span><a href="#local-6989586621679202580"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="annottext">[ByteStringBuilder] -&gt; ByteStringBuilder
+</span><a href="Network.AWS.Data.Log.html#buildLines"><span class="hs-identifier hs-var">buildLines</span></a></span><span>
+</span><span id="line-45"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;[Version 4 Metadata] {&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;  time              = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">UTCTime -&gt; ByteStringBuilder
+forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
+</span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202592"><span class="hs-identifier hs-var">metaTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;  endpoint          = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
+forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
+</span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Endpoint -&gt; ByteString
+</span><a href="Network.AWS.Types.html#%24sel%3A_endpointHost%3AEndpoint"><span class="hs-identifier hs-var hs-var">_endpointHost</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679202589"><span class="hs-identifier hs-var">metaEndpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;  credential        = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Credential -&gt; ByteStringBuilder
+forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
+</span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">Credential
+</span><a href="#local-6989586621679202588"><span class="hs-identifier hs-var">metaCredential</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;  signed headers    = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">SignedHeaders -&gt; ByteStringBuilder
+forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
+</span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">SignedHeaders
+</span><a href="#local-6989586621679202584"><span class="hs-identifier hs-var">metaSignedHeaders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;  signature         = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Signature -&gt; ByteStringBuilder
+forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
+</span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">Signature
+</span><a href="#local-6989586621679202582"><span class="hs-identifier hs-var">metaSignature</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;  string to sign    = {&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>        </span><span class="annot"><span class="annottext">StringToSign -&gt; ByteStringBuilder
+forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
+</span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">StringToSign
+</span><a href="#local-6989586621679202583"><span class="hs-identifier hs-var">metaStringToSign</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;}&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;  canonical request = {&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">CanonicalRequest -&gt; ByteStringBuilder
+forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
+</span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">CanonicalRequest
+</span><a href="#local-6989586621679202586"><span class="hs-identifier hs-var">metaCanonicalRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;  }&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;}&quot;</span></span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679202577"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#base"><span class="hs-identifier hs-type">base</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Hash"><span class="hs-identifier hs-type">Hash</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Request"><span class="hs-identifier hs-type">Request</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679202577"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#AuthEnv"><span class="hs-identifier hs-type">AuthEnv</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Region"><span class="hs-identifier hs-type">Region</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#V4"><span class="hs-identifier hs-type">V4</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#ClientRequest"><span class="hs-identifier hs-type">ClientRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#ClientRequest"><span class="hs-identifier hs-type">ClientRequest</span></a></span><span class="hs-special">)</span></span><span>
+</span><span id="line-67"></span><span id="base"><span class="annot"><span class="annottext">base :: Hash
+-&gt; Request a
+-&gt; AuthEnv
+-&gt; Region
+-&gt; UTCTime
+-&gt; (V4, ClientRequest -&gt; ClientRequest)
+</span><a href="Network.AWS.Sign.V4.Base.html#base"><span class="hs-identifier hs-var hs-var">base</span></a></span></span><span> </span><span id="local-6989586621679202575"><span class="annot"><span class="annottext">Hash
+</span><a href="#local-6989586621679202575"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679202574"><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202574"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679202573"><span class="annot"><span class="annottext">AuthEnv
+</span><a href="#local-6989586621679202573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679202572"><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679202572"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span id="local-6989586621679202571"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202571"><span class="hs-identifier hs-var">ts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">V4
+</span><a href="#local-6989586621679202570"><span class="hs-identifier hs-var">meta</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ClientRequest -&gt; ClientRequest
+</span><a href="#local-6989586621679202569"><span class="hs-identifier hs-var">auth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>    </span><span id="local-6989586621679202569"><span class="annot"><span class="annottext">auth :: ClientRequest -&gt; ClientRequest
+</span><a href="#local-6989586621679202569"><span class="hs-identifier hs-var hs-var">auth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">([Header] -&gt; Identity [Header])
+-&gt; ClientRequest -&gt; Identity ClientRequest
+Lens' ClientRequest [Header]
+</span><a href="Network.AWS.Request.html#clientRequestHeaders"><span class="hs-identifier hs-var">clientRequestHeaders</span></a></span><span> </span><span class="annot"><span class="annottext">(([Header] -&gt; Identity [Header])
+ -&gt; ClientRequest -&gt; Identity ClientRequest)
+-&gt; [Header] -&gt; ClientRequest -&gt; ClientRequest
+forall a s t. Semigroup a =&gt; ASetter s t a a -&gt; a -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">&lt;&gt;~</span></span><span> </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-identifier hs-var">HTTP.hAuthorization</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">V4 -&gt; ByteString
+</span><a href="Network.AWS.Sign.V4.Base.html#authorisation"><span class="hs-identifier hs-var">authorisation</span></a></span><span> </span><span class="annot"><span class="annottext">V4
+</span><a href="#local-6989586621679202570"><span class="hs-identifier hs-var">meta</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span>    </span><span id="local-6989586621679202570"><span class="annot"><span class="annottext">meta :: V4
+</span><a href="#local-6989586621679202570"><span class="hs-identifier hs-var hs-var">meta</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AuthEnv
+-&gt; Region
+-&gt; UTCTime
+-&gt; (Credential -&gt; SignedHeaders -&gt; QueryString -&gt; QueryString)
+-&gt; Hash
+-&gt; Request a
+-&gt; V4
+forall a.
+AuthEnv
+-&gt; Region
+-&gt; UTCTime
+-&gt; (Credential -&gt; SignedHeaders -&gt; QueryString -&gt; QueryString)
+-&gt; Hash
+-&gt; Request a
+-&gt; V4
+</span><a href="Network.AWS.Sign.V4.Base.html#signMetadata"><span class="hs-identifier hs-var">signMetadata</span></a></span><span> </span><span class="annot"><span class="annottext">AuthEnv
+</span><a href="#local-6989586621679202573"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679202572"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202571"><span class="hs-identifier hs-var">ts</span></a></span><span> </span><span class="annot"><span class="annottext">Credential -&gt; SignedHeaders -&gt; QueryString -&gt; QueryString
+forall p p a. p -&gt; p -&gt; a -&gt; a
+</span><a href="#local-6989586621679202564"><span class="hs-identifier hs-var">presigner</span></a></span><span> </span><span class="annot"><span class="annottext">Hash
+</span><a href="#local-6989586621679202575"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request a -&gt; Request a
+</span><a href="#local-6989586621679202563"><span class="hs-identifier hs-var">prepare</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202574"><span class="hs-identifier hs-var">rq</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span>    </span><span id="local-6989586621679202564"><span class="annot"><span class="annottext">presigner :: p -&gt; p -&gt; a -&gt; a
+</span><a href="#local-6989586621679202564"><span class="hs-identifier hs-var hs-var">presigner</span></a></span></span><span> </span><span class="annot"><span class="annottext">p
+</span><span class="hs-identifier">_</span></span><span> </span><span class="annot"><span class="annottext">p
+</span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; a
+forall a. a -&gt; a
+</span><span class="hs-identifier hs-var">id</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span>    </span><span id="local-6989586621679202563"><span class="annot"><span class="annottext">prepare :: Request a -&gt; Request a
+</span><a href="#local-6989586621679202563"><span class="hs-identifier hs-var hs-var">prepare</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">([Header] -&gt; Identity [Header])
+-&gt; Request a -&gt; Identity (Request a)
+forall a. Lens' (Request a) [Header]
+</span><a href="Network.AWS.Types.html#requestHeaders"><span class="hs-identifier hs-var">requestHeaders</span></a></span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">(([Header] -&gt; Identity [Header])
+ -&gt; Request a -&gt; Identity (Request a))
+-&gt; ([Header] -&gt; [Header]) -&gt; Request a -&gt; Request a
+forall s t a b. ASetter s t a b -&gt; (a -&gt; b) -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">%~</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header] -&gt; [Header]
+</span><a href="Network.AWS.Data.Headers.html#hdr"><span class="hs-identifier hs-var">hdr</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="Network.AWS.Data.Headers.html#hHost"><span class="hs-identifier hs-var">hHost</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679202558"><span class="hs-identifier hs-var">host</span></a></span><span>
+</span><span id="line-78"></span><span>               </span><span class="annot"><span class="annottext">([Header] -&gt; [Header])
+-&gt; ([Header] -&gt; [Header]) -&gt; [Header] -&gt; [Header]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header] -&gt; [Header]
+</span><a href="Network.AWS.Data.Headers.html#hdr"><span class="hs-identifier hs-var">hdr</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="Network.AWS.Data.Headers.html#hAMZDate"><span class="hs-identifier hs-var">hAMZDate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSTime -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">UTCTime -&gt; AWSTime
+forall (a :: Format). UTCTime -&gt; Time a
+</span><a href="Network.AWS.Data.Time.html#Time"><span class="hs-identifier hs-var">Time</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202571"><span class="hs-identifier hs-var">ts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Data.Time.html#AWSTime"><span class="hs-identifier hs-type">AWSTime</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>               </span><span class="annot"><span class="annottext">([Header] -&gt; [Header])
+-&gt; ([Header] -&gt; [Header]) -&gt; [Header] -&gt; [Header]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header] -&gt; [Header]
+</span><a href="Network.AWS.Data.Headers.html#hdr"><span class="hs-identifier hs-var">hdr</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="Network.AWS.Data.Headers.html#hAMZContentSHA256"><span class="hs-identifier hs-var">hAMZContentSHA256</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Hash -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">Hash
+</span><a href="#local-6989586621679202575"><span class="hs-identifier hs-var">h</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>               </span><span class="annot"><span class="annottext">([Header] -&gt; [Header])
+-&gt; ([Header] -&gt; [Header]) -&gt; [Header] -&gt; [Header]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">([Header] -&gt; [Header])
+-&gt; (Sensitive SessionToken -&gt; [Header] -&gt; [Header])
+-&gt; Maybe (Sensitive SessionToken)
+-&gt; [Header]
+-&gt; [Header]
+forall b a. b -&gt; (a -&gt; b) -&gt; Maybe a -&gt; b
+</span><span class="hs-identifier hs-var">maybe</span></span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; [Header]
+forall a. a -&gt; a
+</span><span class="hs-identifier hs-var">id</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header] -&gt; [Header]
+</span><a href="Network.AWS.Data.Headers.html#hdr"><span class="hs-identifier hs-var">hdr</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="Network.AWS.Data.Headers.html#hAMZToken"><span class="hs-identifier hs-var">hAMZToken</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; [Header] -&gt; [Header])
+-&gt; (Sensitive SessionToken -&gt; ByteString)
+-&gt; Sensitive SessionToken
+-&gt; [Header]
+-&gt; [Header]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Sensitive SessionToken -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AuthEnv -&gt; Maybe (Sensitive SessionToken)
+</span><a href="Network.AWS.Types.html#%24sel%3A_authSessionToken%3AAuthEnv"><span class="hs-identifier hs-var hs-var">_authSessionToken</span></a></span><span> </span><span class="annot"><span class="annottext">AuthEnv
+</span><a href="#local-6989586621679202573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>           </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span>    </span><span id="local-6989586621679202558"><span class="annot"><span class="annottext">host :: ByteString
+</span><a href="#local-6989586621679202558"><span class="hs-identifier hs-var hs-var">host</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-keyword">case</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Endpoint -&gt; Bool
+</span><a href="Network.AWS.Types.html#%24sel%3A_endpointSecure%3AEndpoint"><span class="hs-identifier hs-var hs-var">_endpointSecure</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679202548"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Endpoint -&gt; Int
+</span><a href="Network.AWS.Types.html#%24sel%3A_endpointPort%3AEndpoint"><span class="hs-identifier hs-var hs-var">_endpointPort</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679202548"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">of</span><span>
+</span><span id="line-85"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">False</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">80</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint -&gt; ByteString
+</span><a href="Network.AWS.Types.html#%24sel%3A_endpointHost%3AEndpoint"><span class="hs-identifier hs-var hs-var">_endpointHost</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679202548"><span class="hs-identifier hs-var">end</span></a></span><span>
+</span><span id="line-86"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">443</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint -&gt; ByteString
+</span><a href="Network.AWS.Types.html#%24sel%3A_endpointHost%3AEndpoint"><span class="hs-identifier hs-var hs-var">_endpointHost</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679202548"><span class="hs-identifier hs-var">end</span></a></span><span>
+</span><span id="line-87"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier">_</span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202546"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202546"><span class="hs-identifier hs-var">port</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint -&gt; ByteString
+</span><a href="Network.AWS.Types.html#%24sel%3A_endpointHost%3AEndpoint"><span class="hs-identifier hs-var hs-var">_endpointHost</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679202548"><span class="hs-identifier hs-var">end</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;:&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202546"><span class="hs-identifier hs-var">port</span></a></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span>    </span><span id="local-6989586621679202548"><span class="annot"><span class="annottext">end :: Endpoint
+</span><a href="#local-6989586621679202548"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><a href="Network.AWS.Types.html#%24sel%3A_serviceEndpoint%3AService"><span class="hs-identifier hs-var hs-var">_serviceEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request a -&gt; Service
+forall a. Request a -&gt; Service
+</span><a href="Network.AWS.Types.html#%24sel%3A_requestService%3ARequest"><span class="hs-identifier hs-var hs-var">_requestService</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202574"><span class="hs-identifier hs-var">rq</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679202572"><span class="hs-identifier hs-var">r</span></a></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Used to tag provenance. This allows keeping the same layout as</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- the signing documentation, passing 'ByteString's everywhere, with</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- some type guarantees.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Data.Tagged is not used for no reason other than syntactic length and</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- the ToByteString instance.</span><span>
+</span><span id="line-97"></span><span class="hs-keyword">newtype</span><span> </span><span id="Tag"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202685"><span class="annot"><a href="#local-6989586621679202685"><span class="hs-identifier hs-type">s</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Symbol</span></span><span class="hs-special">)</span><span> </span><span id="local-6989586621679202684"><span class="annot"><a href="#local-6989586621679202684"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tag"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span></span><span> </span><span class="hs-special">{</span><span id="%24sel%3Auntag%3ATag"><span class="annot"><span class="annottext">Tag s a -&gt; a
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3Auntag%3ATag"><span class="hs-identifier hs-var hs-var">untag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679202684"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202536"><span id="local-6989586621679202538"><span id="local-6989586621679202540"><span class="annot"><span class="annottext">Int -&gt; Tag s a -&gt; ShowS
+[Tag s a] -&gt; ShowS
+Tag s a -&gt; String
+(Int -&gt; Tag s a -&gt; ShowS)
+-&gt; (Tag s a -&gt; String) -&gt; ([Tag s a] -&gt; ShowS) -&gt; Show (Tag s a)
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+forall (s :: Symbol) a. Show a =&gt; Int -&gt; Tag s a -&gt; ShowS
+forall (s :: Symbol) a. Show a =&gt; [Tag s a] -&gt; ShowS
+forall (s :: Symbol) a. Show a =&gt; Tag s a -&gt; String
+showList :: [Tag s a] -&gt; ShowS
+$cshowList :: forall (s :: Symbol) a. Show a =&gt; [Tag s a] -&gt; ShowS
+show :: Tag s a -&gt; String
+$cshow :: forall (s :: Symbol) a. Show a =&gt; Tag s a -&gt; String
+showsPrec :: Int -&gt; Tag s a -&gt; ShowS
+$cshowsPrec :: forall (s :: Symbol) a. Show a =&gt; Int -&gt; Tag s a -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></span></span></span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span id="local-6989586621679202534"><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679202534"><span class="hs-identifier hs-type">s</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span> </span><span id="local-6989586621679202531"><span class="annot"><span class="annottext">toBS :: Tag s ByteString -&gt; ByteString
+</span><a href="#local-6989586621679202531"><span class="hs-identifier hs-var hs-var hs-var hs-var">toBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tag s ByteString -&gt; ByteString
+forall (s :: Symbol) a. Tag s a -&gt; a
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3Auntag%3ATag"><span class="hs-identifier hs-var hs-var">untag</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span id="local-6989586621679202530"><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679202530"><span class="hs-identifier hs-type">s</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span> </span><span id="local-6989586621679202528"><span class="annot"><span class="annottext">build :: Tag s ByteString -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679202528"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
+forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
+</span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; ByteStringBuilder)
+-&gt; (Tag s ByteString -&gt; ByteString)
+-&gt; Tag s ByteString
+-&gt; ByteStringBuilder
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Tag s ByteString -&gt; ByteString
+forall (s :: Symbol) a. Tag s a -&gt; a
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3Auntag%3ATag"><span class="hs-identifier hs-var hs-var">untag</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CredentialScope"><span class="hs-identifier hs-type">CredentialScope</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679202526"><span class="annot"><span class="annottext">toBS :: CredentialScope -&gt; ByteString
+</span><a href="#local-6989586621679202526"><span class="hs-identifier hs-var hs-var hs-var hs-var">toBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [ByteString] -&gt; ByteString
+</span><span class="hs-identifier hs-var">BS8.intercalate</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span> </span><span class="annot"><span class="annottext">([ByteString] -&gt; ByteString)
+-&gt; (CredentialScope -&gt; [ByteString])
+-&gt; CredentialScope
+-&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">CredentialScope -&gt; [ByteString]
+forall (s :: Symbol) a. Tag s a -&gt; a
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3Auntag%3ATag"><span class="hs-identifier hs-var hs-var">untag</span></a></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">type</span><span> </span><span id="Hash"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Hash"><span class="hs-identifier hs-var">Hash</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;body-digest&quot;</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">type</span><span> </span><span id="StringToSign"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#StringToSign"><span class="hs-identifier hs-var">StringToSign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;string-to-sign&quot;</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">type</span><span> </span><span id="Credential"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Credential"><span class="hs-identifier hs-var">Credential</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;credential&quot;</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">type</span><span> </span><span id="CredentialScope"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CredentialScope"><span class="hs-identifier hs-var">CredentialScope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;credential-scope&quot;</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">type</span><span> </span><span id="CanonicalRequest"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CanonicalRequest"><span class="hs-identifier hs-var">CanonicalRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;canonical-request&quot;</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">type</span><span> </span><span id="CanonicalHeaders"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CanonicalHeaders"><span class="hs-identifier hs-var">CanonicalHeaders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;canonical-headers&quot;</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">type</span><span> </span><span id="CanonicalQuery"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CanonicalQuery"><span class="hs-identifier hs-var">CanonicalQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;canonical-query&quot;</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">type</span><span> </span><span id="SignedHeaders"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#SignedHeaders"><span class="hs-identifier hs-var">SignedHeaders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;signed-headers&quot;</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">type</span><span> </span><span id="NormalisedHeaders"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#NormalisedHeaders"><span class="hs-identifier hs-var">NormalisedHeaders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;normalised-headers&quot;</span></span><span> </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">type</span><span> </span><span id="Method"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Method"><span class="hs-identifier hs-var">Method</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;method&quot;</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">type</span><span> </span><span id="Path"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Path"><span class="hs-identifier hs-var">Path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;path&quot;</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">type</span><span> </span><span id="Signature"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Signature"><span class="hs-identifier hs-var">Signature</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;signature&quot;</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#authorisation"><span class="hs-identifier hs-type">authorisation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#V4"><span class="hs-identifier hs-type">V4</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-132"></span><span id="authorisation"><span class="annot"><span class="annottext">authorisation :: V4 -&gt; ByteString
+</span><a href="Network.AWS.Sign.V4.Base.html#authorisation"><span class="hs-identifier hs-var hs-var">authorisation</span></a></span></span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#V4"><span class="hs-identifier hs-type">V4</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202512"><span id="local-6989586621679202513"><span id="local-6989586621679202514"><span id="local-6989586621679202515"><span id="local-6989586621679202516"><span id="local-6989586621679202517"><span id="local-6989586621679202518"><span id="local-6989586621679202519"><span id="local-6989586621679202520"><span id="local-6989586621679202521"><span id="local-6989586621679202522"><span id="local-6989586621679202523"><span id="local-6989586621679202524"><span class="annot"><span class="annottext">[Header]
+Maybe Seconds
+UTCTime
+Endpoint
+CanonicalHeaders
+CanonicalQuery
+CanonicalRequest
+Credential
+Method
+Path
+Signature
+SignedHeaders
+StringToSign
+metaTimeout :: Maybe Seconds
+metaHeaders :: [Header]
+metaSignature :: Signature
+metaStringToSign :: StringToSign
+metaSignedHeaders :: SignedHeaders
+metaCanonicalHeaders :: CanonicalHeaders
+metaCanonicalRequest :: CanonicalRequest
+metaCanonicalQuery :: CanonicalQuery
+metaCredential :: Credential
+metaEndpoint :: Endpoint
+metaPath :: Path
+metaMethod :: Method
+metaTime :: UTCTime
+$sel:metaTimeout:V4 :: V4 -&gt; Maybe Seconds
+$sel:metaHeaders:V4 :: V4 -&gt; [Header]
+$sel:metaSignature:V4 :: V4 -&gt; Signature
+$sel:metaStringToSign:V4 :: V4 -&gt; StringToSign
+$sel:metaSignedHeaders:V4 :: V4 -&gt; SignedHeaders
+$sel:metaCanonicalHeaders:V4 :: V4 -&gt; CanonicalHeaders
+$sel:metaCanonicalRequest:V4 :: V4 -&gt; CanonicalRequest
+$sel:metaCanonicalQuery:V4 :: V4 -&gt; CanonicalQuery
+$sel:metaCredential:V4 :: V4 -&gt; Credential
+$sel:metaEndpoint:V4 :: V4 -&gt; Endpoint
+$sel:metaPath:V4 :: V4 -&gt; Path
+$sel:metaMethod:V4 :: V4 -&gt; Method
+$sel:metaTime:V4 :: V4 -&gt; UTCTime
+</span><a href="#local-6989586621679202512"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><a href="Network.AWS.Sign.V4.Base.html#algorithm"><span class="hs-identifier hs-var">algorithm</span></a></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot; Credential=&quot;</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Credential -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">Credential
+</span><a href="#local-6989586621679202520"><span class="hs-identifier hs-var">metaCredential</span></a></span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;, SignedHeaders=&quot;</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">SignedHeaders -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">SignedHeaders
+</span><a href="#local-6989586621679202516"><span class="hs-identifier hs-var">metaSignedHeaders</span></a></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;, Signature=&quot;</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Signature -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">Signature
+</span><a href="#local-6989586621679202514"><span class="hs-identifier hs-var">metaSignature</span></a></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679202510"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#signRequest"><span class="hs-identifier hs-type">signRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-comment">-- | Pre-signRequestd signing metadata.</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#V4"><span class="hs-identifier hs-type">V4</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | The request body.</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Client.RequestBody</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | Insert authentication information.</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#ClientRequest"><span class="hs-identifier hs-type">ClientRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#ClientRequest"><span class="hs-identifier hs-type">ClientRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Signed"><span class="hs-identifier hs-type">Signed</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679202510"><span class="hs-identifier hs-type">a</span></a></span></span><span>
+</span><span id="line-149"></span><span id="signRequest"><span class="annot"><span class="annottext">signRequest :: V4 -&gt; RequestBody -&gt; (ClientRequest -&gt; ClientRequest) -&gt; Signed a
+</span><a href="Network.AWS.Sign.V4.Base.html#signRequest"><span class="hs-identifier hs-var hs-var">signRequest</span></a></span></span><span> </span><span id="local-6989586621679202508"><span class="annot"><span class="annottext">m :: V4
+</span><a href="#local-6989586621679202508"><span class="hs-identifier hs-var">m</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#V4"><span class="hs-identifier hs-type">V4</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202495"><span id="local-6989586621679202496"><span id="local-6989586621679202497"><span id="local-6989586621679202498"><span id="local-6989586621679202499"><span id="local-6989586621679202500"><span id="local-6989586621679202501"><span id="local-6989586621679202502"><span id="local-6989586621679202503"><span id="local-6989586621679202504"><span id="local-6989586621679202505"><span id="local-6989586621679202506"><span id="local-6989586621679202507"><span class="annot"><span class="annottext">[Header]
+Maybe Seconds
+UTCTime
+Endpoint
+CanonicalHeaders
+CanonicalQuery
+CanonicalRequest
+Credential
+Method
+Path
+Signature
+SignedHeaders
+StringToSign
+metaTimeout :: Maybe Seconds
+metaHeaders :: [Header]
+metaSignature :: Signature
+metaStringToSign :: StringToSign
+metaSignedHeaders :: SignedHeaders
+metaCanonicalHeaders :: CanonicalHeaders
+metaCanonicalRequest :: CanonicalRequest
+metaCanonicalQuery :: CanonicalQuery
+metaCredential :: Credential
+metaEndpoint :: Endpoint
+metaPath :: Path
+metaMethod :: Method
+metaTime :: UTCTime
+$sel:metaTimeout:V4 :: V4 -&gt; Maybe Seconds
+$sel:metaHeaders:V4 :: V4 -&gt; [Header]
+$sel:metaSignature:V4 :: V4 -&gt; Signature
+$sel:metaStringToSign:V4 :: V4 -&gt; StringToSign
+$sel:metaSignedHeaders:V4 :: V4 -&gt; SignedHeaders
+$sel:metaCanonicalHeaders:V4 :: V4 -&gt; CanonicalHeaders
+$sel:metaCanonicalRequest:V4 :: V4 -&gt; CanonicalRequest
+$sel:metaCanonicalQuery:V4 :: V4 -&gt; CanonicalQuery
+$sel:metaCredential:V4 :: V4 -&gt; Credential
+$sel:metaEndpoint:V4 :: V4 -&gt; Endpoint
+$sel:metaPath:V4 :: V4 -&gt; Path
+$sel:metaMethod:V4 :: V4 -&gt; Method
+$sel:metaTime:V4 :: V4 -&gt; UTCTime
+</span><a href="#local-6989586621679202495"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202494"><span class="annot"><span class="annottext">RequestBody
+</span><a href="#local-6989586621679202494"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span id="local-6989586621679202493"><span class="annot"><span class="annottext">ClientRequest -&gt; ClientRequest
+</span><a href="#local-6989586621679202493"><span class="hs-identifier hs-var">auth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Meta -&gt; ClientRequest -&gt; Signed a
+forall a. Meta -&gt; ClientRequest -&gt; Signed a
+</span><a href="Network.AWS.Types.html#Signed"><span class="hs-identifier hs-var">Signed</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">V4 -&gt; Meta
+forall a. ToLog a =&gt; a -&gt; Meta
+</span><a href="Network.AWS.Types.html#Meta"><span class="hs-identifier hs-var">Meta</span></a></span><span> </span><span class="annot"><span class="annottext">V4
+</span><a href="#local-6989586621679202508"><span class="hs-identifier hs-var">m</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ClientRequest -&gt; ClientRequest
+</span><a href="#local-6989586621679202493"><span class="hs-identifier hs-var">auth</span></a></span><span> </span><span class="annot"><span class="annottext">ClientRequest
+</span><a href="#local-6989586621679202490"><span class="hs-identifier hs-var">rq</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>    </span><span id="local-6989586621679202490"><span class="annot"><span class="annottext">rq :: ClientRequest
+</span><a href="#local-6989586621679202490"><span class="hs-identifier hs-var hs-var">rq</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Endpoint -&gt; Maybe Seconds -&gt; ClientRequest
+</span><a href="Network.AWS.Types.html#newClientRequest"><span class="hs-identifier hs-var">newClientRequest</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679202504"><span class="hs-identifier hs-var">metaEndpoint</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe Seconds
+</span><a href="#local-6989586621679202495"><span class="hs-identifier hs-var">metaTimeout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">method :: ByteString
+</span><span class="hs-identifier hs-var">Client.method</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Method -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">Method
+</span><a href="#local-6989586621679202506"><span class="hs-identifier hs-var">metaMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">path :: ByteString
+</span><span class="hs-identifier hs-var">Client.path</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Path -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">Path
+</span><a href="#local-6989586621679202505"><span class="hs-identifier hs-var">metaPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">queryString :: ByteString
+</span><span class="hs-identifier hs-var">Client.queryString</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679202485"><span class="hs-identifier hs-var">qry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">requestHeaders :: [Header]
+</span><span class="hs-identifier hs-var">Client.requestHeaders</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679202496"><span class="hs-identifier hs-var">metaHeaders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">requestBody :: RequestBody
+</span><span class="hs-identifier hs-var">Client.requestBody</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RequestBody
+</span><a href="#local-6989586621679202494"><span class="hs-identifier hs-var">b</span></a></span><span>
+</span><span id="line-158"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span>    </span><span id="local-6989586621679202485"><span class="annot"><span class="annottext">qry :: ByteString
+</span><a href="#local-6989586621679202485"><span class="hs-identifier hs-var hs-var">qry</span></a></span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Bool
+</span><span class="hs-identifier hs-var">BS.null</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679202481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679202481"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Char
+</span><span class="hs-char">'?'</span></span><span> </span><span class="annot"><span class="annottext">Char -&gt; ByteString -&gt; ByteString
+</span><span class="hs-operator hs-var">`BS8.cons`</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679202481"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>        </span><span id="local-6989586621679202481"><span class="annot"><span class="annottext">x :: ByteString
+</span><a href="#local-6989586621679202481"><span class="hs-identifier hs-var hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CanonicalQuery -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">CanonicalQuery
+</span><a href="#local-6989586621679202502"><span class="hs-identifier hs-var">metaCanonicalQuery</span></a></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span id="local-6989586621679202719"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#signMetadata"><span class="hs-identifier hs-type">signMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#AuthEnv"><span class="hs-identifier hs-type">AuthEnv</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Region"><span class="hs-identifier hs-type">Region</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Credential"><span class="hs-identifier hs-type">Credential</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#SignedHeaders"><span class="hs-identifier hs-type">SignedHeaders</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Data.Query.html#QueryString"><span class="hs-identifier hs-type">QueryString</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Data.Query.html#QueryString"><span class="hs-identifier hs-type">QueryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Hash"><span class="hs-identifier hs-type">Hash</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Request"><span class="hs-identifier hs-type">Request</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679202719"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#V4"><span class="hs-identifier hs-type">V4</span></a></span></span><span>
+</span><span id="line-174"></span><span id="signMetadata"><span class="annot"><span class="annottext">signMetadata :: AuthEnv
+-&gt; Region
+-&gt; UTCTime
+-&gt; (Credential -&gt; SignedHeaders -&gt; QueryString -&gt; QueryString)
+-&gt; Hash
+-&gt; Request a
+-&gt; V4
+</span><a href="Network.AWS.Sign.V4.Base.html#signMetadata"><span class="hs-identifier hs-var hs-var">signMetadata</span></a></span></span><span> </span><span id="local-6989586621679202479"><span class="annot"><span class="annottext">AuthEnv
+</span><a href="#local-6989586621679202479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679202478"><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679202478"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span id="local-6989586621679202477"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202477"><span class="hs-identifier hs-var">ts</span></a></span></span><span> </span><span id="local-6989586621679202476"><span class="annot"><span class="annottext">Credential -&gt; SignedHeaders -&gt; QueryString -&gt; QueryString
+</span><a href="#local-6989586621679202476"><span class="hs-identifier hs-var">presign</span></a></span></span><span> </span><span id="local-6989586621679202475"><span class="annot"><span class="annottext">Hash
+</span><a href="#local-6989586621679202475"><span class="hs-identifier hs-var">digest</span></a></span></span><span> </span><span id="local-6989586621679202474"><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202474"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">V4 :: UTCTime
+-&gt; Method
+-&gt; Path
+-&gt; Endpoint
+-&gt; Credential
+-&gt; CanonicalQuery
+-&gt; CanonicalRequest
+-&gt; CanonicalHeaders
+-&gt; SignedHeaders
+-&gt; StringToSign
+-&gt; Signature
+-&gt; [Header]
+-&gt; Maybe Seconds
+-&gt; V4
+</span><a href="Network.AWS.Sign.V4.Base.html#V4"><span class="hs-identifier hs-type">V4</span></a></span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metaTime:V4 :: UTCTime
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaTime%3AV4"><span class="hs-identifier hs-var">metaTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202477"><span class="hs-identifier hs-var">ts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:metaMethod:V4 :: Method
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaMethod%3AV4"><span class="hs-identifier hs-var">metaMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Method
+</span><a href="#local-6989586621679202473"><span class="hs-identifier hs-var">method</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:metaPath:V4 :: Path
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaPath%3AV4"><span class="hs-identifier hs-var">metaPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Path
+</span><a href="#local-6989586621679202472"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:metaEndpoint:V4 :: Endpoint
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaEndpoint%3AV4"><span class="hs-identifier hs-var">metaEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679202471"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:metaCredential:V4 :: Credential
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaCredential%3AV4"><span class="hs-identifier hs-var">metaCredential</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Credential
+</span><a href="#local-6989586621679202470"><span class="hs-identifier hs-var">cred</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:metaCanonicalQuery:V4 :: CanonicalQuery
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaCanonicalQuery%3AV4"><span class="hs-identifier hs-var">metaCanonicalQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CanonicalQuery
+</span><a href="#local-6989586621679202469"><span class="hs-identifier hs-var">query</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:metaCanonicalRequest:V4 :: CanonicalRequest
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaCanonicalRequest%3AV4"><span class="hs-identifier hs-var">metaCanonicalRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CanonicalRequest
+</span><a href="#local-6989586621679202468"><span class="hs-identifier hs-var">crq</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:metaCanonicalHeaders:V4 :: CanonicalHeaders
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaCanonicalHeaders%3AV4"><span class="hs-identifier hs-var">metaCanonicalHeaders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CanonicalHeaders
+</span><a href="#local-6989586621679202467"><span class="hs-identifier hs-var">chs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:metaSignedHeaders:V4 :: SignedHeaders
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaSignedHeaders%3AV4"><span class="hs-identifier hs-var">metaSignedHeaders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SignedHeaders
+</span><a href="#local-6989586621679202466"><span class="hs-identifier hs-var">shs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:metaStringToSign:V4 :: StringToSign
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaStringToSign%3AV4"><span class="hs-identifier hs-var">metaStringToSign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StringToSign
+</span><a href="#local-6989586621679202465"><span class="hs-identifier hs-var">sts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:metaSignature:V4 :: Signature
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaSignature%3AV4"><span class="hs-identifier hs-var">metaSignature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SecretKey -&gt; CredentialScope -&gt; StringToSign -&gt; Signature
+</span><a href="Network.AWS.Sign.V4.Base.html#signature"><span class="hs-keyword hs-var">signature</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AuthEnv -&gt; Sensitive SecretKey
+</span><a href="Network.AWS.Types.html#%24sel%3A_authSecretAccessKey%3AAuthEnv"><span class="hs-identifier hs-var hs-var">_authSecretAccessKey</span></a></span><span> </span><span class="annot"><span class="annottext">AuthEnv
+</span><a href="#local-6989586621679202479"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Sensitive SecretKey
+-&gt; Getting SecretKey (Sensitive SecretKey) SecretKey -&gt; SecretKey
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">^.</span></span><span> </span><span class="annot"><span class="annottext">Getting SecretKey (Sensitive SecretKey) SecretKey
+forall a. Iso' (Sensitive a) a
+</span><a href="Network.AWS.Data.Sensitive.html#_Sensitive"><span class="hs-identifier hs-var">_Sensitive</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">CredentialScope
+</span><a href="#local-6989586621679202461"><span class="hs-identifier hs-var">scope</span></a></span><span> </span><span class="annot"><span class="annottext">StringToSign
+</span><a href="#local-6989586621679202465"><span class="hs-identifier hs-var">sts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:metaHeaders:V4 :: [Header]
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaHeaders%3AV4"><span class="hs-identifier hs-var">metaHeaders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Request a -&gt; [Header]
+forall a. Request a -&gt; [Header]
+</span><a href="Network.AWS.Types.html#%24sel%3A_requestHeaders%3ARequest"><span class="hs-identifier hs-var hs-var">_requestHeaders</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202474"><span class="hs-identifier hs-var">rq</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:metaTimeout:V4 :: Maybe Seconds
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaTimeout%3AV4"><span class="hs-identifier hs-var">metaTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Maybe Seconds
+</span><a href="Network.AWS.Types.html#%24sel%3A_serviceTimeout%3AService"><span class="hs-identifier hs-var hs-var">_serviceTimeout</span></a></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679202458"><span class="hs-identifier hs-var">svc</span></a></span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>    </span><span id="local-6989586621679202469"><span class="annot"><span class="annottext">query :: CanonicalQuery
+</span><a href="#local-6989586621679202469"><span class="hs-identifier hs-var hs-var">query</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CanonicalQuery
+</span><a href="Network.AWS.Sign.V4.Base.html#canonicalQuery"><span class="hs-identifier hs-var">canonicalQuery</span></a></span><span> </span><span class="annot"><span class="annottext">(QueryString -&gt; CanonicalQuery)
+-&gt; (QueryString -&gt; QueryString) -&gt; QueryString -&gt; CanonicalQuery
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Credential -&gt; SignedHeaders -&gt; QueryString -&gt; QueryString
+</span><a href="#local-6989586621679202476"><span class="hs-identifier hs-var">presign</span></a></span><span> </span><span class="annot"><span class="annottext">Credential
+</span><a href="#local-6989586621679202470"><span class="hs-identifier hs-var">cred</span></a></span><span> </span><span class="annot"><span class="annottext">SignedHeaders
+</span><a href="#local-6989586621679202466"><span class="hs-identifier hs-var">shs</span></a></span><span> </span><span class="annot"><span class="annottext">(QueryString -&gt; CanonicalQuery) -&gt; QueryString -&gt; CanonicalQuery
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="annot"><span class="annottext">Request a -&gt; QueryString
+forall a. Request a -&gt; QueryString
+</span><a href="Network.AWS.Types.html#%24sel%3A_requestQuery%3ARequest"><span class="hs-identifier hs-var hs-var">_requestQuery</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202474"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span>    </span><span id="local-6989586621679202465"><span class="annot"><span class="annottext">sts :: StringToSign
+</span><a href="#local-6989586621679202465"><span class="hs-identifier hs-var hs-var">sts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UTCTime -&gt; CredentialScope -&gt; CanonicalRequest -&gt; StringToSign
+</span><a href="Network.AWS.Sign.V4.Base.html#stringToSign"><span class="hs-identifier hs-var">stringToSign</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202477"><span class="hs-identifier hs-var">ts</span></a></span><span> </span><span class="annot"><span class="annottext">CredentialScope
+</span><a href="#local-6989586621679202461"><span class="hs-identifier hs-var">scope</span></a></span><span> </span><span class="annot"><span class="annottext">CanonicalRequest
+</span><a href="#local-6989586621679202468"><span class="hs-identifier hs-var">crq</span></a></span><span>
+</span><span id="line-194"></span><span>    </span><span id="local-6989586621679202470"><span class="annot"><span class="annottext">cred :: Credential
+</span><a href="#local-6989586621679202470"><span class="hs-identifier hs-var hs-var">cred</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccessKey -&gt; CredentialScope -&gt; Credential
+</span><a href="Network.AWS.Sign.V4.Base.html#credential"><span class="hs-identifier hs-var">credential</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AuthEnv -&gt; AccessKey
+</span><a href="Network.AWS.Types.html#%24sel%3A_authAccessKeyId%3AAuthEnv"><span class="hs-identifier hs-var hs-var">_authAccessKeyId</span></a></span><span> </span><span class="annot"><span class="annottext">AuthEnv
+</span><a href="#local-6989586621679202479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">CredentialScope
+</span><a href="#local-6989586621679202461"><span class="hs-identifier hs-var">scope</span></a></span><span>
+</span><span id="line-195"></span><span>    </span><span id="local-6989586621679202461"><span class="annot"><span class="annottext">scope :: CredentialScope
+</span><a href="#local-6989586621679202461"><span class="hs-identifier hs-var hs-var">scope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Endpoint -&gt; UTCTime -&gt; CredentialScope
+</span><a href="Network.AWS.Sign.V4.Base.html#credentialScope"><span class="hs-identifier hs-var">credentialScope</span></a></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679202458"><span class="hs-identifier hs-var">svc</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679202471"><span class="hs-identifier hs-var">end</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202477"><span class="hs-identifier hs-var">ts</span></a></span><span>
+</span><span id="line-196"></span><span>    </span><span id="local-6989586621679202468"><span class="annot"><span class="annottext">crq :: CanonicalRequest
+</span><a href="#local-6989586621679202468"><span class="hs-identifier hs-var hs-var">crq</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Method
+-&gt; Path
+-&gt; Hash
+-&gt; CanonicalQuery
+-&gt; CanonicalHeaders
+-&gt; SignedHeaders
+-&gt; CanonicalRequest
+</span><a href="Network.AWS.Sign.V4.Base.html#canonicalRequest"><span class="hs-identifier hs-var">canonicalRequest</span></a></span><span> </span><span class="annot"><span class="annottext">Method
+</span><a href="#local-6989586621679202473"><span class="hs-identifier hs-var">method</span></a></span><span> </span><span class="annot"><span class="annottext">Path
+</span><a href="#local-6989586621679202472"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="annot"><span class="annottext">Hash
+</span><a href="#local-6989586621679202475"><span class="hs-identifier hs-var">digest</span></a></span><span> </span><span class="annot"><span class="annottext">CanonicalQuery
+</span><a href="#local-6989586621679202469"><span class="hs-identifier hs-var">query</span></a></span><span> </span><span class="annot"><span class="annottext">CanonicalHeaders
+</span><a href="#local-6989586621679202467"><span class="hs-identifier hs-var">chs</span></a></span><span> </span><span class="annot"><span class="annottext">SignedHeaders
+</span><a href="#local-6989586621679202466"><span class="hs-identifier hs-var">shs</span></a></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span>    </span><span id="local-6989586621679202467"><span class="annot"><span class="annottext">chs :: CanonicalHeaders
+</span><a href="#local-6989586621679202467"><span class="hs-identifier hs-var hs-var">chs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NormalisedHeaders -&gt; CanonicalHeaders
+</span><a href="Network.AWS.Sign.V4.Base.html#canonicalHeaders"><span class="hs-identifier hs-var">canonicalHeaders</span></a></span><span> </span><span class="annot"><span class="annottext">NormalisedHeaders
+</span><a href="#local-6989586621679202449"><span class="hs-identifier hs-var">headers</span></a></span><span>
+</span><span id="line-199"></span><span>    </span><span id="local-6989586621679202466"><span class="annot"><span class="annottext">shs :: SignedHeaders
+</span><a href="#local-6989586621679202466"><span class="hs-identifier hs-var hs-var">shs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NormalisedHeaders -&gt; SignedHeaders
+</span><a href="Network.AWS.Sign.V4.Base.html#signedHeaders"><span class="hs-identifier hs-var">signedHeaders</span></a></span><span> </span><span class="annot"><span class="annottext">NormalisedHeaders
+</span><a href="#local-6989586621679202449"><span class="hs-identifier hs-var">headers</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span id="local-6989586621679202449"><span class="annot"><span class="annottext">headers :: NormalisedHeaders
+</span><a href="#local-6989586621679202449"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; NormalisedHeaders
+</span><a href="Network.AWS.Sign.V4.Base.html#normaliseHeaders"><span class="hs-identifier hs-var">normaliseHeaders</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request a -&gt; [Header]
+forall a. Request a -&gt; [Header]
+</span><a href="Network.AWS.Types.html#%24sel%3A_requestHeaders%3ARequest"><span class="hs-identifier hs-var hs-var">_requestHeaders</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202474"><span class="hs-identifier hs-var">rq</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span>    </span><span id="local-6989586621679202471"><span class="annot"><span class="annottext">end :: Endpoint
+</span><a href="#local-6989586621679202471"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><a href="Network.AWS.Types.html#%24sel%3A_serviceEndpoint%3AService"><span class="hs-identifier hs-var hs-var">_serviceEndpoint</span></a></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679202458"><span class="hs-identifier hs-var">svc</span></a></span><span> </span><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679202478"><span class="hs-identifier hs-var">r</span></a></span><span>
+</span><span id="line-203"></span><span>    </span><span id="local-6989586621679202473"><span class="annot"><span class="annottext">method :: Method
+</span><a href="#local-6989586621679202473"><span class="hs-identifier hs-var hs-var">method</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Method
+forall (s :: Symbol) a. a -&gt; Tag s a
+</span><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Method)
+-&gt; (StdMethod -&gt; ByteString) -&gt; StdMethod -&gt; Method
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">StdMethod -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">(StdMethod -&gt; Method) -&gt; StdMethod -&gt; Method
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="annot"><span class="annottext">Request a -&gt; StdMethod
+forall a. Request a -&gt; StdMethod
+</span><a href="Network.AWS.Types.html#%24sel%3A_requestMethod%3ARequest"><span class="hs-identifier hs-var hs-var">_requestMethod</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202474"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-204"></span><span>    </span><span id="local-6989586621679202472"><span class="annot"><span class="annottext">path :: Path
+</span><a href="#local-6989586621679202472"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Request a -&gt; Path
+forall a. Request a -&gt; Path
+</span><a href="Network.AWS.Sign.V4.Base.html#escapedPath"><span class="hs-identifier hs-var">escapedPath</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202474"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span>    </span><span id="local-6989586621679202458"><span class="annot"><span class="annottext">svc :: Service
+</span><a href="#local-6989586621679202458"><span class="hs-identifier hs-var hs-var">svc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Request a -&gt; Service
+forall a. Request a -&gt; Service
+</span><a href="Network.AWS.Types.html#%24sel%3A_requestService%3ARequest"><span class="hs-identifier hs-var hs-var">_requestService</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202474"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#algorithm"><span class="hs-identifier hs-type">algorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-209"></span><span id="algorithm"><span class="annot"><span class="annottext">algorithm :: ByteString
+</span><a href="Network.AWS.Sign.V4.Base.html#algorithm"><span class="hs-identifier hs-var hs-var">algorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWS4-HMAC-SHA256&quot;</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#signature"><span class="hs-keyword hs-type">signature</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#SecretKey"><span class="hs-identifier hs-type">SecretKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CredentialScope"><span class="hs-identifier hs-type">CredentialScope</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#StringToSign"><span class="hs-identifier hs-type">StringToSign</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Signature"><span class="hs-identifier hs-type">Signature</span></a></span><span>
+</span><span id="line-212"></span><span id="signature"><span class="annot"><span class="annottext">signature :: SecretKey -&gt; CredentialScope -&gt; StringToSign -&gt; Signature
+</span><a href="Network.AWS.Sign.V4.Base.html#signature"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span> </span><span id="local-6989586621679202444"><span class="annot"><span class="annottext">SecretKey
+</span><a href="#local-6989586621679202444"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span id="local-6989586621679202443"><span class="annot"><span class="annottext">CredentialScope
+</span><a href="#local-6989586621679202443"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Signature
+forall (s :: Symbol) a. a -&gt; Tag s a
+</span><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Signature)
+-&gt; (StringToSign -&gt; ByteString) -&gt; StringToSign -&gt; Signature
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">HMAC SHA256 -&gt; ByteString
+forall a. ByteArrayAccess a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Bytes.html#encodeBase16"><span class="hs-identifier hs-var">Bytes.encodeBase16</span></a></span><span> </span><span class="annot"><span class="annottext">(HMAC SHA256 -&gt; ByteString)
+-&gt; (StringToSign -&gt; HMAC SHA256) -&gt; StringToSign -&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; HMAC SHA256
+forall a. ByteArrayAccess a =&gt; ByteString -&gt; a -&gt; HMAC SHA256
+</span><a href="Network.AWS.Crypto.html#hmacSHA256"><span class="hs-identifier hs-var">Crypto.hmacSHA256</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679202440"><span class="hs-identifier hs-var">signingKey</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; HMAC SHA256)
+-&gt; (StringToSign -&gt; ByteString) -&gt; StringToSign -&gt; HMAC SHA256
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">StringToSign -&gt; ByteString
+forall (s :: Symbol) a. Tag s a -&gt; a
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3Auntag%3ATag"><span class="hs-identifier hs-var hs-var">untag</span></a></span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>    </span><span id="local-6989586621679202440"><span class="annot"><span class="annottext">signingKey :: ByteString
+</span><a href="#local-6989586621679202440"><span class="hs-identifier hs-var hs-var">signingKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; ByteString -&gt; ByteString)
+-&gt; ByteString -&gt; [ByteString] -&gt; ByteString
+forall (t :: * -&gt; *) b a.
+Foldable t =&gt;
+(b -&gt; a -&gt; b) -&gt; b -&gt; t a -&gt; b
+</span><span class="hs-identifier hs-var">Foldable.foldl'</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall bout a.
+(ByteArray bout, ByteArrayAccess a) =&gt;
+ByteString -&gt; a -&gt; bout
+</span><a href="#local-6989586621679202438"><span class="hs-identifier hs-var">hmac</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWS4&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">SecretKey -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">SecretKey
+</span><a href="#local-6989586621679202444"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">CredentialScope -&gt; [ByteString]
+forall (s :: Symbol) a. Tag s a -&gt; a
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3Auntag%3ATag"><span class="hs-identifier hs-var hs-var">untag</span></a></span><span> </span><span class="annot"><span class="annottext">CredentialScope
+</span><a href="#local-6989586621679202443"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span>    </span><span id="local-6989586621679202438"><span class="annot"><span class="annottext">hmac :: ByteString -&gt; a -&gt; bout
+</span><a href="#local-6989586621679202438"><span class="hs-identifier hs-var hs-var">hmac</span></a></span></span><span> </span><span id="local-6989586621679202437"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679202437"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679202436"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679202436"><span class="hs-identifier hs-var">y</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HMAC SHA256 -&gt; bout
+forall bin bout.
+(ByteArrayAccess bin, ByteArray bout) =&gt;
+bin -&gt; bout
+</span><span class="hs-identifier hs-var">Bytes.convert</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; a -&gt; HMAC SHA256
+forall a. ByteArrayAccess a =&gt; ByteString -&gt; a -&gt; HMAC SHA256
+</span><a href="Network.AWS.Crypto.html#hmacSHA256"><span class="hs-identifier hs-var">Crypto.hmacSHA256</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679202437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679202436"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#stringToSign"><span class="hs-identifier hs-type">stringToSign</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CredentialScope"><span class="hs-identifier hs-type">CredentialScope</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CanonicalRequest"><span class="hs-identifier hs-type">CanonicalRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#StringToSign"><span class="hs-identifier hs-type">StringToSign</span></a></span><span>
+</span><span id="line-219"></span><span id="stringToSign"><span class="annot"><span class="annottext">stringToSign :: UTCTime -&gt; CredentialScope -&gt; CanonicalRequest -&gt; StringToSign
+</span><a href="Network.AWS.Sign.V4.Base.html#stringToSign"><span class="hs-identifier hs-var hs-var">stringToSign</span></a></span></span><span> </span><span id="local-6989586621679202434"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202434"><span class="hs-identifier hs-var">t</span></a></span></span><span> </span><span id="local-6989586621679202433"><span class="annot"><span class="annottext">CredentialScope
+</span><a href="#local-6989586621679202433"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span id="local-6989586621679202432"><span class="annot"><span class="annottext">CanonicalRequest
+</span><a href="#local-6989586621679202432"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>  </span><span class="annot"><span class="annottext">ByteString -&gt; StringToSign
+forall (s :: Symbol) a. a -&gt; Tag s a
+</span><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; StringToSign) -&gt; ByteString -&gt; StringToSign
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; [ByteString] -&gt; ByteString
+</span><span class="hs-identifier hs-var">BS8.intercalate</span></span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;\n&quot;</span></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="Network.AWS.Sign.V4.Base.html#algorithm"><span class="hs-identifier hs-var">algorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">AWSTime -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">UTCTime -&gt; AWSTime
+forall (a :: Format). UTCTime -&gt; Time a
+</span><a href="Network.AWS.Data.Time.html#Time"><span class="hs-identifier hs-var">Time</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202434"><span class="hs-identifier hs-var">t</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Data.Time.html#AWSTime"><span class="hs-identifier hs-type">AWSTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">CredentialScope -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">CredentialScope
+</span><a href="#local-6989586621679202433"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Digest SHA256 -&gt; ByteString
+forall a. ByteArrayAccess a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Bytes.html#encodeBase16"><span class="hs-identifier hs-var">Bytes.encodeBase16</span></a></span><span> </span><span class="annot"><span class="annottext">(Digest SHA256 -&gt; ByteString)
+-&gt; (ByteString -&gt; Digest SHA256) -&gt; ByteString -&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Digest SHA256
+forall a. ByteArrayAccess a =&gt; a -&gt; Digest SHA256
+</span><a href="Network.AWS.Crypto.html#hashSHA256"><span class="hs-identifier hs-var">Crypto.hashSHA256</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; ByteString) -&gt; ByteString -&gt; ByteString
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="annot"><span class="annottext">CanonicalRequest -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">CanonicalRequest
+</span><a href="#local-6989586621679202432"><span class="hs-identifier hs-var">r</span></a></span><span>
+</span><span id="line-227"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#credential"><span class="hs-identifier hs-type">credential</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#AccessKey"><span class="hs-identifier hs-type">AccessKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CredentialScope"><span class="hs-identifier hs-type">CredentialScope</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Credential"><span class="hs-identifier hs-type">Credential</span></a></span><span>
+</span><span id="line-230"></span><span id="credential"><span class="annot"><span class="annottext">credential :: AccessKey -&gt; CredentialScope -&gt; Credential
+</span><a href="Network.AWS.Sign.V4.Base.html#credential"><span class="hs-identifier hs-var hs-var">credential</span></a></span></span><span> </span><span id="local-6989586621679202430"><span class="annot"><span class="annottext">AccessKey
+</span><a href="#local-6989586621679202430"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span id="local-6989586621679202429"><span class="annot"><span class="annottext">CredentialScope
+</span><a href="#local-6989586621679202429"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Credential
+forall (s :: Symbol) a. a -&gt; Tag s a
+</span><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AccessKey -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">AccessKey
+</span><a href="#local-6989586621679202430"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">CredentialScope -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">CredentialScope
+</span><a href="#local-6989586621679202429"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#credentialScope"><span class="hs-identifier hs-type">credentialScope</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CredentialScope"><span class="hs-identifier hs-type">CredentialScope</span></a></span><span>
+</span><span id="line-233"></span><span id="credentialScope"><span class="annot"><span class="annottext">credentialScope :: Service -&gt; Endpoint -&gt; UTCTime -&gt; CredentialScope
+</span><a href="Network.AWS.Sign.V4.Base.html#credentialScope"><span class="hs-identifier hs-var hs-var">credentialScope</span></a></span></span><span> </span><span id="local-6989586621679202428"><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679202428"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679202427"><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679202427"><span class="hs-identifier hs-var">e</span></a></span></span><span> </span><span id="local-6989586621679202426"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202426"><span class="hs-identifier hs-var">t</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><span class="annottext">[ByteString] -&gt; CredentialScope
+forall (s :: Symbol) a. a -&gt; Tag s a
+</span><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">BasicTime -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">UTCTime -&gt; BasicTime
+forall (a :: Format). UTCTime -&gt; Time a
+</span><a href="Network.AWS.Data.Time.html#Time"><span class="hs-identifier hs-var">Time</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202426"><span class="hs-identifier hs-var">t</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Data.Time.html#BasicTime"><span class="hs-identifier hs-type">BasicTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Endpoint -&gt; ByteString
+</span><a href="Network.AWS.Types.html#%24sel%3A_endpointScope%3AEndpoint"><span class="hs-identifier hs-var hs-var">_endpointScope</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679202427"><span class="hs-identifier hs-var">e</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Service -&gt; ByteString
+</span><a href="Network.AWS.Types.html#%24sel%3A_serviceSigningName%3AService"><span class="hs-identifier hs-var hs-var">_serviceSigningName</span></a></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679202428"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;aws4_request&quot;</span></span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-special">]</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#canonicalRequest"><span class="hs-identifier hs-type">canonicalRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Path"><span class="hs-identifier hs-type">Path</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Hash"><span class="hs-identifier hs-type">Hash</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CanonicalQuery"><span class="hs-identifier hs-type">CanonicalQuery</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-246"></span><span>  </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CanonicalHeaders"><span class="hs-identifier hs-type">CanonicalHeaders</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#SignedHeaders"><span class="hs-identifier hs-type">SignedHeaders</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CanonicalRequest"><span class="hs-identifier hs-type">CanonicalRequest</span></a></span><span>
+</span><span id="line-249"></span><span id="canonicalRequest"><span class="annot"><span class="annottext">canonicalRequest :: Method
+-&gt; Path
+-&gt; Hash
+-&gt; CanonicalQuery
+-&gt; CanonicalHeaders
+-&gt; SignedHeaders
+-&gt; CanonicalRequest
+</span><a href="Network.AWS.Sign.V4.Base.html#canonicalRequest"><span class="hs-identifier hs-var hs-var">canonicalRequest</span></a></span></span><span> </span><span id="local-6989586621679202423"><span class="annot"><span class="annottext">Method
+</span><a href="#local-6989586621679202423"><span class="hs-identifier hs-var">meth</span></a></span></span><span> </span><span id="local-6989586621679202422"><span class="annot"><span class="annottext">Path
+</span><a href="#local-6989586621679202422"><span class="hs-identifier hs-var">path</span></a></span></span><span> </span><span id="local-6989586621679202421"><span class="annot"><span class="annottext">Hash
+</span><a href="#local-6989586621679202421"><span class="hs-identifier hs-var">digest</span></a></span></span><span> </span><span id="local-6989586621679202420"><span class="annot"><span class="annottext">CanonicalQuery
+</span><a href="#local-6989586621679202420"><span class="hs-identifier hs-var">query</span></a></span></span><span> </span><span id="local-6989586621679202419"><span class="annot"><span class="annottext">CanonicalHeaders
+</span><a href="#local-6989586621679202419"><span class="hs-identifier hs-var">chs</span></a></span></span><span> </span><span id="local-6989586621679202418"><span class="annot"><span class="annottext">SignedHeaders
+</span><a href="#local-6989586621679202418"><span class="hs-identifier hs-var">shs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><span class="annottext">ByteString -&gt; CanonicalRequest
+forall (s :: Symbol) a. a -&gt; Tag s a
+</span><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; CanonicalRequest) -&gt; ByteString -&gt; CanonicalRequest
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; [ByteString] -&gt; ByteString
+</span><span class="hs-identifier hs-var">BS8.intercalate</span></span><span>
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;\n&quot;</span></span><span>
+</span><span id="line-253"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Method -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">Method
+</span><a href="#local-6989586621679202423"><span class="hs-identifier hs-var">meth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">Path -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">Path
+</span><a href="#local-6989586621679202422"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">CanonicalQuery -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">CanonicalQuery
+</span><a href="#local-6989586621679202420"><span class="hs-identifier hs-var">query</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">CanonicalHeaders -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">CanonicalHeaders
+</span><a href="#local-6989586621679202419"><span class="hs-identifier hs-var">chs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>        </span><span class="annot"><span class="annottext">SignedHeaders -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">SignedHeaders
+</span><a href="#local-6989586621679202418"><span class="hs-identifier hs-var">shs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">Hash -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">Hash
+</span><a href="#local-6989586621679202421"><span class="hs-identifier hs-var">digest</span></a></span><span>
+</span><span id="line-259"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span id="local-6989586621679202662"><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#escapedPath"><span class="hs-identifier hs-type">escapedPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Request"><span class="hs-identifier hs-type">Request</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679202662"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#Path"><span class="hs-identifier hs-type">Path</span></a></span></span><span>
+</span><span id="line-262"></span><span id="escapedPath"><span class="annot"><span class="annottext">escapedPath :: Request a -&gt; Path
+</span><a href="Network.AWS.Sign.V4.Base.html#escapedPath"><span class="hs-identifier hs-var hs-var">escapedPath</span></a></span></span><span> </span><span id="local-6989586621679202417"><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202417"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Path
+forall (s :: Symbol) a. a -&gt; Tag s a
+</span><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Path)
+-&gt; (Path 'NoEncoding -&gt; ByteString) -&gt; Path 'NoEncoding -&gt; Path
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">EscapedPath -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">(EscapedPath -&gt; ByteString)
+-&gt; (Path 'NoEncoding -&gt; EscapedPath)
+-&gt; Path 'NoEncoding
+-&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Path 'NoEncoding -&gt; EscapedPath
+forall (a :: Encoding). Path a -&gt; EscapedPath
+</span><a href="Network.AWS.Data.Path.html#escapePath"><span class="hs-identifier hs-var">escapePath</span></a></span><span> </span><span class="annot"><span class="annottext">(Path 'NoEncoding -&gt; Path) -&gt; Path 'NoEncoding -&gt; Path
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span>
+</span><span id="line-263"></span><span>  </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Abbrev
+</span><a href="Network.AWS.Types.html#%24sel%3A_serviceAbbrev%3AService"><span class="hs-identifier hs-var hs-var">_serviceAbbrev</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request a -&gt; Service
+forall a. Request a -&gt; Service
+</span><a href="Network.AWS.Types.html#%24sel%3A_requestService%3ARequest"><span class="hs-identifier hs-var hs-var">_requestService</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202417"><span class="hs-identifier hs-var">r</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">of</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;S3&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Request a -&gt; Path 'NoEncoding
+forall a. Request a -&gt; Path 'NoEncoding
+</span><a href="Network.AWS.Types.html#%24sel%3A_requestPath%3ARequest"><span class="hs-identifier hs-var hs-var">_requestPath</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202417"><span class="hs-identifier hs-var">r</span></a></span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Path 'NoEncoding -&gt; Path 'NoEncoding
+forall (a :: Encoding). Path a -&gt; Path a
+</span><a href="Network.AWS.Data.Path.html#collapsePath"><span class="hs-identifier hs-var">collapsePath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request a -&gt; Path 'NoEncoding
+forall a. Request a -&gt; Path 'NoEncoding
+</span><a href="Network.AWS.Types.html#%24sel%3A_requestPath%3ARequest"><span class="hs-identifier hs-var hs-var">_requestPath</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202417"><span class="hs-identifier hs-var">r</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#canonicalQuery"><span class="hs-identifier hs-type">canonicalQuery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Data.Query.html#QueryString"><span class="hs-identifier hs-type">QueryString</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CanonicalQuery"><span class="hs-identifier hs-type">CanonicalQuery</span></a></span><span>
+</span><span id="line-268"></span><span id="canonicalQuery"><span class="annot"><span class="annottext">canonicalQuery :: QueryString -&gt; CanonicalQuery
+</span><a href="Network.AWS.Sign.V4.Base.html#canonicalQuery"><span class="hs-identifier hs-var hs-var">canonicalQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CanonicalQuery
+forall (s :: Symbol) a. a -&gt; Tag s a
+</span><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; CanonicalQuery)
+-&gt; (QueryString -&gt; ByteString) -&gt; QueryString -&gt; CanonicalQuery
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- FIXME: the following use of stripBS is too naive, should remove</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- all internal whitespace, replacing with a single space char,</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- unless quoted with \&quot;...\&quot;</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#canonicalHeaders"><span class="hs-identifier hs-type">canonicalHeaders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#NormalisedHeaders"><span class="hs-identifier hs-type">NormalisedHeaders</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#CanonicalHeaders"><span class="hs-identifier hs-type">CanonicalHeaders</span></a></span><span>
+</span><span id="line-274"></span><span id="canonicalHeaders"><span class="annot"><span class="annottext">canonicalHeaders :: NormalisedHeaders -&gt; CanonicalHeaders
+</span><a href="Network.AWS.Sign.V4.Base.html#canonicalHeaders"><span class="hs-identifier hs-var hs-var">canonicalHeaders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CanonicalHeaders
+forall (s :: Symbol) a. a -&gt; Tag s a
+</span><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; CanonicalHeaders)
+-&gt; (NormalisedHeaders -&gt; ByteString)
+-&gt; NormalisedHeaders
+-&gt; CanonicalHeaders
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">((ByteString, ByteString) -&gt; ByteString)
+-&gt; [(ByteString, ByteString)] -&gt; ByteString
+forall (t :: * -&gt; *) m a.
+(Foldable t, Monoid m) =&gt;
+(a -&gt; m) -&gt; t a -&gt; m
+</span><span class="hs-identifier hs-var">Foldable.foldMap</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(ByteString -&gt; ByteString -&gt; ByteString)
+-&gt; (ByteString, ByteString) -&gt; ByteString
+forall a b c. (a -&gt; b -&gt; c) -&gt; (a, b) -&gt; c
+</span><span class="hs-identifier hs-var">uncurry</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="#local-6989586621679202410"><span class="hs-identifier hs-var">f</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([(ByteString, ByteString)] -&gt; ByteString)
+-&gt; (NormalisedHeaders -&gt; [(ByteString, ByteString)])
+-&gt; NormalisedHeaders
+-&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">NormalisedHeaders -&gt; [(ByteString, ByteString)]
+forall (s :: Symbol) a. Tag s a -&gt; a
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3Auntag%3ATag"><span class="hs-identifier hs-var hs-var">untag</span></a></span><span>
+</span><span id="line-275"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-276"></span><span>    </span><span id="local-6989586621679202410"><span class="annot"><span class="annottext">f :: ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="#local-6989586621679202410"><span class="hs-identifier hs-var hs-var">f</span></a></span></span><span> </span><span id="local-6989586621679202409"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679202409"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span id="local-6989586621679202408"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679202408"><span class="hs-identifier hs-var">v</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679202409"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;:&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString
+</span><a href="Network.AWS.Data.ByteString.html#stripBS"><span class="hs-identifier hs-var">stripBS</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679202408"><span class="hs-identifier hs-var">v</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;\n&quot;</span></span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#signedHeaders"><span class="hs-identifier hs-type">signedHeaders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#NormalisedHeaders"><span class="hs-identifier hs-type">NormalisedHeaders</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#SignedHeaders"><span class="hs-identifier hs-type">SignedHeaders</span></a></span><span>
+</span><span id="line-279"></span><span id="signedHeaders"><span class="annot"><span class="annottext">signedHeaders :: NormalisedHeaders -&gt; SignedHeaders
+</span><a href="Network.AWS.Sign.V4.Base.html#signedHeaders"><span class="hs-identifier hs-var hs-var">signedHeaders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SignedHeaders
+forall (s :: Symbol) a. a -&gt; Tag s a
+</span><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; SignedHeaders)
+-&gt; (NormalisedHeaders -&gt; ByteString)
+-&gt; NormalisedHeaders
+-&gt; SignedHeaders
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [ByteString] -&gt; ByteString
+</span><span class="hs-identifier hs-var">BS8.intercalate</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;;&quot;</span></span><span> </span><span class="annot"><span class="annottext">([ByteString] -&gt; ByteString)
+-&gt; (NormalisedHeaders -&gt; [ByteString])
+-&gt; NormalisedHeaders
+-&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">((ByteString, ByteString) -&gt; ByteString)
+-&gt; [(ByteString, ByteString)] -&gt; [ByteString]
+forall a b. (a -&gt; b) -&gt; [a] -&gt; [b]
+</span><span class="hs-identifier hs-var">map</span></span><span> </span><span class="annot"><span class="annottext">(ByteString, ByteString) -&gt; ByteString
+forall a b. (a, b) -&gt; a
+</span><span class="hs-identifier hs-var">fst</span></span><span> </span><span class="annot"><span class="annottext">([(ByteString, ByteString)] -&gt; [ByteString])
+-&gt; (NormalisedHeaders -&gt; [(ByteString, ByteString)])
+-&gt; NormalisedHeaders
+-&gt; [ByteString]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">NormalisedHeaders -&gt; [(ByteString, ByteString)]
+forall (s :: Symbol) a. Tag s a -&gt; a
+</span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3Auntag%3ATag"><span class="hs-identifier hs-var hs-var">untag</span></a></span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#normaliseHeaders"><span class="hs-identifier hs-type">normaliseHeaders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Sign.V4.Base.html#NormalisedHeaders"><span class="hs-identifier hs-type">NormalisedHeaders</span></a></span><span>
+</span><span id="line-282"></span><span id="normaliseHeaders"><span class="annot"><span class="annottext">normaliseHeaders :: [Header] -&gt; NormalisedHeaders
+</span><a href="Network.AWS.Sign.V4.Base.html#normaliseHeaders"><span class="hs-identifier hs-var hs-var">normaliseHeaders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-283"></span><span>  </span><span class="hs-comment">-- FIXME: convert this to an ordered map.</span><span>
+</span><span id="line-284"></span><span>  </span><span class="annot"><span class="annottext">[(ByteString, ByteString)] -&gt; NormalisedHeaders
+forall (s :: Symbol) a. a -&gt; Tag s a
+</span><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><span class="annottext">([(ByteString, ByteString)] -&gt; NormalisedHeaders)
+-&gt; ([Header] -&gt; [(ByteString, ByteString)])
+-&gt; [Header]
+-&gt; NormalisedHeaders
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(Header -&gt; (ByteString, ByteString))
+-&gt; [Header] -&gt; [(ByteString, ByteString)]
+forall a b. (a -&gt; b) -&gt; [a] -&gt; [b]
+</span><span class="hs-identifier hs-var">map</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(HeaderName -&gt; ByteString) -&gt; Header -&gt; (ByteString, ByteString)
+forall (p :: * -&gt; * -&gt; *) a b c.
+Bifunctor p =&gt;
+(a -&gt; b) -&gt; p a c -&gt; p b c
+</span><span class="hs-identifier hs-var">first</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString
+forall s. CI s -&gt; s
+</span><span class="hs-identifier hs-var hs-var">CI.foldedCase</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><span class="annottext">([Header] -&gt; [(ByteString, ByteString)])
+-&gt; ([Header] -&gt; [Header]) -&gt; [Header] -&gt; [(ByteString, ByteString)]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(Header -&gt; Header -&gt; Bool) -&gt; [Header] -&gt; [Header]
+forall a. (a -&gt; a -&gt; Bool) -&gt; [a] -&gt; [a]
+</span><span class="hs-identifier hs-var">List.nubBy</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName -&gt; HeaderName -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">(==)</span></span><span> </span><span class="annot"><span class="annottext">(HeaderName -&gt; HeaderName -&gt; Bool)
+-&gt; (Header -&gt; HeaderName) -&gt; Header -&gt; Header -&gt; Bool
+forall b c a. (b -&gt; b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">`Function.on`</span></span><span> </span><span class="annot"><span class="annottext">Header -&gt; HeaderName
+forall a b. (a, b) -&gt; a
+</span><span class="hs-identifier hs-var">fst</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><span class="annottext">([Header] -&gt; [Header])
+-&gt; ([Header] -&gt; [Header]) -&gt; [Header] -&gt; [Header]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(Header -&gt; Header -&gt; Ordering) -&gt; [Header] -&gt; [Header]
+forall a. (a -&gt; a -&gt; Ordering) -&gt; [a] -&gt; [a]
+</span><span class="hs-identifier hs-var">List.sortBy</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName -&gt; HeaderName -&gt; Ordering
+forall a. Ord a =&gt; a -&gt; a -&gt; Ordering
+</span><span class="hs-identifier hs-var">compare</span></span><span> </span><span class="annot"><span class="annottext">(HeaderName -&gt; HeaderName -&gt; Ordering)
+-&gt; (Header -&gt; HeaderName) -&gt; Header -&gt; Header -&gt; Ordering
+forall b c a. (b -&gt; b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">`Function.on`</span></span><span> </span><span class="annot"><span class="annottext">Header -&gt; HeaderName
+forall a b. (a, b) -&gt; a
+</span><span class="hs-identifier hs-var">fst</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>    </span><span class="annot"><span class="annottext">([Header] -&gt; [Header])
+-&gt; ([Header] -&gt; [Header]) -&gt; [Header] -&gt; [Header]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(Header -&gt; Bool) -&gt; [Header] -&gt; [Header]
+forall a. (a -&gt; Bool) -&gt; [a] -&gt; [a]
+</span><span class="hs-identifier hs-var">filter</span></span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName -&gt; HeaderName -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">/=</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;authorization&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HeaderName -&gt; Bool) -&gt; (Header -&gt; HeaderName) -&gt; Header -&gt; Bool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Header -&gt; HeaderName
+forall a b. (a, b) -&gt; a
+</span><span class="hs-identifier hs-var">fst</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><span class="annottext">([Header] -&gt; [Header])
+-&gt; ([Header] -&gt; [Header]) -&gt; [Header] -&gt; [Header]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(Header -&gt; Bool) -&gt; [Header] -&gt; [Header]
+forall a. (a -&gt; Bool) -&gt; [a] -&gt; [a]
+</span><span class="hs-identifier hs-var">filter</span></span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName -&gt; HeaderName -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">/=</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;content-length&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HeaderName -&gt; Bool) -&gt; (Header -&gt; HeaderName) -&gt; Header -&gt; Bool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Header -&gt; HeaderName
+forall a b. (a, b) -&gt; a
+</span><span class="hs-identifier hs-var">fst</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span></pre></body></html>

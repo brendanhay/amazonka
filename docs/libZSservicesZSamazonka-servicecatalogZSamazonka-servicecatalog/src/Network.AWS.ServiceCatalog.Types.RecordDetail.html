@@ -1,0 +1,1001 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceCatalog.Types.RecordDetail</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceCatalog.Types.RecordDetail</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordError.html"><span class="hs-identifier">Network.AWS.ServiceCatalog.Types.RecordError</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordStatus.html"><span class="hs-identifier">Network.AWS.ServiceCatalog.Types.RecordStatus</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordTag.html"><span class="hs-identifier">Network.AWS.ServiceCatalog.Types.RecordTag</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Information about a request operation.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newRecordDetail' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679404587"><span id="local-6989586621679404588"></span></span><span class="hs-keyword">data</span><span> </span><span id="RecordDetail"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-var">RecordDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecordDetail%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-var">RecordDetail'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more tags.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3ArecordTags%3ARecordDetail%27"><span class="annot"><span class="annottext">RecordDetail -&gt; Maybe [RecordTag]
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3ArecordTags%3ARecordDetail%27"><span class="hs-identifier hs-var hs-var">recordTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordTag.html#RecordTag"><span class="hs-identifier hs-type">RecordTag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The status of the provisioned product.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   @CREATED@ - The request was created but the operation has not</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--     started.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @IN_PROGRESS@ - The requested operation is in progress.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   @IN_PROGRESS_IN_ERROR@ - The provisioned product is under change but</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     the requested operation failed and some remediation is occurring.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     For example, a rollback.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @SUCCEEDED@ - The requested operation has successfully completed.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   @FAILED@ - The requested operation has unsuccessfully completed.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     Investigate using the error messages returned.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Astatus%3ARecordDetail%27"><span class="annot"><span class="annottext">RecordDetail -&gt; Maybe RecordStatus
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3Astatus%3ARecordDetail%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordStatus.html#RecordStatus"><span class="hs-identifier hs-type">RecordStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The user-friendly name of the provisioned product.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AprovisionedProductName%3ARecordDetail%27"><span class="annot"><span class="annottext">RecordDetail -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AprovisionedProductName%3ARecordDetail%27"><span class="hs-identifier hs-var hs-var">provisionedProductName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The errors that occurred.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3ArecordErrors%3ARecordDetail%27"><span class="annot"><span class="annottext">RecordDetail -&gt; Maybe [RecordError]
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3ArecordErrors%3ARecordDetail%27"><span class="hs-identifier hs-var hs-var">recordErrors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordError.html#RecordError"><span class="hs-identifier hs-type">RecordError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The identifier of the provisioned product.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AprovisionedProductId%3ARecordDetail%27"><span class="annot"><span class="annottext">RecordDetail -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AprovisionedProductId%3ARecordDetail%27"><span class="hs-identifier hs-var hs-var">provisionedProductId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The type of provisioned product. The supported values are @CFN_STACK@</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- and @CFN_STACKSET@.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AprovisionedProductType%3ARecordDetail%27"><span class="annot"><span class="annottext">RecordDetail -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AprovisionedProductType%3ARecordDetail%27"><span class="hs-identifier hs-var hs-var">provisionedProductType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The time when the record was last updated.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AupdatedTime%3ARecordDetail%27"><span class="annot"><span class="annottext">RecordDetail -&gt; Maybe POSIX
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AupdatedTime%3ARecordDetail%27"><span class="hs-identifier hs-var hs-var">updatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The identifier of the record.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3ArecordId%3ARecordDetail%27"><span class="annot"><span class="annottext">RecordDetail -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3ArecordId%3ARecordDetail%27"><span class="hs-identifier hs-var hs-var">recordId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The UTC time stamp of the creation time.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AcreatedTime%3ARecordDetail%27"><span class="annot"><span class="annottext">RecordDetail -&gt; Maybe POSIX
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AcreatedTime%3ARecordDetail%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The identifier of the provisioning artifact.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AprovisioningArtifactId%3ARecordDetail%27"><span class="annot"><span class="annottext">RecordDetail -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AprovisioningArtifactId%3ARecordDetail%27"><span class="hs-identifier hs-var hs-var">provisioningArtifactId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The ARN of the launch role associated with the provisioned product.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AlaunchRoleArn%3ARecordDetail%27"><span class="annot"><span class="annottext">RecordDetail -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AlaunchRoleArn%3ARecordDetail%27"><span class="hs-identifier hs-var hs-var">launchRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The product identifier.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AproductId%3ARecordDetail%27"><span class="annot"><span class="annottext">RecordDetail -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AproductId%3ARecordDetail%27"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The path identifier.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3ApathId%3ARecordDetail%27"><span class="annot"><span class="annottext">RecordDetail -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3ApathId%3ARecordDetail%27"><span class="hs-identifier hs-var hs-var">pathId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The record type.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   @PROVISION_PRODUCT@</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- -   @UPDATE_PROVISIONED_PRODUCT@</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- -   @TERMINATE_PROVISIONED_PRODUCT@</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3ArecordType%3ARecordDetail%27"><span class="annot"><span class="annottext">RecordDetail -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3ArecordType%3ARecordDetail%27"><span class="hs-identifier hs-var hs-var">recordType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679404568"><span id="local-6989586621679404570"><span class="annot"><span class="annottext">RecordDetail -&gt; RecordDetail -&gt; Bool
+(RecordDetail -&gt; RecordDetail -&gt; Bool)
+-&gt; (RecordDetail -&gt; RecordDetail -&gt; Bool) -&gt; Eq RecordDetail
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RecordDetail -&gt; RecordDetail -&gt; Bool
+$c/= :: RecordDetail -&gt; RecordDetail -&gt; Bool
+== :: RecordDetail -&gt; RecordDetail -&gt; Bool
+$c== :: RecordDetail -&gt; RecordDetail -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404559"><span id="local-6989586621679404561"><span id="local-6989586621679404563"><span id="local-6989586621679404565"><span class="annot"><span class="annottext">ReadPrec [RecordDetail]
+ReadPrec RecordDetail
+Int -&gt; ReadS RecordDetail
+ReadS [RecordDetail]
+(Int -&gt; ReadS RecordDetail)
+-&gt; ReadS [RecordDetail]
+-&gt; ReadPrec RecordDetail
+-&gt; ReadPrec [RecordDetail]
+-&gt; Read RecordDetail
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RecordDetail]
+$creadListPrec :: ReadPrec [RecordDetail]
+readPrec :: ReadPrec RecordDetail
+$creadPrec :: ReadPrec RecordDetail
+readList :: ReadS [RecordDetail]
+$creadList :: ReadS [RecordDetail]
+readsPrec :: Int -&gt; ReadS RecordDetail
+$creadsPrec :: Int -&gt; ReadS RecordDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404552"><span id="local-6989586621679404554"><span id="local-6989586621679404556"><span class="annot"><span class="annottext">Int -&gt; RecordDetail -&gt; ShowS
+[RecordDetail] -&gt; ShowS
+RecordDetail -&gt; String
+(Int -&gt; RecordDetail -&gt; ShowS)
+-&gt; (RecordDetail -&gt; String)
+-&gt; ([RecordDetail] -&gt; ShowS)
+-&gt; Show RecordDetail
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RecordDetail] -&gt; ShowS
+$cshowList :: [RecordDetail] -&gt; ShowS
+show :: RecordDetail -&gt; String
+$cshow :: RecordDetail -&gt; String
+showsPrec :: Int -&gt; RecordDetail -&gt; ShowS
+$cshowsPrec :: Int -&gt; RecordDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RecordDetail -&gt; Rep RecordDetail x)
+-&gt; (forall x. Rep RecordDetail x -&gt; RecordDetail)
+-&gt; Generic RecordDetail
+forall x. Rep RecordDetail x -&gt; RecordDetail
+forall x. RecordDetail -&gt; Rep RecordDetail x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RecordDetail x -&gt; RecordDetail
+$cfrom :: forall x. RecordDetail -&gt; Rep RecordDetail x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Create a value of 'RecordDetail' with all optional fields omitted.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'recordTags', 'recordDetail_recordTags' - One or more tags.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'status', 'recordDetail_status' - The status of the provisioned product.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   @CREATED@ - The request was created but the operation has not</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--     started.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- -   @IN_PROGRESS@ - The requested operation is in progress.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- -   @IN_PROGRESS_IN_ERROR@ - The provisioned product is under change but</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--     the requested operation failed and some remediation is occurring.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--     For example, a rollback.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- -   @SUCCEEDED@ - The requested operation has successfully completed.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- -   @FAILED@ - The requested operation has unsuccessfully completed.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--     Investigate using the error messages returned.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'provisionedProductName', 'recordDetail_provisionedProductName' - The user-friendly name of the provisioned product.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'recordErrors', 'recordDetail_recordErrors' - The errors that occurred.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'provisionedProductId', 'recordDetail_provisionedProductId' - The identifier of the provisioned product.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'provisionedProductType', 'recordDetail_provisionedProductType' - The type of provisioned product. The supported values are @CFN_STACK@</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- and @CFN_STACKSET@.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'updatedTime', 'recordDetail_updatedTime' - The time when the record was last updated.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'recordId', 'recordDetail_recordId' - The identifier of the record.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'createdTime', 'recordDetail_createdTime' - The UTC time stamp of the creation time.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'provisioningArtifactId', 'recordDetail_provisioningArtifactId' - The identifier of the provisioning artifact.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'launchRoleArn', 'recordDetail_launchRoleArn' - The ARN of the launch role associated with the provisioned product.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'productId', 'recordDetail_productId' - The product identifier.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'pathId', 'recordDetail_pathId' - The path identifier.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'recordType', 'recordDetail_recordType' - The record type.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- -   @PROVISION_PRODUCT@</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   @UPDATE_PROVISIONED_PRODUCT@</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   @TERMINATE_PROVISIONED_PRODUCT@</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#newRecordDetail"><span class="hs-identifier hs-type">newRecordDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span>
+</span><span id="line-143"></span><span id="newRecordDetail"><span class="annot"><span class="annottext">newRecordDetail :: RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#newRecordDetail"><span class="hs-identifier hs-var hs-var">newRecordDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">RecordDetail' :: Maybe [RecordTag]
+-&gt; Maybe RecordStatus
+-&gt; Maybe Text
+-&gt; Maybe [RecordError]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:recordTags:RecordDetail' :: Maybe [RecordTag]
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3ArecordTags%3ARecordDetail%27"><span class="hs-identifier hs-var">recordTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RecordTag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:RecordDetail' :: Maybe RecordStatus
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3Astatus%3ARecordDetail%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecordStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionedProductName:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AprovisionedProductName%3ARecordDetail%27"><span class="hs-identifier hs-var">provisionedProductName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:recordErrors:RecordDetail' :: Maybe [RecordError]
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3ArecordErrors%3ARecordDetail%27"><span class="hs-identifier hs-var">recordErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RecordError]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionedProductId:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AprovisionedProductId%3ARecordDetail%27"><span class="hs-identifier hs-var">provisionedProductId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionedProductType:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AprovisionedProductType%3ARecordDetail%27"><span class="hs-identifier hs-var">provisionedProductType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:updatedTime:RecordDetail' :: Maybe POSIX
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AupdatedTime%3ARecordDetail%27"><span class="hs-identifier hs-var">updatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:recordId:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3ArecordId%3ARecordDetail%27"><span class="hs-identifier hs-var">recordId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:RecordDetail' :: Maybe POSIX
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AcreatedTime%3ARecordDetail%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisioningArtifactId:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AprovisioningArtifactId%3ARecordDetail%27"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchRoleArn:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AlaunchRoleArn%3ARecordDetail%27"><span class="hs-identifier hs-var">launchRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:productId:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AproductId%3ARecordDetail%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:pathId:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3ApathId%3ARecordDetail%27"><span class="hs-identifier hs-var">pathId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:recordType:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3ArecordType%3ARecordDetail%27"><span class="hs-identifier hs-var">recordType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | One or more tags.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_recordTags"><span class="hs-identifier hs-type">recordDetail_recordTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordTag.html#RecordTag"><span class="hs-identifier hs-type">RecordTag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="recordDetail_recordTags"><span class="annot"><span class="annottext">recordDetail_recordTags :: (Maybe [RecordTag] -&gt; f (Maybe [RecordTag]))
+-&gt; RecordDetail -&gt; f RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_recordTags"><span class="hs-identifier hs-var hs-var">recordDetail_recordTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordDetail -&gt; Maybe [RecordTag])
+-&gt; (RecordDetail -&gt; Maybe [RecordTag] -&gt; RecordDetail)
+-&gt; Lens
+     RecordDetail RecordDetail (Maybe [RecordTag]) (Maybe [RecordTag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404543"><span class="annot"><span class="annottext">Maybe [RecordTag]
+recordTags :: Maybe [RecordTag]
+$sel:recordTags:RecordDetail' :: RecordDetail -&gt; Maybe [RecordTag]
+</span><a href="#local-6989586621679404543"><span class="hs-identifier hs-var hs-var">recordTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RecordTag]
+</span><a href="#local-6989586621679404543"><span class="hs-identifier hs-var">recordTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404542"><span class="annot"><span class="annottext">s :: RecordDetail
+</span><a href="#local-6989586621679404542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404541"><span class="annot"><span class="annottext">Maybe [RecordTag]
+</span><a href="#local-6989586621679404541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordDetail
+</span><a href="#local-6989586621679404542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordTags:RecordDetail' :: Maybe [RecordTag]
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3ArecordTags%3ARecordDetail%27"><span class="hs-identifier hs-var">recordTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RecordTag]
+</span><a href="#local-6989586621679404541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RecordTag] -&gt; f (Maybe [RecordTag]))
+ -&gt; RecordDetail -&gt; f RecordDetail)
+-&gt; ((Maybe [RecordTag] -&gt; f (Maybe [RecordTag]))
+    -&gt; Maybe [RecordTag] -&gt; f (Maybe [RecordTag]))
+-&gt; (Maybe [RecordTag] -&gt; f (Maybe [RecordTag]))
+-&gt; RecordDetail
+-&gt; f RecordDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RecordTag] [RecordTag] [RecordTag] [RecordTag]
+-&gt; Iso
+     (Maybe [RecordTag])
+     (Maybe [RecordTag])
+     (Maybe [RecordTag])
+     (Maybe [RecordTag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RecordTag] [RecordTag] [RecordTag] [RecordTag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The status of the provisioned product.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- -   @CREATED@ - The request was created but the operation has not</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--     started.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- -   @IN_PROGRESS@ - The requested operation is in progress.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- -   @IN_PROGRESS_IN_ERROR@ - The provisioned product is under change but</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--     the requested operation failed and some remediation is occurring.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--     For example, a rollback.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- -   @SUCCEEDED@ - The requested operation has successfully completed.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- -   @FAILED@ - The requested operation has unsuccessfully completed.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     Investigate using the error messages returned.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_status"><span class="hs-identifier hs-type">recordDetail_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordStatus.html#RecordStatus"><span class="hs-identifier hs-type">RecordStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="recordDetail_status"><span class="annot"><span class="annottext">recordDetail_status :: (Maybe RecordStatus -&gt; f (Maybe RecordStatus))
+-&gt; RecordDetail -&gt; f RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_status"><span class="hs-identifier hs-var hs-var">recordDetail_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordDetail -&gt; Maybe RecordStatus)
+-&gt; (RecordDetail -&gt; Maybe RecordStatus -&gt; RecordDetail)
+-&gt; Lens
+     RecordDetail RecordDetail (Maybe RecordStatus) (Maybe RecordStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404536"><span class="annot"><span class="annottext">Maybe RecordStatus
+status :: Maybe RecordStatus
+$sel:status:RecordDetail' :: RecordDetail -&gt; Maybe RecordStatus
+</span><a href="#local-6989586621679404536"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecordStatus
+</span><a href="#local-6989586621679404536"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404535"><span class="annot"><span class="annottext">s :: RecordDetail
+</span><a href="#local-6989586621679404535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404534"><span class="annot"><span class="annottext">Maybe RecordStatus
+</span><a href="#local-6989586621679404534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordDetail
+</span><a href="#local-6989586621679404535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:RecordDetail' :: Maybe RecordStatus
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3Astatus%3ARecordDetail%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecordStatus
+</span><a href="#local-6989586621679404534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The user-friendly name of the provisioned product.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_provisionedProductName"><span class="hs-identifier hs-type">recordDetail_provisionedProductName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="recordDetail_provisionedProductName"><span class="annot"><span class="annottext">recordDetail_provisionedProductName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RecordDetail -&gt; f RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_provisionedProductName"><span class="hs-identifier hs-var hs-var">recordDetail_provisionedProductName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordDetail -&gt; Maybe Text)
+-&gt; (RecordDetail -&gt; Maybe Text -&gt; RecordDetail)
+-&gt; Lens RecordDetail RecordDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404532"><span class="annot"><span class="annottext">Maybe Text
+provisionedProductName :: Maybe Text
+$sel:provisionedProductName:RecordDetail' :: RecordDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679404532"><span class="hs-identifier hs-var hs-var">provisionedProductName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404532"><span class="hs-identifier hs-var">provisionedProductName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404531"><span class="annot"><span class="annottext">s :: RecordDetail
+</span><a href="#local-6989586621679404531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404530"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordDetail
+</span><a href="#local-6989586621679404531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedProductName:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AprovisionedProductName%3ARecordDetail%27"><span class="hs-identifier hs-var">provisionedProductName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The errors that occurred.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_recordErrors"><span class="hs-identifier hs-type">recordDetail_recordErrors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordError.html#RecordError"><span class="hs-identifier hs-type">RecordError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="recordDetail_recordErrors"><span class="annot"><span class="annottext">recordDetail_recordErrors :: (Maybe [RecordError] -&gt; f (Maybe [RecordError]))
+-&gt; RecordDetail -&gt; f RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_recordErrors"><span class="hs-identifier hs-var hs-var">recordDetail_recordErrors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordDetail -&gt; Maybe [RecordError])
+-&gt; (RecordDetail -&gt; Maybe [RecordError] -&gt; RecordDetail)
+-&gt; Lens
+     RecordDetail
+     RecordDetail
+     (Maybe [RecordError])
+     (Maybe [RecordError])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404528"><span class="annot"><span class="annottext">Maybe [RecordError]
+recordErrors :: Maybe [RecordError]
+$sel:recordErrors:RecordDetail' :: RecordDetail -&gt; Maybe [RecordError]
+</span><a href="#local-6989586621679404528"><span class="hs-identifier hs-var hs-var">recordErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RecordError]
+</span><a href="#local-6989586621679404528"><span class="hs-identifier hs-var">recordErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404527"><span class="annot"><span class="annottext">s :: RecordDetail
+</span><a href="#local-6989586621679404527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404526"><span class="annot"><span class="annottext">Maybe [RecordError]
+</span><a href="#local-6989586621679404526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordDetail
+</span><a href="#local-6989586621679404527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordErrors:RecordDetail' :: Maybe [RecordError]
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3ArecordErrors%3ARecordDetail%27"><span class="hs-identifier hs-var">recordErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RecordError]
+</span><a href="#local-6989586621679404526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RecordError] -&gt; f (Maybe [RecordError]))
+ -&gt; RecordDetail -&gt; f RecordDetail)
+-&gt; ((Maybe [RecordError] -&gt; f (Maybe [RecordError]))
+    -&gt; Maybe [RecordError] -&gt; f (Maybe [RecordError]))
+-&gt; (Maybe [RecordError] -&gt; f (Maybe [RecordError]))
+-&gt; RecordDetail
+-&gt; f RecordDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RecordError] [RecordError] [RecordError] [RecordError]
+-&gt; Iso
+     (Maybe [RecordError])
+     (Maybe [RecordError])
+     (Maybe [RecordError])
+     (Maybe [RecordError])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RecordError] [RecordError] [RecordError] [RecordError]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The identifier of the provisioned product.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_provisionedProductId"><span class="hs-identifier hs-type">recordDetail_provisionedProductId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="recordDetail_provisionedProductId"><span class="annot"><span class="annottext">recordDetail_provisionedProductId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RecordDetail -&gt; f RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_provisionedProductId"><span class="hs-identifier hs-var hs-var">recordDetail_provisionedProductId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordDetail -&gt; Maybe Text)
+-&gt; (RecordDetail -&gt; Maybe Text -&gt; RecordDetail)
+-&gt; Lens RecordDetail RecordDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404524"><span class="annot"><span class="annottext">Maybe Text
+provisionedProductId :: Maybe Text
+$sel:provisionedProductId:RecordDetail' :: RecordDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679404524"><span class="hs-identifier hs-var hs-var">provisionedProductId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404524"><span class="hs-identifier hs-var">provisionedProductId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404523"><span class="annot"><span class="annottext">s :: RecordDetail
+</span><a href="#local-6989586621679404523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404522"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordDetail
+</span><a href="#local-6989586621679404523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedProductId:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AprovisionedProductId%3ARecordDetail%27"><span class="hs-identifier hs-var">provisionedProductId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The type of provisioned product. The supported values are @CFN_STACK@</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- and @CFN_STACKSET@.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_provisionedProductType"><span class="hs-identifier hs-type">recordDetail_provisionedProductType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="recordDetail_provisionedProductType"><span class="annot"><span class="annottext">recordDetail_provisionedProductType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RecordDetail -&gt; f RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_provisionedProductType"><span class="hs-identifier hs-var hs-var">recordDetail_provisionedProductType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordDetail -&gt; Maybe Text)
+-&gt; (RecordDetail -&gt; Maybe Text -&gt; RecordDetail)
+-&gt; Lens RecordDetail RecordDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404520"><span class="annot"><span class="annottext">Maybe Text
+provisionedProductType :: Maybe Text
+$sel:provisionedProductType:RecordDetail' :: RecordDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679404520"><span class="hs-identifier hs-var hs-var">provisionedProductType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404520"><span class="hs-identifier hs-var">provisionedProductType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404519"><span class="annot"><span class="annottext">s :: RecordDetail
+</span><a href="#local-6989586621679404519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404518"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordDetail
+</span><a href="#local-6989586621679404519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedProductType:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AprovisionedProductType%3ARecordDetail%27"><span class="hs-identifier hs-var">provisionedProductType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The time when the record was last updated.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_updatedTime"><span class="hs-identifier hs-type">recordDetail_updatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="recordDetail_updatedTime"><span class="annot"><span class="annottext">recordDetail_updatedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RecordDetail -&gt; f RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_updatedTime"><span class="hs-identifier hs-var hs-var">recordDetail_updatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordDetail -&gt; Maybe POSIX)
+-&gt; (RecordDetail -&gt; Maybe POSIX -&gt; RecordDetail)
+-&gt; Lens RecordDetail RecordDetail (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404516"><span class="annot"><span class="annottext">Maybe POSIX
+updatedTime :: Maybe POSIX
+$sel:updatedTime:RecordDetail' :: RecordDetail -&gt; Maybe POSIX
+</span><a href="#local-6989586621679404516"><span class="hs-identifier hs-var hs-var">updatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404516"><span class="hs-identifier hs-var">updatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404515"><span class="annot"><span class="annottext">s :: RecordDetail
+</span><a href="#local-6989586621679404515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404514"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordDetail
+</span><a href="#local-6989586621679404515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedTime:RecordDetail' :: Maybe POSIX
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AupdatedTime%3ARecordDetail%27"><span class="hs-identifier hs-var">updatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; RecordDetail -&gt; f RecordDetail)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RecordDetail
+-&gt; f RecordDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The identifier of the record.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_recordId"><span class="hs-identifier hs-type">recordDetail_recordId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="recordDetail_recordId"><span class="annot"><span class="annottext">recordDetail_recordId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RecordDetail -&gt; f RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_recordId"><span class="hs-identifier hs-var hs-var">recordDetail_recordId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordDetail -&gt; Maybe Text)
+-&gt; (RecordDetail -&gt; Maybe Text -&gt; RecordDetail)
+-&gt; Lens RecordDetail RecordDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404511"><span class="annot"><span class="annottext">Maybe Text
+recordId :: Maybe Text
+$sel:recordId:RecordDetail' :: RecordDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679404511"><span class="hs-identifier hs-var hs-var">recordId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404511"><span class="hs-identifier hs-var">recordId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404510"><span class="annot"><span class="annottext">s :: RecordDetail
+</span><a href="#local-6989586621679404510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404509"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordDetail
+</span><a href="#local-6989586621679404510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordId:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3ArecordId%3ARecordDetail%27"><span class="hs-identifier hs-var">recordId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The UTC time stamp of the creation time.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_createdTime"><span class="hs-identifier hs-type">recordDetail_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="recordDetail_createdTime"><span class="annot"><span class="annottext">recordDetail_createdTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RecordDetail -&gt; f RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_createdTime"><span class="hs-identifier hs-var hs-var">recordDetail_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordDetail -&gt; Maybe POSIX)
+-&gt; (RecordDetail -&gt; Maybe POSIX -&gt; RecordDetail)
+-&gt; Lens RecordDetail RecordDetail (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404507"><span class="annot"><span class="annottext">Maybe POSIX
+createdTime :: Maybe POSIX
+$sel:createdTime:RecordDetail' :: RecordDetail -&gt; Maybe POSIX
+</span><a href="#local-6989586621679404507"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404507"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404506"><span class="annot"><span class="annottext">s :: RecordDetail
+</span><a href="#local-6989586621679404506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404505"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordDetail
+</span><a href="#local-6989586621679404506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:RecordDetail' :: Maybe POSIX
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AcreatedTime%3ARecordDetail%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; RecordDetail -&gt; f RecordDetail)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RecordDetail
+-&gt; f RecordDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The identifier of the provisioning artifact.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_provisioningArtifactId"><span class="hs-identifier hs-type">recordDetail_provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="recordDetail_provisioningArtifactId"><span class="annot"><span class="annottext">recordDetail_provisioningArtifactId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RecordDetail -&gt; f RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_provisioningArtifactId"><span class="hs-identifier hs-var hs-var">recordDetail_provisioningArtifactId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordDetail -&gt; Maybe Text)
+-&gt; (RecordDetail -&gt; Maybe Text -&gt; RecordDetail)
+-&gt; Lens RecordDetail RecordDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404503"><span class="annot"><span class="annottext">Maybe Text
+provisioningArtifactId :: Maybe Text
+$sel:provisioningArtifactId:RecordDetail' :: RecordDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679404503"><span class="hs-identifier hs-var hs-var">provisioningArtifactId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404503"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404502"><span class="annot"><span class="annottext">s :: RecordDetail
+</span><a href="#local-6989586621679404502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404501"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordDetail
+</span><a href="#local-6989586621679404502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningArtifactId:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AprovisioningArtifactId%3ARecordDetail%27"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The ARN of the launch role associated with the provisioned product.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_launchRoleArn"><span class="hs-identifier hs-type">recordDetail_launchRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="recordDetail_launchRoleArn"><span class="annot"><span class="annottext">recordDetail_launchRoleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RecordDetail -&gt; f RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_launchRoleArn"><span class="hs-identifier hs-var hs-var">recordDetail_launchRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordDetail -&gt; Maybe Text)
+-&gt; (RecordDetail -&gt; Maybe Text -&gt; RecordDetail)
+-&gt; Lens RecordDetail RecordDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404499"><span class="annot"><span class="annottext">Maybe Text
+launchRoleArn :: Maybe Text
+$sel:launchRoleArn:RecordDetail' :: RecordDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679404499"><span class="hs-identifier hs-var hs-var">launchRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404499"><span class="hs-identifier hs-var">launchRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404498"><span class="annot"><span class="annottext">s :: RecordDetail
+</span><a href="#local-6989586621679404498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404497"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordDetail
+</span><a href="#local-6989586621679404498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchRoleArn:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AlaunchRoleArn%3ARecordDetail%27"><span class="hs-identifier hs-var">launchRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The product identifier.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_productId"><span class="hs-identifier hs-type">recordDetail_productId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="recordDetail_productId"><span class="annot"><span class="annottext">recordDetail_productId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RecordDetail -&gt; f RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_productId"><span class="hs-identifier hs-var hs-var">recordDetail_productId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordDetail -&gt; Maybe Text)
+-&gt; (RecordDetail -&gt; Maybe Text -&gt; RecordDetail)
+-&gt; Lens RecordDetail RecordDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404495"><span class="annot"><span class="annottext">Maybe Text
+productId :: Maybe Text
+$sel:productId:RecordDetail' :: RecordDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679404495"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404495"><span class="hs-identifier hs-var">productId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404494"><span class="annot"><span class="annottext">s :: RecordDetail
+</span><a href="#local-6989586621679404494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404493"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordDetail
+</span><a href="#local-6989586621679404494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productId:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3AproductId%3ARecordDetail%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The path identifier.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_pathId"><span class="hs-identifier hs-type">recordDetail_pathId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="recordDetail_pathId"><span class="annot"><span class="annottext">recordDetail_pathId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RecordDetail -&gt; f RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_pathId"><span class="hs-identifier hs-var hs-var">recordDetail_pathId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordDetail -&gt; Maybe Text)
+-&gt; (RecordDetail -&gt; Maybe Text -&gt; RecordDetail)
+-&gt; Lens RecordDetail RecordDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404491"><span class="annot"><span class="annottext">Maybe Text
+pathId :: Maybe Text
+$sel:pathId:RecordDetail' :: RecordDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679404491"><span class="hs-identifier hs-var hs-var">pathId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404491"><span class="hs-identifier hs-var">pathId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404490"><span class="annot"><span class="annottext">s :: RecordDetail
+</span><a href="#local-6989586621679404490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404489"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordDetail
+</span><a href="#local-6989586621679404490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathId:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3ApathId%3ARecordDetail%27"><span class="hs-identifier hs-var">pathId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The record type.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- -   @PROVISION_PRODUCT@</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- -   @UPDATE_PROVISIONED_PRODUCT@</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- -   @TERMINATE_PROVISIONED_PRODUCT@</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_recordType"><span class="hs-identifier hs-type">recordDetail_recordType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="recordDetail_recordType"><span class="annot"><span class="annottext">recordDetail_recordType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RecordDetail -&gt; f RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#recordDetail_recordType"><span class="hs-identifier hs-var hs-var">recordDetail_recordType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecordDetail -&gt; Maybe Text)
+-&gt; (RecordDetail -&gt; Maybe Text -&gt; RecordDetail)
+-&gt; Lens RecordDetail RecordDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404487"><span class="annot"><span class="annottext">Maybe Text
+recordType :: Maybe Text
+$sel:recordType:RecordDetail' :: RecordDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679404487"><span class="hs-identifier hs-var hs-var">recordType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404487"><span class="hs-identifier hs-var">recordType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404486"><span class="annot"><span class="annottext">s :: RecordDetail
+</span><a href="#local-6989586621679404486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-type">RecordDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404485"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordDetail
+</span><a href="#local-6989586621679404486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordType:RecordDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#%24sel%3ArecordType%3ARecordDetail%27"><span class="hs-identifier hs-var">recordType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404482"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679404480"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RecordDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RecordDetail) -&gt; Value -&gt; Parser RecordDetail
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RecordDetail&quot;</span></span><span>
+</span><span id="line-242"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679404477"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-243"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RecordTag]
+-&gt; Maybe RecordStatus
+-&gt; Maybe Text
+-&gt; Maybe [RecordError]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; RecordDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail%27"><span class="hs-identifier hs-var">RecordDetail'</span></a></span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [RecordTag]
+ -&gt; Maybe RecordStatus
+ -&gt; Maybe Text
+ -&gt; Maybe [RecordError]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; RecordDetail)
+-&gt; Parser (Maybe [RecordTag])
+-&gt; Parser
+     (Maybe RecordStatus
+      -&gt; Maybe Text
+      -&gt; Maybe [RecordError]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RecordDetail)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [RecordTag]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [RecordTag]))
+-&gt; Maybe [RecordTag] -&gt; Parser (Maybe [RecordTag])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RecordTag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RecordStatus
+   -&gt; Maybe Text
+   -&gt; Maybe [RecordError]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RecordDetail)
+-&gt; Parser (Maybe RecordStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [RecordError]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RecordDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RecordStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [RecordError]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RecordDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [RecordError]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RecordDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisionedProductName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [RecordError]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RecordDetail)
+-&gt; Parser (Maybe [RecordError])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RecordDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [RecordError]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordErrors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [RecordError]))
+-&gt; Maybe [RecordError] -&gt; Parser (Maybe [RecordError])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RecordError]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RecordDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RecordDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisionedProductId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RecordDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RecordDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisionedProductType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RecordDetail)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RecordDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RecordDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RecordDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RecordDetail)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RecordDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RecordDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RecordDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisioningArtifactId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RecordDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RecordDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LaunchRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RecordDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; RecordDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProductId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; RecordDetail)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; RecordDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PathId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; RecordDetail)
+-&gt; Parser (Maybe Text) -&gt; Parser RecordDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404470"><span id="local-6989586621679404472"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span></span></span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404467"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span></span><span>
+</span><span id="line-263"></span></pre></body></html>

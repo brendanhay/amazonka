@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ECR.Types.DescribeImagesFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ECR.Types.DescribeImagesFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.TagStatus.html"><span class="hs-identifier">Network.AWS.ECR.Types.TagStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | An object representing a filter on a DescribeImages operation.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDescribeImagesFilter' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679236072"><span id="local-6989586621679236073"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImagesFilter"><span class="annot"><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#DescribeImagesFilter"><span class="hs-identifier hs-var">DescribeImagesFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImagesFilter%27"><span class="annot"><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#DescribeImagesFilter%27"><span class="hs-identifier hs-var">DescribeImagesFilter'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tag status with which to filter your DescribeImages results. You can</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- filter results based on whether they are @TAGGED@ or @UNTAGGED@.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AtagStatus%3ADescribeImagesFilter%27"><span class="annot"><span class="annottext">DescribeImagesFilter -&gt; Maybe TagStatus
+</span><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#%24sel%3AtagStatus%3ADescribeImagesFilter%27"><span class="hs-identifier hs-var hs-var">tagStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.TagStatus.html#TagStatus"><span class="hs-identifier hs-type">TagStatus</span></a></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236066"><span id="local-6989586621679236068"><span class="annot"><span class="annottext">DescribeImagesFilter -&gt; DescribeImagesFilter -&gt; Bool
+(DescribeImagesFilter -&gt; DescribeImagesFilter -&gt; Bool)
+-&gt; (DescribeImagesFilter -&gt; DescribeImagesFilter -&gt; Bool)
+-&gt; Eq DescribeImagesFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeImagesFilter -&gt; DescribeImagesFilter -&gt; Bool
+$c/= :: DescribeImagesFilter -&gt; DescribeImagesFilter -&gt; Bool
+== :: DescribeImagesFilter -&gt; DescribeImagesFilter -&gt; Bool
+$c== :: DescribeImagesFilter -&gt; DescribeImagesFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236057"><span id="local-6989586621679236059"><span id="local-6989586621679236061"><span id="local-6989586621679236063"><span class="annot"><span class="annottext">ReadPrec [DescribeImagesFilter]
+ReadPrec DescribeImagesFilter
+Int -&gt; ReadS DescribeImagesFilter
+ReadS [DescribeImagesFilter]
+(Int -&gt; ReadS DescribeImagesFilter)
+-&gt; ReadS [DescribeImagesFilter]
+-&gt; ReadPrec DescribeImagesFilter
+-&gt; ReadPrec [DescribeImagesFilter]
+-&gt; Read DescribeImagesFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeImagesFilter]
+$creadListPrec :: ReadPrec [DescribeImagesFilter]
+readPrec :: ReadPrec DescribeImagesFilter
+$creadPrec :: ReadPrec DescribeImagesFilter
+readList :: ReadS [DescribeImagesFilter]
+$creadList :: ReadS [DescribeImagesFilter]
+readsPrec :: Int -&gt; ReadS DescribeImagesFilter
+$creadsPrec :: Int -&gt; ReadS DescribeImagesFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236050"><span id="local-6989586621679236052"><span id="local-6989586621679236054"><span class="annot"><span class="annottext">Int -&gt; DescribeImagesFilter -&gt; ShowS
+[DescribeImagesFilter] -&gt; ShowS
+DescribeImagesFilter -&gt; String
+(Int -&gt; DescribeImagesFilter -&gt; ShowS)
+-&gt; (DescribeImagesFilter -&gt; String)
+-&gt; ([DescribeImagesFilter] -&gt; ShowS)
+-&gt; Show DescribeImagesFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeImagesFilter] -&gt; ShowS
+$cshowList :: [DescribeImagesFilter] -&gt; ShowS
+show :: DescribeImagesFilter -&gt; String
+$cshow :: DescribeImagesFilter -&gt; String
+showsPrec :: Int -&gt; DescribeImagesFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeImagesFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeImagesFilter -&gt; Rep DescribeImagesFilter x)
+-&gt; (forall x. Rep DescribeImagesFilter x -&gt; DescribeImagesFilter)
+-&gt; Generic DescribeImagesFilter
+forall x. Rep DescribeImagesFilter x -&gt; DescribeImagesFilter
+forall x. DescribeImagesFilter -&gt; Rep DescribeImagesFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeImagesFilter x -&gt; DescribeImagesFilter
+$cfrom :: forall x. DescribeImagesFilter -&gt; Rep DescribeImagesFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'DescribeImagesFilter' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'tagStatus', 'describeImagesFilter_tagStatus' - The tag status with which to filter your DescribeImages results. You can</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- filter results based on whether they are @TAGGED@ or @UNTAGGED@.</span><span>
+</span><span id="line-47"></span><span class="annot"><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#newDescribeImagesFilter"><span class="hs-identifier hs-type">newDescribeImagesFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#DescribeImagesFilter"><span class="hs-identifier hs-type">DescribeImagesFilter</span></a></span><span>
+</span><span id="line-49"></span><span id="newDescribeImagesFilter"><span class="annot"><span class="annottext">newDescribeImagesFilter :: DescribeImagesFilter
+</span><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#newDescribeImagesFilter"><span class="hs-identifier hs-var hs-var">newDescribeImagesFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">DescribeImagesFilter' :: Maybe TagStatus -&gt; DescribeImagesFilter
+</span><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#DescribeImagesFilter%27"><span class="hs-identifier hs-type">DescribeImagesFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagStatus:DescribeImagesFilter' :: Maybe TagStatus
+</span><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#%24sel%3AtagStatus%3ADescribeImagesFilter%27"><span class="hs-identifier hs-var">tagStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TagStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | The tag status with which to filter your DescribeImages results. You can</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- filter results based on whether they are @TAGGED@ or @UNTAGGED@.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#describeImagesFilter_tagStatus"><span class="hs-identifier hs-type">describeImagesFilter_tagStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#DescribeImagesFilter"><span class="hs-identifier hs-type">DescribeImagesFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.TagStatus.html#TagStatus"><span class="hs-identifier hs-type">TagStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span id="describeImagesFilter_tagStatus"><span class="annot"><span class="annottext">describeImagesFilter_tagStatus :: (Maybe TagStatus -&gt; f (Maybe TagStatus))
+-&gt; DescribeImagesFilter -&gt; f DescribeImagesFilter
+</span><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#describeImagesFilter_tagStatus"><span class="hs-identifier hs-var hs-var">describeImagesFilter_tagStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImagesFilter -&gt; Maybe TagStatus)
+-&gt; (DescribeImagesFilter
+    -&gt; Maybe TagStatus -&gt; DescribeImagesFilter)
+-&gt; Lens
+     DescribeImagesFilter
+     DescribeImagesFilter
+     (Maybe TagStatus)
+     (Maybe TagStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#DescribeImagesFilter%27"><span class="hs-identifier hs-type">DescribeImagesFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236041"><span class="annot"><span class="annottext">Maybe TagStatus
+tagStatus :: Maybe TagStatus
+$sel:tagStatus:DescribeImagesFilter' :: DescribeImagesFilter -&gt; Maybe TagStatus
+</span><a href="#local-6989586621679236041"><span class="hs-identifier hs-var hs-var">tagStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TagStatus
+</span><a href="#local-6989586621679236041"><span class="hs-identifier hs-var">tagStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236040"><span class="annot"><span class="annottext">s :: DescribeImagesFilter
+</span><a href="#local-6989586621679236040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#DescribeImagesFilter%27"><span class="hs-identifier hs-type">DescribeImagesFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236039"><span class="annot"><span class="annottext">Maybe TagStatus
+</span><a href="#local-6989586621679236039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImagesFilter
+</span><a href="#local-6989586621679236040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagStatus:DescribeImagesFilter' :: Maybe TagStatus
+</span><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#%24sel%3AtagStatus%3ADescribeImagesFilter%27"><span class="hs-identifier hs-var">tagStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TagStatus
+</span><a href="#local-6989586621679236039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#DescribeImagesFilter"><span class="hs-identifier hs-type">DescribeImagesFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236035"><span id="local-6989586621679236037"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#DescribeImagesFilter"><span class="hs-identifier hs-type">DescribeImagesFilter</span></a></span></span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236032"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#DescribeImagesFilter"><span class="hs-identifier hs-type">DescribeImagesFilter</span></a></span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236024"><span id="local-6989586621679236026"><span id="local-6989586621679236028"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#DescribeImagesFilter"><span class="hs-identifier hs-type">DescribeImagesFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679236022"><span class="annot"><span class="annottext">toJSON :: DescribeImagesFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.DescribeImagesFilter.html#DescribeImagesFilter%27"><span class="hs-identifier hs-type">DescribeImagesFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236020"><span class="annot"><span class="annottext">Maybe TagStatus
+tagStatus :: Maybe TagStatus
+$sel:tagStatus:DescribeImagesFilter' :: DescribeImagesFilter -&gt; Maybe TagStatus
+</span><a href="#local-6989586621679236020"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-65"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tagStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TagStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TagStatus -&gt; Pair) -&gt; Maybe TagStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TagStatus
+</span><a href="#local-6989586621679236020"><span class="hs-identifier hs-var">tagStatus</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span></pre></body></html>

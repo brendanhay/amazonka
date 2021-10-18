@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Connect.Types.HistoricalMetricName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Connect.Types.HistoricalMetricName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier">HistoricalMetricName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_ABANDON_TIME"><span class="hs-identifier">HistoricalMetricName_ABANDON_TIME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_AFTER_CONTACT_WORK_TIME"><span class="hs-identifier">HistoricalMetricName_AFTER_CONTACT_WORK_TIME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_API_CONTACTS_HANDLED"><span class="hs-identifier">HistoricalMetricName_API_CONTACTS_HANDLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CALLBACK_CONTACTS_HANDLED"><span class="hs-identifier">HistoricalMetricName_CALLBACK_CONTACTS_HANDLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_ABANDONED"><span class="hs-identifier">HistoricalMetricName_CONTACTS_ABANDONED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_AGENT_HUNG_UP_FIRST"><span class="hs-identifier">HistoricalMetricName_CONTACTS_AGENT_HUNG_UP_FIRST</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_CONSULTED"><span class="hs-identifier">HistoricalMetricName_CONTACTS_CONSULTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_HANDLED"><span class="hs-identifier">HistoricalMetricName_CONTACTS_HANDLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_HANDLED_INCOMING"><span class="hs-identifier">HistoricalMetricName_CONTACTS_HANDLED_INCOMING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_HANDLED_OUTBOUND"><span class="hs-identifier">HistoricalMetricName_CONTACTS_HANDLED_OUTBOUND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_HOLD_ABANDONS"><span class="hs-identifier">HistoricalMetricName_CONTACTS_HOLD_ABANDONS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_MISSED"><span class="hs-identifier">HistoricalMetricName_CONTACTS_MISSED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_QUEUED"><span class="hs-identifier">HistoricalMetricName_CONTACTS_QUEUED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_TRANSFERRED_IN"><span class="hs-identifier">HistoricalMetricName_CONTACTS_TRANSFERRED_IN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_TRANSFERRED_IN_FROM_QUEUE"><span class="hs-identifier">HistoricalMetricName_CONTACTS_TRANSFERRED_IN_FROM_QUEUE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_TRANSFERRED_OUT"><span class="hs-identifier">HistoricalMetricName_CONTACTS_TRANSFERRED_OUT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_TRANSFERRED_OUT_FROM_QUEUE"><span class="hs-identifier">HistoricalMetricName_CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_HANDLE_TIME"><span class="hs-identifier">HistoricalMetricName_HANDLE_TIME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_HOLD_TIME"><span class="hs-identifier">HistoricalMetricName_HOLD_TIME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_INTERACTION_AND_HOLD_TIME"><span class="hs-identifier">HistoricalMetricName_INTERACTION_AND_HOLD_TIME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_INTERACTION_TIME"><span class="hs-identifier">HistoricalMetricName_INTERACTION_TIME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_OCCUPANCY"><span class="hs-identifier">HistoricalMetricName_OCCUPANCY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_QUEUED_TIME"><span class="hs-identifier">HistoricalMetricName_QUEUED_TIME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_QUEUE_ANSWER_TIME"><span class="hs-identifier">HistoricalMetricName_QUEUE_ANSWER_TIME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>        </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_SERVICE_LEVEL"><span class="hs-identifier">HistoricalMetricName_SERVICE_LEVEL</span></a></span><span>
+</span><span id="line-48"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | The historical metric names.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679397084"><span id="local-6989586621679397085"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HistoricalMetricName"><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-var">HistoricalMetricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HistoricalMetricName%27"><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-var">HistoricalMetricName'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHistoricalMetricName"><span class="annot"><span class="annottext">HistoricalMetricName -&gt; Text
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#fromHistoricalMetricName"><span class="hs-identifier hs-var hs-var">fromHistoricalMetricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397076"><span id="local-6989586621679397078"><span id="local-6989586621679397080"><span class="annot"><span class="annottext">Int -&gt; HistoricalMetricName -&gt; ShowS
+[HistoricalMetricName] -&gt; ShowS
+HistoricalMetricName -&gt; String
+(Int -&gt; HistoricalMetricName -&gt; ShowS)
+-&gt; (HistoricalMetricName -&gt; String)
+-&gt; ([HistoricalMetricName] -&gt; ShowS)
+-&gt; Show HistoricalMetricName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HistoricalMetricName] -&gt; ShowS
+$cshowList :: [HistoricalMetricName] -&gt; ShowS
+show :: HistoricalMetricName -&gt; String
+$cshow :: HistoricalMetricName -&gt; String
+showsPrec :: Int -&gt; HistoricalMetricName -&gt; ShowS
+$cshowsPrec :: Int -&gt; HistoricalMetricName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679397067"><span id="local-6989586621679397069"><span id="local-6989586621679397071"><span id="local-6989586621679397073"><span class="annot"><span class="annottext">ReadPrec [HistoricalMetricName]
+ReadPrec HistoricalMetricName
+Int -&gt; ReadS HistoricalMetricName
+ReadS [HistoricalMetricName]
+(Int -&gt; ReadS HistoricalMetricName)
+-&gt; ReadS [HistoricalMetricName]
+-&gt; ReadPrec HistoricalMetricName
+-&gt; ReadPrec [HistoricalMetricName]
+-&gt; Read HistoricalMetricName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HistoricalMetricName]
+$creadListPrec :: ReadPrec [HistoricalMetricName]
+readPrec :: ReadPrec HistoricalMetricName
+$creadPrec :: ReadPrec HistoricalMetricName
+readList :: ReadS [HistoricalMetricName]
+$creadList :: ReadS [HistoricalMetricName]
+readsPrec :: Int -&gt; ReadS HistoricalMetricName
+$creadsPrec :: Int -&gt; ReadS HistoricalMetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679397062"><span id="local-6989586621679397064"><span class="annot"><span class="annottext">HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool
+(HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool)
+-&gt; (HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool)
+-&gt; Eq HistoricalMetricName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool
+$c/= :: HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool
+== :: HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool
+$c== :: HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679397046"><span id="local-6989586621679397048"><span id="local-6989586621679397050"><span id="local-6989586621679397052"><span id="local-6989586621679397054"><span id="local-6989586621679397056"><span id="local-6989586621679397058"><span class="annot"><span class="annottext">Eq HistoricalMetricName
+Eq HistoricalMetricName
+-&gt; (HistoricalMetricName -&gt; HistoricalMetricName -&gt; Ordering)
+-&gt; (HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool)
+-&gt; (HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool)
+-&gt; (HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool)
+-&gt; (HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool)
+-&gt; (HistoricalMetricName
+    -&gt; HistoricalMetricName -&gt; HistoricalMetricName)
+-&gt; (HistoricalMetricName
+    -&gt; HistoricalMetricName -&gt; HistoricalMetricName)
+-&gt; Ord HistoricalMetricName
+HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool
+HistoricalMetricName -&gt; HistoricalMetricName -&gt; Ordering
+HistoricalMetricName
+-&gt; HistoricalMetricName -&gt; HistoricalMetricName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HistoricalMetricName
+-&gt; HistoricalMetricName -&gt; HistoricalMetricName
+$cmin :: HistoricalMetricName
+-&gt; HistoricalMetricName -&gt; HistoricalMetricName
+max :: HistoricalMetricName
+-&gt; HistoricalMetricName -&gt; HistoricalMetricName
+$cmax :: HistoricalMetricName
+-&gt; HistoricalMetricName -&gt; HistoricalMetricName
+&gt;= :: HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool
+$c&gt;= :: HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool
+&gt; :: HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool
+$c&gt; :: HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool
+&lt;= :: HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool
+$c&lt;= :: HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool
+&lt; :: HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool
+$c&lt; :: HistoricalMetricName -&gt; HistoricalMetricName -&gt; Bool
+compare :: HistoricalMetricName -&gt; HistoricalMetricName -&gt; Ordering
+$ccompare :: HistoricalMetricName -&gt; HistoricalMetricName -&gt; Ordering
+$cp1Ord :: Eq HistoricalMetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HistoricalMetricName -&gt; Rep HistoricalMetricName x)
+-&gt; (forall x. Rep HistoricalMetricName x -&gt; HistoricalMetricName)
+-&gt; Generic HistoricalMetricName
+forall x. Rep HistoricalMetricName x -&gt; HistoricalMetricName
+forall x. HistoricalMetricName -&gt; Rep HistoricalMetricName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HistoricalMetricName x -&gt; HistoricalMetricName
+$cfrom :: forall x. HistoricalMetricName -&gt; Rep HistoricalMetricName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397038"><span id="local-6989586621679397040"><span class="annot"><span class="annottext">Int -&gt; HistoricalMetricName -&gt; Int
+HistoricalMetricName -&gt; Int
+(Int -&gt; HistoricalMetricName -&gt; Int)
+-&gt; (HistoricalMetricName -&gt; Int) -&gt; Hashable HistoricalMetricName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HistoricalMetricName -&gt; Int
+$chash :: HistoricalMetricName -&gt; Int
+hashWithSalt :: Int -&gt; HistoricalMetricName -&gt; Int
+$chashWithSalt :: Int -&gt; HistoricalMetricName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679397035"><span class="annot"><span class="annottext">HistoricalMetricName -&gt; ()
+(HistoricalMetricName -&gt; ()) -&gt; NFData HistoricalMetricName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HistoricalMetricName -&gt; ()
+$crnf :: HistoricalMetricName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679397032"><span class="annot"><span class="annottext">Text -&gt; Either String HistoricalMetricName
+(Text -&gt; Either String HistoricalMetricName)
+-&gt; FromText HistoricalMetricName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HistoricalMetricName
+$cfromText :: Text -&gt; Either String HistoricalMetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679397029"><span class="annot"><span class="annottext">HistoricalMetricName -&gt; Text
+(HistoricalMetricName -&gt; Text) -&gt; ToText HistoricalMetricName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HistoricalMetricName -&gt; Text
+$ctoText :: HistoricalMetricName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679397026"><span class="annot"><span class="annottext">HistoricalMetricName -&gt; ByteString
+(HistoricalMetricName -&gt; ByteString)
+-&gt; ToByteString HistoricalMetricName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HistoricalMetricName -&gt; ByteString
+$ctoBS :: HistoricalMetricName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679397023"><span class="annot"><span class="annottext">HistoricalMetricName -&gt; ByteStringBuilder
+(HistoricalMetricName -&gt; ByteStringBuilder)
+-&gt; ToLog HistoricalMetricName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HistoricalMetricName -&gt; ByteStringBuilder
+$cbuild :: HistoricalMetricName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679397020"><span class="annot"><span class="annottext">HeaderName -&gt; HistoricalMetricName -&gt; [Header]
+(HeaderName -&gt; HistoricalMetricName -&gt; [Header])
+-&gt; ToHeader HistoricalMetricName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HistoricalMetricName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HistoricalMetricName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679397017"><span class="annot"><span class="annottext">HistoricalMetricName -&gt; QueryString
+(HistoricalMetricName -&gt; QueryString)
+-&gt; ToQuery HistoricalMetricName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HistoricalMetricName -&gt; QueryString
+$ctoQuery :: HistoricalMetricName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679397012"><span id="local-6989586621679397014"><span class="annot"><span class="annottext">Value -&gt; Parser [HistoricalMetricName]
+Value -&gt; Parser HistoricalMetricName
+(Value -&gt; Parser HistoricalMetricName)
+-&gt; (Value -&gt; Parser [HistoricalMetricName])
+-&gt; FromJSON HistoricalMetricName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HistoricalMetricName]
+$cparseJSONList :: Value -&gt; Parser [HistoricalMetricName]
+parseJSON :: Value -&gt; Parser HistoricalMetricName
+$cparseJSON :: Value -&gt; Parser HistoricalMetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679397007"><span id="local-6989586621679397009"><span class="annot"><span class="annottext">FromJSONKeyFunction [HistoricalMetricName]
+FromJSONKeyFunction HistoricalMetricName
+FromJSONKeyFunction HistoricalMetricName
+-&gt; FromJSONKeyFunction [HistoricalMetricName]
+-&gt; FromJSONKey HistoricalMetricName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HistoricalMetricName]
+$cfromJSONKeyList :: FromJSONKeyFunction [HistoricalMetricName]
+fromJSONKey :: FromJSONKeyFunction HistoricalMetricName
+$cfromJSONKey :: FromJSONKeyFunction HistoricalMetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679396998"><span id="local-6989586621679397000"><span id="local-6989586621679397002"><span id="local-6989586621679397004"><span class="annot"><span class="annottext">[HistoricalMetricName] -&gt; Encoding
+[HistoricalMetricName] -&gt; Value
+HistoricalMetricName -&gt; Encoding
+HistoricalMetricName -&gt; Value
+(HistoricalMetricName -&gt; Value)
+-&gt; (HistoricalMetricName -&gt; Encoding)
+-&gt; ([HistoricalMetricName] -&gt; Value)
+-&gt; ([HistoricalMetricName] -&gt; Encoding)
+-&gt; ToJSON HistoricalMetricName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HistoricalMetricName] -&gt; Encoding
+$ctoEncodingList :: [HistoricalMetricName] -&gt; Encoding
+toJSONList :: [HistoricalMetricName] -&gt; Value
+$ctoJSONList :: [HistoricalMetricName] -&gt; Value
+toEncoding :: HistoricalMetricName -&gt; Encoding
+$ctoEncoding :: HistoricalMetricName -&gt; Encoding
+toJSON :: HistoricalMetricName -&gt; Value
+$ctoJSON :: HistoricalMetricName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679396993"><span id="local-6989586621679396995"><span class="annot"><span class="annottext">ToJSONKeyFunction [HistoricalMetricName]
+ToJSONKeyFunction HistoricalMetricName
+ToJSONKeyFunction HistoricalMetricName
+-&gt; ToJSONKeyFunction [HistoricalMetricName]
+-&gt; ToJSONKey HistoricalMetricName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HistoricalMetricName]
+$ctoJSONKeyList :: ToJSONKeyFunction [HistoricalMetricName]
+toJSONKey :: ToJSONKeyFunction HistoricalMetricName
+$ctoJSONKey :: ToJSONKeyFunction HistoricalMetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679396990"><span class="annot"><span class="annottext">[Node] -&gt; Either String HistoricalMetricName
+([Node] -&gt; Either String HistoricalMetricName)
+-&gt; FromXML HistoricalMetricName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HistoricalMetricName
+$cparseXML :: [Node] -&gt; Either String HistoricalMetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679396987"><span class="annot"><span class="annottext">HistoricalMetricName -&gt; XML
+(HistoricalMetricName -&gt; XML) -&gt; ToXML HistoricalMetricName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HistoricalMetricName -&gt; XML
+$ctoXML :: HistoricalMetricName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_ABANDON_TIME"><span class="hs-identifier hs-type">HistoricalMetricName_ABANDON_TIME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_ABANDON_TIME"><span id="%24mHistoricalMetricName_ABANDON_TIME"><span id="HistoricalMetricName_ABANDON_TIME"><span class="annot"><span class="annottext">$bHistoricalMetricName_ABANDON_TIME :: HistoricalMetricName
+$mHistoricalMetricName_ABANDON_TIME :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_ABANDON_TIME"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_ABANDON_TIME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ABANDON_TIME&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_AFTER_CONTACT_WORK_TIME"><span class="hs-identifier hs-type">HistoricalMetricName_AFTER_CONTACT_WORK_TIME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_AFTER_CONTACT_WORK_TIME"><span id="%24mHistoricalMetricName_AFTER_CONTACT_WORK_TIME"><span id="HistoricalMetricName_AFTER_CONTACT_WORK_TIME"><span class="annot"><span class="annottext">$bHistoricalMetricName_AFTER_CONTACT_WORK_TIME :: HistoricalMetricName
+$mHistoricalMetricName_AFTER_CONTACT_WORK_TIME :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_AFTER_CONTACT_WORK_TIME"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_AFTER_CONTACT_WORK_TIME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AFTER_CONTACT_WORK_TIME&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_API_CONTACTS_HANDLED"><span class="hs-identifier hs-type">HistoricalMetricName_API_CONTACTS_HANDLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_API_CONTACTS_HANDLED"><span id="%24mHistoricalMetricName_API_CONTACTS_HANDLED"><span id="HistoricalMetricName_API_CONTACTS_HANDLED"><span class="annot"><span class="annottext">$bHistoricalMetricName_API_CONTACTS_HANDLED :: HistoricalMetricName
+$mHistoricalMetricName_API_CONTACTS_HANDLED :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_API_CONTACTS_HANDLED"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_API_CONTACTS_HANDLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;API_CONTACTS_HANDLED&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CALLBACK_CONTACTS_HANDLED"><span class="hs-identifier hs-type">HistoricalMetricName_CALLBACK_CONTACTS_HANDLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_CALLBACK_CONTACTS_HANDLED"><span id="%24mHistoricalMetricName_CALLBACK_CONTACTS_HANDLED"><span id="HistoricalMetricName_CALLBACK_CONTACTS_HANDLED"><span class="annot"><span class="annottext">$bHistoricalMetricName_CALLBACK_CONTACTS_HANDLED :: HistoricalMetricName
+$mHistoricalMetricName_CALLBACK_CONTACTS_HANDLED :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_CALLBACK_CONTACTS_HANDLED"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_CALLBACK_CONTACTS_HANDLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CALLBACK_CONTACTS_HANDLED&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_ABANDONED"><span class="hs-identifier hs-type">HistoricalMetricName_CONTACTS_ABANDONED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_CONTACTS_ABANDONED"><span id="%24mHistoricalMetricName_CONTACTS_ABANDONED"><span id="HistoricalMetricName_CONTACTS_ABANDONED"><span class="annot"><span class="annottext">$bHistoricalMetricName_CONTACTS_ABANDONED :: HistoricalMetricName
+$mHistoricalMetricName_CONTACTS_ABANDONED :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_CONTACTS_ABANDONED"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_CONTACTS_ABANDONED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACTS_ABANDONED&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_AGENT_HUNG_UP_FIRST"><span class="hs-identifier hs-type">HistoricalMetricName_CONTACTS_AGENT_HUNG_UP_FIRST</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_CONTACTS_AGENT_HUNG_UP_FIRST"><span id="%24mHistoricalMetricName_CONTACTS_AGENT_HUNG_UP_FIRST"><span id="HistoricalMetricName_CONTACTS_AGENT_HUNG_UP_FIRST"><span class="annot"><span class="annottext">$bHistoricalMetricName_CONTACTS_AGENT_HUNG_UP_FIRST :: HistoricalMetricName
+$mHistoricalMetricName_CONTACTS_AGENT_HUNG_UP_FIRST :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_CONTACTS_AGENT_HUNG_UP_FIRST"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_CONTACTS_AGENT_HUNG_UP_FIRST</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACTS_AGENT_HUNG_UP_FIRST&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_CONSULTED"><span class="hs-identifier hs-type">HistoricalMetricName_CONTACTS_CONSULTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_CONTACTS_CONSULTED"><span id="%24mHistoricalMetricName_CONTACTS_CONSULTED"><span id="HistoricalMetricName_CONTACTS_CONSULTED"><span class="annot"><span class="annottext">$bHistoricalMetricName_CONTACTS_CONSULTED :: HistoricalMetricName
+$mHistoricalMetricName_CONTACTS_CONSULTED :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_CONTACTS_CONSULTED"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_CONTACTS_CONSULTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACTS_CONSULTED&quot;</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_HANDLED"><span class="hs-identifier hs-type">HistoricalMetricName_CONTACTS_HANDLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_CONTACTS_HANDLED"><span id="%24mHistoricalMetricName_CONTACTS_HANDLED"><span id="HistoricalMetricName_CONTACTS_HANDLED"><span class="annot"><span class="annottext">$bHistoricalMetricName_CONTACTS_HANDLED :: HistoricalMetricName
+$mHistoricalMetricName_CONTACTS_HANDLED :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_CONTACTS_HANDLED"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_CONTACTS_HANDLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACTS_HANDLED&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_HANDLED_INCOMING"><span class="hs-identifier hs-type">HistoricalMetricName_CONTACTS_HANDLED_INCOMING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_CONTACTS_HANDLED_INCOMING"><span id="%24mHistoricalMetricName_CONTACTS_HANDLED_INCOMING"><span id="HistoricalMetricName_CONTACTS_HANDLED_INCOMING"><span class="annot"><span class="annottext">$bHistoricalMetricName_CONTACTS_HANDLED_INCOMING :: HistoricalMetricName
+$mHistoricalMetricName_CONTACTS_HANDLED_INCOMING :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_CONTACTS_HANDLED_INCOMING"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_CONTACTS_HANDLED_INCOMING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACTS_HANDLED_INCOMING&quot;</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_HANDLED_OUTBOUND"><span class="hs-identifier hs-type">HistoricalMetricName_CONTACTS_HANDLED_OUTBOUND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_CONTACTS_HANDLED_OUTBOUND"><span id="%24mHistoricalMetricName_CONTACTS_HANDLED_OUTBOUND"><span id="HistoricalMetricName_CONTACTS_HANDLED_OUTBOUND"><span class="annot"><span class="annottext">$bHistoricalMetricName_CONTACTS_HANDLED_OUTBOUND :: HistoricalMetricName
+$mHistoricalMetricName_CONTACTS_HANDLED_OUTBOUND :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_CONTACTS_HANDLED_OUTBOUND"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_CONTACTS_HANDLED_OUTBOUND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACTS_HANDLED_OUTBOUND&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_HOLD_ABANDONS"><span class="hs-identifier hs-type">HistoricalMetricName_CONTACTS_HOLD_ABANDONS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_CONTACTS_HOLD_ABANDONS"><span id="%24mHistoricalMetricName_CONTACTS_HOLD_ABANDONS"><span id="HistoricalMetricName_CONTACTS_HOLD_ABANDONS"><span class="annot"><span class="annottext">$bHistoricalMetricName_CONTACTS_HOLD_ABANDONS :: HistoricalMetricName
+$mHistoricalMetricName_CONTACTS_HOLD_ABANDONS :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_CONTACTS_HOLD_ABANDONS"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_CONTACTS_HOLD_ABANDONS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACTS_HOLD_ABANDONS&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_MISSED"><span class="hs-identifier hs-type">HistoricalMetricName_CONTACTS_MISSED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_CONTACTS_MISSED"><span id="%24mHistoricalMetricName_CONTACTS_MISSED"><span id="HistoricalMetricName_CONTACTS_MISSED"><span class="annot"><span class="annottext">$bHistoricalMetricName_CONTACTS_MISSED :: HistoricalMetricName
+$mHistoricalMetricName_CONTACTS_MISSED :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_CONTACTS_MISSED"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_CONTACTS_MISSED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACTS_MISSED&quot;</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_QUEUED"><span class="hs-identifier hs-type">HistoricalMetricName_CONTACTS_QUEUED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_CONTACTS_QUEUED"><span id="%24mHistoricalMetricName_CONTACTS_QUEUED"><span id="HistoricalMetricName_CONTACTS_QUEUED"><span class="annot"><span class="annottext">$bHistoricalMetricName_CONTACTS_QUEUED :: HistoricalMetricName
+$mHistoricalMetricName_CONTACTS_QUEUED :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_CONTACTS_QUEUED"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_CONTACTS_QUEUED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACTS_QUEUED&quot;</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_TRANSFERRED_IN"><span class="hs-identifier hs-type">HistoricalMetricName_CONTACTS_TRANSFERRED_IN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_CONTACTS_TRANSFERRED_IN"><span id="%24mHistoricalMetricName_CONTACTS_TRANSFERRED_IN"><span id="HistoricalMetricName_CONTACTS_TRANSFERRED_IN"><span class="annot"><span class="annottext">$bHistoricalMetricName_CONTACTS_TRANSFERRED_IN :: HistoricalMetricName
+$mHistoricalMetricName_CONTACTS_TRANSFERRED_IN :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_CONTACTS_TRANSFERRED_IN"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_CONTACTS_TRANSFERRED_IN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACTS_TRANSFERRED_IN&quot;</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_TRANSFERRED_IN_FROM_QUEUE"><span class="hs-identifier hs-type">HistoricalMetricName_CONTACTS_TRANSFERRED_IN_FROM_QUEUE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_CONTACTS_TRANSFERRED_IN_FROM_QUEUE"><span id="%24mHistoricalMetricName_CONTACTS_TRANSFERRED_IN_FROM_QUEUE"><span id="HistoricalMetricName_CONTACTS_TRANSFERRED_IN_FROM_QUEUE"><span class="annot"><span class="annottext">$bHistoricalMetricName_CONTACTS_TRANSFERRED_IN_FROM_QUEUE :: HistoricalMetricName
+$mHistoricalMetricName_CONTACTS_TRANSFERRED_IN_FROM_QUEUE :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_CONTACTS_TRANSFERRED_IN_FROM_QUEUE"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_CONTACTS_TRANSFERRED_IN_FROM_QUEUE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACTS_TRANSFERRED_IN_FROM_QUEUE&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_TRANSFERRED_OUT"><span class="hs-identifier hs-type">HistoricalMetricName_CONTACTS_TRANSFERRED_OUT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_CONTACTS_TRANSFERRED_OUT"><span id="%24mHistoricalMetricName_CONTACTS_TRANSFERRED_OUT"><span id="HistoricalMetricName_CONTACTS_TRANSFERRED_OUT"><span class="annot"><span class="annottext">$bHistoricalMetricName_CONTACTS_TRANSFERRED_OUT :: HistoricalMetricName
+$mHistoricalMetricName_CONTACTS_TRANSFERRED_OUT :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_CONTACTS_TRANSFERRED_OUT"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_CONTACTS_TRANSFERRED_OUT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACTS_TRANSFERRED_OUT&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_TRANSFERRED_OUT_FROM_QUEUE"><span class="hs-identifier hs-type">HistoricalMetricName_CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_CONTACTS_TRANSFERRED_OUT_FROM_QUEUE"><span id="%24mHistoricalMetricName_CONTACTS_TRANSFERRED_OUT_FROM_QUEUE"><span id="HistoricalMetricName_CONTACTS_TRANSFERRED_OUT_FROM_QUEUE"><span class="annot"><span class="annottext">$bHistoricalMetricName_CONTACTS_TRANSFERRED_OUT_FROM_QUEUE :: HistoricalMetricName
+$mHistoricalMetricName_CONTACTS_TRANSFERRED_OUT_FROM_QUEUE :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_CONTACTS_TRANSFERRED_OUT_FROM_QUEUE"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACTS_TRANSFERRED_OUT_FROM_QUEUE&quot;</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_HANDLE_TIME"><span class="hs-identifier hs-type">HistoricalMetricName_HANDLE_TIME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_HANDLE_TIME"><span id="%24mHistoricalMetricName_HANDLE_TIME"><span id="HistoricalMetricName_HANDLE_TIME"><span class="annot"><span class="annottext">$bHistoricalMetricName_HANDLE_TIME :: HistoricalMetricName
+$mHistoricalMetricName_HANDLE_TIME :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_HANDLE_TIME"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_HANDLE_TIME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HANDLE_TIME&quot;</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_HOLD_TIME"><span class="hs-identifier hs-type">HistoricalMetricName_HOLD_TIME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_HOLD_TIME"><span id="%24mHistoricalMetricName_HOLD_TIME"><span id="HistoricalMetricName_HOLD_TIME"><span class="annot"><span class="annottext">$bHistoricalMetricName_HOLD_TIME :: HistoricalMetricName
+$mHistoricalMetricName_HOLD_TIME :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_HOLD_TIME"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_HOLD_TIME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HOLD_TIME&quot;</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_INTERACTION_AND_HOLD_TIME"><span class="hs-identifier hs-type">HistoricalMetricName_INTERACTION_AND_HOLD_TIME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_INTERACTION_AND_HOLD_TIME"><span id="%24mHistoricalMetricName_INTERACTION_AND_HOLD_TIME"><span id="HistoricalMetricName_INTERACTION_AND_HOLD_TIME"><span class="annot"><span class="annottext">$bHistoricalMetricName_INTERACTION_AND_HOLD_TIME :: HistoricalMetricName
+$mHistoricalMetricName_INTERACTION_AND_HOLD_TIME :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_INTERACTION_AND_HOLD_TIME"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_INTERACTION_AND_HOLD_TIME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERACTION_AND_HOLD_TIME&quot;</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_INTERACTION_TIME"><span class="hs-identifier hs-type">HistoricalMetricName_INTERACTION_TIME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_INTERACTION_TIME"><span id="%24mHistoricalMetricName_INTERACTION_TIME"><span id="HistoricalMetricName_INTERACTION_TIME"><span class="annot"><span class="annottext">$bHistoricalMetricName_INTERACTION_TIME :: HistoricalMetricName
+$mHistoricalMetricName_INTERACTION_TIME :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_INTERACTION_TIME"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_INTERACTION_TIME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERACTION_TIME&quot;</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_OCCUPANCY"><span class="hs-identifier hs-type">HistoricalMetricName_OCCUPANCY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_OCCUPANCY"><span id="%24mHistoricalMetricName_OCCUPANCY"><span id="HistoricalMetricName_OCCUPANCY"><span class="annot"><span class="annottext">$bHistoricalMetricName_OCCUPANCY :: HistoricalMetricName
+$mHistoricalMetricName_OCCUPANCY :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_OCCUPANCY"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_OCCUPANCY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OCCUPANCY&quot;</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_QUEUED_TIME"><span class="hs-identifier hs-type">HistoricalMetricName_QUEUED_TIME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_QUEUED_TIME"><span id="%24mHistoricalMetricName_QUEUED_TIME"><span id="HistoricalMetricName_QUEUED_TIME"><span class="annot"><span class="annottext">$bHistoricalMetricName_QUEUED_TIME :: HistoricalMetricName
+$mHistoricalMetricName_QUEUED_TIME :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_QUEUED_TIME"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_QUEUED_TIME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;QUEUED_TIME&quot;</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_QUEUE_ANSWER_TIME"><span class="hs-identifier hs-type">HistoricalMetricName_QUEUE_ANSWER_TIME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_QUEUE_ANSWER_TIME"><span id="%24mHistoricalMetricName_QUEUE_ANSWER_TIME"><span id="HistoricalMetricName_QUEUE_ANSWER_TIME"><span class="annot"><span class="annottext">$bHistoricalMetricName_QUEUE_ANSWER_TIME :: HistoricalMetricName
+$mHistoricalMetricName_QUEUE_ANSWER_TIME :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_QUEUE_ANSWER_TIME"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_QUEUE_ANSWER_TIME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;QUEUE_ANSWER_TIME&quot;</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_SERVICE_LEVEL"><span class="hs-identifier hs-type">HistoricalMetricName_SERVICE_LEVEL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHistoricalMetricName_SERVICE_LEVEL"><span id="%24mHistoricalMetricName_SERVICE_LEVEL"><span id="HistoricalMetricName_SERVICE_LEVEL"><span class="annot"><span class="annottext">$bHistoricalMetricName_SERVICE_LEVEL :: HistoricalMetricName
+$mHistoricalMetricName_SERVICE_LEVEL :: forall r. HistoricalMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#%24bHistoricalMetricName_SERVICE_LEVEL"><span class="hs-identifier hs-var hs-var hs-var">HistoricalMetricName_SERVICE_LEVEL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-identifier hs-type">HistoricalMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SERVICE_LEVEL&quot;</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_ABANDON_TIME"><span class="hs-pragma hs-type">HistoricalMetricName_ABANDON_TIME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_AFTER_CONTACT_WORK_TIME"><span class="hs-pragma hs-type">HistoricalMetricName_AFTER_CONTACT_WORK_TIME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_API_CONTACTS_HANDLED"><span class="hs-pragma hs-type">HistoricalMetricName_API_CONTACTS_HANDLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CALLBACK_CONTACTS_HANDLED"><span class="hs-pragma hs-type">HistoricalMetricName_CALLBACK_CONTACTS_HANDLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_ABANDONED"><span class="hs-pragma hs-type">HistoricalMetricName_CONTACTS_ABANDONED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_AGENT_HUNG_UP_FIRST"><span class="hs-pragma hs-type">HistoricalMetricName_CONTACTS_AGENT_HUNG_UP_FIRST</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_CONSULTED"><span class="hs-pragma hs-type">HistoricalMetricName_CONTACTS_CONSULTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_HANDLED"><span class="hs-pragma hs-type">HistoricalMetricName_CONTACTS_HANDLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_HANDLED_INCOMING"><span class="hs-pragma hs-type">HistoricalMetricName_CONTACTS_HANDLED_INCOMING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_HANDLED_OUTBOUND"><span class="hs-pragma hs-type">HistoricalMetricName_CONTACTS_HANDLED_OUTBOUND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_HOLD_ABANDONS"><span class="hs-pragma hs-type">HistoricalMetricName_CONTACTS_HOLD_ABANDONS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_MISSED"><span class="hs-pragma hs-type">HistoricalMetricName_CONTACTS_MISSED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_QUEUED"><span class="hs-pragma hs-type">HistoricalMetricName_CONTACTS_QUEUED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_TRANSFERRED_IN"><span class="hs-pragma hs-type">HistoricalMetricName_CONTACTS_TRANSFERRED_IN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_TRANSFERRED_IN_FROM_QUEUE"><span class="hs-pragma hs-type">HistoricalMetricName_CONTACTS_TRANSFERRED_IN_FROM_QUEUE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_TRANSFERRED_OUT"><span class="hs-pragma hs-type">HistoricalMetricName_CONTACTS_TRANSFERRED_OUT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_CONTACTS_TRANSFERRED_OUT_FROM_QUEUE"><span class="hs-pragma hs-type">HistoricalMetricName_CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_HANDLE_TIME"><span class="hs-pragma hs-type">HistoricalMetricName_HANDLE_TIME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_HOLD_TIME"><span class="hs-pragma hs-type">HistoricalMetricName_HOLD_TIME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_INTERACTION_AND_HOLD_TIME"><span class="hs-pragma hs-type">HistoricalMetricName_INTERACTION_AND_HOLD_TIME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_INTERACTION_TIME"><span class="hs-pragma hs-type">HistoricalMetricName_INTERACTION_TIME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_OCCUPANCY"><span class="hs-pragma hs-type">HistoricalMetricName_OCCUPANCY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_QUEUED_TIME"><span class="hs-pragma hs-type">HistoricalMetricName_QUEUED_TIME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_QUEUE_ANSWER_TIME"><span class="hs-pragma hs-type">HistoricalMetricName_QUEUE_ANSWER_TIME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName_SERVICE_LEVEL"><span class="hs-pragma hs-type">HistoricalMetricName_SERVICE_LEVEL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName%27"><span class="hs-pragma hs-type">HistoricalMetricName'</span></a></span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-187"></span></pre></body></html>

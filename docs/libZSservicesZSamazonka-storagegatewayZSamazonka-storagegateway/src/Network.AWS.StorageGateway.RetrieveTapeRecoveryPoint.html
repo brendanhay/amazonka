@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the recovery point for the specified virtual tape. This</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- operation is only supported in the tape gateway type.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- A recovery point is a point in time view of a virtual tape at which all</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- the data on the tape is consistent. If your gateway crashes, virtual</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- tapes that have recovery points can be recovered to a new gateway.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- The virtual tape can be retrieved to only one gateway. The retrieved</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- tape is read-only. The virtual tape can be retrieved to only a tape</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- gateway. There is no charge for retrieving recovery points.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint"><span class="hs-identifier">RetrieveTapeRecoveryPoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#newRetrieveTapeRecoveryPoint"><span class="hs-identifier">newRetrieveTapeRecoveryPoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#retrieveTapeRecoveryPoint_tapeARN"><span class="hs-identifier">retrieveTapeRecoveryPoint_tapeARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#retrieveTapeRecoveryPoint_gatewayARN"><span class="hs-identifier">retrieveTapeRecoveryPoint_gatewayARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPointResponse"><span class="hs-identifier">RetrieveTapeRecoveryPointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#newRetrieveTapeRecoveryPointResponse"><span class="hs-identifier">newRetrieveTapeRecoveryPointResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#retrieveTapeRecoveryPointResponse_tapeARN"><span class="hs-identifier">retrieveTapeRecoveryPointResponse_tapeARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#retrieveTapeRecoveryPointResponse_httpStatus"><span class="hs-identifier">retrieveTapeRecoveryPointResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.html"><span class="hs-identifier">Network.AWS.StorageGateway.Types</span></a></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | RetrieveTapeRecoveryPointInput</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newRetrieveTapeRecoveryPoint' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679373649"><span id="local-6989586621679373650"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetrieveTapeRecoveryPoint"><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint"><span class="hs-identifier hs-var">RetrieveTapeRecoveryPoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetrieveTapeRecoveryPoint%27"><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint%27"><span class="hs-identifier hs-var">RetrieveTapeRecoveryPoint'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the virtual tape for which you want to</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- retrieve the recovery point.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AtapeARN%3ARetrieveTapeRecoveryPoint%27"><span class="annot"><span class="annottext">RetrieveTapeRecoveryPoint -&gt; Text
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#%24sel%3AtapeARN%3ARetrieveTapeRecoveryPoint%27"><span class="hs-identifier hs-var hs-var">tapeARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AgatewayARN%3ARetrieveTapeRecoveryPoint%27"><span class="annot"><span class="annottext">RetrieveTapeRecoveryPoint -&gt; Text
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#%24sel%3AgatewayARN%3ARetrieveTapeRecoveryPoint%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373642"><span id="local-6989586621679373644"><span class="annot"><span class="annottext">RetrieveTapeRecoveryPoint -&gt; RetrieveTapeRecoveryPoint -&gt; Bool
+(RetrieveTapeRecoveryPoint -&gt; RetrieveTapeRecoveryPoint -&gt; Bool)
+-&gt; (RetrieveTapeRecoveryPoint -&gt; RetrieveTapeRecoveryPoint -&gt; Bool)
+-&gt; Eq RetrieveTapeRecoveryPoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RetrieveTapeRecoveryPoint -&gt; RetrieveTapeRecoveryPoint -&gt; Bool
+$c/= :: RetrieveTapeRecoveryPoint -&gt; RetrieveTapeRecoveryPoint -&gt; Bool
+== :: RetrieveTapeRecoveryPoint -&gt; RetrieveTapeRecoveryPoint -&gt; Bool
+$c== :: RetrieveTapeRecoveryPoint -&gt; RetrieveTapeRecoveryPoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373633"><span id="local-6989586621679373635"><span id="local-6989586621679373637"><span id="local-6989586621679373639"><span class="annot"><span class="annottext">ReadPrec [RetrieveTapeRecoveryPoint]
+ReadPrec RetrieveTapeRecoveryPoint
+Int -&gt; ReadS RetrieveTapeRecoveryPoint
+ReadS [RetrieveTapeRecoveryPoint]
+(Int -&gt; ReadS RetrieveTapeRecoveryPoint)
+-&gt; ReadS [RetrieveTapeRecoveryPoint]
+-&gt; ReadPrec RetrieveTapeRecoveryPoint
+-&gt; ReadPrec [RetrieveTapeRecoveryPoint]
+-&gt; Read RetrieveTapeRecoveryPoint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RetrieveTapeRecoveryPoint]
+$creadListPrec :: ReadPrec [RetrieveTapeRecoveryPoint]
+readPrec :: ReadPrec RetrieveTapeRecoveryPoint
+$creadPrec :: ReadPrec RetrieveTapeRecoveryPoint
+readList :: ReadS [RetrieveTapeRecoveryPoint]
+$creadList :: ReadS [RetrieveTapeRecoveryPoint]
+readsPrec :: Int -&gt; ReadS RetrieveTapeRecoveryPoint
+$creadsPrec :: Int -&gt; ReadS RetrieveTapeRecoveryPoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373626"><span id="local-6989586621679373628"><span id="local-6989586621679373630"><span class="annot"><span class="annottext">Int -&gt; RetrieveTapeRecoveryPoint -&gt; ShowS
+[RetrieveTapeRecoveryPoint] -&gt; ShowS
+RetrieveTapeRecoveryPoint -&gt; String
+(Int -&gt; RetrieveTapeRecoveryPoint -&gt; ShowS)
+-&gt; (RetrieveTapeRecoveryPoint -&gt; String)
+-&gt; ([RetrieveTapeRecoveryPoint] -&gt; ShowS)
+-&gt; Show RetrieveTapeRecoveryPoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RetrieveTapeRecoveryPoint] -&gt; ShowS
+$cshowList :: [RetrieveTapeRecoveryPoint] -&gt; ShowS
+show :: RetrieveTapeRecoveryPoint -&gt; String
+$cshow :: RetrieveTapeRecoveryPoint -&gt; String
+showsPrec :: Int -&gt; RetrieveTapeRecoveryPoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; RetrieveTapeRecoveryPoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RetrieveTapeRecoveryPoint -&gt; Rep RetrieveTapeRecoveryPoint x)
+-&gt; (forall x.
+    Rep RetrieveTapeRecoveryPoint x -&gt; RetrieveTapeRecoveryPoint)
+-&gt; Generic RetrieveTapeRecoveryPoint
+forall x.
+Rep RetrieveTapeRecoveryPoint x -&gt; RetrieveTapeRecoveryPoint
+forall x.
+RetrieveTapeRecoveryPoint -&gt; Rep RetrieveTapeRecoveryPoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RetrieveTapeRecoveryPoint x -&gt; RetrieveTapeRecoveryPoint
+$cfrom :: forall x.
+RetrieveTapeRecoveryPoint -&gt; Rep RetrieveTapeRecoveryPoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'RetrieveTapeRecoveryPoint' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'tapeARN', 'retrieveTapeRecoveryPoint_tapeARN' - The Amazon Resource Name (ARN) of the virtual tape for which you want to</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- retrieve the recovery point.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'gatewayARN', 'retrieveTapeRecoveryPoint_gatewayARN' - Undocumented member.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#newRetrieveTapeRecoveryPoint"><span class="hs-identifier hs-type">newRetrieveTapeRecoveryPoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'tapeARN'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'gatewayARN'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint</span></a></span><span>
+</span><span id="line-88"></span><span id="newRetrieveTapeRecoveryPoint"><span class="annot"><span class="annottext">newRetrieveTapeRecoveryPoint :: Text -&gt; Text -&gt; RetrieveTapeRecoveryPoint
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#newRetrieveTapeRecoveryPoint"><span class="hs-identifier hs-var hs-var">newRetrieveTapeRecoveryPoint</span></a></span></span><span> </span><span id="local-6989586621679373621"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373621"><span class="hs-identifier hs-var">pTapeARN_</span></a></span></span><span> </span><span id="local-6989586621679373620"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373620"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">RetrieveTapeRecoveryPoint' :: Text -&gt; Text -&gt; RetrieveTapeRecoveryPoint
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint%27"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tapeARN:RetrieveTapeRecoveryPoint' :: Text
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#%24sel%3AtapeARN%3ARetrieveTapeRecoveryPoint%27"><span class="hs-identifier hs-var">tapeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373621"><span class="hs-identifier hs-var">pTapeARN_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatewayARN:RetrieveTapeRecoveryPoint' :: Text
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#%24sel%3AgatewayARN%3ARetrieveTapeRecoveryPoint%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373620"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the virtual tape for which you want to</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- retrieve the recovery point.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#retrieveTapeRecoveryPoint_tapeARN"><span class="hs-identifier hs-type">retrieveTapeRecoveryPoint_tapeARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span id="retrieveTapeRecoveryPoint_tapeARN"><span class="annot"><span class="annottext">retrieveTapeRecoveryPoint_tapeARN :: (Text -&gt; f Text)
+-&gt; RetrieveTapeRecoveryPoint -&gt; f RetrieveTapeRecoveryPoint
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#retrieveTapeRecoveryPoint_tapeARN"><span class="hs-identifier hs-var hs-var">retrieveTapeRecoveryPoint_tapeARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RetrieveTapeRecoveryPoint -&gt; Text)
+-&gt; (RetrieveTapeRecoveryPoint -&gt; Text -&gt; RetrieveTapeRecoveryPoint)
+-&gt; Lens
+     RetrieveTapeRecoveryPoint RetrieveTapeRecoveryPoint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint%27"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373617"><span class="annot"><span class="annottext">Text
+tapeARN :: Text
+$sel:tapeARN:RetrieveTapeRecoveryPoint' :: RetrieveTapeRecoveryPoint -&gt; Text
+</span><a href="#local-6989586621679373617"><span class="hs-identifier hs-var hs-var">tapeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373617"><span class="hs-identifier hs-var">tapeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373616"><span class="annot"><span class="annottext">s :: RetrieveTapeRecoveryPoint
+</span><a href="#local-6989586621679373616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint%27"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373615"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetrieveTapeRecoveryPoint
+</span><a href="#local-6989586621679373616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tapeARN:RetrieveTapeRecoveryPoint' :: Text
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#%24sel%3AtapeARN%3ARetrieveTapeRecoveryPoint%27"><span class="hs-identifier hs-var">tapeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#retrieveTapeRecoveryPoint_gatewayARN"><span class="hs-identifier hs-type">retrieveTapeRecoveryPoint_gatewayARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="retrieveTapeRecoveryPoint_gatewayARN"><span class="annot"><span class="annottext">retrieveTapeRecoveryPoint_gatewayARN :: (Text -&gt; f Text)
+-&gt; RetrieveTapeRecoveryPoint -&gt; f RetrieveTapeRecoveryPoint
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#retrieveTapeRecoveryPoint_gatewayARN"><span class="hs-identifier hs-var hs-var">retrieveTapeRecoveryPoint_gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RetrieveTapeRecoveryPoint -&gt; Text)
+-&gt; (RetrieveTapeRecoveryPoint -&gt; Text -&gt; RetrieveTapeRecoveryPoint)
+-&gt; Lens
+     RetrieveTapeRecoveryPoint RetrieveTapeRecoveryPoint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint%27"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373614"><span class="annot"><span class="annottext">Text
+gatewayARN :: Text
+$sel:gatewayARN:RetrieveTapeRecoveryPoint' :: RetrieveTapeRecoveryPoint -&gt; Text
+</span><a href="#local-6989586621679373614"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373614"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373613"><span class="annot"><span class="annottext">s :: RetrieveTapeRecoveryPoint
+</span><a href="#local-6989586621679373613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint%27"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373612"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetrieveTapeRecoveryPoint
+</span><a href="#local-6989586621679373613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:RetrieveTapeRecoveryPoint' :: Text
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#%24sel%3AgatewayARN%3ARetrieveTapeRecoveryPoint%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPointResponse"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPointResponse</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679373608"><span class="annot"><span class="annottext">request :: RetrieveTapeRecoveryPoint -&gt; Request RetrieveTapeRecoveryPoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; RetrieveTapeRecoveryPoint -&gt; Request RetrieveTapeRecoveryPoint
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679373604"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RetrieveTapeRecoveryPoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RetrieveTapeRecoveryPoint)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse RetrieveTapeRecoveryPoint))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RetrieveTapeRecoveryPoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RetrieveTapeRecoveryPoint)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373601"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373601"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679373600"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679373600"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679373599"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373599"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; RetrieveTapeRecoveryPointResponse
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPointResponse%27"><span class="hs-identifier hs-var">RetrieveTapeRecoveryPointResponse'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; RetrieveTapeRecoveryPointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; RetrieveTapeRecoveryPointResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TapeARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; RetrieveTapeRecoveryPointResponse)
+-&gt; Either String Int
+-&gt; Either String RetrieveTapeRecoveryPointResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373601"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373591"><span id="local-6989586621679373593"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint</span></a></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679373584"><span class="annot"><span class="annottext">toHeaders :: RetrieveTapeRecoveryPoint -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RetrieveTapeRecoveryPoint -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StorageGateway_20130630.RetrieveTapeRecoveryPoint&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-127"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-131"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373574"><span id="local-6989586621679373576"><span id="local-6989586621679373578"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679373572"><span class="annot"><span class="annottext">toJSON :: RetrieveTapeRecoveryPoint -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint%27"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373569"><span id="local-6989586621679373570"><span class="annot"><span class="annottext">Text
+gatewayARN :: Text
+tapeARN :: Text
+$sel:gatewayARN:RetrieveTapeRecoveryPoint' :: RetrieveTapeRecoveryPoint -&gt; Text
+$sel:tapeARN:RetrieveTapeRecoveryPoint' :: RetrieveTapeRecoveryPoint -&gt; Text
+</span><a href="#local-6989586621679373569"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TapeARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373570"><span class="hs-identifier hs-var">tapeARN</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373569"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679373563"><span class="annot"><span class="annottext">toPath :: RetrieveTapeRecoveryPoint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RetrieveTapeRecoveryPoint -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPoint"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679373559"><span class="annot"><span class="annottext">toQuery :: RetrieveTapeRecoveryPoint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RetrieveTapeRecoveryPoint -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | RetrieveTapeRecoveryPointOutput</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- /See:/ 'newRetrieveTapeRecoveryPointResponse' smart constructor.</span><span>
+</span><span id="line-153"></span><span id="local-6989586621679373556"><span id="local-6989586621679373557"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetrieveTapeRecoveryPointResponse"><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPointResponse"><span class="hs-identifier hs-var">RetrieveTapeRecoveryPointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetrieveTapeRecoveryPointResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPointResponse%27"><span class="hs-identifier hs-var">RetrieveTapeRecoveryPointResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the virtual tape for which the</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- recovery point was retrieved.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AtapeARN%3ARetrieveTapeRecoveryPointResponse%27"><span class="annot"><span class="annottext">RetrieveTapeRecoveryPointResponse -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#%24sel%3AtapeARN%3ARetrieveTapeRecoveryPointResponse%27"><span class="hs-identifier hs-var hs-var">tapeARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARetrieveTapeRecoveryPointResponse%27"><span class="annot"><span class="annottext">RetrieveTapeRecoveryPointResponse -&gt; Int
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#%24sel%3AhttpStatus%3ARetrieveTapeRecoveryPointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373550"><span id="local-6989586621679373552"><span class="annot"><span class="annottext">RetrieveTapeRecoveryPointResponse
+-&gt; RetrieveTapeRecoveryPointResponse -&gt; Bool
+(RetrieveTapeRecoveryPointResponse
+ -&gt; RetrieveTapeRecoveryPointResponse -&gt; Bool)
+-&gt; (RetrieveTapeRecoveryPointResponse
+    -&gt; RetrieveTapeRecoveryPointResponse -&gt; Bool)
+-&gt; Eq RetrieveTapeRecoveryPointResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RetrieveTapeRecoveryPointResponse
+-&gt; RetrieveTapeRecoveryPointResponse -&gt; Bool
+$c/= :: RetrieveTapeRecoveryPointResponse
+-&gt; RetrieveTapeRecoveryPointResponse -&gt; Bool
+== :: RetrieveTapeRecoveryPointResponse
+-&gt; RetrieveTapeRecoveryPointResponse -&gt; Bool
+$c== :: RetrieveTapeRecoveryPointResponse
+-&gt; RetrieveTapeRecoveryPointResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373542"><span id="local-6989586621679373544"><span id="local-6989586621679373546"><span id="local-6989586621679373548"><span class="annot"><span class="annottext">ReadPrec [RetrieveTapeRecoveryPointResponse]
+ReadPrec RetrieveTapeRecoveryPointResponse
+Int -&gt; ReadS RetrieveTapeRecoveryPointResponse
+ReadS [RetrieveTapeRecoveryPointResponse]
+(Int -&gt; ReadS RetrieveTapeRecoveryPointResponse)
+-&gt; ReadS [RetrieveTapeRecoveryPointResponse]
+-&gt; ReadPrec RetrieveTapeRecoveryPointResponse
+-&gt; ReadPrec [RetrieveTapeRecoveryPointResponse]
+-&gt; Read RetrieveTapeRecoveryPointResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RetrieveTapeRecoveryPointResponse]
+$creadListPrec :: ReadPrec [RetrieveTapeRecoveryPointResponse]
+readPrec :: ReadPrec RetrieveTapeRecoveryPointResponse
+$creadPrec :: ReadPrec RetrieveTapeRecoveryPointResponse
+readList :: ReadS [RetrieveTapeRecoveryPointResponse]
+$creadList :: ReadS [RetrieveTapeRecoveryPointResponse]
+readsPrec :: Int -&gt; ReadS RetrieveTapeRecoveryPointResponse
+$creadsPrec :: Int -&gt; ReadS RetrieveTapeRecoveryPointResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373536"><span id="local-6989586621679373538"><span id="local-6989586621679373540"><span class="annot"><span class="annottext">Int -&gt; RetrieveTapeRecoveryPointResponse -&gt; ShowS
+[RetrieveTapeRecoveryPointResponse] -&gt; ShowS
+RetrieveTapeRecoveryPointResponse -&gt; String
+(Int -&gt; RetrieveTapeRecoveryPointResponse -&gt; ShowS)
+-&gt; (RetrieveTapeRecoveryPointResponse -&gt; String)
+-&gt; ([RetrieveTapeRecoveryPointResponse] -&gt; ShowS)
+-&gt; Show RetrieveTapeRecoveryPointResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RetrieveTapeRecoveryPointResponse] -&gt; ShowS
+$cshowList :: [RetrieveTapeRecoveryPointResponse] -&gt; ShowS
+show :: RetrieveTapeRecoveryPointResponse -&gt; String
+$cshow :: RetrieveTapeRecoveryPointResponse -&gt; String
+showsPrec :: Int -&gt; RetrieveTapeRecoveryPointResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RetrieveTapeRecoveryPointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RetrieveTapeRecoveryPointResponse
+ -&gt; Rep RetrieveTapeRecoveryPointResponse x)
+-&gt; (forall x.
+    Rep RetrieveTapeRecoveryPointResponse x
+    -&gt; RetrieveTapeRecoveryPointResponse)
+-&gt; Generic RetrieveTapeRecoveryPointResponse
+forall x.
+Rep RetrieveTapeRecoveryPointResponse x
+-&gt; RetrieveTapeRecoveryPointResponse
+forall x.
+RetrieveTapeRecoveryPointResponse
+-&gt; Rep RetrieveTapeRecoveryPointResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RetrieveTapeRecoveryPointResponse x
+-&gt; RetrieveTapeRecoveryPointResponse
+$cfrom :: forall x.
+RetrieveTapeRecoveryPointResponse
+-&gt; Rep RetrieveTapeRecoveryPointResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Create a value of 'RetrieveTapeRecoveryPointResponse' with all optional fields omitted.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'tapeARN', 'retrieveTapeRecoveryPointResponse_tapeARN' - The Amazon Resource Name (ARN) of the virtual tape for which the</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- recovery point was retrieved.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'httpStatus', 'retrieveTapeRecoveryPointResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#newRetrieveTapeRecoveryPointResponse"><span class="hs-identifier hs-type">newRetrieveTapeRecoveryPointResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPointResponse"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPointResponse</span></a></span><span>
+</span><span id="line-178"></span><span id="newRetrieveTapeRecoveryPointResponse"><span class="annot"><span class="annottext">newRetrieveTapeRecoveryPointResponse :: Int -&gt; RetrieveTapeRecoveryPointResponse
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#newRetrieveTapeRecoveryPointResponse"><span class="hs-identifier hs-var hs-var">newRetrieveTapeRecoveryPointResponse</span></a></span></span><span> </span><span id="local-6989586621679373533"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373533"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">RetrieveTapeRecoveryPointResponse' :: Maybe Text -&gt; Int -&gt; RetrieveTapeRecoveryPointResponse
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPointResponse%27"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPointResponse'</span></a></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tapeARN:RetrieveTapeRecoveryPointResponse' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#%24sel%3AtapeARN%3ARetrieveTapeRecoveryPointResponse%27"><span class="hs-identifier hs-var">tapeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RetrieveTapeRecoveryPointResponse' :: Int
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#%24sel%3AhttpStatus%3ARetrieveTapeRecoveryPointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373533"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the virtual tape for which the</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- recovery point was retrieved.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#retrieveTapeRecoveryPointResponse_tapeARN"><span class="hs-identifier hs-type">retrieveTapeRecoveryPointResponse_tapeARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPointResponse"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="retrieveTapeRecoveryPointResponse_tapeARN"><span class="annot"><span class="annottext">retrieveTapeRecoveryPointResponse_tapeARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RetrieveTapeRecoveryPointResponse
+-&gt; f RetrieveTapeRecoveryPointResponse
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#retrieveTapeRecoveryPointResponse_tapeARN"><span class="hs-identifier hs-var hs-var">retrieveTapeRecoveryPointResponse_tapeARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RetrieveTapeRecoveryPointResponse -&gt; Maybe Text)
+-&gt; (RetrieveTapeRecoveryPointResponse
+    -&gt; Maybe Text -&gt; RetrieveTapeRecoveryPointResponse)
+-&gt; Lens
+     RetrieveTapeRecoveryPointResponse
+     RetrieveTapeRecoveryPointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPointResponse%27"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373532"><span class="annot"><span class="annottext">Maybe Text
+tapeARN :: Maybe Text
+$sel:tapeARN:RetrieveTapeRecoveryPointResponse' :: RetrieveTapeRecoveryPointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679373532"><span class="hs-identifier hs-var hs-var">tapeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373532"><span class="hs-identifier hs-var">tapeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373531"><span class="annot"><span class="annottext">s :: RetrieveTapeRecoveryPointResponse
+</span><a href="#local-6989586621679373531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPointResponse%27"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373530"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetrieveTapeRecoveryPointResponse
+</span><a href="#local-6989586621679373531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tapeARN:RetrieveTapeRecoveryPointResponse' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#%24sel%3AtapeARN%3ARetrieveTapeRecoveryPointResponse%27"><span class="hs-identifier hs-var">tapeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPointResponse"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#retrieveTapeRecoveryPointResponse_httpStatus"><span class="hs-identifier hs-type">retrieveTapeRecoveryPointResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPointResponse"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-192"></span><span id="retrieveTapeRecoveryPointResponse_httpStatus"><span class="annot"><span class="annottext">retrieveTapeRecoveryPointResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RetrieveTapeRecoveryPointResponse
+-&gt; f RetrieveTapeRecoveryPointResponse
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#retrieveTapeRecoveryPointResponse_httpStatus"><span class="hs-identifier hs-var hs-var">retrieveTapeRecoveryPointResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RetrieveTapeRecoveryPointResponse -&gt; Int)
+-&gt; (RetrieveTapeRecoveryPointResponse
+    -&gt; Int -&gt; RetrieveTapeRecoveryPointResponse)
+-&gt; Lens
+     RetrieveTapeRecoveryPointResponse
+     RetrieveTapeRecoveryPointResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPointResponse%27"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373529"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RetrieveTapeRecoveryPointResponse' :: RetrieveTapeRecoveryPointResponse -&gt; Int
+</span><a href="#local-6989586621679373529"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373529"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373528"><span class="annot"><span class="annottext">s :: RetrieveTapeRecoveryPointResponse
+</span><a href="#local-6989586621679373528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPointResponse%27"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373527"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetrieveTapeRecoveryPointResponse
+</span><a href="#local-6989586621679373528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RetrieveTapeRecoveryPointResponse' :: Int
+</span><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#%24sel%3AhttpStatus%3ARetrieveTapeRecoveryPointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPointResponse"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679373525"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint.html#RetrieveTapeRecoveryPointResponse"><span class="hs-identifier hs-type">RetrieveTapeRecoveryPointResponse</span></a></span></span><span>
+</span><span id="line-197"></span></pre></body></html>

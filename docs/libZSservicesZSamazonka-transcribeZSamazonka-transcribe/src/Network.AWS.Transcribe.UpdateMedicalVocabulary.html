@@ -1,0 +1,809 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Transcribe.UpdateMedicalVocabulary</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a vocabulary with new values that you provide in a different</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- text file from the one you used to create the vocabulary. The</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- @UpdateMedicalVocabulary@ operation overwrites all of the existing</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- information with the values that you provide in the request.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Transcribe.UpdateMedicalVocabulary</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier">UpdateMedicalVocabulary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#newUpdateMedicalVocabulary"><span class="hs-identifier">newUpdateMedicalVocabulary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabulary_vocabularyFileUri"><span class="hs-identifier">updateMedicalVocabulary_vocabularyFileUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabulary_vocabularyName"><span class="hs-identifier">updateMedicalVocabulary_vocabularyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabulary_languageCode"><span class="hs-identifier">updateMedicalVocabulary_languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse"><span class="hs-identifier">UpdateMedicalVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#newUpdateMedicalVocabularyResponse"><span class="hs-identifier">newUpdateMedicalVocabularyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabularyResponse_languageCode"><span class="hs-identifier">updateMedicalVocabularyResponse_languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabularyResponse_lastModifiedTime"><span class="hs-identifier">updateMedicalVocabularyResponse_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabularyResponse_vocabularyName"><span class="hs-identifier">updateMedicalVocabularyResponse_vocabularyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabularyResponse_vocabularyState"><span class="hs-identifier">updateMedicalVocabularyResponse_vocabularyState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabularyResponse_httpStatus"><span class="hs-identifier">updateMedicalVocabularyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.html"><span class="hs-identifier">Network.AWS.Transcribe.Types</span></a></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newUpdateMedicalVocabulary' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679287827"><span id="local-6989586621679287828"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateMedicalVocabulary"><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier hs-var">UpdateMedicalVocabulary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateMedicalVocabulary%27"><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary%27"><span class="hs-identifier hs-var">UpdateMedicalVocabulary'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The location in Amazon S3 of the text file that contains your custom</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- vocabulary. The URI must be in the same Amazon Web Services Region as</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the resource that you are calling. The following is the format for a</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- URI:</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @ https:\/\/s3.\&lt;aws-region&gt;.amazonaws.com\/\&lt;bucket-name&gt;\/\&lt;keyprefix&gt;\/\&lt;objectkey&gt; @</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @https:\/\/s3.us-east-1.amazonaws.com\/AWSDOC-EXAMPLE-BUCKET\/vocab.txt@</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- For more information about Amazon S3 object names, see</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys&gt;</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- in the /Amazon S3 Developer Guide/.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- For more information about custom vocabularies in Amazon Transcribe</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- Medical, see</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Medical Custom Vocabularies&gt;.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AvocabularyFileUri%3AUpdateMedicalVocabulary%27"><span class="annot"><span class="annottext">UpdateMedicalVocabulary -&gt; Maybe Text
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AvocabularyFileUri%3AUpdateMedicalVocabulary%27"><span class="hs-identifier hs-var hs-var">vocabularyFileUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The name of the vocabulary to update. The name is case sensitive. If you</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- try to update a vocabulary with the same name as a vocabulary you\'ve</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- already made, you get a @ConflictException@ error.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AvocabularyName%3AUpdateMedicalVocabulary%27"><span class="annot"><span class="annottext">UpdateMedicalVocabulary -&gt; Text
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AvocabularyName%3AUpdateMedicalVocabulary%27"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The language code of the language used for the entries in the updated</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- vocabulary. US English (en-US) is the only valid language code in Amazon</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- Transcribe Medical.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AlanguageCode%3AUpdateMedicalVocabulary%27"><span class="annot"><span class="annottext">UpdateMedicalVocabulary -&gt; LanguageCode
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AlanguageCode%3AUpdateMedicalVocabulary%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287819"><span id="local-6989586621679287821"><span class="annot"><span class="annottext">UpdateMedicalVocabulary -&gt; UpdateMedicalVocabulary -&gt; Bool
+(UpdateMedicalVocabulary -&gt; UpdateMedicalVocabulary -&gt; Bool)
+-&gt; (UpdateMedicalVocabulary -&gt; UpdateMedicalVocabulary -&gt; Bool)
+-&gt; Eq UpdateMedicalVocabulary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateMedicalVocabulary -&gt; UpdateMedicalVocabulary -&gt; Bool
+$c/= :: UpdateMedicalVocabulary -&gt; UpdateMedicalVocabulary -&gt; Bool
+== :: UpdateMedicalVocabulary -&gt; UpdateMedicalVocabulary -&gt; Bool
+$c== :: UpdateMedicalVocabulary -&gt; UpdateMedicalVocabulary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287810"><span id="local-6989586621679287812"><span id="local-6989586621679287814"><span id="local-6989586621679287816"><span class="annot"><span class="annottext">ReadPrec [UpdateMedicalVocabulary]
+ReadPrec UpdateMedicalVocabulary
+Int -&gt; ReadS UpdateMedicalVocabulary
+ReadS [UpdateMedicalVocabulary]
+(Int -&gt; ReadS UpdateMedicalVocabulary)
+-&gt; ReadS [UpdateMedicalVocabulary]
+-&gt; ReadPrec UpdateMedicalVocabulary
+-&gt; ReadPrec [UpdateMedicalVocabulary]
+-&gt; Read UpdateMedicalVocabulary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateMedicalVocabulary]
+$creadListPrec :: ReadPrec [UpdateMedicalVocabulary]
+readPrec :: ReadPrec UpdateMedicalVocabulary
+$creadPrec :: ReadPrec UpdateMedicalVocabulary
+readList :: ReadS [UpdateMedicalVocabulary]
+$creadList :: ReadS [UpdateMedicalVocabulary]
+readsPrec :: Int -&gt; ReadS UpdateMedicalVocabulary
+$creadsPrec :: Int -&gt; ReadS UpdateMedicalVocabulary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287803"><span id="local-6989586621679287805"><span id="local-6989586621679287807"><span class="annot"><span class="annottext">Int -&gt; UpdateMedicalVocabulary -&gt; ShowS
+[UpdateMedicalVocabulary] -&gt; ShowS
+UpdateMedicalVocabulary -&gt; String
+(Int -&gt; UpdateMedicalVocabulary -&gt; ShowS)
+-&gt; (UpdateMedicalVocabulary -&gt; String)
+-&gt; ([UpdateMedicalVocabulary] -&gt; ShowS)
+-&gt; Show UpdateMedicalVocabulary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateMedicalVocabulary] -&gt; ShowS
+$cshowList :: [UpdateMedicalVocabulary] -&gt; ShowS
+show :: UpdateMedicalVocabulary -&gt; String
+$cshow :: UpdateMedicalVocabulary -&gt; String
+showsPrec :: Int -&gt; UpdateMedicalVocabulary -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateMedicalVocabulary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateMedicalVocabulary -&gt; Rep UpdateMedicalVocabulary x)
+-&gt; (forall x.
+    Rep UpdateMedicalVocabulary x -&gt; UpdateMedicalVocabulary)
+-&gt; Generic UpdateMedicalVocabulary
+forall x. Rep UpdateMedicalVocabulary x -&gt; UpdateMedicalVocabulary
+forall x. UpdateMedicalVocabulary -&gt; Rep UpdateMedicalVocabulary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateMedicalVocabulary x -&gt; UpdateMedicalVocabulary
+$cfrom :: forall x. UpdateMedicalVocabulary -&gt; Rep UpdateMedicalVocabulary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Create a value of 'UpdateMedicalVocabulary' with all optional fields omitted.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'vocabularyFileUri', 'updateMedicalVocabulary_vocabularyFileUri' - The location in Amazon S3 of the text file that contains your custom</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- vocabulary. The URI must be in the same Amazon Web Services Region as</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- the resource that you are calling. The following is the format for a</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- URI:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- @ https:\/\/s3.\&lt;aws-region&gt;.amazonaws.com\/\&lt;bucket-name&gt;\/\&lt;keyprefix&gt;\/\&lt;objectkey&gt; @</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- @https:\/\/s3.us-east-1.amazonaws.com\/AWSDOC-EXAMPLE-BUCKET\/vocab.txt@</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- For more information about Amazon S3 object names, see</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys&gt;</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- in the /Amazon S3 Developer Guide/.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- For more information about custom vocabularies in Amazon Transcribe</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Medical, see</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Medical Custom Vocabularies&gt;.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'vocabularyName', 'updateMedicalVocabulary_vocabularyName' - The name of the vocabulary to update. The name is case sensitive. If you</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- try to update a vocabulary with the same name as a vocabulary you\'ve</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- already made, you get a @ConflictException@ error.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'languageCode', 'updateMedicalVocabulary_languageCode' - The language code of the language used for the entries in the updated</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- vocabulary. US English (en-US) is the only valid language code in Amazon</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Transcribe Medical.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#newUpdateMedicalVocabulary"><span class="hs-identifier hs-type">newUpdateMedicalVocabulary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-comment">-- | 'vocabularyName'</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'languageCode'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier hs-type">UpdateMedicalVocabulary</span></a></span><span>
+</span><span id="line-129"></span><span id="newUpdateMedicalVocabulary"><span class="annot"><span class="annottext">newUpdateMedicalVocabulary :: Text -&gt; LanguageCode -&gt; UpdateMedicalVocabulary
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#newUpdateMedicalVocabulary"><span class="hs-identifier hs-var hs-var">newUpdateMedicalVocabulary</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679287798"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287798"><span class="hs-identifier hs-var">pVocabularyName_</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679287797"><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679287797"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">UpdateMedicalVocabulary' :: Maybe Text -&gt; Text -&gt; LanguageCode -&gt; UpdateMedicalVocabulary
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary%27"><span class="hs-identifier hs-type">UpdateMedicalVocabulary'</span></a></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vocabularyFileUri:UpdateMedicalVocabulary' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AvocabularyFileUri%3AUpdateMedicalVocabulary%27"><span class="hs-identifier hs-var">vocabularyFileUri</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:vocabularyName:UpdateMedicalVocabulary' :: Text
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AvocabularyName%3AUpdateMedicalVocabulary%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287798"><span class="hs-identifier hs-var">pVocabularyName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:languageCode:UpdateMedicalVocabulary' :: LanguageCode
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AlanguageCode%3AUpdateMedicalVocabulary%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679287797"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The location in Amazon S3 of the text file that contains your custom</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- vocabulary. The URI must be in the same Amazon Web Services Region as</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- the resource that you are calling. The following is the format for a</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- URI:</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- @ https:\/\/s3.\&lt;aws-region&gt;.amazonaws.com\/\&lt;bucket-name&gt;\/\&lt;keyprefix&gt;\/\&lt;objectkey&gt; @</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- @https:\/\/s3.us-east-1.amazonaws.com\/AWSDOC-EXAMPLE-BUCKET\/vocab.txt@</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- For more information about Amazon S3 object names, see</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys&gt;</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- in the /Amazon S3 Developer Guide/.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- For more information about custom vocabularies in Amazon Transcribe</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Medical, see</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Medical Custom Vocabularies&gt;.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabulary_vocabularyFileUri"><span class="hs-identifier hs-type">updateMedicalVocabulary_vocabularyFileUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier hs-type">UpdateMedicalVocabulary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="updateMedicalVocabulary_vocabularyFileUri"><span class="annot"><span class="annottext">updateMedicalVocabulary_vocabularyFileUri :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateMedicalVocabulary -&gt; f UpdateMedicalVocabulary
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabulary_vocabularyFileUri"><span class="hs-identifier hs-var hs-var">updateMedicalVocabulary_vocabularyFileUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMedicalVocabulary -&gt; Maybe Text)
+-&gt; (UpdateMedicalVocabulary
+    -&gt; Maybe Text -&gt; UpdateMedicalVocabulary)
+-&gt; Lens
+     UpdateMedicalVocabulary
+     UpdateMedicalVocabulary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary%27"><span class="hs-identifier hs-type">UpdateMedicalVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287794"><span class="annot"><span class="annottext">Maybe Text
+vocabularyFileUri :: Maybe Text
+$sel:vocabularyFileUri:UpdateMedicalVocabulary' :: UpdateMedicalVocabulary -&gt; Maybe Text
+</span><a href="#local-6989586621679287794"><span class="hs-identifier hs-var hs-var">vocabularyFileUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287794"><span class="hs-identifier hs-var">vocabularyFileUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287793"><span class="annot"><span class="annottext">s :: UpdateMedicalVocabulary
+</span><a href="#local-6989586621679287793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary%27"><span class="hs-identifier hs-type">UpdateMedicalVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287792"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMedicalVocabulary
+</span><a href="#local-6989586621679287793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyFileUri:UpdateMedicalVocabulary' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AvocabularyFileUri%3AUpdateMedicalVocabulary%27"><span class="hs-identifier hs-var">vocabularyFileUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier hs-type">UpdateMedicalVocabulary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The name of the vocabulary to update. The name is case sensitive. If you</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- try to update a vocabulary with the same name as a vocabulary you\'ve</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- already made, you get a @ConflictException@ error.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabulary_vocabularyName"><span class="hs-identifier hs-type">updateMedicalVocabulary_vocabularyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier hs-type">UpdateMedicalVocabulary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-164"></span><span id="updateMedicalVocabulary_vocabularyName"><span class="annot"><span class="annottext">updateMedicalVocabulary_vocabularyName :: (Text -&gt; f Text)
+-&gt; UpdateMedicalVocabulary -&gt; f UpdateMedicalVocabulary
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabulary_vocabularyName"><span class="hs-identifier hs-var hs-var">updateMedicalVocabulary_vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMedicalVocabulary -&gt; Text)
+-&gt; (UpdateMedicalVocabulary -&gt; Text -&gt; UpdateMedicalVocabulary)
+-&gt; Lens UpdateMedicalVocabulary UpdateMedicalVocabulary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary%27"><span class="hs-identifier hs-type">UpdateMedicalVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287791"><span class="annot"><span class="annottext">Text
+vocabularyName :: Text
+$sel:vocabularyName:UpdateMedicalVocabulary' :: UpdateMedicalVocabulary -&gt; Text
+</span><a href="#local-6989586621679287791"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287791"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287790"><span class="annot"><span class="annottext">s :: UpdateMedicalVocabulary
+</span><a href="#local-6989586621679287790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary%27"><span class="hs-identifier hs-type">UpdateMedicalVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287789"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMedicalVocabulary
+</span><a href="#local-6989586621679287790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:UpdateMedicalVocabulary' :: Text
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AvocabularyName%3AUpdateMedicalVocabulary%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier hs-type">UpdateMedicalVocabulary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The language code of the language used for the entries in the updated</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- vocabulary. US English (en-US) is the only valid language code in Amazon</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Transcribe Medical.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabulary_languageCode"><span class="hs-identifier hs-type">updateMedicalVocabulary_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier hs-type">UpdateMedicalVocabulary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span>
+</span><span id="line-170"></span><span id="updateMedicalVocabulary_languageCode"><span class="annot"><span class="annottext">updateMedicalVocabulary_languageCode :: (LanguageCode -&gt; f LanguageCode)
+-&gt; UpdateMedicalVocabulary -&gt; f UpdateMedicalVocabulary
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabulary_languageCode"><span class="hs-identifier hs-var hs-var">updateMedicalVocabulary_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMedicalVocabulary -&gt; LanguageCode)
+-&gt; (UpdateMedicalVocabulary
+    -&gt; LanguageCode -&gt; UpdateMedicalVocabulary)
+-&gt; Lens
+     UpdateMedicalVocabulary
+     UpdateMedicalVocabulary
+     LanguageCode
+     LanguageCode
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary%27"><span class="hs-identifier hs-type">UpdateMedicalVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287788"><span class="annot"><span class="annottext">LanguageCode
+languageCode :: LanguageCode
+$sel:languageCode:UpdateMedicalVocabulary' :: UpdateMedicalVocabulary -&gt; LanguageCode
+</span><a href="#local-6989586621679287788"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679287788"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287787"><span class="annot"><span class="annottext">s :: UpdateMedicalVocabulary
+</span><a href="#local-6989586621679287787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary%27"><span class="hs-identifier hs-type">UpdateMedicalVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287786"><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679287786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMedicalVocabulary
+</span><a href="#local-6989586621679287787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:UpdateMedicalVocabulary' :: LanguageCode
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AlanguageCode%3AUpdateMedicalVocabulary%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679287786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier hs-type">UpdateMedicalVocabulary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier hs-type">UpdateMedicalVocabulary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-174"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier hs-type">UpdateMedicalVocabulary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse</span></a></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679287782"><span class="annot"><span class="annottext">request :: UpdateMedicalVocabulary -&gt; Request UpdateMedicalVocabulary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateMedicalVocabulary -&gt; Request UpdateMedicalVocabulary
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Transcribe.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679287778"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateMedicalVocabulary
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateMedicalVocabulary)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateMedicalVocabulary))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateMedicalVocabulary
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateMedicalVocabulary)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679287775"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287775"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679287774"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679287774"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679287773"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679287773"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe LanguageCode
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe VocabularyState
+-&gt; Int
+-&gt; UpdateMedicalVocabularyResponse
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var">UpdateMedicalVocabularyResponse'</span></a></span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LanguageCode
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe VocabularyState
+ -&gt; Int
+ -&gt; UpdateMedicalVocabularyResponse)
+-&gt; Either String (Maybe LanguageCode)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe VocabularyState
+      -&gt; Int
+      -&gt; UpdateMedicalVocabularyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679287773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LanguageCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe VocabularyState
+   -&gt; Int
+   -&gt; UpdateMedicalVocabularyResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe VocabularyState -&gt; Int -&gt; UpdateMedicalVocabularyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679287773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe VocabularyState -&gt; Int -&gt; UpdateMedicalVocabularyResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe VocabularyState -&gt; Int -&gt; UpdateMedicalVocabularyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679287773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VocabularyName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe VocabularyState -&gt; Int -&gt; UpdateMedicalVocabularyResponse)
+-&gt; Either String (Maybe VocabularyState)
+-&gt; Either String (Int -&gt; UpdateMedicalVocabularyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679287773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VocabularyState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VocabularyState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateMedicalVocabularyResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateMedicalVocabularyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287775"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287765"><span id="local-6989586621679287767"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier hs-type">UpdateMedicalVocabulary</span></a></span></span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287762"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier hs-type">UpdateMedicalVocabulary</span></a></span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier hs-type">UpdateMedicalVocabulary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679287758"><span class="annot"><span class="annottext">toHeaders :: UpdateMedicalVocabulary -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateMedicalVocabulary -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-197"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Transcribe.UpdateMedicalVocabulary&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-199"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-201"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-202"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-203"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287748"><span id="local-6989586621679287750"><span id="local-6989586621679287752"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier hs-type">UpdateMedicalVocabulary</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679287746"><span class="annot"><span class="annottext">toJSON :: UpdateMedicalVocabulary -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary%27"><span class="hs-identifier hs-type">UpdateMedicalVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287742"><span id="local-6989586621679287743"><span id="local-6989586621679287744"><span class="annot"><span class="annottext">Maybe Text
+Text
+LanguageCode
+languageCode :: LanguageCode
+vocabularyName :: Text
+vocabularyFileUri :: Maybe Text
+$sel:languageCode:UpdateMedicalVocabulary' :: UpdateMedicalVocabulary -&gt; LanguageCode
+$sel:vocabularyName:UpdateMedicalVocabulary' :: UpdateMedicalVocabulary -&gt; Text
+$sel:vocabularyFileUri:UpdateMedicalVocabulary' :: UpdateMedicalVocabulary -&gt; Maybe Text
+</span><a href="#local-6989586621679287742"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-211"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VocabularyFileUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287744"><span class="hs-identifier hs-var">vocabularyFileUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-214"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VocabularyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287743"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LanguageCode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679287742"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier hs-type">UpdateMedicalVocabulary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679287736"><span class="annot"><span class="annottext">toPath :: UpdateMedicalVocabulary -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateMedicalVocabulary -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabulary"><span class="hs-identifier hs-type">UpdateMedicalVocabulary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679287732"><span class="annot"><span class="annottext">toQuery :: UpdateMedicalVocabulary -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateMedicalVocabulary -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | /See:/ 'newUpdateMedicalVocabularyResponse' smart constructor.</span><span>
+</span><span id="line-226"></span><span id="local-6989586621679287729"><span id="local-6989586621679287730"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateMedicalVocabularyResponse"><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse"><span class="hs-identifier hs-var">UpdateMedicalVocabularyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateMedicalVocabularyResponse%27"><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var">UpdateMedicalVocabularyResponse'</span></a></span></span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The language code for the language of the text file used to update the</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- custom vocabulary. US English (en-US) is the only language supported in</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- Amazon Transcribe Medical.</span><span>
+</span><span id="line-230"></span><span>    </span><span id="%24sel%3AlanguageCode%3AUpdateMedicalVocabularyResponse%27"><span class="annot"><span class="annottext">UpdateMedicalVocabularyResponse -&gt; Maybe LanguageCode
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AlanguageCode%3AUpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- | The date and time that the vocabulary was updated.</span><span>
+</span><span id="line-232"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AUpdateMedicalVocabularyResponse%27"><span class="annot"><span class="annottext">UpdateMedicalVocabularyResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AlastModifiedTime%3AUpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- | The name of the updated vocabulary.</span><span>
+</span><span id="line-234"></span><span>    </span><span id="%24sel%3AvocabularyName%3AUpdateMedicalVocabularyResponse%27"><span class="annot"><span class="annottext">UpdateMedicalVocabularyResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AvocabularyName%3AUpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- | The processing state of the update to the vocabulary. When the</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- @VocabularyState@ field is @READY@, the vocabulary is ready to be used</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- in a @StartMedicalTranscriptionJob@ request.</span><span>
+</span><span id="line-238"></span><span>    </span><span id="%24sel%3AvocabularyState%3AUpdateMedicalVocabularyResponse%27"><span class="annot"><span class="annottext">UpdateMedicalVocabularyResponse -&gt; Maybe VocabularyState
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AvocabularyState%3AUpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">vocabularyState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.VocabularyState.html#VocabularyState"><span class="hs-identifier hs-type">VocabularyState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-240"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateMedicalVocabularyResponse%27"><span class="annot"><span class="annottext">UpdateMedicalVocabularyResponse -&gt; Int
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AhttpStatus%3AUpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-241"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287720"><span id="local-6989586621679287722"><span class="annot"><span class="annottext">UpdateMedicalVocabularyResponse
+-&gt; UpdateMedicalVocabularyResponse -&gt; Bool
+(UpdateMedicalVocabularyResponse
+ -&gt; UpdateMedicalVocabularyResponse -&gt; Bool)
+-&gt; (UpdateMedicalVocabularyResponse
+    -&gt; UpdateMedicalVocabularyResponse -&gt; Bool)
+-&gt; Eq UpdateMedicalVocabularyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateMedicalVocabularyResponse
+-&gt; UpdateMedicalVocabularyResponse -&gt; Bool
+$c/= :: UpdateMedicalVocabularyResponse
+-&gt; UpdateMedicalVocabularyResponse -&gt; Bool
+== :: UpdateMedicalVocabularyResponse
+-&gt; UpdateMedicalVocabularyResponse -&gt; Bool
+$c== :: UpdateMedicalVocabularyResponse
+-&gt; UpdateMedicalVocabularyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287712"><span id="local-6989586621679287714"><span id="local-6989586621679287716"><span id="local-6989586621679287718"><span class="annot"><span class="annottext">ReadPrec [UpdateMedicalVocabularyResponse]
+ReadPrec UpdateMedicalVocabularyResponse
+Int -&gt; ReadS UpdateMedicalVocabularyResponse
+ReadS [UpdateMedicalVocabularyResponse]
+(Int -&gt; ReadS UpdateMedicalVocabularyResponse)
+-&gt; ReadS [UpdateMedicalVocabularyResponse]
+-&gt; ReadPrec UpdateMedicalVocabularyResponse
+-&gt; ReadPrec [UpdateMedicalVocabularyResponse]
+-&gt; Read UpdateMedicalVocabularyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateMedicalVocabularyResponse]
+$creadListPrec :: ReadPrec [UpdateMedicalVocabularyResponse]
+readPrec :: ReadPrec UpdateMedicalVocabularyResponse
+$creadPrec :: ReadPrec UpdateMedicalVocabularyResponse
+readList :: ReadS [UpdateMedicalVocabularyResponse]
+$creadList :: ReadS [UpdateMedicalVocabularyResponse]
+readsPrec :: Int -&gt; ReadS UpdateMedicalVocabularyResponse
+$creadsPrec :: Int -&gt; ReadS UpdateMedicalVocabularyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287706"><span id="local-6989586621679287708"><span id="local-6989586621679287710"><span class="annot"><span class="annottext">Int -&gt; UpdateMedicalVocabularyResponse -&gt; ShowS
+[UpdateMedicalVocabularyResponse] -&gt; ShowS
+UpdateMedicalVocabularyResponse -&gt; String
+(Int -&gt; UpdateMedicalVocabularyResponse -&gt; ShowS)
+-&gt; (UpdateMedicalVocabularyResponse -&gt; String)
+-&gt; ([UpdateMedicalVocabularyResponse] -&gt; ShowS)
+-&gt; Show UpdateMedicalVocabularyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateMedicalVocabularyResponse] -&gt; ShowS
+$cshowList :: [UpdateMedicalVocabularyResponse] -&gt; ShowS
+show :: UpdateMedicalVocabularyResponse -&gt; String
+$cshow :: UpdateMedicalVocabularyResponse -&gt; String
+showsPrec :: Int -&gt; UpdateMedicalVocabularyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateMedicalVocabularyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateMedicalVocabularyResponse
+ -&gt; Rep UpdateMedicalVocabularyResponse x)
+-&gt; (forall x.
+    Rep UpdateMedicalVocabularyResponse x
+    -&gt; UpdateMedicalVocabularyResponse)
+-&gt; Generic UpdateMedicalVocabularyResponse
+forall x.
+Rep UpdateMedicalVocabularyResponse x
+-&gt; UpdateMedicalVocabularyResponse
+forall x.
+UpdateMedicalVocabularyResponse
+-&gt; Rep UpdateMedicalVocabularyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateMedicalVocabularyResponse x
+-&gt; UpdateMedicalVocabularyResponse
+$cfrom :: forall x.
+UpdateMedicalVocabularyResponse
+-&gt; Rep UpdateMedicalVocabularyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- Create a value of 'UpdateMedicalVocabularyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- 'languageCode', 'updateMedicalVocabularyResponse_languageCode' - The language code for the language of the text file used to update the</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- custom vocabulary. US English (en-US) is the only language supported in</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- Amazon Transcribe Medical.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- 'lastModifiedTime', 'updateMedicalVocabularyResponse_lastModifiedTime' - The date and time that the vocabulary was updated.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- 'vocabularyName', 'updateMedicalVocabularyResponse_vocabularyName' - The name of the updated vocabulary.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- 'vocabularyState', 'updateMedicalVocabularyResponse_vocabularyState' - The processing state of the update to the vocabulary. When the</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- @VocabularyState@ field is @READY@, the vocabulary is ready to be used</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- in a @StartMedicalTranscriptionJob@ request.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- 'httpStatus', 'updateMedicalVocabularyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#newUpdateMedicalVocabularyResponse"><span class="hs-identifier hs-type">newUpdateMedicalVocabularyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-266"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-267"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-268"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse</span></a></span><span>
+</span><span id="line-269"></span><span id="newUpdateMedicalVocabularyResponse"><span class="annot"><span class="annottext">newUpdateMedicalVocabularyResponse :: Int -&gt; UpdateMedicalVocabularyResponse
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#newUpdateMedicalVocabularyResponse"><span class="hs-identifier hs-var hs-var">newUpdateMedicalVocabularyResponse</span></a></span></span><span> </span><span id="local-6989586621679287703"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287703"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><span class="annottext">UpdateMedicalVocabularyResponse' :: Maybe LanguageCode
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe VocabularyState
+-&gt; Int
+-&gt; UpdateMedicalVocabularyResponse
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse'</span></a></span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:languageCode:UpdateMedicalVocabularyResponse' :: Maybe LanguageCode
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AlanguageCode%3AUpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">Maybe LanguageCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:UpdateMedicalVocabularyResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AlastModifiedTime%3AUpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyName:UpdateMedicalVocabularyResponse' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AvocabularyName%3AUpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyState:UpdateMedicalVocabularyResponse' :: Maybe VocabularyState
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AvocabularyState%3AUpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var">vocabularyState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateMedicalVocabularyResponse' :: Int
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AhttpStatus%3AUpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287703"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-277"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | The language code for the language of the text file used to update the</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- custom vocabulary. US English (en-US) is the only language supported in</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- Amazon Transcribe Medical.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabularyResponse_languageCode"><span class="hs-identifier hs-type">updateMedicalVocabularyResponse_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="updateMedicalVocabularyResponse_languageCode"><span class="annot"><span class="annottext">updateMedicalVocabularyResponse_languageCode :: (Maybe LanguageCode -&gt; f (Maybe LanguageCode))
+-&gt; UpdateMedicalVocabularyResponse
+-&gt; f UpdateMedicalVocabularyResponse
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabularyResponse_languageCode"><span class="hs-identifier hs-var hs-var">updateMedicalVocabularyResponse_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMedicalVocabularyResponse -&gt; Maybe LanguageCode)
+-&gt; (UpdateMedicalVocabularyResponse
+    -&gt; Maybe LanguageCode -&gt; UpdateMedicalVocabularyResponse)
+-&gt; Lens
+     UpdateMedicalVocabularyResponse
+     UpdateMedicalVocabularyResponse
+     (Maybe LanguageCode)
+     (Maybe LanguageCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287702"><span class="annot"><span class="annottext">Maybe LanguageCode
+languageCode :: Maybe LanguageCode
+$sel:languageCode:UpdateMedicalVocabularyResponse' :: UpdateMedicalVocabularyResponse -&gt; Maybe LanguageCode
+</span><a href="#local-6989586621679287702"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679287702"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287701"><span class="annot"><span class="annottext">s :: UpdateMedicalVocabularyResponse
+</span><a href="#local-6989586621679287701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287700"><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679287700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMedicalVocabularyResponse
+</span><a href="#local-6989586621679287701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:UpdateMedicalVocabularyResponse' :: Maybe LanguageCode
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AlanguageCode%3AUpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679287700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The date and time that the vocabulary was updated.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabularyResponse_lastModifiedTime"><span class="hs-identifier hs-type">updateMedicalVocabularyResponse_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="updateMedicalVocabularyResponse_lastModifiedTime"><span class="annot"><span class="annottext">updateMedicalVocabularyResponse_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateMedicalVocabularyResponse
+-&gt; f UpdateMedicalVocabularyResponse
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabularyResponse_lastModifiedTime"><span class="hs-identifier hs-var hs-var">updateMedicalVocabularyResponse_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMedicalVocabularyResponse -&gt; Maybe POSIX)
+-&gt; (UpdateMedicalVocabularyResponse
+    -&gt; Maybe POSIX -&gt; UpdateMedicalVocabularyResponse)
+-&gt; Lens
+     UpdateMedicalVocabularyResponse
+     UpdateMedicalVocabularyResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287699"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedTime :: Maybe POSIX
+$sel:lastModifiedTime:UpdateMedicalVocabularyResponse' :: UpdateMedicalVocabularyResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679287699"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679287699"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287698"><span class="annot"><span class="annottext">s :: UpdateMedicalVocabularyResponse
+</span><a href="#local-6989586621679287698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287697"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679287697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMedicalVocabularyResponse
+</span><a href="#local-6989586621679287698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:UpdateMedicalVocabularyResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AlastModifiedTime%3AUpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679287697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; UpdateMedicalVocabularyResponse
+ -&gt; f UpdateMedicalVocabularyResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateMedicalVocabularyResponse
+-&gt; f UpdateMedicalVocabularyResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | The name of the updated vocabulary.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabularyResponse_vocabularyName"><span class="hs-identifier hs-type">updateMedicalVocabularyResponse_vocabularyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="updateMedicalVocabularyResponse_vocabularyName"><span class="annot"><span class="annottext">updateMedicalVocabularyResponse_vocabularyName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateMedicalVocabularyResponse
+-&gt; f UpdateMedicalVocabularyResponse
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabularyResponse_vocabularyName"><span class="hs-identifier hs-var hs-var">updateMedicalVocabularyResponse_vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMedicalVocabularyResponse -&gt; Maybe Text)
+-&gt; (UpdateMedicalVocabularyResponse
+    -&gt; Maybe Text -&gt; UpdateMedicalVocabularyResponse)
+-&gt; Lens
+     UpdateMedicalVocabularyResponse
+     UpdateMedicalVocabularyResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287693"><span class="annot"><span class="annottext">Maybe Text
+vocabularyName :: Maybe Text
+$sel:vocabularyName:UpdateMedicalVocabularyResponse' :: UpdateMedicalVocabularyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679287693"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287693"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287692"><span class="annot"><span class="annottext">s :: UpdateMedicalVocabularyResponse
+</span><a href="#local-6989586621679287692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287691"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMedicalVocabularyResponse
+</span><a href="#local-6989586621679287692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:UpdateMedicalVocabularyResponse' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AvocabularyName%3AUpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | The processing state of the update to the vocabulary. When the</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- @VocabularyState@ field is @READY@, the vocabulary is ready to be used</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- in a @StartMedicalTranscriptionJob@ request.</span><span>
+</span><span id="line-296"></span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabularyResponse_vocabularyState"><span class="hs-identifier hs-type">updateMedicalVocabularyResponse_vocabularyState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.VocabularyState.html#VocabularyState"><span class="hs-identifier hs-type">VocabularyState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span id="updateMedicalVocabularyResponse_vocabularyState"><span class="annot"><span class="annottext">updateMedicalVocabularyResponse_vocabularyState :: (Maybe VocabularyState -&gt; f (Maybe VocabularyState))
+-&gt; UpdateMedicalVocabularyResponse
+-&gt; f UpdateMedicalVocabularyResponse
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabularyResponse_vocabularyState"><span class="hs-identifier hs-var hs-var">updateMedicalVocabularyResponse_vocabularyState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMedicalVocabularyResponse -&gt; Maybe VocabularyState)
+-&gt; (UpdateMedicalVocabularyResponse
+    -&gt; Maybe VocabularyState -&gt; UpdateMedicalVocabularyResponse)
+-&gt; Lens
+     UpdateMedicalVocabularyResponse
+     UpdateMedicalVocabularyResponse
+     (Maybe VocabularyState)
+     (Maybe VocabularyState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287690"><span class="annot"><span class="annottext">Maybe VocabularyState
+vocabularyState :: Maybe VocabularyState
+$sel:vocabularyState:UpdateMedicalVocabularyResponse' :: UpdateMedicalVocabularyResponse -&gt; Maybe VocabularyState
+</span><a href="#local-6989586621679287690"><span class="hs-identifier hs-var hs-var">vocabularyState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><a href="#local-6989586621679287690"><span class="hs-identifier hs-var">vocabularyState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287689"><span class="annot"><span class="annottext">s :: UpdateMedicalVocabularyResponse
+</span><a href="#local-6989586621679287689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287688"><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><a href="#local-6989586621679287688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMedicalVocabularyResponse
+</span><a href="#local-6989586621679287689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyState:UpdateMedicalVocabularyResponse' :: Maybe VocabularyState
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AvocabularyState%3AUpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var">vocabularyState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><a href="#local-6989586621679287688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-300"></span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabularyResponse_httpStatus"><span class="hs-identifier hs-type">updateMedicalVocabularyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-301"></span><span id="updateMedicalVocabularyResponse_httpStatus"><span class="annot"><span class="annottext">updateMedicalVocabularyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateMedicalVocabularyResponse
+-&gt; f UpdateMedicalVocabularyResponse
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#updateMedicalVocabularyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateMedicalVocabularyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMedicalVocabularyResponse -&gt; Int)
+-&gt; (UpdateMedicalVocabularyResponse
+    -&gt; Int -&gt; UpdateMedicalVocabularyResponse)
+-&gt; Lens
+     UpdateMedicalVocabularyResponse
+     UpdateMedicalVocabularyResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287687"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateMedicalVocabularyResponse' :: UpdateMedicalVocabularyResponse -&gt; Int
+</span><a href="#local-6989586621679287687"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287687"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287686"><span class="annot"><span class="annottext">s :: UpdateMedicalVocabularyResponse
+</span><a href="#local-6989586621679287686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287685"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMedicalVocabularyResponse
+</span><a href="#local-6989586621679287686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateMedicalVocabularyResponse' :: Int
+</span><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#%24sel%3AhttpStatus%3AUpdateMedicalVocabularyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-304"></span><span>  </span><span id="local-6989586621679287683"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.UpdateMedicalVocabulary.html#UpdateMedicalVocabularyResponse"><span class="hs-identifier hs-type">UpdateMedicalVocabularyResponse</span></a></span></span><span>
+</span><span id="line-306"></span></pre></body></html>

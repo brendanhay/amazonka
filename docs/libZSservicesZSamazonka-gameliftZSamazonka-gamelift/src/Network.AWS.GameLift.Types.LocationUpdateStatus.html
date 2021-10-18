@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GameLift.Types.LocationUpdateStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GameLift.Types.LocationUpdateStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus"><span class="hs-identifier">LocationUpdateStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus_PENDING_UPDATE"><span class="hs-identifier">LocationUpdateStatus_PENDING_UPDATE</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679434813"><span id="local-6989586621679434814"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LocationUpdateStatus"><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus"><span class="hs-identifier hs-var">LocationUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocationUpdateStatus%27"><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus%27"><span class="hs-identifier hs-var">LocationUpdateStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLocationUpdateStatus"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; Text
+</span><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#fromLocationUpdateStatus"><span class="hs-identifier hs-var hs-var">fromLocationUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679434805"><span id="local-6989586621679434807"><span id="local-6989586621679434809"><span class="annot"><span class="annottext">Int -&gt; LocationUpdateStatus -&gt; ShowS
+[LocationUpdateStatus] -&gt; ShowS
+LocationUpdateStatus -&gt; String
+(Int -&gt; LocationUpdateStatus -&gt; ShowS)
+-&gt; (LocationUpdateStatus -&gt; String)
+-&gt; ([LocationUpdateStatus] -&gt; ShowS)
+-&gt; Show LocationUpdateStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LocationUpdateStatus] -&gt; ShowS
+$cshowList :: [LocationUpdateStatus] -&gt; ShowS
+show :: LocationUpdateStatus -&gt; String
+$cshow :: LocationUpdateStatus -&gt; String
+showsPrec :: Int -&gt; LocationUpdateStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; LocationUpdateStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679434796"><span id="local-6989586621679434798"><span id="local-6989586621679434800"><span id="local-6989586621679434802"><span class="annot"><span class="annottext">ReadPrec [LocationUpdateStatus]
+ReadPrec LocationUpdateStatus
+Int -&gt; ReadS LocationUpdateStatus
+ReadS [LocationUpdateStatus]
+(Int -&gt; ReadS LocationUpdateStatus)
+-&gt; ReadS [LocationUpdateStatus]
+-&gt; ReadPrec LocationUpdateStatus
+-&gt; ReadPrec [LocationUpdateStatus]
+-&gt; Read LocationUpdateStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LocationUpdateStatus]
+$creadListPrec :: ReadPrec [LocationUpdateStatus]
+readPrec :: ReadPrec LocationUpdateStatus
+$creadPrec :: ReadPrec LocationUpdateStatus
+readList :: ReadS [LocationUpdateStatus]
+$creadList :: ReadS [LocationUpdateStatus]
+readsPrec :: Int -&gt; ReadS LocationUpdateStatus
+$creadsPrec :: Int -&gt; ReadS LocationUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679434791"><span id="local-6989586621679434793"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
+(LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool)
+-&gt; (LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool)
+-&gt; Eq LocationUpdateStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
+$c/= :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
+== :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
+$c== :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679434775"><span id="local-6989586621679434777"><span id="local-6989586621679434779"><span id="local-6989586621679434781"><span id="local-6989586621679434783"><span id="local-6989586621679434785"><span id="local-6989586621679434787"><span class="annot"><span class="annottext">Eq LocationUpdateStatus
+Eq LocationUpdateStatus
+-&gt; (LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Ordering)
+-&gt; (LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool)
+-&gt; (LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool)
+-&gt; (LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool)
+-&gt; (LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool)
+-&gt; (LocationUpdateStatus
+    -&gt; LocationUpdateStatus -&gt; LocationUpdateStatus)
+-&gt; (LocationUpdateStatus
+    -&gt; LocationUpdateStatus -&gt; LocationUpdateStatus)
+-&gt; Ord LocationUpdateStatus
+LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
+LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Ordering
+LocationUpdateStatus
+-&gt; LocationUpdateStatus -&gt; LocationUpdateStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LocationUpdateStatus
+-&gt; LocationUpdateStatus -&gt; LocationUpdateStatus
+$cmin :: LocationUpdateStatus
+-&gt; LocationUpdateStatus -&gt; LocationUpdateStatus
+max :: LocationUpdateStatus
+-&gt; LocationUpdateStatus -&gt; LocationUpdateStatus
+$cmax :: LocationUpdateStatus
+-&gt; LocationUpdateStatus -&gt; LocationUpdateStatus
+&gt;= :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
+$c&gt;= :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
+&gt; :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
+$c&gt; :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
+&lt;= :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
+$c&lt;= :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
+&lt; :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
+$c&lt; :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
+compare :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Ordering
+$ccompare :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Ordering
+$cp1Ord :: Eq LocationUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. LocationUpdateStatus -&gt; Rep LocationUpdateStatus x)
+-&gt; (forall x. Rep LocationUpdateStatus x -&gt; LocationUpdateStatus)
+-&gt; Generic LocationUpdateStatus
+forall x. Rep LocationUpdateStatus x -&gt; LocationUpdateStatus
+forall x. LocationUpdateStatus -&gt; Rep LocationUpdateStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LocationUpdateStatus x -&gt; LocationUpdateStatus
+$cfrom :: forall x. LocationUpdateStatus -&gt; Rep LocationUpdateStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679434767"><span id="local-6989586621679434769"><span class="annot"><span class="annottext">Int -&gt; LocationUpdateStatus -&gt; Int
+LocationUpdateStatus -&gt; Int
+(Int -&gt; LocationUpdateStatus -&gt; Int)
+-&gt; (LocationUpdateStatus -&gt; Int) -&gt; Hashable LocationUpdateStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LocationUpdateStatus -&gt; Int
+$chash :: LocationUpdateStatus -&gt; Int
+hashWithSalt :: Int -&gt; LocationUpdateStatus -&gt; Int
+$chashWithSalt :: Int -&gt; LocationUpdateStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679434764"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; ()
+(LocationUpdateStatus -&gt; ()) -&gt; NFData LocationUpdateStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LocationUpdateStatus -&gt; ()
+$crnf :: LocationUpdateStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679434761"><span class="annot"><span class="annottext">Text -&gt; Either String LocationUpdateStatus
+(Text -&gt; Either String LocationUpdateStatus)
+-&gt; FromText LocationUpdateStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LocationUpdateStatus
+$cfromText :: Text -&gt; Either String LocationUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679434758"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; Text
+(LocationUpdateStatus -&gt; Text) -&gt; ToText LocationUpdateStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LocationUpdateStatus -&gt; Text
+$ctoText :: LocationUpdateStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679434755"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; ByteString
+(LocationUpdateStatus -&gt; ByteString)
+-&gt; ToByteString LocationUpdateStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LocationUpdateStatus -&gt; ByteString
+$ctoBS :: LocationUpdateStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679434752"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; ByteStringBuilder
+(LocationUpdateStatus -&gt; ByteStringBuilder)
+-&gt; ToLog LocationUpdateStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LocationUpdateStatus -&gt; ByteStringBuilder
+$cbuild :: LocationUpdateStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679434749"><span class="annot"><span class="annottext">HeaderName -&gt; LocationUpdateStatus -&gt; [Header]
+(HeaderName -&gt; LocationUpdateStatus -&gt; [Header])
+-&gt; ToHeader LocationUpdateStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LocationUpdateStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LocationUpdateStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679434746"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; QueryString
+(LocationUpdateStatus -&gt; QueryString)
+-&gt; ToQuery LocationUpdateStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LocationUpdateStatus -&gt; QueryString
+$ctoQuery :: LocationUpdateStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679434741"><span id="local-6989586621679434743"><span class="annot"><span class="annottext">Value -&gt; Parser [LocationUpdateStatus]
+Value -&gt; Parser LocationUpdateStatus
+(Value -&gt; Parser LocationUpdateStatus)
+-&gt; (Value -&gt; Parser [LocationUpdateStatus])
+-&gt; FromJSON LocationUpdateStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LocationUpdateStatus]
+$cparseJSONList :: Value -&gt; Parser [LocationUpdateStatus]
+parseJSON :: Value -&gt; Parser LocationUpdateStatus
+$cparseJSON :: Value -&gt; Parser LocationUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679434736"><span id="local-6989586621679434738"><span class="annot"><span class="annottext">FromJSONKeyFunction [LocationUpdateStatus]
+FromJSONKeyFunction LocationUpdateStatus
+FromJSONKeyFunction LocationUpdateStatus
+-&gt; FromJSONKeyFunction [LocationUpdateStatus]
+-&gt; FromJSONKey LocationUpdateStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LocationUpdateStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [LocationUpdateStatus]
+fromJSONKey :: FromJSONKeyFunction LocationUpdateStatus
+$cfromJSONKey :: FromJSONKeyFunction LocationUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679434727"><span id="local-6989586621679434729"><span id="local-6989586621679434731"><span id="local-6989586621679434733"><span class="annot"><span class="annottext">[LocationUpdateStatus] -&gt; Encoding
+[LocationUpdateStatus] -&gt; Value
+LocationUpdateStatus -&gt; Encoding
+LocationUpdateStatus -&gt; Value
+(LocationUpdateStatus -&gt; Value)
+-&gt; (LocationUpdateStatus -&gt; Encoding)
+-&gt; ([LocationUpdateStatus] -&gt; Value)
+-&gt; ([LocationUpdateStatus] -&gt; Encoding)
+-&gt; ToJSON LocationUpdateStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LocationUpdateStatus] -&gt; Encoding
+$ctoEncodingList :: [LocationUpdateStatus] -&gt; Encoding
+toJSONList :: [LocationUpdateStatus] -&gt; Value
+$ctoJSONList :: [LocationUpdateStatus] -&gt; Value
+toEncoding :: LocationUpdateStatus -&gt; Encoding
+$ctoEncoding :: LocationUpdateStatus -&gt; Encoding
+toJSON :: LocationUpdateStatus -&gt; Value
+$ctoJSON :: LocationUpdateStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679434722"><span id="local-6989586621679434724"><span class="annot"><span class="annottext">ToJSONKeyFunction [LocationUpdateStatus]
+ToJSONKeyFunction LocationUpdateStatus
+ToJSONKeyFunction LocationUpdateStatus
+-&gt; ToJSONKeyFunction [LocationUpdateStatus]
+-&gt; ToJSONKey LocationUpdateStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LocationUpdateStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [LocationUpdateStatus]
+toJSONKey :: ToJSONKeyFunction LocationUpdateStatus
+$ctoJSONKey :: ToJSONKeyFunction LocationUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679434719"><span class="annot"><span class="annottext">[Node] -&gt; Either String LocationUpdateStatus
+([Node] -&gt; Either String LocationUpdateStatus)
+-&gt; FromXML LocationUpdateStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LocationUpdateStatus
+$cparseXML :: [Node] -&gt; Either String LocationUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679434716"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; XML
+(LocationUpdateStatus -&gt; XML) -&gt; ToXML LocationUpdateStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LocationUpdateStatus -&gt; XML
+$ctoXML :: LocationUpdateStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus_PENDING_UPDATE"><span class="hs-identifier hs-type">LocationUpdateStatus_PENDING_UPDATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus"><span class="hs-identifier hs-type">LocationUpdateStatus</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLocationUpdateStatus_PENDING_UPDATE"><span id="%24mLocationUpdateStatus_PENDING_UPDATE"><span id="LocationUpdateStatus_PENDING_UPDATE"><span class="annot"><span class="annottext">$bLocationUpdateStatus_PENDING_UPDATE :: LocationUpdateStatus
+$mLocationUpdateStatus_PENDING_UPDATE :: forall r. LocationUpdateStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#%24bLocationUpdateStatus_PENDING_UPDATE"><span class="hs-identifier hs-var hs-var hs-var">LocationUpdateStatus_PENDING_UPDATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus%27"><span class="hs-identifier hs-type">LocationUpdateStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING_UPDATE&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus_PENDING_UPDATE"><span class="hs-pragma hs-type">LocationUpdateStatus_PENDING_UPDATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus%27"><span class="hs-pragma hs-type">LocationUpdateStatus'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

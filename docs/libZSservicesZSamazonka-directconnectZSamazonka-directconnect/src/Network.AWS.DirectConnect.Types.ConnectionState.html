@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DirectConnect.Types.ConnectionState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DirectConnect.Types.ConnectionState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier">ConnectionState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Available"><span class="hs-identifier">ConnectionState_Available</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Deleted"><span class="hs-identifier">ConnectionState_Deleted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Deleting"><span class="hs-identifier">ConnectionState_Deleting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Down"><span class="hs-identifier">ConnectionState_Down</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Ordering"><span class="hs-identifier">ConnectionState_Ordering</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Pending"><span class="hs-identifier">ConnectionState_Pending</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Rejected"><span class="hs-identifier">ConnectionState_Rejected</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Requested"><span class="hs-identifier">ConnectionState_Requested</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Unknown"><span class="hs-identifier">ConnectionState_Unknown</span></a></span><span>
+</span><span id="line-32"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679278267"><span id="local-6989586621679278268"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectionState"><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-var">ConnectionState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionState%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState%27"><span class="hs-identifier hs-var">ConnectionState'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConnectionState"><span class="annot"><span class="annottext">ConnectionState -&gt; Text
+</span><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#fromConnectionState"><span class="hs-identifier hs-var hs-var">fromConnectionState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679278259"><span id="local-6989586621679278261"><span id="local-6989586621679278263"><span class="annot"><span class="annottext">Int -&gt; ConnectionState -&gt; ShowS
+[ConnectionState] -&gt; ShowS
+ConnectionState -&gt; String
+(Int -&gt; ConnectionState -&gt; ShowS)
+-&gt; (ConnectionState -&gt; String)
+-&gt; ([ConnectionState] -&gt; ShowS)
+-&gt; Show ConnectionState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConnectionState] -&gt; ShowS
+$cshowList :: [ConnectionState] -&gt; ShowS
+show :: ConnectionState -&gt; String
+$cshow :: ConnectionState -&gt; String
+showsPrec :: Int -&gt; ConnectionState -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConnectionState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679278250"><span id="local-6989586621679278252"><span id="local-6989586621679278254"><span id="local-6989586621679278256"><span class="annot"><span class="annottext">ReadPrec [ConnectionState]
+ReadPrec ConnectionState
+Int -&gt; ReadS ConnectionState
+ReadS [ConnectionState]
+(Int -&gt; ReadS ConnectionState)
+-&gt; ReadS [ConnectionState]
+-&gt; ReadPrec ConnectionState
+-&gt; ReadPrec [ConnectionState]
+-&gt; Read ConnectionState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConnectionState]
+$creadListPrec :: ReadPrec [ConnectionState]
+readPrec :: ReadPrec ConnectionState
+$creadPrec :: ReadPrec ConnectionState
+readList :: ReadS [ConnectionState]
+$creadList :: ReadS [ConnectionState]
+readsPrec :: Int -&gt; ReadS ConnectionState
+$creadsPrec :: Int -&gt; ReadS ConnectionState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679278245"><span id="local-6989586621679278247"><span class="annot"><span class="annottext">ConnectionState -&gt; ConnectionState -&gt; Bool
+(ConnectionState -&gt; ConnectionState -&gt; Bool)
+-&gt; (ConnectionState -&gt; ConnectionState -&gt; Bool)
+-&gt; Eq ConnectionState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConnectionState -&gt; ConnectionState -&gt; Bool
+$c/= :: ConnectionState -&gt; ConnectionState -&gt; Bool
+== :: ConnectionState -&gt; ConnectionState -&gt; Bool
+$c== :: ConnectionState -&gt; ConnectionState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679278229"><span id="local-6989586621679278231"><span id="local-6989586621679278233"><span id="local-6989586621679278235"><span id="local-6989586621679278237"><span id="local-6989586621679278239"><span id="local-6989586621679278241"><span class="annot"><span class="annottext">Eq ConnectionState
+Eq ConnectionState
+-&gt; (ConnectionState -&gt; ConnectionState -&gt; Ordering)
+-&gt; (ConnectionState -&gt; ConnectionState -&gt; Bool)
+-&gt; (ConnectionState -&gt; ConnectionState -&gt; Bool)
+-&gt; (ConnectionState -&gt; ConnectionState -&gt; Bool)
+-&gt; (ConnectionState -&gt; ConnectionState -&gt; Bool)
+-&gt; (ConnectionState -&gt; ConnectionState -&gt; ConnectionState)
+-&gt; (ConnectionState -&gt; ConnectionState -&gt; ConnectionState)
+-&gt; Ord ConnectionState
+ConnectionState -&gt; ConnectionState -&gt; Bool
+ConnectionState -&gt; ConnectionState -&gt; Ordering
+ConnectionState -&gt; ConnectionState -&gt; ConnectionState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ConnectionState -&gt; ConnectionState -&gt; ConnectionState
+$cmin :: ConnectionState -&gt; ConnectionState -&gt; ConnectionState
+max :: ConnectionState -&gt; ConnectionState -&gt; ConnectionState
+$cmax :: ConnectionState -&gt; ConnectionState -&gt; ConnectionState
+&gt;= :: ConnectionState -&gt; ConnectionState -&gt; Bool
+$c&gt;= :: ConnectionState -&gt; ConnectionState -&gt; Bool
+&gt; :: ConnectionState -&gt; ConnectionState -&gt; Bool
+$c&gt; :: ConnectionState -&gt; ConnectionState -&gt; Bool
+&lt;= :: ConnectionState -&gt; ConnectionState -&gt; Bool
+$c&lt;= :: ConnectionState -&gt; ConnectionState -&gt; Bool
+&lt; :: ConnectionState -&gt; ConnectionState -&gt; Bool
+$c&lt; :: ConnectionState -&gt; ConnectionState -&gt; Bool
+compare :: ConnectionState -&gt; ConnectionState -&gt; Ordering
+$ccompare :: ConnectionState -&gt; ConnectionState -&gt; Ordering
+$cp1Ord :: Eq ConnectionState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ConnectionState -&gt; Rep ConnectionState x)
+-&gt; (forall x. Rep ConnectionState x -&gt; ConnectionState)
+-&gt; Generic ConnectionState
+forall x. Rep ConnectionState x -&gt; ConnectionState
+forall x. ConnectionState -&gt; Rep ConnectionState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConnectionState x -&gt; ConnectionState
+$cfrom :: forall x. ConnectionState -&gt; Rep ConnectionState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679278221"><span id="local-6989586621679278223"><span class="annot"><span class="annottext">Int -&gt; ConnectionState -&gt; Int
+ConnectionState -&gt; Int
+(Int -&gt; ConnectionState -&gt; Int)
+-&gt; (ConnectionState -&gt; Int) -&gt; Hashable ConnectionState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ConnectionState -&gt; Int
+$chash :: ConnectionState -&gt; Int
+hashWithSalt :: Int -&gt; ConnectionState -&gt; Int
+$chashWithSalt :: Int -&gt; ConnectionState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679278218"><span class="annot"><span class="annottext">ConnectionState -&gt; ()
+(ConnectionState -&gt; ()) -&gt; NFData ConnectionState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ConnectionState -&gt; ()
+$crnf :: ConnectionState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679278215"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectionState
+(Text -&gt; Either String ConnectionState) -&gt; FromText ConnectionState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ConnectionState
+$cfromText :: Text -&gt; Either String ConnectionState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679278212"><span class="annot"><span class="annottext">ConnectionState -&gt; Text
+(ConnectionState -&gt; Text) -&gt; ToText ConnectionState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ConnectionState -&gt; Text
+$ctoText :: ConnectionState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679278209"><span class="annot"><span class="annottext">ConnectionState -&gt; ByteString
+(ConnectionState -&gt; ByteString) -&gt; ToByteString ConnectionState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ConnectionState -&gt; ByteString
+$ctoBS :: ConnectionState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679278206"><span class="annot"><span class="annottext">ConnectionState -&gt; ByteStringBuilder
+(ConnectionState -&gt; ByteStringBuilder) -&gt; ToLog ConnectionState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ConnectionState -&gt; ByteStringBuilder
+$cbuild :: ConnectionState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679278203"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectionState -&gt; [Header]
+(HeaderName -&gt; ConnectionState -&gt; [Header])
+-&gt; ToHeader ConnectionState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ConnectionState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ConnectionState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679278200"><span class="annot"><span class="annottext">ConnectionState -&gt; QueryString
+(ConnectionState -&gt; QueryString) -&gt; ToQuery ConnectionState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ConnectionState -&gt; QueryString
+$ctoQuery :: ConnectionState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679278195"><span id="local-6989586621679278197"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectionState]
+Value -&gt; Parser ConnectionState
+(Value -&gt; Parser ConnectionState)
+-&gt; (Value -&gt; Parser [ConnectionState]) -&gt; FromJSON ConnectionState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ConnectionState]
+$cparseJSONList :: Value -&gt; Parser [ConnectionState]
+parseJSON :: Value -&gt; Parser ConnectionState
+$cparseJSON :: Value -&gt; Parser ConnectionState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679278190"><span id="local-6989586621679278192"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectionState]
+FromJSONKeyFunction ConnectionState
+FromJSONKeyFunction ConnectionState
+-&gt; FromJSONKeyFunction [ConnectionState]
+-&gt; FromJSONKey ConnectionState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ConnectionState]
+$cfromJSONKeyList :: FromJSONKeyFunction [ConnectionState]
+fromJSONKey :: FromJSONKeyFunction ConnectionState
+$cfromJSONKey :: FromJSONKeyFunction ConnectionState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679278181"><span id="local-6989586621679278183"><span id="local-6989586621679278185"><span id="local-6989586621679278187"><span class="annot"><span class="annottext">[ConnectionState] -&gt; Encoding
+[ConnectionState] -&gt; Value
+ConnectionState -&gt; Encoding
+ConnectionState -&gt; Value
+(ConnectionState -&gt; Value)
+-&gt; (ConnectionState -&gt; Encoding)
+-&gt; ([ConnectionState] -&gt; Value)
+-&gt; ([ConnectionState] -&gt; Encoding)
+-&gt; ToJSON ConnectionState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ConnectionState] -&gt; Encoding
+$ctoEncodingList :: [ConnectionState] -&gt; Encoding
+toJSONList :: [ConnectionState] -&gt; Value
+$ctoJSONList :: [ConnectionState] -&gt; Value
+toEncoding :: ConnectionState -&gt; Encoding
+$ctoEncoding :: ConnectionState -&gt; Encoding
+toJSON :: ConnectionState -&gt; Value
+$ctoJSON :: ConnectionState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679278176"><span id="local-6989586621679278178"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectionState]
+ToJSONKeyFunction ConnectionState
+ToJSONKeyFunction ConnectionState
+-&gt; ToJSONKeyFunction [ConnectionState] -&gt; ToJSONKey ConnectionState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ConnectionState]
+$ctoJSONKeyList :: ToJSONKeyFunction [ConnectionState]
+toJSONKey :: ToJSONKeyFunction ConnectionState
+$ctoJSONKey :: ToJSONKeyFunction ConnectionState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679278173"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectionState
+([Node] -&gt; Either String ConnectionState)
+-&gt; FromXML ConnectionState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ConnectionState
+$cparseXML :: [Node] -&gt; Either String ConnectionState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679278170"><span class="annot"><span class="annottext">ConnectionState -&gt; XML
+(ConnectionState -&gt; XML) -&gt; ToXML ConnectionState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ConnectionState -&gt; XML
+$ctoXML :: ConnectionState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Available"><span class="hs-identifier hs-type">ConnectionState_Available</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionState_Available"><span id="%24mConnectionState_Available"><span id="ConnectionState_Available"><span class="annot"><span class="annottext">$bConnectionState_Available :: ConnectionState
+$mConnectionState_Available :: forall r. ConnectionState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#%24bConnectionState_Available"><span class="hs-identifier hs-var hs-var hs-var">ConnectionState_Available</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState%27"><span class="hs-identifier hs-type">ConnectionState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;available&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Deleted"><span class="hs-identifier hs-type">ConnectionState_Deleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionState_Deleted"><span id="%24mConnectionState_Deleted"><span id="ConnectionState_Deleted"><span class="annot"><span class="annottext">$bConnectionState_Deleted :: ConnectionState
+$mConnectionState_Deleted :: forall r. ConnectionState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#%24bConnectionState_Deleted"><span class="hs-identifier hs-var hs-var hs-var">ConnectionState_Deleted</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState%27"><span class="hs-identifier hs-type">ConnectionState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;deleted&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Deleting"><span class="hs-identifier hs-type">ConnectionState_Deleting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionState_Deleting"><span id="%24mConnectionState_Deleting"><span id="ConnectionState_Deleting"><span class="annot"><span class="annottext">$bConnectionState_Deleting :: ConnectionState
+$mConnectionState_Deleting :: forall r. ConnectionState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#%24bConnectionState_Deleting"><span class="hs-identifier hs-var hs-var hs-var">ConnectionState_Deleting</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState%27"><span class="hs-identifier hs-type">ConnectionState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;deleting&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Down"><span class="hs-identifier hs-type">ConnectionState_Down</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionState_Down"><span id="%24mConnectionState_Down"><span id="ConnectionState_Down"><span class="annot"><span class="annottext">$bConnectionState_Down :: ConnectionState
+$mConnectionState_Down :: forall r. ConnectionState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#%24bConnectionState_Down"><span class="hs-identifier hs-var hs-var hs-var">ConnectionState_Down</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState%27"><span class="hs-identifier hs-type">ConnectionState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;down&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Ordering"><span class="hs-identifier hs-type">ConnectionState_Ordering</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionState_Ordering"><span id="%24mConnectionState_Ordering"><span id="ConnectionState_Ordering"><span class="annot"><span class="annottext">$bConnectionState_Ordering :: ConnectionState
+$mConnectionState_Ordering :: forall r. ConnectionState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#%24bConnectionState_Ordering"><span class="hs-identifier hs-var hs-var hs-var">ConnectionState_Ordering</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState%27"><span class="hs-identifier hs-type">ConnectionState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ordering&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Pending"><span class="hs-identifier hs-type">ConnectionState_Pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionState_Pending"><span id="%24mConnectionState_Pending"><span id="ConnectionState_Pending"><span class="annot"><span class="annottext">$bConnectionState_Pending :: ConnectionState
+$mConnectionState_Pending :: forall r. ConnectionState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#%24bConnectionState_Pending"><span class="hs-identifier hs-var hs-var hs-var">ConnectionState_Pending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState%27"><span class="hs-identifier hs-type">ConnectionState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;pending&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Rejected"><span class="hs-identifier hs-type">ConnectionState_Rejected</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionState_Rejected"><span id="%24mConnectionState_Rejected"><span id="ConnectionState_Rejected"><span class="annot"><span class="annottext">$bConnectionState_Rejected :: ConnectionState
+$mConnectionState_Rejected :: forall r. ConnectionState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#%24bConnectionState_Rejected"><span class="hs-identifier hs-var hs-var hs-var">ConnectionState_Rejected</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState%27"><span class="hs-identifier hs-type">ConnectionState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;rejected&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Requested"><span class="hs-identifier hs-type">ConnectionState_Requested</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionState_Requested"><span id="%24mConnectionState_Requested"><span id="ConnectionState_Requested"><span class="annot"><span class="annottext">$bConnectionState_Requested :: ConnectionState
+$mConnectionState_Requested :: forall r. ConnectionState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#%24bConnectionState_Requested"><span class="hs-identifier hs-var hs-var hs-var">ConnectionState_Requested</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState%27"><span class="hs-identifier hs-type">ConnectionState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;requested&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Unknown"><span class="hs-identifier hs-type">ConnectionState_Unknown</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionState_Unknown"><span id="%24mConnectionState_Unknown"><span id="ConnectionState_Unknown"><span class="annot"><span class="annottext">$bConnectionState_Unknown :: ConnectionState
+$mConnectionState_Unknown :: forall r. ConnectionState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#%24bConnectionState_Unknown"><span class="hs-identifier hs-var hs-var hs-var">ConnectionState_Unknown</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState%27"><span class="hs-identifier hs-type">ConnectionState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;unknown&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Available"><span class="hs-pragma hs-type">ConnectionState_Available</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Deleted"><span class="hs-pragma hs-type">ConnectionState_Deleted</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Deleting"><span class="hs-pragma hs-type">ConnectionState_Deleting</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Down"><span class="hs-pragma hs-type">ConnectionState_Down</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Ordering"><span class="hs-pragma hs-type">ConnectionState_Ordering</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Pending"><span class="hs-pragma hs-type">ConnectionState_Pending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Rejected"><span class="hs-pragma hs-type">ConnectionState_Rejected</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Requested"><span class="hs-pragma hs-type">ConnectionState_Requested</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState_Unknown"><span class="hs-pragma hs-type">ConnectionState_Unknown</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.ConnectionState.html#ConnectionState%27"><span class="hs-pragma hs-type">ConnectionState'</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-106"></span></pre></body></html>

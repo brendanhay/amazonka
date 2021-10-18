@@ -1,0 +1,525 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Route53Domains.RenewDomain</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This operation renews a domain for the specified number of years. The</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- cost of renewing your domain is billed to your AWS account.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- We recommend that you renew your domain several weeks before the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- expiration date. Some TLD registries delete domains before the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- expiration date if you haven\'t renewed far enough in advance. For more</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- information about renewing domain registration, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html Renewing Registration for a Domain&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon Route 53 Developer Guide/.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53Domains.RenewDomain</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier">RenewDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#newRenewDomain"><span class="hs-identifier">newRenewDomain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#renewDomain_durationInYears"><span class="hs-identifier">renewDomain_durationInYears</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#renewDomain_domainName"><span class="hs-identifier">renewDomain_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#renewDomain_currentExpiryYear"><span class="hs-identifier">renewDomain_currentExpiryYear</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomainResponse"><span class="hs-identifier">RenewDomainResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#newRenewDomainResponse"><span class="hs-identifier">newRenewDomainResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#renewDomainResponse_httpStatus"><span class="hs-identifier">renewDomainResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#renewDomainResponse_operationId"><span class="hs-identifier">renewDomainResponse_operationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.html"><span class="hs-identifier">Network.AWS.Route53Domains.Types</span></a></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | A @RenewDomain@ request includes the number of years that you want to</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- renew for and the current expiration year.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- /See:/ 'newRenewDomain' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679212497"><span id="local-6989586621679212498"></span></span><span class="hs-keyword">data</span><span> </span><span id="RenewDomain"><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier hs-var">RenewDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RenewDomain%27"><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain%27"><span class="hs-identifier hs-var">RenewDomain'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of years that you want to renew the domain for. The maximum</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- number of years depends on the top-level domain. For the range of valid</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- values for your domain, see</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53&gt;</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- in the /Amazon Route 53 Developer Guide/.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Default: 1</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AdurationInYears%3ARenewDomain%27"><span class="annot"><span class="annottext">RenewDomain -&gt; Maybe Natural
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#%24sel%3AdurationInYears%3ARenewDomain%27"><span class="hs-identifier hs-var hs-var">durationInYears</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The name of the domain that you want to renew.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AdomainName%3ARenewDomain%27"><span class="annot"><span class="annottext">RenewDomain -&gt; Text
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#%24sel%3AdomainName%3ARenewDomain%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The year when the registration for the domain is set to expire. This</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- value must match the current expiration date for the domain.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AcurrentExpiryYear%3ARenewDomain%27"><span class="annot"><span class="annottext">RenewDomain -&gt; Int
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#%24sel%3AcurrentExpiryYear%3ARenewDomain%27"><span class="hs-identifier hs-var hs-var">currentExpiryYear</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212489"><span id="local-6989586621679212491"><span class="annot"><span class="annottext">RenewDomain -&gt; RenewDomain -&gt; Bool
+(RenewDomain -&gt; RenewDomain -&gt; Bool)
+-&gt; (RenewDomain -&gt; RenewDomain -&gt; Bool) -&gt; Eq RenewDomain
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RenewDomain -&gt; RenewDomain -&gt; Bool
+$c/= :: RenewDomain -&gt; RenewDomain -&gt; Bool
+== :: RenewDomain -&gt; RenewDomain -&gt; Bool
+$c== :: RenewDomain -&gt; RenewDomain -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212480"><span id="local-6989586621679212482"><span id="local-6989586621679212484"><span id="local-6989586621679212486"><span class="annot"><span class="annottext">ReadPrec [RenewDomain]
+ReadPrec RenewDomain
+Int -&gt; ReadS RenewDomain
+ReadS [RenewDomain]
+(Int -&gt; ReadS RenewDomain)
+-&gt; ReadS [RenewDomain]
+-&gt; ReadPrec RenewDomain
+-&gt; ReadPrec [RenewDomain]
+-&gt; Read RenewDomain
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RenewDomain]
+$creadListPrec :: ReadPrec [RenewDomain]
+readPrec :: ReadPrec RenewDomain
+$creadPrec :: ReadPrec RenewDomain
+readList :: ReadS [RenewDomain]
+$creadList :: ReadS [RenewDomain]
+readsPrec :: Int -&gt; ReadS RenewDomain
+$creadsPrec :: Int -&gt; ReadS RenewDomain
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212473"><span id="local-6989586621679212475"><span id="local-6989586621679212477"><span class="annot"><span class="annottext">Int -&gt; RenewDomain -&gt; ShowS
+[RenewDomain] -&gt; ShowS
+RenewDomain -&gt; String
+(Int -&gt; RenewDomain -&gt; ShowS)
+-&gt; (RenewDomain -&gt; String)
+-&gt; ([RenewDomain] -&gt; ShowS)
+-&gt; Show RenewDomain
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RenewDomain] -&gt; ShowS
+$cshowList :: [RenewDomain] -&gt; ShowS
+show :: RenewDomain -&gt; String
+$cshow :: RenewDomain -&gt; String
+showsPrec :: Int -&gt; RenewDomain -&gt; ShowS
+$cshowsPrec :: Int -&gt; RenewDomain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RenewDomain -&gt; Rep RenewDomain x)
+-&gt; (forall x. Rep RenewDomain x -&gt; RenewDomain)
+-&gt; Generic RenewDomain
+forall x. Rep RenewDomain x -&gt; RenewDomain
+forall x. RenewDomain -&gt; Rep RenewDomain x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RenewDomain x -&gt; RenewDomain
+$cfrom :: forall x. RenewDomain -&gt; Rep RenewDomain x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'RenewDomain' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'durationInYears', 'renewDomain_durationInYears' - The number of years that you want to renew the domain for. The maximum</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- number of years depends on the top-level domain. For the range of valid</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- values for your domain, see</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53&gt;</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- in the /Amazon Route 53 Developer Guide/.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Default: 1</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'domainName', 'renewDomain_domainName' - The name of the domain that you want to renew.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'currentExpiryYear', 'renewDomain_currentExpiryYear' - The year when the registration for the domain is set to expire. This</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- value must match the current expiration date for the domain.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#newRenewDomain"><span class="hs-identifier hs-type">newRenewDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'currentExpiryYear'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier hs-type">RenewDomain</span></a></span><span>
+</span><span id="line-106"></span><span id="newRenewDomain"><span class="annot"><span class="annottext">newRenewDomain :: Text -&gt; Int -&gt; RenewDomain
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#newRenewDomain"><span class="hs-identifier hs-var hs-var">newRenewDomain</span></a></span></span><span> </span><span id="local-6989586621679212468"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212468"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679212467"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212467"><span class="hs-identifier hs-var">pCurrentExpiryYear_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">RenewDomain' :: Maybe Natural -&gt; Text -&gt; Int -&gt; RenewDomain
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain%27"><span class="hs-identifier hs-type">RenewDomain'</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:durationInYears:RenewDomain' :: Maybe Natural
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#%24sel%3AdurationInYears%3ARenewDomain%27"><span class="hs-identifier hs-var">durationInYears</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:RenewDomain' :: Text
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#%24sel%3AdomainName%3ARenewDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212468"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:currentExpiryYear:RenewDomain' :: Int
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#%24sel%3AcurrentExpiryYear%3ARenewDomain%27"><span class="hs-identifier hs-var">currentExpiryYear</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212467"><span class="hs-identifier hs-var">pCurrentExpiryYear_</span></a></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The number of years that you want to renew the domain for. The maximum</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- number of years depends on the top-level domain. For the range of valid</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- values for your domain, see</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53&gt;</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- in the /Amazon Route 53 Developer Guide/.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Default: 1</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#renewDomain_durationInYears"><span class="hs-identifier hs-type">renewDomain_durationInYears</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier hs-type">RenewDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="renewDomain_durationInYears"><span class="annot"><span class="annottext">renewDomain_durationInYears :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; RenewDomain -&gt; f RenewDomain
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#renewDomain_durationInYears"><span class="hs-identifier hs-var hs-var">renewDomain_durationInYears</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RenewDomain -&gt; Maybe Natural)
+-&gt; (RenewDomain -&gt; Maybe Natural -&gt; RenewDomain)
+-&gt; Lens RenewDomain RenewDomain (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain%27"><span class="hs-identifier hs-type">RenewDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212464"><span class="annot"><span class="annottext">Maybe Natural
+durationInYears :: Maybe Natural
+$sel:durationInYears:RenewDomain' :: RenewDomain -&gt; Maybe Natural
+</span><a href="#local-6989586621679212464"><span class="hs-identifier hs-var hs-var">durationInYears</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679212464"><span class="hs-identifier hs-var">durationInYears</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212463"><span class="annot"><span class="annottext">s :: RenewDomain
+</span><a href="#local-6989586621679212463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain%27"><span class="hs-identifier hs-type">RenewDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212462"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679212462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewDomain
+</span><a href="#local-6989586621679212463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInYears:RenewDomain' :: Maybe Natural
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#%24sel%3AdurationInYears%3ARenewDomain%27"><span class="hs-identifier hs-var">durationInYears</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679212462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier hs-type">RenewDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The name of the domain that you want to renew.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#renewDomain_domainName"><span class="hs-identifier hs-type">renewDomain_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier hs-type">RenewDomain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-125"></span><span id="renewDomain_domainName"><span class="annot"><span class="annottext">renewDomain_domainName :: (Text -&gt; f Text) -&gt; RenewDomain -&gt; f RenewDomain
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#renewDomain_domainName"><span class="hs-identifier hs-var hs-var">renewDomain_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RenewDomain -&gt; Text)
+-&gt; (RenewDomain -&gt; Text -&gt; RenewDomain)
+-&gt; Lens RenewDomain RenewDomain Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain%27"><span class="hs-identifier hs-type">RenewDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212461"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:RenewDomain' :: RenewDomain -&gt; Text
+</span><a href="#local-6989586621679212461"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212461"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212460"><span class="annot"><span class="annottext">s :: RenewDomain
+</span><a href="#local-6989586621679212460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain%27"><span class="hs-identifier hs-type">RenewDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212459"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewDomain
+</span><a href="#local-6989586621679212460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:RenewDomain' :: Text
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#%24sel%3AdomainName%3ARenewDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier hs-type">RenewDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The year when the registration for the domain is set to expire. This</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- value must match the current expiration date for the domain.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#renewDomain_currentExpiryYear"><span class="hs-identifier hs-type">renewDomain_currentExpiryYear</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier hs-type">RenewDomain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-130"></span><span id="renewDomain_currentExpiryYear"><span class="annot"><span class="annottext">renewDomain_currentExpiryYear :: (Int -&gt; f Int) -&gt; RenewDomain -&gt; f RenewDomain
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#renewDomain_currentExpiryYear"><span class="hs-identifier hs-var hs-var">renewDomain_currentExpiryYear</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RenewDomain -&gt; Int)
+-&gt; (RenewDomain -&gt; Int -&gt; RenewDomain)
+-&gt; Lens RenewDomain RenewDomain Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain%27"><span class="hs-identifier hs-type">RenewDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212458"><span class="annot"><span class="annottext">Int
+currentExpiryYear :: Int
+$sel:currentExpiryYear:RenewDomain' :: RenewDomain -&gt; Int
+</span><a href="#local-6989586621679212458"><span class="hs-identifier hs-var hs-var">currentExpiryYear</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212458"><span class="hs-identifier hs-var">currentExpiryYear</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212457"><span class="annot"><span class="annottext">s :: RenewDomain
+</span><a href="#local-6989586621679212457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain%27"><span class="hs-identifier hs-type">RenewDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212456"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewDomain
+</span><a href="#local-6989586621679212457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentExpiryYear:RenewDomain' :: Int
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#%24sel%3AcurrentExpiryYear%3ARenewDomain%27"><span class="hs-identifier hs-var">currentExpiryYear</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier hs-type">RenewDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier hs-type">RenewDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier hs-type">RenewDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomainResponse"><span class="hs-identifier hs-type">RenewDomainResponse</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679212452"><span class="annot"><span class="annottext">request :: RenewDomain -&gt; Request RenewDomain
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RenewDomain -&gt; Request RenewDomain
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Route53Domains.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679212448"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RenewDomain
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse RenewDomain)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse RenewDomain))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RenewDomain
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse RenewDomain)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212445"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212445"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679212444"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679212444"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679212443"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212443"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; RenewDomainResponse
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomainResponse%27"><span class="hs-identifier hs-var">RenewDomainResponse'</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; RenewDomainResponse)
+-&gt; Either String Int -&gt; Either String (Text -&gt; RenewDomainResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212445"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; RenewDomainResponse)
+-&gt; Either String Text -&gt; Either String RenewDomainResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OperationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212435"><span id="local-6989586621679212437"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier hs-type">RenewDomain</span></a></span></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier hs-type">RenewDomain</span></a></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier hs-type">RenewDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679212428"><span class="annot"><span class="annottext">toHeaders :: RenewDomain -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RenewDomain -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Route53Domains_v20140515.RenewDomain&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-154"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-157"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-158"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212418"><span id="local-6989586621679212420"><span id="local-6989586621679212422"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier hs-type">RenewDomain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679212416"><span class="annot"><span class="annottext">toJSON :: RenewDomain -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain%27"><span class="hs-identifier hs-type">RenewDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212412"><span id="local-6989586621679212413"><span id="local-6989586621679212414"><span class="annot"><span class="annottext">Int
+Maybe Natural
+Text
+currentExpiryYear :: Int
+domainName :: Text
+durationInYears :: Maybe Natural
+$sel:currentExpiryYear:RenewDomain' :: RenewDomain -&gt; Int
+$sel:domainName:RenewDomain' :: RenewDomain -&gt; Text
+$sel:durationInYears:RenewDomain' :: RenewDomain -&gt; Maybe Natural
+</span><a href="#local-6989586621679212412"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DurationInYears&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679212414"><span class="hs-identifier hs-var">durationInYears</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212413"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-170"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CurrentExpiryYear&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212412"><span class="hs-identifier hs-var">currentExpiryYear</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier hs-type">RenewDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679212406"><span class="annot"><span class="annottext">toPath :: RenewDomain -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RenewDomain -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomain"><span class="hs-identifier hs-type">RenewDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679212402"><span class="annot"><span class="annottext">toQuery :: RenewDomain -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RenewDomain -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | /See:/ 'newRenewDomainResponse' smart constructor.</span><span>
+</span><span id="line-181"></span><span id="local-6989586621679212399"><span id="local-6989586621679212400"></span></span><span class="hs-keyword">data</span><span> </span><span id="RenewDomainResponse"><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomainResponse"><span class="hs-identifier hs-var">RenewDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RenewDomainResponse%27"><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomainResponse%27"><span class="hs-identifier hs-var">RenewDomainResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARenewDomainResponse%27"><span class="annot"><span class="annottext">RenewDomainResponse -&gt; Int
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#%24sel%3AhttpStatus%3ARenewDomainResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | Identifier for tracking the progress of the request. To query the</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- operation status, use</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail&gt;.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3AoperationId%3ARenewDomainResponse%27"><span class="annot"><span class="annottext">RenewDomainResponse -&gt; Text
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#%24sel%3AoperationId%3ARenewDomainResponse%27"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212393"><span id="local-6989586621679212395"><span class="annot"><span class="annottext">RenewDomainResponse -&gt; RenewDomainResponse -&gt; Bool
+(RenewDomainResponse -&gt; RenewDomainResponse -&gt; Bool)
+-&gt; (RenewDomainResponse -&gt; RenewDomainResponse -&gt; Bool)
+-&gt; Eq RenewDomainResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RenewDomainResponse -&gt; RenewDomainResponse -&gt; Bool
+$c/= :: RenewDomainResponse -&gt; RenewDomainResponse -&gt; Bool
+== :: RenewDomainResponse -&gt; RenewDomainResponse -&gt; Bool
+$c== :: RenewDomainResponse -&gt; RenewDomainResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212385"><span id="local-6989586621679212387"><span id="local-6989586621679212389"><span id="local-6989586621679212391"><span class="annot"><span class="annottext">ReadPrec [RenewDomainResponse]
+ReadPrec RenewDomainResponse
+Int -&gt; ReadS RenewDomainResponse
+ReadS [RenewDomainResponse]
+(Int -&gt; ReadS RenewDomainResponse)
+-&gt; ReadS [RenewDomainResponse]
+-&gt; ReadPrec RenewDomainResponse
+-&gt; ReadPrec [RenewDomainResponse]
+-&gt; Read RenewDomainResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RenewDomainResponse]
+$creadListPrec :: ReadPrec [RenewDomainResponse]
+readPrec :: ReadPrec RenewDomainResponse
+$creadPrec :: ReadPrec RenewDomainResponse
+readList :: ReadS [RenewDomainResponse]
+$creadList :: ReadS [RenewDomainResponse]
+readsPrec :: Int -&gt; ReadS RenewDomainResponse
+$creadsPrec :: Int -&gt; ReadS RenewDomainResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212379"><span id="local-6989586621679212381"><span id="local-6989586621679212383"><span class="annot"><span class="annottext">Int -&gt; RenewDomainResponse -&gt; ShowS
+[RenewDomainResponse] -&gt; ShowS
+RenewDomainResponse -&gt; String
+(Int -&gt; RenewDomainResponse -&gt; ShowS)
+-&gt; (RenewDomainResponse -&gt; String)
+-&gt; ([RenewDomainResponse] -&gt; ShowS)
+-&gt; Show RenewDomainResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RenewDomainResponse] -&gt; ShowS
+$cshowList :: [RenewDomainResponse] -&gt; ShowS
+show :: RenewDomainResponse -&gt; String
+$cshow :: RenewDomainResponse -&gt; String
+showsPrec :: Int -&gt; RenewDomainResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RenewDomainResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RenewDomainResponse -&gt; Rep RenewDomainResponse x)
+-&gt; (forall x. Rep RenewDomainResponse x -&gt; RenewDomainResponse)
+-&gt; Generic RenewDomainResponse
+forall x. Rep RenewDomainResponse x -&gt; RenewDomainResponse
+forall x. RenewDomainResponse -&gt; Rep RenewDomainResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RenewDomainResponse x -&gt; RenewDomainResponse
+$cfrom :: forall x. RenewDomainResponse -&gt; Rep RenewDomainResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Create a value of 'RenewDomainResponse' with all optional fields omitted.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'httpStatus', 'renewDomainResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'operationId', 'renewDomainResponse_operationId' - Identifier for tracking the progress of the request. To query the</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- operation status, use</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail&gt;.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#newRenewDomainResponse"><span class="hs-identifier hs-type">newRenewDomainResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-comment">-- | 'operationId'</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomainResponse"><span class="hs-identifier hs-type">RenewDomainResponse</span></a></span><span>
+</span><span id="line-210"></span><span id="newRenewDomainResponse"><span class="annot"><span class="annottext">newRenewDomainResponse :: Int -&gt; Text -&gt; RenewDomainResponse
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#newRenewDomainResponse"><span class="hs-identifier hs-var hs-var">newRenewDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679212376"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212376"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679212375"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212375"><span class="hs-identifier hs-var">pOperationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><span class="annottext">RenewDomainResponse' :: Int -&gt; Text -&gt; RenewDomainResponse
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomainResponse%27"><span class="hs-identifier hs-type">RenewDomainResponse'</span></a></span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:RenewDomainResponse' :: Int
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#%24sel%3AhttpStatus%3ARenewDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212376"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:operationId:RenewDomainResponse' :: Text
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#%24sel%3AoperationId%3ARenewDomainResponse%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212375"><span class="hs-identifier hs-var">pOperationId_</span></a></span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#renewDomainResponse_httpStatus"><span class="hs-identifier hs-type">renewDomainResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomainResponse"><span class="hs-identifier hs-type">RenewDomainResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-218"></span><span id="renewDomainResponse_httpStatus"><span class="annot"><span class="annottext">renewDomainResponse_httpStatus :: (Int -&gt; f Int) -&gt; RenewDomainResponse -&gt; f RenewDomainResponse
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#renewDomainResponse_httpStatus"><span class="hs-identifier hs-var hs-var">renewDomainResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RenewDomainResponse -&gt; Int)
+-&gt; (RenewDomainResponse -&gt; Int -&gt; RenewDomainResponse)
+-&gt; Lens RenewDomainResponse RenewDomainResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomainResponse%27"><span class="hs-identifier hs-type">RenewDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212374"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RenewDomainResponse' :: RenewDomainResponse -&gt; Int
+</span><a href="#local-6989586621679212374"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212374"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212373"><span class="annot"><span class="annottext">s :: RenewDomainResponse
+</span><a href="#local-6989586621679212373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomainResponse%27"><span class="hs-identifier hs-type">RenewDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212372"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewDomainResponse
+</span><a href="#local-6989586621679212373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RenewDomainResponse' :: Int
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#%24sel%3AhttpStatus%3ARenewDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomainResponse"><span class="hs-identifier hs-type">RenewDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | Identifier for tracking the progress of the request. To query the</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- operation status, use</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail&gt;.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#renewDomainResponse_operationId"><span class="hs-identifier hs-type">renewDomainResponse_operationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomainResponse"><span class="hs-identifier hs-type">RenewDomainResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-224"></span><span id="renewDomainResponse_operationId"><span class="annot"><span class="annottext">renewDomainResponse_operationId :: (Text -&gt; f Text) -&gt; RenewDomainResponse -&gt; f RenewDomainResponse
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#renewDomainResponse_operationId"><span class="hs-identifier hs-var hs-var">renewDomainResponse_operationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RenewDomainResponse -&gt; Text)
+-&gt; (RenewDomainResponse -&gt; Text -&gt; RenewDomainResponse)
+-&gt; Lens RenewDomainResponse RenewDomainResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomainResponse%27"><span class="hs-identifier hs-type">RenewDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212371"><span class="annot"><span class="annottext">Text
+operationId :: Text
+$sel:operationId:RenewDomainResponse' :: RenewDomainResponse -&gt; Text
+</span><a href="#local-6989586621679212371"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212371"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212370"><span class="annot"><span class="annottext">s :: RenewDomainResponse
+</span><a href="#local-6989586621679212370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomainResponse%27"><span class="hs-identifier hs-type">RenewDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212369"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewDomainResponse
+</span><a href="#local-6989586621679212370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:RenewDomainResponse' :: Text
+</span><a href="Network.AWS.Route53Domains.RenewDomain.html#%24sel%3AoperationId%3ARenewDomainResponse%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomainResponse"><span class="hs-identifier hs-type">RenewDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212367"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RenewDomain.html#RenewDomainResponse"><span class="hs-identifier hs-type">RenewDomainResponse</span></a></span></span><span>
+</span><span id="line-227"></span></pre></body></html>

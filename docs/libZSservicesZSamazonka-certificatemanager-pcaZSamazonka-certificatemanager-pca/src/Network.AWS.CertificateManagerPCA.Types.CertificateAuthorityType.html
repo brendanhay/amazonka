@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#CertificateAuthorityType"><span class="hs-identifier">CertificateAuthorityType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#CertificateAuthorityType_ROOT"><span class="hs-identifier">CertificateAuthorityType_ROOT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#CertificateAuthorityType_SUBORDINATE"><span class="hs-identifier">CertificateAuthorityType_SUBORDINATE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679208762"><span id="local-6989586621679208763"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CertificateAuthorityType"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#CertificateAuthorityType"><span class="hs-identifier hs-var">CertificateAuthorityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CertificateAuthorityType%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#CertificateAuthorityType%27"><span class="hs-identifier hs-var">CertificateAuthorityType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCertificateAuthorityType"><span class="annot"><span class="annottext">CertificateAuthorityType -&gt; Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#fromCertificateAuthorityType"><span class="hs-identifier hs-var hs-var">fromCertificateAuthorityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208754"><span id="local-6989586621679208756"><span id="local-6989586621679208758"><span class="annot"><span class="annottext">Int -&gt; CertificateAuthorityType -&gt; ShowS
+[CertificateAuthorityType] -&gt; ShowS
+CertificateAuthorityType -&gt; String
+(Int -&gt; CertificateAuthorityType -&gt; ShowS)
+-&gt; (CertificateAuthorityType -&gt; String)
+-&gt; ([CertificateAuthorityType] -&gt; ShowS)
+-&gt; Show CertificateAuthorityType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CertificateAuthorityType] -&gt; ShowS
+$cshowList :: [CertificateAuthorityType] -&gt; ShowS
+show :: CertificateAuthorityType -&gt; String
+$cshow :: CertificateAuthorityType -&gt; String
+showsPrec :: Int -&gt; CertificateAuthorityType -&gt; ShowS
+$cshowsPrec :: Int -&gt; CertificateAuthorityType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679208745"><span id="local-6989586621679208747"><span id="local-6989586621679208749"><span id="local-6989586621679208751"><span class="annot"><span class="annottext">ReadPrec [CertificateAuthorityType]
+ReadPrec CertificateAuthorityType
+Int -&gt; ReadS CertificateAuthorityType
+ReadS [CertificateAuthorityType]
+(Int -&gt; ReadS CertificateAuthorityType)
+-&gt; ReadS [CertificateAuthorityType]
+-&gt; ReadPrec CertificateAuthorityType
+-&gt; ReadPrec [CertificateAuthorityType]
+-&gt; Read CertificateAuthorityType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CertificateAuthorityType]
+$creadListPrec :: ReadPrec [CertificateAuthorityType]
+readPrec :: ReadPrec CertificateAuthorityType
+$creadPrec :: ReadPrec CertificateAuthorityType
+readList :: ReadS [CertificateAuthorityType]
+$creadList :: ReadS [CertificateAuthorityType]
+readsPrec :: Int -&gt; ReadS CertificateAuthorityType
+$creadsPrec :: Int -&gt; ReadS CertificateAuthorityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679208740"><span id="local-6989586621679208742"><span class="annot"><span class="annottext">CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool
+(CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool)
+-&gt; (CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool)
+-&gt; Eq CertificateAuthorityType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool
+$c/= :: CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool
+== :: CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool
+$c== :: CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679208724"><span id="local-6989586621679208726"><span id="local-6989586621679208728"><span id="local-6989586621679208730"><span id="local-6989586621679208732"><span id="local-6989586621679208734"><span id="local-6989586621679208736"><span class="annot"><span class="annottext">Eq CertificateAuthorityType
+Eq CertificateAuthorityType
+-&gt; (CertificateAuthorityType
+    -&gt; CertificateAuthorityType -&gt; Ordering)
+-&gt; (CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool)
+-&gt; (CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool)
+-&gt; (CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool)
+-&gt; (CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool)
+-&gt; (CertificateAuthorityType
+    -&gt; CertificateAuthorityType -&gt; CertificateAuthorityType)
+-&gt; (CertificateAuthorityType
+    -&gt; CertificateAuthorityType -&gt; CertificateAuthorityType)
+-&gt; Ord CertificateAuthorityType
+CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool
+CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Ordering
+CertificateAuthorityType
+-&gt; CertificateAuthorityType -&gt; CertificateAuthorityType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CertificateAuthorityType
+-&gt; CertificateAuthorityType -&gt; CertificateAuthorityType
+$cmin :: CertificateAuthorityType
+-&gt; CertificateAuthorityType -&gt; CertificateAuthorityType
+max :: CertificateAuthorityType
+-&gt; CertificateAuthorityType -&gt; CertificateAuthorityType
+$cmax :: CertificateAuthorityType
+-&gt; CertificateAuthorityType -&gt; CertificateAuthorityType
+&gt;= :: CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool
+$c&gt;= :: CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool
+&gt; :: CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool
+$c&gt; :: CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool
+&lt;= :: CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool
+$c&lt;= :: CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool
+&lt; :: CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool
+$c&lt; :: CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Bool
+compare :: CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Ordering
+$ccompare :: CertificateAuthorityType -&gt; CertificateAuthorityType -&gt; Ordering
+$cp1Ord :: Eq CertificateAuthorityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ CertificateAuthorityType -&gt; Rep CertificateAuthorityType x)
+-&gt; (forall x.
+    Rep CertificateAuthorityType x -&gt; CertificateAuthorityType)
+-&gt; Generic CertificateAuthorityType
+forall x.
+Rep CertificateAuthorityType x -&gt; CertificateAuthorityType
+forall x.
+CertificateAuthorityType -&gt; Rep CertificateAuthorityType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CertificateAuthorityType x -&gt; CertificateAuthorityType
+$cfrom :: forall x.
+CertificateAuthorityType -&gt; Rep CertificateAuthorityType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208716"><span id="local-6989586621679208718"><span class="annot"><span class="annottext">Int -&gt; CertificateAuthorityType -&gt; Int
+CertificateAuthorityType -&gt; Int
+(Int -&gt; CertificateAuthorityType -&gt; Int)
+-&gt; (CertificateAuthorityType -&gt; Int)
+-&gt; Hashable CertificateAuthorityType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CertificateAuthorityType -&gt; Int
+$chash :: CertificateAuthorityType -&gt; Int
+hashWithSalt :: Int -&gt; CertificateAuthorityType -&gt; Int
+$chashWithSalt :: Int -&gt; CertificateAuthorityType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679208713"><span class="annot"><span class="annottext">CertificateAuthorityType -&gt; ()
+(CertificateAuthorityType -&gt; ()) -&gt; NFData CertificateAuthorityType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CertificateAuthorityType -&gt; ()
+$crnf :: CertificateAuthorityType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679208710"><span class="annot"><span class="annottext">Text -&gt; Either String CertificateAuthorityType
+(Text -&gt; Either String CertificateAuthorityType)
+-&gt; FromText CertificateAuthorityType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CertificateAuthorityType
+$cfromText :: Text -&gt; Either String CertificateAuthorityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679208707"><span class="annot"><span class="annottext">CertificateAuthorityType -&gt; Text
+(CertificateAuthorityType -&gt; Text)
+-&gt; ToText CertificateAuthorityType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CertificateAuthorityType -&gt; Text
+$ctoText :: CertificateAuthorityType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679208704"><span class="annot"><span class="annottext">CertificateAuthorityType -&gt; ByteString
+(CertificateAuthorityType -&gt; ByteString)
+-&gt; ToByteString CertificateAuthorityType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CertificateAuthorityType -&gt; ByteString
+$ctoBS :: CertificateAuthorityType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679208701"><span class="annot"><span class="annottext">CertificateAuthorityType -&gt; ByteStringBuilder
+(CertificateAuthorityType -&gt; ByteStringBuilder)
+-&gt; ToLog CertificateAuthorityType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CertificateAuthorityType -&gt; ByteStringBuilder
+$cbuild :: CertificateAuthorityType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679208698"><span class="annot"><span class="annottext">HeaderName -&gt; CertificateAuthorityType -&gt; [Header]
+(HeaderName -&gt; CertificateAuthorityType -&gt; [Header])
+-&gt; ToHeader CertificateAuthorityType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CertificateAuthorityType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CertificateAuthorityType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679208695"><span class="annot"><span class="annottext">CertificateAuthorityType -&gt; QueryString
+(CertificateAuthorityType -&gt; QueryString)
+-&gt; ToQuery CertificateAuthorityType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CertificateAuthorityType -&gt; QueryString
+$ctoQuery :: CertificateAuthorityType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679208690"><span id="local-6989586621679208692"><span class="annot"><span class="annottext">Value -&gt; Parser [CertificateAuthorityType]
+Value -&gt; Parser CertificateAuthorityType
+(Value -&gt; Parser CertificateAuthorityType)
+-&gt; (Value -&gt; Parser [CertificateAuthorityType])
+-&gt; FromJSON CertificateAuthorityType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CertificateAuthorityType]
+$cparseJSONList :: Value -&gt; Parser [CertificateAuthorityType]
+parseJSON :: Value -&gt; Parser CertificateAuthorityType
+$cparseJSON :: Value -&gt; Parser CertificateAuthorityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679208685"><span id="local-6989586621679208687"><span class="annot"><span class="annottext">FromJSONKeyFunction [CertificateAuthorityType]
+FromJSONKeyFunction CertificateAuthorityType
+FromJSONKeyFunction CertificateAuthorityType
+-&gt; FromJSONKeyFunction [CertificateAuthorityType]
+-&gt; FromJSONKey CertificateAuthorityType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CertificateAuthorityType]
+$cfromJSONKeyList :: FromJSONKeyFunction [CertificateAuthorityType]
+fromJSONKey :: FromJSONKeyFunction CertificateAuthorityType
+$cfromJSONKey :: FromJSONKeyFunction CertificateAuthorityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679208676"><span id="local-6989586621679208678"><span id="local-6989586621679208680"><span id="local-6989586621679208682"><span class="annot"><span class="annottext">[CertificateAuthorityType] -&gt; Encoding
+[CertificateAuthorityType] -&gt; Value
+CertificateAuthorityType -&gt; Encoding
+CertificateAuthorityType -&gt; Value
+(CertificateAuthorityType -&gt; Value)
+-&gt; (CertificateAuthorityType -&gt; Encoding)
+-&gt; ([CertificateAuthorityType] -&gt; Value)
+-&gt; ([CertificateAuthorityType] -&gt; Encoding)
+-&gt; ToJSON CertificateAuthorityType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CertificateAuthorityType] -&gt; Encoding
+$ctoEncodingList :: [CertificateAuthorityType] -&gt; Encoding
+toJSONList :: [CertificateAuthorityType] -&gt; Value
+$ctoJSONList :: [CertificateAuthorityType] -&gt; Value
+toEncoding :: CertificateAuthorityType -&gt; Encoding
+$ctoEncoding :: CertificateAuthorityType -&gt; Encoding
+toJSON :: CertificateAuthorityType -&gt; Value
+$ctoJSON :: CertificateAuthorityType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679208671"><span id="local-6989586621679208673"><span class="annot"><span class="annottext">ToJSONKeyFunction [CertificateAuthorityType]
+ToJSONKeyFunction CertificateAuthorityType
+ToJSONKeyFunction CertificateAuthorityType
+-&gt; ToJSONKeyFunction [CertificateAuthorityType]
+-&gt; ToJSONKey CertificateAuthorityType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CertificateAuthorityType]
+$ctoJSONKeyList :: ToJSONKeyFunction [CertificateAuthorityType]
+toJSONKey :: ToJSONKeyFunction CertificateAuthorityType
+$ctoJSONKey :: ToJSONKeyFunction CertificateAuthorityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679208668"><span class="annot"><span class="annottext">[Node] -&gt; Either String CertificateAuthorityType
+([Node] -&gt; Either String CertificateAuthorityType)
+-&gt; FromXML CertificateAuthorityType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CertificateAuthorityType
+$cparseXML :: [Node] -&gt; Either String CertificateAuthorityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679208665"><span class="annot"><span class="annottext">CertificateAuthorityType -&gt; XML
+(CertificateAuthorityType -&gt; XML) -&gt; ToXML CertificateAuthorityType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CertificateAuthorityType -&gt; XML
+$ctoXML :: CertificateAuthorityType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#CertificateAuthorityType_ROOT"><span class="hs-identifier hs-type">CertificateAuthorityType_ROOT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#CertificateAuthorityType"><span class="hs-identifier hs-type">CertificateAuthorityType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCertificateAuthorityType_ROOT"><span id="%24mCertificateAuthorityType_ROOT"><span id="CertificateAuthorityType_ROOT"><span class="annot"><span class="annottext">$bCertificateAuthorityType_ROOT :: CertificateAuthorityType
+$mCertificateAuthorityType_ROOT :: forall r.
+CertificateAuthorityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#%24bCertificateAuthorityType_ROOT"><span class="hs-identifier hs-var hs-var hs-var">CertificateAuthorityType_ROOT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#CertificateAuthorityType%27"><span class="hs-identifier hs-type">CertificateAuthorityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROOT&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#CertificateAuthorityType_SUBORDINATE"><span class="hs-identifier hs-type">CertificateAuthorityType_SUBORDINATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#CertificateAuthorityType"><span class="hs-identifier hs-type">CertificateAuthorityType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCertificateAuthorityType_SUBORDINATE"><span id="%24mCertificateAuthorityType_SUBORDINATE"><span id="CertificateAuthorityType_SUBORDINATE"><span class="annot"><span class="annottext">$bCertificateAuthorityType_SUBORDINATE :: CertificateAuthorityType
+$mCertificateAuthorityType_SUBORDINATE :: forall r.
+CertificateAuthorityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#%24bCertificateAuthorityType_SUBORDINATE"><span class="hs-identifier hs-var hs-var hs-var">CertificateAuthorityType_SUBORDINATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#CertificateAuthorityType%27"><span class="hs-identifier hs-type">CertificateAuthorityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUBORDINATE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#CertificateAuthorityType_ROOT"><span class="hs-pragma hs-type">CertificateAuthorityType_ROOT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#CertificateAuthorityType_SUBORDINATE"><span class="hs-pragma hs-type">CertificateAuthorityType_SUBORDINATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#CertificateAuthorityType%27"><span class="hs-pragma hs-type">CertificateAuthorityType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,713 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WorkSpaces.DescribeAccountModifications</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves a list that describes modifications to the configuration of</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Bring Your Own License (BYOL) for the specified account.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkSpaces.DescribeAccountModifications</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications"><span class="hs-identifier">DescribeAccountModifications</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#newDescribeAccountModifications"><span class="hs-identifier">newDescribeAccountModifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#describeAccountModifications_nextToken"><span class="hs-identifier">describeAccountModifications_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse"><span class="hs-identifier">DescribeAccountModificationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#newDescribeAccountModificationsResponse"><span class="hs-identifier">newDescribeAccountModificationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#describeAccountModificationsResponse_nextToken"><span class="hs-identifier">describeAccountModificationsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#describeAccountModificationsResponse_accountModifications"><span class="hs-identifier">describeAccountModificationsResponse_accountModifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#describeAccountModificationsResponse_httpStatus"><span class="hs-identifier">describeAccountModificationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribeAccountModifications' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679283006"><span id="local-6989586621679283007"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAccountModifications"><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications"><span class="hs-identifier hs-var">DescribeAccountModifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAccountModifications%27"><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications%27"><span class="hs-identifier hs-var">DescribeAccountModifications'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you received a @NextToken@ from a previous call that was paginated,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- provide this token to receive the next set of results.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeAccountModifications%27"><span class="annot"><span class="annottext">DescribeAccountModifications -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#%24sel%3AnextToken%3ADescribeAccountModifications%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283000"><span id="local-6989586621679283002"><span class="annot"><span class="annottext">DescribeAccountModifications
+-&gt; DescribeAccountModifications -&gt; Bool
+(DescribeAccountModifications
+ -&gt; DescribeAccountModifications -&gt; Bool)
+-&gt; (DescribeAccountModifications
+    -&gt; DescribeAccountModifications -&gt; Bool)
+-&gt; Eq DescribeAccountModifications
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAccountModifications
+-&gt; DescribeAccountModifications -&gt; Bool
+$c/= :: DescribeAccountModifications
+-&gt; DescribeAccountModifications -&gt; Bool
+== :: DescribeAccountModifications
+-&gt; DescribeAccountModifications -&gt; Bool
+$c== :: DescribeAccountModifications
+-&gt; DescribeAccountModifications -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282991"><span id="local-6989586621679282993"><span id="local-6989586621679282995"><span id="local-6989586621679282997"><span class="annot"><span class="annottext">ReadPrec [DescribeAccountModifications]
+ReadPrec DescribeAccountModifications
+Int -&gt; ReadS DescribeAccountModifications
+ReadS [DescribeAccountModifications]
+(Int -&gt; ReadS DescribeAccountModifications)
+-&gt; ReadS [DescribeAccountModifications]
+-&gt; ReadPrec DescribeAccountModifications
+-&gt; ReadPrec [DescribeAccountModifications]
+-&gt; Read DescribeAccountModifications
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAccountModifications]
+$creadListPrec :: ReadPrec [DescribeAccountModifications]
+readPrec :: ReadPrec DescribeAccountModifications
+$creadPrec :: ReadPrec DescribeAccountModifications
+readList :: ReadS [DescribeAccountModifications]
+$creadList :: ReadS [DescribeAccountModifications]
+readsPrec :: Int -&gt; ReadS DescribeAccountModifications
+$creadsPrec :: Int -&gt; ReadS DescribeAccountModifications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282984"><span id="local-6989586621679282986"><span id="local-6989586621679282988"><span class="annot"><span class="annottext">Int -&gt; DescribeAccountModifications -&gt; ShowS
+[DescribeAccountModifications] -&gt; ShowS
+DescribeAccountModifications -&gt; String
+(Int -&gt; DescribeAccountModifications -&gt; ShowS)
+-&gt; (DescribeAccountModifications -&gt; String)
+-&gt; ([DescribeAccountModifications] -&gt; ShowS)
+-&gt; Show DescribeAccountModifications
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAccountModifications] -&gt; ShowS
+$cshowList :: [DescribeAccountModifications] -&gt; ShowS
+show :: DescribeAccountModifications -&gt; String
+$cshow :: DescribeAccountModifications -&gt; String
+showsPrec :: Int -&gt; DescribeAccountModifications -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAccountModifications -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAccountModifications -&gt; Rep DescribeAccountModifications x)
+-&gt; (forall x.
+    Rep DescribeAccountModifications x -&gt; DescribeAccountModifications)
+-&gt; Generic DescribeAccountModifications
+forall x.
+Rep DescribeAccountModifications x -&gt; DescribeAccountModifications
+forall x.
+DescribeAccountModifications -&gt; Rep DescribeAccountModifications x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeAccountModifications x -&gt; DescribeAccountModifications
+$cfrom :: forall x.
+DescribeAccountModifications -&gt; Rep DescribeAccountModifications x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'DescribeAccountModifications' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'nextToken', 'describeAccountModifications_nextToken' - If you received a @NextToken@ from a previous call that was paginated,</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- provide this token to receive the next set of results.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#newDescribeAccountModifications"><span class="hs-identifier hs-type">newDescribeAccountModifications</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications"><span class="hs-identifier hs-type">DescribeAccountModifications</span></a></span><span>
+</span><span id="line-73"></span><span id="newDescribeAccountModifications"><span class="annot"><span class="annottext">newDescribeAccountModifications :: DescribeAccountModifications
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#newDescribeAccountModifications"><span class="hs-identifier hs-var hs-var">newDescribeAccountModifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DescribeAccountModifications' :: Maybe Text -&gt; DescribeAccountModifications
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications%27"><span class="hs-identifier hs-type">DescribeAccountModifications'</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeAccountModifications' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#%24sel%3AnextToken%3ADescribeAccountModifications%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | If you received a @NextToken@ from a previous call that was paginated,</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- provide this token to receive the next set of results.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#describeAccountModifications_nextToken"><span class="hs-identifier hs-type">describeAccountModifications_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications"><span class="hs-identifier hs-type">DescribeAccountModifications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="describeAccountModifications_nextToken"><span class="annot"><span class="annottext">describeAccountModifications_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeAccountModifications -&gt; f DescribeAccountModifications
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#describeAccountModifications_nextToken"><span class="hs-identifier hs-var hs-var">describeAccountModifications_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountModifications -&gt; Maybe Text)
+-&gt; (DescribeAccountModifications
+    -&gt; Maybe Text -&gt; DescribeAccountModifications)
+-&gt; Lens
+     DescribeAccountModifications
+     DescribeAccountModifications
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications%27"><span class="hs-identifier hs-type">DescribeAccountModifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282978"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeAccountModifications' :: DescribeAccountModifications -&gt; Maybe Text
+</span><a href="#local-6989586621679282978"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282978"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282977"><span class="annot"><span class="annottext">s :: DescribeAccountModifications
+</span><a href="#local-6989586621679282977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications%27"><span class="hs-identifier hs-type">DescribeAccountModifications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282976"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountModifications
+</span><a href="#local-6989586621679282977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeAccountModifications' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#%24sel%3AnextToken%3ADescribeAccountModifications%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications"><span class="hs-identifier hs-type">DescribeAccountModifications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications"><span class="hs-identifier hs-type">DescribeAccountModifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679282972"><span class="annot"><span class="annottext">page :: DescribeAccountModifications
+-&gt; AWSResponse DescribeAccountModifications
+-&gt; Maybe DescribeAccountModifications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679282970"><span class="annot"><span class="annottext">DescribeAccountModifications
+</span><a href="#local-6989586621679282970"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679282969"><span class="annot"><span class="annottext">AWSResponse DescribeAccountModifications
+</span><a href="#local-6989586621679282969"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-87"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeAccountModifications
+DescribeAccountModificationsResponse
+</span><a href="#local-6989586621679282969"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">DescribeAccountModificationsResponse
+-&gt; Getting (First Text) DescribeAccountModificationsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeAccountModificationsResponse
+-&gt; Const (First Text) DescribeAccountModificationsResponse
+Lens' DescribeAccountModificationsResponse (Maybe Text)
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#describeAccountModificationsResponse_nextToken"><span class="hs-identifier hs-var">describeAccountModificationsResponse_nextToken</span></a></span><span>
+</span><span id="line-89"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeAccountModificationsResponse
+ -&gt; Const (First Text) DescribeAccountModificationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeAccountModificationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-90"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeAccountModifications
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [AccountModification] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-93"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeAccountModifications
+DescribeAccountModificationsResponse
+</span><a href="#local-6989586621679282969"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">DescribeAccountModificationsResponse
+-&gt; Getting
+     (First [AccountModification])
+     DescribeAccountModificationsResponse
+     [AccountModification]
+-&gt; Maybe [AccountModification]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [AccountModification]
+ -&gt; Const
+      (First [AccountModification]) (Maybe [AccountModification]))
+-&gt; DescribeAccountModificationsResponse
+-&gt; Const
+     (First [AccountModification]) DescribeAccountModificationsResponse
+Lens'
+  DescribeAccountModificationsResponse (Maybe [AccountModification])
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#describeAccountModificationsResponse_accountModifications"><span class="hs-identifier hs-var">describeAccountModificationsResponse_accountModifications</span></a></span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [AccountModification]
+  -&gt; Const
+       (First [AccountModification]) (Maybe [AccountModification]))
+ -&gt; DescribeAccountModificationsResponse
+ -&gt; Const
+      (First [AccountModification]) DescribeAccountModificationsResponse)
+-&gt; (([AccountModification]
+     -&gt; Const (First [AccountModification]) [AccountModification])
+    -&gt; Maybe [AccountModification]
+    -&gt; Const
+         (First [AccountModification]) (Maybe [AccountModification]))
+-&gt; Getting
+     (First [AccountModification])
+     DescribeAccountModificationsResponse
+     [AccountModification]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AccountModification]
+ -&gt; Const (First [AccountModification]) [AccountModification])
+-&gt; Maybe [AccountModification]
+-&gt; Const
+     (First [AccountModification]) (Maybe [AccountModification])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-96"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeAccountModifications
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">DescribeAccountModifications -&gt; Maybe DescribeAccountModifications
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeAccountModifications
+ -&gt; Maybe DescribeAccountModifications)
+-&gt; DescribeAccountModifications
+-&gt; Maybe DescribeAccountModifications
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">DescribeAccountModifications
+</span><a href="#local-6989586621679282970"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">DescribeAccountModifications
+-&gt; (DescribeAccountModifications -&gt; DescribeAccountModifications)
+-&gt; DescribeAccountModifications
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeAccountModifications
+-&gt; Identity DescribeAccountModifications
+Lens
+  DescribeAccountModifications
+  DescribeAccountModifications
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#describeAccountModifications_nextToken"><span class="hs-identifier hs-var">describeAccountModifications_nextToken</span></a></span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeAccountModifications
+ -&gt; Identity DescribeAccountModifications)
+-&gt; Maybe Text
+-&gt; DescribeAccountModifications
+-&gt; DescribeAccountModifications
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeAccountModifications
+DescribeAccountModificationsResponse
+</span><a href="#local-6989586621679282969"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">DescribeAccountModificationsResponse
+-&gt; Getting (First Text) DescribeAccountModificationsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeAccountModificationsResponse
+-&gt; Const (First Text) DescribeAccountModificationsResponse
+Lens' DescribeAccountModificationsResponse (Maybe Text)
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#describeAccountModificationsResponse_nextToken"><span class="hs-identifier hs-var">describeAccountModificationsResponse_nextToken</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeAccountModificationsResponse
+ -&gt; Const (First Text) DescribeAccountModificationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeAccountModificationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications"><span class="hs-identifier hs-type">DescribeAccountModifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications"><span class="hs-identifier hs-type">DescribeAccountModifications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse"><span class="hs-identifier hs-type">DescribeAccountModificationsResponse</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679282959"><span class="annot"><span class="annottext">request :: DescribeAccountModifications
+-&gt; Request DescribeAccountModifications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeAccountModifications
+-&gt; Request DescribeAccountModifications
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679282955"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeAccountModifications
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAccountModifications)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeAccountModifications))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeAccountModifications
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAccountModifications)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679282952"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282952"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679282951"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679282951"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679282950"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679282950"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [AccountModification]
+-&gt; Int
+-&gt; DescribeAccountModificationsResponse
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse%27"><span class="hs-identifier hs-var">DescribeAccountModificationsResponse'</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [AccountModification]
+ -&gt; Int
+ -&gt; DescribeAccountModificationsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [AccountModification]
+      -&gt; Int -&gt; DescribeAccountModificationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679282950"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [AccountModification]
+   -&gt; Int -&gt; DescribeAccountModificationsResponse)
+-&gt; Either String (Maybe [AccountModification])
+-&gt; Either String (Int -&gt; DescribeAccountModificationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679282950"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [AccountModification]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountModifications&quot;</span></span><span>
+</span><span id="line-117"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AccountModification]))
+-&gt; Maybe [AccountModification]
+-&gt; Either String (Maybe [AccountModification])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AccountModification]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-118"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeAccountModificationsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeAccountModificationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282952"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679282941"><span id="local-6989586621679282943"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications"><span class="hs-identifier hs-type">DescribeAccountModifications</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications"><span class="hs-identifier hs-type">DescribeAccountModifications</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications"><span class="hs-identifier hs-type">DescribeAccountModifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679282934"><span class="annot"><span class="annottext">toHeaders :: DescribeAccountModifications -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAccountModifications -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkspacesService.DescribeAccountModifications&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-135"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-139"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282924"><span id="local-6989586621679282926"><span id="local-6989586621679282928"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications"><span class="hs-identifier hs-type">DescribeAccountModifications</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679282922"><span class="annot"><span class="annottext">toJSON :: DescribeAccountModifications -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications%27"><span class="hs-identifier hs-type">DescribeAccountModifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282920"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeAccountModifications' :: DescribeAccountModifications -&gt; Maybe Text
+</span><a href="#local-6989586621679282920"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282920"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications"><span class="hs-identifier hs-type">DescribeAccountModifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679282914"><span class="annot"><span class="annottext">toPath :: DescribeAccountModifications -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeAccountModifications -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModifications"><span class="hs-identifier hs-type">DescribeAccountModifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679282910"><span class="annot"><span class="annottext">toQuery :: DescribeAccountModifications -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAccountModifications -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | /See:/ 'newDescribeAccountModificationsResponse' smart constructor.</span><span>
+</span><span id="line-157"></span><span id="local-6989586621679282907"><span id="local-6989586621679282908"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAccountModificationsResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse"><span class="hs-identifier hs-var">DescribeAccountModificationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAccountModificationsResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse%27"><span class="hs-identifier hs-var">DescribeAccountModificationsResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- null when there are no more results to return.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeAccountModificationsResponse%27"><span class="annot"><span class="annottext">DescribeAccountModificationsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#%24sel%3AnextToken%3ADescribeAccountModificationsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The list of modifications to the configuration of BYOL.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AaccountModifications%3ADescribeAccountModificationsResponse%27"><span class="annot"><span class="annottext">DescribeAccountModificationsResponse -&gt; Maybe [AccountModification]
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#%24sel%3AaccountModifications%3ADescribeAccountModificationsResponse%27"><span class="hs-identifier hs-var hs-var">accountModifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAccountModificationsResponse%27"><span class="annot"><span class="annottext">DescribeAccountModificationsResponse -&gt; Int
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#%24sel%3AhttpStatus%3ADescribeAccountModificationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282900"><span id="local-6989586621679282902"><span class="annot"><span class="annottext">DescribeAccountModificationsResponse
+-&gt; DescribeAccountModificationsResponse -&gt; Bool
+(DescribeAccountModificationsResponse
+ -&gt; DescribeAccountModificationsResponse -&gt; Bool)
+-&gt; (DescribeAccountModificationsResponse
+    -&gt; DescribeAccountModificationsResponse -&gt; Bool)
+-&gt; Eq DescribeAccountModificationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAccountModificationsResponse
+-&gt; DescribeAccountModificationsResponse -&gt; Bool
+$c/= :: DescribeAccountModificationsResponse
+-&gt; DescribeAccountModificationsResponse -&gt; Bool
+== :: DescribeAccountModificationsResponse
+-&gt; DescribeAccountModificationsResponse -&gt; Bool
+$c== :: DescribeAccountModificationsResponse
+-&gt; DescribeAccountModificationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282892"><span id="local-6989586621679282894"><span id="local-6989586621679282896"><span id="local-6989586621679282898"><span class="annot"><span class="annottext">ReadPrec [DescribeAccountModificationsResponse]
+ReadPrec DescribeAccountModificationsResponse
+Int -&gt; ReadS DescribeAccountModificationsResponse
+ReadS [DescribeAccountModificationsResponse]
+(Int -&gt; ReadS DescribeAccountModificationsResponse)
+-&gt; ReadS [DescribeAccountModificationsResponse]
+-&gt; ReadPrec DescribeAccountModificationsResponse
+-&gt; ReadPrec [DescribeAccountModificationsResponse]
+-&gt; Read DescribeAccountModificationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAccountModificationsResponse]
+$creadListPrec :: ReadPrec [DescribeAccountModificationsResponse]
+readPrec :: ReadPrec DescribeAccountModificationsResponse
+$creadPrec :: ReadPrec DescribeAccountModificationsResponse
+readList :: ReadS [DescribeAccountModificationsResponse]
+$creadList :: ReadS [DescribeAccountModificationsResponse]
+readsPrec :: Int -&gt; ReadS DescribeAccountModificationsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeAccountModificationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282886"><span id="local-6989586621679282888"><span id="local-6989586621679282890"><span class="annot"><span class="annottext">Int -&gt; DescribeAccountModificationsResponse -&gt; ShowS
+[DescribeAccountModificationsResponse] -&gt; ShowS
+DescribeAccountModificationsResponse -&gt; String
+(Int -&gt; DescribeAccountModificationsResponse -&gt; ShowS)
+-&gt; (DescribeAccountModificationsResponse -&gt; String)
+-&gt; ([DescribeAccountModificationsResponse] -&gt; ShowS)
+-&gt; Show DescribeAccountModificationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAccountModificationsResponse] -&gt; ShowS
+$cshowList :: [DescribeAccountModificationsResponse] -&gt; ShowS
+show :: DescribeAccountModificationsResponse -&gt; String
+$cshow :: DescribeAccountModificationsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeAccountModificationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAccountModificationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAccountModificationsResponse
+ -&gt; Rep DescribeAccountModificationsResponse x)
+-&gt; (forall x.
+    Rep DescribeAccountModificationsResponse x
+    -&gt; DescribeAccountModificationsResponse)
+-&gt; Generic DescribeAccountModificationsResponse
+forall x.
+Rep DescribeAccountModificationsResponse x
+-&gt; DescribeAccountModificationsResponse
+forall x.
+DescribeAccountModificationsResponse
+-&gt; Rep DescribeAccountModificationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeAccountModificationsResponse x
+-&gt; DescribeAccountModificationsResponse
+$cfrom :: forall x.
+DescribeAccountModificationsResponse
+-&gt; Rep DescribeAccountModificationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Create a value of 'DescribeAccountModificationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'nextToken', 'describeAccountModificationsResponse_nextToken' - The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- null when there are no more results to return.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'accountModifications', 'describeAccountModificationsResponse_accountModifications' - The list of modifications to the configuration of BYOL.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'httpStatus', 'describeAccountModificationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#newDescribeAccountModificationsResponse"><span class="hs-identifier hs-type">newDescribeAccountModificationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse"><span class="hs-identifier hs-type">DescribeAccountModificationsResponse</span></a></span><span>
+</span><span id="line-186"></span><span id="newDescribeAccountModificationsResponse"><span class="annot"><span class="annottext">newDescribeAccountModificationsResponse :: Int -&gt; DescribeAccountModificationsResponse
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#newDescribeAccountModificationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeAccountModificationsResponse</span></a></span></span><span> </span><span id="local-6989586621679282883"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282883"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="annottext">DescribeAccountModificationsResponse' :: Maybe Text
+-&gt; Maybe [AccountModification]
+-&gt; Int
+-&gt; DescribeAccountModificationsResponse
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse%27"><span class="hs-identifier hs-type">DescribeAccountModificationsResponse'</span></a></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeAccountModificationsResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#%24sel%3AnextToken%3ADescribeAccountModificationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountModifications:DescribeAccountModificationsResponse' :: Maybe [AccountModification]
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#%24sel%3AaccountModifications%3ADescribeAccountModificationsResponse%27"><span class="hs-identifier hs-var">accountModifications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AccountModification]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAccountModificationsResponse' :: Int
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#%24sel%3AhttpStatus%3ADescribeAccountModificationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282883"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- null when there are no more results to return.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#describeAccountModificationsResponse_nextToken"><span class="hs-identifier hs-type">describeAccountModificationsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse"><span class="hs-identifier hs-type">DescribeAccountModificationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="describeAccountModificationsResponse_nextToken"><span class="annot"><span class="annottext">describeAccountModificationsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeAccountModificationsResponse
+-&gt; f DescribeAccountModificationsResponse
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#describeAccountModificationsResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeAccountModificationsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountModificationsResponse -&gt; Maybe Text)
+-&gt; (DescribeAccountModificationsResponse
+    -&gt; Maybe Text -&gt; DescribeAccountModificationsResponse)
+-&gt; Lens' DescribeAccountModificationsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse%27"><span class="hs-identifier hs-type">DescribeAccountModificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282882"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeAccountModificationsResponse' :: DescribeAccountModificationsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679282882"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282882"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282881"><span class="annot"><span class="annottext">s :: DescribeAccountModificationsResponse
+</span><a href="#local-6989586621679282881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse%27"><span class="hs-identifier hs-type">DescribeAccountModificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282880"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountModificationsResponse
+</span><a href="#local-6989586621679282881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeAccountModificationsResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#%24sel%3AnextToken%3ADescribeAccountModificationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse"><span class="hs-identifier hs-type">DescribeAccountModificationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The list of modifications to the configuration of BYOL.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#describeAccountModificationsResponse_accountModifications"><span class="hs-identifier hs-type">describeAccountModificationsResponse_accountModifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse"><span class="hs-identifier hs-type">DescribeAccountModificationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="describeAccountModificationsResponse_accountModifications"><span class="annot"><span class="annottext">describeAccountModificationsResponse_accountModifications :: (Maybe [AccountModification] -&gt; f (Maybe [AccountModification]))
+-&gt; DescribeAccountModificationsResponse
+-&gt; f DescribeAccountModificationsResponse
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#describeAccountModificationsResponse_accountModifications"><span class="hs-identifier hs-var hs-var">describeAccountModificationsResponse_accountModifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountModificationsResponse
+ -&gt; Maybe [AccountModification])
+-&gt; (DescribeAccountModificationsResponse
+    -&gt; Maybe [AccountModification]
+    -&gt; DescribeAccountModificationsResponse)
+-&gt; Lens'
+     DescribeAccountModificationsResponse (Maybe [AccountModification])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse%27"><span class="hs-identifier hs-type">DescribeAccountModificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282879"><span class="annot"><span class="annottext">Maybe [AccountModification]
+accountModifications :: Maybe [AccountModification]
+$sel:accountModifications:DescribeAccountModificationsResponse' :: DescribeAccountModificationsResponse -&gt; Maybe [AccountModification]
+</span><a href="#local-6989586621679282879"><span class="hs-identifier hs-var hs-var">accountModifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AccountModification]
+</span><a href="#local-6989586621679282879"><span class="hs-identifier hs-var">accountModifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282878"><span class="annot"><span class="annottext">s :: DescribeAccountModificationsResponse
+</span><a href="#local-6989586621679282878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse%27"><span class="hs-identifier hs-type">DescribeAccountModificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282877"><span class="annot"><span class="annottext">Maybe [AccountModification]
+</span><a href="#local-6989586621679282877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountModificationsResponse
+</span><a href="#local-6989586621679282878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountModifications:DescribeAccountModificationsResponse' :: Maybe [AccountModification]
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#%24sel%3AaccountModifications%3ADescribeAccountModificationsResponse%27"><span class="hs-identifier hs-var">accountModifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AccountModification]
+</span><a href="#local-6989586621679282877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse"><span class="hs-identifier hs-type">DescribeAccountModificationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AccountModification] -&gt; f (Maybe [AccountModification]))
+ -&gt; DescribeAccountModificationsResponse
+ -&gt; f DescribeAccountModificationsResponse)
+-&gt; ((Maybe [AccountModification]
+     -&gt; f (Maybe [AccountModification]))
+    -&gt; Maybe [AccountModification] -&gt; f (Maybe [AccountModification]))
+-&gt; (Maybe [AccountModification] -&gt; f (Maybe [AccountModification]))
+-&gt; DescribeAccountModificationsResponse
+-&gt; f DescribeAccountModificationsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AccountModification]
+  [AccountModification]
+  [AccountModification]
+  [AccountModification]
+-&gt; Iso
+     (Maybe [AccountModification])
+     (Maybe [AccountModification])
+     (Maybe [AccountModification])
+     (Maybe [AccountModification])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AccountModification]
+  [AccountModification]
+  [AccountModification]
+  [AccountModification]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#describeAccountModificationsResponse_httpStatus"><span class="hs-identifier hs-type">describeAccountModificationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse"><span class="hs-identifier hs-type">DescribeAccountModificationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-206"></span><span id="describeAccountModificationsResponse_httpStatus"><span class="annot"><span class="annottext">describeAccountModificationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeAccountModificationsResponse
+-&gt; f DescribeAccountModificationsResponse
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#describeAccountModificationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeAccountModificationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountModificationsResponse -&gt; Int)
+-&gt; (DescribeAccountModificationsResponse
+    -&gt; Int -&gt; DescribeAccountModificationsResponse)
+-&gt; Lens
+     DescribeAccountModificationsResponse
+     DescribeAccountModificationsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse%27"><span class="hs-identifier hs-type">DescribeAccountModificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282874"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeAccountModificationsResponse' :: DescribeAccountModificationsResponse -&gt; Int
+</span><a href="#local-6989586621679282874"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282874"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282873"><span class="annot"><span class="annottext">s :: DescribeAccountModificationsResponse
+</span><a href="#local-6989586621679282873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse%27"><span class="hs-identifier hs-type">DescribeAccountModificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282872"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountModificationsResponse
+</span><a href="#local-6989586621679282873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAccountModificationsResponse' :: Int
+</span><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#%24sel%3AhttpStatus%3ADescribeAccountModificationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse"><span class="hs-identifier hs-type">DescribeAccountModificationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679282870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DescribeAccountModifications.html#DescribeAccountModificationsResponse"><span class="hs-identifier hs-type">DescribeAccountModificationsResponse</span></a></span></span><span>
+</span><span id="line-211"></span></pre></body></html>

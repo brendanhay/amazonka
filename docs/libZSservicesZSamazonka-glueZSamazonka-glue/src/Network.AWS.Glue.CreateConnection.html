@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.CreateConnection</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a connection definition in the Data Catalog.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.CreateConnection</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection"><span class="hs-identifier">CreateConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#newCreateConnection"><span class="hs-identifier">newCreateConnection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#createConnection_catalogId"><span class="hs-identifier">createConnection_catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#createConnection_connectionInput"><span class="hs-identifier">createConnection_connectionInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnectionResponse"><span class="hs-identifier">CreateConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#newCreateConnectionResponse"><span class="hs-identifier">newCreateConnectionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#createConnectionResponse_httpStatus"><span class="hs-identifier">createConnectionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.html"><span class="hs-identifier">Network.AWS.Glue.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newCreateConnection' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679739982"><span id="local-6989586621679739983"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateConnection"><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection"><span class="hs-identifier hs-var">CreateConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateConnection%27"><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection%27"><span class="hs-identifier hs-var">CreateConnection'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Data Catalog in which to create the connection. If none is</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- provided, the Amazon Web Services account ID is used by default.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AcatalogId%3ACreateConnection%27"><span class="annot"><span class="annottext">CreateConnection -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.CreateConnection.html#%24sel%3AcatalogId%3ACreateConnection%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | A @ConnectionInput@ object defining the connection to create.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AconnectionInput%3ACreateConnection%27"><span class="annot"><span class="annottext">CreateConnection -&gt; ConnectionInput
+</span><a href="Network.AWS.Glue.CreateConnection.html#%24sel%3AconnectionInput%3ACreateConnection%27"><span class="hs-identifier hs-var hs-var">connectionInput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679739975"><span id="local-6989586621679739977"><span class="annot"><span class="annottext">CreateConnection -&gt; CreateConnection -&gt; Bool
+(CreateConnection -&gt; CreateConnection -&gt; Bool)
+-&gt; (CreateConnection -&gt; CreateConnection -&gt; Bool)
+-&gt; Eq CreateConnection
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateConnection -&gt; CreateConnection -&gt; Bool
+$c/= :: CreateConnection -&gt; CreateConnection -&gt; Bool
+== :: CreateConnection -&gt; CreateConnection -&gt; Bool
+$c== :: CreateConnection -&gt; CreateConnection -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679739966"><span id="local-6989586621679739968"><span id="local-6989586621679739970"><span id="local-6989586621679739972"><span class="annot"><span class="annottext">ReadPrec [CreateConnection]
+ReadPrec CreateConnection
+Int -&gt; ReadS CreateConnection
+ReadS [CreateConnection]
+(Int -&gt; ReadS CreateConnection)
+-&gt; ReadS [CreateConnection]
+-&gt; ReadPrec CreateConnection
+-&gt; ReadPrec [CreateConnection]
+-&gt; Read CreateConnection
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateConnection]
+$creadListPrec :: ReadPrec [CreateConnection]
+readPrec :: ReadPrec CreateConnection
+$creadPrec :: ReadPrec CreateConnection
+readList :: ReadS [CreateConnection]
+$creadList :: ReadS [CreateConnection]
+readsPrec :: Int -&gt; ReadS CreateConnection
+$creadsPrec :: Int -&gt; ReadS CreateConnection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679739959"><span id="local-6989586621679739961"><span id="local-6989586621679739963"><span class="annot"><span class="annottext">Int -&gt; CreateConnection -&gt; ShowS
+[CreateConnection] -&gt; ShowS
+CreateConnection -&gt; String
+(Int -&gt; CreateConnection -&gt; ShowS)
+-&gt; (CreateConnection -&gt; String)
+-&gt; ([CreateConnection] -&gt; ShowS)
+-&gt; Show CreateConnection
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateConnection] -&gt; ShowS
+$cshowList :: [CreateConnection] -&gt; ShowS
+show :: CreateConnection -&gt; String
+$cshow :: CreateConnection -&gt; String
+showsPrec :: Int -&gt; CreateConnection -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateConnection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateConnection -&gt; Rep CreateConnection x)
+-&gt; (forall x. Rep CreateConnection x -&gt; CreateConnection)
+-&gt; Generic CreateConnection
+forall x. Rep CreateConnection x -&gt; CreateConnection
+forall x. CreateConnection -&gt; Rep CreateConnection x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateConnection x -&gt; CreateConnection
+$cfrom :: forall x. CreateConnection -&gt; Rep CreateConnection x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'CreateConnection' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'catalogId', 'createConnection_catalogId' - The ID of the Data Catalog in which to create the connection. If none is</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- provided, the Amazon Web Services account ID is used by default.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'connectionInput', 'createConnection_connectionInput' - A @ConnectionInput@ object defining the connection to create.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#newCreateConnection"><span class="hs-identifier hs-type">newCreateConnection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'connectionInput'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection"><span class="hs-identifier hs-type">CreateConnection</span></a></span><span>
+</span><span id="line-75"></span><span id="newCreateConnection"><span class="annot"><span class="annottext">newCreateConnection :: ConnectionInput -&gt; CreateConnection
+</span><a href="Network.AWS.Glue.CreateConnection.html#newCreateConnection"><span class="hs-identifier hs-var hs-var">newCreateConnection</span></a></span></span><span> </span><span id="local-6989586621679739954"><span class="annot"><span class="annottext">ConnectionInput
+</span><a href="#local-6989586621679739954"><span class="hs-identifier hs-var">pConnectionInput_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">CreateConnection' :: Maybe Text -&gt; ConnectionInput -&gt; CreateConnection
+</span><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection%27"><span class="hs-identifier hs-type">CreateConnection'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:catalogId:CreateConnection' :: Maybe Text
+</span><a href="Network.AWS.Glue.CreateConnection.html#%24sel%3AcatalogId%3ACreateConnection%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionInput:CreateConnection' :: ConnectionInput
+</span><a href="Network.AWS.Glue.CreateConnection.html#%24sel%3AconnectionInput%3ACreateConnection%27"><span class="hs-identifier hs-var">connectionInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConnectionInput
+</span><a href="#local-6989586621679739954"><span class="hs-identifier hs-var">pConnectionInput_</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The ID of the Data Catalog in which to create the connection. If none is</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- provided, the Amazon Web Services account ID is used by default.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#createConnection_catalogId"><span class="hs-identifier hs-type">createConnection_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection"><span class="hs-identifier hs-type">CreateConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="createConnection_catalogId"><span class="annot"><span class="annottext">createConnection_catalogId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateConnection -&gt; f CreateConnection
+</span><a href="Network.AWS.Glue.CreateConnection.html#createConnection_catalogId"><span class="hs-identifier hs-var hs-var">createConnection_catalogId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnection -&gt; Maybe Text)
+-&gt; (CreateConnection -&gt; Maybe Text -&gt; CreateConnection)
+-&gt; Lens CreateConnection CreateConnection (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection%27"><span class="hs-identifier hs-type">CreateConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679739951"><span class="annot"><span class="annottext">Maybe Text
+catalogId :: Maybe Text
+$sel:catalogId:CreateConnection' :: CreateConnection -&gt; Maybe Text
+</span><a href="#local-6989586621679739951"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679739951"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679739950"><span class="annot"><span class="annottext">s :: CreateConnection
+</span><a href="#local-6989586621679739950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection%27"><span class="hs-identifier hs-type">CreateConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679739949"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679739949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnection
+</span><a href="#local-6989586621679739950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:CreateConnection' :: Maybe Text
+</span><a href="Network.AWS.Glue.CreateConnection.html#%24sel%3AcatalogId%3ACreateConnection%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679739949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection"><span class="hs-identifier hs-type">CreateConnection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | A @ConnectionInput@ object defining the connection to create.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#createConnection_connectionInput"><span class="hs-identifier hs-type">createConnection_connectionInput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection"><span class="hs-identifier hs-type">CreateConnection</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span>
+</span><span id="line-88"></span><span id="createConnection_connectionInput"><span class="annot"><span class="annottext">createConnection_connectionInput :: (ConnectionInput -&gt; f ConnectionInput)
+-&gt; CreateConnection -&gt; f CreateConnection
+</span><a href="Network.AWS.Glue.CreateConnection.html#createConnection_connectionInput"><span class="hs-identifier hs-var hs-var">createConnection_connectionInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnection -&gt; ConnectionInput)
+-&gt; (CreateConnection -&gt; ConnectionInput -&gt; CreateConnection)
+-&gt; Lens
+     CreateConnection CreateConnection ConnectionInput ConnectionInput
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection%27"><span class="hs-identifier hs-type">CreateConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679739948"><span class="annot"><span class="annottext">ConnectionInput
+connectionInput :: ConnectionInput
+$sel:connectionInput:CreateConnection' :: CreateConnection -&gt; ConnectionInput
+</span><a href="#local-6989586621679739948"><span class="hs-identifier hs-var hs-var">connectionInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionInput
+</span><a href="#local-6989586621679739948"><span class="hs-identifier hs-var">connectionInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679739947"><span class="annot"><span class="annottext">s :: CreateConnection
+</span><a href="#local-6989586621679739947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection%27"><span class="hs-identifier hs-type">CreateConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679739946"><span class="annot"><span class="annottext">ConnectionInput
+</span><a href="#local-6989586621679739946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnection
+</span><a href="#local-6989586621679739947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionInput:CreateConnection' :: ConnectionInput
+</span><a href="Network.AWS.Glue.CreateConnection.html#%24sel%3AconnectionInput%3ACreateConnection%27"><span class="hs-identifier hs-var">connectionInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConnectionInput
+</span><a href="#local-6989586621679739946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection"><span class="hs-identifier hs-type">CreateConnection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection"><span class="hs-identifier hs-type">CreateConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection"><span class="hs-identifier hs-type">CreateConnection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnectionResponse"><span class="hs-identifier hs-type">CreateConnectionResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679739942"><span class="annot"><span class="annottext">request :: CreateConnection -&gt; Request CreateConnection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateConnection -&gt; Request CreateConnection
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679739938"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateConnection
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateConnection)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse CreateConnection))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateConnection
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateConnection)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679739935"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679739935"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679739934"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679739934"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679739933"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679739933"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateConnectionResponse
+</span><a href="Network.AWS.Glue.CreateConnection.html#CreateConnectionResponse%27"><span class="hs-identifier hs-var">CreateConnectionResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateConnectionResponse)
+-&gt; Either String Int -&gt; Either String CreateConnectionResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679739935"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679739926"><span id="local-6989586621679739928"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection"><span class="hs-identifier hs-type">CreateConnection</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679739923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection"><span class="hs-identifier hs-type">CreateConnection</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection"><span class="hs-identifier hs-type">CreateConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679739919"><span class="annot"><span class="annottext">toHeaders :: CreateConnection -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateConnection -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSGlue.CreateConnection&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679739909"><span id="local-6989586621679739911"><span id="local-6989586621679739913"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection"><span class="hs-identifier hs-type">CreateConnection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679739907"><span class="annot"><span class="annottext">toJSON :: CreateConnection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection%27"><span class="hs-identifier hs-type">CreateConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679739904"><span id="local-6989586621679739905"><span class="annot"><span class="annottext">Maybe Text
+ConnectionInput
+connectionInput :: ConnectionInput
+catalogId :: Maybe Text
+$sel:connectionInput:CreateConnection' :: CreateConnection -&gt; ConnectionInput
+$sel:catalogId:CreateConnection' :: CreateConnection -&gt; Maybe Text
+</span><a href="#local-6989586621679739904"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679739905"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-125"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectionInput&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConnectionInput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ConnectionInput
+</span><a href="#local-6989586621679739904"><span class="hs-identifier hs-var">connectionInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection"><span class="hs-identifier hs-type">CreateConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679739898"><span class="annot"><span class="annottext">toPath :: CreateConnection -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateConnection -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnection"><span class="hs-identifier hs-type">CreateConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679739894"><span class="annot"><span class="annottext">toQuery :: CreateConnection -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateConnection -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newCreateConnectionResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679739891"><span id="local-6989586621679739892"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateConnectionResponse"><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnectionResponse"><span class="hs-identifier hs-var">CreateConnectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateConnectionResponse%27"><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnectionResponse%27"><span class="hs-identifier hs-var">CreateConnectionResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateConnectionResponse%27"><span class="annot"><span class="annottext">CreateConnectionResponse -&gt; Int
+</span><a href="Network.AWS.Glue.CreateConnection.html#%24sel%3AhttpStatus%3ACreateConnectionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679739886"><span id="local-6989586621679739888"><span class="annot"><span class="annottext">CreateConnectionResponse -&gt; CreateConnectionResponse -&gt; Bool
+(CreateConnectionResponse -&gt; CreateConnectionResponse -&gt; Bool)
+-&gt; (CreateConnectionResponse -&gt; CreateConnectionResponse -&gt; Bool)
+-&gt; Eq CreateConnectionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateConnectionResponse -&gt; CreateConnectionResponse -&gt; Bool
+$c/= :: CreateConnectionResponse -&gt; CreateConnectionResponse -&gt; Bool
+== :: CreateConnectionResponse -&gt; CreateConnectionResponse -&gt; Bool
+$c== :: CreateConnectionResponse -&gt; CreateConnectionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679739878"><span id="local-6989586621679739880"><span id="local-6989586621679739882"><span id="local-6989586621679739884"><span class="annot"><span class="annottext">ReadPrec [CreateConnectionResponse]
+ReadPrec CreateConnectionResponse
+Int -&gt; ReadS CreateConnectionResponse
+ReadS [CreateConnectionResponse]
+(Int -&gt; ReadS CreateConnectionResponse)
+-&gt; ReadS [CreateConnectionResponse]
+-&gt; ReadPrec CreateConnectionResponse
+-&gt; ReadPrec [CreateConnectionResponse]
+-&gt; Read CreateConnectionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateConnectionResponse]
+$creadListPrec :: ReadPrec [CreateConnectionResponse]
+readPrec :: ReadPrec CreateConnectionResponse
+$creadPrec :: ReadPrec CreateConnectionResponse
+readList :: ReadS [CreateConnectionResponse]
+$creadList :: ReadS [CreateConnectionResponse]
+readsPrec :: Int -&gt; ReadS CreateConnectionResponse
+$creadsPrec :: Int -&gt; ReadS CreateConnectionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679739872"><span id="local-6989586621679739874"><span id="local-6989586621679739876"><span class="annot"><span class="annottext">Int -&gt; CreateConnectionResponse -&gt; ShowS
+[CreateConnectionResponse] -&gt; ShowS
+CreateConnectionResponse -&gt; String
+(Int -&gt; CreateConnectionResponse -&gt; ShowS)
+-&gt; (CreateConnectionResponse -&gt; String)
+-&gt; ([CreateConnectionResponse] -&gt; ShowS)
+-&gt; Show CreateConnectionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateConnectionResponse] -&gt; ShowS
+$cshowList :: [CreateConnectionResponse] -&gt; ShowS
+show :: CreateConnectionResponse -&gt; String
+$cshow :: CreateConnectionResponse -&gt; String
+showsPrec :: Int -&gt; CreateConnectionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateConnectionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateConnectionResponse -&gt; Rep CreateConnectionResponse x)
+-&gt; (forall x.
+    Rep CreateConnectionResponse x -&gt; CreateConnectionResponse)
+-&gt; Generic CreateConnectionResponse
+forall x.
+Rep CreateConnectionResponse x -&gt; CreateConnectionResponse
+forall x.
+CreateConnectionResponse -&gt; Rep CreateConnectionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateConnectionResponse x -&gt; CreateConnectionResponse
+$cfrom :: forall x.
+CreateConnectionResponse -&gt; Rep CreateConnectionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'CreateConnectionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'createConnectionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#newCreateConnectionResponse"><span class="hs-identifier hs-type">newCreateConnectionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnectionResponse"><span class="hs-identifier hs-type">CreateConnectionResponse</span></a></span><span>
+</span><span id="line-155"></span><span id="newCreateConnectionResponse"><span class="annot"><span class="annottext">newCreateConnectionResponse :: Int -&gt; CreateConnectionResponse
+</span><a href="Network.AWS.Glue.CreateConnection.html#newCreateConnectionResponse"><span class="hs-identifier hs-var hs-var">newCreateConnectionResponse</span></a></span></span><span> </span><span id="local-6989586621679739869"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679739869"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">CreateConnectionResponse' :: Int -&gt; CreateConnectionResponse
+</span><a href="Network.AWS.Glue.CreateConnection.html#CreateConnectionResponse%27"><span class="hs-identifier hs-type">CreateConnectionResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateConnectionResponse' :: Int
+</span><a href="Network.AWS.Glue.CreateConnection.html#%24sel%3AhttpStatus%3ACreateConnectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679739869"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#createConnectionResponse_httpStatus"><span class="hs-identifier hs-type">createConnectionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnectionResponse"><span class="hs-identifier hs-type">CreateConnectionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span id="createConnectionResponse_httpStatus"><span class="annot"><span class="annottext">createConnectionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateConnectionResponse -&gt; f CreateConnectionResponse
+</span><a href="Network.AWS.Glue.CreateConnection.html#createConnectionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createConnectionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnectionResponse -&gt; Int)
+-&gt; (CreateConnectionResponse -&gt; Int -&gt; CreateConnectionResponse)
+-&gt; Lens CreateConnectionResponse CreateConnectionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnectionResponse%27"><span class="hs-identifier hs-type">CreateConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679739868"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateConnectionResponse' :: CreateConnectionResponse -&gt; Int
+</span><a href="#local-6989586621679739868"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679739868"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679739867"><span class="annot"><span class="annottext">s :: CreateConnectionResponse
+</span><a href="#local-6989586621679739867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnectionResponse%27"><span class="hs-identifier hs-type">CreateConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679739866"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679739866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnectionResponse
+</span><a href="#local-6989586621679739867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateConnectionResponse' :: Int
+</span><a href="Network.AWS.Glue.CreateConnection.html#%24sel%3AhttpStatus%3ACreateConnectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679739866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnectionResponse"><span class="hs-identifier hs-type">CreateConnectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679739864"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateConnection.html#CreateConnectionResponse"><span class="hs-identifier hs-type">CreateConnectionResponse</span></a></span></span><span>
+</span><span id="line-166"></span></pre></body></html>

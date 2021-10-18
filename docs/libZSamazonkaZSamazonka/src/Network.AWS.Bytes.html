@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">-- |</span><span>
+</span><span id="line-2"></span><span class="hs-comment">-- Module      : Network.AWS.Bytes</span><span>
+</span><span id="line-3"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Stability   : provisional</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-8"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Bytes</span><span>
+</span><span id="line-9"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">convert</span></span><span class="hs-special">,</span><span>
+</span><span id="line-10"></span><span>    </span><span class="annot"><a href="Network.AWS.Bytes.html#encodeBase16"><span class="hs-identifier">encodeBase16</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-11"></span><span>    </span><span class="annot"><a href="Network.AWS.Bytes.html#decodeBase16"><span class="hs-identifier">decodeBase16</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-12"></span><span>    </span><span class="annot"><a href="Network.AWS.Bytes.html#encodeBase64"><span class="hs-identifier">encodeBase64</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-13"></span><span>    </span><span class="annot"><a href="Network.AWS.Bytes.html#decodeBase64"><span class="hs-identifier">decodeBase64</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-14"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-16"></span><span>
+</span><span id="line-17"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Data.ByteArray</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">ByteArrayAccess</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">convert</span></span><span class="hs-special">)</span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.ByteArray.Encoding</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">ByteArray.Encoding</span></span><span>
+</span><span id="line-19"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Prelude.html"><span class="hs-identifier">Network.AWS.Prelude</span></a></span><span>
+</span><span id="line-20"></span><span>
+</span><span id="line-21"></span><span id="local-6989586621679194927"><span class="annot"><a href="Network.AWS.Bytes.html#encodeBase16"><span class="hs-identifier hs-type">encodeBase16</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteArrayAccess</span></span><span> </span><span class="annot"><a href="#local-6989586621679194927"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679194927"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span></span><span>
+</span><span id="line-22"></span><span id="encodeBase16"><span class="annot"><span class="annottext">encodeBase16 :: a -&gt; ByteString
+</span><a href="Network.AWS.Bytes.html#encodeBase16"><span class="hs-identifier hs-var hs-var">encodeBase16</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base -&gt; a -&gt; ByteString
+forall bin bout.
+(ByteArrayAccess bin, ByteArray bout) =&gt;
+Base -&gt; bin -&gt; bout
+</span><span class="hs-identifier hs-var">ByteArray.Encoding.convertToBase</span></span><span> </span><span class="annot"><span class="annottext">Base
+</span><span class="hs-identifier hs-var">ByteArray.Encoding.Base16</span></span><span>
+</span><span id="line-23"></span><span>
+</span><span id="line-24"></span><span id="local-6989586621679194924"><span class="annot"><a href="Network.AWS.Bytes.html#decodeBase16"><span class="hs-identifier hs-type">decodeBase16</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteArrayAccess</span></span><span> </span><span class="annot"><a href="#local-6989586621679194924"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679194924"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span></span><span>
+</span><span id="line-25"></span><span id="decodeBase16"><span class="annot"><span class="annottext">decodeBase16 :: a -&gt; Either String ByteString
+</span><a href="Network.AWS.Bytes.html#decodeBase16"><span class="hs-identifier hs-var hs-var">decodeBase16</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base -&gt; a -&gt; Either String ByteString
+forall bin bout.
+(ByteArrayAccess bin, ByteArray bout) =&gt;
+Base -&gt; bin -&gt; Either String bout
+</span><span class="hs-identifier hs-var">ByteArray.Encoding.convertFromBase</span></span><span> </span><span class="annot"><span class="annottext">Base
+</span><span class="hs-identifier hs-var">ByteArray.Encoding.Base16</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span id="local-6989586621679194922"><span class="annot"><a href="Network.AWS.Bytes.html#encodeBase64"><span class="hs-identifier hs-type">encodeBase64</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteArrayAccess</span></span><span> </span><span class="annot"><a href="#local-6989586621679194922"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679194922"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span></span><span>
+</span><span id="line-28"></span><span id="encodeBase64"><span class="annot"><span class="annottext">encodeBase64 :: a -&gt; ByteString
+</span><a href="Network.AWS.Bytes.html#encodeBase64"><span class="hs-identifier hs-var hs-var">encodeBase64</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base -&gt; a -&gt; ByteString
+forall bin bout.
+(ByteArrayAccess bin, ByteArray bout) =&gt;
+Base -&gt; bin -&gt; bout
+</span><span class="hs-identifier hs-var">ByteArray.Encoding.convertToBase</span></span><span> </span><span class="annot"><span class="annottext">Base
+</span><span class="hs-identifier hs-var">ByteArray.Encoding.Base64</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679194920"><span class="annot"><a href="Network.AWS.Bytes.html#decodeBase64"><span class="hs-identifier hs-type">decodeBase64</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteArrayAccess</span></span><span> </span><span class="annot"><a href="#local-6989586621679194920"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679194920"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span></span><span>
+</span><span id="line-31"></span><span id="decodeBase64"><span class="annot"><span class="annottext">decodeBase64 :: a -&gt; Either String ByteString
+</span><a href="Network.AWS.Bytes.html#decodeBase64"><span class="hs-identifier hs-var hs-var">decodeBase64</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base -&gt; a -&gt; Either String ByteString
+forall bin bout.
+(ByteArrayAccess bin, ByteArray bout) =&gt;
+Base -&gt; bin -&gt; Either String bout
+</span><span class="hs-identifier hs-var">ByteArray.Encoding.convertFromBase</span></span><span> </span><span class="annot"><span class="annottext">Base
+</span><span class="hs-identifier hs-var">ByteArray.Encoding.Base64</span></span><span>
+</span><span id="line-32"></span></pre></body></html>

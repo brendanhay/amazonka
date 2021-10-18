@@ -1,0 +1,425 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeStar.Types.GitHubCodeDestination</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeStar.Types.GitHubCodeDestination</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information about the GitHub repository to be created in AWS CodeStar.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- This is where the source code files provided with the project request</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- will be uploaded after project creation.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newGitHubCodeDestination' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679173407"><span id="local-6989586621679173408"></span></span><span class="hs-keyword">data</span><span> </span><span id="GitHubCodeDestination"><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-var">GitHubCodeDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GitHubCodeDestination%27"><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-var">GitHubCodeDestination'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Description for the GitHub repository to be created in AWS CodeStar.</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- This description displays in GitHub after the repository is created.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Adescription%3AGitHubCodeDestination%27"><span class="annot"><span class="annottext">GitHubCodeDestination -&gt; Maybe Text
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3Adescription%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Name of the GitHub repository to be created in AWS CodeStar.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aname%3AGitHubCodeDestination%27"><span class="annot"><span class="annottext">GitHubCodeDestination -&gt; Text
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3Aname%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The type of GitHub repository to be created in AWS CodeStar. Valid</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- values are User or Organization.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Atype%27%3AGitHubCodeDestination%27"><span class="annot"><span class="annottext">GitHubCodeDestination -&gt; Text
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3Atype%27%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The GitHub username for the owner of the GitHub repository to be created</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- in AWS CodeStar. If this repository should be owned by a GitHub</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- organization, provide its name.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aowner%3AGitHubCodeDestination%27"><span class="annot"><span class="annottext">GitHubCodeDestination -&gt; Text
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3Aowner%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Whether the GitHub repository is to be a private repository.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AprivateRepository%3AGitHubCodeDestination%27"><span class="annot"><span class="annottext">GitHubCodeDestination -&gt; Bool
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3AprivateRepository%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var hs-var">privateRepository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Whether to enable issues for the GitHub repository.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AissuesEnabled%3AGitHubCodeDestination%27"><span class="annot"><span class="annottext">GitHubCodeDestination -&gt; Bool
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3AissuesEnabled%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var hs-var">issuesEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The GitHub user\'s personal access token for the GitHub repository.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Atoken%3AGitHubCodeDestination%27"><span class="annot"><span class="annottext">GitHubCodeDestination -&gt; Sensitive Text
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3Atoken%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679173395"><span id="local-6989586621679173397"><span class="annot"><span class="annottext">GitHubCodeDestination -&gt; GitHubCodeDestination -&gt; Bool
+(GitHubCodeDestination -&gt; GitHubCodeDestination -&gt; Bool)
+-&gt; (GitHubCodeDestination -&gt; GitHubCodeDestination -&gt; Bool)
+-&gt; Eq GitHubCodeDestination
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GitHubCodeDestination -&gt; GitHubCodeDestination -&gt; Bool
+$c/= :: GitHubCodeDestination -&gt; GitHubCodeDestination -&gt; Bool
+== :: GitHubCodeDestination -&gt; GitHubCodeDestination -&gt; Bool
+$c== :: GitHubCodeDestination -&gt; GitHubCodeDestination -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173388"><span id="local-6989586621679173390"><span id="local-6989586621679173392"><span class="annot"><span class="annottext">Int -&gt; GitHubCodeDestination -&gt; ShowS
+[GitHubCodeDestination] -&gt; ShowS
+GitHubCodeDestination -&gt; String
+(Int -&gt; GitHubCodeDestination -&gt; ShowS)
+-&gt; (GitHubCodeDestination -&gt; String)
+-&gt; ([GitHubCodeDestination] -&gt; ShowS)
+-&gt; Show GitHubCodeDestination
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GitHubCodeDestination] -&gt; ShowS
+$cshowList :: [GitHubCodeDestination] -&gt; ShowS
+show :: GitHubCodeDestination -&gt; String
+$cshow :: GitHubCodeDestination -&gt; String
+showsPrec :: Int -&gt; GitHubCodeDestination -&gt; ShowS
+$cshowsPrec :: Int -&gt; GitHubCodeDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GitHubCodeDestination -&gt; Rep GitHubCodeDestination x)
+-&gt; (forall x. Rep GitHubCodeDestination x -&gt; GitHubCodeDestination)
+-&gt; Generic GitHubCodeDestination
+forall x. Rep GitHubCodeDestination x -&gt; GitHubCodeDestination
+forall x. GitHubCodeDestination -&gt; Rep GitHubCodeDestination x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GitHubCodeDestination x -&gt; GitHubCodeDestination
+$cfrom :: forall x. GitHubCodeDestination -&gt; Rep GitHubCodeDestination x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'GitHubCodeDestination' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'description', 'gitHubCodeDestination_description' - Description for the GitHub repository to be created in AWS CodeStar.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- This description displays in GitHub after the repository is created.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'name', 'gitHubCodeDestination_name' - Name of the GitHub repository to be created in AWS CodeStar.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'type'', 'gitHubCodeDestination_type' - The type of GitHub repository to be created in AWS CodeStar. Valid</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- values are User or Organization.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'owner', 'gitHubCodeDestination_owner' - The GitHub username for the owner of the GitHub repository to be created</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- in AWS CodeStar. If this repository should be owned by a GitHub</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- organization, provide its name.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'privateRepository', 'gitHubCodeDestination_privateRepository' - Whether the GitHub repository is to be a private repository.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'issuesEnabled', 'gitHubCodeDestination_issuesEnabled' - Whether to enable issues for the GitHub repository.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'token', 'gitHubCodeDestination_token' - The GitHub user\'s personal access token for the GitHub repository.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#newGitHubCodeDestination"><span class="hs-identifier hs-type">newGitHubCodeDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'owner'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'privateRepository'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'issuesEnabled'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'token'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span><span>
+</span><span id="line-92"></span><span id="newGitHubCodeDestination"><span class="annot"><span class="annottext">newGitHubCodeDestination :: Text
+-&gt; Text -&gt; Text -&gt; Bool -&gt; Bool -&gt; Text -&gt; GitHubCodeDestination
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#newGitHubCodeDestination"><span class="hs-identifier hs-var hs-var">newGitHubCodeDestination</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679173382"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173382"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679173381"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173381"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679173380"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173380"><span class="hs-identifier hs-var">pOwner_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679173379"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679173379"><span class="hs-identifier hs-var">pPrivateRepository_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679173378"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679173378"><span class="hs-identifier hs-var">pIssuesEnabled_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679173377"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173377"><span class="hs-identifier hs-var">pToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">GitHubCodeDestination' :: Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Bool
+-&gt; Bool
+-&gt; Sensitive Text
+-&gt; GitHubCodeDestination
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-type">GitHubCodeDestination'</span></a></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:GitHubCodeDestination' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3Adescription%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:GitHubCodeDestination' :: Text
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3Aname%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173382"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':GitHubCodeDestination' :: Text
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3Atype%27%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173381"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:owner:GitHubCodeDestination' :: Text
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3Aowner%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173380"><span class="hs-identifier hs-var">pOwner_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:privateRepository:GitHubCodeDestination' :: Bool
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3AprivateRepository%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var">privateRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679173379"><span class="hs-identifier hs-var">pPrivateRepository_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:issuesEnabled:GitHubCodeDestination' :: Bool
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3AissuesEnabled%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var">issuesEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679173378"><span class="hs-identifier hs-var">pIssuesEnabled_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:token:GitHubCodeDestination' :: Sensitive Text
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3Atoken%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173377"><span class="hs-identifier hs-var">pToken_</span></a></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | Description for the GitHub repository to be created in AWS CodeStar.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- This description displays in GitHub after the repository is created.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#gitHubCodeDestination_description"><span class="hs-identifier hs-type">gitHubCodeDestination_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="gitHubCodeDestination_description"><span class="annot"><span class="annottext">gitHubCodeDestination_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GitHubCodeDestination -&gt; f GitHubCodeDestination
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#gitHubCodeDestination_description"><span class="hs-identifier hs-var hs-var">gitHubCodeDestination_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GitHubCodeDestination -&gt; Maybe Text)
+-&gt; (GitHubCodeDestination -&gt; Maybe Text -&gt; GitHubCodeDestination)
+-&gt; Lens
+     GitHubCodeDestination
+     GitHubCodeDestination
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-type">GitHubCodeDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173371"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:GitHubCodeDestination' :: GitHubCodeDestination -&gt; Maybe Text
+</span><a href="#local-6989586621679173371"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173371"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173370"><span class="annot"><span class="annottext">s :: GitHubCodeDestination
+</span><a href="#local-6989586621679173370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-type">GitHubCodeDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173369"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GitHubCodeDestination
+</span><a href="#local-6989586621679173370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:GitHubCodeDestination' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3Adescription%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Name of the GitHub repository to be created in AWS CodeStar.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#gitHubCodeDestination_name"><span class="hs-identifier hs-type">gitHubCodeDestination_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span id="gitHubCodeDestination_name"><span class="annot"><span class="annottext">gitHubCodeDestination_name :: (Text -&gt; f Text)
+-&gt; GitHubCodeDestination -&gt; f GitHubCodeDestination
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#gitHubCodeDestination_name"><span class="hs-identifier hs-var hs-var">gitHubCodeDestination_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GitHubCodeDestination -&gt; Text)
+-&gt; (GitHubCodeDestination -&gt; Text -&gt; GitHubCodeDestination)
+-&gt; Lens GitHubCodeDestination GitHubCodeDestination Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-type">GitHubCodeDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173367"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GitHubCodeDestination' :: GitHubCodeDestination -&gt; Text
+</span><a href="#local-6989586621679173367"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173367"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173366"><span class="annot"><span class="annottext">s :: GitHubCodeDestination
+</span><a href="#local-6989586621679173366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-type">GitHubCodeDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173365"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GitHubCodeDestination
+</span><a href="#local-6989586621679173366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GitHubCodeDestination' :: Text
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3Aname%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The type of GitHub repository to be created in AWS CodeStar. Valid</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- values are User or Organization.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#gitHubCodeDestination_type"><span class="hs-identifier hs-type">gitHubCodeDestination_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="gitHubCodeDestination_type"><span class="annot"><span class="annottext">gitHubCodeDestination_type :: (Text -&gt; f Text)
+-&gt; GitHubCodeDestination -&gt; f GitHubCodeDestination
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#gitHubCodeDestination_type"><span class="hs-identifier hs-var hs-var">gitHubCodeDestination_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GitHubCodeDestination -&gt; Text)
+-&gt; (GitHubCodeDestination -&gt; Text -&gt; GitHubCodeDestination)
+-&gt; Lens GitHubCodeDestination GitHubCodeDestination Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-type">GitHubCodeDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173363"><span class="annot"><span class="annottext">Text
+type' :: Text
+$sel:type':GitHubCodeDestination' :: GitHubCodeDestination -&gt; Text
+</span><a href="#local-6989586621679173363"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173363"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173362"><span class="annot"><span class="annottext">s :: GitHubCodeDestination
+</span><a href="#local-6989586621679173362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-type">GitHubCodeDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173361"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GitHubCodeDestination
+</span><a href="#local-6989586621679173362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':GitHubCodeDestination' :: Text
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3Atype%27%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The GitHub username for the owner of the GitHub repository to be created</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- in AWS CodeStar. If this repository should be owned by a GitHub</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- organization, provide its name.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#gitHubCodeDestination_owner"><span class="hs-identifier hs-type">gitHubCodeDestination_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-128"></span><span id="gitHubCodeDestination_owner"><span class="annot"><span class="annottext">gitHubCodeDestination_owner :: (Text -&gt; f Text)
+-&gt; GitHubCodeDestination -&gt; f GitHubCodeDestination
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#gitHubCodeDestination_owner"><span class="hs-identifier hs-var hs-var">gitHubCodeDestination_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GitHubCodeDestination -&gt; Text)
+-&gt; (GitHubCodeDestination -&gt; Text -&gt; GitHubCodeDestination)
+-&gt; Lens GitHubCodeDestination GitHubCodeDestination Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-type">GitHubCodeDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173359"><span class="annot"><span class="annottext">Text
+owner :: Text
+$sel:owner:GitHubCodeDestination' :: GitHubCodeDestination -&gt; Text
+</span><a href="#local-6989586621679173359"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173359"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173358"><span class="annot"><span class="annottext">s :: GitHubCodeDestination
+</span><a href="#local-6989586621679173358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-type">GitHubCodeDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173357"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GitHubCodeDestination
+</span><a href="#local-6989586621679173358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:GitHubCodeDestination' :: Text
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3Aowner%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | Whether the GitHub repository is to be a private repository.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#gitHubCodeDestination_privateRepository"><span class="hs-identifier hs-type">gitHubCodeDestination_privateRepository</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-132"></span><span id="gitHubCodeDestination_privateRepository"><span class="annot"><span class="annottext">gitHubCodeDestination_privateRepository :: (Bool -&gt; f Bool)
+-&gt; GitHubCodeDestination -&gt; f GitHubCodeDestination
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#gitHubCodeDestination_privateRepository"><span class="hs-identifier hs-var hs-var">gitHubCodeDestination_privateRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GitHubCodeDestination -&gt; Bool)
+-&gt; (GitHubCodeDestination -&gt; Bool -&gt; GitHubCodeDestination)
+-&gt; Lens GitHubCodeDestination GitHubCodeDestination Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-type">GitHubCodeDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173355"><span class="annot"><span class="annottext">Bool
+privateRepository :: Bool
+$sel:privateRepository:GitHubCodeDestination' :: GitHubCodeDestination -&gt; Bool
+</span><a href="#local-6989586621679173355"><span class="hs-identifier hs-var hs-var">privateRepository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679173355"><span class="hs-identifier hs-var">privateRepository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173354"><span class="annot"><span class="annottext">s :: GitHubCodeDestination
+</span><a href="#local-6989586621679173354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-type">GitHubCodeDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173353"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679173353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GitHubCodeDestination
+</span><a href="#local-6989586621679173354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateRepository:GitHubCodeDestination' :: Bool
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3AprivateRepository%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var">privateRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679173353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | Whether to enable issues for the GitHub repository.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#gitHubCodeDestination_issuesEnabled"><span class="hs-identifier hs-type">gitHubCodeDestination_issuesEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-136"></span><span id="gitHubCodeDestination_issuesEnabled"><span class="annot"><span class="annottext">gitHubCodeDestination_issuesEnabled :: (Bool -&gt; f Bool)
+-&gt; GitHubCodeDestination -&gt; f GitHubCodeDestination
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#gitHubCodeDestination_issuesEnabled"><span class="hs-identifier hs-var hs-var">gitHubCodeDestination_issuesEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GitHubCodeDestination -&gt; Bool)
+-&gt; (GitHubCodeDestination -&gt; Bool -&gt; GitHubCodeDestination)
+-&gt; Lens GitHubCodeDestination GitHubCodeDestination Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-type">GitHubCodeDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173351"><span class="annot"><span class="annottext">Bool
+issuesEnabled :: Bool
+$sel:issuesEnabled:GitHubCodeDestination' :: GitHubCodeDestination -&gt; Bool
+</span><a href="#local-6989586621679173351"><span class="hs-identifier hs-var hs-var">issuesEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679173351"><span class="hs-identifier hs-var">issuesEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173350"><span class="annot"><span class="annottext">s :: GitHubCodeDestination
+</span><a href="#local-6989586621679173350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-type">GitHubCodeDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173349"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679173349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GitHubCodeDestination
+</span><a href="#local-6989586621679173350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issuesEnabled:GitHubCodeDestination' :: Bool
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3AissuesEnabled%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var">issuesEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679173349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The GitHub user\'s personal access token for the GitHub repository.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#gitHubCodeDestination_token"><span class="hs-identifier hs-type">gitHubCodeDestination_token</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-140"></span><span id="gitHubCodeDestination_token"><span class="annot"><span class="annottext">gitHubCodeDestination_token :: (Text -&gt; f Text)
+-&gt; GitHubCodeDestination -&gt; f GitHubCodeDestination
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#gitHubCodeDestination_token"><span class="hs-identifier hs-var hs-var">gitHubCodeDestination_token</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GitHubCodeDestination -&gt; Sensitive Text)
+-&gt; (GitHubCodeDestination
+    -&gt; Sensitive Text -&gt; GitHubCodeDestination)
+-&gt; Lens
+     GitHubCodeDestination
+     GitHubCodeDestination
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-type">GitHubCodeDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173347"><span class="annot"><span class="annottext">Sensitive Text
+token :: Sensitive Text
+$sel:token:GitHubCodeDestination' :: GitHubCodeDestination -&gt; Sensitive Text
+</span><a href="#local-6989586621679173347"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679173347"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173346"><span class="annot"><span class="annottext">s :: GitHubCodeDestination
+</span><a href="#local-6989586621679173346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-type">GitHubCodeDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173345"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679173345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GitHubCodeDestination
+</span><a href="#local-6989586621679173346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:token:GitHubCodeDestination' :: Sensitive Text
+</span><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#%24sel%3Atoken%3AGitHubCodeDestination%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679173345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; GitHubCodeDestination -&gt; f GitHubCodeDestination)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; GitHubCodeDestination
+-&gt; f GitHubCodeDestination
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173340"><span id="local-6989586621679173342"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173337"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173329"><span id="local-6989586621679173331"><span id="local-6989586621679173333"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination"><span class="hs-identifier hs-type">GitHubCodeDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679173327"><span class="annot"><span class="annottext">toJSON :: GitHubCodeDestination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.GitHubCodeDestination.html#GitHubCodeDestination%27"><span class="hs-identifier hs-type">GitHubCodeDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173319"><span id="local-6989586621679173320"><span id="local-6989586621679173321"><span id="local-6989586621679173322"><span id="local-6989586621679173323"><span id="local-6989586621679173324"><span id="local-6989586621679173325"><span class="annot"><span class="annottext">Bool
+Maybe Text
+Text
+Sensitive Text
+token :: Sensitive Text
+issuesEnabled :: Bool
+privateRepository :: Bool
+owner :: Text
+type' :: Text
+name :: Text
+description :: Maybe Text
+$sel:token:GitHubCodeDestination' :: GitHubCodeDestination -&gt; Sensitive Text
+$sel:issuesEnabled:GitHubCodeDestination' :: GitHubCodeDestination -&gt; Bool
+$sel:privateRepository:GitHubCodeDestination' :: GitHubCodeDestination -&gt; Bool
+$sel:owner:GitHubCodeDestination' :: GitHubCodeDestination -&gt; Text
+$sel:type':GitHubCodeDestination' :: GitHubCodeDestination -&gt; Text
+$sel:name:GitHubCodeDestination' :: GitHubCodeDestination -&gt; Text
+$sel:description:GitHubCodeDestination' :: GitHubCodeDestination -&gt; Maybe Text
+</span><a href="#local-6989586621679173319"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173325"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173324"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173323"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;owner&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173322"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-155"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;privateRepository&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679173321"><span class="hs-identifier hs-var">privateRepository</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;issuesEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679173320"><span class="hs-identifier hs-var">issuesEnabled</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;token&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679173319"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span></pre></body></html>

@@ -1,0 +1,757 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AlexaBusiness.ListDeviceEvents</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the device event history, including device connection status, for</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- up to 30 days.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AlexaBusiness.ListDeviceEvents</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier">ListDeviceEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#newListDeviceEvents"><span class="hs-identifier">newListDeviceEvents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEvents_eventType"><span class="hs-identifier">listDeviceEvents_eventType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEvents_nextToken"><span class="hs-identifier">listDeviceEvents_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEvents_maxResults"><span class="hs-identifier">listDeviceEvents_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEvents_deviceArn"><span class="hs-identifier">listDeviceEvents_deviceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse"><span class="hs-identifier">ListDeviceEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#newListDeviceEventsResponse"><span class="hs-identifier">newListDeviceEventsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEventsResponse_nextToken"><span class="hs-identifier">listDeviceEventsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEventsResponse_deviceEvents"><span class="hs-identifier">listDeviceEventsResponse_deviceEvents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEventsResponse_httpStatus"><span class="hs-identifier">listDeviceEventsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.html"><span class="hs-identifier">Network.AWS.AlexaBusiness.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListDeviceEvents' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679382761"><span id="local-6989586621679382762"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDeviceEvents"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-var">ListDeviceEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDeviceEvents%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents%27"><span class="hs-identifier hs-var">ListDeviceEvents'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The event type to filter device events. If EventType isn\'t specified,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- this returns a list of all device events in reverse chronological order.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- If EventType is specified, this returns a list of device events for that</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- EventType in reverse chronological order.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AeventType%3AListDeviceEvents%27"><span class="annot"><span class="annottext">ListDeviceEvents -&gt; Maybe DeviceEventType
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AeventType%3AListDeviceEvents%27"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEventType.html#DeviceEventType"><span class="hs-identifier hs-type">DeviceEventType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | An optional token returned from a prior request. Use this token for</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the response only includes results beyond the token, up to the value</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- specified by MaxResults. When the end of results is reached, the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- response has a value of null.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AnextToken%3AListDeviceEvents%27"><span class="annot"><span class="annottext">ListDeviceEvents -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AnextToken%3AListDeviceEvents%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to include in the response. The default</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- value is 50. If more results exist than the specified MaxResults value,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- a token is included in the response so that the remaining results can be</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- retrieved.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AmaxResults%3AListDeviceEvents%27"><span class="annot"><span class="annottext">ListDeviceEvents -&gt; Maybe Natural
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AmaxResults%3AListDeviceEvents%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The ARN of a device.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AdeviceArn%3AListDeviceEvents%27"><span class="annot"><span class="annottext">ListDeviceEvents -&gt; Text
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AdeviceArn%3AListDeviceEvents%27"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382752"><span id="local-6989586621679382754"><span class="annot"><span class="annottext">ListDeviceEvents -&gt; ListDeviceEvents -&gt; Bool
+(ListDeviceEvents -&gt; ListDeviceEvents -&gt; Bool)
+-&gt; (ListDeviceEvents -&gt; ListDeviceEvents -&gt; Bool)
+-&gt; Eq ListDeviceEvents
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDeviceEvents -&gt; ListDeviceEvents -&gt; Bool
+$c/= :: ListDeviceEvents -&gt; ListDeviceEvents -&gt; Bool
+== :: ListDeviceEvents -&gt; ListDeviceEvents -&gt; Bool
+$c== :: ListDeviceEvents -&gt; ListDeviceEvents -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382743"><span id="local-6989586621679382745"><span id="local-6989586621679382747"><span id="local-6989586621679382749"><span class="annot"><span class="annottext">ReadPrec [ListDeviceEvents]
+ReadPrec ListDeviceEvents
+Int -&gt; ReadS ListDeviceEvents
+ReadS [ListDeviceEvents]
+(Int -&gt; ReadS ListDeviceEvents)
+-&gt; ReadS [ListDeviceEvents]
+-&gt; ReadPrec ListDeviceEvents
+-&gt; ReadPrec [ListDeviceEvents]
+-&gt; Read ListDeviceEvents
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDeviceEvents]
+$creadListPrec :: ReadPrec [ListDeviceEvents]
+readPrec :: ReadPrec ListDeviceEvents
+$creadPrec :: ReadPrec ListDeviceEvents
+readList :: ReadS [ListDeviceEvents]
+$creadList :: ReadS [ListDeviceEvents]
+readsPrec :: Int -&gt; ReadS ListDeviceEvents
+$creadsPrec :: Int -&gt; ReadS ListDeviceEvents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382736"><span id="local-6989586621679382738"><span id="local-6989586621679382740"><span class="annot"><span class="annottext">Int -&gt; ListDeviceEvents -&gt; ShowS
+[ListDeviceEvents] -&gt; ShowS
+ListDeviceEvents -&gt; String
+(Int -&gt; ListDeviceEvents -&gt; ShowS)
+-&gt; (ListDeviceEvents -&gt; String)
+-&gt; ([ListDeviceEvents] -&gt; ShowS)
+-&gt; Show ListDeviceEvents
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDeviceEvents] -&gt; ShowS
+$cshowList :: [ListDeviceEvents] -&gt; ShowS
+show :: ListDeviceEvents -&gt; String
+$cshow :: ListDeviceEvents -&gt; String
+showsPrec :: Int -&gt; ListDeviceEvents -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDeviceEvents -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListDeviceEvents -&gt; Rep ListDeviceEvents x)
+-&gt; (forall x. Rep ListDeviceEvents x -&gt; ListDeviceEvents)
+-&gt; Generic ListDeviceEvents
+forall x. Rep ListDeviceEvents x -&gt; ListDeviceEvents
+forall x. ListDeviceEvents -&gt; Rep ListDeviceEvents x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListDeviceEvents x -&gt; ListDeviceEvents
+$cfrom :: forall x. ListDeviceEvents -&gt; Rep ListDeviceEvents x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'ListDeviceEvents' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'eventType', 'listDeviceEvents_eventType' - The event type to filter device events. If EventType isn\'t specified,</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- this returns a list of all device events in reverse chronological order.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- If EventType is specified, this returns a list of device events for that</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- EventType in reverse chronological order.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'nextToken', 'listDeviceEvents_nextToken' - An optional token returned from a prior request. Use this token for</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- the response only includes results beyond the token, up to the value</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- specified by MaxResults. When the end of results is reached, the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- response has a value of null.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'maxResults', 'listDeviceEvents_maxResults' - The maximum number of results to include in the response. The default</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- value is 50. If more results exist than the specified MaxResults value,</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- a token is included in the response so that the remaining results can be</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- retrieved.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'deviceArn', 'listDeviceEvents_deviceArn' - The ARN of a device.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#newListDeviceEvents"><span class="hs-identifier hs-type">newListDeviceEvents</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'deviceArn'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span><span>
+</span><span id="line-108"></span><span id="newListDeviceEvents"><span class="annot"><span class="annottext">newListDeviceEvents :: Text -&gt; ListDeviceEvents
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#newListDeviceEvents"><span class="hs-identifier hs-var hs-var">newListDeviceEvents</span></a></span></span><span> </span><span id="local-6989586621679382731"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382731"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">ListDeviceEvents' :: Maybe DeviceEventType
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListDeviceEvents
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents%27"><span class="hs-identifier hs-type">ListDeviceEvents'</span></a></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventType:ListDeviceEvents' :: Maybe DeviceEventType
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AeventType%3AListDeviceEvents%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceEventType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListDeviceEvents' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AnextToken%3AListDeviceEvents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListDeviceEvents' :: Maybe Natural
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AmaxResults%3AListDeviceEvents%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceArn:ListDeviceEvents' :: Text
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AdeviceArn%3AListDeviceEvents%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382731"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The event type to filter device events. If EventType isn\'t specified,</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- this returns a list of all device events in reverse chronological order.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- If EventType is specified, this returns a list of device events for that</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- EventType in reverse chronological order.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEvents_eventType"><span class="hs-identifier hs-type">listDeviceEvents_eventType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEventType.html#DeviceEventType"><span class="hs-identifier hs-type">DeviceEventType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="listDeviceEvents_eventType"><span class="annot"><span class="annottext">listDeviceEvents_eventType :: (Maybe DeviceEventType -&gt; f (Maybe DeviceEventType))
+-&gt; ListDeviceEvents -&gt; f ListDeviceEvents
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEvents_eventType"><span class="hs-identifier hs-var hs-var">listDeviceEvents_eventType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDeviceEvents -&gt; Maybe DeviceEventType)
+-&gt; (ListDeviceEvents -&gt; Maybe DeviceEventType -&gt; ListDeviceEvents)
+-&gt; Lens
+     ListDeviceEvents
+     ListDeviceEvents
+     (Maybe DeviceEventType)
+     (Maybe DeviceEventType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents%27"><span class="hs-identifier hs-type">ListDeviceEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382729"><span class="annot"><span class="annottext">Maybe DeviceEventType
+eventType :: Maybe DeviceEventType
+$sel:eventType:ListDeviceEvents' :: ListDeviceEvents -&gt; Maybe DeviceEventType
+</span><a href="#local-6989586621679382729"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceEventType
+</span><a href="#local-6989586621679382729"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382728"><span class="annot"><span class="annottext">s :: ListDeviceEvents
+</span><a href="#local-6989586621679382728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents%27"><span class="hs-identifier hs-type">ListDeviceEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382727"><span class="annot"><span class="annottext">Maybe DeviceEventType
+</span><a href="#local-6989586621679382727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceEvents
+</span><a href="#local-6989586621679382728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventType:ListDeviceEvents' :: Maybe DeviceEventType
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AeventType%3AListDeviceEvents%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceEventType
+</span><a href="#local-6989586621679382727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | An optional token returned from a prior request. Use this token for</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- the response only includes results beyond the token, up to the value</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- specified by MaxResults. When the end of results is reached, the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- response has a value of null.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEvents_nextToken"><span class="hs-identifier hs-type">listDeviceEvents_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="listDeviceEvents_nextToken"><span class="annot"><span class="annottext">listDeviceEvents_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDeviceEvents -&gt; f ListDeviceEvents
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEvents_nextToken"><span class="hs-identifier hs-var hs-var">listDeviceEvents_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDeviceEvents -&gt; Maybe Text)
+-&gt; (ListDeviceEvents -&gt; Maybe Text -&gt; ListDeviceEvents)
+-&gt; Lens ListDeviceEvents ListDeviceEvents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents%27"><span class="hs-identifier hs-type">ListDeviceEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382726"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDeviceEvents' :: ListDeviceEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679382726"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382726"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382725"><span class="annot"><span class="annottext">s :: ListDeviceEvents
+</span><a href="#local-6989586621679382725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents%27"><span class="hs-identifier hs-type">ListDeviceEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382724"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceEvents
+</span><a href="#local-6989586621679382725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDeviceEvents' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AnextToken%3AListDeviceEvents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The maximum number of results to include in the response. The default</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- value is 50. If more results exist than the specified MaxResults value,</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- a token is included in the response so that the remaining results can be</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- retrieved.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEvents_maxResults"><span class="hs-identifier hs-type">listDeviceEvents_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="listDeviceEvents_maxResults"><span class="annot"><span class="annottext">listDeviceEvents_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListDeviceEvents -&gt; f ListDeviceEvents
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEvents_maxResults"><span class="hs-identifier hs-var hs-var">listDeviceEvents_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDeviceEvents -&gt; Maybe Natural)
+-&gt; (ListDeviceEvents -&gt; Maybe Natural -&gt; ListDeviceEvents)
+-&gt; Lens
+     ListDeviceEvents ListDeviceEvents (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents%27"><span class="hs-identifier hs-type">ListDeviceEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382723"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListDeviceEvents' :: ListDeviceEvents -&gt; Maybe Natural
+</span><a href="#local-6989586621679382723"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679382723"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382722"><span class="annot"><span class="annottext">s :: ListDeviceEvents
+</span><a href="#local-6989586621679382722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents%27"><span class="hs-identifier hs-type">ListDeviceEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382721"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679382721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceEvents
+</span><a href="#local-6989586621679382722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDeviceEvents' :: Maybe Natural
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AmaxResults%3AListDeviceEvents%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679382721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The ARN of a device.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEvents_deviceArn"><span class="hs-identifier hs-type">listDeviceEvents_deviceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-140"></span><span id="listDeviceEvents_deviceArn"><span class="annot"><span class="annottext">listDeviceEvents_deviceArn :: (Text -&gt; f Text) -&gt; ListDeviceEvents -&gt; f ListDeviceEvents
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEvents_deviceArn"><span class="hs-identifier hs-var hs-var">listDeviceEvents_deviceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDeviceEvents -&gt; Text)
+-&gt; (ListDeviceEvents -&gt; Text -&gt; ListDeviceEvents)
+-&gt; Lens ListDeviceEvents ListDeviceEvents Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents%27"><span class="hs-identifier hs-type">ListDeviceEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382720"><span class="annot"><span class="annottext">Text
+deviceArn :: Text
+$sel:deviceArn:ListDeviceEvents' :: ListDeviceEvents -&gt; Text
+</span><a href="#local-6989586621679382720"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382720"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382719"><span class="annot"><span class="annottext">s :: ListDeviceEvents
+</span><a href="#local-6989586621679382719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents%27"><span class="hs-identifier hs-type">ListDeviceEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382718"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceEvents
+</span><a href="#local-6989586621679382719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceArn:ListDeviceEvents' :: Text
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AdeviceArn%3AListDeviceEvents%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679382714"><span class="annot"><span class="annottext">page :: ListDeviceEvents
+-&gt; AWSResponse ListDeviceEvents -&gt; Maybe ListDeviceEvents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679382712"><span class="annot"><span class="annottext">ListDeviceEvents
+</span><a href="#local-6989586621679382712"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679382711"><span class="annot"><span class="annottext">AWSResponse ListDeviceEvents
+</span><a href="#local-6989586621679382711"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-145"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDeviceEvents
+ListDeviceEventsResponse
+</span><a href="#local-6989586621679382711"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">ListDeviceEventsResponse
+-&gt; Getting (First Text) ListDeviceEventsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListDeviceEventsResponse
+-&gt; Const (First Text) ListDeviceEventsResponse
+Lens' ListDeviceEventsResponse (Maybe Text)
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEventsResponse_nextToken"><span class="hs-identifier hs-var">listDeviceEventsResponse_nextToken</span></a></span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListDeviceEventsResponse
+ -&gt; Const (First Text) ListDeviceEventsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListDeviceEventsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-148"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListDeviceEvents
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [DeviceEvent] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-151"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDeviceEvents
+ListDeviceEventsResponse
+</span><a href="#local-6989586621679382711"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">ListDeviceEventsResponse
+-&gt; Getting
+     (First [DeviceEvent]) ListDeviceEventsResponse [DeviceEvent]
+-&gt; Maybe [DeviceEvent]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [DeviceEvent]
+ -&gt; Const (First [DeviceEvent]) (Maybe [DeviceEvent]))
+-&gt; ListDeviceEventsResponse
+-&gt; Const (First [DeviceEvent]) ListDeviceEventsResponse
+Lens' ListDeviceEventsResponse (Maybe [DeviceEvent])
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEventsResponse_deviceEvents"><span class="hs-identifier hs-var">listDeviceEventsResponse_deviceEvents</span></a></span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [DeviceEvent]
+  -&gt; Const (First [DeviceEvent]) (Maybe [DeviceEvent]))
+ -&gt; ListDeviceEventsResponse
+ -&gt; Const (First [DeviceEvent]) ListDeviceEventsResponse)
+-&gt; (([DeviceEvent] -&gt; Const (First [DeviceEvent]) [DeviceEvent])
+    -&gt; Maybe [DeviceEvent]
+    -&gt; Const (First [DeviceEvent]) (Maybe [DeviceEvent]))
+-&gt; Getting
+     (First [DeviceEvent]) ListDeviceEventsResponse [DeviceEvent]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([DeviceEvent] -&gt; Const (First [DeviceEvent]) [DeviceEvent])
+-&gt; Maybe [DeviceEvent]
+-&gt; Const (First [DeviceEvent]) (Maybe [DeviceEvent])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-154"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListDeviceEvents
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">ListDeviceEvents -&gt; Maybe ListDeviceEvents
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListDeviceEvents -&gt; Maybe ListDeviceEvents)
+-&gt; ListDeviceEvents -&gt; Maybe ListDeviceEvents
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ListDeviceEvents
+</span><a href="#local-6989586621679382712"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">ListDeviceEvents
+-&gt; (ListDeviceEvents -&gt; ListDeviceEvents) -&gt; ListDeviceEvents
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListDeviceEvents -&gt; Identity ListDeviceEvents
+Lens ListDeviceEvents ListDeviceEvents (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEvents_nextToken"><span class="hs-identifier hs-var">listDeviceEvents_nextToken</span></a></span><span>
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListDeviceEvents -&gt; Identity ListDeviceEvents)
+-&gt; Maybe Text -&gt; ListDeviceEvents -&gt; ListDeviceEvents
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDeviceEvents
+ListDeviceEventsResponse
+</span><a href="#local-6989586621679382711"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">ListDeviceEventsResponse
+-&gt; Getting (First Text) ListDeviceEventsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListDeviceEventsResponse
+-&gt; Const (First Text) ListDeviceEventsResponse
+Lens' ListDeviceEventsResponse (Maybe Text)
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEventsResponse_nextToken"><span class="hs-identifier hs-var">listDeviceEventsResponse_nextToken</span></a></span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListDeviceEventsResponse
+ -&gt; Const (First Text) ListDeviceEventsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListDeviceEventsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-166"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse"><span class="hs-identifier hs-type">ListDeviceEventsResponse</span></a></span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679382701"><span class="annot"><span class="annottext">request :: ListDeviceEvents -&gt; Request ListDeviceEvents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDeviceEvents -&gt; Request ListDeviceEvents
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679382697"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListDeviceEvents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListDeviceEvents)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListDeviceEvents))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListDeviceEvents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListDeviceEvents)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679382694"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382694"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679382693"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679382693"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679382692"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679382692"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [DeviceEvent] -&gt; Int -&gt; ListDeviceEventsResponse
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse%27"><span class="hs-identifier hs-var">ListDeviceEventsResponse'</span></a></span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [DeviceEvent] -&gt; Int -&gt; ListDeviceEventsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [DeviceEvent] -&gt; Int -&gt; ListDeviceEventsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679382692"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [DeviceEvent] -&gt; Int -&gt; ListDeviceEventsResponse)
+-&gt; Either String (Maybe [DeviceEvent])
+-&gt; Either String (Int -&gt; ListDeviceEventsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679382692"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DeviceEvent]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceEvents&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DeviceEvent]))
+-&gt; Maybe [DeviceEvent] -&gt; Either String (Maybe [DeviceEvent])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DeviceEvent]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListDeviceEventsResponse)
+-&gt; Either String Int -&gt; Either String ListDeviceEventsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382694"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382683"><span id="local-6989586621679382685"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span></span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382680"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679382676"><span class="annot"><span class="annottext">toHeaders :: ListDeviceEvents -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDeviceEvents -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-186"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AlexaForBusiness.ListDeviceEvents&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-189"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-191"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-192"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-193"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382666"><span id="local-6989586621679382668"><span id="local-6989586621679382670"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679382664"><span class="annot"><span class="annottext">toJSON :: ListDeviceEvents -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents%27"><span class="hs-identifier hs-type">ListDeviceEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382659"><span id="local-6989586621679382660"><span id="local-6989586621679382661"><span id="local-6989586621679382662"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe DeviceEventType
+Text
+deviceArn :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+eventType :: Maybe DeviceEventType
+$sel:deviceArn:ListDeviceEvents' :: ListDeviceEvents -&gt; Text
+$sel:maxResults:ListDeviceEvents' :: ListDeviceEvents -&gt; Maybe Natural
+$sel:nextToken:ListDeviceEvents' :: ListDeviceEvents -&gt; Maybe Text
+$sel:eventType:ListDeviceEvents' :: ListDeviceEvents -&gt; Maybe DeviceEventType
+</span><a href="#local-6989586621679382659"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-201"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeviceEventType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DeviceEventType -&gt; Pair) -&gt; Maybe DeviceEventType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeviceEventType
+</span><a href="#local-6989586621679382662"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382661"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679382660"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382659"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679382653"><span class="annot"><span class="annottext">toPath :: ListDeviceEvents -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListDeviceEvents -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEvents"><span class="hs-identifier hs-type">ListDeviceEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679382649"><span class="annot"><span class="annottext">toQuery :: ListDeviceEvents -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListDeviceEvents -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | /See:/ 'newListDeviceEventsResponse' smart constructor.</span><span>
+</span><span id="line-215"></span><span id="local-6989586621679382646"><span id="local-6989586621679382647"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDeviceEventsResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse"><span class="hs-identifier hs-var">ListDeviceEventsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDeviceEventsResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse%27"><span class="hs-identifier hs-var">ListDeviceEventsResponse'</span></a></span></span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token returned to indicate that there is more data available.</span><span>
+</span><span id="line-217"></span><span>    </span><span id="%24sel%3AnextToken%3AListDeviceEventsResponse%27"><span class="annot"><span class="annottext">ListDeviceEventsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AnextToken%3AListDeviceEventsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- | The device events requested for the device ARN.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AdeviceEvents%3AListDeviceEventsResponse%27"><span class="annot"><span class="annottext">ListDeviceEventsResponse -&gt; Maybe [DeviceEvent]
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AdeviceEvents%3AListDeviceEventsResponse%27"><span class="hs-identifier hs-var hs-var">deviceEvents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-type">DeviceEvent</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-221"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListDeviceEventsResponse%27"><span class="annot"><span class="annottext">ListDeviceEventsResponse -&gt; Int
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AhttpStatus%3AListDeviceEventsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382639"><span id="local-6989586621679382641"><span class="annot"><span class="annottext">ListDeviceEventsResponse -&gt; ListDeviceEventsResponse -&gt; Bool
+(ListDeviceEventsResponse -&gt; ListDeviceEventsResponse -&gt; Bool)
+-&gt; (ListDeviceEventsResponse -&gt; ListDeviceEventsResponse -&gt; Bool)
+-&gt; Eq ListDeviceEventsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDeviceEventsResponse -&gt; ListDeviceEventsResponse -&gt; Bool
+$c/= :: ListDeviceEventsResponse -&gt; ListDeviceEventsResponse -&gt; Bool
+== :: ListDeviceEventsResponse -&gt; ListDeviceEventsResponse -&gt; Bool
+$c== :: ListDeviceEventsResponse -&gt; ListDeviceEventsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382631"><span id="local-6989586621679382633"><span id="local-6989586621679382635"><span id="local-6989586621679382637"><span class="annot"><span class="annottext">ReadPrec [ListDeviceEventsResponse]
+ReadPrec ListDeviceEventsResponse
+Int -&gt; ReadS ListDeviceEventsResponse
+ReadS [ListDeviceEventsResponse]
+(Int -&gt; ReadS ListDeviceEventsResponse)
+-&gt; ReadS [ListDeviceEventsResponse]
+-&gt; ReadPrec ListDeviceEventsResponse
+-&gt; ReadPrec [ListDeviceEventsResponse]
+-&gt; Read ListDeviceEventsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDeviceEventsResponse]
+$creadListPrec :: ReadPrec [ListDeviceEventsResponse]
+readPrec :: ReadPrec ListDeviceEventsResponse
+$creadPrec :: ReadPrec ListDeviceEventsResponse
+readList :: ReadS [ListDeviceEventsResponse]
+$creadList :: ReadS [ListDeviceEventsResponse]
+readsPrec :: Int -&gt; ReadS ListDeviceEventsResponse
+$creadsPrec :: Int -&gt; ReadS ListDeviceEventsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382625"><span id="local-6989586621679382627"><span id="local-6989586621679382629"><span class="annot"><span class="annottext">Int -&gt; ListDeviceEventsResponse -&gt; ShowS
+[ListDeviceEventsResponse] -&gt; ShowS
+ListDeviceEventsResponse -&gt; String
+(Int -&gt; ListDeviceEventsResponse -&gt; ShowS)
+-&gt; (ListDeviceEventsResponse -&gt; String)
+-&gt; ([ListDeviceEventsResponse] -&gt; ShowS)
+-&gt; Show ListDeviceEventsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDeviceEventsResponse] -&gt; ShowS
+$cshowList :: [ListDeviceEventsResponse] -&gt; ShowS
+show :: ListDeviceEventsResponse -&gt; String
+$cshow :: ListDeviceEventsResponse -&gt; String
+showsPrec :: Int -&gt; ListDeviceEventsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDeviceEventsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListDeviceEventsResponse -&gt; Rep ListDeviceEventsResponse x)
+-&gt; (forall x.
+    Rep ListDeviceEventsResponse x -&gt; ListDeviceEventsResponse)
+-&gt; Generic ListDeviceEventsResponse
+forall x.
+Rep ListDeviceEventsResponse x -&gt; ListDeviceEventsResponse
+forall x.
+ListDeviceEventsResponse -&gt; Rep ListDeviceEventsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListDeviceEventsResponse x -&gt; ListDeviceEventsResponse
+$cfrom :: forall x.
+ListDeviceEventsResponse -&gt; Rep ListDeviceEventsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Create a value of 'ListDeviceEventsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 'nextToken', 'listDeviceEventsResponse_nextToken' - The token returned to indicate that there is more data available.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'deviceEvents', 'listDeviceEventsResponse_deviceEvents' - The device events requested for the device ARN.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- 'httpStatus', 'listDeviceEventsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#newListDeviceEventsResponse"><span class="hs-identifier hs-type">newListDeviceEventsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-239"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse"><span class="hs-identifier hs-type">ListDeviceEventsResponse</span></a></span><span>
+</span><span id="line-242"></span><span id="newListDeviceEventsResponse"><span class="annot"><span class="annottext">newListDeviceEventsResponse :: Int -&gt; ListDeviceEventsResponse
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#newListDeviceEventsResponse"><span class="hs-identifier hs-var hs-var">newListDeviceEventsResponse</span></a></span></span><span> </span><span id="local-6989586621679382622"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382622"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><span class="annottext">ListDeviceEventsResponse' :: Maybe Text
+-&gt; Maybe [DeviceEvent] -&gt; Int -&gt; ListDeviceEventsResponse
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse%27"><span class="hs-identifier hs-type">ListDeviceEventsResponse'</span></a></span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListDeviceEventsResponse' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AnextToken%3AListDeviceEventsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceEvents:ListDeviceEventsResponse' :: Maybe [DeviceEvent]
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AdeviceEvents%3AListDeviceEventsResponse%27"><span class="hs-identifier hs-var">deviceEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeviceEvent]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDeviceEventsResponse' :: Int
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AhttpStatus%3AListDeviceEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382622"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The token returned to indicate that there is more data available.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEventsResponse_nextToken"><span class="hs-identifier hs-type">listDeviceEventsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse"><span class="hs-identifier hs-type">ListDeviceEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="listDeviceEventsResponse_nextToken"><span class="annot"><span class="annottext">listDeviceEventsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDeviceEventsResponse -&gt; f ListDeviceEventsResponse
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEventsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listDeviceEventsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDeviceEventsResponse -&gt; Maybe Text)
+-&gt; (ListDeviceEventsResponse
+    -&gt; Maybe Text -&gt; ListDeviceEventsResponse)
+-&gt; Lens' ListDeviceEventsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse%27"><span class="hs-identifier hs-type">ListDeviceEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382621"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDeviceEventsResponse' :: ListDeviceEventsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679382621"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382621"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382620"><span class="annot"><span class="annottext">s :: ListDeviceEventsResponse
+</span><a href="#local-6989586621679382620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse%27"><span class="hs-identifier hs-type">ListDeviceEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382619"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceEventsResponse
+</span><a href="#local-6989586621679382620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDeviceEventsResponse' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AnextToken%3AListDeviceEventsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse"><span class="hs-identifier hs-type">ListDeviceEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The device events requested for the device ARN.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEventsResponse_deviceEvents"><span class="hs-identifier hs-type">listDeviceEventsResponse_deviceEvents</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse"><span class="hs-identifier hs-type">ListDeviceEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-type">DeviceEvent</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="listDeviceEventsResponse_deviceEvents"><span class="annot"><span class="annottext">listDeviceEventsResponse_deviceEvents :: (Maybe [DeviceEvent] -&gt; f (Maybe [DeviceEvent]))
+-&gt; ListDeviceEventsResponse -&gt; f ListDeviceEventsResponse
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEventsResponse_deviceEvents"><span class="hs-identifier hs-var hs-var">listDeviceEventsResponse_deviceEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDeviceEventsResponse -&gt; Maybe [DeviceEvent])
+-&gt; (ListDeviceEventsResponse
+    -&gt; Maybe [DeviceEvent] -&gt; ListDeviceEventsResponse)
+-&gt; Lens' ListDeviceEventsResponse (Maybe [DeviceEvent])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse%27"><span class="hs-identifier hs-type">ListDeviceEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382618"><span class="annot"><span class="annottext">Maybe [DeviceEvent]
+deviceEvents :: Maybe [DeviceEvent]
+$sel:deviceEvents:ListDeviceEventsResponse' :: ListDeviceEventsResponse -&gt; Maybe [DeviceEvent]
+</span><a href="#local-6989586621679382618"><span class="hs-identifier hs-var hs-var">deviceEvents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DeviceEvent]
+</span><a href="#local-6989586621679382618"><span class="hs-identifier hs-var">deviceEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382617"><span class="annot"><span class="annottext">s :: ListDeviceEventsResponse
+</span><a href="#local-6989586621679382617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse%27"><span class="hs-identifier hs-type">ListDeviceEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382616"><span class="annot"><span class="annottext">Maybe [DeviceEvent]
+</span><a href="#local-6989586621679382616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceEventsResponse
+</span><a href="#local-6989586621679382617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceEvents:ListDeviceEventsResponse' :: Maybe [DeviceEvent]
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AdeviceEvents%3AListDeviceEventsResponse%27"><span class="hs-identifier hs-var">deviceEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeviceEvent]
+</span><a href="#local-6989586621679382616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse"><span class="hs-identifier hs-type">ListDeviceEventsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DeviceEvent] -&gt; f (Maybe [DeviceEvent]))
+ -&gt; ListDeviceEventsResponse -&gt; f ListDeviceEventsResponse)
+-&gt; ((Maybe [DeviceEvent] -&gt; f (Maybe [DeviceEvent]))
+    -&gt; Maybe [DeviceEvent] -&gt; f (Maybe [DeviceEvent]))
+-&gt; (Maybe [DeviceEvent] -&gt; f (Maybe [DeviceEvent]))
+-&gt; ListDeviceEventsResponse
+-&gt; f ListDeviceEventsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DeviceEvent] [DeviceEvent] [DeviceEvent] [DeviceEvent]
+-&gt; Iso
+     (Maybe [DeviceEvent])
+     (Maybe [DeviceEvent])
+     (Maybe [DeviceEvent])
+     (Maybe [DeviceEvent])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DeviceEvent] [DeviceEvent] [DeviceEvent] [DeviceEvent]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEventsResponse_httpStatus"><span class="hs-identifier hs-type">listDeviceEventsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse"><span class="hs-identifier hs-type">ListDeviceEventsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-260"></span><span id="listDeviceEventsResponse_httpStatus"><span class="annot"><span class="annottext">listDeviceEventsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListDeviceEventsResponse -&gt; f ListDeviceEventsResponse
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#listDeviceEventsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listDeviceEventsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDeviceEventsResponse -&gt; Int)
+-&gt; (ListDeviceEventsResponse -&gt; Int -&gt; ListDeviceEventsResponse)
+-&gt; Lens ListDeviceEventsResponse ListDeviceEventsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse%27"><span class="hs-identifier hs-type">ListDeviceEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382613"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListDeviceEventsResponse' :: ListDeviceEventsResponse -&gt; Int
+</span><a href="#local-6989586621679382613"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382613"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382612"><span class="annot"><span class="annottext">s :: ListDeviceEventsResponse
+</span><a href="#local-6989586621679382612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse%27"><span class="hs-identifier hs-type">ListDeviceEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382611"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceEventsResponse
+</span><a href="#local-6989586621679382612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDeviceEventsResponse' :: Int
+</span><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#%24sel%3AhttpStatus%3AListDeviceEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse"><span class="hs-identifier hs-type">ListDeviceEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382609"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListDeviceEvents.html#ListDeviceEventsResponse"><span class="hs-identifier hs-type">ListDeviceEventsResponse</span></a></span></span><span>
+</span><span id="line-263"></span></pre></body></html>

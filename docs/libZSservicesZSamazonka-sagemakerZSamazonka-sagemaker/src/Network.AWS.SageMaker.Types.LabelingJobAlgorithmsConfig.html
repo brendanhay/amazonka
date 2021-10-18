@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobResourceConfig.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.LabelingJobResourceConfig</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Provides configuration information for auto-labeling of your data</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- objects. A @LabelingJobAlgorithmsConfig@ object must be supplied in</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- order to use auto-labeling.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLabelingJobAlgorithmsConfig' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621680312302"><span id="local-6989586621680312303"></span></span><span class="hs-keyword">data</span><span> </span><span id="LabelingJobAlgorithmsConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig"><span class="hs-identifier hs-var">LabelingJobAlgorithmsConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LabelingJobAlgorithmsConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-var">LabelingJobAlgorithmsConfig'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | At the end of an auto-label job Ground Truth sends the Amazon Resource</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Name (ARN) of the final model used for auto-labeling. You can use this</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- model as the starting point for subsequent similar jobs by providing the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- ARN of the model here.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AinitialActiveLearningModelArn%3ALabelingJobAlgorithmsConfig%27"><span class="annot"><span class="annottext">LabelingJobAlgorithmsConfig -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#%24sel%3AinitialActiveLearningModelArn%3ALabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-var hs-var">initialActiveLearningModelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Provides configuration information for a labeling job.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlabelingJobResourceConfig%3ALabelingJobAlgorithmsConfig%27"><span class="annot"><span class="annottext">LabelingJobAlgorithmsConfig -&gt; Maybe LabelingJobResourceConfig
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#%24sel%3AlabelingJobResourceConfig%3ALabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-var hs-var">labelingJobResourceConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobResourceConfig.html#LabelingJobResourceConfig"><span class="hs-identifier hs-type">LabelingJobResourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Specifies the Amazon Resource Name (ARN) of the algorithm used for</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- auto-labeling. You must select one of the following ARNs:</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   /Image classification/</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/image-classification@</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   /Text classification/</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/text-classification@</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   /Object detection/</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/object-detection@</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   /Semantic Segmentation/</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/semantic-segmentation@</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AlabelingJobAlgorithmSpecificationArn%3ALabelingJobAlgorithmsConfig%27"><span class="annot"><span class="annottext">LabelingJobAlgorithmsConfig -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#%24sel%3AlabelingJobAlgorithmSpecificationArn%3ALabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-var hs-var">labelingJobAlgorithmSpecificationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680312294"><span id="local-6989586621680312296"><span class="annot"><span class="annottext">LabelingJobAlgorithmsConfig -&gt; LabelingJobAlgorithmsConfig -&gt; Bool
+(LabelingJobAlgorithmsConfig
+ -&gt; LabelingJobAlgorithmsConfig -&gt; Bool)
+-&gt; (LabelingJobAlgorithmsConfig
+    -&gt; LabelingJobAlgorithmsConfig -&gt; Bool)
+-&gt; Eq LabelingJobAlgorithmsConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LabelingJobAlgorithmsConfig -&gt; LabelingJobAlgorithmsConfig -&gt; Bool
+$c/= :: LabelingJobAlgorithmsConfig -&gt; LabelingJobAlgorithmsConfig -&gt; Bool
+== :: LabelingJobAlgorithmsConfig -&gt; LabelingJobAlgorithmsConfig -&gt; Bool
+$c== :: LabelingJobAlgorithmsConfig -&gt; LabelingJobAlgorithmsConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680312285"><span id="local-6989586621680312287"><span id="local-6989586621680312289"><span id="local-6989586621680312291"><span class="annot"><span class="annottext">ReadPrec [LabelingJobAlgorithmsConfig]
+ReadPrec LabelingJobAlgorithmsConfig
+Int -&gt; ReadS LabelingJobAlgorithmsConfig
+ReadS [LabelingJobAlgorithmsConfig]
+(Int -&gt; ReadS LabelingJobAlgorithmsConfig)
+-&gt; ReadS [LabelingJobAlgorithmsConfig]
+-&gt; ReadPrec LabelingJobAlgorithmsConfig
+-&gt; ReadPrec [LabelingJobAlgorithmsConfig]
+-&gt; Read LabelingJobAlgorithmsConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LabelingJobAlgorithmsConfig]
+$creadListPrec :: ReadPrec [LabelingJobAlgorithmsConfig]
+readPrec :: ReadPrec LabelingJobAlgorithmsConfig
+$creadPrec :: ReadPrec LabelingJobAlgorithmsConfig
+readList :: ReadS [LabelingJobAlgorithmsConfig]
+$creadList :: ReadS [LabelingJobAlgorithmsConfig]
+readsPrec :: Int -&gt; ReadS LabelingJobAlgorithmsConfig
+$creadsPrec :: Int -&gt; ReadS LabelingJobAlgorithmsConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680312278"><span id="local-6989586621680312280"><span id="local-6989586621680312282"><span class="annot"><span class="annottext">Int -&gt; LabelingJobAlgorithmsConfig -&gt; ShowS
+[LabelingJobAlgorithmsConfig] -&gt; ShowS
+LabelingJobAlgorithmsConfig -&gt; String
+(Int -&gt; LabelingJobAlgorithmsConfig -&gt; ShowS)
+-&gt; (LabelingJobAlgorithmsConfig -&gt; String)
+-&gt; ([LabelingJobAlgorithmsConfig] -&gt; ShowS)
+-&gt; Show LabelingJobAlgorithmsConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LabelingJobAlgorithmsConfig] -&gt; ShowS
+$cshowList :: [LabelingJobAlgorithmsConfig] -&gt; ShowS
+show :: LabelingJobAlgorithmsConfig -&gt; String
+$cshow :: LabelingJobAlgorithmsConfig -&gt; String
+showsPrec :: Int -&gt; LabelingJobAlgorithmsConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; LabelingJobAlgorithmsConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ LabelingJobAlgorithmsConfig -&gt; Rep LabelingJobAlgorithmsConfig x)
+-&gt; (forall x.
+    Rep LabelingJobAlgorithmsConfig x -&gt; LabelingJobAlgorithmsConfig)
+-&gt; Generic LabelingJobAlgorithmsConfig
+forall x.
+Rep LabelingJobAlgorithmsConfig x -&gt; LabelingJobAlgorithmsConfig
+forall x.
+LabelingJobAlgorithmsConfig -&gt; Rep LabelingJobAlgorithmsConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep LabelingJobAlgorithmsConfig x -&gt; LabelingJobAlgorithmsConfig
+$cfrom :: forall x.
+LabelingJobAlgorithmsConfig -&gt; Rep LabelingJobAlgorithmsConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'LabelingJobAlgorithmsConfig' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'initialActiveLearningModelArn', 'labelingJobAlgorithmsConfig_initialActiveLearningModelArn' - At the end of an auto-label job Ground Truth sends the Amazon Resource</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Name (ARN) of the final model used for auto-labeling. You can use this</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- model as the starting point for subsequent similar jobs by providing the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- ARN of the model here.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'labelingJobResourceConfig', 'labelingJobAlgorithmsConfig_labelingJobResourceConfig' - Provides configuration information for a labeling job.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'labelingJobAlgorithmSpecificationArn', 'labelingJobAlgorithmsConfig_labelingJobAlgorithmSpecificationArn' - Specifies the Amazon Resource Name (ARN) of the algorithm used for</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- auto-labeling. You must select one of the following ARNs:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- -   /Image classification/</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/image-classification@</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- -   /Text classification/</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/text-classification@</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- -   /Object detection/</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/object-detection@</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- -   /Semantic Segmentation/</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/semantic-segmentation@</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#newLabelingJobAlgorithmsConfig"><span class="hs-identifier hs-type">newLabelingJobAlgorithmsConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'labelingJobAlgorithmSpecificationArn'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig</span></a></span><span>
+</span><span id="line-99"></span><span id="newLabelingJobAlgorithmsConfig"><span class="annot"><span class="annottext">newLabelingJobAlgorithmsConfig :: Text -&gt; LabelingJobAlgorithmsConfig
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#newLabelingJobAlgorithmsConfig"><span class="hs-identifier hs-var hs-var">newLabelingJobAlgorithmsConfig</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621680312272"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680312272"><span class="hs-identifier hs-var">pLabelingJobAlgorithmSpecificationArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">LabelingJobAlgorithmsConfig' :: Maybe Text
+-&gt; Maybe LabelingJobResourceConfig
+-&gt; Text
+-&gt; LabelingJobAlgorithmsConfig
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig'</span></a></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:initialActiveLearningModelArn:LabelingJobAlgorithmsConfig' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#%24sel%3AinitialActiveLearningModelArn%3ALabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-var">initialActiveLearningModelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:labelingJobResourceConfig:LabelingJobAlgorithmsConfig' :: Maybe LabelingJobResourceConfig
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#%24sel%3AlabelingJobResourceConfig%3ALabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-var">labelingJobResourceConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobResourceConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:labelingJobAlgorithmSpecificationArn:LabelingJobAlgorithmsConfig' :: Text
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#%24sel%3AlabelingJobAlgorithmSpecificationArn%3ALabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-var">labelingJobAlgorithmSpecificationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680312272"><span class="hs-identifier hs-var">pLabelingJobAlgorithmSpecificationArn_</span></a></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | At the end of an auto-label job Ground Truth sends the Amazon Resource</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Name (ARN) of the final model used for auto-labeling. You can use this</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- model as the starting point for subsequent similar jobs by providing the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- ARN of the model here.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#labelingJobAlgorithmsConfig_initialActiveLearningModelArn"><span class="hs-identifier hs-type">labelingJobAlgorithmsConfig_initialActiveLearningModelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="labelingJobAlgorithmsConfig_initialActiveLearningModelArn"><span class="annot"><span class="annottext">labelingJobAlgorithmsConfig_initialActiveLearningModelArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LabelingJobAlgorithmsConfig -&gt; f LabelingJobAlgorithmsConfig
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#labelingJobAlgorithmsConfig_initialActiveLearningModelArn"><span class="hs-identifier hs-var hs-var">labelingJobAlgorithmsConfig_initialActiveLearningModelArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LabelingJobAlgorithmsConfig -&gt; Maybe Text)
+-&gt; (LabelingJobAlgorithmsConfig
+    -&gt; Maybe Text -&gt; LabelingJobAlgorithmsConfig)
+-&gt; Lens
+     LabelingJobAlgorithmsConfig
+     LabelingJobAlgorithmsConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680312268"><span class="annot"><span class="annottext">Maybe Text
+initialActiveLearningModelArn :: Maybe Text
+$sel:initialActiveLearningModelArn:LabelingJobAlgorithmsConfig' :: LabelingJobAlgorithmsConfig -&gt; Maybe Text
+</span><a href="#local-6989586621680312268"><span class="hs-identifier hs-var hs-var">initialActiveLearningModelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680312268"><span class="hs-identifier hs-var">initialActiveLearningModelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680312267"><span class="annot"><span class="annottext">s :: LabelingJobAlgorithmsConfig
+</span><a href="#local-6989586621680312267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680312266"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680312266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobAlgorithmsConfig
+</span><a href="#local-6989586621680312267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initialActiveLearningModelArn:LabelingJobAlgorithmsConfig' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#%24sel%3AinitialActiveLearningModelArn%3ALabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-var">initialActiveLearningModelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680312266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Provides configuration information for a labeling job.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#labelingJobAlgorithmsConfig_labelingJobResourceConfig"><span class="hs-identifier hs-type">labelingJobAlgorithmsConfig_labelingJobResourceConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobResourceConfig.html#LabelingJobResourceConfig"><span class="hs-identifier hs-type">LabelingJobResourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="labelingJobAlgorithmsConfig_labelingJobResourceConfig"><span class="annot"><span class="annottext">labelingJobAlgorithmsConfig_labelingJobResourceConfig :: (Maybe LabelingJobResourceConfig
+ -&gt; f (Maybe LabelingJobResourceConfig))
+-&gt; LabelingJobAlgorithmsConfig -&gt; f LabelingJobAlgorithmsConfig
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#labelingJobAlgorithmsConfig_labelingJobResourceConfig"><span class="hs-identifier hs-var hs-var">labelingJobAlgorithmsConfig_labelingJobResourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LabelingJobAlgorithmsConfig -&gt; Maybe LabelingJobResourceConfig)
+-&gt; (LabelingJobAlgorithmsConfig
+    -&gt; Maybe LabelingJobResourceConfig -&gt; LabelingJobAlgorithmsConfig)
+-&gt; Lens
+     LabelingJobAlgorithmsConfig
+     LabelingJobAlgorithmsConfig
+     (Maybe LabelingJobResourceConfig)
+     (Maybe LabelingJobResourceConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680312264"><span class="annot"><span class="annottext">Maybe LabelingJobResourceConfig
+labelingJobResourceConfig :: Maybe LabelingJobResourceConfig
+$sel:labelingJobResourceConfig:LabelingJobAlgorithmsConfig' :: LabelingJobAlgorithmsConfig -&gt; Maybe LabelingJobResourceConfig
+</span><a href="#local-6989586621680312264"><span class="hs-identifier hs-var hs-var">labelingJobResourceConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobResourceConfig
+</span><a href="#local-6989586621680312264"><span class="hs-identifier hs-var">labelingJobResourceConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680312263"><span class="annot"><span class="annottext">s :: LabelingJobAlgorithmsConfig
+</span><a href="#local-6989586621680312263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680312262"><span class="annot"><span class="annottext">Maybe LabelingJobResourceConfig
+</span><a href="#local-6989586621680312262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobAlgorithmsConfig
+</span><a href="#local-6989586621680312263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labelingJobResourceConfig:LabelingJobAlgorithmsConfig' :: Maybe LabelingJobResourceConfig
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#%24sel%3AlabelingJobResourceConfig%3ALabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-var">labelingJobResourceConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobResourceConfig
+</span><a href="#local-6989586621680312262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Specifies the Amazon Resource Name (ARN) of the algorithm used for</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- auto-labeling. You must select one of the following ARNs:</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- -   /Image classification/</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/image-classification@</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- -   /Text classification/</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/text-classification@</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   /Object detection/</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/object-detection@</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- -   /Semantic Segmentation/</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/semantic-segmentation@</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#labelingJobAlgorithmsConfig_labelingJobAlgorithmSpecificationArn"><span class="hs-identifier hs-type">labelingJobAlgorithmsConfig_labelingJobAlgorithmSpecificationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-139"></span><span id="labelingJobAlgorithmsConfig_labelingJobAlgorithmSpecificationArn"><span class="annot"><span class="annottext">labelingJobAlgorithmsConfig_labelingJobAlgorithmSpecificationArn :: (Text -&gt; f Text)
+-&gt; LabelingJobAlgorithmsConfig -&gt; f LabelingJobAlgorithmsConfig
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#labelingJobAlgorithmsConfig_labelingJobAlgorithmSpecificationArn"><span class="hs-identifier hs-var hs-var">labelingJobAlgorithmsConfig_labelingJobAlgorithmSpecificationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LabelingJobAlgorithmsConfig -&gt; Text)
+-&gt; (LabelingJobAlgorithmsConfig
+    -&gt; Text -&gt; LabelingJobAlgorithmsConfig)
+-&gt; Lens
+     LabelingJobAlgorithmsConfig LabelingJobAlgorithmsConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680312260"><span class="annot"><span class="annottext">Text
+labelingJobAlgorithmSpecificationArn :: Text
+$sel:labelingJobAlgorithmSpecificationArn:LabelingJobAlgorithmsConfig' :: LabelingJobAlgorithmsConfig -&gt; Text
+</span><a href="#local-6989586621680312260"><span class="hs-identifier hs-var hs-var">labelingJobAlgorithmSpecificationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680312260"><span class="hs-identifier hs-var">labelingJobAlgorithmSpecificationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680312259"><span class="annot"><span class="annottext">s :: LabelingJobAlgorithmsConfig
+</span><a href="#local-6989586621680312259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680312258"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680312258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobAlgorithmsConfig
+</span><a href="#local-6989586621680312259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labelingJobAlgorithmSpecificationArn:LabelingJobAlgorithmsConfig' :: Text
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#%24sel%3AlabelingJobAlgorithmSpecificationArn%3ALabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-var">labelingJobAlgorithmSpecificationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680312258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680312255"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621680312253"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LabelingJobAlgorithmsConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LabelingJobAlgorithmsConfig)
+-&gt; Value
+-&gt; Parser LabelingJobAlgorithmsConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LabelingJobAlgorithmsConfig&quot;</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680312250"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680312250"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe LabelingJobResourceConfig
+-&gt; Text
+-&gt; LabelingJobAlgorithmsConfig
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-var">LabelingJobAlgorithmsConfig'</span></a></span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe LabelingJobResourceConfig
+ -&gt; Text
+ -&gt; LabelingJobAlgorithmsConfig)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe LabelingJobResourceConfig
+      -&gt; Text -&gt; LabelingJobAlgorithmsConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680312250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InitialActiveLearningModelArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LabelingJobResourceConfig
+   -&gt; Text -&gt; LabelingJobAlgorithmsConfig)
+-&gt; Parser (Maybe LabelingJobResourceConfig)
+-&gt; Parser (Text -&gt; LabelingJobAlgorithmsConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680312250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LabelingJobResourceConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LabelingJobResourceConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; LabelingJobAlgorithmsConfig)
+-&gt; Parser Text -&gt; Parser LabelingJobAlgorithmsConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680312250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LabelingJobAlgorithmSpecificationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680312243"><span id="local-6989586621680312245"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig</span></a></span></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680312240"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig</span></a></span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680312232"><span id="local-6989586621680312234"><span id="local-6989586621680312236"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621680312230"><span class="annot"><span class="annottext">toJSON :: LabelingJobAlgorithmsConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig.html#LabelingJobAlgorithmsConfig%27"><span class="hs-identifier hs-type">LabelingJobAlgorithmsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680312226"><span id="local-6989586621680312227"><span id="local-6989586621680312228"><span class="annot"><span class="annottext">Maybe Text
+Maybe LabelingJobResourceConfig
+Text
+labelingJobAlgorithmSpecificationArn :: Text
+labelingJobResourceConfig :: Maybe LabelingJobResourceConfig
+initialActiveLearningModelArn :: Maybe Text
+$sel:labelingJobAlgorithmSpecificationArn:LabelingJobAlgorithmsConfig' :: LabelingJobAlgorithmsConfig -&gt; Text
+$sel:labelingJobResourceConfig:LabelingJobAlgorithmsConfig' :: LabelingJobAlgorithmsConfig -&gt; Maybe LabelingJobResourceConfig
+$sel:initialActiveLearningModelArn:LabelingJobAlgorithmsConfig' :: LabelingJobAlgorithmsConfig -&gt; Maybe Text
+</span><a href="#local-6989586621680312226"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InitialActiveLearningModelArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680312228"><span class="hs-identifier hs-var">initialActiveLearningModelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LabelingJobResourceConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LabelingJobResourceConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>              </span><span class="annot"><span class="annottext">(LabelingJobResourceConfig -&gt; Pair)
+-&gt; Maybe LabelingJobResourceConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobResourceConfig
+</span><a href="#local-6989586621680312227"><span class="hs-identifier hs-var">labelingJobResourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-165"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LabelingJobAlgorithmSpecificationArn&quot;</span></span><span>
+</span><span id="line-166"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680312226"><span class="hs-identifier hs-var">labelingJobAlgorithmSpecificationArn</span></a></span><span>
+</span><span id="line-167"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span></pre></body></html>

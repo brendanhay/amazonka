@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.Types.RoleAliasDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.Types.RoleAliasDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Role alias description.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRoleAliasDescription' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679795367"><span id="local-6989586621679795368"></span></span><span class="hs-keyword">data</span><span> </span><span id="RoleAliasDescription"><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-var">RoleAliasDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RoleAliasDescription%27"><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-var">RoleAliasDescription'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The UNIX timestamp of when the role alias was last modified.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3ARoleAliasDescription%27"><span class="annot"><span class="annottext">RoleAliasDescription -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AlastModifiedDate%3ARoleAliasDescription%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The ARN of the role alias.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AroleAliasArn%3ARoleAliasDescription%27"><span class="annot"><span class="annottext">RoleAliasDescription -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AroleAliasArn%3ARoleAliasDescription%27"><span class="hs-identifier hs-var hs-var">roleAliasArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The role ARN.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AroleArn%3ARoleAliasDescription%27"><span class="annot"><span class="annottext">RoleAliasDescription -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AroleArn%3ARoleAliasDescription%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The UNIX timestamp of when the role alias was created.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcreationDate%3ARoleAliasDescription%27"><span class="annot"><span class="annottext">RoleAliasDescription -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AcreationDate%3ARoleAliasDescription%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The role alias owner.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aowner%3ARoleAliasDescription%27"><span class="annot"><span class="annottext">RoleAliasDescription -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3Aowner%3ARoleAliasDescription%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The number of seconds for which the credential is valid.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcredentialDurationSeconds%3ARoleAliasDescription%27"><span class="annot"><span class="annottext">RoleAliasDescription -&gt; Maybe Natural
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AcredentialDurationSeconds%3ARoleAliasDescription%27"><span class="hs-identifier hs-var hs-var">credentialDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The role alias.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AroleAlias%3ARoleAliasDescription%27"><span class="annot"><span class="annottext">RoleAliasDescription -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AroleAlias%3ARoleAliasDescription%27"><span class="hs-identifier hs-var hs-var">roleAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679795355"><span id="local-6989586621679795357"><span class="annot"><span class="annottext">RoleAliasDescription -&gt; RoleAliasDescription -&gt; Bool
+(RoleAliasDescription -&gt; RoleAliasDescription -&gt; Bool)
+-&gt; (RoleAliasDescription -&gt; RoleAliasDescription -&gt; Bool)
+-&gt; Eq RoleAliasDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RoleAliasDescription -&gt; RoleAliasDescription -&gt; Bool
+$c/= :: RoleAliasDescription -&gt; RoleAliasDescription -&gt; Bool
+== :: RoleAliasDescription -&gt; RoleAliasDescription -&gt; Bool
+$c== :: RoleAliasDescription -&gt; RoleAliasDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795346"><span id="local-6989586621679795348"><span id="local-6989586621679795350"><span id="local-6989586621679795352"><span class="annot"><span class="annottext">ReadPrec [RoleAliasDescription]
+ReadPrec RoleAliasDescription
+Int -&gt; ReadS RoleAliasDescription
+ReadS [RoleAliasDescription]
+(Int -&gt; ReadS RoleAliasDescription)
+-&gt; ReadS [RoleAliasDescription]
+-&gt; ReadPrec RoleAliasDescription
+-&gt; ReadPrec [RoleAliasDescription]
+-&gt; Read RoleAliasDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RoleAliasDescription]
+$creadListPrec :: ReadPrec [RoleAliasDescription]
+readPrec :: ReadPrec RoleAliasDescription
+$creadPrec :: ReadPrec RoleAliasDescription
+readList :: ReadS [RoleAliasDescription]
+$creadList :: ReadS [RoleAliasDescription]
+readsPrec :: Int -&gt; ReadS RoleAliasDescription
+$creadsPrec :: Int -&gt; ReadS RoleAliasDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795339"><span id="local-6989586621679795341"><span id="local-6989586621679795343"><span class="annot"><span class="annottext">Int -&gt; RoleAliasDescription -&gt; ShowS
+[RoleAliasDescription] -&gt; ShowS
+RoleAliasDescription -&gt; String
+(Int -&gt; RoleAliasDescription -&gt; ShowS)
+-&gt; (RoleAliasDescription -&gt; String)
+-&gt; ([RoleAliasDescription] -&gt; ShowS)
+-&gt; Show RoleAliasDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RoleAliasDescription] -&gt; ShowS
+$cshowList :: [RoleAliasDescription] -&gt; ShowS
+show :: RoleAliasDescription -&gt; String
+$cshow :: RoleAliasDescription -&gt; String
+showsPrec :: Int -&gt; RoleAliasDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; RoleAliasDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RoleAliasDescription -&gt; Rep RoleAliasDescription x)
+-&gt; (forall x. Rep RoleAliasDescription x -&gt; RoleAliasDescription)
+-&gt; Generic RoleAliasDescription
+forall x. Rep RoleAliasDescription x -&gt; RoleAliasDescription
+forall x. RoleAliasDescription -&gt; Rep RoleAliasDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RoleAliasDescription x -&gt; RoleAliasDescription
+$cfrom :: forall x. RoleAliasDescription -&gt; Rep RoleAliasDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'RoleAliasDescription' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'lastModifiedDate', 'roleAliasDescription_lastModifiedDate' - The UNIX timestamp of when the role alias was last modified.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'roleAliasArn', 'roleAliasDescription_roleAliasArn' - The ARN of the role alias.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'roleArn', 'roleAliasDescription_roleArn' - The role ARN.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'creationDate', 'roleAliasDescription_creationDate' - The UNIX timestamp of when the role alias was created.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'owner', 'roleAliasDescription_owner' - The role alias owner.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'credentialDurationSeconds', 'roleAliasDescription_credentialDurationSeconds' - The number of seconds for which the credential is valid.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'roleAlias', 'roleAliasDescription_roleAlias' - The role alias.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#newRoleAliasDescription"><span class="hs-identifier hs-type">newRoleAliasDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span><span>
+</span><span id="line-70"></span><span id="newRoleAliasDescription"><span class="annot"><span class="annottext">newRoleAliasDescription :: RoleAliasDescription
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#newRoleAliasDescription"><span class="hs-identifier hs-var hs-var">newRoleAliasDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">RoleAliasDescription' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; RoleAliasDescription
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-type">RoleAliasDescription'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:RoleAliasDescription' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AlastModifiedDate%3ARoleAliasDescription%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleAliasArn:RoleAliasDescription' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AroleAliasArn%3ARoleAliasDescription%27"><span class="hs-identifier hs-var">roleAliasArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:RoleAliasDescription' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AroleArn%3ARoleAliasDescription%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:RoleAliasDescription' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AcreationDate%3ARoleAliasDescription%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:owner:RoleAliasDescription' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3Aowner%3ARoleAliasDescription%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:credentialDurationSeconds:RoleAliasDescription' :: Maybe Natural
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AcredentialDurationSeconds%3ARoleAliasDescription%27"><span class="hs-identifier hs-var">credentialDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleAlias:RoleAliasDescription' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AroleAlias%3ARoleAliasDescription%27"><span class="hs-identifier hs-var">roleAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The UNIX timestamp of when the role alias was last modified.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#roleAliasDescription_lastModifiedDate"><span class="hs-identifier hs-type">roleAliasDescription_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="roleAliasDescription_lastModifiedDate"><span class="annot"><span class="annottext">roleAliasDescription_lastModifiedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RoleAliasDescription -&gt; f RoleAliasDescription
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#roleAliasDescription_lastModifiedDate"><span class="hs-identifier hs-var hs-var">roleAliasDescription_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoleAliasDescription -&gt; Maybe POSIX)
+-&gt; (RoleAliasDescription -&gt; Maybe POSIX -&gt; RoleAliasDescription)
+-&gt; Lens
+     RoleAliasDescription
+     RoleAliasDescription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-type">RoleAliasDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795330"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedDate :: Maybe POSIX
+$sel:lastModifiedDate:RoleAliasDescription' :: RoleAliasDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679795330"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679795330"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795329"><span class="annot"><span class="annottext">s :: RoleAliasDescription
+</span><a href="#local-6989586621679795329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-type">RoleAliasDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795328"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679795328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoleAliasDescription
+</span><a href="#local-6989586621679795329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:RoleAliasDescription' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AlastModifiedDate%3ARoleAliasDescription%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679795328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; RoleAliasDescription -&gt; f RoleAliasDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RoleAliasDescription
+-&gt; f RoleAliasDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The ARN of the role alias.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#roleAliasDescription_roleAliasArn"><span class="hs-identifier hs-type">roleAliasDescription_roleAliasArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="roleAliasDescription_roleAliasArn"><span class="annot"><span class="annottext">roleAliasDescription_roleAliasArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RoleAliasDescription -&gt; f RoleAliasDescription
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#roleAliasDescription_roleAliasArn"><span class="hs-identifier hs-var hs-var">roleAliasDescription_roleAliasArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoleAliasDescription -&gt; Maybe Text)
+-&gt; (RoleAliasDescription -&gt; Maybe Text -&gt; RoleAliasDescription)
+-&gt; Lens
+     RoleAliasDescription RoleAliasDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-type">RoleAliasDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795323"><span class="annot"><span class="annottext">Maybe Text
+roleAliasArn :: Maybe Text
+$sel:roleAliasArn:RoleAliasDescription' :: RoleAliasDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679795323"><span class="hs-identifier hs-var hs-var">roleAliasArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795323"><span class="hs-identifier hs-var">roleAliasArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795322"><span class="annot"><span class="annottext">s :: RoleAliasDescription
+</span><a href="#local-6989586621679795322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-type">RoleAliasDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795321"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoleAliasDescription
+</span><a href="#local-6989586621679795322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleAliasArn:RoleAliasDescription' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AroleAliasArn%3ARoleAliasDescription%27"><span class="hs-identifier hs-var">roleAliasArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The role ARN.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#roleAliasDescription_roleArn"><span class="hs-identifier hs-type">roleAliasDescription_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="roleAliasDescription_roleArn"><span class="annot"><span class="annottext">roleAliasDescription_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RoleAliasDescription -&gt; f RoleAliasDescription
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#roleAliasDescription_roleArn"><span class="hs-identifier hs-var hs-var">roleAliasDescription_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoleAliasDescription -&gt; Maybe Text)
+-&gt; (RoleAliasDescription -&gt; Maybe Text -&gt; RoleAliasDescription)
+-&gt; Lens
+     RoleAliasDescription RoleAliasDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-type">RoleAliasDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795319"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:RoleAliasDescription' :: RoleAliasDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679795319"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795319"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795318"><span class="annot"><span class="annottext">s :: RoleAliasDescription
+</span><a href="#local-6989586621679795318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-type">RoleAliasDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795317"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoleAliasDescription
+</span><a href="#local-6989586621679795318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:RoleAliasDescription' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AroleArn%3ARoleAliasDescription%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The UNIX timestamp of when the role alias was created.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#roleAliasDescription_creationDate"><span class="hs-identifier hs-type">roleAliasDescription_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="roleAliasDescription_creationDate"><span class="annot"><span class="annottext">roleAliasDescription_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RoleAliasDescription -&gt; f RoleAliasDescription
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#roleAliasDescription_creationDate"><span class="hs-identifier hs-var hs-var">roleAliasDescription_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoleAliasDescription -&gt; Maybe POSIX)
+-&gt; (RoleAliasDescription -&gt; Maybe POSIX -&gt; RoleAliasDescription)
+-&gt; Lens
+     RoleAliasDescription
+     RoleAliasDescription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-type">RoleAliasDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795315"><span class="annot"><span class="annottext">Maybe POSIX
+creationDate :: Maybe POSIX
+$sel:creationDate:RoleAliasDescription' :: RoleAliasDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679795315"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679795315"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795314"><span class="annot"><span class="annottext">s :: RoleAliasDescription
+</span><a href="#local-6989586621679795314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-type">RoleAliasDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795313"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679795313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoleAliasDescription
+</span><a href="#local-6989586621679795314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:RoleAliasDescription' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AcreationDate%3ARoleAliasDescription%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679795313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; RoleAliasDescription -&gt; f RoleAliasDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RoleAliasDescription
+-&gt; f RoleAliasDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The role alias owner.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#roleAliasDescription_owner"><span class="hs-identifier hs-type">roleAliasDescription_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="roleAliasDescription_owner"><span class="annot"><span class="annottext">roleAliasDescription_owner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RoleAliasDescription -&gt; f RoleAliasDescription
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#roleAliasDescription_owner"><span class="hs-identifier hs-var hs-var">roleAliasDescription_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoleAliasDescription -&gt; Maybe Text)
+-&gt; (RoleAliasDescription -&gt; Maybe Text -&gt; RoleAliasDescription)
+-&gt; Lens
+     RoleAliasDescription RoleAliasDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-type">RoleAliasDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795311"><span class="annot"><span class="annottext">Maybe Text
+owner :: Maybe Text
+$sel:owner:RoleAliasDescription' :: RoleAliasDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679795311"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795311"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795310"><span class="annot"><span class="annottext">s :: RoleAliasDescription
+</span><a href="#local-6989586621679795310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-type">RoleAliasDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795309"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoleAliasDescription
+</span><a href="#local-6989586621679795310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:RoleAliasDescription' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3Aowner%3ARoleAliasDescription%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The number of seconds for which the credential is valid.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#roleAliasDescription_credentialDurationSeconds"><span class="hs-identifier hs-type">roleAliasDescription_credentialDurationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="roleAliasDescription_credentialDurationSeconds"><span class="annot"><span class="annottext">roleAliasDescription_credentialDurationSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; RoleAliasDescription -&gt; f RoleAliasDescription
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#roleAliasDescription_credentialDurationSeconds"><span class="hs-identifier hs-var hs-var">roleAliasDescription_credentialDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoleAliasDescription -&gt; Maybe Natural)
+-&gt; (RoleAliasDescription -&gt; Maybe Natural -&gt; RoleAliasDescription)
+-&gt; Lens
+     RoleAliasDescription
+     RoleAliasDescription
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-type">RoleAliasDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795307"><span class="annot"><span class="annottext">Maybe Natural
+credentialDurationSeconds :: Maybe Natural
+$sel:credentialDurationSeconds:RoleAliasDescription' :: RoleAliasDescription -&gt; Maybe Natural
+</span><a href="#local-6989586621679795307"><span class="hs-identifier hs-var hs-var">credentialDurationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679795307"><span class="hs-identifier hs-var">credentialDurationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795306"><span class="annot"><span class="annottext">s :: RoleAliasDescription
+</span><a href="#local-6989586621679795306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-type">RoleAliasDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795305"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679795305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoleAliasDescription
+</span><a href="#local-6989586621679795306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:credentialDurationSeconds:RoleAliasDescription' :: Maybe Natural
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AcredentialDurationSeconds%3ARoleAliasDescription%27"><span class="hs-identifier hs-var">credentialDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679795305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The role alias.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#roleAliasDescription_roleAlias"><span class="hs-identifier hs-type">roleAliasDescription_roleAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="roleAliasDescription_roleAlias"><span class="annot"><span class="annottext">roleAliasDescription_roleAlias :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RoleAliasDescription -&gt; f RoleAliasDescription
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#roleAliasDescription_roleAlias"><span class="hs-identifier hs-var hs-var">roleAliasDescription_roleAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoleAliasDescription -&gt; Maybe Text)
+-&gt; (RoleAliasDescription -&gt; Maybe Text -&gt; RoleAliasDescription)
+-&gt; Lens
+     RoleAliasDescription RoleAliasDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-type">RoleAliasDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795303"><span class="annot"><span class="annottext">Maybe Text
+roleAlias :: Maybe Text
+$sel:roleAlias:RoleAliasDescription' :: RoleAliasDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679795303"><span class="hs-identifier hs-var hs-var">roleAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795303"><span class="hs-identifier hs-var">roleAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795302"><span class="annot"><span class="annottext">s :: RoleAliasDescription
+</span><a href="#local-6989586621679795302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-type">RoleAliasDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795301"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoleAliasDescription
+</span><a href="#local-6989586621679795302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleAlias:RoleAliasDescription' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#%24sel%3AroleAlias%3ARoleAliasDescription%27"><span class="hs-identifier hs-var">roleAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795298"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679795296"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RoleAliasDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RoleAliasDescription)
+-&gt; Value
+-&gt; Parser RoleAliasDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RoleAliasDescription&quot;</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679795293"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679795293"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; RoleAliasDescription
+</span><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription%27"><span class="hs-identifier hs-var">RoleAliasDescription'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; RoleAliasDescription)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; RoleAliasDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679795293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; RoleAliasDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; RoleAliasDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679795293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleAliasArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; RoleAliasDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; RoleAliasDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679795293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; RoleAliasDescription)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; RoleAliasDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679795293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; RoleAliasDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Natural -&gt; Maybe Text -&gt; RoleAliasDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679795293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;owner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Text -&gt; RoleAliasDescription)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Text -&gt; RoleAliasDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679795293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;credentialDurationSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; RoleAliasDescription)
+-&gt; Parser (Maybe Text) -&gt; Parser RoleAliasDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679795293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleAlias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795287"><span id="local-6989586621679795289"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795284"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RoleAliasDescription.html#RoleAliasDescription"><span class="hs-identifier hs-type">RoleAliasDescription</span></a></span></span><span>
+</span><span id="line-128"></span></pre></body></html>

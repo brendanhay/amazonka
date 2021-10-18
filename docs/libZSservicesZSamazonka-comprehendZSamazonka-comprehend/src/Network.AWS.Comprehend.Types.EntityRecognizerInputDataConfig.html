@@ -1,0 +1,738 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.AugmentedManifestsListItem.html"><span class="hs-identifier">Network.AWS.Comprehend.Types.AugmentedManifestsListItem</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerAnnotations.html"><span class="hs-identifier">Network.AWS.Comprehend.Types.EntityRecognizerAnnotations</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html"><span class="hs-identifier">Network.AWS.Comprehend.Types.EntityRecognizerDataFormat</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDocuments.html"><span class="hs-identifier">Network.AWS.Comprehend.Types.EntityRecognizerDocuments</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerEntityList.html"><span class="hs-identifier">Network.AWS.Comprehend.Types.EntityRecognizerEntityList</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityTypesListItem.html"><span class="hs-identifier">Network.AWS.Comprehend.Types.EntityTypesListItem</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Specifies the format and location of the input data.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newEntityRecognizerInputDataConfig' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679348655"><span id="local-6989586621679348656"></span></span><span class="hs-keyword">data</span><span> </span><span id="EntityRecognizerInputDataConfig"><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-var">EntityRecognizerInputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EntityRecognizerInputDataConfig%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var">EntityRecognizerInputDataConfig'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The S3 location of the folder that contains the training documents for</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- your custom entity recognizer.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Adocuments%3AEntityRecognizerInputDataConfig%27"><span class="annot"><span class="annottext">EntityRecognizerInputDataConfig -&gt; Maybe EntityRecognizerDocuments
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3Adocuments%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var hs-var">documents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDocuments.html#EntityRecognizerDocuments"><span class="hs-identifier hs-type">EntityRecognizerDocuments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A list of augmented manifest files that provide training data for your</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- custom model. An augmented manifest file is a labeled dataset that is</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- produced by Amazon SageMaker Ground Truth.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- This parameter is required if you set @DataFormat@ to</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- @AUGMENTED_MANIFEST@.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AaugmentedManifests%3AEntityRecognizerInputDataConfig%27"><span class="annot"><span class="annottext">EntityRecognizerInputDataConfig
+-&gt; Maybe [AugmentedManifestsListItem]
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3AaugmentedManifests%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var hs-var">augmentedManifests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The format of your training data:</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @COMPREHEND_CSV@: A CSV file that supplements your training</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     documents. The CSV file contains information about the custom</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     entities that your trained model will detect. The required format of</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     the file depends on whether you are providing annotations or an</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     entity list.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     If you use this value, you must provide your CSV file by using</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     either the @Annotations@ or @EntityList@ parameters. You must</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     provide your training documents by using the @Documents@ parameter.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   @AUGMENTED_MANIFEST@: A labeled dataset that is produced by Amazon</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     SageMaker Ground Truth. This file is in JSON lines format. Each line</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     is a complete JSON object that contains a training document and its</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     labels. Each label annotates a named entity in the training</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     document.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     If you use this value, you must provide the @AugmentedManifests@</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     parameter in your request.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- If you don\'t specify a value, Amazon Comprehend uses @COMPREHEND_CSV@</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- as the default.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AdataFormat%3AEntityRecognizerInputDataConfig%27"><span class="annot"><span class="annottext">EntityRecognizerInputDataConfig -&gt; Maybe EntityRecognizerDataFormat
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3AdataFormat%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var hs-var">dataFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#EntityRecognizerDataFormat"><span class="hs-identifier hs-type">EntityRecognizerDataFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The S3 location of the CSV file that annotates your training documents.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Aannotations%3AEntityRecognizerInputDataConfig%27"><span class="annot"><span class="annottext">EntityRecognizerInputDataConfig
+-&gt; Maybe EntityRecognizerAnnotations
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3Aannotations%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var hs-var">annotations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerAnnotations.html#EntityRecognizerAnnotations"><span class="hs-identifier hs-type">EntityRecognizerAnnotations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The S3 location of the CSV file that has the entity list for your custom</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- entity recognizer.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AentityList%3AEntityRecognizerInputDataConfig%27"><span class="annot"><span class="annottext">EntityRecognizerInputDataConfig -&gt; Maybe EntityRecognizerEntityList
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3AentityList%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var hs-var">entityList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerEntityList.html#EntityRecognizerEntityList"><span class="hs-identifier hs-type">EntityRecognizerEntityList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The entity types in the labeled training data that Amazon Comprehend</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- uses to train the custom entity recognizer. Any entity types that you</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- don\'t specify are ignored.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- A maximum of 25 entity types can be used at one time to train an entity</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- recognizer. Entity types must not contain the following invalid</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- characters: \\n (line break), \\\\n (escaped line break), \\r (carriage</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- return), \\\\r (escaped carriage return), \\t (tab), \\\\t (escaped</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- tab), space, and , (comma).</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AentityTypes%3AEntityRecognizerInputDataConfig%27"><span class="annot"><span class="annottext">EntityRecognizerInputDataConfig -&gt; [EntityTypesListItem]
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3AentityTypes%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var hs-var">entityTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityTypesListItem.html#EntityTypesListItem"><span class="hs-identifier hs-type">EntityTypesListItem</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348644"><span id="local-6989586621679348646"><span class="annot"><span class="annottext">EntityRecognizerInputDataConfig
+-&gt; EntityRecognizerInputDataConfig -&gt; Bool
+(EntityRecognizerInputDataConfig
+ -&gt; EntityRecognizerInputDataConfig -&gt; Bool)
+-&gt; (EntityRecognizerInputDataConfig
+    -&gt; EntityRecognizerInputDataConfig -&gt; Bool)
+-&gt; Eq EntityRecognizerInputDataConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EntityRecognizerInputDataConfig
+-&gt; EntityRecognizerInputDataConfig -&gt; Bool
+$c/= :: EntityRecognizerInputDataConfig
+-&gt; EntityRecognizerInputDataConfig -&gt; Bool
+== :: EntityRecognizerInputDataConfig
+-&gt; EntityRecognizerInputDataConfig -&gt; Bool
+$c== :: EntityRecognizerInputDataConfig
+-&gt; EntityRecognizerInputDataConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348635"><span id="local-6989586621679348637"><span id="local-6989586621679348639"><span id="local-6989586621679348641"><span class="annot"><span class="annottext">ReadPrec [EntityRecognizerInputDataConfig]
+ReadPrec EntityRecognizerInputDataConfig
+Int -&gt; ReadS EntityRecognizerInputDataConfig
+ReadS [EntityRecognizerInputDataConfig]
+(Int -&gt; ReadS EntityRecognizerInputDataConfig)
+-&gt; ReadS [EntityRecognizerInputDataConfig]
+-&gt; ReadPrec EntityRecognizerInputDataConfig
+-&gt; ReadPrec [EntityRecognizerInputDataConfig]
+-&gt; Read EntityRecognizerInputDataConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EntityRecognizerInputDataConfig]
+$creadListPrec :: ReadPrec [EntityRecognizerInputDataConfig]
+readPrec :: ReadPrec EntityRecognizerInputDataConfig
+$creadPrec :: ReadPrec EntityRecognizerInputDataConfig
+readList :: ReadS [EntityRecognizerInputDataConfig]
+$creadList :: ReadS [EntityRecognizerInputDataConfig]
+readsPrec :: Int -&gt; ReadS EntityRecognizerInputDataConfig
+$creadsPrec :: Int -&gt; ReadS EntityRecognizerInputDataConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348628"><span id="local-6989586621679348630"><span id="local-6989586621679348632"><span class="annot"><span class="annottext">Int -&gt; EntityRecognizerInputDataConfig -&gt; ShowS
+[EntityRecognizerInputDataConfig] -&gt; ShowS
+EntityRecognizerInputDataConfig -&gt; String
+(Int -&gt; EntityRecognizerInputDataConfig -&gt; ShowS)
+-&gt; (EntityRecognizerInputDataConfig -&gt; String)
+-&gt; ([EntityRecognizerInputDataConfig] -&gt; ShowS)
+-&gt; Show EntityRecognizerInputDataConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EntityRecognizerInputDataConfig] -&gt; ShowS
+$cshowList :: [EntityRecognizerInputDataConfig] -&gt; ShowS
+show :: EntityRecognizerInputDataConfig -&gt; String
+$cshow :: EntityRecognizerInputDataConfig -&gt; String
+showsPrec :: Int -&gt; EntityRecognizerInputDataConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; EntityRecognizerInputDataConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ EntityRecognizerInputDataConfig
+ -&gt; Rep EntityRecognizerInputDataConfig x)
+-&gt; (forall x.
+    Rep EntityRecognizerInputDataConfig x
+    -&gt; EntityRecognizerInputDataConfig)
+-&gt; Generic EntityRecognizerInputDataConfig
+forall x.
+Rep EntityRecognizerInputDataConfig x
+-&gt; EntityRecognizerInputDataConfig
+forall x.
+EntityRecognizerInputDataConfig
+-&gt; Rep EntityRecognizerInputDataConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep EntityRecognizerInputDataConfig x
+-&gt; EntityRecognizerInputDataConfig
+$cfrom :: forall x.
+EntityRecognizerInputDataConfig
+-&gt; Rep EntityRecognizerInputDataConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Create a value of 'EntityRecognizerInputDataConfig' with all optional fields omitted.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'documents', 'entityRecognizerInputDataConfig_documents' - The S3 location of the folder that contains the training documents for</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- your custom entity recognizer.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'augmentedManifests', 'entityRecognizerInputDataConfig_augmentedManifests' - A list of augmented manifest files that provide training data for your</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- custom model. An augmented manifest file is a labeled dataset that is</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- produced by Amazon SageMaker Ground Truth.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- This parameter is required if you set @DataFormat@ to</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @AUGMENTED_MANIFEST@.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'dataFormat', 'entityRecognizerInputDataConfig_dataFormat' - The format of your training data:</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -   @COMPREHEND_CSV@: A CSV file that supplements your training</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--     documents. The CSV file contains information about the custom</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--     entities that your trained model will detect. The required format of</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--     the file depends on whether you are providing annotations or an</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     entity list.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--     If you use this value, you must provide your CSV file by using</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     either the @Annotations@ or @EntityList@ parameters. You must</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--     provide your training documents by using the @Documents@ parameter.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   @AUGMENTED_MANIFEST@: A labeled dataset that is produced by Amazon</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--     SageMaker Ground Truth. This file is in JSON lines format. Each line</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--     is a complete JSON object that contains a training document and its</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--     labels. Each label annotates a named entity in the training</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     document.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--     If you use this value, you must provide the @AugmentedManifests@</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     parameter in your request.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- If you don\'t specify a value, Amazon Comprehend uses @COMPREHEND_CSV@</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- as the default.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'annotations', 'entityRecognizerInputDataConfig_annotations' - The S3 location of the CSV file that annotates your training documents.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'entityList', 'entityRecognizerInputDataConfig_entityList' - The S3 location of the CSV file that has the entity list for your custom</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- entity recognizer.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'entityTypes', 'entityRecognizerInputDataConfig_entityTypes' - The entity types in the labeled training data that Amazon Comprehend</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- uses to train the custom entity recognizer. Any entity types that you</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- don\'t specify are ignored.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- A maximum of 25 entity types can be used at one time to train an entity</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- recognizer. Entity types must not contain the following invalid</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- characters: \\n (line break), \\\\n (escaped line break), \\r (carriage</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- return), \\\\r (escaped carriage return), \\t (tab), \\\\t (escaped</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- tab), space, and , (comma).</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#newEntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">newEntityRecognizerInputDataConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span><span>
+</span><span id="line-150"></span><span id="newEntityRecognizerInputDataConfig"><span class="annot"><span class="annottext">newEntityRecognizerInputDataConfig :: EntityRecognizerInputDataConfig
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#newEntityRecognizerInputDataConfig"><span class="hs-identifier hs-var hs-var">newEntityRecognizerInputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">EntityRecognizerInputDataConfig' :: Maybe EntityRecognizerDocuments
+-&gt; Maybe [AugmentedManifestsListItem]
+-&gt; Maybe EntityRecognizerDataFormat
+-&gt; Maybe EntityRecognizerAnnotations
+-&gt; Maybe EntityRecognizerEntityList
+-&gt; [EntityTypesListItem]
+-&gt; EntityRecognizerInputDataConfig
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig'</span></a></span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:documents:EntityRecognizerInputDataConfig' :: Maybe EntityRecognizerDocuments
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3Adocuments%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var">documents</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">Maybe EntityRecognizerDocuments
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:augmentedManifests:EntityRecognizerInputDataConfig' :: Maybe [AugmentedManifestsListItem]
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3AaugmentedManifests%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var">augmentedManifests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataFormat:EntityRecognizerInputDataConfig' :: Maybe EntityRecognizerDataFormat
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3AdataFormat%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var">dataFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerDataFormat
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:annotations:EntityRecognizerInputDataConfig' :: Maybe EntityRecognizerAnnotations
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3Aannotations%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var">annotations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerAnnotations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityList:EntityRecognizerInputDataConfig' :: Maybe EntityRecognizerEntityList
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3AentityList%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var">entityList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerEntityList
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityTypes:EntityRecognizerInputDataConfig' :: [EntityTypesListItem]
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3AentityTypes%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var">entityTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EntityTypesListItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The S3 location of the folder that contains the training documents for</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- your custom entity recognizer.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#entityRecognizerInputDataConfig_documents"><span class="hs-identifier hs-type">entityRecognizerInputDataConfig_documents</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDocuments.html#EntityRecognizerDocuments"><span class="hs-identifier hs-type">EntityRecognizerDocuments</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="entityRecognizerInputDataConfig_documents"><span class="annot"><span class="annottext">entityRecognizerInputDataConfig_documents :: (Maybe EntityRecognizerDocuments
+ -&gt; f (Maybe EntityRecognizerDocuments))
+-&gt; EntityRecognizerInputDataConfig
+-&gt; f EntityRecognizerInputDataConfig
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#entityRecognizerInputDataConfig_documents"><span class="hs-identifier hs-var hs-var">entityRecognizerInputDataConfig_documents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerInputDataConfig
+ -&gt; Maybe EntityRecognizerDocuments)
+-&gt; (EntityRecognizerInputDataConfig
+    -&gt; Maybe EntityRecognizerDocuments
+    -&gt; EntityRecognizerInputDataConfig)
+-&gt; Lens
+     EntityRecognizerInputDataConfig
+     EntityRecognizerInputDataConfig
+     (Maybe EntityRecognizerDocuments)
+     (Maybe EntityRecognizerDocuments)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348619"><span class="annot"><span class="annottext">Maybe EntityRecognizerDocuments
+documents :: Maybe EntityRecognizerDocuments
+$sel:documents:EntityRecognizerInputDataConfig' :: EntityRecognizerInputDataConfig -&gt; Maybe EntityRecognizerDocuments
+</span><a href="#local-6989586621679348619"><span class="hs-identifier hs-var hs-var">documents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerDocuments
+</span><a href="#local-6989586621679348619"><span class="hs-identifier hs-var">documents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348618"><span class="annot"><span class="annottext">s :: EntityRecognizerInputDataConfig
+</span><a href="#local-6989586621679348618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348617"><span class="annot"><span class="annottext">Maybe EntityRecognizerDocuments
+</span><a href="#local-6989586621679348617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityRecognizerInputDataConfig
+</span><a href="#local-6989586621679348618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documents:EntityRecognizerInputDataConfig' :: Maybe EntityRecognizerDocuments
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3Adocuments%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var">documents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerDocuments
+</span><a href="#local-6989586621679348617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | A list of augmented manifest files that provide training data for your</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- custom model. An augmented manifest file is a labeled dataset that is</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- produced by Amazon SageMaker Ground Truth.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- This parameter is required if you set @DataFormat@ to</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- @AUGMENTED_MANIFEST@.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#entityRecognizerInputDataConfig_augmentedManifests"><span class="hs-identifier hs-type">entityRecognizerInputDataConfig_augmentedManifests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.AugmentedManifestsListItem.html#AugmentedManifestsListItem"><span class="hs-identifier hs-type">AugmentedManifestsListItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="entityRecognizerInputDataConfig_augmentedManifests"><span class="annot"><span class="annottext">entityRecognizerInputDataConfig_augmentedManifests :: (Maybe [AugmentedManifestsListItem]
+ -&gt; f (Maybe [AugmentedManifestsListItem]))
+-&gt; EntityRecognizerInputDataConfig
+-&gt; f EntityRecognizerInputDataConfig
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#entityRecognizerInputDataConfig_augmentedManifests"><span class="hs-identifier hs-var hs-var">entityRecognizerInputDataConfig_augmentedManifests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerInputDataConfig
+ -&gt; Maybe [AugmentedManifestsListItem])
+-&gt; (EntityRecognizerInputDataConfig
+    -&gt; Maybe [AugmentedManifestsListItem]
+    -&gt; EntityRecognizerInputDataConfig)
+-&gt; Lens
+     EntityRecognizerInputDataConfig
+     EntityRecognizerInputDataConfig
+     (Maybe [AugmentedManifestsListItem])
+     (Maybe [AugmentedManifestsListItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348615"><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
+augmentedManifests :: Maybe [AugmentedManifestsListItem]
+$sel:augmentedManifests:EntityRecognizerInputDataConfig' :: EntityRecognizerInputDataConfig
+-&gt; Maybe [AugmentedManifestsListItem]
+</span><a href="#local-6989586621679348615"><span class="hs-identifier hs-var hs-var">augmentedManifests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
+</span><a href="#local-6989586621679348615"><span class="hs-identifier hs-var">augmentedManifests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348614"><span class="annot"><span class="annottext">s :: EntityRecognizerInputDataConfig
+</span><a href="#local-6989586621679348614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348613"><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
+</span><a href="#local-6989586621679348613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityRecognizerInputDataConfig
+</span><a href="#local-6989586621679348614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:augmentedManifests:EntityRecognizerInputDataConfig' :: Maybe [AugmentedManifestsListItem]
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3AaugmentedManifests%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var">augmentedManifests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
+</span><a href="#local-6989586621679348613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AugmentedManifestsListItem]
+  -&gt; f (Maybe [AugmentedManifestsListItem]))
+ -&gt; EntityRecognizerInputDataConfig
+ -&gt; f EntityRecognizerInputDataConfig)
+-&gt; ((Maybe [AugmentedManifestsListItem]
+     -&gt; f (Maybe [AugmentedManifestsListItem]))
+    -&gt; Maybe [AugmentedManifestsListItem]
+    -&gt; f (Maybe [AugmentedManifestsListItem]))
+-&gt; (Maybe [AugmentedManifestsListItem]
+    -&gt; f (Maybe [AugmentedManifestsListItem]))
+-&gt; EntityRecognizerInputDataConfig
+-&gt; f EntityRecognizerInputDataConfig
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AugmentedManifestsListItem]
+  [AugmentedManifestsListItem]
+  [AugmentedManifestsListItem]
+  [AugmentedManifestsListItem]
+-&gt; Iso
+     (Maybe [AugmentedManifestsListItem])
+     (Maybe [AugmentedManifestsListItem])
+     (Maybe [AugmentedManifestsListItem])
+     (Maybe [AugmentedManifestsListItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AugmentedManifestsListItem]
+  [AugmentedManifestsListItem]
+  [AugmentedManifestsListItem]
+  [AugmentedManifestsListItem]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The format of your training data:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- -   @COMPREHEND_CSV@: A CSV file that supplements your training</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     documents. The CSV file contains information about the custom</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     entities that your trained model will detect. The required format of</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     the file depends on whether you are providing annotations or an</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     entity list.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--     If you use this value, you must provide your CSV file by using</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     either the @Annotations@ or @EntityList@ parameters. You must</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--     provide your training documents by using the @Documents@ parameter.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- -   @AUGMENTED_MANIFEST@: A labeled dataset that is produced by Amazon</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     SageMaker Ground Truth. This file is in JSON lines format. Each line</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--     is a complete JSON object that contains a training document and its</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--     labels. Each label annotates a named entity in the training</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     document.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--     If you use this value, you must provide the @AugmentedManifests@</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     parameter in your request.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- If you don\'t specify a value, Amazon Comprehend uses @COMPREHEND_CSV@</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- as the default.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#entityRecognizerInputDataConfig_dataFormat"><span class="hs-identifier hs-type">entityRecognizerInputDataConfig_dataFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#EntityRecognizerDataFormat"><span class="hs-identifier hs-type">EntityRecognizerDataFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="entityRecognizerInputDataConfig_dataFormat"><span class="annot"><span class="annottext">entityRecognizerInputDataConfig_dataFormat :: (Maybe EntityRecognizerDataFormat
+ -&gt; f (Maybe EntityRecognizerDataFormat))
+-&gt; EntityRecognizerInputDataConfig
+-&gt; f EntityRecognizerInputDataConfig
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#entityRecognizerInputDataConfig_dataFormat"><span class="hs-identifier hs-var hs-var">entityRecognizerInputDataConfig_dataFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerInputDataConfig
+ -&gt; Maybe EntityRecognizerDataFormat)
+-&gt; (EntityRecognizerInputDataConfig
+    -&gt; Maybe EntityRecognizerDataFormat
+    -&gt; EntityRecognizerInputDataConfig)
+-&gt; Lens
+     EntityRecognizerInputDataConfig
+     EntityRecognizerInputDataConfig
+     (Maybe EntityRecognizerDataFormat)
+     (Maybe EntityRecognizerDataFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348608"><span class="annot"><span class="annottext">Maybe EntityRecognizerDataFormat
+dataFormat :: Maybe EntityRecognizerDataFormat
+$sel:dataFormat:EntityRecognizerInputDataConfig' :: EntityRecognizerInputDataConfig -&gt; Maybe EntityRecognizerDataFormat
+</span><a href="#local-6989586621679348608"><span class="hs-identifier hs-var hs-var">dataFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerDataFormat
+</span><a href="#local-6989586621679348608"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348607"><span class="annot"><span class="annottext">s :: EntityRecognizerInputDataConfig
+</span><a href="#local-6989586621679348607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348606"><span class="annot"><span class="annottext">Maybe EntityRecognizerDataFormat
+</span><a href="#local-6989586621679348606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityRecognizerInputDataConfig
+</span><a href="#local-6989586621679348607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataFormat:EntityRecognizerInputDataConfig' :: Maybe EntityRecognizerDataFormat
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3AdataFormat%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var">dataFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerDataFormat
+</span><a href="#local-6989586621679348606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The S3 location of the CSV file that annotates your training documents.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#entityRecognizerInputDataConfig_annotations"><span class="hs-identifier hs-type">entityRecognizerInputDataConfig_annotations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerAnnotations.html#EntityRecognizerAnnotations"><span class="hs-identifier hs-type">EntityRecognizerAnnotations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="entityRecognizerInputDataConfig_annotations"><span class="annot"><span class="annottext">entityRecognizerInputDataConfig_annotations :: (Maybe EntityRecognizerAnnotations
+ -&gt; f (Maybe EntityRecognizerAnnotations))
+-&gt; EntityRecognizerInputDataConfig
+-&gt; f EntityRecognizerInputDataConfig
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#entityRecognizerInputDataConfig_annotations"><span class="hs-identifier hs-var hs-var">entityRecognizerInputDataConfig_annotations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerInputDataConfig
+ -&gt; Maybe EntityRecognizerAnnotations)
+-&gt; (EntityRecognizerInputDataConfig
+    -&gt; Maybe EntityRecognizerAnnotations
+    -&gt; EntityRecognizerInputDataConfig)
+-&gt; Lens
+     EntityRecognizerInputDataConfig
+     EntityRecognizerInputDataConfig
+     (Maybe EntityRecognizerAnnotations)
+     (Maybe EntityRecognizerAnnotations)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348604"><span class="annot"><span class="annottext">Maybe EntityRecognizerAnnotations
+annotations :: Maybe EntityRecognizerAnnotations
+$sel:annotations:EntityRecognizerInputDataConfig' :: EntityRecognizerInputDataConfig
+-&gt; Maybe EntityRecognizerAnnotations
+</span><a href="#local-6989586621679348604"><span class="hs-identifier hs-var hs-var">annotations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerAnnotations
+</span><a href="#local-6989586621679348604"><span class="hs-identifier hs-var">annotations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348603"><span class="annot"><span class="annottext">s :: EntityRecognizerInputDataConfig
+</span><a href="#local-6989586621679348603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348602"><span class="annot"><span class="annottext">Maybe EntityRecognizerAnnotations
+</span><a href="#local-6989586621679348602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityRecognizerInputDataConfig
+</span><a href="#local-6989586621679348603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:annotations:EntityRecognizerInputDataConfig' :: Maybe EntityRecognizerAnnotations
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3Aannotations%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var">annotations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerAnnotations
+</span><a href="#local-6989586621679348602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The S3 location of the CSV file that has the entity list for your custom</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- entity recognizer.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#entityRecognizerInputDataConfig_entityList"><span class="hs-identifier hs-type">entityRecognizerInputDataConfig_entityList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerEntityList.html#EntityRecognizerEntityList"><span class="hs-identifier hs-type">EntityRecognizerEntityList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="entityRecognizerInputDataConfig_entityList"><span class="annot"><span class="annottext">entityRecognizerInputDataConfig_entityList :: (Maybe EntityRecognizerEntityList
+ -&gt; f (Maybe EntityRecognizerEntityList))
+-&gt; EntityRecognizerInputDataConfig
+-&gt; f EntityRecognizerInputDataConfig
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#entityRecognizerInputDataConfig_entityList"><span class="hs-identifier hs-var hs-var">entityRecognizerInputDataConfig_entityList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerInputDataConfig
+ -&gt; Maybe EntityRecognizerEntityList)
+-&gt; (EntityRecognizerInputDataConfig
+    -&gt; Maybe EntityRecognizerEntityList
+    -&gt; EntityRecognizerInputDataConfig)
+-&gt; Lens
+     EntityRecognizerInputDataConfig
+     EntityRecognizerInputDataConfig
+     (Maybe EntityRecognizerEntityList)
+     (Maybe EntityRecognizerEntityList)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348600"><span class="annot"><span class="annottext">Maybe EntityRecognizerEntityList
+entityList :: Maybe EntityRecognizerEntityList
+$sel:entityList:EntityRecognizerInputDataConfig' :: EntityRecognizerInputDataConfig -&gt; Maybe EntityRecognizerEntityList
+</span><a href="#local-6989586621679348600"><span class="hs-identifier hs-var hs-var">entityList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerEntityList
+</span><a href="#local-6989586621679348600"><span class="hs-identifier hs-var">entityList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348599"><span class="annot"><span class="annottext">s :: EntityRecognizerInputDataConfig
+</span><a href="#local-6989586621679348599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348598"><span class="annot"><span class="annottext">Maybe EntityRecognizerEntityList
+</span><a href="#local-6989586621679348598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityRecognizerInputDataConfig
+</span><a href="#local-6989586621679348599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityList:EntityRecognizerInputDataConfig' :: Maybe EntityRecognizerEntityList
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3AentityList%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var">entityList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerEntityList
+</span><a href="#local-6989586621679348598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The entity types in the labeled training data that Amazon Comprehend</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- uses to train the custom entity recognizer. Any entity types that you</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- don\'t specify are ignored.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- A maximum of 25 entity types can be used at one time to train an entity</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- recognizer. Entity types must not contain the following invalid</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- characters: \\n (line break), \\\\n (escaped line break), \\r (carriage</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- return), \\\\r (escaped carriage return), \\t (tab), \\\\t (escaped</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- tab), space, and , (comma).</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#entityRecognizerInputDataConfig_entityTypes"><span class="hs-identifier hs-type">entityRecognizerInputDataConfig_entityTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityTypesListItem.html#EntityTypesListItem"><span class="hs-identifier hs-type">EntityTypesListItem</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-222"></span><span id="entityRecognizerInputDataConfig_entityTypes"><span class="annot"><span class="annottext">entityRecognizerInputDataConfig_entityTypes :: ([EntityTypesListItem] -&gt; f [EntityTypesListItem])
+-&gt; EntityRecognizerInputDataConfig
+-&gt; f EntityRecognizerInputDataConfig
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#entityRecognizerInputDataConfig_entityTypes"><span class="hs-identifier hs-var hs-var">entityRecognizerInputDataConfig_entityTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerInputDataConfig -&gt; [EntityTypesListItem])
+-&gt; (EntityRecognizerInputDataConfig
+    -&gt; [EntityTypesListItem] -&gt; EntityRecognizerInputDataConfig)
+-&gt; Lens
+     EntityRecognizerInputDataConfig
+     EntityRecognizerInputDataConfig
+     [EntityTypesListItem]
+     [EntityTypesListItem]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348596"><span class="annot"><span class="annottext">[EntityTypesListItem]
+entityTypes :: [EntityTypesListItem]
+$sel:entityTypes:EntityRecognizerInputDataConfig' :: EntityRecognizerInputDataConfig -&gt; [EntityTypesListItem]
+</span><a href="#local-6989586621679348596"><span class="hs-identifier hs-var hs-var">entityTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[EntityTypesListItem]
+</span><a href="#local-6989586621679348596"><span class="hs-identifier hs-var">entityTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348595"><span class="annot"><span class="annottext">s :: EntityRecognizerInputDataConfig
+</span><a href="#local-6989586621679348595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348594"><span class="annot"><span class="annottext">[EntityTypesListItem]
+</span><a href="#local-6989586621679348594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityRecognizerInputDataConfig
+</span><a href="#local-6989586621679348595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityTypes:EntityRecognizerInputDataConfig' :: [EntityTypesListItem]
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#%24sel%3AentityTypes%3AEntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var">entityTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EntityTypesListItem]
+</span><a href="#local-6989586621679348594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([EntityTypesListItem] -&gt; f [EntityTypesListItem])
+ -&gt; EntityRecognizerInputDataConfig
+ -&gt; f EntityRecognizerInputDataConfig)
+-&gt; (([EntityTypesListItem] -&gt; f [EntityTypesListItem])
+    -&gt; [EntityTypesListItem] -&gt; f [EntityTypesListItem])
+-&gt; ([EntityTypesListItem] -&gt; f [EntityTypesListItem])
+-&gt; EntityRecognizerInputDataConfig
+-&gt; f EntityRecognizerInputDataConfig
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([EntityTypesListItem] -&gt; f [EntityTypesListItem])
+-&gt; [EntityTypesListItem] -&gt; f [EntityTypesListItem]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679348591"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span></span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679348589"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EntityRecognizerInputDataConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser EntityRecognizerInputDataConfig)
+-&gt; Value
+-&gt; Parser EntityRecognizerInputDataConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;EntityRecognizerInputDataConfig&quot;</span></span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348586"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348586"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>          </span><span class="annot"><span class="annottext">Maybe EntityRecognizerDocuments
+-&gt; Maybe [AugmentedManifestsListItem]
+-&gt; Maybe EntityRecognizerDataFormat
+-&gt; Maybe EntityRecognizerAnnotations
+-&gt; Maybe EntityRecognizerEntityList
+-&gt; [EntityTypesListItem]
+-&gt; EntityRecognizerInputDataConfig
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-var">EntityRecognizerInputDataConfig'</span></a></span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EntityRecognizerDocuments
+ -&gt; Maybe [AugmentedManifestsListItem]
+ -&gt; Maybe EntityRecognizerDataFormat
+ -&gt; Maybe EntityRecognizerAnnotations
+ -&gt; Maybe EntityRecognizerEntityList
+ -&gt; [EntityTypesListItem]
+ -&gt; EntityRecognizerInputDataConfig)
+-&gt; Parser (Maybe EntityRecognizerDocuments)
+-&gt; Parser
+     (Maybe [AugmentedManifestsListItem]
+      -&gt; Maybe EntityRecognizerDataFormat
+      -&gt; Maybe EntityRecognizerAnnotations
+      -&gt; Maybe EntityRecognizerEntityList
+      -&gt; [EntityTypesListItem]
+      -&gt; EntityRecognizerInputDataConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EntityRecognizerDocuments)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Documents&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AugmentedManifestsListItem]
+   -&gt; Maybe EntityRecognizerDataFormat
+   -&gt; Maybe EntityRecognizerAnnotations
+   -&gt; Maybe EntityRecognizerEntityList
+   -&gt; [EntityTypesListItem]
+   -&gt; EntityRecognizerInputDataConfig)
+-&gt; Parser (Maybe [AugmentedManifestsListItem])
+-&gt; Parser
+     (Maybe EntityRecognizerDataFormat
+      -&gt; Maybe EntityRecognizerAnnotations
+      -&gt; Maybe EntityRecognizerEntityList
+      -&gt; [EntityTypesListItem]
+      -&gt; EntityRecognizerInputDataConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe [AugmentedManifestsListItem]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AugmentedManifests&quot;</span></span><span>
+</span><span id="line-235"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AugmentedManifestsListItem]))
+-&gt; Maybe [AugmentedManifestsListItem]
+-&gt; Parser (Maybe [AugmentedManifestsListItem])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-236"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EntityRecognizerDataFormat
+   -&gt; Maybe EntityRecognizerAnnotations
+   -&gt; Maybe EntityRecognizerEntityList
+   -&gt; [EntityTypesListItem]
+   -&gt; EntityRecognizerInputDataConfig)
+-&gt; Parser (Maybe EntityRecognizerDataFormat)
+-&gt; Parser
+     (Maybe EntityRecognizerAnnotations
+      -&gt; Maybe EntityRecognizerEntityList
+      -&gt; [EntityTypesListItem]
+      -&gt; EntityRecognizerInputDataConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EntityRecognizerDataFormat)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataFormat&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EntityRecognizerAnnotations
+   -&gt; Maybe EntityRecognizerEntityList
+   -&gt; [EntityTypesListItem]
+   -&gt; EntityRecognizerInputDataConfig)
+-&gt; Parser (Maybe EntityRecognizerAnnotations)
+-&gt; Parser
+     (Maybe EntityRecognizerEntityList
+      -&gt; [EntityTypesListItem] -&gt; EntityRecognizerInputDataConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EntityRecognizerAnnotations)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Annotations&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EntityRecognizerEntityList
+   -&gt; [EntityTypesListItem] -&gt; EntityRecognizerInputDataConfig)
+-&gt; Parser (Maybe EntityRecognizerEntityList)
+-&gt; Parser
+     ([EntityTypesListItem] -&gt; EntityRecognizerInputDataConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EntityRecognizerEntityList)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EntityList&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">Parser ([EntityTypesListItem] -&gt; EntityRecognizerInputDataConfig)
+-&gt; Parser [EntityTypesListItem]
+-&gt; Parser EntityRecognizerInputDataConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [EntityTypesListItem])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EntityTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [EntityTypesListItem])
+-&gt; [EntityTypesListItem] -&gt; Parser [EntityTypesListItem]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[EntityTypesListItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679348579"><span id="local-6989586621679348581"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span></span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679348576"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348568"><span id="local-6989586621679348570"><span id="local-6989586621679348572"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679348566"><span class="annot"><span class="annottext">toJSON :: EntityRecognizerInputDataConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig.html#EntityRecognizerInputDataConfig%27"><span class="hs-identifier hs-type">EntityRecognizerInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348559"><span id="local-6989586621679348560"><span id="local-6989586621679348561"><span id="local-6989586621679348562"><span id="local-6989586621679348563"><span id="local-6989586621679348564"><span class="annot"><span class="annottext">[EntityTypesListItem]
+Maybe [AugmentedManifestsListItem]
+Maybe EntityRecognizerAnnotations
+Maybe EntityRecognizerDataFormat
+Maybe EntityRecognizerEntityList
+Maybe EntityRecognizerDocuments
+entityTypes :: [EntityTypesListItem]
+entityList :: Maybe EntityRecognizerEntityList
+annotations :: Maybe EntityRecognizerAnnotations
+dataFormat :: Maybe EntityRecognizerDataFormat
+augmentedManifests :: Maybe [AugmentedManifestsListItem]
+documents :: Maybe EntityRecognizerDocuments
+$sel:entityTypes:EntityRecognizerInputDataConfig' :: EntityRecognizerInputDataConfig -&gt; [EntityTypesListItem]
+$sel:entityList:EntityRecognizerInputDataConfig' :: EntityRecognizerInputDataConfig -&gt; Maybe EntityRecognizerEntityList
+$sel:annotations:EntityRecognizerInputDataConfig' :: EntityRecognizerInputDataConfig
+-&gt; Maybe EntityRecognizerAnnotations
+$sel:dataFormat:EntityRecognizerInputDataConfig' :: EntityRecognizerInputDataConfig -&gt; Maybe EntityRecognizerDataFormat
+$sel:augmentedManifests:EntityRecognizerInputDataConfig' :: EntityRecognizerInputDataConfig
+-&gt; Maybe [AugmentedManifestsListItem]
+$sel:documents:EntityRecognizerInputDataConfig' :: EntityRecognizerInputDataConfig -&gt; Maybe EntityRecognizerDocuments
+</span><a href="#local-6989586621679348559"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-254"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-255"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Documents&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EntityRecognizerDocuments -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerDocuments -&gt; Pair)
+-&gt; Maybe EntityRecognizerDocuments -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerDocuments
+</span><a href="#local-6989586621679348564"><span class="hs-identifier hs-var">documents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AugmentedManifests&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AugmentedManifestsListItem] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>              </span><span class="annot"><span class="annottext">([AugmentedManifestsListItem] -&gt; Pair)
+-&gt; Maybe [AugmentedManifestsListItem] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
+</span><a href="#local-6989586621679348563"><span class="hs-identifier hs-var">augmentedManifests</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EntityRecognizerDataFormat -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerDataFormat -&gt; Pair)
+-&gt; Maybe EntityRecognizerDataFormat -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerDataFormat
+</span><a href="#local-6989586621679348562"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Annotations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EntityRecognizerAnnotations -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerAnnotations -&gt; Pair)
+-&gt; Maybe EntityRecognizerAnnotations -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerAnnotations
+</span><a href="#local-6989586621679348561"><span class="hs-identifier hs-var">annotations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EntityList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EntityRecognizerEntityList -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerEntityList -&gt; Pair)
+-&gt; Maybe EntityRecognizerEntityList -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerEntityList
+</span><a href="#local-6989586621679348560"><span class="hs-identifier hs-var">entityList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EntityTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [EntityTypesListItem] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[EntityTypesListItem]
+</span><a href="#local-6989586621679348559"><span class="hs-identifier hs-var">entityTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-263"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span></pre></body></html>

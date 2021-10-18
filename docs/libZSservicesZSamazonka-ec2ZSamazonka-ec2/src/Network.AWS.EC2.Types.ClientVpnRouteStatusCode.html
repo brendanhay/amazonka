@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.ClientVpnRouteStatusCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.ClientVpnRouteStatusCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode"><span class="hs-identifier">ClientVpnRouteStatusCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode_Active"><span class="hs-identifier">ClientVpnRouteStatusCode_Active</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode_Creating"><span class="hs-identifier">ClientVpnRouteStatusCode_Creating</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode_Deleting"><span class="hs-identifier">ClientVpnRouteStatusCode_Deleting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode_Failed"><span class="hs-identifier">ClientVpnRouteStatusCode_Failed</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681061802"><span id="local-6989586621681061803"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ClientVpnRouteStatusCode"><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode"><span class="hs-identifier hs-var">ClientVpnRouteStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientVpnRouteStatusCode%27"><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode%27"><span class="hs-identifier hs-var">ClientVpnRouteStatusCode'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromClientVpnRouteStatusCode"><span class="annot"><span class="annottext">ClientVpnRouteStatusCode -&gt; Text
+</span><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#fromClientVpnRouteStatusCode"><span class="hs-identifier hs-var hs-var">fromClientVpnRouteStatusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681061794"><span id="local-6989586621681061796"><span id="local-6989586621681061798"><span class="annot"><span class="annottext">Int -&gt; ClientVpnRouteStatusCode -&gt; ShowS
+[ClientVpnRouteStatusCode] -&gt; ShowS
+ClientVpnRouteStatusCode -&gt; String
+(Int -&gt; ClientVpnRouteStatusCode -&gt; ShowS)
+-&gt; (ClientVpnRouteStatusCode -&gt; String)
+-&gt; ([ClientVpnRouteStatusCode] -&gt; ShowS)
+-&gt; Show ClientVpnRouteStatusCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ClientVpnRouteStatusCode] -&gt; ShowS
+$cshowList :: [ClientVpnRouteStatusCode] -&gt; ShowS
+show :: ClientVpnRouteStatusCode -&gt; String
+$cshow :: ClientVpnRouteStatusCode -&gt; String
+showsPrec :: Int -&gt; ClientVpnRouteStatusCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; ClientVpnRouteStatusCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681061785"><span id="local-6989586621681061787"><span id="local-6989586621681061789"><span id="local-6989586621681061791"><span class="annot"><span class="annottext">ReadPrec [ClientVpnRouteStatusCode]
+ReadPrec ClientVpnRouteStatusCode
+Int -&gt; ReadS ClientVpnRouteStatusCode
+ReadS [ClientVpnRouteStatusCode]
+(Int -&gt; ReadS ClientVpnRouteStatusCode)
+-&gt; ReadS [ClientVpnRouteStatusCode]
+-&gt; ReadPrec ClientVpnRouteStatusCode
+-&gt; ReadPrec [ClientVpnRouteStatusCode]
+-&gt; Read ClientVpnRouteStatusCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ClientVpnRouteStatusCode]
+$creadListPrec :: ReadPrec [ClientVpnRouteStatusCode]
+readPrec :: ReadPrec ClientVpnRouteStatusCode
+$creadPrec :: ReadPrec ClientVpnRouteStatusCode
+readList :: ReadS [ClientVpnRouteStatusCode]
+$creadList :: ReadS [ClientVpnRouteStatusCode]
+readsPrec :: Int -&gt; ReadS ClientVpnRouteStatusCode
+$creadsPrec :: Int -&gt; ReadS ClientVpnRouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681061780"><span id="local-6989586621681061782"><span class="annot"><span class="annottext">ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool
+(ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool)
+-&gt; (ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool)
+-&gt; Eq ClientVpnRouteStatusCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool
+$c/= :: ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool
+== :: ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool
+$c== :: ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681061764"><span id="local-6989586621681061766"><span id="local-6989586621681061768"><span id="local-6989586621681061770"><span id="local-6989586621681061772"><span id="local-6989586621681061774"><span id="local-6989586621681061776"><span class="annot"><span class="annottext">Eq ClientVpnRouteStatusCode
+Eq ClientVpnRouteStatusCode
+-&gt; (ClientVpnRouteStatusCode
+    -&gt; ClientVpnRouteStatusCode -&gt; Ordering)
+-&gt; (ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool)
+-&gt; (ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool)
+-&gt; (ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool)
+-&gt; (ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool)
+-&gt; (ClientVpnRouteStatusCode
+    -&gt; ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode)
+-&gt; (ClientVpnRouteStatusCode
+    -&gt; ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode)
+-&gt; Ord ClientVpnRouteStatusCode
+ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool
+ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Ordering
+ClientVpnRouteStatusCode
+-&gt; ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ClientVpnRouteStatusCode
+-&gt; ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode
+$cmin :: ClientVpnRouteStatusCode
+-&gt; ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode
+max :: ClientVpnRouteStatusCode
+-&gt; ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode
+$cmax :: ClientVpnRouteStatusCode
+-&gt; ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode
+&gt;= :: ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool
+$c&gt;= :: ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool
+&gt; :: ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool
+$c&gt; :: ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool
+&lt;= :: ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool
+$c&lt;= :: ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool
+&lt; :: ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool
+$c&lt; :: ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Bool
+compare :: ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Ordering
+$ccompare :: ClientVpnRouteStatusCode -&gt; ClientVpnRouteStatusCode -&gt; Ordering
+$cp1Ord :: Eq ClientVpnRouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ClientVpnRouteStatusCode -&gt; Rep ClientVpnRouteStatusCode x)
+-&gt; (forall x.
+    Rep ClientVpnRouteStatusCode x -&gt; ClientVpnRouteStatusCode)
+-&gt; Generic ClientVpnRouteStatusCode
+forall x.
+Rep ClientVpnRouteStatusCode x -&gt; ClientVpnRouteStatusCode
+forall x.
+ClientVpnRouteStatusCode -&gt; Rep ClientVpnRouteStatusCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ClientVpnRouteStatusCode x -&gt; ClientVpnRouteStatusCode
+$cfrom :: forall x.
+ClientVpnRouteStatusCode -&gt; Rep ClientVpnRouteStatusCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681061756"><span id="local-6989586621681061758"><span class="annot"><span class="annottext">Int -&gt; ClientVpnRouteStatusCode -&gt; Int
+ClientVpnRouteStatusCode -&gt; Int
+(Int -&gt; ClientVpnRouteStatusCode -&gt; Int)
+-&gt; (ClientVpnRouteStatusCode -&gt; Int)
+-&gt; Hashable ClientVpnRouteStatusCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ClientVpnRouteStatusCode -&gt; Int
+$chash :: ClientVpnRouteStatusCode -&gt; Int
+hashWithSalt :: Int -&gt; ClientVpnRouteStatusCode -&gt; Int
+$chashWithSalt :: Int -&gt; ClientVpnRouteStatusCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681061753"><span class="annot"><span class="annottext">ClientVpnRouteStatusCode -&gt; ()
+(ClientVpnRouteStatusCode -&gt; ()) -&gt; NFData ClientVpnRouteStatusCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ClientVpnRouteStatusCode -&gt; ()
+$crnf :: ClientVpnRouteStatusCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681061750"><span class="annot"><span class="annottext">Text -&gt; Either String ClientVpnRouteStatusCode
+(Text -&gt; Either String ClientVpnRouteStatusCode)
+-&gt; FromText ClientVpnRouteStatusCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ClientVpnRouteStatusCode
+$cfromText :: Text -&gt; Either String ClientVpnRouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681061747"><span class="annot"><span class="annottext">ClientVpnRouteStatusCode -&gt; Text
+(ClientVpnRouteStatusCode -&gt; Text)
+-&gt; ToText ClientVpnRouteStatusCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ClientVpnRouteStatusCode -&gt; Text
+$ctoText :: ClientVpnRouteStatusCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681061744"><span class="annot"><span class="annottext">ClientVpnRouteStatusCode -&gt; ByteString
+(ClientVpnRouteStatusCode -&gt; ByteString)
+-&gt; ToByteString ClientVpnRouteStatusCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ClientVpnRouteStatusCode -&gt; ByteString
+$ctoBS :: ClientVpnRouteStatusCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681061741"><span class="annot"><span class="annottext">ClientVpnRouteStatusCode -&gt; ByteStringBuilder
+(ClientVpnRouteStatusCode -&gt; ByteStringBuilder)
+-&gt; ToLog ClientVpnRouteStatusCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ClientVpnRouteStatusCode -&gt; ByteStringBuilder
+$cbuild :: ClientVpnRouteStatusCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681061738"><span class="annot"><span class="annottext">HeaderName -&gt; ClientVpnRouteStatusCode -&gt; [Header]
+(HeaderName -&gt; ClientVpnRouteStatusCode -&gt; [Header])
+-&gt; ToHeader ClientVpnRouteStatusCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ClientVpnRouteStatusCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ClientVpnRouteStatusCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681061735"><span class="annot"><span class="annottext">ClientVpnRouteStatusCode -&gt; QueryString
+(ClientVpnRouteStatusCode -&gt; QueryString)
+-&gt; ToQuery ClientVpnRouteStatusCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ClientVpnRouteStatusCode -&gt; QueryString
+$ctoQuery :: ClientVpnRouteStatusCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681061730"><span id="local-6989586621681061732"><span class="annot"><span class="annottext">Value -&gt; Parser [ClientVpnRouteStatusCode]
+Value -&gt; Parser ClientVpnRouteStatusCode
+(Value -&gt; Parser ClientVpnRouteStatusCode)
+-&gt; (Value -&gt; Parser [ClientVpnRouteStatusCode])
+-&gt; FromJSON ClientVpnRouteStatusCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ClientVpnRouteStatusCode]
+$cparseJSONList :: Value -&gt; Parser [ClientVpnRouteStatusCode]
+parseJSON :: Value -&gt; Parser ClientVpnRouteStatusCode
+$cparseJSON :: Value -&gt; Parser ClientVpnRouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681061725"><span id="local-6989586621681061727"><span class="annot"><span class="annottext">FromJSONKeyFunction [ClientVpnRouteStatusCode]
+FromJSONKeyFunction ClientVpnRouteStatusCode
+FromJSONKeyFunction ClientVpnRouteStatusCode
+-&gt; FromJSONKeyFunction [ClientVpnRouteStatusCode]
+-&gt; FromJSONKey ClientVpnRouteStatusCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ClientVpnRouteStatusCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [ClientVpnRouteStatusCode]
+fromJSONKey :: FromJSONKeyFunction ClientVpnRouteStatusCode
+$cfromJSONKey :: FromJSONKeyFunction ClientVpnRouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681061716"><span id="local-6989586621681061718"><span id="local-6989586621681061720"><span id="local-6989586621681061722"><span class="annot"><span class="annottext">[ClientVpnRouteStatusCode] -&gt; Encoding
+[ClientVpnRouteStatusCode] -&gt; Value
+ClientVpnRouteStatusCode -&gt; Encoding
+ClientVpnRouteStatusCode -&gt; Value
+(ClientVpnRouteStatusCode -&gt; Value)
+-&gt; (ClientVpnRouteStatusCode -&gt; Encoding)
+-&gt; ([ClientVpnRouteStatusCode] -&gt; Value)
+-&gt; ([ClientVpnRouteStatusCode] -&gt; Encoding)
+-&gt; ToJSON ClientVpnRouteStatusCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ClientVpnRouteStatusCode] -&gt; Encoding
+$ctoEncodingList :: [ClientVpnRouteStatusCode] -&gt; Encoding
+toJSONList :: [ClientVpnRouteStatusCode] -&gt; Value
+$ctoJSONList :: [ClientVpnRouteStatusCode] -&gt; Value
+toEncoding :: ClientVpnRouteStatusCode -&gt; Encoding
+$ctoEncoding :: ClientVpnRouteStatusCode -&gt; Encoding
+toJSON :: ClientVpnRouteStatusCode -&gt; Value
+$ctoJSON :: ClientVpnRouteStatusCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681061711"><span id="local-6989586621681061713"><span class="annot"><span class="annottext">ToJSONKeyFunction [ClientVpnRouteStatusCode]
+ToJSONKeyFunction ClientVpnRouteStatusCode
+ToJSONKeyFunction ClientVpnRouteStatusCode
+-&gt; ToJSONKeyFunction [ClientVpnRouteStatusCode]
+-&gt; ToJSONKey ClientVpnRouteStatusCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ClientVpnRouteStatusCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [ClientVpnRouteStatusCode]
+toJSONKey :: ToJSONKeyFunction ClientVpnRouteStatusCode
+$ctoJSONKey :: ToJSONKeyFunction ClientVpnRouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681061708"><span class="annot"><span class="annottext">[Node] -&gt; Either String ClientVpnRouteStatusCode
+([Node] -&gt; Either String ClientVpnRouteStatusCode)
+-&gt; FromXML ClientVpnRouteStatusCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ClientVpnRouteStatusCode
+$cparseXML :: [Node] -&gt; Either String ClientVpnRouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681061705"><span class="annot"><span class="annottext">ClientVpnRouteStatusCode -&gt; XML
+(ClientVpnRouteStatusCode -&gt; XML) -&gt; ToXML ClientVpnRouteStatusCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ClientVpnRouteStatusCode -&gt; XML
+$ctoXML :: ClientVpnRouteStatusCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode_Active"><span class="hs-identifier hs-type">ClientVpnRouteStatusCode_Active</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode"><span class="hs-identifier hs-type">ClientVpnRouteStatusCode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bClientVpnRouteStatusCode_Active"><span id="%24mClientVpnRouteStatusCode_Active"><span id="ClientVpnRouteStatusCode_Active"><span class="annot"><span class="annottext">$bClientVpnRouteStatusCode_Active :: ClientVpnRouteStatusCode
+$mClientVpnRouteStatusCode_Active :: forall r.
+ClientVpnRouteStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#%24bClientVpnRouteStatusCode_Active"><span class="hs-identifier hs-var hs-var hs-var">ClientVpnRouteStatusCode_Active</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode%27"><span class="hs-identifier hs-type">ClientVpnRouteStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;active&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode_Creating"><span class="hs-identifier hs-type">ClientVpnRouteStatusCode_Creating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode"><span class="hs-identifier hs-type">ClientVpnRouteStatusCode</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bClientVpnRouteStatusCode_Creating"><span id="%24mClientVpnRouteStatusCode_Creating"><span id="ClientVpnRouteStatusCode_Creating"><span class="annot"><span class="annottext">$bClientVpnRouteStatusCode_Creating :: ClientVpnRouteStatusCode
+$mClientVpnRouteStatusCode_Creating :: forall r.
+ClientVpnRouteStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#%24bClientVpnRouteStatusCode_Creating"><span class="hs-identifier hs-var hs-var hs-var">ClientVpnRouteStatusCode_Creating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode%27"><span class="hs-identifier hs-type">ClientVpnRouteStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;creating&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode_Deleting"><span class="hs-identifier hs-type">ClientVpnRouteStatusCode_Deleting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode"><span class="hs-identifier hs-type">ClientVpnRouteStatusCode</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bClientVpnRouteStatusCode_Deleting"><span id="%24mClientVpnRouteStatusCode_Deleting"><span id="ClientVpnRouteStatusCode_Deleting"><span class="annot"><span class="annottext">$bClientVpnRouteStatusCode_Deleting :: ClientVpnRouteStatusCode
+$mClientVpnRouteStatusCode_Deleting :: forall r.
+ClientVpnRouteStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#%24bClientVpnRouteStatusCode_Deleting"><span class="hs-identifier hs-var hs-var hs-var">ClientVpnRouteStatusCode_Deleting</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode%27"><span class="hs-identifier hs-type">ClientVpnRouteStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;deleting&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode_Failed"><span class="hs-identifier hs-type">ClientVpnRouteStatusCode_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode"><span class="hs-identifier hs-type">ClientVpnRouteStatusCode</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bClientVpnRouteStatusCode_Failed"><span id="%24mClientVpnRouteStatusCode_Failed"><span id="ClientVpnRouteStatusCode_Failed"><span class="annot"><span class="annottext">$bClientVpnRouteStatusCode_Failed :: ClientVpnRouteStatusCode
+$mClientVpnRouteStatusCode_Failed :: forall r.
+ClientVpnRouteStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#%24bClientVpnRouteStatusCode_Failed"><span class="hs-identifier hs-var hs-var hs-var">ClientVpnRouteStatusCode_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode%27"><span class="hs-identifier hs-type">ClientVpnRouteStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;failed&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode_Active"><span class="hs-pragma hs-type">ClientVpnRouteStatusCode_Active</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode_Creating"><span class="hs-pragma hs-type">ClientVpnRouteStatusCode_Creating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode_Deleting"><span class="hs-pragma hs-type">ClientVpnRouteStatusCode_Deleting</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode_Failed"><span class="hs-pragma hs-type">ClientVpnRouteStatusCode_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnRouteStatusCode.html#ClientVpnRouteStatusCode%27"><span class="hs-pragma hs-type">ClientVpnRouteStatusCode'</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-82"></span></pre></body></html>

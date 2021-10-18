@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EKS.Types.AutoScalingGroup</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EKS.Types.AutoScalingGroup</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | An Auto Scaling group that is associated with an Amazon EKS managed node</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAutoScalingGroup' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679263571"><span id="local-6989586621679263572"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoScalingGroup"><span class="annot"><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-var">AutoScalingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingGroup%27"><span class="annot"><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#AutoScalingGroup%27"><span class="hs-identifier hs-var">AutoScalingGroup'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Auto Scaling group associated with an Amazon EKS managed</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- node group.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3AAutoScalingGroup%27"><span class="annot"><span class="annottext">AutoScalingGroup -&gt; Maybe Text
+</span><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#%24sel%3Aname%3AAutoScalingGroup%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263565"><span id="local-6989586621679263567"><span class="annot"><span class="annottext">AutoScalingGroup -&gt; AutoScalingGroup -&gt; Bool
+(AutoScalingGroup -&gt; AutoScalingGroup -&gt; Bool)
+-&gt; (AutoScalingGroup -&gt; AutoScalingGroup -&gt; Bool)
+-&gt; Eq AutoScalingGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AutoScalingGroup -&gt; AutoScalingGroup -&gt; Bool
+$c/= :: AutoScalingGroup -&gt; AutoScalingGroup -&gt; Bool
+== :: AutoScalingGroup -&gt; AutoScalingGroup -&gt; Bool
+$c== :: AutoScalingGroup -&gt; AutoScalingGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263556"><span id="local-6989586621679263558"><span id="local-6989586621679263560"><span id="local-6989586621679263562"><span class="annot"><span class="annottext">ReadPrec [AutoScalingGroup]
+ReadPrec AutoScalingGroup
+Int -&gt; ReadS AutoScalingGroup
+ReadS [AutoScalingGroup]
+(Int -&gt; ReadS AutoScalingGroup)
+-&gt; ReadS [AutoScalingGroup]
+-&gt; ReadPrec AutoScalingGroup
+-&gt; ReadPrec [AutoScalingGroup]
+-&gt; Read AutoScalingGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AutoScalingGroup]
+$creadListPrec :: ReadPrec [AutoScalingGroup]
+readPrec :: ReadPrec AutoScalingGroup
+$creadPrec :: ReadPrec AutoScalingGroup
+readList :: ReadS [AutoScalingGroup]
+$creadList :: ReadS [AutoScalingGroup]
+readsPrec :: Int -&gt; ReadS AutoScalingGroup
+$creadsPrec :: Int -&gt; ReadS AutoScalingGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263549"><span id="local-6989586621679263551"><span id="local-6989586621679263553"><span class="annot"><span class="annottext">Int -&gt; AutoScalingGroup -&gt; ShowS
+[AutoScalingGroup] -&gt; ShowS
+AutoScalingGroup -&gt; String
+(Int -&gt; AutoScalingGroup -&gt; ShowS)
+-&gt; (AutoScalingGroup -&gt; String)
+-&gt; ([AutoScalingGroup] -&gt; ShowS)
+-&gt; Show AutoScalingGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AutoScalingGroup] -&gt; ShowS
+$cshowList :: [AutoScalingGroup] -&gt; ShowS
+show :: AutoScalingGroup -&gt; String
+$cshow :: AutoScalingGroup -&gt; String
+showsPrec :: Int -&gt; AutoScalingGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; AutoScalingGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AutoScalingGroup -&gt; Rep AutoScalingGroup x)
+-&gt; (forall x. Rep AutoScalingGroup x -&gt; AutoScalingGroup)
+-&gt; Generic AutoScalingGroup
+forall x. Rep AutoScalingGroup x -&gt; AutoScalingGroup
+forall x. AutoScalingGroup -&gt; Rep AutoScalingGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AutoScalingGroup x -&gt; AutoScalingGroup
+$cfrom :: forall x. AutoScalingGroup -&gt; Rep AutoScalingGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'AutoScalingGroup' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'name', 'autoScalingGroup_name' - The name of the Auto Scaling group associated with an Amazon EKS managed</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- node group.</span><span>
+</span><span id="line-47"></span><span class="annot"><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#newAutoScalingGroup"><span class="hs-identifier hs-type">newAutoScalingGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span><span>
+</span><span id="line-49"></span><span id="newAutoScalingGroup"><span class="annot"><span class="annottext">newAutoScalingGroup :: AutoScalingGroup
+</span><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#newAutoScalingGroup"><span class="hs-identifier hs-var hs-var">newAutoScalingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">AutoScalingGroup' :: Maybe Text -&gt; AutoScalingGroup
+</span><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#AutoScalingGroup%27"><span class="hs-identifier hs-type">AutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AutoScalingGroup' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#%24sel%3Aname%3AAutoScalingGroup%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | The name of the Auto Scaling group associated with an Amazon EKS managed</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- node group.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#autoScalingGroup_name"><span class="hs-identifier hs-type">autoScalingGroup_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span id="autoScalingGroup_name"><span class="annot"><span class="annottext">autoScalingGroup_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AutoScalingGroup -&gt; f AutoScalingGroup
+</span><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#autoScalingGroup_name"><span class="hs-identifier hs-var hs-var">autoScalingGroup_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingGroup -&gt; Maybe Text)
+-&gt; (AutoScalingGroup -&gt; Maybe Text -&gt; AutoScalingGroup)
+-&gt; Lens AutoScalingGroup AutoScalingGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#AutoScalingGroup%27"><span class="hs-identifier hs-type">AutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263540"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:AutoScalingGroup' :: AutoScalingGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679263540"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263540"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263539"><span class="annot"><span class="annottext">s :: AutoScalingGroup
+</span><a href="#local-6989586621679263539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#AutoScalingGroup%27"><span class="hs-identifier hs-type">AutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263538"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingGroup
+</span><a href="#local-6989586621679263539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AutoScalingGroup' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#%24sel%3Aname%3AAutoScalingGroup%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263535"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679263533"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoScalingGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AutoScalingGroup)
+-&gt; Value
+-&gt; Parser AutoScalingGroup
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AutoScalingGroup&quot;</span></span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679263530"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; AutoScalingGroup
+</span><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#AutoScalingGroup%27"><span class="hs-identifier hs-var">AutoScalingGroup'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; AutoScalingGroup)
+-&gt; Parser (Maybe Text) -&gt; Parser AutoScalingGroup
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263524"><span id="local-6989586621679263526"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span></span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263521"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span></span><span>
+</span><span id="line-68"></span></pre></body></html>

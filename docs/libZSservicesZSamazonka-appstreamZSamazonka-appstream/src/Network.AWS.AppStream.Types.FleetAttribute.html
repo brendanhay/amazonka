@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppStream.Types.FleetAttribute</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppStream.Types.FleetAttribute</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute"><span class="hs-identifier">FleetAttribute</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute_DOMAIN_JOIN_INFO"><span class="hs-identifier">FleetAttribute_DOMAIN_JOIN_INFO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute_IAM_ROLE_ARN"><span class="hs-identifier">FleetAttribute_IAM_ROLE_ARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute_VPC_CONFIGURATION"><span class="hs-identifier">FleetAttribute_VPC_CONFIGURATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute_VPC_CONFIGURATION_SECURITY_GROUP_IDS"><span class="hs-identifier">FleetAttribute_VPC_CONFIGURATION_SECURITY_GROUP_IDS</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | The fleet attribute.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679285656"><span id="local-6989586621679285657"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetAttribute"><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute"><span class="hs-identifier hs-var">FleetAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetAttribute%27"><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute%27"><span class="hs-identifier hs-var">FleetAttribute'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFleetAttribute"><span class="annot"><span class="annottext">FleetAttribute -&gt; Text
+</span><a href="Network.AWS.AppStream.Types.FleetAttribute.html#fromFleetAttribute"><span class="hs-identifier hs-var hs-var">fromFleetAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679285648"><span id="local-6989586621679285650"><span id="local-6989586621679285652"><span class="annot"><span class="annottext">Int -&gt; FleetAttribute -&gt; ShowS
+[FleetAttribute] -&gt; ShowS
+FleetAttribute -&gt; String
+(Int -&gt; FleetAttribute -&gt; ShowS)
+-&gt; (FleetAttribute -&gt; String)
+-&gt; ([FleetAttribute] -&gt; ShowS)
+-&gt; Show FleetAttribute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FleetAttribute] -&gt; ShowS
+$cshowList :: [FleetAttribute] -&gt; ShowS
+show :: FleetAttribute -&gt; String
+$cshow :: FleetAttribute -&gt; String
+showsPrec :: Int -&gt; FleetAttribute -&gt; ShowS
+$cshowsPrec :: Int -&gt; FleetAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679285639"><span id="local-6989586621679285641"><span id="local-6989586621679285643"><span id="local-6989586621679285645"><span class="annot"><span class="annottext">ReadPrec [FleetAttribute]
+ReadPrec FleetAttribute
+Int -&gt; ReadS FleetAttribute
+ReadS [FleetAttribute]
+(Int -&gt; ReadS FleetAttribute)
+-&gt; ReadS [FleetAttribute]
+-&gt; ReadPrec FleetAttribute
+-&gt; ReadPrec [FleetAttribute]
+-&gt; Read FleetAttribute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FleetAttribute]
+$creadListPrec :: ReadPrec [FleetAttribute]
+readPrec :: ReadPrec FleetAttribute
+$creadPrec :: ReadPrec FleetAttribute
+readList :: ReadS [FleetAttribute]
+$creadList :: ReadS [FleetAttribute]
+readsPrec :: Int -&gt; ReadS FleetAttribute
+$creadsPrec :: Int -&gt; ReadS FleetAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679285634"><span id="local-6989586621679285636"><span class="annot"><span class="annottext">FleetAttribute -&gt; FleetAttribute -&gt; Bool
+(FleetAttribute -&gt; FleetAttribute -&gt; Bool)
+-&gt; (FleetAttribute -&gt; FleetAttribute -&gt; Bool) -&gt; Eq FleetAttribute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FleetAttribute -&gt; FleetAttribute -&gt; Bool
+$c/= :: FleetAttribute -&gt; FleetAttribute -&gt; Bool
+== :: FleetAttribute -&gt; FleetAttribute -&gt; Bool
+$c== :: FleetAttribute -&gt; FleetAttribute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679285618"><span id="local-6989586621679285620"><span id="local-6989586621679285622"><span id="local-6989586621679285624"><span id="local-6989586621679285626"><span id="local-6989586621679285628"><span id="local-6989586621679285630"><span class="annot"><span class="annottext">Eq FleetAttribute
+Eq FleetAttribute
+-&gt; (FleetAttribute -&gt; FleetAttribute -&gt; Ordering)
+-&gt; (FleetAttribute -&gt; FleetAttribute -&gt; Bool)
+-&gt; (FleetAttribute -&gt; FleetAttribute -&gt; Bool)
+-&gt; (FleetAttribute -&gt; FleetAttribute -&gt; Bool)
+-&gt; (FleetAttribute -&gt; FleetAttribute -&gt; Bool)
+-&gt; (FleetAttribute -&gt; FleetAttribute -&gt; FleetAttribute)
+-&gt; (FleetAttribute -&gt; FleetAttribute -&gt; FleetAttribute)
+-&gt; Ord FleetAttribute
+FleetAttribute -&gt; FleetAttribute -&gt; Bool
+FleetAttribute -&gt; FleetAttribute -&gt; Ordering
+FleetAttribute -&gt; FleetAttribute -&gt; FleetAttribute
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FleetAttribute -&gt; FleetAttribute -&gt; FleetAttribute
+$cmin :: FleetAttribute -&gt; FleetAttribute -&gt; FleetAttribute
+max :: FleetAttribute -&gt; FleetAttribute -&gt; FleetAttribute
+$cmax :: FleetAttribute -&gt; FleetAttribute -&gt; FleetAttribute
+&gt;= :: FleetAttribute -&gt; FleetAttribute -&gt; Bool
+$c&gt;= :: FleetAttribute -&gt; FleetAttribute -&gt; Bool
+&gt; :: FleetAttribute -&gt; FleetAttribute -&gt; Bool
+$c&gt; :: FleetAttribute -&gt; FleetAttribute -&gt; Bool
+&lt;= :: FleetAttribute -&gt; FleetAttribute -&gt; Bool
+$c&lt;= :: FleetAttribute -&gt; FleetAttribute -&gt; Bool
+&lt; :: FleetAttribute -&gt; FleetAttribute -&gt; Bool
+$c&lt; :: FleetAttribute -&gt; FleetAttribute -&gt; Bool
+compare :: FleetAttribute -&gt; FleetAttribute -&gt; Ordering
+$ccompare :: FleetAttribute -&gt; FleetAttribute -&gt; Ordering
+$cp1Ord :: Eq FleetAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FleetAttribute -&gt; Rep FleetAttribute x)
+-&gt; (forall x. Rep FleetAttribute x -&gt; FleetAttribute)
+-&gt; Generic FleetAttribute
+forall x. Rep FleetAttribute x -&gt; FleetAttribute
+forall x. FleetAttribute -&gt; Rep FleetAttribute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FleetAttribute x -&gt; FleetAttribute
+$cfrom :: forall x. FleetAttribute -&gt; Rep FleetAttribute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679285610"><span id="local-6989586621679285612"><span class="annot"><span class="annottext">Int -&gt; FleetAttribute -&gt; Int
+FleetAttribute -&gt; Int
+(Int -&gt; FleetAttribute -&gt; Int)
+-&gt; (FleetAttribute -&gt; Int) -&gt; Hashable FleetAttribute
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FleetAttribute -&gt; Int
+$chash :: FleetAttribute -&gt; Int
+hashWithSalt :: Int -&gt; FleetAttribute -&gt; Int
+$chashWithSalt :: Int -&gt; FleetAttribute -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679285607"><span class="annot"><span class="annottext">FleetAttribute -&gt; ()
+(FleetAttribute -&gt; ()) -&gt; NFData FleetAttribute
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FleetAttribute -&gt; ()
+$crnf :: FleetAttribute -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679285604"><span class="annot"><span class="annottext">Text -&gt; Either String FleetAttribute
+(Text -&gt; Either String FleetAttribute) -&gt; FromText FleetAttribute
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FleetAttribute
+$cfromText :: Text -&gt; Either String FleetAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679285601"><span class="annot"><span class="annottext">FleetAttribute -&gt; Text
+(FleetAttribute -&gt; Text) -&gt; ToText FleetAttribute
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FleetAttribute -&gt; Text
+$ctoText :: FleetAttribute -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679285598"><span class="annot"><span class="annottext">FleetAttribute -&gt; ByteString
+(FleetAttribute -&gt; ByteString) -&gt; ToByteString FleetAttribute
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FleetAttribute -&gt; ByteString
+$ctoBS :: FleetAttribute -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679285595"><span class="annot"><span class="annottext">FleetAttribute -&gt; ByteStringBuilder
+(FleetAttribute -&gt; ByteStringBuilder) -&gt; ToLog FleetAttribute
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FleetAttribute -&gt; ByteStringBuilder
+$cbuild :: FleetAttribute -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679285592"><span class="annot"><span class="annottext">HeaderName -&gt; FleetAttribute -&gt; [Header]
+(HeaderName -&gt; FleetAttribute -&gt; [Header])
+-&gt; ToHeader FleetAttribute
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FleetAttribute -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FleetAttribute -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679285589"><span class="annot"><span class="annottext">FleetAttribute -&gt; QueryString
+(FleetAttribute -&gt; QueryString) -&gt; ToQuery FleetAttribute
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FleetAttribute -&gt; QueryString
+$ctoQuery :: FleetAttribute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679285584"><span id="local-6989586621679285586"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetAttribute]
+Value -&gt; Parser FleetAttribute
+(Value -&gt; Parser FleetAttribute)
+-&gt; (Value -&gt; Parser [FleetAttribute]) -&gt; FromJSON FleetAttribute
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FleetAttribute]
+$cparseJSONList :: Value -&gt; Parser [FleetAttribute]
+parseJSON :: Value -&gt; Parser FleetAttribute
+$cparseJSON :: Value -&gt; Parser FleetAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679285579"><span id="local-6989586621679285581"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetAttribute]
+FromJSONKeyFunction FleetAttribute
+FromJSONKeyFunction FleetAttribute
+-&gt; FromJSONKeyFunction [FleetAttribute]
+-&gt; FromJSONKey FleetAttribute
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FleetAttribute]
+$cfromJSONKeyList :: FromJSONKeyFunction [FleetAttribute]
+fromJSONKey :: FromJSONKeyFunction FleetAttribute
+$cfromJSONKey :: FromJSONKeyFunction FleetAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679285570"><span id="local-6989586621679285572"><span id="local-6989586621679285574"><span id="local-6989586621679285576"><span class="annot"><span class="annottext">[FleetAttribute] -&gt; Encoding
+[FleetAttribute] -&gt; Value
+FleetAttribute -&gt; Encoding
+FleetAttribute -&gt; Value
+(FleetAttribute -&gt; Value)
+-&gt; (FleetAttribute -&gt; Encoding)
+-&gt; ([FleetAttribute] -&gt; Value)
+-&gt; ([FleetAttribute] -&gt; Encoding)
+-&gt; ToJSON FleetAttribute
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FleetAttribute] -&gt; Encoding
+$ctoEncodingList :: [FleetAttribute] -&gt; Encoding
+toJSONList :: [FleetAttribute] -&gt; Value
+$ctoJSONList :: [FleetAttribute] -&gt; Value
+toEncoding :: FleetAttribute -&gt; Encoding
+$ctoEncoding :: FleetAttribute -&gt; Encoding
+toJSON :: FleetAttribute -&gt; Value
+$ctoJSON :: FleetAttribute -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679285565"><span id="local-6989586621679285567"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetAttribute]
+ToJSONKeyFunction FleetAttribute
+ToJSONKeyFunction FleetAttribute
+-&gt; ToJSONKeyFunction [FleetAttribute] -&gt; ToJSONKey FleetAttribute
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FleetAttribute]
+$ctoJSONKeyList :: ToJSONKeyFunction [FleetAttribute]
+toJSONKey :: ToJSONKeyFunction FleetAttribute
+$ctoJSONKey :: ToJSONKeyFunction FleetAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679285562"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetAttribute
+([Node] -&gt; Either String FleetAttribute) -&gt; FromXML FleetAttribute
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FleetAttribute
+$cparseXML :: [Node] -&gt; Either String FleetAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679285559"><span class="annot"><span class="annottext">FleetAttribute -&gt; XML
+(FleetAttribute -&gt; XML) -&gt; ToXML FleetAttribute
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FleetAttribute -&gt; XML
+$ctoXML :: FleetAttribute -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute_DOMAIN_JOIN_INFO"><span class="hs-identifier hs-type">FleetAttribute_DOMAIN_JOIN_INFO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute"><span class="hs-identifier hs-type">FleetAttribute</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFleetAttribute_DOMAIN_JOIN_INFO"><span id="%24mFleetAttribute_DOMAIN_JOIN_INFO"><span id="FleetAttribute_DOMAIN_JOIN_INFO"><span class="annot"><span class="annottext">$bFleetAttribute_DOMAIN_JOIN_INFO :: FleetAttribute
+$mFleetAttribute_DOMAIN_JOIN_INFO :: forall r. FleetAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppStream.Types.FleetAttribute.html#%24bFleetAttribute_DOMAIN_JOIN_INFO"><span class="hs-identifier hs-var hs-var hs-var">FleetAttribute_DOMAIN_JOIN_INFO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute%27"><span class="hs-identifier hs-type">FleetAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DOMAIN_JOIN_INFO&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute_IAM_ROLE_ARN"><span class="hs-identifier hs-type">FleetAttribute_IAM_ROLE_ARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute"><span class="hs-identifier hs-type">FleetAttribute</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFleetAttribute_IAM_ROLE_ARN"><span id="%24mFleetAttribute_IAM_ROLE_ARN"><span id="FleetAttribute_IAM_ROLE_ARN"><span class="annot"><span class="annottext">$bFleetAttribute_IAM_ROLE_ARN :: FleetAttribute
+$mFleetAttribute_IAM_ROLE_ARN :: forall r. FleetAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppStream.Types.FleetAttribute.html#%24bFleetAttribute_IAM_ROLE_ARN"><span class="hs-identifier hs-var hs-var hs-var">FleetAttribute_IAM_ROLE_ARN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute%27"><span class="hs-identifier hs-type">FleetAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IAM_ROLE_ARN&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute_VPC_CONFIGURATION"><span class="hs-identifier hs-type">FleetAttribute_VPC_CONFIGURATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute"><span class="hs-identifier hs-type">FleetAttribute</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFleetAttribute_VPC_CONFIGURATION"><span id="%24mFleetAttribute_VPC_CONFIGURATION"><span id="FleetAttribute_VPC_CONFIGURATION"><span class="annot"><span class="annottext">$bFleetAttribute_VPC_CONFIGURATION :: FleetAttribute
+$mFleetAttribute_VPC_CONFIGURATION :: forall r. FleetAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppStream.Types.FleetAttribute.html#%24bFleetAttribute_VPC_CONFIGURATION"><span class="hs-identifier hs-var hs-var hs-var">FleetAttribute_VPC_CONFIGURATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute%27"><span class="hs-identifier hs-type">FleetAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VPC_CONFIGURATION&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute_VPC_CONFIGURATION_SECURITY_GROUP_IDS"><span class="hs-identifier hs-type">FleetAttribute_VPC_CONFIGURATION_SECURITY_GROUP_IDS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute"><span class="hs-identifier hs-type">FleetAttribute</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFleetAttribute_VPC_CONFIGURATION_SECURITY_GROUP_IDS"><span id="%24mFleetAttribute_VPC_CONFIGURATION_SECURITY_GROUP_IDS"><span id="FleetAttribute_VPC_CONFIGURATION_SECURITY_GROUP_IDS"><span class="annot"><span class="annottext">$bFleetAttribute_VPC_CONFIGURATION_SECURITY_GROUP_IDS :: FleetAttribute
+$mFleetAttribute_VPC_CONFIGURATION_SECURITY_GROUP_IDS :: forall r. FleetAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppStream.Types.FleetAttribute.html#%24bFleetAttribute_VPC_CONFIGURATION_SECURITY_GROUP_IDS"><span class="hs-identifier hs-var hs-var hs-var">FleetAttribute_VPC_CONFIGURATION_SECURITY_GROUP_IDS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute%27"><span class="hs-identifier hs-type">FleetAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VPC_CONFIGURATION_SECURITY_GROUP_IDS&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute_DOMAIN_JOIN_INFO"><span class="hs-pragma hs-type">FleetAttribute_DOMAIN_JOIN_INFO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute_IAM_ROLE_ARN"><span class="hs-pragma hs-type">FleetAttribute_IAM_ROLE_ARN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute_VPC_CONFIGURATION"><span class="hs-pragma hs-type">FleetAttribute_VPC_CONFIGURATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute_VPC_CONFIGURATION_SECURITY_GROUP_IDS"><span class="hs-pragma hs-type">FleetAttribute_VPC_CONFIGURATION_SECURITY_GROUP_IDS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetAttribute.html#FleetAttribute%27"><span class="hs-pragma hs-type">FleetAttribute'</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-82"></span></pre></body></html>

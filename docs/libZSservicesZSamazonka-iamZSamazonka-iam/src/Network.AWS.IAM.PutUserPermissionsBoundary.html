@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IAM.PutUserPermissionsBoundary</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds or updates the policy that is specified as the IAM user\'s</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- permissions boundary. You can use an Amazon Web Services managed policy</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- or a customer managed policy to set the boundary for a user. Use the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- boundary to control the maximum permissions that the user can have.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Setting a permissions boundary is an advanced feature that can affect</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- the permissions for the user.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Policies that are used as permissions boundaries do not provide</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- permissions. You must also attach a permissions policy to the user. To</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- learn how the effective permissions for a user are evaluated, see</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html IAM JSON policy evaluation logic&gt;</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- in the IAM User Guide.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IAM.PutUserPermissionsBoundary</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary"><span class="hs-identifier">PutUserPermissionsBoundary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#newPutUserPermissionsBoundary"><span class="hs-identifier">newPutUserPermissionsBoundary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#putUserPermissionsBoundary_userName"><span class="hs-identifier">putUserPermissionsBoundary_userName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#putUserPermissionsBoundary_permissionsBoundary"><span class="hs-identifier">putUserPermissionsBoundary_permissionsBoundary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundaryResponse"><span class="hs-identifier">PutUserPermissionsBoundaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#newPutUserPermissionsBoundaryResponse"><span class="hs-identifier">newPutUserPermissionsBoundaryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.html"><span class="hs-identifier">Network.AWS.IAM.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newPutUserPermissionsBoundary' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679437622"><span id="local-6989586621679437623"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutUserPermissionsBoundary"><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary"><span class="hs-identifier hs-var">PutUserPermissionsBoundary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutUserPermissionsBoundary%27"><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary%27"><span class="hs-identifier hs-var">PutUserPermissionsBoundary'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name (friendly name, not ARN) of the IAM user for which you want to</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- set the permissions boundary.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AuserName%3APutUserPermissionsBoundary%27"><span class="annot"><span class="annottext">PutUserPermissionsBoundary -&gt; Text
+</span><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#%24sel%3AuserName%3APutUserPermissionsBoundary%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The ARN of the policy that is used to set the permissions boundary for</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the user.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3ApermissionsBoundary%3APutUserPermissionsBoundary%27"><span class="annot"><span class="annottext">PutUserPermissionsBoundary -&gt; Text
+</span><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#%24sel%3ApermissionsBoundary%3APutUserPermissionsBoundary%27"><span class="hs-identifier hs-var hs-var">permissionsBoundary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679437615"><span id="local-6989586621679437617"><span class="annot"><span class="annottext">PutUserPermissionsBoundary -&gt; PutUserPermissionsBoundary -&gt; Bool
+(PutUserPermissionsBoundary -&gt; PutUserPermissionsBoundary -&gt; Bool)
+-&gt; (PutUserPermissionsBoundary
+    -&gt; PutUserPermissionsBoundary -&gt; Bool)
+-&gt; Eq PutUserPermissionsBoundary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutUserPermissionsBoundary -&gt; PutUserPermissionsBoundary -&gt; Bool
+$c/= :: PutUserPermissionsBoundary -&gt; PutUserPermissionsBoundary -&gt; Bool
+== :: PutUserPermissionsBoundary -&gt; PutUserPermissionsBoundary -&gt; Bool
+$c== :: PutUserPermissionsBoundary -&gt; PutUserPermissionsBoundary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437606"><span id="local-6989586621679437608"><span id="local-6989586621679437610"><span id="local-6989586621679437612"><span class="annot"><span class="annottext">ReadPrec [PutUserPermissionsBoundary]
+ReadPrec PutUserPermissionsBoundary
+Int -&gt; ReadS PutUserPermissionsBoundary
+ReadS [PutUserPermissionsBoundary]
+(Int -&gt; ReadS PutUserPermissionsBoundary)
+-&gt; ReadS [PutUserPermissionsBoundary]
+-&gt; ReadPrec PutUserPermissionsBoundary
+-&gt; ReadPrec [PutUserPermissionsBoundary]
+-&gt; Read PutUserPermissionsBoundary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutUserPermissionsBoundary]
+$creadListPrec :: ReadPrec [PutUserPermissionsBoundary]
+readPrec :: ReadPrec PutUserPermissionsBoundary
+$creadPrec :: ReadPrec PutUserPermissionsBoundary
+readList :: ReadS [PutUserPermissionsBoundary]
+$creadList :: ReadS [PutUserPermissionsBoundary]
+readsPrec :: Int -&gt; ReadS PutUserPermissionsBoundary
+$creadsPrec :: Int -&gt; ReadS PutUserPermissionsBoundary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437599"><span id="local-6989586621679437601"><span id="local-6989586621679437603"><span class="annot"><span class="annottext">Int -&gt; PutUserPermissionsBoundary -&gt; ShowS
+[PutUserPermissionsBoundary] -&gt; ShowS
+PutUserPermissionsBoundary -&gt; String
+(Int -&gt; PutUserPermissionsBoundary -&gt; ShowS)
+-&gt; (PutUserPermissionsBoundary -&gt; String)
+-&gt; ([PutUserPermissionsBoundary] -&gt; ShowS)
+-&gt; Show PutUserPermissionsBoundary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutUserPermissionsBoundary] -&gt; ShowS
+$cshowList :: [PutUserPermissionsBoundary] -&gt; ShowS
+show :: PutUserPermissionsBoundary -&gt; String
+$cshow :: PutUserPermissionsBoundary -&gt; String
+showsPrec :: Int -&gt; PutUserPermissionsBoundary -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutUserPermissionsBoundary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutUserPermissionsBoundary -&gt; Rep PutUserPermissionsBoundary x)
+-&gt; (forall x.
+    Rep PutUserPermissionsBoundary x -&gt; PutUserPermissionsBoundary)
+-&gt; Generic PutUserPermissionsBoundary
+forall x.
+Rep PutUserPermissionsBoundary x -&gt; PutUserPermissionsBoundary
+forall x.
+PutUserPermissionsBoundary -&gt; Rep PutUserPermissionsBoundary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutUserPermissionsBoundary x -&gt; PutUserPermissionsBoundary
+$cfrom :: forall x.
+PutUserPermissionsBoundary -&gt; Rep PutUserPermissionsBoundary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'PutUserPermissionsBoundary' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'userName', 'putUserPermissionsBoundary_userName' - The name (friendly name, not ARN) of the IAM user for which you want to</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- set the permissions boundary.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'permissionsBoundary', 'putUserPermissionsBoundary_permissionsBoundary' - The ARN of the policy that is used to set the permissions boundary for</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- the user.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#newPutUserPermissionsBoundary"><span class="hs-identifier hs-type">newPutUserPermissionsBoundary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'userName'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'permissionsBoundary'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary"><span class="hs-identifier hs-type">PutUserPermissionsBoundary</span></a></span><span>
+</span><span id="line-87"></span><span id="newPutUserPermissionsBoundary"><span class="annot"><span class="annottext">newPutUserPermissionsBoundary :: Text -&gt; Text -&gt; PutUserPermissionsBoundary
+</span><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#newPutUserPermissionsBoundary"><span class="hs-identifier hs-var hs-var">newPutUserPermissionsBoundary</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679437594"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679437594"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679437593"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679437593"><span class="hs-identifier hs-var">pPermissionsBoundary_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">PutUserPermissionsBoundary' :: Text -&gt; Text -&gt; PutUserPermissionsBoundary
+</span><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary%27"><span class="hs-identifier hs-type">PutUserPermissionsBoundary'</span></a></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userName:PutUserPermissionsBoundary' :: Text
+</span><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#%24sel%3AuserName%3APutUserPermissionsBoundary%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679437594"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:permissionsBoundary:PutUserPermissionsBoundary' :: Text
+</span><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#%24sel%3ApermissionsBoundary%3APutUserPermissionsBoundary%27"><span class="hs-identifier hs-var">permissionsBoundary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679437593"><span class="hs-identifier hs-var">pPermissionsBoundary_</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The name (friendly name, not ARN) of the IAM user for which you want to</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- set the permissions boundary.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#putUserPermissionsBoundary_userName"><span class="hs-identifier hs-type">putUserPermissionsBoundary_userName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary"><span class="hs-identifier hs-type">PutUserPermissionsBoundary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span id="putUserPermissionsBoundary_userName"><span class="annot"><span class="annottext">putUserPermissionsBoundary_userName :: (Text -&gt; f Text)
+-&gt; PutUserPermissionsBoundary -&gt; f PutUserPermissionsBoundary
+</span><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#putUserPermissionsBoundary_userName"><span class="hs-identifier hs-var hs-var">putUserPermissionsBoundary_userName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutUserPermissionsBoundary -&gt; Text)
+-&gt; (PutUserPermissionsBoundary
+    -&gt; Text -&gt; PutUserPermissionsBoundary)
+-&gt; Lens
+     PutUserPermissionsBoundary PutUserPermissionsBoundary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary%27"><span class="hs-identifier hs-type">PutUserPermissionsBoundary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437590"><span class="annot"><span class="annottext">Text
+userName :: Text
+$sel:userName:PutUserPermissionsBoundary' :: PutUserPermissionsBoundary -&gt; Text
+</span><a href="#local-6989586621679437590"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679437590"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437589"><span class="annot"><span class="annottext">s :: PutUserPermissionsBoundary
+</span><a href="#local-6989586621679437589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary%27"><span class="hs-identifier hs-type">PutUserPermissionsBoundary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437588"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679437588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutUserPermissionsBoundary
+</span><a href="#local-6989586621679437589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:PutUserPermissionsBoundary' :: Text
+</span><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#%24sel%3AuserName%3APutUserPermissionsBoundary%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679437588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary"><span class="hs-identifier hs-type">PutUserPermissionsBoundary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The ARN of the policy that is used to set the permissions boundary for</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- the user.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#putUserPermissionsBoundary_permissionsBoundary"><span class="hs-identifier hs-type">putUserPermissionsBoundary_permissionsBoundary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary"><span class="hs-identifier hs-type">PutUserPermissionsBoundary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="putUserPermissionsBoundary_permissionsBoundary"><span class="annot"><span class="annottext">putUserPermissionsBoundary_permissionsBoundary :: (Text -&gt; f Text)
+-&gt; PutUserPermissionsBoundary -&gt; f PutUserPermissionsBoundary
+</span><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#putUserPermissionsBoundary_permissionsBoundary"><span class="hs-identifier hs-var hs-var">putUserPermissionsBoundary_permissionsBoundary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutUserPermissionsBoundary -&gt; Text)
+-&gt; (PutUserPermissionsBoundary
+    -&gt; Text -&gt; PutUserPermissionsBoundary)
+-&gt; Lens
+     PutUserPermissionsBoundary PutUserPermissionsBoundary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary%27"><span class="hs-identifier hs-type">PutUserPermissionsBoundary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437587"><span class="annot"><span class="annottext">Text
+permissionsBoundary :: Text
+$sel:permissionsBoundary:PutUserPermissionsBoundary' :: PutUserPermissionsBoundary -&gt; Text
+</span><a href="#local-6989586621679437587"><span class="hs-identifier hs-var hs-var">permissionsBoundary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679437587"><span class="hs-identifier hs-var">permissionsBoundary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437586"><span class="annot"><span class="annottext">s :: PutUserPermissionsBoundary
+</span><a href="#local-6989586621679437586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary%27"><span class="hs-identifier hs-type">PutUserPermissionsBoundary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437585"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679437585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutUserPermissionsBoundary
+</span><a href="#local-6989586621679437586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionsBoundary:PutUserPermissionsBoundary' :: Text
+</span><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#%24sel%3ApermissionsBoundary%3APutUserPermissionsBoundary%27"><span class="hs-identifier hs-var">permissionsBoundary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679437585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary"><span class="hs-identifier hs-type">PutUserPermissionsBoundary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary"><span class="hs-identifier hs-type">PutUserPermissionsBoundary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary"><span class="hs-identifier hs-type">PutUserPermissionsBoundary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundaryResponse"><span class="hs-identifier hs-type">PutUserPermissionsBoundaryResponse</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679437581"><span class="annot"><span class="annottext">request :: PutUserPermissionsBoundary -&gt; Request PutUserPermissionsBoundary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PutUserPermissionsBoundary -&gt; Request PutUserPermissionsBoundary
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679437577"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutUserPermissionsBoundary
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutUserPermissionsBoundary)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse PutUserPermissionsBoundary
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutUserPermissionsBoundary
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutUserPermissionsBoundary)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse PutUserPermissionsBoundary
+PutUserPermissionsBoundaryResponse
+</span><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundaryResponse%27"><span class="hs-identifier hs-var">PutUserPermissionsBoundaryResponse'</span></a></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437570"><span id="local-6989586621679437572"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary"><span class="hs-identifier hs-type">PutUserPermissionsBoundary</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437567"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary"><span class="hs-identifier hs-type">PutUserPermissionsBoundary</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary"><span class="hs-identifier hs-type">PutUserPermissionsBoundary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679437563"><span class="annot"><span class="annottext">toHeaders :: PutUserPermissionsBoundary -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; PutUserPermissionsBoundary -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary"><span class="hs-identifier hs-type">PutUserPermissionsBoundary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679437558"><span class="annot"><span class="annottext">toPath :: PutUserPermissionsBoundary -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutUserPermissionsBoundary -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary"><span class="hs-identifier hs-type">PutUserPermissionsBoundary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679437554"><span class="annot"><span class="annottext">toQuery :: PutUserPermissionsBoundary -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundary%27"><span class="hs-identifier hs-type">PutUserPermissionsBoundary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437551"><span id="local-6989586621679437552"><span class="annot"><span class="annottext">Text
+permissionsBoundary :: Text
+userName :: Text
+$sel:permissionsBoundary:PutUserPermissionsBoundary' :: PutUserPermissionsBoundary -&gt; Text
+$sel:userName:PutUserPermissionsBoundary' :: PutUserPermissionsBoundary -&gt; Text
+</span><a href="#local-6989586621679437551"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PutUserPermissionsBoundary&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-08&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679437552"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PermissionsBoundary&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679437551"><span class="hs-identifier hs-var">permissionsBoundary</span></a></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newPutUserPermissionsBoundaryResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679437548"><span id="local-6989586621679437549"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutUserPermissionsBoundaryResponse"><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundaryResponse"><span class="hs-identifier hs-var">PutUserPermissionsBoundaryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutUserPermissionsBoundaryResponse%27"><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundaryResponse%27"><span class="hs-identifier hs-var">PutUserPermissionsBoundaryResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679437544"><span id="local-6989586621679437546"><span class="annot"><span class="annottext">PutUserPermissionsBoundaryResponse
+-&gt; PutUserPermissionsBoundaryResponse -&gt; Bool
+(PutUserPermissionsBoundaryResponse
+ -&gt; PutUserPermissionsBoundaryResponse -&gt; Bool)
+-&gt; (PutUserPermissionsBoundaryResponse
+    -&gt; PutUserPermissionsBoundaryResponse -&gt; Bool)
+-&gt; Eq PutUserPermissionsBoundaryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutUserPermissionsBoundaryResponse
+-&gt; PutUserPermissionsBoundaryResponse -&gt; Bool
+$c/= :: PutUserPermissionsBoundaryResponse
+-&gt; PutUserPermissionsBoundaryResponse -&gt; Bool
+== :: PutUserPermissionsBoundaryResponse
+-&gt; PutUserPermissionsBoundaryResponse -&gt; Bool
+$c== :: PutUserPermissionsBoundaryResponse
+-&gt; PutUserPermissionsBoundaryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437536"><span id="local-6989586621679437538"><span id="local-6989586621679437540"><span id="local-6989586621679437542"><span class="annot"><span class="annottext">ReadPrec [PutUserPermissionsBoundaryResponse]
+ReadPrec PutUserPermissionsBoundaryResponse
+Int -&gt; ReadS PutUserPermissionsBoundaryResponse
+ReadS [PutUserPermissionsBoundaryResponse]
+(Int -&gt; ReadS PutUserPermissionsBoundaryResponse)
+-&gt; ReadS [PutUserPermissionsBoundaryResponse]
+-&gt; ReadPrec PutUserPermissionsBoundaryResponse
+-&gt; ReadPrec [PutUserPermissionsBoundaryResponse]
+-&gt; Read PutUserPermissionsBoundaryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutUserPermissionsBoundaryResponse]
+$creadListPrec :: ReadPrec [PutUserPermissionsBoundaryResponse]
+readPrec :: ReadPrec PutUserPermissionsBoundaryResponse
+$creadPrec :: ReadPrec PutUserPermissionsBoundaryResponse
+readList :: ReadS [PutUserPermissionsBoundaryResponse]
+$creadList :: ReadS [PutUserPermissionsBoundaryResponse]
+readsPrec :: Int -&gt; ReadS PutUserPermissionsBoundaryResponse
+$creadsPrec :: Int -&gt; ReadS PutUserPermissionsBoundaryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437530"><span id="local-6989586621679437532"><span id="local-6989586621679437534"><span class="annot"><span class="annottext">Int -&gt; PutUserPermissionsBoundaryResponse -&gt; ShowS
+[PutUserPermissionsBoundaryResponse] -&gt; ShowS
+PutUserPermissionsBoundaryResponse -&gt; String
+(Int -&gt; PutUserPermissionsBoundaryResponse -&gt; ShowS)
+-&gt; (PutUserPermissionsBoundaryResponse -&gt; String)
+-&gt; ([PutUserPermissionsBoundaryResponse] -&gt; ShowS)
+-&gt; Show PutUserPermissionsBoundaryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutUserPermissionsBoundaryResponse] -&gt; ShowS
+$cshowList :: [PutUserPermissionsBoundaryResponse] -&gt; ShowS
+show :: PutUserPermissionsBoundaryResponse -&gt; String
+$cshow :: PutUserPermissionsBoundaryResponse -&gt; String
+showsPrec :: Int -&gt; PutUserPermissionsBoundaryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutUserPermissionsBoundaryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutUserPermissionsBoundaryResponse
+ -&gt; Rep PutUserPermissionsBoundaryResponse x)
+-&gt; (forall x.
+    Rep PutUserPermissionsBoundaryResponse x
+    -&gt; PutUserPermissionsBoundaryResponse)
+-&gt; Generic PutUserPermissionsBoundaryResponse
+forall x.
+Rep PutUserPermissionsBoundaryResponse x
+-&gt; PutUserPermissionsBoundaryResponse
+forall x.
+PutUserPermissionsBoundaryResponse
+-&gt; Rep PutUserPermissionsBoundaryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutUserPermissionsBoundaryResponse x
+-&gt; PutUserPermissionsBoundaryResponse
+$cfrom :: forall x.
+PutUserPermissionsBoundaryResponse
+-&gt; Rep PutUserPermissionsBoundaryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Create a value of 'PutUserPermissionsBoundaryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#newPutUserPermissionsBoundaryResponse"><span class="hs-identifier hs-type">newPutUserPermissionsBoundaryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundaryResponse"><span class="hs-identifier hs-type">PutUserPermissionsBoundaryResponse</span></a></span><span>
+</span><span id="line-147"></span><span id="newPutUserPermissionsBoundaryResponse"><span class="annot"><span class="annottext">newPutUserPermissionsBoundaryResponse :: PutUserPermissionsBoundaryResponse
+</span><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#newPutUserPermissionsBoundaryResponse"><span class="hs-identifier hs-var hs-var">newPutUserPermissionsBoundaryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">PutUserPermissionsBoundaryResponse
+</span><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundaryResponse%27"><span class="hs-identifier hs-var">PutUserPermissionsBoundaryResponse'</span></a></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679437526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.PutUserPermissionsBoundary.html#PutUserPermissionsBoundaryResponse"><span class="hs-identifier hs-type">PutUserPermissionsBoundaryResponse</span></a></span></span><span>
+</span><span id="line-153"></span></pre></body></html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceCatalog.Types.PortfolioDetail</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceCatalog.Types.PortfolioDetail</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information about a portfolio.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPortfolioDetail' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679399618"><span id="local-6989586621679399619"></span></span><span class="hs-keyword">data</span><span> </span><span id="PortfolioDetail"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-var">PortfolioDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PortfolioDetail%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail%27"><span class="hs-identifier hs-var">PortfolioDetail'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the portfolio provider.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AproviderName%3APortfolioDetail%27"><span class="annot"><span class="annottext">PortfolioDetail -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3AproviderName%3APortfolioDetail%27"><span class="hs-identifier hs-var hs-var">providerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The portfolio identifier.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aid%3APortfolioDetail%27"><span class="annot"><span class="annottext">PortfolioDetail -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3Aid%3APortfolioDetail%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The UTC time stamp of the creation time.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreatedTime%3APortfolioDetail%27"><span class="annot"><span class="annottext">PortfolioDetail -&gt; Maybe POSIX
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3AcreatedTime%3APortfolioDetail%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ARN assigned to the portfolio.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aarn%3APortfolioDetail%27"><span class="annot"><span class="annottext">PortfolioDetail -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3Aarn%3APortfolioDetail%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The description of the portfolio.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Adescription%3APortfolioDetail%27"><span class="annot"><span class="annottext">PortfolioDetail -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3Adescription%3APortfolioDetail%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name to use for display purposes.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdisplayName%3APortfolioDetail%27"><span class="annot"><span class="annottext">PortfolioDetail -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3AdisplayName%3APortfolioDetail%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399607"><span id="local-6989586621679399609"><span class="annot"><span class="annottext">PortfolioDetail -&gt; PortfolioDetail -&gt; Bool
+(PortfolioDetail -&gt; PortfolioDetail -&gt; Bool)
+-&gt; (PortfolioDetail -&gt; PortfolioDetail -&gt; Bool)
+-&gt; Eq PortfolioDetail
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PortfolioDetail -&gt; PortfolioDetail -&gt; Bool
+$c/= :: PortfolioDetail -&gt; PortfolioDetail -&gt; Bool
+== :: PortfolioDetail -&gt; PortfolioDetail -&gt; Bool
+$c== :: PortfolioDetail -&gt; PortfolioDetail -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399598"><span id="local-6989586621679399600"><span id="local-6989586621679399602"><span id="local-6989586621679399604"><span class="annot"><span class="annottext">ReadPrec [PortfolioDetail]
+ReadPrec PortfolioDetail
+Int -&gt; ReadS PortfolioDetail
+ReadS [PortfolioDetail]
+(Int -&gt; ReadS PortfolioDetail)
+-&gt; ReadS [PortfolioDetail]
+-&gt; ReadPrec PortfolioDetail
+-&gt; ReadPrec [PortfolioDetail]
+-&gt; Read PortfolioDetail
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PortfolioDetail]
+$creadListPrec :: ReadPrec [PortfolioDetail]
+readPrec :: ReadPrec PortfolioDetail
+$creadPrec :: ReadPrec PortfolioDetail
+readList :: ReadS [PortfolioDetail]
+$creadList :: ReadS [PortfolioDetail]
+readsPrec :: Int -&gt; ReadS PortfolioDetail
+$creadsPrec :: Int -&gt; ReadS PortfolioDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399591"><span id="local-6989586621679399593"><span id="local-6989586621679399595"><span class="annot"><span class="annottext">Int -&gt; PortfolioDetail -&gt; ShowS
+[PortfolioDetail] -&gt; ShowS
+PortfolioDetail -&gt; String
+(Int -&gt; PortfolioDetail -&gt; ShowS)
+-&gt; (PortfolioDetail -&gt; String)
+-&gt; ([PortfolioDetail] -&gt; ShowS)
+-&gt; Show PortfolioDetail
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PortfolioDetail] -&gt; ShowS
+$cshowList :: [PortfolioDetail] -&gt; ShowS
+show :: PortfolioDetail -&gt; String
+$cshow :: PortfolioDetail -&gt; String
+showsPrec :: Int -&gt; PortfolioDetail -&gt; ShowS
+$cshowsPrec :: Int -&gt; PortfolioDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PortfolioDetail -&gt; Rep PortfolioDetail x)
+-&gt; (forall x. Rep PortfolioDetail x -&gt; PortfolioDetail)
+-&gt; Generic PortfolioDetail
+forall x. Rep PortfolioDetail x -&gt; PortfolioDetail
+forall x. PortfolioDetail -&gt; Rep PortfolioDetail x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PortfolioDetail x -&gt; PortfolioDetail
+$cfrom :: forall x. PortfolioDetail -&gt; Rep PortfolioDetail x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'PortfolioDetail' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'providerName', 'portfolioDetail_providerName' - The name of the portfolio provider.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'id', 'portfolioDetail_id' - The portfolio identifier.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'createdTime', 'portfolioDetail_createdTime' - The UTC time stamp of the creation time.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'arn', 'portfolioDetail_arn' - The ARN assigned to the portfolio.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'description', 'portfolioDetail_description' - The description of the portfolio.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'displayName', 'portfolioDetail_displayName' - The name to use for display purposes.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#newPortfolioDetail"><span class="hs-identifier hs-type">newPortfolioDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-type">PortfolioDetail</span></a></span><span>
+</span><span id="line-66"></span><span id="newPortfolioDetail"><span class="annot"><span class="annottext">newPortfolioDetail :: PortfolioDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#newPortfolioDetail"><span class="hs-identifier hs-var hs-var">newPortfolioDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">PortfolioDetail' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; PortfolioDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail%27"><span class="hs-identifier hs-type">PortfolioDetail'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:providerName:PortfolioDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3AproviderName%3APortfolioDetail%27"><span class="hs-identifier hs-var">providerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:PortfolioDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3Aid%3APortfolioDetail%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:PortfolioDetail' :: Maybe POSIX
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3AcreatedTime%3APortfolioDetail%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:PortfolioDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3Aarn%3APortfolioDetail%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:PortfolioDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3Adescription%3APortfolioDetail%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:PortfolioDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3AdisplayName%3APortfolioDetail%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The name of the portfolio provider.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#portfolioDetail_providerName"><span class="hs-identifier hs-type">portfolioDetail_providerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-type">PortfolioDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="portfolioDetail_providerName"><span class="annot"><span class="annottext">portfolioDetail_providerName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PortfolioDetail -&gt; f PortfolioDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#portfolioDetail_providerName"><span class="hs-identifier hs-var hs-var">portfolioDetail_providerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PortfolioDetail -&gt; Maybe Text)
+-&gt; (PortfolioDetail -&gt; Maybe Text -&gt; PortfolioDetail)
+-&gt; Lens PortfolioDetail PortfolioDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail%27"><span class="hs-identifier hs-type">PortfolioDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399582"><span class="annot"><span class="annottext">Maybe Text
+providerName :: Maybe Text
+$sel:providerName:PortfolioDetail' :: PortfolioDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679399582"><span class="hs-identifier hs-var hs-var">providerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399582"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399581"><span class="annot"><span class="annottext">s :: PortfolioDetail
+</span><a href="#local-6989586621679399581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail%27"><span class="hs-identifier hs-type">PortfolioDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399580"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PortfolioDetail
+</span><a href="#local-6989586621679399581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerName:PortfolioDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3AproviderName%3APortfolioDetail%27"><span class="hs-identifier hs-var">providerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-type">PortfolioDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The portfolio identifier.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#portfolioDetail_id"><span class="hs-identifier hs-type">portfolioDetail_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-type">PortfolioDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="portfolioDetail_id"><span class="annot"><span class="annottext">portfolioDetail_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PortfolioDetail -&gt; f PortfolioDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#portfolioDetail_id"><span class="hs-identifier hs-var hs-var">portfolioDetail_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PortfolioDetail -&gt; Maybe Text)
+-&gt; (PortfolioDetail -&gt; Maybe Text -&gt; PortfolioDetail)
+-&gt; Lens PortfolioDetail PortfolioDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail%27"><span class="hs-identifier hs-type">PortfolioDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399578"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:PortfolioDetail' :: PortfolioDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679399578"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399578"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399577"><span class="annot"><span class="annottext">s :: PortfolioDetail
+</span><a href="#local-6989586621679399577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail%27"><span class="hs-identifier hs-type">PortfolioDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399576"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PortfolioDetail
+</span><a href="#local-6989586621679399577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PortfolioDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3Aid%3APortfolioDetail%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-type">PortfolioDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The UTC time stamp of the creation time.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#portfolioDetail_createdTime"><span class="hs-identifier hs-type">portfolioDetail_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-type">PortfolioDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="portfolioDetail_createdTime"><span class="annot"><span class="annottext">portfolioDetail_createdTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PortfolioDetail -&gt; f PortfolioDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#portfolioDetail_createdTime"><span class="hs-identifier hs-var hs-var">portfolioDetail_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PortfolioDetail -&gt; Maybe POSIX)
+-&gt; (PortfolioDetail -&gt; Maybe POSIX -&gt; PortfolioDetail)
+-&gt; Lens PortfolioDetail PortfolioDetail (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail%27"><span class="hs-identifier hs-type">PortfolioDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399574"><span class="annot"><span class="annottext">Maybe POSIX
+createdTime :: Maybe POSIX
+$sel:createdTime:PortfolioDetail' :: PortfolioDetail -&gt; Maybe POSIX
+</span><a href="#local-6989586621679399574"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679399574"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399573"><span class="annot"><span class="annottext">s :: PortfolioDetail
+</span><a href="#local-6989586621679399573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail%27"><span class="hs-identifier hs-type">PortfolioDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399572"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679399572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PortfolioDetail
+</span><a href="#local-6989586621679399573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:PortfolioDetail' :: Maybe POSIX
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3AcreatedTime%3APortfolioDetail%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679399572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-type">PortfolioDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PortfolioDetail -&gt; f PortfolioDetail)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PortfolioDetail
+-&gt; f PortfolioDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The ARN assigned to the portfolio.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#portfolioDetail_arn"><span class="hs-identifier hs-type">portfolioDetail_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-type">PortfolioDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="portfolioDetail_arn"><span class="annot"><span class="annottext">portfolioDetail_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PortfolioDetail -&gt; f PortfolioDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#portfolioDetail_arn"><span class="hs-identifier hs-var hs-var">portfolioDetail_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PortfolioDetail -&gt; Maybe Text)
+-&gt; (PortfolioDetail -&gt; Maybe Text -&gt; PortfolioDetail)
+-&gt; Lens PortfolioDetail PortfolioDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail%27"><span class="hs-identifier hs-type">PortfolioDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399567"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:PortfolioDetail' :: PortfolioDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679399567"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399567"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399566"><span class="annot"><span class="annottext">s :: PortfolioDetail
+</span><a href="#local-6989586621679399566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail%27"><span class="hs-identifier hs-type">PortfolioDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399565"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PortfolioDetail
+</span><a href="#local-6989586621679399566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:PortfolioDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3Aarn%3APortfolioDetail%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-type">PortfolioDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The description of the portfolio.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#portfolioDetail_description"><span class="hs-identifier hs-type">portfolioDetail_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-type">PortfolioDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="portfolioDetail_description"><span class="annot"><span class="annottext">portfolioDetail_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PortfolioDetail -&gt; f PortfolioDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#portfolioDetail_description"><span class="hs-identifier hs-var hs-var">portfolioDetail_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PortfolioDetail -&gt; Maybe Text)
+-&gt; (PortfolioDetail -&gt; Maybe Text -&gt; PortfolioDetail)
+-&gt; Lens PortfolioDetail PortfolioDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail%27"><span class="hs-identifier hs-type">PortfolioDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399563"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:PortfolioDetail' :: PortfolioDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679399563"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399563"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399562"><span class="annot"><span class="annottext">s :: PortfolioDetail
+</span><a href="#local-6989586621679399562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail%27"><span class="hs-identifier hs-type">PortfolioDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399561"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PortfolioDetail
+</span><a href="#local-6989586621679399562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:PortfolioDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3Adescription%3APortfolioDetail%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-type">PortfolioDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The name to use for display purposes.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#portfolioDetail_displayName"><span class="hs-identifier hs-type">portfolioDetail_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-type">PortfolioDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="portfolioDetail_displayName"><span class="annot"><span class="annottext">portfolioDetail_displayName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PortfolioDetail -&gt; f PortfolioDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#portfolioDetail_displayName"><span class="hs-identifier hs-var hs-var">portfolioDetail_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PortfolioDetail -&gt; Maybe Text)
+-&gt; (PortfolioDetail -&gt; Maybe Text -&gt; PortfolioDetail)
+-&gt; Lens PortfolioDetail PortfolioDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail%27"><span class="hs-identifier hs-type">PortfolioDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399559"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:PortfolioDetail' :: PortfolioDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679399559"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399559"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399558"><span class="annot"><span class="annottext">s :: PortfolioDetail
+</span><a href="#local-6989586621679399558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail%27"><span class="hs-identifier hs-type">PortfolioDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399557"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PortfolioDetail
+</span><a href="#local-6989586621679399558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:PortfolioDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#%24sel%3AdisplayName%3APortfolioDetail%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-type">PortfolioDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399554"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-type">PortfolioDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679399552"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PortfolioDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PortfolioDetail)
+-&gt; Value
+-&gt; Parser PortfolioDetail
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PortfolioDetail&quot;</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399549"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399549"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; PortfolioDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail%27"><span class="hs-identifier hs-var">PortfolioDetail'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; PortfolioDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; PortfolioDetail)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProviderName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; PortfolioDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PortfolioDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PortfolioDetail)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PortfolioDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PortfolioDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; PortfolioDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; PortfolioDetail)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; PortfolioDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PortfolioDetail)
+-&gt; Parser (Maybe Text) -&gt; Parser PortfolioDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399543"><span id="local-6989586621679399545"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-type">PortfolioDetail</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399540"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PortfolioDetail.html#PortfolioDetail"><span class="hs-identifier hs-type">PortfolioDetail</span></a></span></span><span>
+</span><span id="line-117"></span></pre></body></html>

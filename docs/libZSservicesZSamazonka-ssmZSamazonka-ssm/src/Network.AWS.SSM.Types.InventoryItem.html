@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.InventoryItem</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.InventoryItem</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information collected from managed instances based on your inventory</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- policy document</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInventoryItem' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679795429"><span id="local-6989586621679795430"></span></span><span class="hs-keyword">data</span><span> </span><span id="InventoryItem"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-var">InventoryItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryItem%27"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem%27"><span class="hs-identifier hs-var">InventoryItem'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A map of associated properties for a specified inventory type. For</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- example, with this attribute, you can specify the @ExecutionId@,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @ExecutionType@, @ComplianceType@ properties of the @AWS:ComplianceItem@</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Acontext%3AInventoryItem%27"><span class="annot"><span class="annottext">InventoryItem -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3Acontext%3AInventoryItem%27"><span class="hs-identifier hs-var hs-var">context</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The inventory data of the inventory type.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Acontent%3AInventoryItem%27"><span class="annot"><span class="annottext">InventoryItem -&gt; Maybe [HashMap Text Text]
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3Acontent%3AInventoryItem%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | MD5 hash of the inventory item type contents. The content hash is used</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- to determine whether to update inventory information. The PutInventory</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- API doesn\'t update the inventory item type contents if the MD5 hash</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- hasn\'t changed since last update.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcontentHash%3AInventoryItem%27"><span class="annot"><span class="annottext">InventoryItem -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3AcontentHash%3AInventoryItem%27"><span class="hs-identifier hs-var hs-var">contentHash</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the inventory type. Default inventory item type names start</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- with @AWS@. Custom inventory type names will start with Custom. Default</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- inventory item types include the following: @AWS:AWSComponent@,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- @AWS:Application@, @AWS:InstanceInformation@, @AWS:Network@, and</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- @AWS:WindowsUpdate@.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AtypeName%3AInventoryItem%27"><span class="annot"><span class="annottext">InventoryItem -&gt; Text
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3AtypeName%3AInventoryItem%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The schema version for the inventory item.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AschemaVersion%3AInventoryItem%27"><span class="annot"><span class="annottext">InventoryItem -&gt; Text
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3AschemaVersion%3AInventoryItem%27"><span class="hs-identifier hs-var hs-var">schemaVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The time the inventory information was collected.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcaptureTime%3AInventoryItem%27"><span class="annot"><span class="annottext">InventoryItem -&gt; Text
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3AcaptureTime%3AInventoryItem%27"><span class="hs-identifier hs-var hs-var">captureTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679795418"><span id="local-6989586621679795420"><span class="annot"><span class="annottext">InventoryItem -&gt; InventoryItem -&gt; Bool
+(InventoryItem -&gt; InventoryItem -&gt; Bool)
+-&gt; (InventoryItem -&gt; InventoryItem -&gt; Bool) -&gt; Eq InventoryItem
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InventoryItem -&gt; InventoryItem -&gt; Bool
+$c/= :: InventoryItem -&gt; InventoryItem -&gt; Bool
+== :: InventoryItem -&gt; InventoryItem -&gt; Bool
+$c== :: InventoryItem -&gt; InventoryItem -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795409"><span id="local-6989586621679795411"><span id="local-6989586621679795413"><span id="local-6989586621679795415"><span class="annot"><span class="annottext">ReadPrec [InventoryItem]
+ReadPrec InventoryItem
+Int -&gt; ReadS InventoryItem
+ReadS [InventoryItem]
+(Int -&gt; ReadS InventoryItem)
+-&gt; ReadS [InventoryItem]
+-&gt; ReadPrec InventoryItem
+-&gt; ReadPrec [InventoryItem]
+-&gt; Read InventoryItem
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InventoryItem]
+$creadListPrec :: ReadPrec [InventoryItem]
+readPrec :: ReadPrec InventoryItem
+$creadPrec :: ReadPrec InventoryItem
+readList :: ReadS [InventoryItem]
+$creadList :: ReadS [InventoryItem]
+readsPrec :: Int -&gt; ReadS InventoryItem
+$creadsPrec :: Int -&gt; ReadS InventoryItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795402"><span id="local-6989586621679795404"><span id="local-6989586621679795406"><span class="annot"><span class="annottext">Int -&gt; InventoryItem -&gt; ShowS
+[InventoryItem] -&gt; ShowS
+InventoryItem -&gt; String
+(Int -&gt; InventoryItem -&gt; ShowS)
+-&gt; (InventoryItem -&gt; String)
+-&gt; ([InventoryItem] -&gt; ShowS)
+-&gt; Show InventoryItem
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InventoryItem] -&gt; ShowS
+$cshowList :: [InventoryItem] -&gt; ShowS
+show :: InventoryItem -&gt; String
+$cshow :: InventoryItem -&gt; String
+showsPrec :: Int -&gt; InventoryItem -&gt; ShowS
+$cshowsPrec :: Int -&gt; InventoryItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InventoryItem -&gt; Rep InventoryItem x)
+-&gt; (forall x. Rep InventoryItem x -&gt; InventoryItem)
+-&gt; Generic InventoryItem
+forall x. Rep InventoryItem x -&gt; InventoryItem
+forall x. InventoryItem -&gt; Rep InventoryItem x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InventoryItem x -&gt; InventoryItem
+$cfrom :: forall x. InventoryItem -&gt; Rep InventoryItem x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'InventoryItem' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'context', 'inventoryItem_context' - A map of associated properties for a specified inventory type. For</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- example, with this attribute, you can specify the @ExecutionId@,</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- @ExecutionType@, @ComplianceType@ properties of the @AWS:ComplianceItem@</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'content', 'inventoryItem_content' - The inventory data of the inventory type.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'contentHash', 'inventoryItem_contentHash' - MD5 hash of the inventory item type contents. The content hash is used</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- to determine whether to update inventory information. The PutInventory</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- API doesn\'t update the inventory item type contents if the MD5 hash</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- hasn\'t changed since last update.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'typeName', 'inventoryItem_typeName' - The name of the inventory type. Default inventory item type names start</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- with @AWS@. Custom inventory type names will start with Custom. Default</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- inventory item types include the following: @AWS:AWSComponent@,</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- @AWS:Application@, @AWS:InstanceInformation@, @AWS:Network@, and</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- @AWS:WindowsUpdate@.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'schemaVersion', 'inventoryItem_schemaVersion' - The schema version for the inventory item.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'captureTime', 'inventoryItem_captureTime' - The time the inventory information was collected.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#newInventoryItem"><span class="hs-identifier hs-type">newInventoryItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'typeName'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'schemaVersion'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'captureTime'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span><span>
+</span><span id="line-93"></span><span id="newInventoryItem"><span class="annot"><span class="annottext">newInventoryItem :: Text -&gt; Text -&gt; Text -&gt; InventoryItem
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#newInventoryItem"><span class="hs-identifier hs-var hs-var">newInventoryItem</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679795396"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795396"><span class="hs-identifier hs-var">pTypeName_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679795395"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795395"><span class="hs-identifier hs-var">pSchemaVersion_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679795394"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795394"><span class="hs-identifier hs-var">pCaptureTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">InventoryItem' :: Maybe (HashMap Text Text)
+-&gt; Maybe [HashMap Text Text]
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; InventoryItem
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem%27"><span class="hs-identifier hs-type">InventoryItem'</span></a></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:context:InventoryItem' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3Acontext%3AInventoryItem%27"><span class="hs-identifier hs-var">context</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:content:InventoryItem' :: Maybe [HashMap Text Text]
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3Acontent%3AInventoryItem%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:contentHash:InventoryItem' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3AcontentHash%3AInventoryItem%27"><span class="hs-identifier hs-var">contentHash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:typeName:InventoryItem' :: Text
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3AtypeName%3AInventoryItem%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795396"><span class="hs-identifier hs-var">pTypeName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:schemaVersion:InventoryItem' :: Text
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3AschemaVersion%3AInventoryItem%27"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795395"><span class="hs-identifier hs-var">pSchemaVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:captureTime:InventoryItem' :: Text
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3AcaptureTime%3AInventoryItem%27"><span class="hs-identifier hs-var">captureTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795394"><span class="hs-identifier hs-var">pCaptureTime_</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | A map of associated properties for a specified inventory type. For</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- example, with this attribute, you can specify the @ExecutionId@,</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @ExecutionType@, @ComplianceType@ properties of the @AWS:ComplianceItem@</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#inventoryItem_context"><span class="hs-identifier hs-type">inventoryItem_context</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="inventoryItem_context"><span class="annot"><span class="annottext">inventoryItem_context :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; InventoryItem -&gt; f InventoryItem
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#inventoryItem_context"><span class="hs-identifier hs-var hs-var">inventoryItem_context</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryItem -&gt; Maybe (HashMap Text Text))
+-&gt; (InventoryItem -&gt; Maybe (HashMap Text Text) -&gt; InventoryItem)
+-&gt; Lens
+     InventoryItem
+     InventoryItem
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem%27"><span class="hs-identifier hs-type">InventoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795390"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+context :: Maybe (HashMap Text Text)
+$sel:context:InventoryItem' :: InventoryItem -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679795390"><span class="hs-identifier hs-var hs-var">context</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679795390"><span class="hs-identifier hs-var">context</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795389"><span class="annot"><span class="annottext">s :: InventoryItem
+</span><a href="#local-6989586621679795389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem%27"><span class="hs-identifier hs-type">InventoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795388"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679795388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryItem
+</span><a href="#local-6989586621679795389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:context:InventoryItem' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3Acontext%3AInventoryItem%27"><span class="hs-identifier hs-var">context</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679795388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; InventoryItem -&gt; f InventoryItem)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; InventoryItem
+-&gt; f InventoryItem
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The inventory data of the inventory type.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#inventoryItem_content"><span class="hs-identifier hs-type">inventoryItem_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="inventoryItem_content"><span class="annot"><span class="annottext">inventoryItem_content :: (Maybe [HashMap Text Text] -&gt; f (Maybe [HashMap Text Text]))
+-&gt; InventoryItem -&gt; f InventoryItem
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#inventoryItem_content"><span class="hs-identifier hs-var hs-var">inventoryItem_content</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryItem -&gt; Maybe [HashMap Text Text])
+-&gt; (InventoryItem -&gt; Maybe [HashMap Text Text] -&gt; InventoryItem)
+-&gt; Lens
+     InventoryItem
+     InventoryItem
+     (Maybe [HashMap Text Text])
+     (Maybe [HashMap Text Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem%27"><span class="hs-identifier hs-type">InventoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795383"><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
+content :: Maybe [HashMap Text Text]
+$sel:content:InventoryItem' :: InventoryItem -&gt; Maybe [HashMap Text Text]
+</span><a href="#local-6989586621679795383"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
+</span><a href="#local-6989586621679795383"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795382"><span class="annot"><span class="annottext">s :: InventoryItem
+</span><a href="#local-6989586621679795382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem%27"><span class="hs-identifier hs-type">InventoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795381"><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
+</span><a href="#local-6989586621679795381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryItem
+</span><a href="#local-6989586621679795382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:InventoryItem' :: Maybe [HashMap Text Text]
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3Acontent%3AInventoryItem%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
+</span><a href="#local-6989586621679795381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HashMap Text Text] -&gt; f (Maybe [HashMap Text Text]))
+ -&gt; InventoryItem -&gt; f InventoryItem)
+-&gt; ((Maybe [HashMap Text Text] -&gt; f (Maybe [HashMap Text Text]))
+    -&gt; Maybe [HashMap Text Text] -&gt; f (Maybe [HashMap Text Text]))
+-&gt; (Maybe [HashMap Text Text] -&gt; f (Maybe [HashMap Text Text]))
+-&gt; InventoryItem
+-&gt; f InventoryItem
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [HashMap Text Text]
+  [HashMap Text Text]
+  [HashMap Text Text]
+  [HashMap Text Text]
+-&gt; Iso
+     (Maybe [HashMap Text Text])
+     (Maybe [HashMap Text Text])
+     (Maybe [HashMap Text Text])
+     (Maybe [HashMap Text Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [HashMap Text Text]
+  [HashMap Text Text]
+  [HashMap Text Text]
+  [HashMap Text Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | MD5 hash of the inventory item type contents. The content hash is used</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- to determine whether to update inventory information. The PutInventory</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- API doesn\'t update the inventory item type contents if the MD5 hash</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- hasn\'t changed since last update.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#inventoryItem_contentHash"><span class="hs-identifier hs-type">inventoryItem_contentHash</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="inventoryItem_contentHash"><span class="annot"><span class="annottext">inventoryItem_contentHash :: (Maybe Text -&gt; f (Maybe Text)) -&gt; InventoryItem -&gt; f InventoryItem
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#inventoryItem_contentHash"><span class="hs-identifier hs-var hs-var">inventoryItem_contentHash</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryItem -&gt; Maybe Text)
+-&gt; (InventoryItem -&gt; Maybe Text -&gt; InventoryItem)
+-&gt; Lens InventoryItem InventoryItem (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem%27"><span class="hs-identifier hs-type">InventoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795379"><span class="annot"><span class="annottext">Maybe Text
+contentHash :: Maybe Text
+$sel:contentHash:InventoryItem' :: InventoryItem -&gt; Maybe Text
+</span><a href="#local-6989586621679795379"><span class="hs-identifier hs-var hs-var">contentHash</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795379"><span class="hs-identifier hs-var">contentHash</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795378"><span class="annot"><span class="annottext">s :: InventoryItem
+</span><a href="#local-6989586621679795378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem%27"><span class="hs-identifier hs-type">InventoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795377"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryItem
+</span><a href="#local-6989586621679795378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentHash:InventoryItem' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3AcontentHash%3AInventoryItem%27"><span class="hs-identifier hs-var">contentHash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The name of the inventory type. Default inventory item type names start</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- with @AWS@. Custom inventory type names will start with Custom. Default</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- inventory item types include the following: @AWS:AWSComponent@,</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- @AWS:Application@, @AWS:InstanceInformation@, @AWS:Network@, and</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- @AWS:WindowsUpdate@.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#inventoryItem_typeName"><span class="hs-identifier hs-type">inventoryItem_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span id="inventoryItem_typeName"><span class="annot"><span class="annottext">inventoryItem_typeName :: (Text -&gt; f Text) -&gt; InventoryItem -&gt; f InventoryItem
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#inventoryItem_typeName"><span class="hs-identifier hs-var hs-var">inventoryItem_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryItem -&gt; Text)
+-&gt; (InventoryItem -&gt; Text -&gt; InventoryItem)
+-&gt; Lens InventoryItem InventoryItem Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem%27"><span class="hs-identifier hs-type">InventoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795375"><span class="annot"><span class="annottext">Text
+typeName :: Text
+$sel:typeName:InventoryItem' :: InventoryItem -&gt; Text
+</span><a href="#local-6989586621679795375"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795375"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795374"><span class="annot"><span class="annottext">s :: InventoryItem
+</span><a href="#local-6989586621679795374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem%27"><span class="hs-identifier hs-type">InventoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795373"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryItem
+</span><a href="#local-6989586621679795374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:InventoryItem' :: Text
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3AtypeName%3AInventoryItem%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The schema version for the inventory item.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#inventoryItem_schemaVersion"><span class="hs-identifier hs-type">inventoryItem_schemaVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-134"></span><span id="inventoryItem_schemaVersion"><span class="annot"><span class="annottext">inventoryItem_schemaVersion :: (Text -&gt; f Text) -&gt; InventoryItem -&gt; f InventoryItem
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#inventoryItem_schemaVersion"><span class="hs-identifier hs-var hs-var">inventoryItem_schemaVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryItem -&gt; Text)
+-&gt; (InventoryItem -&gt; Text -&gt; InventoryItem)
+-&gt; Lens InventoryItem InventoryItem Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem%27"><span class="hs-identifier hs-type">InventoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795371"><span class="annot"><span class="annottext">Text
+schemaVersion :: Text
+$sel:schemaVersion:InventoryItem' :: InventoryItem -&gt; Text
+</span><a href="#local-6989586621679795371"><span class="hs-identifier hs-var hs-var">schemaVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795371"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795370"><span class="annot"><span class="annottext">s :: InventoryItem
+</span><a href="#local-6989586621679795370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem%27"><span class="hs-identifier hs-type">InventoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795369"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryItem
+</span><a href="#local-6989586621679795370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersion:InventoryItem' :: Text
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3AschemaVersion%3AInventoryItem%27"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The time the inventory information was collected.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#inventoryItem_captureTime"><span class="hs-identifier hs-type">inventoryItem_captureTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-138"></span><span id="inventoryItem_captureTime"><span class="annot"><span class="annottext">inventoryItem_captureTime :: (Text -&gt; f Text) -&gt; InventoryItem -&gt; f InventoryItem
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#inventoryItem_captureTime"><span class="hs-identifier hs-var hs-var">inventoryItem_captureTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryItem -&gt; Text)
+-&gt; (InventoryItem -&gt; Text -&gt; InventoryItem)
+-&gt; Lens InventoryItem InventoryItem Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem%27"><span class="hs-identifier hs-type">InventoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795367"><span class="annot"><span class="annottext">Text
+captureTime :: Text
+$sel:captureTime:InventoryItem' :: InventoryItem -&gt; Text
+</span><a href="#local-6989586621679795367"><span class="hs-identifier hs-var hs-var">captureTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795367"><span class="hs-identifier hs-var">captureTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795366"><span class="annot"><span class="annottext">s :: InventoryItem
+</span><a href="#local-6989586621679795366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem%27"><span class="hs-identifier hs-type">InventoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795365"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryItem
+</span><a href="#local-6989586621679795366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captureTime:InventoryItem' :: Text
+</span><a href="Network.AWS.SSM.Types.InventoryItem.html#%24sel%3AcaptureTime%3AInventoryItem%27"><span class="hs-identifier hs-var">captureTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795361"><span id="local-6989586621679795363"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795358"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795350"><span id="local-6989586621679795352"><span id="local-6989586621679795354"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679795348"><span class="annot"><span class="annottext">toJSON :: InventoryItem -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem%27"><span class="hs-identifier hs-type">InventoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795341"><span id="local-6989586621679795342"><span id="local-6989586621679795343"><span id="local-6989586621679795344"><span id="local-6989586621679795345"><span id="local-6989586621679795346"><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
+Maybe Text
+Maybe (HashMap Text Text)
+Text
+captureTime :: Text
+schemaVersion :: Text
+typeName :: Text
+contentHash :: Maybe Text
+content :: Maybe [HashMap Text Text]
+context :: Maybe (HashMap Text Text)
+$sel:captureTime:InventoryItem' :: InventoryItem -&gt; Text
+$sel:schemaVersion:InventoryItem' :: InventoryItem -&gt; Text
+$sel:typeName:InventoryItem' :: InventoryItem -&gt; Text
+$sel:contentHash:InventoryItem' :: InventoryItem -&gt; Maybe Text
+$sel:content:InventoryItem' :: InventoryItem -&gt; Maybe [HashMap Text Text]
+$sel:context:InventoryItem' :: InventoryItem -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679795341"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Context&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679795346"><span class="hs-identifier hs-var">context</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Content&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [HashMap Text Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([HashMap Text Text] -&gt; Pair)
+-&gt; Maybe [HashMap Text Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
+</span><a href="#local-6989586621679795345"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContentHash&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795344"><span class="hs-identifier hs-var">contentHash</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795343"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795342"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CaptureTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795341"><span class="hs-identifier hs-var">captureTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span></pre></body></html>

@@ -1,0 +1,1345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.CreateOTAUpdate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an IoT OTA update on a target group of things or groups.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateOTAUpdate&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.CreateOTAUpdate</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier">CreateOTAUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#newCreateOTAUpdate"><span class="hs-identifier">newCreateOTAUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_targetSelection"><span class="hs-identifier">createOTAUpdate_targetSelection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_awsJobTimeoutConfig"><span class="hs-identifier">createOTAUpdate_awsJobTimeoutConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_protocols"><span class="hs-identifier">createOTAUpdate_protocols</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_tags"><span class="hs-identifier">createOTAUpdate_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_awsJobPresignedUrlConfig"><span class="hs-identifier">createOTAUpdate_awsJobPresignedUrlConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_description"><span class="hs-identifier">createOTAUpdate_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_additionalParameters"><span class="hs-identifier">createOTAUpdate_additionalParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_awsJobExecutionsRolloutConfig"><span class="hs-identifier">createOTAUpdate_awsJobExecutionsRolloutConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_awsJobAbortConfig"><span class="hs-identifier">createOTAUpdate_awsJobAbortConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_otaUpdateId"><span class="hs-identifier">createOTAUpdate_otaUpdateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_targets"><span class="hs-identifier">createOTAUpdate_targets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_files"><span class="hs-identifier">createOTAUpdate_files</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_roleArn"><span class="hs-identifier">createOTAUpdate_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier">CreateOTAUpdateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#newCreateOTAUpdateResponse"><span class="hs-identifier">newCreateOTAUpdateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_otaUpdateStatus"><span class="hs-identifier">createOTAUpdateResponse_otaUpdateStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_otaUpdateArn"><span class="hs-identifier">createOTAUpdateResponse_otaUpdateArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_awsIotJobArn"><span class="hs-identifier">createOTAUpdateResponse_awsIotJobArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_awsIotJobId"><span class="hs-identifier">createOTAUpdateResponse_awsIotJobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_otaUpdateId"><span class="hs-identifier">createOTAUpdateResponse_otaUpdateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_httpStatus"><span class="hs-identifier">createOTAUpdateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.html"><span class="hs-identifier">Network.AWS.IoT.Types</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newCreateOTAUpdate' smart constructor.</span><span>
+</span><span id="line-70"></span><span id="local-6989586621679849784"><span id="local-6989586621679849785"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOTAUpdate"><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-var">CreateOTAUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOTAUpdate%27"><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-var">CreateOTAUpdate'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether the update will continue to run (CONTINUOUS), or will</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- be complete after all the things specified as targets have completed the</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- update (SNAPSHOT). If continuous, the update may also be run on a thing</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- when a change is detected in a target. For example, an update will run</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- on a thing when the thing is added to a target group, even after the</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- update was completed by all things originally in the group. Valid</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- values: CONTINUOUS | SNAPSHOT.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AtargetSelection%3ACreateOTAUpdate%27"><span class="annot"><span class="annottext">CreateOTAUpdate -&gt; Maybe TargetSelection
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AtargetSelection%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var hs-var">targetSelection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TargetSelection.html#TargetSelection"><span class="hs-identifier hs-type">TargetSelection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | Specifies the amount of time each device has to finish its execution of</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- the job. A timer is started when the job execution status is set to</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- @IN_PROGRESS@. If the job execution status is not set to another</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- terminal state before the timer expires, it will be automatically set to</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- @TIMED_OUT@.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AawsJobTimeoutConfig%3ACreateOTAUpdate%27"><span class="annot"><span class="annottext">CreateOTAUpdate -&gt; Maybe AwsJobTimeoutConfig
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsJobTimeoutConfig%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var hs-var">awsJobTimeoutConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobTimeoutConfig.html#AwsJobTimeoutConfig"><span class="hs-identifier hs-type">AwsJobTimeoutConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The protocol used to transfer the OTA update image. Valid values are</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- target device can choose the protocol.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Aprotocols%3ACreateOTAUpdate%27"><span class="annot"><span class="annottext">CreateOTAUpdate -&gt; Maybe (NonEmpty Protocol)
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3Aprotocols%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var hs-var">protocols</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Protocol.html#Protocol"><span class="hs-identifier hs-type">Protocol</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | Metadata which can be used to manage updates.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3Atags%3ACreateOTAUpdate%27"><span class="annot"><span class="annottext">CreateOTAUpdate -&gt; Maybe [Tag]
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3Atags%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | Configuration information for pre-signed URLs.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AawsJobPresignedUrlConfig%3ACreateOTAUpdate%27"><span class="annot"><span class="annottext">CreateOTAUpdate -&gt; Maybe AwsJobPresignedUrlConfig
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsJobPresignedUrlConfig%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var hs-var">awsJobPresignedUrlConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The description of the OTA update.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3Adescription%3ACreateOTAUpdate%27"><span class="annot"><span class="annottext">CreateOTAUpdate -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3Adescription%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | A list of additional OTA update parameters which are name-value pairs.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AadditionalParameters%3ACreateOTAUpdate%27"><span class="annot"><span class="annottext">CreateOTAUpdate -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AadditionalParameters%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var hs-var">additionalParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | Configuration for the rollout of OTA updates.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AawsJobExecutionsRolloutConfig%3ACreateOTAUpdate%27"><span class="annot"><span class="annottext">CreateOTAUpdate -&gt; Maybe AwsJobExecutionsRolloutConfig
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsJobExecutionsRolloutConfig%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var hs-var">awsJobExecutionsRolloutConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExecutionsRolloutConfig.html#AwsJobExecutionsRolloutConfig"><span class="hs-identifier hs-type">AwsJobExecutionsRolloutConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The criteria that determine when and how a job abort takes place.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AawsJobAbortConfig%3ACreateOTAUpdate%27"><span class="annot"><span class="annottext">CreateOTAUpdate -&gt; Maybe AwsJobAbortConfig
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsJobAbortConfig%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var hs-var">awsJobAbortConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortConfig.html#AwsJobAbortConfig"><span class="hs-identifier hs-type">AwsJobAbortConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The ID of the OTA update to be created.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AotaUpdateId%3ACreateOTAUpdate%27"><span class="annot"><span class="annottext">CreateOTAUpdate -&gt; Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AotaUpdateId%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var hs-var">otaUpdateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The devices targeted to receive OTA updates.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3Atargets%3ACreateOTAUpdate%27"><span class="annot"><span class="annottext">CreateOTAUpdate -&gt; NonEmpty Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3Atargets%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | The files to be streamed by the OTA update.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3Afiles%3ACreateOTAUpdate%27"><span class="annot"><span class="annottext">CreateOTAUpdate -&gt; NonEmpty OTAUpdateFile
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3Afiles%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var hs-var">files</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateFile.html#OTAUpdateFile"><span class="hs-identifier hs-type">OTAUpdateFile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | The IAM role that grants Amazon Web Services IoT Core access to the</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- Amazon S3, IoT jobs and Amazon Web Services Code Signing resources to</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- create an OTA update job.</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AroleArn%3ACreateOTAUpdate%27"><span class="annot"><span class="annottext">CreateOTAUpdate -&gt; Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AroleArn%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679849766"><span id="local-6989586621679849768"><span class="annot"><span class="annottext">CreateOTAUpdate -&gt; CreateOTAUpdate -&gt; Bool
+(CreateOTAUpdate -&gt; CreateOTAUpdate -&gt; Bool)
+-&gt; (CreateOTAUpdate -&gt; CreateOTAUpdate -&gt; Bool)
+-&gt; Eq CreateOTAUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateOTAUpdate -&gt; CreateOTAUpdate -&gt; Bool
+$c/= :: CreateOTAUpdate -&gt; CreateOTAUpdate -&gt; Bool
+== :: CreateOTAUpdate -&gt; CreateOTAUpdate -&gt; Bool
+$c== :: CreateOTAUpdate -&gt; CreateOTAUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849757"><span id="local-6989586621679849759"><span id="local-6989586621679849761"><span id="local-6989586621679849763"><span class="annot"><span class="annottext">ReadPrec [CreateOTAUpdate]
+ReadPrec CreateOTAUpdate
+Int -&gt; ReadS CreateOTAUpdate
+ReadS [CreateOTAUpdate]
+(Int -&gt; ReadS CreateOTAUpdate)
+-&gt; ReadS [CreateOTAUpdate]
+-&gt; ReadPrec CreateOTAUpdate
+-&gt; ReadPrec [CreateOTAUpdate]
+-&gt; Read CreateOTAUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateOTAUpdate]
+$creadListPrec :: ReadPrec [CreateOTAUpdate]
+readPrec :: ReadPrec CreateOTAUpdate
+$creadPrec :: ReadPrec CreateOTAUpdate
+readList :: ReadS [CreateOTAUpdate]
+$creadList :: ReadS [CreateOTAUpdate]
+readsPrec :: Int -&gt; ReadS CreateOTAUpdate
+$creadsPrec :: Int -&gt; ReadS CreateOTAUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849750"><span id="local-6989586621679849752"><span id="local-6989586621679849754"><span class="annot"><span class="annottext">Int -&gt; CreateOTAUpdate -&gt; ShowS
+[CreateOTAUpdate] -&gt; ShowS
+CreateOTAUpdate -&gt; String
+(Int -&gt; CreateOTAUpdate -&gt; ShowS)
+-&gt; (CreateOTAUpdate -&gt; String)
+-&gt; ([CreateOTAUpdate] -&gt; ShowS)
+-&gt; Show CreateOTAUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateOTAUpdate] -&gt; ShowS
+$cshowList :: [CreateOTAUpdate] -&gt; ShowS
+show :: CreateOTAUpdate -&gt; String
+$cshow :: CreateOTAUpdate -&gt; String
+showsPrec :: Int -&gt; CreateOTAUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateOTAUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateOTAUpdate -&gt; Rep CreateOTAUpdate x)
+-&gt; (forall x. Rep CreateOTAUpdate x -&gt; CreateOTAUpdate)
+-&gt; Generic CreateOTAUpdate
+forall x. Rep CreateOTAUpdate x -&gt; CreateOTAUpdate
+forall x. CreateOTAUpdate -&gt; Rep CreateOTAUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateOTAUpdate x -&gt; CreateOTAUpdate
+$cfrom :: forall x. CreateOTAUpdate -&gt; Rep CreateOTAUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Create a value of 'CreateOTAUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'targetSelection', 'createOTAUpdate_targetSelection' - Specifies whether the update will continue to run (CONTINUOUS), or will</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- be complete after all the things specified as targets have completed the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- update (SNAPSHOT). If continuous, the update may also be run on a thing</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- when a change is detected in a target. For example, an update will run</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- on a thing when the thing is added to a target group, even after the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- update was completed by all things originally in the group. Valid</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- values: CONTINUOUS | SNAPSHOT.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'awsJobTimeoutConfig', 'createOTAUpdate_awsJobTimeoutConfig' - Specifies the amount of time each device has to finish its execution of</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- the job. A timer is started when the job execution status is set to</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- @IN_PROGRESS@. If the job execution status is not set to another</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- terminal state before the timer expires, it will be automatically set to</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- @TIMED_OUT@.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'protocols', 'createOTAUpdate_protocols' - The protocol used to transfer the OTA update image. Valid values are</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- target device can choose the protocol.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'tags', 'createOTAUpdate_tags' - Metadata which can be used to manage updates.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'awsJobPresignedUrlConfig', 'createOTAUpdate_awsJobPresignedUrlConfig' - Configuration information for pre-signed URLs.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'description', 'createOTAUpdate_description' - The description of the OTA update.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'additionalParameters', 'createOTAUpdate_additionalParameters' - A list of additional OTA update parameters which are name-value pairs.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'awsJobExecutionsRolloutConfig', 'createOTAUpdate_awsJobExecutionsRolloutConfig' - Configuration for the rollout of OTA updates.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'awsJobAbortConfig', 'createOTAUpdate_awsJobAbortConfig' - The criteria that determine when and how a job abort takes place.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'otaUpdateId', 'createOTAUpdate_otaUpdateId' - The ID of the OTA update to be created.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'targets', 'createOTAUpdate_targets' - The devices targeted to receive OTA updates.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'files', 'createOTAUpdate_files' - The files to be streamed by the OTA update.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'roleArn', 'createOTAUpdate_roleArn' - The IAM role that grants Amazon Web Services IoT Core access to the</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Amazon S3, IoT jobs and Amazon Web Services Code Signing resources to</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- create an OTA update job.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#newCreateOTAUpdate"><span class="hs-identifier hs-type">newCreateOTAUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-comment">-- | 'otaUpdateId'</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-comment">-- | 'targets'</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-comment">-- | 'files'</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateFile.html#OTAUpdateFile"><span class="hs-identifier hs-type">OTAUpdateFile</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span>
+</span><span id="line-171"></span><span id="newCreateOTAUpdate"><span class="annot"><span class="annottext">newCreateOTAUpdate :: Text
+-&gt; NonEmpty Text
+-&gt; NonEmpty OTAUpdateFile
+-&gt; Text
+-&gt; CreateOTAUpdate
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#newCreateOTAUpdate"><span class="hs-identifier hs-var hs-var">newCreateOTAUpdate</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679849745"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849745"><span class="hs-identifier hs-var">pOtaUpdateId_</span></a></span></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679849744"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679849744"><span class="hs-identifier hs-var">pTargets_</span></a></span></span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679849743"><span class="annot"><span class="annottext">NonEmpty OTAUpdateFile
+</span><a href="#local-6989586621679849743"><span class="hs-identifier hs-var">pFiles_</span></a></span></span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679849742"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849742"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">CreateOTAUpdate' :: Maybe TargetSelection
+-&gt; Maybe AwsJobTimeoutConfig
+-&gt; Maybe (NonEmpty Protocol)
+-&gt; Maybe [Tag]
+-&gt; Maybe AwsJobPresignedUrlConfig
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe AwsJobExecutionsRolloutConfig
+-&gt; Maybe AwsJobAbortConfig
+-&gt; Text
+-&gt; NonEmpty Text
+-&gt; NonEmpty OTAUpdateFile
+-&gt; Text
+-&gt; CreateOTAUpdate
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetSelection:CreateOTAUpdate' :: Maybe TargetSelection
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AtargetSelection%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">targetSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetSelection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">$sel:awsJobTimeoutConfig:CreateOTAUpdate' :: Maybe AwsJobTimeoutConfig
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsJobTimeoutConfig%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">awsJobTimeoutConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsJobTimeoutConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">$sel:protocols:CreateOTAUpdate' :: Maybe (NonEmpty Protocol)
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3Aprotocols%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">protocols</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Protocol)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateOTAUpdate' :: Maybe [Tag]
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3Atags%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">$sel:awsJobPresignedUrlConfig:CreateOTAUpdate' :: Maybe AwsJobPresignedUrlConfig
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsJobPresignedUrlConfig%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">awsJobPresignedUrlConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsJobPresignedUrlConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:CreateOTAUpdate' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3Adescription%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">$sel:additionalParameters:CreateOTAUpdate' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AadditionalParameters%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">additionalParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">$sel:awsJobExecutionsRolloutConfig:CreateOTAUpdate' :: Maybe AwsJobExecutionsRolloutConfig
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsJobExecutionsRolloutConfig%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">awsJobExecutionsRolloutConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsJobExecutionsRolloutConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">$sel:awsJobAbortConfig:CreateOTAUpdate' :: Maybe AwsJobAbortConfig
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsJobAbortConfig%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">awsJobAbortConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsJobAbortConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">$sel:otaUpdateId:CreateOTAUpdate' :: Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AotaUpdateId%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849745"><span class="hs-identifier hs-var">pOtaUpdateId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">$sel:targets:CreateOTAUpdate' :: NonEmpty Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3Atargets%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679849744"><span class="hs-identifier hs-var">pTargets_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:files:CreateOTAUpdate' :: NonEmpty OTAUpdateFile
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3Afiles%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">files</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty OTAUpdateFile) (Identity (NonEmpty OTAUpdateFile))
+-&gt; Tagged
+     (NonEmpty OTAUpdateFile) (Identity (NonEmpty OTAUpdateFile))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty OTAUpdateFile) (Identity (NonEmpty OTAUpdateFile))
+ -&gt; Tagged
+      (NonEmpty OTAUpdateFile) (Identity (NonEmpty OTAUpdateFile)))
+-&gt; NonEmpty OTAUpdateFile -&gt; NonEmpty OTAUpdateFile
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty OTAUpdateFile
+</span><a href="#local-6989586621679849743"><span class="hs-identifier hs-var">pFiles_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:CreateOTAUpdate' :: Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AroleArn%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849742"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Specifies whether the update will continue to run (CONTINUOUS), or will</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- be complete after all the things specified as targets have completed the</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- update (SNAPSHOT). If continuous, the update may also be run on a thing</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- when a change is detected in a target. For example, an update will run</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- on a thing when the thing is added to a target group, even after the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- update was completed by all things originally in the group. Valid</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- values: CONTINUOUS | SNAPSHOT.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_targetSelection"><span class="hs-identifier hs-type">createOTAUpdate_targetSelection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TargetSelection.html#TargetSelection"><span class="hs-identifier hs-type">TargetSelection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="createOTAUpdate_targetSelection"><span class="annot"><span class="annottext">createOTAUpdate_targetSelection :: (Maybe TargetSelection -&gt; f (Maybe TargetSelection))
+-&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_targetSelection"><span class="hs-identifier hs-var hs-var">createOTAUpdate_targetSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdate -&gt; Maybe TargetSelection)
+-&gt; (CreateOTAUpdate -&gt; Maybe TargetSelection -&gt; CreateOTAUpdate)
+-&gt; Lens
+     CreateOTAUpdate
+     CreateOTAUpdate
+     (Maybe TargetSelection)
+     (Maybe TargetSelection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849737"><span class="annot"><span class="annottext">Maybe TargetSelection
+targetSelection :: Maybe TargetSelection
+$sel:targetSelection:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe TargetSelection
+</span><a href="#local-6989586621679849737"><span class="hs-identifier hs-var hs-var">targetSelection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetSelection
+</span><a href="#local-6989586621679849737"><span class="hs-identifier hs-var">targetSelection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849736"><span class="annot"><span class="annottext">s :: CreateOTAUpdate
+</span><a href="#local-6989586621679849736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849735"><span class="annot"><span class="annottext">Maybe TargetSelection
+</span><a href="#local-6989586621679849735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdate
+</span><a href="#local-6989586621679849736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetSelection:CreateOTAUpdate' :: Maybe TargetSelection
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AtargetSelection%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">targetSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetSelection
+</span><a href="#local-6989586621679849735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | Specifies the amount of time each device has to finish its execution of</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- the job. A timer is started when the job execution status is set to</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- @IN_PROGRESS@. If the job execution status is not set to another</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- terminal state before the timer expires, it will be automatically set to</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- @TIMED_OUT@.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_awsJobTimeoutConfig"><span class="hs-identifier hs-type">createOTAUpdate_awsJobTimeoutConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobTimeoutConfig.html#AwsJobTimeoutConfig"><span class="hs-identifier hs-type">AwsJobTimeoutConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="createOTAUpdate_awsJobTimeoutConfig"><span class="annot"><span class="annottext">createOTAUpdate_awsJobTimeoutConfig :: (Maybe AwsJobTimeoutConfig -&gt; f (Maybe AwsJobTimeoutConfig))
+-&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_awsJobTimeoutConfig"><span class="hs-identifier hs-var hs-var">createOTAUpdate_awsJobTimeoutConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdate -&gt; Maybe AwsJobTimeoutConfig)
+-&gt; (CreateOTAUpdate
+    -&gt; Maybe AwsJobTimeoutConfig -&gt; CreateOTAUpdate)
+-&gt; Lens
+     CreateOTAUpdate
+     CreateOTAUpdate
+     (Maybe AwsJobTimeoutConfig)
+     (Maybe AwsJobTimeoutConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849734"><span class="annot"><span class="annottext">Maybe AwsJobTimeoutConfig
+awsJobTimeoutConfig :: Maybe AwsJobTimeoutConfig
+$sel:awsJobTimeoutConfig:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe AwsJobTimeoutConfig
+</span><a href="#local-6989586621679849734"><span class="hs-identifier hs-var hs-var">awsJobTimeoutConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsJobTimeoutConfig
+</span><a href="#local-6989586621679849734"><span class="hs-identifier hs-var">awsJobTimeoutConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849733"><span class="annot"><span class="annottext">s :: CreateOTAUpdate
+</span><a href="#local-6989586621679849733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849732"><span class="annot"><span class="annottext">Maybe AwsJobTimeoutConfig
+</span><a href="#local-6989586621679849732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdate
+</span><a href="#local-6989586621679849733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsJobTimeoutConfig:CreateOTAUpdate' :: Maybe AwsJobTimeoutConfig
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsJobTimeoutConfig%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">awsJobTimeoutConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsJobTimeoutConfig
+</span><a href="#local-6989586621679849732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The protocol used to transfer the OTA update image. Valid values are</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- target device can choose the protocol.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_protocols"><span class="hs-identifier hs-type">createOTAUpdate_protocols</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Protocol.html#Protocol"><span class="hs-identifier hs-type">Protocol</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="createOTAUpdate_protocols"><span class="annot"><span class="annottext">createOTAUpdate_protocols :: (Maybe (NonEmpty Protocol) -&gt; f (Maybe (NonEmpty Protocol)))
+-&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_protocols"><span class="hs-identifier hs-var hs-var">createOTAUpdate_protocols</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdate -&gt; Maybe (NonEmpty Protocol))
+-&gt; (CreateOTAUpdate
+    -&gt; Maybe (NonEmpty Protocol) -&gt; CreateOTAUpdate)
+-&gt; Lens
+     CreateOTAUpdate
+     CreateOTAUpdate
+     (Maybe (NonEmpty Protocol))
+     (Maybe (NonEmpty Protocol))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849731"><span class="annot"><span class="annottext">Maybe (NonEmpty Protocol)
+protocols :: Maybe (NonEmpty Protocol)
+$sel:protocols:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe (NonEmpty Protocol)
+</span><a href="#local-6989586621679849731"><span class="hs-identifier hs-var hs-var">protocols</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Protocol)
+</span><a href="#local-6989586621679849731"><span class="hs-identifier hs-var">protocols</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849730"><span class="annot"><span class="annottext">s :: CreateOTAUpdate
+</span><a href="#local-6989586621679849730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849729"><span class="annot"><span class="annottext">Maybe (NonEmpty Protocol)
+</span><a href="#local-6989586621679849729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdate
+</span><a href="#local-6989586621679849730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocols:CreateOTAUpdate' :: Maybe (NonEmpty Protocol)
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3Aprotocols%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">protocols</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Protocol)
+</span><a href="#local-6989586621679849729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Protocol) -&gt; f (Maybe (NonEmpty Protocol)))
+ -&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate)
+-&gt; ((Maybe (NonEmpty Protocol) -&gt; f (Maybe (NonEmpty Protocol)))
+    -&gt; Maybe (NonEmpty Protocol) -&gt; f (Maybe (NonEmpty Protocol)))
+-&gt; (Maybe (NonEmpty Protocol) -&gt; f (Maybe (NonEmpty Protocol)))
+-&gt; CreateOTAUpdate
+-&gt; f CreateOTAUpdate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Protocol)
+  (NonEmpty Protocol)
+  (NonEmpty Protocol)
+  (NonEmpty Protocol)
+-&gt; Iso
+     (Maybe (NonEmpty Protocol))
+     (Maybe (NonEmpty Protocol))
+     (Maybe (NonEmpty Protocol))
+     (Maybe (NonEmpty Protocol))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Protocol)
+  (NonEmpty Protocol)
+  (NonEmpty Protocol)
+  (NonEmpty Protocol)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | Metadata which can be used to manage updates.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_tags"><span class="hs-identifier hs-type">createOTAUpdate_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="createOTAUpdate_tags"><span class="annot"><span class="annottext">createOTAUpdate_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_tags"><span class="hs-identifier hs-var hs-var">createOTAUpdate_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdate -&gt; Maybe [Tag])
+-&gt; (CreateOTAUpdate -&gt; Maybe [Tag] -&gt; CreateOTAUpdate)
+-&gt; Lens CreateOTAUpdate CreateOTAUpdate (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849726"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679849726"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679849726"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849725"><span class="annot"><span class="annottext">s :: CreateOTAUpdate
+</span><a href="#local-6989586621679849725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849724"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679849724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdate
+</span><a href="#local-6989586621679849725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateOTAUpdate' :: Maybe [Tag]
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3Atags%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679849724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateOTAUpdate
+-&gt; f CreateOTAUpdate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | Configuration information for pre-signed URLs.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_awsJobPresignedUrlConfig"><span class="hs-identifier hs-type">createOTAUpdate_awsJobPresignedUrlConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="createOTAUpdate_awsJobPresignedUrlConfig"><span class="annot"><span class="annottext">createOTAUpdate_awsJobPresignedUrlConfig :: (Maybe AwsJobPresignedUrlConfig
+ -&gt; f (Maybe AwsJobPresignedUrlConfig))
+-&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_awsJobPresignedUrlConfig"><span class="hs-identifier hs-var hs-var">createOTAUpdate_awsJobPresignedUrlConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdate -&gt; Maybe AwsJobPresignedUrlConfig)
+-&gt; (CreateOTAUpdate
+    -&gt; Maybe AwsJobPresignedUrlConfig -&gt; CreateOTAUpdate)
+-&gt; Lens
+     CreateOTAUpdate
+     CreateOTAUpdate
+     (Maybe AwsJobPresignedUrlConfig)
+     (Maybe AwsJobPresignedUrlConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849723"><span class="annot"><span class="annottext">Maybe AwsJobPresignedUrlConfig
+awsJobPresignedUrlConfig :: Maybe AwsJobPresignedUrlConfig
+$sel:awsJobPresignedUrlConfig:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe AwsJobPresignedUrlConfig
+</span><a href="#local-6989586621679849723"><span class="hs-identifier hs-var hs-var">awsJobPresignedUrlConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsJobPresignedUrlConfig
+</span><a href="#local-6989586621679849723"><span class="hs-identifier hs-var">awsJobPresignedUrlConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849722"><span class="annot"><span class="annottext">s :: CreateOTAUpdate
+</span><a href="#local-6989586621679849722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849721"><span class="annot"><span class="annottext">Maybe AwsJobPresignedUrlConfig
+</span><a href="#local-6989586621679849721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdate
+</span><a href="#local-6989586621679849722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsJobPresignedUrlConfig:CreateOTAUpdate' :: Maybe AwsJobPresignedUrlConfig
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsJobPresignedUrlConfig%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">awsJobPresignedUrlConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsJobPresignedUrlConfig
+</span><a href="#local-6989586621679849721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The description of the OTA update.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_description"><span class="hs-identifier hs-type">createOTAUpdate_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="createOTAUpdate_description"><span class="annot"><span class="annottext">createOTAUpdate_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_description"><span class="hs-identifier hs-var hs-var">createOTAUpdate_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdate -&gt; Maybe Text)
+-&gt; (CreateOTAUpdate -&gt; Maybe Text -&gt; CreateOTAUpdate)
+-&gt; Lens CreateOTAUpdate CreateOTAUpdate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849720"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679849720"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849720"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849719"><span class="annot"><span class="annottext">s :: CreateOTAUpdate
+</span><a href="#local-6989586621679849719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849718"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdate
+</span><a href="#local-6989586621679849719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateOTAUpdate' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3Adescription%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | A list of additional OTA update parameters which are name-value pairs.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_additionalParameters"><span class="hs-identifier hs-type">createOTAUpdate_additionalParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="createOTAUpdate_additionalParameters"><span class="annot"><span class="annottext">createOTAUpdate_additionalParameters :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_additionalParameters"><span class="hs-identifier hs-var hs-var">createOTAUpdate_additionalParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdate -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateOTAUpdate
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateOTAUpdate)
+-&gt; Lens
+     CreateOTAUpdate
+     CreateOTAUpdate
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849717"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+additionalParameters :: Maybe (HashMap Text Text)
+$sel:additionalParameters:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679849717"><span class="hs-identifier hs-var hs-var">additionalParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679849717"><span class="hs-identifier hs-var">additionalParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849716"><span class="annot"><span class="annottext">s :: CreateOTAUpdate
+</span><a href="#local-6989586621679849716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849715"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679849715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdate
+</span><a href="#local-6989586621679849716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalParameters:CreateOTAUpdate' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AadditionalParameters%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">additionalParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679849715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateOTAUpdate
+-&gt; f CreateOTAUpdate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | Configuration for the rollout of OTA updates.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_awsJobExecutionsRolloutConfig"><span class="hs-identifier hs-type">createOTAUpdate_awsJobExecutionsRolloutConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExecutionsRolloutConfig.html#AwsJobExecutionsRolloutConfig"><span class="hs-identifier hs-type">AwsJobExecutionsRolloutConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="createOTAUpdate_awsJobExecutionsRolloutConfig"><span class="annot"><span class="annottext">createOTAUpdate_awsJobExecutionsRolloutConfig :: (Maybe AwsJobExecutionsRolloutConfig
+ -&gt; f (Maybe AwsJobExecutionsRolloutConfig))
+-&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_awsJobExecutionsRolloutConfig"><span class="hs-identifier hs-var hs-var">createOTAUpdate_awsJobExecutionsRolloutConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdate -&gt; Maybe AwsJobExecutionsRolloutConfig)
+-&gt; (CreateOTAUpdate
+    -&gt; Maybe AwsJobExecutionsRolloutConfig -&gt; CreateOTAUpdate)
+-&gt; Lens
+     CreateOTAUpdate
+     CreateOTAUpdate
+     (Maybe AwsJobExecutionsRolloutConfig)
+     (Maybe AwsJobExecutionsRolloutConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849714"><span class="annot"><span class="annottext">Maybe AwsJobExecutionsRolloutConfig
+awsJobExecutionsRolloutConfig :: Maybe AwsJobExecutionsRolloutConfig
+$sel:awsJobExecutionsRolloutConfig:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe AwsJobExecutionsRolloutConfig
+</span><a href="#local-6989586621679849714"><span class="hs-identifier hs-var hs-var">awsJobExecutionsRolloutConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsJobExecutionsRolloutConfig
+</span><a href="#local-6989586621679849714"><span class="hs-identifier hs-var">awsJobExecutionsRolloutConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849713"><span class="annot"><span class="annottext">s :: CreateOTAUpdate
+</span><a href="#local-6989586621679849713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849712"><span class="annot"><span class="annottext">Maybe AwsJobExecutionsRolloutConfig
+</span><a href="#local-6989586621679849712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdate
+</span><a href="#local-6989586621679849713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsJobExecutionsRolloutConfig:CreateOTAUpdate' :: Maybe AwsJobExecutionsRolloutConfig
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsJobExecutionsRolloutConfig%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">awsJobExecutionsRolloutConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsJobExecutionsRolloutConfig
+</span><a href="#local-6989586621679849712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The criteria that determine when and how a job abort takes place.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_awsJobAbortConfig"><span class="hs-identifier hs-type">createOTAUpdate_awsJobAbortConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortConfig.html#AwsJobAbortConfig"><span class="hs-identifier hs-type">AwsJobAbortConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="createOTAUpdate_awsJobAbortConfig"><span class="annot"><span class="annottext">createOTAUpdate_awsJobAbortConfig :: (Maybe AwsJobAbortConfig -&gt; f (Maybe AwsJobAbortConfig))
+-&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_awsJobAbortConfig"><span class="hs-identifier hs-var hs-var">createOTAUpdate_awsJobAbortConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdate -&gt; Maybe AwsJobAbortConfig)
+-&gt; (CreateOTAUpdate -&gt; Maybe AwsJobAbortConfig -&gt; CreateOTAUpdate)
+-&gt; Lens
+     CreateOTAUpdate
+     CreateOTAUpdate
+     (Maybe AwsJobAbortConfig)
+     (Maybe AwsJobAbortConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849711"><span class="annot"><span class="annottext">Maybe AwsJobAbortConfig
+awsJobAbortConfig :: Maybe AwsJobAbortConfig
+$sel:awsJobAbortConfig:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe AwsJobAbortConfig
+</span><a href="#local-6989586621679849711"><span class="hs-identifier hs-var hs-var">awsJobAbortConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsJobAbortConfig
+</span><a href="#local-6989586621679849711"><span class="hs-identifier hs-var">awsJobAbortConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849710"><span class="annot"><span class="annottext">s :: CreateOTAUpdate
+</span><a href="#local-6989586621679849710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849709"><span class="annot"><span class="annottext">Maybe AwsJobAbortConfig
+</span><a href="#local-6989586621679849709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdate
+</span><a href="#local-6989586621679849710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsJobAbortConfig:CreateOTAUpdate' :: Maybe AwsJobAbortConfig
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsJobAbortConfig%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">awsJobAbortConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsJobAbortConfig
+</span><a href="#local-6989586621679849709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The ID of the OTA update to be created.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_otaUpdateId"><span class="hs-identifier hs-type">createOTAUpdate_otaUpdateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-242"></span><span id="createOTAUpdate_otaUpdateId"><span class="annot"><span class="annottext">createOTAUpdate_otaUpdateId :: (Text -&gt; f Text) -&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_otaUpdateId"><span class="hs-identifier hs-var hs-var">createOTAUpdate_otaUpdateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdate -&gt; Text)
+-&gt; (CreateOTAUpdate -&gt; Text -&gt; CreateOTAUpdate)
+-&gt; Lens CreateOTAUpdate CreateOTAUpdate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849708"><span class="annot"><span class="annottext">Text
+otaUpdateId :: Text
+$sel:otaUpdateId:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Text
+</span><a href="#local-6989586621679849708"><span class="hs-identifier hs-var hs-var">otaUpdateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849708"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849707"><span class="annot"><span class="annottext">s :: CreateOTAUpdate
+</span><a href="#local-6989586621679849707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849706"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdate
+</span><a href="#local-6989586621679849707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdateId:CreateOTAUpdate' :: Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AotaUpdateId%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The devices targeted to receive OTA updates.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_targets"><span class="hs-identifier hs-type">createOTAUpdate_targets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="createOTAUpdate_targets"><span class="annot"><span class="annottext">createOTAUpdate_targets :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_targets"><span class="hs-identifier hs-var hs-var">createOTAUpdate_targets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdate -&gt; NonEmpty Text)
+-&gt; (CreateOTAUpdate -&gt; NonEmpty Text -&gt; CreateOTAUpdate)
+-&gt; Lens
+     CreateOTAUpdate CreateOTAUpdate (NonEmpty Text) (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849705"><span class="annot"><span class="annottext">NonEmpty Text
+targets :: NonEmpty Text
+$sel:targets:CreateOTAUpdate' :: CreateOTAUpdate -&gt; NonEmpty Text
+</span><a href="#local-6989586621679849705"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679849705"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849704"><span class="annot"><span class="annottext">s :: CreateOTAUpdate
+</span><a href="#local-6989586621679849704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849703"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679849703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdate
+</span><a href="#local-6989586621679849704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:CreateOTAUpdate' :: NonEmpty Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3Atargets%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679849703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; CreateOTAUpdate
+-&gt; f CreateOTAUpdate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The files to be streamed by the OTA update.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_files"><span class="hs-identifier hs-type">createOTAUpdate_files</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateFile.html#OTAUpdateFile"><span class="hs-identifier hs-type">OTAUpdateFile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="createOTAUpdate_files"><span class="annot"><span class="annottext">createOTAUpdate_files :: (NonEmpty OTAUpdateFile -&gt; f (NonEmpty OTAUpdateFile))
+-&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_files"><span class="hs-identifier hs-var hs-var">createOTAUpdate_files</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdate -&gt; NonEmpty OTAUpdateFile)
+-&gt; (CreateOTAUpdate -&gt; NonEmpty OTAUpdateFile -&gt; CreateOTAUpdate)
+-&gt; Lens
+     CreateOTAUpdate
+     CreateOTAUpdate
+     (NonEmpty OTAUpdateFile)
+     (NonEmpty OTAUpdateFile)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849702"><span class="annot"><span class="annottext">NonEmpty OTAUpdateFile
+files :: NonEmpty OTAUpdateFile
+$sel:files:CreateOTAUpdate' :: CreateOTAUpdate -&gt; NonEmpty OTAUpdateFile
+</span><a href="#local-6989586621679849702"><span class="hs-identifier hs-var hs-var">files</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty OTAUpdateFile
+</span><a href="#local-6989586621679849702"><span class="hs-identifier hs-var">files</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849701"><span class="annot"><span class="annottext">s :: CreateOTAUpdate
+</span><a href="#local-6989586621679849701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849700"><span class="annot"><span class="annottext">NonEmpty OTAUpdateFile
+</span><a href="#local-6989586621679849700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdate
+</span><a href="#local-6989586621679849701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:files:CreateOTAUpdate' :: NonEmpty OTAUpdateFile
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3Afiles%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">files</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty OTAUpdateFile
+</span><a href="#local-6989586621679849700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty OTAUpdateFile -&gt; f (NonEmpty OTAUpdateFile))
+ -&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate)
+-&gt; ((NonEmpty OTAUpdateFile -&gt; f (NonEmpty OTAUpdateFile))
+    -&gt; NonEmpty OTAUpdateFile -&gt; f (NonEmpty OTAUpdateFile))
+-&gt; (NonEmpty OTAUpdateFile -&gt; f (NonEmpty OTAUpdateFile))
+-&gt; CreateOTAUpdate
+-&gt; f CreateOTAUpdate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty OTAUpdateFile -&gt; f (NonEmpty OTAUpdateFile))
+-&gt; NonEmpty OTAUpdateFile -&gt; f (NonEmpty OTAUpdateFile)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The IAM role that grants Amazon Web Services IoT Core access to the</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- Amazon S3, IoT jobs and Amazon Web Services Code Signing resources to</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- create an OTA update job.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_roleArn"><span class="hs-identifier hs-type">createOTAUpdate_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-256"></span><span id="createOTAUpdate_roleArn"><span class="annot"><span class="annottext">createOTAUpdate_roleArn :: (Text -&gt; f Text) -&gt; CreateOTAUpdate -&gt; f CreateOTAUpdate
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdate_roleArn"><span class="hs-identifier hs-var hs-var">createOTAUpdate_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdate -&gt; Text)
+-&gt; (CreateOTAUpdate -&gt; Text -&gt; CreateOTAUpdate)
+-&gt; Lens CreateOTAUpdate CreateOTAUpdate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849699"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Text
+</span><a href="#local-6989586621679849699"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849699"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849698"><span class="annot"><span class="annottext">s :: CreateOTAUpdate
+</span><a href="#local-6989586621679849698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849697"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdate
+</span><a href="#local-6989586621679849698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateOTAUpdate' :: Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AroleArn%3ACreateOTAUpdate%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-260"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-261"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier hs-type">CreateOTAUpdateResponse</span></a></span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679849693"><span class="annot"><span class="annottext">request :: CreateOTAUpdate -&gt; Request CreateOTAUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateOTAUpdate -&gt; Request CreateOTAUpdate
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679849689"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateOTAUpdate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateOTAUpdate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateOTAUpdate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateOTAUpdate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateOTAUpdate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-265"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679849686"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849686"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679849685"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679849685"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679849684"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849684"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-266"></span><span>          </span><span class="annot"><span class="annottext">Maybe OTAUpdateStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; CreateOTAUpdateResponse
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse%27"><span class="hs-identifier hs-var">CreateOTAUpdateResponse'</span></a></span><span>
+</span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OTAUpdateStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; CreateOTAUpdateResponse)
+-&gt; Either String (Maybe OTAUpdateStatus)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; CreateOTAUpdateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OTAUpdateStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;otaUpdateStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; CreateOTAUpdateResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateOTAUpdateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;otaUpdateArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateOTAUpdateResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateOTAUpdateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;awsIotJobArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateOTAUpdateResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; CreateOTAUpdateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;awsIotJobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateOTAUpdateResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateOTAUpdateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;otaUpdateId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateOTAUpdateResponse)
+-&gt; Either String Int -&gt; Either String CreateOTAUpdateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849686"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849676"><span id="local-6989586621679849678"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span></span></span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849673"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span></span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621679849669"><span class="annot"><span class="annottext">toHeaders :: CreateOTAUpdate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateOTAUpdate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849660"><span id="local-6989586621679849662"><span id="local-6989586621679849664"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679849658"><span class="annot"><span class="annottext">toJSON :: CreateOTAUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849644"><span id="local-6989586621679849645"><span id="local-6989586621679849646"><span id="local-6989586621679849647"><span id="local-6989586621679849648"><span id="local-6989586621679849649"><span id="local-6989586621679849650"><span id="local-6989586621679849651"><span id="local-6989586621679849652"><span id="local-6989586621679849653"><span id="local-6989586621679849654"><span id="local-6989586621679849655"><span id="local-6989586621679849656"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe (NonEmpty Protocol)
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe AwsJobAbortConfig
+Maybe AwsJobPresignedUrlConfig
+Maybe AwsJobExecutionsRolloutConfig
+Maybe AwsJobTimeoutConfig
+Maybe TargetSelection
+NonEmpty Text
+NonEmpty OTAUpdateFile
+Text
+roleArn :: Text
+files :: NonEmpty OTAUpdateFile
+targets :: NonEmpty Text
+otaUpdateId :: Text
+awsJobAbortConfig :: Maybe AwsJobAbortConfig
+awsJobExecutionsRolloutConfig :: Maybe AwsJobExecutionsRolloutConfig
+additionalParameters :: Maybe (HashMap Text Text)
+description :: Maybe Text
+awsJobPresignedUrlConfig :: Maybe AwsJobPresignedUrlConfig
+tags :: Maybe [Tag]
+protocols :: Maybe (NonEmpty Protocol)
+awsJobTimeoutConfig :: Maybe AwsJobTimeoutConfig
+targetSelection :: Maybe TargetSelection
+$sel:roleArn:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Text
+$sel:files:CreateOTAUpdate' :: CreateOTAUpdate -&gt; NonEmpty OTAUpdateFile
+$sel:targets:CreateOTAUpdate' :: CreateOTAUpdate -&gt; NonEmpty Text
+$sel:otaUpdateId:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Text
+$sel:awsJobAbortConfig:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe AwsJobAbortConfig
+$sel:awsJobExecutionsRolloutConfig:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe AwsJobExecutionsRolloutConfig
+$sel:additionalParameters:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe (HashMap Text Text)
+$sel:description:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe Text
+$sel:awsJobPresignedUrlConfig:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe AwsJobPresignedUrlConfig
+$sel:tags:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe [Tag]
+$sel:protocols:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe (NonEmpty Protocol)
+$sel:awsJobTimeoutConfig:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe AwsJobTimeoutConfig
+$sel:targetSelection:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe TargetSelection
+</span><a href="#local-6989586621679849644"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-285"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-286"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targetSelection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TargetSelection -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>              </span><span class="annot"><span class="annottext">(TargetSelection -&gt; Pair) -&gt; Maybe TargetSelection -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TargetSelection
+</span><a href="#local-6989586621679849656"><span class="hs-identifier hs-var">targetSelection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;awsJobTimeoutConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsJobTimeoutConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>              </span><span class="annot"><span class="annottext">(AwsJobTimeoutConfig -&gt; Pair)
+-&gt; Maybe AwsJobTimeoutConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsJobTimeoutConfig
+</span><a href="#local-6989586621679849655"><span class="hs-identifier hs-var">awsJobTimeoutConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;protocols&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Protocol -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Protocol -&gt; Pair)
+-&gt; Maybe (NonEmpty Protocol) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Protocol)
+</span><a href="#local-6989586621679849654"><span class="hs-identifier hs-var">protocols</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679849653"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;awsJobPresignedUrlConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsJobPresignedUrlConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>              </span><span class="annot"><span class="annottext">(AwsJobPresignedUrlConfig -&gt; Pair)
+-&gt; Maybe AwsJobPresignedUrlConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsJobPresignedUrlConfig
+</span><a href="#local-6989586621679849652"><span class="hs-identifier hs-var">awsJobPresignedUrlConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849651"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;additionalParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679849650"><span class="hs-identifier hs-var">additionalParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;awsJobExecutionsRolloutConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsJobExecutionsRolloutConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>              </span><span class="annot"><span class="annottext">(AwsJobExecutionsRolloutConfig -&gt; Pair)
+-&gt; Maybe AwsJobExecutionsRolloutConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsJobExecutionsRolloutConfig
+</span><a href="#local-6989586621679849649"><span class="hs-identifier hs-var">awsJobExecutionsRolloutConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;awsJobAbortConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsJobAbortConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>              </span><span class="annot"><span class="annottext">(AwsJobAbortConfig -&gt; Pair)
+-&gt; Maybe AwsJobAbortConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsJobAbortConfig
+</span><a href="#local-6989586621679849648"><span class="hs-identifier hs-var">awsJobAbortConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679849646"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;files&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty OTAUpdateFile -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty OTAUpdateFile
+</span><a href="#local-6989586621679849645"><span class="hs-identifier hs-var">files</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849644"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-305"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-308"></span><span>  </span><span id="local-6989586621679849638"><span class="annot"><span class="annottext">toPath :: CreateOTAUpdate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate%27"><span class="hs-identifier hs-type">CreateOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849624"><span id="local-6989586621679849625"><span id="local-6989586621679849626"><span id="local-6989586621679849627"><span id="local-6989586621679849628"><span id="local-6989586621679849629"><span id="local-6989586621679849630"><span id="local-6989586621679849631"><span id="local-6989586621679849632"><span id="local-6989586621679849633"><span id="local-6989586621679849634"><span id="local-6989586621679849635"><span id="local-6989586621679849636"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe (NonEmpty Protocol)
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe AwsJobAbortConfig
+Maybe AwsJobPresignedUrlConfig
+Maybe AwsJobExecutionsRolloutConfig
+Maybe AwsJobTimeoutConfig
+Maybe TargetSelection
+NonEmpty Text
+NonEmpty OTAUpdateFile
+Text
+roleArn :: Text
+files :: NonEmpty OTAUpdateFile
+targets :: NonEmpty Text
+otaUpdateId :: Text
+awsJobAbortConfig :: Maybe AwsJobAbortConfig
+awsJobExecutionsRolloutConfig :: Maybe AwsJobExecutionsRolloutConfig
+additionalParameters :: Maybe (HashMap Text Text)
+description :: Maybe Text
+awsJobPresignedUrlConfig :: Maybe AwsJobPresignedUrlConfig
+tags :: Maybe [Tag]
+protocols :: Maybe (NonEmpty Protocol)
+awsJobTimeoutConfig :: Maybe AwsJobTimeoutConfig
+targetSelection :: Maybe TargetSelection
+$sel:roleArn:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Text
+$sel:files:CreateOTAUpdate' :: CreateOTAUpdate -&gt; NonEmpty OTAUpdateFile
+$sel:targets:CreateOTAUpdate' :: CreateOTAUpdate -&gt; NonEmpty Text
+$sel:otaUpdateId:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Text
+$sel:awsJobAbortConfig:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe AwsJobAbortConfig
+$sel:awsJobExecutionsRolloutConfig:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe AwsJobExecutionsRolloutConfig
+$sel:additionalParameters:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe (HashMap Text Text)
+$sel:description:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe Text
+$sel:awsJobPresignedUrlConfig:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe AwsJobPresignedUrlConfig
+$sel:tags:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe [Tag]
+$sel:protocols:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe (NonEmpty Protocol)
+$sel:awsJobTimeoutConfig:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe AwsJobTimeoutConfig
+$sel:targetSelection:CreateOTAUpdate' :: CreateOTAUpdate -&gt; Maybe TargetSelection
+</span><a href="#local-6989586621679849624"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-310"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/otaUpdates/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849627"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdate"><span class="hs-identifier hs-type">CreateOTAUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-313"></span><span>  </span><span id="local-6989586621679849620"><span class="annot"><span class="annottext">toQuery :: CreateOTAUpdate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateOTAUpdate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | /See:/ 'newCreateOTAUpdateResponse' smart constructor.</span><span>
+</span><span id="line-316"></span><span id="local-6989586621679849617"><span id="local-6989586621679849618"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOTAUpdateResponse"><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier hs-var">CreateOTAUpdateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOTAUpdateResponse%27"><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse%27"><span class="hs-identifier hs-var">CreateOTAUpdateResponse'</span></a></span></span><span>
+</span><span id="line-317"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The OTA update status.</span><span>
+</span><span id="line-318"></span><span>    </span><span id="%24sel%3AotaUpdateStatus%3ACreateOTAUpdateResponse%27"><span class="annot"><span class="annottext">CreateOTAUpdateResponse -&gt; Maybe OTAUpdateStatus
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AotaUpdateStatus%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var hs-var">otaUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateStatus.html#OTAUpdateStatus"><span class="hs-identifier hs-type">OTAUpdateStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>    </span><span class="hs-comment">-- | The OTA update ARN.</span><span>
+</span><span id="line-320"></span><span>    </span><span id="%24sel%3AotaUpdateArn%3ACreateOTAUpdateResponse%27"><span class="annot"><span class="annottext">CreateOTAUpdateResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AotaUpdateArn%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var hs-var">otaUpdateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>    </span><span class="hs-comment">-- | The IoT job ARN associated with the OTA update.</span><span>
+</span><span id="line-322"></span><span>    </span><span id="%24sel%3AawsIotJobArn%3ACreateOTAUpdateResponse%27"><span class="annot"><span class="annottext">CreateOTAUpdateResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsIotJobArn%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var hs-var">awsIotJobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>    </span><span class="hs-comment">-- | The IoT job ID associated with the OTA update.</span><span>
+</span><span id="line-324"></span><span>    </span><span id="%24sel%3AawsIotJobId%3ACreateOTAUpdateResponse%27"><span class="annot"><span class="annottext">CreateOTAUpdateResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsIotJobId%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var hs-var">awsIotJobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>    </span><span class="hs-comment">-- | The OTA update ID.</span><span>
+</span><span id="line-326"></span><span>    </span><span id="%24sel%3AotaUpdateId%3ACreateOTAUpdateResponse%27"><span class="annot"><span class="annottext">CreateOTAUpdateResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AotaUpdateId%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var hs-var">otaUpdateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-328"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateOTAUpdateResponse%27"><span class="annot"><span class="annottext">CreateOTAUpdateResponse -&gt; Int
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AhttpStatus%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-329"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-330"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679849607"><span id="local-6989586621679849609"><span class="annot"><span class="annottext">CreateOTAUpdateResponse -&gt; CreateOTAUpdateResponse -&gt; Bool
+(CreateOTAUpdateResponse -&gt; CreateOTAUpdateResponse -&gt; Bool)
+-&gt; (CreateOTAUpdateResponse -&gt; CreateOTAUpdateResponse -&gt; Bool)
+-&gt; Eq CreateOTAUpdateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateOTAUpdateResponse -&gt; CreateOTAUpdateResponse -&gt; Bool
+$c/= :: CreateOTAUpdateResponse -&gt; CreateOTAUpdateResponse -&gt; Bool
+== :: CreateOTAUpdateResponse -&gt; CreateOTAUpdateResponse -&gt; Bool
+$c== :: CreateOTAUpdateResponse -&gt; CreateOTAUpdateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849599"><span id="local-6989586621679849601"><span id="local-6989586621679849603"><span id="local-6989586621679849605"><span class="annot"><span class="annottext">ReadPrec [CreateOTAUpdateResponse]
+ReadPrec CreateOTAUpdateResponse
+Int -&gt; ReadS CreateOTAUpdateResponse
+ReadS [CreateOTAUpdateResponse]
+(Int -&gt; ReadS CreateOTAUpdateResponse)
+-&gt; ReadS [CreateOTAUpdateResponse]
+-&gt; ReadPrec CreateOTAUpdateResponse
+-&gt; ReadPrec [CreateOTAUpdateResponse]
+-&gt; Read CreateOTAUpdateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateOTAUpdateResponse]
+$creadListPrec :: ReadPrec [CreateOTAUpdateResponse]
+readPrec :: ReadPrec CreateOTAUpdateResponse
+$creadPrec :: ReadPrec CreateOTAUpdateResponse
+readList :: ReadS [CreateOTAUpdateResponse]
+$creadList :: ReadS [CreateOTAUpdateResponse]
+readsPrec :: Int -&gt; ReadS CreateOTAUpdateResponse
+$creadsPrec :: Int -&gt; ReadS CreateOTAUpdateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849593"><span id="local-6989586621679849595"><span id="local-6989586621679849597"><span class="annot"><span class="annottext">Int -&gt; CreateOTAUpdateResponse -&gt; ShowS
+[CreateOTAUpdateResponse] -&gt; ShowS
+CreateOTAUpdateResponse -&gt; String
+(Int -&gt; CreateOTAUpdateResponse -&gt; ShowS)
+-&gt; (CreateOTAUpdateResponse -&gt; String)
+-&gt; ([CreateOTAUpdateResponse] -&gt; ShowS)
+-&gt; Show CreateOTAUpdateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateOTAUpdateResponse] -&gt; ShowS
+$cshowList :: [CreateOTAUpdateResponse] -&gt; ShowS
+show :: CreateOTAUpdateResponse -&gt; String
+$cshow :: CreateOTAUpdateResponse -&gt; String
+showsPrec :: Int -&gt; CreateOTAUpdateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateOTAUpdateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateOTAUpdateResponse -&gt; Rep CreateOTAUpdateResponse x)
+-&gt; (forall x.
+    Rep CreateOTAUpdateResponse x -&gt; CreateOTAUpdateResponse)
+-&gt; Generic CreateOTAUpdateResponse
+forall x. Rep CreateOTAUpdateResponse x -&gt; CreateOTAUpdateResponse
+forall x. CreateOTAUpdateResponse -&gt; Rep CreateOTAUpdateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateOTAUpdateResponse x -&gt; CreateOTAUpdateResponse
+$cfrom :: forall x. CreateOTAUpdateResponse -&gt; Rep CreateOTAUpdateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- Create a value of 'CreateOTAUpdateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- 'otaUpdateStatus', 'createOTAUpdateResponse_otaUpdateStatus' - The OTA update status.</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- 'otaUpdateArn', 'createOTAUpdateResponse_otaUpdateArn' - The OTA update ARN.</span><span>
+</span><span id="line-343"></span><span class="hs-comment">--</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- 'awsIotJobArn', 'createOTAUpdateResponse_awsIotJobArn' - The IoT job ARN associated with the OTA update.</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- 'awsIotJobId', 'createOTAUpdateResponse_awsIotJobId' - The IoT job ID associated with the OTA update.</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- 'otaUpdateId', 'createOTAUpdateResponse_otaUpdateId' - The OTA update ID.</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--</span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- 'httpStatus', 'createOTAUpdateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-351"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#newCreateOTAUpdateResponse"><span class="hs-identifier hs-type">newCreateOTAUpdateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-352"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-353"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-354"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier hs-type">CreateOTAUpdateResponse</span></a></span><span>
+</span><span id="line-355"></span><span id="newCreateOTAUpdateResponse"><span class="annot"><span class="annottext">newCreateOTAUpdateResponse :: Int -&gt; CreateOTAUpdateResponse
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#newCreateOTAUpdateResponse"><span class="hs-identifier hs-var hs-var">newCreateOTAUpdateResponse</span></a></span></span><span> </span><span id="local-6989586621679849590"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849590"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-356"></span><span>  </span><span class="annot"><span class="annottext">CreateOTAUpdateResponse' :: Maybe OTAUpdateStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; CreateOTAUpdateResponse
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse%27"><span class="hs-identifier hs-type">CreateOTAUpdateResponse'</span></a></span><span>
+</span><span id="line-357"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:otaUpdateStatus:CreateOTAUpdateResponse' :: Maybe OTAUpdateStatus
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AotaUpdateStatus%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var">otaUpdateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-358"></span><span>        </span><span class="annot"><span class="annottext">Maybe OTAUpdateStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-359"></span><span>      </span><span class="annot"><span class="annottext">$sel:otaUpdateArn:CreateOTAUpdateResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AotaUpdateArn%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var">otaUpdateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-360"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsIotJobArn:CreateOTAUpdateResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsIotJobArn%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var">awsIotJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-361"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsIotJobId:CreateOTAUpdateResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsIotJobId%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var">awsIotJobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-362"></span><span>      </span><span class="annot"><span class="annottext">$sel:otaUpdateId:CreateOTAUpdateResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AotaUpdateId%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-363"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateOTAUpdateResponse' :: Int
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AhttpStatus%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849590"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-364"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-365"></span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- | The OTA update status.</span><span>
+</span><span id="line-367"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_otaUpdateStatus"><span class="hs-identifier hs-type">createOTAUpdateResponse_otaUpdateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier hs-type">CreateOTAUpdateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateStatus.html#OTAUpdateStatus"><span class="hs-identifier hs-type">OTAUpdateStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-368"></span><span id="createOTAUpdateResponse_otaUpdateStatus"><span class="annot"><span class="annottext">createOTAUpdateResponse_otaUpdateStatus :: (Maybe OTAUpdateStatus -&gt; f (Maybe OTAUpdateStatus))
+-&gt; CreateOTAUpdateResponse -&gt; f CreateOTAUpdateResponse
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_otaUpdateStatus"><span class="hs-identifier hs-var hs-var">createOTAUpdateResponse_otaUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdateResponse -&gt; Maybe OTAUpdateStatus)
+-&gt; (CreateOTAUpdateResponse
+    -&gt; Maybe OTAUpdateStatus -&gt; CreateOTAUpdateResponse)
+-&gt; Lens
+     CreateOTAUpdateResponse
+     CreateOTAUpdateResponse
+     (Maybe OTAUpdateStatus)
+     (Maybe OTAUpdateStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse%27"><span class="hs-identifier hs-type">CreateOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849589"><span class="annot"><span class="annottext">Maybe OTAUpdateStatus
+otaUpdateStatus :: Maybe OTAUpdateStatus
+$sel:otaUpdateStatus:CreateOTAUpdateResponse' :: CreateOTAUpdateResponse -&gt; Maybe OTAUpdateStatus
+</span><a href="#local-6989586621679849589"><span class="hs-identifier hs-var hs-var">otaUpdateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OTAUpdateStatus
+</span><a href="#local-6989586621679849589"><span class="hs-identifier hs-var">otaUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849588"><span class="annot"><span class="annottext">s :: CreateOTAUpdateResponse
+</span><a href="#local-6989586621679849588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse%27"><span class="hs-identifier hs-type">CreateOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849587"><span class="annot"><span class="annottext">Maybe OTAUpdateStatus
+</span><a href="#local-6989586621679849587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdateResponse
+</span><a href="#local-6989586621679849588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdateStatus:CreateOTAUpdateResponse' :: Maybe OTAUpdateStatus
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AotaUpdateStatus%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var">otaUpdateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OTAUpdateStatus
+</span><a href="#local-6989586621679849587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier hs-type">CreateOTAUpdateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-369"></span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- | The OTA update ARN.</span><span>
+</span><span id="line-371"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_otaUpdateArn"><span class="hs-identifier hs-type">createOTAUpdateResponse_otaUpdateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier hs-type">CreateOTAUpdateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-372"></span><span id="createOTAUpdateResponse_otaUpdateArn"><span class="annot"><span class="annottext">createOTAUpdateResponse_otaUpdateArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateOTAUpdateResponse -&gt; f CreateOTAUpdateResponse
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_otaUpdateArn"><span class="hs-identifier hs-var hs-var">createOTAUpdateResponse_otaUpdateArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdateResponse -&gt; Maybe Text)
+-&gt; (CreateOTAUpdateResponse
+    -&gt; Maybe Text -&gt; CreateOTAUpdateResponse)
+-&gt; Lens
+     CreateOTAUpdateResponse
+     CreateOTAUpdateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse%27"><span class="hs-identifier hs-type">CreateOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849586"><span class="annot"><span class="annottext">Maybe Text
+otaUpdateArn :: Maybe Text
+$sel:otaUpdateArn:CreateOTAUpdateResponse' :: CreateOTAUpdateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679849586"><span class="hs-identifier hs-var hs-var">otaUpdateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849586"><span class="hs-identifier hs-var">otaUpdateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849585"><span class="annot"><span class="annottext">s :: CreateOTAUpdateResponse
+</span><a href="#local-6989586621679849585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse%27"><span class="hs-identifier hs-type">CreateOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849584"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdateResponse
+</span><a href="#local-6989586621679849585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdateArn:CreateOTAUpdateResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AotaUpdateArn%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var">otaUpdateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier hs-type">CreateOTAUpdateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-373"></span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- | The IoT job ARN associated with the OTA update.</span><span>
+</span><span id="line-375"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_awsIotJobArn"><span class="hs-identifier hs-type">createOTAUpdateResponse_awsIotJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier hs-type">CreateOTAUpdateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span id="createOTAUpdateResponse_awsIotJobArn"><span class="annot"><span class="annottext">createOTAUpdateResponse_awsIotJobArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateOTAUpdateResponse -&gt; f CreateOTAUpdateResponse
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_awsIotJobArn"><span class="hs-identifier hs-var hs-var">createOTAUpdateResponse_awsIotJobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdateResponse -&gt; Maybe Text)
+-&gt; (CreateOTAUpdateResponse
+    -&gt; Maybe Text -&gt; CreateOTAUpdateResponse)
+-&gt; Lens
+     CreateOTAUpdateResponse
+     CreateOTAUpdateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse%27"><span class="hs-identifier hs-type">CreateOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849583"><span class="annot"><span class="annottext">Maybe Text
+awsIotJobArn :: Maybe Text
+$sel:awsIotJobArn:CreateOTAUpdateResponse' :: CreateOTAUpdateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679849583"><span class="hs-identifier hs-var hs-var">awsIotJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849583"><span class="hs-identifier hs-var">awsIotJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849582"><span class="annot"><span class="annottext">s :: CreateOTAUpdateResponse
+</span><a href="#local-6989586621679849582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse%27"><span class="hs-identifier hs-type">CreateOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849581"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdateResponse
+</span><a href="#local-6989586621679849582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsIotJobArn:CreateOTAUpdateResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsIotJobArn%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var">awsIotJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier hs-type">CreateOTAUpdateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- | The IoT job ID associated with the OTA update.</span><span>
+</span><span id="line-379"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_awsIotJobId"><span class="hs-identifier hs-type">createOTAUpdateResponse_awsIotJobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier hs-type">CreateOTAUpdateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-380"></span><span id="createOTAUpdateResponse_awsIotJobId"><span class="annot"><span class="annottext">createOTAUpdateResponse_awsIotJobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateOTAUpdateResponse -&gt; f CreateOTAUpdateResponse
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_awsIotJobId"><span class="hs-identifier hs-var hs-var">createOTAUpdateResponse_awsIotJobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdateResponse -&gt; Maybe Text)
+-&gt; (CreateOTAUpdateResponse
+    -&gt; Maybe Text -&gt; CreateOTAUpdateResponse)
+-&gt; Lens
+     CreateOTAUpdateResponse
+     CreateOTAUpdateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse%27"><span class="hs-identifier hs-type">CreateOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849580"><span class="annot"><span class="annottext">Maybe Text
+awsIotJobId :: Maybe Text
+$sel:awsIotJobId:CreateOTAUpdateResponse' :: CreateOTAUpdateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679849580"><span class="hs-identifier hs-var hs-var">awsIotJobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849580"><span class="hs-identifier hs-var">awsIotJobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849579"><span class="annot"><span class="annottext">s :: CreateOTAUpdateResponse
+</span><a href="#local-6989586621679849579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse%27"><span class="hs-identifier hs-type">CreateOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849578"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdateResponse
+</span><a href="#local-6989586621679849579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsIotJobId:CreateOTAUpdateResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AawsIotJobId%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var">awsIotJobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier hs-type">CreateOTAUpdateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-381"></span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- | The OTA update ID.</span><span>
+</span><span id="line-383"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_otaUpdateId"><span class="hs-identifier hs-type">createOTAUpdateResponse_otaUpdateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier hs-type">CreateOTAUpdateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-384"></span><span id="createOTAUpdateResponse_otaUpdateId"><span class="annot"><span class="annottext">createOTAUpdateResponse_otaUpdateId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateOTAUpdateResponse -&gt; f CreateOTAUpdateResponse
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_otaUpdateId"><span class="hs-identifier hs-var hs-var">createOTAUpdateResponse_otaUpdateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdateResponse -&gt; Maybe Text)
+-&gt; (CreateOTAUpdateResponse
+    -&gt; Maybe Text -&gt; CreateOTAUpdateResponse)
+-&gt; Lens
+     CreateOTAUpdateResponse
+     CreateOTAUpdateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse%27"><span class="hs-identifier hs-type">CreateOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849577"><span class="annot"><span class="annottext">Maybe Text
+otaUpdateId :: Maybe Text
+$sel:otaUpdateId:CreateOTAUpdateResponse' :: CreateOTAUpdateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679849577"><span class="hs-identifier hs-var hs-var">otaUpdateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849577"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849576"><span class="annot"><span class="annottext">s :: CreateOTAUpdateResponse
+</span><a href="#local-6989586621679849576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse%27"><span class="hs-identifier hs-type">CreateOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849575"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdateResponse
+</span><a href="#local-6989586621679849576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdateId:CreateOTAUpdateResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AotaUpdateId%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier hs-type">CreateOTAUpdateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-385"></span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-387"></span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_httpStatus"><span class="hs-identifier hs-type">createOTAUpdateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier hs-type">CreateOTAUpdateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-388"></span><span id="createOTAUpdateResponse_httpStatus"><span class="annot"><span class="annottext">createOTAUpdateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateOTAUpdateResponse -&gt; f CreateOTAUpdateResponse
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#createOTAUpdateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createOTAUpdateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOTAUpdateResponse -&gt; Int)
+-&gt; (CreateOTAUpdateResponse -&gt; Int -&gt; CreateOTAUpdateResponse)
+-&gt; Lens CreateOTAUpdateResponse CreateOTAUpdateResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse%27"><span class="hs-identifier hs-type">CreateOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849574"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateOTAUpdateResponse' :: CreateOTAUpdateResponse -&gt; Int
+</span><a href="#local-6989586621679849574"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849574"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849573"><span class="annot"><span class="annottext">s :: CreateOTAUpdateResponse
+</span><a href="#local-6989586621679849573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse%27"><span class="hs-identifier hs-type">CreateOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849572"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOTAUpdateResponse
+</span><a href="#local-6989586621679849573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateOTAUpdateResponse' :: Int
+</span><a href="Network.AWS.IoT.CreateOTAUpdate.html#%24sel%3AhttpStatus%3ACreateOTAUpdateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier hs-type">CreateOTAUpdateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-389"></span><span>
+</span><span id="line-390"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateOTAUpdate.html#CreateOTAUpdateResponse"><span class="hs-identifier hs-type">CreateOTAUpdateResponse</span></a></span></span><span>
+</span><span id="line-391"></span></pre></body></html>

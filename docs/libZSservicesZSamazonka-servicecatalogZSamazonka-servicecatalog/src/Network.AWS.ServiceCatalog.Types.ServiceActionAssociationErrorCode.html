@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode"><span class="hs-identifier">ServiceActionAssociationErrorCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode_DUPLICATE_RESOURCE"><span class="hs-identifier">ServiceActionAssociationErrorCode_DUPLICATE_RESOURCE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode_INTERNAL_FAILURE"><span class="hs-identifier">ServiceActionAssociationErrorCode_INTERNAL_FAILURE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode_LIMIT_EXCEEDED"><span class="hs-identifier">ServiceActionAssociationErrorCode_LIMIT_EXCEEDED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode_RESOURCE_NOT_FOUND"><span class="hs-identifier">ServiceActionAssociationErrorCode_RESOURCE_NOT_FOUND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode_THROTTLING"><span class="hs-identifier">ServiceActionAssociationErrorCode_THROTTLING</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679406180"><span id="local-6989586621679406181"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServiceActionAssociationErrorCode"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode"><span class="hs-identifier hs-var">ServiceActionAssociationErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceActionAssociationErrorCode%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode%27"><span class="hs-identifier hs-var">ServiceActionAssociationErrorCode'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromServiceActionAssociationErrorCode"><span class="annot"><span class="annottext">ServiceActionAssociationErrorCode -&gt; Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#fromServiceActionAssociationErrorCode"><span class="hs-identifier hs-var hs-var">fromServiceActionAssociationErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679406172"><span id="local-6989586621679406174"><span id="local-6989586621679406176"><span class="annot"><span class="annottext">Int -&gt; ServiceActionAssociationErrorCode -&gt; ShowS
+[ServiceActionAssociationErrorCode] -&gt; ShowS
+ServiceActionAssociationErrorCode -&gt; String
+(Int -&gt; ServiceActionAssociationErrorCode -&gt; ShowS)
+-&gt; (ServiceActionAssociationErrorCode -&gt; String)
+-&gt; ([ServiceActionAssociationErrorCode] -&gt; ShowS)
+-&gt; Show ServiceActionAssociationErrorCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ServiceActionAssociationErrorCode] -&gt; ShowS
+$cshowList :: [ServiceActionAssociationErrorCode] -&gt; ShowS
+show :: ServiceActionAssociationErrorCode -&gt; String
+$cshow :: ServiceActionAssociationErrorCode -&gt; String
+showsPrec :: Int -&gt; ServiceActionAssociationErrorCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; ServiceActionAssociationErrorCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679406163"><span id="local-6989586621679406165"><span id="local-6989586621679406167"><span id="local-6989586621679406169"><span class="annot"><span class="annottext">ReadPrec [ServiceActionAssociationErrorCode]
+ReadPrec ServiceActionAssociationErrorCode
+Int -&gt; ReadS ServiceActionAssociationErrorCode
+ReadS [ServiceActionAssociationErrorCode]
+(Int -&gt; ReadS ServiceActionAssociationErrorCode)
+-&gt; ReadS [ServiceActionAssociationErrorCode]
+-&gt; ReadPrec ServiceActionAssociationErrorCode
+-&gt; ReadPrec [ServiceActionAssociationErrorCode]
+-&gt; Read ServiceActionAssociationErrorCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ServiceActionAssociationErrorCode]
+$creadListPrec :: ReadPrec [ServiceActionAssociationErrorCode]
+readPrec :: ReadPrec ServiceActionAssociationErrorCode
+$creadPrec :: ReadPrec ServiceActionAssociationErrorCode
+readList :: ReadS [ServiceActionAssociationErrorCode]
+$creadList :: ReadS [ServiceActionAssociationErrorCode]
+readsPrec :: Int -&gt; ReadS ServiceActionAssociationErrorCode
+$creadsPrec :: Int -&gt; ReadS ServiceActionAssociationErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679406158"><span id="local-6989586621679406160"><span class="annot"><span class="annottext">ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Bool
+(ServiceActionAssociationErrorCode
+ -&gt; ServiceActionAssociationErrorCode -&gt; Bool)
+-&gt; (ServiceActionAssociationErrorCode
+    -&gt; ServiceActionAssociationErrorCode -&gt; Bool)
+-&gt; Eq ServiceActionAssociationErrorCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Bool
+$c/= :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Bool
+== :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Bool
+$c== :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679406142"><span id="local-6989586621679406144"><span id="local-6989586621679406146"><span id="local-6989586621679406148"><span id="local-6989586621679406150"><span id="local-6989586621679406152"><span id="local-6989586621679406154"><span class="annot"><span class="annottext">Eq ServiceActionAssociationErrorCode
+Eq ServiceActionAssociationErrorCode
+-&gt; (ServiceActionAssociationErrorCode
+    -&gt; ServiceActionAssociationErrorCode -&gt; Ordering)
+-&gt; (ServiceActionAssociationErrorCode
+    -&gt; ServiceActionAssociationErrorCode -&gt; Bool)
+-&gt; (ServiceActionAssociationErrorCode
+    -&gt; ServiceActionAssociationErrorCode -&gt; Bool)
+-&gt; (ServiceActionAssociationErrorCode
+    -&gt; ServiceActionAssociationErrorCode -&gt; Bool)
+-&gt; (ServiceActionAssociationErrorCode
+    -&gt; ServiceActionAssociationErrorCode -&gt; Bool)
+-&gt; (ServiceActionAssociationErrorCode
+    -&gt; ServiceActionAssociationErrorCode
+    -&gt; ServiceActionAssociationErrorCode)
+-&gt; (ServiceActionAssociationErrorCode
+    -&gt; ServiceActionAssociationErrorCode
+    -&gt; ServiceActionAssociationErrorCode)
+-&gt; Ord ServiceActionAssociationErrorCode
+ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Bool
+ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Ordering
+ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode
+$cmin :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode
+max :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode
+$cmax :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode
+&gt;= :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Bool
+$c&gt;= :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Bool
+&gt; :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Bool
+$c&gt; :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Bool
+&lt;= :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Bool
+$c&lt;= :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Bool
+&lt; :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Bool
+$c&lt; :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Bool
+compare :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Ordering
+$ccompare :: ServiceActionAssociationErrorCode
+-&gt; ServiceActionAssociationErrorCode -&gt; Ordering
+$cp1Ord :: Eq ServiceActionAssociationErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ServiceActionAssociationErrorCode
+ -&gt; Rep ServiceActionAssociationErrorCode x)
+-&gt; (forall x.
+    Rep ServiceActionAssociationErrorCode x
+    -&gt; ServiceActionAssociationErrorCode)
+-&gt; Generic ServiceActionAssociationErrorCode
+forall x.
+Rep ServiceActionAssociationErrorCode x
+-&gt; ServiceActionAssociationErrorCode
+forall x.
+ServiceActionAssociationErrorCode
+-&gt; Rep ServiceActionAssociationErrorCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ServiceActionAssociationErrorCode x
+-&gt; ServiceActionAssociationErrorCode
+$cfrom :: forall x.
+ServiceActionAssociationErrorCode
+-&gt; Rep ServiceActionAssociationErrorCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679406134"><span id="local-6989586621679406136"><span class="annot"><span class="annottext">Int -&gt; ServiceActionAssociationErrorCode -&gt; Int
+ServiceActionAssociationErrorCode -&gt; Int
+(Int -&gt; ServiceActionAssociationErrorCode -&gt; Int)
+-&gt; (ServiceActionAssociationErrorCode -&gt; Int)
+-&gt; Hashable ServiceActionAssociationErrorCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ServiceActionAssociationErrorCode -&gt; Int
+$chash :: ServiceActionAssociationErrorCode -&gt; Int
+hashWithSalt :: Int -&gt; ServiceActionAssociationErrorCode -&gt; Int
+$chashWithSalt :: Int -&gt; ServiceActionAssociationErrorCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679406131"><span class="annot"><span class="annottext">ServiceActionAssociationErrorCode -&gt; ()
+(ServiceActionAssociationErrorCode -&gt; ())
+-&gt; NFData ServiceActionAssociationErrorCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ServiceActionAssociationErrorCode -&gt; ()
+$crnf :: ServiceActionAssociationErrorCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679406128"><span class="annot"><span class="annottext">Text -&gt; Either String ServiceActionAssociationErrorCode
+(Text -&gt; Either String ServiceActionAssociationErrorCode)
+-&gt; FromText ServiceActionAssociationErrorCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ServiceActionAssociationErrorCode
+$cfromText :: Text -&gt; Either String ServiceActionAssociationErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679406125"><span class="annot"><span class="annottext">ServiceActionAssociationErrorCode -&gt; Text
+(ServiceActionAssociationErrorCode -&gt; Text)
+-&gt; ToText ServiceActionAssociationErrorCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ServiceActionAssociationErrorCode -&gt; Text
+$ctoText :: ServiceActionAssociationErrorCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679406122"><span class="annot"><span class="annottext">ServiceActionAssociationErrorCode -&gt; ByteString
+(ServiceActionAssociationErrorCode -&gt; ByteString)
+-&gt; ToByteString ServiceActionAssociationErrorCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ServiceActionAssociationErrorCode -&gt; ByteString
+$ctoBS :: ServiceActionAssociationErrorCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679406119"><span class="annot"><span class="annottext">ServiceActionAssociationErrorCode -&gt; ByteStringBuilder
+(ServiceActionAssociationErrorCode -&gt; ByteStringBuilder)
+-&gt; ToLog ServiceActionAssociationErrorCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ServiceActionAssociationErrorCode -&gt; ByteStringBuilder
+$cbuild :: ServiceActionAssociationErrorCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679406116"><span class="annot"><span class="annottext">HeaderName -&gt; ServiceActionAssociationErrorCode -&gt; [Header]
+(HeaderName -&gt; ServiceActionAssociationErrorCode -&gt; [Header])
+-&gt; ToHeader ServiceActionAssociationErrorCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ServiceActionAssociationErrorCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ServiceActionAssociationErrorCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679406113"><span class="annot"><span class="annottext">ServiceActionAssociationErrorCode -&gt; QueryString
+(ServiceActionAssociationErrorCode -&gt; QueryString)
+-&gt; ToQuery ServiceActionAssociationErrorCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ServiceActionAssociationErrorCode -&gt; QueryString
+$ctoQuery :: ServiceActionAssociationErrorCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679406108"><span id="local-6989586621679406110"><span class="annot"><span class="annottext">Value -&gt; Parser [ServiceActionAssociationErrorCode]
+Value -&gt; Parser ServiceActionAssociationErrorCode
+(Value -&gt; Parser ServiceActionAssociationErrorCode)
+-&gt; (Value -&gt; Parser [ServiceActionAssociationErrorCode])
+-&gt; FromJSON ServiceActionAssociationErrorCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ServiceActionAssociationErrorCode]
+$cparseJSONList :: Value -&gt; Parser [ServiceActionAssociationErrorCode]
+parseJSON :: Value -&gt; Parser ServiceActionAssociationErrorCode
+$cparseJSON :: Value -&gt; Parser ServiceActionAssociationErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679406103"><span id="local-6989586621679406105"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServiceActionAssociationErrorCode]
+FromJSONKeyFunction ServiceActionAssociationErrorCode
+FromJSONKeyFunction ServiceActionAssociationErrorCode
+-&gt; FromJSONKeyFunction [ServiceActionAssociationErrorCode]
+-&gt; FromJSONKey ServiceActionAssociationErrorCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ServiceActionAssociationErrorCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [ServiceActionAssociationErrorCode]
+fromJSONKey :: FromJSONKeyFunction ServiceActionAssociationErrorCode
+$cfromJSONKey :: FromJSONKeyFunction ServiceActionAssociationErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679406094"><span id="local-6989586621679406096"><span id="local-6989586621679406098"><span id="local-6989586621679406100"><span class="annot"><span class="annottext">[ServiceActionAssociationErrorCode] -&gt; Encoding
+[ServiceActionAssociationErrorCode] -&gt; Value
+ServiceActionAssociationErrorCode -&gt; Encoding
+ServiceActionAssociationErrorCode -&gt; Value
+(ServiceActionAssociationErrorCode -&gt; Value)
+-&gt; (ServiceActionAssociationErrorCode -&gt; Encoding)
+-&gt; ([ServiceActionAssociationErrorCode] -&gt; Value)
+-&gt; ([ServiceActionAssociationErrorCode] -&gt; Encoding)
+-&gt; ToJSON ServiceActionAssociationErrorCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ServiceActionAssociationErrorCode] -&gt; Encoding
+$ctoEncodingList :: [ServiceActionAssociationErrorCode] -&gt; Encoding
+toJSONList :: [ServiceActionAssociationErrorCode] -&gt; Value
+$ctoJSONList :: [ServiceActionAssociationErrorCode] -&gt; Value
+toEncoding :: ServiceActionAssociationErrorCode -&gt; Encoding
+$ctoEncoding :: ServiceActionAssociationErrorCode -&gt; Encoding
+toJSON :: ServiceActionAssociationErrorCode -&gt; Value
+$ctoJSON :: ServiceActionAssociationErrorCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679406089"><span id="local-6989586621679406091"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServiceActionAssociationErrorCode]
+ToJSONKeyFunction ServiceActionAssociationErrorCode
+ToJSONKeyFunction ServiceActionAssociationErrorCode
+-&gt; ToJSONKeyFunction [ServiceActionAssociationErrorCode]
+-&gt; ToJSONKey ServiceActionAssociationErrorCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ServiceActionAssociationErrorCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [ServiceActionAssociationErrorCode]
+toJSONKey :: ToJSONKeyFunction ServiceActionAssociationErrorCode
+$ctoJSONKey :: ToJSONKeyFunction ServiceActionAssociationErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679406086"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceActionAssociationErrorCode
+([Node] -&gt; Either String ServiceActionAssociationErrorCode)
+-&gt; FromXML ServiceActionAssociationErrorCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ServiceActionAssociationErrorCode
+$cparseXML :: [Node] -&gt; Either String ServiceActionAssociationErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679406083"><span class="annot"><span class="annottext">ServiceActionAssociationErrorCode -&gt; XML
+(ServiceActionAssociationErrorCode -&gt; XML)
+-&gt; ToXML ServiceActionAssociationErrorCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ServiceActionAssociationErrorCode -&gt; XML
+$ctoXML :: ServiceActionAssociationErrorCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode_DUPLICATE_RESOURCE"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode_DUPLICATE_RESOURCE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceActionAssociationErrorCode_DUPLICATE_RESOURCE"><span id="%24mServiceActionAssociationErrorCode_DUPLICATE_RESOURCE"><span id="ServiceActionAssociationErrorCode_DUPLICATE_RESOURCE"><span class="annot"><span class="annottext">$bServiceActionAssociationErrorCode_DUPLICATE_RESOURCE :: ServiceActionAssociationErrorCode
+$mServiceActionAssociationErrorCode_DUPLICATE_RESOURCE :: forall r.
+ServiceActionAssociationErrorCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#%24bServiceActionAssociationErrorCode_DUPLICATE_RESOURCE"><span class="hs-identifier hs-var hs-var hs-var">ServiceActionAssociationErrorCode_DUPLICATE_RESOURCE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode%27"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DUPLICATE_RESOURCE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode_INTERNAL_FAILURE"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode_INTERNAL_FAILURE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceActionAssociationErrorCode_INTERNAL_FAILURE"><span id="%24mServiceActionAssociationErrorCode_INTERNAL_FAILURE"><span id="ServiceActionAssociationErrorCode_INTERNAL_FAILURE"><span class="annot"><span class="annottext">$bServiceActionAssociationErrorCode_INTERNAL_FAILURE :: ServiceActionAssociationErrorCode
+$mServiceActionAssociationErrorCode_INTERNAL_FAILURE :: forall r.
+ServiceActionAssociationErrorCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#%24bServiceActionAssociationErrorCode_INTERNAL_FAILURE"><span class="hs-identifier hs-var hs-var hs-var">ServiceActionAssociationErrorCode_INTERNAL_FAILURE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode%27"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERNAL_FAILURE&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode_LIMIT_EXCEEDED"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode_LIMIT_EXCEEDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceActionAssociationErrorCode_LIMIT_EXCEEDED"><span id="%24mServiceActionAssociationErrorCode_LIMIT_EXCEEDED"><span id="ServiceActionAssociationErrorCode_LIMIT_EXCEEDED"><span class="annot"><span class="annottext">$bServiceActionAssociationErrorCode_LIMIT_EXCEEDED :: ServiceActionAssociationErrorCode
+$mServiceActionAssociationErrorCode_LIMIT_EXCEEDED :: forall r.
+ServiceActionAssociationErrorCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#%24bServiceActionAssociationErrorCode_LIMIT_EXCEEDED"><span class="hs-identifier hs-var hs-var hs-var">ServiceActionAssociationErrorCode_LIMIT_EXCEEDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode%27"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LIMIT_EXCEEDED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode_RESOURCE_NOT_FOUND"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode_RESOURCE_NOT_FOUND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceActionAssociationErrorCode_RESOURCE_NOT_FOUND"><span id="%24mServiceActionAssociationErrorCode_RESOURCE_NOT_FOUND"><span id="ServiceActionAssociationErrorCode_RESOURCE_NOT_FOUND"><span class="annot"><span class="annottext">$bServiceActionAssociationErrorCode_RESOURCE_NOT_FOUND :: ServiceActionAssociationErrorCode
+$mServiceActionAssociationErrorCode_RESOURCE_NOT_FOUND :: forall r.
+ServiceActionAssociationErrorCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#%24bServiceActionAssociationErrorCode_RESOURCE_NOT_FOUND"><span class="hs-identifier hs-var hs-var hs-var">ServiceActionAssociationErrorCode_RESOURCE_NOT_FOUND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode%27"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RESOURCE_NOT_FOUND&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode_THROTTLING"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode_THROTTLING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceActionAssociationErrorCode_THROTTLING"><span id="%24mServiceActionAssociationErrorCode_THROTTLING"><span id="ServiceActionAssociationErrorCode_THROTTLING"><span class="annot"><span class="annottext">$bServiceActionAssociationErrorCode_THROTTLING :: ServiceActionAssociationErrorCode
+$mServiceActionAssociationErrorCode_THROTTLING :: forall r.
+ServiceActionAssociationErrorCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#%24bServiceActionAssociationErrorCode_THROTTLING"><span class="hs-identifier hs-var hs-var hs-var">ServiceActionAssociationErrorCode_THROTTLING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode%27"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;THROTTLING&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode_DUPLICATE_RESOURCE"><span class="hs-pragma hs-type">ServiceActionAssociationErrorCode_DUPLICATE_RESOURCE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode_INTERNAL_FAILURE"><span class="hs-pragma hs-type">ServiceActionAssociationErrorCode_INTERNAL_FAILURE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode_LIMIT_EXCEEDED"><span class="hs-pragma hs-type">ServiceActionAssociationErrorCode_LIMIT_EXCEEDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode_RESOURCE_NOT_FOUND"><span class="hs-pragma hs-type">ServiceActionAssociationErrorCode_RESOURCE_NOT_FOUND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode_THROTTLING"><span class="hs-pragma hs-type">ServiceActionAssociationErrorCode_THROTTLING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode%27"><span class="hs-pragma hs-type">ServiceActionAssociationErrorCode'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

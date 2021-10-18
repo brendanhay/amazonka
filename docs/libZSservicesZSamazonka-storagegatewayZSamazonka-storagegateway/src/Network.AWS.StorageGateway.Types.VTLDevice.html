@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.StorageGateway.Types.VTLDevice</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.StorageGateway.Types.VTLDevice</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes.html"><span class="hs-identifier">Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Represents a device object associated with a tape gateway.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newVTLDevice' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679371039"><span id="local-6989586621679371040"></span></span><span class="hs-keyword">data</span><span> </span><span id="VTLDevice"><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice"><span class="hs-identifier hs-var">VTLDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VTLDevice%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice%27"><span class="hs-identifier hs-var">VTLDevice'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of iSCSI information about a VTL device.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdeviceiSCSIAttributes%3AVTLDevice%27"><span class="annot"><span class="annottext">VTLDevice -&gt; Maybe DeviceiSCSIAttributes
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#%24sel%3AdeviceiSCSIAttributes%3AVTLDevice%27"><span class="hs-identifier hs-var hs-var">deviceiSCSIAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes.html#DeviceiSCSIAttributes"><span class="hs-identifier hs-type">DeviceiSCSIAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Specifies the vendor of the device that the VTL device object emulates.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AvTLDeviceVendor%3AVTLDevice%27"><span class="annot"><span class="annottext">VTLDevice -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#%24sel%3AvTLDeviceVendor%3AVTLDevice%27"><span class="hs-identifier hs-var hs-var">vTLDeviceVendor</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Specifies the unique Amazon Resource Name (ARN) of the device (tape</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- drive or media changer).</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AvTLDeviceARN%3AVTLDevice%27"><span class="annot"><span class="annottext">VTLDevice -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#%24sel%3AvTLDeviceARN%3AVTLDevice%27"><span class="hs-identifier hs-var hs-var">vTLDeviceARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Specifies the type of device that the VTL device emulates.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AvTLDeviceType%3AVTLDevice%27"><span class="annot"><span class="annottext">VTLDevice -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#%24sel%3AvTLDeviceType%3AVTLDevice%27"><span class="hs-identifier hs-var hs-var">vTLDeviceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Specifies the model number of device that the VTL device emulates.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AvTLDeviceProductIdentifier%3AVTLDevice%27"><span class="annot"><span class="annottext">VTLDevice -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#%24sel%3AvTLDeviceProductIdentifier%3AVTLDevice%27"><span class="hs-identifier hs-var hs-var">vTLDeviceProductIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371029"><span id="local-6989586621679371031"><span class="annot"><span class="annottext">VTLDevice -&gt; VTLDevice -&gt; Bool
+(VTLDevice -&gt; VTLDevice -&gt; Bool)
+-&gt; (VTLDevice -&gt; VTLDevice -&gt; Bool) -&gt; Eq VTLDevice
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VTLDevice -&gt; VTLDevice -&gt; Bool
+$c/= :: VTLDevice -&gt; VTLDevice -&gt; Bool
+== :: VTLDevice -&gt; VTLDevice -&gt; Bool
+$c== :: VTLDevice -&gt; VTLDevice -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371020"><span id="local-6989586621679371022"><span id="local-6989586621679371024"><span id="local-6989586621679371026"><span class="annot"><span class="annottext">ReadPrec [VTLDevice]
+ReadPrec VTLDevice
+Int -&gt; ReadS VTLDevice
+ReadS [VTLDevice]
+(Int -&gt; ReadS VTLDevice)
+-&gt; ReadS [VTLDevice]
+-&gt; ReadPrec VTLDevice
+-&gt; ReadPrec [VTLDevice]
+-&gt; Read VTLDevice
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VTLDevice]
+$creadListPrec :: ReadPrec [VTLDevice]
+readPrec :: ReadPrec VTLDevice
+$creadPrec :: ReadPrec VTLDevice
+readList :: ReadS [VTLDevice]
+$creadList :: ReadS [VTLDevice]
+readsPrec :: Int -&gt; ReadS VTLDevice
+$creadsPrec :: Int -&gt; ReadS VTLDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371013"><span id="local-6989586621679371015"><span id="local-6989586621679371017"><span class="annot"><span class="annottext">Int -&gt; VTLDevice -&gt; ShowS
+[VTLDevice] -&gt; ShowS
+VTLDevice -&gt; String
+(Int -&gt; VTLDevice -&gt; ShowS)
+-&gt; (VTLDevice -&gt; String)
+-&gt; ([VTLDevice] -&gt; ShowS)
+-&gt; Show VTLDevice
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VTLDevice] -&gt; ShowS
+$cshowList :: [VTLDevice] -&gt; ShowS
+show :: VTLDevice -&gt; String
+$cshow :: VTLDevice -&gt; String
+showsPrec :: Int -&gt; VTLDevice -&gt; ShowS
+$cshowsPrec :: Int -&gt; VTLDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. VTLDevice -&gt; Rep VTLDevice x)
+-&gt; (forall x. Rep VTLDevice x -&gt; VTLDevice) -&gt; Generic VTLDevice
+forall x. Rep VTLDevice x -&gt; VTLDevice
+forall x. VTLDevice -&gt; Rep VTLDevice x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VTLDevice x -&gt; VTLDevice
+$cfrom :: forall x. VTLDevice -&gt; Rep VTLDevice x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'VTLDevice' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'deviceiSCSIAttributes', 'vTLDevice_deviceiSCSIAttributes' - A list of iSCSI information about a VTL device.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'vTLDeviceVendor', 'vTLDevice_vTLDeviceVendor' - Specifies the vendor of the device that the VTL device object emulates.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'vTLDeviceARN', 'vTLDevice_vTLDeviceARN' - Specifies the unique Amazon Resource Name (ARN) of the device (tape</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- drive or media changer).</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'vTLDeviceType', 'vTLDevice_vTLDeviceType' - Specifies the type of device that the VTL device emulates.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'vTLDeviceProductIdentifier', 'vTLDevice_vTLDeviceProductIdentifier' - Specifies the model number of device that the VTL device emulates.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#newVTLDevice"><span class="hs-identifier hs-type">newVTLDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice"><span class="hs-identifier hs-type">VTLDevice</span></a></span><span>
+</span><span id="line-65"></span><span id="newVTLDevice"><span class="annot"><span class="annottext">newVTLDevice :: VTLDevice
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#newVTLDevice"><span class="hs-identifier hs-var hs-var">newVTLDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">VTLDevice' :: Maybe DeviceiSCSIAttributes
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; VTLDevice
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice%27"><span class="hs-identifier hs-type">VTLDevice'</span></a></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceiSCSIAttributes:VTLDevice' :: Maybe DeviceiSCSIAttributes
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#%24sel%3AdeviceiSCSIAttributes%3AVTLDevice%27"><span class="hs-identifier hs-var">deviceiSCSIAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceiSCSIAttributes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:vTLDeviceVendor:VTLDevice' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#%24sel%3AvTLDeviceVendor%3AVTLDevice%27"><span class="hs-identifier hs-var">vTLDeviceVendor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:vTLDeviceARN:VTLDevice' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#%24sel%3AvTLDeviceARN%3AVTLDevice%27"><span class="hs-identifier hs-var">vTLDeviceARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:vTLDeviceType:VTLDevice' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#%24sel%3AvTLDeviceType%3AVTLDevice%27"><span class="hs-identifier hs-var">vTLDeviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:vTLDeviceProductIdentifier:VTLDevice' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#%24sel%3AvTLDeviceProductIdentifier%3AVTLDevice%27"><span class="hs-identifier hs-var">vTLDeviceProductIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | A list of iSCSI information about a VTL device.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#vTLDevice_deviceiSCSIAttributes"><span class="hs-identifier hs-type">vTLDevice_deviceiSCSIAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice"><span class="hs-identifier hs-type">VTLDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes.html#DeviceiSCSIAttributes"><span class="hs-identifier hs-type">DeviceiSCSIAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="vTLDevice_deviceiSCSIAttributes"><span class="annot"><span class="annottext">vTLDevice_deviceiSCSIAttributes :: (Maybe DeviceiSCSIAttributes -&gt; f (Maybe DeviceiSCSIAttributes))
+-&gt; VTLDevice -&gt; f VTLDevice
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#vTLDevice_deviceiSCSIAttributes"><span class="hs-identifier hs-var hs-var">vTLDevice_deviceiSCSIAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VTLDevice -&gt; Maybe DeviceiSCSIAttributes)
+-&gt; (VTLDevice -&gt; Maybe DeviceiSCSIAttributes -&gt; VTLDevice)
+-&gt; Lens
+     VTLDevice
+     VTLDevice
+     (Maybe DeviceiSCSIAttributes)
+     (Maybe DeviceiSCSIAttributes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice%27"><span class="hs-identifier hs-type">VTLDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371004"><span class="annot"><span class="annottext">Maybe DeviceiSCSIAttributes
+deviceiSCSIAttributes :: Maybe DeviceiSCSIAttributes
+$sel:deviceiSCSIAttributes:VTLDevice' :: VTLDevice -&gt; Maybe DeviceiSCSIAttributes
+</span><a href="#local-6989586621679371004"><span class="hs-identifier hs-var hs-var">deviceiSCSIAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceiSCSIAttributes
+</span><a href="#local-6989586621679371004"><span class="hs-identifier hs-var">deviceiSCSIAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371003"><span class="annot"><span class="annottext">s :: VTLDevice
+</span><a href="#local-6989586621679371003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice%27"><span class="hs-identifier hs-type">VTLDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371002"><span class="annot"><span class="annottext">Maybe DeviceiSCSIAttributes
+</span><a href="#local-6989586621679371002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VTLDevice
+</span><a href="#local-6989586621679371003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceiSCSIAttributes:VTLDevice' :: Maybe DeviceiSCSIAttributes
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#%24sel%3AdeviceiSCSIAttributes%3AVTLDevice%27"><span class="hs-identifier hs-var">deviceiSCSIAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceiSCSIAttributes
+</span><a href="#local-6989586621679371002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice"><span class="hs-identifier hs-type">VTLDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | Specifies the vendor of the device that the VTL device object emulates.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#vTLDevice_vTLDeviceVendor"><span class="hs-identifier hs-type">vTLDevice_vTLDeviceVendor</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice"><span class="hs-identifier hs-type">VTLDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="vTLDevice_vTLDeviceVendor"><span class="annot"><span class="annottext">vTLDevice_vTLDeviceVendor :: (Maybe Text -&gt; f (Maybe Text)) -&gt; VTLDevice -&gt; f VTLDevice
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#vTLDevice_vTLDeviceVendor"><span class="hs-identifier hs-var hs-var">vTLDevice_vTLDeviceVendor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VTLDevice -&gt; Maybe Text)
+-&gt; (VTLDevice -&gt; Maybe Text -&gt; VTLDevice)
+-&gt; Lens VTLDevice VTLDevice (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice%27"><span class="hs-identifier hs-type">VTLDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371000"><span class="annot"><span class="annottext">Maybe Text
+vTLDeviceVendor :: Maybe Text
+$sel:vTLDeviceVendor:VTLDevice' :: VTLDevice -&gt; Maybe Text
+</span><a href="#local-6989586621679371000"><span class="hs-identifier hs-var hs-var">vTLDeviceVendor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371000"><span class="hs-identifier hs-var">vTLDeviceVendor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370999"><span class="annot"><span class="annottext">s :: VTLDevice
+</span><a href="#local-6989586621679370999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice%27"><span class="hs-identifier hs-type">VTLDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370998"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VTLDevice
+</span><a href="#local-6989586621679370999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vTLDeviceVendor:VTLDevice' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#%24sel%3AvTLDeviceVendor%3AVTLDevice%27"><span class="hs-identifier hs-var">vTLDeviceVendor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice"><span class="hs-identifier hs-type">VTLDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Specifies the unique Amazon Resource Name (ARN) of the device (tape</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- drive or media changer).</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#vTLDevice_vTLDeviceARN"><span class="hs-identifier hs-type">vTLDevice_vTLDeviceARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice"><span class="hs-identifier hs-type">VTLDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="vTLDevice_vTLDeviceARN"><span class="annot"><span class="annottext">vTLDevice_vTLDeviceARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; VTLDevice -&gt; f VTLDevice
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#vTLDevice_vTLDeviceARN"><span class="hs-identifier hs-var hs-var">vTLDevice_vTLDeviceARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VTLDevice -&gt; Maybe Text)
+-&gt; (VTLDevice -&gt; Maybe Text -&gt; VTLDevice)
+-&gt; Lens VTLDevice VTLDevice (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice%27"><span class="hs-identifier hs-type">VTLDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370996"><span class="annot"><span class="annottext">Maybe Text
+vTLDeviceARN :: Maybe Text
+$sel:vTLDeviceARN:VTLDevice' :: VTLDevice -&gt; Maybe Text
+</span><a href="#local-6989586621679370996"><span class="hs-identifier hs-var hs-var">vTLDeviceARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370996"><span class="hs-identifier hs-var">vTLDeviceARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370995"><span class="annot"><span class="annottext">s :: VTLDevice
+</span><a href="#local-6989586621679370995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice%27"><span class="hs-identifier hs-type">VTLDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370994"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VTLDevice
+</span><a href="#local-6989586621679370995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vTLDeviceARN:VTLDevice' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#%24sel%3AvTLDeviceARN%3AVTLDevice%27"><span class="hs-identifier hs-var">vTLDeviceARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice"><span class="hs-identifier hs-type">VTLDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Specifies the type of device that the VTL device emulates.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#vTLDevice_vTLDeviceType"><span class="hs-identifier hs-type">vTLDevice_vTLDeviceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice"><span class="hs-identifier hs-type">VTLDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="vTLDevice_vTLDeviceType"><span class="annot"><span class="annottext">vTLDevice_vTLDeviceType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; VTLDevice -&gt; f VTLDevice
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#vTLDevice_vTLDeviceType"><span class="hs-identifier hs-var hs-var">vTLDevice_vTLDeviceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VTLDevice -&gt; Maybe Text)
+-&gt; (VTLDevice -&gt; Maybe Text -&gt; VTLDevice)
+-&gt; Lens VTLDevice VTLDevice (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice%27"><span class="hs-identifier hs-type">VTLDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370992"><span class="annot"><span class="annottext">Maybe Text
+vTLDeviceType :: Maybe Text
+$sel:vTLDeviceType:VTLDevice' :: VTLDevice -&gt; Maybe Text
+</span><a href="#local-6989586621679370992"><span class="hs-identifier hs-var hs-var">vTLDeviceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370992"><span class="hs-identifier hs-var">vTLDeviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370991"><span class="annot"><span class="annottext">s :: VTLDevice
+</span><a href="#local-6989586621679370991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice%27"><span class="hs-identifier hs-type">VTLDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370990"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VTLDevice
+</span><a href="#local-6989586621679370991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vTLDeviceType:VTLDevice' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#%24sel%3AvTLDeviceType%3AVTLDevice%27"><span class="hs-identifier hs-var">vTLDeviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice"><span class="hs-identifier hs-type">VTLDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Specifies the model number of device that the VTL device emulates.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#vTLDevice_vTLDeviceProductIdentifier"><span class="hs-identifier hs-type">vTLDevice_vTLDeviceProductIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice"><span class="hs-identifier hs-type">VTLDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="vTLDevice_vTLDeviceProductIdentifier"><span class="annot"><span class="annottext">vTLDevice_vTLDeviceProductIdentifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; VTLDevice -&gt; f VTLDevice
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#vTLDevice_vTLDeviceProductIdentifier"><span class="hs-identifier hs-var hs-var">vTLDevice_vTLDeviceProductIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VTLDevice -&gt; Maybe Text)
+-&gt; (VTLDevice -&gt; Maybe Text -&gt; VTLDevice)
+-&gt; Lens VTLDevice VTLDevice (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice%27"><span class="hs-identifier hs-type">VTLDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370988"><span class="annot"><span class="annottext">Maybe Text
+vTLDeviceProductIdentifier :: Maybe Text
+$sel:vTLDeviceProductIdentifier:VTLDevice' :: VTLDevice -&gt; Maybe Text
+</span><a href="#local-6989586621679370988"><span class="hs-identifier hs-var hs-var">vTLDeviceProductIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370988"><span class="hs-identifier hs-var">vTLDeviceProductIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370987"><span class="annot"><span class="annottext">s :: VTLDevice
+</span><a href="#local-6989586621679370987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice%27"><span class="hs-identifier hs-type">VTLDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370986"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VTLDevice
+</span><a href="#local-6989586621679370987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vTLDeviceProductIdentifier:VTLDevice' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#%24sel%3AvTLDeviceProductIdentifier%3AVTLDevice%27"><span class="hs-identifier hs-var">vTLDeviceProductIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice"><span class="hs-identifier hs-type">VTLDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370983"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice"><span class="hs-identifier hs-type">VTLDevice</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679370981"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VTLDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser VTLDevice) -&gt; Value -&gt; Parser VTLDevice
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;VTLDevice&quot;</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370978"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370978"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe DeviceiSCSIAttributes
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; VTLDevice
+</span><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice%27"><span class="hs-identifier hs-var">VTLDevice'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DeviceiSCSIAttributes
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; VTLDevice)
+-&gt; Parser (Maybe DeviceiSCSIAttributes)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; VTLDevice)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceiSCSIAttributes)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceiSCSIAttributes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; VTLDevice)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; VTLDevice)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VTLDeviceVendor&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; VTLDevice)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; VTLDevice)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VTLDeviceARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; VTLDevice)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; VTLDevice)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VTLDeviceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; VTLDevice)
+-&gt; Parser (Maybe Text) -&gt; Parser VTLDevice
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VTLDeviceProductIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370972"><span id="local-6989586621679370974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice"><span class="hs-identifier hs-type">VTLDevice</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.VTLDevice.html#VTLDevice"><span class="hs-identifier hs-type">VTLDevice</span></a></span></span><span>
+</span><span id="line-111"></span></pre></body></html>

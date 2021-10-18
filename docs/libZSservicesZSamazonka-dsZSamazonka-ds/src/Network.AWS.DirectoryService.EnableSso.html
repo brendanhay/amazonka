@@ -1,0 +1,479 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DirectoryService.EnableSso</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Enables single sign-on for a directory. Single sign-on allows users in</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- your directory to access certain Amazon Web Services services from a</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- computer joined to the directory without having to enter their</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- credentials separately.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DirectoryService.EnableSso</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier">EnableSso</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#newEnableSso"><span class="hs-identifier">newEnableSso</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#enableSso_password"><span class="hs-identifier">enableSso_password</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#enableSso_userName"><span class="hs-identifier">enableSso_userName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#enableSso_directoryId"><span class="hs-identifier">enableSso_directoryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSsoResponse"><span class="hs-identifier">EnableSsoResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#newEnableSsoResponse"><span class="hs-identifier">newEnableSsoResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#enableSsoResponse_httpStatus"><span class="hs-identifier">enableSsoResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.html"><span class="hs-identifier">Network.AWS.DirectoryService.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | Contains the inputs for the EnableSso operation.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newEnableSso' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679306947"><span id="local-6989586621679306948"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableSso"><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier hs-var">EnableSso</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableSso%27"><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso%27"><span class="hs-identifier hs-var">EnableSso'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The password of an alternate account to use to enable single-sign on.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- This is only used for AD Connector directories. For more information,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- see the /UserName/ parameter.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Apassword%3AEnableSso%27"><span class="annot"><span class="annottext">EnableSso -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#%24sel%3Apassword%3AEnableSso%27"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The username of an alternate account to use to enable single-sign on.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- This is only used for AD Connector directories. This account must have</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- privileges to add a service principal name.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- If the AD Connector service account does not have privileges to add a</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- service principal name, you can specify an alternate account with the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- /UserName/ and /Password/ parameters. These credentials are only used to</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- enable single sign-on and are not stored by the service. The AD</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Connector service account is not changed.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AuserName%3AEnableSso%27"><span class="annot"><span class="annottext">EnableSso -&gt; Maybe Text
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#%24sel%3AuserName%3AEnableSso%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The identifier of the directory for which to enable single-sign on.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AdirectoryId%3AEnableSso%27"><span class="annot"><span class="annottext">EnableSso -&gt; Text
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#%24sel%3AdirectoryId%3AEnableSso%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306939"><span id="local-6989586621679306941"><span class="annot"><span class="annottext">EnableSso -&gt; EnableSso -&gt; Bool
+(EnableSso -&gt; EnableSso -&gt; Bool)
+-&gt; (EnableSso -&gt; EnableSso -&gt; Bool) -&gt; Eq EnableSso
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnableSso -&gt; EnableSso -&gt; Bool
+$c/= :: EnableSso -&gt; EnableSso -&gt; Bool
+== :: EnableSso -&gt; EnableSso -&gt; Bool
+$c== :: EnableSso -&gt; EnableSso -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306932"><span id="local-6989586621679306934"><span id="local-6989586621679306936"><span class="annot"><span class="annottext">Int -&gt; EnableSso -&gt; ShowS
+[EnableSso] -&gt; ShowS
+EnableSso -&gt; String
+(Int -&gt; EnableSso -&gt; ShowS)
+-&gt; (EnableSso -&gt; String)
+-&gt; ([EnableSso] -&gt; ShowS)
+-&gt; Show EnableSso
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnableSso] -&gt; ShowS
+$cshowList :: [EnableSso] -&gt; ShowS
+show :: EnableSso -&gt; String
+$cshow :: EnableSso -&gt; String
+showsPrec :: Int -&gt; EnableSso -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnableSso -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EnableSso -&gt; Rep EnableSso x)
+-&gt; (forall x. Rep EnableSso x -&gt; EnableSso) -&gt; Generic EnableSso
+forall x. Rep EnableSso x -&gt; EnableSso
+forall x. EnableSso -&gt; Rep EnableSso x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EnableSso x -&gt; EnableSso
+$cfrom :: forall x. EnableSso -&gt; Rep EnableSso x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'EnableSso' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'password', 'enableSso_password' - The password of an alternate account to use to enable single-sign on.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- This is only used for AD Connector directories. For more information,</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- see the /UserName/ parameter.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'userName', 'enableSso_userName' - The username of an alternate account to use to enable single-sign on.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- This is only used for AD Connector directories. This account must have</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- privileges to add a service principal name.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- If the AD Connector service account does not have privileges to add a</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- service principal name, you can specify an alternate account with the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- /UserName/ and /Password/ parameters. These credentials are only used to</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- enable single sign-on and are not stored by the service. The AD</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Connector service account is not changed.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'directoryId', 'enableSso_directoryId' - The identifier of the directory for which to enable single-sign on.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#newEnableSso"><span class="hs-identifier hs-type">newEnableSso</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'directoryId'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier hs-type">EnableSso</span></a></span><span>
+</span><span id="line-103"></span><span id="newEnableSso"><span class="annot"><span class="annottext">newEnableSso :: Text -&gt; EnableSso
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#newEnableSso"><span class="hs-identifier hs-var hs-var">newEnableSso</span></a></span></span><span> </span><span id="local-6989586621679306927"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306927"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">EnableSso' :: Maybe (Sensitive Text) -&gt; Maybe Text -&gt; Text -&gt; EnableSso
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso%27"><span class="hs-identifier hs-type">EnableSso'</span></a></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:password:EnableSso' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#%24sel%3Apassword%3AEnableSso%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:userName:EnableSso' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#%24sel%3AuserName%3AEnableSso%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:directoryId:EnableSso' :: Text
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#%24sel%3AdirectoryId%3AEnableSso%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306927"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The password of an alternate account to use to enable single-sign on.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- This is only used for AD Connector directories. For more information,</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- see the /UserName/ parameter.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#enableSso_password"><span class="hs-identifier hs-type">enableSso_password</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier hs-type">EnableSso</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="enableSso_password"><span class="annot"><span class="annottext">enableSso_password :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EnableSso -&gt; f EnableSso
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#enableSso_password"><span class="hs-identifier hs-var hs-var">enableSso_password</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableSso -&gt; Maybe (Sensitive Text))
+-&gt; (EnableSso -&gt; Maybe (Sensitive Text) -&gt; EnableSso)
+-&gt; Lens
+     EnableSso
+     EnableSso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso%27"><span class="hs-identifier hs-type">EnableSso'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306924"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+password :: Maybe (Sensitive Text)
+$sel:password:EnableSso' :: EnableSso -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679306924"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679306924"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306923"><span class="annot"><span class="annottext">s :: EnableSso
+</span><a href="#local-6989586621679306923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso%27"><span class="hs-identifier hs-type">EnableSso'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306922"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679306922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSso
+</span><a href="#local-6989586621679306923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:EnableSso' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#%24sel%3Apassword%3AEnableSso%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679306922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier hs-type">EnableSso</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; EnableSso -&gt; f EnableSso)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnableSso
+-&gt; f EnableSso
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The username of an alternate account to use to enable single-sign on.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- This is only used for AD Connector directories. This account must have</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- privileges to add a service principal name.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- If the AD Connector service account does not have privileges to add a</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- service principal name, you can specify an alternate account with the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- /UserName/ and /Password/ parameters. These credentials are only used to</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- enable single sign-on and are not stored by the service. The AD</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Connector service account is not changed.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#enableSso_userName"><span class="hs-identifier hs-type">enableSso_userName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier hs-type">EnableSso</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="enableSso_userName"><span class="annot"><span class="annottext">enableSso_userName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EnableSso -&gt; f EnableSso
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#enableSso_userName"><span class="hs-identifier hs-var hs-var">enableSso_userName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableSso -&gt; Maybe Text)
+-&gt; (EnableSso -&gt; Maybe Text -&gt; EnableSso)
+-&gt; Lens EnableSso EnableSso (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso%27"><span class="hs-identifier hs-type">EnableSso'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306918"><span class="annot"><span class="annottext">Maybe Text
+userName :: Maybe Text
+$sel:userName:EnableSso' :: EnableSso -&gt; Maybe Text
+</span><a href="#local-6989586621679306918"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306918"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306917"><span class="annot"><span class="annottext">s :: EnableSso
+</span><a href="#local-6989586621679306917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso%27"><span class="hs-identifier hs-type">EnableSso'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306916"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSso
+</span><a href="#local-6989586621679306917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:EnableSso' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#%24sel%3AuserName%3AEnableSso%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier hs-type">EnableSso</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The identifier of the directory for which to enable single-sign on.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#enableSso_directoryId"><span class="hs-identifier hs-type">enableSso_directoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier hs-type">EnableSso</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span id="enableSso_directoryId"><span class="annot"><span class="annottext">enableSso_directoryId :: (Text -&gt; f Text) -&gt; EnableSso -&gt; f EnableSso
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#enableSso_directoryId"><span class="hs-identifier hs-var hs-var">enableSso_directoryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableSso -&gt; Text)
+-&gt; (EnableSso -&gt; Text -&gt; EnableSso)
+-&gt; Lens EnableSso EnableSso Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso%27"><span class="hs-identifier hs-type">EnableSso'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306915"><span class="annot"><span class="annottext">Text
+directoryId :: Text
+$sel:directoryId:EnableSso' :: EnableSso -&gt; Text
+</span><a href="#local-6989586621679306915"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306915"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306914"><span class="annot"><span class="annottext">s :: EnableSso
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso%27"><span class="hs-identifier hs-type">EnableSso'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306913"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSso
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:EnableSso' :: Text
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#%24sel%3AdirectoryId%3AEnableSso%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier hs-type">EnableSso</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier hs-type">EnableSso</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier hs-type">EnableSso</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSsoResponse"><span class="hs-identifier hs-type">EnableSsoResponse</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679306909"><span class="annot"><span class="annottext">request :: EnableSso -&gt; Request EnableSso
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; EnableSso -&gt; Request EnableSso
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679306905"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy EnableSso
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse EnableSso)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse EnableSso))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy EnableSso
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse EnableSso)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306902"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306902"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679306901"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679306901"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679306900"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679306900"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; EnableSsoResponse
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSsoResponse%27"><span class="hs-identifier hs-var">EnableSsoResponse'</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; EnableSsoResponse)
+-&gt; Either String Int -&gt; Either String EnableSsoResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306902"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306893"><span id="local-6989586621679306895"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier hs-type">EnableSso</span></a></span></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306890"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier hs-type">EnableSso</span></a></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier hs-type">EnableSso</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679306886"><span class="annot"><span class="annottext">toHeaders :: EnableSso -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; EnableSso -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DirectoryService_20150416.EnableSso&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-153"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-157"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306876"><span id="local-6989586621679306878"><span id="local-6989586621679306880"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier hs-type">EnableSso</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679306874"><span class="annot"><span class="annottext">toJSON :: EnableSso -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso%27"><span class="hs-identifier hs-type">EnableSso'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306870"><span id="local-6989586621679306871"><span id="local-6989586621679306872"><span class="annot"><span class="annottext">Maybe Text
+Maybe (Sensitive Text)
+Text
+directoryId :: Text
+userName :: Maybe Text
+password :: Maybe (Sensitive Text)
+$sel:directoryId:EnableSso' :: EnableSso -&gt; Text
+$sel:userName:EnableSso' :: EnableSso -&gt; Maybe Text
+$sel:password:EnableSso' :: EnableSso -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679306870"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Password&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679306872"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306871"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306870"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier hs-type">EnableSso</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679306864"><span class="annot"><span class="annottext">toPath :: EnableSso -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EnableSso -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSso"><span class="hs-identifier hs-type">EnableSso</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679306860"><span class="annot"><span class="annottext">toQuery :: EnableSso -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; EnableSso -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Contains the results of the EnableSso operation.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- /See:/ 'newEnableSsoResponse' smart constructor.</span><span>
+</span><span id="line-180"></span><span id="local-6989586621679306857"><span id="local-6989586621679306858"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableSsoResponse"><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSsoResponse"><span class="hs-identifier hs-var">EnableSsoResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableSsoResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSsoResponse%27"><span class="hs-identifier hs-var">EnableSsoResponse'</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AhttpStatus%3AEnableSsoResponse%27"><span class="annot"><span class="annottext">EnableSsoResponse -&gt; Int
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#%24sel%3AhttpStatus%3AEnableSsoResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306852"><span id="local-6989586621679306854"><span class="annot"><span class="annottext">EnableSsoResponse -&gt; EnableSsoResponse -&gt; Bool
+(EnableSsoResponse -&gt; EnableSsoResponse -&gt; Bool)
+-&gt; (EnableSsoResponse -&gt; EnableSsoResponse -&gt; Bool)
+-&gt; Eq EnableSsoResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnableSsoResponse -&gt; EnableSsoResponse -&gt; Bool
+$c/= :: EnableSsoResponse -&gt; EnableSsoResponse -&gt; Bool
+== :: EnableSsoResponse -&gt; EnableSsoResponse -&gt; Bool
+$c== :: EnableSsoResponse -&gt; EnableSsoResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306844"><span id="local-6989586621679306846"><span id="local-6989586621679306848"><span id="local-6989586621679306850"><span class="annot"><span class="annottext">ReadPrec [EnableSsoResponse]
+ReadPrec EnableSsoResponse
+Int -&gt; ReadS EnableSsoResponse
+ReadS [EnableSsoResponse]
+(Int -&gt; ReadS EnableSsoResponse)
+-&gt; ReadS [EnableSsoResponse]
+-&gt; ReadPrec EnableSsoResponse
+-&gt; ReadPrec [EnableSsoResponse]
+-&gt; Read EnableSsoResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EnableSsoResponse]
+$creadListPrec :: ReadPrec [EnableSsoResponse]
+readPrec :: ReadPrec EnableSsoResponse
+$creadPrec :: ReadPrec EnableSsoResponse
+readList :: ReadS [EnableSsoResponse]
+$creadList :: ReadS [EnableSsoResponse]
+readsPrec :: Int -&gt; ReadS EnableSsoResponse
+$creadsPrec :: Int -&gt; ReadS EnableSsoResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306837"><span id="local-6989586621679306839"><span id="local-6989586621679306841"><span class="annot"><span class="annottext">Int -&gt; EnableSsoResponse -&gt; ShowS
+[EnableSsoResponse] -&gt; ShowS
+EnableSsoResponse -&gt; String
+(Int -&gt; EnableSsoResponse -&gt; ShowS)
+-&gt; (EnableSsoResponse -&gt; String)
+-&gt; ([EnableSsoResponse] -&gt; ShowS)
+-&gt; Show EnableSsoResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnableSsoResponse] -&gt; ShowS
+$cshowList :: [EnableSsoResponse] -&gt; ShowS
+show :: EnableSsoResponse -&gt; String
+$cshow :: EnableSsoResponse -&gt; String
+showsPrec :: Int -&gt; EnableSsoResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnableSsoResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EnableSsoResponse -&gt; Rep EnableSsoResponse x)
+-&gt; (forall x. Rep EnableSsoResponse x -&gt; EnableSsoResponse)
+-&gt; Generic EnableSsoResponse
+forall x. Rep EnableSsoResponse x -&gt; EnableSsoResponse
+forall x. EnableSsoResponse -&gt; Rep EnableSsoResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EnableSsoResponse x -&gt; EnableSsoResponse
+$cfrom :: forall x. EnableSsoResponse -&gt; Rep EnableSsoResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Create a value of 'EnableSsoResponse' with all optional fields omitted.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'httpStatus', 'enableSsoResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#newEnableSsoResponse"><span class="hs-identifier hs-type">newEnableSsoResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSsoResponse"><span class="hs-identifier hs-type">EnableSsoResponse</span></a></span><span>
+</span><span id="line-199"></span><span id="newEnableSsoResponse"><span class="annot"><span class="annottext">newEnableSsoResponse :: Int -&gt; EnableSsoResponse
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#newEnableSsoResponse"><span class="hs-identifier hs-var hs-var">newEnableSsoResponse</span></a></span></span><span> </span><span id="local-6989586621679306834"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306834"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">EnableSsoResponse' :: Int -&gt; EnableSsoResponse
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSsoResponse%27"><span class="hs-identifier hs-type">EnableSsoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:EnableSsoResponse' :: Int
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#%24sel%3AhttpStatus%3AEnableSsoResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306834"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#enableSsoResponse_httpStatus"><span class="hs-identifier hs-type">enableSsoResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSsoResponse"><span class="hs-identifier hs-type">EnableSsoResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-204"></span><span id="enableSsoResponse_httpStatus"><span class="annot"><span class="annottext">enableSsoResponse_httpStatus :: (Int -&gt; f Int) -&gt; EnableSsoResponse -&gt; f EnableSsoResponse
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#enableSsoResponse_httpStatus"><span class="hs-identifier hs-var hs-var">enableSsoResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableSsoResponse -&gt; Int)
+-&gt; (EnableSsoResponse -&gt; Int -&gt; EnableSsoResponse)
+-&gt; Lens EnableSsoResponse EnableSsoResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSsoResponse%27"><span class="hs-identifier hs-type">EnableSsoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306833"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:EnableSsoResponse' :: EnableSsoResponse -&gt; Int
+</span><a href="#local-6989586621679306833"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306833"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306832"><span class="annot"><span class="annottext">s :: EnableSsoResponse
+</span><a href="#local-6989586621679306832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSsoResponse%27"><span class="hs-identifier hs-type">EnableSsoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306831"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSsoResponse
+</span><a href="#local-6989586621679306832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:EnableSsoResponse' :: Int
+</span><a href="Network.AWS.DirectoryService.EnableSso.html#%24sel%3AhttpStatus%3AEnableSsoResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSsoResponse"><span class="hs-identifier hs-type">EnableSsoResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306829"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableSso.html#EnableSsoResponse"><span class="hs-identifier hs-type">EnableSsoResponse</span></a></span></span><span>
+</span><span id="line-207"></span></pre></body></html>

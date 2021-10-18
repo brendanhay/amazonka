@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Pinpoint.Types.CampaignEmailMessage</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pinpoint.Types.CampaignEmailMessage</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Specifies the content and \&quot;From\&quot; address for an email message that\'s</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- sent to recipients of a campaign.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCampaignEmailMessage' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679592666"><span id="local-6989586621679592667"></span></span><span class="hs-keyword">data</span><span> </span><span id="CampaignEmailMessage"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage"><span class="hs-identifier hs-var">CampaignEmailMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CampaignEmailMessage%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage%27"><span class="hs-identifier hs-var">CampaignEmailMessage'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The body of the email for recipients whose email clients don\'t render</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- HTML content.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Abody%3ACampaignEmailMessage%27"><span class="annot"><span class="annottext">CampaignEmailMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#%24sel%3Abody%3ACampaignEmailMessage%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The subject line, or title, of the email.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Atitle%3ACampaignEmailMessage%27"><span class="annot"><span class="annottext">CampaignEmailMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#%24sel%3Atitle%3ACampaignEmailMessage%27"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The body of the email, in HTML format, for recipients whose email</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- clients render HTML content.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AhtmlBody%3ACampaignEmailMessage%27"><span class="annot"><span class="annottext">CampaignEmailMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#%24sel%3AhtmlBody%3ACampaignEmailMessage%27"><span class="hs-identifier hs-var hs-var">htmlBody</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The verified email address to send the email from. The default address</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- is the FromAddress specified for the email channel for the application.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AfromAddress%3ACampaignEmailMessage%27"><span class="annot"><span class="annottext">CampaignEmailMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#%24sel%3AfromAddress%3ACampaignEmailMessage%27"><span class="hs-identifier hs-var hs-var">fromAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679592657"><span id="local-6989586621679592659"><span class="annot"><span class="annottext">CampaignEmailMessage -&gt; CampaignEmailMessage -&gt; Bool
+(CampaignEmailMessage -&gt; CampaignEmailMessage -&gt; Bool)
+-&gt; (CampaignEmailMessage -&gt; CampaignEmailMessage -&gt; Bool)
+-&gt; Eq CampaignEmailMessage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CampaignEmailMessage -&gt; CampaignEmailMessage -&gt; Bool
+$c/= :: CampaignEmailMessage -&gt; CampaignEmailMessage -&gt; Bool
+== :: CampaignEmailMessage -&gt; CampaignEmailMessage -&gt; Bool
+$c== :: CampaignEmailMessage -&gt; CampaignEmailMessage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679592648"><span id="local-6989586621679592650"><span id="local-6989586621679592652"><span id="local-6989586621679592654"><span class="annot"><span class="annottext">ReadPrec [CampaignEmailMessage]
+ReadPrec CampaignEmailMessage
+Int -&gt; ReadS CampaignEmailMessage
+ReadS [CampaignEmailMessage]
+(Int -&gt; ReadS CampaignEmailMessage)
+-&gt; ReadS [CampaignEmailMessage]
+-&gt; ReadPrec CampaignEmailMessage
+-&gt; ReadPrec [CampaignEmailMessage]
+-&gt; Read CampaignEmailMessage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CampaignEmailMessage]
+$creadListPrec :: ReadPrec [CampaignEmailMessage]
+readPrec :: ReadPrec CampaignEmailMessage
+$creadPrec :: ReadPrec CampaignEmailMessage
+readList :: ReadS [CampaignEmailMessage]
+$creadList :: ReadS [CampaignEmailMessage]
+readsPrec :: Int -&gt; ReadS CampaignEmailMessage
+$creadsPrec :: Int -&gt; ReadS CampaignEmailMessage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679592641"><span id="local-6989586621679592643"><span id="local-6989586621679592645"><span class="annot"><span class="annottext">Int -&gt; CampaignEmailMessage -&gt; ShowS
+[CampaignEmailMessage] -&gt; ShowS
+CampaignEmailMessage -&gt; String
+(Int -&gt; CampaignEmailMessage -&gt; ShowS)
+-&gt; (CampaignEmailMessage -&gt; String)
+-&gt; ([CampaignEmailMessage] -&gt; ShowS)
+-&gt; Show CampaignEmailMessage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CampaignEmailMessage] -&gt; ShowS
+$cshowList :: [CampaignEmailMessage] -&gt; ShowS
+show :: CampaignEmailMessage -&gt; String
+$cshow :: CampaignEmailMessage -&gt; String
+showsPrec :: Int -&gt; CampaignEmailMessage -&gt; ShowS
+$cshowsPrec :: Int -&gt; CampaignEmailMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CampaignEmailMessage -&gt; Rep CampaignEmailMessage x)
+-&gt; (forall x. Rep CampaignEmailMessage x -&gt; CampaignEmailMessage)
+-&gt; Generic CampaignEmailMessage
+forall x. Rep CampaignEmailMessage x -&gt; CampaignEmailMessage
+forall x. CampaignEmailMessage -&gt; Rep CampaignEmailMessage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CampaignEmailMessage x -&gt; CampaignEmailMessage
+$cfrom :: forall x. CampaignEmailMessage -&gt; Rep CampaignEmailMessage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'CampaignEmailMessage' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'body', 'campaignEmailMessage_body' - The body of the email for recipients whose email clients don\'t render</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- HTML content.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'title', 'campaignEmailMessage_title' - The subject line, or title, of the email.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'htmlBody', 'campaignEmailMessage_htmlBody' - The body of the email, in HTML format, for recipients whose email</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- clients render HTML content.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'fromAddress', 'campaignEmailMessage_fromAddress' - The verified email address to send the email from. The default address</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- is the FromAddress specified for the email channel for the application.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#newCampaignEmailMessage"><span class="hs-identifier hs-type">newCampaignEmailMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage"><span class="hs-identifier hs-type">CampaignEmailMessage</span></a></span><span>
+</span><span id="line-65"></span><span id="newCampaignEmailMessage"><span class="annot"><span class="annottext">newCampaignEmailMessage :: CampaignEmailMessage
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#newCampaignEmailMessage"><span class="hs-identifier hs-var hs-var">newCampaignEmailMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">CampaignEmailMessage' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CampaignEmailMessage
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage%27"><span class="hs-identifier hs-type">CampaignEmailMessage'</span></a></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:body:CampaignEmailMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#%24sel%3Abody%3ACampaignEmailMessage%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:title:CampaignEmailMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#%24sel%3Atitle%3ACampaignEmailMessage%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:htmlBody:CampaignEmailMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#%24sel%3AhtmlBody%3ACampaignEmailMessage%27"><span class="hs-identifier hs-var">htmlBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:fromAddress:CampaignEmailMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#%24sel%3AfromAddress%3ACampaignEmailMessage%27"><span class="hs-identifier hs-var">fromAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The body of the email for recipients whose email clients don\'t render</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- HTML content.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#campaignEmailMessage_body"><span class="hs-identifier hs-type">campaignEmailMessage_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage"><span class="hs-identifier hs-type">CampaignEmailMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="campaignEmailMessage_body"><span class="annot"><span class="annottext">campaignEmailMessage_body :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CampaignEmailMessage -&gt; f CampaignEmailMessage
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#campaignEmailMessage_body"><span class="hs-identifier hs-var hs-var">campaignEmailMessage_body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CampaignEmailMessage -&gt; Maybe Text)
+-&gt; (CampaignEmailMessage -&gt; Maybe Text -&gt; CampaignEmailMessage)
+-&gt; Lens
+     CampaignEmailMessage CampaignEmailMessage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage%27"><span class="hs-identifier hs-type">CampaignEmailMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592632"><span class="annot"><span class="annottext">Maybe Text
+body :: Maybe Text
+$sel:body:CampaignEmailMessage' :: CampaignEmailMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679592632"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592632"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592631"><span class="annot"><span class="annottext">s :: CampaignEmailMessage
+</span><a href="#local-6989586621679592631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage%27"><span class="hs-identifier hs-type">CampaignEmailMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592630"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignEmailMessage
+</span><a href="#local-6989586621679592631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:CampaignEmailMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#%24sel%3Abody%3ACampaignEmailMessage%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage"><span class="hs-identifier hs-type">CampaignEmailMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The subject line, or title, of the email.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#campaignEmailMessage_title"><span class="hs-identifier hs-type">campaignEmailMessage_title</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage"><span class="hs-identifier hs-type">CampaignEmailMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="campaignEmailMessage_title"><span class="annot"><span class="annottext">campaignEmailMessage_title :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CampaignEmailMessage -&gt; f CampaignEmailMessage
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#campaignEmailMessage_title"><span class="hs-identifier hs-var hs-var">campaignEmailMessage_title</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CampaignEmailMessage -&gt; Maybe Text)
+-&gt; (CampaignEmailMessage -&gt; Maybe Text -&gt; CampaignEmailMessage)
+-&gt; Lens
+     CampaignEmailMessage CampaignEmailMessage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage%27"><span class="hs-identifier hs-type">CampaignEmailMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592628"><span class="annot"><span class="annottext">Maybe Text
+title :: Maybe Text
+$sel:title:CampaignEmailMessage' :: CampaignEmailMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679592628"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592628"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592627"><span class="annot"><span class="annottext">s :: CampaignEmailMessage
+</span><a href="#local-6989586621679592627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage%27"><span class="hs-identifier hs-type">CampaignEmailMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592626"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignEmailMessage
+</span><a href="#local-6989586621679592627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:CampaignEmailMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#%24sel%3Atitle%3ACampaignEmailMessage%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage"><span class="hs-identifier hs-type">CampaignEmailMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The body of the email, in HTML format, for recipients whose email</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- clients render HTML content.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#campaignEmailMessage_htmlBody"><span class="hs-identifier hs-type">campaignEmailMessage_htmlBody</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage"><span class="hs-identifier hs-type">CampaignEmailMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="campaignEmailMessage_htmlBody"><span class="annot"><span class="annottext">campaignEmailMessage_htmlBody :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CampaignEmailMessage -&gt; f CampaignEmailMessage
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#campaignEmailMessage_htmlBody"><span class="hs-identifier hs-var hs-var">campaignEmailMessage_htmlBody</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CampaignEmailMessage -&gt; Maybe Text)
+-&gt; (CampaignEmailMessage -&gt; Maybe Text -&gt; CampaignEmailMessage)
+-&gt; Lens
+     CampaignEmailMessage CampaignEmailMessage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage%27"><span class="hs-identifier hs-type">CampaignEmailMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592624"><span class="annot"><span class="annottext">Maybe Text
+htmlBody :: Maybe Text
+$sel:htmlBody:CampaignEmailMessage' :: CampaignEmailMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679592624"><span class="hs-identifier hs-var hs-var">htmlBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592624"><span class="hs-identifier hs-var">htmlBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592623"><span class="annot"><span class="annottext">s :: CampaignEmailMessage
+</span><a href="#local-6989586621679592623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage%27"><span class="hs-identifier hs-type">CampaignEmailMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592622"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignEmailMessage
+</span><a href="#local-6989586621679592623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:htmlBody:CampaignEmailMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#%24sel%3AhtmlBody%3ACampaignEmailMessage%27"><span class="hs-identifier hs-var">htmlBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage"><span class="hs-identifier hs-type">CampaignEmailMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The verified email address to send the email from. The default address</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- is the FromAddress specified for the email channel for the application.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#campaignEmailMessage_fromAddress"><span class="hs-identifier hs-type">campaignEmailMessage_fromAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage"><span class="hs-identifier hs-type">CampaignEmailMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="campaignEmailMessage_fromAddress"><span class="annot"><span class="annottext">campaignEmailMessage_fromAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CampaignEmailMessage -&gt; f CampaignEmailMessage
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#campaignEmailMessage_fromAddress"><span class="hs-identifier hs-var hs-var">campaignEmailMessage_fromAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CampaignEmailMessage -&gt; Maybe Text)
+-&gt; (CampaignEmailMessage -&gt; Maybe Text -&gt; CampaignEmailMessage)
+-&gt; Lens
+     CampaignEmailMessage CampaignEmailMessage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage%27"><span class="hs-identifier hs-type">CampaignEmailMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592620"><span class="annot"><span class="annottext">Maybe Text
+fromAddress :: Maybe Text
+$sel:fromAddress:CampaignEmailMessage' :: CampaignEmailMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679592620"><span class="hs-identifier hs-var hs-var">fromAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592620"><span class="hs-identifier hs-var">fromAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592619"><span class="annot"><span class="annottext">s :: CampaignEmailMessage
+</span><a href="#local-6989586621679592619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage%27"><span class="hs-identifier hs-type">CampaignEmailMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592618"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignEmailMessage
+</span><a href="#local-6989586621679592619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromAddress:CampaignEmailMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#%24sel%3AfromAddress%3ACampaignEmailMessage%27"><span class="hs-identifier hs-var">fromAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage"><span class="hs-identifier hs-type">CampaignEmailMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592615"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage"><span class="hs-identifier hs-type">CampaignEmailMessage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679592613"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CampaignEmailMessage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CampaignEmailMessage)
+-&gt; Value
+-&gt; Parser CampaignEmailMessage
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CampaignEmailMessage&quot;</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679592610"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679592610"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CampaignEmailMessage
+</span><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage%27"><span class="hs-identifier hs-var">CampaignEmailMessage'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CampaignEmailMessage)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CampaignEmailMessage)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679592610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Body&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CampaignEmailMessage)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; CampaignEmailMessage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679592610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Title&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; CampaignEmailMessage)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; CampaignEmailMessage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679592610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HtmlBody&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; CampaignEmailMessage)
+-&gt; Parser (Maybe Text) -&gt; Parser CampaignEmailMessage
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679592610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FromAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592604"><span id="local-6989586621679592606"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage"><span class="hs-identifier hs-type">CampaignEmailMessage</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592601"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage"><span class="hs-identifier hs-type">CampaignEmailMessage</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592593"><span id="local-6989586621679592595"><span id="local-6989586621679592597"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage"><span class="hs-identifier hs-type">CampaignEmailMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679592591"><span class="annot"><span class="annottext">toJSON :: CampaignEmailMessage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEmailMessage.html#CampaignEmailMessage%27"><span class="hs-identifier hs-type">CampaignEmailMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592586"><span id="local-6989586621679592587"><span id="local-6989586621679592588"><span id="local-6989586621679592589"><span class="annot"><span class="annottext">Maybe Text
+fromAddress :: Maybe Text
+htmlBody :: Maybe Text
+title :: Maybe Text
+body :: Maybe Text
+$sel:fromAddress:CampaignEmailMessage' :: CampaignEmailMessage -&gt; Maybe Text
+$sel:htmlBody:CampaignEmailMessage' :: CampaignEmailMessage -&gt; Maybe Text
+$sel:title:CampaignEmailMessage' :: CampaignEmailMessage -&gt; Maybe Text
+$sel:body:CampaignEmailMessage' :: CampaignEmailMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679592586"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Body&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592589"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Title&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592588"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HtmlBody&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592587"><span class="hs-identifier hs-var">htmlBody</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FromAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592586"><span class="hs-identifier hs-var">fromAddress</span></a></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span></pre></body></html>

@@ -1,0 +1,962 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.CustomEmailLambdaVersionConfigType.html"><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.CustomEmailLambdaVersionConfigType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.CustomSMSLambdaVersionConfigType.html"><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.CustomSMSLambdaVersionConfigType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Specifies the configuration for Lambda triggers.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLambdaConfigType' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679429941"><span id="local-6989586621679429942"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaConfigType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-var">LambdaConfigType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaConfigType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-var">LambdaConfigType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A custom email sender Lambda trigger.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcustomEmailSender%3ALambdaConfigType%27"><span class="annot"><span class="annottext">LambdaConfigType -&gt; Maybe CustomEmailLambdaVersionConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AcustomEmailSender%3ALambdaConfigType%27"><span class="hs-identifier hs-var hs-var">customEmailSender</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.CustomEmailLambdaVersionConfigType.html#CustomEmailLambdaVersionConfigType"><span class="hs-identifier hs-type">CustomEmailLambdaVersionConfigType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A pre-registration Lambda trigger.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3ApreSignUp%3ALambdaConfigType%27"><span class="annot"><span class="annottext">LambdaConfigType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3ApreSignUp%3ALambdaConfigType%27"><span class="hs-identifier hs-var hs-var">preSignUp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Defines the authentication challenge.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdefineAuthChallenge%3ALambdaConfigType%27"><span class="annot"><span class="annottext">LambdaConfigType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AdefineAuthChallenge%3ALambdaConfigType%27"><span class="hs-identifier hs-var hs-var">defineAuthChallenge</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A post-authentication Lambda trigger.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3ApostAuthentication%3ALambdaConfigType%27"><span class="annot"><span class="annottext">LambdaConfigType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3ApostAuthentication%3ALambdaConfigType%27"><span class="hs-identifier hs-var hs-var">postAuthentication</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A custom SMS sender Lambda trigger.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcustomSMSSender%3ALambdaConfigType%27"><span class="annot"><span class="annottext">LambdaConfigType -&gt; Maybe CustomSMSLambdaVersionConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AcustomSMSSender%3ALambdaConfigType%27"><span class="hs-identifier hs-var hs-var">customSMSSender</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.CustomSMSLambdaVersionConfigType.html#CustomSMSLambdaVersionConfigType"><span class="hs-identifier hs-type">CustomSMSLambdaVersionConfigType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A post-confirmation Lambda trigger.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3ApostConfirmation%3ALambdaConfigType%27"><span class="annot"><span class="annottext">LambdaConfigType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3ApostConfirmation%3ALambdaConfigType%27"><span class="hs-identifier hs-var hs-var">postConfirmation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | A pre-authentication Lambda trigger.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3ApreAuthentication%3ALambdaConfigType%27"><span class="annot"><span class="annottext">LambdaConfigType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3ApreAuthentication%3ALambdaConfigType%27"><span class="hs-identifier hs-var hs-var">preAuthentication</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name of Key Management Service</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- &lt;/kms/latest/developerguide/concepts.html#master_keys Customer master keys&gt;</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- . Amazon Cognito uses the key to encrypt codes and temporary passwords</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- sent to @CustomEmailSender@ and @CustomSMSSender@.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AkmsKeyID%3ALambdaConfigType%27"><span class="annot"><span class="annottext">LambdaConfigType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AkmsKeyID%3ALambdaConfigType%27"><span class="hs-identifier hs-var hs-var">kmsKeyID</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Creates an authentication challenge.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcreateAuthChallenge%3ALambdaConfigType%27"><span class="annot"><span class="annottext">LambdaConfigType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AcreateAuthChallenge%3ALambdaConfigType%27"><span class="hs-identifier hs-var hs-var">createAuthChallenge</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Verifies the authentication challenge response.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AverifyAuthChallengeResponse%3ALambdaConfigType%27"><span class="annot"><span class="annottext">LambdaConfigType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AverifyAuthChallengeResponse%3ALambdaConfigType%27"><span class="hs-identifier hs-var hs-var">verifyAuthChallengeResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | A custom Message Lambda trigger.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AcustomMessage%3ALambdaConfigType%27"><span class="annot"><span class="annottext">LambdaConfigType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AcustomMessage%3ALambdaConfigType%27"><span class="hs-identifier hs-var hs-var">customMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The user migration Lambda config type.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AuserMigration%3ALambdaConfigType%27"><span class="annot"><span class="annottext">LambdaConfigType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AuserMigration%3ALambdaConfigType%27"><span class="hs-identifier hs-var hs-var">userMigration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | A Lambda trigger that is invoked before token generation.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3ApreTokenGeneration%3ALambdaConfigType%27"><span class="annot"><span class="annottext">LambdaConfigType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3ApreTokenGeneration%3ALambdaConfigType%27"><span class="hs-identifier hs-var hs-var">preTokenGeneration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679429923"><span id="local-6989586621679429925"><span class="annot"><span class="annottext">LambdaConfigType -&gt; LambdaConfigType -&gt; Bool
+(LambdaConfigType -&gt; LambdaConfigType -&gt; Bool)
+-&gt; (LambdaConfigType -&gt; LambdaConfigType -&gt; Bool)
+-&gt; Eq LambdaConfigType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LambdaConfigType -&gt; LambdaConfigType -&gt; Bool
+$c/= :: LambdaConfigType -&gt; LambdaConfigType -&gt; Bool
+== :: LambdaConfigType -&gt; LambdaConfigType -&gt; Bool
+$c== :: LambdaConfigType -&gt; LambdaConfigType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429914"><span id="local-6989586621679429916"><span id="local-6989586621679429918"><span id="local-6989586621679429920"><span class="annot"><span class="annottext">ReadPrec [LambdaConfigType]
+ReadPrec LambdaConfigType
+Int -&gt; ReadS LambdaConfigType
+ReadS [LambdaConfigType]
+(Int -&gt; ReadS LambdaConfigType)
+-&gt; ReadS [LambdaConfigType]
+-&gt; ReadPrec LambdaConfigType
+-&gt; ReadPrec [LambdaConfigType]
+-&gt; Read LambdaConfigType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LambdaConfigType]
+$creadListPrec :: ReadPrec [LambdaConfigType]
+readPrec :: ReadPrec LambdaConfigType
+$creadPrec :: ReadPrec LambdaConfigType
+readList :: ReadS [LambdaConfigType]
+$creadList :: ReadS [LambdaConfigType]
+readsPrec :: Int -&gt; ReadS LambdaConfigType
+$creadsPrec :: Int -&gt; ReadS LambdaConfigType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429907"><span id="local-6989586621679429909"><span id="local-6989586621679429911"><span class="annot"><span class="annottext">Int -&gt; LambdaConfigType -&gt; ShowS
+[LambdaConfigType] -&gt; ShowS
+LambdaConfigType -&gt; String
+(Int -&gt; LambdaConfigType -&gt; ShowS)
+-&gt; (LambdaConfigType -&gt; String)
+-&gt; ([LambdaConfigType] -&gt; ShowS)
+-&gt; Show LambdaConfigType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LambdaConfigType] -&gt; ShowS
+$cshowList :: [LambdaConfigType] -&gt; ShowS
+show :: LambdaConfigType -&gt; String
+$cshow :: LambdaConfigType -&gt; String
+showsPrec :: Int -&gt; LambdaConfigType -&gt; ShowS
+$cshowsPrec :: Int -&gt; LambdaConfigType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LambdaConfigType -&gt; Rep LambdaConfigType x)
+-&gt; (forall x. Rep LambdaConfigType x -&gt; LambdaConfigType)
+-&gt; Generic LambdaConfigType
+forall x. Rep LambdaConfigType x -&gt; LambdaConfigType
+forall x. LambdaConfigType -&gt; Rep LambdaConfigType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LambdaConfigType x -&gt; LambdaConfigType
+$cfrom :: forall x. LambdaConfigType -&gt; Rep LambdaConfigType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'LambdaConfigType' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'customEmailSender', 'lambdaConfigType_customEmailSender' - A custom email sender Lambda trigger.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'preSignUp', 'lambdaConfigType_preSignUp' - A pre-registration Lambda trigger.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'defineAuthChallenge', 'lambdaConfigType_defineAuthChallenge' - Defines the authentication challenge.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'postAuthentication', 'lambdaConfigType_postAuthentication' - A post-authentication Lambda trigger.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'customSMSSender', 'lambdaConfigType_customSMSSender' - A custom SMS sender Lambda trigger.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'postConfirmation', 'lambdaConfigType_postConfirmation' - A post-confirmation Lambda trigger.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'preAuthentication', 'lambdaConfigType_preAuthentication' - A pre-authentication Lambda trigger.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'kmsKeyID', 'lambdaConfigType_kmsKeyID' - The Amazon Resource Name of Key Management Service</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- &lt;/kms/latest/developerguide/concepts.html#master_keys Customer master keys&gt;</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- . Amazon Cognito uses the key to encrypt codes and temporary passwords</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- sent to @CustomEmailSender@ and @CustomSMSSender@.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'createAuthChallenge', 'lambdaConfigType_createAuthChallenge' - Creates an authentication challenge.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'verifyAuthChallengeResponse', 'lambdaConfigType_verifyAuthChallengeResponse' - Verifies the authentication challenge response.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'customMessage', 'lambdaConfigType_customMessage' - A custom Message Lambda trigger.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'userMigration', 'lambdaConfigType_userMigration' - The user migration Lambda config type.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'preTokenGeneration', 'lambdaConfigType_preTokenGeneration' - A Lambda trigger that is invoked before token generation.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#newLambdaConfigType"><span class="hs-identifier hs-type">newLambdaConfigType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span>
+</span><span id="line-102"></span><span id="newLambdaConfigType"><span class="annot"><span class="annottext">newLambdaConfigType :: LambdaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#newLambdaConfigType"><span class="hs-identifier hs-var hs-var">newLambdaConfigType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">LambdaConfigType' :: Maybe CustomEmailLambdaVersionConfigType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe CustomSMSLambdaVersionConfigType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; LambdaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:customEmailSender:LambdaConfigType' :: Maybe CustomEmailLambdaVersionConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AcustomEmailSender%3ALambdaConfigType%27"><span class="hs-identifier hs-var">customEmailSender</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Maybe CustomEmailLambdaVersionConfigType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:preSignUp:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3ApreSignUp%3ALambdaConfigType%27"><span class="hs-identifier hs-var">preSignUp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:defineAuthChallenge:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AdefineAuthChallenge%3ALambdaConfigType%27"><span class="hs-identifier hs-var">defineAuthChallenge</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:postAuthentication:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3ApostAuthentication%3ALambdaConfigType%27"><span class="hs-identifier hs-var">postAuthentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:customSMSSender:LambdaConfigType' :: Maybe CustomSMSLambdaVersionConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AcustomSMSSender%3ALambdaConfigType%27"><span class="hs-identifier hs-var">customSMSSender</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomSMSLambdaVersionConfigType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:postConfirmation:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3ApostConfirmation%3ALambdaConfigType%27"><span class="hs-identifier hs-var">postConfirmation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:preAuthentication:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3ApreAuthentication%3ALambdaConfigType%27"><span class="hs-identifier hs-var">preAuthentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyID:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AkmsKeyID%3ALambdaConfigType%27"><span class="hs-identifier hs-var">kmsKeyID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:createAuthChallenge:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AcreateAuthChallenge%3ALambdaConfigType%27"><span class="hs-identifier hs-var">createAuthChallenge</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:verifyAuthChallengeResponse:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AverifyAuthChallengeResponse%3ALambdaConfigType%27"><span class="hs-identifier hs-var">verifyAuthChallengeResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:customMessage:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AcustomMessage%3ALambdaConfigType%27"><span class="hs-identifier hs-var">customMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:userMigration:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AuserMigration%3ALambdaConfigType%27"><span class="hs-identifier hs-var">userMigration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:preTokenGeneration:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3ApreTokenGeneration%3ALambdaConfigType%27"><span class="hs-identifier hs-var">preTokenGeneration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | A custom email sender Lambda trigger.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_customEmailSender"><span class="hs-identifier hs-type">lambdaConfigType_customEmailSender</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.CustomEmailLambdaVersionConfigType.html#CustomEmailLambdaVersionConfigType"><span class="hs-identifier hs-type">CustomEmailLambdaVersionConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="lambdaConfigType_customEmailSender"><span class="annot"><span class="annottext">lambdaConfigType_customEmailSender :: (Maybe CustomEmailLambdaVersionConfigType
+ -&gt; f (Maybe CustomEmailLambdaVersionConfigType))
+-&gt; LambdaConfigType -&gt; f LambdaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_customEmailSender"><span class="hs-identifier hs-var hs-var">lambdaConfigType_customEmailSender</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaConfigType -&gt; Maybe CustomEmailLambdaVersionConfigType)
+-&gt; (LambdaConfigType
+    -&gt; Maybe CustomEmailLambdaVersionConfigType -&gt; LambdaConfigType)
+-&gt; Lens
+     LambdaConfigType
+     LambdaConfigType
+     (Maybe CustomEmailLambdaVersionConfigType)
+     (Maybe CustomEmailLambdaVersionConfigType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429898"><span class="annot"><span class="annottext">Maybe CustomEmailLambdaVersionConfigType
+customEmailSender :: Maybe CustomEmailLambdaVersionConfigType
+$sel:customEmailSender:LambdaConfigType' :: LambdaConfigType -&gt; Maybe CustomEmailLambdaVersionConfigType
+</span><a href="#local-6989586621679429898"><span class="hs-identifier hs-var hs-var">customEmailSender</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomEmailLambdaVersionConfigType
+</span><a href="#local-6989586621679429898"><span class="hs-identifier hs-var">customEmailSender</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429897"><span class="annot"><span class="annottext">s :: LambdaConfigType
+</span><a href="#local-6989586621679429897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429896"><span class="annot"><span class="annottext">Maybe CustomEmailLambdaVersionConfigType
+</span><a href="#local-6989586621679429896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaConfigType
+</span><a href="#local-6989586621679429897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customEmailSender:LambdaConfigType' :: Maybe CustomEmailLambdaVersionConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AcustomEmailSender%3ALambdaConfigType%27"><span class="hs-identifier hs-var">customEmailSender</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomEmailLambdaVersionConfigType
+</span><a href="#local-6989586621679429896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | A pre-registration Lambda trigger.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_preSignUp"><span class="hs-identifier hs-type">lambdaConfigType_preSignUp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="lambdaConfigType_preSignUp"><span class="annot"><span class="annottext">lambdaConfigType_preSignUp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LambdaConfigType -&gt; f LambdaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_preSignUp"><span class="hs-identifier hs-var hs-var">lambdaConfigType_preSignUp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaConfigType -&gt; Maybe Text)
+-&gt; (LambdaConfigType -&gt; Maybe Text -&gt; LambdaConfigType)
+-&gt; Lens LambdaConfigType LambdaConfigType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429894"><span class="annot"><span class="annottext">Maybe Text
+preSignUp :: Maybe Text
+$sel:preSignUp:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+</span><a href="#local-6989586621679429894"><span class="hs-identifier hs-var hs-var">preSignUp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429894"><span class="hs-identifier hs-var">preSignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429893"><span class="annot"><span class="annottext">s :: LambdaConfigType
+</span><a href="#local-6989586621679429893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429892"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaConfigType
+</span><a href="#local-6989586621679429893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preSignUp:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3ApreSignUp%3ALambdaConfigType%27"><span class="hs-identifier hs-var">preSignUp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Defines the authentication challenge.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_defineAuthChallenge"><span class="hs-identifier hs-type">lambdaConfigType_defineAuthChallenge</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="lambdaConfigType_defineAuthChallenge"><span class="annot"><span class="annottext">lambdaConfigType_defineAuthChallenge :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LambdaConfigType -&gt; f LambdaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_defineAuthChallenge"><span class="hs-identifier hs-var hs-var">lambdaConfigType_defineAuthChallenge</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaConfigType -&gt; Maybe Text)
+-&gt; (LambdaConfigType -&gt; Maybe Text -&gt; LambdaConfigType)
+-&gt; Lens LambdaConfigType LambdaConfigType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429890"><span class="annot"><span class="annottext">Maybe Text
+defineAuthChallenge :: Maybe Text
+$sel:defineAuthChallenge:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+</span><a href="#local-6989586621679429890"><span class="hs-identifier hs-var hs-var">defineAuthChallenge</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429890"><span class="hs-identifier hs-var">defineAuthChallenge</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429889"><span class="annot"><span class="annottext">s :: LambdaConfigType
+</span><a href="#local-6989586621679429889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429888"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaConfigType
+</span><a href="#local-6989586621679429889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defineAuthChallenge:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AdefineAuthChallenge%3ALambdaConfigType%27"><span class="hs-identifier hs-var">defineAuthChallenge</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | A post-authentication Lambda trigger.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_postAuthentication"><span class="hs-identifier hs-type">lambdaConfigType_postAuthentication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="lambdaConfigType_postAuthentication"><span class="annot"><span class="annottext">lambdaConfigType_postAuthentication :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LambdaConfigType -&gt; f LambdaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_postAuthentication"><span class="hs-identifier hs-var hs-var">lambdaConfigType_postAuthentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaConfigType -&gt; Maybe Text)
+-&gt; (LambdaConfigType -&gt; Maybe Text -&gt; LambdaConfigType)
+-&gt; Lens LambdaConfigType LambdaConfigType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429886"><span class="annot"><span class="annottext">Maybe Text
+postAuthentication :: Maybe Text
+$sel:postAuthentication:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+</span><a href="#local-6989586621679429886"><span class="hs-identifier hs-var hs-var">postAuthentication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429886"><span class="hs-identifier hs-var">postAuthentication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429885"><span class="annot"><span class="annottext">s :: LambdaConfigType
+</span><a href="#local-6989586621679429885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429884"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaConfigType
+</span><a href="#local-6989586621679429885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:postAuthentication:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3ApostAuthentication%3ALambdaConfigType%27"><span class="hs-identifier hs-var">postAuthentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | A custom SMS sender Lambda trigger.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_customSMSSender"><span class="hs-identifier hs-type">lambdaConfigType_customSMSSender</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.CustomSMSLambdaVersionConfigType.html#CustomSMSLambdaVersionConfigType"><span class="hs-identifier hs-type">CustomSMSLambdaVersionConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="lambdaConfigType_customSMSSender"><span class="annot"><span class="annottext">lambdaConfigType_customSMSSender :: (Maybe CustomSMSLambdaVersionConfigType
+ -&gt; f (Maybe CustomSMSLambdaVersionConfigType))
+-&gt; LambdaConfigType -&gt; f LambdaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_customSMSSender"><span class="hs-identifier hs-var hs-var">lambdaConfigType_customSMSSender</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaConfigType -&gt; Maybe CustomSMSLambdaVersionConfigType)
+-&gt; (LambdaConfigType
+    -&gt; Maybe CustomSMSLambdaVersionConfigType -&gt; LambdaConfigType)
+-&gt; Lens
+     LambdaConfigType
+     LambdaConfigType
+     (Maybe CustomSMSLambdaVersionConfigType)
+     (Maybe CustomSMSLambdaVersionConfigType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429882"><span class="annot"><span class="annottext">Maybe CustomSMSLambdaVersionConfigType
+customSMSSender :: Maybe CustomSMSLambdaVersionConfigType
+$sel:customSMSSender:LambdaConfigType' :: LambdaConfigType -&gt; Maybe CustomSMSLambdaVersionConfigType
+</span><a href="#local-6989586621679429882"><span class="hs-identifier hs-var hs-var">customSMSSender</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomSMSLambdaVersionConfigType
+</span><a href="#local-6989586621679429882"><span class="hs-identifier hs-var">customSMSSender</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429881"><span class="annot"><span class="annottext">s :: LambdaConfigType
+</span><a href="#local-6989586621679429881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429880"><span class="annot"><span class="annottext">Maybe CustomSMSLambdaVersionConfigType
+</span><a href="#local-6989586621679429880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaConfigType
+</span><a href="#local-6989586621679429881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customSMSSender:LambdaConfigType' :: Maybe CustomSMSLambdaVersionConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AcustomSMSSender%3ALambdaConfigType%27"><span class="hs-identifier hs-var">customSMSSender</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomSMSLambdaVersionConfigType
+</span><a href="#local-6989586621679429880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | A post-confirmation Lambda trigger.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_postConfirmation"><span class="hs-identifier hs-type">lambdaConfigType_postConfirmation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="lambdaConfigType_postConfirmation"><span class="annot"><span class="annottext">lambdaConfigType_postConfirmation :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LambdaConfigType -&gt; f LambdaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_postConfirmation"><span class="hs-identifier hs-var hs-var">lambdaConfigType_postConfirmation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaConfigType -&gt; Maybe Text)
+-&gt; (LambdaConfigType -&gt; Maybe Text -&gt; LambdaConfigType)
+-&gt; Lens LambdaConfigType LambdaConfigType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429878"><span class="annot"><span class="annottext">Maybe Text
+postConfirmation :: Maybe Text
+$sel:postConfirmation:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+</span><a href="#local-6989586621679429878"><span class="hs-identifier hs-var hs-var">postConfirmation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429878"><span class="hs-identifier hs-var">postConfirmation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429877"><span class="annot"><span class="annottext">s :: LambdaConfigType
+</span><a href="#local-6989586621679429877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429876"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaConfigType
+</span><a href="#local-6989586621679429877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:postConfirmation:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3ApostConfirmation%3ALambdaConfigType%27"><span class="hs-identifier hs-var">postConfirmation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | A pre-authentication Lambda trigger.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_preAuthentication"><span class="hs-identifier hs-type">lambdaConfigType_preAuthentication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="lambdaConfigType_preAuthentication"><span class="annot"><span class="annottext">lambdaConfigType_preAuthentication :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LambdaConfigType -&gt; f LambdaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_preAuthentication"><span class="hs-identifier hs-var hs-var">lambdaConfigType_preAuthentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaConfigType -&gt; Maybe Text)
+-&gt; (LambdaConfigType -&gt; Maybe Text -&gt; LambdaConfigType)
+-&gt; Lens LambdaConfigType LambdaConfigType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429874"><span class="annot"><span class="annottext">Maybe Text
+preAuthentication :: Maybe Text
+$sel:preAuthentication:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+</span><a href="#local-6989586621679429874"><span class="hs-identifier hs-var hs-var">preAuthentication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429874"><span class="hs-identifier hs-var">preAuthentication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429873"><span class="annot"><span class="annottext">s :: LambdaConfigType
+</span><a href="#local-6989586621679429873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429872"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaConfigType
+</span><a href="#local-6989586621679429873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preAuthentication:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3ApreAuthentication%3ALambdaConfigType%27"><span class="hs-identifier hs-var">preAuthentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The Amazon Resource Name of Key Management Service</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- &lt;/kms/latest/developerguide/concepts.html#master_keys Customer master keys&gt;</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- . Amazon Cognito uses the key to encrypt codes and temporary passwords</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- sent to @CustomEmailSender@ and @CustomSMSSender@.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_kmsKeyID"><span class="hs-identifier hs-type">lambdaConfigType_kmsKeyID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="lambdaConfigType_kmsKeyID"><span class="annot"><span class="annottext">lambdaConfigType_kmsKeyID :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LambdaConfigType -&gt; f LambdaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_kmsKeyID"><span class="hs-identifier hs-var hs-var">lambdaConfigType_kmsKeyID</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaConfigType -&gt; Maybe Text)
+-&gt; (LambdaConfigType -&gt; Maybe Text -&gt; LambdaConfigType)
+-&gt; Lens LambdaConfigType LambdaConfigType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429870"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyID :: Maybe Text
+$sel:kmsKeyID:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+</span><a href="#local-6989586621679429870"><span class="hs-identifier hs-var hs-var">kmsKeyID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429870"><span class="hs-identifier hs-var">kmsKeyID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429869"><span class="annot"><span class="annottext">s :: LambdaConfigType
+</span><a href="#local-6989586621679429869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429868"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaConfigType
+</span><a href="#local-6989586621679429869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyID:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AkmsKeyID%3ALambdaConfigType%27"><span class="hs-identifier hs-var">kmsKeyID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | Creates an authentication challenge.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_createAuthChallenge"><span class="hs-identifier hs-type">lambdaConfigType_createAuthChallenge</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="lambdaConfigType_createAuthChallenge"><span class="annot"><span class="annottext">lambdaConfigType_createAuthChallenge :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LambdaConfigType -&gt; f LambdaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_createAuthChallenge"><span class="hs-identifier hs-var hs-var">lambdaConfigType_createAuthChallenge</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaConfigType -&gt; Maybe Text)
+-&gt; (LambdaConfigType -&gt; Maybe Text -&gt; LambdaConfigType)
+-&gt; Lens LambdaConfigType LambdaConfigType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429866"><span class="annot"><span class="annottext">Maybe Text
+createAuthChallenge :: Maybe Text
+$sel:createAuthChallenge:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+</span><a href="#local-6989586621679429866"><span class="hs-identifier hs-var hs-var">createAuthChallenge</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429866"><span class="hs-identifier hs-var">createAuthChallenge</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429865"><span class="annot"><span class="annottext">s :: LambdaConfigType
+</span><a href="#local-6989586621679429865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429864"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaConfigType
+</span><a href="#local-6989586621679429865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createAuthChallenge:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AcreateAuthChallenge%3ALambdaConfigType%27"><span class="hs-identifier hs-var">createAuthChallenge</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | Verifies the authentication challenge response.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_verifyAuthChallengeResponse"><span class="hs-identifier hs-type">lambdaConfigType_verifyAuthChallengeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="lambdaConfigType_verifyAuthChallengeResponse"><span class="annot"><span class="annottext">lambdaConfigType_verifyAuthChallengeResponse :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LambdaConfigType -&gt; f LambdaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_verifyAuthChallengeResponse"><span class="hs-identifier hs-var hs-var">lambdaConfigType_verifyAuthChallengeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaConfigType -&gt; Maybe Text)
+-&gt; (LambdaConfigType -&gt; Maybe Text -&gt; LambdaConfigType)
+-&gt; Lens LambdaConfigType LambdaConfigType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429862"><span class="annot"><span class="annottext">Maybe Text
+verifyAuthChallengeResponse :: Maybe Text
+$sel:verifyAuthChallengeResponse:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+</span><a href="#local-6989586621679429862"><span class="hs-identifier hs-var hs-var">verifyAuthChallengeResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429862"><span class="hs-identifier hs-var">verifyAuthChallengeResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429861"><span class="annot"><span class="annottext">s :: LambdaConfigType
+</span><a href="#local-6989586621679429861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429860"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaConfigType
+</span><a href="#local-6989586621679429861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verifyAuthChallengeResponse:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AverifyAuthChallengeResponse%3ALambdaConfigType%27"><span class="hs-identifier hs-var">verifyAuthChallengeResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | A custom Message Lambda trigger.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_customMessage"><span class="hs-identifier hs-type">lambdaConfigType_customMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="lambdaConfigType_customMessage"><span class="annot"><span class="annottext">lambdaConfigType_customMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LambdaConfigType -&gt; f LambdaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_customMessage"><span class="hs-identifier hs-var hs-var">lambdaConfigType_customMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaConfigType -&gt; Maybe Text)
+-&gt; (LambdaConfigType -&gt; Maybe Text -&gt; LambdaConfigType)
+-&gt; Lens LambdaConfigType LambdaConfigType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429858"><span class="annot"><span class="annottext">Maybe Text
+customMessage :: Maybe Text
+$sel:customMessage:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+</span><a href="#local-6989586621679429858"><span class="hs-identifier hs-var hs-var">customMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429858"><span class="hs-identifier hs-var">customMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429857"><span class="annot"><span class="annottext">s :: LambdaConfigType
+</span><a href="#local-6989586621679429857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429856"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaConfigType
+</span><a href="#local-6989586621679429857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customMessage:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AcustomMessage%3ALambdaConfigType%27"><span class="hs-identifier hs-var">customMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The user migration Lambda config type.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_userMigration"><span class="hs-identifier hs-type">lambdaConfigType_userMigration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="lambdaConfigType_userMigration"><span class="annot"><span class="annottext">lambdaConfigType_userMigration :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LambdaConfigType -&gt; f LambdaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_userMigration"><span class="hs-identifier hs-var hs-var">lambdaConfigType_userMigration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaConfigType -&gt; Maybe Text)
+-&gt; (LambdaConfigType -&gt; Maybe Text -&gt; LambdaConfigType)
+-&gt; Lens LambdaConfigType LambdaConfigType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429854"><span class="annot"><span class="annottext">Maybe Text
+userMigration :: Maybe Text
+$sel:userMigration:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+</span><a href="#local-6989586621679429854"><span class="hs-identifier hs-var hs-var">userMigration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429854"><span class="hs-identifier hs-var">userMigration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429853"><span class="annot"><span class="annottext">s :: LambdaConfigType
+</span><a href="#local-6989586621679429853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429852"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaConfigType
+</span><a href="#local-6989586621679429853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userMigration:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3AuserMigration%3ALambdaConfigType%27"><span class="hs-identifier hs-var">userMigration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | A Lambda trigger that is invoked before token generation.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_preTokenGeneration"><span class="hs-identifier hs-type">lambdaConfigType_preTokenGeneration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="lambdaConfigType_preTokenGeneration"><span class="annot"><span class="annottext">lambdaConfigType_preTokenGeneration :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LambdaConfigType -&gt; f LambdaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#lambdaConfigType_preTokenGeneration"><span class="hs-identifier hs-var hs-var">lambdaConfigType_preTokenGeneration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaConfigType -&gt; Maybe Text)
+-&gt; (LambdaConfigType -&gt; Maybe Text -&gt; LambdaConfigType)
+-&gt; Lens LambdaConfigType LambdaConfigType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429850"><span class="annot"><span class="annottext">Maybe Text
+preTokenGeneration :: Maybe Text
+$sel:preTokenGeneration:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+</span><a href="#local-6989586621679429850"><span class="hs-identifier hs-var hs-var">preTokenGeneration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429850"><span class="hs-identifier hs-var">preTokenGeneration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429849"><span class="annot"><span class="annottext">s :: LambdaConfigType
+</span><a href="#local-6989586621679429849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429848"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaConfigType
+</span><a href="#local-6989586621679429849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preTokenGeneration:LambdaConfigType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#%24sel%3ApreTokenGeneration%3ALambdaConfigType%27"><span class="hs-identifier hs-var">preTokenGeneration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429845"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679429843"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaConfigType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LambdaConfigType)
+-&gt; Value
+-&gt; Parser LambdaConfigType
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LambdaConfigType&quot;</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679429840"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679429840"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe CustomEmailLambdaVersionConfigType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe CustomSMSLambdaVersionConfigType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; LambdaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-var">LambdaConfigType'</span></a></span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CustomEmailLambdaVersionConfigType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe CustomSMSLambdaVersionConfigType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; LambdaConfigType)
+-&gt; Parser (Maybe CustomEmailLambdaVersionConfigType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CustomSMSLambdaVersionConfigType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; LambdaConfigType)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679429840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomEmailLambdaVersionConfigType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomEmailSender&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CustomSMSLambdaVersionConfigType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; LambdaConfigType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CustomSMSLambdaVersionConfigType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; LambdaConfigType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679429840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PreSignUp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CustomSMSLambdaVersionConfigType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; LambdaConfigType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe CustomSMSLambdaVersionConfigType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; LambdaConfigType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679429840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefineAuthChallenge&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe CustomSMSLambdaVersionConfigType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; LambdaConfigType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe CustomSMSLambdaVersionConfigType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; LambdaConfigType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679429840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PostAuthentication&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CustomSMSLambdaVersionConfigType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; LambdaConfigType)
+-&gt; Parser (Maybe CustomSMSLambdaVersionConfigType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; LambdaConfigType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679429840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomSMSLambdaVersionConfigType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomSMSSender&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; LambdaConfigType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; LambdaConfigType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679429840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PostConfirmation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; LambdaConfigType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; LambdaConfigType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679429840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PreAuthentication&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; LambdaConfigType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; LambdaConfigType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679429840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KMSKeyID&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; LambdaConfigType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; LambdaConfigType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679429840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateAuthChallenge&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; LambdaConfigType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; LambdaConfigType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679429840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VerifyAuthChallengeResponse&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; LambdaConfigType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; LambdaConfigType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679429840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; LambdaConfigType)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; LambdaConfigType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679429840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserMigration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; LambdaConfigType)
+-&gt; Parser (Maybe Text) -&gt; Parser LambdaConfigType
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679429840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PreTokenGeneration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429834"><span id="local-6989586621679429836"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span></span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429831"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429823"><span id="local-6989586621679429825"><span id="local-6989586621679429827"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType"><span class="hs-identifier hs-type">LambdaConfigType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679429821"><span class="annot"><span class="annottext">toJSON :: LambdaConfigType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType.html#LambdaConfigType%27"><span class="hs-identifier hs-type">LambdaConfigType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429807"><span id="local-6989586621679429808"><span id="local-6989586621679429809"><span id="local-6989586621679429810"><span id="local-6989586621679429811"><span id="local-6989586621679429812"><span id="local-6989586621679429813"><span id="local-6989586621679429814"><span id="local-6989586621679429815"><span id="local-6989586621679429816"><span id="local-6989586621679429817"><span id="local-6989586621679429818"><span id="local-6989586621679429819"><span class="annot"><span class="annottext">Maybe Text
+Maybe CustomEmailLambdaVersionConfigType
+Maybe CustomSMSLambdaVersionConfigType
+preTokenGeneration :: Maybe Text
+userMigration :: Maybe Text
+customMessage :: Maybe Text
+verifyAuthChallengeResponse :: Maybe Text
+createAuthChallenge :: Maybe Text
+kmsKeyID :: Maybe Text
+preAuthentication :: Maybe Text
+postConfirmation :: Maybe Text
+customSMSSender :: Maybe CustomSMSLambdaVersionConfigType
+postAuthentication :: Maybe Text
+defineAuthChallenge :: Maybe Text
+preSignUp :: Maybe Text
+customEmailSender :: Maybe CustomEmailLambdaVersionConfigType
+$sel:preTokenGeneration:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+$sel:userMigration:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+$sel:customMessage:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+$sel:verifyAuthChallengeResponse:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+$sel:createAuthChallenge:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+$sel:kmsKeyID:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+$sel:preAuthentication:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+$sel:postConfirmation:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+$sel:customSMSSender:LambdaConfigType' :: LambdaConfigType -&gt; Maybe CustomSMSLambdaVersionConfigType
+$sel:postAuthentication:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+$sel:defineAuthChallenge:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+$sel:preSignUp:LambdaConfigType' :: LambdaConfigType -&gt; Maybe Text
+$sel:customEmailSender:LambdaConfigType' :: LambdaConfigType -&gt; Maybe CustomEmailLambdaVersionConfigType
+</span><a href="#local-6989586621679429807"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-204"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomEmailSender&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CustomEmailLambdaVersionConfigType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">(CustomEmailLambdaVersionConfigType -&gt; Pair)
+-&gt; Maybe CustomEmailLambdaVersionConfigType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CustomEmailLambdaVersionConfigType
+</span><a href="#local-6989586621679429819"><span class="hs-identifier hs-var">customEmailSender</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PreSignUp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429818"><span class="hs-identifier hs-var">preSignUp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefineAuthChallenge&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429817"><span class="hs-identifier hs-var">defineAuthChallenge</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PostAuthentication&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429816"><span class="hs-identifier hs-var">postAuthentication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomSMSSender&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CustomSMSLambdaVersionConfigType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">(CustomSMSLambdaVersionConfigType -&gt; Pair)
+-&gt; Maybe CustomSMSLambdaVersionConfigType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CustomSMSLambdaVersionConfigType
+</span><a href="#local-6989586621679429815"><span class="hs-identifier hs-var">customSMSSender</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PostConfirmation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429814"><span class="hs-identifier hs-var">postConfirmation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PreAuthentication&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429813"><span class="hs-identifier hs-var">preAuthentication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KMSKeyID&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429812"><span class="hs-identifier hs-var">kmsKeyID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateAuthChallenge&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429811"><span class="hs-identifier hs-var">createAuthChallenge</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VerifyAuthChallengeResponse&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429810"><span class="hs-identifier hs-var">verifyAuthChallengeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429809"><span class="hs-identifier hs-var">customMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserMigration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429808"><span class="hs-identifier hs-var">userMigration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PreTokenGeneration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429807"><span class="hs-identifier hs-var">preTokenGeneration</span></a></span><span>
+</span><span id="line-226"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-227"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span></pre></body></html>

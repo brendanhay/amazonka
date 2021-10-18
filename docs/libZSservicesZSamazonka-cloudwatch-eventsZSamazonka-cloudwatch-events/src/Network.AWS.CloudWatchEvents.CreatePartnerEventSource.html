@@ -1,0 +1,537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudWatchEvents.CreatePartnerEventSource</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Called by an SaaS partner to create a partner event source. This</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- operation is not used by Amazon Web Services customers.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Each partner event source can be used by one Amazon Web Services account</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- to create a matching partner event bus in that Amazon Web Services</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- account. A SaaS partner must create one partner event source for each</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Amazon Web Services account that wants to receive those event types.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- A partner event source creates events based on resources within the SaaS</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- partner\'s service or application.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- An Amazon Web Services account that creates a partner event bus that</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- matches the partner event source can use that event bus to receive</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- events from the partner, and then process them using Amazon Web Services</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Events rules and targets.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Partner event source names follow this format:</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- @ partner_name\/event_namespace\/event_name @</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- /partner_name/ is determined during partner registration and identifies</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- the partner to Amazon Web Services customers. /event_namespace/ is</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- determined by the partner and is a way for the partner to categorize</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- their events. /event_name/ is determined by the partner, and should</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- uniquely identify an event-generating resource within the partner</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- system. The combination of /event_namespace/ and /event_name/ should</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- help Amazon Web Services customers decide whether to create an event bus</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- to receive these events.</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudWatchEvents.CreatePartnerEventSource</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource"><span class="hs-identifier">CreatePartnerEventSource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#newCreatePartnerEventSource"><span class="hs-identifier">newCreatePartnerEventSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#createPartnerEventSource_name"><span class="hs-identifier">createPartnerEventSource_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#createPartnerEventSource_account"><span class="hs-identifier">createPartnerEventSource_account</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSourceResponse"><span class="hs-identifier">CreatePartnerEventSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#newCreatePartnerEventSourceResponse"><span class="hs-identifier">newCreatePartnerEventSourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#createPartnerEventSourceResponse_eventSourceArn"><span class="hs-identifier">createPartnerEventSourceResponse_eventSourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#createPartnerEventSourceResponse_httpStatus"><span class="hs-identifier">createPartnerEventSourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.html"><span class="hs-identifier">Network.AWS.CloudWatchEvents.Types</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | /See:/ 'newCreatePartnerEventSource' smart constructor.</span><span>
+</span><span id="line-78"></span><span id="local-6989586621679318241"><span id="local-6989586621679318242"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePartnerEventSource"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource"><span class="hs-identifier hs-var">CreatePartnerEventSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePartnerEventSource%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource%27"><span class="hs-identifier hs-var">CreatePartnerEventSource'</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the partner event source. This name must be unique and must</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- be in the format @ partner_name\/event_namespace\/event_name @. The</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- Amazon Web Services account that wants to use this partner event source</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- must create a partner event bus with a name that matches the name of the</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- partner event source.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Aname%3ACreatePartnerEventSource%27"><span class="annot"><span class="annottext">CreatePartnerEventSource -&gt; Text
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#%24sel%3Aname%3ACreatePartnerEventSource%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account ID that is permitted to create a</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- matching partner event bus for this partner event source.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Aaccount%3ACreatePartnerEventSource%27"><span class="annot"><span class="annottext">CreatePartnerEventSource -&gt; Text
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#%24sel%3Aaccount%3ACreatePartnerEventSource%27"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318234"><span id="local-6989586621679318236"><span class="annot"><span class="annottext">CreatePartnerEventSource -&gt; CreatePartnerEventSource -&gt; Bool
+(CreatePartnerEventSource -&gt; CreatePartnerEventSource -&gt; Bool)
+-&gt; (CreatePartnerEventSource -&gt; CreatePartnerEventSource -&gt; Bool)
+-&gt; Eq CreatePartnerEventSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreatePartnerEventSource -&gt; CreatePartnerEventSource -&gt; Bool
+$c/= :: CreatePartnerEventSource -&gt; CreatePartnerEventSource -&gt; Bool
+== :: CreatePartnerEventSource -&gt; CreatePartnerEventSource -&gt; Bool
+$c== :: CreatePartnerEventSource -&gt; CreatePartnerEventSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318225"><span id="local-6989586621679318227"><span id="local-6989586621679318229"><span id="local-6989586621679318231"><span class="annot"><span class="annottext">ReadPrec [CreatePartnerEventSource]
+ReadPrec CreatePartnerEventSource
+Int -&gt; ReadS CreatePartnerEventSource
+ReadS [CreatePartnerEventSource]
+(Int -&gt; ReadS CreatePartnerEventSource)
+-&gt; ReadS [CreatePartnerEventSource]
+-&gt; ReadPrec CreatePartnerEventSource
+-&gt; ReadPrec [CreatePartnerEventSource]
+-&gt; Read CreatePartnerEventSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreatePartnerEventSource]
+$creadListPrec :: ReadPrec [CreatePartnerEventSource]
+readPrec :: ReadPrec CreatePartnerEventSource
+$creadPrec :: ReadPrec CreatePartnerEventSource
+readList :: ReadS [CreatePartnerEventSource]
+$creadList :: ReadS [CreatePartnerEventSource]
+readsPrec :: Int -&gt; ReadS CreatePartnerEventSource
+$creadsPrec :: Int -&gt; ReadS CreatePartnerEventSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318218"><span id="local-6989586621679318220"><span id="local-6989586621679318222"><span class="annot"><span class="annottext">Int -&gt; CreatePartnerEventSource -&gt; ShowS
+[CreatePartnerEventSource] -&gt; ShowS
+CreatePartnerEventSource -&gt; String
+(Int -&gt; CreatePartnerEventSource -&gt; ShowS)
+-&gt; (CreatePartnerEventSource -&gt; String)
+-&gt; ([CreatePartnerEventSource] -&gt; ShowS)
+-&gt; Show CreatePartnerEventSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreatePartnerEventSource] -&gt; ShowS
+$cshowList :: [CreatePartnerEventSource] -&gt; ShowS
+show :: CreatePartnerEventSource -&gt; String
+$cshow :: CreatePartnerEventSource -&gt; String
+showsPrec :: Int -&gt; CreatePartnerEventSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreatePartnerEventSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreatePartnerEventSource -&gt; Rep CreatePartnerEventSource x)
+-&gt; (forall x.
+    Rep CreatePartnerEventSource x -&gt; CreatePartnerEventSource)
+-&gt; Generic CreatePartnerEventSource
+forall x.
+Rep CreatePartnerEventSource x -&gt; CreatePartnerEventSource
+forall x.
+CreatePartnerEventSource -&gt; Rep CreatePartnerEventSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreatePartnerEventSource x -&gt; CreatePartnerEventSource
+$cfrom :: forall x.
+CreatePartnerEventSource -&gt; Rep CreatePartnerEventSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Create a value of 'CreatePartnerEventSource' with all optional fields omitted.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'name', 'createPartnerEventSource_name' - The name of the partner event source. This name must be unique and must</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- be in the format @ partner_name\/event_namespace\/event_name @. The</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Amazon Web Services account that wants to use this partner event source</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- must create a partner event bus with a name that matches the name of the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- partner event source.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'account', 'createPartnerEventSource_account' - The Amazon Web Services account ID that is permitted to create a</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- matching partner event bus for this partner event source.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#newCreatePartnerEventSource"><span class="hs-identifier hs-type">newCreatePartnerEventSource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'account'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource"><span class="hs-identifier hs-type">CreatePartnerEventSource</span></a></span><span>
+</span><span id="line-113"></span><span id="newCreatePartnerEventSource"><span class="annot"><span class="annottext">newCreatePartnerEventSource :: Text -&gt; Text -&gt; CreatePartnerEventSource
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#newCreatePartnerEventSource"><span class="hs-identifier hs-var hs-var">newCreatePartnerEventSource</span></a></span></span><span> </span><span id="local-6989586621679318213"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318213"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679318212"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318212"><span class="hs-identifier hs-var">pAccount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">CreatePartnerEventSource' :: Text -&gt; Text -&gt; CreatePartnerEventSource
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource%27"><span class="hs-identifier hs-type">CreatePartnerEventSource'</span></a></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:CreatePartnerEventSource' :: Text
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#%24sel%3Aname%3ACreatePartnerEventSource%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318213"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:account:CreatePartnerEventSource' :: Text
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#%24sel%3Aaccount%3ACreatePartnerEventSource%27"><span class="hs-identifier hs-var">account</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318212"><span class="hs-identifier hs-var">pAccount_</span></a></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The name of the partner event source. This name must be unique and must</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- be in the format @ partner_name\/event_namespace\/event_name @. The</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Amazon Web Services account that wants to use this partner event source</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- must create a partner event bus with a name that matches the name of the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- partner event source.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#createPartnerEventSource_name"><span class="hs-identifier hs-type">createPartnerEventSource_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource"><span class="hs-identifier hs-type">CreatePartnerEventSource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-125"></span><span id="createPartnerEventSource_name"><span class="annot"><span class="annottext">createPartnerEventSource_name :: (Text -&gt; f Text)
+-&gt; CreatePartnerEventSource -&gt; f CreatePartnerEventSource
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#createPartnerEventSource_name"><span class="hs-identifier hs-var hs-var">createPartnerEventSource_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePartnerEventSource -&gt; Text)
+-&gt; (CreatePartnerEventSource -&gt; Text -&gt; CreatePartnerEventSource)
+-&gt; Lens CreatePartnerEventSource CreatePartnerEventSource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource%27"><span class="hs-identifier hs-type">CreatePartnerEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318209"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreatePartnerEventSource' :: CreatePartnerEventSource -&gt; Text
+</span><a href="#local-6989586621679318209"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318209"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318208"><span class="annot"><span class="annottext">s :: CreatePartnerEventSource
+</span><a href="#local-6989586621679318208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource%27"><span class="hs-identifier hs-type">CreatePartnerEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318207"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePartnerEventSource
+</span><a href="#local-6989586621679318208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreatePartnerEventSource' :: Text
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#%24sel%3Aname%3ACreatePartnerEventSource%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource"><span class="hs-identifier hs-type">CreatePartnerEventSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The Amazon Web Services account ID that is permitted to create a</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- matching partner event bus for this partner event source.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#createPartnerEventSource_account"><span class="hs-identifier hs-type">createPartnerEventSource_account</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource"><span class="hs-identifier hs-type">CreatePartnerEventSource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span id="createPartnerEventSource_account"><span class="annot"><span class="annottext">createPartnerEventSource_account :: (Text -&gt; f Text)
+-&gt; CreatePartnerEventSource -&gt; f CreatePartnerEventSource
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#createPartnerEventSource_account"><span class="hs-identifier hs-var hs-var">createPartnerEventSource_account</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePartnerEventSource -&gt; Text)
+-&gt; (CreatePartnerEventSource -&gt; Text -&gt; CreatePartnerEventSource)
+-&gt; Lens CreatePartnerEventSource CreatePartnerEventSource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource%27"><span class="hs-identifier hs-type">CreatePartnerEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318206"><span class="annot"><span class="annottext">Text
+account :: Text
+$sel:account:CreatePartnerEventSource' :: CreatePartnerEventSource -&gt; Text
+</span><a href="#local-6989586621679318206"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318206"><span class="hs-identifier hs-var">account</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318205"><span class="annot"><span class="annottext">s :: CreatePartnerEventSource
+</span><a href="#local-6989586621679318205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource%27"><span class="hs-identifier hs-type">CreatePartnerEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318204"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePartnerEventSource
+</span><a href="#local-6989586621679318205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:account:CreatePartnerEventSource' :: Text
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#%24sel%3Aaccount%3ACreatePartnerEventSource%27"><span class="hs-identifier hs-var">account</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource"><span class="hs-identifier hs-type">CreatePartnerEventSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource"><span class="hs-identifier hs-type">CreatePartnerEventSource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource"><span class="hs-identifier hs-type">CreatePartnerEventSource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSourceResponse"><span class="hs-identifier hs-type">CreatePartnerEventSourceResponse</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679318200"><span class="annot"><span class="annottext">request :: CreatePartnerEventSource -&gt; Request CreatePartnerEventSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreatePartnerEventSource -&gt; Request CreatePartnerEventSource
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudWatchEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679318196"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreatePartnerEventSource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreatePartnerEventSource)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreatePartnerEventSource))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreatePartnerEventSource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreatePartnerEventSource)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679318193"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318193"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679318192"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679318192"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679318191"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318191"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreatePartnerEventSourceResponse
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSourceResponse%27"><span class="hs-identifier hs-var">CreatePartnerEventSourceResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreatePartnerEventSourceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreatePartnerEventSourceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventSourceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreatePartnerEventSourceResponse)
+-&gt; Either String Int
+-&gt; Either String CreatePartnerEventSourceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318193"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318183"><span id="local-6989586621679318185"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource"><span class="hs-identifier hs-type">CreatePartnerEventSource</span></a></span></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318180"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource"><span class="hs-identifier hs-type">CreatePartnerEventSource</span></a></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource"><span class="hs-identifier hs-type">CreatePartnerEventSource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679318176"><span class="annot"><span class="annottext">toHeaders :: CreatePartnerEventSource -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreatePartnerEventSource -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSEvents.CreatePartnerEventSource&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-156"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-158"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-160"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318166"><span id="local-6989586621679318168"><span id="local-6989586621679318170"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource"><span class="hs-identifier hs-type">CreatePartnerEventSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679318164"><span class="annot"><span class="annottext">toJSON :: CreatePartnerEventSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource%27"><span class="hs-identifier hs-type">CreatePartnerEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318161"><span id="local-6989586621679318162"><span class="annot"><span class="annottext">Text
+account :: Text
+name :: Text
+$sel:account:CreatePartnerEventSource' :: CreatePartnerEventSource -&gt; Text
+$sel:name:CreatePartnerEventSource' :: CreatePartnerEventSource -&gt; Text
+</span><a href="#local-6989586621679318161"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318162"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Account&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318161"><span class="hs-identifier hs-var">account</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource"><span class="hs-identifier hs-type">CreatePartnerEventSource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679318155"><span class="annot"><span class="annottext">toPath :: CreatePartnerEventSource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreatePartnerEventSource -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSource"><span class="hs-identifier hs-type">CreatePartnerEventSource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679318151"><span class="annot"><span class="annottext">toQuery :: CreatePartnerEventSource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreatePartnerEventSource -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | /See:/ 'newCreatePartnerEventSourceResponse' smart constructor.</span><span>
+</span><span id="line-180"></span><span id="local-6989586621679318148"><span id="local-6989586621679318149"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePartnerEventSourceResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSourceResponse"><span class="hs-identifier hs-var">CreatePartnerEventSourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePartnerEventSourceResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSourceResponse%27"><span class="hs-identifier hs-var">CreatePartnerEventSourceResponse'</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the partner event source.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AeventSourceArn%3ACreatePartnerEventSourceResponse%27"><span class="annot"><span class="annottext">CreatePartnerEventSourceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#%24sel%3AeventSourceArn%3ACreatePartnerEventSourceResponse%27"><span class="hs-identifier hs-var hs-var">eventSourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreatePartnerEventSourceResponse%27"><span class="annot"><span class="annottext">CreatePartnerEventSourceResponse -&gt; Int
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#%24sel%3AhttpStatus%3ACreatePartnerEventSourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318142"><span id="local-6989586621679318144"><span class="annot"><span class="annottext">CreatePartnerEventSourceResponse
+-&gt; CreatePartnerEventSourceResponse -&gt; Bool
+(CreatePartnerEventSourceResponse
+ -&gt; CreatePartnerEventSourceResponse -&gt; Bool)
+-&gt; (CreatePartnerEventSourceResponse
+    -&gt; CreatePartnerEventSourceResponse -&gt; Bool)
+-&gt; Eq CreatePartnerEventSourceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreatePartnerEventSourceResponse
+-&gt; CreatePartnerEventSourceResponse -&gt; Bool
+$c/= :: CreatePartnerEventSourceResponse
+-&gt; CreatePartnerEventSourceResponse -&gt; Bool
+== :: CreatePartnerEventSourceResponse
+-&gt; CreatePartnerEventSourceResponse -&gt; Bool
+$c== :: CreatePartnerEventSourceResponse
+-&gt; CreatePartnerEventSourceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318134"><span id="local-6989586621679318136"><span id="local-6989586621679318138"><span id="local-6989586621679318140"><span class="annot"><span class="annottext">ReadPrec [CreatePartnerEventSourceResponse]
+ReadPrec CreatePartnerEventSourceResponse
+Int -&gt; ReadS CreatePartnerEventSourceResponse
+ReadS [CreatePartnerEventSourceResponse]
+(Int -&gt; ReadS CreatePartnerEventSourceResponse)
+-&gt; ReadS [CreatePartnerEventSourceResponse]
+-&gt; ReadPrec CreatePartnerEventSourceResponse
+-&gt; ReadPrec [CreatePartnerEventSourceResponse]
+-&gt; Read CreatePartnerEventSourceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreatePartnerEventSourceResponse]
+$creadListPrec :: ReadPrec [CreatePartnerEventSourceResponse]
+readPrec :: ReadPrec CreatePartnerEventSourceResponse
+$creadPrec :: ReadPrec CreatePartnerEventSourceResponse
+readList :: ReadS [CreatePartnerEventSourceResponse]
+$creadList :: ReadS [CreatePartnerEventSourceResponse]
+readsPrec :: Int -&gt; ReadS CreatePartnerEventSourceResponse
+$creadsPrec :: Int -&gt; ReadS CreatePartnerEventSourceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318128"><span id="local-6989586621679318130"><span id="local-6989586621679318132"><span class="annot"><span class="annottext">Int -&gt; CreatePartnerEventSourceResponse -&gt; ShowS
+[CreatePartnerEventSourceResponse] -&gt; ShowS
+CreatePartnerEventSourceResponse -&gt; String
+(Int -&gt; CreatePartnerEventSourceResponse -&gt; ShowS)
+-&gt; (CreatePartnerEventSourceResponse -&gt; String)
+-&gt; ([CreatePartnerEventSourceResponse] -&gt; ShowS)
+-&gt; Show CreatePartnerEventSourceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreatePartnerEventSourceResponse] -&gt; ShowS
+$cshowList :: [CreatePartnerEventSourceResponse] -&gt; ShowS
+show :: CreatePartnerEventSourceResponse -&gt; String
+$cshow :: CreatePartnerEventSourceResponse -&gt; String
+showsPrec :: Int -&gt; CreatePartnerEventSourceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreatePartnerEventSourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreatePartnerEventSourceResponse
+ -&gt; Rep CreatePartnerEventSourceResponse x)
+-&gt; (forall x.
+    Rep CreatePartnerEventSourceResponse x
+    -&gt; CreatePartnerEventSourceResponse)
+-&gt; Generic CreatePartnerEventSourceResponse
+forall x.
+Rep CreatePartnerEventSourceResponse x
+-&gt; CreatePartnerEventSourceResponse
+forall x.
+CreatePartnerEventSourceResponse
+-&gt; Rep CreatePartnerEventSourceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreatePartnerEventSourceResponse x
+-&gt; CreatePartnerEventSourceResponse
+$cfrom :: forall x.
+CreatePartnerEventSourceResponse
+-&gt; Rep CreatePartnerEventSourceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Create a value of 'CreatePartnerEventSourceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'eventSourceArn', 'createPartnerEventSourceResponse_eventSourceArn' - The ARN of the partner event source.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'httpStatus', 'createPartnerEventSourceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#newCreatePartnerEventSourceResponse"><span class="hs-identifier hs-type">newCreatePartnerEventSourceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSourceResponse"><span class="hs-identifier hs-type">CreatePartnerEventSourceResponse</span></a></span><span>
+</span><span id="line-203"></span><span id="newCreatePartnerEventSourceResponse"><span class="annot"><span class="annottext">newCreatePartnerEventSourceResponse :: Int -&gt; CreatePartnerEventSourceResponse
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#newCreatePartnerEventSourceResponse"><span class="hs-identifier hs-var hs-var">newCreatePartnerEventSourceResponse</span></a></span></span><span> </span><span id="local-6989586621679318125"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318125"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="annottext">CreatePartnerEventSourceResponse' :: Maybe Text -&gt; Int -&gt; CreatePartnerEventSourceResponse
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSourceResponse%27"><span class="hs-identifier hs-type">CreatePartnerEventSourceResponse'</span></a></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventSourceArn:CreatePartnerEventSourceResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#%24sel%3AeventSourceArn%3ACreatePartnerEventSourceResponse%27"><span class="hs-identifier hs-var">eventSourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePartnerEventSourceResponse' :: Int
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#%24sel%3AhttpStatus%3ACreatePartnerEventSourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318125"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The ARN of the partner event source.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#createPartnerEventSourceResponse_eventSourceArn"><span class="hs-identifier hs-type">createPartnerEventSourceResponse_eventSourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSourceResponse"><span class="hs-identifier hs-type">CreatePartnerEventSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="createPartnerEventSourceResponse_eventSourceArn"><span class="annot"><span class="annottext">createPartnerEventSourceResponse_eventSourceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreatePartnerEventSourceResponse
+-&gt; f CreatePartnerEventSourceResponse
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#createPartnerEventSourceResponse_eventSourceArn"><span class="hs-identifier hs-var hs-var">createPartnerEventSourceResponse_eventSourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePartnerEventSourceResponse -&gt; Maybe Text)
+-&gt; (CreatePartnerEventSourceResponse
+    -&gt; Maybe Text -&gt; CreatePartnerEventSourceResponse)
+-&gt; Lens
+     CreatePartnerEventSourceResponse
+     CreatePartnerEventSourceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSourceResponse%27"><span class="hs-identifier hs-type">CreatePartnerEventSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318124"><span class="annot"><span class="annottext">Maybe Text
+eventSourceArn :: Maybe Text
+$sel:eventSourceArn:CreatePartnerEventSourceResponse' :: CreatePartnerEventSourceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679318124"><span class="hs-identifier hs-var hs-var">eventSourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318124"><span class="hs-identifier hs-var">eventSourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318123"><span class="annot"><span class="annottext">s :: CreatePartnerEventSourceResponse
+</span><a href="#local-6989586621679318123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSourceResponse%27"><span class="hs-identifier hs-type">CreatePartnerEventSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318122"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePartnerEventSourceResponse
+</span><a href="#local-6989586621679318123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSourceArn:CreatePartnerEventSourceResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#%24sel%3AeventSourceArn%3ACreatePartnerEventSourceResponse%27"><span class="hs-identifier hs-var">eventSourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSourceResponse"><span class="hs-identifier hs-type">CreatePartnerEventSourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#createPartnerEventSourceResponse_httpStatus"><span class="hs-identifier hs-type">createPartnerEventSourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSourceResponse"><span class="hs-identifier hs-type">CreatePartnerEventSourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-216"></span><span id="createPartnerEventSourceResponse_httpStatus"><span class="annot"><span class="annottext">createPartnerEventSourceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreatePartnerEventSourceResponse
+-&gt; f CreatePartnerEventSourceResponse
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#createPartnerEventSourceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createPartnerEventSourceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePartnerEventSourceResponse -&gt; Int)
+-&gt; (CreatePartnerEventSourceResponse
+    -&gt; Int -&gt; CreatePartnerEventSourceResponse)
+-&gt; Lens
+     CreatePartnerEventSourceResponse
+     CreatePartnerEventSourceResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSourceResponse%27"><span class="hs-identifier hs-type">CreatePartnerEventSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318121"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreatePartnerEventSourceResponse' :: CreatePartnerEventSourceResponse -&gt; Int
+</span><a href="#local-6989586621679318121"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318121"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318120"><span class="annot"><span class="annottext">s :: CreatePartnerEventSourceResponse
+</span><a href="#local-6989586621679318120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSourceResponse%27"><span class="hs-identifier hs-type">CreatePartnerEventSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318119"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePartnerEventSourceResponse
+</span><a href="#local-6989586621679318120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePartnerEventSourceResponse' :: Int
+</span><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#%24sel%3AhttpStatus%3ACreatePartnerEventSourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSourceResponse"><span class="hs-identifier hs-type">CreatePartnerEventSourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679318117"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreatePartnerEventSource.html#CreatePartnerEventSourceResponse"><span class="hs-identifier hs-type">CreatePartnerEventSourceResponse</span></a></span></span><span>
+</span><span id="line-221"></span></pre></body></html>

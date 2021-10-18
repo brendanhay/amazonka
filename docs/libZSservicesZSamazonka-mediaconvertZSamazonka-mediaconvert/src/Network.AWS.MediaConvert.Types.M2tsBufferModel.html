@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.M2tsBufferModel</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.M2tsBufferModel</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#M2tsBufferModel"><span class="hs-identifier">M2tsBufferModel</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#M2tsBufferModel_MULTIPLEX"><span class="hs-identifier">M2tsBufferModel_MULTIPLEX</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#M2tsBufferModel_NONE"><span class="hs-identifier">M2tsBufferModel_NONE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Controls what buffer model to use for accurate interleaving. If set to</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- MULTIPLEX, use multiplex buffer model. If set to NONE, this can lead to</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- lower latency, but low-memory devices may not be able to play back the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- stream without interruptions.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679979410"><span id="local-6989586621679979411"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsBufferModel"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#M2tsBufferModel"><span class="hs-identifier hs-var">M2tsBufferModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsBufferModel%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#M2tsBufferModel%27"><span class="hs-identifier hs-var">M2tsBufferModel'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM2tsBufferModel"><span class="annot"><span class="annottext">M2tsBufferModel -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#fromM2tsBufferModel"><span class="hs-identifier hs-var hs-var">fromM2tsBufferModel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679979402"><span id="local-6989586621679979404"><span id="local-6989586621679979406"><span class="annot"><span class="annottext">Int -&gt; M2tsBufferModel -&gt; ShowS
+[M2tsBufferModel] -&gt; ShowS
+M2tsBufferModel -&gt; String
+(Int -&gt; M2tsBufferModel -&gt; ShowS)
+-&gt; (M2tsBufferModel -&gt; String)
+-&gt; ([M2tsBufferModel] -&gt; ShowS)
+-&gt; Show M2tsBufferModel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [M2tsBufferModel] -&gt; ShowS
+$cshowList :: [M2tsBufferModel] -&gt; ShowS
+show :: M2tsBufferModel -&gt; String
+$cshow :: M2tsBufferModel -&gt; String
+showsPrec :: Int -&gt; M2tsBufferModel -&gt; ShowS
+$cshowsPrec :: Int -&gt; M2tsBufferModel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679979393"><span id="local-6989586621679979395"><span id="local-6989586621679979397"><span id="local-6989586621679979399"><span class="annot"><span class="annottext">ReadPrec [M2tsBufferModel]
+ReadPrec M2tsBufferModel
+Int -&gt; ReadS M2tsBufferModel
+ReadS [M2tsBufferModel]
+(Int -&gt; ReadS M2tsBufferModel)
+-&gt; ReadS [M2tsBufferModel]
+-&gt; ReadPrec M2tsBufferModel
+-&gt; ReadPrec [M2tsBufferModel]
+-&gt; Read M2tsBufferModel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [M2tsBufferModel]
+$creadListPrec :: ReadPrec [M2tsBufferModel]
+readPrec :: ReadPrec M2tsBufferModel
+$creadPrec :: ReadPrec M2tsBufferModel
+readList :: ReadS [M2tsBufferModel]
+$creadList :: ReadS [M2tsBufferModel]
+readsPrec :: Int -&gt; ReadS M2tsBufferModel
+$creadsPrec :: Int -&gt; ReadS M2tsBufferModel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679979388"><span id="local-6989586621679979390"><span class="annot"><span class="annottext">M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool
+(M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool)
+-&gt; (M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool)
+-&gt; Eq M2tsBufferModel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool
+$c/= :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool
+== :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool
+$c== :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679979372"><span id="local-6989586621679979374"><span id="local-6989586621679979376"><span id="local-6989586621679979378"><span id="local-6989586621679979380"><span id="local-6989586621679979382"><span id="local-6989586621679979384"><span class="annot"><span class="annottext">Eq M2tsBufferModel
+Eq M2tsBufferModel
+-&gt; (M2tsBufferModel -&gt; M2tsBufferModel -&gt; Ordering)
+-&gt; (M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool)
+-&gt; (M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool)
+-&gt; (M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool)
+-&gt; (M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool)
+-&gt; (M2tsBufferModel -&gt; M2tsBufferModel -&gt; M2tsBufferModel)
+-&gt; (M2tsBufferModel -&gt; M2tsBufferModel -&gt; M2tsBufferModel)
+-&gt; Ord M2tsBufferModel
+M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool
+M2tsBufferModel -&gt; M2tsBufferModel -&gt; Ordering
+M2tsBufferModel -&gt; M2tsBufferModel -&gt; M2tsBufferModel
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; M2tsBufferModel
+$cmin :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; M2tsBufferModel
+max :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; M2tsBufferModel
+$cmax :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; M2tsBufferModel
+&gt;= :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool
+$c&gt;= :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool
+&gt; :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool
+$c&gt; :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool
+&lt;= :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool
+$c&lt;= :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool
+&lt; :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool
+$c&lt; :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; Bool
+compare :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; Ordering
+$ccompare :: M2tsBufferModel -&gt; M2tsBufferModel -&gt; Ordering
+$cp1Ord :: Eq M2tsBufferModel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. M2tsBufferModel -&gt; Rep M2tsBufferModel x)
+-&gt; (forall x. Rep M2tsBufferModel x -&gt; M2tsBufferModel)
+-&gt; Generic M2tsBufferModel
+forall x. Rep M2tsBufferModel x -&gt; M2tsBufferModel
+forall x. M2tsBufferModel -&gt; Rep M2tsBufferModel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep M2tsBufferModel x -&gt; M2tsBufferModel
+$cfrom :: forall x. M2tsBufferModel -&gt; Rep M2tsBufferModel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679979364"><span id="local-6989586621679979366"><span class="annot"><span class="annottext">Int -&gt; M2tsBufferModel -&gt; Int
+M2tsBufferModel -&gt; Int
+(Int -&gt; M2tsBufferModel -&gt; Int)
+-&gt; (M2tsBufferModel -&gt; Int) -&gt; Hashable M2tsBufferModel
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: M2tsBufferModel -&gt; Int
+$chash :: M2tsBufferModel -&gt; Int
+hashWithSalt :: Int -&gt; M2tsBufferModel -&gt; Int
+$chashWithSalt :: Int -&gt; M2tsBufferModel -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679979361"><span class="annot"><span class="annottext">M2tsBufferModel -&gt; ()
+(M2tsBufferModel -&gt; ()) -&gt; NFData M2tsBufferModel
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: M2tsBufferModel -&gt; ()
+$crnf :: M2tsBufferModel -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679979358"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsBufferModel
+(Text -&gt; Either String M2tsBufferModel) -&gt; FromText M2tsBufferModel
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String M2tsBufferModel
+$cfromText :: Text -&gt; Either String M2tsBufferModel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679979355"><span class="annot"><span class="annottext">M2tsBufferModel -&gt; Text
+(M2tsBufferModel -&gt; Text) -&gt; ToText M2tsBufferModel
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: M2tsBufferModel -&gt; Text
+$ctoText :: M2tsBufferModel -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679979352"><span class="annot"><span class="annottext">M2tsBufferModel -&gt; ByteString
+(M2tsBufferModel -&gt; ByteString) -&gt; ToByteString M2tsBufferModel
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: M2tsBufferModel -&gt; ByteString
+$ctoBS :: M2tsBufferModel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679979349"><span class="annot"><span class="annottext">M2tsBufferModel -&gt; ByteStringBuilder
+(M2tsBufferModel -&gt; ByteStringBuilder) -&gt; ToLog M2tsBufferModel
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: M2tsBufferModel -&gt; ByteStringBuilder
+$cbuild :: M2tsBufferModel -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679979346"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsBufferModel -&gt; [Header]
+(HeaderName -&gt; M2tsBufferModel -&gt; [Header])
+-&gt; ToHeader M2tsBufferModel
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; M2tsBufferModel -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; M2tsBufferModel -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679979343"><span class="annot"><span class="annottext">M2tsBufferModel -&gt; QueryString
+(M2tsBufferModel -&gt; QueryString) -&gt; ToQuery M2tsBufferModel
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: M2tsBufferModel -&gt; QueryString
+$ctoQuery :: M2tsBufferModel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679979338"><span id="local-6989586621679979340"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsBufferModel]
+Value -&gt; Parser M2tsBufferModel
+(Value -&gt; Parser M2tsBufferModel)
+-&gt; (Value -&gt; Parser [M2tsBufferModel]) -&gt; FromJSON M2tsBufferModel
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [M2tsBufferModel]
+$cparseJSONList :: Value -&gt; Parser [M2tsBufferModel]
+parseJSON :: Value -&gt; Parser M2tsBufferModel
+$cparseJSON :: Value -&gt; Parser M2tsBufferModel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679979333"><span id="local-6989586621679979335"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsBufferModel]
+FromJSONKeyFunction M2tsBufferModel
+FromJSONKeyFunction M2tsBufferModel
+-&gt; FromJSONKeyFunction [M2tsBufferModel]
+-&gt; FromJSONKey M2tsBufferModel
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [M2tsBufferModel]
+$cfromJSONKeyList :: FromJSONKeyFunction [M2tsBufferModel]
+fromJSONKey :: FromJSONKeyFunction M2tsBufferModel
+$cfromJSONKey :: FromJSONKeyFunction M2tsBufferModel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679979324"><span id="local-6989586621679979326"><span id="local-6989586621679979328"><span id="local-6989586621679979330"><span class="annot"><span class="annottext">[M2tsBufferModel] -&gt; Encoding
+[M2tsBufferModel] -&gt; Value
+M2tsBufferModel -&gt; Encoding
+M2tsBufferModel -&gt; Value
+(M2tsBufferModel -&gt; Value)
+-&gt; (M2tsBufferModel -&gt; Encoding)
+-&gt; ([M2tsBufferModel] -&gt; Value)
+-&gt; ([M2tsBufferModel] -&gt; Encoding)
+-&gt; ToJSON M2tsBufferModel
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [M2tsBufferModel] -&gt; Encoding
+$ctoEncodingList :: [M2tsBufferModel] -&gt; Encoding
+toJSONList :: [M2tsBufferModel] -&gt; Value
+$ctoJSONList :: [M2tsBufferModel] -&gt; Value
+toEncoding :: M2tsBufferModel -&gt; Encoding
+$ctoEncoding :: M2tsBufferModel -&gt; Encoding
+toJSON :: M2tsBufferModel -&gt; Value
+$ctoJSON :: M2tsBufferModel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679979319"><span id="local-6989586621679979321"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsBufferModel]
+ToJSONKeyFunction M2tsBufferModel
+ToJSONKeyFunction M2tsBufferModel
+-&gt; ToJSONKeyFunction [M2tsBufferModel] -&gt; ToJSONKey M2tsBufferModel
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [M2tsBufferModel]
+$ctoJSONKeyList :: ToJSONKeyFunction [M2tsBufferModel]
+toJSONKey :: ToJSONKeyFunction M2tsBufferModel
+$ctoJSONKey :: ToJSONKeyFunction M2tsBufferModel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679979316"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsBufferModel
+([Node] -&gt; Either String M2tsBufferModel)
+-&gt; FromXML M2tsBufferModel
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String M2tsBufferModel
+$cparseXML :: [Node] -&gt; Either String M2tsBufferModel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679979313"><span class="annot"><span class="annottext">M2tsBufferModel -&gt; XML
+(M2tsBufferModel -&gt; XML) -&gt; ToXML M2tsBufferModel
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: M2tsBufferModel -&gt; XML
+$ctoXML :: M2tsBufferModel -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#M2tsBufferModel_MULTIPLEX"><span class="hs-identifier hs-type">M2tsBufferModel_MULTIPLEX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#M2tsBufferModel"><span class="hs-identifier hs-type">M2tsBufferModel</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bM2tsBufferModel_MULTIPLEX"><span id="%24mM2tsBufferModel_MULTIPLEX"><span id="M2tsBufferModel_MULTIPLEX"><span class="annot"><span class="annottext">$bM2tsBufferModel_MULTIPLEX :: M2tsBufferModel
+$mM2tsBufferModel_MULTIPLEX :: forall r. M2tsBufferModel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#%24bM2tsBufferModel_MULTIPLEX"><span class="hs-identifier hs-var hs-var hs-var">M2tsBufferModel_MULTIPLEX</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#M2tsBufferModel%27"><span class="hs-identifier hs-type">M2tsBufferModel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MULTIPLEX&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#M2tsBufferModel_NONE"><span class="hs-identifier hs-type">M2tsBufferModel_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#M2tsBufferModel"><span class="hs-identifier hs-type">M2tsBufferModel</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bM2tsBufferModel_NONE"><span id="%24mM2tsBufferModel_NONE"><span id="M2tsBufferModel_NONE"><span class="annot"><span class="annottext">$bM2tsBufferModel_NONE :: M2tsBufferModel
+$mM2tsBufferModel_NONE :: forall r. M2tsBufferModel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#%24bM2tsBufferModel_NONE"><span class="hs-identifier hs-var hs-var hs-var">M2tsBufferModel_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#M2tsBufferModel%27"><span class="hs-identifier hs-type">M2tsBufferModel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#M2tsBufferModel_MULTIPLEX"><span class="hs-pragma hs-type">M2tsBufferModel_MULTIPLEX</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#M2tsBufferModel_NONE"><span class="hs-pragma hs-type">M2tsBufferModel_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsBufferModel.html#M2tsBufferModel%27"><span class="hs-pragma hs-type">M2tsBufferModel'</span></a></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-75"></span></pre></body></html>

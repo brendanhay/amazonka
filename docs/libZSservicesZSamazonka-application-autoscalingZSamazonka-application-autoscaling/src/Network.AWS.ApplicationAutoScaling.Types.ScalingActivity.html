@@ -1,0 +1,1112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ApplicationAutoScaling.Types.ScalingActivity</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApplicationAutoScaling.Types.ScalingActivity</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html"><span class="hs-identifier">Network.AWS.ApplicationAutoScaling.Types.ScalableDimension</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.html"><span class="hs-identifier">Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html"><span class="hs-identifier">Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Represents a scaling activity.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newScalingActivity' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679185440"><span id="local-6989586621679185441"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScalingActivity"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-var">ScalingActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingActivity%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-var">ScalingActivity'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A simple message about the current status of the scaling activity.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AstatusMessage%3AScalingActivity%27"><span class="annot"><span class="annottext">ScalingActivity -&gt; Maybe Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AstatusMessage%3AScalingActivity%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Unix timestamp for when the scaling activity ended.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AendTime%3AScalingActivity%27"><span class="annot"><span class="annottext">ScalingActivity -&gt; Maybe POSIX
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AendTime%3AScalingActivity%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The details about the scaling activity.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Adetails%3AScalingActivity%27"><span class="annot"><span class="annottext">ScalingActivity -&gt; Maybe Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3Adetails%3AScalingActivity%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the scaling activity.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AactivityId%3AScalingActivity%27"><span class="annot"><span class="annottext">ScalingActivity -&gt; Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AactivityId%3AScalingActivity%27"><span class="hs-identifier hs-var hs-var">activityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The namespace of the Amazon Web Services service that provides the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- resource, or a @custom-resource@.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AserviceNamespace%3AScalingActivity%27"><span class="annot"><span class="annottext">ScalingActivity -&gt; ServiceNamespace
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AserviceNamespace%3AScalingActivity%27"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The identifier of the resource associated with the scaling activity.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- This string consists of the resource type and unique identifier.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   ECS service - The resource type is @service@ and the unique</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     identifier is the cluster name and service name. Example:</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     @service\/default\/sample-webapp@.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   Spot Fleet request - The resource type is @spot-fleet-request@ and</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     the unique identifier is the Spot Fleet request ID. Example:</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   EMR cluster - The resource type is @instancegroup@ and the unique</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     identifier is the cluster ID and instance group ID. Example:</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     identifier is the fleet name. Example: @fleet\/sample-fleet@.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   DynamoDB table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     identifier is the table name. Example: @table\/my-table@.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   DynamoDB global secondary index - The resource type is @index@ and</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     the unique identifier is the index name. Example:</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     @table\/my-table\/index\/my-table-index@.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   Aurora DB cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:my-db-cluster@.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   Amazon SageMaker endpoint variant - The resource type is @variant@</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     and the unique identifier is the resource ID. Example:</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     @endpoint\/my-end-point\/variant\/KMeansClustering@.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   Custom resources are not supported with a resource type. This</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     parameter must specify the @OutputValue@ from the CloudFormation</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     template stack used to access the resources. The unique identifier</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     is defined by the service provider. More information is available in</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     our</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     &lt;https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository&gt;.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   Amazon Comprehend document classification endpoint - The resource</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     type and unique identifier are specified using the endpoint ARN.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     Example:</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- -   Amazon Comprehend entity recognizer endpoint - The resource type and</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--     unique identifier are specified using the endpoint ARN. Example:</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   Lambda provisioned concurrency - The resource type is @function@ and</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     the unique identifier is the function name with a function version</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     or alias name suffix that is not @$LATEST@. Example:</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--     @function:my-function:prod@ or @function:my-function:1@.</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- -   Amazon Keyspaces table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     identifier is the table name. Example:</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--     @keyspace\/mykeyspace\/table\/mytable@.</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   Amazon MSK cluster - The resource type and unique identifier are</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     specified using the cluster ARN. Example:</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- -   Amazon ElastiCache replication group - The resource type is</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--     @replication-group@ and the unique identifier is the replication</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--     group name. Example: @replication-group\/mycluster@.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AresourceId%3AScalingActivity%27"><span class="annot"><span class="annottext">ScalingActivity -&gt; Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AresourceId%3AScalingActivity%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The scalable dimension. This string consists of the service namespace,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- resource type, and scaling property.</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--     of an EMR Instance Group.</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--     Spot Fleet request.</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--     AppStream 2.0 fleet.</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--     Aurora PostgreSQL-compatible edition.</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">--     instances for an Amazon SageMaker model endpoint variant.</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--     a custom resource provided by your own application or service.</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">--     The number of inference units for an Amazon Comprehend document</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">--     classification endpoint.</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">--     number of inference units for an Amazon Comprehend entity recognizer</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">--     endpoint.</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">--     concurrency for a Lambda function.</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">--     for an Amazon Keyspaces table.</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">--     capacity for an Amazon Keyspaces table.</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">--     GiB) for brokers in an Amazon MSK cluster.</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- -   @elasticache:replication-group:NodeGroups@ - The number of node</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">--     groups for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- -   @elasticache:replication-group:Replicas@ - The number of replicas</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">--     per node group for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AscalableDimension%3AScalingActivity%27"><span class="annot"><span class="annottext">ScalingActivity -&gt; ScalableDimension
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AscalableDimension%3AScalingActivity%27"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | A simple description of what action the scaling activity intends to</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- accomplish.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3Adescription%3AScalingActivity%27"><span class="annot"><span class="annottext">ScalingActivity -&gt; Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3Adescription%3AScalingActivity%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | A simple description of what caused the scaling activity to happen.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3Acause%3AScalingActivity%27"><span class="annot"><span class="annottext">ScalingActivity -&gt; Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3Acause%3AScalingActivity%27"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The Unix timestamp for when the scaling activity began.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AstartTime%3AScalingActivity%27"><span class="annot"><span class="annottext">ScalingActivity -&gt; POSIX
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AstartTime%3AScalingActivity%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | Indicates the status of the scaling activity.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3AstatusCode%3AScalingActivity%27"><span class="annot"><span class="annottext">ScalingActivity -&gt; ScalingActivityStatusCode
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AstatusCode%3AScalingActivity%27"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.html#ScalingActivityStatusCode"><span class="hs-identifier hs-type">ScalingActivityStatusCode</span></a></span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185424"><span id="local-6989586621679185426"><span class="annot"><span class="annottext">ScalingActivity -&gt; ScalingActivity -&gt; Bool
+(ScalingActivity -&gt; ScalingActivity -&gt; Bool)
+-&gt; (ScalingActivity -&gt; ScalingActivity -&gt; Bool)
+-&gt; Eq ScalingActivity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScalingActivity -&gt; ScalingActivity -&gt; Bool
+$c/= :: ScalingActivity -&gt; ScalingActivity -&gt; Bool
+== :: ScalingActivity -&gt; ScalingActivity -&gt; Bool
+$c== :: ScalingActivity -&gt; ScalingActivity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185415"><span id="local-6989586621679185417"><span id="local-6989586621679185419"><span id="local-6989586621679185421"><span class="annot"><span class="annottext">ReadPrec [ScalingActivity]
+ReadPrec ScalingActivity
+Int -&gt; ReadS ScalingActivity
+ReadS [ScalingActivity]
+(Int -&gt; ReadS ScalingActivity)
+-&gt; ReadS [ScalingActivity]
+-&gt; ReadPrec ScalingActivity
+-&gt; ReadPrec [ScalingActivity]
+-&gt; Read ScalingActivity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScalingActivity]
+$creadListPrec :: ReadPrec [ScalingActivity]
+readPrec :: ReadPrec ScalingActivity
+$creadPrec :: ReadPrec ScalingActivity
+readList :: ReadS [ScalingActivity]
+$creadList :: ReadS [ScalingActivity]
+readsPrec :: Int -&gt; ReadS ScalingActivity
+$creadsPrec :: Int -&gt; ReadS ScalingActivity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185408"><span id="local-6989586621679185410"><span id="local-6989586621679185412"><span class="annot"><span class="annottext">Int -&gt; ScalingActivity -&gt; ShowS
+[ScalingActivity] -&gt; ShowS
+ScalingActivity -&gt; String
+(Int -&gt; ScalingActivity -&gt; ShowS)
+-&gt; (ScalingActivity -&gt; String)
+-&gt; ([ScalingActivity] -&gt; ShowS)
+-&gt; Show ScalingActivity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScalingActivity] -&gt; ShowS
+$cshowList :: [ScalingActivity] -&gt; ShowS
+show :: ScalingActivity -&gt; String
+$cshow :: ScalingActivity -&gt; String
+showsPrec :: Int -&gt; ScalingActivity -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScalingActivity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ScalingActivity -&gt; Rep ScalingActivity x)
+-&gt; (forall x. Rep ScalingActivity x -&gt; ScalingActivity)
+-&gt; Generic ScalingActivity
+forall x. Rep ScalingActivity x -&gt; ScalingActivity
+forall x. ScalingActivity -&gt; Rep ScalingActivity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ScalingActivity x -&gt; ScalingActivity
+$cfrom :: forall x. ScalingActivity -&gt; Rep ScalingActivity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Create a value of 'ScalingActivity' with all optional fields omitted.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'statusMessage', 'scalingActivity_statusMessage' - A simple message about the current status of the scaling activity.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'endTime', 'scalingActivity_endTime' - The Unix timestamp for when the scaling activity ended.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'details', 'scalingActivity_details' - The details about the scaling activity.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'activityId', 'scalingActivity_activityId' - The unique identifier of the scaling activity.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'serviceNamespace', 'scalingActivity_serviceNamespace' - The namespace of the Amazon Web Services service that provides the</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- resource, or a @custom-resource@.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'resourceId', 'scalingActivity_resourceId' - The identifier of the resource associated with the scaling activity.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- This string consists of the resource type and unique identifier.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- -   ECS service - The resource type is @service@ and the unique</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--     identifier is the cluster name and service name. Example:</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--     @service\/default\/sample-webapp@.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- -   Spot Fleet request - The resource type is @spot-fleet-request@ and</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--     the unique identifier is the Spot Fleet request ID. Example:</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- -   EMR cluster - The resource type is @instancegroup@ and the unique</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--     identifier is the cluster ID and instance group ID. Example:</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--     identifier is the fleet name. Example: @fleet\/sample-fleet@.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- -   DynamoDB table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--     identifier is the table name. Example: @table\/my-table@.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- -   DynamoDB global secondary index - The resource type is @index@ and</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--     the unique identifier is the index name. Example:</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--     @table\/my-table\/index\/my-table-index@.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- -   Aurora DB cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:my-db-cluster@.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- -   Amazon SageMaker endpoint variant - The resource type is @variant@</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--     and the unique identifier is the resource ID. Example:</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--     @endpoint\/my-end-point\/variant\/KMeansClustering@.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- -   Custom resources are not supported with a resource type. This</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--     parameter must specify the @OutputValue@ from the CloudFormation</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--     template stack used to access the resources. The unique identifier</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--     is defined by the service provider. More information is available in</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--     our</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--     &lt;https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository&gt;.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- -   Amazon Comprehend document classification endpoint - The resource</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--     type and unique identifier are specified using the endpoint ARN.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--     Example:</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- -   Amazon Comprehend entity recognizer endpoint - The resource type and</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--     unique identifier are specified using the endpoint ARN. Example:</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- -   Lambda provisioned concurrency - The resource type is @function@ and</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     the unique identifier is the function name with a function version</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--     or alias name suffix that is not @$LATEST@. Example:</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--     @function:my-function:prod@ or @function:my-function:1@.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- -   Amazon Keyspaces table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--     identifier is the table name. Example:</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--     @keyspace\/mykeyspace\/table\/mytable@.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- -   Amazon MSK cluster - The resource type and unique identifier are</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--     specified using the cluster ARN. Example:</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- -   Amazon ElastiCache replication group - The resource type is</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--     @replication-group@ and the unique identifier is the replication</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--     group name. Example: @replication-group\/mycluster@.</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- 'scalableDimension', 'scalingActivity_scalableDimension' - The scalable dimension. This string consists of the service namespace,</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- resource type, and scaling property.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--     of an EMR Instance Group.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--     Spot Fleet request.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--     AppStream 2.0 fleet.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--     Aurora PostgreSQL-compatible edition.</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--     instances for an Amazon SageMaker model endpoint variant.</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--     a custom resource provided by your own application or service.</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--     The number of inference units for an Amazon Comprehend document</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--     classification endpoint.</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--     number of inference units for an Amazon Comprehend entity recognizer</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--     endpoint.</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--     concurrency for a Lambda function.</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--     for an Amazon Keyspaces table.</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--     capacity for an Amazon Keyspaces table.</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--     GiB) for brokers in an Amazon MSK cluster.</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- -   @elasticache:replication-group:NodeGroups@ - The number of node</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--     groups for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-327"></span><span class="hs-comment">--</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- -   @elasticache:replication-group:Replicas@ - The number of replicas</span><span>
+</span><span id="line-329"></span><span class="hs-comment">--     per node group for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- 'description', 'scalingActivity_description' - A simple description of what action the scaling activity intends to</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- accomplish.</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- 'cause', 'scalingActivity_cause' - A simple description of what caused the scaling activity to happen.</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- 'startTime', 'scalingActivity_startTime' - The Unix timestamp for when the scaling activity began.</span><span>
+</span><span id="line-337"></span><span class="hs-comment">--</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- 'statusCode', 'scalingActivity_statusCode' - Indicates the status of the scaling activity.</span><span>
+</span><span id="line-339"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#newScalingActivity"><span class="hs-identifier hs-type">newScalingActivity</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-340"></span><span>  </span><span class="hs-comment">-- | 'activityId'</span><span>
+</span><span id="line-341"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-342"></span><span>  </span><span class="hs-comment">-- | 'serviceNamespace'</span><span>
+</span><span id="line-343"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-344"></span><span>  </span><span class="hs-comment">-- | 'resourceId'</span><span>
+</span><span id="line-345"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-346"></span><span>  </span><span class="hs-comment">-- | 'scalableDimension'</span><span>
+</span><span id="line-347"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-348"></span><span>  </span><span class="hs-comment">-- | 'description'</span><span>
+</span><span id="line-349"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-350"></span><span>  </span><span class="hs-comment">-- | 'cause'</span><span>
+</span><span id="line-351"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-352"></span><span>  </span><span class="hs-comment">-- | 'startTime'</span><span>
+</span><span id="line-353"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-354"></span><span>  </span><span class="hs-comment">-- | 'statusCode'</span><span>
+</span><span id="line-355"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.html#ScalingActivityStatusCode"><span class="hs-identifier hs-type">ScalingActivityStatusCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-356"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span>
+</span><span id="line-357"></span><span id="newScalingActivity"><span class="annot"><span class="annottext">newScalingActivity :: Text
+-&gt; ServiceNamespace
+-&gt; Text
+-&gt; ScalableDimension
+-&gt; Text
+-&gt; Text
+-&gt; UTCTime
+-&gt; ScalingActivityStatusCode
+-&gt; ScalingActivity
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#newScalingActivity"><span class="hs-identifier hs-var hs-var">newScalingActivity</span></a></span></span><span>
+</span><span id="line-358"></span><span>  </span><span id="local-6989586621679185402"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185402"><span class="hs-identifier hs-var">pActivityId_</span></a></span></span><span>
+</span><span id="line-359"></span><span>  </span><span id="local-6989586621679185401"><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679185401"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span>
+</span><span id="line-360"></span><span>  </span><span id="local-6989586621679185400"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185400"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
+</span><span id="line-361"></span><span>  </span><span id="local-6989586621679185399"><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679185399"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span></span><span>
+</span><span id="line-362"></span><span>  </span><span id="local-6989586621679185398"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185398"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span>
+</span><span id="line-363"></span><span>  </span><span id="local-6989586621679185397"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185397"><span class="hs-identifier hs-var">pCause_</span></a></span></span><span>
+</span><span id="line-364"></span><span>  </span><span id="local-6989586621679185396"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679185396"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span>
+</span><span id="line-365"></span><span>  </span><span id="local-6989586621679185395"><span class="annot"><span class="annottext">ScalingActivityStatusCode
+</span><a href="#local-6989586621679185395"><span class="hs-identifier hs-var">pStatusCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-366"></span><span>    </span><span class="annot"><span class="annottext">ScalingActivity' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Text
+-&gt; ServiceNamespace
+-&gt; Text
+-&gt; ScalableDimension
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; ScalingActivityStatusCode
+-&gt; ScalingActivity
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span>
+</span><span id="line-367"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statusMessage:ScalingActivity' :: Maybe Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AstatusMessage%3AScalingActivity%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-368"></span><span>        </span><span class="annot"><span class="annottext">$sel:endTime:ScalingActivity' :: Maybe POSIX
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AendTime%3AScalingActivity%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-369"></span><span>        </span><span class="annot"><span class="annottext">$sel:details:ScalingActivity' :: Maybe Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3Adetails%3AScalingActivity%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-370"></span><span>        </span><span class="annot"><span class="annottext">$sel:activityId:ScalingActivity' :: Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AactivityId%3AScalingActivity%27"><span class="hs-identifier hs-var">activityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185402"><span class="hs-identifier hs-var">pActivityId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-371"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceNamespace:ScalingActivity' :: ServiceNamespace
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AserviceNamespace%3AScalingActivity%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679185401"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-372"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:ScalingActivity' :: Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AresourceId%3AScalingActivity%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185400"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-373"></span><span>        </span><span class="annot"><span class="annottext">$sel:scalableDimension:ScalingActivity' :: ScalableDimension
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AscalableDimension%3AScalingActivity%27"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679185399"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-374"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:ScalingActivity' :: Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3Adescription%3AScalingActivity%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185398"><span class="hs-identifier hs-var">pDescription_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-375"></span><span>        </span><span class="annot"><span class="annottext">$sel:cause:ScalingActivity' :: Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3Acause%3AScalingActivity%27"><span class="hs-identifier hs-var">cause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185397"><span class="hs-identifier hs-var">pCause_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-376"></span><span>        </span><span class="annot"><span class="annottext">$sel:startTime:ScalingActivity' :: POSIX
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AstartTime%3AScalingActivity%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679185396"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-377"></span><span>        </span><span class="annot"><span class="annottext">$sel:statusCode:ScalingActivity' :: ScalingActivityStatusCode
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AstatusCode%3AScalingActivity%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalingActivityStatusCode
+</span><a href="#local-6989586621679185395"><span class="hs-identifier hs-var">pStatusCode_</span></a></span><span>
+</span><span id="line-378"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-379"></span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- | A simple message about the current status of the scaling activity.</span><span>
+</span><span id="line-381"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_statusMessage"><span class="hs-identifier hs-type">scalingActivity_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span id="scalingActivity_statusMessage"><span class="annot"><span class="annottext">scalingActivity_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScalingActivity -&gt; f ScalingActivity
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_statusMessage"><span class="hs-identifier hs-var hs-var">scalingActivity_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingActivity -&gt; Maybe Text)
+-&gt; (ScalingActivity -&gt; Maybe Text -&gt; ScalingActivity)
+-&gt; Lens ScalingActivity ScalingActivity (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185389"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:ScalingActivity' :: ScalingActivity -&gt; Maybe Text
+</span><a href="#local-6989586621679185389"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185389"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185388"><span class="annot"><span class="annottext">s :: ScalingActivity
+</span><a href="#local-6989586621679185388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185387"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingActivity
+</span><a href="#local-6989586621679185388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:ScalingActivity' :: Maybe Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AstatusMessage%3AScalingActivity%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-383"></span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- | The Unix timestamp for when the scaling activity ended.</span><span>
+</span><span id="line-385"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_endTime"><span class="hs-identifier hs-type">scalingActivity_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-386"></span><span id="scalingActivity_endTime"><span class="annot"><span class="annottext">scalingActivity_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ScalingActivity -&gt; f ScalingActivity
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_endTime"><span class="hs-identifier hs-var hs-var">scalingActivity_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingActivity -&gt; Maybe POSIX)
+-&gt; (ScalingActivity -&gt; Maybe POSIX -&gt; ScalingActivity)
+-&gt; Lens ScalingActivity ScalingActivity (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185385"><span class="annot"><span class="annottext">Maybe POSIX
+endTime :: Maybe POSIX
+$sel:endTime:ScalingActivity' :: ScalingActivity -&gt; Maybe POSIX
+</span><a href="#local-6989586621679185385"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679185385"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185384"><span class="annot"><span class="annottext">s :: ScalingActivity
+</span><a href="#local-6989586621679185384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185383"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679185383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingActivity
+</span><a href="#local-6989586621679185384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:ScalingActivity' :: Maybe POSIX
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AendTime%3AScalingActivity%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679185383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ScalingActivity -&gt; f ScalingActivity)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ScalingActivity
+-&gt; f ScalingActivity
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-387"></span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- | The details about the scaling activity.</span><span>
+</span><span id="line-389"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_details"><span class="hs-identifier hs-type">scalingActivity_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-390"></span><span id="scalingActivity_details"><span class="annot"><span class="annottext">scalingActivity_details :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScalingActivity -&gt; f ScalingActivity
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_details"><span class="hs-identifier hs-var hs-var">scalingActivity_details</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingActivity -&gt; Maybe Text)
+-&gt; (ScalingActivity -&gt; Maybe Text -&gt; ScalingActivity)
+-&gt; Lens ScalingActivity ScalingActivity (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185379"><span class="annot"><span class="annottext">Maybe Text
+details :: Maybe Text
+$sel:details:ScalingActivity' :: ScalingActivity -&gt; Maybe Text
+</span><a href="#local-6989586621679185379"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185379"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185378"><span class="annot"><span class="annottext">s :: ScalingActivity
+</span><a href="#local-6989586621679185378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185377"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingActivity
+</span><a href="#local-6989586621679185378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:ScalingActivity' :: Maybe Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3Adetails%3AScalingActivity%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-391"></span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- | The unique identifier of the scaling activity.</span><span>
+</span><span id="line-393"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_activityId"><span class="hs-identifier hs-type">scalingActivity_activityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-394"></span><span id="scalingActivity_activityId"><span class="annot"><span class="annottext">scalingActivity_activityId :: (Text -&gt; f Text) -&gt; ScalingActivity -&gt; f ScalingActivity
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_activityId"><span class="hs-identifier hs-var hs-var">scalingActivity_activityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingActivity -&gt; Text)
+-&gt; (ScalingActivity -&gt; Text -&gt; ScalingActivity)
+-&gt; Lens ScalingActivity ScalingActivity Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185375"><span class="annot"><span class="annottext">Text
+activityId :: Text
+$sel:activityId:ScalingActivity' :: ScalingActivity -&gt; Text
+</span><a href="#local-6989586621679185375"><span class="hs-identifier hs-var hs-var">activityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185375"><span class="hs-identifier hs-var">activityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185374"><span class="annot"><span class="annottext">s :: ScalingActivity
+</span><a href="#local-6989586621679185374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185373"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingActivity
+</span><a href="#local-6989586621679185374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activityId:ScalingActivity' :: Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AactivityId%3AScalingActivity%27"><span class="hs-identifier hs-var">activityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-395"></span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- | The namespace of the Amazon Web Services service that provides the</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- resource, or a @custom-resource@.</span><span>
+</span><span id="line-398"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_serviceNamespace"><span class="hs-identifier hs-type">scalingActivity_serviceNamespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span>
+</span><span id="line-399"></span><span id="scalingActivity_serviceNamespace"><span class="annot"><span class="annottext">scalingActivity_serviceNamespace :: (ServiceNamespace -&gt; f ServiceNamespace)
+-&gt; ScalingActivity -&gt; f ScalingActivity
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_serviceNamespace"><span class="hs-identifier hs-var hs-var">scalingActivity_serviceNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingActivity -&gt; ServiceNamespace)
+-&gt; (ScalingActivity -&gt; ServiceNamespace -&gt; ScalingActivity)
+-&gt; Lens
+     ScalingActivity ScalingActivity ServiceNamespace ServiceNamespace
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185371"><span class="annot"><span class="annottext">ServiceNamespace
+serviceNamespace :: ServiceNamespace
+$sel:serviceNamespace:ScalingActivity' :: ScalingActivity -&gt; ServiceNamespace
+</span><a href="#local-6989586621679185371"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679185371"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185370"><span class="annot"><span class="annottext">s :: ScalingActivity
+</span><a href="#local-6989586621679185370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185369"><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679185369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingActivity
+</span><a href="#local-6989586621679185370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:ScalingActivity' :: ServiceNamespace
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AserviceNamespace%3AScalingActivity%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679185369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-400"></span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- | The identifier of the resource associated with the scaling activity.</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- This string consists of the resource type and unique identifier.</span><span>
+</span><span id="line-403"></span><span class="hs-comment">--</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- -   ECS service - The resource type is @service@ and the unique</span><span>
+</span><span id="line-405"></span><span class="hs-comment">--     identifier is the cluster name and service name. Example:</span><span>
+</span><span id="line-406"></span><span class="hs-comment">--     @service\/default\/sample-webapp@.</span><span>
+</span><span id="line-407"></span><span class="hs-comment">--</span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- -   Spot Fleet request - The resource type is @spot-fleet-request@ and</span><span>
+</span><span id="line-409"></span><span class="hs-comment">--     the unique identifier is the Spot Fleet request ID. Example:</span><span>
+</span><span id="line-410"></span><span class="hs-comment">--     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.</span><span>
+</span><span id="line-411"></span><span class="hs-comment">--</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- -   EMR cluster - The resource type is @instancegroup@ and the unique</span><span>
+</span><span id="line-413"></span><span class="hs-comment">--     identifier is the cluster ID and instance group ID. Example:</span><span>
+</span><span id="line-414"></span><span class="hs-comment">--     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.</span><span>
+</span><span id="line-415"></span><span class="hs-comment">--</span><span>
+</span><span id="line-416"></span><span class="hs-comment">-- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique</span><span>
+</span><span id="line-417"></span><span class="hs-comment">--     identifier is the fleet name. Example: @fleet\/sample-fleet@.</span><span>
+</span><span id="line-418"></span><span class="hs-comment">--</span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- -   DynamoDB table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-420"></span><span class="hs-comment">--     identifier is the table name. Example: @table\/my-table@.</span><span>
+</span><span id="line-421"></span><span class="hs-comment">--</span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- -   DynamoDB global secondary index - The resource type is @index@ and</span><span>
+</span><span id="line-423"></span><span class="hs-comment">--     the unique identifier is the index name. Example:</span><span>
+</span><span id="line-424"></span><span class="hs-comment">--     @table\/my-table\/index\/my-table-index@.</span><span>
+</span><span id="line-425"></span><span class="hs-comment">--</span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- -   Aurora DB cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-427"></span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:my-db-cluster@.</span><span>
+</span><span id="line-428"></span><span class="hs-comment">--</span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- -   Amazon SageMaker endpoint variant - The resource type is @variant@</span><span>
+</span><span id="line-430"></span><span class="hs-comment">--     and the unique identifier is the resource ID. Example:</span><span>
+</span><span id="line-431"></span><span class="hs-comment">--     @endpoint\/my-end-point\/variant\/KMeansClustering@.</span><span>
+</span><span id="line-432"></span><span class="hs-comment">--</span><span>
+</span><span id="line-433"></span><span class="hs-comment">-- -   Custom resources are not supported with a resource type. This</span><span>
+</span><span id="line-434"></span><span class="hs-comment">--     parameter must specify the @OutputValue@ from the CloudFormation</span><span>
+</span><span id="line-435"></span><span class="hs-comment">--     template stack used to access the resources. The unique identifier</span><span>
+</span><span id="line-436"></span><span class="hs-comment">--     is defined by the service provider. More information is available in</span><span>
+</span><span id="line-437"></span><span class="hs-comment">--     our</span><span>
+</span><span id="line-438"></span><span class="hs-comment">--     &lt;https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository&gt;.</span><span>
+</span><span id="line-439"></span><span class="hs-comment">--</span><span>
+</span><span id="line-440"></span><span class="hs-comment">-- -   Amazon Comprehend document classification endpoint - The resource</span><span>
+</span><span id="line-441"></span><span class="hs-comment">--     type and unique identifier are specified using the endpoint ARN.</span><span>
+</span><span id="line-442"></span><span class="hs-comment">--     Example:</span><span>
+</span><span id="line-443"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-444"></span><span class="hs-comment">--</span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- -   Amazon Comprehend entity recognizer endpoint - The resource type and</span><span>
+</span><span id="line-446"></span><span class="hs-comment">--     unique identifier are specified using the endpoint ARN. Example:</span><span>
+</span><span id="line-447"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-448"></span><span class="hs-comment">--</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- -   Lambda provisioned concurrency - The resource type is @function@ and</span><span>
+</span><span id="line-450"></span><span class="hs-comment">--     the unique identifier is the function name with a function version</span><span>
+</span><span id="line-451"></span><span class="hs-comment">--     or alias name suffix that is not @$LATEST@. Example:</span><span>
+</span><span id="line-452"></span><span class="hs-comment">--     @function:my-function:prod@ or @function:my-function:1@.</span><span>
+</span><span id="line-453"></span><span class="hs-comment">--</span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- -   Amazon Keyspaces table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-455"></span><span class="hs-comment">--     identifier is the table name. Example:</span><span>
+</span><span id="line-456"></span><span class="hs-comment">--     @keyspace\/mykeyspace\/table\/mytable@.</span><span>
+</span><span id="line-457"></span><span class="hs-comment">--</span><span>
+</span><span id="line-458"></span><span class="hs-comment">-- -   Amazon MSK cluster - The resource type and unique identifier are</span><span>
+</span><span id="line-459"></span><span class="hs-comment">--     specified using the cluster ARN. Example:</span><span>
+</span><span id="line-460"></span><span class="hs-comment">--     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.</span><span>
+</span><span id="line-461"></span><span class="hs-comment">--</span><span>
+</span><span id="line-462"></span><span class="hs-comment">-- -   Amazon ElastiCache replication group - The resource type is</span><span>
+</span><span id="line-463"></span><span class="hs-comment">--     @replication-group@ and the unique identifier is the replication</span><span>
+</span><span id="line-464"></span><span class="hs-comment">--     group name. Example: @replication-group\/mycluster@.</span><span>
+</span><span id="line-465"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_resourceId"><span class="hs-identifier hs-type">scalingActivity_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-466"></span><span id="scalingActivity_resourceId"><span class="annot"><span class="annottext">scalingActivity_resourceId :: (Text -&gt; f Text) -&gt; ScalingActivity -&gt; f ScalingActivity
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_resourceId"><span class="hs-identifier hs-var hs-var">scalingActivity_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingActivity -&gt; Text)
+-&gt; (ScalingActivity -&gt; Text -&gt; ScalingActivity)
+-&gt; Lens ScalingActivity ScalingActivity Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185367"><span class="annot"><span class="annottext">Text
+resourceId :: Text
+$sel:resourceId:ScalingActivity' :: ScalingActivity -&gt; Text
+</span><a href="#local-6989586621679185367"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185367"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185366"><span class="annot"><span class="annottext">s :: ScalingActivity
+</span><a href="#local-6989586621679185366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185365"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingActivity
+</span><a href="#local-6989586621679185366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:ScalingActivity' :: Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AresourceId%3AScalingActivity%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-467"></span><span>
+</span><span id="line-468"></span><span class="hs-comment">-- | The scalable dimension. This string consists of the service namespace,</span><span>
+</span><span id="line-469"></span><span class="hs-comment">-- resource type, and scaling property.</span><span>
+</span><span id="line-470"></span><span class="hs-comment">--</span><span>
+</span><span id="line-471"></span><span class="hs-comment">-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS</span><span>
+</span><span id="line-472"></span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-473"></span><span class="hs-comment">--</span><span>
+</span><span id="line-474"></span><span class="hs-comment">-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count</span><span>
+</span><span id="line-475"></span><span class="hs-comment">--     of an EMR Instance Group.</span><span>
+</span><span id="line-476"></span><span class="hs-comment">--</span><span>
+</span><span id="line-477"></span><span class="hs-comment">-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a</span><span>
+</span><span id="line-478"></span><span class="hs-comment">--     Spot Fleet request.</span><span>
+</span><span id="line-479"></span><span class="hs-comment">--</span><span>
+</span><span id="line-480"></span><span class="hs-comment">-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an</span><span>
+</span><span id="line-481"></span><span class="hs-comment">--     AppStream 2.0 fleet.</span><span>
+</span><span id="line-482"></span><span class="hs-comment">--</span><span>
+</span><span id="line-483"></span><span class="hs-comment">-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-484"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-485"></span><span class="hs-comment">--</span><span>
+</span><span id="line-486"></span><span class="hs-comment">-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-487"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-488"></span><span class="hs-comment">--</span><span>
+</span><span id="line-489"></span><span class="hs-comment">-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-490"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-491"></span><span class="hs-comment">--</span><span>
+</span><span id="line-492"></span><span class="hs-comment">-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-493"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-494"></span><span class="hs-comment">--</span><span>
+</span><span id="line-495"></span><span class="hs-comment">-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an</span><span>
+</span><span id="line-496"></span><span class="hs-comment">--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and</span><span>
+</span><span id="line-497"></span><span class="hs-comment">--     Aurora PostgreSQL-compatible edition.</span><span>
+</span><span id="line-498"></span><span class="hs-comment">--</span><span>
+</span><span id="line-499"></span><span class="hs-comment">-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2</span><span>
+</span><span id="line-500"></span><span class="hs-comment">--     instances for an Amazon SageMaker model endpoint variant.</span><span>
+</span><span id="line-501"></span><span class="hs-comment">--</span><span>
+</span><span id="line-502"></span><span class="hs-comment">-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for</span><span>
+</span><span id="line-503"></span><span class="hs-comment">--     a custom resource provided by your own application or service.</span><span>
+</span><span id="line-504"></span><span class="hs-comment">--</span><span>
+</span><span id="line-505"></span><span class="hs-comment">-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -</span><span>
+</span><span id="line-506"></span><span class="hs-comment">--     The number of inference units for an Amazon Comprehend document</span><span>
+</span><span id="line-507"></span><span class="hs-comment">--     classification endpoint.</span><span>
+</span><span id="line-508"></span><span class="hs-comment">--</span><span>
+</span><span id="line-509"></span><span class="hs-comment">-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The</span><span>
+</span><span id="line-510"></span><span class="hs-comment">--     number of inference units for an Amazon Comprehend entity recognizer</span><span>
+</span><span id="line-511"></span><span class="hs-comment">--     endpoint.</span><span>
+</span><span id="line-512"></span><span class="hs-comment">--</span><span>
+</span><span id="line-513"></span><span class="hs-comment">-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned</span><span>
+</span><span id="line-514"></span><span class="hs-comment">--     concurrency for a Lambda function.</span><span>
+</span><span id="line-515"></span><span class="hs-comment">--</span><span>
+</span><span id="line-516"></span><span class="hs-comment">-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-517"></span><span class="hs-comment">--     for an Amazon Keyspaces table.</span><span>
+</span><span id="line-518"></span><span class="hs-comment">--</span><span>
+</span><span id="line-519"></span><span class="hs-comment">-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write</span><span>
+</span><span id="line-520"></span><span class="hs-comment">--     capacity for an Amazon Keyspaces table.</span><span>
+</span><span id="line-521"></span><span class="hs-comment">--</span><span>
+</span><span id="line-522"></span><span class="hs-comment">-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in</span><span>
+</span><span id="line-523"></span><span class="hs-comment">--     GiB) for brokers in an Amazon MSK cluster.</span><span>
+</span><span id="line-524"></span><span class="hs-comment">--</span><span>
+</span><span id="line-525"></span><span class="hs-comment">-- -   @elasticache:replication-group:NodeGroups@ - The number of node</span><span>
+</span><span id="line-526"></span><span class="hs-comment">--     groups for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-527"></span><span class="hs-comment">--</span><span>
+</span><span id="line-528"></span><span class="hs-comment">-- -   @elasticache:replication-group:Replicas@ - The number of replicas</span><span>
+</span><span id="line-529"></span><span class="hs-comment">--     per node group for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-530"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_scalableDimension"><span class="hs-identifier hs-type">scalingActivity_scalableDimension</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-531"></span><span id="scalingActivity_scalableDimension"><span class="annot"><span class="annottext">scalingActivity_scalableDimension :: (ScalableDimension -&gt; f ScalableDimension)
+-&gt; ScalingActivity -&gt; f ScalingActivity
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_scalableDimension"><span class="hs-identifier hs-var hs-var">scalingActivity_scalableDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingActivity -&gt; ScalableDimension)
+-&gt; (ScalingActivity -&gt; ScalableDimension -&gt; ScalingActivity)
+-&gt; Lens
+     ScalingActivity ScalingActivity ScalableDimension ScalableDimension
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185363"><span class="annot"><span class="annottext">ScalableDimension
+scalableDimension :: ScalableDimension
+$sel:scalableDimension:ScalingActivity' :: ScalingActivity -&gt; ScalableDimension
+</span><a href="#local-6989586621679185363"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679185363"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185362"><span class="annot"><span class="annottext">s :: ScalingActivity
+</span><a href="#local-6989586621679185362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185361"><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679185361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingActivity
+</span><a href="#local-6989586621679185362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalableDimension:ScalingActivity' :: ScalableDimension
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AscalableDimension%3AScalingActivity%27"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679185361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-532"></span><span>
+</span><span id="line-533"></span><span class="hs-comment">-- | A simple description of what action the scaling activity intends to</span><span>
+</span><span id="line-534"></span><span class="hs-comment">-- accomplish.</span><span>
+</span><span id="line-535"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_description"><span class="hs-identifier hs-type">scalingActivity_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-536"></span><span id="scalingActivity_description"><span class="annot"><span class="annottext">scalingActivity_description :: (Text -&gt; f Text) -&gt; ScalingActivity -&gt; f ScalingActivity
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_description"><span class="hs-identifier hs-var hs-var">scalingActivity_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingActivity -&gt; Text)
+-&gt; (ScalingActivity -&gt; Text -&gt; ScalingActivity)
+-&gt; Lens ScalingActivity ScalingActivity Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185359"><span class="annot"><span class="annottext">Text
+description :: Text
+$sel:description:ScalingActivity' :: ScalingActivity -&gt; Text
+</span><a href="#local-6989586621679185359"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185359"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185358"><span class="annot"><span class="annottext">s :: ScalingActivity
+</span><a href="#local-6989586621679185358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185357"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingActivity
+</span><a href="#local-6989586621679185358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ScalingActivity' :: Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3Adescription%3AScalingActivity%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-537"></span><span>
+</span><span id="line-538"></span><span class="hs-comment">-- | A simple description of what caused the scaling activity to happen.</span><span>
+</span><span id="line-539"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_cause"><span class="hs-identifier hs-type">scalingActivity_cause</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-540"></span><span id="scalingActivity_cause"><span class="annot"><span class="annottext">scalingActivity_cause :: (Text -&gt; f Text) -&gt; ScalingActivity -&gt; f ScalingActivity
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_cause"><span class="hs-identifier hs-var hs-var">scalingActivity_cause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingActivity -&gt; Text)
+-&gt; (ScalingActivity -&gt; Text -&gt; ScalingActivity)
+-&gt; Lens ScalingActivity ScalingActivity Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185355"><span class="annot"><span class="annottext">Text
+cause :: Text
+$sel:cause:ScalingActivity' :: ScalingActivity -&gt; Text
+</span><a href="#local-6989586621679185355"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185355"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185354"><span class="annot"><span class="annottext">s :: ScalingActivity
+</span><a href="#local-6989586621679185354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185353"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingActivity
+</span><a href="#local-6989586621679185354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cause:ScalingActivity' :: Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3Acause%3AScalingActivity%27"><span class="hs-identifier hs-var">cause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-541"></span><span>
+</span><span id="line-542"></span><span class="hs-comment">-- | The Unix timestamp for when the scaling activity began.</span><span>
+</span><span id="line-543"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_startTime"><span class="hs-identifier hs-type">scalingActivity_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-544"></span><span id="scalingActivity_startTime"><span class="annot"><span class="annottext">scalingActivity_startTime :: (UTCTime -&gt; f UTCTime) -&gt; ScalingActivity -&gt; f ScalingActivity
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_startTime"><span class="hs-identifier hs-var hs-var">scalingActivity_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingActivity -&gt; POSIX)
+-&gt; (ScalingActivity -&gt; POSIX -&gt; ScalingActivity)
+-&gt; Lens ScalingActivity ScalingActivity POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185351"><span class="annot"><span class="annottext">POSIX
+startTime :: POSIX
+$sel:startTime:ScalingActivity' :: ScalingActivity -&gt; POSIX
+</span><a href="#local-6989586621679185351"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679185351"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185350"><span class="annot"><span class="annottext">s :: ScalingActivity
+</span><a href="#local-6989586621679185350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185349"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679185349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingActivity
+</span><a href="#local-6989586621679185350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:ScalingActivity' :: POSIX
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AstartTime%3AScalingActivity%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679185349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ScalingActivity -&gt; f ScalingActivity)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; ScalingActivity
+-&gt; f ScalingActivity
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-545"></span><span>
+</span><span id="line-546"></span><span class="hs-comment">-- | Indicates the status of the scaling activity.</span><span>
+</span><span id="line-547"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_statusCode"><span class="hs-identifier hs-type">scalingActivity_statusCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.html#ScalingActivityStatusCode"><span class="hs-identifier hs-type">ScalingActivityStatusCode</span></a></span><span>
+</span><span id="line-548"></span><span id="scalingActivity_statusCode"><span class="annot"><span class="annottext">scalingActivity_statusCode :: (ScalingActivityStatusCode -&gt; f ScalingActivityStatusCode)
+-&gt; ScalingActivity -&gt; f ScalingActivity
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#scalingActivity_statusCode"><span class="hs-identifier hs-var hs-var">scalingActivity_statusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingActivity -&gt; ScalingActivityStatusCode)
+-&gt; (ScalingActivity
+    -&gt; ScalingActivityStatusCode -&gt; ScalingActivity)
+-&gt; Lens
+     ScalingActivity
+     ScalingActivity
+     ScalingActivityStatusCode
+     ScalingActivityStatusCode
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185347"><span class="annot"><span class="annottext">ScalingActivityStatusCode
+statusCode :: ScalingActivityStatusCode
+$sel:statusCode:ScalingActivity' :: ScalingActivity -&gt; ScalingActivityStatusCode
+</span><a href="#local-6989586621679185347"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingActivityStatusCode
+</span><a href="#local-6989586621679185347"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185346"><span class="annot"><span class="annottext">s :: ScalingActivity
+</span><a href="#local-6989586621679185346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-type">ScalingActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185345"><span class="annot"><span class="annottext">ScalingActivityStatusCode
+</span><a href="#local-6989586621679185345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingActivity
+</span><a href="#local-6989586621679185346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:ScalingActivity' :: ScalingActivityStatusCode
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#%24sel%3AstatusCode%3AScalingActivity%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalingActivityStatusCode
+</span><a href="#local-6989586621679185345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-549"></span><span>
+</span><span id="line-550"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185342"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-551"></span><span>  </span><span id="local-6989586621679185340"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ScalingActivity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-552"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ScalingActivity)
+-&gt; Value
+-&gt; Parser ScalingActivity
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-553"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ScalingActivity&quot;</span></span><span>
+</span><span id="line-554"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185337"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185337"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-555"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Text
+-&gt; ServiceNamespace
+-&gt; Text
+-&gt; ScalableDimension
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; ScalingActivityStatusCode
+-&gt; ScalingActivity
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity%27"><span class="hs-identifier hs-var">ScalingActivity'</span></a></span><span>
+</span><span id="line-556"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; ServiceNamespace
+ -&gt; Text
+ -&gt; ScalableDimension
+ -&gt; Text
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; ScalingActivityStatusCode
+ -&gt; ScalingActivity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ServiceNamespace
+      -&gt; Text
+      -&gt; ScalableDimension
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; ScalingActivityStatusCode
+      -&gt; ScalingActivity)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185337"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-557"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ServiceNamespace
+   -&gt; Text
+   -&gt; ScalableDimension
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; ScalingActivityStatusCode
+   -&gt; ScalingActivity)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Text
+      -&gt; ServiceNamespace
+      -&gt; Text
+      -&gt; ScalableDimension
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; ScalingActivityStatusCode
+      -&gt; ScalingActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185337"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-558"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Text
+   -&gt; ServiceNamespace
+   -&gt; Text
+   -&gt; ScalableDimension
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; ScalingActivityStatusCode
+   -&gt; ScalingActivity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Text
+      -&gt; ServiceNamespace
+      -&gt; Text
+      -&gt; ScalableDimension
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; ScalingActivityStatusCode
+      -&gt; ScalingActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185337"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Details&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-559"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; ServiceNamespace
+   -&gt; Text
+   -&gt; ScalableDimension
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; ScalingActivityStatusCode
+   -&gt; ScalingActivity)
+-&gt; Parser Text
+-&gt; Parser
+     (ServiceNamespace
+      -&gt; Text
+      -&gt; ScalableDimension
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; ScalingActivityStatusCode
+      -&gt; ScalingActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185337"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActivityId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-560"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (ServiceNamespace
+   -&gt; Text
+   -&gt; ScalableDimension
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; ScalingActivityStatusCode
+   -&gt; ScalingActivity)
+-&gt; Parser ServiceNamespace
+-&gt; Parser
+     (Text
+      -&gt; ScalableDimension
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; ScalingActivityStatusCode
+      -&gt; ScalingActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185337"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ServiceNamespace
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceNamespace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-561"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; ScalableDimension
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; ScalingActivityStatusCode
+   -&gt; ScalingActivity)
+-&gt; Parser Text
+-&gt; Parser
+     (ScalableDimension
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; ScalingActivityStatusCode
+      -&gt; ScalingActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185337"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-562"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (ScalableDimension
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; ScalingActivityStatusCode
+   -&gt; ScalingActivity)
+-&gt; Parser ScalableDimension
+-&gt; Parser
+     (Text
+      -&gt; Text -&gt; POSIX -&gt; ScalingActivityStatusCode -&gt; ScalingActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185337"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ScalableDimension
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScalableDimension&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-563"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text -&gt; POSIX -&gt; ScalingActivityStatusCode -&gt; ScalingActivity)
+-&gt; Parser Text
+-&gt; Parser
+     (Text -&gt; POSIX -&gt; ScalingActivityStatusCode -&gt; ScalingActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185337"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-564"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; POSIX -&gt; ScalingActivityStatusCode -&gt; ScalingActivity)
+-&gt; Parser Text
+-&gt; Parser (POSIX -&gt; ScalingActivityStatusCode -&gt; ScalingActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185337"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Cause&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-565"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; ScalingActivityStatusCode -&gt; ScalingActivity)
+-&gt; Parser POSIX
+-&gt; Parser (ScalingActivityStatusCode -&gt; ScalingActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185337"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-566"></span><span>            </span><span class="annot"><span class="annottext">Parser (ScalingActivityStatusCode -&gt; ScalingActivity)
+-&gt; Parser ScalingActivityStatusCode -&gt; Parser ScalingActivity
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185337"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ScalingActivityStatusCode
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-567"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-568"></span><span>
+</span><span id="line-569"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185330"><span id="local-6989586621679185332"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span></span></span><span>
+</span><span id="line-570"></span><span>
+</span><span id="line-571"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185327"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span></span><span>
+</span><span id="line-572"></span></pre></body></html>

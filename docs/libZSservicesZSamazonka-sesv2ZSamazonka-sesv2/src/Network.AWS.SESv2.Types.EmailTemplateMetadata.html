@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SESv2.Types.EmailTemplateMetadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SESv2.Types.EmailTemplateMetadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains information about an email template.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newEmailTemplateMetadata' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679325585"><span id="local-6989586621679325586"></span></span><span class="hs-keyword">data</span><span> </span><span id="EmailTemplateMetadata"><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#EmailTemplateMetadata"><span class="hs-identifier hs-var">EmailTemplateMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmailTemplateMetadata%27"><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#EmailTemplateMetadata%27"><span class="hs-identifier hs-var">EmailTemplateMetadata'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the template.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AtemplateName%3AEmailTemplateMetadata%27"><span class="annot"><span class="annottext">EmailTemplateMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#%24sel%3AtemplateName%3AEmailTemplateMetadata%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The time and date the template was created.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcreatedTimestamp%3AEmailTemplateMetadata%27"><span class="annot"><span class="annottext">EmailTemplateMetadata -&gt; Maybe POSIX
+</span><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#%24sel%3AcreatedTimestamp%3AEmailTemplateMetadata%27"><span class="hs-identifier hs-var hs-var">createdTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325578"><span id="local-6989586621679325580"><span class="annot"><span class="annottext">EmailTemplateMetadata -&gt; EmailTemplateMetadata -&gt; Bool
+(EmailTemplateMetadata -&gt; EmailTemplateMetadata -&gt; Bool)
+-&gt; (EmailTemplateMetadata -&gt; EmailTemplateMetadata -&gt; Bool)
+-&gt; Eq EmailTemplateMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EmailTemplateMetadata -&gt; EmailTemplateMetadata -&gt; Bool
+$c/= :: EmailTemplateMetadata -&gt; EmailTemplateMetadata -&gt; Bool
+== :: EmailTemplateMetadata -&gt; EmailTemplateMetadata -&gt; Bool
+$c== :: EmailTemplateMetadata -&gt; EmailTemplateMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325569"><span id="local-6989586621679325571"><span id="local-6989586621679325573"><span id="local-6989586621679325575"><span class="annot"><span class="annottext">ReadPrec [EmailTemplateMetadata]
+ReadPrec EmailTemplateMetadata
+Int -&gt; ReadS EmailTemplateMetadata
+ReadS [EmailTemplateMetadata]
+(Int -&gt; ReadS EmailTemplateMetadata)
+-&gt; ReadS [EmailTemplateMetadata]
+-&gt; ReadPrec EmailTemplateMetadata
+-&gt; ReadPrec [EmailTemplateMetadata]
+-&gt; Read EmailTemplateMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EmailTemplateMetadata]
+$creadListPrec :: ReadPrec [EmailTemplateMetadata]
+readPrec :: ReadPrec EmailTemplateMetadata
+$creadPrec :: ReadPrec EmailTemplateMetadata
+readList :: ReadS [EmailTemplateMetadata]
+$creadList :: ReadS [EmailTemplateMetadata]
+readsPrec :: Int -&gt; ReadS EmailTemplateMetadata
+$creadsPrec :: Int -&gt; ReadS EmailTemplateMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325562"><span id="local-6989586621679325564"><span id="local-6989586621679325566"><span class="annot"><span class="annottext">Int -&gt; EmailTemplateMetadata -&gt; ShowS
+[EmailTemplateMetadata] -&gt; ShowS
+EmailTemplateMetadata -&gt; String
+(Int -&gt; EmailTemplateMetadata -&gt; ShowS)
+-&gt; (EmailTemplateMetadata -&gt; String)
+-&gt; ([EmailTemplateMetadata] -&gt; ShowS)
+-&gt; Show EmailTemplateMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EmailTemplateMetadata] -&gt; ShowS
+$cshowList :: [EmailTemplateMetadata] -&gt; ShowS
+show :: EmailTemplateMetadata -&gt; String
+$cshow :: EmailTemplateMetadata -&gt; String
+showsPrec :: Int -&gt; EmailTemplateMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; EmailTemplateMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EmailTemplateMetadata -&gt; Rep EmailTemplateMetadata x)
+-&gt; (forall x. Rep EmailTemplateMetadata x -&gt; EmailTemplateMetadata)
+-&gt; Generic EmailTemplateMetadata
+forall x. Rep EmailTemplateMetadata x -&gt; EmailTemplateMetadata
+forall x. EmailTemplateMetadata -&gt; Rep EmailTemplateMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EmailTemplateMetadata x -&gt; EmailTemplateMetadata
+$cfrom :: forall x. EmailTemplateMetadata -&gt; Rep EmailTemplateMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'EmailTemplateMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'templateName', 'emailTemplateMetadata_templateName' - The name of the template.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'createdTimestamp', 'emailTemplateMetadata_createdTimestamp' - The time and date the template was created.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#newEmailTemplateMetadata"><span class="hs-identifier hs-type">newEmailTemplateMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#EmailTemplateMetadata"><span class="hs-identifier hs-type">EmailTemplateMetadata</span></a></span><span>
+</span><span id="line-50"></span><span id="newEmailTemplateMetadata"><span class="annot"><span class="annottext">newEmailTemplateMetadata :: EmailTemplateMetadata
+</span><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#newEmailTemplateMetadata"><span class="hs-identifier hs-var hs-var">newEmailTemplateMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">EmailTemplateMetadata' :: Maybe Text -&gt; Maybe POSIX -&gt; EmailTemplateMetadata
+</span><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#EmailTemplateMetadata%27"><span class="hs-identifier hs-type">EmailTemplateMetadata'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:templateName:EmailTemplateMetadata' :: Maybe Text
+</span><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#%24sel%3AtemplateName%3AEmailTemplateMetadata%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTimestamp:EmailTemplateMetadata' :: Maybe POSIX
+</span><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#%24sel%3AcreatedTimestamp%3AEmailTemplateMetadata%27"><span class="hs-identifier hs-var">createdTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The name of the template.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#emailTemplateMetadata_templateName"><span class="hs-identifier hs-type">emailTemplateMetadata_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#EmailTemplateMetadata"><span class="hs-identifier hs-type">EmailTemplateMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="emailTemplateMetadata_templateName"><span class="annot"><span class="annottext">emailTemplateMetadata_templateName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EmailTemplateMetadata -&gt; f EmailTemplateMetadata
+</span><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#emailTemplateMetadata_templateName"><span class="hs-identifier hs-var hs-var">emailTemplateMetadata_templateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateMetadata -&gt; Maybe Text)
+-&gt; (EmailTemplateMetadata -&gt; Maybe Text -&gt; EmailTemplateMetadata)
+-&gt; Lens
+     EmailTemplateMetadata
+     EmailTemplateMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#EmailTemplateMetadata%27"><span class="hs-identifier hs-type">EmailTemplateMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325553"><span class="annot"><span class="annottext">Maybe Text
+templateName :: Maybe Text
+$sel:templateName:EmailTemplateMetadata' :: EmailTemplateMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679325553"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325553"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325552"><span class="annot"><span class="annottext">s :: EmailTemplateMetadata
+</span><a href="#local-6989586621679325552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#EmailTemplateMetadata%27"><span class="hs-identifier hs-type">EmailTemplateMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325551"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateMetadata
+</span><a href="#local-6989586621679325552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:EmailTemplateMetadata' :: Maybe Text
+</span><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#%24sel%3AtemplateName%3AEmailTemplateMetadata%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#EmailTemplateMetadata"><span class="hs-identifier hs-type">EmailTemplateMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The time and date the template was created.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#emailTemplateMetadata_createdTimestamp"><span class="hs-identifier hs-type">emailTemplateMetadata_createdTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#EmailTemplateMetadata"><span class="hs-identifier hs-type">EmailTemplateMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="emailTemplateMetadata_createdTimestamp"><span class="annot"><span class="annottext">emailTemplateMetadata_createdTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; EmailTemplateMetadata -&gt; f EmailTemplateMetadata
+</span><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#emailTemplateMetadata_createdTimestamp"><span class="hs-identifier hs-var hs-var">emailTemplateMetadata_createdTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateMetadata -&gt; Maybe POSIX)
+-&gt; (EmailTemplateMetadata -&gt; Maybe POSIX -&gt; EmailTemplateMetadata)
+-&gt; Lens
+     EmailTemplateMetadata
+     EmailTemplateMetadata
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#EmailTemplateMetadata%27"><span class="hs-identifier hs-type">EmailTemplateMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325549"><span class="annot"><span class="annottext">Maybe POSIX
+createdTimestamp :: Maybe POSIX
+$sel:createdTimestamp:EmailTemplateMetadata' :: EmailTemplateMetadata -&gt; Maybe POSIX
+</span><a href="#local-6989586621679325549"><span class="hs-identifier hs-var hs-var">createdTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679325549"><span class="hs-identifier hs-var">createdTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325548"><span class="annot"><span class="annottext">s :: EmailTemplateMetadata
+</span><a href="#local-6989586621679325548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#EmailTemplateMetadata%27"><span class="hs-identifier hs-type">EmailTemplateMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325547"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679325547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateMetadata
+</span><a href="#local-6989586621679325548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTimestamp:EmailTemplateMetadata' :: Maybe POSIX
+</span><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#%24sel%3AcreatedTimestamp%3AEmailTemplateMetadata%27"><span class="hs-identifier hs-var">createdTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679325547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#EmailTemplateMetadata"><span class="hs-identifier hs-type">EmailTemplateMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; EmailTemplateMetadata -&gt; f EmailTemplateMetadata)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; EmailTemplateMetadata
+-&gt; f EmailTemplateMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325541"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#EmailTemplateMetadata"><span class="hs-identifier hs-type">EmailTemplateMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679325539"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EmailTemplateMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser EmailTemplateMetadata)
+-&gt; Value
+-&gt; Parser EmailTemplateMetadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;EmailTemplateMetadata&quot;</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679325536"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325536"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe POSIX -&gt; EmailTemplateMetadata
+</span><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#EmailTemplateMetadata%27"><span class="hs-identifier hs-var">EmailTemplateMetadata'</span></a></span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe POSIX -&gt; EmailTemplateMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; EmailTemplateMetadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemplateName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; EmailTemplateMetadata)
+-&gt; Parser (Maybe POSIX) -&gt; Parser EmailTemplateMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325530"><span id="local-6989586621679325532"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#EmailTemplateMetadata"><span class="hs-identifier hs-type">EmailTemplateMetadata</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325527"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateMetadata.html#EmailTemplateMetadata"><span class="hs-identifier hs-type">EmailTemplateMetadata</span></a></span></span><span>
+</span><span id="line-78"></span></pre></body></html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Connect.DisassociateSecurityKey</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This API is in preview release for Amazon Connect and is subject to</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- change.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Deletes the specified security key.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Connect.DisassociateSecurityKey</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey"><span class="hs-identifier">DisassociateSecurityKey</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#newDisassociateSecurityKey"><span class="hs-identifier">newDisassociateSecurityKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#disassociateSecurityKey_instanceId"><span class="hs-identifier">disassociateSecurityKey_instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#disassociateSecurityKey_associationId"><span class="hs-identifier">disassociateSecurityKey_associationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKeyResponse"><span class="hs-identifier">DisassociateSecurityKeyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#newDisassociateSecurityKeyResponse"><span class="hs-identifier">newDisassociateSecurityKeyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.html"><span class="hs-identifier">Network.AWS.Connect.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDisassociateSecurityKey' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679418554"><span id="local-6989586621679418555"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateSecurityKey"><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey"><span class="hs-identifier hs-var">DisassociateSecurityKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateSecurityKey%27"><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey%27"><span class="hs-identifier hs-var">DisassociateSecurityKey'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AinstanceId%3ADisassociateSecurityKey%27"><span class="annot"><span class="annottext">DisassociateSecurityKey -&gt; Text
+</span><a href="Network.AWS.Connect.DisassociateSecurityKey.html#%24sel%3AinstanceId%3ADisassociateSecurityKey%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The existing association identifier that uniquely identifies the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- resource type and storage config for the given instance ID.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AassociationId%3ADisassociateSecurityKey%27"><span class="annot"><span class="annottext">DisassociateSecurityKey -&gt; Text
+</span><a href="Network.AWS.Connect.DisassociateSecurityKey.html#%24sel%3AassociationId%3ADisassociateSecurityKey%27"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418547"><span id="local-6989586621679418549"><span class="annot"><span class="annottext">DisassociateSecurityKey -&gt; DisassociateSecurityKey -&gt; Bool
+(DisassociateSecurityKey -&gt; DisassociateSecurityKey -&gt; Bool)
+-&gt; (DisassociateSecurityKey -&gt; DisassociateSecurityKey -&gt; Bool)
+-&gt; Eq DisassociateSecurityKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociateSecurityKey -&gt; DisassociateSecurityKey -&gt; Bool
+$c/= :: DisassociateSecurityKey -&gt; DisassociateSecurityKey -&gt; Bool
+== :: DisassociateSecurityKey -&gt; DisassociateSecurityKey -&gt; Bool
+$c== :: DisassociateSecurityKey -&gt; DisassociateSecurityKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418538"><span id="local-6989586621679418540"><span id="local-6989586621679418542"><span id="local-6989586621679418544"><span class="annot"><span class="annottext">ReadPrec [DisassociateSecurityKey]
+ReadPrec DisassociateSecurityKey
+Int -&gt; ReadS DisassociateSecurityKey
+ReadS [DisassociateSecurityKey]
+(Int -&gt; ReadS DisassociateSecurityKey)
+-&gt; ReadS [DisassociateSecurityKey]
+-&gt; ReadPrec DisassociateSecurityKey
+-&gt; ReadPrec [DisassociateSecurityKey]
+-&gt; Read DisassociateSecurityKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociateSecurityKey]
+$creadListPrec :: ReadPrec [DisassociateSecurityKey]
+readPrec :: ReadPrec DisassociateSecurityKey
+$creadPrec :: ReadPrec DisassociateSecurityKey
+readList :: ReadS [DisassociateSecurityKey]
+$creadList :: ReadS [DisassociateSecurityKey]
+readsPrec :: Int -&gt; ReadS DisassociateSecurityKey
+$creadsPrec :: Int -&gt; ReadS DisassociateSecurityKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418531"><span id="local-6989586621679418533"><span id="local-6989586621679418535"><span class="annot"><span class="annottext">Int -&gt; DisassociateSecurityKey -&gt; ShowS
+[DisassociateSecurityKey] -&gt; ShowS
+DisassociateSecurityKey -&gt; String
+(Int -&gt; DisassociateSecurityKey -&gt; ShowS)
+-&gt; (DisassociateSecurityKey -&gt; String)
+-&gt; ([DisassociateSecurityKey] -&gt; ShowS)
+-&gt; Show DisassociateSecurityKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociateSecurityKey] -&gt; ShowS
+$cshowList :: [DisassociateSecurityKey] -&gt; ShowS
+show :: DisassociateSecurityKey -&gt; String
+$cshow :: DisassociateSecurityKey -&gt; String
+showsPrec :: Int -&gt; DisassociateSecurityKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociateSecurityKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociateSecurityKey -&gt; Rep DisassociateSecurityKey x)
+-&gt; (forall x.
+    Rep DisassociateSecurityKey x -&gt; DisassociateSecurityKey)
+-&gt; Generic DisassociateSecurityKey
+forall x. Rep DisassociateSecurityKey x -&gt; DisassociateSecurityKey
+forall x. DisassociateSecurityKey -&gt; Rep DisassociateSecurityKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DisassociateSecurityKey x -&gt; DisassociateSecurityKey
+$cfrom :: forall x. DisassociateSecurityKey -&gt; Rep DisassociateSecurityKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DisassociateSecurityKey' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'instanceId', 'disassociateSecurityKey_instanceId' - The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'associationId', 'disassociateSecurityKey_associationId' - The existing association identifier that uniquely identifies the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- resource type and storage config for the given instance ID.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#newDisassociateSecurityKey"><span class="hs-identifier hs-type">newDisassociateSecurityKey</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'instanceId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'associationId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey"><span class="hs-identifier hs-type">DisassociateSecurityKey</span></a></span><span>
+</span><span id="line-79"></span><span id="newDisassociateSecurityKey"><span class="annot"><span class="annottext">newDisassociateSecurityKey :: Text -&gt; Text -&gt; DisassociateSecurityKey
+</span><a href="Network.AWS.Connect.DisassociateSecurityKey.html#newDisassociateSecurityKey"><span class="hs-identifier hs-var hs-var">newDisassociateSecurityKey</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679418526"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418526"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679418525"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418525"><span class="hs-identifier hs-var">pAssociationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">DisassociateSecurityKey' :: Text -&gt; Text -&gt; DisassociateSecurityKey
+</span><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey%27"><span class="hs-identifier hs-type">DisassociateSecurityKey'</span></a></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:DisassociateSecurityKey' :: Text
+</span><a href="Network.AWS.Connect.DisassociateSecurityKey.html#%24sel%3AinstanceId%3ADisassociateSecurityKey%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418526"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:associationId:DisassociateSecurityKey' :: Text
+</span><a href="Network.AWS.Connect.DisassociateSecurityKey.html#%24sel%3AassociationId%3ADisassociateSecurityKey%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418525"><span class="hs-identifier hs-var">pAssociationId_</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#disassociateSecurityKey_instanceId"><span class="hs-identifier hs-type">disassociateSecurityKey_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey"><span class="hs-identifier hs-type">DisassociateSecurityKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="disassociateSecurityKey_instanceId"><span class="annot"><span class="annottext">disassociateSecurityKey_instanceId :: (Text -&gt; f Text)
+-&gt; DisassociateSecurityKey -&gt; f DisassociateSecurityKey
+</span><a href="Network.AWS.Connect.DisassociateSecurityKey.html#disassociateSecurityKey_instanceId"><span class="hs-identifier hs-var hs-var">disassociateSecurityKey_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateSecurityKey -&gt; Text)
+-&gt; (DisassociateSecurityKey -&gt; Text -&gt; DisassociateSecurityKey)
+-&gt; Lens DisassociateSecurityKey DisassociateSecurityKey Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey%27"><span class="hs-identifier hs-type">DisassociateSecurityKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418522"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+$sel:instanceId:DisassociateSecurityKey' :: DisassociateSecurityKey -&gt; Text
+</span><a href="#local-6989586621679418522"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418522"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418521"><span class="annot"><span class="annottext">s :: DisassociateSecurityKey
+</span><a href="#local-6989586621679418521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey%27"><span class="hs-identifier hs-type">DisassociateSecurityKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418520"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateSecurityKey
+</span><a href="#local-6989586621679418521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DisassociateSecurityKey' :: Text
+</span><a href="Network.AWS.Connect.DisassociateSecurityKey.html#%24sel%3AinstanceId%3ADisassociateSecurityKey%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey"><span class="hs-identifier hs-type">DisassociateSecurityKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The existing association identifier that uniquely identifies the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- resource type and storage config for the given instance ID.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#disassociateSecurityKey_associationId"><span class="hs-identifier hs-type">disassociateSecurityKey_associationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey"><span class="hs-identifier hs-type">DisassociateSecurityKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="disassociateSecurityKey_associationId"><span class="annot"><span class="annottext">disassociateSecurityKey_associationId :: (Text -&gt; f Text)
+-&gt; DisassociateSecurityKey -&gt; f DisassociateSecurityKey
+</span><a href="Network.AWS.Connect.DisassociateSecurityKey.html#disassociateSecurityKey_associationId"><span class="hs-identifier hs-var hs-var">disassociateSecurityKey_associationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateSecurityKey -&gt; Text)
+-&gt; (DisassociateSecurityKey -&gt; Text -&gt; DisassociateSecurityKey)
+-&gt; Lens DisassociateSecurityKey DisassociateSecurityKey Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey%27"><span class="hs-identifier hs-type">DisassociateSecurityKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418519"><span class="annot"><span class="annottext">Text
+associationId :: Text
+$sel:associationId:DisassociateSecurityKey' :: DisassociateSecurityKey -&gt; Text
+</span><a href="#local-6989586621679418519"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418519"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418518"><span class="annot"><span class="annottext">s :: DisassociateSecurityKey
+</span><a href="#local-6989586621679418518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey%27"><span class="hs-identifier hs-type">DisassociateSecurityKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418517"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateSecurityKey
+</span><a href="#local-6989586621679418518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:DisassociateSecurityKey' :: Text
+</span><a href="Network.AWS.Connect.DisassociateSecurityKey.html#%24sel%3AassociationId%3ADisassociateSecurityKey%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey"><span class="hs-identifier hs-type">DisassociateSecurityKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey"><span class="hs-identifier hs-type">DisassociateSecurityKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey"><span class="hs-identifier hs-type">DisassociateSecurityKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKeyResponse"><span class="hs-identifier hs-type">DisassociateSecurityKeyResponse</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679418513"><span class="annot"><span class="annottext">request :: DisassociateSecurityKey -&gt; Request DisassociateSecurityKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DisassociateSecurityKey -&gt; Request DisassociateSecurityKey
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679418509"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisassociateSecurityKey
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisassociateSecurityKey)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DisassociateSecurityKey
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisassociateSecurityKey
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisassociateSecurityKey)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DisassociateSecurityKey
+DisassociateSecurityKeyResponse
+</span><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKeyResponse%27"><span class="hs-identifier hs-var">DisassociateSecurityKeyResponse'</span></a></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418502"><span id="local-6989586621679418504"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey"><span class="hs-identifier hs-type">DisassociateSecurityKey</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey"><span class="hs-identifier hs-type">DisassociateSecurityKey</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey"><span class="hs-identifier hs-type">DisassociateSecurityKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679418495"><span class="annot"><span class="annottext">toHeaders :: DisassociateSecurityKey -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DisassociateSecurityKey -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey"><span class="hs-identifier hs-type">DisassociateSecurityKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679418489"><span class="annot"><span class="annottext">toPath :: DisassociateSecurityKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey%27"><span class="hs-identifier hs-type">DisassociateSecurityKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418486"><span id="local-6989586621679418487"><span class="annot"><span class="annottext">Text
+associationId :: Text
+instanceId :: Text
+$sel:associationId:DisassociateSecurityKey' :: DisassociateSecurityKey -&gt; Text
+$sel:instanceId:DisassociateSecurityKey' :: DisassociateSecurityKey -&gt; Text
+</span><a href="#local-6989586621679418486"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/instance/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418487"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/security-key/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418486"><span class="hs-identifier hs-var">associationId</span></a></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKey"><span class="hs-identifier hs-type">DisassociateSecurityKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679418482"><span class="annot"><span class="annottext">toQuery :: DisassociateSecurityKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisassociateSecurityKey -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newDisassociateSecurityKeyResponse' smart constructor.</span><span>
+</span><span id="line-134"></span><span id="local-6989586621679418479"><span id="local-6989586621679418480"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateSecurityKeyResponse"><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKeyResponse"><span class="hs-identifier hs-var">DisassociateSecurityKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateSecurityKeyResponse%27"><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKeyResponse%27"><span class="hs-identifier hs-var">DisassociateSecurityKeyResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418475"><span id="local-6989586621679418477"><span class="annot"><span class="annottext">DisassociateSecurityKeyResponse
+-&gt; DisassociateSecurityKeyResponse -&gt; Bool
+(DisassociateSecurityKeyResponse
+ -&gt; DisassociateSecurityKeyResponse -&gt; Bool)
+-&gt; (DisassociateSecurityKeyResponse
+    -&gt; DisassociateSecurityKeyResponse -&gt; Bool)
+-&gt; Eq DisassociateSecurityKeyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociateSecurityKeyResponse
+-&gt; DisassociateSecurityKeyResponse -&gt; Bool
+$c/= :: DisassociateSecurityKeyResponse
+-&gt; DisassociateSecurityKeyResponse -&gt; Bool
+== :: DisassociateSecurityKeyResponse
+-&gt; DisassociateSecurityKeyResponse -&gt; Bool
+$c== :: DisassociateSecurityKeyResponse
+-&gt; DisassociateSecurityKeyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418467"><span id="local-6989586621679418469"><span id="local-6989586621679418471"><span id="local-6989586621679418473"><span class="annot"><span class="annottext">ReadPrec [DisassociateSecurityKeyResponse]
+ReadPrec DisassociateSecurityKeyResponse
+Int -&gt; ReadS DisassociateSecurityKeyResponse
+ReadS [DisassociateSecurityKeyResponse]
+(Int -&gt; ReadS DisassociateSecurityKeyResponse)
+-&gt; ReadS [DisassociateSecurityKeyResponse]
+-&gt; ReadPrec DisassociateSecurityKeyResponse
+-&gt; ReadPrec [DisassociateSecurityKeyResponse]
+-&gt; Read DisassociateSecurityKeyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociateSecurityKeyResponse]
+$creadListPrec :: ReadPrec [DisassociateSecurityKeyResponse]
+readPrec :: ReadPrec DisassociateSecurityKeyResponse
+$creadPrec :: ReadPrec DisassociateSecurityKeyResponse
+readList :: ReadS [DisassociateSecurityKeyResponse]
+$creadList :: ReadS [DisassociateSecurityKeyResponse]
+readsPrec :: Int -&gt; ReadS DisassociateSecurityKeyResponse
+$creadsPrec :: Int -&gt; ReadS DisassociateSecurityKeyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418461"><span id="local-6989586621679418463"><span id="local-6989586621679418465"><span class="annot"><span class="annottext">Int -&gt; DisassociateSecurityKeyResponse -&gt; ShowS
+[DisassociateSecurityKeyResponse] -&gt; ShowS
+DisassociateSecurityKeyResponse -&gt; String
+(Int -&gt; DisassociateSecurityKeyResponse -&gt; ShowS)
+-&gt; (DisassociateSecurityKeyResponse -&gt; String)
+-&gt; ([DisassociateSecurityKeyResponse] -&gt; ShowS)
+-&gt; Show DisassociateSecurityKeyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociateSecurityKeyResponse] -&gt; ShowS
+$cshowList :: [DisassociateSecurityKeyResponse] -&gt; ShowS
+show :: DisassociateSecurityKeyResponse -&gt; String
+$cshow :: DisassociateSecurityKeyResponse -&gt; String
+showsPrec :: Int -&gt; DisassociateSecurityKeyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociateSecurityKeyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociateSecurityKeyResponse
+ -&gt; Rep DisassociateSecurityKeyResponse x)
+-&gt; (forall x.
+    Rep DisassociateSecurityKeyResponse x
+    -&gt; DisassociateSecurityKeyResponse)
+-&gt; Generic DisassociateSecurityKeyResponse
+forall x.
+Rep DisassociateSecurityKeyResponse x
+-&gt; DisassociateSecurityKeyResponse
+forall x.
+DisassociateSecurityKeyResponse
+-&gt; Rep DisassociateSecurityKeyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociateSecurityKeyResponse x
+-&gt; DisassociateSecurityKeyResponse
+$cfrom :: forall x.
+DisassociateSecurityKeyResponse
+-&gt; Rep DisassociateSecurityKeyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'DisassociateSecurityKeyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#newDisassociateSecurityKeyResponse"><span class="hs-identifier hs-type">newDisassociateSecurityKeyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKeyResponse"><span class="hs-identifier hs-type">DisassociateSecurityKeyResponse</span></a></span><span>
+</span><span id="line-145"></span><span id="newDisassociateSecurityKeyResponse"><span class="annot"><span class="annottext">newDisassociateSecurityKeyResponse :: DisassociateSecurityKeyResponse
+</span><a href="Network.AWS.Connect.DisassociateSecurityKey.html#newDisassociateSecurityKeyResponse"><span class="hs-identifier hs-var hs-var">newDisassociateSecurityKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">DisassociateSecurityKeyResponse
+</span><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKeyResponse%27"><span class="hs-identifier hs-var">DisassociateSecurityKeyResponse'</span></a></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679418457"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.DisassociateSecurityKey.html#DisassociateSecurityKeyResponse"><span class="hs-identifier hs-type">DisassociateSecurityKeyResponse</span></a></span></span><span>
+</span><span id="line-151"></span></pre></body></html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SNS.AddPermission</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds a statement to a topic\'s access control policy, granting access</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- for the specified accounts to the specified actions.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SNS.AddPermission</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier">AddPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#newAddPermission"><span class="hs-identifier">newAddPermission</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#addPermission_topicArn"><span class="hs-identifier">addPermission_topicArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#addPermission_label"><span class="hs-identifier">addPermission_label</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#addPermission_aWSAccountId"><span class="hs-identifier">addPermission_aWSAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#addPermission_actionName"><span class="hs-identifier">addPermission_actionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermissionResponse"><span class="hs-identifier">AddPermissionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#newAddPermissionResponse"><span class="hs-identifier">newAddPermissionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.html"><span class="hs-identifier">Network.AWS.SNS.Types</span></a></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newAddPermission' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679200151"><span id="local-6989586621679200152"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddPermission"><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-var">AddPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddPermission%27"><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission%27"><span class="hs-identifier hs-var">AddPermission'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the topic whose access control policy you wish to modify.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AtopicArn%3AAddPermission%27"><span class="annot"><span class="annottext">AddPermission -&gt; Text
+</span><a href="Network.AWS.SNS.AddPermission.html#%24sel%3AtopicArn%3AAddPermission%27"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the new policy statement.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Alabel%3AAddPermission%27"><span class="annot"><span class="annottext">AddPermission -&gt; Text
+</span><a href="Network.AWS.SNS.AddPermission.html#%24sel%3Alabel%3AAddPermission%27"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The account IDs of the users (principals) who will be given access to</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- the specified actions. The users must have account, but do not need to</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- be signed up for this service.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AaWSAccountId%3AAddPermission%27"><span class="annot"><span class="annottext">AddPermission -&gt; [Text]
+</span><a href="Network.AWS.SNS.AddPermission.html#%24sel%3AaWSAccountId%3AAddPermission%27"><span class="hs-identifier hs-var hs-var">aWSAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The action you want to allow for the specified principal(s).</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Valid values: Any Amazon SNS action name, for example @Publish@.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AactionName%3AAddPermission%27"><span class="annot"><span class="annottext">AddPermission -&gt; [Text]
+</span><a href="Network.AWS.SNS.AddPermission.html#%24sel%3AactionName%3AAddPermission%27"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200142"><span id="local-6989586621679200144"><span class="annot"><span class="annottext">AddPermission -&gt; AddPermission -&gt; Bool
+(AddPermission -&gt; AddPermission -&gt; Bool)
+-&gt; (AddPermission -&gt; AddPermission -&gt; Bool) -&gt; Eq AddPermission
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddPermission -&gt; AddPermission -&gt; Bool
+$c/= :: AddPermission -&gt; AddPermission -&gt; Bool
+== :: AddPermission -&gt; AddPermission -&gt; Bool
+$c== :: AddPermission -&gt; AddPermission -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200133"><span id="local-6989586621679200135"><span id="local-6989586621679200137"><span id="local-6989586621679200139"><span class="annot"><span class="annottext">ReadPrec [AddPermission]
+ReadPrec AddPermission
+Int -&gt; ReadS AddPermission
+ReadS [AddPermission]
+(Int -&gt; ReadS AddPermission)
+-&gt; ReadS [AddPermission]
+-&gt; ReadPrec AddPermission
+-&gt; ReadPrec [AddPermission]
+-&gt; Read AddPermission
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddPermission]
+$creadListPrec :: ReadPrec [AddPermission]
+readPrec :: ReadPrec AddPermission
+$creadPrec :: ReadPrec AddPermission
+readList :: ReadS [AddPermission]
+$creadList :: ReadS [AddPermission]
+readsPrec :: Int -&gt; ReadS AddPermission
+$creadsPrec :: Int -&gt; ReadS AddPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200126"><span id="local-6989586621679200128"><span id="local-6989586621679200130"><span class="annot"><span class="annottext">Int -&gt; AddPermission -&gt; ShowS
+[AddPermission] -&gt; ShowS
+AddPermission -&gt; String
+(Int -&gt; AddPermission -&gt; ShowS)
+-&gt; (AddPermission -&gt; String)
+-&gt; ([AddPermission] -&gt; ShowS)
+-&gt; Show AddPermission
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddPermission] -&gt; ShowS
+$cshowList :: [AddPermission] -&gt; ShowS
+show :: AddPermission -&gt; String
+$cshow :: AddPermission -&gt; String
+showsPrec :: Int -&gt; AddPermission -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddPermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AddPermission -&gt; Rep AddPermission x)
+-&gt; (forall x. Rep AddPermission x -&gt; AddPermission)
+-&gt; Generic AddPermission
+forall x. Rep AddPermission x -&gt; AddPermission
+forall x. AddPermission -&gt; Rep AddPermission x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddPermission x -&gt; AddPermission
+$cfrom :: forall x. AddPermission -&gt; Rep AddPermission x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'AddPermission' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'topicArn', 'addPermission_topicArn' - The ARN of the topic whose access control policy you wish to modify.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'label', 'addPermission_label' - A unique identifier for the new policy statement.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'aWSAccountId', 'addPermission_aWSAccountId' - The account IDs of the users (principals) who will be given access to</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- the specified actions. The users must have account, but do not need to</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- be signed up for this service.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'actionName', 'addPermission_actionName' - The action you want to allow for the specified principal(s).</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Valid values: Any Amazon SNS action name, for example @Publish@.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#newAddPermission"><span class="hs-identifier hs-type">newAddPermission</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'topicArn'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'label'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-type">AddPermission</span></a></span><span>
+</span><span id="line-91"></span><span id="newAddPermission"><span class="annot"><span class="annottext">newAddPermission :: Text -&gt; Text -&gt; AddPermission
+</span><a href="Network.AWS.SNS.AddPermission.html#newAddPermission"><span class="hs-identifier hs-var hs-var">newAddPermission</span></a></span></span><span> </span><span id="local-6989586621679200121"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200121"><span class="hs-identifier hs-var">pTopicArn_</span></a></span></span><span> </span><span id="local-6989586621679200120"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200120"><span class="hs-identifier hs-var">pLabel_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">AddPermission' :: Text -&gt; Text -&gt; [Text] -&gt; [Text] -&gt; AddPermission
+</span><a href="Network.AWS.SNS.AddPermission.html#AddPermission%27"><span class="hs-identifier hs-type">AddPermission'</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:topicArn:AddPermission' :: Text
+</span><a href="Network.AWS.SNS.AddPermission.html#%24sel%3AtopicArn%3AAddPermission%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200121"><span class="hs-identifier hs-var">pTopicArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:label:AddPermission' :: Text
+</span><a href="Network.AWS.SNS.AddPermission.html#%24sel%3Alabel%3AAddPermission%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200120"><span class="hs-identifier hs-var">pLabel_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:aWSAccountId:AddPermission' :: [Text]
+</span><a href="Network.AWS.SNS.AddPermission.html#%24sel%3AaWSAccountId%3AAddPermission%27"><span class="hs-identifier hs-var">aWSAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionName:AddPermission' :: [Text]
+</span><a href="Network.AWS.SNS.AddPermission.html#%24sel%3AactionName%3AAddPermission%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The ARN of the topic whose access control policy you wish to modify.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#addPermission_topicArn"><span class="hs-identifier hs-type">addPermission_topicArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-type">AddPermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="addPermission_topicArn"><span class="annot"><span class="annottext">addPermission_topicArn :: (Text -&gt; f Text) -&gt; AddPermission -&gt; f AddPermission
+</span><a href="Network.AWS.SNS.AddPermission.html#addPermission_topicArn"><span class="hs-identifier hs-var hs-var">addPermission_topicArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddPermission -&gt; Text)
+-&gt; (AddPermission -&gt; Text -&gt; AddPermission)
+-&gt; Lens AddPermission AddPermission Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission%27"><span class="hs-identifier hs-type">AddPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200117"><span class="annot"><span class="annottext">Text
+topicArn :: Text
+$sel:topicArn:AddPermission' :: AddPermission -&gt; Text
+</span><a href="#local-6989586621679200117"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200117"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200116"><span class="annot"><span class="annottext">s :: AddPermission
+</span><a href="#local-6989586621679200116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission%27"><span class="hs-identifier hs-type">AddPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200115"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddPermission
+</span><a href="#local-6989586621679200116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:AddPermission' :: Text
+</span><a href="Network.AWS.SNS.AddPermission.html#%24sel%3AtopicArn%3AAddPermission%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-type">AddPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | A unique identifier for the new policy statement.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#addPermission_label"><span class="hs-identifier hs-type">addPermission_label</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-type">AddPermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="addPermission_label"><span class="annot"><span class="annottext">addPermission_label :: (Text -&gt; f Text) -&gt; AddPermission -&gt; f AddPermission
+</span><a href="Network.AWS.SNS.AddPermission.html#addPermission_label"><span class="hs-identifier hs-var hs-var">addPermission_label</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddPermission -&gt; Text)
+-&gt; (AddPermission -&gt; Text -&gt; AddPermission)
+-&gt; Lens AddPermission AddPermission Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission%27"><span class="hs-identifier hs-type">AddPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200114"><span class="annot"><span class="annottext">Text
+label :: Text
+$sel:label:AddPermission' :: AddPermission -&gt; Text
+</span><a href="#local-6989586621679200114"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200114"><span class="hs-keyword hs-var">label</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200113"><span class="annot"><span class="annottext">s :: AddPermission
+</span><a href="#local-6989586621679200113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission%27"><span class="hs-identifier hs-type">AddPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200112"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddPermission
+</span><a href="#local-6989586621679200113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:label:AddPermission' :: Text
+</span><a href="Network.AWS.SNS.AddPermission.html#%24sel%3Alabel%3AAddPermission%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-type">AddPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The account IDs of the users (principals) who will be given access to</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the specified actions. The users must have account, but do not need to</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- be signed up for this service.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#addPermission_aWSAccountId"><span class="hs-identifier hs-type">addPermission_aWSAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-type">AddPermission</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span id="addPermission_aWSAccountId"><span class="annot"><span class="annottext">addPermission_aWSAccountId :: ([Text] -&gt; f [Text]) -&gt; AddPermission -&gt; f AddPermission
+</span><a href="Network.AWS.SNS.AddPermission.html#addPermission_aWSAccountId"><span class="hs-identifier hs-var hs-var">addPermission_aWSAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddPermission -&gt; [Text])
+-&gt; (AddPermission -&gt; [Text] -&gt; AddPermission)
+-&gt; Lens AddPermission AddPermission [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission%27"><span class="hs-identifier hs-type">AddPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200111"><span class="annot"><span class="annottext">[Text]
+aWSAccountId :: [Text]
+$sel:aWSAccountId:AddPermission' :: AddPermission -&gt; [Text]
+</span><a href="#local-6989586621679200111"><span class="hs-identifier hs-var hs-var">aWSAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679200111"><span class="hs-identifier hs-var">aWSAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200110"><span class="annot"><span class="annottext">s :: AddPermission
+</span><a href="#local-6989586621679200110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission%27"><span class="hs-identifier hs-type">AddPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200109"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679200109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddPermission
+</span><a href="#local-6989586621679200110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aWSAccountId:AddPermission' :: [Text]
+</span><a href="Network.AWS.SNS.AddPermission.html#%24sel%3AaWSAccountId%3AAddPermission%27"><span class="hs-identifier hs-var">aWSAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679200109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-type">AddPermission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; AddPermission -&gt; f AddPermission)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; AddPermission
+-&gt; f AddPermission
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The action you want to allow for the specified principal(s).</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Valid values: Any Amazon SNS action name, for example @Publish@.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#addPermission_actionName"><span class="hs-identifier hs-type">addPermission_actionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-type">AddPermission</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span id="addPermission_actionName"><span class="annot"><span class="annottext">addPermission_actionName :: ([Text] -&gt; f [Text]) -&gt; AddPermission -&gt; f AddPermission
+</span><a href="Network.AWS.SNS.AddPermission.html#addPermission_actionName"><span class="hs-identifier hs-var hs-var">addPermission_actionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddPermission -&gt; [Text])
+-&gt; (AddPermission -&gt; [Text] -&gt; AddPermission)
+-&gt; Lens AddPermission AddPermission [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission%27"><span class="hs-identifier hs-type">AddPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200106"><span class="annot"><span class="annottext">[Text]
+actionName :: [Text]
+$sel:actionName:AddPermission' :: AddPermission -&gt; [Text]
+</span><a href="#local-6989586621679200106"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679200106"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200105"><span class="annot"><span class="annottext">s :: AddPermission
+</span><a href="#local-6989586621679200105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission%27"><span class="hs-identifier hs-type">AddPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200104"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679200104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddPermission
+</span><a href="#local-6989586621679200105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionName:AddPermission' :: [Text]
+</span><a href="Network.AWS.SNS.AddPermission.html#%24sel%3AactionName%3AAddPermission%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679200104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-type">AddPermission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; AddPermission -&gt; f AddPermission)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; AddPermission
+-&gt; f AddPermission
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-type">AddPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-type">AddPermission</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermissionResponse"><span class="hs-identifier hs-type">AddPermissionResponse</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679200100"><span class="annot"><span class="annottext">request :: AddPermission -&gt; Request AddPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddPermission -&gt; Request AddPermission
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679200096"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AddPermission
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AddPermission)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse AddPermission
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AddPermission
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AddPermission)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse AddPermission
+AddPermissionResponse
+</span><a href="Network.AWS.SNS.AddPermission.html#AddPermissionResponse%27"><span class="hs-identifier hs-var">AddPermissionResponse'</span></a></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200089"><span id="local-6989586621679200091"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-type">AddPermission</span></a></span></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200086"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-type">AddPermission</span></a></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-type">AddPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679200082"><span class="annot"><span class="annottext">toHeaders :: AddPermission -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; AddPermission -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-type">AddPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679200077"><span class="annot"><span class="annottext">toPath :: AddPermission -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AddPermission -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission"><span class="hs-identifier hs-type">AddPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679200073"><span class="annot"><span class="annottext">toQuery :: AddPermission -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermission%27"><span class="hs-identifier hs-type">AddPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200068"><span id="local-6989586621679200069"><span id="local-6989586621679200070"><span id="local-6989586621679200071"><span class="annot"><span class="annottext">[Text]
+Text
+actionName :: [Text]
+aWSAccountId :: [Text]
+label :: Text
+topicArn :: Text
+$sel:actionName:AddPermission' :: AddPermission -&gt; [Text]
+$sel:aWSAccountId:AddPermission' :: AddPermission -&gt; [Text]
+$sel:label:AddPermission' :: AddPermission -&gt; Text
+$sel:topicArn:AddPermission' :: AddPermission -&gt; Text
+</span><a href="#local-6989586621679200068"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AddPermission&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-03-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200071"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Label&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200070"><span class="hs-keyword hs-var">label</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSAccountId&quot;</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679200069"><span class="hs-identifier hs-var">aWSAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ActionName&quot;</span></span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679200068"><span class="hs-identifier hs-var">actionName</span></a></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | /See:/ 'newAddPermissionResponse' smart constructor.</span><span>
+</span><span id="line-153"></span><span id="local-6989586621679200064"><span id="local-6989586621679200065"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddPermissionResponse"><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermissionResponse"><span class="hs-identifier hs-var">AddPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddPermissionResponse%27"><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermissionResponse%27"><span class="hs-identifier hs-var">AddPermissionResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200060"><span id="local-6989586621679200062"><span class="annot"><span class="annottext">AddPermissionResponse -&gt; AddPermissionResponse -&gt; Bool
+(AddPermissionResponse -&gt; AddPermissionResponse -&gt; Bool)
+-&gt; (AddPermissionResponse -&gt; AddPermissionResponse -&gt; Bool)
+-&gt; Eq AddPermissionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddPermissionResponse -&gt; AddPermissionResponse -&gt; Bool
+$c/= :: AddPermissionResponse -&gt; AddPermissionResponse -&gt; Bool
+== :: AddPermissionResponse -&gt; AddPermissionResponse -&gt; Bool
+$c== :: AddPermissionResponse -&gt; AddPermissionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200052"><span id="local-6989586621679200054"><span id="local-6989586621679200056"><span id="local-6989586621679200058"><span class="annot"><span class="annottext">ReadPrec [AddPermissionResponse]
+ReadPrec AddPermissionResponse
+Int -&gt; ReadS AddPermissionResponse
+ReadS [AddPermissionResponse]
+(Int -&gt; ReadS AddPermissionResponse)
+-&gt; ReadS [AddPermissionResponse]
+-&gt; ReadPrec AddPermissionResponse
+-&gt; ReadPrec [AddPermissionResponse]
+-&gt; Read AddPermissionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddPermissionResponse]
+$creadListPrec :: ReadPrec [AddPermissionResponse]
+readPrec :: ReadPrec AddPermissionResponse
+$creadPrec :: ReadPrec AddPermissionResponse
+readList :: ReadS [AddPermissionResponse]
+$creadList :: ReadS [AddPermissionResponse]
+readsPrec :: Int -&gt; ReadS AddPermissionResponse
+$creadsPrec :: Int -&gt; ReadS AddPermissionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200046"><span id="local-6989586621679200048"><span id="local-6989586621679200050"><span class="annot"><span class="annottext">Int -&gt; AddPermissionResponse -&gt; ShowS
+[AddPermissionResponse] -&gt; ShowS
+AddPermissionResponse -&gt; String
+(Int -&gt; AddPermissionResponse -&gt; ShowS)
+-&gt; (AddPermissionResponse -&gt; String)
+-&gt; ([AddPermissionResponse] -&gt; ShowS)
+-&gt; Show AddPermissionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddPermissionResponse] -&gt; ShowS
+$cshowList :: [AddPermissionResponse] -&gt; ShowS
+show :: AddPermissionResponse -&gt; String
+$cshow :: AddPermissionResponse -&gt; String
+showsPrec :: Int -&gt; AddPermissionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddPermissionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AddPermissionResponse -&gt; Rep AddPermissionResponse x)
+-&gt; (forall x. Rep AddPermissionResponse x -&gt; AddPermissionResponse)
+-&gt; Generic AddPermissionResponse
+forall x. Rep AddPermissionResponse x -&gt; AddPermissionResponse
+forall x. AddPermissionResponse -&gt; Rep AddPermissionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddPermissionResponse x -&gt; AddPermissionResponse
+$cfrom :: forall x. AddPermissionResponse -&gt; Rep AddPermissionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'AddPermissionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#newAddPermissionResponse"><span class="hs-identifier hs-type">newAddPermissionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermissionResponse"><span class="hs-identifier hs-type">AddPermissionResponse</span></a></span><span>
+</span><span id="line-164"></span><span id="newAddPermissionResponse"><span class="annot"><span class="annottext">newAddPermissionResponse :: AddPermissionResponse
+</span><a href="Network.AWS.SNS.AddPermission.html#newAddPermissionResponse"><span class="hs-identifier hs-var hs-var">newAddPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AddPermissionResponse
+</span><a href="Network.AWS.SNS.AddPermission.html#AddPermissionResponse%27"><span class="hs-identifier hs-var">AddPermissionResponse'</span></a></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200042"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.AddPermission.html#AddPermissionResponse"><span class="hs-identifier hs-type">AddPermissionResponse</span></a></span></span><span>
+</span><span id="line-167"></span></pre></body></html>

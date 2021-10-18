@@ -1,0 +1,683 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MQ.Types.LdapServerMetadataInput</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MQ.Types.LdapServerMetadataInput</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Optional. The metadata of the LDAP server used to authenticate and</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- authorize connections to the broker.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Does not apply to RabbitMQ brokers.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLdapServerMetadataInput' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679223878"><span id="local-6989586621679223879"></span></span><span class="hs-keyword">data</span><span> </span><span id="LdapServerMetadataInput"><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-var">LdapServerMetadataInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LdapServerMetadataInput%27"><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-var">LdapServerMetadataInput'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the LDAP attribute that identifies the group name attribute in</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- the object returned from the group membership query.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AroleName%3ALdapServerMetadataInput%27"><span class="annot"><span class="annottext">LdapServerMetadataInput -&gt; Maybe Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AroleName%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The directory search scope for the user. If set to true, scope is to</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- search the entire subtree.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AuserSearchSubtree%3ALdapServerMetadataInput%27"><span class="annot"><span class="annottext">LdapServerMetadataInput -&gt; Maybe Bool
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AuserSearchSubtree%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var hs-var">userSearchSubtree</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specifies the name of the LDAP attribute for the user group membership.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AuserRoleName%3ALdapServerMetadataInput%27"><span class="annot"><span class="annottext">LdapServerMetadataInput -&gt; Maybe Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AuserRoleName%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var hs-var">userRoleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The directory search scope for the role. If set to true, scope is to</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- search the entire subtree.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AroleSearchSubtree%3ALdapServerMetadataInput%27"><span class="annot"><span class="annottext">LdapServerMetadataInput -&gt; Maybe Bool
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AroleSearchSubtree%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var hs-var">roleSearchSubtree</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Specifies the location of the LDAP server such as AWS Directory Service</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- for Microsoft Active Directory . Optional failover server.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Ahosts%3ALdapServerMetadataInput%27"><span class="annot"><span class="annottext">LdapServerMetadataInput -&gt; [Text]
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3Ahosts%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var hs-var">hosts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The LDAP search filter used to find users within the userBase. The</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- client\'s username is substituted into the {0} placeholder in the search</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- filter. For example, if this option is set to (uid={0}) and the received</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- username is janedoe, the search filter becomes (uid=janedoe) after</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- string substitution. It will result in matching an entry like</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AuserSearchMatching%3ALdapServerMetadataInput%27"><span class="annot"><span class="annottext">LdapServerMetadataInput -&gt; Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AuserSearchMatching%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var hs-var">userSearchMatching</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Select a particular subtree of the directory information tree (DIT) to</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- search for user entries. The subtree is specified by a DN, which</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- specifies the base node of the subtree. For example, by setting this</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- option to ou=Users,ou=corp, dc=corp, dc=example, dc=com, the search for</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- user entries is restricted to the subtree beneath ou=Users, ou=corp,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AuserBase%3ALdapServerMetadataInput%27"><span class="annot"><span class="annottext">LdapServerMetadataInput -&gt; Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AuserBase%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var hs-var">userBase</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The LDAP search filter used to find roles within the roleBase. The</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- distinguished name of the user matched by userSearchMatching is</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- substituted into the {0} placeholder in the search filter. The client\'s</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- username is substituted into the {1} placeholder. For example, if you</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- set this option to (member=uid={1})for the user janedoe, the search</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- filter becomes (member=uid=janedoe) after string substitution. It</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- matches all role entries that have a member attribute equal to</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- uid=janedoe under the subtree selected by the roleBase.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AroleSearchMatching%3ALdapServerMetadataInput%27"><span class="annot"><span class="annottext">LdapServerMetadataInput -&gt; Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AroleSearchMatching%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var hs-var">roleSearchMatching</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Service account username. A service account is an account in your LDAP</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- server that has access to initiate a connection. For example,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- cn=admin,dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AserviceAccountUsername%3ALdapServerMetadataInput%27"><span class="annot"><span class="annottext">LdapServerMetadataInput -&gt; Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AserviceAccountUsername%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var hs-var">serviceAccountUsername</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The distinguished name of the node in the directory information tree</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- (DIT) to search for roles or groups. For example, ou=group, ou=corp,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AroleBase%3ALdapServerMetadataInput%27"><span class="annot"><span class="annottext">LdapServerMetadataInput -&gt; Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AroleBase%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var hs-var">roleBase</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | Service account password. A service account is an account in your LDAP</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- server that has access to initiate a connection. For example,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- cn=admin,dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AserviceAccountPassword%3ALdapServerMetadataInput%27"><span class="annot"><span class="annottext">LdapServerMetadataInput -&gt; Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AserviceAccountPassword%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var hs-var">serviceAccountPassword</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223862"><span id="local-6989586621679223864"><span class="annot"><span class="annottext">LdapServerMetadataInput -&gt; LdapServerMetadataInput -&gt; Bool
+(LdapServerMetadataInput -&gt; LdapServerMetadataInput -&gt; Bool)
+-&gt; (LdapServerMetadataInput -&gt; LdapServerMetadataInput -&gt; Bool)
+-&gt; Eq LdapServerMetadataInput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LdapServerMetadataInput -&gt; LdapServerMetadataInput -&gt; Bool
+$c/= :: LdapServerMetadataInput -&gt; LdapServerMetadataInput -&gt; Bool
+== :: LdapServerMetadataInput -&gt; LdapServerMetadataInput -&gt; Bool
+$c== :: LdapServerMetadataInput -&gt; LdapServerMetadataInput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223853"><span id="local-6989586621679223855"><span id="local-6989586621679223857"><span id="local-6989586621679223859"><span class="annot"><span class="annottext">ReadPrec [LdapServerMetadataInput]
+ReadPrec LdapServerMetadataInput
+Int -&gt; ReadS LdapServerMetadataInput
+ReadS [LdapServerMetadataInput]
+(Int -&gt; ReadS LdapServerMetadataInput)
+-&gt; ReadS [LdapServerMetadataInput]
+-&gt; ReadPrec LdapServerMetadataInput
+-&gt; ReadPrec [LdapServerMetadataInput]
+-&gt; Read LdapServerMetadataInput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LdapServerMetadataInput]
+$creadListPrec :: ReadPrec [LdapServerMetadataInput]
+readPrec :: ReadPrec LdapServerMetadataInput
+$creadPrec :: ReadPrec LdapServerMetadataInput
+readList :: ReadS [LdapServerMetadataInput]
+$creadList :: ReadS [LdapServerMetadataInput]
+readsPrec :: Int -&gt; ReadS LdapServerMetadataInput
+$creadsPrec :: Int -&gt; ReadS LdapServerMetadataInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223846"><span id="local-6989586621679223848"><span id="local-6989586621679223850"><span class="annot"><span class="annottext">Int -&gt; LdapServerMetadataInput -&gt; ShowS
+[LdapServerMetadataInput] -&gt; ShowS
+LdapServerMetadataInput -&gt; String
+(Int -&gt; LdapServerMetadataInput -&gt; ShowS)
+-&gt; (LdapServerMetadataInput -&gt; String)
+-&gt; ([LdapServerMetadataInput] -&gt; ShowS)
+-&gt; Show LdapServerMetadataInput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LdapServerMetadataInput] -&gt; ShowS
+$cshowList :: [LdapServerMetadataInput] -&gt; ShowS
+show :: LdapServerMetadataInput -&gt; String
+$cshow :: LdapServerMetadataInput -&gt; String
+showsPrec :: Int -&gt; LdapServerMetadataInput -&gt; ShowS
+$cshowsPrec :: Int -&gt; LdapServerMetadataInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ LdapServerMetadataInput -&gt; Rep LdapServerMetadataInput x)
+-&gt; (forall x.
+    Rep LdapServerMetadataInput x -&gt; LdapServerMetadataInput)
+-&gt; Generic LdapServerMetadataInput
+forall x. Rep LdapServerMetadataInput x -&gt; LdapServerMetadataInput
+forall x. LdapServerMetadataInput -&gt; Rep LdapServerMetadataInput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LdapServerMetadataInput x -&gt; LdapServerMetadataInput
+$cfrom :: forall x. LdapServerMetadataInput -&gt; Rep LdapServerMetadataInput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Create a value of 'LdapServerMetadataInput' with all optional fields omitted.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'roleName', 'ldapServerMetadataInput_roleName' - Specifies the LDAP attribute that identifies the group name attribute in</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- the object returned from the group membership query.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'userSearchSubtree', 'ldapServerMetadataInput_userSearchSubtree' - The directory search scope for the user. If set to true, scope is to</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- search the entire subtree.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'userRoleName', 'ldapServerMetadataInput_userRoleName' - Specifies the name of the LDAP attribute for the user group membership.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'roleSearchSubtree', 'ldapServerMetadataInput_roleSearchSubtree' - The directory search scope for the role. If set to true, scope is to</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- search the entire subtree.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'hosts', 'ldapServerMetadataInput_hosts' - Specifies the location of the LDAP server such as AWS Directory Service</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- for Microsoft Active Directory . Optional failover server.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'userSearchMatching', 'ldapServerMetadataInput_userSearchMatching' - The LDAP search filter used to find users within the userBase. The</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- client\'s username is substituted into the {0} placeholder in the search</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- filter. For example, if this option is set to (uid={0}) and the received</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- username is janedoe, the search filter becomes (uid=janedoe) after</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- string substitution. It will result in matching an entry like</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'userBase', 'ldapServerMetadataInput_userBase' - Select a particular subtree of the directory information tree (DIT) to</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- search for user entries. The subtree is specified by a DN, which</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- specifies the base node of the subtree. For example, by setting this</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- option to ou=Users,ou=corp, dc=corp, dc=example, dc=com, the search for</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- user entries is restricted to the subtree beneath ou=Users, ou=corp,</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'roleSearchMatching', 'ldapServerMetadataInput_roleSearchMatching' - The LDAP search filter used to find roles within the roleBase. The</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- distinguished name of the user matched by userSearchMatching is</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- substituted into the {0} placeholder in the search filter. The client\'s</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- username is substituted into the {1} placeholder. For example, if you</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- set this option to (member=uid={1})for the user janedoe, the search</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- filter becomes (member=uid=janedoe) after string substitution. It</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- matches all role entries that have a member attribute equal to</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- uid=janedoe under the subtree selected by the roleBase.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'serviceAccountUsername', 'ldapServerMetadataInput_serviceAccountUsername' - Service account username. A service account is an account in your LDAP</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- server that has access to initiate a connection. For example,</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- cn=admin,dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'roleBase', 'ldapServerMetadataInput_roleBase' - The distinguished name of the node in the directory information tree</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- (DIT) to search for roles or groups. For example, ou=group, ou=corp,</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'serviceAccountPassword', 'ldapServerMetadataInput_serviceAccountPassword' - Service account password. A service account is an account in your LDAP</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- server that has access to initiate a connection. For example,</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- cn=admin,dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#newLdapServerMetadataInput"><span class="hs-identifier hs-type">newLdapServerMetadataInput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-comment">-- | 'userSearchMatching'</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'userBase'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'roleSearchMatching'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-comment">-- | 'serviceAccountUsername'</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-comment">-- | 'roleBase'</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'serviceAccountPassword'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span>
+</span><span id="line-155"></span><span id="newLdapServerMetadataInput"><span class="annot"><span class="annottext">newLdapServerMetadataInput :: Text
+-&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; LdapServerMetadataInput
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#newLdapServerMetadataInput"><span class="hs-identifier hs-var hs-var">newLdapServerMetadataInput</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679223840"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223840"><span class="hs-identifier hs-var">pUserSearchMatching_</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679223839"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223839"><span class="hs-identifier hs-var">pUserBase_</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679223838"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223838"><span class="hs-identifier hs-var">pRoleSearchMatching_</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679223837"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223837"><span class="hs-identifier hs-var">pServiceAccountUsername_</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679223836"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223836"><span class="hs-identifier hs-var">pRoleBase_</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679223835"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223835"><span class="hs-identifier hs-var">pServiceAccountPassword_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">LdapServerMetadataInput' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; [Text]
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; LdapServerMetadataInput
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleName:LdapServerMetadataInput' :: Maybe Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AroleName%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:userSearchSubtree:LdapServerMetadataInput' :: Maybe Bool
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AuserSearchSubtree%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">userSearchSubtree</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:userRoleName:LdapServerMetadataInput' :: Maybe Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AuserRoleName%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">userRoleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleSearchSubtree:LdapServerMetadataInput' :: Maybe Bool
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AroleSearchSubtree%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">roleSearchSubtree</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:hosts:LdapServerMetadataInput' :: [Text]
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3Ahosts%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">hosts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">$sel:userSearchMatching:LdapServerMetadataInput' :: Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AuserSearchMatching%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">userSearchMatching</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223840"><span class="hs-identifier hs-var">pUserSearchMatching_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">$sel:userBase:LdapServerMetadataInput' :: Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AuserBase%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">userBase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223839"><span class="hs-identifier hs-var">pUserBase_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleSearchMatching:LdapServerMetadataInput' :: Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AroleSearchMatching%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">roleSearchMatching</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223838"><span class="hs-identifier hs-var">pRoleSearchMatching_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceAccountUsername:LdapServerMetadataInput' :: Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AserviceAccountUsername%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">serviceAccountUsername</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223837"><span class="hs-identifier hs-var">pServiceAccountUsername_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleBase:LdapServerMetadataInput' :: Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AroleBase%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">roleBase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223836"><span class="hs-identifier hs-var">pRoleBase_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceAccountPassword:LdapServerMetadataInput' :: Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AserviceAccountPassword%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">serviceAccountPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223835"><span class="hs-identifier hs-var">pServiceAccountPassword_</span></a></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Specifies the LDAP attribute that identifies the group name attribute in</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- the object returned from the group membership query.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_roleName"><span class="hs-identifier hs-type">ldapServerMetadataInput_roleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="ldapServerMetadataInput_roleName"><span class="annot"><span class="annottext">ldapServerMetadataInput_roleName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LdapServerMetadataInput -&gt; f LdapServerMetadataInput
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_roleName"><span class="hs-identifier hs-var hs-var">ldapServerMetadataInput_roleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataInput -&gt; Maybe Text)
+-&gt; (LdapServerMetadataInput
+    -&gt; Maybe Text -&gt; LdapServerMetadataInput)
+-&gt; Lens
+     LdapServerMetadataInput
+     LdapServerMetadataInput
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223831"><span class="annot"><span class="annottext">Maybe Text
+roleName :: Maybe Text
+$sel:roleName:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Maybe Text
+</span><a href="#local-6989586621679223831"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223831"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223830"><span class="annot"><span class="annottext">s :: LdapServerMetadataInput
+</span><a href="#local-6989586621679223830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223829"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataInput
+</span><a href="#local-6989586621679223830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:LdapServerMetadataInput' :: Maybe Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AroleName%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The directory search scope for the user. If set to true, scope is to</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- search the entire subtree.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_userSearchSubtree"><span class="hs-identifier hs-type">ldapServerMetadataInput_userSearchSubtree</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="ldapServerMetadataInput_userSearchSubtree"><span class="annot"><span class="annottext">ldapServerMetadataInput_userSearchSubtree :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LdapServerMetadataInput -&gt; f LdapServerMetadataInput
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_userSearchSubtree"><span class="hs-identifier hs-var hs-var">ldapServerMetadataInput_userSearchSubtree</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataInput -&gt; Maybe Bool)
+-&gt; (LdapServerMetadataInput
+    -&gt; Maybe Bool -&gt; LdapServerMetadataInput)
+-&gt; Lens
+     LdapServerMetadataInput
+     LdapServerMetadataInput
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223827"><span class="annot"><span class="annottext">Maybe Bool
+userSearchSubtree :: Maybe Bool
+$sel:userSearchSubtree:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Maybe Bool
+</span><a href="#local-6989586621679223827"><span class="hs-identifier hs-var hs-var">userSearchSubtree</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679223827"><span class="hs-identifier hs-var">userSearchSubtree</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223826"><span class="annot"><span class="annottext">s :: LdapServerMetadataInput
+</span><a href="#local-6989586621679223826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223825"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679223825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataInput
+</span><a href="#local-6989586621679223826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userSearchSubtree:LdapServerMetadataInput' :: Maybe Bool
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AuserSearchSubtree%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">userSearchSubtree</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679223825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | Specifies the name of the LDAP attribute for the user group membership.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_userRoleName"><span class="hs-identifier hs-type">ldapServerMetadataInput_userRoleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="ldapServerMetadataInput_userRoleName"><span class="annot"><span class="annottext">ldapServerMetadataInput_userRoleName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LdapServerMetadataInput -&gt; f LdapServerMetadataInput
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_userRoleName"><span class="hs-identifier hs-var hs-var">ldapServerMetadataInput_userRoleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataInput -&gt; Maybe Text)
+-&gt; (LdapServerMetadataInput
+    -&gt; Maybe Text -&gt; LdapServerMetadataInput)
+-&gt; Lens
+     LdapServerMetadataInput
+     LdapServerMetadataInput
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223823"><span class="annot"><span class="annottext">Maybe Text
+userRoleName :: Maybe Text
+$sel:userRoleName:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Maybe Text
+</span><a href="#local-6989586621679223823"><span class="hs-identifier hs-var hs-var">userRoleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223823"><span class="hs-identifier hs-var">userRoleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223822"><span class="annot"><span class="annottext">s :: LdapServerMetadataInput
+</span><a href="#local-6989586621679223822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223821"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataInput
+</span><a href="#local-6989586621679223822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userRoleName:LdapServerMetadataInput' :: Maybe Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AuserRoleName%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">userRoleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The directory search scope for the role. If set to true, scope is to</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- search the entire subtree.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_roleSearchSubtree"><span class="hs-identifier hs-type">ldapServerMetadataInput_roleSearchSubtree</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="ldapServerMetadataInput_roleSearchSubtree"><span class="annot"><span class="annottext">ldapServerMetadataInput_roleSearchSubtree :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LdapServerMetadataInput -&gt; f LdapServerMetadataInput
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_roleSearchSubtree"><span class="hs-identifier hs-var hs-var">ldapServerMetadataInput_roleSearchSubtree</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataInput -&gt; Maybe Bool)
+-&gt; (LdapServerMetadataInput
+    -&gt; Maybe Bool -&gt; LdapServerMetadataInput)
+-&gt; Lens
+     LdapServerMetadataInput
+     LdapServerMetadataInput
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223819"><span class="annot"><span class="annottext">Maybe Bool
+roleSearchSubtree :: Maybe Bool
+$sel:roleSearchSubtree:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Maybe Bool
+</span><a href="#local-6989586621679223819"><span class="hs-identifier hs-var hs-var">roleSearchSubtree</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679223819"><span class="hs-identifier hs-var">roleSearchSubtree</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223818"><span class="annot"><span class="annottext">s :: LdapServerMetadataInput
+</span><a href="#local-6989586621679223818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223817"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679223817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataInput
+</span><a href="#local-6989586621679223818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleSearchSubtree:LdapServerMetadataInput' :: Maybe Bool
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AroleSearchSubtree%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">roleSearchSubtree</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679223817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | Specifies the location of the LDAP server such as AWS Directory Service</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- for Microsoft Active Directory . Optional failover server.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_hosts"><span class="hs-identifier hs-type">ldapServerMetadataInput_hosts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-199"></span><span id="ldapServerMetadataInput_hosts"><span class="annot"><span class="annottext">ldapServerMetadataInput_hosts :: ([Text] -&gt; f [Text])
+-&gt; LdapServerMetadataInput -&gt; f LdapServerMetadataInput
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_hosts"><span class="hs-identifier hs-var hs-var">ldapServerMetadataInput_hosts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataInput -&gt; [Text])
+-&gt; (LdapServerMetadataInput -&gt; [Text] -&gt; LdapServerMetadataInput)
+-&gt; Lens
+     LdapServerMetadataInput LdapServerMetadataInput [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223815"><span class="annot"><span class="annottext">[Text]
+hosts :: [Text]
+$sel:hosts:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; [Text]
+</span><a href="#local-6989586621679223815"><span class="hs-identifier hs-var hs-var">hosts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679223815"><span class="hs-identifier hs-var">hosts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223814"><span class="annot"><span class="annottext">s :: LdapServerMetadataInput
+</span><a href="#local-6989586621679223814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223813"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679223813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataInput
+</span><a href="#local-6989586621679223814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hosts:LdapServerMetadataInput' :: [Text]
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3Ahosts%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">hosts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679223813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; LdapServerMetadataInput -&gt; f LdapServerMetadataInput)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; LdapServerMetadataInput
+-&gt; f LdapServerMetadataInput
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The LDAP search filter used to find users within the userBase. The</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- client\'s username is substituted into the {0} placeholder in the search</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- filter. For example, if this option is set to (uid={0}) and the received</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- username is janedoe, the search filter becomes (uid=janedoe) after</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- string substitution. It will result in matching an entry like</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_userSearchMatching"><span class="hs-identifier hs-type">ldapServerMetadataInput_userSearchMatching</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-208"></span><span id="ldapServerMetadataInput_userSearchMatching"><span class="annot"><span class="annottext">ldapServerMetadataInput_userSearchMatching :: (Text -&gt; f Text)
+-&gt; LdapServerMetadataInput -&gt; f LdapServerMetadataInput
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_userSearchMatching"><span class="hs-identifier hs-var hs-var">ldapServerMetadataInput_userSearchMatching</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataInput -&gt; Text)
+-&gt; (LdapServerMetadataInput -&gt; Text -&gt; LdapServerMetadataInput)
+-&gt; Lens LdapServerMetadataInput LdapServerMetadataInput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223809"><span class="annot"><span class="annottext">Text
+userSearchMatching :: Text
+$sel:userSearchMatching:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Text
+</span><a href="#local-6989586621679223809"><span class="hs-identifier hs-var hs-var">userSearchMatching</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223809"><span class="hs-identifier hs-var">userSearchMatching</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223808"><span class="annot"><span class="annottext">s :: LdapServerMetadataInput
+</span><a href="#local-6989586621679223808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223807"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataInput
+</span><a href="#local-6989586621679223808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userSearchMatching:LdapServerMetadataInput' :: Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AuserSearchMatching%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">userSearchMatching</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | Select a particular subtree of the directory information tree (DIT) to</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- search for user entries. The subtree is specified by a DN, which</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- specifies the base node of the subtree. For example, by setting this</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- option to ou=Users,ou=corp, dc=corp, dc=example, dc=com, the search for</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- user entries is restricted to the subtree beneath ou=Users, ou=corp,</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_userBase"><span class="hs-identifier hs-type">ldapServerMetadataInput_userBase</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-217"></span><span id="ldapServerMetadataInput_userBase"><span class="annot"><span class="annottext">ldapServerMetadataInput_userBase :: (Text -&gt; f Text)
+-&gt; LdapServerMetadataInput -&gt; f LdapServerMetadataInput
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_userBase"><span class="hs-identifier hs-var hs-var">ldapServerMetadataInput_userBase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataInput -&gt; Text)
+-&gt; (LdapServerMetadataInput -&gt; Text -&gt; LdapServerMetadataInput)
+-&gt; Lens LdapServerMetadataInput LdapServerMetadataInput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223805"><span class="annot"><span class="annottext">Text
+userBase :: Text
+$sel:userBase:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Text
+</span><a href="#local-6989586621679223805"><span class="hs-identifier hs-var hs-var">userBase</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223805"><span class="hs-identifier hs-var">userBase</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223804"><span class="annot"><span class="annottext">s :: LdapServerMetadataInput
+</span><a href="#local-6989586621679223804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223803"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataInput
+</span><a href="#local-6989586621679223804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userBase:LdapServerMetadataInput' :: Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AuserBase%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">userBase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The LDAP search filter used to find roles within the roleBase. The</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- distinguished name of the user matched by userSearchMatching is</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- substituted into the {0} placeholder in the search filter. The client\'s</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- username is substituted into the {1} placeholder. For example, if you</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- set this option to (member=uid={1})for the user janedoe, the search</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- filter becomes (member=uid=janedoe) after string substitution. It</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- matches all role entries that have a member attribute equal to</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- uid=janedoe under the subtree selected by the roleBase.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_roleSearchMatching"><span class="hs-identifier hs-type">ldapServerMetadataInput_roleSearchMatching</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-228"></span><span id="ldapServerMetadataInput_roleSearchMatching"><span class="annot"><span class="annottext">ldapServerMetadataInput_roleSearchMatching :: (Text -&gt; f Text)
+-&gt; LdapServerMetadataInput -&gt; f LdapServerMetadataInput
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_roleSearchMatching"><span class="hs-identifier hs-var hs-var">ldapServerMetadataInput_roleSearchMatching</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataInput -&gt; Text)
+-&gt; (LdapServerMetadataInput -&gt; Text -&gt; LdapServerMetadataInput)
+-&gt; Lens LdapServerMetadataInput LdapServerMetadataInput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223801"><span class="annot"><span class="annottext">Text
+roleSearchMatching :: Text
+$sel:roleSearchMatching:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Text
+</span><a href="#local-6989586621679223801"><span class="hs-identifier hs-var hs-var">roleSearchMatching</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223801"><span class="hs-identifier hs-var">roleSearchMatching</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223800"><span class="annot"><span class="annottext">s :: LdapServerMetadataInput
+</span><a href="#local-6989586621679223800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223799"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataInput
+</span><a href="#local-6989586621679223800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleSearchMatching:LdapServerMetadataInput' :: Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AroleSearchMatching%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">roleSearchMatching</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | Service account username. A service account is an account in your LDAP</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- server that has access to initiate a connection. For example,</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- cn=admin,dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_serviceAccountUsername"><span class="hs-identifier hs-type">ldapServerMetadataInput_serviceAccountUsername</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-234"></span><span id="ldapServerMetadataInput_serviceAccountUsername"><span class="annot"><span class="annottext">ldapServerMetadataInput_serviceAccountUsername :: (Text -&gt; f Text)
+-&gt; LdapServerMetadataInput -&gt; f LdapServerMetadataInput
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_serviceAccountUsername"><span class="hs-identifier hs-var hs-var">ldapServerMetadataInput_serviceAccountUsername</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataInput -&gt; Text)
+-&gt; (LdapServerMetadataInput -&gt; Text -&gt; LdapServerMetadataInput)
+-&gt; Lens LdapServerMetadataInput LdapServerMetadataInput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223797"><span class="annot"><span class="annottext">Text
+serviceAccountUsername :: Text
+$sel:serviceAccountUsername:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Text
+</span><a href="#local-6989586621679223797"><span class="hs-identifier hs-var hs-var">serviceAccountUsername</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223797"><span class="hs-identifier hs-var">serviceAccountUsername</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223796"><span class="annot"><span class="annottext">s :: LdapServerMetadataInput
+</span><a href="#local-6989586621679223796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223795"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataInput
+</span><a href="#local-6989586621679223796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccountUsername:LdapServerMetadataInput' :: Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AserviceAccountUsername%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">serviceAccountUsername</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The distinguished name of the node in the directory information tree</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- (DIT) to search for roles or groups. For example, ou=group, ou=corp,</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_roleBase"><span class="hs-identifier hs-type">ldapServerMetadataInput_roleBase</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-240"></span><span id="ldapServerMetadataInput_roleBase"><span class="annot"><span class="annottext">ldapServerMetadataInput_roleBase :: (Text -&gt; f Text)
+-&gt; LdapServerMetadataInput -&gt; f LdapServerMetadataInput
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_roleBase"><span class="hs-identifier hs-var hs-var">ldapServerMetadataInput_roleBase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataInput -&gt; Text)
+-&gt; (LdapServerMetadataInput -&gt; Text -&gt; LdapServerMetadataInput)
+-&gt; Lens LdapServerMetadataInput LdapServerMetadataInput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223793"><span class="annot"><span class="annottext">Text
+roleBase :: Text
+$sel:roleBase:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Text
+</span><a href="#local-6989586621679223793"><span class="hs-identifier hs-var hs-var">roleBase</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223793"><span class="hs-identifier hs-var">roleBase</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223792"><span class="annot"><span class="annottext">s :: LdapServerMetadataInput
+</span><a href="#local-6989586621679223792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223791"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataInput
+</span><a href="#local-6989586621679223792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleBase:LdapServerMetadataInput' :: Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AroleBase%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">roleBase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | Service account password. A service account is an account in your LDAP</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- server that has access to initiate a connection. For example,</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- cn=admin,dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_serviceAccountPassword"><span class="hs-identifier hs-type">ldapServerMetadataInput_serviceAccountPassword</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-246"></span><span id="ldapServerMetadataInput_serviceAccountPassword"><span class="annot"><span class="annottext">ldapServerMetadataInput_serviceAccountPassword :: (Text -&gt; f Text)
+-&gt; LdapServerMetadataInput -&gt; f LdapServerMetadataInput
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#ldapServerMetadataInput_serviceAccountPassword"><span class="hs-identifier hs-var hs-var">ldapServerMetadataInput_serviceAccountPassword</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataInput -&gt; Text)
+-&gt; (LdapServerMetadataInput -&gt; Text -&gt; LdapServerMetadataInput)
+-&gt; Lens LdapServerMetadataInput LdapServerMetadataInput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223789"><span class="annot"><span class="annottext">Text
+serviceAccountPassword :: Text
+$sel:serviceAccountPassword:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Text
+</span><a href="#local-6989586621679223789"><span class="hs-identifier hs-var hs-var">serviceAccountPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223789"><span class="hs-identifier hs-var">serviceAccountPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223788"><span class="annot"><span class="annottext">s :: LdapServerMetadataInput
+</span><a href="#local-6989586621679223788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223787"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataInput
+</span><a href="#local-6989586621679223788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccountPassword:LdapServerMetadataInput' :: Text
+</span><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#%24sel%3AserviceAccountPassword%3ALdapServerMetadataInput%27"><span class="hs-identifier hs-var">serviceAccountPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223783"><span id="local-6989586621679223785"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span></span></span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223780"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span></span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223772"><span id="local-6989586621679223774"><span id="local-6989586621679223776"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput"><span class="hs-identifier hs-type">LdapServerMetadataInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679223770"><span class="annot"><span class="annottext">toJSON :: LdapServerMetadataInput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LdapServerMetadataInput.html#LdapServerMetadataInput%27"><span class="hs-identifier hs-type">LdapServerMetadataInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223758"><span id="local-6989586621679223759"><span id="local-6989586621679223760"><span id="local-6989586621679223761"><span id="local-6989586621679223762"><span id="local-6989586621679223763"><span id="local-6989586621679223764"><span id="local-6989586621679223765"><span id="local-6989586621679223766"><span id="local-6989586621679223767"><span id="local-6989586621679223768"><span class="annot"><span class="annottext">[Text]
+Maybe Bool
+Maybe Text
+Text
+serviceAccountPassword :: Text
+roleBase :: Text
+serviceAccountUsername :: Text
+roleSearchMatching :: Text
+userBase :: Text
+userSearchMatching :: Text
+hosts :: [Text]
+roleSearchSubtree :: Maybe Bool
+userRoleName :: Maybe Text
+userSearchSubtree :: Maybe Bool
+roleName :: Maybe Text
+$sel:serviceAccountPassword:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Text
+$sel:roleBase:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Text
+$sel:serviceAccountUsername:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Text
+$sel:roleSearchMatching:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Text
+$sel:userBase:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Text
+$sel:userSearchMatching:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Text
+$sel:hosts:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; [Text]
+$sel:roleSearchSubtree:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Maybe Bool
+$sel:userRoleName:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Maybe Text
+$sel:userSearchSubtree:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Maybe Bool
+$sel:roleName:LdapServerMetadataInput' :: LdapServerMetadataInput -&gt; Maybe Text
+</span><a href="#local-6989586621679223758"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-255"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-256"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223768"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userSearchSubtree&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679223767"><span class="hs-identifier hs-var">userSearchSubtree</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userRoleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223766"><span class="hs-identifier hs-var">userRoleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleSearchSubtree&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679223765"><span class="hs-identifier hs-var">roleSearchSubtree</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hosts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679223764"><span class="hs-identifier hs-var">hosts</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-264"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userSearchMatching&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223763"><span class="hs-identifier hs-var">userSearchMatching</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userBase&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223762"><span class="hs-identifier hs-var">userBase</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-267"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleSearchMatching&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223761"><span class="hs-identifier hs-var">roleSearchMatching</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-269"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceAccountUsername&quot;</span></span><span>
+</span><span id="line-270"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223760"><span class="hs-identifier hs-var">serviceAccountUsername</span></a></span><span>
+</span><span id="line-271"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleBase&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223759"><span class="hs-identifier hs-var">roleBase</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-274"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceAccountPassword&quot;</span></span><span>
+</span><span id="line-275"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223758"><span class="hs-identifier hs-var">serviceAccountPassword</span></a></span><span>
+</span><span id="line-276"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-278"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span></pre></body></html>

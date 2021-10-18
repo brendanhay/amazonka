@@ -1,0 +1,506 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.PatchComplianceData</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.PatchComplianceData</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceDataState.html"><span class="hs-identifier">Network.AWS.SSM.Types.PatchComplianceDataState</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about the state of a patch on a particular instance as it</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- relates to the patch baseline used to patch the instance.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPatchComplianceData' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679806419"><span id="local-6989586621679806420"></span></span><span class="hs-keyword">data</span><span> </span><span id="PatchComplianceData"><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-var">PatchComplianceData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchComplianceData%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-var">PatchComplianceData'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of one or more Common Vulnerabilities and Exposure (CVE) issues</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- that are resolved by the patch.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcVEIds%3APatchComplianceData%27"><span class="annot"><span class="annottext">PatchComplianceData -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3AcVEIds%3APatchComplianceData%27"><span class="hs-identifier hs-var hs-var">cVEIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The title of the patch.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Atitle%3APatchComplianceData%27"><span class="annot"><span class="annottext">PatchComplianceData -&gt; Text
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3Atitle%3APatchComplianceData%27"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The operating system-specific ID of the patch.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AkBId%3APatchComplianceData%27"><span class="annot"><span class="annottext">PatchComplianceData -&gt; Text
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3AkBId%3APatchComplianceData%27"><span class="hs-identifier hs-var hs-var">kBId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The classification of the patch, such as @SecurityUpdates@, @Updates@,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- and @CriticalUpdates@.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aclassification%3APatchComplianceData%27"><span class="annot"><span class="annottext">PatchComplianceData -&gt; Text
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3Aclassification%3APatchComplianceData%27"><span class="hs-identifier hs-var hs-var">classification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The severity of the patchsuch as @Critical@, @Important@, and</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @Moderate@.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aseverity%3APatchComplianceData%27"><span class="annot"><span class="annottext">PatchComplianceData -&gt; Text
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3Aseverity%3APatchComplianceData%27"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The state of the patch on the instance, such as INSTALLED or FAILED.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- For descriptions of each patch state, see</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-monitor-patch About patch compliance&gt;</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Systems Manager User Guide/.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Astate%3APatchComplianceData%27"><span class="annot"><span class="annottext">PatchComplianceData -&gt; PatchComplianceDataState
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3Astate%3APatchComplianceData%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceDataState.html#PatchComplianceDataState"><span class="hs-identifier hs-type">PatchComplianceDataState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The date\/time the patch was installed on the instance. Not all</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- operating systems provide this level of information.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AinstalledTime%3APatchComplianceData%27"><span class="annot"><span class="annottext">PatchComplianceData -&gt; POSIX
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3AinstalledTime%3APatchComplianceData%27"><span class="hs-identifier hs-var hs-var">installedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679806407"><span id="local-6989586621679806409"><span class="annot"><span class="annottext">PatchComplianceData -&gt; PatchComplianceData -&gt; Bool
+(PatchComplianceData -&gt; PatchComplianceData -&gt; Bool)
+-&gt; (PatchComplianceData -&gt; PatchComplianceData -&gt; Bool)
+-&gt; Eq PatchComplianceData
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PatchComplianceData -&gt; PatchComplianceData -&gt; Bool
+$c/= :: PatchComplianceData -&gt; PatchComplianceData -&gt; Bool
+== :: PatchComplianceData -&gt; PatchComplianceData -&gt; Bool
+$c== :: PatchComplianceData -&gt; PatchComplianceData -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679806398"><span id="local-6989586621679806400"><span id="local-6989586621679806402"><span id="local-6989586621679806404"><span class="annot"><span class="annottext">ReadPrec [PatchComplianceData]
+ReadPrec PatchComplianceData
+Int -&gt; ReadS PatchComplianceData
+ReadS [PatchComplianceData]
+(Int -&gt; ReadS PatchComplianceData)
+-&gt; ReadS [PatchComplianceData]
+-&gt; ReadPrec PatchComplianceData
+-&gt; ReadPrec [PatchComplianceData]
+-&gt; Read PatchComplianceData
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PatchComplianceData]
+$creadListPrec :: ReadPrec [PatchComplianceData]
+readPrec :: ReadPrec PatchComplianceData
+$creadPrec :: ReadPrec PatchComplianceData
+readList :: ReadS [PatchComplianceData]
+$creadList :: ReadS [PatchComplianceData]
+readsPrec :: Int -&gt; ReadS PatchComplianceData
+$creadsPrec :: Int -&gt; ReadS PatchComplianceData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679806391"><span id="local-6989586621679806393"><span id="local-6989586621679806395"><span class="annot"><span class="annottext">Int -&gt; PatchComplianceData -&gt; ShowS
+[PatchComplianceData] -&gt; ShowS
+PatchComplianceData -&gt; String
+(Int -&gt; PatchComplianceData -&gt; ShowS)
+-&gt; (PatchComplianceData -&gt; String)
+-&gt; ([PatchComplianceData] -&gt; ShowS)
+-&gt; Show PatchComplianceData
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PatchComplianceData] -&gt; ShowS
+$cshowList :: [PatchComplianceData] -&gt; ShowS
+show :: PatchComplianceData -&gt; String
+$cshow :: PatchComplianceData -&gt; String
+showsPrec :: Int -&gt; PatchComplianceData -&gt; ShowS
+$cshowsPrec :: Int -&gt; PatchComplianceData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PatchComplianceData -&gt; Rep PatchComplianceData x)
+-&gt; (forall x. Rep PatchComplianceData x -&gt; PatchComplianceData)
+-&gt; Generic PatchComplianceData
+forall x. Rep PatchComplianceData x -&gt; PatchComplianceData
+forall x. PatchComplianceData -&gt; Rep PatchComplianceData x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PatchComplianceData x -&gt; PatchComplianceData
+$cfrom :: forall x. PatchComplianceData -&gt; Rep PatchComplianceData x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'PatchComplianceData' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'cVEIds', 'patchComplianceData_cVEIds' - The IDs of one or more Common Vulnerabilities and Exposure (CVE) issues</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- that are resolved by the patch.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'title', 'patchComplianceData_title' - The title of the patch.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'kBId', 'patchComplianceData_kBId' - The operating system-specific ID of the patch.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'classification', 'patchComplianceData_classification' - The classification of the patch, such as @SecurityUpdates@, @Updates@,</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- and @CriticalUpdates@.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'severity', 'patchComplianceData_severity' - The severity of the patchsuch as @Critical@, @Important@, and</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- @Moderate@.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'state', 'patchComplianceData_state' - The state of the patch on the instance, such as INSTALLED or FAILED.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- For descriptions of each patch state, see</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-monitor-patch About patch compliance&gt;</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- in the /Amazon Web Services Systems Manager User Guide/.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'installedTime', 'patchComplianceData_installedTime' - The date\/time the patch was installed on the instance. Not all</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- operating systems provide this level of information.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#newPatchComplianceData"><span class="hs-identifier hs-type">newPatchComplianceData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'title'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'kBId'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'classification'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'severity'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'state'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceDataState.html#PatchComplianceDataState"><span class="hs-identifier hs-type">PatchComplianceDataState</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'installedTime'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span><span>
+</span><span id="line-100"></span><span id="newPatchComplianceData"><span class="annot"><span class="annottext">newPatchComplianceData :: Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; PatchComplianceDataState
+-&gt; UTCTime
+-&gt; PatchComplianceData
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#newPatchComplianceData"><span class="hs-identifier hs-var hs-var">newPatchComplianceData</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679806385"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806385"><span class="hs-identifier hs-var">pTitle_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679806384"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806384"><span class="hs-identifier hs-var">pKBId_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679806383"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806383"><span class="hs-identifier hs-var">pClassification_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679806382"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806382"><span class="hs-identifier hs-var">pSeverity_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679806381"><span class="annot"><span class="annottext">PatchComplianceDataState
+</span><a href="#local-6989586621679806381"><span class="hs-identifier hs-var">pState_</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679806380"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679806380"><span class="hs-identifier hs-var">pInstalledTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">PatchComplianceData' :: Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; PatchComplianceDataState
+-&gt; POSIX
+-&gt; PatchComplianceData
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-type">PatchComplianceData'</span></a></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cVEIds:PatchComplianceData' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3AcVEIds%3APatchComplianceData%27"><span class="hs-identifier hs-var">cVEIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:title:PatchComplianceData' :: Text
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3Atitle%3APatchComplianceData%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806385"><span class="hs-identifier hs-var">pTitle_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:kBId:PatchComplianceData' :: Text
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3AkBId%3APatchComplianceData%27"><span class="hs-identifier hs-var">kBId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806384"><span class="hs-identifier hs-var">pKBId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:classification:PatchComplianceData' :: Text
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3Aclassification%3APatchComplianceData%27"><span class="hs-identifier hs-var">classification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806383"><span class="hs-identifier hs-var">pClassification_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:severity:PatchComplianceData' :: Text
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3Aseverity%3APatchComplianceData%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806382"><span class="hs-identifier hs-var">pSeverity_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:state:PatchComplianceData' :: PatchComplianceDataState
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3Astate%3APatchComplianceData%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PatchComplianceDataState
+</span><a href="#local-6989586621679806381"><span class="hs-identifier hs-var">pState_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:installedTime:PatchComplianceData' :: POSIX
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3AinstalledTime%3APatchComplianceData%27"><span class="hs-identifier hs-var">installedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679806380"><span class="hs-identifier hs-var">pInstalledTime_</span></a></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The IDs of one or more Common Vulnerabilities and Exposure (CVE) issues</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- that are resolved by the patch.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#patchComplianceData_cVEIds"><span class="hs-identifier hs-type">patchComplianceData_cVEIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="patchComplianceData_cVEIds"><span class="annot"><span class="annottext">patchComplianceData_cVEIds :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PatchComplianceData -&gt; f PatchComplianceData
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#patchComplianceData_cVEIds"><span class="hs-identifier hs-var hs-var">patchComplianceData_cVEIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PatchComplianceData -&gt; Maybe Text)
+-&gt; (PatchComplianceData -&gt; Maybe Text -&gt; PatchComplianceData)
+-&gt; Lens
+     PatchComplianceData PatchComplianceData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-type">PatchComplianceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806374"><span class="annot"><span class="annottext">Maybe Text
+cVEIds :: Maybe Text
+$sel:cVEIds:PatchComplianceData' :: PatchComplianceData -&gt; Maybe Text
+</span><a href="#local-6989586621679806374"><span class="hs-identifier hs-var hs-var">cVEIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806374"><span class="hs-identifier hs-var">cVEIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806373"><span class="annot"><span class="annottext">s :: PatchComplianceData
+</span><a href="#local-6989586621679806373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-type">PatchComplianceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806372"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchComplianceData
+</span><a href="#local-6989586621679806373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cVEIds:PatchComplianceData' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3AcVEIds%3APatchComplianceData%27"><span class="hs-identifier hs-var">cVEIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The title of the patch.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#patchComplianceData_title"><span class="hs-identifier hs-type">patchComplianceData_title</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-124"></span><span id="patchComplianceData_title"><span class="annot"><span class="annottext">patchComplianceData_title :: (Text -&gt; f Text) -&gt; PatchComplianceData -&gt; f PatchComplianceData
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#patchComplianceData_title"><span class="hs-identifier hs-var hs-var">patchComplianceData_title</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PatchComplianceData -&gt; Text)
+-&gt; (PatchComplianceData -&gt; Text -&gt; PatchComplianceData)
+-&gt; Lens PatchComplianceData PatchComplianceData Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-type">PatchComplianceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806370"><span class="annot"><span class="annottext">Text
+title :: Text
+$sel:title:PatchComplianceData' :: PatchComplianceData -&gt; Text
+</span><a href="#local-6989586621679806370"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806370"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806369"><span class="annot"><span class="annottext">s :: PatchComplianceData
+</span><a href="#local-6989586621679806369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-type">PatchComplianceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806368"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchComplianceData
+</span><a href="#local-6989586621679806369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:PatchComplianceData' :: Text
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3Atitle%3APatchComplianceData%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The operating system-specific ID of the patch.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#patchComplianceData_kBId"><span class="hs-identifier hs-type">patchComplianceData_kBId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-128"></span><span id="patchComplianceData_kBId"><span class="annot"><span class="annottext">patchComplianceData_kBId :: (Text -&gt; f Text) -&gt; PatchComplianceData -&gt; f PatchComplianceData
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#patchComplianceData_kBId"><span class="hs-identifier hs-var hs-var">patchComplianceData_kBId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PatchComplianceData -&gt; Text)
+-&gt; (PatchComplianceData -&gt; Text -&gt; PatchComplianceData)
+-&gt; Lens PatchComplianceData PatchComplianceData Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-type">PatchComplianceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806366"><span class="annot"><span class="annottext">Text
+kBId :: Text
+$sel:kBId:PatchComplianceData' :: PatchComplianceData -&gt; Text
+</span><a href="#local-6989586621679806366"><span class="hs-identifier hs-var hs-var">kBId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806366"><span class="hs-identifier hs-var">kBId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806365"><span class="annot"><span class="annottext">s :: PatchComplianceData
+</span><a href="#local-6989586621679806365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-type">PatchComplianceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806364"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchComplianceData
+</span><a href="#local-6989586621679806365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kBId:PatchComplianceData' :: Text
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3AkBId%3APatchComplianceData%27"><span class="hs-identifier hs-var">kBId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The classification of the patch, such as @SecurityUpdates@, @Updates@,</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- and @CriticalUpdates@.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#patchComplianceData_classification"><span class="hs-identifier hs-type">patchComplianceData_classification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-133"></span><span id="patchComplianceData_classification"><span class="annot"><span class="annottext">patchComplianceData_classification :: (Text -&gt; f Text) -&gt; PatchComplianceData -&gt; f PatchComplianceData
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#patchComplianceData_classification"><span class="hs-identifier hs-var hs-var">patchComplianceData_classification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PatchComplianceData -&gt; Text)
+-&gt; (PatchComplianceData -&gt; Text -&gt; PatchComplianceData)
+-&gt; Lens PatchComplianceData PatchComplianceData Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-type">PatchComplianceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806362"><span class="annot"><span class="annottext">Text
+classification :: Text
+$sel:classification:PatchComplianceData' :: PatchComplianceData -&gt; Text
+</span><a href="#local-6989586621679806362"><span class="hs-identifier hs-var hs-var">classification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806362"><span class="hs-identifier hs-var">classification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806361"><span class="annot"><span class="annottext">s :: PatchComplianceData
+</span><a href="#local-6989586621679806361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-type">PatchComplianceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806360"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchComplianceData
+</span><a href="#local-6989586621679806361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classification:PatchComplianceData' :: Text
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3Aclassification%3APatchComplianceData%27"><span class="hs-identifier hs-var">classification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The severity of the patchsuch as @Critical@, @Important@, and</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- @Moderate@.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#patchComplianceData_severity"><span class="hs-identifier hs-type">patchComplianceData_severity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-138"></span><span id="patchComplianceData_severity"><span class="annot"><span class="annottext">patchComplianceData_severity :: (Text -&gt; f Text) -&gt; PatchComplianceData -&gt; f PatchComplianceData
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#patchComplianceData_severity"><span class="hs-identifier hs-var hs-var">patchComplianceData_severity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PatchComplianceData -&gt; Text)
+-&gt; (PatchComplianceData -&gt; Text -&gt; PatchComplianceData)
+-&gt; Lens PatchComplianceData PatchComplianceData Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-type">PatchComplianceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806358"><span class="annot"><span class="annottext">Text
+severity :: Text
+$sel:severity:PatchComplianceData' :: PatchComplianceData -&gt; Text
+</span><a href="#local-6989586621679806358"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806358"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806357"><span class="annot"><span class="annottext">s :: PatchComplianceData
+</span><a href="#local-6989586621679806357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-type">PatchComplianceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806356"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchComplianceData
+</span><a href="#local-6989586621679806357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severity:PatchComplianceData' :: Text
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3Aseverity%3APatchComplianceData%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The state of the patch on the instance, such as INSTALLED or FAILED.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- For descriptions of each patch state, see</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-monitor-patch About patch compliance&gt;</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- in the /Amazon Web Services Systems Manager User Guide/.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#patchComplianceData_state"><span class="hs-identifier hs-type">patchComplianceData_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceDataState.html#PatchComplianceDataState"><span class="hs-identifier hs-type">PatchComplianceDataState</span></a></span><span>
+</span><span id="line-146"></span><span id="patchComplianceData_state"><span class="annot"><span class="annottext">patchComplianceData_state :: (PatchComplianceDataState -&gt; f PatchComplianceDataState)
+-&gt; PatchComplianceData -&gt; f PatchComplianceData
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#patchComplianceData_state"><span class="hs-identifier hs-var hs-var">patchComplianceData_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PatchComplianceData -&gt; PatchComplianceDataState)
+-&gt; (PatchComplianceData
+    -&gt; PatchComplianceDataState -&gt; PatchComplianceData)
+-&gt; Lens
+     PatchComplianceData
+     PatchComplianceData
+     PatchComplianceDataState
+     PatchComplianceDataState
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-type">PatchComplianceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806354"><span class="annot"><span class="annottext">PatchComplianceDataState
+state :: PatchComplianceDataState
+$sel:state:PatchComplianceData' :: PatchComplianceData -&gt; PatchComplianceDataState
+</span><a href="#local-6989586621679806354"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchComplianceDataState
+</span><a href="#local-6989586621679806354"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806353"><span class="annot"><span class="annottext">s :: PatchComplianceData
+</span><a href="#local-6989586621679806353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-type">PatchComplianceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806352"><span class="annot"><span class="annottext">PatchComplianceDataState
+</span><a href="#local-6989586621679806352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchComplianceData
+</span><a href="#local-6989586621679806353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:PatchComplianceData' :: PatchComplianceDataState
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3Astate%3APatchComplianceData%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PatchComplianceDataState
+</span><a href="#local-6989586621679806352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The date\/time the patch was installed on the instance. Not all</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- operating systems provide this level of information.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#patchComplianceData_installedTime"><span class="hs-identifier hs-type">patchComplianceData_installedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-151"></span><span id="patchComplianceData_installedTime"><span class="annot"><span class="annottext">patchComplianceData_installedTime :: (UTCTime -&gt; f UTCTime)
+-&gt; PatchComplianceData -&gt; f PatchComplianceData
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#patchComplianceData_installedTime"><span class="hs-identifier hs-var hs-var">patchComplianceData_installedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PatchComplianceData -&gt; POSIX)
+-&gt; (PatchComplianceData -&gt; POSIX -&gt; PatchComplianceData)
+-&gt; Lens PatchComplianceData PatchComplianceData POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-type">PatchComplianceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806350"><span class="annot"><span class="annottext">POSIX
+installedTime :: POSIX
+$sel:installedTime:PatchComplianceData' :: PatchComplianceData -&gt; POSIX
+</span><a href="#local-6989586621679806350"><span class="hs-identifier hs-var hs-var">installedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679806350"><span class="hs-identifier hs-var">installedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806349"><span class="annot"><span class="annottext">s :: PatchComplianceData
+</span><a href="#local-6989586621679806349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-type">PatchComplianceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806348"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679806348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchComplianceData
+</span><a href="#local-6989586621679806349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:installedTime:PatchComplianceData' :: POSIX
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#%24sel%3AinstalledTime%3APatchComplianceData%27"><span class="hs-identifier hs-var">installedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679806348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; PatchComplianceData -&gt; f PatchComplianceData)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; PatchComplianceData
+-&gt; f PatchComplianceData
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679806344"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679806342"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PatchComplianceData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PatchComplianceData)
+-&gt; Value
+-&gt; Parser PatchComplianceData
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PatchComplianceData&quot;</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679806339"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806339"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; PatchComplianceDataState
+-&gt; POSIX
+-&gt; PatchComplianceData
+</span><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData%27"><span class="hs-identifier hs-var">PatchComplianceData'</span></a></span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; PatchComplianceDataState
+ -&gt; POSIX
+ -&gt; PatchComplianceData)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; PatchComplianceDataState
+      -&gt; POSIX
+      -&gt; PatchComplianceData)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CVEIds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; PatchComplianceDataState
+   -&gt; POSIX
+   -&gt; PatchComplianceData)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; PatchComplianceDataState
+      -&gt; POSIX
+      -&gt; PatchComplianceData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Title&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; PatchComplianceDataState
+   -&gt; POSIX
+   -&gt; PatchComplianceData)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; PatchComplianceDataState
+      -&gt; POSIX
+      -&gt; PatchComplianceData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KBId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; PatchComplianceDataState
+   -&gt; POSIX
+   -&gt; PatchComplianceData)
+-&gt; Parser Text
+-&gt; Parser
+     (Text -&gt; PatchComplianceDataState -&gt; POSIX -&gt; PatchComplianceData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Classification&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; PatchComplianceDataState -&gt; POSIX -&gt; PatchComplianceData)
+-&gt; Parser Text
+-&gt; Parser
+     (PatchComplianceDataState -&gt; POSIX -&gt; PatchComplianceData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Severity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser (PatchComplianceDataState -&gt; POSIX -&gt; PatchComplianceData)
+-&gt; Parser PatchComplianceDataState
+-&gt; Parser (POSIX -&gt; PatchComplianceData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser PatchComplianceDataState
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; PatchComplianceData)
+-&gt; Parser POSIX -&gt; Parser PatchComplianceData
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstalledTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679806332"><span id="local-6989586621679806334"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span></span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679806329"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceData.html#PatchComplianceData"><span class="hs-identifier hs-type">PatchComplianceData</span></a></span></span><span>
+</span><span id="line-171"></span></pre></body></html>

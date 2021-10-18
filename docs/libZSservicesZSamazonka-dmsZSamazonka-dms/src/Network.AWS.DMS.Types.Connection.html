@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DMS.Types.Connection</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DMS.Types.Connection</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Status of the connection between an endpoint and a replication instance,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- including Amazon Resource Names (ARNs) and the last error message</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- issued.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newConnection' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679430137"><span id="local-6989586621679430138"></span></span><span class="hs-keyword">data</span><span> </span><span id="Connection"><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-var">Connection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Connection%27"><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection%27"><span class="hs-identifier hs-var">Connection'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The connection status. This parameter can return one of the following</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- values:</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   @\&quot;successful\&quot;@</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   @\&quot;testing\&quot;@</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   @\&quot;failed\&quot;@</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   @\&quot;deleting\&quot;@</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Astatus%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3Astatus%3AConnection%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The error message when the connection last failed.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AlastFailureMessage%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3AlastFailureMessage%3AConnection%27"><span class="hs-identifier hs-var hs-var">lastFailureMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The replication instance identifier. This parameter is stored as a</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- lowercase string.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AreplicationInstanceIdentifier%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3AreplicationInstanceIdentifier%3AConnection%27"><span class="hs-identifier hs-var hs-var">replicationInstanceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The ARN string that uniquely identifies the endpoint.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AendpointArn%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3AendpointArn%3AConnection%27"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The identifier of the endpoint. Identifiers must begin with a letter and</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- must contain only ASCII letters, digits, and hyphens. They can\'t end</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- with a hyphen or contain two consecutive hyphens.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AendpointIdentifier%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3AendpointIdentifier%3AConnection%27"><span class="hs-identifier hs-var hs-var">endpointIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The ARN of the replication instance.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AreplicationInstanceArn%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3AreplicationInstanceArn%3AConnection%27"><span class="hs-identifier hs-var hs-var">replicationInstanceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430126"><span id="local-6989586621679430128"><span class="annot"><span class="annottext">Connection -&gt; Connection -&gt; Bool
+(Connection -&gt; Connection -&gt; Bool)
+-&gt; (Connection -&gt; Connection -&gt; Bool) -&gt; Eq Connection
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Connection -&gt; Connection -&gt; Bool
+$c/= :: Connection -&gt; Connection -&gt; Bool
+== :: Connection -&gt; Connection -&gt; Bool
+$c== :: Connection -&gt; Connection -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430117"><span id="local-6989586621679430119"><span id="local-6989586621679430121"><span id="local-6989586621679430123"><span class="annot"><span class="annottext">ReadPrec [Connection]
+ReadPrec Connection
+Int -&gt; ReadS Connection
+ReadS [Connection]
+(Int -&gt; ReadS Connection)
+-&gt; ReadS [Connection]
+-&gt; ReadPrec Connection
+-&gt; ReadPrec [Connection]
+-&gt; Read Connection
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Connection]
+$creadListPrec :: ReadPrec [Connection]
+readPrec :: ReadPrec Connection
+$creadPrec :: ReadPrec Connection
+readList :: ReadS [Connection]
+$creadList :: ReadS [Connection]
+readsPrec :: Int -&gt; ReadS Connection
+$creadsPrec :: Int -&gt; ReadS Connection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430110"><span id="local-6989586621679430112"><span id="local-6989586621679430114"><span class="annot"><span class="annottext">Int -&gt; Connection -&gt; ShowS
+[Connection] -&gt; ShowS
+Connection -&gt; String
+(Int -&gt; Connection -&gt; ShowS)
+-&gt; (Connection -&gt; String)
+-&gt; ([Connection] -&gt; ShowS)
+-&gt; Show Connection
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Connection] -&gt; ShowS
+$cshowList :: [Connection] -&gt; ShowS
+show :: Connection -&gt; String
+$cshow :: Connection -&gt; String
+showsPrec :: Int -&gt; Connection -&gt; ShowS
+$cshowsPrec :: Int -&gt; Connection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Connection -&gt; Rep Connection x)
+-&gt; (forall x. Rep Connection x -&gt; Connection) -&gt; Generic Connection
+forall x. Rep Connection x -&gt; Connection
+forall x. Connection -&gt; Rep Connection x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Connection x -&gt; Connection
+$cfrom :: forall x. Connection -&gt; Rep Connection x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'Connection' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'status', 'connection_status' - The connection status. This parameter can return one of the following</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- values:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- -   @\&quot;successful\&quot;@</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- -   @\&quot;testing\&quot;@</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- -   @\&quot;failed\&quot;@</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- -   @\&quot;deleting\&quot;@</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'lastFailureMessage', 'connection_lastFailureMessage' - The error message when the connection last failed.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'replicationInstanceIdentifier', 'connection_replicationInstanceIdentifier' - The replication instance identifier. This parameter is stored as a</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- lowercase string.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'endpointArn', 'connection_endpointArn' - The ARN string that uniquely identifies the endpoint.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'endpointIdentifier', 'connection_endpointIdentifier' - The identifier of the endpoint. Identifiers must begin with a letter and</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- must contain only ASCII letters, digits, and hyphens. They can\'t end</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- with a hyphen or contain two consecutive hyphens.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'replicationInstanceArn', 'connection_replicationInstanceArn' - The ARN of the replication instance.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#newConnection"><span class="hs-identifier hs-type">newConnection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span>
+</span><span id="line-92"></span><span id="newConnection"><span class="annot"><span class="annottext">newConnection :: Connection
+</span><a href="Network.AWS.DMS.Types.Connection.html#newConnection"><span class="hs-identifier hs-var hs-var">newConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">Connection' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Connection
+</span><a href="Network.AWS.DMS.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:Connection' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3Astatus%3AConnection%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastFailureMessage:Connection' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3AlastFailureMessage%3AConnection%27"><span class="hs-identifier hs-var">lastFailureMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationInstanceIdentifier:Connection' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3AreplicationInstanceIdentifier%3AConnection%27"><span class="hs-identifier hs-var">replicationInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointArn:Connection' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3AendpointArn%3AConnection%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointIdentifier:Connection' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3AendpointIdentifier%3AConnection%27"><span class="hs-identifier hs-var">endpointIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationInstanceArn:Connection' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3AreplicationInstanceArn%3AConnection%27"><span class="hs-identifier hs-var">replicationInstanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The connection status. This parameter can return one of the following</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- values:</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -   @\&quot;successful\&quot;@</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- -   @\&quot;testing\&quot;@</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- -   @\&quot;failed\&quot;@</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- -   @\&quot;deleting\&quot;@</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#connection_status"><span class="hs-identifier hs-type">connection_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="connection_status"><span class="annot"><span class="annottext">connection_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connection -&gt; f Connection
+</span><a href="Network.AWS.DMS.Types.Connection.html#connection_status"><span class="hs-identifier hs-var hs-var">connection_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe Text)
+-&gt; (Connection -&gt; Maybe Text -&gt; Connection)
+-&gt; Lens Connection Connection (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430101"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:Connection' :: Connection -&gt; Maybe Text
+</span><a href="#local-6989586621679430101"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430101"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430100"><span class="annot"><span class="annottext">s :: Connection
+</span><a href="#local-6989586621679430100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430099"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
+</span><a href="#local-6989586621679430100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Connection' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3Astatus%3AConnection%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The error message when the connection last failed.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#connection_lastFailureMessage"><span class="hs-identifier hs-type">connection_lastFailureMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="connection_lastFailureMessage"><span class="annot"><span class="annottext">connection_lastFailureMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connection -&gt; f Connection
+</span><a href="Network.AWS.DMS.Types.Connection.html#connection_lastFailureMessage"><span class="hs-identifier hs-var hs-var">connection_lastFailureMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe Text)
+-&gt; (Connection -&gt; Maybe Text -&gt; Connection)
+-&gt; Lens Connection Connection (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430097"><span class="annot"><span class="annottext">Maybe Text
+lastFailureMessage :: Maybe Text
+$sel:lastFailureMessage:Connection' :: Connection -&gt; Maybe Text
+</span><a href="#local-6989586621679430097"><span class="hs-identifier hs-var hs-var">lastFailureMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430097"><span class="hs-identifier hs-var">lastFailureMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430096"><span class="annot"><span class="annottext">s :: Connection
+</span><a href="#local-6989586621679430096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430095"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
+</span><a href="#local-6989586621679430096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastFailureMessage:Connection' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3AlastFailureMessage%3AConnection%27"><span class="hs-identifier hs-var">lastFailureMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The replication instance identifier. This parameter is stored as a</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- lowercase string.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#connection_replicationInstanceIdentifier"><span class="hs-identifier hs-type">connection_replicationInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="connection_replicationInstanceIdentifier"><span class="annot"><span class="annottext">connection_replicationInstanceIdentifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connection -&gt; f Connection
+</span><a href="Network.AWS.DMS.Types.Connection.html#connection_replicationInstanceIdentifier"><span class="hs-identifier hs-var hs-var">connection_replicationInstanceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe Text)
+-&gt; (Connection -&gt; Maybe Text -&gt; Connection)
+-&gt; Lens Connection Connection (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430093"><span class="annot"><span class="annottext">Maybe Text
+replicationInstanceIdentifier :: Maybe Text
+$sel:replicationInstanceIdentifier:Connection' :: Connection -&gt; Maybe Text
+</span><a href="#local-6989586621679430093"><span class="hs-identifier hs-var hs-var">replicationInstanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430093"><span class="hs-identifier hs-var">replicationInstanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430092"><span class="annot"><span class="annottext">s :: Connection
+</span><a href="#local-6989586621679430092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430091"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
+</span><a href="#local-6989586621679430092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationInstanceIdentifier:Connection' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3AreplicationInstanceIdentifier%3AConnection%27"><span class="hs-identifier hs-var">replicationInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The ARN string that uniquely identifies the endpoint.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#connection_endpointArn"><span class="hs-identifier hs-type">connection_endpointArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="connection_endpointArn"><span class="annot"><span class="annottext">connection_endpointArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connection -&gt; f Connection
+</span><a href="Network.AWS.DMS.Types.Connection.html#connection_endpointArn"><span class="hs-identifier hs-var hs-var">connection_endpointArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe Text)
+-&gt; (Connection -&gt; Maybe Text -&gt; Connection)
+-&gt; Lens Connection Connection (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430089"><span class="annot"><span class="annottext">Maybe Text
+endpointArn :: Maybe Text
+$sel:endpointArn:Connection' :: Connection -&gt; Maybe Text
+</span><a href="#local-6989586621679430089"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430089"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430088"><span class="annot"><span class="annottext">s :: Connection
+</span><a href="#local-6989586621679430088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430087"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
+</span><a href="#local-6989586621679430088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:Connection' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3AendpointArn%3AConnection%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The identifier of the endpoint. Identifiers must begin with a letter and</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- must contain only ASCII letters, digits, and hyphens. They can\'t end</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- with a hyphen or contain two consecutive hyphens.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#connection_endpointIdentifier"><span class="hs-identifier hs-type">connection_endpointIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="connection_endpointIdentifier"><span class="annot"><span class="annottext">connection_endpointIdentifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connection -&gt; f Connection
+</span><a href="Network.AWS.DMS.Types.Connection.html#connection_endpointIdentifier"><span class="hs-identifier hs-var hs-var">connection_endpointIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe Text)
+-&gt; (Connection -&gt; Maybe Text -&gt; Connection)
+-&gt; Lens Connection Connection (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430085"><span class="annot"><span class="annottext">Maybe Text
+endpointIdentifier :: Maybe Text
+$sel:endpointIdentifier:Connection' :: Connection -&gt; Maybe Text
+</span><a href="#local-6989586621679430085"><span class="hs-identifier hs-var hs-var">endpointIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430085"><span class="hs-identifier hs-var">endpointIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430084"><span class="annot"><span class="annottext">s :: Connection
+</span><a href="#local-6989586621679430084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430083"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
+</span><a href="#local-6989586621679430084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointIdentifier:Connection' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3AendpointIdentifier%3AConnection%27"><span class="hs-identifier hs-var">endpointIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The ARN of the replication instance.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#connection_replicationInstanceArn"><span class="hs-identifier hs-type">connection_replicationInstanceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="connection_replicationInstanceArn"><span class="annot"><span class="annottext">connection_replicationInstanceArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connection -&gt; f Connection
+</span><a href="Network.AWS.DMS.Types.Connection.html#connection_replicationInstanceArn"><span class="hs-identifier hs-var hs-var">connection_replicationInstanceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe Text)
+-&gt; (Connection -&gt; Maybe Text -&gt; Connection)
+-&gt; Lens Connection Connection (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430081"><span class="annot"><span class="annottext">Maybe Text
+replicationInstanceArn :: Maybe Text
+$sel:replicationInstanceArn:Connection' :: Connection -&gt; Maybe Text
+</span><a href="#local-6989586621679430081"><span class="hs-identifier hs-var hs-var">replicationInstanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430081"><span class="hs-identifier hs-var">replicationInstanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430080"><span class="annot"><span class="annottext">s :: Connection
+</span><a href="#local-6989586621679430080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430079"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
+</span><a href="#local-6989586621679430080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationInstanceArn:Connection' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.Connection.html#%24sel%3AreplicationInstanceArn%3AConnection%27"><span class="hs-identifier hs-var">replicationInstanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430076"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679430074"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Connection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Connection) -&gt; Value -&gt; Parser Connection
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Connection&quot;</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679430071"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430071"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Connection
+</span><a href="Network.AWS.DMS.Types.Connection.html#Connection%27"><span class="hs-identifier hs-var">Connection'</span></a></span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Connection)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Connection)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Connection)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Connection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastFailureMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Connection)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Connection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationInstanceIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Connection)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Connection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Connection)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Connection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Connection)
+-&gt; Parser (Maybe Text) -&gt; Parser Connection
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationInstanceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430065"><span id="local-6989586621679430067"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430062"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span></span><span>
+</span><span id="line-155"></span></pre></body></html>

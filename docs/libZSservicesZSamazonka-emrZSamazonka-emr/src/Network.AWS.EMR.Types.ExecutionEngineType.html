@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EMR.Types.ExecutionEngineType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EMR.Types.ExecutionEngineType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineType.html#ExecutionEngineType"><span class="hs-identifier">ExecutionEngineType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineType.html#ExecutionEngineType_EMR"><span class="hs-identifier">ExecutionEngineType_EMR</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679367764"><span id="local-6989586621679367765"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExecutionEngineType"><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineType.html#ExecutionEngineType"><span class="hs-identifier hs-var">ExecutionEngineType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionEngineType%27"><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineType.html#ExecutionEngineType%27"><span class="hs-identifier hs-var">ExecutionEngineType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExecutionEngineType"><span class="annot"><span class="annottext">ExecutionEngineType -&gt; Text
+</span><a href="Network.AWS.EMR.Types.ExecutionEngineType.html#fromExecutionEngineType"><span class="hs-identifier hs-var hs-var">fromExecutionEngineType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367756"><span id="local-6989586621679367758"><span id="local-6989586621679367760"><span class="annot"><span class="annottext">Int -&gt; ExecutionEngineType -&gt; ShowS
+[ExecutionEngineType] -&gt; ShowS
+ExecutionEngineType -&gt; String
+(Int -&gt; ExecutionEngineType -&gt; ShowS)
+-&gt; (ExecutionEngineType -&gt; String)
+-&gt; ([ExecutionEngineType] -&gt; ShowS)
+-&gt; Show ExecutionEngineType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExecutionEngineType] -&gt; ShowS
+$cshowList :: [ExecutionEngineType] -&gt; ShowS
+show :: ExecutionEngineType -&gt; String
+$cshow :: ExecutionEngineType -&gt; String
+showsPrec :: Int -&gt; ExecutionEngineType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExecutionEngineType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679367747"><span id="local-6989586621679367749"><span id="local-6989586621679367751"><span id="local-6989586621679367753"><span class="annot"><span class="annottext">ReadPrec [ExecutionEngineType]
+ReadPrec ExecutionEngineType
+Int -&gt; ReadS ExecutionEngineType
+ReadS [ExecutionEngineType]
+(Int -&gt; ReadS ExecutionEngineType)
+-&gt; ReadS [ExecutionEngineType]
+-&gt; ReadPrec ExecutionEngineType
+-&gt; ReadPrec [ExecutionEngineType]
+-&gt; Read ExecutionEngineType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExecutionEngineType]
+$creadListPrec :: ReadPrec [ExecutionEngineType]
+readPrec :: ReadPrec ExecutionEngineType
+$creadPrec :: ReadPrec ExecutionEngineType
+readList :: ReadS [ExecutionEngineType]
+$creadList :: ReadS [ExecutionEngineType]
+readsPrec :: Int -&gt; ReadS ExecutionEngineType
+$creadsPrec :: Int -&gt; ReadS ExecutionEngineType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679367742"><span id="local-6989586621679367744"><span class="annot"><span class="annottext">ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool
+(ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool)
+-&gt; (ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool)
+-&gt; Eq ExecutionEngineType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool
+$c/= :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool
+== :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool
+$c== :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679367726"><span id="local-6989586621679367728"><span id="local-6989586621679367730"><span id="local-6989586621679367732"><span id="local-6989586621679367734"><span id="local-6989586621679367736"><span id="local-6989586621679367738"><span class="annot"><span class="annottext">Eq ExecutionEngineType
+Eq ExecutionEngineType
+-&gt; (ExecutionEngineType -&gt; ExecutionEngineType -&gt; Ordering)
+-&gt; (ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool)
+-&gt; (ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool)
+-&gt; (ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool)
+-&gt; (ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool)
+-&gt; (ExecutionEngineType
+    -&gt; ExecutionEngineType -&gt; ExecutionEngineType)
+-&gt; (ExecutionEngineType
+    -&gt; ExecutionEngineType -&gt; ExecutionEngineType)
+-&gt; Ord ExecutionEngineType
+ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool
+ExecutionEngineType -&gt; ExecutionEngineType -&gt; Ordering
+ExecutionEngineType -&gt; ExecutionEngineType -&gt; ExecutionEngineType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; ExecutionEngineType
+$cmin :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; ExecutionEngineType
+max :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; ExecutionEngineType
+$cmax :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; ExecutionEngineType
+&gt;= :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool
+$c&gt;= :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool
+&gt; :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool
+$c&gt; :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool
+&lt;= :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool
+$c&lt;= :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool
+&lt; :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool
+$c&lt; :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; Bool
+compare :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; Ordering
+$ccompare :: ExecutionEngineType -&gt; ExecutionEngineType -&gt; Ordering
+$cp1Ord :: Eq ExecutionEngineType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ExecutionEngineType -&gt; Rep ExecutionEngineType x)
+-&gt; (forall x. Rep ExecutionEngineType x -&gt; ExecutionEngineType)
+-&gt; Generic ExecutionEngineType
+forall x. Rep ExecutionEngineType x -&gt; ExecutionEngineType
+forall x. ExecutionEngineType -&gt; Rep ExecutionEngineType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExecutionEngineType x -&gt; ExecutionEngineType
+$cfrom :: forall x. ExecutionEngineType -&gt; Rep ExecutionEngineType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367718"><span id="local-6989586621679367720"><span class="annot"><span class="annottext">Int -&gt; ExecutionEngineType -&gt; Int
+ExecutionEngineType -&gt; Int
+(Int -&gt; ExecutionEngineType -&gt; Int)
+-&gt; (ExecutionEngineType -&gt; Int) -&gt; Hashable ExecutionEngineType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ExecutionEngineType -&gt; Int
+$chash :: ExecutionEngineType -&gt; Int
+hashWithSalt :: Int -&gt; ExecutionEngineType -&gt; Int
+$chashWithSalt :: Int -&gt; ExecutionEngineType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679367715"><span class="annot"><span class="annottext">ExecutionEngineType -&gt; ()
+(ExecutionEngineType -&gt; ()) -&gt; NFData ExecutionEngineType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ExecutionEngineType -&gt; ()
+$crnf :: ExecutionEngineType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679367712"><span class="annot"><span class="annottext">Text -&gt; Either String ExecutionEngineType
+(Text -&gt; Either String ExecutionEngineType)
+-&gt; FromText ExecutionEngineType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ExecutionEngineType
+$cfromText :: Text -&gt; Either String ExecutionEngineType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679367709"><span class="annot"><span class="annottext">ExecutionEngineType -&gt; Text
+(ExecutionEngineType -&gt; Text) -&gt; ToText ExecutionEngineType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ExecutionEngineType -&gt; Text
+$ctoText :: ExecutionEngineType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679367706"><span class="annot"><span class="annottext">ExecutionEngineType -&gt; ByteString
+(ExecutionEngineType -&gt; ByteString)
+-&gt; ToByteString ExecutionEngineType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ExecutionEngineType -&gt; ByteString
+$ctoBS :: ExecutionEngineType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679367703"><span class="annot"><span class="annottext">ExecutionEngineType -&gt; ByteStringBuilder
+(ExecutionEngineType -&gt; ByteStringBuilder)
+-&gt; ToLog ExecutionEngineType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ExecutionEngineType -&gt; ByteStringBuilder
+$cbuild :: ExecutionEngineType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679367700"><span class="annot"><span class="annottext">HeaderName -&gt; ExecutionEngineType -&gt; [Header]
+(HeaderName -&gt; ExecutionEngineType -&gt; [Header])
+-&gt; ToHeader ExecutionEngineType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ExecutionEngineType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ExecutionEngineType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679367697"><span class="annot"><span class="annottext">ExecutionEngineType -&gt; QueryString
+(ExecutionEngineType -&gt; QueryString) -&gt; ToQuery ExecutionEngineType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ExecutionEngineType -&gt; QueryString
+$ctoQuery :: ExecutionEngineType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679367692"><span id="local-6989586621679367694"><span class="annot"><span class="annottext">Value -&gt; Parser [ExecutionEngineType]
+Value -&gt; Parser ExecutionEngineType
+(Value -&gt; Parser ExecutionEngineType)
+-&gt; (Value -&gt; Parser [ExecutionEngineType])
+-&gt; FromJSON ExecutionEngineType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ExecutionEngineType]
+$cparseJSONList :: Value -&gt; Parser [ExecutionEngineType]
+parseJSON :: Value -&gt; Parser ExecutionEngineType
+$cparseJSON :: Value -&gt; Parser ExecutionEngineType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679367687"><span id="local-6989586621679367689"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExecutionEngineType]
+FromJSONKeyFunction ExecutionEngineType
+FromJSONKeyFunction ExecutionEngineType
+-&gt; FromJSONKeyFunction [ExecutionEngineType]
+-&gt; FromJSONKey ExecutionEngineType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ExecutionEngineType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ExecutionEngineType]
+fromJSONKey :: FromJSONKeyFunction ExecutionEngineType
+$cfromJSONKey :: FromJSONKeyFunction ExecutionEngineType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679367678"><span id="local-6989586621679367680"><span id="local-6989586621679367682"><span id="local-6989586621679367684"><span class="annot"><span class="annottext">[ExecutionEngineType] -&gt; Encoding
+[ExecutionEngineType] -&gt; Value
+ExecutionEngineType -&gt; Encoding
+ExecutionEngineType -&gt; Value
+(ExecutionEngineType -&gt; Value)
+-&gt; (ExecutionEngineType -&gt; Encoding)
+-&gt; ([ExecutionEngineType] -&gt; Value)
+-&gt; ([ExecutionEngineType] -&gt; Encoding)
+-&gt; ToJSON ExecutionEngineType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ExecutionEngineType] -&gt; Encoding
+$ctoEncodingList :: [ExecutionEngineType] -&gt; Encoding
+toJSONList :: [ExecutionEngineType] -&gt; Value
+$ctoJSONList :: [ExecutionEngineType] -&gt; Value
+toEncoding :: ExecutionEngineType -&gt; Encoding
+$ctoEncoding :: ExecutionEngineType -&gt; Encoding
+toJSON :: ExecutionEngineType -&gt; Value
+$ctoJSON :: ExecutionEngineType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679367673"><span id="local-6989586621679367675"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExecutionEngineType]
+ToJSONKeyFunction ExecutionEngineType
+ToJSONKeyFunction ExecutionEngineType
+-&gt; ToJSONKeyFunction [ExecutionEngineType]
+-&gt; ToJSONKey ExecutionEngineType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ExecutionEngineType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ExecutionEngineType]
+toJSONKey :: ToJSONKeyFunction ExecutionEngineType
+$ctoJSONKey :: ToJSONKeyFunction ExecutionEngineType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679367670"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExecutionEngineType
+([Node] -&gt; Either String ExecutionEngineType)
+-&gt; FromXML ExecutionEngineType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ExecutionEngineType
+$cparseXML :: [Node] -&gt; Either String ExecutionEngineType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679367667"><span class="annot"><span class="annottext">ExecutionEngineType -&gt; XML
+(ExecutionEngineType -&gt; XML) -&gt; ToXML ExecutionEngineType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ExecutionEngineType -&gt; XML
+$ctoXML :: ExecutionEngineType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineType.html#ExecutionEngineType_EMR"><span class="hs-identifier hs-type">ExecutionEngineType_EMR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineType.html#ExecutionEngineType"><span class="hs-identifier hs-type">ExecutionEngineType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExecutionEngineType_EMR"><span id="%24mExecutionEngineType_EMR"><span id="ExecutionEngineType_EMR"><span class="annot"><span class="annottext">$bExecutionEngineType_EMR :: ExecutionEngineType
+$mExecutionEngineType_EMR :: forall r. ExecutionEngineType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EMR.Types.ExecutionEngineType.html#%24bExecutionEngineType_EMR"><span class="hs-identifier hs-var hs-var hs-var">ExecutionEngineType_EMR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineType.html#ExecutionEngineType%27"><span class="hs-identifier hs-type">ExecutionEngineType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EMR&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineType.html#ExecutionEngineType_EMR"><span class="hs-pragma hs-type">ExecutionEngineType_EMR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineType.html#ExecutionEngineType%27"><span class="hs-pragma hs-type">ExecutionEngineType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

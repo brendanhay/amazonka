@@ -1,0 +1,1367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ECS.Types.Cluster</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ECS.Types.Cluster</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Attachment.html"><span class="hs-identifier">Network.AWS.ECS.Types.Attachment</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html"><span class="hs-identifier">Network.AWS.ECS.Types.CapacityProviderStrategyItem</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html"><span class="hs-identifier">Network.AWS.ECS.Types.ClusterConfiguration</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html"><span class="hs-identifier">Network.AWS.ECS.Types.ClusterSetting</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.KeyValuePair.html"><span class="hs-identifier">Network.AWS.ECS.Types.KeyValuePair</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Tag.html"><span class="hs-identifier">Network.AWS.ECS.Types.Tag</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | A regional grouping of one or more container instances on which you can</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- run task requests. Each account receives a default cluster the first</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- time you use the Amazon ECS service, but you may also create other</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- clusters. Clusters may contain more than one instance type</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- simultaneously.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newCluster' smart constructor.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679461369"><span id="local-6989586621679461370"></span></span><span class="hs-keyword">data</span><span> </span><span id="Cluster"><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-var">Cluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Cluster%27"><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-var">Cluster'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the cluster. The ARN</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- contains the @arn:aws:ecs@ namespace, followed by the Region of the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- cluster, the Amazon Web Services account ID of the cluster owner, the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @cluster@ namespace, and then the cluster name. For example,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- @arn:aws:ecs:region:012345678910:cluster\/test@.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AclusterArn%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AclusterArn%3ACluster%27"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The status of the cluster. The following are the possible states that</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- will be returned.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- [ACTIVE]</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     The cluster is ready to accept tasks and if applicable you can</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     register container instances with the cluster.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- [PROVISIONING]</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     The cluster has capacity providers associated with it and the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     resources needed for the capacity provider are being created.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- [DEPROVISIONING]</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     The cluster has capacity providers associated with it and the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     resources needed for the capacity provider are being deleted.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- [FAILED]</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     The cluster has capacity providers associated with it and the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     resources needed for the capacity provider have failed to create.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- [INACTIVE]</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     The cluster has been deleted. Clusters with an @INACTIVE@ status may</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     remain discoverable in your account for a period of time. However,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     this behavior is subject to change in the future, so you should not</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     rely on @INACTIVE@ clusters persisting.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Astatus%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Astatus%3ACluster%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The number of services that are running on the cluster in an @ACTIVE@</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- state. You can view these services with ListServices.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AactiveServicesCount%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Int
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AactiveServicesCount%3ACluster%27"><span class="hs-identifier hs-var hs-var">activeServicesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The number of container instances registered into the cluster. This</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- includes container instances in both @ACTIVE@ and @DRAINING@ status.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AregisteredContainerInstancesCount%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Int
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AregisteredContainerInstancesCount%3ACluster%27"><span class="hs-identifier hs-var hs-var">registeredContainerInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The execute command configuration for the cluster.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Aconfiguration%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe ClusterConfiguration
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Aconfiguration%3ACluster%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration"><span class="hs-identifier hs-type">ClusterConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | Additional information about your clusters that are separated by launch</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- type, including:</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- -   runningEC2TasksCount</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- -   RunningFargateTasksCount</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- -   pendingEC2TasksCount</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- -   pendingFargateTasksCount</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- -   activeEC2ServiceCount</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   activeFargateServiceCount</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- -   drainingEC2ServiceCount</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- -   drainingFargateServiceCount</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3Astatistics%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe [KeyValuePair]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Astatistics%3ACluster%27"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.KeyValuePair.html#KeyValuePair"><span class="hs-identifier hs-type">KeyValuePair</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | The default capacity provider strategy for the cluster. When services or</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- tasks are run in the cluster with no launch type or capacity provider</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- strategy specified, the default capacity provider strategy is used.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AdefaultCapacityProviderStrategy%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe [CapacityProviderStrategyItem]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AdefaultCapacityProviderStrategy%3ACluster%27"><span class="hs-identifier hs-var hs-var">defaultCapacityProviderStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The number of tasks in the cluster that are in the @PENDING@ state.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3ApendingTasksCount%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Int
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3ApendingTasksCount%3ACluster%27"><span class="hs-identifier hs-var hs-var">pendingTasksCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | The metadata that you apply to the cluster to help you categorize and</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- organize them. Each tag consists of a key and an optional value, both of</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- which you define.</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- The following basic restrictions apply to tags:</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- -   Maximum number of tags per resource - 50</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- -   For each resource, each tag key must be unique, and each tag key can</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--     have only one value.</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- -   Maximum key length - 128 Unicode characters in UTF-8</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- -   Maximum value length - 256 Unicode characters in UTF-8</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- -   If your tagging schema is used across multiple services and</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--     resources, remember that other services may have restrictions on</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--     allowed characters. Generally allowed characters are: letters,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--     numbers, and spaces representable in UTF-8, and the following</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--     characters: + - = . _ : \/ \@.</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- -   Tag keys and values are case-sensitive.</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">--     such as a prefix for either keys or values as it is reserved for</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--     Amazon Web Services use. You cannot edit or delete tag keys or</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">--     values with this prefix. Tags with this prefix do not count against</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--     your tags per resource limit.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3Atags%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe [Tag]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Atags%3ACluster%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | The capacity providers associated with the cluster.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AcapacityProviders%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe [Text]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AcapacityProviders%3ACluster%27"><span class="hs-identifier hs-var hs-var">capacityProviders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The status of the capacity providers associated with the cluster. The</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- following are the states that will be returned:</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- [UPDATE_IN_PROGRESS]</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">--     The available capacity providers for the cluster are updating. This</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">--     occurs when the Auto Scaling plan is provisioning or deprovisioning.</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- [UPDATE_COMPLETE]</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">--     The capacity providers have successfully updated.</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- [UPDATE_FAILED]</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">--     The capacity provider updates failed.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AattachmentsStatus%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AattachmentsStatus%3ACluster%27"><span class="hs-identifier hs-var hs-var">attachmentsStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | A user-generated string that you use to identify your cluster.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AclusterName%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AclusterName%3ACluster%27"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The settings for the cluster. This parameter indicates whether</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- CloudWatch Container Insights is enabled or disabled for a cluster.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3Asettings%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe [ClusterSetting]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Asettings%3ACluster%27"><span class="hs-identifier hs-var hs-var">settings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-type">ClusterSetting</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The number of tasks in the cluster that are in the @RUNNING@ state.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3ArunningTasksCount%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Int
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3ArunningTasksCount%3ACluster%27"><span class="hs-identifier hs-var hs-var">runningTasksCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The resources attached to a cluster. When using a capacity provider with</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- a cluster, the Auto Scaling plan that is created will be returned as a</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- cluster attachment.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3Aattachments%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe [Attachment]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Aattachments%3ACluster%27"><span class="hs-identifier hs-var hs-var">attachments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.Attachment.html#Attachment"><span class="hs-identifier hs-type">Attachment</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461349"><span id="local-6989586621679461351"><span class="annot"><span class="annottext">Cluster -&gt; Cluster -&gt; Bool
+(Cluster -&gt; Cluster -&gt; Bool)
+-&gt; (Cluster -&gt; Cluster -&gt; Bool) -&gt; Eq Cluster
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Cluster -&gt; Cluster -&gt; Bool
+$c/= :: Cluster -&gt; Cluster -&gt; Bool
+== :: Cluster -&gt; Cluster -&gt; Bool
+$c== :: Cluster -&gt; Cluster -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461340"><span id="local-6989586621679461342"><span id="local-6989586621679461344"><span id="local-6989586621679461346"><span class="annot"><span class="annottext">ReadPrec [Cluster]
+ReadPrec Cluster
+Int -&gt; ReadS Cluster
+ReadS [Cluster]
+(Int -&gt; ReadS Cluster)
+-&gt; ReadS [Cluster]
+-&gt; ReadPrec Cluster
+-&gt; ReadPrec [Cluster]
+-&gt; Read Cluster
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Cluster]
+$creadListPrec :: ReadPrec [Cluster]
+readPrec :: ReadPrec Cluster
+$creadPrec :: ReadPrec Cluster
+readList :: ReadS [Cluster]
+$creadList :: ReadS [Cluster]
+readsPrec :: Int -&gt; ReadS Cluster
+$creadsPrec :: Int -&gt; ReadS Cluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461333"><span id="local-6989586621679461335"><span id="local-6989586621679461337"><span class="annot"><span class="annottext">Int -&gt; Cluster -&gt; ShowS
+[Cluster] -&gt; ShowS
+Cluster -&gt; String
+(Int -&gt; Cluster -&gt; ShowS)
+-&gt; (Cluster -&gt; String) -&gt; ([Cluster] -&gt; ShowS) -&gt; Show Cluster
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Cluster] -&gt; ShowS
+$cshowList :: [Cluster] -&gt; ShowS
+show :: Cluster -&gt; String
+$cshow :: Cluster -&gt; String
+showsPrec :: Int -&gt; Cluster -&gt; ShowS
+$cshowsPrec :: Int -&gt; Cluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Cluster -&gt; Rep Cluster x)
+-&gt; (forall x. Rep Cluster x -&gt; Cluster) -&gt; Generic Cluster
+forall x. Rep Cluster x -&gt; Cluster
+forall x. Cluster -&gt; Rep Cluster x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Cluster x -&gt; Cluster
+$cfrom :: forall x. Cluster -&gt; Rep Cluster x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Create a value of 'Cluster' with all optional fields omitted.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'clusterArn', 'cluster_clusterArn' - The Amazon Resource Name (ARN) that identifies the cluster. The ARN</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- contains the @arn:aws:ecs@ namespace, followed by the Region of the</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- cluster, the Amazon Web Services account ID of the cluster owner, the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- @cluster@ namespace, and then the cluster name. For example,</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- @arn:aws:ecs:region:012345678910:cluster\/test@.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'status', 'cluster_status' - The status of the cluster. The following are the possible states that</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- will be returned.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- [ACTIVE]</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     The cluster is ready to accept tasks and if applicable you can</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     register container instances with the cluster.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- [PROVISIONING]</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--     The cluster has capacity providers associated with it and the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--     resources needed for the capacity provider are being created.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- [DEPROVISIONING]</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--     The cluster has capacity providers associated with it and the</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     resources needed for the capacity provider are being deleted.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- [FAILED]</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--     The cluster has capacity providers associated with it and the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     resources needed for the capacity provider have failed to create.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- [INACTIVE]</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     The cluster has been deleted. Clusters with an @INACTIVE@ status may</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--     remain discoverable in your account for a period of time. However,</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--     this behavior is subject to change in the future, so you should not</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--     rely on @INACTIVE@ clusters persisting.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'activeServicesCount', 'cluster_activeServicesCount' - The number of services that are running on the cluster in an @ACTIVE@</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- state. You can view these services with ListServices.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'registeredContainerInstancesCount', 'cluster_registeredContainerInstancesCount' - The number of container instances registered into the cluster. This</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- includes container instances in both @ACTIVE@ and @DRAINING@ status.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'configuration', 'cluster_configuration' - The execute command configuration for the cluster.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'statistics', 'cluster_statistics' - Additional information about your clusters that are separated by launch</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- type, including:</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- -   runningEC2TasksCount</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- -   RunningFargateTasksCount</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- -   pendingEC2TasksCount</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- -   pendingFargateTasksCount</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- -   activeEC2ServiceCount</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- -   activeFargateServiceCount</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- -   drainingEC2ServiceCount</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- -   drainingFargateServiceCount</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'defaultCapacityProviderStrategy', 'cluster_defaultCapacityProviderStrategy' - The default capacity provider strategy for the cluster. When services or</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- tasks are run in the cluster with no launch type or capacity provider</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- strategy specified, the default capacity provider strategy is used.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'pendingTasksCount', 'cluster_pendingTasksCount' - The number of tasks in the cluster that are in the @PENDING@ state.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'tags', 'cluster_tags' - The metadata that you apply to the cluster to help you categorize and</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- organize them. Each tag consists of a key and an optional value, both of</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- which you define.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- The following basic restrictions apply to tags:</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- -   Maximum number of tags per resource - 50</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- -   For each resource, each tag key must be unique, and each tag key can</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--     have only one value.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- -   Maximum key length - 128 Unicode characters in UTF-8</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- -   Maximum value length - 256 Unicode characters in UTF-8</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- -   If your tagging schema is used across multiple services and</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--     resources, remember that other services may have restrictions on</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     allowed characters. Generally allowed characters are: letters,</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     numbers, and spaces representable in UTF-8, and the following</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--     characters: + - = . _ : \/ \@.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- -   Tag keys and values are case-sensitive.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--     such as a prefix for either keys or values as it is reserved for</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--     Amazon Web Services use. You cannot edit or delete tag keys or</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--     values with this prefix. Tags with this prefix do not count against</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--     your tags per resource limit.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- 'capacityProviders', 'cluster_capacityProviders' - The capacity providers associated with the cluster.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- 'attachmentsStatus', 'cluster_attachmentsStatus' - The status of the capacity providers associated with the cluster. The</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- following are the states that will be returned:</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- [UPDATE_IN_PROGRESS]</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--     The available capacity providers for the cluster are updating. This</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--     occurs when the Auto Scaling plan is provisioning or deprovisioning.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- [UPDATE_COMPLETE]</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--     The capacity providers have successfully updated.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- [UPDATE_FAILED]</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--     The capacity provider updates failed.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- 'clusterName', 'cluster_clusterName' - A user-generated string that you use to identify your cluster.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- 'settings', 'cluster_settings' - The settings for the cluster. This parameter indicates whether</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- CloudWatch Container Insights is enabled or disabled for a cluster.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- 'runningTasksCount', 'cluster_runningTasksCount' - The number of tasks in the cluster that are in the @RUNNING@ state.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- 'attachments', 'cluster_attachments' - The resources attached to a cluster. When using a capacity provider with</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- a cluster, the Auto Scaling plan that is created will be returned as a</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- cluster attachment.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#newCluster"><span class="hs-identifier hs-type">newCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-289"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span>
+</span><span id="line-290"></span><span id="newCluster"><span class="annot"><span class="annottext">newCluster :: Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#newCluster"><span class="hs-identifier hs-var hs-var">newCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-291"></span><span>  </span><span class="annot"><span class="annottext">Cluster' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe ClusterConfiguration
+-&gt; Maybe [KeyValuePair]
+-&gt; Maybe [CapacityProviderStrategyItem]
+-&gt; Maybe Int
+-&gt; Maybe [Tag]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [ClusterSetting]
+-&gt; Maybe Int
+-&gt; Maybe [Attachment]
+-&gt; Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span>
+</span><span id="line-292"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterArn:Cluster' :: Maybe Text
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AclusterArn%3ACluster%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:Cluster' :: Maybe Text
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Astatus%3ACluster%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:activeServicesCount:Cluster' :: Maybe Int
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AactiveServicesCount%3ACluster%27"><span class="hs-identifier hs-var">activeServicesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>      </span><span class="annot"><span class="annottext">$sel:registeredContainerInstancesCount:Cluster' :: Maybe Int
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AregisteredContainerInstancesCount%3ACluster%27"><span class="hs-identifier hs-var">registeredContainerInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:Cluster' :: Maybe ClusterConfiguration
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Aconfiguration%3ACluster%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>      </span><span class="annot"><span class="annottext">$sel:statistics:Cluster' :: Maybe [KeyValuePair]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Astatistics%3ACluster%27"><span class="hs-identifier hs-var">statistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultCapacityProviderStrategy:Cluster' :: Maybe [CapacityProviderStrategyItem]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AdefaultCapacityProviderStrategy%3ACluster%27"><span class="hs-identifier hs-var">defaultCapacityProviderStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>      </span><span class="annot"><span class="annottext">$sel:pendingTasksCount:Cluster' :: Maybe Int
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3ApendingTasksCount%3ACluster%27"><span class="hs-identifier hs-var">pendingTasksCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Cluster' :: Maybe [Tag]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Atags%3ACluster%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>      </span><span class="annot"><span class="annottext">$sel:capacityProviders:Cluster' :: Maybe [Text]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AcapacityProviders%3ACluster%27"><span class="hs-identifier hs-var">capacityProviders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>      </span><span class="annot"><span class="annottext">$sel:attachmentsStatus:Cluster' :: Maybe Text
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AattachmentsStatus%3ACluster%27"><span class="hs-identifier hs-var">attachmentsStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterName:Cluster' :: Maybe Text
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AclusterName%3ACluster%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>      </span><span class="annot"><span class="annottext">$sel:settings:Cluster' :: Maybe [ClusterSetting]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Asettings%3ACluster%27"><span class="hs-identifier hs-var">settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterSetting]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>      </span><span class="annot"><span class="annottext">$sel:runningTasksCount:Cluster' :: Maybe Int
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3ArunningTasksCount%3ACluster%27"><span class="hs-identifier hs-var">runningTasksCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>      </span><span class="annot"><span class="annottext">$sel:attachments:Cluster' :: Maybe [Attachment]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Aattachments%3ACluster%27"><span class="hs-identifier hs-var">attachments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attachment]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-307"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the cluster. The ARN</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- contains the @arn:aws:ecs@ namespace, followed by the Region of the</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- cluster, the Amazon Web Services account ID of the cluster owner, the</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- @cluster@ namespace, and then the cluster name. For example,</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- @arn:aws:ecs:region:012345678910:cluster\/test@.</span><span>
+</span><span id="line-314"></span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#cluster_clusterArn"><span class="hs-identifier hs-type">cluster_clusterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span id="cluster_clusterArn"><span class="annot"><span class="annottext">cluster_clusterArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#cluster_clusterArn"><span class="hs-identifier hs-var hs-var">cluster_clusterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Text)
+-&gt; (Cluster -&gt; Maybe Text -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461324"><span class="annot"><span class="annottext">Maybe Text
+clusterArn :: Maybe Text
+$sel:clusterArn:Cluster' :: Cluster -&gt; Maybe Text
+</span><a href="#local-6989586621679461324"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461324"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461323"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679461323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461322"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679461323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterArn:Cluster' :: Maybe Text
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AclusterArn%3ACluster%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- | The status of the cluster. The following are the possible states that</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- will be returned.</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- [ACTIVE]</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--     The cluster is ready to accept tasks and if applicable you can</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--     register container instances with the cluster.</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- [PROVISIONING]</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--     The cluster has capacity providers associated with it and the</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--     resources needed for the capacity provider are being created.</span><span>
+</span><span id="line-327"></span><span class="hs-comment">--</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- [DEPROVISIONING]</span><span>
+</span><span id="line-329"></span><span class="hs-comment">--     The cluster has capacity providers associated with it and the</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--     resources needed for the capacity provider are being deleted.</span><span>
+</span><span id="line-331"></span><span class="hs-comment">--</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- [FAILED]</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--     The cluster has capacity providers associated with it and the</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--     resources needed for the capacity provider have failed to create.</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- [INACTIVE]</span><span>
+</span><span id="line-337"></span><span class="hs-comment">--     The cluster has been deleted. Clusters with an @INACTIVE@ status may</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--     remain discoverable in your account for a period of time. However,</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--     this behavior is subject to change in the future, so you should not</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--     rely on @INACTIVE@ clusters persisting.</span><span>
+</span><span id="line-341"></span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#cluster_status"><span class="hs-identifier hs-type">cluster_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span id="cluster_status"><span class="annot"><span class="annottext">cluster_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#cluster_status"><span class="hs-identifier hs-var hs-var">cluster_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Text)
+-&gt; (Cluster -&gt; Maybe Text -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461320"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:Cluster' :: Cluster -&gt; Maybe Text
+</span><a href="#local-6989586621679461320"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461320"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461319"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679461319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461318"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679461319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Cluster' :: Maybe Text
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Astatus%3ACluster%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- | The number of services that are running on the cluster in an @ACTIVE@</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- state. You can view these services with ListServices.</span><span>
+</span><span id="line-346"></span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#cluster_activeServicesCount"><span class="hs-identifier hs-type">cluster_activeServicesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span id="cluster_activeServicesCount"><span class="annot"><span class="annottext">cluster_activeServicesCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#cluster_activeServicesCount"><span class="hs-identifier hs-var hs-var">cluster_activeServicesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Int)
+-&gt; (Cluster -&gt; Maybe Int -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461316"><span class="annot"><span class="annottext">Maybe Int
+activeServicesCount :: Maybe Int
+$sel:activeServicesCount:Cluster' :: Cluster -&gt; Maybe Int
+</span><a href="#local-6989586621679461316"><span class="hs-identifier hs-var hs-var">activeServicesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679461316"><span class="hs-identifier hs-var">activeServicesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461315"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679461315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461314"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679461314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679461315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activeServicesCount:Cluster' :: Maybe Int
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AactiveServicesCount%3ACluster%27"><span class="hs-identifier hs-var">activeServicesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679461314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- | The number of container instances registered into the cluster. This</span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- includes container instances in both @ACTIVE@ and @DRAINING@ status.</span><span>
+</span><span id="line-351"></span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#cluster_registeredContainerInstancesCount"><span class="hs-identifier hs-type">cluster_registeredContainerInstancesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span id="cluster_registeredContainerInstancesCount"><span class="annot"><span class="annottext">cluster_registeredContainerInstancesCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#cluster_registeredContainerInstancesCount"><span class="hs-identifier hs-var hs-var">cluster_registeredContainerInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Int)
+-&gt; (Cluster -&gt; Maybe Int -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461312"><span class="annot"><span class="annottext">Maybe Int
+registeredContainerInstancesCount :: Maybe Int
+$sel:registeredContainerInstancesCount:Cluster' :: Cluster -&gt; Maybe Int
+</span><a href="#local-6989586621679461312"><span class="hs-identifier hs-var hs-var">registeredContainerInstancesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679461312"><span class="hs-identifier hs-var">registeredContainerInstancesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461311"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679461311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461310"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679461310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679461311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registeredContainerInstancesCount:Cluster' :: Maybe Int
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AregisteredContainerInstancesCount%3ACluster%27"><span class="hs-identifier hs-var">registeredContainerInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679461310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- | The execute command configuration for the cluster.</span><span>
+</span><span id="line-355"></span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#cluster_configuration"><span class="hs-identifier hs-type">cluster_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration"><span class="hs-identifier hs-type">ClusterConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span id="cluster_configuration"><span class="annot"><span class="annottext">cluster_configuration :: (Maybe ClusterConfiguration -&gt; f (Maybe ClusterConfiguration))
+-&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#cluster_configuration"><span class="hs-identifier hs-var hs-var">cluster_configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe ClusterConfiguration)
+-&gt; (Cluster -&gt; Maybe ClusterConfiguration -&gt; Cluster)
+-&gt; Lens
+     Cluster
+     Cluster
+     (Maybe ClusterConfiguration)
+     (Maybe ClusterConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461308"><span class="annot"><span class="annottext">Maybe ClusterConfiguration
+configuration :: Maybe ClusterConfiguration
+$sel:configuration:Cluster' :: Cluster -&gt; Maybe ClusterConfiguration
+</span><a href="#local-6989586621679461308"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterConfiguration
+</span><a href="#local-6989586621679461308"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461307"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679461307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461306"><span class="annot"><span class="annottext">Maybe ClusterConfiguration
+</span><a href="#local-6989586621679461306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679461307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:Cluster' :: Maybe ClusterConfiguration
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Aconfiguration%3ACluster%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterConfiguration
+</span><a href="#local-6989586621679461306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- | Additional information about your clusters that are separated by launch</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- type, including:</span><span>
+</span><span id="line-360"></span><span class="hs-comment">--</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- -   runningEC2TasksCount</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- -   RunningFargateTasksCount</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- -   pendingEC2TasksCount</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- -   pendingFargateTasksCount</span><span>
+</span><span id="line-368"></span><span class="hs-comment">--</span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- -   activeEC2ServiceCount</span><span>
+</span><span id="line-370"></span><span class="hs-comment">--</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- -   activeFargateServiceCount</span><span>
+</span><span id="line-372"></span><span class="hs-comment">--</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- -   drainingEC2ServiceCount</span><span>
+</span><span id="line-374"></span><span class="hs-comment">--</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- -   drainingFargateServiceCount</span><span>
+</span><span id="line-376"></span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#cluster_statistics"><span class="hs-identifier hs-type">cluster_statistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.KeyValuePair.html#KeyValuePair"><span class="hs-identifier hs-type">KeyValuePair</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span id="cluster_statistics"><span class="annot"><span class="annottext">cluster_statistics :: (Maybe [KeyValuePair] -&gt; f (Maybe [KeyValuePair]))
+-&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#cluster_statistics"><span class="hs-identifier hs-var hs-var">cluster_statistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe [KeyValuePair])
+-&gt; (Cluster -&gt; Maybe [KeyValuePair] -&gt; Cluster)
+-&gt; Lens
+     Cluster Cluster (Maybe [KeyValuePair]) (Maybe [KeyValuePair])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461304"><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+statistics :: Maybe [KeyValuePair]
+$sel:statistics:Cluster' :: Cluster -&gt; Maybe [KeyValuePair]
+</span><a href="#local-6989586621679461304"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+</span><a href="#local-6989586621679461304"><span class="hs-identifier hs-var">statistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461303"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679461303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461302"><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+</span><a href="#local-6989586621679461302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679461303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistics:Cluster' :: Maybe [KeyValuePair]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Astatistics%3ACluster%27"><span class="hs-identifier hs-var">statistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+</span><a href="#local-6989586621679461302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [KeyValuePair] -&gt; f (Maybe [KeyValuePair]))
+ -&gt; Cluster -&gt; f Cluster)
+-&gt; ((Maybe [KeyValuePair] -&gt; f (Maybe [KeyValuePair]))
+    -&gt; Maybe [KeyValuePair] -&gt; f (Maybe [KeyValuePair]))
+-&gt; (Maybe [KeyValuePair] -&gt; f (Maybe [KeyValuePair]))
+-&gt; Cluster
+-&gt; f Cluster
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [KeyValuePair] [KeyValuePair] [KeyValuePair] [KeyValuePair]
+-&gt; Iso
+     (Maybe [KeyValuePair])
+     (Maybe [KeyValuePair])
+     (Maybe [KeyValuePair])
+     (Maybe [KeyValuePair])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [KeyValuePair] [KeyValuePair] [KeyValuePair] [KeyValuePair]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-378"></span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- | The default capacity provider strategy for the cluster. When services or</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- tasks are run in the cluster with no launch type or capacity provider</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- strategy specified, the default capacity provider strategy is used.</span><span>
+</span><span id="line-382"></span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#cluster_defaultCapacityProviderStrategy"><span class="hs-identifier hs-type">cluster_defaultCapacityProviderStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-383"></span><span id="cluster_defaultCapacityProviderStrategy"><span class="annot"><span class="annottext">cluster_defaultCapacityProviderStrategy :: (Maybe [CapacityProviderStrategyItem]
+ -&gt; f (Maybe [CapacityProviderStrategyItem]))
+-&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#cluster_defaultCapacityProviderStrategy"><span class="hs-identifier hs-var hs-var">cluster_defaultCapacityProviderStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe [CapacityProviderStrategyItem])
+-&gt; (Cluster -&gt; Maybe [CapacityProviderStrategyItem] -&gt; Cluster)
+-&gt; Lens
+     Cluster
+     Cluster
+     (Maybe [CapacityProviderStrategyItem])
+     (Maybe [CapacityProviderStrategyItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461297"><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+defaultCapacityProviderStrategy :: Maybe [CapacityProviderStrategyItem]
+$sel:defaultCapacityProviderStrategy:Cluster' :: Cluster -&gt; Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679461297"><span class="hs-identifier hs-var hs-var">defaultCapacityProviderStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679461297"><span class="hs-identifier hs-var">defaultCapacityProviderStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461296"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679461296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461295"><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679461295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679461296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultCapacityProviderStrategy:Cluster' :: Maybe [CapacityProviderStrategyItem]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AdefaultCapacityProviderStrategy%3ACluster%27"><span class="hs-identifier hs-var">defaultCapacityProviderStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679461295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CapacityProviderStrategyItem]
+  -&gt; f (Maybe [CapacityProviderStrategyItem]))
+ -&gt; Cluster -&gt; f Cluster)
+-&gt; ((Maybe [CapacityProviderStrategyItem]
+     -&gt; f (Maybe [CapacityProviderStrategyItem]))
+    -&gt; Maybe [CapacityProviderStrategyItem]
+    -&gt; f (Maybe [CapacityProviderStrategyItem]))
+-&gt; (Maybe [CapacityProviderStrategyItem]
+    -&gt; f (Maybe [CapacityProviderStrategyItem]))
+-&gt; Cluster
+-&gt; f Cluster
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CapacityProviderStrategyItem]
+  [CapacityProviderStrategyItem]
+  [CapacityProviderStrategyItem]
+  [CapacityProviderStrategyItem]
+-&gt; Iso
+     (Maybe [CapacityProviderStrategyItem])
+     (Maybe [CapacityProviderStrategyItem])
+     (Maybe [CapacityProviderStrategyItem])
+     (Maybe [CapacityProviderStrategyItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CapacityProviderStrategyItem]
+  [CapacityProviderStrategyItem]
+  [CapacityProviderStrategyItem]
+  [CapacityProviderStrategyItem]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-384"></span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- | The number of tasks in the cluster that are in the @PENDING@ state.</span><span>
+</span><span id="line-386"></span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#cluster_pendingTasksCount"><span class="hs-identifier hs-type">cluster_pendingTasksCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-387"></span><span id="cluster_pendingTasksCount"><span class="annot"><span class="annottext">cluster_pendingTasksCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#cluster_pendingTasksCount"><span class="hs-identifier hs-var hs-var">cluster_pendingTasksCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Int)
+-&gt; (Cluster -&gt; Maybe Int -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461293"><span class="annot"><span class="annottext">Maybe Int
+pendingTasksCount :: Maybe Int
+$sel:pendingTasksCount:Cluster' :: Cluster -&gt; Maybe Int
+</span><a href="#local-6989586621679461293"><span class="hs-identifier hs-var hs-var">pendingTasksCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679461293"><span class="hs-identifier hs-var">pendingTasksCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461292"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679461292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461291"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679461291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679461292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingTasksCount:Cluster' :: Maybe Int
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3ApendingTasksCount%3ACluster%27"><span class="hs-identifier hs-var">pendingTasksCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679461291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-388"></span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- | The metadata that you apply to the cluster to help you categorize and</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- organize them. Each tag consists of a key and an optional value, both of</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- which you define.</span><span>
+</span><span id="line-392"></span><span class="hs-comment">--</span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- The following basic restrictions apply to tags:</span><span>
+</span><span id="line-394"></span><span class="hs-comment">--</span><span>
+</span><span id="line-395"></span><span class="hs-comment">-- -   Maximum number of tags per resource - 50</span><span>
+</span><span id="line-396"></span><span class="hs-comment">--</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- -   For each resource, each tag key must be unique, and each tag key can</span><span>
+</span><span id="line-398"></span><span class="hs-comment">--     have only one value.</span><span>
+</span><span id="line-399"></span><span class="hs-comment">--</span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- -   Maximum key length - 128 Unicode characters in UTF-8</span><span>
+</span><span id="line-401"></span><span class="hs-comment">--</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- -   Maximum value length - 256 Unicode characters in UTF-8</span><span>
+</span><span id="line-403"></span><span class="hs-comment">--</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- -   If your tagging schema is used across multiple services and</span><span>
+</span><span id="line-405"></span><span class="hs-comment">--     resources, remember that other services may have restrictions on</span><span>
+</span><span id="line-406"></span><span class="hs-comment">--     allowed characters. Generally allowed characters are: letters,</span><span>
+</span><span id="line-407"></span><span class="hs-comment">--     numbers, and spaces representable in UTF-8, and the following</span><span>
+</span><span id="line-408"></span><span class="hs-comment">--     characters: + - = . _ : \/ \@.</span><span>
+</span><span id="line-409"></span><span class="hs-comment">--</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- -   Tag keys and values are case-sensitive.</span><span>
+</span><span id="line-411"></span><span class="hs-comment">--</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of</span><span>
+</span><span id="line-413"></span><span class="hs-comment">--     such as a prefix for either keys or values as it is reserved for</span><span>
+</span><span id="line-414"></span><span class="hs-comment">--     Amazon Web Services use. You cannot edit or delete tag keys or</span><span>
+</span><span id="line-415"></span><span class="hs-comment">--     values with this prefix. Tags with this prefix do not count against</span><span>
+</span><span id="line-416"></span><span class="hs-comment">--     your tags per resource limit.</span><span>
+</span><span id="line-417"></span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#cluster_tags"><span class="hs-identifier hs-type">cluster_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-418"></span><span id="cluster_tags"><span class="annot"><span class="annottext">cluster_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#cluster_tags"><span class="hs-identifier hs-var hs-var">cluster_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe [Tag])
+-&gt; (Cluster -&gt; Maybe [Tag] -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461289"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:Cluster' :: Cluster -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679461289"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679461289"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461288"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679461288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461287"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679461287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679461288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Cluster' :: Maybe [Tag]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Atags%3ACluster%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679461287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Cluster -&gt; f Cluster)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; Cluster
+-&gt; f Cluster
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-419"></span><span>
+</span><span id="line-420"></span><span class="hs-comment">-- | The capacity providers associated with the cluster.</span><span>
+</span><span id="line-421"></span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#cluster_capacityProviders"><span class="hs-identifier hs-type">cluster_capacityProviders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-422"></span><span id="cluster_capacityProviders"><span class="annot"><span class="annottext">cluster_capacityProviders :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#cluster_capacityProviders"><span class="hs-identifier hs-var hs-var">cluster_capacityProviders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe [Text])
+-&gt; (Cluster -&gt; Maybe [Text] -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461285"><span class="annot"><span class="annottext">Maybe [Text]
+capacityProviders :: Maybe [Text]
+$sel:capacityProviders:Cluster' :: Cluster -&gt; Maybe [Text]
+</span><a href="#local-6989586621679461285"><span class="hs-identifier hs-var hs-var">capacityProviders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679461285"><span class="hs-identifier hs-var">capacityProviders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461284"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679461284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461283"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679461283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679461284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityProviders:Cluster' :: Maybe [Text]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AcapacityProviders%3ACluster%27"><span class="hs-identifier hs-var">capacityProviders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679461283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Cluster -&gt; f Cluster)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Cluster
+-&gt; f Cluster
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-423"></span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- | The status of the capacity providers associated with the cluster. The</span><span>
+</span><span id="line-425"></span><span class="hs-comment">-- following are the states that will be returned:</span><span>
+</span><span id="line-426"></span><span class="hs-comment">--</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- [UPDATE_IN_PROGRESS]</span><span>
+</span><span id="line-428"></span><span class="hs-comment">--     The available capacity providers for the cluster are updating. This</span><span>
+</span><span id="line-429"></span><span class="hs-comment">--     occurs when the Auto Scaling plan is provisioning or deprovisioning.</span><span>
+</span><span id="line-430"></span><span class="hs-comment">--</span><span>
+</span><span id="line-431"></span><span class="hs-comment">-- [UPDATE_COMPLETE]</span><span>
+</span><span id="line-432"></span><span class="hs-comment">--     The capacity providers have successfully updated.</span><span>
+</span><span id="line-433"></span><span class="hs-comment">--</span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- [UPDATE_FAILED]</span><span>
+</span><span id="line-435"></span><span class="hs-comment">--     The capacity provider updates failed.</span><span>
+</span><span id="line-436"></span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#cluster_attachmentsStatus"><span class="hs-identifier hs-type">cluster_attachmentsStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-437"></span><span id="cluster_attachmentsStatus"><span class="annot"><span class="annottext">cluster_attachmentsStatus :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#cluster_attachmentsStatus"><span class="hs-identifier hs-var hs-var">cluster_attachmentsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Text)
+-&gt; (Cluster -&gt; Maybe Text -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461281"><span class="annot"><span class="annottext">Maybe Text
+attachmentsStatus :: Maybe Text
+$sel:attachmentsStatus:Cluster' :: Cluster -&gt; Maybe Text
+</span><a href="#local-6989586621679461281"><span class="hs-identifier hs-var hs-var">attachmentsStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461281"><span class="hs-identifier hs-var">attachmentsStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461280"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679461280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461279"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679461280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachmentsStatus:Cluster' :: Maybe Text
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AattachmentsStatus%3ACluster%27"><span class="hs-identifier hs-var">attachmentsStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-438"></span><span>
+</span><span id="line-439"></span><span class="hs-comment">-- | A user-generated string that you use to identify your cluster.</span><span>
+</span><span id="line-440"></span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#cluster_clusterName"><span class="hs-identifier hs-type">cluster_clusterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-441"></span><span id="cluster_clusterName"><span class="annot"><span class="annottext">cluster_clusterName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#cluster_clusterName"><span class="hs-identifier hs-var hs-var">cluster_clusterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Text)
+-&gt; (Cluster -&gt; Maybe Text -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461277"><span class="annot"><span class="annottext">Maybe Text
+clusterName :: Maybe Text
+$sel:clusterName:Cluster' :: Cluster -&gt; Maybe Text
+</span><a href="#local-6989586621679461277"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461277"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461276"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679461276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461275"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679461276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:Cluster' :: Maybe Text
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3AclusterName%3ACluster%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-442"></span><span>
+</span><span id="line-443"></span><span class="hs-comment">-- | The settings for the cluster. This parameter indicates whether</span><span>
+</span><span id="line-444"></span><span class="hs-comment">-- CloudWatch Container Insights is enabled or disabled for a cluster.</span><span>
+</span><span id="line-445"></span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#cluster_settings"><span class="hs-identifier hs-type">cluster_settings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-type">ClusterSetting</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-446"></span><span id="cluster_settings"><span class="annot"><span class="annottext">cluster_settings :: (Maybe [ClusterSetting] -&gt; f (Maybe [ClusterSetting]))
+-&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#cluster_settings"><span class="hs-identifier hs-var hs-var">cluster_settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe [ClusterSetting])
+-&gt; (Cluster -&gt; Maybe [ClusterSetting] -&gt; Cluster)
+-&gt; Lens
+     Cluster Cluster (Maybe [ClusterSetting]) (Maybe [ClusterSetting])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461273"><span class="annot"><span class="annottext">Maybe [ClusterSetting]
+settings :: Maybe [ClusterSetting]
+$sel:settings:Cluster' :: Cluster -&gt; Maybe [ClusterSetting]
+</span><a href="#local-6989586621679461273"><span class="hs-identifier hs-var hs-var">settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterSetting]
+</span><a href="#local-6989586621679461273"><span class="hs-identifier hs-var">settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461272"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679461272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461271"><span class="annot"><span class="annottext">Maybe [ClusterSetting]
+</span><a href="#local-6989586621679461271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679461272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settings:Cluster' :: Maybe [ClusterSetting]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Asettings%3ACluster%27"><span class="hs-identifier hs-var">settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterSetting]
+</span><a href="#local-6989586621679461271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ClusterSetting] -&gt; f (Maybe [ClusterSetting]))
+ -&gt; Cluster -&gt; f Cluster)
+-&gt; ((Maybe [ClusterSetting] -&gt; f (Maybe [ClusterSetting]))
+    -&gt; Maybe [ClusterSetting] -&gt; f (Maybe [ClusterSetting]))
+-&gt; (Maybe [ClusterSetting] -&gt; f (Maybe [ClusterSetting]))
+-&gt; Cluster
+-&gt; f Cluster
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ClusterSetting] [ClusterSetting] [ClusterSetting] [ClusterSetting]
+-&gt; Iso
+     (Maybe [ClusterSetting])
+     (Maybe [ClusterSetting])
+     (Maybe [ClusterSetting])
+     (Maybe [ClusterSetting])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ClusterSetting] [ClusterSetting] [ClusterSetting] [ClusterSetting]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-447"></span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- | The number of tasks in the cluster that are in the @RUNNING@ state.</span><span>
+</span><span id="line-449"></span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#cluster_runningTasksCount"><span class="hs-identifier hs-type">cluster_runningTasksCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-450"></span><span id="cluster_runningTasksCount"><span class="annot"><span class="annottext">cluster_runningTasksCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#cluster_runningTasksCount"><span class="hs-identifier hs-var hs-var">cluster_runningTasksCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Int)
+-&gt; (Cluster -&gt; Maybe Int -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461269"><span class="annot"><span class="annottext">Maybe Int
+runningTasksCount :: Maybe Int
+$sel:runningTasksCount:Cluster' :: Cluster -&gt; Maybe Int
+</span><a href="#local-6989586621679461269"><span class="hs-identifier hs-var hs-var">runningTasksCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679461269"><span class="hs-identifier hs-var">runningTasksCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461268"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679461268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461267"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679461267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679461268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runningTasksCount:Cluster' :: Maybe Int
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3ArunningTasksCount%3ACluster%27"><span class="hs-identifier hs-var">runningTasksCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679461267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-451"></span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- | The resources attached to a cluster. When using a capacity provider with</span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- a cluster, the Auto Scaling plan that is created will be returned as a</span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- cluster attachment.</span><span>
+</span><span id="line-455"></span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#cluster_attachments"><span class="hs-identifier hs-type">cluster_attachments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.Attachment.html#Attachment"><span class="hs-identifier hs-type">Attachment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-456"></span><span id="cluster_attachments"><span class="annot"><span class="annottext">cluster_attachments :: (Maybe [Attachment] -&gt; f (Maybe [Attachment]))
+-&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#cluster_attachments"><span class="hs-identifier hs-var hs-var">cluster_attachments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe [Attachment])
+-&gt; (Cluster -&gt; Maybe [Attachment] -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe [Attachment]) (Maybe [Attachment])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461265"><span class="annot"><span class="annottext">Maybe [Attachment]
+attachments :: Maybe [Attachment]
+$sel:attachments:Cluster' :: Cluster -&gt; Maybe [Attachment]
+</span><a href="#local-6989586621679461265"><span class="hs-identifier hs-var hs-var">attachments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attachment]
+</span><a href="#local-6989586621679461265"><span class="hs-identifier hs-var">attachments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461264"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679461264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461263"><span class="annot"><span class="annottext">Maybe [Attachment]
+</span><a href="#local-6989586621679461263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679461264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachments:Cluster' :: Maybe [Attachment]
+</span><a href="Network.AWS.ECS.Types.Cluster.html#%24sel%3Aattachments%3ACluster%27"><span class="hs-identifier hs-var">attachments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attachment]
+</span><a href="#local-6989586621679461263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attachment] -&gt; f (Maybe [Attachment]))
+ -&gt; Cluster -&gt; f Cluster)
+-&gt; ((Maybe [Attachment] -&gt; f (Maybe [Attachment]))
+    -&gt; Maybe [Attachment] -&gt; f (Maybe [Attachment]))
+-&gt; (Maybe [Attachment] -&gt; f (Maybe [Attachment]))
+-&gt; Cluster
+-&gt; f Cluster
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attachment] [Attachment] [Attachment] [Attachment]
+-&gt; Iso
+     (Maybe [Attachment])
+     (Maybe [Attachment])
+     (Maybe [Attachment])
+     (Maybe [Attachment])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attachment] [Attachment] [Attachment] [Attachment]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-457"></span><span>
+</span><span id="line-458"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461260"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-459"></span><span>  </span><span id="local-6989586621679461258"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Cluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-460"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Cluster) -&gt; Value -&gt; Parser Cluster
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-461"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Cluster&quot;</span></span><span>
+</span><span id="line-462"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679461255"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461255"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-463"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe ClusterConfiguration
+-&gt; Maybe [KeyValuePair]
+-&gt; Maybe [CapacityProviderStrategyItem]
+-&gt; Maybe Int
+-&gt; Maybe [Tag]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [ClusterSetting]
+-&gt; Maybe Int
+-&gt; Maybe [Attachment]
+-&gt; Cluster
+</span><a href="Network.AWS.ECS.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-var">Cluster'</span></a></span><span>
+</span><span id="line-464"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe ClusterConfiguration
+ -&gt; Maybe [KeyValuePair]
+ -&gt; Maybe [CapacityProviderStrategyItem]
+ -&gt; Maybe Int
+ -&gt; Maybe [Tag]
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [ClusterSetting]
+ -&gt; Maybe Int
+ -&gt; Maybe [Attachment]
+ -&gt; Cluster)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe ClusterConfiguration
+      -&gt; Maybe [KeyValuePair]
+      -&gt; Maybe [CapacityProviderStrategyItem]
+      -&gt; Maybe Int
+      -&gt; Maybe [Tag]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ClusterSetting]
+      -&gt; Maybe Int
+      -&gt; Maybe [Attachment]
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clusterArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-465"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe ClusterConfiguration
+   -&gt; Maybe [KeyValuePair]
+   -&gt; Maybe [CapacityProviderStrategyItem]
+   -&gt; Maybe Int
+   -&gt; Maybe [Tag]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ClusterSetting]
+   -&gt; Maybe Int
+   -&gt; Maybe [Attachment]
+   -&gt; Cluster)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe ClusterConfiguration
+      -&gt; Maybe [KeyValuePair]
+      -&gt; Maybe [CapacityProviderStrategyItem]
+      -&gt; Maybe Int
+      -&gt; Maybe [Tag]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ClusterSetting]
+      -&gt; Maybe Int
+      -&gt; Maybe [Attachment]
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-466"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe ClusterConfiguration
+   -&gt; Maybe [KeyValuePair]
+   -&gt; Maybe [CapacityProviderStrategyItem]
+   -&gt; Maybe Int
+   -&gt; Maybe [Tag]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ClusterSetting]
+   -&gt; Maybe Int
+   -&gt; Maybe [Attachment]
+   -&gt; Cluster)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe ClusterConfiguration
+      -&gt; Maybe [KeyValuePair]
+      -&gt; Maybe [CapacityProviderStrategyItem]
+      -&gt; Maybe Int
+      -&gt; Maybe [Tag]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ClusterSetting]
+      -&gt; Maybe Int
+      -&gt; Maybe [Attachment]
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;activeServicesCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-467"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe ClusterConfiguration
+   -&gt; Maybe [KeyValuePair]
+   -&gt; Maybe [CapacityProviderStrategyItem]
+   -&gt; Maybe Int
+   -&gt; Maybe [Tag]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ClusterSetting]
+   -&gt; Maybe Int
+   -&gt; Maybe [Attachment]
+   -&gt; Cluster)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe ClusterConfiguration
+      -&gt; Maybe [KeyValuePair]
+      -&gt; Maybe [CapacityProviderStrategyItem]
+      -&gt; Maybe Int
+      -&gt; Maybe [Tag]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ClusterSetting]
+      -&gt; Maybe Int
+      -&gt; Maybe [Attachment]
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;registeredContainerInstancesCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-468"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ClusterConfiguration
+   -&gt; Maybe [KeyValuePair]
+   -&gt; Maybe [CapacityProviderStrategyItem]
+   -&gt; Maybe Int
+   -&gt; Maybe [Tag]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ClusterSetting]
+   -&gt; Maybe Int
+   -&gt; Maybe [Attachment]
+   -&gt; Cluster)
+-&gt; Parser (Maybe ClusterConfiguration)
+-&gt; Parser
+     (Maybe [KeyValuePair]
+      -&gt; Maybe [CapacityProviderStrategyItem]
+      -&gt; Maybe Int
+      -&gt; Maybe [Tag]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ClusterSetting]
+      -&gt; Maybe Int
+      -&gt; Maybe [Attachment]
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ClusterConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configuration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-469"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [KeyValuePair]
+   -&gt; Maybe [CapacityProviderStrategyItem]
+   -&gt; Maybe Int
+   -&gt; Maybe [Tag]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ClusterSetting]
+   -&gt; Maybe Int
+   -&gt; Maybe [Attachment]
+   -&gt; Cluster)
+-&gt; Parser (Maybe [KeyValuePair])
+-&gt; Parser
+     (Maybe [CapacityProviderStrategyItem]
+      -&gt; Maybe Int
+      -&gt; Maybe [Tag]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ClusterSetting]
+      -&gt; Maybe Int
+      -&gt; Maybe [Attachment]
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [KeyValuePair]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statistics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [KeyValuePair]))
+-&gt; Maybe [KeyValuePair] -&gt; Parser (Maybe [KeyValuePair])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-470"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [CapacityProviderStrategyItem]
+   -&gt; Maybe Int
+   -&gt; Maybe [Tag]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ClusterSetting]
+   -&gt; Maybe Int
+   -&gt; Maybe [Attachment]
+   -&gt; Cluster)
+-&gt; Parser (Maybe [CapacityProviderStrategyItem])
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe [Tag]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ClusterSetting]
+      -&gt; Maybe Int
+      -&gt; Maybe [Attachment]
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe [CapacityProviderStrategyItem]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultCapacityProviderStrategy&quot;</span></span><span>
+</span><span id="line-471"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [CapacityProviderStrategyItem]))
+-&gt; Maybe [CapacityProviderStrategyItem]
+-&gt; Parser (Maybe [CapacityProviderStrategyItem])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-472"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-473"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe [Tag]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ClusterSetting]
+   -&gt; Maybe Int
+   -&gt; Maybe [Attachment]
+   -&gt; Cluster)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe [Tag]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ClusterSetting]
+      -&gt; Maybe Int
+      -&gt; Maybe [Attachment]
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pendingTasksCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-474"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Tag]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ClusterSetting]
+   -&gt; Maybe Int
+   -&gt; Maybe [Attachment]
+   -&gt; Cluster)
+-&gt; Parser (Maybe [Tag])
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ClusterSetting]
+      -&gt; Maybe Int
+      -&gt; Maybe [Attachment]
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-475"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ClusterSetting]
+   -&gt; Maybe Int
+   -&gt; Maybe [Attachment]
+   -&gt; Cluster)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ClusterSetting]
+      -&gt; Maybe Int
+      -&gt; Maybe [Attachment]
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;capacityProviders&quot;</span></span><span>
+</span><span id="line-476"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-477"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-478"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ClusterSetting]
+   -&gt; Maybe Int
+   -&gt; Maybe [Attachment]
+   -&gt; Cluster)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [ClusterSetting]
+      -&gt; Maybe Int
+      -&gt; Maybe [Attachment]
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attachmentsStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-479"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [ClusterSetting]
+   -&gt; Maybe Int
+   -&gt; Maybe [Attachment]
+   -&gt; Cluster)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [ClusterSetting]
+      -&gt; Maybe Int -&gt; Maybe [Attachment] -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clusterName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-480"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ClusterSetting]
+   -&gt; Maybe Int -&gt; Maybe [Attachment] -&gt; Cluster)
+-&gt; Parser (Maybe [ClusterSetting])
+-&gt; Parser (Maybe Int -&gt; Maybe [Attachment] -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ClusterSetting]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;settings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ClusterSetting]))
+-&gt; Maybe [ClusterSetting] -&gt; Parser (Maybe [ClusterSetting])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterSetting]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-481"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe [Attachment] -&gt; Cluster)
+-&gt; Parser (Maybe Int) -&gt; Parser (Maybe [Attachment] -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;runningTasksCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-482"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Attachment] -&gt; Cluster)
+-&gt; Parser (Maybe [Attachment]) -&gt; Parser Cluster
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Attachment]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attachments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Attachment]))
+-&gt; Maybe [Attachment] -&gt; Parser (Maybe [Attachment])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Attachment]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-483"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-484"></span><span>
+</span><span id="line-485"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461248"><span id="local-6989586621679461250"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span></span></span><span>
+</span><span id="line-486"></span><span>
+</span><span id="line-487"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461245"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span></span><span>
+</span><span id="line-488"></span></pre></body></html>

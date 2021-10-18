@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RDS.Types.EngineFamily</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RDS.Types.EngineFamily</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily"><span class="hs-identifier">EngineFamily</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily_MYSQL"><span class="hs-identifier">EngineFamily_MYSQL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily_POSTGRESQL"><span class="hs-identifier">EngineFamily_POSTGRESQL</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679759818"><span id="local-6989586621679759819"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EngineFamily"><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily"><span class="hs-identifier hs-var">EngineFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EngineFamily%27"><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily%27"><span class="hs-identifier hs-var">EngineFamily'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEngineFamily"><span class="annot"><span class="annottext">EngineFamily -&gt; Text
+</span><a href="Network.AWS.RDS.Types.EngineFamily.html#fromEngineFamily"><span class="hs-identifier hs-var hs-var">fromEngineFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679759810"><span id="local-6989586621679759812"><span id="local-6989586621679759814"><span class="annot"><span class="annottext">Int -&gt; EngineFamily -&gt; ShowS
+[EngineFamily] -&gt; ShowS
+EngineFamily -&gt; String
+(Int -&gt; EngineFamily -&gt; ShowS)
+-&gt; (EngineFamily -&gt; String)
+-&gt; ([EngineFamily] -&gt; ShowS)
+-&gt; Show EngineFamily
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EngineFamily] -&gt; ShowS
+$cshowList :: [EngineFamily] -&gt; ShowS
+show :: EngineFamily -&gt; String
+$cshow :: EngineFamily -&gt; String
+showsPrec :: Int -&gt; EngineFamily -&gt; ShowS
+$cshowsPrec :: Int -&gt; EngineFamily -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679759801"><span id="local-6989586621679759803"><span id="local-6989586621679759805"><span id="local-6989586621679759807"><span class="annot"><span class="annottext">ReadPrec [EngineFamily]
+ReadPrec EngineFamily
+Int -&gt; ReadS EngineFamily
+ReadS [EngineFamily]
+(Int -&gt; ReadS EngineFamily)
+-&gt; ReadS [EngineFamily]
+-&gt; ReadPrec EngineFamily
+-&gt; ReadPrec [EngineFamily]
+-&gt; Read EngineFamily
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EngineFamily]
+$creadListPrec :: ReadPrec [EngineFamily]
+readPrec :: ReadPrec EngineFamily
+$creadPrec :: ReadPrec EngineFamily
+readList :: ReadS [EngineFamily]
+$creadList :: ReadS [EngineFamily]
+readsPrec :: Int -&gt; ReadS EngineFamily
+$creadsPrec :: Int -&gt; ReadS EngineFamily
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679759796"><span id="local-6989586621679759798"><span class="annot"><span class="annottext">EngineFamily -&gt; EngineFamily -&gt; Bool
+(EngineFamily -&gt; EngineFamily -&gt; Bool)
+-&gt; (EngineFamily -&gt; EngineFamily -&gt; Bool) -&gt; Eq EngineFamily
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EngineFamily -&gt; EngineFamily -&gt; Bool
+$c/= :: EngineFamily -&gt; EngineFamily -&gt; Bool
+== :: EngineFamily -&gt; EngineFamily -&gt; Bool
+$c== :: EngineFamily -&gt; EngineFamily -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679759780"><span id="local-6989586621679759782"><span id="local-6989586621679759784"><span id="local-6989586621679759786"><span id="local-6989586621679759788"><span id="local-6989586621679759790"><span id="local-6989586621679759792"><span class="annot"><span class="annottext">Eq EngineFamily
+Eq EngineFamily
+-&gt; (EngineFamily -&gt; EngineFamily -&gt; Ordering)
+-&gt; (EngineFamily -&gt; EngineFamily -&gt; Bool)
+-&gt; (EngineFamily -&gt; EngineFamily -&gt; Bool)
+-&gt; (EngineFamily -&gt; EngineFamily -&gt; Bool)
+-&gt; (EngineFamily -&gt; EngineFamily -&gt; Bool)
+-&gt; (EngineFamily -&gt; EngineFamily -&gt; EngineFamily)
+-&gt; (EngineFamily -&gt; EngineFamily -&gt; EngineFamily)
+-&gt; Ord EngineFamily
+EngineFamily -&gt; EngineFamily -&gt; Bool
+EngineFamily -&gt; EngineFamily -&gt; Ordering
+EngineFamily -&gt; EngineFamily -&gt; EngineFamily
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EngineFamily -&gt; EngineFamily -&gt; EngineFamily
+$cmin :: EngineFamily -&gt; EngineFamily -&gt; EngineFamily
+max :: EngineFamily -&gt; EngineFamily -&gt; EngineFamily
+$cmax :: EngineFamily -&gt; EngineFamily -&gt; EngineFamily
+&gt;= :: EngineFamily -&gt; EngineFamily -&gt; Bool
+$c&gt;= :: EngineFamily -&gt; EngineFamily -&gt; Bool
+&gt; :: EngineFamily -&gt; EngineFamily -&gt; Bool
+$c&gt; :: EngineFamily -&gt; EngineFamily -&gt; Bool
+&lt;= :: EngineFamily -&gt; EngineFamily -&gt; Bool
+$c&lt;= :: EngineFamily -&gt; EngineFamily -&gt; Bool
+&lt; :: EngineFamily -&gt; EngineFamily -&gt; Bool
+$c&lt; :: EngineFamily -&gt; EngineFamily -&gt; Bool
+compare :: EngineFamily -&gt; EngineFamily -&gt; Ordering
+$ccompare :: EngineFamily -&gt; EngineFamily -&gt; Ordering
+$cp1Ord :: Eq EngineFamily
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. EngineFamily -&gt; Rep EngineFamily x)
+-&gt; (forall x. Rep EngineFamily x -&gt; EngineFamily)
+-&gt; Generic EngineFamily
+forall x. Rep EngineFamily x -&gt; EngineFamily
+forall x. EngineFamily -&gt; Rep EngineFamily x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EngineFamily x -&gt; EngineFamily
+$cfrom :: forall x. EngineFamily -&gt; Rep EngineFamily x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679759772"><span id="local-6989586621679759774"><span class="annot"><span class="annottext">Int -&gt; EngineFamily -&gt; Int
+EngineFamily -&gt; Int
+(Int -&gt; EngineFamily -&gt; Int)
+-&gt; (EngineFamily -&gt; Int) -&gt; Hashable EngineFamily
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EngineFamily -&gt; Int
+$chash :: EngineFamily -&gt; Int
+hashWithSalt :: Int -&gt; EngineFamily -&gt; Int
+$chashWithSalt :: Int -&gt; EngineFamily -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679759769"><span class="annot"><span class="annottext">EngineFamily -&gt; ()
+(EngineFamily -&gt; ()) -&gt; NFData EngineFamily
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EngineFamily -&gt; ()
+$crnf :: EngineFamily -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679759766"><span class="annot"><span class="annottext">Text -&gt; Either String EngineFamily
+(Text -&gt; Either String EngineFamily) -&gt; FromText EngineFamily
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EngineFamily
+$cfromText :: Text -&gt; Either String EngineFamily
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679759763"><span class="annot"><span class="annottext">EngineFamily -&gt; Text
+(EngineFamily -&gt; Text) -&gt; ToText EngineFamily
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EngineFamily -&gt; Text
+$ctoText :: EngineFamily -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679759760"><span class="annot"><span class="annottext">EngineFamily -&gt; ByteString
+(EngineFamily -&gt; ByteString) -&gt; ToByteString EngineFamily
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EngineFamily -&gt; ByteString
+$ctoBS :: EngineFamily -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679759757"><span class="annot"><span class="annottext">EngineFamily -&gt; ByteStringBuilder
+(EngineFamily -&gt; ByteStringBuilder) -&gt; ToLog EngineFamily
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EngineFamily -&gt; ByteStringBuilder
+$cbuild :: EngineFamily -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679759754"><span class="annot"><span class="annottext">HeaderName -&gt; EngineFamily -&gt; [Header]
+(HeaderName -&gt; EngineFamily -&gt; [Header]) -&gt; ToHeader EngineFamily
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EngineFamily -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EngineFamily -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679759751"><span class="annot"><span class="annottext">EngineFamily -&gt; QueryString
+(EngineFamily -&gt; QueryString) -&gt; ToQuery EngineFamily
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EngineFamily -&gt; QueryString
+$ctoQuery :: EngineFamily -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679759746"><span id="local-6989586621679759748"><span class="annot"><span class="annottext">Value -&gt; Parser [EngineFamily]
+Value -&gt; Parser EngineFamily
+(Value -&gt; Parser EngineFamily)
+-&gt; (Value -&gt; Parser [EngineFamily]) -&gt; FromJSON EngineFamily
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EngineFamily]
+$cparseJSONList :: Value -&gt; Parser [EngineFamily]
+parseJSON :: Value -&gt; Parser EngineFamily
+$cparseJSON :: Value -&gt; Parser EngineFamily
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679759741"><span id="local-6989586621679759743"><span class="annot"><span class="annottext">FromJSONKeyFunction [EngineFamily]
+FromJSONKeyFunction EngineFamily
+FromJSONKeyFunction EngineFamily
+-&gt; FromJSONKeyFunction [EngineFamily] -&gt; FromJSONKey EngineFamily
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EngineFamily]
+$cfromJSONKeyList :: FromJSONKeyFunction [EngineFamily]
+fromJSONKey :: FromJSONKeyFunction EngineFamily
+$cfromJSONKey :: FromJSONKeyFunction EngineFamily
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679759732"><span id="local-6989586621679759734"><span id="local-6989586621679759736"><span id="local-6989586621679759738"><span class="annot"><span class="annottext">[EngineFamily] -&gt; Encoding
+[EngineFamily] -&gt; Value
+EngineFamily -&gt; Encoding
+EngineFamily -&gt; Value
+(EngineFamily -&gt; Value)
+-&gt; (EngineFamily -&gt; Encoding)
+-&gt; ([EngineFamily] -&gt; Value)
+-&gt; ([EngineFamily] -&gt; Encoding)
+-&gt; ToJSON EngineFamily
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EngineFamily] -&gt; Encoding
+$ctoEncodingList :: [EngineFamily] -&gt; Encoding
+toJSONList :: [EngineFamily] -&gt; Value
+$ctoJSONList :: [EngineFamily] -&gt; Value
+toEncoding :: EngineFamily -&gt; Encoding
+$ctoEncoding :: EngineFamily -&gt; Encoding
+toJSON :: EngineFamily -&gt; Value
+$ctoJSON :: EngineFamily -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679759727"><span id="local-6989586621679759729"><span class="annot"><span class="annottext">ToJSONKeyFunction [EngineFamily]
+ToJSONKeyFunction EngineFamily
+ToJSONKeyFunction EngineFamily
+-&gt; ToJSONKeyFunction [EngineFamily] -&gt; ToJSONKey EngineFamily
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EngineFamily]
+$ctoJSONKeyList :: ToJSONKeyFunction [EngineFamily]
+toJSONKey :: ToJSONKeyFunction EngineFamily
+$ctoJSONKey :: ToJSONKeyFunction EngineFamily
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679759724"><span class="annot"><span class="annottext">[Node] -&gt; Either String EngineFamily
+([Node] -&gt; Either String EngineFamily) -&gt; FromXML EngineFamily
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EngineFamily
+$cparseXML :: [Node] -&gt; Either String EngineFamily
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679759721"><span class="annot"><span class="annottext">EngineFamily -&gt; XML
+(EngineFamily -&gt; XML) -&gt; ToXML EngineFamily
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EngineFamily -&gt; XML
+$ctoXML :: EngineFamily -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily_MYSQL"><span class="hs-identifier hs-type">EngineFamily_MYSQL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily"><span class="hs-identifier hs-type">EngineFamily</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEngineFamily_MYSQL"><span id="%24mEngineFamily_MYSQL"><span id="EngineFamily_MYSQL"><span class="annot"><span class="annottext">$bEngineFamily_MYSQL :: EngineFamily
+$mEngineFamily_MYSQL :: forall r. EngineFamily -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RDS.Types.EngineFamily.html#%24bEngineFamily_MYSQL"><span class="hs-identifier hs-var hs-var hs-var">EngineFamily_MYSQL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily%27"><span class="hs-identifier hs-type">EngineFamily'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MYSQL&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily_POSTGRESQL"><span class="hs-identifier hs-type">EngineFamily_POSTGRESQL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily"><span class="hs-identifier hs-type">EngineFamily</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEngineFamily_POSTGRESQL"><span id="%24mEngineFamily_POSTGRESQL"><span id="EngineFamily_POSTGRESQL"><span class="annot"><span class="annottext">$bEngineFamily_POSTGRESQL :: EngineFamily
+$mEngineFamily_POSTGRESQL :: forall r. EngineFamily -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RDS.Types.EngineFamily.html#%24bEngineFamily_POSTGRESQL"><span class="hs-identifier hs-var hs-var hs-var">EngineFamily_POSTGRESQL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily%27"><span class="hs-identifier hs-type">EngineFamily'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;POSTGRESQL&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily_MYSQL"><span class="hs-pragma hs-type">EngineFamily_MYSQL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily_POSTGRESQL"><span class="hs-pragma hs-type">EngineFamily_POSTGRESQL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily%27"><span class="hs-pragma hs-type">EngineFamily'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,941 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Rekognition.Types.ProjectVersionDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Rekognition.Types.ProjectVersionDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html"><span class="hs-identifier">Network.AWS.Rekognition.Types.EvaluationResult</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.GroundTruthManifest.html"><span class="hs-identifier">Network.AWS.Rekognition.Types.GroundTruthManifest</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.OutputConfig.html"><span class="hs-identifier">Network.AWS.Rekognition.Types.OutputConfig</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionStatus.html"><span class="hs-identifier">Network.AWS.Rekognition.Types.ProjectVersionStatus</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingDataResult.html"><span class="hs-identifier">Network.AWS.Rekognition.Types.TestingDataResult</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingDataResult.html"><span class="hs-identifier">Network.AWS.Rekognition.Types.TrainingDataResult</span></a></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The description of a version of a model.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newProjectVersionDescription' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679334546"><span id="local-6989586621679334547"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectVersionDescription"><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-var">ProjectVersionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectVersionDescription%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-var">ProjectVersionDescription'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains information about the testing results.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtestingDataResult%3AProjectVersionDescription%27"><span class="annot"><span class="annottext">ProjectVersionDescription -&gt; Maybe TestingDataResult
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AtestingDataResult%3AProjectVersionDescription%27"><span class="hs-identifier hs-var hs-var">testingDataResult</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingDataResult.html#TestingDataResult"><span class="hs-identifier hs-type">TestingDataResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The training results. @EvaluationResult@ is only returned if training is</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- successful.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AevaluationResult%3AProjectVersionDescription%27"><span class="annot"><span class="annottext">ProjectVersionDescription -&gt; Maybe EvaluationResult
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AevaluationResult%3AProjectVersionDescription%27"><span class="hs-identifier hs-var hs-var">evaluationResult</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Unix datetime for the date and time that training started.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcreationTimestamp%3AProjectVersionDescription%27"><span class="annot"><span class="annottext">ProjectVersionDescription -&gt; Maybe POSIX
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AcreationTimestamp%3AProjectVersionDescription%27"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A descriptive message for an error or warning that occurred.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AstatusMessage%3AProjectVersionDescription%27"><span class="annot"><span class="annottext">ProjectVersionDescription -&gt; Maybe Text
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AstatusMessage%3AProjectVersionDescription%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The current status of the model version.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Astatus%3AProjectVersionDescription%27"><span class="annot"><span class="annottext">ProjectVersionDescription -&gt; Maybe ProjectVersionStatus
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3Astatus%3AProjectVersionDescription%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionStatus.html#ProjectVersionStatus"><span class="hs-identifier hs-type">ProjectVersionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The duration, in seconds, that the model version has been billed for</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- training. This value is only returned if the model version has been</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- successfully trained.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AbillableTrainingTimeInSeconds%3AProjectVersionDescription%27"><span class="annot"><span class="annottext">ProjectVersionDescription -&gt; Maybe Natural
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AbillableTrainingTimeInSeconds%3AProjectVersionDescription%27"><span class="hs-identifier hs-var hs-var">billableTrainingTimeInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The location where training results are saved.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AoutputConfig%3AProjectVersionDescription%27"><span class="annot"><span class="annottext">ProjectVersionDescription -&gt; Maybe OutputConfig
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AoutputConfig%3AProjectVersionDescription%27"><span class="hs-identifier hs-var hs-var">outputConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the model version.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AprojectVersionArn%3AProjectVersionDescription%27"><span class="annot"><span class="annottext">ProjectVersionDescription -&gt; Maybe Text
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AprojectVersionArn%3AProjectVersionDescription%27"><span class="hs-identifier hs-var hs-var">projectVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The identifer for the AWS Key Management Service (AWS KMS) customer</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- master key that was used to encrypt the model during training.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AkmsKeyId%3AProjectVersionDescription%27"><span class="annot"><span class="annottext">ProjectVersionDescription -&gt; Maybe Text
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AkmsKeyId%3AProjectVersionDescription%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The minimum number of inference units used by the model. For more</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- information, see StartProjectVersion.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AminInferenceUnits%3AProjectVersionDescription%27"><span class="annot"><span class="annottext">ProjectVersionDescription -&gt; Maybe Natural
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AminInferenceUnits%3AProjectVersionDescription%27"><span class="hs-identifier hs-var hs-var">minInferenceUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Contains information about the training results.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AtrainingDataResult%3AProjectVersionDescription%27"><span class="annot"><span class="annottext">ProjectVersionDescription -&gt; Maybe TrainingDataResult
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AtrainingDataResult%3AProjectVersionDescription%27"><span class="hs-identifier hs-var hs-var">trainingDataResult</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingDataResult.html#TrainingDataResult"><span class="hs-identifier hs-type">TrainingDataResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The Unix date and time that training of the model ended.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AtrainingEndTimestamp%3AProjectVersionDescription%27"><span class="annot"><span class="annottext">ProjectVersionDescription -&gt; Maybe POSIX
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AtrainingEndTimestamp%3AProjectVersionDescription%27"><span class="hs-identifier hs-var hs-var">trainingEndTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The location of the summary manifest. The summary manifest provides</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- aggregate data validation results for the training and test datasets.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AmanifestSummary%3AProjectVersionDescription%27"><span class="annot"><span class="annottext">ProjectVersionDescription -&gt; Maybe GroundTruthManifest
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AmanifestSummary%3AProjectVersionDescription%27"><span class="hs-identifier hs-var hs-var">manifestSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.GroundTruthManifest.html#GroundTruthManifest"><span class="hs-identifier hs-type">GroundTruthManifest</span></a></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334528"><span id="local-6989586621679334530"><span class="annot"><span class="annottext">ProjectVersionDescription -&gt; ProjectVersionDescription -&gt; Bool
+(ProjectVersionDescription -&gt; ProjectVersionDescription -&gt; Bool)
+-&gt; (ProjectVersionDescription -&gt; ProjectVersionDescription -&gt; Bool)
+-&gt; Eq ProjectVersionDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProjectVersionDescription -&gt; ProjectVersionDescription -&gt; Bool
+$c/= :: ProjectVersionDescription -&gt; ProjectVersionDescription -&gt; Bool
+== :: ProjectVersionDescription -&gt; ProjectVersionDescription -&gt; Bool
+$c== :: ProjectVersionDescription -&gt; ProjectVersionDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334519"><span id="local-6989586621679334521"><span id="local-6989586621679334523"><span id="local-6989586621679334525"><span class="annot"><span class="annottext">ReadPrec [ProjectVersionDescription]
+ReadPrec ProjectVersionDescription
+Int -&gt; ReadS ProjectVersionDescription
+ReadS [ProjectVersionDescription]
+(Int -&gt; ReadS ProjectVersionDescription)
+-&gt; ReadS [ProjectVersionDescription]
+-&gt; ReadPrec ProjectVersionDescription
+-&gt; ReadPrec [ProjectVersionDescription]
+-&gt; Read ProjectVersionDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProjectVersionDescription]
+$creadListPrec :: ReadPrec [ProjectVersionDescription]
+readPrec :: ReadPrec ProjectVersionDescription
+$creadPrec :: ReadPrec ProjectVersionDescription
+readList :: ReadS [ProjectVersionDescription]
+$creadList :: ReadS [ProjectVersionDescription]
+readsPrec :: Int -&gt; ReadS ProjectVersionDescription
+$creadsPrec :: Int -&gt; ReadS ProjectVersionDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334512"><span id="local-6989586621679334514"><span id="local-6989586621679334516"><span class="annot"><span class="annottext">Int -&gt; ProjectVersionDescription -&gt; ShowS
+[ProjectVersionDescription] -&gt; ShowS
+ProjectVersionDescription -&gt; String
+(Int -&gt; ProjectVersionDescription -&gt; ShowS)
+-&gt; (ProjectVersionDescription -&gt; String)
+-&gt; ([ProjectVersionDescription] -&gt; ShowS)
+-&gt; Show ProjectVersionDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProjectVersionDescription] -&gt; ShowS
+$cshowList :: [ProjectVersionDescription] -&gt; ShowS
+show :: ProjectVersionDescription -&gt; String
+$cshow :: ProjectVersionDescription -&gt; String
+showsPrec :: Int -&gt; ProjectVersionDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProjectVersionDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ProjectVersionDescription -&gt; Rep ProjectVersionDescription x)
+-&gt; (forall x.
+    Rep ProjectVersionDescription x -&gt; ProjectVersionDescription)
+-&gt; Generic ProjectVersionDescription
+forall x.
+Rep ProjectVersionDescription x -&gt; ProjectVersionDescription
+forall x.
+ProjectVersionDescription -&gt; Rep ProjectVersionDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ProjectVersionDescription x -&gt; ProjectVersionDescription
+$cfrom :: forall x.
+ProjectVersionDescription -&gt; Rep ProjectVersionDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'ProjectVersionDescription' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'testingDataResult', 'projectVersionDescription_testingDataResult' - Contains information about the testing results.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'evaluationResult', 'projectVersionDescription_evaluationResult' - The training results. @EvaluationResult@ is only returned if training is</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- successful.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'creationTimestamp', 'projectVersionDescription_creationTimestamp' - The Unix datetime for the date and time that training started.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'statusMessage', 'projectVersionDescription_statusMessage' - A descriptive message for an error or warning that occurred.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'status', 'projectVersionDescription_status' - The current status of the model version.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'billableTrainingTimeInSeconds', 'projectVersionDescription_billableTrainingTimeInSeconds' - The duration, in seconds, that the model version has been billed for</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- training. This value is only returned if the model version has been</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- successfully trained.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'outputConfig', 'projectVersionDescription_outputConfig' - The location where training results are saved.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'projectVersionArn', 'projectVersionDescription_projectVersionArn' - The Amazon Resource Name (ARN) of the model version.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'kmsKeyId', 'projectVersionDescription_kmsKeyId' - The identifer for the AWS Key Management Service (AWS KMS) customer</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- master key that was used to encrypt the model during training.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'minInferenceUnits', 'projectVersionDescription_minInferenceUnits' - The minimum number of inference units used by the model. For more</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- information, see StartProjectVersion.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'trainingDataResult', 'projectVersionDescription_trainingDataResult' - Contains information about the training results.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'trainingEndTimestamp', 'projectVersionDescription_trainingEndTimestamp' - The Unix date and time that training of the model ended.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'manifestSummary', 'projectVersionDescription_manifestSummary' - The location of the summary manifest. The summary manifest provides</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- aggregate data validation results for the training and test datasets.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#newProjectVersionDescription"><span class="hs-identifier hs-type">newProjectVersionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span>
+</span><span id="line-112"></span><span id="newProjectVersionDescription"><span class="annot"><span class="annottext">newProjectVersionDescription :: ProjectVersionDescription
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#newProjectVersionDescription"><span class="hs-identifier hs-var hs-var">newProjectVersionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">ProjectVersionDescription' :: Maybe TestingDataResult
+-&gt; Maybe EvaluationResult
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ProjectVersionStatus
+-&gt; Maybe Natural
+-&gt; Maybe OutputConfig
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe TrainingDataResult
+-&gt; Maybe POSIX
+-&gt; Maybe GroundTruthManifest
+-&gt; ProjectVersionDescription
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:testingDataResult:ProjectVersionDescription' :: Maybe TestingDataResult
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AtestingDataResult%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">testingDataResult</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">Maybe TestingDataResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:evaluationResult:ProjectVersionDescription' :: Maybe EvaluationResult
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AevaluationResult%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">evaluationResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EvaluationResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTimestamp:ProjectVersionDescription' :: Maybe POSIX
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AcreationTimestamp%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusMessage:ProjectVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AstatusMessage%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ProjectVersionDescription' :: Maybe ProjectVersionStatus
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3Astatus%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectVersionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:billableTrainingTimeInSeconds:ProjectVersionDescription' :: Maybe Natural
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AbillableTrainingTimeInSeconds%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">billableTrainingTimeInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputConfig:ProjectVersionDescription' :: Maybe OutputConfig
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AoutputConfig%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">outputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectVersionArn:ProjectVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AprojectVersionArn%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">projectVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyId:ProjectVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AkmsKeyId%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:minInferenceUnits:ProjectVersionDescription' :: Maybe Natural
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AminInferenceUnits%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">minInferenceUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:trainingDataResult:ProjectVersionDescription' :: Maybe TrainingDataResult
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AtrainingDataResult%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">trainingDataResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingDataResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:trainingEndTimestamp:ProjectVersionDescription' :: Maybe POSIX
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AtrainingEndTimestamp%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">trainingEndTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:manifestSummary:ProjectVersionDescription' :: Maybe GroundTruthManifest
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AmanifestSummary%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">manifestSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GroundTruthManifest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | Contains information about the testing results.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_testingDataResult"><span class="hs-identifier hs-type">projectVersionDescription_testingDataResult</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingDataResult.html#TestingDataResult"><span class="hs-identifier hs-type">TestingDataResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="projectVersionDescription_testingDataResult"><span class="annot"><span class="annottext">projectVersionDescription_testingDataResult :: (Maybe TestingDataResult -&gt; f (Maybe TestingDataResult))
+-&gt; ProjectVersionDescription -&gt; f ProjectVersionDescription
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_testingDataResult"><span class="hs-identifier hs-var hs-var">projectVersionDescription_testingDataResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectVersionDescription -&gt; Maybe TestingDataResult)
+-&gt; (ProjectVersionDescription
+    -&gt; Maybe TestingDataResult -&gt; ProjectVersionDescription)
+-&gt; Lens
+     ProjectVersionDescription
+     ProjectVersionDescription
+     (Maybe TestingDataResult)
+     (Maybe TestingDataResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334503"><span class="annot"><span class="annottext">Maybe TestingDataResult
+testingDataResult :: Maybe TestingDataResult
+$sel:testingDataResult:ProjectVersionDescription' :: ProjectVersionDescription -&gt; Maybe TestingDataResult
+</span><a href="#local-6989586621679334503"><span class="hs-identifier hs-var hs-var">testingDataResult</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TestingDataResult
+</span><a href="#local-6989586621679334503"><span class="hs-identifier hs-var">testingDataResult</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334502"><span class="annot"><span class="annottext">s :: ProjectVersionDescription
+</span><a href="#local-6989586621679334502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334501"><span class="annot"><span class="annottext">Maybe TestingDataResult
+</span><a href="#local-6989586621679334501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectVersionDescription
+</span><a href="#local-6989586621679334502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:testingDataResult:ProjectVersionDescription' :: Maybe TestingDataResult
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AtestingDataResult%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">testingDataResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TestingDataResult
+</span><a href="#local-6989586621679334501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The training results. @EvaluationResult@ is only returned if training is</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- successful.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_evaluationResult"><span class="hs-identifier hs-type">projectVersionDescription_evaluationResult</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="projectVersionDescription_evaluationResult"><span class="annot"><span class="annottext">projectVersionDescription_evaluationResult :: (Maybe EvaluationResult -&gt; f (Maybe EvaluationResult))
+-&gt; ProjectVersionDescription -&gt; f ProjectVersionDescription
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_evaluationResult"><span class="hs-identifier hs-var hs-var">projectVersionDescription_evaluationResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectVersionDescription -&gt; Maybe EvaluationResult)
+-&gt; (ProjectVersionDescription
+    -&gt; Maybe EvaluationResult -&gt; ProjectVersionDescription)
+-&gt; Lens
+     ProjectVersionDescription
+     ProjectVersionDescription
+     (Maybe EvaluationResult)
+     (Maybe EvaluationResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334499"><span class="annot"><span class="annottext">Maybe EvaluationResult
+evaluationResult :: Maybe EvaluationResult
+$sel:evaluationResult:ProjectVersionDescription' :: ProjectVersionDescription -&gt; Maybe EvaluationResult
+</span><a href="#local-6989586621679334499"><span class="hs-identifier hs-var hs-var">evaluationResult</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EvaluationResult
+</span><a href="#local-6989586621679334499"><span class="hs-identifier hs-var">evaluationResult</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334498"><span class="annot"><span class="annottext">s :: ProjectVersionDescription
+</span><a href="#local-6989586621679334498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334497"><span class="annot"><span class="annottext">Maybe EvaluationResult
+</span><a href="#local-6989586621679334497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectVersionDescription
+</span><a href="#local-6989586621679334498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationResult:ProjectVersionDescription' :: Maybe EvaluationResult
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AevaluationResult%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">evaluationResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EvaluationResult
+</span><a href="#local-6989586621679334497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The Unix datetime for the date and time that training started.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_creationTimestamp"><span class="hs-identifier hs-type">projectVersionDescription_creationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="projectVersionDescription_creationTimestamp"><span class="annot"><span class="annottext">projectVersionDescription_creationTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ProjectVersionDescription -&gt; f ProjectVersionDescription
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_creationTimestamp"><span class="hs-identifier hs-var hs-var">projectVersionDescription_creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectVersionDescription -&gt; Maybe POSIX)
+-&gt; (ProjectVersionDescription
+    -&gt; Maybe POSIX -&gt; ProjectVersionDescription)
+-&gt; Lens
+     ProjectVersionDescription
+     ProjectVersionDescription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334495"><span class="annot"><span class="annottext">Maybe POSIX
+creationTimestamp :: Maybe POSIX
+$sel:creationTimestamp:ProjectVersionDescription' :: ProjectVersionDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679334495"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679334495"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334494"><span class="annot"><span class="annottext">s :: ProjectVersionDescription
+</span><a href="#local-6989586621679334494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334493"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679334493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectVersionDescription
+</span><a href="#local-6989586621679334494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimestamp:ProjectVersionDescription' :: Maybe POSIX
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AcreationTimestamp%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679334493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ProjectVersionDescription -&gt; f ProjectVersionDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ProjectVersionDescription
+-&gt; f ProjectVersionDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | A descriptive message for an error or warning that occurred.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_statusMessage"><span class="hs-identifier hs-type">projectVersionDescription_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="projectVersionDescription_statusMessage"><span class="annot"><span class="annottext">projectVersionDescription_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProjectVersionDescription -&gt; f ProjectVersionDescription
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_statusMessage"><span class="hs-identifier hs-var hs-var">projectVersionDescription_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectVersionDescription -&gt; Maybe Text)
+-&gt; (ProjectVersionDescription
+    -&gt; Maybe Text -&gt; ProjectVersionDescription)
+-&gt; Lens
+     ProjectVersionDescription
+     ProjectVersionDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334488"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:ProjectVersionDescription' :: ProjectVersionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679334488"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334488"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334487"><span class="annot"><span class="annottext">s :: ProjectVersionDescription
+</span><a href="#local-6989586621679334487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334486"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectVersionDescription
+</span><a href="#local-6989586621679334487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:ProjectVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AstatusMessage%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The current status of the model version.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_status"><span class="hs-identifier hs-type">projectVersionDescription_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionStatus.html#ProjectVersionStatus"><span class="hs-identifier hs-type">ProjectVersionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="projectVersionDescription_status"><span class="annot"><span class="annottext">projectVersionDescription_status :: (Maybe ProjectVersionStatus -&gt; f (Maybe ProjectVersionStatus))
+-&gt; ProjectVersionDescription -&gt; f ProjectVersionDescription
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_status"><span class="hs-identifier hs-var hs-var">projectVersionDescription_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectVersionDescription -&gt; Maybe ProjectVersionStatus)
+-&gt; (ProjectVersionDescription
+    -&gt; Maybe ProjectVersionStatus -&gt; ProjectVersionDescription)
+-&gt; Lens
+     ProjectVersionDescription
+     ProjectVersionDescription
+     (Maybe ProjectVersionStatus)
+     (Maybe ProjectVersionStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334484"><span class="annot"><span class="annottext">Maybe ProjectVersionStatus
+status :: Maybe ProjectVersionStatus
+$sel:status:ProjectVersionDescription' :: ProjectVersionDescription -&gt; Maybe ProjectVersionStatus
+</span><a href="#local-6989586621679334484"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectVersionStatus
+</span><a href="#local-6989586621679334484"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334483"><span class="annot"><span class="annottext">s :: ProjectVersionDescription
+</span><a href="#local-6989586621679334483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334482"><span class="annot"><span class="annottext">Maybe ProjectVersionStatus
+</span><a href="#local-6989586621679334482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectVersionDescription
+</span><a href="#local-6989586621679334483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ProjectVersionDescription' :: Maybe ProjectVersionStatus
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3Astatus%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectVersionStatus
+</span><a href="#local-6989586621679334482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The duration, in seconds, that the model version has been billed for</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- training. This value is only returned if the model version has been</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- successfully trained.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_billableTrainingTimeInSeconds"><span class="hs-identifier hs-type">projectVersionDescription_billableTrainingTimeInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="projectVersionDescription_billableTrainingTimeInSeconds"><span class="annot"><span class="annottext">projectVersionDescription_billableTrainingTimeInSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ProjectVersionDescription -&gt; f ProjectVersionDescription
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_billableTrainingTimeInSeconds"><span class="hs-identifier hs-var hs-var">projectVersionDescription_billableTrainingTimeInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectVersionDescription -&gt; Maybe Natural)
+-&gt; (ProjectVersionDescription
+    -&gt; Maybe Natural -&gt; ProjectVersionDescription)
+-&gt; Lens
+     ProjectVersionDescription
+     ProjectVersionDescription
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334480"><span class="annot"><span class="annottext">Maybe Natural
+billableTrainingTimeInSeconds :: Maybe Natural
+$sel:billableTrainingTimeInSeconds:ProjectVersionDescription' :: ProjectVersionDescription -&gt; Maybe Natural
+</span><a href="#local-6989586621679334480"><span class="hs-identifier hs-var hs-var">billableTrainingTimeInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679334480"><span class="hs-identifier hs-var">billableTrainingTimeInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334479"><span class="annot"><span class="annottext">s :: ProjectVersionDescription
+</span><a href="#local-6989586621679334479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334478"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679334478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectVersionDescription
+</span><a href="#local-6989586621679334479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billableTrainingTimeInSeconds:ProjectVersionDescription' :: Maybe Natural
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AbillableTrainingTimeInSeconds%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">billableTrainingTimeInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679334478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The location where training results are saved.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_outputConfig"><span class="hs-identifier hs-type">projectVersionDescription_outputConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="projectVersionDescription_outputConfig"><span class="annot"><span class="annottext">projectVersionDescription_outputConfig :: (Maybe OutputConfig -&gt; f (Maybe OutputConfig))
+-&gt; ProjectVersionDescription -&gt; f ProjectVersionDescription
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_outputConfig"><span class="hs-identifier hs-var hs-var">projectVersionDescription_outputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectVersionDescription -&gt; Maybe OutputConfig)
+-&gt; (ProjectVersionDescription
+    -&gt; Maybe OutputConfig -&gt; ProjectVersionDescription)
+-&gt; Lens
+     ProjectVersionDescription
+     ProjectVersionDescription
+     (Maybe OutputConfig)
+     (Maybe OutputConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334476"><span class="annot"><span class="annottext">Maybe OutputConfig
+outputConfig :: Maybe OutputConfig
+$sel:outputConfig:ProjectVersionDescription' :: ProjectVersionDescription -&gt; Maybe OutputConfig
+</span><a href="#local-6989586621679334476"><span class="hs-identifier hs-var hs-var">outputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OutputConfig
+</span><a href="#local-6989586621679334476"><span class="hs-identifier hs-var">outputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334475"><span class="annot"><span class="annottext">s :: ProjectVersionDescription
+</span><a href="#local-6989586621679334475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334474"><span class="annot"><span class="annottext">Maybe OutputConfig
+</span><a href="#local-6989586621679334474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectVersionDescription
+</span><a href="#local-6989586621679334475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputConfig:ProjectVersionDescription' :: Maybe OutputConfig
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AoutputConfig%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">outputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputConfig
+</span><a href="#local-6989586621679334474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the model version.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_projectVersionArn"><span class="hs-identifier hs-type">projectVersionDescription_projectVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="projectVersionDescription_projectVersionArn"><span class="annot"><span class="annottext">projectVersionDescription_projectVersionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProjectVersionDescription -&gt; f ProjectVersionDescription
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_projectVersionArn"><span class="hs-identifier hs-var hs-var">projectVersionDescription_projectVersionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectVersionDescription -&gt; Maybe Text)
+-&gt; (ProjectVersionDescription
+    -&gt; Maybe Text -&gt; ProjectVersionDescription)
+-&gt; Lens
+     ProjectVersionDescription
+     ProjectVersionDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334472"><span class="annot"><span class="annottext">Maybe Text
+projectVersionArn :: Maybe Text
+$sel:projectVersionArn:ProjectVersionDescription' :: ProjectVersionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679334472"><span class="hs-identifier hs-var hs-var">projectVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334472"><span class="hs-identifier hs-var">projectVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334471"><span class="annot"><span class="annottext">s :: ProjectVersionDescription
+</span><a href="#local-6989586621679334471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334470"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectVersionDescription
+</span><a href="#local-6989586621679334471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectVersionArn:ProjectVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AprojectVersionArn%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">projectVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The identifer for the AWS Key Management Service (AWS KMS) customer</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- master key that was used to encrypt the model during training.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_kmsKeyId"><span class="hs-identifier hs-type">projectVersionDescription_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="projectVersionDescription_kmsKeyId"><span class="annot"><span class="annottext">projectVersionDescription_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProjectVersionDescription -&gt; f ProjectVersionDescription
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_kmsKeyId"><span class="hs-identifier hs-var hs-var">projectVersionDescription_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectVersionDescription -&gt; Maybe Text)
+-&gt; (ProjectVersionDescription
+    -&gt; Maybe Text -&gt; ProjectVersionDescription)
+-&gt; Lens
+     ProjectVersionDescription
+     ProjectVersionDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334468"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyId :: Maybe Text
+$sel:kmsKeyId:ProjectVersionDescription' :: ProjectVersionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679334468"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334468"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334467"><span class="annot"><span class="annottext">s :: ProjectVersionDescription
+</span><a href="#local-6989586621679334467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334466"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectVersionDescription
+</span><a href="#local-6989586621679334467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:ProjectVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AkmsKeyId%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The minimum number of inference units used by the model. For more</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- information, see StartProjectVersion.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_minInferenceUnits"><span class="hs-identifier hs-type">projectVersionDescription_minInferenceUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="projectVersionDescription_minInferenceUnits"><span class="annot"><span class="annottext">projectVersionDescription_minInferenceUnits :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ProjectVersionDescription -&gt; f ProjectVersionDescription
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_minInferenceUnits"><span class="hs-identifier hs-var hs-var">projectVersionDescription_minInferenceUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectVersionDescription -&gt; Maybe Natural)
+-&gt; (ProjectVersionDescription
+    -&gt; Maybe Natural -&gt; ProjectVersionDescription)
+-&gt; Lens
+     ProjectVersionDescription
+     ProjectVersionDescription
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334464"><span class="annot"><span class="annottext">Maybe Natural
+minInferenceUnits :: Maybe Natural
+$sel:minInferenceUnits:ProjectVersionDescription' :: ProjectVersionDescription -&gt; Maybe Natural
+</span><a href="#local-6989586621679334464"><span class="hs-identifier hs-var hs-var">minInferenceUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679334464"><span class="hs-identifier hs-var">minInferenceUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334463"><span class="annot"><span class="annottext">s :: ProjectVersionDescription
+</span><a href="#local-6989586621679334463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334462"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679334462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectVersionDescription
+</span><a href="#local-6989586621679334463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minInferenceUnits:ProjectVersionDescription' :: Maybe Natural
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AminInferenceUnits%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">minInferenceUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679334462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | Contains information about the training results.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_trainingDataResult"><span class="hs-identifier hs-type">projectVersionDescription_trainingDataResult</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingDataResult.html#TrainingDataResult"><span class="hs-identifier hs-type">TrainingDataResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="projectVersionDescription_trainingDataResult"><span class="annot"><span class="annottext">projectVersionDescription_trainingDataResult :: (Maybe TrainingDataResult -&gt; f (Maybe TrainingDataResult))
+-&gt; ProjectVersionDescription -&gt; f ProjectVersionDescription
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_trainingDataResult"><span class="hs-identifier hs-var hs-var">projectVersionDescription_trainingDataResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectVersionDescription -&gt; Maybe TrainingDataResult)
+-&gt; (ProjectVersionDescription
+    -&gt; Maybe TrainingDataResult -&gt; ProjectVersionDescription)
+-&gt; Lens
+     ProjectVersionDescription
+     ProjectVersionDescription
+     (Maybe TrainingDataResult)
+     (Maybe TrainingDataResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334460"><span class="annot"><span class="annottext">Maybe TrainingDataResult
+trainingDataResult :: Maybe TrainingDataResult
+$sel:trainingDataResult:ProjectVersionDescription' :: ProjectVersionDescription -&gt; Maybe TrainingDataResult
+</span><a href="#local-6989586621679334460"><span class="hs-identifier hs-var hs-var">trainingDataResult</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingDataResult
+</span><a href="#local-6989586621679334460"><span class="hs-identifier hs-var">trainingDataResult</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334459"><span class="annot"><span class="annottext">s :: ProjectVersionDescription
+</span><a href="#local-6989586621679334459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334458"><span class="annot"><span class="annottext">Maybe TrainingDataResult
+</span><a href="#local-6989586621679334458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectVersionDescription
+</span><a href="#local-6989586621679334459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingDataResult:ProjectVersionDescription' :: Maybe TrainingDataResult
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AtrainingDataResult%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">trainingDataResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingDataResult
+</span><a href="#local-6989586621679334458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The Unix date and time that training of the model ended.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_trainingEndTimestamp"><span class="hs-identifier hs-type">projectVersionDescription_trainingEndTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="projectVersionDescription_trainingEndTimestamp"><span class="annot"><span class="annottext">projectVersionDescription_trainingEndTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ProjectVersionDescription -&gt; f ProjectVersionDescription
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_trainingEndTimestamp"><span class="hs-identifier hs-var hs-var">projectVersionDescription_trainingEndTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectVersionDescription -&gt; Maybe POSIX)
+-&gt; (ProjectVersionDescription
+    -&gt; Maybe POSIX -&gt; ProjectVersionDescription)
+-&gt; Lens
+     ProjectVersionDescription
+     ProjectVersionDescription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334456"><span class="annot"><span class="annottext">Maybe POSIX
+trainingEndTimestamp :: Maybe POSIX
+$sel:trainingEndTimestamp:ProjectVersionDescription' :: ProjectVersionDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679334456"><span class="hs-identifier hs-var hs-var">trainingEndTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679334456"><span class="hs-identifier hs-var">trainingEndTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334455"><span class="annot"><span class="annottext">s :: ProjectVersionDescription
+</span><a href="#local-6989586621679334455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334454"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679334454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectVersionDescription
+</span><a href="#local-6989586621679334455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingEndTimestamp:ProjectVersionDescription' :: Maybe POSIX
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AtrainingEndTimestamp%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">trainingEndTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679334454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ProjectVersionDescription -&gt; f ProjectVersionDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ProjectVersionDescription
+-&gt; f ProjectVersionDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The location of the summary manifest. The summary manifest provides</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- aggregate data validation results for the training and test datasets.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_manifestSummary"><span class="hs-identifier hs-type">projectVersionDescription_manifestSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.GroundTruthManifest.html#GroundTruthManifest"><span class="hs-identifier hs-type">GroundTruthManifest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="projectVersionDescription_manifestSummary"><span class="annot"><span class="annottext">projectVersionDescription_manifestSummary :: (Maybe GroundTruthManifest -&gt; f (Maybe GroundTruthManifest))
+-&gt; ProjectVersionDescription -&gt; f ProjectVersionDescription
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#projectVersionDescription_manifestSummary"><span class="hs-identifier hs-var hs-var">projectVersionDescription_manifestSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectVersionDescription -&gt; Maybe GroundTruthManifest)
+-&gt; (ProjectVersionDescription
+    -&gt; Maybe GroundTruthManifest -&gt; ProjectVersionDescription)
+-&gt; Lens
+     ProjectVersionDescription
+     ProjectVersionDescription
+     (Maybe GroundTruthManifest)
+     (Maybe GroundTruthManifest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334452"><span class="annot"><span class="annottext">Maybe GroundTruthManifest
+manifestSummary :: Maybe GroundTruthManifest
+$sel:manifestSummary:ProjectVersionDescription' :: ProjectVersionDescription -&gt; Maybe GroundTruthManifest
+</span><a href="#local-6989586621679334452"><span class="hs-identifier hs-var hs-var">manifestSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GroundTruthManifest
+</span><a href="#local-6989586621679334452"><span class="hs-identifier hs-var">manifestSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334451"><span class="annot"><span class="annottext">s :: ProjectVersionDescription
+</span><a href="#local-6989586621679334451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-type">ProjectVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334450"><span class="annot"><span class="annottext">Maybe GroundTruthManifest
+</span><a href="#local-6989586621679334450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectVersionDescription
+</span><a href="#local-6989586621679334451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manifestSummary:ProjectVersionDescription' :: Maybe GroundTruthManifest
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#%24sel%3AmanifestSummary%3AProjectVersionDescription%27"><span class="hs-identifier hs-var">manifestSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GroundTruthManifest
+</span><a href="#local-6989586621679334450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334447"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679334445"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectVersionDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ProjectVersionDescription)
+-&gt; Value
+-&gt; Parser ProjectVersionDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ProjectVersionDescription&quot;</span></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334442"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-193"></span><span>          </span><span class="annot"><span class="annottext">Maybe TestingDataResult
+-&gt; Maybe EvaluationResult
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ProjectVersionStatus
+-&gt; Maybe Natural
+-&gt; Maybe OutputConfig
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe TrainingDataResult
+-&gt; Maybe POSIX
+-&gt; Maybe GroundTruthManifest
+-&gt; ProjectVersionDescription
+</span><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription%27"><span class="hs-identifier hs-var">ProjectVersionDescription'</span></a></span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TestingDataResult
+ -&gt; Maybe EvaluationResult
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe ProjectVersionStatus
+ -&gt; Maybe Natural
+ -&gt; Maybe OutputConfig
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe TrainingDataResult
+ -&gt; Maybe POSIX
+ -&gt; Maybe GroundTruthManifest
+ -&gt; ProjectVersionDescription)
+-&gt; Parser (Maybe TestingDataResult)
+-&gt; Parser
+     (Maybe EvaluationResult
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ProjectVersionStatus
+      -&gt; Maybe Natural
+      -&gt; Maybe OutputConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe TrainingDataResult
+      -&gt; Maybe POSIX
+      -&gt; Maybe GroundTruthManifest
+      -&gt; ProjectVersionDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TestingDataResult)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TestingDataResult&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EvaluationResult
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ProjectVersionStatus
+   -&gt; Maybe Natural
+   -&gt; Maybe OutputConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe TrainingDataResult
+   -&gt; Maybe POSIX
+   -&gt; Maybe GroundTruthManifest
+   -&gt; ProjectVersionDescription)
+-&gt; Parser (Maybe EvaluationResult)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ProjectVersionStatus
+      -&gt; Maybe Natural
+      -&gt; Maybe OutputConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe TrainingDataResult
+      -&gt; Maybe POSIX
+      -&gt; Maybe GroundTruthManifest
+      -&gt; ProjectVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EvaluationResult)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EvaluationResult&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ProjectVersionStatus
+   -&gt; Maybe Natural
+   -&gt; Maybe OutputConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe TrainingDataResult
+   -&gt; Maybe POSIX
+   -&gt; Maybe GroundTruthManifest
+   -&gt; ProjectVersionDescription)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ProjectVersionStatus
+      -&gt; Maybe Natural
+      -&gt; Maybe OutputConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe TrainingDataResult
+      -&gt; Maybe POSIX
+      -&gt; Maybe GroundTruthManifest
+      -&gt; ProjectVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ProjectVersionStatus
+   -&gt; Maybe Natural
+   -&gt; Maybe OutputConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe TrainingDataResult
+   -&gt; Maybe POSIX
+   -&gt; Maybe GroundTruthManifest
+   -&gt; ProjectVersionDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ProjectVersionStatus
+      -&gt; Maybe Natural
+      -&gt; Maybe OutputConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe TrainingDataResult
+      -&gt; Maybe POSIX
+      -&gt; Maybe GroundTruthManifest
+      -&gt; ProjectVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ProjectVersionStatus
+   -&gt; Maybe Natural
+   -&gt; Maybe OutputConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe TrainingDataResult
+   -&gt; Maybe POSIX
+   -&gt; Maybe GroundTruthManifest
+   -&gt; ProjectVersionDescription)
+-&gt; Parser (Maybe ProjectVersionStatus)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe OutputConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe TrainingDataResult
+      -&gt; Maybe POSIX
+      -&gt; Maybe GroundTruthManifest
+      -&gt; ProjectVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProjectVersionStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe OutputConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe TrainingDataResult
+   -&gt; Maybe POSIX
+   -&gt; Maybe GroundTruthManifest
+   -&gt; ProjectVersionDescription)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe OutputConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe TrainingDataResult
+      -&gt; Maybe POSIX
+      -&gt; Maybe GroundTruthManifest
+      -&gt; ProjectVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BillableTrainingTimeInSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OutputConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe TrainingDataResult
+   -&gt; Maybe POSIX
+   -&gt; Maybe GroundTruthManifest
+   -&gt; ProjectVersionDescription)
+-&gt; Parser (Maybe OutputConfig)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe TrainingDataResult
+      -&gt; Maybe POSIX
+      -&gt; Maybe GroundTruthManifest
+      -&gt; ProjectVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OutputConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe TrainingDataResult
+   -&gt; Maybe POSIX
+   -&gt; Maybe GroundTruthManifest
+   -&gt; ProjectVersionDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe TrainingDataResult
+      -&gt; Maybe POSIX
+      -&gt; Maybe GroundTruthManifest
+      -&gt; ProjectVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProjectVersionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe TrainingDataResult
+   -&gt; Maybe POSIX
+   -&gt; Maybe GroundTruthManifest
+   -&gt; ProjectVersionDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe TrainingDataResult
+      -&gt; Maybe POSIX
+      -&gt; Maybe GroundTruthManifest
+      -&gt; ProjectVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe TrainingDataResult
+   -&gt; Maybe POSIX
+   -&gt; Maybe GroundTruthManifest
+   -&gt; ProjectVersionDescription)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe TrainingDataResult
+      -&gt; Maybe POSIX
+      -&gt; Maybe GroundTruthManifest
+      -&gt; ProjectVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MinInferenceUnits&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TrainingDataResult
+   -&gt; Maybe POSIX
+   -&gt; Maybe GroundTruthManifest
+   -&gt; ProjectVersionDescription)
+-&gt; Parser (Maybe TrainingDataResult)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe GroundTruthManifest -&gt; ProjectVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrainingDataResult)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrainingDataResult&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe GroundTruthManifest -&gt; ProjectVersionDescription)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe GroundTruthManifest -&gt; ProjectVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrainingEndTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe GroundTruthManifest -&gt; ProjectVersionDescription)
+-&gt; Parser (Maybe GroundTruthManifest)
+-&gt; Parser ProjectVersionDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GroundTruthManifest)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ManifestSummary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334436"><span id="local-6989586621679334438"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span></span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionDescription.html#ProjectVersionDescription"><span class="hs-identifier hs-type">ProjectVersionDescription</span></a></span></span><span>
+</span><span id="line-212"></span></pre></body></html>

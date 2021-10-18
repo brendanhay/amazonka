@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.S3.Types.AnalyticsConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.Types.AnalyticsConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsFilter.html"><span class="hs-identifier">Network.AWS.S3.Types.AnalyticsFilter</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html"><span class="hs-identifier">Network.AWS.S3.Types.StorageClassAnalysis</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Specifies the configuration and any analyses for the analytics filter of</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- an Amazon S3 bucket.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAnalyticsConfiguration' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679556161"><span id="local-6989586621679556162"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnalyticsConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration"><span class="hs-identifier hs-var">AnalyticsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalyticsConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration%27"><span class="hs-identifier hs-var">AnalyticsConfiguration'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The filter used to describe a set of objects for analyses. A filter must</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- have exactly one prefix, one tag, or one conjunction</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- (AnalyticsAndOperator). If no filter is provided, all objects will be</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- considered in any analysis.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Afilter%27%3AAnalyticsConfiguration%27"><span class="annot"><span class="annottext">AnalyticsConfiguration -&gt; Maybe AnalyticsFilter
+</span><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#%24sel%3Afilter%27%3AAnalyticsConfiguration%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsFilter.html#AnalyticsFilter"><span class="hs-identifier hs-type">AnalyticsFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID that identifies the analytics configuration.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aid%3AAnalyticsConfiguration%27"><span class="annot"><span class="annottext">AnalyticsConfiguration -&gt; Text
+</span><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#%24sel%3Aid%3AAnalyticsConfiguration%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Contains data related to access patterns to be collected and made</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- available to analyze the tradeoffs between different storage classes.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AstorageClassAnalysis%3AAnalyticsConfiguration%27"><span class="annot"><span class="annottext">AnalyticsConfiguration -&gt; StorageClassAnalysis
+</span><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#%24sel%3AstorageClassAnalysis%3AAnalyticsConfiguration%27"><span class="hs-identifier hs-var hs-var">storageClassAnalysis</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis"><span class="hs-identifier hs-type">StorageClassAnalysis</span></a></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679556153"><span id="local-6989586621679556155"><span class="annot"><span class="annottext">AnalyticsConfiguration -&gt; AnalyticsConfiguration -&gt; Bool
+(AnalyticsConfiguration -&gt; AnalyticsConfiguration -&gt; Bool)
+-&gt; (AnalyticsConfiguration -&gt; AnalyticsConfiguration -&gt; Bool)
+-&gt; Eq AnalyticsConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AnalyticsConfiguration -&gt; AnalyticsConfiguration -&gt; Bool
+$c/= :: AnalyticsConfiguration -&gt; AnalyticsConfiguration -&gt; Bool
+== :: AnalyticsConfiguration -&gt; AnalyticsConfiguration -&gt; Bool
+$c== :: AnalyticsConfiguration -&gt; AnalyticsConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679556144"><span id="local-6989586621679556146"><span id="local-6989586621679556148"><span id="local-6989586621679556150"><span class="annot"><span class="annottext">ReadPrec [AnalyticsConfiguration]
+ReadPrec AnalyticsConfiguration
+Int -&gt; ReadS AnalyticsConfiguration
+ReadS [AnalyticsConfiguration]
+(Int -&gt; ReadS AnalyticsConfiguration)
+-&gt; ReadS [AnalyticsConfiguration]
+-&gt; ReadPrec AnalyticsConfiguration
+-&gt; ReadPrec [AnalyticsConfiguration]
+-&gt; Read AnalyticsConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AnalyticsConfiguration]
+$creadListPrec :: ReadPrec [AnalyticsConfiguration]
+readPrec :: ReadPrec AnalyticsConfiguration
+$creadPrec :: ReadPrec AnalyticsConfiguration
+readList :: ReadS [AnalyticsConfiguration]
+$creadList :: ReadS [AnalyticsConfiguration]
+readsPrec :: Int -&gt; ReadS AnalyticsConfiguration
+$creadsPrec :: Int -&gt; ReadS AnalyticsConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679556137"><span id="local-6989586621679556139"><span id="local-6989586621679556141"><span class="annot"><span class="annottext">Int -&gt; AnalyticsConfiguration -&gt; ShowS
+[AnalyticsConfiguration] -&gt; ShowS
+AnalyticsConfiguration -&gt; String
+(Int -&gt; AnalyticsConfiguration -&gt; ShowS)
+-&gt; (AnalyticsConfiguration -&gt; String)
+-&gt; ([AnalyticsConfiguration] -&gt; ShowS)
+-&gt; Show AnalyticsConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AnalyticsConfiguration] -&gt; ShowS
+$cshowList :: [AnalyticsConfiguration] -&gt; ShowS
+show :: AnalyticsConfiguration -&gt; String
+$cshow :: AnalyticsConfiguration -&gt; String
+showsPrec :: Int -&gt; AnalyticsConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; AnalyticsConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AnalyticsConfiguration -&gt; Rep AnalyticsConfiguration x)
+-&gt; (forall x.
+    Rep AnalyticsConfiguration x -&gt; AnalyticsConfiguration)
+-&gt; Generic AnalyticsConfiguration
+forall x. Rep AnalyticsConfiguration x -&gt; AnalyticsConfiguration
+forall x. AnalyticsConfiguration -&gt; Rep AnalyticsConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AnalyticsConfiguration x -&gt; AnalyticsConfiguration
+$cfrom :: forall x. AnalyticsConfiguration -&gt; Rep AnalyticsConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'AnalyticsConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'filter'', 'analyticsConfiguration_filter' - The filter used to describe a set of objects for analyses. A filter must</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- have exactly one prefix, one tag, or one conjunction</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- (AnalyticsAndOperator). If no filter is provided, all objects will be</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- considered in any analysis.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'id', 'analyticsConfiguration_id' - The ID that identifies the analytics configuration.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'storageClassAnalysis', 'analyticsConfiguration_storageClassAnalysis' - Contains data related to access patterns to be collected and made</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- available to analyze the tradeoffs between different storage classes.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#newAnalyticsConfiguration"><span class="hs-identifier hs-type">newAnalyticsConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'storageClassAnalysis'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis"><span class="hs-identifier hs-type">StorageClassAnalysis</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration"><span class="hs-identifier hs-type">AnalyticsConfiguration</span></a></span><span>
+</span><span id="line-70"></span><span id="newAnalyticsConfiguration"><span class="annot"><span class="annottext">newAnalyticsConfiguration :: Text -&gt; StorageClassAnalysis -&gt; AnalyticsConfiguration
+</span><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#newAnalyticsConfiguration"><span class="hs-identifier hs-var hs-var">newAnalyticsConfiguration</span></a></span></span><span> </span><span id="local-6989586621679556131"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679556131"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679556130"><span class="annot"><span class="annottext">StorageClassAnalysis
+</span><a href="#local-6989586621679556130"><span class="hs-identifier hs-var">pStorageClassAnalysis_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">AnalyticsConfiguration' :: Maybe AnalyticsFilter
+-&gt; Text -&gt; StorageClassAnalysis -&gt; AnalyticsConfiguration
+</span><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration%27"><span class="hs-identifier hs-type">AnalyticsConfiguration'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filter':AnalyticsConfiguration' :: Maybe AnalyticsFilter
+</span><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#%24sel%3Afilter%27%3AAnalyticsConfiguration%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:AnalyticsConfiguration' :: Text
+</span><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#%24sel%3Aid%3AAnalyticsConfiguration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679556131"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:storageClassAnalysis:AnalyticsConfiguration' :: StorageClassAnalysis
+</span><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#%24sel%3AstorageClassAnalysis%3AAnalyticsConfiguration%27"><span class="hs-identifier hs-var">storageClassAnalysis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StorageClassAnalysis
+</span><a href="#local-6989586621679556130"><span class="hs-identifier hs-var">pStorageClassAnalysis_</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The filter used to describe a set of objects for analyses. A filter must</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- have exactly one prefix, one tag, or one conjunction</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- (AnalyticsAndOperator). If no filter is provided, all objects will be</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- considered in any analysis.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#analyticsConfiguration_filter"><span class="hs-identifier hs-type">analyticsConfiguration_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration"><span class="hs-identifier hs-type">AnalyticsConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsFilter.html#AnalyticsFilter"><span class="hs-identifier hs-type">AnalyticsFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="analyticsConfiguration_filter"><span class="annot"><span class="annottext">analyticsConfiguration_filter :: (Maybe AnalyticsFilter -&gt; f (Maybe AnalyticsFilter))
+-&gt; AnalyticsConfiguration -&gt; f AnalyticsConfiguration
+</span><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#analyticsConfiguration_filter"><span class="hs-identifier hs-var hs-var">analyticsConfiguration_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalyticsConfiguration -&gt; Maybe AnalyticsFilter)
+-&gt; (AnalyticsConfiguration
+    -&gt; Maybe AnalyticsFilter -&gt; AnalyticsConfiguration)
+-&gt; Lens
+     AnalyticsConfiguration
+     AnalyticsConfiguration
+     (Maybe AnalyticsFilter)
+     (Maybe AnalyticsFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration%27"><span class="hs-identifier hs-type">AnalyticsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556126"><span class="annot"><span class="annottext">Maybe AnalyticsFilter
+filter' :: Maybe AnalyticsFilter
+$sel:filter':AnalyticsConfiguration' :: AnalyticsConfiguration -&gt; Maybe AnalyticsFilter
+</span><a href="#local-6989586621679556126"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsFilter
+</span><a href="#local-6989586621679556126"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556125"><span class="annot"><span class="annottext">s :: AnalyticsConfiguration
+</span><a href="#local-6989586621679556125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration%27"><span class="hs-identifier hs-type">AnalyticsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556124"><span class="annot"><span class="annottext">Maybe AnalyticsFilter
+</span><a href="#local-6989586621679556124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalyticsConfiguration
+</span><a href="#local-6989586621679556125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':AnalyticsConfiguration' :: Maybe AnalyticsFilter
+</span><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#%24sel%3Afilter%27%3AAnalyticsConfiguration%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsFilter
+</span><a href="#local-6989586621679556124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration"><span class="hs-identifier hs-type">AnalyticsConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The ID that identifies the analytics configuration.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#analyticsConfiguration_id"><span class="hs-identifier hs-type">analyticsConfiguration_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration"><span class="hs-identifier hs-type">AnalyticsConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="analyticsConfiguration_id"><span class="annot"><span class="annottext">analyticsConfiguration_id :: (Text -&gt; f Text)
+-&gt; AnalyticsConfiguration -&gt; f AnalyticsConfiguration
+</span><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#analyticsConfiguration_id"><span class="hs-identifier hs-var hs-var">analyticsConfiguration_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalyticsConfiguration -&gt; Text)
+-&gt; (AnalyticsConfiguration -&gt; Text -&gt; AnalyticsConfiguration)
+-&gt; Lens AnalyticsConfiguration AnalyticsConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration%27"><span class="hs-identifier hs-type">AnalyticsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556122"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:AnalyticsConfiguration' :: AnalyticsConfiguration -&gt; Text
+</span><a href="#local-6989586621679556122"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679556122"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556121"><span class="annot"><span class="annottext">s :: AnalyticsConfiguration
+</span><a href="#local-6989586621679556121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration%27"><span class="hs-identifier hs-type">AnalyticsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556120"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679556120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalyticsConfiguration
+</span><a href="#local-6989586621679556121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:AnalyticsConfiguration' :: Text
+</span><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#%24sel%3Aid%3AAnalyticsConfiguration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679556120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration"><span class="hs-identifier hs-type">AnalyticsConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Contains data related to access patterns to be collected and made</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- available to analyze the tradeoffs between different storage classes.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#analyticsConfiguration_storageClassAnalysis"><span class="hs-identifier hs-type">analyticsConfiguration_storageClassAnalysis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration"><span class="hs-identifier hs-type">AnalyticsConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis"><span class="hs-identifier hs-type">StorageClassAnalysis</span></a></span><span>
+</span><span id="line-91"></span><span id="analyticsConfiguration_storageClassAnalysis"><span class="annot"><span class="annottext">analyticsConfiguration_storageClassAnalysis :: (StorageClassAnalysis -&gt; f StorageClassAnalysis)
+-&gt; AnalyticsConfiguration -&gt; f AnalyticsConfiguration
+</span><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#analyticsConfiguration_storageClassAnalysis"><span class="hs-identifier hs-var hs-var">analyticsConfiguration_storageClassAnalysis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalyticsConfiguration -&gt; StorageClassAnalysis)
+-&gt; (AnalyticsConfiguration
+    -&gt; StorageClassAnalysis -&gt; AnalyticsConfiguration)
+-&gt; Lens
+     AnalyticsConfiguration
+     AnalyticsConfiguration
+     StorageClassAnalysis
+     StorageClassAnalysis
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration%27"><span class="hs-identifier hs-type">AnalyticsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556118"><span class="annot"><span class="annottext">StorageClassAnalysis
+storageClassAnalysis :: StorageClassAnalysis
+$sel:storageClassAnalysis:AnalyticsConfiguration' :: AnalyticsConfiguration -&gt; StorageClassAnalysis
+</span><a href="#local-6989586621679556118"><span class="hs-identifier hs-var hs-var">storageClassAnalysis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageClassAnalysis
+</span><a href="#local-6989586621679556118"><span class="hs-identifier hs-var">storageClassAnalysis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556117"><span class="annot"><span class="annottext">s :: AnalyticsConfiguration
+</span><a href="#local-6989586621679556117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration%27"><span class="hs-identifier hs-type">AnalyticsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556116"><span class="annot"><span class="annottext">StorageClassAnalysis
+</span><a href="#local-6989586621679556116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalyticsConfiguration
+</span><a href="#local-6989586621679556117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageClassAnalysis:AnalyticsConfiguration' :: StorageClassAnalysis
+</span><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#%24sel%3AstorageClassAnalysis%3AAnalyticsConfiguration%27"><span class="hs-identifier hs-var">storageClassAnalysis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StorageClassAnalysis
+</span><a href="#local-6989586621679556116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration"><span class="hs-identifier hs-type">AnalyticsConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration"><span class="hs-identifier hs-type">AnalyticsConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679556113"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AnalyticsConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679556111"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679556111"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">Maybe AnalyticsFilter
+-&gt; Text -&gt; StorageClassAnalysis -&gt; AnalyticsConfiguration
+</span><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration%27"><span class="hs-identifier hs-var">AnalyticsConfiguration'</span></a></span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">(Maybe AnalyticsFilter
+ -&gt; Text -&gt; StorageClassAnalysis -&gt; AnalyticsConfiguration)
+-&gt; Either String (Maybe AnalyticsFilter)
+-&gt; Either
+     String (Text -&gt; StorageClassAnalysis -&gt; AnalyticsConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679556111"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AnalyticsFilter)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Text -&gt; StorageClassAnalysis -&gt; AnalyticsConfiguration)
+-&gt; Either String Text
+-&gt; Either String (StorageClassAnalysis -&gt; AnalyticsConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679556111"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">Either String (StorageClassAnalysis -&gt; AnalyticsConfiguration)
+-&gt; Either String StorageClassAnalysis
+-&gt; Either String AnalyticsConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679556111"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String StorageClassAnalysis
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StorageClassAnalysis&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679556104"><span id="local-6989586621679556106"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration"><span class="hs-identifier hs-type">AnalyticsConfiguration</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679556101"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration"><span class="hs-identifier hs-type">AnalyticsConfiguration</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration"><span class="hs-identifier hs-type">AnalyticsConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679556097"><span class="annot"><span class="annottext">toXML :: AnalyticsConfiguration -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration%27"><span class="hs-identifier hs-type">AnalyticsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556093"><span id="local-6989586621679556094"><span id="local-6989586621679556095"><span class="annot"><span class="annottext">Maybe AnalyticsFilter
+Text
+StorageClassAnalysis
+storageClassAnalysis :: StorageClassAnalysis
+id :: Text
+filter' :: Maybe AnalyticsFilter
+$sel:storageClassAnalysis:AnalyticsConfiguration' :: AnalyticsConfiguration -&gt; StorageClassAnalysis
+$sel:id:AnalyticsConfiguration' :: AnalyticsConfiguration -&gt; Text
+$sel:filter':AnalyticsConfiguration' :: AnalyticsConfiguration -&gt; Maybe AnalyticsFilter
+</span><a href="#local-6989586621679556093"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe AnalyticsFilter -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsFilter
+</span><a href="#local-6989586621679556095"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679556094"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;StorageClassAnalysis&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; StorageClassAnalysis -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">StorageClassAnalysis
+</span><a href="#local-6989586621679556093"><span class="hs-identifier hs-var">storageClassAnalysis</span></a></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span></pre></body></html>

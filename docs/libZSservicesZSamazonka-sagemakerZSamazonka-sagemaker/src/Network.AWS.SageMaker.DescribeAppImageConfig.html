@@ -1,0 +1,713 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.DescribeAppImageConfig</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes an AppImageConfig.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.DescribeAppImageConfig</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig"><span class="hs-identifier">DescribeAppImageConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#newDescribeAppImageConfig"><span class="hs-identifier">newDescribeAppImageConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfig_appImageConfigName"><span class="hs-identifier">describeAppImageConfig_appImageConfigName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier">DescribeAppImageConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#newDescribeAppImageConfigResponse"><span class="hs-identifier">newDescribeAppImageConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_creationTime"><span class="hs-identifier">describeAppImageConfigResponse_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_appImageConfigArn"><span class="hs-identifier">describeAppImageConfigResponse_appImageConfigArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_kernelGatewayImageConfig"><span class="hs-identifier">describeAppImageConfigResponse_kernelGatewayImageConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_appImageConfigName"><span class="hs-identifier">describeAppImageConfigResponse_appImageConfigName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_lastModifiedTime"><span class="hs-identifier">describeAppImageConfigResponse_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_httpStatus"><span class="hs-identifier">describeAppImageConfigResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribeAppImageConfig' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621680401955"><span id="local-6989586621680401956"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAppImageConfig"><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig"><span class="hs-identifier hs-var">DescribeAppImageConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAppImageConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig%27"><span class="hs-identifier hs-var">DescribeAppImageConfig'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the AppImageConfig to describe.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AappImageConfigName%3ADescribeAppImageConfig%27"><span class="annot"><span class="annottext">DescribeAppImageConfig -&gt; Text
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AappImageConfigName%3ADescribeAppImageConfig%27"><span class="hs-identifier hs-var hs-var">appImageConfigName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680401949"><span id="local-6989586621680401951"><span class="annot"><span class="annottext">DescribeAppImageConfig -&gt; DescribeAppImageConfig -&gt; Bool
+(DescribeAppImageConfig -&gt; DescribeAppImageConfig -&gt; Bool)
+-&gt; (DescribeAppImageConfig -&gt; DescribeAppImageConfig -&gt; Bool)
+-&gt; Eq DescribeAppImageConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAppImageConfig -&gt; DescribeAppImageConfig -&gt; Bool
+$c/= :: DescribeAppImageConfig -&gt; DescribeAppImageConfig -&gt; Bool
+== :: DescribeAppImageConfig -&gt; DescribeAppImageConfig -&gt; Bool
+$c== :: DescribeAppImageConfig -&gt; DescribeAppImageConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680401940"><span id="local-6989586621680401942"><span id="local-6989586621680401944"><span id="local-6989586621680401946"><span class="annot"><span class="annottext">ReadPrec [DescribeAppImageConfig]
+ReadPrec DescribeAppImageConfig
+Int -&gt; ReadS DescribeAppImageConfig
+ReadS [DescribeAppImageConfig]
+(Int -&gt; ReadS DescribeAppImageConfig)
+-&gt; ReadS [DescribeAppImageConfig]
+-&gt; ReadPrec DescribeAppImageConfig
+-&gt; ReadPrec [DescribeAppImageConfig]
+-&gt; Read DescribeAppImageConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAppImageConfig]
+$creadListPrec :: ReadPrec [DescribeAppImageConfig]
+readPrec :: ReadPrec DescribeAppImageConfig
+$creadPrec :: ReadPrec DescribeAppImageConfig
+readList :: ReadS [DescribeAppImageConfig]
+$creadList :: ReadS [DescribeAppImageConfig]
+readsPrec :: Int -&gt; ReadS DescribeAppImageConfig
+$creadsPrec :: Int -&gt; ReadS DescribeAppImageConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680401933"><span id="local-6989586621680401935"><span id="local-6989586621680401937"><span class="annot"><span class="annottext">Int -&gt; DescribeAppImageConfig -&gt; ShowS
+[DescribeAppImageConfig] -&gt; ShowS
+DescribeAppImageConfig -&gt; String
+(Int -&gt; DescribeAppImageConfig -&gt; ShowS)
+-&gt; (DescribeAppImageConfig -&gt; String)
+-&gt; ([DescribeAppImageConfig] -&gt; ShowS)
+-&gt; Show DescribeAppImageConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAppImageConfig] -&gt; ShowS
+$cshowList :: [DescribeAppImageConfig] -&gt; ShowS
+show :: DescribeAppImageConfig -&gt; String
+$cshow :: DescribeAppImageConfig -&gt; String
+showsPrec :: Int -&gt; DescribeAppImageConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAppImageConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeAppImageConfig -&gt; Rep DescribeAppImageConfig x)
+-&gt; (forall x.
+    Rep DescribeAppImageConfig x -&gt; DescribeAppImageConfig)
+-&gt; Generic DescribeAppImageConfig
+forall x. Rep DescribeAppImageConfig x -&gt; DescribeAppImageConfig
+forall x. DescribeAppImageConfig -&gt; Rep DescribeAppImageConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeAppImageConfig x -&gt; DescribeAppImageConfig
+$cfrom :: forall x. DescribeAppImageConfig -&gt; Rep DescribeAppImageConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DescribeAppImageConfig' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'appImageConfigName', 'describeAppImageConfig_appImageConfigName' - The name of the AppImageConfig to describe.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#newDescribeAppImageConfig"><span class="hs-identifier hs-type">newDescribeAppImageConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'appImageConfigName'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig"><span class="hs-identifier hs-type">DescribeAppImageConfig</span></a></span><span>
+</span><span id="line-73"></span><span id="newDescribeAppImageConfig"><span class="annot"><span class="annottext">newDescribeAppImageConfig :: Text -&gt; DescribeAppImageConfig
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#newDescribeAppImageConfig"><span class="hs-identifier hs-var hs-var">newDescribeAppImageConfig</span></a></span></span><span> </span><span id="local-6989586621680401928"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680401928"><span class="hs-identifier hs-var">pAppImageConfigName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DescribeAppImageConfig' :: Text -&gt; DescribeAppImageConfig
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig%27"><span class="hs-identifier hs-type">DescribeAppImageConfig'</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appImageConfigName:DescribeAppImageConfig' :: Text
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AappImageConfigName%3ADescribeAppImageConfig%27"><span class="hs-identifier hs-var">appImageConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680401928"><span class="hs-identifier hs-var">pAppImageConfigName_</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The name of the AppImageConfig to describe.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfig_appImageConfigName"><span class="hs-identifier hs-type">describeAppImageConfig_appImageConfigName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig"><span class="hs-identifier hs-type">DescribeAppImageConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span id="describeAppImageConfig_appImageConfigName"><span class="annot"><span class="annottext">describeAppImageConfig_appImageConfigName :: (Text -&gt; f Text)
+-&gt; DescribeAppImageConfig -&gt; f DescribeAppImageConfig
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfig_appImageConfigName"><span class="hs-identifier hs-var hs-var">describeAppImageConfig_appImageConfigName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAppImageConfig -&gt; Text)
+-&gt; (DescribeAppImageConfig -&gt; Text -&gt; DescribeAppImageConfig)
+-&gt; Lens DescribeAppImageConfig DescribeAppImageConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig%27"><span class="hs-identifier hs-type">DescribeAppImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680401925"><span class="annot"><span class="annottext">Text
+appImageConfigName :: Text
+$sel:appImageConfigName:DescribeAppImageConfig' :: DescribeAppImageConfig -&gt; Text
+</span><a href="#local-6989586621680401925"><span class="hs-identifier hs-var hs-var">appImageConfigName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680401925"><span class="hs-identifier hs-var">appImageConfigName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680401924"><span class="annot"><span class="annottext">s :: DescribeAppImageConfig
+</span><a href="#local-6989586621680401924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig%27"><span class="hs-identifier hs-type">DescribeAppImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680401923"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680401923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAppImageConfig
+</span><a href="#local-6989586621680401924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appImageConfigName:DescribeAppImageConfig' :: Text
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AappImageConfigName%3ADescribeAppImageConfig%27"><span class="hs-identifier hs-var">appImageConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680401923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig"><span class="hs-identifier hs-type">DescribeAppImageConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig"><span class="hs-identifier hs-type">DescribeAppImageConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig"><span class="hs-identifier hs-type">DescribeAppImageConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621680401919"><span class="annot"><span class="annottext">request :: DescribeAppImageConfig -&gt; Request DescribeAppImageConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeAppImageConfig -&gt; Request DescribeAppImageConfig
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621680401915"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeAppImageConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAppImageConfig)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeAppImageConfig))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeAppImageConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAppImageConfig)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680401912"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680401912"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680401911"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680401911"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680401910"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680401910"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe KernelGatewayImageConfig
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Int
+-&gt; DescribeAppImageConfigResponse
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var">DescribeAppImageConfigResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe KernelGatewayImageConfig
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Int
+ -&gt; DescribeAppImageConfigResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe KernelGatewayImageConfig
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Int
+      -&gt; DescribeAppImageConfigResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680401910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe KernelGatewayImageConfig
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Int
+   -&gt; DescribeAppImageConfigResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe KernelGatewayImageConfig
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Int
+      -&gt; DescribeAppImageConfigResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680401910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppImageConfigArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe KernelGatewayImageConfig
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Int
+   -&gt; DescribeAppImageConfigResponse)
+-&gt; Either String (Maybe KernelGatewayImageConfig)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX -&gt; Int -&gt; DescribeAppImageConfigResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680401910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe KernelGatewayImageConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KernelGatewayImageConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX -&gt; Int -&gt; DescribeAppImageConfigResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe POSIX -&gt; Int -&gt; DescribeAppImageConfigResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680401910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppImageConfigName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe POSIX -&gt; Int -&gt; DescribeAppImageConfigResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either String (Int -&gt; DescribeAppImageConfigResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680401910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeAppImageConfigResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeAppImageConfigResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680401912"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680401902"><span id="local-6989586621680401904"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig"><span class="hs-identifier hs-type">DescribeAppImageConfig</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680401899"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig"><span class="hs-identifier hs-type">DescribeAppImageConfig</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig"><span class="hs-identifier hs-type">DescribeAppImageConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621680401895"><span class="annot"><span class="annottext">toHeaders :: DescribeAppImageConfig -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAppImageConfig -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.DescribeAppImageConfig&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-111"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680401885"><span id="local-6989586621680401887"><span id="local-6989586621680401889"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig"><span class="hs-identifier hs-type">DescribeAppImageConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621680401883"><span class="annot"><span class="annottext">toJSON :: DescribeAppImageConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig%27"><span class="hs-identifier hs-type">DescribeAppImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680401881"><span class="annot"><span class="annottext">Text
+appImageConfigName :: Text
+$sel:appImageConfigName:DescribeAppImageConfig' :: DescribeAppImageConfig -&gt; Text
+</span><a href="#local-6989586621680401881"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-124"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppImageConfigName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680401881"><span class="hs-identifier hs-var">appImageConfigName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig"><span class="hs-identifier hs-type">DescribeAppImageConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621680401875"><span class="annot"><span class="annottext">toPath :: DescribeAppImageConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeAppImageConfig -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfig"><span class="hs-identifier hs-type">DescribeAppImageConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621680401871"><span class="annot"><span class="annottext">toQuery :: DescribeAppImageConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAppImageConfig -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newDescribeAppImageConfigResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621680401868"><span id="local-6989586621680401869"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAppImageConfigResponse"><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier hs-var">DescribeAppImageConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAppImageConfigResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var">DescribeAppImageConfigResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When the AppImageConfig was created.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AcreationTime%3ADescribeAppImageConfigResponse%27"><span class="annot"><span class="annottext">DescribeAppImageConfigResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AcreationTime%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AppImageConfig.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AappImageConfigArn%3ADescribeAppImageConfigResponse%27"><span class="annot"><span class="annottext">DescribeAppImageConfigResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AappImageConfigArn%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var hs-var">appImageConfigArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The configuration of a KernelGateway app.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AkernelGatewayImageConfig%3ADescribeAppImageConfigResponse%27"><span class="annot"><span class="annottext">DescribeAppImageConfigResponse -&gt; Maybe KernelGatewayImageConfig
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AkernelGatewayImageConfig%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var hs-var">kernelGatewayImageConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayImageConfig.html#KernelGatewayImageConfig"><span class="hs-identifier hs-type">KernelGatewayImageConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The name of the AppImageConfig.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AappImageConfigName%3ADescribeAppImageConfigResponse%27"><span class="annot"><span class="annottext">DescribeAppImageConfigResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AappImageConfigName%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var hs-var">appImageConfigName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | When the AppImageConfig was last modified.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ADescribeAppImageConfigResponse%27"><span class="annot"><span class="annottext">DescribeAppImageConfigResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AlastModifiedTime%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAppImageConfigResponse%27"><span class="annot"><span class="annottext">DescribeAppImageConfigResponse -&gt; Int
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AhttpStatus%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680401858"><span id="local-6989586621680401860"><span class="annot"><span class="annottext">DescribeAppImageConfigResponse
+-&gt; DescribeAppImageConfigResponse -&gt; Bool
+(DescribeAppImageConfigResponse
+ -&gt; DescribeAppImageConfigResponse -&gt; Bool)
+-&gt; (DescribeAppImageConfigResponse
+    -&gt; DescribeAppImageConfigResponse -&gt; Bool)
+-&gt; Eq DescribeAppImageConfigResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAppImageConfigResponse
+-&gt; DescribeAppImageConfigResponse -&gt; Bool
+$c/= :: DescribeAppImageConfigResponse
+-&gt; DescribeAppImageConfigResponse -&gt; Bool
+== :: DescribeAppImageConfigResponse
+-&gt; DescribeAppImageConfigResponse -&gt; Bool
+$c== :: DescribeAppImageConfigResponse
+-&gt; DescribeAppImageConfigResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680401850"><span id="local-6989586621680401852"><span id="local-6989586621680401854"><span id="local-6989586621680401856"><span class="annot"><span class="annottext">ReadPrec [DescribeAppImageConfigResponse]
+ReadPrec DescribeAppImageConfigResponse
+Int -&gt; ReadS DescribeAppImageConfigResponse
+ReadS [DescribeAppImageConfigResponse]
+(Int -&gt; ReadS DescribeAppImageConfigResponse)
+-&gt; ReadS [DescribeAppImageConfigResponse]
+-&gt; ReadPrec DescribeAppImageConfigResponse
+-&gt; ReadPrec [DescribeAppImageConfigResponse]
+-&gt; Read DescribeAppImageConfigResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAppImageConfigResponse]
+$creadListPrec :: ReadPrec [DescribeAppImageConfigResponse]
+readPrec :: ReadPrec DescribeAppImageConfigResponse
+$creadPrec :: ReadPrec DescribeAppImageConfigResponse
+readList :: ReadS [DescribeAppImageConfigResponse]
+$creadList :: ReadS [DescribeAppImageConfigResponse]
+readsPrec :: Int -&gt; ReadS DescribeAppImageConfigResponse
+$creadsPrec :: Int -&gt; ReadS DescribeAppImageConfigResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680401844"><span id="local-6989586621680401846"><span id="local-6989586621680401848"><span class="annot"><span class="annottext">Int -&gt; DescribeAppImageConfigResponse -&gt; ShowS
+[DescribeAppImageConfigResponse] -&gt; ShowS
+DescribeAppImageConfigResponse -&gt; String
+(Int -&gt; DescribeAppImageConfigResponse -&gt; ShowS)
+-&gt; (DescribeAppImageConfigResponse -&gt; String)
+-&gt; ([DescribeAppImageConfigResponse] -&gt; ShowS)
+-&gt; Show DescribeAppImageConfigResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAppImageConfigResponse] -&gt; ShowS
+$cshowList :: [DescribeAppImageConfigResponse] -&gt; ShowS
+show :: DescribeAppImageConfigResponse -&gt; String
+$cshow :: DescribeAppImageConfigResponse -&gt; String
+showsPrec :: Int -&gt; DescribeAppImageConfigResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAppImageConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAppImageConfigResponse
+ -&gt; Rep DescribeAppImageConfigResponse x)
+-&gt; (forall x.
+    Rep DescribeAppImageConfigResponse x
+    -&gt; DescribeAppImageConfigResponse)
+-&gt; Generic DescribeAppImageConfigResponse
+forall x.
+Rep DescribeAppImageConfigResponse x
+-&gt; DescribeAppImageConfigResponse
+forall x.
+DescribeAppImageConfigResponse
+-&gt; Rep DescribeAppImageConfigResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeAppImageConfigResponse x
+-&gt; DescribeAppImageConfigResponse
+$cfrom :: forall x.
+DescribeAppImageConfigResponse
+-&gt; Rep DescribeAppImageConfigResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Create a value of 'DescribeAppImageConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'creationTime', 'describeAppImageConfigResponse_creationTime' - When the AppImageConfig was created.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'appImageConfigArn', 'describeAppImageConfigResponse_appImageConfigArn' - The Amazon Resource Name (ARN) of the AppImageConfig.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'kernelGatewayImageConfig', 'describeAppImageConfigResponse_kernelGatewayImageConfig' - The configuration of a KernelGateway app.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'appImageConfigName', 'describeAppImageConfigResponse_appImageConfigName' - The name of the AppImageConfig.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'lastModifiedTime', 'describeAppImageConfigResponse_lastModifiedTime' - When the AppImageConfig was last modified.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'httpStatus', 'describeAppImageConfigResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#newDescribeAppImageConfigResponse"><span class="hs-identifier hs-type">newDescribeAppImageConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse</span></a></span><span>
+</span><span id="line-174"></span><span id="newDescribeAppImageConfigResponse"><span class="annot"><span class="annottext">newDescribeAppImageConfigResponse :: Int -&gt; DescribeAppImageConfigResponse
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#newDescribeAppImageConfigResponse"><span class="hs-identifier hs-var hs-var">newDescribeAppImageConfigResponse</span></a></span></span><span> </span><span id="local-6989586621680401841"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680401841"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">DescribeAppImageConfigResponse' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe KernelGatewayImageConfig
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Int
+-&gt; DescribeAppImageConfigResponse
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse%27"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse'</span></a></span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:DescribeAppImageConfigResponse' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AcreationTime%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:appImageConfigArn:DescribeAppImageConfigResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AappImageConfigArn%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var">appImageConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:kernelGatewayImageConfig:DescribeAppImageConfigResponse' :: Maybe KernelGatewayImageConfig
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AkernelGatewayImageConfig%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var">kernelGatewayImageConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KernelGatewayImageConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:appImageConfigName:DescribeAppImageConfigResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AappImageConfigName%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var">appImageConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DescribeAppImageConfigResponse' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AlastModifiedTime%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAppImageConfigResponse' :: Int
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AhttpStatus%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680401841"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | When the AppImageConfig was created.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_creationTime"><span class="hs-identifier hs-type">describeAppImageConfigResponse_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="describeAppImageConfigResponse_creationTime"><span class="annot"><span class="annottext">describeAppImageConfigResponse_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeAppImageConfigResponse
+-&gt; f DescribeAppImageConfigResponse
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_creationTime"><span class="hs-identifier hs-var hs-var">describeAppImageConfigResponse_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAppImageConfigResponse -&gt; Maybe POSIX)
+-&gt; (DescribeAppImageConfigResponse
+    -&gt; Maybe POSIX -&gt; DescribeAppImageConfigResponse)
+-&gt; Lens
+     DescribeAppImageConfigResponse
+     DescribeAppImageConfigResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse%27"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680401840"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:DescribeAppImageConfigResponse' :: DescribeAppImageConfigResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621680401840"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680401840"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680401839"><span class="annot"><span class="annottext">s :: DescribeAppImageConfigResponse
+</span><a href="#local-6989586621680401839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse%27"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680401838"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680401838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAppImageConfigResponse
+</span><a href="#local-6989586621680401839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DescribeAppImageConfigResponse' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AcreationTime%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680401838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeAppImageConfigResponse
+ -&gt; f DescribeAppImageConfigResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeAppImageConfigResponse
+-&gt; f DescribeAppImageConfigResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AppImageConfig.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_appImageConfigArn"><span class="hs-identifier hs-type">describeAppImageConfigResponse_appImageConfigArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="describeAppImageConfigResponse_appImageConfigArn"><span class="annot"><span class="annottext">describeAppImageConfigResponse_appImageConfigArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeAppImageConfigResponse
+-&gt; f DescribeAppImageConfigResponse
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_appImageConfigArn"><span class="hs-identifier hs-var hs-var">describeAppImageConfigResponse_appImageConfigArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAppImageConfigResponse -&gt; Maybe Text)
+-&gt; (DescribeAppImageConfigResponse
+    -&gt; Maybe Text -&gt; DescribeAppImageConfigResponse)
+-&gt; Lens
+     DescribeAppImageConfigResponse
+     DescribeAppImageConfigResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse%27"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680401834"><span class="annot"><span class="annottext">Maybe Text
+appImageConfigArn :: Maybe Text
+$sel:appImageConfigArn:DescribeAppImageConfigResponse' :: DescribeAppImageConfigResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680401834"><span class="hs-identifier hs-var hs-var">appImageConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680401834"><span class="hs-identifier hs-var">appImageConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680401833"><span class="annot"><span class="annottext">s :: DescribeAppImageConfigResponse
+</span><a href="#local-6989586621680401833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse%27"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680401832"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680401832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAppImageConfigResponse
+</span><a href="#local-6989586621680401833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appImageConfigArn:DescribeAppImageConfigResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AappImageConfigArn%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var">appImageConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680401832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The configuration of a KernelGateway app.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_kernelGatewayImageConfig"><span class="hs-identifier hs-type">describeAppImageConfigResponse_kernelGatewayImageConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayImageConfig.html#KernelGatewayImageConfig"><span class="hs-identifier hs-type">KernelGatewayImageConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="describeAppImageConfigResponse_kernelGatewayImageConfig"><span class="annot"><span class="annottext">describeAppImageConfigResponse_kernelGatewayImageConfig :: (Maybe KernelGatewayImageConfig
+ -&gt; f (Maybe KernelGatewayImageConfig))
+-&gt; DescribeAppImageConfigResponse
+-&gt; f DescribeAppImageConfigResponse
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_kernelGatewayImageConfig"><span class="hs-identifier hs-var hs-var">describeAppImageConfigResponse_kernelGatewayImageConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAppImageConfigResponse -&gt; Maybe KernelGatewayImageConfig)
+-&gt; (DescribeAppImageConfigResponse
+    -&gt; Maybe KernelGatewayImageConfig
+    -&gt; DescribeAppImageConfigResponse)
+-&gt; Lens
+     DescribeAppImageConfigResponse
+     DescribeAppImageConfigResponse
+     (Maybe KernelGatewayImageConfig)
+     (Maybe KernelGatewayImageConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse%27"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680401831"><span class="annot"><span class="annottext">Maybe KernelGatewayImageConfig
+kernelGatewayImageConfig :: Maybe KernelGatewayImageConfig
+$sel:kernelGatewayImageConfig:DescribeAppImageConfigResponse' :: DescribeAppImageConfigResponse -&gt; Maybe KernelGatewayImageConfig
+</span><a href="#local-6989586621680401831"><span class="hs-identifier hs-var hs-var">kernelGatewayImageConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KernelGatewayImageConfig
+</span><a href="#local-6989586621680401831"><span class="hs-identifier hs-var">kernelGatewayImageConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680401830"><span class="annot"><span class="annottext">s :: DescribeAppImageConfigResponse
+</span><a href="#local-6989586621680401830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse%27"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680401829"><span class="annot"><span class="annottext">Maybe KernelGatewayImageConfig
+</span><a href="#local-6989586621680401829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAppImageConfigResponse
+</span><a href="#local-6989586621680401830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kernelGatewayImageConfig:DescribeAppImageConfigResponse' :: Maybe KernelGatewayImageConfig
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AkernelGatewayImageConfig%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var">kernelGatewayImageConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KernelGatewayImageConfig
+</span><a href="#local-6989586621680401829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The name of the AppImageConfig.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_appImageConfigName"><span class="hs-identifier hs-type">describeAppImageConfigResponse_appImageConfigName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="describeAppImageConfigResponse_appImageConfigName"><span class="annot"><span class="annottext">describeAppImageConfigResponse_appImageConfigName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeAppImageConfigResponse
+-&gt; f DescribeAppImageConfigResponse
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_appImageConfigName"><span class="hs-identifier hs-var hs-var">describeAppImageConfigResponse_appImageConfigName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAppImageConfigResponse -&gt; Maybe Text)
+-&gt; (DescribeAppImageConfigResponse
+    -&gt; Maybe Text -&gt; DescribeAppImageConfigResponse)
+-&gt; Lens
+     DescribeAppImageConfigResponse
+     DescribeAppImageConfigResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse%27"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680401828"><span class="annot"><span class="annottext">Maybe Text
+appImageConfigName :: Maybe Text
+$sel:appImageConfigName:DescribeAppImageConfigResponse' :: DescribeAppImageConfigResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680401828"><span class="hs-identifier hs-var hs-var">appImageConfigName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680401828"><span class="hs-identifier hs-var">appImageConfigName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680401827"><span class="annot"><span class="annottext">s :: DescribeAppImageConfigResponse
+</span><a href="#local-6989586621680401827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse%27"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680401826"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680401826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAppImageConfigResponse
+</span><a href="#local-6989586621680401827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appImageConfigName:DescribeAppImageConfigResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AappImageConfigName%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var">appImageConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680401826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | When the AppImageConfig was last modified.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_lastModifiedTime"><span class="hs-identifier hs-type">describeAppImageConfigResponse_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="describeAppImageConfigResponse_lastModifiedTime"><span class="annot"><span class="annottext">describeAppImageConfigResponse_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeAppImageConfigResponse
+-&gt; f DescribeAppImageConfigResponse
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_lastModifiedTime"><span class="hs-identifier hs-var hs-var">describeAppImageConfigResponse_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAppImageConfigResponse -&gt; Maybe POSIX)
+-&gt; (DescribeAppImageConfigResponse
+    -&gt; Maybe POSIX -&gt; DescribeAppImageConfigResponse)
+-&gt; Lens
+     DescribeAppImageConfigResponse
+     DescribeAppImageConfigResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse%27"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680401825"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedTime :: Maybe POSIX
+$sel:lastModifiedTime:DescribeAppImageConfigResponse' :: DescribeAppImageConfigResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621680401825"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680401825"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680401824"><span class="annot"><span class="annottext">s :: DescribeAppImageConfigResponse
+</span><a href="#local-6989586621680401824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse%27"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680401823"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680401823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAppImageConfigResponse
+</span><a href="#local-6989586621680401824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DescribeAppImageConfigResponse' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AlastModifiedTime%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680401823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeAppImageConfigResponse
+ -&gt; f DescribeAppImageConfigResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeAppImageConfigResponse
+-&gt; f DescribeAppImageConfigResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_httpStatus"><span class="hs-identifier hs-type">describeAppImageConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-207"></span><span id="describeAppImageConfigResponse_httpStatus"><span class="annot"><span class="annottext">describeAppImageConfigResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeAppImageConfigResponse
+-&gt; f DescribeAppImageConfigResponse
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#describeAppImageConfigResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeAppImageConfigResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAppImageConfigResponse -&gt; Int)
+-&gt; (DescribeAppImageConfigResponse
+    -&gt; Int -&gt; DescribeAppImageConfigResponse)
+-&gt; Lens
+     DescribeAppImageConfigResponse
+     DescribeAppImageConfigResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse%27"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680401822"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeAppImageConfigResponse' :: DescribeAppImageConfigResponse -&gt; Int
+</span><a href="#local-6989586621680401822"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680401822"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680401821"><span class="annot"><span class="annottext">s :: DescribeAppImageConfigResponse
+</span><a href="#local-6989586621680401821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse%27"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680401820"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680401820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAppImageConfigResponse
+</span><a href="#local-6989586621680401821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAppImageConfigResponse' :: Int
+</span><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#%24sel%3AhttpStatus%3ADescribeAppImageConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680401820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621680401818"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAppImageConfig.html#DescribeAppImageConfigResponse"><span class="hs-identifier hs-type">DescribeAppImageConfigResponse</span></a></span></span><span>
+</span><span id="line-212"></span></pre></body></html>

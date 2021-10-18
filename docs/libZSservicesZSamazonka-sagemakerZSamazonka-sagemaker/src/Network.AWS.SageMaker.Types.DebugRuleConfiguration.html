@@ -1,0 +1,598 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.DebugRuleConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.DebugRuleConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInstanceType.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.ProcessingInstanceType</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Configuration information for SageMaker Debugger rules for debugging. To</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- learn more about how to configure the @DebugRuleConfiguration@</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- parameter, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job&gt;.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDebugRuleConfiguration' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621680328882"><span id="local-6989586621680328883"></span></span><span class="hs-keyword">data</span><span> </span><span id="DebugRuleConfiguration"><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-var">DebugRuleConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DebugRuleConfiguration%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-var">DebugRuleConfiguration'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Runtime configuration for rule container.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AruleParameters%3ADebugRuleConfiguration%27"><span class="annot"><span class="annottext">DebugRuleConfiguration -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AruleParameters%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var hs-var">ruleParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The instance type to deploy a Debugger custom rule for debugging a</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- training job.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AinstanceType%3ADebugRuleConfiguration%27"><span class="annot"><span class="annottext">DebugRuleConfiguration -&gt; Maybe ProcessingInstanceType
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AinstanceType%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInstanceType.html#ProcessingInstanceType"><span class="hs-identifier hs-type">ProcessingInstanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Path to Amazon S3 storage location for rules.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3As3OutputPath%3ADebugRuleConfiguration%27"><span class="annot"><span class="annottext">DebugRuleConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3As3OutputPath%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The size, in GB, of the ML storage volume attached to the processing</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AvolumeSizeInGB%3ADebugRuleConfiguration%27"><span class="annot"><span class="annottext">DebugRuleConfiguration -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AvolumeSizeInGB%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var hs-var">volumeSizeInGB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Path to local storage location for output of rules. Defaults to</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @\/opt\/ml\/processing\/output\/rule\/@.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AlocalPath%3ADebugRuleConfiguration%27"><span class="annot"><span class="annottext">DebugRuleConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AlocalPath%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The name of the rule configuration. It must be unique relative to other</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- rule configuration names.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AruleConfigurationName%3ADebugRuleConfiguration%27"><span class="annot"><span class="annottext">DebugRuleConfiguration -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AruleConfigurationName%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var hs-var">ruleConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The Amazon Elastic Container (ECR) Image for the managed rule</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- evaluation.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AruleEvaluatorImage%3ADebugRuleConfiguration%27"><span class="annot"><span class="annottext">DebugRuleConfiguration -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AruleEvaluatorImage%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var hs-var">ruleEvaluatorImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680328870"><span id="local-6989586621680328872"><span class="annot"><span class="annottext">DebugRuleConfiguration -&gt; DebugRuleConfiguration -&gt; Bool
+(DebugRuleConfiguration -&gt; DebugRuleConfiguration -&gt; Bool)
+-&gt; (DebugRuleConfiguration -&gt; DebugRuleConfiguration -&gt; Bool)
+-&gt; Eq DebugRuleConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DebugRuleConfiguration -&gt; DebugRuleConfiguration -&gt; Bool
+$c/= :: DebugRuleConfiguration -&gt; DebugRuleConfiguration -&gt; Bool
+== :: DebugRuleConfiguration -&gt; DebugRuleConfiguration -&gt; Bool
+$c== :: DebugRuleConfiguration -&gt; DebugRuleConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680328861"><span id="local-6989586621680328863"><span id="local-6989586621680328865"><span id="local-6989586621680328867"><span class="annot"><span class="annottext">ReadPrec [DebugRuleConfiguration]
+ReadPrec DebugRuleConfiguration
+Int -&gt; ReadS DebugRuleConfiguration
+ReadS [DebugRuleConfiguration]
+(Int -&gt; ReadS DebugRuleConfiguration)
+-&gt; ReadS [DebugRuleConfiguration]
+-&gt; ReadPrec DebugRuleConfiguration
+-&gt; ReadPrec [DebugRuleConfiguration]
+-&gt; Read DebugRuleConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DebugRuleConfiguration]
+$creadListPrec :: ReadPrec [DebugRuleConfiguration]
+readPrec :: ReadPrec DebugRuleConfiguration
+$creadPrec :: ReadPrec DebugRuleConfiguration
+readList :: ReadS [DebugRuleConfiguration]
+$creadList :: ReadS [DebugRuleConfiguration]
+readsPrec :: Int -&gt; ReadS DebugRuleConfiguration
+$creadsPrec :: Int -&gt; ReadS DebugRuleConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680328854"><span id="local-6989586621680328856"><span id="local-6989586621680328858"><span class="annot"><span class="annottext">Int -&gt; DebugRuleConfiguration -&gt; ShowS
+[DebugRuleConfiguration] -&gt; ShowS
+DebugRuleConfiguration -&gt; String
+(Int -&gt; DebugRuleConfiguration -&gt; ShowS)
+-&gt; (DebugRuleConfiguration -&gt; String)
+-&gt; ([DebugRuleConfiguration] -&gt; ShowS)
+-&gt; Show DebugRuleConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DebugRuleConfiguration] -&gt; ShowS
+$cshowList :: [DebugRuleConfiguration] -&gt; ShowS
+show :: DebugRuleConfiguration -&gt; String
+$cshow :: DebugRuleConfiguration -&gt; String
+showsPrec :: Int -&gt; DebugRuleConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; DebugRuleConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DebugRuleConfiguration -&gt; Rep DebugRuleConfiguration x)
+-&gt; (forall x.
+    Rep DebugRuleConfiguration x -&gt; DebugRuleConfiguration)
+-&gt; Generic DebugRuleConfiguration
+forall x. Rep DebugRuleConfiguration x -&gt; DebugRuleConfiguration
+forall x. DebugRuleConfiguration -&gt; Rep DebugRuleConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DebugRuleConfiguration x -&gt; DebugRuleConfiguration
+$cfrom :: forall x. DebugRuleConfiguration -&gt; Rep DebugRuleConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'DebugRuleConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'ruleParameters', 'debugRuleConfiguration_ruleParameters' - Runtime configuration for rule container.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'instanceType', 'debugRuleConfiguration_instanceType' - The instance type to deploy a Debugger custom rule for debugging a</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- training job.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 's3OutputPath', 'debugRuleConfiguration_s3OutputPath' - Path to Amazon S3 storage location for rules.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'volumeSizeInGB', 'debugRuleConfiguration_volumeSizeInGB' - The size, in GB, of the ML storage volume attached to the processing</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'localPath', 'debugRuleConfiguration_localPath' - Path to local storage location for output of rules. Defaults to</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- @\/opt\/ml\/processing\/output\/rule\/@.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'ruleConfigurationName', 'debugRuleConfiguration_ruleConfigurationName' - The name of the rule configuration. It must be unique relative to other</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- rule configuration names.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'ruleEvaluatorImage', 'debugRuleConfiguration_ruleEvaluatorImage' - The Amazon Elastic Container (ECR) Image for the managed rule</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- evaluation.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#newDebugRuleConfiguration"><span class="hs-identifier hs-type">newDebugRuleConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'ruleConfigurationName'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'ruleEvaluatorImage'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span><span>
+</span><span id="line-88"></span><span id="newDebugRuleConfiguration"><span class="annot"><span class="annottext">newDebugRuleConfiguration :: Text -&gt; Text -&gt; DebugRuleConfiguration
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#newDebugRuleConfiguration"><span class="hs-identifier hs-var hs-var">newDebugRuleConfiguration</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621680328848"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680328848"><span class="hs-identifier hs-var">pRuleConfigurationName_</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621680328847"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680328847"><span class="hs-identifier hs-var">pRuleEvaluatorImage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">DebugRuleConfiguration' :: Maybe (HashMap Text Text)
+-&gt; Maybe ProcessingInstanceType
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; DebugRuleConfiguration
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-type">DebugRuleConfiguration'</span></a></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ruleParameters:DebugRuleConfiguration' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AruleParameters%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var">ruleParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceType:DebugRuleConfiguration' :: Maybe ProcessingInstanceType
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AinstanceType%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3OutputPath:DebugRuleConfiguration' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3As3OutputPath%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:volumeSizeInGB:DebugRuleConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AvolumeSizeInGB%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:localPath:DebugRuleConfiguration' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AlocalPath%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var">localPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:ruleConfigurationName:DebugRuleConfiguration' :: Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AruleConfigurationName%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var">ruleConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680328848"><span class="hs-identifier hs-var">pRuleConfigurationName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:ruleEvaluatorImage:DebugRuleConfiguration' :: Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AruleEvaluatorImage%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var">ruleEvaluatorImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680328847"><span class="hs-identifier hs-var">pRuleEvaluatorImage_</span></a></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | Runtime configuration for rule container.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#debugRuleConfiguration_ruleParameters"><span class="hs-identifier hs-type">debugRuleConfiguration_ruleParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="debugRuleConfiguration_ruleParameters"><span class="annot"><span class="annottext">debugRuleConfiguration_ruleParameters :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DebugRuleConfiguration -&gt; f DebugRuleConfiguration
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#debugRuleConfiguration_ruleParameters"><span class="hs-identifier hs-var hs-var">debugRuleConfiguration_ruleParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DebugRuleConfiguration -&gt; Maybe (HashMap Text Text))
+-&gt; (DebugRuleConfiguration
+    -&gt; Maybe (HashMap Text Text) -&gt; DebugRuleConfiguration)
+-&gt; Lens
+     DebugRuleConfiguration
+     DebugRuleConfiguration
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-type">DebugRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680328843"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+ruleParameters :: Maybe (HashMap Text Text)
+$sel:ruleParameters:DebugRuleConfiguration' :: DebugRuleConfiguration -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680328843"><span class="hs-identifier hs-var hs-var">ruleParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680328843"><span class="hs-identifier hs-var">ruleParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680328842"><span class="annot"><span class="annottext">s :: DebugRuleConfiguration
+</span><a href="#local-6989586621680328842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-type">DebugRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680328841"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680328841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleConfiguration
+</span><a href="#local-6989586621680328842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleParameters:DebugRuleConfiguration' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AruleParameters%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var">ruleParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680328841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; DebugRuleConfiguration -&gt; f DebugRuleConfiguration)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DebugRuleConfiguration
+-&gt; f DebugRuleConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The instance type to deploy a Debugger custom rule for debugging a</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- training job.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#debugRuleConfiguration_instanceType"><span class="hs-identifier hs-type">debugRuleConfiguration_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInstanceType.html#ProcessingInstanceType"><span class="hs-identifier hs-type">ProcessingInstanceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="debugRuleConfiguration_instanceType"><span class="annot"><span class="annottext">debugRuleConfiguration_instanceType :: (Maybe ProcessingInstanceType -&gt; f (Maybe ProcessingInstanceType))
+-&gt; DebugRuleConfiguration -&gt; f DebugRuleConfiguration
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#debugRuleConfiguration_instanceType"><span class="hs-identifier hs-var hs-var">debugRuleConfiguration_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DebugRuleConfiguration -&gt; Maybe ProcessingInstanceType)
+-&gt; (DebugRuleConfiguration
+    -&gt; Maybe ProcessingInstanceType -&gt; DebugRuleConfiguration)
+-&gt; Lens
+     DebugRuleConfiguration
+     DebugRuleConfiguration
+     (Maybe ProcessingInstanceType)
+     (Maybe ProcessingInstanceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-type">DebugRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680328836"><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
+instanceType :: Maybe ProcessingInstanceType
+$sel:instanceType:DebugRuleConfiguration' :: DebugRuleConfiguration -&gt; Maybe ProcessingInstanceType
+</span><a href="#local-6989586621680328836"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
+</span><a href="#local-6989586621680328836"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680328835"><span class="annot"><span class="annottext">s :: DebugRuleConfiguration
+</span><a href="#local-6989586621680328835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-type">DebugRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680328834"><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
+</span><a href="#local-6989586621680328834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleConfiguration
+</span><a href="#local-6989586621680328835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:DebugRuleConfiguration' :: Maybe ProcessingInstanceType
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AinstanceType%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
+</span><a href="#local-6989586621680328834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Path to Amazon S3 storage location for rules.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#debugRuleConfiguration_s3OutputPath"><span class="hs-identifier hs-type">debugRuleConfiguration_s3OutputPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="debugRuleConfiguration_s3OutputPath"><span class="annot"><span class="annottext">debugRuleConfiguration_s3OutputPath :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DebugRuleConfiguration -&gt; f DebugRuleConfiguration
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#debugRuleConfiguration_s3OutputPath"><span class="hs-identifier hs-var hs-var">debugRuleConfiguration_s3OutputPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DebugRuleConfiguration -&gt; Maybe Text)
+-&gt; (DebugRuleConfiguration -&gt; Maybe Text -&gt; DebugRuleConfiguration)
+-&gt; Lens
+     DebugRuleConfiguration
+     DebugRuleConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-type">DebugRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680328832"><span class="annot"><span class="annottext">Maybe Text
+s3OutputPath :: Maybe Text
+$sel:s3OutputPath:DebugRuleConfiguration' :: DebugRuleConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621680328832"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680328832"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680328831"><span class="annot"><span class="annottext">s :: DebugRuleConfiguration
+</span><a href="#local-6989586621680328831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-type">DebugRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680328830"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680328830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleConfiguration
+</span><a href="#local-6989586621680328831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputPath:DebugRuleConfiguration' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3As3OutputPath%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680328830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The size, in GB, of the ML storage volume attached to the processing</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#debugRuleConfiguration_volumeSizeInGB"><span class="hs-identifier hs-type">debugRuleConfiguration_volumeSizeInGB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="debugRuleConfiguration_volumeSizeInGB"><span class="annot"><span class="annottext">debugRuleConfiguration_volumeSizeInGB :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DebugRuleConfiguration -&gt; f DebugRuleConfiguration
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#debugRuleConfiguration_volumeSizeInGB"><span class="hs-identifier hs-var hs-var">debugRuleConfiguration_volumeSizeInGB</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DebugRuleConfiguration -&gt; Maybe Natural)
+-&gt; (DebugRuleConfiguration
+    -&gt; Maybe Natural -&gt; DebugRuleConfiguration)
+-&gt; Lens
+     DebugRuleConfiguration
+     DebugRuleConfiguration
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-type">DebugRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680328828"><span class="annot"><span class="annottext">Maybe Natural
+volumeSizeInGB :: Maybe Natural
+$sel:volumeSizeInGB:DebugRuleConfiguration' :: DebugRuleConfiguration -&gt; Maybe Natural
+</span><a href="#local-6989586621680328828"><span class="hs-identifier hs-var hs-var">volumeSizeInGB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680328828"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680328827"><span class="annot"><span class="annottext">s :: DebugRuleConfiguration
+</span><a href="#local-6989586621680328827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-type">DebugRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680328826"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680328826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleConfiguration
+</span><a href="#local-6989586621680328827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeSizeInGB:DebugRuleConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AvolumeSizeInGB%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680328826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Path to local storage location for output of rules. Defaults to</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- @\/opt\/ml\/processing\/output\/rule\/@.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#debugRuleConfiguration_localPath"><span class="hs-identifier hs-type">debugRuleConfiguration_localPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="debugRuleConfiguration_localPath"><span class="annot"><span class="annottext">debugRuleConfiguration_localPath :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DebugRuleConfiguration -&gt; f DebugRuleConfiguration
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#debugRuleConfiguration_localPath"><span class="hs-identifier hs-var hs-var">debugRuleConfiguration_localPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DebugRuleConfiguration -&gt; Maybe Text)
+-&gt; (DebugRuleConfiguration -&gt; Maybe Text -&gt; DebugRuleConfiguration)
+-&gt; Lens
+     DebugRuleConfiguration
+     DebugRuleConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-type">DebugRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680328824"><span class="annot"><span class="annottext">Maybe Text
+localPath :: Maybe Text
+$sel:localPath:DebugRuleConfiguration' :: DebugRuleConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621680328824"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680328824"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680328823"><span class="annot"><span class="annottext">s :: DebugRuleConfiguration
+</span><a href="#local-6989586621680328823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-type">DebugRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680328822"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680328822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleConfiguration
+</span><a href="#local-6989586621680328823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localPath:DebugRuleConfiguration' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AlocalPath%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var">localPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680328822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The name of the rule configuration. It must be unique relative to other</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- rule configuration names.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#debugRuleConfiguration_ruleConfigurationName"><span class="hs-identifier hs-type">debugRuleConfiguration_ruleConfigurationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-128"></span><span id="debugRuleConfiguration_ruleConfigurationName"><span class="annot"><span class="annottext">debugRuleConfiguration_ruleConfigurationName :: (Text -&gt; f Text)
+-&gt; DebugRuleConfiguration -&gt; f DebugRuleConfiguration
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#debugRuleConfiguration_ruleConfigurationName"><span class="hs-identifier hs-var hs-var">debugRuleConfiguration_ruleConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DebugRuleConfiguration -&gt; Text)
+-&gt; (DebugRuleConfiguration -&gt; Text -&gt; DebugRuleConfiguration)
+-&gt; Lens DebugRuleConfiguration DebugRuleConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-type">DebugRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680328820"><span class="annot"><span class="annottext">Text
+ruleConfigurationName :: Text
+$sel:ruleConfigurationName:DebugRuleConfiguration' :: DebugRuleConfiguration -&gt; Text
+</span><a href="#local-6989586621680328820"><span class="hs-identifier hs-var hs-var">ruleConfigurationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680328820"><span class="hs-identifier hs-var">ruleConfigurationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680328819"><span class="annot"><span class="annottext">s :: DebugRuleConfiguration
+</span><a href="#local-6989586621680328819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-type">DebugRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680328818"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680328818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleConfiguration
+</span><a href="#local-6989586621680328819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleConfigurationName:DebugRuleConfiguration' :: Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AruleConfigurationName%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var">ruleConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680328818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The Amazon Elastic Container (ECR) Image for the managed rule</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- evaluation.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#debugRuleConfiguration_ruleEvaluatorImage"><span class="hs-identifier hs-type">debugRuleConfiguration_ruleEvaluatorImage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-133"></span><span id="debugRuleConfiguration_ruleEvaluatorImage"><span class="annot"><span class="annottext">debugRuleConfiguration_ruleEvaluatorImage :: (Text -&gt; f Text)
+-&gt; DebugRuleConfiguration -&gt; f DebugRuleConfiguration
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#debugRuleConfiguration_ruleEvaluatorImage"><span class="hs-identifier hs-var hs-var">debugRuleConfiguration_ruleEvaluatorImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DebugRuleConfiguration -&gt; Text)
+-&gt; (DebugRuleConfiguration -&gt; Text -&gt; DebugRuleConfiguration)
+-&gt; Lens DebugRuleConfiguration DebugRuleConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-type">DebugRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680328816"><span class="annot"><span class="annottext">Text
+ruleEvaluatorImage :: Text
+$sel:ruleEvaluatorImage:DebugRuleConfiguration' :: DebugRuleConfiguration -&gt; Text
+</span><a href="#local-6989586621680328816"><span class="hs-identifier hs-var hs-var">ruleEvaluatorImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680328816"><span class="hs-identifier hs-var">ruleEvaluatorImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680328815"><span class="annot"><span class="annottext">s :: DebugRuleConfiguration
+</span><a href="#local-6989586621680328815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-type">DebugRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680328814"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680328814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleConfiguration
+</span><a href="#local-6989586621680328815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleEvaluatorImage:DebugRuleConfiguration' :: Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#%24sel%3AruleEvaluatorImage%3ADebugRuleConfiguration%27"><span class="hs-identifier hs-var">ruleEvaluatorImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680328814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680328811"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621680328809"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DebugRuleConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DebugRuleConfiguration)
+-&gt; Value
+-&gt; Parser DebugRuleConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DebugRuleConfiguration&quot;</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680328806"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680328806"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+-&gt; Maybe ProcessingInstanceType
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; DebugRuleConfiguration
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-var">DebugRuleConfiguration'</span></a></span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
+ -&gt; Maybe ProcessingInstanceType
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; DebugRuleConfiguration)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe ProcessingInstanceType
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; DebugRuleConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680328806"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ProcessingInstanceType
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; DebugRuleConfiguration)
+-&gt; Parser (Maybe ProcessingInstanceType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; DebugRuleConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680328806"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProcessingInstanceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; DebugRuleConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; DebugRuleConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680328806"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; DebugRuleConfiguration)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Text -&gt; Text -&gt; Text -&gt; DebugRuleConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680328806"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeSizeInGB&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Text -&gt; DebugRuleConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Text -&gt; Text -&gt; DebugRuleConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680328806"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocalPath&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; DebugRuleConfiguration)
+-&gt; Parser Text -&gt; Parser (Text -&gt; DebugRuleConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680328806"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleConfigurationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; DebugRuleConfiguration)
+-&gt; Parser Text -&gt; Parser DebugRuleConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680328806"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleEvaluatorImage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680328798"><span id="local-6989586621680328800"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680328795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680328787"><span id="local-6989586621680328789"><span id="local-6989586621680328791"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration"><span class="hs-identifier hs-type">DebugRuleConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621680328785"><span class="annot"><span class="annottext">toJSON :: DebugRuleConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleConfiguration.html#DebugRuleConfiguration%27"><span class="hs-identifier hs-type">DebugRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680328777"><span id="local-6989586621680328778"><span id="local-6989586621680328779"><span id="local-6989586621680328780"><span id="local-6989586621680328781"><span id="local-6989586621680328782"><span id="local-6989586621680328783"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe ProcessingInstanceType
+Text
+ruleEvaluatorImage :: Text
+ruleConfigurationName :: Text
+localPath :: Maybe Text
+volumeSizeInGB :: Maybe Natural
+s3OutputPath :: Maybe Text
+instanceType :: Maybe ProcessingInstanceType
+ruleParameters :: Maybe (HashMap Text Text)
+$sel:ruleEvaluatorImage:DebugRuleConfiguration' :: DebugRuleConfiguration -&gt; Text
+$sel:ruleConfigurationName:DebugRuleConfiguration' :: DebugRuleConfiguration -&gt; Text
+$sel:localPath:DebugRuleConfiguration' :: DebugRuleConfiguration -&gt; Maybe Text
+$sel:volumeSizeInGB:DebugRuleConfiguration' :: DebugRuleConfiguration -&gt; Maybe Natural
+$sel:s3OutputPath:DebugRuleConfiguration' :: DebugRuleConfiguration -&gt; Maybe Text
+$sel:instanceType:DebugRuleConfiguration' :: DebugRuleConfiguration -&gt; Maybe ProcessingInstanceType
+$sel:ruleParameters:DebugRuleConfiguration' :: DebugRuleConfiguration -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680328777"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680328783"><span class="hs-identifier hs-var">ruleParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProcessingInstanceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ProcessingInstanceType -&gt; Pair)
+-&gt; Maybe ProcessingInstanceType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
+</span><a href="#local-6989586621680328782"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680328781"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeSizeInGB&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680328780"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocalPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680328779"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-166"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleConfigurationName&quot;</span></span><span>
+</span><span id="line-167"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680328778"><span class="hs-identifier hs-var">ruleConfigurationName</span></a></span><span>
+</span><span id="line-168"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-170"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleEvaluatorImage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680328777"><span class="hs-identifier hs-var">ruleEvaluatorImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span></pre></body></html>

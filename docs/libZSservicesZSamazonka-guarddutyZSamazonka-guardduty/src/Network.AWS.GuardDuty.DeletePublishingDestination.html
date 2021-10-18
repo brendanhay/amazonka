@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.GuardDuty.DeletePublishingDestination</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the publishing definition with the specified @destinationId@.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GuardDuty.DeletePublishingDestination</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination"><span class="hs-identifier">DeletePublishingDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#newDeletePublishingDestination"><span class="hs-identifier">newDeletePublishingDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#deletePublishingDestination_detectorId"><span class="hs-identifier">deletePublishingDestination_detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#deletePublishingDestination_destinationId"><span class="hs-identifier">deletePublishingDestination_destinationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestinationResponse"><span class="hs-identifier">DeletePublishingDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#newDeletePublishingDestinationResponse"><span class="hs-identifier">newDeletePublishingDestinationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#deletePublishingDestinationResponse_httpStatus"><span class="hs-identifier">deletePublishingDestinationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.html"><span class="hs-identifier">Network.AWS.GuardDuty.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeletePublishingDestination' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679311453"><span id="local-6989586621679311454"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePublishingDestination"><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination"><span class="hs-identifier hs-var">DeletePublishingDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePublishingDestination%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination%27"><span class="hs-identifier hs-var">DeletePublishingDestination'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the detector associated with the publishing destination</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- to delete.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdetectorId%3ADeletePublishingDestination%27"><span class="annot"><span class="annottext">DeletePublishingDestination -&gt; Text
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#%24sel%3AdetectorId%3ADeletePublishingDestination%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The ID of the publishing destination to delete.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AdestinationId%3ADeletePublishingDestination%27"><span class="annot"><span class="annottext">DeletePublishingDestination -&gt; Text
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#%24sel%3AdestinationId%3ADeletePublishingDestination%27"><span class="hs-identifier hs-var hs-var">destinationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311446"><span id="local-6989586621679311448"><span class="annot"><span class="annottext">DeletePublishingDestination -&gt; DeletePublishingDestination -&gt; Bool
+(DeletePublishingDestination
+ -&gt; DeletePublishingDestination -&gt; Bool)
+-&gt; (DeletePublishingDestination
+    -&gt; DeletePublishingDestination -&gt; Bool)
+-&gt; Eq DeletePublishingDestination
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeletePublishingDestination -&gt; DeletePublishingDestination -&gt; Bool
+$c/= :: DeletePublishingDestination -&gt; DeletePublishingDestination -&gt; Bool
+== :: DeletePublishingDestination -&gt; DeletePublishingDestination -&gt; Bool
+$c== :: DeletePublishingDestination -&gt; DeletePublishingDestination -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311437"><span id="local-6989586621679311439"><span id="local-6989586621679311441"><span id="local-6989586621679311443"><span class="annot"><span class="annottext">ReadPrec [DeletePublishingDestination]
+ReadPrec DeletePublishingDestination
+Int -&gt; ReadS DeletePublishingDestination
+ReadS [DeletePublishingDestination]
+(Int -&gt; ReadS DeletePublishingDestination)
+-&gt; ReadS [DeletePublishingDestination]
+-&gt; ReadPrec DeletePublishingDestination
+-&gt; ReadPrec [DeletePublishingDestination]
+-&gt; Read DeletePublishingDestination
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeletePublishingDestination]
+$creadListPrec :: ReadPrec [DeletePublishingDestination]
+readPrec :: ReadPrec DeletePublishingDestination
+$creadPrec :: ReadPrec DeletePublishingDestination
+readList :: ReadS [DeletePublishingDestination]
+$creadList :: ReadS [DeletePublishingDestination]
+readsPrec :: Int -&gt; ReadS DeletePublishingDestination
+$creadsPrec :: Int -&gt; ReadS DeletePublishingDestination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311430"><span id="local-6989586621679311432"><span id="local-6989586621679311434"><span class="annot"><span class="annottext">Int -&gt; DeletePublishingDestination -&gt; ShowS
+[DeletePublishingDestination] -&gt; ShowS
+DeletePublishingDestination -&gt; String
+(Int -&gt; DeletePublishingDestination -&gt; ShowS)
+-&gt; (DeletePublishingDestination -&gt; String)
+-&gt; ([DeletePublishingDestination] -&gt; ShowS)
+-&gt; Show DeletePublishingDestination
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeletePublishingDestination] -&gt; ShowS
+$cshowList :: [DeletePublishingDestination] -&gt; ShowS
+show :: DeletePublishingDestination -&gt; String
+$cshow :: DeletePublishingDestination -&gt; String
+showsPrec :: Int -&gt; DeletePublishingDestination -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeletePublishingDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeletePublishingDestination -&gt; Rep DeletePublishingDestination x)
+-&gt; (forall x.
+    Rep DeletePublishingDestination x -&gt; DeletePublishingDestination)
+-&gt; Generic DeletePublishingDestination
+forall x.
+Rep DeletePublishingDestination x -&gt; DeletePublishingDestination
+forall x.
+DeletePublishingDestination -&gt; Rep DeletePublishingDestination x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeletePublishingDestination x -&gt; DeletePublishingDestination
+$cfrom :: forall x.
+DeletePublishingDestination -&gt; Rep DeletePublishingDestination x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DeletePublishingDestination' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'detectorId', 'deletePublishingDestination_detectorId' - The unique ID of the detector associated with the publishing destination</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- to delete.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'destinationId', 'deletePublishingDestination_destinationId' - The ID of the publishing destination to delete.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#newDeletePublishingDestination"><span class="hs-identifier hs-type">newDeletePublishingDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'detectorId'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'destinationId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination"><span class="hs-identifier hs-type">DeletePublishingDestination</span></a></span><span>
+</span><span id="line-77"></span><span id="newDeletePublishingDestination"><span class="annot"><span class="annottext">newDeletePublishingDestination :: Text -&gt; Text -&gt; DeletePublishingDestination
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#newDeletePublishingDestination"><span class="hs-identifier hs-var hs-var">newDeletePublishingDestination</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679311425"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311425"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679311424"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311424"><span class="hs-identifier hs-var">pDestinationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">DeletePublishingDestination' :: Text -&gt; Text -&gt; DeletePublishingDestination
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination%27"><span class="hs-identifier hs-type">DeletePublishingDestination'</span></a></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detectorId:DeletePublishingDestination' :: Text
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#%24sel%3AdetectorId%3ADeletePublishingDestination%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311425"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationId:DeletePublishingDestination' :: Text
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#%24sel%3AdestinationId%3ADeletePublishingDestination%27"><span class="hs-identifier hs-var">destinationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311424"><span class="hs-identifier hs-var">pDestinationId_</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The unique ID of the detector associated with the publishing destination</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- to delete.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#deletePublishingDestination_detectorId"><span class="hs-identifier hs-type">deletePublishingDestination_detectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination"><span class="hs-identifier hs-type">DeletePublishingDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="deletePublishingDestination_detectorId"><span class="annot"><span class="annottext">deletePublishingDestination_detectorId :: (Text -&gt; f Text)
+-&gt; DeletePublishingDestination -&gt; f DeletePublishingDestination
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#deletePublishingDestination_detectorId"><span class="hs-identifier hs-var hs-var">deletePublishingDestination_detectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletePublishingDestination -&gt; Text)
+-&gt; (DeletePublishingDestination
+    -&gt; Text -&gt; DeletePublishingDestination)
+-&gt; Lens
+     DeletePublishingDestination DeletePublishingDestination Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination%27"><span class="hs-identifier hs-type">DeletePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311421"><span class="annot"><span class="annottext">Text
+detectorId :: Text
+$sel:detectorId:DeletePublishingDestination' :: DeletePublishingDestination -&gt; Text
+</span><a href="#local-6989586621679311421"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311421"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311420"><span class="annot"><span class="annottext">s :: DeletePublishingDestination
+</span><a href="#local-6989586621679311420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination%27"><span class="hs-identifier hs-type">DeletePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311419"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePublishingDestination
+</span><a href="#local-6989586621679311420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:DeletePublishingDestination' :: Text
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#%24sel%3AdetectorId%3ADeletePublishingDestination%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination"><span class="hs-identifier hs-type">DeletePublishingDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The ID of the publishing destination to delete.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#deletePublishingDestination_destinationId"><span class="hs-identifier hs-type">deletePublishingDestination_destinationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination"><span class="hs-identifier hs-type">DeletePublishingDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="deletePublishingDestination_destinationId"><span class="annot"><span class="annottext">deletePublishingDestination_destinationId :: (Text -&gt; f Text)
+-&gt; DeletePublishingDestination -&gt; f DeletePublishingDestination
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#deletePublishingDestination_destinationId"><span class="hs-identifier hs-var hs-var">deletePublishingDestination_destinationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletePublishingDestination -&gt; Text)
+-&gt; (DeletePublishingDestination
+    -&gt; Text -&gt; DeletePublishingDestination)
+-&gt; Lens
+     DeletePublishingDestination DeletePublishingDestination Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination%27"><span class="hs-identifier hs-type">DeletePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311418"><span class="annot"><span class="annottext">Text
+destinationId :: Text
+$sel:destinationId:DeletePublishingDestination' :: DeletePublishingDestination -&gt; Text
+</span><a href="#local-6989586621679311418"><span class="hs-identifier hs-var hs-var">destinationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311418"><span class="hs-identifier hs-var">destinationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311417"><span class="annot"><span class="annottext">s :: DeletePublishingDestination
+</span><a href="#local-6989586621679311417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination%27"><span class="hs-identifier hs-type">DeletePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311416"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePublishingDestination
+</span><a href="#local-6989586621679311417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationId:DeletePublishingDestination' :: Text
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#%24sel%3AdestinationId%3ADeletePublishingDestination%27"><span class="hs-identifier hs-var">destinationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination"><span class="hs-identifier hs-type">DeletePublishingDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination"><span class="hs-identifier hs-type">DeletePublishingDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination"><span class="hs-identifier hs-type">DeletePublishingDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestinationResponse"><span class="hs-identifier hs-type">DeletePublishingDestinationResponse</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679311412"><span class="annot"><span class="annottext">request :: DeletePublishingDestination -&gt; Request DeletePublishingDestination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeletePublishingDestination
+-&gt; Request DeletePublishingDestination
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679311408"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeletePublishingDestination
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeletePublishingDestination)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeletePublishingDestination))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeletePublishingDestination
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeletePublishingDestination)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311405"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311405"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311404"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679311404"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311403"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679311403"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeletePublishingDestinationResponse
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestinationResponse%27"><span class="hs-identifier hs-var">DeletePublishingDestinationResponse'</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeletePublishingDestinationResponse)
+-&gt; Either String Int
+-&gt; Either String DeletePublishingDestinationResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311405"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311396"><span id="local-6989586621679311398"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination"><span class="hs-identifier hs-type">DeletePublishingDestination</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311393"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination"><span class="hs-identifier hs-type">DeletePublishingDestination</span></a></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination"><span class="hs-identifier hs-type">DeletePublishingDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679311389"><span class="annot"><span class="annottext">toHeaders :: DeletePublishingDestination -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeletePublishingDestination -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination"><span class="hs-identifier hs-type">DeletePublishingDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679311383"><span class="annot"><span class="annottext">toPath :: DeletePublishingDestination -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination%27"><span class="hs-identifier hs-type">DeletePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311380"><span id="local-6989586621679311381"><span class="annot"><span class="annottext">Text
+destinationId :: Text
+detectorId :: Text
+$sel:destinationId:DeletePublishingDestination' :: DeletePublishingDestination -&gt; Text
+$sel:detectorId:DeletePublishingDestination' :: DeletePublishingDestination -&gt; Text
+</span><a href="#local-6989586621679311380"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/detector/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311381"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/publishingDestination/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311380"><span class="hs-identifier hs-var">destinationId</span></a></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestination"><span class="hs-identifier hs-type">DeletePublishingDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679311376"><span class="annot"><span class="annottext">toQuery :: DeletePublishingDestination -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeletePublishingDestination -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newDeletePublishingDestinationResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621679311373"><span id="local-6989586621679311374"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePublishingDestinationResponse"><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestinationResponse"><span class="hs-identifier hs-var">DeletePublishingDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePublishingDestinationResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestinationResponse%27"><span class="hs-identifier hs-var">DeletePublishingDestinationResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeletePublishingDestinationResponse%27"><span class="annot"><span class="annottext">DeletePublishingDestinationResponse -&gt; Int
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#%24sel%3AhttpStatus%3ADeletePublishingDestinationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311368"><span id="local-6989586621679311370"><span class="annot"><span class="annottext">DeletePublishingDestinationResponse
+-&gt; DeletePublishingDestinationResponse -&gt; Bool
+(DeletePublishingDestinationResponse
+ -&gt; DeletePublishingDestinationResponse -&gt; Bool)
+-&gt; (DeletePublishingDestinationResponse
+    -&gt; DeletePublishingDestinationResponse -&gt; Bool)
+-&gt; Eq DeletePublishingDestinationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeletePublishingDestinationResponse
+-&gt; DeletePublishingDestinationResponse -&gt; Bool
+$c/= :: DeletePublishingDestinationResponse
+-&gt; DeletePublishingDestinationResponse -&gt; Bool
+== :: DeletePublishingDestinationResponse
+-&gt; DeletePublishingDestinationResponse -&gt; Bool
+$c== :: DeletePublishingDestinationResponse
+-&gt; DeletePublishingDestinationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311360"><span id="local-6989586621679311362"><span id="local-6989586621679311364"><span id="local-6989586621679311366"><span class="annot"><span class="annottext">ReadPrec [DeletePublishingDestinationResponse]
+ReadPrec DeletePublishingDestinationResponse
+Int -&gt; ReadS DeletePublishingDestinationResponse
+ReadS [DeletePublishingDestinationResponse]
+(Int -&gt; ReadS DeletePublishingDestinationResponse)
+-&gt; ReadS [DeletePublishingDestinationResponse]
+-&gt; ReadPrec DeletePublishingDestinationResponse
+-&gt; ReadPrec [DeletePublishingDestinationResponse]
+-&gt; Read DeletePublishingDestinationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeletePublishingDestinationResponse]
+$creadListPrec :: ReadPrec [DeletePublishingDestinationResponse]
+readPrec :: ReadPrec DeletePublishingDestinationResponse
+$creadPrec :: ReadPrec DeletePublishingDestinationResponse
+readList :: ReadS [DeletePublishingDestinationResponse]
+$creadList :: ReadS [DeletePublishingDestinationResponse]
+readsPrec :: Int -&gt; ReadS DeletePublishingDestinationResponse
+$creadsPrec :: Int -&gt; ReadS DeletePublishingDestinationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311354"><span id="local-6989586621679311356"><span id="local-6989586621679311358"><span class="annot"><span class="annottext">Int -&gt; DeletePublishingDestinationResponse -&gt; ShowS
+[DeletePublishingDestinationResponse] -&gt; ShowS
+DeletePublishingDestinationResponse -&gt; String
+(Int -&gt; DeletePublishingDestinationResponse -&gt; ShowS)
+-&gt; (DeletePublishingDestinationResponse -&gt; String)
+-&gt; ([DeletePublishingDestinationResponse] -&gt; ShowS)
+-&gt; Show DeletePublishingDestinationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeletePublishingDestinationResponse] -&gt; ShowS
+$cshowList :: [DeletePublishingDestinationResponse] -&gt; ShowS
+show :: DeletePublishingDestinationResponse -&gt; String
+$cshow :: DeletePublishingDestinationResponse -&gt; String
+showsPrec :: Int -&gt; DeletePublishingDestinationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeletePublishingDestinationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeletePublishingDestinationResponse
+ -&gt; Rep DeletePublishingDestinationResponse x)
+-&gt; (forall x.
+    Rep DeletePublishingDestinationResponse x
+    -&gt; DeletePublishingDestinationResponse)
+-&gt; Generic DeletePublishingDestinationResponse
+forall x.
+Rep DeletePublishingDestinationResponse x
+-&gt; DeletePublishingDestinationResponse
+forall x.
+DeletePublishingDestinationResponse
+-&gt; Rep DeletePublishingDestinationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeletePublishingDestinationResponse x
+-&gt; DeletePublishingDestinationResponse
+$cfrom :: forall x.
+DeletePublishingDestinationResponse
+-&gt; Rep DeletePublishingDestinationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Create a value of 'DeletePublishingDestinationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'httpStatus', 'deletePublishingDestinationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#newDeletePublishingDestinationResponse"><span class="hs-identifier hs-type">newDeletePublishingDestinationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestinationResponse"><span class="hs-identifier hs-type">DeletePublishingDestinationResponse</span></a></span><span>
+</span><span id="line-154"></span><span id="newDeletePublishingDestinationResponse"><span class="annot"><span class="annottext">newDeletePublishingDestinationResponse :: Int -&gt; DeletePublishingDestinationResponse
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#newDeletePublishingDestinationResponse"><span class="hs-identifier hs-var hs-var">newDeletePublishingDestinationResponse</span></a></span></span><span> </span><span id="local-6989586621679311351"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311351"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">DeletePublishingDestinationResponse' :: Int -&gt; DeletePublishingDestinationResponse
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestinationResponse%27"><span class="hs-identifier hs-type">DeletePublishingDestinationResponse'</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePublishingDestinationResponse' :: Int
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#%24sel%3AhttpStatus%3ADeletePublishingDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311351"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#deletePublishingDestinationResponse_httpStatus"><span class="hs-identifier hs-type">deletePublishingDestinationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestinationResponse"><span class="hs-identifier hs-type">DeletePublishingDestinationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-162"></span><span id="deletePublishingDestinationResponse_httpStatus"><span class="annot"><span class="annottext">deletePublishingDestinationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeletePublishingDestinationResponse
+-&gt; f DeletePublishingDestinationResponse
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#deletePublishingDestinationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deletePublishingDestinationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletePublishingDestinationResponse -&gt; Int)
+-&gt; (DeletePublishingDestinationResponse
+    -&gt; Int -&gt; DeletePublishingDestinationResponse)
+-&gt; Lens
+     DeletePublishingDestinationResponse
+     DeletePublishingDestinationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestinationResponse%27"><span class="hs-identifier hs-type">DeletePublishingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311350"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeletePublishingDestinationResponse' :: DeletePublishingDestinationResponse -&gt; Int
+</span><a href="#local-6989586621679311350"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311350"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311349"><span class="annot"><span class="annottext">s :: DeletePublishingDestinationResponse
+</span><a href="#local-6989586621679311349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestinationResponse%27"><span class="hs-identifier hs-type">DeletePublishingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311348"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePublishingDestinationResponse
+</span><a href="#local-6989586621679311349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePublishingDestinationResponse' :: Int
+</span><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#%24sel%3AhttpStatus%3ADeletePublishingDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestinationResponse"><span class="hs-identifier hs-type">DeletePublishingDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679311346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DeletePublishingDestination.html#DeletePublishingDestinationResponse"><span class="hs-identifier hs-type">DeletePublishingDestinationResponse</span></a></span></span><span>
+</span><span id="line-167"></span></pre></body></html>

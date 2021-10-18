@@ -1,0 +1,583 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoIntervalCadence.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.DashIsoIntervalCadence</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Tile and thumbnail settings applicable when imageBasedTrickPlay is</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- ADVANCED</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDashIsoImageBasedTrickPlaySettings' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679948752"><span id="local-6989586621679948753"></span></span><span class="hs-keyword">data</span><span> </span><span id="DashIsoImageBasedTrickPlaySettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-var">DashIsoImageBasedTrickPlaySettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashIsoImageBasedTrickPlaySettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">DashIsoImageBasedTrickPlaySettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The cadence MediaConvert follows for generating thumbnails. If set to</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- MediaConvert generates thumbnails according to the interval you specify</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- in thumbnailInterval.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AintervalCadence%3ADashIsoImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">DashIsoImageBasedTrickPlaySettings -&gt; Maybe DashIsoIntervalCadence
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AintervalCadence%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var hs-var">intervalCadence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoIntervalCadence.html#DashIsoIntervalCadence"><span class="hs-identifier hs-type">DashIsoIntervalCadence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Enter the interval, in seconds, that MediaConvert uses to generate</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- thumbnails. If the interval you enter doesn\'t align with the output</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- frame rate, MediaConvert automatically rounds the interval to align with</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- the output frame rate. For example, if the output frame rate is 29.97</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- frames per second and you enter 5, MediaConvert uses a 150 frame</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- interval to generate thumbnails.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AthumbnailInterval%3ADashIsoImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">DashIsoImageBasedTrickPlaySettings -&gt; Maybe Double
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AthumbnailInterval%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var hs-var">thumbnailInterval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Number of thumbnails in each column of a tile image. Set a value between</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- 2 and 2048. Must be divisible by 2.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AtileHeight%3ADashIsoImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">DashIsoImageBasedTrickPlaySettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AtileHeight%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var hs-var">tileHeight</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Height of each thumbnail within each tile image, in pixels. Leave blank</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- to maintain aspect ratio with thumbnail width. If following the aspect</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- ratio would lead to a total tile height greater than 4096, then the job</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- will be rejected. Must be divisible by 2.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AthumbnailHeight%3ADashIsoImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">DashIsoImageBasedTrickPlaySettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AthumbnailHeight%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var hs-var">thumbnailHeight</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Width of each thumbnail within each tile image, in pixels. Default is</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- 312. Must be divisible by 8.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AthumbnailWidth%3ADashIsoImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">DashIsoImageBasedTrickPlaySettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AthumbnailWidth%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var hs-var">thumbnailWidth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Number of thumbnails in each row of a tile image. Set a value between 1</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- and 512.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AtileWidth%3ADashIsoImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">DashIsoImageBasedTrickPlaySettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AtileWidth%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var hs-var">tileWidth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679948741"><span id="local-6989586621679948743"><span class="annot"><span class="annottext">DashIsoImageBasedTrickPlaySettings
+-&gt; DashIsoImageBasedTrickPlaySettings -&gt; Bool
+(DashIsoImageBasedTrickPlaySettings
+ -&gt; DashIsoImageBasedTrickPlaySettings -&gt; Bool)
+-&gt; (DashIsoImageBasedTrickPlaySettings
+    -&gt; DashIsoImageBasedTrickPlaySettings -&gt; Bool)
+-&gt; Eq DashIsoImageBasedTrickPlaySettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DashIsoImageBasedTrickPlaySettings
+-&gt; DashIsoImageBasedTrickPlaySettings -&gt; Bool
+$c/= :: DashIsoImageBasedTrickPlaySettings
+-&gt; DashIsoImageBasedTrickPlaySettings -&gt; Bool
+== :: DashIsoImageBasedTrickPlaySettings
+-&gt; DashIsoImageBasedTrickPlaySettings -&gt; Bool
+$c== :: DashIsoImageBasedTrickPlaySettings
+-&gt; DashIsoImageBasedTrickPlaySettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679948732"><span id="local-6989586621679948734"><span id="local-6989586621679948736"><span id="local-6989586621679948738"><span class="annot"><span class="annottext">ReadPrec [DashIsoImageBasedTrickPlaySettings]
+ReadPrec DashIsoImageBasedTrickPlaySettings
+Int -&gt; ReadS DashIsoImageBasedTrickPlaySettings
+ReadS [DashIsoImageBasedTrickPlaySettings]
+(Int -&gt; ReadS DashIsoImageBasedTrickPlaySettings)
+-&gt; ReadS [DashIsoImageBasedTrickPlaySettings]
+-&gt; ReadPrec DashIsoImageBasedTrickPlaySettings
+-&gt; ReadPrec [DashIsoImageBasedTrickPlaySettings]
+-&gt; Read DashIsoImageBasedTrickPlaySettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DashIsoImageBasedTrickPlaySettings]
+$creadListPrec :: ReadPrec [DashIsoImageBasedTrickPlaySettings]
+readPrec :: ReadPrec DashIsoImageBasedTrickPlaySettings
+$creadPrec :: ReadPrec DashIsoImageBasedTrickPlaySettings
+readList :: ReadS [DashIsoImageBasedTrickPlaySettings]
+$creadList :: ReadS [DashIsoImageBasedTrickPlaySettings]
+readsPrec :: Int -&gt; ReadS DashIsoImageBasedTrickPlaySettings
+$creadsPrec :: Int -&gt; ReadS DashIsoImageBasedTrickPlaySettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679948725"><span id="local-6989586621679948727"><span id="local-6989586621679948729"><span class="annot"><span class="annottext">Int -&gt; DashIsoImageBasedTrickPlaySettings -&gt; ShowS
+[DashIsoImageBasedTrickPlaySettings] -&gt; ShowS
+DashIsoImageBasedTrickPlaySettings -&gt; String
+(Int -&gt; DashIsoImageBasedTrickPlaySettings -&gt; ShowS)
+-&gt; (DashIsoImageBasedTrickPlaySettings -&gt; String)
+-&gt; ([DashIsoImageBasedTrickPlaySettings] -&gt; ShowS)
+-&gt; Show DashIsoImageBasedTrickPlaySettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DashIsoImageBasedTrickPlaySettings] -&gt; ShowS
+$cshowList :: [DashIsoImageBasedTrickPlaySettings] -&gt; ShowS
+show :: DashIsoImageBasedTrickPlaySettings -&gt; String
+$cshow :: DashIsoImageBasedTrickPlaySettings -&gt; String
+showsPrec :: Int -&gt; DashIsoImageBasedTrickPlaySettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; DashIsoImageBasedTrickPlaySettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DashIsoImageBasedTrickPlaySettings
+ -&gt; Rep DashIsoImageBasedTrickPlaySettings x)
+-&gt; (forall x.
+    Rep DashIsoImageBasedTrickPlaySettings x
+    -&gt; DashIsoImageBasedTrickPlaySettings)
+-&gt; Generic DashIsoImageBasedTrickPlaySettings
+forall x.
+Rep DashIsoImageBasedTrickPlaySettings x
+-&gt; DashIsoImageBasedTrickPlaySettings
+forall x.
+DashIsoImageBasedTrickPlaySettings
+-&gt; Rep DashIsoImageBasedTrickPlaySettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DashIsoImageBasedTrickPlaySettings x
+-&gt; DashIsoImageBasedTrickPlaySettings
+$cfrom :: forall x.
+DashIsoImageBasedTrickPlaySettings
+-&gt; Rep DashIsoImageBasedTrickPlaySettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'DashIsoImageBasedTrickPlaySettings' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'intervalCadence', 'dashIsoImageBasedTrickPlaySettings_intervalCadence' - The cadence MediaConvert follows for generating thumbnails. If set to</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- MediaConvert generates thumbnails according to the interval you specify</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- in thumbnailInterval.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'thumbnailInterval', 'dashIsoImageBasedTrickPlaySettings_thumbnailInterval' - Enter the interval, in seconds, that MediaConvert uses to generate</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- thumbnails. If the interval you enter doesn\'t align with the output</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- frame rate, MediaConvert automatically rounds the interval to align with</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- the output frame rate. For example, if the output frame rate is 29.97</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- frames per second and you enter 5, MediaConvert uses a 150 frame</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- interval to generate thumbnails.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'tileHeight', 'dashIsoImageBasedTrickPlaySettings_tileHeight' - Number of thumbnails in each column of a tile image. Set a value between</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 2 and 2048. Must be divisible by 2.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'thumbnailHeight', 'dashIsoImageBasedTrickPlaySettings_thumbnailHeight' - Height of each thumbnail within each tile image, in pixels. Leave blank</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- to maintain aspect ratio with thumbnail width. If following the aspect</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- ratio would lead to a total tile height greater than 4096, then the job</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- will be rejected. Must be divisible by 2.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'thumbnailWidth', 'dashIsoImageBasedTrickPlaySettings_thumbnailWidth' - Width of each thumbnail within each tile image, in pixels. Default is</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 312. Must be divisible by 8.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'tileWidth', 'dashIsoImageBasedTrickPlaySettings_tileWidth' - Number of thumbnails in each row of a tile image. Set a value between 1</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- and 512.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#newDashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">newDashIsoImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span><span>
+</span><span id="line-98"></span><span id="newDashIsoImageBasedTrickPlaySettings"><span class="annot"><span class="annottext">newDashIsoImageBasedTrickPlaySettings :: DashIsoImageBasedTrickPlaySettings
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#newDashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-var hs-var">newDashIsoImageBasedTrickPlaySettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">DashIsoImageBasedTrickPlaySettings' :: Maybe DashIsoIntervalCadence
+-&gt; Maybe Double
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; DashIsoImageBasedTrickPlaySettings
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings'</span></a></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:intervalCadence:DashIsoImageBasedTrickPlaySettings' :: Maybe DashIsoIntervalCadence
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AintervalCadence%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">intervalCadence</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">Maybe DashIsoIntervalCadence
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:thumbnailInterval:DashIsoImageBasedTrickPlaySettings' :: Maybe Double
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AthumbnailInterval%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">thumbnailInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:tileHeight:DashIsoImageBasedTrickPlaySettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AtileHeight%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">tileHeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:thumbnailHeight:DashIsoImageBasedTrickPlaySettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AthumbnailHeight%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">thumbnailHeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:thumbnailWidth:DashIsoImageBasedTrickPlaySettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AthumbnailWidth%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">thumbnailWidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:tileWidth:DashIsoImageBasedTrickPlaySettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AtileWidth%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">tileWidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The cadence MediaConvert follows for generating thumbnails. If set to</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- MediaConvert generates thumbnails according to the interval you specify</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- in thumbnailInterval.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#dashIsoImageBasedTrickPlaySettings_intervalCadence"><span class="hs-identifier hs-type">dashIsoImageBasedTrickPlaySettings_intervalCadence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoIntervalCadence.html#DashIsoIntervalCadence"><span class="hs-identifier hs-type">DashIsoIntervalCadence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="dashIsoImageBasedTrickPlaySettings_intervalCadence"><span class="annot"><span class="annottext">dashIsoImageBasedTrickPlaySettings_intervalCadence :: (Maybe DashIsoIntervalCadence -&gt; f (Maybe DashIsoIntervalCadence))
+-&gt; DashIsoImageBasedTrickPlaySettings
+-&gt; f DashIsoImageBasedTrickPlaySettings
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#dashIsoImageBasedTrickPlaySettings_intervalCadence"><span class="hs-identifier hs-var hs-var">dashIsoImageBasedTrickPlaySettings_intervalCadence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashIsoImageBasedTrickPlaySettings
+ -&gt; Maybe DashIsoIntervalCadence)
+-&gt; (DashIsoImageBasedTrickPlaySettings
+    -&gt; Maybe DashIsoIntervalCadence
+    -&gt; DashIsoImageBasedTrickPlaySettings)
+-&gt; Lens
+     DashIsoImageBasedTrickPlaySettings
+     DashIsoImageBasedTrickPlaySettings
+     (Maybe DashIsoIntervalCadence)
+     (Maybe DashIsoIntervalCadence)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679948716"><span class="annot"><span class="annottext">Maybe DashIsoIntervalCadence
+intervalCadence :: Maybe DashIsoIntervalCadence
+$sel:intervalCadence:DashIsoImageBasedTrickPlaySettings' :: DashIsoImageBasedTrickPlaySettings -&gt; Maybe DashIsoIntervalCadence
+</span><a href="#local-6989586621679948716"><span class="hs-identifier hs-var hs-var">intervalCadence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DashIsoIntervalCadence
+</span><a href="#local-6989586621679948716"><span class="hs-identifier hs-var">intervalCadence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679948715"><span class="annot"><span class="annottext">s :: DashIsoImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679948714"><span class="annot"><span class="annottext">Maybe DashIsoIntervalCadence
+</span><a href="#local-6989586621679948714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashIsoImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intervalCadence:DashIsoImageBasedTrickPlaySettings' :: Maybe DashIsoIntervalCadence
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AintervalCadence%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">intervalCadence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DashIsoIntervalCadence
+</span><a href="#local-6989586621679948714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Enter the interval, in seconds, that MediaConvert uses to generate</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- thumbnails. If the interval you enter doesn\'t align with the output</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- frame rate, MediaConvert automatically rounds the interval to align with</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- the output frame rate. For example, if the output frame rate is 29.97</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- frames per second and you enter 5, MediaConvert uses a 150 frame</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- interval to generate thumbnails.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#dashIsoImageBasedTrickPlaySettings_thumbnailInterval"><span class="hs-identifier hs-type">dashIsoImageBasedTrickPlaySettings_thumbnailInterval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="dashIsoImageBasedTrickPlaySettings_thumbnailInterval"><span class="annot"><span class="annottext">dashIsoImageBasedTrickPlaySettings_thumbnailInterval :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; DashIsoImageBasedTrickPlaySettings
+-&gt; f DashIsoImageBasedTrickPlaySettings
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#dashIsoImageBasedTrickPlaySettings_thumbnailInterval"><span class="hs-identifier hs-var hs-var">dashIsoImageBasedTrickPlaySettings_thumbnailInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashIsoImageBasedTrickPlaySettings -&gt; Maybe Double)
+-&gt; (DashIsoImageBasedTrickPlaySettings
+    -&gt; Maybe Double -&gt; DashIsoImageBasedTrickPlaySettings)
+-&gt; Lens
+     DashIsoImageBasedTrickPlaySettings
+     DashIsoImageBasedTrickPlaySettings
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679948712"><span class="annot"><span class="annottext">Maybe Double
+thumbnailInterval :: Maybe Double
+$sel:thumbnailInterval:DashIsoImageBasedTrickPlaySettings' :: DashIsoImageBasedTrickPlaySettings -&gt; Maybe Double
+</span><a href="#local-6989586621679948712"><span class="hs-identifier hs-var hs-var">thumbnailInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679948712"><span class="hs-identifier hs-var">thumbnailInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679948711"><span class="annot"><span class="annottext">s :: DashIsoImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679948710"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679948710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashIsoImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thumbnailInterval:DashIsoImageBasedTrickPlaySettings' :: Maybe Double
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AthumbnailInterval%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">thumbnailInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679948710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | Number of thumbnails in each column of a tile image. Set a value between</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 2 and 2048. Must be divisible by 2.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#dashIsoImageBasedTrickPlaySettings_tileHeight"><span class="hs-identifier hs-type">dashIsoImageBasedTrickPlaySettings_tileHeight</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="dashIsoImageBasedTrickPlaySettings_tileHeight"><span class="annot"><span class="annottext">dashIsoImageBasedTrickPlaySettings_tileHeight :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DashIsoImageBasedTrickPlaySettings
+-&gt; f DashIsoImageBasedTrickPlaySettings
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#dashIsoImageBasedTrickPlaySettings_tileHeight"><span class="hs-identifier hs-var hs-var">dashIsoImageBasedTrickPlaySettings_tileHeight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashIsoImageBasedTrickPlaySettings -&gt; Maybe Natural)
+-&gt; (DashIsoImageBasedTrickPlaySettings
+    -&gt; Maybe Natural -&gt; DashIsoImageBasedTrickPlaySettings)
+-&gt; Lens
+     DashIsoImageBasedTrickPlaySettings
+     DashIsoImageBasedTrickPlaySettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679948708"><span class="annot"><span class="annottext">Maybe Natural
+tileHeight :: Maybe Natural
+$sel:tileHeight:DashIsoImageBasedTrickPlaySettings' :: DashIsoImageBasedTrickPlaySettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679948708"><span class="hs-identifier hs-var hs-var">tileHeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948708"><span class="hs-identifier hs-var">tileHeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679948707"><span class="annot"><span class="annottext">s :: DashIsoImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679948706"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashIsoImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tileHeight:DashIsoImageBasedTrickPlaySettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AtileHeight%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">tileHeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Height of each thumbnail within each tile image, in pixels. Leave blank</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- to maintain aspect ratio with thumbnail width. If following the aspect</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- ratio would lead to a total tile height greater than 4096, then the job</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- will be rejected. Must be divisible by 2.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#dashIsoImageBasedTrickPlaySettings_thumbnailHeight"><span class="hs-identifier hs-type">dashIsoImageBasedTrickPlaySettings_thumbnailHeight</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="dashIsoImageBasedTrickPlaySettings_thumbnailHeight"><span class="annot"><span class="annottext">dashIsoImageBasedTrickPlaySettings_thumbnailHeight :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DashIsoImageBasedTrickPlaySettings
+-&gt; f DashIsoImageBasedTrickPlaySettings
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#dashIsoImageBasedTrickPlaySettings_thumbnailHeight"><span class="hs-identifier hs-var hs-var">dashIsoImageBasedTrickPlaySettings_thumbnailHeight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashIsoImageBasedTrickPlaySettings -&gt; Maybe Natural)
+-&gt; (DashIsoImageBasedTrickPlaySettings
+    -&gt; Maybe Natural -&gt; DashIsoImageBasedTrickPlaySettings)
+-&gt; Lens
+     DashIsoImageBasedTrickPlaySettings
+     DashIsoImageBasedTrickPlaySettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679948704"><span class="annot"><span class="annottext">Maybe Natural
+thumbnailHeight :: Maybe Natural
+$sel:thumbnailHeight:DashIsoImageBasedTrickPlaySettings' :: DashIsoImageBasedTrickPlaySettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679948704"><span class="hs-identifier hs-var hs-var">thumbnailHeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948704"><span class="hs-identifier hs-var">thumbnailHeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679948703"><span class="annot"><span class="annottext">s :: DashIsoImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679948702"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashIsoImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thumbnailHeight:DashIsoImageBasedTrickPlaySettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AthumbnailHeight%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">thumbnailHeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Width of each thumbnail within each tile image, in pixels. Default is</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 312. Must be divisible by 8.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#dashIsoImageBasedTrickPlaySettings_thumbnailWidth"><span class="hs-identifier hs-type">dashIsoImageBasedTrickPlaySettings_thumbnailWidth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="dashIsoImageBasedTrickPlaySettings_thumbnailWidth"><span class="annot"><span class="annottext">dashIsoImageBasedTrickPlaySettings_thumbnailWidth :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DashIsoImageBasedTrickPlaySettings
+-&gt; f DashIsoImageBasedTrickPlaySettings
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#dashIsoImageBasedTrickPlaySettings_thumbnailWidth"><span class="hs-identifier hs-var hs-var">dashIsoImageBasedTrickPlaySettings_thumbnailWidth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashIsoImageBasedTrickPlaySettings -&gt; Maybe Natural)
+-&gt; (DashIsoImageBasedTrickPlaySettings
+    -&gt; Maybe Natural -&gt; DashIsoImageBasedTrickPlaySettings)
+-&gt; Lens
+     DashIsoImageBasedTrickPlaySettings
+     DashIsoImageBasedTrickPlaySettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679948700"><span class="annot"><span class="annottext">Maybe Natural
+thumbnailWidth :: Maybe Natural
+$sel:thumbnailWidth:DashIsoImageBasedTrickPlaySettings' :: DashIsoImageBasedTrickPlaySettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679948700"><span class="hs-identifier hs-var hs-var">thumbnailWidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948700"><span class="hs-identifier hs-var">thumbnailWidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679948699"><span class="annot"><span class="annottext">s :: DashIsoImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679948698"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashIsoImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thumbnailWidth:DashIsoImageBasedTrickPlaySettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AthumbnailWidth%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">thumbnailWidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | Number of thumbnails in each row of a tile image. Set a value between 1</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- and 512.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#dashIsoImageBasedTrickPlaySettings_tileWidth"><span class="hs-identifier hs-type">dashIsoImageBasedTrickPlaySettings_tileWidth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="dashIsoImageBasedTrickPlaySettings_tileWidth"><span class="annot"><span class="annottext">dashIsoImageBasedTrickPlaySettings_tileWidth :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DashIsoImageBasedTrickPlaySettings
+-&gt; f DashIsoImageBasedTrickPlaySettings
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#dashIsoImageBasedTrickPlaySettings_tileWidth"><span class="hs-identifier hs-var hs-var">dashIsoImageBasedTrickPlaySettings_tileWidth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashIsoImageBasedTrickPlaySettings -&gt; Maybe Natural)
+-&gt; (DashIsoImageBasedTrickPlaySettings
+    -&gt; Maybe Natural -&gt; DashIsoImageBasedTrickPlaySettings)
+-&gt; Lens
+     DashIsoImageBasedTrickPlaySettings
+     DashIsoImageBasedTrickPlaySettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679948696"><span class="annot"><span class="annottext">Maybe Natural
+tileWidth :: Maybe Natural
+$sel:tileWidth:DashIsoImageBasedTrickPlaySettings' :: DashIsoImageBasedTrickPlaySettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679948696"><span class="hs-identifier hs-var hs-var">tileWidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948696"><span class="hs-identifier hs-var">tileWidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679948695"><span class="annot"><span class="annottext">s :: DashIsoImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679948694"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashIsoImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tileWidth:DashIsoImageBasedTrickPlaySettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#%24sel%3AtileWidth%3ADashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">tileWidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679948691"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679948689"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DashIsoImageBasedTrickPlaySettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DashIsoImageBasedTrickPlaySettings)
+-&gt; Value
+-&gt; Parser DashIsoImageBasedTrickPlaySettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DashIsoImageBasedTrickPlaySettings&quot;</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679948686"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679948686"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe DashIsoIntervalCadence
+-&gt; Maybe Double
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; DashIsoImageBasedTrickPlaySettings
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">DashIsoImageBasedTrickPlaySettings'</span></a></span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DashIsoIntervalCadence
+ -&gt; Maybe Double
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; DashIsoImageBasedTrickPlaySettings)
+-&gt; Parser (Maybe DashIsoIntervalCadence)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; DashIsoImageBasedTrickPlaySettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679948686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DashIsoIntervalCadence)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;intervalCadence&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; DashIsoImageBasedTrickPlaySettings)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; DashIsoImageBasedTrickPlaySettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679948686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thumbnailInterval&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; DashIsoImageBasedTrickPlaySettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; DashIsoImageBasedTrickPlaySettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679948686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tileHeight&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; DashIsoImageBasedTrickPlaySettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural -&gt; DashIsoImageBasedTrickPlaySettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679948686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thumbnailHeight&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural -&gt; DashIsoImageBasedTrickPlaySettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Natural -&gt; DashIsoImageBasedTrickPlaySettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679948686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thumbnailWidth&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; DashIsoImageBasedTrickPlaySettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser DashIsoImageBasedTrickPlaySettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679948686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tileWidth&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679948680"><span id="local-6989586621679948682"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span></span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679948677"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679948669"><span id="local-6989586621679948671"><span id="local-6989586621679948673"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings</span></a></span></span></span></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679948667"><span class="annot"><span class="annottext">toJSON :: DashIsoImageBasedTrickPlaySettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings.html#DashIsoImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">DashIsoImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679948660"><span id="local-6989586621679948661"><span id="local-6989586621679948662"><span id="local-6989586621679948663"><span id="local-6989586621679948664"><span id="local-6989586621679948665"><span class="annot"><span class="annottext">Maybe Double
+Maybe Natural
+Maybe DashIsoIntervalCadence
+tileWidth :: Maybe Natural
+thumbnailWidth :: Maybe Natural
+thumbnailHeight :: Maybe Natural
+tileHeight :: Maybe Natural
+thumbnailInterval :: Maybe Double
+intervalCadence :: Maybe DashIsoIntervalCadence
+$sel:tileWidth:DashIsoImageBasedTrickPlaySettings' :: DashIsoImageBasedTrickPlaySettings -&gt; Maybe Natural
+$sel:thumbnailWidth:DashIsoImageBasedTrickPlaySettings' :: DashIsoImageBasedTrickPlaySettings -&gt; Maybe Natural
+$sel:thumbnailHeight:DashIsoImageBasedTrickPlaySettings' :: DashIsoImageBasedTrickPlaySettings -&gt; Maybe Natural
+$sel:tileHeight:DashIsoImageBasedTrickPlaySettings' :: DashIsoImageBasedTrickPlaySettings -&gt; Maybe Natural
+$sel:thumbnailInterval:DashIsoImageBasedTrickPlaySettings' :: DashIsoImageBasedTrickPlaySettings -&gt; Maybe Double
+$sel:intervalCadence:DashIsoImageBasedTrickPlaySettings' :: DashIsoImageBasedTrickPlaySettings -&gt; Maybe DashIsoIntervalCadence
+</span><a href="#local-6989586621679948660"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;intervalCadence&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DashIsoIntervalCadence -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>              </span><span class="annot"><span class="annottext">(DashIsoIntervalCadence -&gt; Pair)
+-&gt; Maybe DashIsoIntervalCadence -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DashIsoIntervalCadence
+</span><a href="#local-6989586621679948665"><span class="hs-identifier hs-var">intervalCadence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thumbnailInterval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679948664"><span class="hs-identifier hs-var">thumbnailInterval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tileHeight&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948663"><span class="hs-identifier hs-var">tileHeight</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thumbnailHeight&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948662"><span class="hs-identifier hs-var">thumbnailHeight</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thumbnailWidth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948661"><span class="hs-identifier hs-var">thumbnailWidth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tileWidth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948660"><span class="hs-identifier hs-var">tileWidth</span></a></span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span></pre></body></html>

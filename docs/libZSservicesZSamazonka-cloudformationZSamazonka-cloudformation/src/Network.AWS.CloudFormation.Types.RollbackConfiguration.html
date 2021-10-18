@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFormation.Types.RollbackConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFormation.Types.RollbackConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackTrigger.html"><span class="hs-identifier">Network.AWS.CloudFormation.Types.RollbackTrigger</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Structure containing the rollback triggers for CloudFormation to monitor</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- during stack creation and updating operations, and for the specified</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- monitoring period afterwards.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Rollback triggers enable you to have CloudFormation monitor the state of</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- your application during stack creation and updating, and to roll back</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- that operation if the application breaches the threshold of any of the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- alarms you\'ve specified. For more information, see</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-rollback-triggers.html Monitor and Roll Back Stack Operations&gt;.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newRollbackConfiguration' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679420888"><span id="local-6989586621679420889"></span></span><span class="hs-keyword">data</span><span> </span><span id="RollbackConfiguration"><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-var">RollbackConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RollbackConfiguration%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-var">RollbackConfiguration'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of time, in minutes, during which CloudFormation should</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- monitor all the rollback triggers after the stack creation or update</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- operation deploys all necessary resources.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- The default is 0 minutes.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- If you specify a monitoring period but do not specify any rollback</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- triggers, CloudFormation still waits the specified period of time before</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- cleaning up old resources after update operations. You can use this</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- monitoring period to perform any manual stack validation desired, and</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- manually cancel the stack creation or update (using</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html CancelUpdateStack&gt;,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- for example) as necessary.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- If you specify 0 for this parameter, CloudFormation still monitors the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- specified rollback triggers during stack creation and update operations.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Then, for update operations, it begins disposing of old resources</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- immediately once the operation completes.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AmonitoringTimeInMinutes%3ARollbackConfiguration%27"><span class="annot"><span class="annottext">RollbackConfiguration -&gt; Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#%24sel%3AmonitoringTimeInMinutes%3ARollbackConfiguration%27"><span class="hs-identifier hs-var hs-var">monitoringTimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The triggers to monitor during stack creation or update actions.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- By default, CloudFormation saves the rollback triggers specified for a</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- stack and applies them to any subsequent update operations for the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- stack, unless you specify otherwise. If you do specify rollback triggers</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- for this parameter, those triggers replace any list of triggers</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- previously specified for the stack. This means:</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   To use the rollback triggers previously specified for this stack, if</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     any, don\'t specify this parameter.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   To specify new or updated rollback triggers, you must specify /all/</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     the triggers that you want used for this stack, even triggers</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     you\'ve specifed before (for example, when creating the stack or</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     during a previous stack update). Any triggers that you don\'t</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     include in the updated list of triggers are no longer applied to the</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     stack.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   To remove all currently specified triggers, specify an empty list</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     for this parameter.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- If a specified trigger is missing, the entire stack operation fails and</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- is rolled back.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3ArollbackTriggers%3ARollbackConfiguration%27"><span class="annot"><span class="annottext">RollbackConfiguration -&gt; Maybe [RollbackTrigger]
+</span><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#%24sel%3ArollbackTriggers%3ARollbackConfiguration%27"><span class="hs-identifier hs-var hs-var">rollbackTriggers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackTrigger.html#RollbackTrigger"><span class="hs-identifier hs-type">RollbackTrigger</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420881"><span id="local-6989586621679420883"><span class="annot"><span class="annottext">RollbackConfiguration -&gt; RollbackConfiguration -&gt; Bool
+(RollbackConfiguration -&gt; RollbackConfiguration -&gt; Bool)
+-&gt; (RollbackConfiguration -&gt; RollbackConfiguration -&gt; Bool)
+-&gt; Eq RollbackConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RollbackConfiguration -&gt; RollbackConfiguration -&gt; Bool
+$c/= :: RollbackConfiguration -&gt; RollbackConfiguration -&gt; Bool
+== :: RollbackConfiguration -&gt; RollbackConfiguration -&gt; Bool
+$c== :: RollbackConfiguration -&gt; RollbackConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420872"><span id="local-6989586621679420874"><span id="local-6989586621679420876"><span id="local-6989586621679420878"><span class="annot"><span class="annottext">ReadPrec [RollbackConfiguration]
+ReadPrec RollbackConfiguration
+Int -&gt; ReadS RollbackConfiguration
+ReadS [RollbackConfiguration]
+(Int -&gt; ReadS RollbackConfiguration)
+-&gt; ReadS [RollbackConfiguration]
+-&gt; ReadPrec RollbackConfiguration
+-&gt; ReadPrec [RollbackConfiguration]
+-&gt; Read RollbackConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RollbackConfiguration]
+$creadListPrec :: ReadPrec [RollbackConfiguration]
+readPrec :: ReadPrec RollbackConfiguration
+$creadPrec :: ReadPrec RollbackConfiguration
+readList :: ReadS [RollbackConfiguration]
+$creadList :: ReadS [RollbackConfiguration]
+readsPrec :: Int -&gt; ReadS RollbackConfiguration
+$creadsPrec :: Int -&gt; ReadS RollbackConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420865"><span id="local-6989586621679420867"><span id="local-6989586621679420869"><span class="annot"><span class="annottext">Int -&gt; RollbackConfiguration -&gt; ShowS
+[RollbackConfiguration] -&gt; ShowS
+RollbackConfiguration -&gt; String
+(Int -&gt; RollbackConfiguration -&gt; ShowS)
+-&gt; (RollbackConfiguration -&gt; String)
+-&gt; ([RollbackConfiguration] -&gt; ShowS)
+-&gt; Show RollbackConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RollbackConfiguration] -&gt; ShowS
+$cshowList :: [RollbackConfiguration] -&gt; ShowS
+show :: RollbackConfiguration -&gt; String
+$cshow :: RollbackConfiguration -&gt; String
+showsPrec :: Int -&gt; RollbackConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; RollbackConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RollbackConfiguration -&gt; Rep RollbackConfiguration x)
+-&gt; (forall x. Rep RollbackConfiguration x -&gt; RollbackConfiguration)
+-&gt; Generic RollbackConfiguration
+forall x. Rep RollbackConfiguration x -&gt; RollbackConfiguration
+forall x. RollbackConfiguration -&gt; Rep RollbackConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RollbackConfiguration x -&gt; RollbackConfiguration
+$cfrom :: forall x. RollbackConfiguration -&gt; Rep RollbackConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Create a value of 'RollbackConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'monitoringTimeInMinutes', 'rollbackConfiguration_monitoringTimeInMinutes' - The amount of time, in minutes, during which CloudFormation should</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- monitor all the rollback triggers after the stack creation or update</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- operation deploys all necessary resources.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- The default is 0 minutes.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- If you specify a monitoring period but do not specify any rollback</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- triggers, CloudFormation still waits the specified period of time before</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- cleaning up old resources after update operations. You can use this</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- monitoring period to perform any manual stack validation desired, and</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- manually cancel the stack creation or update (using</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html CancelUpdateStack&gt;,</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- for example) as necessary.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- If you specify 0 for this parameter, CloudFormation still monitors the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- specified rollback triggers during stack creation and update operations.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Then, for update operations, it begins disposing of old resources</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- immediately once the operation completes.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'rollbackTriggers', 'rollbackConfiguration_rollbackTriggers' - The triggers to monitor during stack creation or update actions.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- By default, CloudFormation saves the rollback triggers specified for a</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- stack and applies them to any subsequent update operations for the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- stack, unless you specify otherwise. If you do specify rollback triggers</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- for this parameter, those triggers replace any list of triggers</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- previously specified for the stack. This means:</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   To use the rollback triggers previously specified for this stack, if</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--     any, don\'t specify this parameter.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- -   To specify new or updated rollback triggers, you must specify /all/</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--     the triggers that you want used for this stack, even triggers</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--     you\'ve specifed before (for example, when creating the stack or</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     during a previous stack update). Any triggers that you don\'t</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     include in the updated list of triggers are no longer applied to the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--     stack.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- -   To remove all currently specified triggers, specify an empty list</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--     for this parameter.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- If a specified trigger is missing, the entire stack operation fails and</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- is rolled back.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#newRollbackConfiguration"><span class="hs-identifier hs-type">newRollbackConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span><span>
+</span><span id="line-137"></span><span id="newRollbackConfiguration"><span class="annot"><span class="annottext">newRollbackConfiguration :: RollbackConfiguration
+</span><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#newRollbackConfiguration"><span class="hs-identifier hs-var hs-var">newRollbackConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">RollbackConfiguration' :: Maybe Natural -&gt; Maybe [RollbackTrigger] -&gt; RollbackConfiguration
+</span><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:monitoringTimeInMinutes:RollbackConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#%24sel%3AmonitoringTimeInMinutes%3ARollbackConfiguration%27"><span class="hs-identifier hs-var">monitoringTimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:rollbackTriggers:RollbackConfiguration' :: Maybe [RollbackTrigger]
+</span><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#%24sel%3ArollbackTriggers%3ARollbackConfiguration%27"><span class="hs-identifier hs-var">rollbackTriggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RollbackTrigger]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The amount of time, in minutes, during which CloudFormation should</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- monitor all the rollback triggers after the stack creation or update</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- operation deploys all necessary resources.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- The default is 0 minutes.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- If you specify a monitoring period but do not specify any rollback</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- triggers, CloudFormation still waits the specified period of time before</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- cleaning up old resources after update operations. You can use this</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- monitoring period to perform any manual stack validation desired, and</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- manually cancel the stack creation or update (using</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html CancelUpdateStack&gt;,</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- for example) as necessary.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- If you specify 0 for this parameter, CloudFormation still monitors the</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- specified rollback triggers during stack creation and update operations.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Then, for update operations, it begins disposing of old resources</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- immediately once the operation completes.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#rollbackConfiguration_monitoringTimeInMinutes"><span class="hs-identifier hs-type">rollbackConfiguration_monitoringTimeInMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="rollbackConfiguration_monitoringTimeInMinutes"><span class="annot"><span class="annottext">rollbackConfiguration_monitoringTimeInMinutes :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; RollbackConfiguration -&gt; f RollbackConfiguration
+</span><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#rollbackConfiguration_monitoringTimeInMinutes"><span class="hs-identifier hs-var hs-var">rollbackConfiguration_monitoringTimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RollbackConfiguration -&gt; Maybe Natural)
+-&gt; (RollbackConfiguration
+    -&gt; Maybe Natural -&gt; RollbackConfiguration)
+-&gt; Lens
+     RollbackConfiguration
+     RollbackConfiguration
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420856"><span class="annot"><span class="annottext">Maybe Natural
+monitoringTimeInMinutes :: Maybe Natural
+$sel:monitoringTimeInMinutes:RollbackConfiguration' :: RollbackConfiguration -&gt; Maybe Natural
+</span><a href="#local-6989586621679420856"><span class="hs-identifier hs-var hs-var">monitoringTimeInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679420856"><span class="hs-identifier hs-var">monitoringTimeInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420855"><span class="annot"><span class="annottext">s :: RollbackConfiguration
+</span><a href="#local-6989586621679420855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420854"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679420854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RollbackConfiguration
+</span><a href="#local-6989586621679420855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringTimeInMinutes:RollbackConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#%24sel%3AmonitoringTimeInMinutes%3ARollbackConfiguration%27"><span class="hs-identifier hs-var">monitoringTimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679420854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The triggers to monitor during stack creation or update actions.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- By default, CloudFormation saves the rollback triggers specified for a</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- stack and applies them to any subsequent update operations for the</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- stack, unless you specify otherwise. If you do specify rollback triggers</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- for this parameter, those triggers replace any list of triggers</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- previously specified for the stack. This means:</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- -   To use the rollback triggers previously specified for this stack, if</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--     any, don\'t specify this parameter.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- -   To specify new or updated rollback triggers, you must specify /all/</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--     the triggers that you want used for this stack, even triggers</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     you\'ve specifed before (for example, when creating the stack or</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     during a previous stack update). Any triggers that you don\'t</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     include in the updated list of triggers are no longer applied to the</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     stack.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- -   To remove all currently specified triggers, specify an empty list</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--     for this parameter.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- If a specified trigger is missing, the entire stack operation fails and</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- is rolled back.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#rollbackConfiguration_rollbackTriggers"><span class="hs-identifier hs-type">rollbackConfiguration_rollbackTriggers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackTrigger.html#RollbackTrigger"><span class="hs-identifier hs-type">RollbackTrigger</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="rollbackConfiguration_rollbackTriggers"><span class="annot"><span class="annottext">rollbackConfiguration_rollbackTriggers :: (Maybe [RollbackTrigger] -&gt; f (Maybe [RollbackTrigger]))
+-&gt; RollbackConfiguration -&gt; f RollbackConfiguration
+</span><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#rollbackConfiguration_rollbackTriggers"><span class="hs-identifier hs-var hs-var">rollbackConfiguration_rollbackTriggers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RollbackConfiguration -&gt; Maybe [RollbackTrigger])
+-&gt; (RollbackConfiguration
+    -&gt; Maybe [RollbackTrigger] -&gt; RollbackConfiguration)
+-&gt; Lens
+     RollbackConfiguration
+     RollbackConfiguration
+     (Maybe [RollbackTrigger])
+     (Maybe [RollbackTrigger])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420852"><span class="annot"><span class="annottext">Maybe [RollbackTrigger]
+rollbackTriggers :: Maybe [RollbackTrigger]
+$sel:rollbackTriggers:RollbackConfiguration' :: RollbackConfiguration -&gt; Maybe [RollbackTrigger]
+</span><a href="#local-6989586621679420852"><span class="hs-identifier hs-var hs-var">rollbackTriggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RollbackTrigger]
+</span><a href="#local-6989586621679420852"><span class="hs-identifier hs-var">rollbackTriggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420851"><span class="annot"><span class="annottext">s :: RollbackConfiguration
+</span><a href="#local-6989586621679420851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420850"><span class="annot"><span class="annottext">Maybe [RollbackTrigger]
+</span><a href="#local-6989586621679420850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RollbackConfiguration
+</span><a href="#local-6989586621679420851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rollbackTriggers:RollbackConfiguration' :: Maybe [RollbackTrigger]
+</span><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#%24sel%3ArollbackTriggers%3ARollbackConfiguration%27"><span class="hs-identifier hs-var">rollbackTriggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RollbackTrigger]
+</span><a href="#local-6989586621679420850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RollbackTrigger] -&gt; f (Maybe [RollbackTrigger]))
+ -&gt; RollbackConfiguration -&gt; f RollbackConfiguration)
+-&gt; ((Maybe [RollbackTrigger] -&gt; f (Maybe [RollbackTrigger]))
+    -&gt; Maybe [RollbackTrigger] -&gt; f (Maybe [RollbackTrigger]))
+-&gt; (Maybe [RollbackTrigger] -&gt; f (Maybe [RollbackTrigger]))
+-&gt; RollbackConfiguration
+-&gt; f RollbackConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RollbackTrigger]
+  [RollbackTrigger]
+  [RollbackTrigger]
+  [RollbackTrigger]
+-&gt; Iso
+     (Maybe [RollbackTrigger])
+     (Maybe [RollbackTrigger])
+     (Maybe [RollbackTrigger])
+     (Maybe [RollbackTrigger])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RollbackTrigger]
+  [RollbackTrigger]
+  [RollbackTrigger]
+  [RollbackTrigger]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679420844"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RollbackConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679420842"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679420842"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe [RollbackTrigger] -&gt; RollbackConfiguration
+</span><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-var">RollbackConfiguration'</span></a></span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe [RollbackTrigger] -&gt; RollbackConfiguration)
+-&gt; Either String (Maybe Natural)
+-&gt; Either String (Maybe [RollbackTrigger] -&gt; RollbackConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679420842"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MonitoringTimeInMinutes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [RollbackTrigger] -&gt; RollbackConfiguration)
+-&gt; Either String (Maybe [RollbackTrigger])
+-&gt; Either String RollbackConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679420842"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RollbackTriggers&quot;</span></span><span>
+</span><span id="line-196"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-197"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [RollbackTrigger]))
+-&gt; Either String (Maybe [RollbackTrigger])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [RollbackTrigger])
+-&gt; [Node] -&gt; Either String (Maybe [RollbackTrigger])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [RollbackTrigger]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420833"><span id="local-6989586621679420835"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span></span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679420826"><span class="annot"><span class="annottext">toQuery :: RollbackConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420823"><span id="local-6989586621679420824"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [RollbackTrigger]
+rollbackTriggers :: Maybe [RollbackTrigger]
+monitoringTimeInMinutes :: Maybe Natural
+$sel:rollbackTriggers:RollbackConfiguration' :: RollbackConfiguration -&gt; Maybe [RollbackTrigger]
+$sel:monitoringTimeInMinutes:RollbackConfiguration' :: RollbackConfiguration -&gt; Maybe Natural
+</span><a href="#local-6989586621679420823"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MonitoringTimeInMinutes&quot;</span></span><span>
+</span><span id="line-208"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679420824"><span class="hs-identifier hs-var">monitoringTimeInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RollbackTriggers&quot;</span></span><span>
+</span><span id="line-210"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [RollbackTrigger] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-212"></span><span>                </span><span class="annot"><span class="annottext">([RollbackTrigger] -&gt; QueryString)
+-&gt; Maybe [RollbackTrigger] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RollbackTrigger]
+</span><a href="#local-6989586621679420823"><span class="hs-identifier hs-var">rollbackTriggers</span></a></span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-215"></span></pre></body></html>

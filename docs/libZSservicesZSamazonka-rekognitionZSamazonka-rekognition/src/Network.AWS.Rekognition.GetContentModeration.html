@@ -1,0 +1,984 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Rekognition.GetContentModeration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the inappropriate, unwanted, or offensive content analysis results</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- for a Amazon Rekognition Video analysis started by</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- StartContentModeration. For a list of moderation labels in Amazon</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Rekognition, see</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api Using the image and video moderation APIs&gt;.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Amazon Rekognition Video inappropriate or offensive content detection in</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- a stored video is an asynchronous operation. You start analysis by</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- calling StartContentModeration which returns a job identifier (@JobId@).</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- When analysis finishes, Amazon Rekognition Video publishes a completion</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- status to the Amazon Simple Notification Service topic registered in the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- initial call to @StartContentModeration@. To get the results of the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- content analysis, first check that the status value published to the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Amazon SNS topic is @SUCCEEDED@. If so, call @GetContentModeration@ and</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- pass the job identifier (@JobId@) from the initial call to</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- @StartContentModeration@.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- For more information, see Working with Stored Videos in the Amazon</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Rekognition Devlopers Guide.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- @GetContentModeration@ returns detected inappropriate, unwanted, or</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- offensive content moderation labels, and the time they are detected, in</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- an array, @ModerationLabels@, of ContentModerationDetection objects.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- By default, the moderated labels are returned sorted by time, in</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- milliseconds from the start of the video. You can also sort them by</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- moderated label by specifying @NAME@ for the @SortBy@ input parameter.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Since video analysis can return a large number of results, use the</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- @MaxResults@ parameter to limit the number of labels returned in a</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- single call to @GetContentModeration@. If there are more results than</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- specified in @MaxResults@, the value of @NextToken@ in the operation</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- response contains a pagination token for getting the next set of</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- results. To get the next page of results, call @GetContentModeration@</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- and populate the @NextToken@ request parameter with the value of</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- @NextToken@ returned from the previous call to @GetContentModeration@.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- For more information, see Content moderation in the Amazon Rekognition</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Developer Guide.</span><span>
+</span><span id="line-62"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Rekognition.GetContentModeration</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier">GetContentModeration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#newGetContentModeration"><span class="hs-identifier">newGetContentModeration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModeration_nextToken"><span class="hs-identifier">getContentModeration_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModeration_maxResults"><span class="hs-identifier">getContentModeration_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModeration_sortBy"><span class="hs-identifier">getContentModeration_sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModeration_jobId"><span class="hs-identifier">getContentModeration_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier">GetContentModerationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#newGetContentModerationResponse"><span class="hs-identifier">newGetContentModerationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_statusMessage"><span class="hs-identifier">getContentModerationResponse_statusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_videoMetadata"><span class="hs-identifier">getContentModerationResponse_videoMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_nextToken"><span class="hs-identifier">getContentModerationResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_jobStatus"><span class="hs-identifier">getContentModerationResponse_jobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_moderationLabels"><span class="hs-identifier">getContentModerationResponse_moderationLabels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_moderationModelVersion"><span class="hs-identifier">getContentModerationResponse_moderationModelVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_httpStatus"><span class="hs-identifier">getContentModerationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.html"><span class="hs-identifier">Network.AWS.Rekognition.Types</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | /See:/ 'newGetContentModeration' smart constructor.</span><span>
+</span><span id="line-96"></span><span id="local-6989586621679343124"><span id="local-6989586621679343125"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContentModeration"><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-var">GetContentModeration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContentModeration%27"><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration%27"><span class="hs-identifier hs-var">GetContentModeration'</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the previous response was incomplete (because there is more data to</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- retrieve), Amazon Rekognition returns a pagination token in the</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- response. You can use this pagination token to retrieve the next set of</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- content moderation labels.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AnextToken%3AGetContentModeration%27"><span class="annot"><span class="annottext">GetContentModeration -&gt; Maybe Text
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AnextToken%3AGetContentModeration%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | Maximum number of results to return per paginated call. The largest</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- value you can specify is 1000. If you specify a value greater than 1000,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- a maximum of 1000 results is returned. The default value is 1000.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetContentModeration%27"><span class="annot"><span class="annottext">GetContentModeration -&gt; Maybe Natural
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AmaxResults%3AGetContentModeration%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | Sort to use for elements in the @ModerationLabelDetections@ array. Use</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- @TIMESTAMP@ to sort array elements by the time labels are detected. Use</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- @NAME@ to alphabetically group elements for a label together. Within</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- each label group, the array element are sorted by detection confidence.</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- The default sort is by @TIMESTAMP@.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AsortBy%3AGetContentModeration%27"><span class="annot"><span class="annottext">GetContentModeration -&gt; Maybe ContentModerationSortBy
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AsortBy%3AGetContentModeration%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationSortBy.html#ContentModerationSortBy"><span class="hs-identifier hs-type">ContentModerationSortBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The identifier for the inappropriate, unwanted, or offensive content</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- moderation job. Use @JobId@ to identify the job in a subsequent call to</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- @GetContentModeration@.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AjobId%3AGetContentModeration%27"><span class="annot"><span class="annottext">GetContentModeration -&gt; Text
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AjobId%3AGetContentModeration%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343115"><span id="local-6989586621679343117"><span class="annot"><span class="annottext">GetContentModeration -&gt; GetContentModeration -&gt; Bool
+(GetContentModeration -&gt; GetContentModeration -&gt; Bool)
+-&gt; (GetContentModeration -&gt; GetContentModeration -&gt; Bool)
+-&gt; Eq GetContentModeration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetContentModeration -&gt; GetContentModeration -&gt; Bool
+$c/= :: GetContentModeration -&gt; GetContentModeration -&gt; Bool
+== :: GetContentModeration -&gt; GetContentModeration -&gt; Bool
+$c== :: GetContentModeration -&gt; GetContentModeration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343106"><span id="local-6989586621679343108"><span id="local-6989586621679343110"><span id="local-6989586621679343112"><span class="annot"><span class="annottext">ReadPrec [GetContentModeration]
+ReadPrec GetContentModeration
+Int -&gt; ReadS GetContentModeration
+ReadS [GetContentModeration]
+(Int -&gt; ReadS GetContentModeration)
+-&gt; ReadS [GetContentModeration]
+-&gt; ReadPrec GetContentModeration
+-&gt; ReadPrec [GetContentModeration]
+-&gt; Read GetContentModeration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetContentModeration]
+$creadListPrec :: ReadPrec [GetContentModeration]
+readPrec :: ReadPrec GetContentModeration
+$creadPrec :: ReadPrec GetContentModeration
+readList :: ReadS [GetContentModeration]
+$creadList :: ReadS [GetContentModeration]
+readsPrec :: Int -&gt; ReadS GetContentModeration
+$creadsPrec :: Int -&gt; ReadS GetContentModeration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343099"><span id="local-6989586621679343101"><span id="local-6989586621679343103"><span class="annot"><span class="annottext">Int -&gt; GetContentModeration -&gt; ShowS
+[GetContentModeration] -&gt; ShowS
+GetContentModeration -&gt; String
+(Int -&gt; GetContentModeration -&gt; ShowS)
+-&gt; (GetContentModeration -&gt; String)
+-&gt; ([GetContentModeration] -&gt; ShowS)
+-&gt; Show GetContentModeration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetContentModeration] -&gt; ShowS
+$cshowList :: [GetContentModeration] -&gt; ShowS
+show :: GetContentModeration -&gt; String
+$cshow :: GetContentModeration -&gt; String
+showsPrec :: Int -&gt; GetContentModeration -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetContentModeration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetContentModeration -&gt; Rep GetContentModeration x)
+-&gt; (forall x. Rep GetContentModeration x -&gt; GetContentModeration)
+-&gt; Generic GetContentModeration
+forall x. Rep GetContentModeration x -&gt; GetContentModeration
+forall x. GetContentModeration -&gt; Rep GetContentModeration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetContentModeration x -&gt; GetContentModeration
+$cfrom :: forall x. GetContentModeration -&gt; Rep GetContentModeration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Create a value of 'GetContentModeration' with all optional fields omitted.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'nextToken', 'getContentModeration_nextToken' - If the previous response was incomplete (because there is more data to</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- retrieve), Amazon Rekognition returns a pagination token in the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- response. You can use this pagination token to retrieve the next set of</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- content moderation labels.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'maxResults', 'getContentModeration_maxResults' - Maximum number of results to return per paginated call. The largest</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- value you can specify is 1000. If you specify a value greater than 1000,</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- a maximum of 1000 results is returned. The default value is 1000.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'sortBy', 'getContentModeration_sortBy' - Sort to use for elements in the @ModerationLabelDetections@ array. Use</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- @TIMESTAMP@ to sort array elements by the time labels are detected. Use</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- @NAME@ to alphabetically group elements for a label together. Within</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- each label group, the array element are sorted by detection confidence.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- The default sort is by @TIMESTAMP@.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'jobId', 'getContentModeration_jobId' - The identifier for the inappropriate, unwanted, or offensive content</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- moderation job. Use @JobId@ to identify the job in a subsequent call to</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- @GetContentModeration@.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#newGetContentModeration"><span class="hs-identifier hs-type">newGetContentModeration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span><span>
+</span><span id="line-149"></span><span id="newGetContentModeration"><span class="annot"><span class="annottext">newGetContentModeration :: Text -&gt; GetContentModeration
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#newGetContentModeration"><span class="hs-identifier hs-var hs-var">newGetContentModeration</span></a></span></span><span> </span><span id="local-6989586621679343094"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343094"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">GetContentModeration' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe ContentModerationSortBy
+-&gt; Text
+-&gt; GetContentModeration
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration%27"><span class="hs-identifier hs-type">GetContentModeration'</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetContentModeration' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AnextToken%3AGetContentModeration%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetContentModeration' :: Maybe Natural
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AmaxResults%3AGetContentModeration%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortBy:GetContentModeration' :: Maybe ContentModerationSortBy
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AsortBy%3AGetContentModeration%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentModerationSortBy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:GetContentModeration' :: Text
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AjobId%3AGetContentModeration%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343094"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | If the previous response was incomplete (because there is more data to</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- retrieve), Amazon Rekognition returns a pagination token in the</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- response. You can use this pagination token to retrieve the next set of</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- content moderation labels.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModeration_nextToken"><span class="hs-identifier hs-type">getContentModeration_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="getContentModeration_nextToken"><span class="annot"><span class="annottext">getContentModeration_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetContentModeration -&gt; f GetContentModeration
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModeration_nextToken"><span class="hs-identifier hs-var hs-var">getContentModeration_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContentModeration -&gt; Maybe Text)
+-&gt; (GetContentModeration -&gt; Maybe Text -&gt; GetContentModeration)
+-&gt; Lens
+     GetContentModeration GetContentModeration (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration%27"><span class="hs-identifier hs-type">GetContentModeration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343091"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetContentModeration' :: GetContentModeration -&gt; Maybe Text
+</span><a href="#local-6989586621679343091"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343091"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343090"><span class="annot"><span class="annottext">s :: GetContentModeration
+</span><a href="#local-6989586621679343090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration%27"><span class="hs-identifier hs-type">GetContentModeration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343089"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContentModeration
+</span><a href="#local-6989586621679343090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetContentModeration' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AnextToken%3AGetContentModeration%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | Maximum number of results to return per paginated call. The largest</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- value you can specify is 1000. If you specify a value greater than 1000,</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- a maximum of 1000 results is returned. The default value is 1000.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModeration_maxResults"><span class="hs-identifier hs-type">getContentModeration_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="getContentModeration_maxResults"><span class="annot"><span class="annottext">getContentModeration_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetContentModeration -&gt; f GetContentModeration
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModeration_maxResults"><span class="hs-identifier hs-var hs-var">getContentModeration_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContentModeration -&gt; Maybe Natural)
+-&gt; (GetContentModeration -&gt; Maybe Natural -&gt; GetContentModeration)
+-&gt; Lens
+     GetContentModeration
+     GetContentModeration
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration%27"><span class="hs-identifier hs-type">GetContentModeration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343088"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetContentModeration' :: GetContentModeration -&gt; Maybe Natural
+</span><a href="#local-6989586621679343088"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679343088"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343087"><span class="annot"><span class="annottext">s :: GetContentModeration
+</span><a href="#local-6989586621679343087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration%27"><span class="hs-identifier hs-type">GetContentModeration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343086"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679343086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContentModeration
+</span><a href="#local-6989586621679343087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetContentModeration' :: Maybe Natural
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AmaxResults%3AGetContentModeration%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679343086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | Sort to use for elements in the @ModerationLabelDetections@ array. Use</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- @TIMESTAMP@ to sort array elements by the time labels are detected. Use</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- @NAME@ to alphabetically group elements for a label together. Within</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- each label group, the array element are sorted by detection confidence.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- The default sort is by @TIMESTAMP@.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModeration_sortBy"><span class="hs-identifier hs-type">getContentModeration_sortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationSortBy.html#ContentModerationSortBy"><span class="hs-identifier hs-type">ContentModerationSortBy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="getContentModeration_sortBy"><span class="annot"><span class="annottext">getContentModeration_sortBy :: (Maybe ContentModerationSortBy
+ -&gt; f (Maybe ContentModerationSortBy))
+-&gt; GetContentModeration -&gt; f GetContentModeration
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModeration_sortBy"><span class="hs-identifier hs-var hs-var">getContentModeration_sortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContentModeration -&gt; Maybe ContentModerationSortBy)
+-&gt; (GetContentModeration
+    -&gt; Maybe ContentModerationSortBy -&gt; GetContentModeration)
+-&gt; Lens
+     GetContentModeration
+     GetContentModeration
+     (Maybe ContentModerationSortBy)
+     (Maybe ContentModerationSortBy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration%27"><span class="hs-identifier hs-type">GetContentModeration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343085"><span class="annot"><span class="annottext">Maybe ContentModerationSortBy
+sortBy :: Maybe ContentModerationSortBy
+$sel:sortBy:GetContentModeration' :: GetContentModeration -&gt; Maybe ContentModerationSortBy
+</span><a href="#local-6989586621679343085"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContentModerationSortBy
+</span><a href="#local-6989586621679343085"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343084"><span class="annot"><span class="annottext">s :: GetContentModeration
+</span><a href="#local-6989586621679343084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration%27"><span class="hs-identifier hs-type">GetContentModeration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343083"><span class="annot"><span class="annottext">Maybe ContentModerationSortBy
+</span><a href="#local-6989586621679343083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContentModeration
+</span><a href="#local-6989586621679343084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:GetContentModeration' :: Maybe ContentModerationSortBy
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AsortBy%3AGetContentModeration%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentModerationSortBy
+</span><a href="#local-6989586621679343083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The identifier for the inappropriate, unwanted, or offensive content</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- moderation job. Use @JobId@ to identify the job in a subsequent call to</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- @GetContentModeration@.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModeration_jobId"><span class="hs-identifier hs-type">getContentModeration_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-182"></span><span id="getContentModeration_jobId"><span class="annot"><span class="annottext">getContentModeration_jobId :: (Text -&gt; f Text) -&gt; GetContentModeration -&gt; f GetContentModeration
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModeration_jobId"><span class="hs-identifier hs-var hs-var">getContentModeration_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContentModeration -&gt; Text)
+-&gt; (GetContentModeration -&gt; Text -&gt; GetContentModeration)
+-&gt; Lens GetContentModeration GetContentModeration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration%27"><span class="hs-identifier hs-type">GetContentModeration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343082"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:GetContentModeration' :: GetContentModeration -&gt; Text
+</span><a href="#local-6989586621679343082"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343082"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343081"><span class="annot"><span class="annottext">s :: GetContentModeration
+</span><a href="#local-6989586621679343081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration%27"><span class="hs-identifier hs-type">GetContentModeration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343080"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContentModeration
+</span><a href="#local-6989586621679343081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetContentModeration' :: Text
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AjobId%3AGetContentModeration%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-186"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679343076"><span class="annot"><span class="annottext">request :: GetContentModeration -&gt; Request GetContentModeration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetContentModeration -&gt; Request GetContentModeration
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679343072"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetContentModeration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetContentModeration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetContentModeration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetContentModeration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetContentModeration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679343069"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343069"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679343068"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679343068"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679343067"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343067"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe VideoMetadata
+-&gt; Maybe Text
+-&gt; Maybe VideoJobStatus
+-&gt; Maybe [ContentModerationDetection]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetContentModerationResponse
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-var">GetContentModerationResponse'</span></a></span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe VideoMetadata
+ -&gt; Maybe Text
+ -&gt; Maybe VideoJobStatus
+ -&gt; Maybe [ContentModerationDetection]
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; GetContentModerationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe VideoMetadata
+      -&gt; Maybe Text
+      -&gt; Maybe VideoJobStatus
+      -&gt; Maybe [ContentModerationDetection]
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetContentModerationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe VideoMetadata
+   -&gt; Maybe Text
+   -&gt; Maybe VideoJobStatus
+   -&gt; Maybe [ContentModerationDetection]
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetContentModerationResponse)
+-&gt; Either String (Maybe VideoMetadata)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe VideoJobStatus
+      -&gt; Maybe [ContentModerationDetection]
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetContentModerationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VideoMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VideoMetadata&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe VideoJobStatus
+   -&gt; Maybe [ContentModerationDetection]
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetContentModerationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe VideoJobStatus
+      -&gt; Maybe [ContentModerationDetection]
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetContentModerationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe VideoJobStatus
+   -&gt; Maybe [ContentModerationDetection]
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetContentModerationResponse)
+-&gt; Either String (Maybe VideoJobStatus)
+-&gt; Either
+     String
+     (Maybe [ContentModerationDetection]
+      -&gt; Maybe Text -&gt; Int -&gt; GetContentModerationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VideoJobStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ContentModerationDetection]
+   -&gt; Maybe Text -&gt; Int -&gt; GetContentModerationResponse)
+-&gt; Either String (Maybe [ContentModerationDetection])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; GetContentModerationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [ContentModerationDetection]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModerationLabels&quot;</span></span><span>
+</span><span id="line-198"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ContentModerationDetection]))
+-&gt; Maybe [ContentModerationDetection]
+-&gt; Either String (Maybe [ContentModerationDetection])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ContentModerationDetection]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-199"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetContentModerationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetContentModerationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModerationModelVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetContentModerationResponse)
+-&gt; Either String Int -&gt; Either String GetContentModerationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343069"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343058"><span id="local-6989586621679343060"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span></span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343055"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679343051"><span class="annot"><span class="annottext">toHeaders :: GetContentModeration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetContentModeration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-212"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RekognitionService.GetContentModeration&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-214"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-215"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-218"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-219"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343041"><span id="local-6989586621679343043"><span id="local-6989586621679343045"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679343039"><span class="annot"><span class="annottext">toJSON :: GetContentModeration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration%27"><span class="hs-identifier hs-type">GetContentModeration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343034"><span id="local-6989586621679343035"><span id="local-6989586621679343036"><span id="local-6989586621679343037"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe ContentModerationSortBy
+Text
+jobId :: Text
+sortBy :: Maybe ContentModerationSortBy
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:jobId:GetContentModeration' :: GetContentModeration -&gt; Text
+$sel:sortBy:GetContentModeration' :: GetContentModeration -&gt; Maybe ContentModerationSortBy
+$sel:maxResults:GetContentModeration' :: GetContentModeration -&gt; Maybe Natural
+$sel:nextToken:GetContentModeration' :: GetContentModeration -&gt; Maybe Text
+</span><a href="#local-6989586621679343034"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-227"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343037"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679343036"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContentModerationSortBy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ContentModerationSortBy -&gt; Pair)
+-&gt; Maybe ContentModerationSortBy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContentModerationSortBy
+</span><a href="#local-6989586621679343035"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343034"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-232"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679343028"><span class="annot"><span class="annottext">toPath :: GetContentModeration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetContentModeration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModeration"><span class="hs-identifier hs-type">GetContentModeration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679343024"><span class="annot"><span class="annottext">toQuery :: GetContentModeration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetContentModeration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | /See:/ 'newGetContentModerationResponse' smart constructor.</span><span>
+</span><span id="line-241"></span><span id="local-6989586621679343021"><span id="local-6989586621679343022"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContentModerationResponse"><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-var">GetContentModerationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContentModerationResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-var">GetContentModerationResponse'</span></a></span></span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the job fails, @StatusMessage@ provides a descriptive error message.</span><span>
+</span><span id="line-243"></span><span>    </span><span id="%24sel%3AstatusMessage%3AGetContentModerationResponse%27"><span class="annot"><span class="annottext">GetContentModerationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AstatusMessage%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-comment">-- | Information about a video that Amazon Rekognition analyzed.</span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-comment">-- @Videometadata@ is returned in every page of paginated responses from</span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-comment">-- @GetContentModeration@.</span><span>
+</span><span id="line-247"></span><span>    </span><span id="%24sel%3AvideoMetadata%3AGetContentModerationResponse%27"><span class="annot"><span class="annottext">GetContentModerationResponse -&gt; Maybe VideoMetadata
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AvideoMetadata%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var hs-var">videoMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoMetadata.html#VideoMetadata"><span class="hs-identifier hs-type">VideoMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-comment">-- | If the response is truncated, Amazon Rekognition Video returns this</span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-comment">-- token that you can use in the subsequent request to retrieve the next</span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-comment">-- set of content moderation labels.</span><span>
+</span><span id="line-251"></span><span>    </span><span id="%24sel%3AnextToken%3AGetContentModerationResponse%27"><span class="annot"><span class="annottext">GetContentModerationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AnextToken%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-comment">-- | The current status of the content moderation analysis job.</span><span>
+</span><span id="line-253"></span><span>    </span><span id="%24sel%3AjobStatus%3AGetContentModerationResponse%27"><span class="annot"><span class="annottext">GetContentModerationResponse -&gt; Maybe VideoJobStatus
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AjobStatus%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoJobStatus.html#VideoJobStatus"><span class="hs-identifier hs-type">VideoJobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- | The detected inappropriate, unwanted, or offensive content moderation</span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-comment">-- labels and the time(s) they were detected.</span><span>
+</span><span id="line-256"></span><span>    </span><span id="%24sel%3AmoderationLabels%3AGetContentModerationResponse%27"><span class="annot"><span class="annottext">GetContentModerationResponse -&gt; Maybe [ContentModerationDetection]
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AmoderationLabels%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var hs-var">moderationLabels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-comment">-- | Version number of the moderation detection model that was used to detect</span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-comment">-- inappropriate, unwanted, or offensive content.</span><span>
+</span><span id="line-259"></span><span>    </span><span id="%24sel%3AmoderationModelVersion%3AGetContentModerationResponse%27"><span class="annot"><span class="annottext">GetContentModerationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AmoderationModelVersion%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var hs-var">moderationModelVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-261"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetContentModerationResponse%27"><span class="annot"><span class="annottext">GetContentModerationResponse -&gt; Int
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AhttpStatus%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-262"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-263"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343010"><span id="local-6989586621679343012"><span class="annot"><span class="annottext">GetContentModerationResponse
+-&gt; GetContentModerationResponse -&gt; Bool
+(GetContentModerationResponse
+ -&gt; GetContentModerationResponse -&gt; Bool)
+-&gt; (GetContentModerationResponse
+    -&gt; GetContentModerationResponse -&gt; Bool)
+-&gt; Eq GetContentModerationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetContentModerationResponse
+-&gt; GetContentModerationResponse -&gt; Bool
+$c/= :: GetContentModerationResponse
+-&gt; GetContentModerationResponse -&gt; Bool
+== :: GetContentModerationResponse
+-&gt; GetContentModerationResponse -&gt; Bool
+$c== :: GetContentModerationResponse
+-&gt; GetContentModerationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343002"><span id="local-6989586621679343004"><span id="local-6989586621679343006"><span id="local-6989586621679343008"><span class="annot"><span class="annottext">ReadPrec [GetContentModerationResponse]
+ReadPrec GetContentModerationResponse
+Int -&gt; ReadS GetContentModerationResponse
+ReadS [GetContentModerationResponse]
+(Int -&gt; ReadS GetContentModerationResponse)
+-&gt; ReadS [GetContentModerationResponse]
+-&gt; ReadPrec GetContentModerationResponse
+-&gt; ReadPrec [GetContentModerationResponse]
+-&gt; Read GetContentModerationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetContentModerationResponse]
+$creadListPrec :: ReadPrec [GetContentModerationResponse]
+readPrec :: ReadPrec GetContentModerationResponse
+$creadPrec :: ReadPrec GetContentModerationResponse
+readList :: ReadS [GetContentModerationResponse]
+$creadList :: ReadS [GetContentModerationResponse]
+readsPrec :: Int -&gt; ReadS GetContentModerationResponse
+$creadsPrec :: Int -&gt; ReadS GetContentModerationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342996"><span id="local-6989586621679342998"><span id="local-6989586621679343000"><span class="annot"><span class="annottext">Int -&gt; GetContentModerationResponse -&gt; ShowS
+[GetContentModerationResponse] -&gt; ShowS
+GetContentModerationResponse -&gt; String
+(Int -&gt; GetContentModerationResponse -&gt; ShowS)
+-&gt; (GetContentModerationResponse -&gt; String)
+-&gt; ([GetContentModerationResponse] -&gt; ShowS)
+-&gt; Show GetContentModerationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetContentModerationResponse] -&gt; ShowS
+$cshowList :: [GetContentModerationResponse] -&gt; ShowS
+show :: GetContentModerationResponse -&gt; String
+$cshow :: GetContentModerationResponse -&gt; String
+showsPrec :: Int -&gt; GetContentModerationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetContentModerationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetContentModerationResponse -&gt; Rep GetContentModerationResponse x)
+-&gt; (forall x.
+    Rep GetContentModerationResponse x -&gt; GetContentModerationResponse)
+-&gt; Generic GetContentModerationResponse
+forall x.
+Rep GetContentModerationResponse x -&gt; GetContentModerationResponse
+forall x.
+GetContentModerationResponse -&gt; Rep GetContentModerationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetContentModerationResponse x -&gt; GetContentModerationResponse
+$cfrom :: forall x.
+GetContentModerationResponse -&gt; Rep GetContentModerationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- Create a value of 'GetContentModerationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- 'statusMessage', 'getContentModerationResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- 'videoMetadata', 'getContentModerationResponse_videoMetadata' - Information about a video that Amazon Rekognition analyzed.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- @Videometadata@ is returned in every page of paginated responses from</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- @GetContentModeration@.</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- 'nextToken', 'getContentModerationResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- token that you can use in the subsequent request to retrieve the next</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- set of content moderation labels.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- 'jobStatus', 'getContentModerationResponse_jobStatus' - The current status of the content moderation analysis job.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- 'moderationLabels', 'getContentModerationResponse_moderationLabels' - The detected inappropriate, unwanted, or offensive content moderation</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- labels and the time(s) they were detected.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- 'moderationModelVersion', 'getContentModerationResponse_moderationModelVersion' - Version number of the moderation detection model that was used to detect</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- inappropriate, unwanted, or offensive content.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- 'httpStatus', 'getContentModerationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-292"></span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#newGetContentModerationResponse"><span class="hs-identifier hs-type">newGetContentModerationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-293"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-294"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-295"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span><span>
+</span><span id="line-296"></span><span id="newGetContentModerationResponse"><span class="annot"><span class="annottext">newGetContentModerationResponse :: Int -&gt; GetContentModerationResponse
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#newGetContentModerationResponse"><span class="hs-identifier hs-var hs-var">newGetContentModerationResponse</span></a></span></span><span> </span><span id="local-6989586621679342993"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342993"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-297"></span><span>  </span><span class="annot"><span class="annottext">GetContentModerationResponse' :: Maybe Text
+-&gt; Maybe VideoMetadata
+-&gt; Maybe Text
+-&gt; Maybe VideoJobStatus
+-&gt; Maybe [ContentModerationDetection]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetContentModerationResponse
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-type">GetContentModerationResponse'</span></a></span><span>
+</span><span id="line-298"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statusMessage:GetContentModerationResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AstatusMessage%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-299"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>      </span><span class="annot"><span class="annottext">$sel:videoMetadata:GetContentModerationResponse' :: Maybe VideoMetadata
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AvideoMetadata%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var">videoMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetContentModerationResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AnextToken%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobStatus:GetContentModerationResponse' :: Maybe VideoJobStatus
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AjobStatus%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoJobStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>      </span><span class="annot"><span class="annottext">$sel:moderationLabels:GetContentModerationResponse' :: Maybe [ContentModerationDetection]
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AmoderationLabels%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var">moderationLabels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContentModerationDetection]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>      </span><span class="annot"><span class="annottext">$sel:moderationModelVersion:GetContentModerationResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AmoderationModelVersion%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var">moderationModelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetContentModerationResponse' :: Int
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AhttpStatus%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342993"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-306"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- | If the job fails, @StatusMessage@ provides a descriptive error message.</span><span>
+</span><span id="line-309"></span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_statusMessage"><span class="hs-identifier hs-type">getContentModerationResponse_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span id="getContentModerationResponse_statusMessage"><span class="annot"><span class="annottext">getContentModerationResponse_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetContentModerationResponse -&gt; f GetContentModerationResponse
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_statusMessage"><span class="hs-identifier hs-var hs-var">getContentModerationResponse_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContentModerationResponse -&gt; Maybe Text)
+-&gt; (GetContentModerationResponse
+    -&gt; Maybe Text -&gt; GetContentModerationResponse)
+-&gt; Lens
+     GetContentModerationResponse
+     GetContentModerationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-type">GetContentModerationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342992"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:GetContentModerationResponse' :: GetContentModerationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679342992"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342992"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342991"><span class="annot"><span class="annottext">s :: GetContentModerationResponse
+</span><a href="#local-6989586621679342991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-type">GetContentModerationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342990"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContentModerationResponse
+</span><a href="#local-6989586621679342991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:GetContentModerationResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AstatusMessage%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- | Information about a video that Amazon Rekognition analyzed.</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- @Videometadata@ is returned in every page of paginated responses from</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- @GetContentModeration@.</span><span>
+</span><span id="line-315"></span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_videoMetadata"><span class="hs-identifier hs-type">getContentModerationResponse_videoMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoMetadata.html#VideoMetadata"><span class="hs-identifier hs-type">VideoMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span id="getContentModerationResponse_videoMetadata"><span class="annot"><span class="annottext">getContentModerationResponse_videoMetadata :: (Maybe VideoMetadata -&gt; f (Maybe VideoMetadata))
+-&gt; GetContentModerationResponse -&gt; f GetContentModerationResponse
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_videoMetadata"><span class="hs-identifier hs-var hs-var">getContentModerationResponse_videoMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContentModerationResponse -&gt; Maybe VideoMetadata)
+-&gt; (GetContentModerationResponse
+    -&gt; Maybe VideoMetadata -&gt; GetContentModerationResponse)
+-&gt; Lens
+     GetContentModerationResponse
+     GetContentModerationResponse
+     (Maybe VideoMetadata)
+     (Maybe VideoMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-type">GetContentModerationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342989"><span class="annot"><span class="annottext">Maybe VideoMetadata
+videoMetadata :: Maybe VideoMetadata
+$sel:videoMetadata:GetContentModerationResponse' :: GetContentModerationResponse -&gt; Maybe VideoMetadata
+</span><a href="#local-6989586621679342989"><span class="hs-identifier hs-var hs-var">videoMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoMetadata
+</span><a href="#local-6989586621679342989"><span class="hs-identifier hs-var">videoMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342988"><span class="annot"><span class="annottext">s :: GetContentModerationResponse
+</span><a href="#local-6989586621679342988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-type">GetContentModerationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342987"><span class="annot"><span class="annottext">Maybe VideoMetadata
+</span><a href="#local-6989586621679342987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContentModerationResponse
+</span><a href="#local-6989586621679342988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoMetadata:GetContentModerationResponse' :: Maybe VideoMetadata
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AvideoMetadata%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var">videoMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoMetadata
+</span><a href="#local-6989586621679342987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- | If the response is truncated, Amazon Rekognition Video returns this</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- token that you can use in the subsequent request to retrieve the next</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- set of content moderation labels.</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_nextToken"><span class="hs-identifier hs-type">getContentModerationResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span id="getContentModerationResponse_nextToken"><span class="annot"><span class="annottext">getContentModerationResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetContentModerationResponse -&gt; f GetContentModerationResponse
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_nextToken"><span class="hs-identifier hs-var hs-var">getContentModerationResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContentModerationResponse -&gt; Maybe Text)
+-&gt; (GetContentModerationResponse
+    -&gt; Maybe Text -&gt; GetContentModerationResponse)
+-&gt; Lens
+     GetContentModerationResponse
+     GetContentModerationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-type">GetContentModerationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342986"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetContentModerationResponse' :: GetContentModerationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679342986"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342986"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342985"><span class="annot"><span class="annottext">s :: GetContentModerationResponse
+</span><a href="#local-6989586621679342985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-type">GetContentModerationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342984"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContentModerationResponse
+</span><a href="#local-6989586621679342985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetContentModerationResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AnextToken%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- | The current status of the content moderation analysis job.</span><span>
+</span><span id="line-325"></span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_jobStatus"><span class="hs-identifier hs-type">getContentModerationResponse_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoJobStatus.html#VideoJobStatus"><span class="hs-identifier hs-type">VideoJobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span id="getContentModerationResponse_jobStatus"><span class="annot"><span class="annottext">getContentModerationResponse_jobStatus :: (Maybe VideoJobStatus -&gt; f (Maybe VideoJobStatus))
+-&gt; GetContentModerationResponse -&gt; f GetContentModerationResponse
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_jobStatus"><span class="hs-identifier hs-var hs-var">getContentModerationResponse_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContentModerationResponse -&gt; Maybe VideoJobStatus)
+-&gt; (GetContentModerationResponse
+    -&gt; Maybe VideoJobStatus -&gt; GetContentModerationResponse)
+-&gt; Lens
+     GetContentModerationResponse
+     GetContentModerationResponse
+     (Maybe VideoJobStatus)
+     (Maybe VideoJobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-type">GetContentModerationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342983"><span class="annot"><span class="annottext">Maybe VideoJobStatus
+jobStatus :: Maybe VideoJobStatus
+$sel:jobStatus:GetContentModerationResponse' :: GetContentModerationResponse -&gt; Maybe VideoJobStatus
+</span><a href="#local-6989586621679342983"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoJobStatus
+</span><a href="#local-6989586621679342983"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342982"><span class="annot"><span class="annottext">s :: GetContentModerationResponse
+</span><a href="#local-6989586621679342982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-type">GetContentModerationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342981"><span class="annot"><span class="annottext">Maybe VideoJobStatus
+</span><a href="#local-6989586621679342981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContentModerationResponse
+</span><a href="#local-6989586621679342982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:GetContentModerationResponse' :: Maybe VideoJobStatus
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AjobStatus%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoJobStatus
+</span><a href="#local-6989586621679342981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- | The detected inappropriate, unwanted, or offensive content moderation</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- labels and the time(s) they were detected.</span><span>
+</span><span id="line-330"></span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_moderationLabels"><span class="hs-identifier hs-type">getContentModerationResponse_moderationLabels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span id="getContentModerationResponse_moderationLabels"><span class="annot"><span class="annottext">getContentModerationResponse_moderationLabels :: (Maybe [ContentModerationDetection]
+ -&gt; f (Maybe [ContentModerationDetection]))
+-&gt; GetContentModerationResponse -&gt; f GetContentModerationResponse
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_moderationLabels"><span class="hs-identifier hs-var hs-var">getContentModerationResponse_moderationLabels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContentModerationResponse
+ -&gt; Maybe [ContentModerationDetection])
+-&gt; (GetContentModerationResponse
+    -&gt; Maybe [ContentModerationDetection]
+    -&gt; GetContentModerationResponse)
+-&gt; Lens
+     GetContentModerationResponse
+     GetContentModerationResponse
+     (Maybe [ContentModerationDetection])
+     (Maybe [ContentModerationDetection])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-type">GetContentModerationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342980"><span class="annot"><span class="annottext">Maybe [ContentModerationDetection]
+moderationLabels :: Maybe [ContentModerationDetection]
+$sel:moderationLabels:GetContentModerationResponse' :: GetContentModerationResponse -&gt; Maybe [ContentModerationDetection]
+</span><a href="#local-6989586621679342980"><span class="hs-identifier hs-var hs-var">moderationLabels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContentModerationDetection]
+</span><a href="#local-6989586621679342980"><span class="hs-identifier hs-var">moderationLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342979"><span class="annot"><span class="annottext">s :: GetContentModerationResponse
+</span><a href="#local-6989586621679342979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-type">GetContentModerationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342978"><span class="annot"><span class="annottext">Maybe [ContentModerationDetection]
+</span><a href="#local-6989586621679342978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContentModerationResponse
+</span><a href="#local-6989586621679342979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:moderationLabels:GetContentModerationResponse' :: Maybe [ContentModerationDetection]
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AmoderationLabels%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var">moderationLabels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContentModerationDetection]
+</span><a href="#local-6989586621679342978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContentModerationDetection]
+  -&gt; f (Maybe [ContentModerationDetection]))
+ -&gt; GetContentModerationResponse -&gt; f GetContentModerationResponse)
+-&gt; ((Maybe [ContentModerationDetection]
+     -&gt; f (Maybe [ContentModerationDetection]))
+    -&gt; Maybe [ContentModerationDetection]
+    -&gt; f (Maybe [ContentModerationDetection]))
+-&gt; (Maybe [ContentModerationDetection]
+    -&gt; f (Maybe [ContentModerationDetection]))
+-&gt; GetContentModerationResponse
+-&gt; f GetContentModerationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ContentModerationDetection]
+  [ContentModerationDetection]
+  [ContentModerationDetection]
+  [ContentModerationDetection]
+-&gt; Iso
+     (Maybe [ContentModerationDetection])
+     (Maybe [ContentModerationDetection])
+     (Maybe [ContentModerationDetection])
+     (Maybe [ContentModerationDetection])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ContentModerationDetection]
+  [ContentModerationDetection]
+  [ContentModerationDetection]
+  [ContentModerationDetection]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-332"></span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- | Version number of the moderation detection model that was used to detect</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- inappropriate, unwanted, or offensive content.</span><span>
+</span><span id="line-335"></span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_moderationModelVersion"><span class="hs-identifier hs-type">getContentModerationResponse_moderationModelVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span id="getContentModerationResponse_moderationModelVersion"><span class="annot"><span class="annottext">getContentModerationResponse_moderationModelVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetContentModerationResponse -&gt; f GetContentModerationResponse
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_moderationModelVersion"><span class="hs-identifier hs-var hs-var">getContentModerationResponse_moderationModelVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContentModerationResponse -&gt; Maybe Text)
+-&gt; (GetContentModerationResponse
+    -&gt; Maybe Text -&gt; GetContentModerationResponse)
+-&gt; Lens
+     GetContentModerationResponse
+     GetContentModerationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-type">GetContentModerationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342974"><span class="annot"><span class="annottext">Maybe Text
+moderationModelVersion :: Maybe Text
+$sel:moderationModelVersion:GetContentModerationResponse' :: GetContentModerationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679342974"><span class="hs-identifier hs-var hs-var">moderationModelVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342974"><span class="hs-identifier hs-var">moderationModelVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342973"><span class="annot"><span class="annottext">s :: GetContentModerationResponse
+</span><a href="#local-6989586621679342973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-type">GetContentModerationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342972"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContentModerationResponse
+</span><a href="#local-6989586621679342973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:moderationModelVersion:GetContentModerationResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AmoderationModelVersion%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var">moderationModelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-339"></span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_httpStatus"><span class="hs-identifier hs-type">getContentModerationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-340"></span><span id="getContentModerationResponse_httpStatus"><span class="annot"><span class="annottext">getContentModerationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetContentModerationResponse -&gt; f GetContentModerationResponse
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#getContentModerationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getContentModerationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContentModerationResponse -&gt; Int)
+-&gt; (GetContentModerationResponse
+    -&gt; Int -&gt; GetContentModerationResponse)
+-&gt; Lens
+     GetContentModerationResponse GetContentModerationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-type">GetContentModerationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342971"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetContentModerationResponse' :: GetContentModerationResponse -&gt; Int
+</span><a href="#local-6989586621679342971"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342971"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342970"><span class="annot"><span class="annottext">s :: GetContentModerationResponse
+</span><a href="#local-6989586621679342970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse%27"><span class="hs-identifier hs-type">GetContentModerationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342969"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContentModerationResponse
+</span><a href="#local-6989586621679342970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetContentModerationResponse' :: Int
+</span><a href="Network.AWS.Rekognition.GetContentModeration.html#%24sel%3AhttpStatus%3AGetContentModerationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>
+</span><span id="line-342"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342967"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetContentModeration.html#GetContentModerationResponse"><span class="hs-identifier hs-type">GetContentModerationResponse</span></a></span></span><span>
+</span><span id="line-343"></span></pre></body></html>

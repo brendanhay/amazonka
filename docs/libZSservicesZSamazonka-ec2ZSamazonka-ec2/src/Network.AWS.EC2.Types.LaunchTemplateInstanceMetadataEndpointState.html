@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#LaunchTemplateInstanceMetadataEndpointState"><span class="hs-identifier">LaunchTemplateInstanceMetadataEndpointState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#LaunchTemplateInstanceMetadataEndpointState_Disabled"><span class="hs-identifier">LaunchTemplateInstanceMetadataEndpointState_Disabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#LaunchTemplateInstanceMetadataEndpointState_Enabled"><span class="hs-identifier">LaunchTemplateInstanceMetadataEndpointState_Enabled</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681089370"><span id="local-6989586621681089371"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LaunchTemplateInstanceMetadataEndpointState"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#LaunchTemplateInstanceMetadataEndpointState"><span class="hs-identifier hs-var">LaunchTemplateInstanceMetadataEndpointState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateInstanceMetadataEndpointState%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#LaunchTemplateInstanceMetadataEndpointState%27"><span class="hs-identifier hs-var">LaunchTemplateInstanceMetadataEndpointState'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLaunchTemplateInstanceMetadataEndpointState"><span class="annot"><span class="annottext">LaunchTemplateInstanceMetadataEndpointState -&gt; Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#fromLaunchTemplateInstanceMetadataEndpointState"><span class="hs-identifier hs-var hs-var">fromLaunchTemplateInstanceMetadataEndpointState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089362"><span id="local-6989586621681089364"><span id="local-6989586621681089366"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; ShowS
+[LaunchTemplateInstanceMetadataEndpointState] -&gt; ShowS
+LaunchTemplateInstanceMetadataEndpointState -&gt; String
+(Int -&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; ShowS)
+-&gt; (LaunchTemplateInstanceMetadataEndpointState -&gt; String)
+-&gt; ([LaunchTemplateInstanceMetadataEndpointState] -&gt; ShowS)
+-&gt; Show LaunchTemplateInstanceMetadataEndpointState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LaunchTemplateInstanceMetadataEndpointState] -&gt; ShowS
+$cshowList :: [LaunchTemplateInstanceMetadataEndpointState] -&gt; ShowS
+show :: LaunchTemplateInstanceMetadataEndpointState -&gt; String
+$cshow :: LaunchTemplateInstanceMetadataEndpointState -&gt; String
+showsPrec :: Int -&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; ShowS
+$cshowsPrec :: Int -&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681089353"><span id="local-6989586621681089355"><span id="local-6989586621681089357"><span id="local-6989586621681089359"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateInstanceMetadataEndpointState]
+ReadPrec LaunchTemplateInstanceMetadataEndpointState
+Int -&gt; ReadS LaunchTemplateInstanceMetadataEndpointState
+ReadS [LaunchTemplateInstanceMetadataEndpointState]
+(Int -&gt; ReadS LaunchTemplateInstanceMetadataEndpointState)
+-&gt; ReadS [LaunchTemplateInstanceMetadataEndpointState]
+-&gt; ReadPrec LaunchTemplateInstanceMetadataEndpointState
+-&gt; ReadPrec [LaunchTemplateInstanceMetadataEndpointState]
+-&gt; Read LaunchTemplateInstanceMetadataEndpointState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LaunchTemplateInstanceMetadataEndpointState]
+$creadListPrec :: ReadPrec [LaunchTemplateInstanceMetadataEndpointState]
+readPrec :: ReadPrec LaunchTemplateInstanceMetadataEndpointState
+$creadPrec :: ReadPrec LaunchTemplateInstanceMetadataEndpointState
+readList :: ReadS [LaunchTemplateInstanceMetadataEndpointState]
+$creadList :: ReadS [LaunchTemplateInstanceMetadataEndpointState]
+readsPrec :: Int -&gt; ReadS LaunchTemplateInstanceMetadataEndpointState
+$creadsPrec :: Int -&gt; ReadS LaunchTemplateInstanceMetadataEndpointState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681089348"><span id="local-6989586621681089350"><span class="annot"><span class="annottext">LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool
+(LaunchTemplateInstanceMetadataEndpointState
+ -&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool)
+-&gt; (LaunchTemplateInstanceMetadataEndpointState
+    -&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool)
+-&gt; Eq LaunchTemplateInstanceMetadataEndpointState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool
+$c/= :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool
+== :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool
+$c== :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681089332"><span id="local-6989586621681089334"><span id="local-6989586621681089336"><span id="local-6989586621681089338"><span id="local-6989586621681089340"><span id="local-6989586621681089342"><span id="local-6989586621681089344"><span class="annot"><span class="annottext">Eq LaunchTemplateInstanceMetadataEndpointState
+Eq LaunchTemplateInstanceMetadataEndpointState
+-&gt; (LaunchTemplateInstanceMetadataEndpointState
+    -&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Ordering)
+-&gt; (LaunchTemplateInstanceMetadataEndpointState
+    -&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool)
+-&gt; (LaunchTemplateInstanceMetadataEndpointState
+    -&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool)
+-&gt; (LaunchTemplateInstanceMetadataEndpointState
+    -&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool)
+-&gt; (LaunchTemplateInstanceMetadataEndpointState
+    -&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool)
+-&gt; (LaunchTemplateInstanceMetadataEndpointState
+    -&gt; LaunchTemplateInstanceMetadataEndpointState
+    -&gt; LaunchTemplateInstanceMetadataEndpointState)
+-&gt; (LaunchTemplateInstanceMetadataEndpointState
+    -&gt; LaunchTemplateInstanceMetadataEndpointState
+    -&gt; LaunchTemplateInstanceMetadataEndpointState)
+-&gt; Ord LaunchTemplateInstanceMetadataEndpointState
+LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool
+LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Ordering
+LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState
+$cmin :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState
+max :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState
+$cmax :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState
+&gt;= :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool
+$c&gt;= :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool
+&gt; :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool
+$c&gt; :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool
+&lt;= :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool
+$c&lt;= :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool
+&lt; :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool
+$c&lt; :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Bool
+compare :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Ordering
+$ccompare :: LaunchTemplateInstanceMetadataEndpointState
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Ordering
+$cp1Ord :: Eq LaunchTemplateInstanceMetadataEndpointState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ LaunchTemplateInstanceMetadataEndpointState
+ -&gt; Rep LaunchTemplateInstanceMetadataEndpointState x)
+-&gt; (forall x.
+    Rep LaunchTemplateInstanceMetadataEndpointState x
+    -&gt; LaunchTemplateInstanceMetadataEndpointState)
+-&gt; Generic LaunchTemplateInstanceMetadataEndpointState
+forall x.
+Rep LaunchTemplateInstanceMetadataEndpointState x
+-&gt; LaunchTemplateInstanceMetadataEndpointState
+forall x.
+LaunchTemplateInstanceMetadataEndpointState
+-&gt; Rep LaunchTemplateInstanceMetadataEndpointState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep LaunchTemplateInstanceMetadataEndpointState x
+-&gt; LaunchTemplateInstanceMetadataEndpointState
+$cfrom :: forall x.
+LaunchTemplateInstanceMetadataEndpointState
+-&gt; Rep LaunchTemplateInstanceMetadataEndpointState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089324"><span id="local-6989586621681089326"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Int
+LaunchTemplateInstanceMetadataEndpointState -&gt; Int
+(Int -&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Int)
+-&gt; (LaunchTemplateInstanceMetadataEndpointState -&gt; Int)
+-&gt; Hashable LaunchTemplateInstanceMetadataEndpointState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LaunchTemplateInstanceMetadataEndpointState -&gt; Int
+$chash :: LaunchTemplateInstanceMetadataEndpointState -&gt; Int
+hashWithSalt :: Int -&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Int
+$chashWithSalt :: Int -&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681089321"><span class="annot"><span class="annottext">LaunchTemplateInstanceMetadataEndpointState -&gt; ()
+(LaunchTemplateInstanceMetadataEndpointState -&gt; ())
+-&gt; NFData LaunchTemplateInstanceMetadataEndpointState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LaunchTemplateInstanceMetadataEndpointState -&gt; ()
+$crnf :: LaunchTemplateInstanceMetadataEndpointState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681089318"><span class="annot"><span class="annottext">Text -&gt; Either String LaunchTemplateInstanceMetadataEndpointState
+(Text -&gt; Either String LaunchTemplateInstanceMetadataEndpointState)
+-&gt; FromText LaunchTemplateInstanceMetadataEndpointState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LaunchTemplateInstanceMetadataEndpointState
+$cfromText :: Text -&gt; Either String LaunchTemplateInstanceMetadataEndpointState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681089315"><span class="annot"><span class="annottext">LaunchTemplateInstanceMetadataEndpointState -&gt; Text
+(LaunchTemplateInstanceMetadataEndpointState -&gt; Text)
+-&gt; ToText LaunchTemplateInstanceMetadataEndpointState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LaunchTemplateInstanceMetadataEndpointState -&gt; Text
+$ctoText :: LaunchTemplateInstanceMetadataEndpointState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681089312"><span class="annot"><span class="annottext">LaunchTemplateInstanceMetadataEndpointState -&gt; ByteString
+(LaunchTemplateInstanceMetadataEndpointState -&gt; ByteString)
+-&gt; ToByteString LaunchTemplateInstanceMetadataEndpointState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LaunchTemplateInstanceMetadataEndpointState -&gt; ByteString
+$ctoBS :: LaunchTemplateInstanceMetadataEndpointState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681089309"><span class="annot"><span class="annottext">LaunchTemplateInstanceMetadataEndpointState -&gt; ByteStringBuilder
+(LaunchTemplateInstanceMetadataEndpointState -&gt; ByteStringBuilder)
+-&gt; ToLog LaunchTemplateInstanceMetadataEndpointState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LaunchTemplateInstanceMetadataEndpointState -&gt; ByteStringBuilder
+$cbuild :: LaunchTemplateInstanceMetadataEndpointState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681089306"><span class="annot"><span class="annottext">HeaderName
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; [Header]
+(HeaderName
+ -&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; [Header])
+-&gt; ToHeader LaunchTemplateInstanceMetadataEndpointState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; [Header]
+$ctoHeader :: HeaderName
+-&gt; LaunchTemplateInstanceMetadataEndpointState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681089303"><span class="annot"><span class="annottext">LaunchTemplateInstanceMetadataEndpointState -&gt; QueryString
+(LaunchTemplateInstanceMetadataEndpointState -&gt; QueryString)
+-&gt; ToQuery LaunchTemplateInstanceMetadataEndpointState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LaunchTemplateInstanceMetadataEndpointState -&gt; QueryString
+$ctoQuery :: LaunchTemplateInstanceMetadataEndpointState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681089298"><span id="local-6989586621681089300"><span class="annot"><span class="annottext">Value -&gt; Parser [LaunchTemplateInstanceMetadataEndpointState]
+Value -&gt; Parser LaunchTemplateInstanceMetadataEndpointState
+(Value -&gt; Parser LaunchTemplateInstanceMetadataEndpointState)
+-&gt; (Value -&gt; Parser [LaunchTemplateInstanceMetadataEndpointState])
+-&gt; FromJSON LaunchTemplateInstanceMetadataEndpointState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LaunchTemplateInstanceMetadataEndpointState]
+$cparseJSONList :: Value -&gt; Parser [LaunchTemplateInstanceMetadataEndpointState]
+parseJSON :: Value -&gt; Parser LaunchTemplateInstanceMetadataEndpointState
+$cparseJSON :: Value -&gt; Parser LaunchTemplateInstanceMetadataEndpointState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681089293"><span id="local-6989586621681089295"><span class="annot"><span class="annottext">FromJSONKeyFunction [LaunchTemplateInstanceMetadataEndpointState]
+FromJSONKeyFunction LaunchTemplateInstanceMetadataEndpointState
+FromJSONKeyFunction LaunchTemplateInstanceMetadataEndpointState
+-&gt; FromJSONKeyFunction
+     [LaunchTemplateInstanceMetadataEndpointState]
+-&gt; FromJSONKey LaunchTemplateInstanceMetadataEndpointState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LaunchTemplateInstanceMetadataEndpointState]
+$cfromJSONKeyList :: FromJSONKeyFunction [LaunchTemplateInstanceMetadataEndpointState]
+fromJSONKey :: FromJSONKeyFunction LaunchTemplateInstanceMetadataEndpointState
+$cfromJSONKey :: FromJSONKeyFunction LaunchTemplateInstanceMetadataEndpointState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681089284"><span id="local-6989586621681089286"><span id="local-6989586621681089288"><span id="local-6989586621681089290"><span class="annot"><span class="annottext">[LaunchTemplateInstanceMetadataEndpointState] -&gt; Encoding
+[LaunchTemplateInstanceMetadataEndpointState] -&gt; Value
+LaunchTemplateInstanceMetadataEndpointState -&gt; Encoding
+LaunchTemplateInstanceMetadataEndpointState -&gt; Value
+(LaunchTemplateInstanceMetadataEndpointState -&gt; Value)
+-&gt; (LaunchTemplateInstanceMetadataEndpointState -&gt; Encoding)
+-&gt; ([LaunchTemplateInstanceMetadataEndpointState] -&gt; Value)
+-&gt; ([LaunchTemplateInstanceMetadataEndpointState] -&gt; Encoding)
+-&gt; ToJSON LaunchTemplateInstanceMetadataEndpointState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LaunchTemplateInstanceMetadataEndpointState] -&gt; Encoding
+$ctoEncodingList :: [LaunchTemplateInstanceMetadataEndpointState] -&gt; Encoding
+toJSONList :: [LaunchTemplateInstanceMetadataEndpointState] -&gt; Value
+$ctoJSONList :: [LaunchTemplateInstanceMetadataEndpointState] -&gt; Value
+toEncoding :: LaunchTemplateInstanceMetadataEndpointState -&gt; Encoding
+$ctoEncoding :: LaunchTemplateInstanceMetadataEndpointState -&gt; Encoding
+toJSON :: LaunchTemplateInstanceMetadataEndpointState -&gt; Value
+$ctoJSON :: LaunchTemplateInstanceMetadataEndpointState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681089279"><span id="local-6989586621681089281"><span class="annot"><span class="annottext">ToJSONKeyFunction [LaunchTemplateInstanceMetadataEndpointState]
+ToJSONKeyFunction LaunchTemplateInstanceMetadataEndpointState
+ToJSONKeyFunction LaunchTemplateInstanceMetadataEndpointState
+-&gt; ToJSONKeyFunction [LaunchTemplateInstanceMetadataEndpointState]
+-&gt; ToJSONKey LaunchTemplateInstanceMetadataEndpointState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LaunchTemplateInstanceMetadataEndpointState]
+$ctoJSONKeyList :: ToJSONKeyFunction [LaunchTemplateInstanceMetadataEndpointState]
+toJSONKey :: ToJSONKeyFunction LaunchTemplateInstanceMetadataEndpointState
+$ctoJSONKey :: ToJSONKeyFunction LaunchTemplateInstanceMetadataEndpointState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681089276"><span class="annot"><span class="annottext">[Node] -&gt; Either String LaunchTemplateInstanceMetadataEndpointState
+([Node]
+ -&gt; Either String LaunchTemplateInstanceMetadataEndpointState)
+-&gt; FromXML LaunchTemplateInstanceMetadataEndpointState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LaunchTemplateInstanceMetadataEndpointState
+$cparseXML :: [Node] -&gt; Either String LaunchTemplateInstanceMetadataEndpointState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681089273"><span class="annot"><span class="annottext">LaunchTemplateInstanceMetadataEndpointState -&gt; XML
+(LaunchTemplateInstanceMetadataEndpointState -&gt; XML)
+-&gt; ToXML LaunchTemplateInstanceMetadataEndpointState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LaunchTemplateInstanceMetadataEndpointState -&gt; XML
+$ctoXML :: LaunchTemplateInstanceMetadataEndpointState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#LaunchTemplateInstanceMetadataEndpointState_Disabled"><span class="hs-identifier hs-type">LaunchTemplateInstanceMetadataEndpointState_Disabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#LaunchTemplateInstanceMetadataEndpointState"><span class="hs-identifier hs-type">LaunchTemplateInstanceMetadataEndpointState</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLaunchTemplateInstanceMetadataEndpointState_Disabled"><span id="%24mLaunchTemplateInstanceMetadataEndpointState_Disabled"><span id="LaunchTemplateInstanceMetadataEndpointState_Disabled"><span class="annot"><span class="annottext">$bLaunchTemplateInstanceMetadataEndpointState_Disabled :: LaunchTemplateInstanceMetadataEndpointState
+$mLaunchTemplateInstanceMetadataEndpointState_Disabled :: forall r.
+LaunchTemplateInstanceMetadataEndpointState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#%24bLaunchTemplateInstanceMetadataEndpointState_Disabled"><span class="hs-identifier hs-var hs-var hs-var">LaunchTemplateInstanceMetadataEndpointState_Disabled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#LaunchTemplateInstanceMetadataEndpointState%27"><span class="hs-identifier hs-type">LaunchTemplateInstanceMetadataEndpointState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;disabled&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#LaunchTemplateInstanceMetadataEndpointState_Enabled"><span class="hs-identifier hs-type">LaunchTemplateInstanceMetadataEndpointState_Enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#LaunchTemplateInstanceMetadataEndpointState"><span class="hs-identifier hs-type">LaunchTemplateInstanceMetadataEndpointState</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLaunchTemplateInstanceMetadataEndpointState_Enabled"><span id="%24mLaunchTemplateInstanceMetadataEndpointState_Enabled"><span id="LaunchTemplateInstanceMetadataEndpointState_Enabled"><span class="annot"><span class="annottext">$bLaunchTemplateInstanceMetadataEndpointState_Enabled :: LaunchTemplateInstanceMetadataEndpointState
+$mLaunchTemplateInstanceMetadataEndpointState_Enabled :: forall r.
+LaunchTemplateInstanceMetadataEndpointState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#%24bLaunchTemplateInstanceMetadataEndpointState_Enabled"><span class="hs-identifier hs-var hs-var hs-var">LaunchTemplateInstanceMetadataEndpointState_Enabled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#LaunchTemplateInstanceMetadataEndpointState%27"><span class="hs-identifier hs-type">LaunchTemplateInstanceMetadataEndpointState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;enabled&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#LaunchTemplateInstanceMetadataEndpointState_Disabled"><span class="hs-pragma hs-type">LaunchTemplateInstanceMetadataEndpointState_Disabled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#LaunchTemplateInstanceMetadataEndpointState_Enabled"><span class="hs-pragma hs-type">LaunchTemplateInstanceMetadataEndpointState_Enabled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState.html#LaunchTemplateInstanceMetadataEndpointState%27"><span class="hs-pragma hs-type">LaunchTemplateInstanceMetadataEndpointState'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

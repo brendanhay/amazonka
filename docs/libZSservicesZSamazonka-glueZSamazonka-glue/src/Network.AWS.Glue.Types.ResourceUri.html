@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.Types.ResourceUri</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.Types.ResourceUri</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceType.html"><span class="hs-identifier">Network.AWS.Glue.Types.ResourceType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The URIs for function resources.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newResourceUri' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679694091"><span id="local-6989586621679694092"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceUri"><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri"><span class="hs-identifier hs-var">ResourceUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceUri%27"><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri%27"><span class="hs-identifier hs-var">ResourceUri'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URI for accessing the resource.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Auri%3AResourceUri%27"><span class="annot"><span class="annottext">ResourceUri -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.ResourceUri.html#%24sel%3Auri%3AResourceUri%27"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The type of the resource.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AresourceType%3AResourceUri%27"><span class="annot"><span class="annottext">ResourceUri -&gt; Maybe ResourceType
+</span><a href="Network.AWS.Glue.Types.ResourceUri.html#%24sel%3AresourceType%3AResourceUri%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679694084"><span id="local-6989586621679694086"><span class="annot"><span class="annottext">ResourceUri -&gt; ResourceUri -&gt; Bool
+(ResourceUri -&gt; ResourceUri -&gt; Bool)
+-&gt; (ResourceUri -&gt; ResourceUri -&gt; Bool) -&gt; Eq ResourceUri
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceUri -&gt; ResourceUri -&gt; Bool
+$c/= :: ResourceUri -&gt; ResourceUri -&gt; Bool
+== :: ResourceUri -&gt; ResourceUri -&gt; Bool
+$c== :: ResourceUri -&gt; ResourceUri -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694075"><span id="local-6989586621679694077"><span id="local-6989586621679694079"><span id="local-6989586621679694081"><span class="annot"><span class="annottext">ReadPrec [ResourceUri]
+ReadPrec ResourceUri
+Int -&gt; ReadS ResourceUri
+ReadS [ResourceUri]
+(Int -&gt; ReadS ResourceUri)
+-&gt; ReadS [ResourceUri]
+-&gt; ReadPrec ResourceUri
+-&gt; ReadPrec [ResourceUri]
+-&gt; Read ResourceUri
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceUri]
+$creadListPrec :: ReadPrec [ResourceUri]
+readPrec :: ReadPrec ResourceUri
+$creadPrec :: ReadPrec ResourceUri
+readList :: ReadS [ResourceUri]
+$creadList :: ReadS [ResourceUri]
+readsPrec :: Int -&gt; ReadS ResourceUri
+$creadsPrec :: Int -&gt; ReadS ResourceUri
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694068"><span id="local-6989586621679694070"><span id="local-6989586621679694072"><span class="annot"><span class="annottext">Int -&gt; ResourceUri -&gt; ShowS
+[ResourceUri] -&gt; ShowS
+ResourceUri -&gt; String
+(Int -&gt; ResourceUri -&gt; ShowS)
+-&gt; (ResourceUri -&gt; String)
+-&gt; ([ResourceUri] -&gt; ShowS)
+-&gt; Show ResourceUri
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceUri] -&gt; ShowS
+$cshowList :: [ResourceUri] -&gt; ShowS
+show :: ResourceUri -&gt; String
+$cshow :: ResourceUri -&gt; String
+showsPrec :: Int -&gt; ResourceUri -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceUri -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ResourceUri -&gt; Rep ResourceUri x)
+-&gt; (forall x. Rep ResourceUri x -&gt; ResourceUri)
+-&gt; Generic ResourceUri
+forall x. Rep ResourceUri x -&gt; ResourceUri
+forall x. ResourceUri -&gt; Rep ResourceUri x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResourceUri x -&gt; ResourceUri
+$cfrom :: forall x. ResourceUri -&gt; Rep ResourceUri x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'ResourceUri' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'uri', 'resourceUri_uri' - The URI for accessing the resource.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'resourceType', 'resourceUri_resourceType' - The type of the resource.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#newResourceUri"><span class="hs-identifier hs-type">newResourceUri</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri"><span class="hs-identifier hs-type">ResourceUri</span></a></span><span>
+</span><span id="line-51"></span><span id="newResourceUri"><span class="annot"><span class="annottext">newResourceUri :: ResourceUri
+</span><a href="Network.AWS.Glue.Types.ResourceUri.html#newResourceUri"><span class="hs-identifier hs-var hs-var">newResourceUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">ResourceUri' :: Maybe Text -&gt; Maybe ResourceType -&gt; ResourceUri
+</span><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri%27"><span class="hs-identifier hs-type">ResourceUri'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:uri:ResourceUri' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.ResourceUri.html#%24sel%3Auri%3AResourceUri%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:ResourceUri' :: Maybe ResourceType
+</span><a href="Network.AWS.Glue.Types.ResourceUri.html#%24sel%3AresourceType%3AResourceUri%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The URI for accessing the resource.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#resourceUri_uri"><span class="hs-identifier hs-type">resourceUri_uri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri"><span class="hs-identifier hs-type">ResourceUri</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="resourceUri_uri"><span class="annot"><span class="annottext">resourceUri_uri :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ResourceUri -&gt; f ResourceUri
+</span><a href="Network.AWS.Glue.Types.ResourceUri.html#resourceUri_uri"><span class="hs-identifier hs-var hs-var">resourceUri_uri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceUri -&gt; Maybe Text)
+-&gt; (ResourceUri -&gt; Maybe Text -&gt; ResourceUri)
+-&gt; Lens ResourceUri ResourceUri (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri%27"><span class="hs-identifier hs-type">ResourceUri'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694059"><span class="annot"><span class="annottext">Maybe Text
+uri :: Maybe Text
+$sel:uri:ResourceUri' :: ResourceUri -&gt; Maybe Text
+</span><a href="#local-6989586621679694059"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694059"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694058"><span class="annot"><span class="annottext">s :: ResourceUri
+</span><a href="#local-6989586621679694058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri%27"><span class="hs-identifier hs-type">ResourceUri'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694057"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceUri
+</span><a href="#local-6989586621679694058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uri:ResourceUri' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.ResourceUri.html#%24sel%3Auri%3AResourceUri%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri"><span class="hs-identifier hs-type">ResourceUri</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The type of the resource.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#resourceUri_resourceType"><span class="hs-identifier hs-type">resourceUri_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri"><span class="hs-identifier hs-type">ResourceUri</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="resourceUri_resourceType"><span class="annot"><span class="annottext">resourceUri_resourceType :: (Maybe ResourceType -&gt; f (Maybe ResourceType))
+-&gt; ResourceUri -&gt; f ResourceUri
+</span><a href="Network.AWS.Glue.Types.ResourceUri.html#resourceUri_resourceType"><span class="hs-identifier hs-var hs-var">resourceUri_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceUri -&gt; Maybe ResourceType)
+-&gt; (ResourceUri -&gt; Maybe ResourceType -&gt; ResourceUri)
+-&gt; Lens
+     ResourceUri ResourceUri (Maybe ResourceType) (Maybe ResourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri%27"><span class="hs-identifier hs-type">ResourceUri'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694055"><span class="annot"><span class="annottext">Maybe ResourceType
+resourceType :: Maybe ResourceType
+$sel:resourceType:ResourceUri' :: ResourceUri -&gt; Maybe ResourceType
+</span><a href="#local-6989586621679694055"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679694055"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694054"><span class="annot"><span class="annottext">s :: ResourceUri
+</span><a href="#local-6989586621679694054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri%27"><span class="hs-identifier hs-type">ResourceUri'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694053"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679694053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceUri
+</span><a href="#local-6989586621679694054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ResourceUri' :: Maybe ResourceType
+</span><a href="Network.AWS.Glue.Types.ResourceUri.html#%24sel%3AresourceType%3AResourceUri%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679694053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri"><span class="hs-identifier hs-type">ResourceUri</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694050"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri"><span class="hs-identifier hs-type">ResourceUri</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679694048"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceUri
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ResourceUri) -&gt; Value -&gt; Parser ResourceUri
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ResourceUri&quot;</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679694045"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679694045"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe ResourceType -&gt; ResourceUri
+</span><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri%27"><span class="hs-identifier hs-var">ResourceUri'</span></a></span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe ResourceType -&gt; ResourceUri)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ResourceType -&gt; ResourceUri)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679694045"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Uri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ResourceType -&gt; ResourceUri)
+-&gt; Parser (Maybe ResourceType) -&gt; Parser ResourceUri
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679694045"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694039"><span id="local-6989586621679694041"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri"><span class="hs-identifier hs-type">ResourceUri</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694036"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri"><span class="hs-identifier hs-type">ResourceUri</span></a></span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694028"><span id="local-6989586621679694030"><span id="local-6989586621679694032"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri"><span class="hs-identifier hs-type">ResourceUri</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679694026"><span class="annot"><span class="annottext">toJSON :: ResourceUri -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri%27"><span class="hs-identifier hs-type">ResourceUri'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694023"><span id="local-6989586621679694024"><span class="annot"><span class="annottext">Maybe Text
+Maybe ResourceType
+resourceType :: Maybe ResourceType
+uri :: Maybe Text
+$sel:resourceType:ResourceUri' :: ResourceUri -&gt; Maybe ResourceType
+$sel:uri:ResourceUri' :: ResourceUri -&gt; Maybe Text
+</span><a href="#local-6989586621679694023"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-83"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694024"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ResourceType -&gt; Pair) -&gt; Maybe ResourceType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679694023"><span class="hs-identifier hs-var">resourceType</span></a></span><span>
+</span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span></pre></body></html>

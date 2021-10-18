@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.CancelConversionTask</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Cancels an active conversion task. The task can be the import of an</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- instance or volume. The action removes all artifacts of the conversion,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- including a partially uploaded volume or instance. If the conversion is</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- complete or is in the process of transferring the final disk image, the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- command fails and returns an exception.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html Importing a Virtual Machine Using the Amazon EC2 CLI&gt;.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.CancelConversionTask</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask"><span class="hs-identifier">CancelConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#newCancelConversionTask"><span class="hs-identifier">newCancelConversionTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#cancelConversionTask_dryRun"><span class="hs-identifier">cancelConversionTask_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#cancelConversionTask_reasonMessage"><span class="hs-identifier">cancelConversionTask_reasonMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#cancelConversionTask_conversionTaskId"><span class="hs-identifier">cancelConversionTask_conversionTaskId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTaskResponse"><span class="hs-identifier">CancelConversionTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#newCancelConversionTaskResponse"><span class="hs-identifier">newCancelConversionTaskResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCancelConversionTask' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621681266021"><span id="local-6989586621681266022"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelConversionTask"><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask"><span class="hs-identifier hs-var">CancelConversionTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelConversionTask%27"><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask%27"><span class="hs-identifier hs-var">CancelConversionTask'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdryRun%3ACancelConversionTask%27"><span class="annot"><span class="annottext">CancelConversionTask -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#%24sel%3AdryRun%3ACancelConversionTask%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The reason for canceling the conversion task.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AreasonMessage%3ACancelConversionTask%27"><span class="annot"><span class="annottext">CancelConversionTask -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#%24sel%3AreasonMessage%3ACancelConversionTask%27"><span class="hs-identifier hs-var hs-var">reasonMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The ID of the conversion task.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AconversionTaskId%3ACancelConversionTask%27"><span class="annot"><span class="annottext">CancelConversionTask -&gt; Text
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#%24sel%3AconversionTaskId%3ACancelConversionTask%27"><span class="hs-identifier hs-var hs-var">conversionTaskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681266013"><span id="local-6989586621681266015"><span class="annot"><span class="annottext">CancelConversionTask -&gt; CancelConversionTask -&gt; Bool
+(CancelConversionTask -&gt; CancelConversionTask -&gt; Bool)
+-&gt; (CancelConversionTask -&gt; CancelConversionTask -&gt; Bool)
+-&gt; Eq CancelConversionTask
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelConversionTask -&gt; CancelConversionTask -&gt; Bool
+$c/= :: CancelConversionTask -&gt; CancelConversionTask -&gt; Bool
+== :: CancelConversionTask -&gt; CancelConversionTask -&gt; Bool
+$c== :: CancelConversionTask -&gt; CancelConversionTask -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681266004"><span id="local-6989586621681266006"><span id="local-6989586621681266008"><span id="local-6989586621681266010"><span class="annot"><span class="annottext">ReadPrec [CancelConversionTask]
+ReadPrec CancelConversionTask
+Int -&gt; ReadS CancelConversionTask
+ReadS [CancelConversionTask]
+(Int -&gt; ReadS CancelConversionTask)
+-&gt; ReadS [CancelConversionTask]
+-&gt; ReadPrec CancelConversionTask
+-&gt; ReadPrec [CancelConversionTask]
+-&gt; Read CancelConversionTask
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelConversionTask]
+$creadListPrec :: ReadPrec [CancelConversionTask]
+readPrec :: ReadPrec CancelConversionTask
+$creadPrec :: ReadPrec CancelConversionTask
+readList :: ReadS [CancelConversionTask]
+$creadList :: ReadS [CancelConversionTask]
+readsPrec :: Int -&gt; ReadS CancelConversionTask
+$creadsPrec :: Int -&gt; ReadS CancelConversionTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265997"><span id="local-6989586621681265999"><span id="local-6989586621681266001"><span class="annot"><span class="annottext">Int -&gt; CancelConversionTask -&gt; ShowS
+[CancelConversionTask] -&gt; ShowS
+CancelConversionTask -&gt; String
+(Int -&gt; CancelConversionTask -&gt; ShowS)
+-&gt; (CancelConversionTask -&gt; String)
+-&gt; ([CancelConversionTask] -&gt; ShowS)
+-&gt; Show CancelConversionTask
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelConversionTask] -&gt; ShowS
+$cshowList :: [CancelConversionTask] -&gt; ShowS
+show :: CancelConversionTask -&gt; String
+$cshow :: CancelConversionTask -&gt; String
+showsPrec :: Int -&gt; CancelConversionTask -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelConversionTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CancelConversionTask -&gt; Rep CancelConversionTask x)
+-&gt; (forall x. Rep CancelConversionTask x -&gt; CancelConversionTask)
+-&gt; Generic CancelConversionTask
+forall x. Rep CancelConversionTask x -&gt; CancelConversionTask
+forall x. CancelConversionTask -&gt; Rep CancelConversionTask x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CancelConversionTask x -&gt; CancelConversionTask
+$cfrom :: forall x. CancelConversionTask -&gt; Rep CancelConversionTask x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'CancelConversionTask' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'dryRun', 'cancelConversionTask_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'reasonMessage', 'cancelConversionTask_reasonMessage' - The reason for canceling the conversion task.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'conversionTaskId', 'cancelConversionTask_conversionTaskId' - The ID of the conversion task.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#newCancelConversionTask"><span class="hs-identifier hs-type">newCancelConversionTask</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'conversionTaskId'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask"><span class="hs-identifier hs-type">CancelConversionTask</span></a></span><span>
+</span><span id="line-88"></span><span id="newCancelConversionTask"><span class="annot"><span class="annottext">newCancelConversionTask :: Text -&gt; CancelConversionTask
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#newCancelConversionTask"><span class="hs-identifier hs-var hs-var">newCancelConversionTask</span></a></span></span><span> </span><span id="local-6989586621681265992"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681265992"><span class="hs-identifier hs-var">pConversionTaskId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">CancelConversionTask' :: Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; CancelConversionTask
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask%27"><span class="hs-identifier hs-type">CancelConversionTask'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:CancelConversionTask' :: Maybe Bool
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#%24sel%3AdryRun%3ACancelConversionTask%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:reasonMessage:CancelConversionTask' :: Maybe Text
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#%24sel%3AreasonMessage%3ACancelConversionTask%27"><span class="hs-identifier hs-var">reasonMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:conversionTaskId:CancelConversionTask' :: Text
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#%24sel%3AconversionTaskId%3ACancelConversionTask%27"><span class="hs-identifier hs-var">conversionTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681265992"><span class="hs-identifier hs-var">pConversionTaskId_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#cancelConversionTask_dryRun"><span class="hs-identifier hs-type">cancelConversionTask_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask"><span class="hs-identifier hs-type">CancelConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="cancelConversionTask_dryRun"><span class="annot"><span class="annottext">cancelConversionTask_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CancelConversionTask -&gt; f CancelConversionTask
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#cancelConversionTask_dryRun"><span class="hs-identifier hs-var hs-var">cancelConversionTask_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelConversionTask -&gt; Maybe Bool)
+-&gt; (CancelConversionTask -&gt; Maybe Bool -&gt; CancelConversionTask)
+-&gt; Lens
+     CancelConversionTask CancelConversionTask (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask%27"><span class="hs-identifier hs-type">CancelConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265989"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:CancelConversionTask' :: CancelConversionTask -&gt; Maybe Bool
+</span><a href="#local-6989586621681265989"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681265989"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265988"><span class="annot"><span class="annottext">s :: CancelConversionTask
+</span><a href="#local-6989586621681265988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask%27"><span class="hs-identifier hs-type">CancelConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265987"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681265987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelConversionTask
+</span><a href="#local-6989586621681265988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CancelConversionTask' :: Maybe Bool
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#%24sel%3AdryRun%3ACancelConversionTask%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681265987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask"><span class="hs-identifier hs-type">CancelConversionTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The reason for canceling the conversion task.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#cancelConversionTask_reasonMessage"><span class="hs-identifier hs-type">cancelConversionTask_reasonMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask"><span class="hs-identifier hs-type">CancelConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="cancelConversionTask_reasonMessage"><span class="annot"><span class="annottext">cancelConversionTask_reasonMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CancelConversionTask -&gt; f CancelConversionTask
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#cancelConversionTask_reasonMessage"><span class="hs-identifier hs-var hs-var">cancelConversionTask_reasonMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelConversionTask -&gt; Maybe Text)
+-&gt; (CancelConversionTask -&gt; Maybe Text -&gt; CancelConversionTask)
+-&gt; Lens
+     CancelConversionTask CancelConversionTask (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask%27"><span class="hs-identifier hs-type">CancelConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265986"><span class="annot"><span class="annottext">Maybe Text
+reasonMessage :: Maybe Text
+$sel:reasonMessage:CancelConversionTask' :: CancelConversionTask -&gt; Maybe Text
+</span><a href="#local-6989586621681265986"><span class="hs-identifier hs-var hs-var">reasonMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681265986"><span class="hs-identifier hs-var">reasonMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265985"><span class="annot"><span class="annottext">s :: CancelConversionTask
+</span><a href="#local-6989586621681265985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask%27"><span class="hs-identifier hs-type">CancelConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265984"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681265984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelConversionTask
+</span><a href="#local-6989586621681265985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reasonMessage:CancelConversionTask' :: Maybe Text
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#%24sel%3AreasonMessage%3ACancelConversionTask%27"><span class="hs-identifier hs-var">reasonMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681265984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask"><span class="hs-identifier hs-type">CancelConversionTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The ID of the conversion task.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#cancelConversionTask_conversionTaskId"><span class="hs-identifier hs-type">cancelConversionTask_conversionTaskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask"><span class="hs-identifier hs-type">CancelConversionTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="cancelConversionTask_conversionTaskId"><span class="annot"><span class="annottext">cancelConversionTask_conversionTaskId :: (Text -&gt; f Text) -&gt; CancelConversionTask -&gt; f CancelConversionTask
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#cancelConversionTask_conversionTaskId"><span class="hs-identifier hs-var hs-var">cancelConversionTask_conversionTaskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelConversionTask -&gt; Text)
+-&gt; (CancelConversionTask -&gt; Text -&gt; CancelConversionTask)
+-&gt; Lens CancelConversionTask CancelConversionTask Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask%27"><span class="hs-identifier hs-type">CancelConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265983"><span class="annot"><span class="annottext">Text
+conversionTaskId :: Text
+$sel:conversionTaskId:CancelConversionTask' :: CancelConversionTask -&gt; Text
+</span><a href="#local-6989586621681265983"><span class="hs-identifier hs-var hs-var">conversionTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681265983"><span class="hs-identifier hs-var">conversionTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265982"><span class="annot"><span class="annottext">s :: CancelConversionTask
+</span><a href="#local-6989586621681265982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask%27"><span class="hs-identifier hs-type">CancelConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265981"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681265981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelConversionTask
+</span><a href="#local-6989586621681265982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conversionTaskId:CancelConversionTask' :: Text
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#%24sel%3AconversionTaskId%3ACancelConversionTask%27"><span class="hs-identifier hs-var">conversionTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681265981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask"><span class="hs-identifier hs-type">CancelConversionTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask"><span class="hs-identifier hs-type">CancelConversionTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask"><span class="hs-identifier hs-type">CancelConversionTask</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTaskResponse"><span class="hs-identifier hs-type">CancelConversionTaskResponse</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621681265977"><span class="annot"><span class="annottext">request :: CancelConversionTask -&gt; Request CancelConversionTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CancelConversionTask -&gt; Request CancelConversionTask
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621681265973"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CancelConversionTask
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CancelConversionTask)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse CancelConversionTask
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CancelConversionTask
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CancelConversionTask)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse CancelConversionTask
+CancelConversionTaskResponse
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTaskResponse%27"><span class="hs-identifier hs-var">CancelConversionTaskResponse'</span></a></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681265966"><span id="local-6989586621681265968"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask"><span class="hs-identifier hs-type">CancelConversionTask</span></a></span></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681265963"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask"><span class="hs-identifier hs-type">CancelConversionTask</span></a></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask"><span class="hs-identifier hs-type">CancelConversionTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621681265959"><span class="annot"><span class="annottext">toHeaders :: CancelConversionTask -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; CancelConversionTask -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask"><span class="hs-identifier hs-type">CancelConversionTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621681265954"><span class="annot"><span class="annottext">toPath :: CancelConversionTask -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CancelConversionTask -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask"><span class="hs-identifier hs-type">CancelConversionTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621681265950"><span class="annot"><span class="annottext">toQuery :: CancelConversionTask -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTask%27"><span class="hs-identifier hs-type">CancelConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265946"><span id="local-6989586621681265947"><span id="local-6989586621681265948"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Text
+conversionTaskId :: Text
+reasonMessage :: Maybe Text
+dryRun :: Maybe Bool
+$sel:conversionTaskId:CancelConversionTask' :: CancelConversionTask -&gt; Text
+$sel:reasonMessage:CancelConversionTask' :: CancelConversionTask -&gt; Maybe Text
+$sel:dryRun:CancelConversionTask' :: CancelConversionTask -&gt; Maybe Bool
+</span><a href="#local-6989586621681265946"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CancelConversionTask&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681265948"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ReasonMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681265947"><span class="hs-identifier hs-var">reasonMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ConversionTaskId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681265946"><span class="hs-identifier hs-var">conversionTaskId</span></a></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newCancelConversionTaskResponse' smart constructor.</span><span>
+</span><span id="line-141"></span><span id="local-6989586621681265943"><span id="local-6989586621681265944"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelConversionTaskResponse"><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTaskResponse"><span class="hs-identifier hs-var">CancelConversionTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelConversionTaskResponse%27"><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTaskResponse%27"><span class="hs-identifier hs-var">CancelConversionTaskResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681265939"><span id="local-6989586621681265941"><span class="annot"><span class="annottext">CancelConversionTaskResponse
+-&gt; CancelConversionTaskResponse -&gt; Bool
+(CancelConversionTaskResponse
+ -&gt; CancelConversionTaskResponse -&gt; Bool)
+-&gt; (CancelConversionTaskResponse
+    -&gt; CancelConversionTaskResponse -&gt; Bool)
+-&gt; Eq CancelConversionTaskResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelConversionTaskResponse
+-&gt; CancelConversionTaskResponse -&gt; Bool
+$c/= :: CancelConversionTaskResponse
+-&gt; CancelConversionTaskResponse -&gt; Bool
+== :: CancelConversionTaskResponse
+-&gt; CancelConversionTaskResponse -&gt; Bool
+$c== :: CancelConversionTaskResponse
+-&gt; CancelConversionTaskResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265931"><span id="local-6989586621681265933"><span id="local-6989586621681265935"><span id="local-6989586621681265937"><span class="annot"><span class="annottext">ReadPrec [CancelConversionTaskResponse]
+ReadPrec CancelConversionTaskResponse
+Int -&gt; ReadS CancelConversionTaskResponse
+ReadS [CancelConversionTaskResponse]
+(Int -&gt; ReadS CancelConversionTaskResponse)
+-&gt; ReadS [CancelConversionTaskResponse]
+-&gt; ReadPrec CancelConversionTaskResponse
+-&gt; ReadPrec [CancelConversionTaskResponse]
+-&gt; Read CancelConversionTaskResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelConversionTaskResponse]
+$creadListPrec :: ReadPrec [CancelConversionTaskResponse]
+readPrec :: ReadPrec CancelConversionTaskResponse
+$creadPrec :: ReadPrec CancelConversionTaskResponse
+readList :: ReadS [CancelConversionTaskResponse]
+$creadList :: ReadS [CancelConversionTaskResponse]
+readsPrec :: Int -&gt; ReadS CancelConversionTaskResponse
+$creadsPrec :: Int -&gt; ReadS CancelConversionTaskResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265925"><span id="local-6989586621681265927"><span id="local-6989586621681265929"><span class="annot"><span class="annottext">Int -&gt; CancelConversionTaskResponse -&gt; ShowS
+[CancelConversionTaskResponse] -&gt; ShowS
+CancelConversionTaskResponse -&gt; String
+(Int -&gt; CancelConversionTaskResponse -&gt; ShowS)
+-&gt; (CancelConversionTaskResponse -&gt; String)
+-&gt; ([CancelConversionTaskResponse] -&gt; ShowS)
+-&gt; Show CancelConversionTaskResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelConversionTaskResponse] -&gt; ShowS
+$cshowList :: [CancelConversionTaskResponse] -&gt; ShowS
+show :: CancelConversionTaskResponse -&gt; String
+$cshow :: CancelConversionTaskResponse -&gt; String
+showsPrec :: Int -&gt; CancelConversionTaskResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelConversionTaskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CancelConversionTaskResponse -&gt; Rep CancelConversionTaskResponse x)
+-&gt; (forall x.
+    Rep CancelConversionTaskResponse x -&gt; CancelConversionTaskResponse)
+-&gt; Generic CancelConversionTaskResponse
+forall x.
+Rep CancelConversionTaskResponse x -&gt; CancelConversionTaskResponse
+forall x.
+CancelConversionTaskResponse -&gt; Rep CancelConversionTaskResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CancelConversionTaskResponse x -&gt; CancelConversionTaskResponse
+$cfrom :: forall x.
+CancelConversionTaskResponse -&gt; Rep CancelConversionTaskResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'CancelConversionTaskResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#newCancelConversionTaskResponse"><span class="hs-identifier hs-type">newCancelConversionTaskResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTaskResponse"><span class="hs-identifier hs-type">CancelConversionTaskResponse</span></a></span><span>
+</span><span id="line-152"></span><span id="newCancelConversionTaskResponse"><span class="annot"><span class="annottext">newCancelConversionTaskResponse :: CancelConversionTaskResponse
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#newCancelConversionTaskResponse"><span class="hs-identifier hs-var hs-var">newCancelConversionTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">CancelConversionTaskResponse
+</span><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTaskResponse%27"><span class="hs-identifier hs-var">CancelConversionTaskResponse'</span></a></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681265921"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CancelConversionTask.html#CancelConversionTaskResponse"><span class="hs-identifier hs-type">CancelConversionTaskResponse</span></a></span></span><span>
+</span><span id="line-156"></span></pre></body></html>

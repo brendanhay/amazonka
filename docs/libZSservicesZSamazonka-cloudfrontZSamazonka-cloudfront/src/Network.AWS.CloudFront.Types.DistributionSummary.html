@@ -1,0 +1,1589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFront.Types.DistributionSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFront.Types.DistributionSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.AliasICPRecordal.html"><span class="hs-identifier">Network.AWS.CloudFront.Types.AliasICPRecordal</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Aliases.html"><span class="hs-identifier">Network.AWS.CloudFront.Types.Aliases</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehaviors.html"><span class="hs-identifier">Network.AWS.CloudFront.Types.CacheBehaviors</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponses.html"><span class="hs-identifier">Network.AWS.CloudFront.Types.CustomErrorResponses</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DefaultCacheBehavior.html"><span class="hs-identifier">Network.AWS.CloudFront.Types.DefaultCacheBehavior</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.HttpVersion.html"><span class="hs-identifier">Network.AWS.CloudFront.Types.HttpVersion</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroups.html"><span class="hs-identifier">Network.AWS.CloudFront.Types.OriginGroups</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html"><span class="hs-identifier">Network.AWS.CloudFront.Types.Origins</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PriceClass.html"><span class="hs-identifier">Network.AWS.CloudFront.Types.PriceClass</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html"><span class="hs-identifier">Network.AWS.CloudFront.Types.Restrictions</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html"><span class="hs-identifier">Network.AWS.CloudFront.Types.ViewerCertificate</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- | A summary of the information about a CloudFront distribution.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newDistributionSummary' smart constructor.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621679405781"><span id="local-6989586621679405782"></span></span><span class="hs-keyword">data</span><span> </span><span id="DistributionSummary"><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-var">DistributionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DistributionSummary%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-var">DistributionSummary'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon Web Services services in China customers must file for an</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Internet Content Provider (ICP) recordal if they want to serve content</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- publicly on an alternate domain name, also known as a CNAME, that</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- status for CNAMEs associated with distributions.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- For more information about ICP recordals, see</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials&gt;</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- in /Getting Started with Amazon Web Services services in China/.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AaliasICPRecordals%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; Maybe [AliasICPRecordal]
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AaliasICPRecordals%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">aliasICPRecordals</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.AliasICPRecordal.html#AliasICPRecordal"><span class="hs-identifier hs-type">AliasICPRecordal</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | A complex type that contains information about origin groups for this</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- distribution.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AoriginGroups%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; Maybe OriginGroups
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AoriginGroups%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">originGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroups.html#OriginGroups"><span class="hs-identifier hs-type">OriginGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The identifier for the distribution. For example: @EDFDVBD632BHDS5@.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aid%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Aid%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The ARN (Amazon Resource Name) for the distribution. For example:</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- @123456789012@ is your account ID.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aarn%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Aarn%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The current status of the distribution. When the status is @Deployed@,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the distribution\'s information is propagated to all CloudFront edge</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- locations.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Astatus%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Astatus%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The date and time the distribution was last modified.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; ISO8601
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AlastModifiedTime%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The domain name that corresponds to the distribution, for example,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AdomainName%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AdomainName%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | A complex type that contains information about CNAMEs (alternate domain</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- names), if any, for this distribution.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Aaliases%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; Aliases
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Aaliases%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">aliases</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Aliases.html#Aliases"><span class="hs-identifier hs-type">Aliases</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | A complex type that contains information about origins for this</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- distribution.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Aorigins%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; Origins
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Aorigins%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">origins</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-type">Origins</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A complex type that describes the default cache behavior if you don\'t</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- specify a @CacheBehavior@ element or if files don\'t match any of the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- values of @PathPattern@ in @CacheBehavior@ elements. You must create</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- exactly one default cache behavior.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AdefaultCacheBehavior%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; DefaultCacheBehavior
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AdefaultCacheBehavior%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">defaultCacheBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DefaultCacheBehavior.html#DefaultCacheBehavior"><span class="hs-identifier hs-type">DefaultCacheBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | A complex type that contains zero or more @CacheBehavior@ elements.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AcacheBehaviors%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; CacheBehaviors
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AcacheBehaviors%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">cacheBehaviors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehaviors.html#CacheBehaviors"><span class="hs-identifier hs-type">CacheBehaviors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | A complex type that contains zero or more @CustomErrorResponses@</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- elements.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AcustomErrorResponses%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; CustomErrorResponses
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AcustomErrorResponses%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">customErrorResponses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponses.html#CustomErrorResponses"><span class="hs-identifier hs-type">CustomErrorResponses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The comment originally specified when this distribution was created.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Acomment%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Acomment%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | A complex type that contains information about price class for this</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- streaming distribution.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3ApriceClass%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; PriceClass
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3ApriceClass%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">priceClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PriceClass.html#PriceClass"><span class="hs-identifier hs-type">PriceClass</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | Whether the distribution is enabled to accept user requests for content.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3Aenabled%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; Bool
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Aenabled%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | A complex type that determines the distribution&#8217;s SSL\/TLS configuration</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- for communicating with viewers.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AviewerCertificate%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; ViewerCertificate
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AviewerCertificate%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">viewerCertificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | A complex type that identifies ways in which you want to restrict</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- distribution of your content.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3Arestrictions%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; Restrictions
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Arestrictions%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">restrictions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions"><span class="hs-identifier hs-type">Restrictions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | The Web ACL Id (if any) associated with the distribution.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AwebACLId%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AwebACLId%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">webACLId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | Specify the maximum HTTP version that you want viewers to use to</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- communicate with CloudFront. The default value for new web distributions</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- is @http2@. Viewers that don\'t support @HTTP\/2@ will automatically use</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- an earlier version.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AhttpVersion%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; HttpVersion
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AhttpVersion%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">httpVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.HttpVersion.html#HttpVersion"><span class="hs-identifier hs-type">HttpVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | Whether CloudFront responds to IPv6 DNS requests with an IPv6 address</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- for your distribution.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AisIPV6Enabled%3ADistributionSummary%27"><span class="annot"><span class="annottext">DistributionSummary -&gt; Bool
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AisIPV6Enabled%3ADistributionSummary%27"><span class="hs-identifier hs-var hs-var">isIPV6Enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405756"><span id="local-6989586621679405758"><span class="annot"><span class="annottext">DistributionSummary -&gt; DistributionSummary -&gt; Bool
+(DistributionSummary -&gt; DistributionSummary -&gt; Bool)
+-&gt; (DistributionSummary -&gt; DistributionSummary -&gt; Bool)
+-&gt; Eq DistributionSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DistributionSummary -&gt; DistributionSummary -&gt; Bool
+$c/= :: DistributionSummary -&gt; DistributionSummary -&gt; Bool
+== :: DistributionSummary -&gt; DistributionSummary -&gt; Bool
+$c== :: DistributionSummary -&gt; DistributionSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405747"><span id="local-6989586621679405749"><span id="local-6989586621679405751"><span id="local-6989586621679405753"><span class="annot"><span class="annottext">ReadPrec [DistributionSummary]
+ReadPrec DistributionSummary
+Int -&gt; ReadS DistributionSummary
+ReadS [DistributionSummary]
+(Int -&gt; ReadS DistributionSummary)
+-&gt; ReadS [DistributionSummary]
+-&gt; ReadPrec DistributionSummary
+-&gt; ReadPrec [DistributionSummary]
+-&gt; Read DistributionSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DistributionSummary]
+$creadListPrec :: ReadPrec [DistributionSummary]
+readPrec :: ReadPrec DistributionSummary
+$creadPrec :: ReadPrec DistributionSummary
+readList :: ReadS [DistributionSummary]
+$creadList :: ReadS [DistributionSummary]
+readsPrec :: Int -&gt; ReadS DistributionSummary
+$creadsPrec :: Int -&gt; ReadS DistributionSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405740"><span id="local-6989586621679405742"><span id="local-6989586621679405744"><span class="annot"><span class="annottext">Int -&gt; DistributionSummary -&gt; ShowS
+[DistributionSummary] -&gt; ShowS
+DistributionSummary -&gt; String
+(Int -&gt; DistributionSummary -&gt; ShowS)
+-&gt; (DistributionSummary -&gt; String)
+-&gt; ([DistributionSummary] -&gt; ShowS)
+-&gt; Show DistributionSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DistributionSummary] -&gt; ShowS
+$cshowList :: [DistributionSummary] -&gt; ShowS
+show :: DistributionSummary -&gt; String
+$cshow :: DistributionSummary -&gt; String
+showsPrec :: Int -&gt; DistributionSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; DistributionSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DistributionSummary -&gt; Rep DistributionSummary x)
+-&gt; (forall x. Rep DistributionSummary x -&gt; DistributionSummary)
+-&gt; Generic DistributionSummary
+forall x. Rep DistributionSummary x -&gt; DistributionSummary
+forall x. DistributionSummary -&gt; Rep DistributionSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DistributionSummary x -&gt; DistributionSummary
+$cfrom :: forall x. DistributionSummary -&gt; Rep DistributionSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Create a value of 'DistributionSummary' with all optional fields omitted.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'aliasICPRecordals', 'distributionSummary_aliasICPRecordals' - Amazon Web Services services in China customers must file for an</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Internet Content Provider (ICP) recordal if they want to serve content</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- publicly on an alternate domain name, also known as a CNAME, that</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- status for CNAMEs associated with distributions.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- For more information about ICP recordals, see</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- &lt;https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials&gt;</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- in /Getting Started with Amazon Web Services services in China/.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'originGroups', 'distributionSummary_originGroups' - A complex type that contains information about origin groups for this</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- distribution.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'id', 'distributionSummary_id' - The identifier for the distribution. For example: @EDFDVBD632BHDS5@.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'arn', 'distributionSummary_arn' - The ARN (Amazon Resource Name) for the distribution. For example:</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- @123456789012@ is your account ID.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'status', 'distributionSummary_status' - The current status of the distribution. When the status is @Deployed@,</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- the distribution\'s information is propagated to all CloudFront edge</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- locations.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'lastModifiedTime', 'distributionSummary_lastModifiedTime' - The date and time the distribution was last modified.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'domainName', 'distributionSummary_domainName' - The domain name that corresponds to the distribution, for example,</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'aliases', 'distributionSummary_aliases' - A complex type that contains information about CNAMEs (alternate domain</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- names), if any, for this distribution.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'origins', 'distributionSummary_origins' - A complex type that contains information about origins for this</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- distribution.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'defaultCacheBehavior', 'distributionSummary_defaultCacheBehavior' - A complex type that describes the default cache behavior if you don\'t</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- specify a @CacheBehavior@ element or if files don\'t match any of the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- values of @PathPattern@ in @CacheBehavior@ elements. You must create</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- exactly one default cache behavior.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'cacheBehaviors', 'distributionSummary_cacheBehaviors' - A complex type that contains zero or more @CacheBehavior@ elements.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'customErrorResponses', 'distributionSummary_customErrorResponses' - A complex type that contains zero or more @CustomErrorResponses@</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- elements.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'comment', 'distributionSummary_comment' - The comment originally specified when this distribution was created.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'priceClass', 'distributionSummary_priceClass' - A complex type that contains information about price class for this</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- streaming distribution.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'enabled', 'distributionSummary_enabled' - Whether the distribution is enabled to accept user requests for content.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'viewerCertificate', 'distributionSummary_viewerCertificate' - A complex type that determines the distribution&#8217;s SSL\/TLS configuration</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- for communicating with viewers.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'restrictions', 'distributionSummary_restrictions' - A complex type that identifies ways in which you want to restrict</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- distribution of your content.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'webACLId', 'distributionSummary_webACLId' - The Web ACL Id (if any) associated with the distribution.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'httpVersion', 'distributionSummary_httpVersion' - Specify the maximum HTTP version that you want viewers to use to</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- communicate with CloudFront. The default value for new web distributions</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- is @http2@. Viewers that don\'t support @HTTP\/2@ will automatically use</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- an earlier version.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'isIPV6Enabled', 'distributionSummary_isIPV6Enabled' - Whether CloudFront responds to IPv6 DNS requests with an IPv6 address</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- for your distribution.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#newDistributionSummary"><span class="hs-identifier hs-type">newDistributionSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-comment">-- | 'lastModifiedTime'</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-comment">-- | 'aliases'</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Aliases.html#Aliases"><span class="hs-identifier hs-type">Aliases</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-comment">-- | 'origins'</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-type">Origins</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-comment">-- | 'defaultCacheBehavior'</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DefaultCacheBehavior.html#DefaultCacheBehavior"><span class="hs-identifier hs-type">DefaultCacheBehavior</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-comment">-- | 'cacheBehaviors'</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehaviors.html#CacheBehaviors"><span class="hs-identifier hs-type">CacheBehaviors</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-comment">-- | 'customErrorResponses'</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponses.html#CustomErrorResponses"><span class="hs-identifier hs-type">CustomErrorResponses</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-comment">-- | 'comment'</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-comment">-- | 'priceClass'</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PriceClass.html#PriceClass"><span class="hs-identifier hs-type">PriceClass</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-comment">-- | 'enabled'</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-comment">-- | 'viewerCertificate'</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-comment">-- | 'restrictions'</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions"><span class="hs-identifier hs-type">Restrictions</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-comment">-- | 'webACLId'</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-comment">-- | 'httpVersion'</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.HttpVersion.html#HttpVersion"><span class="hs-identifier hs-type">HttpVersion</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-comment">-- | 'isIPV6Enabled'</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span>
+</span><span id="line-223"></span><span id="newDistributionSummary"><span class="annot"><span class="annottext">newDistributionSummary :: Text
+-&gt; Text
+-&gt; Text
+-&gt; UTCTime
+-&gt; Text
+-&gt; Aliases
+-&gt; Origins
+-&gt; DefaultCacheBehavior
+-&gt; CacheBehaviors
+-&gt; CustomErrorResponses
+-&gt; Text
+-&gt; PriceClass
+-&gt; Bool
+-&gt; ViewerCertificate
+-&gt; Restrictions
+-&gt; Text
+-&gt; HttpVersion
+-&gt; Bool
+-&gt; DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#newDistributionSummary"><span class="hs-identifier hs-var hs-var">newDistributionSummary</span></a></span></span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679405734"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405734"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679405733"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405733"><span class="hs-identifier hs-var">pARN_</span></a></span></span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679405732"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405732"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679405731"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679405731"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679405730"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405730"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679405729"><span class="annot"><span class="annottext">Aliases
+</span><a href="#local-6989586621679405729"><span class="hs-identifier hs-var">pAliases_</span></a></span></span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679405728"><span class="annot"><span class="annottext">Origins
+</span><a href="#local-6989586621679405728"><span class="hs-identifier hs-var">pOrigins_</span></a></span></span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679405727"><span class="annot"><span class="annottext">DefaultCacheBehavior
+</span><a href="#local-6989586621679405727"><span class="hs-identifier hs-var">pDefaultCacheBehavior_</span></a></span></span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679405726"><span class="annot"><span class="annottext">CacheBehaviors
+</span><a href="#local-6989586621679405726"><span class="hs-identifier hs-var">pCacheBehaviors_</span></a></span></span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679405725"><span class="annot"><span class="annottext">CustomErrorResponses
+</span><a href="#local-6989586621679405725"><span class="hs-identifier hs-var">pCustomErrorResponses_</span></a></span></span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679405724"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405724"><span class="hs-identifier hs-var">pComment_</span></a></span></span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679405723"><span class="annot"><span class="annottext">PriceClass
+</span><a href="#local-6989586621679405723"><span class="hs-identifier hs-var">pPriceClass_</span></a></span></span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679405722"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679405722"><span class="hs-identifier hs-var">pEnabled_</span></a></span></span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679405721"><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405721"><span class="hs-identifier hs-var">pViewerCertificate_</span></a></span></span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679405720"><span class="annot"><span class="annottext">Restrictions
+</span><a href="#local-6989586621679405720"><span class="hs-identifier hs-var">pRestrictions_</span></a></span></span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679405719"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405719"><span class="hs-identifier hs-var">pWebACLId_</span></a></span></span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679405718"><span class="annot"><span class="annottext">HttpVersion
+</span><a href="#local-6989586621679405718"><span class="hs-identifier hs-var">pHttpVersion_</span></a></span></span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679405717"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679405717"><span class="hs-identifier hs-var">pIsIPV6Enabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><span class="annottext">DistributionSummary' :: Maybe [AliasICPRecordal]
+-&gt; Maybe OriginGroups
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ISO8601
+-&gt; Text
+-&gt; Aliases
+-&gt; Origins
+-&gt; DefaultCacheBehavior
+-&gt; CacheBehaviors
+-&gt; CustomErrorResponses
+-&gt; Text
+-&gt; PriceClass
+-&gt; Bool
+-&gt; ViewerCertificate
+-&gt; Restrictions
+-&gt; Text
+-&gt; HttpVersion
+-&gt; Bool
+-&gt; DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:aliasICPRecordals:DistributionSummary' :: Maybe [AliasICPRecordal]
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AaliasICPRecordals%3ADistributionSummary%27"><span class="hs-identifier hs-var">aliasICPRecordals</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AliasICPRecordal]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">$sel:originGroups:DistributionSummary' :: Maybe OriginGroups
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AoriginGroups%3ADistributionSummary%27"><span class="hs-identifier hs-var">originGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OriginGroups
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:DistributionSummary' :: Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Aid%3ADistributionSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405734"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:DistributionSummary' :: Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Aarn%3ADistributionSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405733"><span class="hs-identifier hs-var">pARN_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:DistributionSummary' :: Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Astatus%3ADistributionSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405732"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DistributionSummary' :: ISO8601
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AlastModifiedTime%3ADistributionSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
+-&gt; Tagged ISO8601 (Identity ISO8601)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged ISO8601 (Identity ISO8601))
+-&gt; UTCTime -&gt; ISO8601
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679405731"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainName:DistributionSummary' :: Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AdomainName%3ADistributionSummary%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405730"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">$sel:aliases:DistributionSummary' :: Aliases
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Aaliases%3ADistributionSummary%27"><span class="hs-identifier hs-var">aliases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Aliases
+</span><a href="#local-6989586621679405729"><span class="hs-identifier hs-var">pAliases_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">$sel:origins:DistributionSummary' :: Origins
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Aorigins%3ADistributionSummary%27"><span class="hs-identifier hs-var">origins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Origins
+</span><a href="#local-6989586621679405728"><span class="hs-identifier hs-var">pOrigins_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultCacheBehavior:DistributionSummary' :: DefaultCacheBehavior
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AdefaultCacheBehavior%3ADistributionSummary%27"><span class="hs-identifier hs-var">defaultCacheBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DefaultCacheBehavior
+</span><a href="#local-6989586621679405727"><span class="hs-identifier hs-var">pDefaultCacheBehavior_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">$sel:cacheBehaviors:DistributionSummary' :: CacheBehaviors
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AcacheBehaviors%3ADistributionSummary%27"><span class="hs-identifier hs-var">cacheBehaviors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CacheBehaviors
+</span><a href="#local-6989586621679405726"><span class="hs-identifier hs-var">pCacheBehaviors_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">$sel:customErrorResponses:DistributionSummary' :: CustomErrorResponses
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AcustomErrorResponses%3ADistributionSummary%27"><span class="hs-identifier hs-var">customErrorResponses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CustomErrorResponses
+</span><a href="#local-6989586621679405725"><span class="hs-identifier hs-var">pCustomErrorResponses_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>        </span><span class="annot"><span class="annottext">$sel:comment:DistributionSummary' :: Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Acomment%3ADistributionSummary%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405724"><span class="hs-identifier hs-var">pComment_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">$sel:priceClass:DistributionSummary' :: PriceClass
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3ApriceClass%3ADistributionSummary%27"><span class="hs-identifier hs-var">priceClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PriceClass
+</span><a href="#local-6989586621679405723"><span class="hs-identifier hs-var">pPriceClass_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>        </span><span class="annot"><span class="annottext">$sel:enabled:DistributionSummary' :: Bool
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Aenabled%3ADistributionSummary%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679405722"><span class="hs-identifier hs-var">pEnabled_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>        </span><span class="annot"><span class="annottext">$sel:viewerCertificate:DistributionSummary' :: ViewerCertificate
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AviewerCertificate%3ADistributionSummary%27"><span class="hs-identifier hs-var">viewerCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405721"><span class="hs-identifier hs-var">pViewerCertificate_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>        </span><span class="annot"><span class="annottext">$sel:restrictions:DistributionSummary' :: Restrictions
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Arestrictions%3ADistributionSummary%27"><span class="hs-identifier hs-var">restrictions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Restrictions
+</span><a href="#local-6989586621679405720"><span class="hs-identifier hs-var">pRestrictions_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>        </span><span class="annot"><span class="annottext">$sel:webACLId:DistributionSummary' :: Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AwebACLId%3ADistributionSummary%27"><span class="hs-identifier hs-var">webACLId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405719"><span class="hs-identifier hs-var">pWebACLId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpVersion:DistributionSummary' :: HttpVersion
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AhttpVersion%3ADistributionSummary%27"><span class="hs-identifier hs-var">httpVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HttpVersion
+</span><a href="#local-6989586621679405718"><span class="hs-identifier hs-var">pHttpVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">$sel:isIPV6Enabled:DistributionSummary' :: Bool
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AisIPV6Enabled%3ADistributionSummary%27"><span class="hs-identifier hs-var">isIPV6Enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679405717"><span class="hs-identifier hs-var">pIsIPV6Enabled_</span></a></span><span>
+</span><span id="line-265"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | Amazon Web Services services in China customers must file for an</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- Internet Content Provider (ICP) recordal if they want to serve content</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- publicly on an alternate domain name, also known as a CNAME, that</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- status for CNAMEs associated with distributions.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- For more information about ICP recordals, see</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- &lt;https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials&gt;</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- in /Getting Started with Amazon Web Services services in China/.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_aliasICPRecordals"><span class="hs-identifier hs-type">distributionSummary_aliasICPRecordals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.AliasICPRecordal.html#AliasICPRecordal"><span class="hs-identifier hs-type">AliasICPRecordal</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span id="distributionSummary_aliasICPRecordals"><span class="annot"><span class="annottext">distributionSummary_aliasICPRecordals :: (Maybe [AliasICPRecordal] -&gt; f (Maybe [AliasICPRecordal]))
+-&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_aliasICPRecordals"><span class="hs-identifier hs-var hs-var">distributionSummary_aliasICPRecordals</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; Maybe [AliasICPRecordal])
+-&gt; (DistributionSummary
+    -&gt; Maybe [AliasICPRecordal] -&gt; DistributionSummary)
+-&gt; Lens
+     DistributionSummary
+     DistributionSummary
+     (Maybe [AliasICPRecordal])
+     (Maybe [AliasICPRecordal])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405711"><span class="annot"><span class="annottext">Maybe [AliasICPRecordal]
+aliasICPRecordals :: Maybe [AliasICPRecordal]
+$sel:aliasICPRecordals:DistributionSummary' :: DistributionSummary -&gt; Maybe [AliasICPRecordal]
+</span><a href="#local-6989586621679405711"><span class="hs-identifier hs-var hs-var">aliasICPRecordals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AliasICPRecordal]
+</span><a href="#local-6989586621679405711"><span class="hs-identifier hs-var">aliasICPRecordals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405710"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405709"><span class="annot"><span class="annottext">Maybe [AliasICPRecordal]
+</span><a href="#local-6989586621679405709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasICPRecordals:DistributionSummary' :: Maybe [AliasICPRecordal]
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AaliasICPRecordals%3ADistributionSummary%27"><span class="hs-identifier hs-var">aliasICPRecordals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AliasICPRecordal]
+</span><a href="#local-6989586621679405709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AliasICPRecordal] -&gt; f (Maybe [AliasICPRecordal]))
+ -&gt; DistributionSummary -&gt; f DistributionSummary)
+-&gt; ((Maybe [AliasICPRecordal] -&gt; f (Maybe [AliasICPRecordal]))
+    -&gt; Maybe [AliasICPRecordal] -&gt; f (Maybe [AliasICPRecordal]))
+-&gt; (Maybe [AliasICPRecordal] -&gt; f (Maybe [AliasICPRecordal]))
+-&gt; DistributionSummary
+-&gt; f DistributionSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AliasICPRecordal]
+  [AliasICPRecordal]
+  [AliasICPRecordal]
+  [AliasICPRecordal]
+-&gt; Iso
+     (Maybe [AliasICPRecordal])
+     (Maybe [AliasICPRecordal])
+     (Maybe [AliasICPRecordal])
+     (Maybe [AliasICPRecordal])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AliasICPRecordal]
+  [AliasICPRecordal]
+  [AliasICPRecordal]
+  [AliasICPRecordal]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | A complex type that contains information about origin groups for this</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- distribution.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_originGroups"><span class="hs-identifier hs-type">distributionSummary_originGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroups.html#OriginGroups"><span class="hs-identifier hs-type">OriginGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span id="distributionSummary_originGroups"><span class="annot"><span class="annottext">distributionSummary_originGroups :: (Maybe OriginGroups -&gt; f (Maybe OriginGroups))
+-&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_originGroups"><span class="hs-identifier hs-var hs-var">distributionSummary_originGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; Maybe OriginGroups)
+-&gt; (DistributionSummary
+    -&gt; Maybe OriginGroups -&gt; DistributionSummary)
+-&gt; Lens
+     DistributionSummary
+     DistributionSummary
+     (Maybe OriginGroups)
+     (Maybe OriginGroups)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405704"><span class="annot"><span class="annottext">Maybe OriginGroups
+originGroups :: Maybe OriginGroups
+$sel:originGroups:DistributionSummary' :: DistributionSummary -&gt; Maybe OriginGroups
+</span><a href="#local-6989586621679405704"><span class="hs-identifier hs-var hs-var">originGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OriginGroups
+</span><a href="#local-6989586621679405704"><span class="hs-identifier hs-var">originGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405703"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405702"><span class="annot"><span class="annottext">Maybe OriginGroups
+</span><a href="#local-6989586621679405702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originGroups:DistributionSummary' :: Maybe OriginGroups
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AoriginGroups%3ADistributionSummary%27"><span class="hs-identifier hs-var">originGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OriginGroups
+</span><a href="#local-6989586621679405702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | The identifier for the distribution. For example: @EDFDVBD632BHDS5@.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_id"><span class="hs-identifier hs-type">distributionSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-286"></span><span id="distributionSummary_id"><span class="annot"><span class="annottext">distributionSummary_id :: (Text -&gt; f Text) -&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_id"><span class="hs-identifier hs-var hs-var">distributionSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; Text)
+-&gt; (DistributionSummary -&gt; Text -&gt; DistributionSummary)
+-&gt; Lens DistributionSummary DistributionSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405700"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DistributionSummary' :: DistributionSummary -&gt; Text
+</span><a href="#local-6989586621679405700"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405700"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405699"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405698"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DistributionSummary' :: Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Aid%3ADistributionSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The ARN (Amazon Resource Name) for the distribution. For example:</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- @123456789012@ is your account ID.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_arn"><span class="hs-identifier hs-type">distributionSummary_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-292"></span><span id="distributionSummary_arn"><span class="annot"><span class="annottext">distributionSummary_arn :: (Text -&gt; f Text) -&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_arn"><span class="hs-identifier hs-var hs-var">distributionSummary_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; Text)
+-&gt; (DistributionSummary -&gt; Text -&gt; DistributionSummary)
+-&gt; Lens DistributionSummary DistributionSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405696"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:DistributionSummary' :: DistributionSummary -&gt; Text
+</span><a href="#local-6989586621679405696"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405696"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405695"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405694"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DistributionSummary' :: Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Aarn%3ADistributionSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- | The current status of the distribution. When the status is @Deployed@,</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- the distribution\'s information is propagated to all CloudFront edge</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- locations.</span><span>
+</span><span id="line-297"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_status"><span class="hs-identifier hs-type">distributionSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-298"></span><span id="distributionSummary_status"><span class="annot"><span class="annottext">distributionSummary_status :: (Text -&gt; f Text) -&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_status"><span class="hs-identifier hs-var hs-var">distributionSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; Text)
+-&gt; (DistributionSummary -&gt; Text -&gt; DistributionSummary)
+-&gt; Lens DistributionSummary DistributionSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405692"><span class="annot"><span class="annottext">Text
+status :: Text
+$sel:status:DistributionSummary' :: DistributionSummary -&gt; Text
+</span><a href="#local-6989586621679405692"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405692"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405691"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405690"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DistributionSummary' :: Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Astatus%3ADistributionSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | The date and time the distribution was last modified.</span><span>
+</span><span id="line-301"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_lastModifiedTime"><span class="hs-identifier hs-type">distributionSummary_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-302"></span><span id="distributionSummary_lastModifiedTime"><span class="annot"><span class="annottext">distributionSummary_lastModifiedTime :: (UTCTime -&gt; f UTCTime)
+-&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_lastModifiedTime"><span class="hs-identifier hs-var hs-var">distributionSummary_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; ISO8601)
+-&gt; (DistributionSummary -&gt; ISO8601 -&gt; DistributionSummary)
+-&gt; Lens DistributionSummary DistributionSummary ISO8601 ISO8601
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405688"><span class="annot"><span class="annottext">ISO8601
+lastModifiedTime :: ISO8601
+$sel:lastModifiedTime:DistributionSummary' :: DistributionSummary -&gt; ISO8601
+</span><a href="#local-6989586621679405688"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679405688"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405687"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405686"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679405686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DistributionSummary' :: ISO8601
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AlastModifiedTime%3ADistributionSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679405686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601)
+ -&gt; DistributionSummary -&gt; f DistributionSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; DistributionSummary
+-&gt; f DistributionSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | The domain name that corresponds to the distribution, for example,</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_domainName"><span class="hs-identifier hs-type">distributionSummary_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-307"></span><span id="distributionSummary_domainName"><span class="annot"><span class="annottext">distributionSummary_domainName :: (Text -&gt; f Text) -&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_domainName"><span class="hs-identifier hs-var hs-var">distributionSummary_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; Text)
+-&gt; (DistributionSummary -&gt; Text -&gt; DistributionSummary)
+-&gt; Lens DistributionSummary DistributionSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405684"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:DistributionSummary' :: DistributionSummary -&gt; Text
+</span><a href="#local-6989586621679405684"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405684"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405683"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405682"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DistributionSummary' :: Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AdomainName%3ADistributionSummary%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | A complex type that contains information about CNAMEs (alternate domain</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- names), if any, for this distribution.</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_aliases"><span class="hs-identifier hs-type">distributionSummary_aliases</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Aliases.html#Aliases"><span class="hs-identifier hs-type">Aliases</span></a></span><span>
+</span><span id="line-312"></span><span id="distributionSummary_aliases"><span class="annot"><span class="annottext">distributionSummary_aliases :: (Aliases -&gt; f Aliases)
+-&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_aliases"><span class="hs-identifier hs-var hs-var">distributionSummary_aliases</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; Aliases)
+-&gt; (DistributionSummary -&gt; Aliases -&gt; DistributionSummary)
+-&gt; Lens DistributionSummary DistributionSummary Aliases Aliases
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405680"><span class="annot"><span class="annottext">Aliases
+aliases :: Aliases
+$sel:aliases:DistributionSummary' :: DistributionSummary -&gt; Aliases
+</span><a href="#local-6989586621679405680"><span class="hs-identifier hs-var hs-var">aliases</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Aliases
+</span><a href="#local-6989586621679405680"><span class="hs-identifier hs-var">aliases</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405679"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405678"><span class="annot"><span class="annottext">Aliases
+</span><a href="#local-6989586621679405678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliases:DistributionSummary' :: Aliases
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Aaliases%3ADistributionSummary%27"><span class="hs-identifier hs-var">aliases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Aliases
+</span><a href="#local-6989586621679405678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- | A complex type that contains information about origins for this</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- distribution.</span><span>
+</span><span id="line-316"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_origins"><span class="hs-identifier hs-type">distributionSummary_origins</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-type">Origins</span></a></span><span>
+</span><span id="line-317"></span><span id="distributionSummary_origins"><span class="annot"><span class="annottext">distributionSummary_origins :: (Origins -&gt; f Origins)
+-&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_origins"><span class="hs-identifier hs-var hs-var">distributionSummary_origins</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; Origins)
+-&gt; (DistributionSummary -&gt; Origins -&gt; DistributionSummary)
+-&gt; Lens DistributionSummary DistributionSummary Origins Origins
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405676"><span class="annot"><span class="annottext">Origins
+origins :: Origins
+$sel:origins:DistributionSummary' :: DistributionSummary -&gt; Origins
+</span><a href="#local-6989586621679405676"><span class="hs-identifier hs-var hs-var">origins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origins
+</span><a href="#local-6989586621679405676"><span class="hs-identifier hs-var">origins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405675"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405674"><span class="annot"><span class="annottext">Origins
+</span><a href="#local-6989586621679405674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:origins:DistributionSummary' :: Origins
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Aorigins%3ADistributionSummary%27"><span class="hs-identifier hs-var">origins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Origins
+</span><a href="#local-6989586621679405674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | A complex type that describes the default cache behavior if you don\'t</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- specify a @CacheBehavior@ element or if files don\'t match any of the</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- values of @PathPattern@ in @CacheBehavior@ elements. You must create</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- exactly one default cache behavior.</span><span>
+</span><span id="line-323"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_defaultCacheBehavior"><span class="hs-identifier hs-type">distributionSummary_defaultCacheBehavior</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DefaultCacheBehavior.html#DefaultCacheBehavior"><span class="hs-identifier hs-type">DefaultCacheBehavior</span></a></span><span>
+</span><span id="line-324"></span><span id="distributionSummary_defaultCacheBehavior"><span class="annot"><span class="annottext">distributionSummary_defaultCacheBehavior :: (DefaultCacheBehavior -&gt; f DefaultCacheBehavior)
+-&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_defaultCacheBehavior"><span class="hs-identifier hs-var hs-var">distributionSummary_defaultCacheBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; DefaultCacheBehavior)
+-&gt; (DistributionSummary
+    -&gt; DefaultCacheBehavior -&gt; DistributionSummary)
+-&gt; Lens
+     DistributionSummary
+     DistributionSummary
+     DefaultCacheBehavior
+     DefaultCacheBehavior
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405672"><span class="annot"><span class="annottext">DefaultCacheBehavior
+defaultCacheBehavior :: DefaultCacheBehavior
+$sel:defaultCacheBehavior:DistributionSummary' :: DistributionSummary -&gt; DefaultCacheBehavior
+</span><a href="#local-6989586621679405672"><span class="hs-identifier hs-var hs-var">defaultCacheBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultCacheBehavior
+</span><a href="#local-6989586621679405672"><span class="hs-identifier hs-var">defaultCacheBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405671"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405670"><span class="annot"><span class="annottext">DefaultCacheBehavior
+</span><a href="#local-6989586621679405670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultCacheBehavior:DistributionSummary' :: DefaultCacheBehavior
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AdefaultCacheBehavior%3ADistributionSummary%27"><span class="hs-identifier hs-var">defaultCacheBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DefaultCacheBehavior
+</span><a href="#local-6989586621679405670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- | A complex type that contains zero or more @CacheBehavior@ elements.</span><span>
+</span><span id="line-327"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_cacheBehaviors"><span class="hs-identifier hs-type">distributionSummary_cacheBehaviors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehaviors.html#CacheBehaviors"><span class="hs-identifier hs-type">CacheBehaviors</span></a></span><span>
+</span><span id="line-328"></span><span id="distributionSummary_cacheBehaviors"><span class="annot"><span class="annottext">distributionSummary_cacheBehaviors :: (CacheBehaviors -&gt; f CacheBehaviors)
+-&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_cacheBehaviors"><span class="hs-identifier hs-var hs-var">distributionSummary_cacheBehaviors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; CacheBehaviors)
+-&gt; (DistributionSummary -&gt; CacheBehaviors -&gt; DistributionSummary)
+-&gt; Lens
+     DistributionSummary
+     DistributionSummary
+     CacheBehaviors
+     CacheBehaviors
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405668"><span class="annot"><span class="annottext">CacheBehaviors
+cacheBehaviors :: CacheBehaviors
+$sel:cacheBehaviors:DistributionSummary' :: DistributionSummary -&gt; CacheBehaviors
+</span><a href="#local-6989586621679405668"><span class="hs-identifier hs-var hs-var">cacheBehaviors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehaviors
+</span><a href="#local-6989586621679405668"><span class="hs-identifier hs-var">cacheBehaviors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405667"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405666"><span class="annot"><span class="annottext">CacheBehaviors
+</span><a href="#local-6989586621679405666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheBehaviors:DistributionSummary' :: CacheBehaviors
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AcacheBehaviors%3ADistributionSummary%27"><span class="hs-identifier hs-var">cacheBehaviors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CacheBehaviors
+</span><a href="#local-6989586621679405666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- | A complex type that contains zero or more @CustomErrorResponses@</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- elements.</span><span>
+</span><span id="line-332"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_customErrorResponses"><span class="hs-identifier hs-type">distributionSummary_customErrorResponses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponses.html#CustomErrorResponses"><span class="hs-identifier hs-type">CustomErrorResponses</span></a></span><span>
+</span><span id="line-333"></span><span id="distributionSummary_customErrorResponses"><span class="annot"><span class="annottext">distributionSummary_customErrorResponses :: (CustomErrorResponses -&gt; f CustomErrorResponses)
+-&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_customErrorResponses"><span class="hs-identifier hs-var hs-var">distributionSummary_customErrorResponses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; CustomErrorResponses)
+-&gt; (DistributionSummary
+    -&gt; CustomErrorResponses -&gt; DistributionSummary)
+-&gt; Lens
+     DistributionSummary
+     DistributionSummary
+     CustomErrorResponses
+     CustomErrorResponses
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405664"><span class="annot"><span class="annottext">CustomErrorResponses
+customErrorResponses :: CustomErrorResponses
+$sel:customErrorResponses:DistributionSummary' :: DistributionSummary -&gt; CustomErrorResponses
+</span><a href="#local-6989586621679405664"><span class="hs-identifier hs-var hs-var">customErrorResponses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomErrorResponses
+</span><a href="#local-6989586621679405664"><span class="hs-identifier hs-var">customErrorResponses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405663"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405662"><span class="annot"><span class="annottext">CustomErrorResponses
+</span><a href="#local-6989586621679405662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customErrorResponses:DistributionSummary' :: CustomErrorResponses
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AcustomErrorResponses%3ADistributionSummary%27"><span class="hs-identifier hs-var">customErrorResponses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CustomErrorResponses
+</span><a href="#local-6989586621679405662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- | The comment originally specified when this distribution was created.</span><span>
+</span><span id="line-336"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_comment"><span class="hs-identifier hs-type">distributionSummary_comment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-337"></span><span id="distributionSummary_comment"><span class="annot"><span class="annottext">distributionSummary_comment :: (Text -&gt; f Text) -&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_comment"><span class="hs-identifier hs-var hs-var">distributionSummary_comment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; Text)
+-&gt; (DistributionSummary -&gt; Text -&gt; DistributionSummary)
+-&gt; Lens DistributionSummary DistributionSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405660"><span class="annot"><span class="annottext">Text
+comment :: Text
+$sel:comment:DistributionSummary' :: DistributionSummary -&gt; Text
+</span><a href="#local-6989586621679405660"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405660"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405659"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405658"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:DistributionSummary' :: Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Acomment%3ADistributionSummary%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- | A complex type that contains information about price class for this</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- streaming distribution.</span><span>
+</span><span id="line-341"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_priceClass"><span class="hs-identifier hs-type">distributionSummary_priceClass</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PriceClass.html#PriceClass"><span class="hs-identifier hs-type">PriceClass</span></a></span><span>
+</span><span id="line-342"></span><span id="distributionSummary_priceClass"><span class="annot"><span class="annottext">distributionSummary_priceClass :: (PriceClass -&gt; f PriceClass)
+-&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_priceClass"><span class="hs-identifier hs-var hs-var">distributionSummary_priceClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; PriceClass)
+-&gt; (DistributionSummary -&gt; PriceClass -&gt; DistributionSummary)
+-&gt; Lens
+     DistributionSummary DistributionSummary PriceClass PriceClass
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405656"><span class="annot"><span class="annottext">PriceClass
+priceClass :: PriceClass
+$sel:priceClass:DistributionSummary' :: DistributionSummary -&gt; PriceClass
+</span><a href="#local-6989586621679405656"><span class="hs-identifier hs-var hs-var">priceClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PriceClass
+</span><a href="#local-6989586621679405656"><span class="hs-identifier hs-var">priceClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405655"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405654"><span class="annot"><span class="annottext">PriceClass
+</span><a href="#local-6989586621679405654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priceClass:DistributionSummary' :: PriceClass
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3ApriceClass%3ADistributionSummary%27"><span class="hs-identifier hs-var">priceClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PriceClass
+</span><a href="#local-6989586621679405654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- | Whether the distribution is enabled to accept user requests for content.</span><span>
+</span><span id="line-345"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_enabled"><span class="hs-identifier hs-type">distributionSummary_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-346"></span><span id="distributionSummary_enabled"><span class="annot"><span class="annottext">distributionSummary_enabled :: (Bool -&gt; f Bool) -&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_enabled"><span class="hs-identifier hs-var hs-var">distributionSummary_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; Bool)
+-&gt; (DistributionSummary -&gt; Bool -&gt; DistributionSummary)
+-&gt; Lens DistributionSummary DistributionSummary Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405652"><span class="annot"><span class="annottext">Bool
+enabled :: Bool
+$sel:enabled:DistributionSummary' :: DistributionSummary -&gt; Bool
+</span><a href="#local-6989586621679405652"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679405652"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405651"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405650"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679405650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:DistributionSummary' :: Bool
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Aenabled%3ADistributionSummary%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679405650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- | A complex type that determines the distribution&#8217;s SSL\/TLS configuration</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- for communicating with viewers.</span><span>
+</span><span id="line-350"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_viewerCertificate"><span class="hs-identifier hs-type">distributionSummary_viewerCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span>
+</span><span id="line-351"></span><span id="distributionSummary_viewerCertificate"><span class="annot"><span class="annottext">distributionSummary_viewerCertificate :: (ViewerCertificate -&gt; f ViewerCertificate)
+-&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_viewerCertificate"><span class="hs-identifier hs-var hs-var">distributionSummary_viewerCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; ViewerCertificate)
+-&gt; (DistributionSummary
+    -&gt; ViewerCertificate -&gt; DistributionSummary)
+-&gt; Lens
+     DistributionSummary
+     DistributionSummary
+     ViewerCertificate
+     ViewerCertificate
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405648"><span class="annot"><span class="annottext">ViewerCertificate
+viewerCertificate :: ViewerCertificate
+$sel:viewerCertificate:DistributionSummary' :: DistributionSummary -&gt; ViewerCertificate
+</span><a href="#local-6989586621679405648"><span class="hs-identifier hs-var hs-var">viewerCertificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405648"><span class="hs-identifier hs-var">viewerCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405647"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405646"><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:viewerCertificate:DistributionSummary' :: ViewerCertificate
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AviewerCertificate%3ADistributionSummary%27"><span class="hs-identifier hs-var">viewerCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- | A complex type that identifies ways in which you want to restrict</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- distribution of your content.</span><span>
+</span><span id="line-355"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_restrictions"><span class="hs-identifier hs-type">distributionSummary_restrictions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions"><span class="hs-identifier hs-type">Restrictions</span></a></span><span>
+</span><span id="line-356"></span><span id="distributionSummary_restrictions"><span class="annot"><span class="annottext">distributionSummary_restrictions :: (Restrictions -&gt; f Restrictions)
+-&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_restrictions"><span class="hs-identifier hs-var hs-var">distributionSummary_restrictions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; Restrictions)
+-&gt; (DistributionSummary -&gt; Restrictions -&gt; DistributionSummary)
+-&gt; Lens
+     DistributionSummary DistributionSummary Restrictions Restrictions
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405644"><span class="annot"><span class="annottext">Restrictions
+restrictions :: Restrictions
+$sel:restrictions:DistributionSummary' :: DistributionSummary -&gt; Restrictions
+</span><a href="#local-6989586621679405644"><span class="hs-identifier hs-var hs-var">restrictions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Restrictions
+</span><a href="#local-6989586621679405644"><span class="hs-identifier hs-var">restrictions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405643"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405642"><span class="annot"><span class="annottext">Restrictions
+</span><a href="#local-6989586621679405642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restrictions:DistributionSummary' :: Restrictions
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3Arestrictions%3ADistributionSummary%27"><span class="hs-identifier hs-var">restrictions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Restrictions
+</span><a href="#local-6989586621679405642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- | The Web ACL Id (if any) associated with the distribution.</span><span>
+</span><span id="line-359"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_webACLId"><span class="hs-identifier hs-type">distributionSummary_webACLId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-360"></span><span id="distributionSummary_webACLId"><span class="annot"><span class="annottext">distributionSummary_webACLId :: (Text -&gt; f Text) -&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_webACLId"><span class="hs-identifier hs-var hs-var">distributionSummary_webACLId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; Text)
+-&gt; (DistributionSummary -&gt; Text -&gt; DistributionSummary)
+-&gt; Lens DistributionSummary DistributionSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405640"><span class="annot"><span class="annottext">Text
+webACLId :: Text
+$sel:webACLId:DistributionSummary' :: DistributionSummary -&gt; Text
+</span><a href="#local-6989586621679405640"><span class="hs-identifier hs-var hs-var">webACLId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405640"><span class="hs-identifier hs-var">webACLId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405639"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405638"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webACLId:DistributionSummary' :: Text
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AwebACLId%3ADistributionSummary%27"><span class="hs-identifier hs-var">webACLId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- | Specify the maximum HTTP version that you want viewers to use to</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- communicate with CloudFront. The default value for new web distributions</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- is @http2@. Viewers that don\'t support @HTTP\/2@ will automatically use</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- an earlier version.</span><span>
+</span><span id="line-366"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_httpVersion"><span class="hs-identifier hs-type">distributionSummary_httpVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.HttpVersion.html#HttpVersion"><span class="hs-identifier hs-type">HttpVersion</span></a></span><span>
+</span><span id="line-367"></span><span id="distributionSummary_httpVersion"><span class="annot"><span class="annottext">distributionSummary_httpVersion :: (HttpVersion -&gt; f HttpVersion)
+-&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_httpVersion"><span class="hs-identifier hs-var hs-var">distributionSummary_httpVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; HttpVersion)
+-&gt; (DistributionSummary -&gt; HttpVersion -&gt; DistributionSummary)
+-&gt; Lens
+     DistributionSummary DistributionSummary HttpVersion HttpVersion
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405636"><span class="annot"><span class="annottext">HttpVersion
+httpVersion :: HttpVersion
+$sel:httpVersion:DistributionSummary' :: DistributionSummary -&gt; HttpVersion
+</span><a href="#local-6989586621679405636"><span class="hs-identifier hs-var hs-var">httpVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpVersion
+</span><a href="#local-6989586621679405636"><span class="hs-identifier hs-var">httpVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405635"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405634"><span class="annot"><span class="annottext">HttpVersion
+</span><a href="#local-6989586621679405634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpVersion:DistributionSummary' :: HttpVersion
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AhttpVersion%3ADistributionSummary%27"><span class="hs-identifier hs-var">httpVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HttpVersion
+</span><a href="#local-6989586621679405634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-368"></span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- | Whether CloudFront responds to IPv6 DNS requests with an IPv6 address</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- for your distribution.</span><span>
+</span><span id="line-371"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_isIPV6Enabled"><span class="hs-identifier hs-type">distributionSummary_isIPV6Enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-372"></span><span id="distributionSummary_isIPV6Enabled"><span class="annot"><span class="annottext">distributionSummary_isIPV6Enabled :: (Bool -&gt; f Bool) -&gt; DistributionSummary -&gt; f DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#distributionSummary_isIPV6Enabled"><span class="hs-identifier hs-var hs-var">distributionSummary_isIPV6Enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DistributionSummary -&gt; Bool)
+-&gt; (DistributionSummary -&gt; Bool -&gt; DistributionSummary)
+-&gt; Lens DistributionSummary DistributionSummary Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405632"><span class="annot"><span class="annottext">Bool
+isIPV6Enabled :: Bool
+$sel:isIPV6Enabled:DistributionSummary' :: DistributionSummary -&gt; Bool
+</span><a href="#local-6989586621679405632"><span class="hs-identifier hs-var hs-var">isIPV6Enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679405632"><span class="hs-identifier hs-var">isIPV6Enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405631"><span class="annot"><span class="annottext">s :: DistributionSummary
+</span><a href="#local-6989586621679405631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-type">DistributionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405630"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679405630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionSummary
+</span><a href="#local-6989586621679405631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isIPV6Enabled:DistributionSummary' :: Bool
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#%24sel%3AisIPV6Enabled%3ADistributionSummary%27"><span class="hs-identifier hs-var">isIPV6Enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679405630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-373"></span><span>
+</span><span id="line-374"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-375"></span><span>  </span><span id="local-6989586621679405627"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DistributionSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679405625"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-376"></span><span>    </span><span class="annot"><span class="annottext">Maybe [AliasICPRecordal]
+-&gt; Maybe OriginGroups
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ISO8601
+-&gt; Text
+-&gt; Aliases
+-&gt; Origins
+-&gt; DefaultCacheBehavior
+-&gt; CacheBehaviors
+-&gt; CustomErrorResponses
+-&gt; Text
+-&gt; PriceClass
+-&gt; Bool
+-&gt; ViewerCertificate
+-&gt; Restrictions
+-&gt; Text
+-&gt; HttpVersion
+-&gt; Bool
+-&gt; DistributionSummary
+</span><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary%27"><span class="hs-identifier hs-var">DistributionSummary'</span></a></span><span>
+</span><span id="line-377"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [AliasICPRecordal]
+ -&gt; Maybe OriginGroups
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; ISO8601
+ -&gt; Text
+ -&gt; Aliases
+ -&gt; Origins
+ -&gt; DefaultCacheBehavior
+ -&gt; CacheBehaviors
+ -&gt; CustomErrorResponses
+ -&gt; Text
+ -&gt; PriceClass
+ -&gt; Bool
+ -&gt; ViewerCertificate
+ -&gt; Restrictions
+ -&gt; Text
+ -&gt; HttpVersion
+ -&gt; Bool
+ -&gt; DistributionSummary)
+-&gt; Either String (Maybe [AliasICPRecordal])
+-&gt; Either
+     String
+     (Maybe OriginGroups
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; Text
+      -&gt; Aliases
+      -&gt; Origins
+      -&gt; DefaultCacheBehavior
+      -&gt; CacheBehaviors
+      -&gt; CustomErrorResponses
+      -&gt; Text
+      -&gt; PriceClass
+      -&gt; Bool
+      -&gt; ViewerCertificate
+      -&gt; Restrictions
+      -&gt; Text
+      -&gt; HttpVersion
+      -&gt; Bool
+      -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AliasICPRecordals&quot;</span></span><span>
+</span><span id="line-378"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-379"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [AliasICPRecordal]))
+-&gt; Either String (Maybe [AliasICPRecordal])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [AliasICPRecordal])
+-&gt; [Node] -&gt; Either String (Maybe [AliasICPRecordal])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [AliasICPRecordal]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AliasICPRecordal&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-380"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-381"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe OriginGroups
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; Text
+   -&gt; Aliases
+   -&gt; Origins
+   -&gt; DefaultCacheBehavior
+   -&gt; CacheBehaviors
+   -&gt; CustomErrorResponses
+   -&gt; Text
+   -&gt; PriceClass
+   -&gt; Bool
+   -&gt; ViewerCertificate
+   -&gt; Restrictions
+   -&gt; Text
+   -&gt; HttpVersion
+   -&gt; Bool
+   -&gt; DistributionSummary)
+-&gt; Either String (Maybe OriginGroups)
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; Text
+      -&gt; Aliases
+      -&gt; Origins
+      -&gt; DefaultCacheBehavior
+      -&gt; CacheBehaviors
+      -&gt; CustomErrorResponses
+      -&gt; Text
+      -&gt; PriceClass
+      -&gt; Bool
+      -&gt; ViewerCertificate
+      -&gt; Restrictions
+      -&gt; Text
+      -&gt; HttpVersion
+      -&gt; Bool
+      -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe OriginGroups)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OriginGroups&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; Text
+   -&gt; Aliases
+   -&gt; Origins
+   -&gt; DefaultCacheBehavior
+   -&gt; CacheBehaviors
+   -&gt; CustomErrorResponses
+   -&gt; Text
+   -&gt; PriceClass
+   -&gt; Bool
+   -&gt; ViewerCertificate
+   -&gt; Restrictions
+   -&gt; Text
+   -&gt; HttpVersion
+   -&gt; Bool
+   -&gt; DistributionSummary)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; Text
+      -&gt; Aliases
+      -&gt; Origins
+      -&gt; DefaultCacheBehavior
+      -&gt; CacheBehaviors
+      -&gt; CustomErrorResponses
+      -&gt; Text
+      -&gt; PriceClass
+      -&gt; Bool
+      -&gt; ViewerCertificate
+      -&gt; Restrictions
+      -&gt; Text
+      -&gt; HttpVersion
+      -&gt; Bool
+      -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-383"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; Text
+   -&gt; Aliases
+   -&gt; Origins
+   -&gt; DefaultCacheBehavior
+   -&gt; CacheBehaviors
+   -&gt; CustomErrorResponses
+   -&gt; Text
+   -&gt; PriceClass
+   -&gt; Bool
+   -&gt; ViewerCertificate
+   -&gt; Restrictions
+   -&gt; Text
+   -&gt; HttpVersion
+   -&gt; Bool
+   -&gt; DistributionSummary)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; ISO8601
+      -&gt; Text
+      -&gt; Aliases
+      -&gt; Origins
+      -&gt; DefaultCacheBehavior
+      -&gt; CacheBehaviors
+      -&gt; CustomErrorResponses
+      -&gt; Text
+      -&gt; PriceClass
+      -&gt; Bool
+      -&gt; ViewerCertificate
+      -&gt; Restrictions
+      -&gt; Text
+      -&gt; HttpVersion
+      -&gt; Bool
+      -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-384"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; ISO8601
+   -&gt; Text
+   -&gt; Aliases
+   -&gt; Origins
+   -&gt; DefaultCacheBehavior
+   -&gt; CacheBehaviors
+   -&gt; CustomErrorResponses
+   -&gt; Text
+   -&gt; PriceClass
+   -&gt; Bool
+   -&gt; ViewerCertificate
+   -&gt; Restrictions
+   -&gt; Text
+   -&gt; HttpVersion
+   -&gt; Bool
+   -&gt; DistributionSummary)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (ISO8601
+      -&gt; Text
+      -&gt; Aliases
+      -&gt; Origins
+      -&gt; DefaultCacheBehavior
+      -&gt; CacheBehaviors
+      -&gt; CustomErrorResponses
+      -&gt; Text
+      -&gt; PriceClass
+      -&gt; Bool
+      -&gt; ViewerCertificate
+      -&gt; Restrictions
+      -&gt; Text
+      -&gt; HttpVersion
+      -&gt; Bool
+      -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-385"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (ISO8601
+   -&gt; Text
+   -&gt; Aliases
+   -&gt; Origins
+   -&gt; DefaultCacheBehavior
+   -&gt; CacheBehaviors
+   -&gt; CustomErrorResponses
+   -&gt; Text
+   -&gt; PriceClass
+   -&gt; Bool
+   -&gt; ViewerCertificate
+   -&gt; Restrictions
+   -&gt; Text
+   -&gt; HttpVersion
+   -&gt; Bool
+   -&gt; DistributionSummary)
+-&gt; Either String ISO8601
+-&gt; Either
+     String
+     (Text
+      -&gt; Aliases
+      -&gt; Origins
+      -&gt; DefaultCacheBehavior
+      -&gt; CacheBehaviors
+      -&gt; CustomErrorResponses
+      -&gt; Text
+      -&gt; PriceClass
+      -&gt; Bool
+      -&gt; ViewerCertificate
+      -&gt; Restrictions
+      -&gt; Text
+      -&gt; HttpVersion
+      -&gt; Bool
+      -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-386"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Aliases
+   -&gt; Origins
+   -&gt; DefaultCacheBehavior
+   -&gt; CacheBehaviors
+   -&gt; CustomErrorResponses
+   -&gt; Text
+   -&gt; PriceClass
+   -&gt; Bool
+   -&gt; ViewerCertificate
+   -&gt; Restrictions
+   -&gt; Text
+   -&gt; HttpVersion
+   -&gt; Bool
+   -&gt; DistributionSummary)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Aliases
+      -&gt; Origins
+      -&gt; DefaultCacheBehavior
+      -&gt; CacheBehaviors
+      -&gt; CustomErrorResponses
+      -&gt; Text
+      -&gt; PriceClass
+      -&gt; Bool
+      -&gt; ViewerCertificate
+      -&gt; Restrictions
+      -&gt; Text
+      -&gt; HttpVersion
+      -&gt; Bool
+      -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-387"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Aliases
+   -&gt; Origins
+   -&gt; DefaultCacheBehavior
+   -&gt; CacheBehaviors
+   -&gt; CustomErrorResponses
+   -&gt; Text
+   -&gt; PriceClass
+   -&gt; Bool
+   -&gt; ViewerCertificate
+   -&gt; Restrictions
+   -&gt; Text
+   -&gt; HttpVersion
+   -&gt; Bool
+   -&gt; DistributionSummary)
+-&gt; Either String Aliases
+-&gt; Either
+     String
+     (Origins
+      -&gt; DefaultCacheBehavior
+      -&gt; CacheBehaviors
+      -&gt; CustomErrorResponses
+      -&gt; Text
+      -&gt; PriceClass
+      -&gt; Bool
+      -&gt; ViewerCertificate
+      -&gt; Restrictions
+      -&gt; Text
+      -&gt; HttpVersion
+      -&gt; Bool
+      -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Aliases
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Aliases&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-388"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Origins
+   -&gt; DefaultCacheBehavior
+   -&gt; CacheBehaviors
+   -&gt; CustomErrorResponses
+   -&gt; Text
+   -&gt; PriceClass
+   -&gt; Bool
+   -&gt; ViewerCertificate
+   -&gt; Restrictions
+   -&gt; Text
+   -&gt; HttpVersion
+   -&gt; Bool
+   -&gt; DistributionSummary)
+-&gt; Either String Origins
+-&gt; Either
+     String
+     (DefaultCacheBehavior
+      -&gt; CacheBehaviors
+      -&gt; CustomErrorResponses
+      -&gt; Text
+      -&gt; PriceClass
+      -&gt; Bool
+      -&gt; ViewerCertificate
+      -&gt; Restrictions
+      -&gt; Text
+      -&gt; HttpVersion
+      -&gt; Bool
+      -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Origins
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Origins&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-389"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (DefaultCacheBehavior
+   -&gt; CacheBehaviors
+   -&gt; CustomErrorResponses
+   -&gt; Text
+   -&gt; PriceClass
+   -&gt; Bool
+   -&gt; ViewerCertificate
+   -&gt; Restrictions
+   -&gt; Text
+   -&gt; HttpVersion
+   -&gt; Bool
+   -&gt; DistributionSummary)
+-&gt; Either String DefaultCacheBehavior
+-&gt; Either
+     String
+     (CacheBehaviors
+      -&gt; CustomErrorResponses
+      -&gt; Text
+      -&gt; PriceClass
+      -&gt; Bool
+      -&gt; ViewerCertificate
+      -&gt; Restrictions
+      -&gt; Text
+      -&gt; HttpVersion
+      -&gt; Bool
+      -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String DefaultCacheBehavior
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultCacheBehavior&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-390"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (CacheBehaviors
+   -&gt; CustomErrorResponses
+   -&gt; Text
+   -&gt; PriceClass
+   -&gt; Bool
+   -&gt; ViewerCertificate
+   -&gt; Restrictions
+   -&gt; Text
+   -&gt; HttpVersion
+   -&gt; Bool
+   -&gt; DistributionSummary)
+-&gt; Either String CacheBehaviors
+-&gt; Either
+     String
+     (CustomErrorResponses
+      -&gt; Text
+      -&gt; PriceClass
+      -&gt; Bool
+      -&gt; ViewerCertificate
+      -&gt; Restrictions
+      -&gt; Text
+      -&gt; HttpVersion
+      -&gt; Bool
+      -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CacheBehaviors
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CacheBehaviors&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-391"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (CustomErrorResponses
+   -&gt; Text
+   -&gt; PriceClass
+   -&gt; Bool
+   -&gt; ViewerCertificate
+   -&gt; Restrictions
+   -&gt; Text
+   -&gt; HttpVersion
+   -&gt; Bool
+   -&gt; DistributionSummary)
+-&gt; Either String CustomErrorResponses
+-&gt; Either
+     String
+     (Text
+      -&gt; PriceClass
+      -&gt; Bool
+      -&gt; ViewerCertificate
+      -&gt; Restrictions
+      -&gt; Text
+      -&gt; HttpVersion
+      -&gt; Bool
+      -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CustomErrorResponses
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomErrorResponses&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-392"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; PriceClass
+   -&gt; Bool
+   -&gt; ViewerCertificate
+   -&gt; Restrictions
+   -&gt; Text
+   -&gt; HttpVersion
+   -&gt; Bool
+   -&gt; DistributionSummary)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (PriceClass
+      -&gt; Bool
+      -&gt; ViewerCertificate
+      -&gt; Restrictions
+      -&gt; Text
+      -&gt; HttpVersion
+      -&gt; Bool
+      -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Comment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-393"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (PriceClass
+   -&gt; Bool
+   -&gt; ViewerCertificate
+   -&gt; Restrictions
+   -&gt; Text
+   -&gt; HttpVersion
+   -&gt; Bool
+   -&gt; DistributionSummary)
+-&gt; Either String PriceClass
+-&gt; Either
+     String
+     (Bool
+      -&gt; ViewerCertificate
+      -&gt; Restrictions
+      -&gt; Text
+      -&gt; HttpVersion
+      -&gt; Bool
+      -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String PriceClass
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PriceClass&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-394"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Bool
+   -&gt; ViewerCertificate
+   -&gt; Restrictions
+   -&gt; Text
+   -&gt; HttpVersion
+   -&gt; Bool
+   -&gt; DistributionSummary)
+-&gt; Either String Bool
+-&gt; Either
+     String
+     (ViewerCertificate
+      -&gt; Restrictions
+      -&gt; Text
+      -&gt; HttpVersion
+      -&gt; Bool
+      -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-395"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (ViewerCertificate
+   -&gt; Restrictions
+   -&gt; Text
+   -&gt; HttpVersion
+   -&gt; Bool
+   -&gt; DistributionSummary)
+-&gt; Either String ViewerCertificate
+-&gt; Either
+     String
+     (Restrictions
+      -&gt; Text -&gt; HttpVersion -&gt; Bool -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ViewerCertificate
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ViewerCertificate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-396"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Restrictions
+   -&gt; Text -&gt; HttpVersion -&gt; Bool -&gt; DistributionSummary)
+-&gt; Either String Restrictions
+-&gt; Either
+     String (Text -&gt; HttpVersion -&gt; Bool -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Restrictions
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Restrictions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-397"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; HttpVersion -&gt; Bool -&gt; DistributionSummary)
+-&gt; Either String Text
+-&gt; Either String (HttpVersion -&gt; Bool -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WebACLId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-398"></span><span>      </span><span class="annot"><span class="annottext">Either String (HttpVersion -&gt; Bool -&gt; DistributionSummary)
+-&gt; Either String HttpVersion
+-&gt; Either String (Bool -&gt; DistributionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String HttpVersion
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HttpVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-399"></span><span>      </span><span class="annot"><span class="annottext">Either String (Bool -&gt; DistributionSummary)
+-&gt; Either String Bool -&gt; Either String DistributionSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsIPV6Enabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-400"></span><span>
+</span><span id="line-401"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405615"><span id="local-6989586621679405617"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span></span></span><span>
+</span><span id="line-402"></span><span>
+</span><span id="line-403"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405612"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionSummary.html#DistributionSummary"><span class="hs-identifier hs-type">DistributionSummary</span></a></span></span><span>
+</span><span id="line-404"></span></pre></body></html>

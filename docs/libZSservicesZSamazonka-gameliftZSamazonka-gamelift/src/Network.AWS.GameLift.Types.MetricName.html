@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GameLift.Types.MetricName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GameLift.Types.MetricName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName"><span class="hs-identifier">MetricName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_ActivatingGameSessions"><span class="hs-identifier">MetricName_ActivatingGameSessions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_ActiveGameSessions"><span class="hs-identifier">MetricName_ActiveGameSessions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_ActiveInstances"><span class="hs-identifier">MetricName_ActiveInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_AvailableGameSessions"><span class="hs-identifier">MetricName_AvailableGameSessions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_AvailablePlayerSessions"><span class="hs-identifier">MetricName_AvailablePlayerSessions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_CurrentPlayerSessions"><span class="hs-identifier">MetricName_CurrentPlayerSessions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_IdleInstances"><span class="hs-identifier">MetricName_IdleInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_PercentAvailableGameSessions"><span class="hs-identifier">MetricName_PercentAvailableGameSessions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_PercentIdleInstances"><span class="hs-identifier">MetricName_PercentIdleInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_QueueDepth"><span class="hs-identifier">MetricName_QueueDepth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_WaitTime"><span class="hs-identifier">MetricName_WaitTime</span></a></span><span>
+</span><span id="line-34"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679435879"><span id="local-6989586621679435880"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MetricName"><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName"><span class="hs-identifier hs-var">MetricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricName%27"><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName%27"><span class="hs-identifier hs-var">MetricName'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMetricName"><span class="annot"><span class="annottext">MetricName -&gt; Text
+</span><a href="Network.AWS.GameLift.Types.MetricName.html#fromMetricName"><span class="hs-identifier hs-var hs-var">fromMetricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435871"><span id="local-6989586621679435873"><span id="local-6989586621679435875"><span class="annot"><span class="annottext">Int -&gt; MetricName -&gt; ShowS
+[MetricName] -&gt; ShowS
+MetricName -&gt; String
+(Int -&gt; MetricName -&gt; ShowS)
+-&gt; (MetricName -&gt; String)
+-&gt; ([MetricName] -&gt; ShowS)
+-&gt; Show MetricName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MetricName] -&gt; ShowS
+$cshowList :: [MetricName] -&gt; ShowS
+show :: MetricName -&gt; String
+$cshow :: MetricName -&gt; String
+showsPrec :: Int -&gt; MetricName -&gt; ShowS
+$cshowsPrec :: Int -&gt; MetricName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679435862"><span id="local-6989586621679435864"><span id="local-6989586621679435866"><span id="local-6989586621679435868"><span class="annot"><span class="annottext">ReadPrec [MetricName]
+ReadPrec MetricName
+Int -&gt; ReadS MetricName
+ReadS [MetricName]
+(Int -&gt; ReadS MetricName)
+-&gt; ReadS [MetricName]
+-&gt; ReadPrec MetricName
+-&gt; ReadPrec [MetricName]
+-&gt; Read MetricName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MetricName]
+$creadListPrec :: ReadPrec [MetricName]
+readPrec :: ReadPrec MetricName
+$creadPrec :: ReadPrec MetricName
+readList :: ReadS [MetricName]
+$creadList :: ReadS [MetricName]
+readsPrec :: Int -&gt; ReadS MetricName
+$creadsPrec :: Int -&gt; ReadS MetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679435857"><span id="local-6989586621679435859"><span class="annot"><span class="annottext">MetricName -&gt; MetricName -&gt; Bool
+(MetricName -&gt; MetricName -&gt; Bool)
+-&gt; (MetricName -&gt; MetricName -&gt; Bool) -&gt; Eq MetricName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MetricName -&gt; MetricName -&gt; Bool
+$c/= :: MetricName -&gt; MetricName -&gt; Bool
+== :: MetricName -&gt; MetricName -&gt; Bool
+$c== :: MetricName -&gt; MetricName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679435841"><span id="local-6989586621679435843"><span id="local-6989586621679435845"><span id="local-6989586621679435847"><span id="local-6989586621679435849"><span id="local-6989586621679435851"><span id="local-6989586621679435853"><span class="annot"><span class="annottext">Eq MetricName
+Eq MetricName
+-&gt; (MetricName -&gt; MetricName -&gt; Ordering)
+-&gt; (MetricName -&gt; MetricName -&gt; Bool)
+-&gt; (MetricName -&gt; MetricName -&gt; Bool)
+-&gt; (MetricName -&gt; MetricName -&gt; Bool)
+-&gt; (MetricName -&gt; MetricName -&gt; Bool)
+-&gt; (MetricName -&gt; MetricName -&gt; MetricName)
+-&gt; (MetricName -&gt; MetricName -&gt; MetricName)
+-&gt; Ord MetricName
+MetricName -&gt; MetricName -&gt; Bool
+MetricName -&gt; MetricName -&gt; Ordering
+MetricName -&gt; MetricName -&gt; MetricName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MetricName -&gt; MetricName -&gt; MetricName
+$cmin :: MetricName -&gt; MetricName -&gt; MetricName
+max :: MetricName -&gt; MetricName -&gt; MetricName
+$cmax :: MetricName -&gt; MetricName -&gt; MetricName
+&gt;= :: MetricName -&gt; MetricName -&gt; Bool
+$c&gt;= :: MetricName -&gt; MetricName -&gt; Bool
+&gt; :: MetricName -&gt; MetricName -&gt; Bool
+$c&gt; :: MetricName -&gt; MetricName -&gt; Bool
+&lt;= :: MetricName -&gt; MetricName -&gt; Bool
+$c&lt;= :: MetricName -&gt; MetricName -&gt; Bool
+&lt; :: MetricName -&gt; MetricName -&gt; Bool
+$c&lt; :: MetricName -&gt; MetricName -&gt; Bool
+compare :: MetricName -&gt; MetricName -&gt; Ordering
+$ccompare :: MetricName -&gt; MetricName -&gt; Ordering
+$cp1Ord :: Eq MetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MetricName -&gt; Rep MetricName x)
+-&gt; (forall x. Rep MetricName x -&gt; MetricName) -&gt; Generic MetricName
+forall x. Rep MetricName x -&gt; MetricName
+forall x. MetricName -&gt; Rep MetricName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MetricName x -&gt; MetricName
+$cfrom :: forall x. MetricName -&gt; Rep MetricName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435833"><span id="local-6989586621679435835"><span class="annot"><span class="annottext">Int -&gt; MetricName -&gt; Int
+MetricName -&gt; Int
+(Int -&gt; MetricName -&gt; Int)
+-&gt; (MetricName -&gt; Int) -&gt; Hashable MetricName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MetricName -&gt; Int
+$chash :: MetricName -&gt; Int
+hashWithSalt :: Int -&gt; MetricName -&gt; Int
+$chashWithSalt :: Int -&gt; MetricName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679435830"><span class="annot"><span class="annottext">MetricName -&gt; ()
+(MetricName -&gt; ()) -&gt; NFData MetricName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MetricName -&gt; ()
+$crnf :: MetricName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679435827"><span class="annot"><span class="annottext">Text -&gt; Either String MetricName
+(Text -&gt; Either String MetricName) -&gt; FromText MetricName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MetricName
+$cfromText :: Text -&gt; Either String MetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679435824"><span class="annot"><span class="annottext">MetricName -&gt; Text
+(MetricName -&gt; Text) -&gt; ToText MetricName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MetricName -&gt; Text
+$ctoText :: MetricName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679435821"><span class="annot"><span class="annottext">MetricName -&gt; ByteString
+(MetricName -&gt; ByteString) -&gt; ToByteString MetricName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MetricName -&gt; ByteString
+$ctoBS :: MetricName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679435818"><span class="annot"><span class="annottext">MetricName -&gt; ByteStringBuilder
+(MetricName -&gt; ByteStringBuilder) -&gt; ToLog MetricName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MetricName -&gt; ByteStringBuilder
+$cbuild :: MetricName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679435815"><span class="annot"><span class="annottext">HeaderName -&gt; MetricName -&gt; [Header]
+(HeaderName -&gt; MetricName -&gt; [Header]) -&gt; ToHeader MetricName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MetricName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MetricName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679435812"><span class="annot"><span class="annottext">MetricName -&gt; QueryString
+(MetricName -&gt; QueryString) -&gt; ToQuery MetricName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MetricName -&gt; QueryString
+$ctoQuery :: MetricName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679435807"><span id="local-6989586621679435809"><span class="annot"><span class="annottext">Value -&gt; Parser [MetricName]
+Value -&gt; Parser MetricName
+(Value -&gt; Parser MetricName)
+-&gt; (Value -&gt; Parser [MetricName]) -&gt; FromJSON MetricName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MetricName]
+$cparseJSONList :: Value -&gt; Parser [MetricName]
+parseJSON :: Value -&gt; Parser MetricName
+$cparseJSON :: Value -&gt; Parser MetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679435802"><span id="local-6989586621679435804"><span class="annot"><span class="annottext">FromJSONKeyFunction [MetricName]
+FromJSONKeyFunction MetricName
+FromJSONKeyFunction MetricName
+-&gt; FromJSONKeyFunction [MetricName] -&gt; FromJSONKey MetricName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MetricName]
+$cfromJSONKeyList :: FromJSONKeyFunction [MetricName]
+fromJSONKey :: FromJSONKeyFunction MetricName
+$cfromJSONKey :: FromJSONKeyFunction MetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679435793"><span id="local-6989586621679435795"><span id="local-6989586621679435797"><span id="local-6989586621679435799"><span class="annot"><span class="annottext">[MetricName] -&gt; Encoding
+[MetricName] -&gt; Value
+MetricName -&gt; Encoding
+MetricName -&gt; Value
+(MetricName -&gt; Value)
+-&gt; (MetricName -&gt; Encoding)
+-&gt; ([MetricName] -&gt; Value)
+-&gt; ([MetricName] -&gt; Encoding)
+-&gt; ToJSON MetricName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MetricName] -&gt; Encoding
+$ctoEncodingList :: [MetricName] -&gt; Encoding
+toJSONList :: [MetricName] -&gt; Value
+$ctoJSONList :: [MetricName] -&gt; Value
+toEncoding :: MetricName -&gt; Encoding
+$ctoEncoding :: MetricName -&gt; Encoding
+toJSON :: MetricName -&gt; Value
+$ctoJSON :: MetricName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679435788"><span id="local-6989586621679435790"><span class="annot"><span class="annottext">ToJSONKeyFunction [MetricName]
+ToJSONKeyFunction MetricName
+ToJSONKeyFunction MetricName
+-&gt; ToJSONKeyFunction [MetricName] -&gt; ToJSONKey MetricName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MetricName]
+$ctoJSONKeyList :: ToJSONKeyFunction [MetricName]
+toJSONKey :: ToJSONKeyFunction MetricName
+$ctoJSONKey :: ToJSONKeyFunction MetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679435785"><span class="annot"><span class="annottext">[Node] -&gt; Either String MetricName
+([Node] -&gt; Either String MetricName) -&gt; FromXML MetricName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MetricName
+$cparseXML :: [Node] -&gt; Either String MetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679435782"><span class="annot"><span class="annottext">MetricName -&gt; XML
+(MetricName -&gt; XML) -&gt; ToXML MetricName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MetricName -&gt; XML
+$ctoXML :: MetricName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_ActivatingGameSessions"><span class="hs-identifier hs-type">MetricName_ActivatingGameSessions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName"><span class="hs-identifier hs-type">MetricName</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricName_ActivatingGameSessions"><span id="%24mMetricName_ActivatingGameSessions"><span id="MetricName_ActivatingGameSessions"><span class="annot"><span class="annottext">$bMetricName_ActivatingGameSessions :: MetricName
+$mMetricName_ActivatingGameSessions :: forall r. MetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.MetricName.html#%24bMetricName_ActivatingGameSessions"><span class="hs-identifier hs-var hs-var hs-var">MetricName_ActivatingGameSessions</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName%27"><span class="hs-identifier hs-type">MetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ActivatingGameSessions&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_ActiveGameSessions"><span class="hs-identifier hs-type">MetricName_ActiveGameSessions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName"><span class="hs-identifier hs-type">MetricName</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricName_ActiveGameSessions"><span id="%24mMetricName_ActiveGameSessions"><span id="MetricName_ActiveGameSessions"><span class="annot"><span class="annottext">$bMetricName_ActiveGameSessions :: MetricName
+$mMetricName_ActiveGameSessions :: forall r. MetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.MetricName.html#%24bMetricName_ActiveGameSessions"><span class="hs-identifier hs-var hs-var hs-var">MetricName_ActiveGameSessions</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName%27"><span class="hs-identifier hs-type">MetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ActiveGameSessions&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_ActiveInstances"><span class="hs-identifier hs-type">MetricName_ActiveInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName"><span class="hs-identifier hs-type">MetricName</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricName_ActiveInstances"><span id="%24mMetricName_ActiveInstances"><span id="MetricName_ActiveInstances"><span class="annot"><span class="annottext">$bMetricName_ActiveInstances :: MetricName
+$mMetricName_ActiveInstances :: forall r. MetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.MetricName.html#%24bMetricName_ActiveInstances"><span class="hs-identifier hs-var hs-var hs-var">MetricName_ActiveInstances</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName%27"><span class="hs-identifier hs-type">MetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ActiveInstances&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_AvailableGameSessions"><span class="hs-identifier hs-type">MetricName_AvailableGameSessions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName"><span class="hs-identifier hs-type">MetricName</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricName_AvailableGameSessions"><span id="%24mMetricName_AvailableGameSessions"><span id="MetricName_AvailableGameSessions"><span class="annot"><span class="annottext">$bMetricName_AvailableGameSessions :: MetricName
+$mMetricName_AvailableGameSessions :: forall r. MetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.MetricName.html#%24bMetricName_AvailableGameSessions"><span class="hs-identifier hs-var hs-var hs-var">MetricName_AvailableGameSessions</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName%27"><span class="hs-identifier hs-type">MetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AvailableGameSessions&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_AvailablePlayerSessions"><span class="hs-identifier hs-type">MetricName_AvailablePlayerSessions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName"><span class="hs-identifier hs-type">MetricName</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricName_AvailablePlayerSessions"><span id="%24mMetricName_AvailablePlayerSessions"><span id="MetricName_AvailablePlayerSessions"><span class="annot"><span class="annottext">$bMetricName_AvailablePlayerSessions :: MetricName
+$mMetricName_AvailablePlayerSessions :: forall r. MetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.MetricName.html#%24bMetricName_AvailablePlayerSessions"><span class="hs-identifier hs-var hs-var hs-var">MetricName_AvailablePlayerSessions</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName%27"><span class="hs-identifier hs-type">MetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AvailablePlayerSessions&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_CurrentPlayerSessions"><span class="hs-identifier hs-type">MetricName_CurrentPlayerSessions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName"><span class="hs-identifier hs-type">MetricName</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricName_CurrentPlayerSessions"><span id="%24mMetricName_CurrentPlayerSessions"><span id="MetricName_CurrentPlayerSessions"><span class="annot"><span class="annottext">$bMetricName_CurrentPlayerSessions :: MetricName
+$mMetricName_CurrentPlayerSessions :: forall r. MetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.MetricName.html#%24bMetricName_CurrentPlayerSessions"><span class="hs-identifier hs-var hs-var hs-var">MetricName_CurrentPlayerSessions</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName%27"><span class="hs-identifier hs-type">MetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CurrentPlayerSessions&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_IdleInstances"><span class="hs-identifier hs-type">MetricName_IdleInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName"><span class="hs-identifier hs-type">MetricName</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricName_IdleInstances"><span id="%24mMetricName_IdleInstances"><span id="MetricName_IdleInstances"><span class="annot"><span class="annottext">$bMetricName_IdleInstances :: MetricName
+$mMetricName_IdleInstances :: forall r. MetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.MetricName.html#%24bMetricName_IdleInstances"><span class="hs-identifier hs-var hs-var hs-var">MetricName_IdleInstances</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName%27"><span class="hs-identifier hs-type">MetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IdleInstances&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_PercentAvailableGameSessions"><span class="hs-identifier hs-type">MetricName_PercentAvailableGameSessions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName"><span class="hs-identifier hs-type">MetricName</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricName_PercentAvailableGameSessions"><span id="%24mMetricName_PercentAvailableGameSessions"><span id="MetricName_PercentAvailableGameSessions"><span class="annot"><span class="annottext">$bMetricName_PercentAvailableGameSessions :: MetricName
+$mMetricName_PercentAvailableGameSessions :: forall r. MetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.MetricName.html#%24bMetricName_PercentAvailableGameSessions"><span class="hs-identifier hs-var hs-var hs-var">MetricName_PercentAvailableGameSessions</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName%27"><span class="hs-identifier hs-type">MetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PercentAvailableGameSessions&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_PercentIdleInstances"><span class="hs-identifier hs-type">MetricName_PercentIdleInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName"><span class="hs-identifier hs-type">MetricName</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricName_PercentIdleInstances"><span id="%24mMetricName_PercentIdleInstances"><span id="MetricName_PercentIdleInstances"><span class="annot"><span class="annottext">$bMetricName_PercentIdleInstances :: MetricName
+$mMetricName_PercentIdleInstances :: forall r. MetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.MetricName.html#%24bMetricName_PercentIdleInstances"><span class="hs-identifier hs-var hs-var hs-var">MetricName_PercentIdleInstances</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName%27"><span class="hs-identifier hs-type">MetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PercentIdleInstances&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_QueueDepth"><span class="hs-identifier hs-type">MetricName_QueueDepth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName"><span class="hs-identifier hs-type">MetricName</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricName_QueueDepth"><span id="%24mMetricName_QueueDepth"><span id="MetricName_QueueDepth"><span class="annot"><span class="annottext">$bMetricName_QueueDepth :: MetricName
+$mMetricName_QueueDepth :: forall r. MetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.MetricName.html#%24bMetricName_QueueDepth"><span class="hs-identifier hs-var hs-var hs-var">MetricName_QueueDepth</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName%27"><span class="hs-identifier hs-type">MetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;QueueDepth&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_WaitTime"><span class="hs-identifier hs-type">MetricName_WaitTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName"><span class="hs-identifier hs-type">MetricName</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricName_WaitTime"><span id="%24mMetricName_WaitTime"><span id="MetricName_WaitTime"><span class="annot"><span class="annottext">$bMetricName_WaitTime :: MetricName
+$mMetricName_WaitTime :: forall r. MetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GameLift.Types.MetricName.html#%24bMetricName_WaitTime"><span class="hs-identifier hs-var hs-var hs-var">MetricName_WaitTime</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName%27"><span class="hs-identifier hs-type">MetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WaitTime&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_ActivatingGameSessions"><span class="hs-pragma hs-type">MetricName_ActivatingGameSessions</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_ActiveGameSessions"><span class="hs-pragma hs-type">MetricName_ActiveGameSessions</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_ActiveInstances"><span class="hs-pragma hs-type">MetricName_ActiveInstances</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_AvailableGameSessions"><span class="hs-pragma hs-type">MetricName_AvailableGameSessions</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_AvailablePlayerSessions"><span class="hs-pragma hs-type">MetricName_AvailablePlayerSessions</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_CurrentPlayerSessions"><span class="hs-pragma hs-type">MetricName_CurrentPlayerSessions</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_IdleInstances"><span class="hs-pragma hs-type">MetricName_IdleInstances</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_PercentAvailableGameSessions"><span class="hs-pragma hs-type">MetricName_PercentAvailableGameSessions</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_PercentIdleInstances"><span class="hs-pragma hs-type">MetricName_PercentIdleInstances</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_QueueDepth"><span class="hs-pragma hs-type">MetricName_QueueDepth</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName_WaitTime"><span class="hs-pragma hs-type">MetricName_WaitTime</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.MetricName.html#MetricName%27"><span class="hs-pragma hs-type">MetricName'</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-116"></span></pre></body></html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CertificateManagerPCA.Types.ActionType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.ActionType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType"><span class="hs-identifier">ActionType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType_GetCertificate"><span class="hs-identifier">ActionType_GetCertificate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType_IssueCertificate"><span class="hs-identifier">ActionType_IssueCertificate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType_ListPermissions"><span class="hs-identifier">ActionType_ListPermissions</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679208091"><span id="local-6989586621679208092"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActionType"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType"><span class="hs-identifier hs-var">ActionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionType%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType%27"><span class="hs-identifier hs-var">ActionType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromActionType"><span class="annot"><span class="annottext">ActionType -&gt; Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#fromActionType"><span class="hs-identifier hs-var hs-var">fromActionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208083"><span id="local-6989586621679208085"><span id="local-6989586621679208087"><span class="annot"><span class="annottext">Int -&gt; ActionType -&gt; ShowS
+[ActionType] -&gt; ShowS
+ActionType -&gt; String
+(Int -&gt; ActionType -&gt; ShowS)
+-&gt; (ActionType -&gt; String)
+-&gt; ([ActionType] -&gt; ShowS)
+-&gt; Show ActionType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ActionType] -&gt; ShowS
+$cshowList :: [ActionType] -&gt; ShowS
+show :: ActionType -&gt; String
+$cshow :: ActionType -&gt; String
+showsPrec :: Int -&gt; ActionType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ActionType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679208074"><span id="local-6989586621679208076"><span id="local-6989586621679208078"><span id="local-6989586621679208080"><span class="annot"><span class="annottext">ReadPrec [ActionType]
+ReadPrec ActionType
+Int -&gt; ReadS ActionType
+ReadS [ActionType]
+(Int -&gt; ReadS ActionType)
+-&gt; ReadS [ActionType]
+-&gt; ReadPrec ActionType
+-&gt; ReadPrec [ActionType]
+-&gt; Read ActionType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ActionType]
+$creadListPrec :: ReadPrec [ActionType]
+readPrec :: ReadPrec ActionType
+$creadPrec :: ReadPrec ActionType
+readList :: ReadS [ActionType]
+$creadList :: ReadS [ActionType]
+readsPrec :: Int -&gt; ReadS ActionType
+$creadsPrec :: Int -&gt; ReadS ActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679208069"><span id="local-6989586621679208071"><span class="annot"><span class="annottext">ActionType -&gt; ActionType -&gt; Bool
+(ActionType -&gt; ActionType -&gt; Bool)
+-&gt; (ActionType -&gt; ActionType -&gt; Bool) -&gt; Eq ActionType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ActionType -&gt; ActionType -&gt; Bool
+$c/= :: ActionType -&gt; ActionType -&gt; Bool
+== :: ActionType -&gt; ActionType -&gt; Bool
+$c== :: ActionType -&gt; ActionType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679208053"><span id="local-6989586621679208055"><span id="local-6989586621679208057"><span id="local-6989586621679208059"><span id="local-6989586621679208061"><span id="local-6989586621679208063"><span id="local-6989586621679208065"><span class="annot"><span class="annottext">Eq ActionType
+Eq ActionType
+-&gt; (ActionType -&gt; ActionType -&gt; Ordering)
+-&gt; (ActionType -&gt; ActionType -&gt; Bool)
+-&gt; (ActionType -&gt; ActionType -&gt; Bool)
+-&gt; (ActionType -&gt; ActionType -&gt; Bool)
+-&gt; (ActionType -&gt; ActionType -&gt; Bool)
+-&gt; (ActionType -&gt; ActionType -&gt; ActionType)
+-&gt; (ActionType -&gt; ActionType -&gt; ActionType)
+-&gt; Ord ActionType
+ActionType -&gt; ActionType -&gt; Bool
+ActionType -&gt; ActionType -&gt; Ordering
+ActionType -&gt; ActionType -&gt; ActionType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ActionType -&gt; ActionType -&gt; ActionType
+$cmin :: ActionType -&gt; ActionType -&gt; ActionType
+max :: ActionType -&gt; ActionType -&gt; ActionType
+$cmax :: ActionType -&gt; ActionType -&gt; ActionType
+&gt;= :: ActionType -&gt; ActionType -&gt; Bool
+$c&gt;= :: ActionType -&gt; ActionType -&gt; Bool
+&gt; :: ActionType -&gt; ActionType -&gt; Bool
+$c&gt; :: ActionType -&gt; ActionType -&gt; Bool
+&lt;= :: ActionType -&gt; ActionType -&gt; Bool
+$c&lt;= :: ActionType -&gt; ActionType -&gt; Bool
+&lt; :: ActionType -&gt; ActionType -&gt; Bool
+$c&lt; :: ActionType -&gt; ActionType -&gt; Bool
+compare :: ActionType -&gt; ActionType -&gt; Ordering
+$ccompare :: ActionType -&gt; ActionType -&gt; Ordering
+$cp1Ord :: Eq ActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ActionType -&gt; Rep ActionType x)
+-&gt; (forall x. Rep ActionType x -&gt; ActionType) -&gt; Generic ActionType
+forall x. Rep ActionType x -&gt; ActionType
+forall x. ActionType -&gt; Rep ActionType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ActionType x -&gt; ActionType
+$cfrom :: forall x. ActionType -&gt; Rep ActionType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208045"><span id="local-6989586621679208047"><span class="annot"><span class="annottext">Int -&gt; ActionType -&gt; Int
+ActionType -&gt; Int
+(Int -&gt; ActionType -&gt; Int)
+-&gt; (ActionType -&gt; Int) -&gt; Hashable ActionType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ActionType -&gt; Int
+$chash :: ActionType -&gt; Int
+hashWithSalt :: Int -&gt; ActionType -&gt; Int
+$chashWithSalt :: Int -&gt; ActionType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679208042"><span class="annot"><span class="annottext">ActionType -&gt; ()
+(ActionType -&gt; ()) -&gt; NFData ActionType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ActionType -&gt; ()
+$crnf :: ActionType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679208039"><span class="annot"><span class="annottext">Text -&gt; Either String ActionType
+(Text -&gt; Either String ActionType) -&gt; FromText ActionType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ActionType
+$cfromText :: Text -&gt; Either String ActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679208036"><span class="annot"><span class="annottext">ActionType -&gt; Text
+(ActionType -&gt; Text) -&gt; ToText ActionType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ActionType -&gt; Text
+$ctoText :: ActionType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679208033"><span class="annot"><span class="annottext">ActionType -&gt; ByteString
+(ActionType -&gt; ByteString) -&gt; ToByteString ActionType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ActionType -&gt; ByteString
+$ctoBS :: ActionType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679208030"><span class="annot"><span class="annottext">ActionType -&gt; ByteStringBuilder
+(ActionType -&gt; ByteStringBuilder) -&gt; ToLog ActionType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ActionType -&gt; ByteStringBuilder
+$cbuild :: ActionType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679208027"><span class="annot"><span class="annottext">HeaderName -&gt; ActionType -&gt; [Header]
+(HeaderName -&gt; ActionType -&gt; [Header]) -&gt; ToHeader ActionType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ActionType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ActionType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679208024"><span class="annot"><span class="annottext">ActionType -&gt; QueryString
+(ActionType -&gt; QueryString) -&gt; ToQuery ActionType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ActionType -&gt; QueryString
+$ctoQuery :: ActionType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679208019"><span id="local-6989586621679208021"><span class="annot"><span class="annottext">Value -&gt; Parser [ActionType]
+Value -&gt; Parser ActionType
+(Value -&gt; Parser ActionType)
+-&gt; (Value -&gt; Parser [ActionType]) -&gt; FromJSON ActionType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ActionType]
+$cparseJSONList :: Value -&gt; Parser [ActionType]
+parseJSON :: Value -&gt; Parser ActionType
+$cparseJSON :: Value -&gt; Parser ActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679208014"><span id="local-6989586621679208016"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActionType]
+FromJSONKeyFunction ActionType
+FromJSONKeyFunction ActionType
+-&gt; FromJSONKeyFunction [ActionType] -&gt; FromJSONKey ActionType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ActionType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ActionType]
+fromJSONKey :: FromJSONKeyFunction ActionType
+$cfromJSONKey :: FromJSONKeyFunction ActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679208005"><span id="local-6989586621679208007"><span id="local-6989586621679208009"><span id="local-6989586621679208011"><span class="annot"><span class="annottext">[ActionType] -&gt; Encoding
+[ActionType] -&gt; Value
+ActionType -&gt; Encoding
+ActionType -&gt; Value
+(ActionType -&gt; Value)
+-&gt; (ActionType -&gt; Encoding)
+-&gt; ([ActionType] -&gt; Value)
+-&gt; ([ActionType] -&gt; Encoding)
+-&gt; ToJSON ActionType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ActionType] -&gt; Encoding
+$ctoEncodingList :: [ActionType] -&gt; Encoding
+toJSONList :: [ActionType] -&gt; Value
+$ctoJSONList :: [ActionType] -&gt; Value
+toEncoding :: ActionType -&gt; Encoding
+$ctoEncoding :: ActionType -&gt; Encoding
+toJSON :: ActionType -&gt; Value
+$ctoJSON :: ActionType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679208000"><span id="local-6989586621679208002"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActionType]
+ToJSONKeyFunction ActionType
+ToJSONKeyFunction ActionType
+-&gt; ToJSONKeyFunction [ActionType] -&gt; ToJSONKey ActionType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ActionType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ActionType]
+toJSONKey :: ToJSONKeyFunction ActionType
+$ctoJSONKey :: ToJSONKeyFunction ActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679207997"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActionType
+([Node] -&gt; Either String ActionType) -&gt; FromXML ActionType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ActionType
+$cparseXML :: [Node] -&gt; Either String ActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679207994"><span class="annot"><span class="annottext">ActionType -&gt; XML
+(ActionType -&gt; XML) -&gt; ToXML ActionType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ActionType -&gt; XML
+$ctoXML :: ActionType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType_GetCertificate"><span class="hs-identifier hs-type">ActionType_GetCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bActionType_GetCertificate"><span id="%24mActionType_GetCertificate"><span id="ActionType_GetCertificate"><span class="annot"><span class="annottext">$bActionType_GetCertificate :: ActionType
+$mActionType_GetCertificate :: forall r. ActionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#%24bActionType_GetCertificate"><span class="hs-identifier hs-var hs-var hs-var">ActionType_GetCertificate</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType%27"><span class="hs-identifier hs-type">ActionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GetCertificate&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType_IssueCertificate"><span class="hs-identifier hs-type">ActionType_IssueCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bActionType_IssueCertificate"><span id="%24mActionType_IssueCertificate"><span id="ActionType_IssueCertificate"><span class="annot"><span class="annottext">$bActionType_IssueCertificate :: ActionType
+$mActionType_IssueCertificate :: forall r. ActionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#%24bActionType_IssueCertificate"><span class="hs-identifier hs-var hs-var hs-var">ActionType_IssueCertificate</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType%27"><span class="hs-identifier hs-type">ActionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IssueCertificate&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType_ListPermissions"><span class="hs-identifier hs-type">ActionType_ListPermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bActionType_ListPermissions"><span id="%24mActionType_ListPermissions"><span id="ActionType_ListPermissions"><span class="annot"><span class="annottext">$bActionType_ListPermissions :: ActionType
+$mActionType_ListPermissions :: forall r. ActionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#%24bActionType_ListPermissions"><span class="hs-identifier hs-var hs-var hs-var">ActionType_ListPermissions</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType%27"><span class="hs-identifier hs-type">ActionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ListPermissions&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType_GetCertificate"><span class="hs-pragma hs-type">ActionType_GetCertificate</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType_IssueCertificate"><span class="hs-pragma hs-type">ActionType_IssueCertificate</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType_ListPermissions"><span class="hs-pragma hs-type">ActionType_ListPermissions</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType%27"><span class="hs-pragma hs-type">ActionType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

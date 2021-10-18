@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.CapacityReservationGroup</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.CapacityReservationGroup</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes a resource group to which a Capacity Reservation has been</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- added.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCapacityReservationGroup' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621681057724"><span id="local-6989586621681057725"></span></span><span class="hs-keyword">data</span><span> </span><span id="CapacityReservationGroup"><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#CapacityReservationGroup"><span class="hs-identifier hs-var">CapacityReservationGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityReservationGroup%27"><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#CapacityReservationGroup%27"><span class="hs-identifier hs-var">CapacityReservationGroup'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the resource group.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AownerId%3ACapacityReservationGroup%27"><span class="annot"><span class="annottext">CapacityReservationGroup -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#%24sel%3AownerId%3ACapacityReservationGroup%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ARN of the resource group.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AgroupArn%3ACapacityReservationGroup%27"><span class="annot"><span class="annottext">CapacityReservationGroup -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#%24sel%3AgroupArn%3ACapacityReservationGroup%27"><span class="hs-identifier hs-var hs-var">groupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681057717"><span id="local-6989586621681057719"><span class="annot"><span class="annottext">CapacityReservationGroup -&gt; CapacityReservationGroup -&gt; Bool
+(CapacityReservationGroup -&gt; CapacityReservationGroup -&gt; Bool)
+-&gt; (CapacityReservationGroup -&gt; CapacityReservationGroup -&gt; Bool)
+-&gt; Eq CapacityReservationGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CapacityReservationGroup -&gt; CapacityReservationGroup -&gt; Bool
+$c/= :: CapacityReservationGroup -&gt; CapacityReservationGroup -&gt; Bool
+== :: CapacityReservationGroup -&gt; CapacityReservationGroup -&gt; Bool
+$c== :: CapacityReservationGroup -&gt; CapacityReservationGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681057708"><span id="local-6989586621681057710"><span id="local-6989586621681057712"><span id="local-6989586621681057714"><span class="annot"><span class="annottext">ReadPrec [CapacityReservationGroup]
+ReadPrec CapacityReservationGroup
+Int -&gt; ReadS CapacityReservationGroup
+ReadS [CapacityReservationGroup]
+(Int -&gt; ReadS CapacityReservationGroup)
+-&gt; ReadS [CapacityReservationGroup]
+-&gt; ReadPrec CapacityReservationGroup
+-&gt; ReadPrec [CapacityReservationGroup]
+-&gt; Read CapacityReservationGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CapacityReservationGroup]
+$creadListPrec :: ReadPrec [CapacityReservationGroup]
+readPrec :: ReadPrec CapacityReservationGroup
+$creadPrec :: ReadPrec CapacityReservationGroup
+readList :: ReadS [CapacityReservationGroup]
+$creadList :: ReadS [CapacityReservationGroup]
+readsPrec :: Int -&gt; ReadS CapacityReservationGroup
+$creadsPrec :: Int -&gt; ReadS CapacityReservationGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681057701"><span id="local-6989586621681057703"><span id="local-6989586621681057705"><span class="annot"><span class="annottext">Int -&gt; CapacityReservationGroup -&gt; ShowS
+[CapacityReservationGroup] -&gt; ShowS
+CapacityReservationGroup -&gt; String
+(Int -&gt; CapacityReservationGroup -&gt; ShowS)
+-&gt; (CapacityReservationGroup -&gt; String)
+-&gt; ([CapacityReservationGroup] -&gt; ShowS)
+-&gt; Show CapacityReservationGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CapacityReservationGroup] -&gt; ShowS
+$cshowList :: [CapacityReservationGroup] -&gt; ShowS
+show :: CapacityReservationGroup -&gt; String
+$cshow :: CapacityReservationGroup -&gt; String
+showsPrec :: Int -&gt; CapacityReservationGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; CapacityReservationGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CapacityReservationGroup -&gt; Rep CapacityReservationGroup x)
+-&gt; (forall x.
+    Rep CapacityReservationGroup x -&gt; CapacityReservationGroup)
+-&gt; Generic CapacityReservationGroup
+forall x.
+Rep CapacityReservationGroup x -&gt; CapacityReservationGroup
+forall x.
+CapacityReservationGroup -&gt; Rep CapacityReservationGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CapacityReservationGroup x -&gt; CapacityReservationGroup
+$cfrom :: forall x.
+CapacityReservationGroup -&gt; Rep CapacityReservationGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'CapacityReservationGroup' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'ownerId', 'capacityReservationGroup_ownerId' - The ID of the Amazon Web Services account that owns the resource group.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'groupArn', 'capacityReservationGroup_groupArn' - The ARN of the resource group.</span><span>
+</span><span id="line-50"></span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#newCapacityReservationGroup"><span class="hs-identifier hs-type">newCapacityReservationGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#CapacityReservationGroup"><span class="hs-identifier hs-type">CapacityReservationGroup</span></a></span><span>
+</span><span id="line-52"></span><span id="newCapacityReservationGroup"><span class="annot"><span class="annottext">newCapacityReservationGroup :: CapacityReservationGroup
+</span><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#newCapacityReservationGroup"><span class="hs-identifier hs-var hs-var">newCapacityReservationGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">CapacityReservationGroup' :: Maybe Text -&gt; Maybe Text -&gt; CapacityReservationGroup
+</span><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#CapacityReservationGroup%27"><span class="hs-identifier hs-type">CapacityReservationGroup'</span></a></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ownerId:CapacityReservationGroup' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#%24sel%3AownerId%3ACapacityReservationGroup%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupArn:CapacityReservationGroup' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#%24sel%3AgroupArn%3ACapacityReservationGroup%27"><span class="hs-identifier hs-var">groupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the resource group.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#capacityReservationGroup_ownerId"><span class="hs-identifier hs-type">capacityReservationGroup_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#CapacityReservationGroup"><span class="hs-identifier hs-type">CapacityReservationGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="capacityReservationGroup_ownerId"><span class="annot"><span class="annottext">capacityReservationGroup_ownerId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CapacityReservationGroup -&gt; f CapacityReservationGroup
+</span><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#capacityReservationGroup_ownerId"><span class="hs-identifier hs-var hs-var">capacityReservationGroup_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CapacityReservationGroup -&gt; Maybe Text)
+-&gt; (CapacityReservationGroup
+    -&gt; Maybe Text -&gt; CapacityReservationGroup)
+-&gt; Lens
+     CapacityReservationGroup
+     CapacityReservationGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#CapacityReservationGroup%27"><span class="hs-identifier hs-type">CapacityReservationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681057692"><span class="annot"><span class="annottext">Maybe Text
+ownerId :: Maybe Text
+$sel:ownerId:CapacityReservationGroup' :: CapacityReservationGroup -&gt; Maybe Text
+</span><a href="#local-6989586621681057692"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681057692"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681057691"><span class="annot"><span class="annottext">s :: CapacityReservationGroup
+</span><a href="#local-6989586621681057691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#CapacityReservationGroup%27"><span class="hs-identifier hs-type">CapacityReservationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681057690"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681057690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityReservationGroup
+</span><a href="#local-6989586621681057691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:CapacityReservationGroup' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#%24sel%3AownerId%3ACapacityReservationGroup%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681057690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#CapacityReservationGroup"><span class="hs-identifier hs-type">CapacityReservationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The ARN of the resource group.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#capacityReservationGroup_groupArn"><span class="hs-identifier hs-type">capacityReservationGroup_groupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#CapacityReservationGroup"><span class="hs-identifier hs-type">CapacityReservationGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="capacityReservationGroup_groupArn"><span class="annot"><span class="annottext">capacityReservationGroup_groupArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CapacityReservationGroup -&gt; f CapacityReservationGroup
+</span><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#capacityReservationGroup_groupArn"><span class="hs-identifier hs-var hs-var">capacityReservationGroup_groupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CapacityReservationGroup -&gt; Maybe Text)
+-&gt; (CapacityReservationGroup
+    -&gt; Maybe Text -&gt; CapacityReservationGroup)
+-&gt; Lens
+     CapacityReservationGroup
+     CapacityReservationGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#CapacityReservationGroup%27"><span class="hs-identifier hs-type">CapacityReservationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681057688"><span class="annot"><span class="annottext">Maybe Text
+groupArn :: Maybe Text
+$sel:groupArn:CapacityReservationGroup' :: CapacityReservationGroup -&gt; Maybe Text
+</span><a href="#local-6989586621681057688"><span class="hs-identifier hs-var hs-var">groupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681057688"><span class="hs-identifier hs-var">groupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681057687"><span class="annot"><span class="annottext">s :: CapacityReservationGroup
+</span><a href="#local-6989586621681057687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#CapacityReservationGroup%27"><span class="hs-identifier hs-type">CapacityReservationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681057686"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681057686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityReservationGroup
+</span><a href="#local-6989586621681057687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupArn:CapacityReservationGroup' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#%24sel%3AgroupArn%3ACapacityReservationGroup%27"><span class="hs-identifier hs-var">groupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681057686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#CapacityReservationGroup"><span class="hs-identifier hs-type">CapacityReservationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#CapacityReservationGroup"><span class="hs-identifier hs-type">CapacityReservationGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621681057683"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CapacityReservationGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681057681"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681057681"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; CapacityReservationGroup
+</span><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#CapacityReservationGroup%27"><span class="hs-identifier hs-var">CapacityReservationGroup'</span></a></span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; CapacityReservationGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; CapacityReservationGroup)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681057681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; CapacityReservationGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either String CapacityReservationGroup
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681057681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;groupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681057675"><span id="local-6989586621681057677"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#CapacityReservationGroup"><span class="hs-identifier hs-type">CapacityReservationGroup</span></a></span></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681057672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationGroup.html#CapacityReservationGroup"><span class="hs-identifier hs-type">CapacityReservationGroup</span></a></span></span><span>
+</span><span id="line-76"></span></pre></body></html>

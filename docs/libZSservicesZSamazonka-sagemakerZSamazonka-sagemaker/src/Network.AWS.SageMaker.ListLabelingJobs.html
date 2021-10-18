@@ -1,0 +1,1087 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.ListLabelingJobs</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a list of labeling jobs.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.ListLabelingJobs</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier">ListLabelingJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#newListLabelingJobs"><span class="hs-identifier">newListLabelingJobs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_lastModifiedTimeBefore"><span class="hs-identifier">listLabelingJobs_lastModifiedTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_nextToken"><span class="hs-identifier">listLabelingJobs_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_sortOrder"><span class="hs-identifier">listLabelingJobs_sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_nameContains"><span class="hs-identifier">listLabelingJobs_nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_maxResults"><span class="hs-identifier">listLabelingJobs_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_creationTimeBefore"><span class="hs-identifier">listLabelingJobs_creationTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_lastModifiedTimeAfter"><span class="hs-identifier">listLabelingJobs_lastModifiedTimeAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_sortBy"><span class="hs-identifier">listLabelingJobs_sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_statusEquals"><span class="hs-identifier">listLabelingJobs_statusEquals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_creationTimeAfter"><span class="hs-identifier">listLabelingJobs_creationTimeAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse"><span class="hs-identifier">ListLabelingJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#newListLabelingJobsResponse"><span class="hs-identifier">newListLabelingJobsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobsResponse_labelingJobSummaryList"><span class="hs-identifier">listLabelingJobsResponse_labelingJobSummaryList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobsResponse_nextToken"><span class="hs-identifier">listLabelingJobsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobsResponse_httpStatus"><span class="hs-identifier">listLabelingJobsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newListLabelingJobs' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621680379048"><span id="local-6989586621680379049"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLabelingJobs"><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-var">ListLabelingJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLabelingJobs%27"><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-var">ListLabelingJobs'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A filter that returns only labeling jobs modified before the specified</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- time (timestamp).</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AlastModifiedTimeBefore%3AListLabelingJobs%27"><span class="annot"><span class="annottext">ListLabelingJobs -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AlastModifiedTimeBefore%3AListLabelingJobs%27"><span class="hs-identifier hs-var hs-var">lastModifiedTimeBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | If the result of the previous @ListLabelingJobs@ request was truncated,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- the response includes a @NextToken@. To retrieve the next set of</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- labeling jobs, use the token in the next request.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AnextToken%3AListLabelingJobs%27"><span class="annot"><span class="annottext">ListLabelingJobs -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AnextToken%3AListLabelingJobs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The sort order for results. The default is @Ascending@.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AsortOrder%3AListLabelingJobs%27"><span class="annot"><span class="annottext">ListLabelingJobs -&gt; Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AsortOrder%3AListLabelingJobs%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | A string in the labeling job name. This filter returns only labeling</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- jobs whose name contains the specified string.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AnameContains%3AListLabelingJobs%27"><span class="annot"><span class="annottext">ListLabelingJobs -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AnameContains%3AListLabelingJobs%27"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The maximum number of labeling jobs to return in each page of the</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AmaxResults%3AListLabelingJobs%27"><span class="annot"><span class="annottext">ListLabelingJobs -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AmaxResults%3AListLabelingJobs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | A filter that returns only labeling jobs created before the specified</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- time (timestamp).</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AcreationTimeBefore%3AListLabelingJobs%27"><span class="annot"><span class="annottext">ListLabelingJobs -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AcreationTimeBefore%3AListLabelingJobs%27"><span class="hs-identifier hs-var hs-var">creationTimeBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | A filter that returns only labeling jobs modified after the specified</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- time (timestamp).</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AlastModifiedTimeAfter%3AListLabelingJobs%27"><span class="annot"><span class="annottext">ListLabelingJobs -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AlastModifiedTimeAfter%3AListLabelingJobs%27"><span class="hs-identifier hs-var hs-var">lastModifiedTimeAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The field to sort results by. The default is @CreationTime@.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AsortBy%3AListLabelingJobs%27"><span class="annot"><span class="annottext">ListLabelingJobs -&gt; Maybe SortBy
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AsortBy%3AListLabelingJobs%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortBy.html#SortBy"><span class="hs-identifier hs-type">SortBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | A filter that retrieves only labeling jobs with a specific status.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AstatusEquals%3AListLabelingJobs%27"><span class="annot"><span class="annottext">ListLabelingJobs -&gt; Maybe LabelingJobStatus
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AstatusEquals%3AListLabelingJobs%27"><span class="hs-identifier hs-var hs-var">statusEquals</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobStatus.html#LabelingJobStatus"><span class="hs-identifier hs-type">LabelingJobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | A filter that returns only labeling jobs created after the specified</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- time (timestamp).</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AcreationTimeAfter%3AListLabelingJobs%27"><span class="annot"><span class="annottext">ListLabelingJobs -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AcreationTimeAfter%3AListLabelingJobs%27"><span class="hs-identifier hs-var hs-var">creationTimeAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680379033"><span id="local-6989586621680379035"><span class="annot"><span class="annottext">ListLabelingJobs -&gt; ListLabelingJobs -&gt; Bool
+(ListLabelingJobs -&gt; ListLabelingJobs -&gt; Bool)
+-&gt; (ListLabelingJobs -&gt; ListLabelingJobs -&gt; Bool)
+-&gt; Eq ListLabelingJobs
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListLabelingJobs -&gt; ListLabelingJobs -&gt; Bool
+$c/= :: ListLabelingJobs -&gt; ListLabelingJobs -&gt; Bool
+== :: ListLabelingJobs -&gt; ListLabelingJobs -&gt; Bool
+$c== :: ListLabelingJobs -&gt; ListLabelingJobs -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680379024"><span id="local-6989586621680379026"><span id="local-6989586621680379028"><span id="local-6989586621680379030"><span class="annot"><span class="annottext">ReadPrec [ListLabelingJobs]
+ReadPrec ListLabelingJobs
+Int -&gt; ReadS ListLabelingJobs
+ReadS [ListLabelingJobs]
+(Int -&gt; ReadS ListLabelingJobs)
+-&gt; ReadS [ListLabelingJobs]
+-&gt; ReadPrec ListLabelingJobs
+-&gt; ReadPrec [ListLabelingJobs]
+-&gt; Read ListLabelingJobs
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListLabelingJobs]
+$creadListPrec :: ReadPrec [ListLabelingJobs]
+readPrec :: ReadPrec ListLabelingJobs
+$creadPrec :: ReadPrec ListLabelingJobs
+readList :: ReadS [ListLabelingJobs]
+$creadList :: ReadS [ListLabelingJobs]
+readsPrec :: Int -&gt; ReadS ListLabelingJobs
+$creadsPrec :: Int -&gt; ReadS ListLabelingJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680379017"><span id="local-6989586621680379019"><span id="local-6989586621680379021"><span class="annot"><span class="annottext">Int -&gt; ListLabelingJobs -&gt; ShowS
+[ListLabelingJobs] -&gt; ShowS
+ListLabelingJobs -&gt; String
+(Int -&gt; ListLabelingJobs -&gt; ShowS)
+-&gt; (ListLabelingJobs -&gt; String)
+-&gt; ([ListLabelingJobs] -&gt; ShowS)
+-&gt; Show ListLabelingJobs
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListLabelingJobs] -&gt; ShowS
+$cshowList :: [ListLabelingJobs] -&gt; ShowS
+show :: ListLabelingJobs -&gt; String
+$cshow :: ListLabelingJobs -&gt; String
+showsPrec :: Int -&gt; ListLabelingJobs -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListLabelingJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListLabelingJobs -&gt; Rep ListLabelingJobs x)
+-&gt; (forall x. Rep ListLabelingJobs x -&gt; ListLabelingJobs)
+-&gt; Generic ListLabelingJobs
+forall x. Rep ListLabelingJobs x -&gt; ListLabelingJobs
+forall x. ListLabelingJobs -&gt; Rep ListLabelingJobs x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListLabelingJobs x -&gt; ListLabelingJobs
+$cfrom :: forall x. ListLabelingJobs -&gt; Rep ListLabelingJobs x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Create a value of 'ListLabelingJobs' with all optional fields omitted.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'lastModifiedTimeBefore', 'listLabelingJobs_lastModifiedTimeBefore' - A filter that returns only labeling jobs modified before the specified</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- time (timestamp).</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'nextToken', 'listLabelingJobs_nextToken' - If the result of the previous @ListLabelingJobs@ request was truncated,</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- the response includes a @NextToken@. To retrieve the next set of</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- labeling jobs, use the token in the next request.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'sortOrder', 'listLabelingJobs_sortOrder' - The sort order for results. The default is @Ascending@.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'nameContains', 'listLabelingJobs_nameContains' - A string in the labeling job name. This filter returns only labeling</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- jobs whose name contains the specified string.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'maxResults', 'listLabelingJobs_maxResults' - The maximum number of labeling jobs to return in each page of the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'creationTimeBefore', 'listLabelingJobs_creationTimeBefore' - A filter that returns only labeling jobs created before the specified</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- time (timestamp).</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'lastModifiedTimeAfter', 'listLabelingJobs_lastModifiedTimeAfter' - A filter that returns only labeling jobs modified after the specified</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- time (timestamp).</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'sortBy', 'listLabelingJobs_sortBy' - The field to sort results by. The default is @CreationTime@.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'statusEquals', 'listLabelingJobs_statusEquals' - A filter that retrieves only labeling jobs with a specific status.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'creationTimeAfter', 'listLabelingJobs_creationTimeAfter' - A filter that returns only labeling jobs created after the specified</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- time (timestamp).</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#newListLabelingJobs"><span class="hs-identifier hs-type">newListLabelingJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span>
+</span><span id="line-131"></span><span id="newListLabelingJobs"><span class="annot"><span class="annottext">newListLabelingJobs :: ListLabelingJobs
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#newListLabelingJobs"><span class="hs-identifier hs-var hs-var">newListLabelingJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">ListLabelingJobs' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe SortOrder
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe SortBy
+-&gt; Maybe LabelingJobStatus
+-&gt; Maybe POSIX
+-&gt; ListLabelingJobs
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedTimeBefore:ListLabelingJobs' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AlastModifiedTimeBefore%3AListLabelingJobs%27"><span class="hs-identifier hs-var">lastModifiedTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListLabelingJobs' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AnextToken%3AListLabelingJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortOrder:ListLabelingJobs' :: Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AsortOrder%3AListLabelingJobs%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:nameContains:ListLabelingJobs' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AnameContains%3AListLabelingJobs%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListLabelingJobs' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AmaxResults%3AListLabelingJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTimeBefore:ListLabelingJobs' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AcreationTimeBefore%3AListLabelingJobs%27"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTimeAfter:ListLabelingJobs' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AlastModifiedTimeAfter%3AListLabelingJobs%27"><span class="hs-identifier hs-var">lastModifiedTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortBy:ListLabelingJobs' :: Maybe SortBy
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AsortBy%3AListLabelingJobs%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortBy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusEquals:ListLabelingJobs' :: Maybe LabelingJobStatus
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AstatusEquals%3AListLabelingJobs%27"><span class="hs-identifier hs-var">statusEquals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTimeAfter:ListLabelingJobs' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AcreationTimeAfter%3AListLabelingJobs%27"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | A filter that returns only labeling jobs modified before the specified</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- time (timestamp).</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_lastModifiedTimeBefore"><span class="hs-identifier hs-type">listLabelingJobs_lastModifiedTimeBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="listLabelingJobs_lastModifiedTimeBefore"><span class="annot"><span class="annottext">listLabelingJobs_lastModifiedTimeBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListLabelingJobs -&gt; f ListLabelingJobs
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_lastModifiedTimeBefore"><span class="hs-identifier hs-var hs-var">listLabelingJobs_lastModifiedTimeBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLabelingJobs -&gt; Maybe POSIX)
+-&gt; (ListLabelingJobs -&gt; Maybe POSIX -&gt; ListLabelingJobs)
+-&gt; Lens
+     ListLabelingJobs ListLabelingJobs (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680379011"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedTimeBefore :: Maybe POSIX
+$sel:lastModifiedTimeBefore:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe POSIX
+</span><a href="#local-6989586621680379011"><span class="hs-identifier hs-var hs-var">lastModifiedTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680379011"><span class="hs-identifier hs-var">lastModifiedTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680379010"><span class="annot"><span class="annottext">s :: ListLabelingJobs
+</span><a href="#local-6989586621680379010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680379009"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680379009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLabelingJobs
+</span><a href="#local-6989586621680379010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTimeBefore:ListLabelingJobs' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AlastModifiedTimeBefore%3AListLabelingJobs%27"><span class="hs-identifier hs-var">lastModifiedTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680379009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListLabelingJobs -&gt; f ListLabelingJobs)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListLabelingJobs
+-&gt; f ListLabelingJobs
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | If the result of the previous @ListLabelingJobs@ request was truncated,</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- the response includes a @NextToken@. To retrieve the next set of</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- labeling jobs, use the token in the next request.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_nextToken"><span class="hs-identifier hs-type">listLabelingJobs_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="listLabelingJobs_nextToken"><span class="annot"><span class="annottext">listLabelingJobs_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListLabelingJobs -&gt; f ListLabelingJobs
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_nextToken"><span class="hs-identifier hs-var hs-var">listLabelingJobs_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLabelingJobs -&gt; Maybe Text)
+-&gt; (ListLabelingJobs -&gt; Maybe Text -&gt; ListLabelingJobs)
+-&gt; Lens ListLabelingJobs ListLabelingJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680379005"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe Text
+</span><a href="#local-6989586621680379005"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680379005"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680379004"><span class="annot"><span class="annottext">s :: ListLabelingJobs
+</span><a href="#local-6989586621680379004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680379003"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680379003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLabelingJobs
+</span><a href="#local-6989586621680379004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLabelingJobs' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AnextToken%3AListLabelingJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680379003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The sort order for results. The default is @Ascending@.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_sortOrder"><span class="hs-identifier hs-type">listLabelingJobs_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="listLabelingJobs_sortOrder"><span class="annot"><span class="annottext">listLabelingJobs_sortOrder :: (Maybe SortOrder -&gt; f (Maybe SortOrder))
+-&gt; ListLabelingJobs -&gt; f ListLabelingJobs
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_sortOrder"><span class="hs-identifier hs-var hs-var">listLabelingJobs_sortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLabelingJobs -&gt; Maybe SortOrder)
+-&gt; (ListLabelingJobs -&gt; Maybe SortOrder -&gt; ListLabelingJobs)
+-&gt; Lens
+     ListLabelingJobs
+     ListLabelingJobs
+     (Maybe SortOrder)
+     (Maybe SortOrder)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680379002"><span class="annot"><span class="annottext">Maybe SortOrder
+sortOrder :: Maybe SortOrder
+$sel:sortOrder:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe SortOrder
+</span><a href="#local-6989586621680379002"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680379002"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680379001"><span class="annot"><span class="annottext">s :: ListLabelingJobs
+</span><a href="#local-6989586621680379001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680379000"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680379000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLabelingJobs
+</span><a href="#local-6989586621680379001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListLabelingJobs' :: Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AsortOrder%3AListLabelingJobs%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680379000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | A string in the labeling job name. This filter returns only labeling</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- jobs whose name contains the specified string.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_nameContains"><span class="hs-identifier hs-type">listLabelingJobs_nameContains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="listLabelingJobs_nameContains"><span class="annot"><span class="annottext">listLabelingJobs_nameContains :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListLabelingJobs -&gt; f ListLabelingJobs
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_nameContains"><span class="hs-identifier hs-var hs-var">listLabelingJobs_nameContains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLabelingJobs -&gt; Maybe Text)
+-&gt; (ListLabelingJobs -&gt; Maybe Text -&gt; ListLabelingJobs)
+-&gt; Lens ListLabelingJobs ListLabelingJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378999"><span class="annot"><span class="annottext">Maybe Text
+nameContains :: Maybe Text
+$sel:nameContains:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe Text
+</span><a href="#local-6989586621680378999"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680378999"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378998"><span class="annot"><span class="annottext">s :: ListLabelingJobs
+</span><a href="#local-6989586621680378998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378997"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680378997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLabelingJobs
+</span><a href="#local-6989586621680378998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:ListLabelingJobs' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AnameContains%3AListLabelingJobs%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680378997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The maximum number of labeling jobs to return in each page of the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_maxResults"><span class="hs-identifier hs-type">listLabelingJobs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="listLabelingJobs_maxResults"><span class="annot"><span class="annottext">listLabelingJobs_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListLabelingJobs -&gt; f ListLabelingJobs
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_maxResults"><span class="hs-identifier hs-var hs-var">listLabelingJobs_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLabelingJobs -&gt; Maybe Natural)
+-&gt; (ListLabelingJobs -&gt; Maybe Natural -&gt; ListLabelingJobs)
+-&gt; Lens
+     ListLabelingJobs ListLabelingJobs (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378996"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe Natural
+</span><a href="#local-6989586621680378996"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680378996"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378995"><span class="annot"><span class="annottext">s :: ListLabelingJobs
+</span><a href="#local-6989586621680378995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378994"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680378994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLabelingJobs
+</span><a href="#local-6989586621680378995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListLabelingJobs' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AmaxResults%3AListLabelingJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680378994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | A filter that returns only labeling jobs created before the specified</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- time (timestamp).</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_creationTimeBefore"><span class="hs-identifier hs-type">listLabelingJobs_creationTimeBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="listLabelingJobs_creationTimeBefore"><span class="annot"><span class="annottext">listLabelingJobs_creationTimeBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListLabelingJobs -&gt; f ListLabelingJobs
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_creationTimeBefore"><span class="hs-identifier hs-var hs-var">listLabelingJobs_creationTimeBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLabelingJobs -&gt; Maybe POSIX)
+-&gt; (ListLabelingJobs -&gt; Maybe POSIX -&gt; ListLabelingJobs)
+-&gt; Lens
+     ListLabelingJobs ListLabelingJobs (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378993"><span class="annot"><span class="annottext">Maybe POSIX
+creationTimeBefore :: Maybe POSIX
+$sel:creationTimeBefore:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe POSIX
+</span><a href="#local-6989586621680378993"><span class="hs-identifier hs-var hs-var">creationTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378993"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378992"><span class="annot"><span class="annottext">s :: ListLabelingJobs
+</span><a href="#local-6989586621680378992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378991"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLabelingJobs
+</span><a href="#local-6989586621680378992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeBefore:ListLabelingJobs' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AcreationTimeBefore%3AListLabelingJobs%27"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListLabelingJobs -&gt; f ListLabelingJobs)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListLabelingJobs
+-&gt; f ListLabelingJobs
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | A filter that returns only labeling jobs modified after the specified</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- time (timestamp).</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_lastModifiedTimeAfter"><span class="hs-identifier hs-type">listLabelingJobs_lastModifiedTimeAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="listLabelingJobs_lastModifiedTimeAfter"><span class="annot"><span class="annottext">listLabelingJobs_lastModifiedTimeAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListLabelingJobs -&gt; f ListLabelingJobs
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_lastModifiedTimeAfter"><span class="hs-identifier hs-var hs-var">listLabelingJobs_lastModifiedTimeAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLabelingJobs -&gt; Maybe POSIX)
+-&gt; (ListLabelingJobs -&gt; Maybe POSIX -&gt; ListLabelingJobs)
+-&gt; Lens
+     ListLabelingJobs ListLabelingJobs (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378990"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedTimeAfter :: Maybe POSIX
+$sel:lastModifiedTimeAfter:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe POSIX
+</span><a href="#local-6989586621680378990"><span class="hs-identifier hs-var hs-var">lastModifiedTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378990"><span class="hs-identifier hs-var">lastModifiedTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378989"><span class="annot"><span class="annottext">s :: ListLabelingJobs
+</span><a href="#local-6989586621680378989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378988"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLabelingJobs
+</span><a href="#local-6989586621680378989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTimeAfter:ListLabelingJobs' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AlastModifiedTimeAfter%3AListLabelingJobs%27"><span class="hs-identifier hs-var">lastModifiedTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListLabelingJobs -&gt; f ListLabelingJobs)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListLabelingJobs
+-&gt; f ListLabelingJobs
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The field to sort results by. The default is @CreationTime@.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_sortBy"><span class="hs-identifier hs-type">listLabelingJobs_sortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortBy.html#SortBy"><span class="hs-identifier hs-type">SortBy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="listLabelingJobs_sortBy"><span class="annot"><span class="annottext">listLabelingJobs_sortBy :: (Maybe SortBy -&gt; f (Maybe SortBy))
+-&gt; ListLabelingJobs -&gt; f ListLabelingJobs
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_sortBy"><span class="hs-identifier hs-var hs-var">listLabelingJobs_sortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLabelingJobs -&gt; Maybe SortBy)
+-&gt; (ListLabelingJobs -&gt; Maybe SortBy -&gt; ListLabelingJobs)
+-&gt; Lens
+     ListLabelingJobs ListLabelingJobs (Maybe SortBy) (Maybe SortBy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378987"><span class="annot"><span class="annottext">Maybe SortBy
+sortBy :: Maybe SortBy
+$sel:sortBy:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe SortBy
+</span><a href="#local-6989586621680378987"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortBy
+</span><a href="#local-6989586621680378987"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378986"><span class="annot"><span class="annottext">s :: ListLabelingJobs
+</span><a href="#local-6989586621680378986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378985"><span class="annot"><span class="annottext">Maybe SortBy
+</span><a href="#local-6989586621680378985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLabelingJobs
+</span><a href="#local-6989586621680378986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListLabelingJobs' :: Maybe SortBy
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AsortBy%3AListLabelingJobs%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortBy
+</span><a href="#local-6989586621680378985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | A filter that retrieves only labeling jobs with a specific status.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_statusEquals"><span class="hs-identifier hs-type">listLabelingJobs_statusEquals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobStatus.html#LabelingJobStatus"><span class="hs-identifier hs-type">LabelingJobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="listLabelingJobs_statusEquals"><span class="annot"><span class="annottext">listLabelingJobs_statusEquals :: (Maybe LabelingJobStatus -&gt; f (Maybe LabelingJobStatus))
+-&gt; ListLabelingJobs -&gt; f ListLabelingJobs
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_statusEquals"><span class="hs-identifier hs-var hs-var">listLabelingJobs_statusEquals</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLabelingJobs -&gt; Maybe LabelingJobStatus)
+-&gt; (ListLabelingJobs
+    -&gt; Maybe LabelingJobStatus -&gt; ListLabelingJobs)
+-&gt; Lens
+     ListLabelingJobs
+     ListLabelingJobs
+     (Maybe LabelingJobStatus)
+     (Maybe LabelingJobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378984"><span class="annot"><span class="annottext">Maybe LabelingJobStatus
+statusEquals :: Maybe LabelingJobStatus
+$sel:statusEquals:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe LabelingJobStatus
+</span><a href="#local-6989586621680378984"><span class="hs-identifier hs-var hs-var">statusEquals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobStatus
+</span><a href="#local-6989586621680378984"><span class="hs-identifier hs-var">statusEquals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378983"><span class="annot"><span class="annottext">s :: ListLabelingJobs
+</span><a href="#local-6989586621680378983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378982"><span class="annot"><span class="annottext">Maybe LabelingJobStatus
+</span><a href="#local-6989586621680378982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLabelingJobs
+</span><a href="#local-6989586621680378983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusEquals:ListLabelingJobs' :: Maybe LabelingJobStatus
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AstatusEquals%3AListLabelingJobs%27"><span class="hs-identifier hs-var">statusEquals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobStatus
+</span><a href="#local-6989586621680378982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | A filter that returns only labeling jobs created after the specified</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- time (timestamp).</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_creationTimeAfter"><span class="hs-identifier hs-type">listLabelingJobs_creationTimeAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="listLabelingJobs_creationTimeAfter"><span class="annot"><span class="annottext">listLabelingJobs_creationTimeAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListLabelingJobs -&gt; f ListLabelingJobs
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_creationTimeAfter"><span class="hs-identifier hs-var hs-var">listLabelingJobs_creationTimeAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLabelingJobs -&gt; Maybe POSIX)
+-&gt; (ListLabelingJobs -&gt; Maybe POSIX -&gt; ListLabelingJobs)
+-&gt; Lens
+     ListLabelingJobs ListLabelingJobs (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378981"><span class="annot"><span class="annottext">Maybe POSIX
+creationTimeAfter :: Maybe POSIX
+$sel:creationTimeAfter:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe POSIX
+</span><a href="#local-6989586621680378981"><span class="hs-identifier hs-var hs-var">creationTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378981"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378980"><span class="annot"><span class="annottext">s :: ListLabelingJobs
+</span><a href="#local-6989586621680378980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378979"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLabelingJobs
+</span><a href="#local-6989586621680378980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeAfter:ListLabelingJobs' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AcreationTimeAfter%3AListLabelingJobs%27"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListLabelingJobs -&gt; f ListLabelingJobs)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListLabelingJobs
+-&gt; f ListLabelingJobs
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621680378975"><span class="annot"><span class="annottext">page :: ListLabelingJobs
+-&gt; AWSResponse ListLabelingJobs -&gt; Maybe ListLabelingJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680378973"><span class="annot"><span class="annottext">ListLabelingJobs
+</span><a href="#local-6989586621680378973"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680378972"><span class="annot"><span class="annottext">AWSResponse ListLabelingJobs
+</span><a href="#local-6989586621680378972"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-197"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListLabelingJobs
+ListLabelingJobsResponse
+</span><a href="#local-6989586621680378972"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">ListLabelingJobsResponse
+-&gt; Getting (First Text) ListLabelingJobsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListLabelingJobsResponse
+-&gt; Const (First Text) ListLabelingJobsResponse
+Lens' ListLabelingJobsResponse (Maybe Text)
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobsResponse_nextToken"><span class="hs-identifier hs-var">listLabelingJobsResponse_nextToken</span></a></span><span>
+</span><span id="line-199"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListLabelingJobsResponse
+ -&gt; Const (First Text) ListLabelingJobsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListLabelingJobsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-200"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListLabelingJobs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [LabelingJobSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-203"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListLabelingJobs
+ListLabelingJobsResponse
+</span><a href="#local-6989586621680378972"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">ListLabelingJobsResponse
+-&gt; Getting
+     (First [LabelingJobSummary])
+     ListLabelingJobsResponse
+     [LabelingJobSummary]
+-&gt; Maybe [LabelingJobSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [LabelingJobSummary]
+ -&gt; Const (First [LabelingJobSummary]) (Maybe [LabelingJobSummary]))
+-&gt; ListLabelingJobsResponse
+-&gt; Const (First [LabelingJobSummary]) ListLabelingJobsResponse
+Lens' ListLabelingJobsResponse (Maybe [LabelingJobSummary])
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobsResponse_labelingJobSummaryList"><span class="hs-identifier hs-var">listLabelingJobsResponse_labelingJobSummaryList</span></a></span><span>
+</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [LabelingJobSummary]
+  -&gt; Const (First [LabelingJobSummary]) (Maybe [LabelingJobSummary]))
+ -&gt; ListLabelingJobsResponse
+ -&gt; Const (First [LabelingJobSummary]) ListLabelingJobsResponse)
+-&gt; (([LabelingJobSummary]
+     -&gt; Const (First [LabelingJobSummary]) [LabelingJobSummary])
+    -&gt; Maybe [LabelingJobSummary]
+    -&gt; Const (First [LabelingJobSummary]) (Maybe [LabelingJobSummary]))
+-&gt; Getting
+     (First [LabelingJobSummary])
+     ListLabelingJobsResponse
+     [LabelingJobSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([LabelingJobSummary]
+ -&gt; Const (First [LabelingJobSummary]) [LabelingJobSummary])
+-&gt; Maybe [LabelingJobSummary]
+-&gt; Const (First [LabelingJobSummary]) (Maybe [LabelingJobSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-206"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListLabelingJobs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">ListLabelingJobs -&gt; Maybe ListLabelingJobs
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListLabelingJobs -&gt; Maybe ListLabelingJobs)
+-&gt; ListLabelingJobs -&gt; Maybe ListLabelingJobs
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">ListLabelingJobs
+</span><a href="#local-6989586621680378973"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">ListLabelingJobs
+-&gt; (ListLabelingJobs -&gt; ListLabelingJobs) -&gt; ListLabelingJobs
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListLabelingJobs -&gt; Identity ListLabelingJobs
+Lens ListLabelingJobs ListLabelingJobs (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobs_nextToken"><span class="hs-identifier hs-var">listLabelingJobs_nextToken</span></a></span><span>
+</span><span id="line-212"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListLabelingJobs -&gt; Identity ListLabelingJobs)
+-&gt; Maybe Text -&gt; ListLabelingJobs -&gt; ListLabelingJobs
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListLabelingJobs
+ListLabelingJobsResponse
+</span><a href="#local-6989586621680378972"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-213"></span><span>          </span><span class="annot"><span class="annottext">ListLabelingJobsResponse
+-&gt; Getting (First Text) ListLabelingJobsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListLabelingJobsResponse
+-&gt; Const (First Text) ListLabelingJobsResponse
+Lens' ListLabelingJobsResponse (Maybe Text)
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobsResponse_nextToken"><span class="hs-identifier hs-var">listLabelingJobsResponse_nextToken</span></a></span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListLabelingJobsResponse
+ -&gt; Const (First Text) ListLabelingJobsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListLabelingJobsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-218"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse"><span class="hs-identifier hs-type">ListLabelingJobsResponse</span></a></span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621680378963"><span class="annot"><span class="annottext">request :: ListLabelingJobs -&gt; Request ListLabelingJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListLabelingJobs -&gt; Request ListLabelingJobs
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621680378959"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListLabelingJobs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListLabelingJobs)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListLabelingJobs))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListLabelingJobs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListLabelingJobs)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680378956"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680378956"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680378955"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680378955"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680378954"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680378954"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-224"></span><span>          </span><span class="annot"><span class="annottext">Maybe [LabelingJobSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListLabelingJobsResponse
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse%27"><span class="hs-identifier hs-var">ListLabelingJobsResponse'</span></a></span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [LabelingJobSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListLabelingJobsResponse)
+-&gt; Either String (Maybe [LabelingJobSummary])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListLabelingJobsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680378954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [LabelingJobSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LabelingJobSummaryList&quot;</span></span><span>
+</span><span id="line-226"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [LabelingJobSummary]))
+-&gt; Maybe [LabelingJobSummary]
+-&gt; Either String (Maybe [LabelingJobSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LabelingJobSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-227"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListLabelingJobsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListLabelingJobsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680378954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListLabelingJobsResponse)
+-&gt; Either String Int -&gt; Either String ListLabelingJobsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680378956"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680378945"><span id="local-6989586621680378947"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span></span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680378942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621680378938"><span class="annot"><span class="annottext">toHeaders :: ListLabelingJobs -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListLabelingJobs -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-239"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-240"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-241"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.ListLabelingJobs&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-243"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-244"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-245"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-247"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680378928"><span id="local-6989586621680378930"><span id="local-6989586621680378932"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621680378926"><span class="annot"><span class="annottext">toJSON :: ListLabelingJobs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs%27"><span class="hs-identifier hs-type">ListLabelingJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378915"><span id="local-6989586621680378916"><span id="local-6989586621680378917"><span id="local-6989586621680378918"><span id="local-6989586621680378919"><span id="local-6989586621680378920"><span id="local-6989586621680378921"><span id="local-6989586621680378922"><span id="local-6989586621680378923"><span id="local-6989586621680378924"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe POSIX
+Maybe LabelingJobStatus
+Maybe SortBy
+Maybe SortOrder
+creationTimeAfter :: Maybe POSIX
+statusEquals :: Maybe LabelingJobStatus
+sortBy :: Maybe SortBy
+lastModifiedTimeAfter :: Maybe POSIX
+creationTimeBefore :: Maybe POSIX
+maxResults :: Maybe Natural
+nameContains :: Maybe Text
+sortOrder :: Maybe SortOrder
+nextToken :: Maybe Text
+lastModifiedTimeBefore :: Maybe POSIX
+$sel:creationTimeAfter:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe POSIX
+$sel:statusEquals:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe LabelingJobStatus
+$sel:sortBy:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe SortBy
+$sel:lastModifiedTimeAfter:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe POSIX
+$sel:creationTimeBefore:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe POSIX
+$sel:maxResults:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe Natural
+$sel:nameContains:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe Text
+$sel:sortOrder:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe SortOrder
+$sel:nextToken:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe Text
+$sel:lastModifiedTimeBefore:ListLabelingJobs' :: ListLabelingJobs -&gt; Maybe POSIX
+</span><a href="#local-6989586621680378915"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-252"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-253"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedTimeBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378924"><span class="hs-identifier hs-var">lastModifiedTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680378923"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680378922"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NameContains&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680378921"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680378920"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTimeBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378919"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedTimeAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378918"><span class="hs-identifier hs-var">lastModifiedTimeAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortBy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortBy -&gt; Pair) -&gt; Maybe SortBy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortBy
+</span><a href="#local-6989586621680378917"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusEquals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LabelingJobStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LabelingJobStatus -&gt; Pair)
+-&gt; Maybe LabelingJobStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobStatus
+</span><a href="#local-6989586621680378916"><span class="hs-identifier hs-var">statusEquals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTimeAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378915"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span>
+</span><span id="line-267"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-268"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621680378909"><span class="annot"><span class="annottext">toPath :: ListLabelingJobs -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListLabelingJobs -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobs"><span class="hs-identifier hs-type">ListLabelingJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621680378905"><span class="annot"><span class="annottext">toQuery :: ListLabelingJobs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListLabelingJobs -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | /See:/ 'newListLabelingJobsResponse' smart constructor.</span><span>
+</span><span id="line-277"></span><span id="local-6989586621680378902"><span id="local-6989586621680378903"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLabelingJobsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse"><span class="hs-identifier hs-var">ListLabelingJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLabelingJobsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse%27"><span class="hs-identifier hs-var">ListLabelingJobsResponse'</span></a></span></span><span>
+</span><span id="line-278"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of @LabelingJobSummary@ objects, each describing a labeling</span><span>
+</span><span id="line-279"></span><span>    </span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-280"></span><span>    </span><span id="%24sel%3AlabelingJobSummaryList%3AListLabelingJobsResponse%27"><span class="annot"><span class="annottext">ListLabelingJobsResponse -&gt; Maybe [LabelingJobSummary]
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AlabelingJobSummaryList%3AListLabelingJobsResponse%27"><span class="hs-identifier hs-var hs-var">labelingJobSummaryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobSummary.html#LabelingJobSummary"><span class="hs-identifier hs-type">LabelingJobSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>    </span><span class="hs-comment">-- | If the response is truncated, Amazon SageMaker returns this token. To</span><span>
+</span><span id="line-282"></span><span>    </span><span class="hs-comment">-- retrieve the next set of labeling jobs, use it in the subsequent</span><span>
+</span><span id="line-283"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-284"></span><span>    </span><span id="%24sel%3AnextToken%3AListLabelingJobsResponse%27"><span class="annot"><span class="annottext">ListLabelingJobsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AnextToken%3AListLabelingJobsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-286"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListLabelingJobsResponse%27"><span class="annot"><span class="annottext">ListLabelingJobsResponse -&gt; Int
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AhttpStatus%3AListLabelingJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-287"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-288"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680378895"><span id="local-6989586621680378897"><span class="annot"><span class="annottext">ListLabelingJobsResponse -&gt; ListLabelingJobsResponse -&gt; Bool
+(ListLabelingJobsResponse -&gt; ListLabelingJobsResponse -&gt; Bool)
+-&gt; (ListLabelingJobsResponse -&gt; ListLabelingJobsResponse -&gt; Bool)
+-&gt; Eq ListLabelingJobsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListLabelingJobsResponse -&gt; ListLabelingJobsResponse -&gt; Bool
+$c/= :: ListLabelingJobsResponse -&gt; ListLabelingJobsResponse -&gt; Bool
+== :: ListLabelingJobsResponse -&gt; ListLabelingJobsResponse -&gt; Bool
+$c== :: ListLabelingJobsResponse -&gt; ListLabelingJobsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680378887"><span id="local-6989586621680378889"><span id="local-6989586621680378891"><span id="local-6989586621680378893"><span class="annot"><span class="annottext">ReadPrec [ListLabelingJobsResponse]
+ReadPrec ListLabelingJobsResponse
+Int -&gt; ReadS ListLabelingJobsResponse
+ReadS [ListLabelingJobsResponse]
+(Int -&gt; ReadS ListLabelingJobsResponse)
+-&gt; ReadS [ListLabelingJobsResponse]
+-&gt; ReadPrec ListLabelingJobsResponse
+-&gt; ReadPrec [ListLabelingJobsResponse]
+-&gt; Read ListLabelingJobsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListLabelingJobsResponse]
+$creadListPrec :: ReadPrec [ListLabelingJobsResponse]
+readPrec :: ReadPrec ListLabelingJobsResponse
+$creadPrec :: ReadPrec ListLabelingJobsResponse
+readList :: ReadS [ListLabelingJobsResponse]
+$creadList :: ReadS [ListLabelingJobsResponse]
+readsPrec :: Int -&gt; ReadS ListLabelingJobsResponse
+$creadsPrec :: Int -&gt; ReadS ListLabelingJobsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680378881"><span id="local-6989586621680378883"><span id="local-6989586621680378885"><span class="annot"><span class="annottext">Int -&gt; ListLabelingJobsResponse -&gt; ShowS
+[ListLabelingJobsResponse] -&gt; ShowS
+ListLabelingJobsResponse -&gt; String
+(Int -&gt; ListLabelingJobsResponse -&gt; ShowS)
+-&gt; (ListLabelingJobsResponse -&gt; String)
+-&gt; ([ListLabelingJobsResponse] -&gt; ShowS)
+-&gt; Show ListLabelingJobsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListLabelingJobsResponse] -&gt; ShowS
+$cshowList :: [ListLabelingJobsResponse] -&gt; ShowS
+show :: ListLabelingJobsResponse -&gt; String
+$cshow :: ListLabelingJobsResponse -&gt; String
+showsPrec :: Int -&gt; ListLabelingJobsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListLabelingJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListLabelingJobsResponse -&gt; Rep ListLabelingJobsResponse x)
+-&gt; (forall x.
+    Rep ListLabelingJobsResponse x -&gt; ListLabelingJobsResponse)
+-&gt; Generic ListLabelingJobsResponse
+forall x.
+Rep ListLabelingJobsResponse x -&gt; ListLabelingJobsResponse
+forall x.
+ListLabelingJobsResponse -&gt; Rep ListLabelingJobsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListLabelingJobsResponse x -&gt; ListLabelingJobsResponse
+$cfrom :: forall x.
+ListLabelingJobsResponse -&gt; Rep ListLabelingJobsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- Create a value of 'ListLabelingJobsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- 'labelingJobSummaryList', 'listLabelingJobsResponse_labelingJobSummaryList' - An array of @LabelingJobSummary@ objects, each describing a labeling</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- 'nextToken', 'listLabelingJobsResponse_nextToken' - If the response is truncated, Amazon SageMaker returns this token. To</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- retrieve the next set of labeling jobs, use it in the subsequent</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- 'httpStatus', 'listLabelingJobsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#newListLabelingJobsResponse"><span class="hs-identifier hs-type">newListLabelingJobsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-307"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-308"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-309"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse"><span class="hs-identifier hs-type">ListLabelingJobsResponse</span></a></span><span>
+</span><span id="line-310"></span><span id="newListLabelingJobsResponse"><span class="annot"><span class="annottext">newListLabelingJobsResponse :: Int -&gt; ListLabelingJobsResponse
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#newListLabelingJobsResponse"><span class="hs-identifier hs-var hs-var">newListLabelingJobsResponse</span></a></span></span><span> </span><span id="local-6989586621680378878"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680378878"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-311"></span><span>  </span><span class="annot"><span class="annottext">ListLabelingJobsResponse' :: Maybe [LabelingJobSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListLabelingJobsResponse
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse%27"><span class="hs-identifier hs-type">ListLabelingJobsResponse'</span></a></span><span>
+</span><span id="line-312"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:labelingJobSummaryList:ListLabelingJobsResponse' :: Maybe [LabelingJobSummary]
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AlabelingJobSummaryList%3AListLabelingJobsResponse%27"><span class="hs-identifier hs-var">labelingJobSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-313"></span><span>        </span><span class="annot"><span class="annottext">Maybe [LabelingJobSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListLabelingJobsResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AnextToken%3AListLabelingJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListLabelingJobsResponse' :: Int
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AhttpStatus%3AListLabelingJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680378878"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-316"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- | An array of @LabelingJobSummary@ objects, each describing a labeling</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-320"></span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobsResponse_labelingJobSummaryList"><span class="hs-identifier hs-type">listLabelingJobsResponse_labelingJobSummaryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse"><span class="hs-identifier hs-type">ListLabelingJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobSummary.html#LabelingJobSummary"><span class="hs-identifier hs-type">LabelingJobSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-321"></span><span id="listLabelingJobsResponse_labelingJobSummaryList"><span class="annot"><span class="annottext">listLabelingJobsResponse_labelingJobSummaryList :: (Maybe [LabelingJobSummary] -&gt; f (Maybe [LabelingJobSummary]))
+-&gt; ListLabelingJobsResponse -&gt; f ListLabelingJobsResponse
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobsResponse_labelingJobSummaryList"><span class="hs-identifier hs-var hs-var">listLabelingJobsResponse_labelingJobSummaryList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLabelingJobsResponse -&gt; Maybe [LabelingJobSummary])
+-&gt; (ListLabelingJobsResponse
+    -&gt; Maybe [LabelingJobSummary] -&gt; ListLabelingJobsResponse)
+-&gt; Lens' ListLabelingJobsResponse (Maybe [LabelingJobSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse%27"><span class="hs-identifier hs-type">ListLabelingJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378877"><span class="annot"><span class="annottext">Maybe [LabelingJobSummary]
+labelingJobSummaryList :: Maybe [LabelingJobSummary]
+$sel:labelingJobSummaryList:ListLabelingJobsResponse' :: ListLabelingJobsResponse -&gt; Maybe [LabelingJobSummary]
+</span><a href="#local-6989586621680378877"><span class="hs-identifier hs-var hs-var">labelingJobSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LabelingJobSummary]
+</span><a href="#local-6989586621680378877"><span class="hs-identifier hs-var">labelingJobSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378876"><span class="annot"><span class="annottext">s :: ListLabelingJobsResponse
+</span><a href="#local-6989586621680378876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse%27"><span class="hs-identifier hs-type">ListLabelingJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378875"><span class="annot"><span class="annottext">Maybe [LabelingJobSummary]
+</span><a href="#local-6989586621680378875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLabelingJobsResponse
+</span><a href="#local-6989586621680378876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labelingJobSummaryList:ListLabelingJobsResponse' :: Maybe [LabelingJobSummary]
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AlabelingJobSummaryList%3AListLabelingJobsResponse%27"><span class="hs-identifier hs-var">labelingJobSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LabelingJobSummary]
+</span><a href="#local-6989586621680378875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse"><span class="hs-identifier hs-type">ListLabelingJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LabelingJobSummary] -&gt; f (Maybe [LabelingJobSummary]))
+ -&gt; ListLabelingJobsResponse -&gt; f ListLabelingJobsResponse)
+-&gt; ((Maybe [LabelingJobSummary] -&gt; f (Maybe [LabelingJobSummary]))
+    -&gt; Maybe [LabelingJobSummary] -&gt; f (Maybe [LabelingJobSummary]))
+-&gt; (Maybe [LabelingJobSummary] -&gt; f (Maybe [LabelingJobSummary]))
+-&gt; ListLabelingJobsResponse
+-&gt; f ListLabelingJobsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LabelingJobSummary]
+  [LabelingJobSummary]
+  [LabelingJobSummary]
+  [LabelingJobSummary]
+-&gt; Iso
+     (Maybe [LabelingJobSummary])
+     (Maybe [LabelingJobSummary])
+     (Maybe [LabelingJobSummary])
+     (Maybe [LabelingJobSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LabelingJobSummary]
+  [LabelingJobSummary]
+  [LabelingJobSummary]
+  [LabelingJobSummary]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-322"></span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- | If the response is truncated, Amazon SageMaker returns this token. To</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- retrieve the next set of labeling jobs, use it in the subsequent</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-326"></span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobsResponse_nextToken"><span class="hs-identifier hs-type">listLabelingJobsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse"><span class="hs-identifier hs-type">ListLabelingJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span id="listLabelingJobsResponse_nextToken"><span class="annot"><span class="annottext">listLabelingJobsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListLabelingJobsResponse -&gt; f ListLabelingJobsResponse
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listLabelingJobsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLabelingJobsResponse -&gt; Maybe Text)
+-&gt; (ListLabelingJobsResponse
+    -&gt; Maybe Text -&gt; ListLabelingJobsResponse)
+-&gt; Lens' ListLabelingJobsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse%27"><span class="hs-identifier hs-type">ListLabelingJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378873"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListLabelingJobsResponse' :: ListLabelingJobsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680378873"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680378873"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378872"><span class="annot"><span class="annottext">s :: ListLabelingJobsResponse
+</span><a href="#local-6989586621680378872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse%27"><span class="hs-identifier hs-type">ListLabelingJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378871"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680378871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLabelingJobsResponse
+</span><a href="#local-6989586621680378872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLabelingJobsResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AnextToken%3AListLabelingJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680378871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse"><span class="hs-identifier hs-type">ListLabelingJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-330"></span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobsResponse_httpStatus"><span class="hs-identifier hs-type">listLabelingJobsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse"><span class="hs-identifier hs-type">ListLabelingJobsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-331"></span><span id="listLabelingJobsResponse_httpStatus"><span class="annot"><span class="annottext">listLabelingJobsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListLabelingJobsResponse -&gt; f ListLabelingJobsResponse
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#listLabelingJobsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listLabelingJobsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLabelingJobsResponse -&gt; Int)
+-&gt; (ListLabelingJobsResponse -&gt; Int -&gt; ListLabelingJobsResponse)
+-&gt; Lens ListLabelingJobsResponse ListLabelingJobsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse%27"><span class="hs-identifier hs-type">ListLabelingJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378870"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListLabelingJobsResponse' :: ListLabelingJobsResponse -&gt; Int
+</span><a href="#local-6989586621680378870"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680378870"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378869"><span class="annot"><span class="annottext">s :: ListLabelingJobsResponse
+</span><a href="#local-6989586621680378869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse%27"><span class="hs-identifier hs-type">ListLabelingJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378868"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680378868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLabelingJobsResponse
+</span><a href="#local-6989586621680378869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListLabelingJobsResponse' :: Int
+</span><a href="Network.AWS.SageMaker.ListLabelingJobs.html#%24sel%3AhttpStatus%3AListLabelingJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680378868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse"><span class="hs-identifier hs-type">ListLabelingJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span>
+</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680378866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListLabelingJobs.html#ListLabelingJobsResponse"><span class="hs-identifier hs-type">ListLabelingJobsResponse</span></a></span></span><span>
+</span><span id="line-334"></span></pre></body></html>

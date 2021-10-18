@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html"><span class="hs-identifier">Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html"><span class="hs-identifier">Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the timestamp range and timestamp origin of a range of</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- fragments.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Only fragments with a start timestamp greater than or equal to the given</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- start time and less than or equal to the end time are returned. For</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- example, if a stream contains fragments with the following start</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- timestamps:</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   00:00:00</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   00:00:02</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- -   00:00:04</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- -   00:00:06</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- A fragment selector range with a start time of 00:00:01 and end time of</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 00:00:04 would return the fragments with start times of 00:00:02 and</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 00:00:04.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- /See:/ 'newFragmentSelector' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679165242"><span id="local-6989586621679165243"></span></span><span class="hs-keyword">data</span><span> </span><span id="FragmentSelector"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#FragmentSelector"><span class="hs-identifier hs-var">FragmentSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FragmentSelector%27"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#FragmentSelector%27"><span class="hs-identifier hs-var">FragmentSelector'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The origin of the timestamps to use (Server or Producer).</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AfragmentSelectorType%3AFragmentSelector%27"><span class="annot"><span class="annottext">FragmentSelector -&gt; FragmentSelectorType
+</span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#%24sel%3AfragmentSelectorType%3AFragmentSelector%27"><span class="hs-identifier hs-var hs-var">fragmentSelectorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType"><span class="hs-identifier hs-type">FragmentSelectorType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The range of timestamps to return.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AtimestampRange%3AFragmentSelector%27"><span class="annot"><span class="annottext">FragmentSelector -&gt; TimestampRange
+</span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#%24sel%3AtimestampRange%3AFragmentSelector%27"><span class="hs-identifier hs-var hs-var">timestampRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165235"><span id="local-6989586621679165237"><span class="annot"><span class="annottext">FragmentSelector -&gt; FragmentSelector -&gt; Bool
+(FragmentSelector -&gt; FragmentSelector -&gt; Bool)
+-&gt; (FragmentSelector -&gt; FragmentSelector -&gt; Bool)
+-&gt; Eq FragmentSelector
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FragmentSelector -&gt; FragmentSelector -&gt; Bool
+$c/= :: FragmentSelector -&gt; FragmentSelector -&gt; Bool
+== :: FragmentSelector -&gt; FragmentSelector -&gt; Bool
+$c== :: FragmentSelector -&gt; FragmentSelector -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165226"><span id="local-6989586621679165228"><span id="local-6989586621679165230"><span id="local-6989586621679165232"><span class="annot"><span class="annottext">ReadPrec [FragmentSelector]
+ReadPrec FragmentSelector
+Int -&gt; ReadS FragmentSelector
+ReadS [FragmentSelector]
+(Int -&gt; ReadS FragmentSelector)
+-&gt; ReadS [FragmentSelector]
+-&gt; ReadPrec FragmentSelector
+-&gt; ReadPrec [FragmentSelector]
+-&gt; Read FragmentSelector
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FragmentSelector]
+$creadListPrec :: ReadPrec [FragmentSelector]
+readPrec :: ReadPrec FragmentSelector
+$creadPrec :: ReadPrec FragmentSelector
+readList :: ReadS [FragmentSelector]
+$creadList :: ReadS [FragmentSelector]
+readsPrec :: Int -&gt; ReadS FragmentSelector
+$creadsPrec :: Int -&gt; ReadS FragmentSelector
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165219"><span id="local-6989586621679165221"><span id="local-6989586621679165223"><span class="annot"><span class="annottext">Int -&gt; FragmentSelector -&gt; ShowS
+[FragmentSelector] -&gt; ShowS
+FragmentSelector -&gt; String
+(Int -&gt; FragmentSelector -&gt; ShowS)
+-&gt; (FragmentSelector -&gt; String)
+-&gt; ([FragmentSelector] -&gt; ShowS)
+-&gt; Show FragmentSelector
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FragmentSelector] -&gt; ShowS
+$cshowList :: [FragmentSelector] -&gt; ShowS
+show :: FragmentSelector -&gt; String
+$cshow :: FragmentSelector -&gt; String
+showsPrec :: Int -&gt; FragmentSelector -&gt; ShowS
+$cshowsPrec :: Int -&gt; FragmentSelector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FragmentSelector -&gt; Rep FragmentSelector x)
+-&gt; (forall x. Rep FragmentSelector x -&gt; FragmentSelector)
+-&gt; Generic FragmentSelector
+forall x. Rep FragmentSelector x -&gt; FragmentSelector
+forall x. FragmentSelector -&gt; Rep FragmentSelector x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FragmentSelector x -&gt; FragmentSelector
+$cfrom :: forall x. FragmentSelector -&gt; Rep FragmentSelector x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'FragmentSelector' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'fragmentSelectorType', 'fragmentSelector_fragmentSelectorType' - The origin of the timestamps to use (Server or Producer).</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'timestampRange', 'fragmentSelector_timestampRange' - The range of timestamps to return.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#newFragmentSelector"><span class="hs-identifier hs-type">newFragmentSelector</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'fragmentSelectorType'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType"><span class="hs-identifier hs-type">FragmentSelectorType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'timestampRange'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#FragmentSelector"><span class="hs-identifier hs-type">FragmentSelector</span></a></span><span>
+</span><span id="line-74"></span><span id="newFragmentSelector"><span class="annot"><span class="annottext">newFragmentSelector :: FragmentSelectorType -&gt; TimestampRange -&gt; FragmentSelector
+</span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#newFragmentSelector"><span class="hs-identifier hs-var hs-var">newFragmentSelector</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679165213"><span class="annot"><span class="annottext">FragmentSelectorType
+</span><a href="#local-6989586621679165213"><span class="hs-identifier hs-var">pFragmentSelectorType_</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679165212"><span class="annot"><span class="annottext">TimestampRange
+</span><a href="#local-6989586621679165212"><span class="hs-identifier hs-var">pTimestampRange_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">FragmentSelector' :: FragmentSelectorType -&gt; TimestampRange -&gt; FragmentSelector
+</span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#FragmentSelector%27"><span class="hs-identifier hs-type">FragmentSelector'</span></a></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fragmentSelectorType:FragmentSelector' :: FragmentSelectorType
+</span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#%24sel%3AfragmentSelectorType%3AFragmentSelector%27"><span class="hs-identifier hs-var">fragmentSelectorType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">FragmentSelectorType
+</span><a href="#local-6989586621679165213"><span class="hs-identifier hs-var">pFragmentSelectorType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:timestampRange:FragmentSelector' :: TimestampRange
+</span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#%24sel%3AtimestampRange%3AFragmentSelector%27"><span class="hs-identifier hs-var">timestampRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TimestampRange
+</span><a href="#local-6989586621679165212"><span class="hs-identifier hs-var">pTimestampRange_</span></a></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The origin of the timestamps to use (Server or Producer).</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#fragmentSelector_fragmentSelectorType"><span class="hs-identifier hs-type">fragmentSelector_fragmentSelectorType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#FragmentSelector"><span class="hs-identifier hs-type">FragmentSelector</span></a></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType"><span class="hs-identifier hs-type">FragmentSelectorType</span></a></span><span>
+</span><span id="line-85"></span><span id="fragmentSelector_fragmentSelectorType"><span class="annot"><span class="annottext">fragmentSelector_fragmentSelectorType :: (FragmentSelectorType -&gt; f FragmentSelectorType)
+-&gt; FragmentSelector -&gt; f FragmentSelector
+</span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#fragmentSelector_fragmentSelectorType"><span class="hs-identifier hs-var hs-var">fragmentSelector_fragmentSelectorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FragmentSelector -&gt; FragmentSelectorType)
+-&gt; (FragmentSelector -&gt; FragmentSelectorType -&gt; FragmentSelector)
+-&gt; Lens
+     FragmentSelector
+     FragmentSelector
+     FragmentSelectorType
+     FragmentSelectorType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#FragmentSelector%27"><span class="hs-identifier hs-type">FragmentSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165208"><span class="annot"><span class="annottext">FragmentSelectorType
+fragmentSelectorType :: FragmentSelectorType
+$sel:fragmentSelectorType:FragmentSelector' :: FragmentSelector -&gt; FragmentSelectorType
+</span><a href="#local-6989586621679165208"><span class="hs-identifier hs-var hs-var">fragmentSelectorType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FragmentSelectorType
+</span><a href="#local-6989586621679165208"><span class="hs-identifier hs-var">fragmentSelectorType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165207"><span class="annot"><span class="annottext">s :: FragmentSelector
+</span><a href="#local-6989586621679165207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#FragmentSelector%27"><span class="hs-identifier hs-type">FragmentSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165206"><span class="annot"><span class="annottext">FragmentSelectorType
+</span><a href="#local-6989586621679165206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FragmentSelector
+</span><a href="#local-6989586621679165207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fragmentSelectorType:FragmentSelector' :: FragmentSelectorType
+</span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#%24sel%3AfragmentSelectorType%3AFragmentSelector%27"><span class="hs-identifier hs-var">fragmentSelectorType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FragmentSelectorType
+</span><a href="#local-6989586621679165206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#FragmentSelector"><span class="hs-identifier hs-type">FragmentSelector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The range of timestamps to return.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#fragmentSelector_timestampRange"><span class="hs-identifier hs-type">fragmentSelector_timestampRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#FragmentSelector"><span class="hs-identifier hs-type">FragmentSelector</span></a></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span>
+</span><span id="line-89"></span><span id="fragmentSelector_timestampRange"><span class="annot"><span class="annottext">fragmentSelector_timestampRange :: (TimestampRange -&gt; f TimestampRange)
+-&gt; FragmentSelector -&gt; f FragmentSelector
+</span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#fragmentSelector_timestampRange"><span class="hs-identifier hs-var hs-var">fragmentSelector_timestampRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FragmentSelector -&gt; TimestampRange)
+-&gt; (FragmentSelector -&gt; TimestampRange -&gt; FragmentSelector)
+-&gt; Lens
+     FragmentSelector FragmentSelector TimestampRange TimestampRange
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#FragmentSelector%27"><span class="hs-identifier hs-type">FragmentSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165204"><span class="annot"><span class="annottext">TimestampRange
+timestampRange :: TimestampRange
+$sel:timestampRange:FragmentSelector' :: FragmentSelector -&gt; TimestampRange
+</span><a href="#local-6989586621679165204"><span class="hs-identifier hs-var hs-var">timestampRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestampRange
+</span><a href="#local-6989586621679165204"><span class="hs-identifier hs-var">timestampRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165203"><span class="annot"><span class="annottext">s :: FragmentSelector
+</span><a href="#local-6989586621679165203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#FragmentSelector%27"><span class="hs-identifier hs-type">FragmentSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165202"><span class="annot"><span class="annottext">TimestampRange
+</span><a href="#local-6989586621679165202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FragmentSelector
+</span><a href="#local-6989586621679165203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestampRange:FragmentSelector' :: TimestampRange
+</span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#%24sel%3AtimestampRange%3AFragmentSelector%27"><span class="hs-identifier hs-var">timestampRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TimestampRange
+</span><a href="#local-6989586621679165202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#FragmentSelector"><span class="hs-identifier hs-type">FragmentSelector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165198"><span id="local-6989586621679165200"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#FragmentSelector"><span class="hs-identifier hs-type">FragmentSelector</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165195"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#FragmentSelector"><span class="hs-identifier hs-type">FragmentSelector</span></a></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165187"><span id="local-6989586621679165189"><span id="local-6989586621679165191"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#FragmentSelector"><span class="hs-identifier hs-type">FragmentSelector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679165185"><span class="annot"><span class="annottext">toJSON :: FragmentSelector -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.html#FragmentSelector%27"><span class="hs-identifier hs-type">FragmentSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165182"><span id="local-6989586621679165183"><span class="annot"><span class="annottext">FragmentSelectorType
+TimestampRange
+timestampRange :: TimestampRange
+fragmentSelectorType :: FragmentSelectorType
+$sel:timestampRange:FragmentSelector' :: FragmentSelector -&gt; TimestampRange
+$sel:fragmentSelectorType:FragmentSelector' :: FragmentSelector -&gt; FragmentSelectorType
+</span><a href="#local-6989586621679165182"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-100"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FragmentSelectorType&quot;</span></span><span>
+</span><span id="line-101"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; FragmentSelectorType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">FragmentSelectorType
+</span><a href="#local-6989586621679165183"><span class="hs-identifier hs-var">fragmentSelectorType</span></a></span><span>
+</span><span id="line-102"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TimestampRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimestampRange -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TimestampRange
+</span><a href="#local-6989586621679165182"><span class="hs-identifier hs-var">timestampRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span></pre></body></html>

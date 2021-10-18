@@ -1,0 +1,561 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeType.html"><span class="hs-identifier">Network.AWS.CloudDirectory.Types.FacetAttributeType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior.html"><span class="hs-identifier">Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html"><span class="hs-identifier">Network.AWS.CloudDirectory.Types.Rule</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html"><span class="hs-identifier">Network.AWS.CloudDirectory.Types.TypedAttributeValue</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | A typed link attribute definition.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newTypedLinkAttributeDefinition' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679330608"><span id="local-6989586621679330609"></span></span><span class="hs-keyword">data</span><span> </span><span id="TypedLinkAttributeDefinition"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-var">TypedLinkAttributeDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TypedLinkAttributeDefinition%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var">TypedLinkAttributeDefinition'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether the attribute is mutable or not.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AisImmutable%3ATypedLinkAttributeDefinition%27"><span class="annot"><span class="annottext">TypedLinkAttributeDefinition -&gt; Maybe Bool
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3AisImmutable%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var hs-var">isImmutable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Validation rules that are attached to the attribute definition.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Arules%3ATypedLinkAttributeDefinition%27"><span class="annot"><span class="annottext">TypedLinkAttributeDefinition -&gt; Maybe (HashMap Text Rule)
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3Arules%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The default value of the attribute (if configured).</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdefaultValue%3ATypedLinkAttributeDefinition%27"><span class="annot"><span class="annottext">TypedLinkAttributeDefinition -&gt; Maybe TypedAttributeValue
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3AdefaultValue%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The unique name of the typed link attribute.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aname%3ATypedLinkAttributeDefinition%27"><span class="annot"><span class="annottext">TypedLinkAttributeDefinition -&gt; Text
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3Aname%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The type of the attribute.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atype%27%3ATypedLinkAttributeDefinition%27"><span class="annot"><span class="annottext">TypedLinkAttributeDefinition -&gt; FacetAttributeType
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3Atype%27%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeType.html#FacetAttributeType"><span class="hs-identifier hs-type">FacetAttributeType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The required behavior of the @TypedLinkAttributeDefinition@.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3ArequiredBehavior%3ATypedLinkAttributeDefinition%27"><span class="annot"><span class="annottext">TypedLinkAttributeDefinition -&gt; RequiredAttributeBehavior
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3ArequiredBehavior%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var hs-var">requiredBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior.html#RequiredAttributeBehavior"><span class="hs-identifier hs-type">RequiredAttributeBehavior</span></a></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330597"><span id="local-6989586621679330599"><span class="annot"><span class="annottext">TypedLinkAttributeDefinition
+-&gt; TypedLinkAttributeDefinition -&gt; Bool
+(TypedLinkAttributeDefinition
+ -&gt; TypedLinkAttributeDefinition -&gt; Bool)
+-&gt; (TypedLinkAttributeDefinition
+    -&gt; TypedLinkAttributeDefinition -&gt; Bool)
+-&gt; Eq TypedLinkAttributeDefinition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TypedLinkAttributeDefinition
+-&gt; TypedLinkAttributeDefinition -&gt; Bool
+$c/= :: TypedLinkAttributeDefinition
+-&gt; TypedLinkAttributeDefinition -&gt; Bool
+== :: TypedLinkAttributeDefinition
+-&gt; TypedLinkAttributeDefinition -&gt; Bool
+$c== :: TypedLinkAttributeDefinition
+-&gt; TypedLinkAttributeDefinition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330588"><span id="local-6989586621679330590"><span id="local-6989586621679330592"><span id="local-6989586621679330594"><span class="annot"><span class="annottext">ReadPrec [TypedLinkAttributeDefinition]
+ReadPrec TypedLinkAttributeDefinition
+Int -&gt; ReadS TypedLinkAttributeDefinition
+ReadS [TypedLinkAttributeDefinition]
+(Int -&gt; ReadS TypedLinkAttributeDefinition)
+-&gt; ReadS [TypedLinkAttributeDefinition]
+-&gt; ReadPrec TypedLinkAttributeDefinition
+-&gt; ReadPrec [TypedLinkAttributeDefinition]
+-&gt; Read TypedLinkAttributeDefinition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TypedLinkAttributeDefinition]
+$creadListPrec :: ReadPrec [TypedLinkAttributeDefinition]
+readPrec :: ReadPrec TypedLinkAttributeDefinition
+$creadPrec :: ReadPrec TypedLinkAttributeDefinition
+readList :: ReadS [TypedLinkAttributeDefinition]
+$creadList :: ReadS [TypedLinkAttributeDefinition]
+readsPrec :: Int -&gt; ReadS TypedLinkAttributeDefinition
+$creadsPrec :: Int -&gt; ReadS TypedLinkAttributeDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330581"><span id="local-6989586621679330583"><span id="local-6989586621679330585"><span class="annot"><span class="annottext">Int -&gt; TypedLinkAttributeDefinition -&gt; ShowS
+[TypedLinkAttributeDefinition] -&gt; ShowS
+TypedLinkAttributeDefinition -&gt; String
+(Int -&gt; TypedLinkAttributeDefinition -&gt; ShowS)
+-&gt; (TypedLinkAttributeDefinition -&gt; String)
+-&gt; ([TypedLinkAttributeDefinition] -&gt; ShowS)
+-&gt; Show TypedLinkAttributeDefinition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TypedLinkAttributeDefinition] -&gt; ShowS
+$cshowList :: [TypedLinkAttributeDefinition] -&gt; ShowS
+show :: TypedLinkAttributeDefinition -&gt; String
+$cshow :: TypedLinkAttributeDefinition -&gt; String
+showsPrec :: Int -&gt; TypedLinkAttributeDefinition -&gt; ShowS
+$cshowsPrec :: Int -&gt; TypedLinkAttributeDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ TypedLinkAttributeDefinition -&gt; Rep TypedLinkAttributeDefinition x)
+-&gt; (forall x.
+    Rep TypedLinkAttributeDefinition x -&gt; TypedLinkAttributeDefinition)
+-&gt; Generic TypedLinkAttributeDefinition
+forall x.
+Rep TypedLinkAttributeDefinition x -&gt; TypedLinkAttributeDefinition
+forall x.
+TypedLinkAttributeDefinition -&gt; Rep TypedLinkAttributeDefinition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TypedLinkAttributeDefinition x -&gt; TypedLinkAttributeDefinition
+$cfrom :: forall x.
+TypedLinkAttributeDefinition -&gt; Rep TypedLinkAttributeDefinition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'TypedLinkAttributeDefinition' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'isImmutable', 'typedLinkAttributeDefinition_isImmutable' - Whether the attribute is mutable or not.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'rules', 'typedLinkAttributeDefinition_rules' - Validation rules that are attached to the attribute definition.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'defaultValue', 'typedLinkAttributeDefinition_defaultValue' - The default value of the attribute (if configured).</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'name', 'typedLinkAttributeDefinition_name' - The unique name of the typed link attribute.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'type'', 'typedLinkAttributeDefinition_type' - The type of the attribute.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'requiredBehavior', 'typedLinkAttributeDefinition_requiredBehavior' - The required behavior of the @TypedLinkAttributeDefinition@.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#newTypedLinkAttributeDefinition"><span class="hs-identifier hs-type">newTypedLinkAttributeDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeType.html#FacetAttributeType"><span class="hs-identifier hs-type">FacetAttributeType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'requiredBehavior'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior.html#RequiredAttributeBehavior"><span class="hs-identifier hs-type">RequiredAttributeBehavior</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span><span>
+</span><span id="line-76"></span><span id="newTypedLinkAttributeDefinition"><span class="annot"><span class="annottext">newTypedLinkAttributeDefinition :: Text
+-&gt; FacetAttributeType
+-&gt; RequiredAttributeBehavior
+-&gt; TypedLinkAttributeDefinition
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#newTypedLinkAttributeDefinition"><span class="hs-identifier hs-var hs-var">newTypedLinkAttributeDefinition</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679330575"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679330575"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679330574"><span class="annot"><span class="annottext">FacetAttributeType
+</span><a href="#local-6989586621679330574"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679330573"><span class="annot"><span class="annottext">RequiredAttributeBehavior
+</span><a href="#local-6989586621679330573"><span class="hs-identifier hs-var">pRequiredBehavior_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">TypedLinkAttributeDefinition' :: Maybe Bool
+-&gt; Maybe (HashMap Text Rule)
+-&gt; Maybe TypedAttributeValue
+-&gt; Text
+-&gt; FacetAttributeType
+-&gt; RequiredAttributeBehavior
+-&gt; TypedLinkAttributeDefinition
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition%27"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition'</span></a></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:isImmutable:TypedLinkAttributeDefinition' :: Maybe Bool
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3AisImmutable%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var">isImmutable</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:rules:TypedLinkAttributeDefinition' :: Maybe (HashMap Text Rule)
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3Arules%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultValue:TypedLinkAttributeDefinition' :: Maybe TypedAttributeValue
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3AdefaultValue%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var">defaultValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:TypedLinkAttributeDefinition' :: Text
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3Aname%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679330575"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':TypedLinkAttributeDefinition' :: FacetAttributeType
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3Atype%27%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FacetAttributeType
+</span><a href="#local-6989586621679330574"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:requiredBehavior:TypedLinkAttributeDefinition' :: RequiredAttributeBehavior
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3ArequiredBehavior%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var">requiredBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RequiredAttributeBehavior
+</span><a href="#local-6989586621679330573"><span class="hs-identifier hs-var">pRequiredBehavior_</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | Whether the attribute is mutable or not.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#typedLinkAttributeDefinition_isImmutable"><span class="hs-identifier hs-type">typedLinkAttributeDefinition_isImmutable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="typedLinkAttributeDefinition_isImmutable"><span class="annot"><span class="annottext">typedLinkAttributeDefinition_isImmutable :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; TypedLinkAttributeDefinition -&gt; f TypedLinkAttributeDefinition
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#typedLinkAttributeDefinition_isImmutable"><span class="hs-identifier hs-var hs-var">typedLinkAttributeDefinition_isImmutable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypedLinkAttributeDefinition -&gt; Maybe Bool)
+-&gt; (TypedLinkAttributeDefinition
+    -&gt; Maybe Bool -&gt; TypedLinkAttributeDefinition)
+-&gt; Lens
+     TypedLinkAttributeDefinition
+     TypedLinkAttributeDefinition
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition%27"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330569"><span class="annot"><span class="annottext">Maybe Bool
+isImmutable :: Maybe Bool
+$sel:isImmutable:TypedLinkAttributeDefinition' :: TypedLinkAttributeDefinition -&gt; Maybe Bool
+</span><a href="#local-6989586621679330569"><span class="hs-identifier hs-var hs-var">isImmutable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679330569"><span class="hs-identifier hs-var">isImmutable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330568"><span class="annot"><span class="annottext">s :: TypedLinkAttributeDefinition
+</span><a href="#local-6989586621679330568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition%27"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330567"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679330567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkAttributeDefinition
+</span><a href="#local-6989586621679330568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isImmutable:TypedLinkAttributeDefinition' :: Maybe Bool
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3AisImmutable%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var">isImmutable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679330567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Validation rules that are attached to the attribute definition.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#typedLinkAttributeDefinition_rules"><span class="hs-identifier hs-type">typedLinkAttributeDefinition_rules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="typedLinkAttributeDefinition_rules"><span class="annot"><span class="annottext">typedLinkAttributeDefinition_rules :: (Maybe (HashMap Text Rule) -&gt; f (Maybe (HashMap Text Rule)))
+-&gt; TypedLinkAttributeDefinition -&gt; f TypedLinkAttributeDefinition
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#typedLinkAttributeDefinition_rules"><span class="hs-identifier hs-var hs-var">typedLinkAttributeDefinition_rules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypedLinkAttributeDefinition -&gt; Maybe (HashMap Text Rule))
+-&gt; (TypedLinkAttributeDefinition
+    -&gt; Maybe (HashMap Text Rule) -&gt; TypedLinkAttributeDefinition)
+-&gt; Lens
+     TypedLinkAttributeDefinition
+     TypedLinkAttributeDefinition
+     (Maybe (HashMap Text Rule))
+     (Maybe (HashMap Text Rule))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition%27"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330565"><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
+rules :: Maybe (HashMap Text Rule)
+$sel:rules:TypedLinkAttributeDefinition' :: TypedLinkAttributeDefinition -&gt; Maybe (HashMap Text Rule)
+</span><a href="#local-6989586621679330565"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
+</span><a href="#local-6989586621679330565"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330564"><span class="annot"><span class="annottext">s :: TypedLinkAttributeDefinition
+</span><a href="#local-6989586621679330564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition%27"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330563"><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
+</span><a href="#local-6989586621679330563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkAttributeDefinition
+</span><a href="#local-6989586621679330564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:TypedLinkAttributeDefinition' :: Maybe (HashMap Text Rule)
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3Arules%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
+</span><a href="#local-6989586621679330563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Rule) -&gt; f (Maybe (HashMap Text Rule)))
+ -&gt; TypedLinkAttributeDefinition -&gt; f TypedLinkAttributeDefinition)
+-&gt; ((Maybe (HashMap Text Rule) -&gt; f (Maybe (HashMap Text Rule)))
+    -&gt; Maybe (HashMap Text Rule) -&gt; f (Maybe (HashMap Text Rule)))
+-&gt; (Maybe (HashMap Text Rule) -&gt; f (Maybe (HashMap Text Rule)))
+-&gt; TypedLinkAttributeDefinition
+-&gt; f TypedLinkAttributeDefinition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Rule)
+  (HashMap Text Rule)
+  (HashMap Text Rule)
+  (HashMap Text Rule)
+-&gt; Iso
+     (Maybe (HashMap Text Rule))
+     (Maybe (HashMap Text Rule))
+     (Maybe (HashMap Text Rule))
+     (Maybe (HashMap Text Rule))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Rule)
+  (HashMap Text Rule)
+  (HashMap Text Rule)
+  (HashMap Text Rule)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The default value of the attribute (if configured).</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#typedLinkAttributeDefinition_defaultValue"><span class="hs-identifier hs-type">typedLinkAttributeDefinition_defaultValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="typedLinkAttributeDefinition_defaultValue"><span class="annot"><span class="annottext">typedLinkAttributeDefinition_defaultValue :: (Maybe TypedAttributeValue -&gt; f (Maybe TypedAttributeValue))
+-&gt; TypedLinkAttributeDefinition -&gt; f TypedLinkAttributeDefinition
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#typedLinkAttributeDefinition_defaultValue"><span class="hs-identifier hs-var hs-var">typedLinkAttributeDefinition_defaultValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypedLinkAttributeDefinition -&gt; Maybe TypedAttributeValue)
+-&gt; (TypedLinkAttributeDefinition
+    -&gt; Maybe TypedAttributeValue -&gt; TypedLinkAttributeDefinition)
+-&gt; Lens
+     TypedLinkAttributeDefinition
+     TypedLinkAttributeDefinition
+     (Maybe TypedAttributeValue)
+     (Maybe TypedAttributeValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition%27"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330558"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+defaultValue :: Maybe TypedAttributeValue
+$sel:defaultValue:TypedLinkAttributeDefinition' :: TypedLinkAttributeDefinition -&gt; Maybe TypedAttributeValue
+</span><a href="#local-6989586621679330558"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679330558"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330557"><span class="annot"><span class="annottext">s :: TypedLinkAttributeDefinition
+</span><a href="#local-6989586621679330557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition%27"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330556"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679330556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkAttributeDefinition
+</span><a href="#local-6989586621679330557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValue:TypedLinkAttributeDefinition' :: Maybe TypedAttributeValue
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3AdefaultValue%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var">defaultValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679330556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The unique name of the typed link attribute.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#typedLinkAttributeDefinition_name"><span class="hs-identifier hs-type">typedLinkAttributeDefinition_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span id="typedLinkAttributeDefinition_name"><span class="annot"><span class="annottext">typedLinkAttributeDefinition_name :: (Text -&gt; f Text)
+-&gt; TypedLinkAttributeDefinition -&gt; f TypedLinkAttributeDefinition
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#typedLinkAttributeDefinition_name"><span class="hs-identifier hs-var hs-var">typedLinkAttributeDefinition_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypedLinkAttributeDefinition -&gt; Text)
+-&gt; (TypedLinkAttributeDefinition
+    -&gt; Text -&gt; TypedLinkAttributeDefinition)
+-&gt; Lens
+     TypedLinkAttributeDefinition TypedLinkAttributeDefinition Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition%27"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330554"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:TypedLinkAttributeDefinition' :: TypedLinkAttributeDefinition -&gt; Text
+</span><a href="#local-6989586621679330554"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679330554"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330553"><span class="annot"><span class="annottext">s :: TypedLinkAttributeDefinition
+</span><a href="#local-6989586621679330553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition%27"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330552"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679330552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkAttributeDefinition
+</span><a href="#local-6989586621679330553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:TypedLinkAttributeDefinition' :: Text
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3Aname%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679330552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The type of the attribute.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#typedLinkAttributeDefinition_type"><span class="hs-identifier hs-type">typedLinkAttributeDefinition_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeType.html#FacetAttributeType"><span class="hs-identifier hs-type">FacetAttributeType</span></a></span><span>
+</span><span id="line-108"></span><span id="typedLinkAttributeDefinition_type"><span class="annot"><span class="annottext">typedLinkAttributeDefinition_type :: (FacetAttributeType -&gt; f FacetAttributeType)
+-&gt; TypedLinkAttributeDefinition -&gt; f TypedLinkAttributeDefinition
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#typedLinkAttributeDefinition_type"><span class="hs-identifier hs-var hs-var">typedLinkAttributeDefinition_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypedLinkAttributeDefinition -&gt; FacetAttributeType)
+-&gt; (TypedLinkAttributeDefinition
+    -&gt; FacetAttributeType -&gt; TypedLinkAttributeDefinition)
+-&gt; Lens
+     TypedLinkAttributeDefinition
+     TypedLinkAttributeDefinition
+     FacetAttributeType
+     FacetAttributeType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition%27"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330550"><span class="annot"><span class="annottext">FacetAttributeType
+type' :: FacetAttributeType
+$sel:type':TypedLinkAttributeDefinition' :: TypedLinkAttributeDefinition -&gt; FacetAttributeType
+</span><a href="#local-6989586621679330550"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FacetAttributeType
+</span><a href="#local-6989586621679330550"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330549"><span class="annot"><span class="annottext">s :: TypedLinkAttributeDefinition
+</span><a href="#local-6989586621679330549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition%27"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330548"><span class="annot"><span class="annottext">FacetAttributeType
+</span><a href="#local-6989586621679330548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkAttributeDefinition
+</span><a href="#local-6989586621679330549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':TypedLinkAttributeDefinition' :: FacetAttributeType
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3Atype%27%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FacetAttributeType
+</span><a href="#local-6989586621679330548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The required behavior of the @TypedLinkAttributeDefinition@.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#typedLinkAttributeDefinition_requiredBehavior"><span class="hs-identifier hs-type">typedLinkAttributeDefinition_requiredBehavior</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior.html#RequiredAttributeBehavior"><span class="hs-identifier hs-type">RequiredAttributeBehavior</span></a></span><span>
+</span><span id="line-112"></span><span id="typedLinkAttributeDefinition_requiredBehavior"><span class="annot"><span class="annottext">typedLinkAttributeDefinition_requiredBehavior :: (RequiredAttributeBehavior -&gt; f RequiredAttributeBehavior)
+-&gt; TypedLinkAttributeDefinition -&gt; f TypedLinkAttributeDefinition
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#typedLinkAttributeDefinition_requiredBehavior"><span class="hs-identifier hs-var hs-var">typedLinkAttributeDefinition_requiredBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypedLinkAttributeDefinition -&gt; RequiredAttributeBehavior)
+-&gt; (TypedLinkAttributeDefinition
+    -&gt; RequiredAttributeBehavior -&gt; TypedLinkAttributeDefinition)
+-&gt; Lens
+     TypedLinkAttributeDefinition
+     TypedLinkAttributeDefinition
+     RequiredAttributeBehavior
+     RequiredAttributeBehavior
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition%27"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330546"><span class="annot"><span class="annottext">RequiredAttributeBehavior
+requiredBehavior :: RequiredAttributeBehavior
+$sel:requiredBehavior:TypedLinkAttributeDefinition' :: TypedLinkAttributeDefinition -&gt; RequiredAttributeBehavior
+</span><a href="#local-6989586621679330546"><span class="hs-identifier hs-var hs-var">requiredBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RequiredAttributeBehavior
+</span><a href="#local-6989586621679330546"><span class="hs-identifier hs-var">requiredBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330545"><span class="annot"><span class="annottext">s :: TypedLinkAttributeDefinition
+</span><a href="#local-6989586621679330545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition%27"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330544"><span class="annot"><span class="annottext">RequiredAttributeBehavior
+</span><a href="#local-6989586621679330544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkAttributeDefinition
+</span><a href="#local-6989586621679330545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requiredBehavior:TypedLinkAttributeDefinition' :: RequiredAttributeBehavior
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#%24sel%3ArequiredBehavior%3ATypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var">requiredBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RequiredAttributeBehavior
+</span><a href="#local-6989586621679330544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330541"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679330539"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TypedLinkAttributeDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TypedLinkAttributeDefinition)
+-&gt; Value
+-&gt; Parser TypedLinkAttributeDefinition
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TypedLinkAttributeDefinition&quot;</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330536"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330536"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe (HashMap Text Rule)
+-&gt; Maybe TypedAttributeValue
+-&gt; Text
+-&gt; FacetAttributeType
+-&gt; RequiredAttributeBehavior
+-&gt; TypedLinkAttributeDefinition
+</span><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition%27"><span class="hs-identifier hs-var">TypedLinkAttributeDefinition'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe (HashMap Text Rule)
+ -&gt; Maybe TypedAttributeValue
+ -&gt; Text
+ -&gt; FacetAttributeType
+ -&gt; RequiredAttributeBehavior
+ -&gt; TypedLinkAttributeDefinition)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe (HashMap Text Rule)
+      -&gt; Maybe TypedAttributeValue
+      -&gt; Text
+      -&gt; FacetAttributeType
+      -&gt; RequiredAttributeBehavior
+      -&gt; TypedLinkAttributeDefinition)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsImmutable&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Rule)
+   -&gt; Maybe TypedAttributeValue
+   -&gt; Text
+   -&gt; FacetAttributeType
+   -&gt; RequiredAttributeBehavior
+   -&gt; TypedLinkAttributeDefinition)
+-&gt; Parser (Maybe (HashMap Text Rule))
+-&gt; Parser
+     (Maybe TypedAttributeValue
+      -&gt; Text
+      -&gt; FacetAttributeType
+      -&gt; RequiredAttributeBehavior
+      -&gt; TypedLinkAttributeDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Rule)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Rule)))
+-&gt; Maybe (HashMap Text Rule) -&gt; Parser (Maybe (HashMap Text Rule))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TypedAttributeValue
+   -&gt; Text
+   -&gt; FacetAttributeType
+   -&gt; RequiredAttributeBehavior
+   -&gt; TypedLinkAttributeDefinition)
+-&gt; Parser (Maybe TypedAttributeValue)
+-&gt; Parser
+     (Text
+      -&gt; FacetAttributeType
+      -&gt; RequiredAttributeBehavior
+      -&gt; TypedLinkAttributeDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TypedAttributeValue)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; FacetAttributeType
+   -&gt; RequiredAttributeBehavior
+   -&gt; TypedLinkAttributeDefinition)
+-&gt; Parser Text
+-&gt; Parser
+     (FacetAttributeType
+      -&gt; RequiredAttributeBehavior -&gt; TypedLinkAttributeDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (FacetAttributeType
+   -&gt; RequiredAttributeBehavior -&gt; TypedLinkAttributeDefinition)
+-&gt; Parser FacetAttributeType
+-&gt; Parser
+     (RequiredAttributeBehavior -&gt; TypedLinkAttributeDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FacetAttributeType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser (RequiredAttributeBehavior -&gt; TypedLinkAttributeDefinition)
+-&gt; Parser RequiredAttributeBehavior
+-&gt; Parser TypedLinkAttributeDefinition
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RequiredAttributeBehavior
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequiredBehavior&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679330528"><span id="local-6989586621679330530"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330525"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330517"><span id="local-6989586621679330519"><span id="local-6989586621679330521"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679330515"><span class="annot"><span class="annottext">toJSON :: TypedLinkAttributeDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition.html#TypedLinkAttributeDefinition%27"><span class="hs-identifier hs-type">TypedLinkAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330508"><span id="local-6989586621679330509"><span id="local-6989586621679330510"><span id="local-6989586621679330511"><span id="local-6989586621679330512"><span id="local-6989586621679330513"><span class="annot"><span class="annottext">Maybe Bool
+Maybe (HashMap Text Rule)
+Maybe TypedAttributeValue
+Text
+FacetAttributeType
+RequiredAttributeBehavior
+requiredBehavior :: RequiredAttributeBehavior
+type' :: FacetAttributeType
+name :: Text
+defaultValue :: Maybe TypedAttributeValue
+rules :: Maybe (HashMap Text Rule)
+isImmutable :: Maybe Bool
+$sel:requiredBehavior:TypedLinkAttributeDefinition' :: TypedLinkAttributeDefinition -&gt; RequiredAttributeBehavior
+$sel:type':TypedLinkAttributeDefinition' :: TypedLinkAttributeDefinition -&gt; FacetAttributeType
+$sel:name:TypedLinkAttributeDefinition' :: TypedLinkAttributeDefinition -&gt; Text
+$sel:defaultValue:TypedLinkAttributeDefinition' :: TypedLinkAttributeDefinition -&gt; Maybe TypedAttributeValue
+$sel:rules:TypedLinkAttributeDefinition' :: TypedLinkAttributeDefinition -&gt; Maybe (HashMap Text Rule)
+$sel:isImmutable:TypedLinkAttributeDefinition' :: TypedLinkAttributeDefinition -&gt; Maybe Bool
+</span><a href="#local-6989586621679330508"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsImmutable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679330513"><span class="hs-identifier hs-var">isImmutable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Rule -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Rule -&gt; Pair)
+-&gt; Maybe (HashMap Text Rule) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
+</span><a href="#local-6989586621679330512"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TypedAttributeValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TypedAttributeValue -&gt; Pair)
+-&gt; Maybe TypedAttributeValue -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679330511"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679330510"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FacetAttributeType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">FacetAttributeType
+</span><a href="#local-6989586621679330509"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-144"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequiredBehavior&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RequiredAttributeBehavior -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RequiredAttributeBehavior
+</span><a href="#local-6989586621679330508"><span class="hs-identifier hs-var">requiredBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span></pre></body></html>

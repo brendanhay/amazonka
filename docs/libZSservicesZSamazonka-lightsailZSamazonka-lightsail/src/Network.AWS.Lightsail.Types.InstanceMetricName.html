@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Lightsail.Types.InstanceMetricName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Lightsail.Types.InstanceMetricName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName"><span class="hs-identifier">InstanceMetricName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_BurstCapacityPercentage"><span class="hs-identifier">InstanceMetricName_BurstCapacityPercentage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_BurstCapacityTime"><span class="hs-identifier">InstanceMetricName_BurstCapacityTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_CPUUtilization"><span class="hs-identifier">InstanceMetricName_CPUUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_NetworkIn"><span class="hs-identifier">InstanceMetricName_NetworkIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_NetworkOut"><span class="hs-identifier">InstanceMetricName_NetworkOut</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_StatusCheckFailed"><span class="hs-identifier">InstanceMetricName_StatusCheckFailed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_StatusCheckFailed_Instance"><span class="hs-identifier">InstanceMetricName_StatusCheckFailed_Instance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_StatusCheckFailed_System"><span class="hs-identifier">InstanceMetricName_StatusCheckFailed_System</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679611299"><span id="local-6989586621679611300"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceMetricName"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName"><span class="hs-identifier hs-var">InstanceMetricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceMetricName%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName%27"><span class="hs-identifier hs-var">InstanceMetricName'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceMetricName"><span class="annot"><span class="annottext">InstanceMetricName -&gt; Text
+</span><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#fromInstanceMetricName"><span class="hs-identifier hs-var hs-var">fromInstanceMetricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679611291"><span id="local-6989586621679611293"><span id="local-6989586621679611295"><span class="annot"><span class="annottext">Int -&gt; InstanceMetricName -&gt; ShowS
+[InstanceMetricName] -&gt; ShowS
+InstanceMetricName -&gt; String
+(Int -&gt; InstanceMetricName -&gt; ShowS)
+-&gt; (InstanceMetricName -&gt; String)
+-&gt; ([InstanceMetricName] -&gt; ShowS)
+-&gt; Show InstanceMetricName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceMetricName] -&gt; ShowS
+$cshowList :: [InstanceMetricName] -&gt; ShowS
+show :: InstanceMetricName -&gt; String
+$cshow :: InstanceMetricName -&gt; String
+showsPrec :: Int -&gt; InstanceMetricName -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceMetricName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679611282"><span id="local-6989586621679611284"><span id="local-6989586621679611286"><span id="local-6989586621679611288"><span class="annot"><span class="annottext">ReadPrec [InstanceMetricName]
+ReadPrec InstanceMetricName
+Int -&gt; ReadS InstanceMetricName
+ReadS [InstanceMetricName]
+(Int -&gt; ReadS InstanceMetricName)
+-&gt; ReadS [InstanceMetricName]
+-&gt; ReadPrec InstanceMetricName
+-&gt; ReadPrec [InstanceMetricName]
+-&gt; Read InstanceMetricName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceMetricName]
+$creadListPrec :: ReadPrec [InstanceMetricName]
+readPrec :: ReadPrec InstanceMetricName
+$creadPrec :: ReadPrec InstanceMetricName
+readList :: ReadS [InstanceMetricName]
+$creadList :: ReadS [InstanceMetricName]
+readsPrec :: Int -&gt; ReadS InstanceMetricName
+$creadsPrec :: Int -&gt; ReadS InstanceMetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679611277"><span id="local-6989586621679611279"><span class="annot"><span class="annottext">InstanceMetricName -&gt; InstanceMetricName -&gt; Bool
+(InstanceMetricName -&gt; InstanceMetricName -&gt; Bool)
+-&gt; (InstanceMetricName -&gt; InstanceMetricName -&gt; Bool)
+-&gt; Eq InstanceMetricName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceMetricName -&gt; InstanceMetricName -&gt; Bool
+$c/= :: InstanceMetricName -&gt; InstanceMetricName -&gt; Bool
+== :: InstanceMetricName -&gt; InstanceMetricName -&gt; Bool
+$c== :: InstanceMetricName -&gt; InstanceMetricName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679611261"><span id="local-6989586621679611263"><span id="local-6989586621679611265"><span id="local-6989586621679611267"><span id="local-6989586621679611269"><span id="local-6989586621679611271"><span id="local-6989586621679611273"><span class="annot"><span class="annottext">Eq InstanceMetricName
+Eq InstanceMetricName
+-&gt; (InstanceMetricName -&gt; InstanceMetricName -&gt; Ordering)
+-&gt; (InstanceMetricName -&gt; InstanceMetricName -&gt; Bool)
+-&gt; (InstanceMetricName -&gt; InstanceMetricName -&gt; Bool)
+-&gt; (InstanceMetricName -&gt; InstanceMetricName -&gt; Bool)
+-&gt; (InstanceMetricName -&gt; InstanceMetricName -&gt; Bool)
+-&gt; (InstanceMetricName -&gt; InstanceMetricName -&gt; InstanceMetricName)
+-&gt; (InstanceMetricName -&gt; InstanceMetricName -&gt; InstanceMetricName)
+-&gt; Ord InstanceMetricName
+InstanceMetricName -&gt; InstanceMetricName -&gt; Bool
+InstanceMetricName -&gt; InstanceMetricName -&gt; Ordering
+InstanceMetricName -&gt; InstanceMetricName -&gt; InstanceMetricName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InstanceMetricName -&gt; InstanceMetricName -&gt; InstanceMetricName
+$cmin :: InstanceMetricName -&gt; InstanceMetricName -&gt; InstanceMetricName
+max :: InstanceMetricName -&gt; InstanceMetricName -&gt; InstanceMetricName
+$cmax :: InstanceMetricName -&gt; InstanceMetricName -&gt; InstanceMetricName
+&gt;= :: InstanceMetricName -&gt; InstanceMetricName -&gt; Bool
+$c&gt;= :: InstanceMetricName -&gt; InstanceMetricName -&gt; Bool
+&gt; :: InstanceMetricName -&gt; InstanceMetricName -&gt; Bool
+$c&gt; :: InstanceMetricName -&gt; InstanceMetricName -&gt; Bool
+&lt;= :: InstanceMetricName -&gt; InstanceMetricName -&gt; Bool
+$c&lt;= :: InstanceMetricName -&gt; InstanceMetricName -&gt; Bool
+&lt; :: InstanceMetricName -&gt; InstanceMetricName -&gt; Bool
+$c&lt; :: InstanceMetricName -&gt; InstanceMetricName -&gt; Bool
+compare :: InstanceMetricName -&gt; InstanceMetricName -&gt; Ordering
+$ccompare :: InstanceMetricName -&gt; InstanceMetricName -&gt; Ordering
+$cp1Ord :: Eq InstanceMetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InstanceMetricName -&gt; Rep InstanceMetricName x)
+-&gt; (forall x. Rep InstanceMetricName x -&gt; InstanceMetricName)
+-&gt; Generic InstanceMetricName
+forall x. Rep InstanceMetricName x -&gt; InstanceMetricName
+forall x. InstanceMetricName -&gt; Rep InstanceMetricName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstanceMetricName x -&gt; InstanceMetricName
+$cfrom :: forall x. InstanceMetricName -&gt; Rep InstanceMetricName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679611253"><span id="local-6989586621679611255"><span class="annot"><span class="annottext">Int -&gt; InstanceMetricName -&gt; Int
+InstanceMetricName -&gt; Int
+(Int -&gt; InstanceMetricName -&gt; Int)
+-&gt; (InstanceMetricName -&gt; Int) -&gt; Hashable InstanceMetricName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InstanceMetricName -&gt; Int
+$chash :: InstanceMetricName -&gt; Int
+hashWithSalt :: Int -&gt; InstanceMetricName -&gt; Int
+$chashWithSalt :: Int -&gt; InstanceMetricName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679611250"><span class="annot"><span class="annottext">InstanceMetricName -&gt; ()
+(InstanceMetricName -&gt; ()) -&gt; NFData InstanceMetricName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InstanceMetricName -&gt; ()
+$crnf :: InstanceMetricName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679611247"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceMetricName
+(Text -&gt; Either String InstanceMetricName)
+-&gt; FromText InstanceMetricName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InstanceMetricName
+$cfromText :: Text -&gt; Either String InstanceMetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679611244"><span class="annot"><span class="annottext">InstanceMetricName -&gt; Text
+(InstanceMetricName -&gt; Text) -&gt; ToText InstanceMetricName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InstanceMetricName -&gt; Text
+$ctoText :: InstanceMetricName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679611241"><span class="annot"><span class="annottext">InstanceMetricName -&gt; ByteString
+(InstanceMetricName -&gt; ByteString)
+-&gt; ToByteString InstanceMetricName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InstanceMetricName -&gt; ByteString
+$ctoBS :: InstanceMetricName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679611238"><span class="annot"><span class="annottext">InstanceMetricName -&gt; ByteStringBuilder
+(InstanceMetricName -&gt; ByteStringBuilder)
+-&gt; ToLog InstanceMetricName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InstanceMetricName -&gt; ByteStringBuilder
+$cbuild :: InstanceMetricName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679611235"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceMetricName -&gt; [Header]
+(HeaderName -&gt; InstanceMetricName -&gt; [Header])
+-&gt; ToHeader InstanceMetricName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InstanceMetricName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InstanceMetricName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679611232"><span class="annot"><span class="annottext">InstanceMetricName -&gt; QueryString
+(InstanceMetricName -&gt; QueryString) -&gt; ToQuery InstanceMetricName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InstanceMetricName -&gt; QueryString
+$ctoQuery :: InstanceMetricName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679611227"><span id="local-6989586621679611229"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceMetricName]
+Value -&gt; Parser InstanceMetricName
+(Value -&gt; Parser InstanceMetricName)
+-&gt; (Value -&gt; Parser [InstanceMetricName])
+-&gt; FromJSON InstanceMetricName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InstanceMetricName]
+$cparseJSONList :: Value -&gt; Parser [InstanceMetricName]
+parseJSON :: Value -&gt; Parser InstanceMetricName
+$cparseJSON :: Value -&gt; Parser InstanceMetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679611222"><span id="local-6989586621679611224"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceMetricName]
+FromJSONKeyFunction InstanceMetricName
+FromJSONKeyFunction InstanceMetricName
+-&gt; FromJSONKeyFunction [InstanceMetricName]
+-&gt; FromJSONKey InstanceMetricName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InstanceMetricName]
+$cfromJSONKeyList :: FromJSONKeyFunction [InstanceMetricName]
+fromJSONKey :: FromJSONKeyFunction InstanceMetricName
+$cfromJSONKey :: FromJSONKeyFunction InstanceMetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679611213"><span id="local-6989586621679611215"><span id="local-6989586621679611217"><span id="local-6989586621679611219"><span class="annot"><span class="annottext">[InstanceMetricName] -&gt; Encoding
+[InstanceMetricName] -&gt; Value
+InstanceMetricName -&gt; Encoding
+InstanceMetricName -&gt; Value
+(InstanceMetricName -&gt; Value)
+-&gt; (InstanceMetricName -&gt; Encoding)
+-&gt; ([InstanceMetricName] -&gt; Value)
+-&gt; ([InstanceMetricName] -&gt; Encoding)
+-&gt; ToJSON InstanceMetricName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InstanceMetricName] -&gt; Encoding
+$ctoEncodingList :: [InstanceMetricName] -&gt; Encoding
+toJSONList :: [InstanceMetricName] -&gt; Value
+$ctoJSONList :: [InstanceMetricName] -&gt; Value
+toEncoding :: InstanceMetricName -&gt; Encoding
+$ctoEncoding :: InstanceMetricName -&gt; Encoding
+toJSON :: InstanceMetricName -&gt; Value
+$ctoJSON :: InstanceMetricName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679611208"><span id="local-6989586621679611210"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceMetricName]
+ToJSONKeyFunction InstanceMetricName
+ToJSONKeyFunction InstanceMetricName
+-&gt; ToJSONKeyFunction [InstanceMetricName]
+-&gt; ToJSONKey InstanceMetricName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InstanceMetricName]
+$ctoJSONKeyList :: ToJSONKeyFunction [InstanceMetricName]
+toJSONKey :: ToJSONKeyFunction InstanceMetricName
+$ctoJSONKey :: ToJSONKeyFunction InstanceMetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679611205"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceMetricName
+([Node] -&gt; Either String InstanceMetricName)
+-&gt; FromXML InstanceMetricName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InstanceMetricName
+$cparseXML :: [Node] -&gt; Either String InstanceMetricName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679611202"><span class="annot"><span class="annottext">InstanceMetricName -&gt; XML
+(InstanceMetricName -&gt; XML) -&gt; ToXML InstanceMetricName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InstanceMetricName -&gt; XML
+$ctoXML :: InstanceMetricName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_BurstCapacityPercentage"><span class="hs-identifier hs-type">InstanceMetricName_BurstCapacityPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName"><span class="hs-identifier hs-type">InstanceMetricName</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceMetricName_BurstCapacityPercentage"><span id="%24mInstanceMetricName_BurstCapacityPercentage"><span id="InstanceMetricName_BurstCapacityPercentage"><span class="annot"><span class="annottext">$bInstanceMetricName_BurstCapacityPercentage :: InstanceMetricName
+$mInstanceMetricName_BurstCapacityPercentage :: forall r. InstanceMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#%24bInstanceMetricName_BurstCapacityPercentage"><span class="hs-identifier hs-var hs-var hs-var">InstanceMetricName_BurstCapacityPercentage</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName%27"><span class="hs-identifier hs-type">InstanceMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BurstCapacityPercentage&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_BurstCapacityTime"><span class="hs-identifier hs-type">InstanceMetricName_BurstCapacityTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName"><span class="hs-identifier hs-type">InstanceMetricName</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceMetricName_BurstCapacityTime"><span id="%24mInstanceMetricName_BurstCapacityTime"><span id="InstanceMetricName_BurstCapacityTime"><span class="annot"><span class="annottext">$bInstanceMetricName_BurstCapacityTime :: InstanceMetricName
+$mInstanceMetricName_BurstCapacityTime :: forall r. InstanceMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#%24bInstanceMetricName_BurstCapacityTime"><span class="hs-identifier hs-var hs-var hs-var">InstanceMetricName_BurstCapacityTime</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName%27"><span class="hs-identifier hs-type">InstanceMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BurstCapacityTime&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_CPUUtilization"><span class="hs-identifier hs-type">InstanceMetricName_CPUUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName"><span class="hs-identifier hs-type">InstanceMetricName</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceMetricName_CPUUtilization"><span id="%24mInstanceMetricName_CPUUtilization"><span id="InstanceMetricName_CPUUtilization"><span class="annot"><span class="annottext">$bInstanceMetricName_CPUUtilization :: InstanceMetricName
+$mInstanceMetricName_CPUUtilization :: forall r. InstanceMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#%24bInstanceMetricName_CPUUtilization"><span class="hs-identifier hs-var hs-var hs-var">InstanceMetricName_CPUUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName%27"><span class="hs-identifier hs-type">InstanceMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CPUUtilization&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_NetworkIn"><span class="hs-identifier hs-type">InstanceMetricName_NetworkIn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName"><span class="hs-identifier hs-type">InstanceMetricName</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceMetricName_NetworkIn"><span id="%24mInstanceMetricName_NetworkIn"><span id="InstanceMetricName_NetworkIn"><span class="annot"><span class="annottext">$bInstanceMetricName_NetworkIn :: InstanceMetricName
+$mInstanceMetricName_NetworkIn :: forall r. InstanceMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#%24bInstanceMetricName_NetworkIn"><span class="hs-identifier hs-var hs-var hs-var">InstanceMetricName_NetworkIn</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName%27"><span class="hs-identifier hs-type">InstanceMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NetworkIn&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_NetworkOut"><span class="hs-identifier hs-type">InstanceMetricName_NetworkOut</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName"><span class="hs-identifier hs-type">InstanceMetricName</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceMetricName_NetworkOut"><span id="%24mInstanceMetricName_NetworkOut"><span id="InstanceMetricName_NetworkOut"><span class="annot"><span class="annottext">$bInstanceMetricName_NetworkOut :: InstanceMetricName
+$mInstanceMetricName_NetworkOut :: forall r. InstanceMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#%24bInstanceMetricName_NetworkOut"><span class="hs-identifier hs-var hs-var hs-var">InstanceMetricName_NetworkOut</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName%27"><span class="hs-identifier hs-type">InstanceMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NetworkOut&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_StatusCheckFailed"><span class="hs-identifier hs-type">InstanceMetricName_StatusCheckFailed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName"><span class="hs-identifier hs-type">InstanceMetricName</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceMetricName_StatusCheckFailed"><span id="%24mInstanceMetricName_StatusCheckFailed"><span id="InstanceMetricName_StatusCheckFailed"><span class="annot"><span class="annottext">$bInstanceMetricName_StatusCheckFailed :: InstanceMetricName
+$mInstanceMetricName_StatusCheckFailed :: forall r. InstanceMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#%24bInstanceMetricName_StatusCheckFailed"><span class="hs-identifier hs-var hs-var hs-var">InstanceMetricName_StatusCheckFailed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName%27"><span class="hs-identifier hs-type">InstanceMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;StatusCheckFailed&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_StatusCheckFailed_Instance"><span class="hs-identifier hs-type">InstanceMetricName_StatusCheckFailed_Instance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName"><span class="hs-identifier hs-type">InstanceMetricName</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceMetricName_StatusCheckFailed_Instance"><span id="%24mInstanceMetricName_StatusCheckFailed_Instance"><span id="InstanceMetricName_StatusCheckFailed_Instance"><span class="annot"><span class="annottext">$bInstanceMetricName_StatusCheckFailed_Instance :: InstanceMetricName
+$mInstanceMetricName_StatusCheckFailed_Instance :: forall r. InstanceMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#%24bInstanceMetricName_StatusCheckFailed_Instance"><span class="hs-identifier hs-var hs-var hs-var">InstanceMetricName_StatusCheckFailed_Instance</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName%27"><span class="hs-identifier hs-type">InstanceMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;StatusCheckFailed_Instance&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_StatusCheckFailed_System"><span class="hs-identifier hs-type">InstanceMetricName_StatusCheckFailed_System</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName"><span class="hs-identifier hs-type">InstanceMetricName</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceMetricName_StatusCheckFailed_System"><span id="%24mInstanceMetricName_StatusCheckFailed_System"><span id="InstanceMetricName_StatusCheckFailed_System"><span class="annot"><span class="annottext">$bInstanceMetricName_StatusCheckFailed_System :: InstanceMetricName
+$mInstanceMetricName_StatusCheckFailed_System :: forall r. InstanceMetricName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#%24bInstanceMetricName_StatusCheckFailed_System"><span class="hs-identifier hs-var hs-var hs-var">InstanceMetricName_StatusCheckFailed_System</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName%27"><span class="hs-identifier hs-type">InstanceMetricName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;StatusCheckFailed_System&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_BurstCapacityPercentage"><span class="hs-pragma hs-type">InstanceMetricName_BurstCapacityPercentage</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_BurstCapacityTime"><span class="hs-pragma hs-type">InstanceMetricName_BurstCapacityTime</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_CPUUtilization"><span class="hs-pragma hs-type">InstanceMetricName_CPUUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_NetworkIn"><span class="hs-pragma hs-type">InstanceMetricName_NetworkIn</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_NetworkOut"><span class="hs-pragma hs-type">InstanceMetricName_NetworkOut</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_StatusCheckFailed"><span class="hs-pragma hs-type">InstanceMetricName_StatusCheckFailed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_StatusCheckFailed_Instance"><span class="hs-pragma hs-type">InstanceMetricName_StatusCheckFailed_Instance</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName_StatusCheckFailed_System"><span class="hs-pragma hs-type">InstanceMetricName_StatusCheckFailed_System</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName%27"><span class="hs-pragma hs-type">InstanceMetricName'</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-101"></span></pre></body></html>

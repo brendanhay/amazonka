@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ECS.Types.ExecuteCommandLogging</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ECS.Types.ExecuteCommandLogging</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging"><span class="hs-identifier">ExecuteCommandLogging</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging_DEFAULT"><span class="hs-identifier">ExecuteCommandLogging_DEFAULT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging_NONE"><span class="hs-identifier">ExecuteCommandLogging_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging_OVERRIDE"><span class="hs-identifier">ExecuteCommandLogging_OVERRIDE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679451988"><span id="local-6989586621679451989"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExecuteCommandLogging"><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging"><span class="hs-identifier hs-var">ExecuteCommandLogging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecuteCommandLogging%27"><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging%27"><span class="hs-identifier hs-var">ExecuteCommandLogging'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExecuteCommandLogging"><span class="annot"><span class="annottext">ExecuteCommandLogging -&gt; Text
+</span><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#fromExecuteCommandLogging"><span class="hs-identifier hs-var hs-var">fromExecuteCommandLogging</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679451980"><span id="local-6989586621679451982"><span id="local-6989586621679451984"><span class="annot"><span class="annottext">Int -&gt; ExecuteCommandLogging -&gt; ShowS
+[ExecuteCommandLogging] -&gt; ShowS
+ExecuteCommandLogging -&gt; String
+(Int -&gt; ExecuteCommandLogging -&gt; ShowS)
+-&gt; (ExecuteCommandLogging -&gt; String)
+-&gt; ([ExecuteCommandLogging] -&gt; ShowS)
+-&gt; Show ExecuteCommandLogging
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExecuteCommandLogging] -&gt; ShowS
+$cshowList :: [ExecuteCommandLogging] -&gt; ShowS
+show :: ExecuteCommandLogging -&gt; String
+$cshow :: ExecuteCommandLogging -&gt; String
+showsPrec :: Int -&gt; ExecuteCommandLogging -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExecuteCommandLogging -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679451971"><span id="local-6989586621679451973"><span id="local-6989586621679451975"><span id="local-6989586621679451977"><span class="annot"><span class="annottext">ReadPrec [ExecuteCommandLogging]
+ReadPrec ExecuteCommandLogging
+Int -&gt; ReadS ExecuteCommandLogging
+ReadS [ExecuteCommandLogging]
+(Int -&gt; ReadS ExecuteCommandLogging)
+-&gt; ReadS [ExecuteCommandLogging]
+-&gt; ReadPrec ExecuteCommandLogging
+-&gt; ReadPrec [ExecuteCommandLogging]
+-&gt; Read ExecuteCommandLogging
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExecuteCommandLogging]
+$creadListPrec :: ReadPrec [ExecuteCommandLogging]
+readPrec :: ReadPrec ExecuteCommandLogging
+$creadPrec :: ReadPrec ExecuteCommandLogging
+readList :: ReadS [ExecuteCommandLogging]
+$creadList :: ReadS [ExecuteCommandLogging]
+readsPrec :: Int -&gt; ReadS ExecuteCommandLogging
+$creadsPrec :: Int -&gt; ReadS ExecuteCommandLogging
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679451966"><span id="local-6989586621679451968"><span class="annot"><span class="annottext">ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool
+(ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool)
+-&gt; (ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool)
+-&gt; Eq ExecuteCommandLogging
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool
+$c/= :: ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool
+== :: ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool
+$c== :: ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679451950"><span id="local-6989586621679451952"><span id="local-6989586621679451954"><span id="local-6989586621679451956"><span id="local-6989586621679451958"><span id="local-6989586621679451960"><span id="local-6989586621679451962"><span class="annot"><span class="annottext">Eq ExecuteCommandLogging
+Eq ExecuteCommandLogging
+-&gt; (ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Ordering)
+-&gt; (ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool)
+-&gt; (ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool)
+-&gt; (ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool)
+-&gt; (ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool)
+-&gt; (ExecuteCommandLogging
+    -&gt; ExecuteCommandLogging -&gt; ExecuteCommandLogging)
+-&gt; (ExecuteCommandLogging
+    -&gt; ExecuteCommandLogging -&gt; ExecuteCommandLogging)
+-&gt; Ord ExecuteCommandLogging
+ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool
+ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Ordering
+ExecuteCommandLogging
+-&gt; ExecuteCommandLogging -&gt; ExecuteCommandLogging
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ExecuteCommandLogging
+-&gt; ExecuteCommandLogging -&gt; ExecuteCommandLogging
+$cmin :: ExecuteCommandLogging
+-&gt; ExecuteCommandLogging -&gt; ExecuteCommandLogging
+max :: ExecuteCommandLogging
+-&gt; ExecuteCommandLogging -&gt; ExecuteCommandLogging
+$cmax :: ExecuteCommandLogging
+-&gt; ExecuteCommandLogging -&gt; ExecuteCommandLogging
+&gt;= :: ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool
+$c&gt;= :: ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool
+&gt; :: ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool
+$c&gt; :: ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool
+&lt;= :: ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool
+$c&lt;= :: ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool
+&lt; :: ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool
+$c&lt; :: ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Bool
+compare :: ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Ordering
+$ccompare :: ExecuteCommandLogging -&gt; ExecuteCommandLogging -&gt; Ordering
+$cp1Ord :: Eq ExecuteCommandLogging
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ExecuteCommandLogging -&gt; Rep ExecuteCommandLogging x)
+-&gt; (forall x. Rep ExecuteCommandLogging x -&gt; ExecuteCommandLogging)
+-&gt; Generic ExecuteCommandLogging
+forall x. Rep ExecuteCommandLogging x -&gt; ExecuteCommandLogging
+forall x. ExecuteCommandLogging -&gt; Rep ExecuteCommandLogging x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExecuteCommandLogging x -&gt; ExecuteCommandLogging
+$cfrom :: forall x. ExecuteCommandLogging -&gt; Rep ExecuteCommandLogging x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679451942"><span id="local-6989586621679451944"><span class="annot"><span class="annottext">Int -&gt; ExecuteCommandLogging -&gt; Int
+ExecuteCommandLogging -&gt; Int
+(Int -&gt; ExecuteCommandLogging -&gt; Int)
+-&gt; (ExecuteCommandLogging -&gt; Int) -&gt; Hashable ExecuteCommandLogging
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ExecuteCommandLogging -&gt; Int
+$chash :: ExecuteCommandLogging -&gt; Int
+hashWithSalt :: Int -&gt; ExecuteCommandLogging -&gt; Int
+$chashWithSalt :: Int -&gt; ExecuteCommandLogging -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679451939"><span class="annot"><span class="annottext">ExecuteCommandLogging -&gt; ()
+(ExecuteCommandLogging -&gt; ()) -&gt; NFData ExecuteCommandLogging
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ExecuteCommandLogging -&gt; ()
+$crnf :: ExecuteCommandLogging -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679451936"><span class="annot"><span class="annottext">Text -&gt; Either String ExecuteCommandLogging
+(Text -&gt; Either String ExecuteCommandLogging)
+-&gt; FromText ExecuteCommandLogging
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ExecuteCommandLogging
+$cfromText :: Text -&gt; Either String ExecuteCommandLogging
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679451933"><span class="annot"><span class="annottext">ExecuteCommandLogging -&gt; Text
+(ExecuteCommandLogging -&gt; Text) -&gt; ToText ExecuteCommandLogging
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ExecuteCommandLogging -&gt; Text
+$ctoText :: ExecuteCommandLogging -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679451930"><span class="annot"><span class="annottext">ExecuteCommandLogging -&gt; ByteString
+(ExecuteCommandLogging -&gt; ByteString)
+-&gt; ToByteString ExecuteCommandLogging
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ExecuteCommandLogging -&gt; ByteString
+$ctoBS :: ExecuteCommandLogging -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679451927"><span class="annot"><span class="annottext">ExecuteCommandLogging -&gt; ByteStringBuilder
+(ExecuteCommandLogging -&gt; ByteStringBuilder)
+-&gt; ToLog ExecuteCommandLogging
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ExecuteCommandLogging -&gt; ByteStringBuilder
+$cbuild :: ExecuteCommandLogging -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679451924"><span class="annot"><span class="annottext">HeaderName -&gt; ExecuteCommandLogging -&gt; [Header]
+(HeaderName -&gt; ExecuteCommandLogging -&gt; [Header])
+-&gt; ToHeader ExecuteCommandLogging
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ExecuteCommandLogging -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ExecuteCommandLogging -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679451921"><span class="annot"><span class="annottext">ExecuteCommandLogging -&gt; QueryString
+(ExecuteCommandLogging -&gt; QueryString)
+-&gt; ToQuery ExecuteCommandLogging
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ExecuteCommandLogging -&gt; QueryString
+$ctoQuery :: ExecuteCommandLogging -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679451916"><span id="local-6989586621679451918"><span class="annot"><span class="annottext">Value -&gt; Parser [ExecuteCommandLogging]
+Value -&gt; Parser ExecuteCommandLogging
+(Value -&gt; Parser ExecuteCommandLogging)
+-&gt; (Value -&gt; Parser [ExecuteCommandLogging])
+-&gt; FromJSON ExecuteCommandLogging
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ExecuteCommandLogging]
+$cparseJSONList :: Value -&gt; Parser [ExecuteCommandLogging]
+parseJSON :: Value -&gt; Parser ExecuteCommandLogging
+$cparseJSON :: Value -&gt; Parser ExecuteCommandLogging
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679451911"><span id="local-6989586621679451913"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExecuteCommandLogging]
+FromJSONKeyFunction ExecuteCommandLogging
+FromJSONKeyFunction ExecuteCommandLogging
+-&gt; FromJSONKeyFunction [ExecuteCommandLogging]
+-&gt; FromJSONKey ExecuteCommandLogging
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ExecuteCommandLogging]
+$cfromJSONKeyList :: FromJSONKeyFunction [ExecuteCommandLogging]
+fromJSONKey :: FromJSONKeyFunction ExecuteCommandLogging
+$cfromJSONKey :: FromJSONKeyFunction ExecuteCommandLogging
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679451902"><span id="local-6989586621679451904"><span id="local-6989586621679451906"><span id="local-6989586621679451908"><span class="annot"><span class="annottext">[ExecuteCommandLogging] -&gt; Encoding
+[ExecuteCommandLogging] -&gt; Value
+ExecuteCommandLogging -&gt; Encoding
+ExecuteCommandLogging -&gt; Value
+(ExecuteCommandLogging -&gt; Value)
+-&gt; (ExecuteCommandLogging -&gt; Encoding)
+-&gt; ([ExecuteCommandLogging] -&gt; Value)
+-&gt; ([ExecuteCommandLogging] -&gt; Encoding)
+-&gt; ToJSON ExecuteCommandLogging
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ExecuteCommandLogging] -&gt; Encoding
+$ctoEncodingList :: [ExecuteCommandLogging] -&gt; Encoding
+toJSONList :: [ExecuteCommandLogging] -&gt; Value
+$ctoJSONList :: [ExecuteCommandLogging] -&gt; Value
+toEncoding :: ExecuteCommandLogging -&gt; Encoding
+$ctoEncoding :: ExecuteCommandLogging -&gt; Encoding
+toJSON :: ExecuteCommandLogging -&gt; Value
+$ctoJSON :: ExecuteCommandLogging -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679451897"><span id="local-6989586621679451899"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExecuteCommandLogging]
+ToJSONKeyFunction ExecuteCommandLogging
+ToJSONKeyFunction ExecuteCommandLogging
+-&gt; ToJSONKeyFunction [ExecuteCommandLogging]
+-&gt; ToJSONKey ExecuteCommandLogging
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ExecuteCommandLogging]
+$ctoJSONKeyList :: ToJSONKeyFunction [ExecuteCommandLogging]
+toJSONKey :: ToJSONKeyFunction ExecuteCommandLogging
+$ctoJSONKey :: ToJSONKeyFunction ExecuteCommandLogging
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679451894"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExecuteCommandLogging
+([Node] -&gt; Either String ExecuteCommandLogging)
+-&gt; FromXML ExecuteCommandLogging
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ExecuteCommandLogging
+$cparseXML :: [Node] -&gt; Either String ExecuteCommandLogging
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679451891"><span class="annot"><span class="annottext">ExecuteCommandLogging -&gt; XML
+(ExecuteCommandLogging -&gt; XML) -&gt; ToXML ExecuteCommandLogging
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ExecuteCommandLogging -&gt; XML
+$ctoXML :: ExecuteCommandLogging -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging_DEFAULT"><span class="hs-identifier hs-type">ExecuteCommandLogging_DEFAULT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging"><span class="hs-identifier hs-type">ExecuteCommandLogging</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExecuteCommandLogging_DEFAULT"><span id="%24mExecuteCommandLogging_DEFAULT"><span id="ExecuteCommandLogging_DEFAULT"><span class="annot"><span class="annottext">$bExecuteCommandLogging_DEFAULT :: ExecuteCommandLogging
+$mExecuteCommandLogging_DEFAULT :: forall r.
+ExecuteCommandLogging -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#%24bExecuteCommandLogging_DEFAULT"><span class="hs-identifier hs-var hs-var hs-var">ExecuteCommandLogging_DEFAULT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging%27"><span class="hs-identifier hs-type">ExecuteCommandLogging'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEFAULT&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging_NONE"><span class="hs-identifier hs-type">ExecuteCommandLogging_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging"><span class="hs-identifier hs-type">ExecuteCommandLogging</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExecuteCommandLogging_NONE"><span id="%24mExecuteCommandLogging_NONE"><span id="ExecuteCommandLogging_NONE"><span class="annot"><span class="annottext">$bExecuteCommandLogging_NONE :: ExecuteCommandLogging
+$mExecuteCommandLogging_NONE :: forall r.
+ExecuteCommandLogging -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#%24bExecuteCommandLogging_NONE"><span class="hs-identifier hs-var hs-var hs-var">ExecuteCommandLogging_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging%27"><span class="hs-identifier hs-type">ExecuteCommandLogging'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging_OVERRIDE"><span class="hs-identifier hs-type">ExecuteCommandLogging_OVERRIDE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging"><span class="hs-identifier hs-type">ExecuteCommandLogging</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExecuteCommandLogging_OVERRIDE"><span id="%24mExecuteCommandLogging_OVERRIDE"><span id="ExecuteCommandLogging_OVERRIDE"><span class="annot"><span class="annottext">$bExecuteCommandLogging_OVERRIDE :: ExecuteCommandLogging
+$mExecuteCommandLogging_OVERRIDE :: forall r.
+ExecuteCommandLogging -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#%24bExecuteCommandLogging_OVERRIDE"><span class="hs-identifier hs-var hs-var hs-var">ExecuteCommandLogging_OVERRIDE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging%27"><span class="hs-identifier hs-type">ExecuteCommandLogging'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OVERRIDE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging_DEFAULT"><span class="hs-pragma hs-type">ExecuteCommandLogging_DEFAULT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging_NONE"><span class="hs-pragma hs-type">ExecuteCommandLogging_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging_OVERRIDE"><span class="hs-pragma hs-type">ExecuteCommandLogging_OVERRIDE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging%27"><span class="hs-pragma hs-type">ExecuteCommandLogging'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

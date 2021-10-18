@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SESv2.Types.SuppressionListReason</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SESv2.Types.SuppressionListReason</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason"><span class="hs-identifier">SuppressionListReason</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason_BOUNCE"><span class="hs-identifier">SuppressionListReason_BOUNCE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason_COMPLAINT"><span class="hs-identifier">SuppressionListReason_COMPLAINT</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The reason that the address was added to the suppression list for your</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- account. The value can be one of the following:</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   @COMPLAINT@ &#8211; Amazon SES added an email address to the suppression</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     list for your account because a message sent to that address results</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     in a complaint.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- -   @BOUNCE@ &#8211; Amazon SES added an email address to the suppression list</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     for your account because a message sent to that address results in a</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     hard bounce.</span><span>
+</span><span id="line-42"></span><span id="local-6989586621679330610"><span id="local-6989586621679330611"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SuppressionListReason"><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason"><span class="hs-identifier hs-var">SuppressionListReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SuppressionListReason%27"><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason%27"><span class="hs-identifier hs-var">SuppressionListReason'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSuppressionListReason"><span class="annot"><span class="annottext">SuppressionListReason -&gt; Text
+</span><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#fromSuppressionListReason"><span class="hs-identifier hs-var hs-var">fromSuppressionListReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330602"><span id="local-6989586621679330604"><span id="local-6989586621679330606"><span class="annot"><span class="annottext">Int -&gt; SuppressionListReason -&gt; ShowS
+[SuppressionListReason] -&gt; ShowS
+SuppressionListReason -&gt; String
+(Int -&gt; SuppressionListReason -&gt; ShowS)
+-&gt; (SuppressionListReason -&gt; String)
+-&gt; ([SuppressionListReason] -&gt; ShowS)
+-&gt; Show SuppressionListReason
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SuppressionListReason] -&gt; ShowS
+$cshowList :: [SuppressionListReason] -&gt; ShowS
+show :: SuppressionListReason -&gt; String
+$cshow :: SuppressionListReason -&gt; String
+showsPrec :: Int -&gt; SuppressionListReason -&gt; ShowS
+$cshowsPrec :: Int -&gt; SuppressionListReason -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679330593"><span id="local-6989586621679330595"><span id="local-6989586621679330597"><span id="local-6989586621679330599"><span class="annot"><span class="annottext">ReadPrec [SuppressionListReason]
+ReadPrec SuppressionListReason
+Int -&gt; ReadS SuppressionListReason
+ReadS [SuppressionListReason]
+(Int -&gt; ReadS SuppressionListReason)
+-&gt; ReadS [SuppressionListReason]
+-&gt; ReadPrec SuppressionListReason
+-&gt; ReadPrec [SuppressionListReason]
+-&gt; Read SuppressionListReason
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SuppressionListReason]
+$creadListPrec :: ReadPrec [SuppressionListReason]
+readPrec :: ReadPrec SuppressionListReason
+$creadPrec :: ReadPrec SuppressionListReason
+readList :: ReadS [SuppressionListReason]
+$creadList :: ReadS [SuppressionListReason]
+readsPrec :: Int -&gt; ReadS SuppressionListReason
+$creadsPrec :: Int -&gt; ReadS SuppressionListReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679330588"><span id="local-6989586621679330590"><span class="annot"><span class="annottext">SuppressionListReason -&gt; SuppressionListReason -&gt; Bool
+(SuppressionListReason -&gt; SuppressionListReason -&gt; Bool)
+-&gt; (SuppressionListReason -&gt; SuppressionListReason -&gt; Bool)
+-&gt; Eq SuppressionListReason
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SuppressionListReason -&gt; SuppressionListReason -&gt; Bool
+$c/= :: SuppressionListReason -&gt; SuppressionListReason -&gt; Bool
+== :: SuppressionListReason -&gt; SuppressionListReason -&gt; Bool
+$c== :: SuppressionListReason -&gt; SuppressionListReason -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679330572"><span id="local-6989586621679330574"><span id="local-6989586621679330576"><span id="local-6989586621679330578"><span id="local-6989586621679330580"><span id="local-6989586621679330582"><span id="local-6989586621679330584"><span class="annot"><span class="annottext">Eq SuppressionListReason
+Eq SuppressionListReason
+-&gt; (SuppressionListReason -&gt; SuppressionListReason -&gt; Ordering)
+-&gt; (SuppressionListReason -&gt; SuppressionListReason -&gt; Bool)
+-&gt; (SuppressionListReason -&gt; SuppressionListReason -&gt; Bool)
+-&gt; (SuppressionListReason -&gt; SuppressionListReason -&gt; Bool)
+-&gt; (SuppressionListReason -&gt; SuppressionListReason -&gt; Bool)
+-&gt; (SuppressionListReason
+    -&gt; SuppressionListReason -&gt; SuppressionListReason)
+-&gt; (SuppressionListReason
+    -&gt; SuppressionListReason -&gt; SuppressionListReason)
+-&gt; Ord SuppressionListReason
+SuppressionListReason -&gt; SuppressionListReason -&gt; Bool
+SuppressionListReason -&gt; SuppressionListReason -&gt; Ordering
+SuppressionListReason
+-&gt; SuppressionListReason -&gt; SuppressionListReason
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SuppressionListReason
+-&gt; SuppressionListReason -&gt; SuppressionListReason
+$cmin :: SuppressionListReason
+-&gt; SuppressionListReason -&gt; SuppressionListReason
+max :: SuppressionListReason
+-&gt; SuppressionListReason -&gt; SuppressionListReason
+$cmax :: SuppressionListReason
+-&gt; SuppressionListReason -&gt; SuppressionListReason
+&gt;= :: SuppressionListReason -&gt; SuppressionListReason -&gt; Bool
+$c&gt;= :: SuppressionListReason -&gt; SuppressionListReason -&gt; Bool
+&gt; :: SuppressionListReason -&gt; SuppressionListReason -&gt; Bool
+$c&gt; :: SuppressionListReason -&gt; SuppressionListReason -&gt; Bool
+&lt;= :: SuppressionListReason -&gt; SuppressionListReason -&gt; Bool
+$c&lt;= :: SuppressionListReason -&gt; SuppressionListReason -&gt; Bool
+&lt; :: SuppressionListReason -&gt; SuppressionListReason -&gt; Bool
+$c&lt; :: SuppressionListReason -&gt; SuppressionListReason -&gt; Bool
+compare :: SuppressionListReason -&gt; SuppressionListReason -&gt; Ordering
+$ccompare :: SuppressionListReason -&gt; SuppressionListReason -&gt; Ordering
+$cp1Ord :: Eq SuppressionListReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SuppressionListReason -&gt; Rep SuppressionListReason x)
+-&gt; (forall x. Rep SuppressionListReason x -&gt; SuppressionListReason)
+-&gt; Generic SuppressionListReason
+forall x. Rep SuppressionListReason x -&gt; SuppressionListReason
+forall x. SuppressionListReason -&gt; Rep SuppressionListReason x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SuppressionListReason x -&gt; SuppressionListReason
+$cfrom :: forall x. SuppressionListReason -&gt; Rep SuppressionListReason x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330564"><span id="local-6989586621679330566"><span class="annot"><span class="annottext">Int -&gt; SuppressionListReason -&gt; Int
+SuppressionListReason -&gt; Int
+(Int -&gt; SuppressionListReason -&gt; Int)
+-&gt; (SuppressionListReason -&gt; Int) -&gt; Hashable SuppressionListReason
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SuppressionListReason -&gt; Int
+$chash :: SuppressionListReason -&gt; Int
+hashWithSalt :: Int -&gt; SuppressionListReason -&gt; Int
+$chashWithSalt :: Int -&gt; SuppressionListReason -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679330561"><span class="annot"><span class="annottext">SuppressionListReason -&gt; ()
+(SuppressionListReason -&gt; ()) -&gt; NFData SuppressionListReason
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SuppressionListReason -&gt; ()
+$crnf :: SuppressionListReason -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679330558"><span class="annot"><span class="annottext">Text -&gt; Either String SuppressionListReason
+(Text -&gt; Either String SuppressionListReason)
+-&gt; FromText SuppressionListReason
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SuppressionListReason
+$cfromText :: Text -&gt; Either String SuppressionListReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679330555"><span class="annot"><span class="annottext">SuppressionListReason -&gt; Text
+(SuppressionListReason -&gt; Text) -&gt; ToText SuppressionListReason
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SuppressionListReason -&gt; Text
+$ctoText :: SuppressionListReason -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679330552"><span class="annot"><span class="annottext">SuppressionListReason -&gt; ByteString
+(SuppressionListReason -&gt; ByteString)
+-&gt; ToByteString SuppressionListReason
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SuppressionListReason -&gt; ByteString
+$ctoBS :: SuppressionListReason -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679330549"><span class="annot"><span class="annottext">SuppressionListReason -&gt; ByteStringBuilder
+(SuppressionListReason -&gt; ByteStringBuilder)
+-&gt; ToLog SuppressionListReason
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SuppressionListReason -&gt; ByteStringBuilder
+$cbuild :: SuppressionListReason -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679330546"><span class="annot"><span class="annottext">HeaderName -&gt; SuppressionListReason -&gt; [Header]
+(HeaderName -&gt; SuppressionListReason -&gt; [Header])
+-&gt; ToHeader SuppressionListReason
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SuppressionListReason -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SuppressionListReason -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679330543"><span class="annot"><span class="annottext">SuppressionListReason -&gt; QueryString
+(SuppressionListReason -&gt; QueryString)
+-&gt; ToQuery SuppressionListReason
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SuppressionListReason -&gt; QueryString
+$ctoQuery :: SuppressionListReason -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679330538"><span id="local-6989586621679330540"><span class="annot"><span class="annottext">Value -&gt; Parser [SuppressionListReason]
+Value -&gt; Parser SuppressionListReason
+(Value -&gt; Parser SuppressionListReason)
+-&gt; (Value -&gt; Parser [SuppressionListReason])
+-&gt; FromJSON SuppressionListReason
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SuppressionListReason]
+$cparseJSONList :: Value -&gt; Parser [SuppressionListReason]
+parseJSON :: Value -&gt; Parser SuppressionListReason
+$cparseJSON :: Value -&gt; Parser SuppressionListReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679330533"><span id="local-6989586621679330535"><span class="annot"><span class="annottext">FromJSONKeyFunction [SuppressionListReason]
+FromJSONKeyFunction SuppressionListReason
+FromJSONKeyFunction SuppressionListReason
+-&gt; FromJSONKeyFunction [SuppressionListReason]
+-&gt; FromJSONKey SuppressionListReason
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SuppressionListReason]
+$cfromJSONKeyList :: FromJSONKeyFunction [SuppressionListReason]
+fromJSONKey :: FromJSONKeyFunction SuppressionListReason
+$cfromJSONKey :: FromJSONKeyFunction SuppressionListReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679330524"><span id="local-6989586621679330526"><span id="local-6989586621679330528"><span id="local-6989586621679330530"><span class="annot"><span class="annottext">[SuppressionListReason] -&gt; Encoding
+[SuppressionListReason] -&gt; Value
+SuppressionListReason -&gt; Encoding
+SuppressionListReason -&gt; Value
+(SuppressionListReason -&gt; Value)
+-&gt; (SuppressionListReason -&gt; Encoding)
+-&gt; ([SuppressionListReason] -&gt; Value)
+-&gt; ([SuppressionListReason] -&gt; Encoding)
+-&gt; ToJSON SuppressionListReason
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SuppressionListReason] -&gt; Encoding
+$ctoEncodingList :: [SuppressionListReason] -&gt; Encoding
+toJSONList :: [SuppressionListReason] -&gt; Value
+$ctoJSONList :: [SuppressionListReason] -&gt; Value
+toEncoding :: SuppressionListReason -&gt; Encoding
+$ctoEncoding :: SuppressionListReason -&gt; Encoding
+toJSON :: SuppressionListReason -&gt; Value
+$ctoJSON :: SuppressionListReason -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679330519"><span id="local-6989586621679330521"><span class="annot"><span class="annottext">ToJSONKeyFunction [SuppressionListReason]
+ToJSONKeyFunction SuppressionListReason
+ToJSONKeyFunction SuppressionListReason
+-&gt; ToJSONKeyFunction [SuppressionListReason]
+-&gt; ToJSONKey SuppressionListReason
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SuppressionListReason]
+$ctoJSONKeyList :: ToJSONKeyFunction [SuppressionListReason]
+toJSONKey :: ToJSONKeyFunction SuppressionListReason
+$ctoJSONKey :: ToJSONKeyFunction SuppressionListReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679330516"><span class="annot"><span class="annottext">[Node] -&gt; Either String SuppressionListReason
+([Node] -&gt; Either String SuppressionListReason)
+-&gt; FromXML SuppressionListReason
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SuppressionListReason
+$cparseXML :: [Node] -&gt; Either String SuppressionListReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679330513"><span class="annot"><span class="annottext">SuppressionListReason -&gt; XML
+(SuppressionListReason -&gt; XML) -&gt; ToXML SuppressionListReason
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SuppressionListReason -&gt; XML
+$ctoXML :: SuppressionListReason -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason_BOUNCE"><span class="hs-identifier hs-type">SuppressionListReason_BOUNCE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason"><span class="hs-identifier hs-type">SuppressionListReason</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSuppressionListReason_BOUNCE"><span id="%24mSuppressionListReason_BOUNCE"><span id="SuppressionListReason_BOUNCE"><span class="annot"><span class="annottext">$bSuppressionListReason_BOUNCE :: SuppressionListReason
+$mSuppressionListReason_BOUNCE :: forall r.
+SuppressionListReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#%24bSuppressionListReason_BOUNCE"><span class="hs-identifier hs-var hs-var hs-var">SuppressionListReason_BOUNCE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason%27"><span class="hs-identifier hs-type">SuppressionListReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BOUNCE&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason_COMPLAINT"><span class="hs-identifier hs-type">SuppressionListReason_COMPLAINT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason"><span class="hs-identifier hs-type">SuppressionListReason</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSuppressionListReason_COMPLAINT"><span id="%24mSuppressionListReason_COMPLAINT"><span id="SuppressionListReason_COMPLAINT"><span class="annot"><span class="annottext">$bSuppressionListReason_COMPLAINT :: SuppressionListReason
+$mSuppressionListReason_COMPLAINT :: forall r.
+SuppressionListReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#%24bSuppressionListReason_COMPLAINT"><span class="hs-identifier hs-var hs-var hs-var">SuppressionListReason_COMPLAINT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason%27"><span class="hs-identifier hs-type">SuppressionListReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLAINT&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason_BOUNCE"><span class="hs-pragma hs-type">SuppressionListReason_BOUNCE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason_COMPLAINT"><span class="hs-pragma hs-type">SuppressionListReason_COMPLAINT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason%27"><span class="hs-pragma hs-type">SuppressionListReason'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

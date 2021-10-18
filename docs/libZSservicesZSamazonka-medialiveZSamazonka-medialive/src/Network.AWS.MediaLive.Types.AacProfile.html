@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.AacProfile</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.AacProfile</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile"><span class="hs-identifier">AacProfile</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile_HEV1"><span class="hs-identifier">AacProfile_HEV1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile_HEV2"><span class="hs-identifier">AacProfile_HEV2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile_LC"><span class="hs-identifier">AacProfile_LC</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Aac Profile</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679855624"><span id="local-6989586621679855625"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AacProfile"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile"><span class="hs-identifier hs-var">AacProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AacProfile%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile%27"><span class="hs-identifier hs-var">AacProfile'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAacProfile"><span class="annot"><span class="annottext">AacProfile -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.AacProfile.html#fromAacProfile"><span class="hs-identifier hs-var hs-var">fromAacProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679855616"><span id="local-6989586621679855618"><span id="local-6989586621679855620"><span class="annot"><span class="annottext">Int -&gt; AacProfile -&gt; ShowS
+[AacProfile] -&gt; ShowS
+AacProfile -&gt; String
+(Int -&gt; AacProfile -&gt; ShowS)
+-&gt; (AacProfile -&gt; String)
+-&gt; ([AacProfile] -&gt; ShowS)
+-&gt; Show AacProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AacProfile] -&gt; ShowS
+$cshowList :: [AacProfile] -&gt; ShowS
+show :: AacProfile -&gt; String
+$cshow :: AacProfile -&gt; String
+showsPrec :: Int -&gt; AacProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; AacProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679855607"><span id="local-6989586621679855609"><span id="local-6989586621679855611"><span id="local-6989586621679855613"><span class="annot"><span class="annottext">ReadPrec [AacProfile]
+ReadPrec AacProfile
+Int -&gt; ReadS AacProfile
+ReadS [AacProfile]
+(Int -&gt; ReadS AacProfile)
+-&gt; ReadS [AacProfile]
+-&gt; ReadPrec AacProfile
+-&gt; ReadPrec [AacProfile]
+-&gt; Read AacProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AacProfile]
+$creadListPrec :: ReadPrec [AacProfile]
+readPrec :: ReadPrec AacProfile
+$creadPrec :: ReadPrec AacProfile
+readList :: ReadS [AacProfile]
+$creadList :: ReadS [AacProfile]
+readsPrec :: Int -&gt; ReadS AacProfile
+$creadsPrec :: Int -&gt; ReadS AacProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679855602"><span id="local-6989586621679855604"><span class="annot"><span class="annottext">AacProfile -&gt; AacProfile -&gt; Bool
+(AacProfile -&gt; AacProfile -&gt; Bool)
+-&gt; (AacProfile -&gt; AacProfile -&gt; Bool) -&gt; Eq AacProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AacProfile -&gt; AacProfile -&gt; Bool
+$c/= :: AacProfile -&gt; AacProfile -&gt; Bool
+== :: AacProfile -&gt; AacProfile -&gt; Bool
+$c== :: AacProfile -&gt; AacProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679855586"><span id="local-6989586621679855588"><span id="local-6989586621679855590"><span id="local-6989586621679855592"><span id="local-6989586621679855594"><span id="local-6989586621679855596"><span id="local-6989586621679855598"><span class="annot"><span class="annottext">Eq AacProfile
+Eq AacProfile
+-&gt; (AacProfile -&gt; AacProfile -&gt; Ordering)
+-&gt; (AacProfile -&gt; AacProfile -&gt; Bool)
+-&gt; (AacProfile -&gt; AacProfile -&gt; Bool)
+-&gt; (AacProfile -&gt; AacProfile -&gt; Bool)
+-&gt; (AacProfile -&gt; AacProfile -&gt; Bool)
+-&gt; (AacProfile -&gt; AacProfile -&gt; AacProfile)
+-&gt; (AacProfile -&gt; AacProfile -&gt; AacProfile)
+-&gt; Ord AacProfile
+AacProfile -&gt; AacProfile -&gt; Bool
+AacProfile -&gt; AacProfile -&gt; Ordering
+AacProfile -&gt; AacProfile -&gt; AacProfile
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AacProfile -&gt; AacProfile -&gt; AacProfile
+$cmin :: AacProfile -&gt; AacProfile -&gt; AacProfile
+max :: AacProfile -&gt; AacProfile -&gt; AacProfile
+$cmax :: AacProfile -&gt; AacProfile -&gt; AacProfile
+&gt;= :: AacProfile -&gt; AacProfile -&gt; Bool
+$c&gt;= :: AacProfile -&gt; AacProfile -&gt; Bool
+&gt; :: AacProfile -&gt; AacProfile -&gt; Bool
+$c&gt; :: AacProfile -&gt; AacProfile -&gt; Bool
+&lt;= :: AacProfile -&gt; AacProfile -&gt; Bool
+$c&lt;= :: AacProfile -&gt; AacProfile -&gt; Bool
+&lt; :: AacProfile -&gt; AacProfile -&gt; Bool
+$c&lt; :: AacProfile -&gt; AacProfile -&gt; Bool
+compare :: AacProfile -&gt; AacProfile -&gt; Ordering
+$ccompare :: AacProfile -&gt; AacProfile -&gt; Ordering
+$cp1Ord :: Eq AacProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AacProfile -&gt; Rep AacProfile x)
+-&gt; (forall x. Rep AacProfile x -&gt; AacProfile) -&gt; Generic AacProfile
+forall x. Rep AacProfile x -&gt; AacProfile
+forall x. AacProfile -&gt; Rep AacProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AacProfile x -&gt; AacProfile
+$cfrom :: forall x. AacProfile -&gt; Rep AacProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679855578"><span id="local-6989586621679855580"><span class="annot"><span class="annottext">Int -&gt; AacProfile -&gt; Int
+AacProfile -&gt; Int
+(Int -&gt; AacProfile -&gt; Int)
+-&gt; (AacProfile -&gt; Int) -&gt; Hashable AacProfile
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AacProfile -&gt; Int
+$chash :: AacProfile -&gt; Int
+hashWithSalt :: Int -&gt; AacProfile -&gt; Int
+$chashWithSalt :: Int -&gt; AacProfile -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679855575"><span class="annot"><span class="annottext">AacProfile -&gt; ()
+(AacProfile -&gt; ()) -&gt; NFData AacProfile
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AacProfile -&gt; ()
+$crnf :: AacProfile -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679855572"><span class="annot"><span class="annottext">Text -&gt; Either String AacProfile
+(Text -&gt; Either String AacProfile) -&gt; FromText AacProfile
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AacProfile
+$cfromText :: Text -&gt; Either String AacProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679855569"><span class="annot"><span class="annottext">AacProfile -&gt; Text
+(AacProfile -&gt; Text) -&gt; ToText AacProfile
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AacProfile -&gt; Text
+$ctoText :: AacProfile -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679855566"><span class="annot"><span class="annottext">AacProfile -&gt; ByteString
+(AacProfile -&gt; ByteString) -&gt; ToByteString AacProfile
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AacProfile -&gt; ByteString
+$ctoBS :: AacProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679855563"><span class="annot"><span class="annottext">AacProfile -&gt; ByteStringBuilder
+(AacProfile -&gt; ByteStringBuilder) -&gt; ToLog AacProfile
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AacProfile -&gt; ByteStringBuilder
+$cbuild :: AacProfile -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679855560"><span class="annot"><span class="annottext">HeaderName -&gt; AacProfile -&gt; [Header]
+(HeaderName -&gt; AacProfile -&gt; [Header]) -&gt; ToHeader AacProfile
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AacProfile -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AacProfile -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679855557"><span class="annot"><span class="annottext">AacProfile -&gt; QueryString
+(AacProfile -&gt; QueryString) -&gt; ToQuery AacProfile
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AacProfile -&gt; QueryString
+$ctoQuery :: AacProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679855552"><span id="local-6989586621679855554"><span class="annot"><span class="annottext">Value -&gt; Parser [AacProfile]
+Value -&gt; Parser AacProfile
+(Value -&gt; Parser AacProfile)
+-&gt; (Value -&gt; Parser [AacProfile]) -&gt; FromJSON AacProfile
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AacProfile]
+$cparseJSONList :: Value -&gt; Parser [AacProfile]
+parseJSON :: Value -&gt; Parser AacProfile
+$cparseJSON :: Value -&gt; Parser AacProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679855547"><span id="local-6989586621679855549"><span class="annot"><span class="annottext">FromJSONKeyFunction [AacProfile]
+FromJSONKeyFunction AacProfile
+FromJSONKeyFunction AacProfile
+-&gt; FromJSONKeyFunction [AacProfile] -&gt; FromJSONKey AacProfile
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AacProfile]
+$cfromJSONKeyList :: FromJSONKeyFunction [AacProfile]
+fromJSONKey :: FromJSONKeyFunction AacProfile
+$cfromJSONKey :: FromJSONKeyFunction AacProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679855538"><span id="local-6989586621679855540"><span id="local-6989586621679855542"><span id="local-6989586621679855544"><span class="annot"><span class="annottext">[AacProfile] -&gt; Encoding
+[AacProfile] -&gt; Value
+AacProfile -&gt; Encoding
+AacProfile -&gt; Value
+(AacProfile -&gt; Value)
+-&gt; (AacProfile -&gt; Encoding)
+-&gt; ([AacProfile] -&gt; Value)
+-&gt; ([AacProfile] -&gt; Encoding)
+-&gt; ToJSON AacProfile
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AacProfile] -&gt; Encoding
+$ctoEncodingList :: [AacProfile] -&gt; Encoding
+toJSONList :: [AacProfile] -&gt; Value
+$ctoJSONList :: [AacProfile] -&gt; Value
+toEncoding :: AacProfile -&gt; Encoding
+$ctoEncoding :: AacProfile -&gt; Encoding
+toJSON :: AacProfile -&gt; Value
+$ctoJSON :: AacProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679855533"><span id="local-6989586621679855535"><span class="annot"><span class="annottext">ToJSONKeyFunction [AacProfile]
+ToJSONKeyFunction AacProfile
+ToJSONKeyFunction AacProfile
+-&gt; ToJSONKeyFunction [AacProfile] -&gt; ToJSONKey AacProfile
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AacProfile]
+$ctoJSONKeyList :: ToJSONKeyFunction [AacProfile]
+toJSONKey :: ToJSONKeyFunction AacProfile
+$ctoJSONKey :: ToJSONKeyFunction AacProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679855530"><span class="annot"><span class="annottext">[Node] -&gt; Either String AacProfile
+([Node] -&gt; Either String AacProfile) -&gt; FromXML AacProfile
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AacProfile
+$cparseXML :: [Node] -&gt; Either String AacProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679855527"><span class="annot"><span class="annottext">AacProfile -&gt; XML
+(AacProfile -&gt; XML) -&gt; ToXML AacProfile
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AacProfile -&gt; XML
+$ctoXML :: AacProfile -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile_HEV1"><span class="hs-identifier hs-type">AacProfile_HEV1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile"><span class="hs-identifier hs-type">AacProfile</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAacProfile_HEV1"><span id="%24mAacProfile_HEV1"><span id="AacProfile_HEV1"><span class="annot"><span class="annottext">$bAacProfile_HEV1 :: AacProfile
+$mAacProfile_HEV1 :: forall r. AacProfile -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.AacProfile.html#%24bAacProfile_HEV1"><span class="hs-identifier hs-var hs-var hs-var">AacProfile_HEV1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile%27"><span class="hs-identifier hs-type">AacProfile'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HEV1&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile_HEV2"><span class="hs-identifier hs-type">AacProfile_HEV2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile"><span class="hs-identifier hs-type">AacProfile</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAacProfile_HEV2"><span id="%24mAacProfile_HEV2"><span id="AacProfile_HEV2"><span class="annot"><span class="annottext">$bAacProfile_HEV2 :: AacProfile
+$mAacProfile_HEV2 :: forall r. AacProfile -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.AacProfile.html#%24bAacProfile_HEV2"><span class="hs-identifier hs-var hs-var hs-var">AacProfile_HEV2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile%27"><span class="hs-identifier hs-type">AacProfile'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HEV2&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile_LC"><span class="hs-identifier hs-type">AacProfile_LC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile"><span class="hs-identifier hs-type">AacProfile</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAacProfile_LC"><span id="%24mAacProfile_LC"><span id="AacProfile_LC"><span class="annot"><span class="annottext">$bAacProfile_LC :: AacProfile
+$mAacProfile_LC :: forall r. AacProfile -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.AacProfile.html#%24bAacProfile_LC"><span class="hs-identifier hs-var hs-var hs-var">AacProfile_LC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile%27"><span class="hs-identifier hs-type">AacProfile'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LC&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile_HEV1"><span class="hs-pragma hs-type">AacProfile_HEV1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile_HEV2"><span class="hs-pragma hs-type">AacProfile_HEV2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile_LC"><span class="hs-pragma hs-type">AacProfile_LC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile%27"><span class="hs-pragma hs-type">AacProfile'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

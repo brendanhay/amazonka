@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.MonitoringType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.MonitoringType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType"><span class="hs-identifier">MonitoringType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType_DataQuality"><span class="hs-identifier">MonitoringType_DataQuality</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType_ModelBias"><span class="hs-identifier">MonitoringType_ModelBias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType_ModelExplainability"><span class="hs-identifier">MonitoringType_ModelExplainability</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType_ModelQuality"><span class="hs-identifier">MonitoringType_ModelQuality</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680321143"><span id="local-6989586621680321144"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MonitoringType"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType"><span class="hs-identifier hs-var">MonitoringType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType%27"><span class="hs-identifier hs-var">MonitoringType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMonitoringType"><span class="annot"><span class="annottext">MonitoringType -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.MonitoringType.html#fromMonitoringType"><span class="hs-identifier hs-var hs-var">fromMonitoringType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680321135"><span id="local-6989586621680321137"><span id="local-6989586621680321139"><span class="annot"><span class="annottext">Int -&gt; MonitoringType -&gt; ShowS
+[MonitoringType] -&gt; ShowS
+MonitoringType -&gt; String
+(Int -&gt; MonitoringType -&gt; ShowS)
+-&gt; (MonitoringType -&gt; String)
+-&gt; ([MonitoringType] -&gt; ShowS)
+-&gt; Show MonitoringType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MonitoringType] -&gt; ShowS
+$cshowList :: [MonitoringType] -&gt; ShowS
+show :: MonitoringType -&gt; String
+$cshow :: MonitoringType -&gt; String
+showsPrec :: Int -&gt; MonitoringType -&gt; ShowS
+$cshowsPrec :: Int -&gt; MonitoringType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680321126"><span id="local-6989586621680321128"><span id="local-6989586621680321130"><span id="local-6989586621680321132"><span class="annot"><span class="annottext">ReadPrec [MonitoringType]
+ReadPrec MonitoringType
+Int -&gt; ReadS MonitoringType
+ReadS [MonitoringType]
+(Int -&gt; ReadS MonitoringType)
+-&gt; ReadS [MonitoringType]
+-&gt; ReadPrec MonitoringType
+-&gt; ReadPrec [MonitoringType]
+-&gt; Read MonitoringType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MonitoringType]
+$creadListPrec :: ReadPrec [MonitoringType]
+readPrec :: ReadPrec MonitoringType
+$creadPrec :: ReadPrec MonitoringType
+readList :: ReadS [MonitoringType]
+$creadList :: ReadS [MonitoringType]
+readsPrec :: Int -&gt; ReadS MonitoringType
+$creadsPrec :: Int -&gt; ReadS MonitoringType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680321121"><span id="local-6989586621680321123"><span class="annot"><span class="annottext">MonitoringType -&gt; MonitoringType -&gt; Bool
+(MonitoringType -&gt; MonitoringType -&gt; Bool)
+-&gt; (MonitoringType -&gt; MonitoringType -&gt; Bool) -&gt; Eq MonitoringType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MonitoringType -&gt; MonitoringType -&gt; Bool
+$c/= :: MonitoringType -&gt; MonitoringType -&gt; Bool
+== :: MonitoringType -&gt; MonitoringType -&gt; Bool
+$c== :: MonitoringType -&gt; MonitoringType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680321105"><span id="local-6989586621680321107"><span id="local-6989586621680321109"><span id="local-6989586621680321111"><span id="local-6989586621680321113"><span id="local-6989586621680321115"><span id="local-6989586621680321117"><span class="annot"><span class="annottext">Eq MonitoringType
+Eq MonitoringType
+-&gt; (MonitoringType -&gt; MonitoringType -&gt; Ordering)
+-&gt; (MonitoringType -&gt; MonitoringType -&gt; Bool)
+-&gt; (MonitoringType -&gt; MonitoringType -&gt; Bool)
+-&gt; (MonitoringType -&gt; MonitoringType -&gt; Bool)
+-&gt; (MonitoringType -&gt; MonitoringType -&gt; Bool)
+-&gt; (MonitoringType -&gt; MonitoringType -&gt; MonitoringType)
+-&gt; (MonitoringType -&gt; MonitoringType -&gt; MonitoringType)
+-&gt; Ord MonitoringType
+MonitoringType -&gt; MonitoringType -&gt; Bool
+MonitoringType -&gt; MonitoringType -&gt; Ordering
+MonitoringType -&gt; MonitoringType -&gt; MonitoringType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MonitoringType -&gt; MonitoringType -&gt; MonitoringType
+$cmin :: MonitoringType -&gt; MonitoringType -&gt; MonitoringType
+max :: MonitoringType -&gt; MonitoringType -&gt; MonitoringType
+$cmax :: MonitoringType -&gt; MonitoringType -&gt; MonitoringType
+&gt;= :: MonitoringType -&gt; MonitoringType -&gt; Bool
+$c&gt;= :: MonitoringType -&gt; MonitoringType -&gt; Bool
+&gt; :: MonitoringType -&gt; MonitoringType -&gt; Bool
+$c&gt; :: MonitoringType -&gt; MonitoringType -&gt; Bool
+&lt;= :: MonitoringType -&gt; MonitoringType -&gt; Bool
+$c&lt;= :: MonitoringType -&gt; MonitoringType -&gt; Bool
+&lt; :: MonitoringType -&gt; MonitoringType -&gt; Bool
+$c&lt; :: MonitoringType -&gt; MonitoringType -&gt; Bool
+compare :: MonitoringType -&gt; MonitoringType -&gt; Ordering
+$ccompare :: MonitoringType -&gt; MonitoringType -&gt; Ordering
+$cp1Ord :: Eq MonitoringType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MonitoringType -&gt; Rep MonitoringType x)
+-&gt; (forall x. Rep MonitoringType x -&gt; MonitoringType)
+-&gt; Generic MonitoringType
+forall x. Rep MonitoringType x -&gt; MonitoringType
+forall x. MonitoringType -&gt; Rep MonitoringType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MonitoringType x -&gt; MonitoringType
+$cfrom :: forall x. MonitoringType -&gt; Rep MonitoringType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680321097"><span id="local-6989586621680321099"><span class="annot"><span class="annottext">Int -&gt; MonitoringType -&gt; Int
+MonitoringType -&gt; Int
+(Int -&gt; MonitoringType -&gt; Int)
+-&gt; (MonitoringType -&gt; Int) -&gt; Hashable MonitoringType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MonitoringType -&gt; Int
+$chash :: MonitoringType -&gt; Int
+hashWithSalt :: Int -&gt; MonitoringType -&gt; Int
+$chashWithSalt :: Int -&gt; MonitoringType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680321094"><span class="annot"><span class="annottext">MonitoringType -&gt; ()
+(MonitoringType -&gt; ()) -&gt; NFData MonitoringType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MonitoringType -&gt; ()
+$crnf :: MonitoringType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680321091"><span class="annot"><span class="annottext">Text -&gt; Either String MonitoringType
+(Text -&gt; Either String MonitoringType) -&gt; FromText MonitoringType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MonitoringType
+$cfromText :: Text -&gt; Either String MonitoringType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680321088"><span class="annot"><span class="annottext">MonitoringType -&gt; Text
+(MonitoringType -&gt; Text) -&gt; ToText MonitoringType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MonitoringType -&gt; Text
+$ctoText :: MonitoringType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680321085"><span class="annot"><span class="annottext">MonitoringType -&gt; ByteString
+(MonitoringType -&gt; ByteString) -&gt; ToByteString MonitoringType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MonitoringType -&gt; ByteString
+$ctoBS :: MonitoringType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680321082"><span class="annot"><span class="annottext">MonitoringType -&gt; ByteStringBuilder
+(MonitoringType -&gt; ByteStringBuilder) -&gt; ToLog MonitoringType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MonitoringType -&gt; ByteStringBuilder
+$cbuild :: MonitoringType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680321079"><span class="annot"><span class="annottext">HeaderName -&gt; MonitoringType -&gt; [Header]
+(HeaderName -&gt; MonitoringType -&gt; [Header])
+-&gt; ToHeader MonitoringType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MonitoringType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MonitoringType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680321076"><span class="annot"><span class="annottext">MonitoringType -&gt; QueryString
+(MonitoringType -&gt; QueryString) -&gt; ToQuery MonitoringType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MonitoringType -&gt; QueryString
+$ctoQuery :: MonitoringType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680321071"><span id="local-6989586621680321073"><span class="annot"><span class="annottext">Value -&gt; Parser [MonitoringType]
+Value -&gt; Parser MonitoringType
+(Value -&gt; Parser MonitoringType)
+-&gt; (Value -&gt; Parser [MonitoringType]) -&gt; FromJSON MonitoringType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MonitoringType]
+$cparseJSONList :: Value -&gt; Parser [MonitoringType]
+parseJSON :: Value -&gt; Parser MonitoringType
+$cparseJSON :: Value -&gt; Parser MonitoringType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680321066"><span id="local-6989586621680321068"><span class="annot"><span class="annottext">FromJSONKeyFunction [MonitoringType]
+FromJSONKeyFunction MonitoringType
+FromJSONKeyFunction MonitoringType
+-&gt; FromJSONKeyFunction [MonitoringType]
+-&gt; FromJSONKey MonitoringType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MonitoringType]
+$cfromJSONKeyList :: FromJSONKeyFunction [MonitoringType]
+fromJSONKey :: FromJSONKeyFunction MonitoringType
+$cfromJSONKey :: FromJSONKeyFunction MonitoringType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680321057"><span id="local-6989586621680321059"><span id="local-6989586621680321061"><span id="local-6989586621680321063"><span class="annot"><span class="annottext">[MonitoringType] -&gt; Encoding
+[MonitoringType] -&gt; Value
+MonitoringType -&gt; Encoding
+MonitoringType -&gt; Value
+(MonitoringType -&gt; Value)
+-&gt; (MonitoringType -&gt; Encoding)
+-&gt; ([MonitoringType] -&gt; Value)
+-&gt; ([MonitoringType] -&gt; Encoding)
+-&gt; ToJSON MonitoringType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MonitoringType] -&gt; Encoding
+$ctoEncodingList :: [MonitoringType] -&gt; Encoding
+toJSONList :: [MonitoringType] -&gt; Value
+$ctoJSONList :: [MonitoringType] -&gt; Value
+toEncoding :: MonitoringType -&gt; Encoding
+$ctoEncoding :: MonitoringType -&gt; Encoding
+toJSON :: MonitoringType -&gt; Value
+$ctoJSON :: MonitoringType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680321052"><span id="local-6989586621680321054"><span class="annot"><span class="annottext">ToJSONKeyFunction [MonitoringType]
+ToJSONKeyFunction MonitoringType
+ToJSONKeyFunction MonitoringType
+-&gt; ToJSONKeyFunction [MonitoringType] -&gt; ToJSONKey MonitoringType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MonitoringType]
+$ctoJSONKeyList :: ToJSONKeyFunction [MonitoringType]
+toJSONKey :: ToJSONKeyFunction MonitoringType
+$ctoJSONKey :: ToJSONKeyFunction MonitoringType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680321049"><span class="annot"><span class="annottext">[Node] -&gt; Either String MonitoringType
+([Node] -&gt; Either String MonitoringType) -&gt; FromXML MonitoringType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MonitoringType
+$cparseXML :: [Node] -&gt; Either String MonitoringType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680321046"><span class="annot"><span class="annottext">MonitoringType -&gt; XML
+(MonitoringType -&gt; XML) -&gt; ToXML MonitoringType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MonitoringType -&gt; XML
+$ctoXML :: MonitoringType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType_DataQuality"><span class="hs-identifier hs-type">MonitoringType_DataQuality</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType"><span class="hs-identifier hs-type">MonitoringType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMonitoringType_DataQuality"><span id="%24mMonitoringType_DataQuality"><span id="MonitoringType_DataQuality"><span class="annot"><span class="annottext">$bMonitoringType_DataQuality :: MonitoringType
+$mMonitoringType_DataQuality :: forall r. MonitoringType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.MonitoringType.html#%24bMonitoringType_DataQuality"><span class="hs-identifier hs-var hs-var hs-var">MonitoringType_DataQuality</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType%27"><span class="hs-identifier hs-type">MonitoringType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DataQuality&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType_ModelBias"><span class="hs-identifier hs-type">MonitoringType_ModelBias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType"><span class="hs-identifier hs-type">MonitoringType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMonitoringType_ModelBias"><span id="%24mMonitoringType_ModelBias"><span id="MonitoringType_ModelBias"><span class="annot"><span class="annottext">$bMonitoringType_ModelBias :: MonitoringType
+$mMonitoringType_ModelBias :: forall r. MonitoringType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.MonitoringType.html#%24bMonitoringType_ModelBias"><span class="hs-identifier hs-var hs-var hs-var">MonitoringType_ModelBias</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType%27"><span class="hs-identifier hs-type">MonitoringType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ModelBias&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType_ModelExplainability"><span class="hs-identifier hs-type">MonitoringType_ModelExplainability</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType"><span class="hs-identifier hs-type">MonitoringType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMonitoringType_ModelExplainability"><span id="%24mMonitoringType_ModelExplainability"><span id="MonitoringType_ModelExplainability"><span class="annot"><span class="annottext">$bMonitoringType_ModelExplainability :: MonitoringType
+$mMonitoringType_ModelExplainability :: forall r. MonitoringType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.MonitoringType.html#%24bMonitoringType_ModelExplainability"><span class="hs-identifier hs-var hs-var hs-var">MonitoringType_ModelExplainability</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType%27"><span class="hs-identifier hs-type">MonitoringType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ModelExplainability&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType_ModelQuality"><span class="hs-identifier hs-type">MonitoringType_ModelQuality</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType"><span class="hs-identifier hs-type">MonitoringType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMonitoringType_ModelQuality"><span id="%24mMonitoringType_ModelQuality"><span id="MonitoringType_ModelQuality"><span class="annot"><span class="annottext">$bMonitoringType_ModelQuality :: MonitoringType
+$mMonitoringType_ModelQuality :: forall r. MonitoringType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.MonitoringType.html#%24bMonitoringType_ModelQuality"><span class="hs-identifier hs-var hs-var hs-var">MonitoringType_ModelQuality</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType%27"><span class="hs-identifier hs-type">MonitoringType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ModelQuality&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType_DataQuality"><span class="hs-pragma hs-type">MonitoringType_DataQuality</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType_ModelBias"><span class="hs-pragma hs-type">MonitoringType_ModelBias</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType_ModelExplainability"><span class="hs-pragma hs-type">MonitoringType_ModelExplainability</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType_ModelQuality"><span class="hs-pragma hs-type">MonitoringType_ModelQuality</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType%27"><span class="hs-pragma hs-type">MonitoringType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

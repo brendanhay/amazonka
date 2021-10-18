@@ -1,0 +1,1249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.CreateFlowLogs</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates one or more flow logs to capture information about IP traffic</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- for a specific network interface, subnet, or VPC.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Flow log data for a monitored network interface is recorded as flow log</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- records, which are log events consisting of fields that describe the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- traffic flow. For more information, see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- in the /Amazon Virtual Private Cloud User Guide/.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- When publishing to CloudWatch Logs, flow log records are published to a</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- log group, and each network interface has a unique log stream in the log</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- group. When publishing to Amazon S3, flow log records for all of the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- monitored network interfaces are published to a single log file object</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- that is stored in the specified bucket.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html VPC Flow Logs&gt;</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- in the /Amazon Virtual Private Cloud User Guide/.</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.CreateFlowLogs</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier">CreateFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#newCreateFlowLogs"><span class="hs-identifier">newCreateFlowLogs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_maxAggregationInterval"><span class="hs-identifier">createFlowLogs_maxAggregationInterval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_tagSpecifications"><span class="hs-identifier">createFlowLogs_tagSpecifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_dryRun"><span class="hs-identifier">createFlowLogs_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_logDestination"><span class="hs-identifier">createFlowLogs_logDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_logFormat"><span class="hs-identifier">createFlowLogs_logFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_deliverLogsPermissionArn"><span class="hs-identifier">createFlowLogs_deliverLogsPermissionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_logGroupName"><span class="hs-identifier">createFlowLogs_logGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_logDestinationType"><span class="hs-identifier">createFlowLogs_logDestinationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_clientToken"><span class="hs-identifier">createFlowLogs_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_resourceIds"><span class="hs-identifier">createFlowLogs_resourceIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_resourceType"><span class="hs-identifier">createFlowLogs_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_trafficType"><span class="hs-identifier">createFlowLogs_trafficType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse"><span class="hs-identifier">CreateFlowLogsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#newCreateFlowLogsResponse"><span class="hs-identifier">newCreateFlowLogsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogsResponse_unsuccessful"><span class="hs-identifier">createFlowLogsResponse_unsuccessful</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogsResponse_flowLogIds"><span class="hs-identifier">createFlowLogsResponse_flowLogIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogsResponse_clientToken"><span class="hs-identifier">createFlowLogsResponse_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogsResponse_httpStatus"><span class="hs-identifier">createFlowLogsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | /See:/ 'newCreateFlowLogs' smart constructor.</span><span>
+</span><span id="line-80"></span><span id="local-6989586621681261306"><span id="local-6989586621681261307"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateFlowLogs"><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-var">CreateFlowLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateFlowLogs%27"><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-var">CreateFlowLogs'</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum interval of time during which a flow of packets is captured</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- and aggregated into a flow log record. You can specify 60 seconds (1</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- minute) or 600 seconds (10 minutes).</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- When a network interface is attached to a</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instance&gt;,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- the aggregation interval is always 60 seconds or less, regardless of the</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- value that you specify.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Default: 600</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AmaxAggregationInterval%3ACreateFlowLogs%27"><span class="annot"><span class="annottext">CreateFlowLogs -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AmaxAggregationInterval%3ACreateFlowLogs%27"><span class="hs-identifier hs-var hs-var">maxAggregationInterval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The tags to apply to the flow logs.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AtagSpecifications%3ACreateFlowLogs%27"><span class="annot"><span class="annottext">CreateFlowLogs -&gt; Maybe [TagSpecification]
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AtagSpecifications%3ACreateFlowLogs%27"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AdryRun%3ACreateFlowLogs%27"><span class="annot"><span class="annottext">CreateFlowLogs -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AdryRun%3ACreateFlowLogs%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | Specifies the destination to which the flow log data is to be published.</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- Flow log data can be published to a CloudWatch Logs log group or an</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- Amazon S3 bucket. The value specified for this parameter depends on the</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- value specified for @LogDestinationType@.</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- If @LogDestinationType@ is not specified or @cloud-watch-logs@, specify</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- example, to publish to a log group called @my-logs@, specify</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- @arn:aws:logs:us-east-1:123456789012:log-group:my-logs@. Alternatively,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- use @LogGroupName@ instead.</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- If LogDestinationType is @s3@, specify the ARN of the Amazon S3 bucket.</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- You can also specify a subfolder in the bucket. To specify a subfolder</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- in the bucket, use the following ARN format:</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- @bucket_ARN\/subfolder_name\/@. For example, to specify a subfolder</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- named @my-logs@ in a bucket named @my-bucket@, use the following ARN:</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- @arn:aws:s3:::my-bucket\/my-logs\/@. You cannot use @AWSLogs@ as a</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- subfolder name. This is a reserved term.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3AlogDestination%3ACreateFlowLogs%27"><span class="annot"><span class="annottext">CreateFlowLogs -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AlogDestination%3ACreateFlowLogs%27"><span class="hs-identifier hs-var hs-var">logDestination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | The fields to include in the flow log record, in the order in which they</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- should appear. For a list of available fields, see</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records&gt;.</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- If you omit this parameter, the flow log is created using the default</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- format. If you specify this parameter, you must specify at least one</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- field.</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- Specify the fields using the @${field-id}@ format, separated by spaces.</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- For the CLI, use single quotation marks (\' \') to surround the</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- parameter value.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AlogFormat%3ACreateFlowLogs%27"><span class="annot"><span class="annottext">CreateFlowLogs -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AlogFormat%3ACreateFlowLogs%27"><span class="hs-identifier hs-var hs-var">logFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The ARN for the IAM role that permits Amazon EC2 to publish flow logs to</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- a CloudWatch Logs log group in your account.</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- If you specify @LogDestinationType@ as @s3@, do not specify</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- @DeliverLogsPermissionArn@ or @LogGroupName@.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AdeliverLogsPermissionArn%3ACreateFlowLogs%27"><span class="annot"><span class="annottext">CreateFlowLogs -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AdeliverLogsPermissionArn%3ACreateFlowLogs%27"><span class="hs-identifier hs-var hs-var">deliverLogsPermissionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The name of a new or existing CloudWatch Logs log group where Amazon EC2</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- publishes your flow logs.</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- If you specify @LogDestinationType@ as @s3@, do not specify</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- @DeliverLogsPermissionArn@ or @LogGroupName@.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AlogGroupName%3ACreateFlowLogs%27"><span class="annot"><span class="annottext">CreateFlowLogs -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AlogGroupName%3ACreateFlowLogs%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | Specifies the type of destination to which the flow log data is to be</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- published. Flow log data can be published to CloudWatch Logs or Amazon</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- S3. To publish flow log data to CloudWatch Logs, specify</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- @cloud-watch-logs@. To publish flow log data to Amazon S3, specify @s3@.</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- If you specify @LogDestinationType@ as @s3@, do not specify</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- @DeliverLogsPermissionArn@ or @LogGroupName@.</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- Default: @cloud-watch-logs@</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AlogDestinationType%3ACreateFlowLogs%27"><span class="annot"><span class="annottext">CreateFlowLogs -&gt; Maybe LogDestinationType
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AlogDestinationType%3ACreateFlowLogs%27"><span class="hs-identifier hs-var hs-var">logDestinationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LogDestinationType.html#LogDestinationType"><span class="hs-identifier hs-type">LogDestinationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency&gt;.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateFlowLogs%27"><span class="annot"><span class="annottext">CreateFlowLogs -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AclientToken%3ACreateFlowLogs%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The ID of the subnet, network interface, or VPC for which you want to</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- create a flow log.</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- Constraints: Maximum of 1000 resources</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AresourceIds%3ACreateFlowLogs%27"><span class="annot"><span class="annottext">CreateFlowLogs -&gt; [Text]
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AresourceIds%3ACreateFlowLogs%27"><span class="hs-identifier hs-var hs-var">resourceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | The type of resource for which to create the flow log. For example, if</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- you specified a VPC ID for the @ResourceId@ property, specify @VPC@ for</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- this property.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AresourceType%3ACreateFlowLogs%27"><span class="annot"><span class="annottext">CreateFlowLogs -&gt; FlowLogsResourceType
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AresourceType%3ACreateFlowLogs%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FlowLogsResourceType.html#FlowLogsResourceType"><span class="hs-identifier hs-type">FlowLogsResourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The type of traffic to log. You can log traffic that the resource</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- accepts or rejects, or all traffic.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AtrafficType%3ACreateFlowLogs%27"><span class="annot"><span class="annottext">CreateFlowLogs -&gt; TrafficType
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AtrafficType%3ACreateFlowLogs%27"><span class="hs-identifier hs-var hs-var">trafficType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TrafficType.html#TrafficType"><span class="hs-identifier hs-type">TrafficType</span></a></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681261289"><span id="local-6989586621681261291"><span class="annot"><span class="annottext">CreateFlowLogs -&gt; CreateFlowLogs -&gt; Bool
+(CreateFlowLogs -&gt; CreateFlowLogs -&gt; Bool)
+-&gt; (CreateFlowLogs -&gt; CreateFlowLogs -&gt; Bool) -&gt; Eq CreateFlowLogs
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateFlowLogs -&gt; CreateFlowLogs -&gt; Bool
+$c/= :: CreateFlowLogs -&gt; CreateFlowLogs -&gt; Bool
+== :: CreateFlowLogs -&gt; CreateFlowLogs -&gt; Bool
+$c== :: CreateFlowLogs -&gt; CreateFlowLogs -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681261280"><span id="local-6989586621681261282"><span id="local-6989586621681261284"><span id="local-6989586621681261286"><span class="annot"><span class="annottext">ReadPrec [CreateFlowLogs]
+ReadPrec CreateFlowLogs
+Int -&gt; ReadS CreateFlowLogs
+ReadS [CreateFlowLogs]
+(Int -&gt; ReadS CreateFlowLogs)
+-&gt; ReadS [CreateFlowLogs]
+-&gt; ReadPrec CreateFlowLogs
+-&gt; ReadPrec [CreateFlowLogs]
+-&gt; Read CreateFlowLogs
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateFlowLogs]
+$creadListPrec :: ReadPrec [CreateFlowLogs]
+readPrec :: ReadPrec CreateFlowLogs
+$creadPrec :: ReadPrec CreateFlowLogs
+readList :: ReadS [CreateFlowLogs]
+$creadList :: ReadS [CreateFlowLogs]
+readsPrec :: Int -&gt; ReadS CreateFlowLogs
+$creadsPrec :: Int -&gt; ReadS CreateFlowLogs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681261273"><span id="local-6989586621681261275"><span id="local-6989586621681261277"><span class="annot"><span class="annottext">Int -&gt; CreateFlowLogs -&gt; ShowS
+[CreateFlowLogs] -&gt; ShowS
+CreateFlowLogs -&gt; String
+(Int -&gt; CreateFlowLogs -&gt; ShowS)
+-&gt; (CreateFlowLogs -&gt; String)
+-&gt; ([CreateFlowLogs] -&gt; ShowS)
+-&gt; Show CreateFlowLogs
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateFlowLogs] -&gt; ShowS
+$cshowList :: [CreateFlowLogs] -&gt; ShowS
+show :: CreateFlowLogs -&gt; String
+$cshow :: CreateFlowLogs -&gt; String
+showsPrec :: Int -&gt; CreateFlowLogs -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateFlowLogs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateFlowLogs -&gt; Rep CreateFlowLogs x)
+-&gt; (forall x. Rep CreateFlowLogs x -&gt; CreateFlowLogs)
+-&gt; Generic CreateFlowLogs
+forall x. Rep CreateFlowLogs x -&gt; CreateFlowLogs
+forall x. CreateFlowLogs -&gt; Rep CreateFlowLogs x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateFlowLogs x -&gt; CreateFlowLogs
+$cfrom :: forall x. CreateFlowLogs -&gt; Rep CreateFlowLogs x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Create a value of 'CreateFlowLogs' with all optional fields omitted.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'maxAggregationInterval', 'createFlowLogs_maxAggregationInterval' - The maximum interval of time during which a flow of packets is captured</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- and aggregated into a flow log record. You can specify 60 seconds (1</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- minute) or 600 seconds (10 minutes).</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- When a network interface is attached to a</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instance&gt;,</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- the aggregation interval is always 60 seconds or less, regardless of the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- value that you specify.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Default: 600</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'tagSpecifications', 'createFlowLogs_tagSpecifications' - The tags to apply to the flow logs.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'dryRun', 'createFlowLogs_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'logDestination', 'createFlowLogs_logDestination' - Specifies the destination to which the flow log data is to be published.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Flow log data can be published to a CloudWatch Logs log group or an</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Amazon S3 bucket. The value specified for this parameter depends on the</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- value specified for @LogDestinationType@.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- If @LogDestinationType@ is not specified or @cloud-watch-logs@, specify</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- example, to publish to a log group called @my-logs@, specify</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- @arn:aws:logs:us-east-1:123456789012:log-group:my-logs@. Alternatively,</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- use @LogGroupName@ instead.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- If LogDestinationType is @s3@, specify the ARN of the Amazon S3 bucket.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- You can also specify a subfolder in the bucket. To specify a subfolder</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- in the bucket, use the following ARN format:</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- @bucket_ARN\/subfolder_name\/@. For example, to specify a subfolder</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- named @my-logs@ in a bucket named @my-bucket@, use the following ARN:</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- @arn:aws:s3:::my-bucket\/my-logs\/@. You cannot use @AWSLogs@ as a</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- subfolder name. This is a reserved term.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'logFormat', 'createFlowLogs_logFormat' - The fields to include in the flow log record, in the order in which they</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- should appear. For a list of available fields, see</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records&gt;.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- If you omit this parameter, the flow log is created using the default</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- format. If you specify this parameter, you must specify at least one</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- field.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- Specify the fields using the @${field-id}@ format, separated by spaces.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- For the CLI, use single quotation marks (\' \') to surround the</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- parameter value.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'deliverLogsPermissionArn', 'createFlowLogs_deliverLogsPermissionArn' - The ARN for the IAM role that permits Amazon EC2 to publish flow logs to</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- a CloudWatch Logs log group in your account.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- If you specify @LogDestinationType@ as @s3@, do not specify</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- @DeliverLogsPermissionArn@ or @LogGroupName@.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'logGroupName', 'createFlowLogs_logGroupName' - The name of a new or existing CloudWatch Logs log group where Amazon EC2</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- publishes your flow logs.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- If you specify @LogDestinationType@ as @s3@, do not specify</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- @DeliverLogsPermissionArn@ or @LogGroupName@.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'logDestinationType', 'createFlowLogs_logDestinationType' - Specifies the type of destination to which the flow log data is to be</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- published. Flow log data can be published to CloudWatch Logs or Amazon</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- S3. To publish flow log data to CloudWatch Logs, specify</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- @cloud-watch-logs@. To publish flow log data to Amazon S3, specify @s3@.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- If you specify @LogDestinationType@ as @s3@, do not specify</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- @DeliverLogsPermissionArn@ or @LogGroupName@.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- Default: @cloud-watch-logs@</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 'clientToken', 'createFlowLogs_clientToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency&gt;.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- 'resourceIds', 'createFlowLogs_resourceIds' - The ID of the subnet, network interface, or VPC for which you want to</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- create a flow log.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- Constraints: Maximum of 1000 resources</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'resourceType', 'createFlowLogs_resourceType' - The type of resource for which to create the flow log. For example, if</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- you specified a VPC ID for the @ResourceId@ property, specify @VPC@ for</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- this property.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- 'trafficType', 'createFlowLogs_trafficType' - The type of traffic to log. You can log traffic that the resource</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- accepts or rejects, or all traffic.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#newCreateFlowLogs"><span class="hs-identifier hs-type">newCreateFlowLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-comment">-- | 'resourceType'</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.FlowLogsResourceType.html#FlowLogsResourceType"><span class="hs-identifier hs-type">FlowLogsResourceType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-266"></span><span>  </span><span class="hs-comment">-- | 'trafficType'</span><span>
+</span><span id="line-267"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.TrafficType.html#TrafficType"><span class="hs-identifier hs-type">TrafficType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-268"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span>
+</span><span id="line-269"></span><span id="newCreateFlowLogs"><span class="annot"><span class="annottext">newCreateFlowLogs :: FlowLogsResourceType -&gt; TrafficType -&gt; CreateFlowLogs
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#newCreateFlowLogs"><span class="hs-identifier hs-var hs-var">newCreateFlowLogs</span></a></span></span><span> </span><span id="local-6989586621681261268"><span class="annot"><span class="annottext">FlowLogsResourceType
+</span><a href="#local-6989586621681261268"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span> </span><span id="local-6989586621681261267"><span class="annot"><span class="annottext">TrafficType
+</span><a href="#local-6989586621681261267"><span class="hs-identifier hs-var">pTrafficType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><span class="annottext">CreateFlowLogs' :: Maybe Int
+-&gt; Maybe [TagSpecification]
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe LogDestinationType
+-&gt; Maybe Text
+-&gt; [Text]
+-&gt; FlowLogsResourceType
+-&gt; TrafficType
+-&gt; CreateFlowLogs
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxAggregationInterval:CreateFlowLogs' :: Maybe Int
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AmaxAggregationInterval%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">maxAggregationInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateFlowLogs' :: Maybe [TagSpecification]
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AtagSpecifications%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:CreateFlowLogs' :: Maybe Bool
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AdryRun%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">$sel:logDestination:CreateFlowLogs' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AlogDestination%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">logDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>      </span><span class="annot"><span class="annottext">$sel:logFormat:CreateFlowLogs' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AlogFormat%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">logFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>      </span><span class="annot"><span class="annottext">$sel:deliverLogsPermissionArn:CreateFlowLogs' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AdeliverLogsPermissionArn%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">deliverLogsPermissionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:CreateFlowLogs' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AlogGroupName%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">$sel:logDestinationType:CreateFlowLogs' :: Maybe LogDestinationType
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AlogDestinationType%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">logDestinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogDestinationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientToken:CreateFlowLogs' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AclientToken%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceIds:CreateFlowLogs' :: [Text]
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AresourceIds%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">resourceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:CreateFlowLogs' :: FlowLogsResourceType
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AresourceType%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FlowLogsResourceType
+</span><a href="#local-6989586621681261268"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>      </span><span class="annot"><span class="annottext">$sel:trafficType:CreateFlowLogs' :: TrafficType
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AtrafficType%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">trafficType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrafficType
+</span><a href="#local-6989586621681261267"><span class="hs-identifier hs-var">pTrafficType_</span></a></span><span>
+</span><span id="line-284"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- | The maximum interval of time during which a flow of packets is captured</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- and aggregated into a flow log record. You can specify 60 seconds (1</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- minute) or 600 seconds (10 minutes).</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- When a network interface is attached to a</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instance&gt;,</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- the aggregation interval is always 60 seconds or less, regardless of the</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- value that you specify.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- Default: 600</span><span>
+</span><span id="line-296"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_maxAggregationInterval"><span class="hs-identifier hs-type">createFlowLogs_maxAggregationInterval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span id="createFlowLogs_maxAggregationInterval"><span class="annot"><span class="annottext">createFlowLogs_maxAggregationInterval :: (Maybe Int -&gt; f (Maybe Int)) -&gt; CreateFlowLogs -&gt; f CreateFlowLogs
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_maxAggregationInterval"><span class="hs-identifier hs-var hs-var">createFlowLogs_maxAggregationInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowLogs -&gt; Maybe Int)
+-&gt; (CreateFlowLogs -&gt; Maybe Int -&gt; CreateFlowLogs)
+-&gt; Lens CreateFlowLogs CreateFlowLogs (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261264"><span class="annot"><span class="annottext">Maybe Int
+maxAggregationInterval :: Maybe Int
+$sel:maxAggregationInterval:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe Int
+</span><a href="#local-6989586621681261264"><span class="hs-identifier hs-var hs-var">maxAggregationInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681261264"><span class="hs-identifier hs-var">maxAggregationInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261263"><span class="annot"><span class="annottext">s :: CreateFlowLogs
+</span><a href="#local-6989586621681261263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261262"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681261262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowLogs
+</span><a href="#local-6989586621681261263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxAggregationInterval:CreateFlowLogs' :: Maybe Int
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AmaxAggregationInterval%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">maxAggregationInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681261262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- | The tags to apply to the flow logs.</span><span>
+</span><span id="line-300"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_tagSpecifications"><span class="hs-identifier hs-type">createFlowLogs_tagSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span id="createFlowLogs_tagSpecifications"><span class="annot"><span class="annottext">createFlowLogs_tagSpecifications :: (Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+-&gt; CreateFlowLogs -&gt; f CreateFlowLogs
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_tagSpecifications"><span class="hs-identifier hs-var hs-var">createFlowLogs_tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowLogs -&gt; Maybe [TagSpecification])
+-&gt; (CreateFlowLogs -&gt; Maybe [TagSpecification] -&gt; CreateFlowLogs)
+-&gt; Lens
+     CreateFlowLogs
+     CreateFlowLogs
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261261"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+tagSpecifications :: Maybe [TagSpecification]
+$sel:tagSpecifications:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe [TagSpecification]
+</span><a href="#local-6989586621681261261"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681261261"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261260"><span class="annot"><span class="annottext">s :: CreateFlowLogs
+</span><a href="#local-6989586621681261260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261259"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681261259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowLogs
+</span><a href="#local-6989586621681261260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateFlowLogs' :: Maybe [TagSpecification]
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AtagSpecifications%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681261259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+ -&gt; CreateFlowLogs -&gt; f CreateFlowLogs)
+-&gt; ((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+    -&gt; Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+-&gt; (Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+-&gt; CreateFlowLogs
+-&gt; f CreateFlowLogs
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+-&gt; Iso
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-307"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_dryRun"><span class="hs-identifier hs-type">createFlowLogs_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span id="createFlowLogs_dryRun"><span class="annot"><span class="annottext">createFlowLogs_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateFlowLogs -&gt; f CreateFlowLogs
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_dryRun"><span class="hs-identifier hs-var hs-var">createFlowLogs_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowLogs -&gt; Maybe Bool)
+-&gt; (CreateFlowLogs -&gt; Maybe Bool -&gt; CreateFlowLogs)
+-&gt; Lens CreateFlowLogs CreateFlowLogs (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261255"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe Bool
+</span><a href="#local-6989586621681261255"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681261255"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261254"><span class="annot"><span class="annottext">s :: CreateFlowLogs
+</span><a href="#local-6989586621681261254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261253"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681261253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowLogs
+</span><a href="#local-6989586621681261254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateFlowLogs' :: Maybe Bool
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AdryRun%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681261253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- | Specifies the destination to which the flow log data is to be published.</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- Flow log data can be published to a CloudWatch Logs log group or an</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- Amazon S3 bucket. The value specified for this parameter depends on the</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- value specified for @LogDestinationType@.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- If @LogDestinationType@ is not specified or @cloud-watch-logs@, specify</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- example, to publish to a log group called @my-logs@, specify</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- @arn:aws:logs:us-east-1:123456789012:log-group:my-logs@. Alternatively,</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- use @LogGroupName@ instead.</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- If LogDestinationType is @s3@, specify the ARN of the Amazon S3 bucket.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- You can also specify a subfolder in the bucket. To specify a subfolder</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- in the bucket, use the following ARN format:</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- @bucket_ARN\/subfolder_name\/@. For example, to specify a subfolder</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- named @my-logs@ in a bucket named @my-bucket@, use the following ARN:</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- @arn:aws:s3:::my-bucket\/my-logs\/@. You cannot use @AWSLogs@ as a</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- subfolder name. This is a reserved term.</span><span>
+</span><span id="line-328"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_logDestination"><span class="hs-identifier hs-type">createFlowLogs_logDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span id="createFlowLogs_logDestination"><span class="annot"><span class="annottext">createFlowLogs_logDestination :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateFlowLogs -&gt; f CreateFlowLogs
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_logDestination"><span class="hs-identifier hs-var hs-var">createFlowLogs_logDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowLogs -&gt; Maybe Text)
+-&gt; (CreateFlowLogs -&gt; Maybe Text -&gt; CreateFlowLogs)
+-&gt; Lens CreateFlowLogs CreateFlowLogs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261252"><span class="annot"><span class="annottext">Maybe Text
+logDestination :: Maybe Text
+$sel:logDestination:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe Text
+</span><a href="#local-6989586621681261252"><span class="hs-identifier hs-var hs-var">logDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261252"><span class="hs-identifier hs-var">logDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261251"><span class="annot"><span class="annottext">s :: CreateFlowLogs
+</span><a href="#local-6989586621681261251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261250"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowLogs
+</span><a href="#local-6989586621681261251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logDestination:CreateFlowLogs' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AlogDestination%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">logDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- | The fields to include in the flow log record, in the order in which they</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- should appear. For a list of available fields, see</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records&gt;.</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- If you omit this parameter, the flow log is created using the default</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- format. If you specify this parameter, you must specify at least one</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- field.</span><span>
+</span><span id="line-337"></span><span class="hs-comment">--</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- Specify the fields using the @${field-id}@ format, separated by spaces.</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- For the CLI, use single quotation marks (\' \') to surround the</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- parameter value.</span><span>
+</span><span id="line-341"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_logFormat"><span class="hs-identifier hs-type">createFlowLogs_logFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span id="createFlowLogs_logFormat"><span class="annot"><span class="annottext">createFlowLogs_logFormat :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateFlowLogs -&gt; f CreateFlowLogs
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_logFormat"><span class="hs-identifier hs-var hs-var">createFlowLogs_logFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowLogs -&gt; Maybe Text)
+-&gt; (CreateFlowLogs -&gt; Maybe Text -&gt; CreateFlowLogs)
+-&gt; Lens CreateFlowLogs CreateFlowLogs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261249"><span class="annot"><span class="annottext">Maybe Text
+logFormat :: Maybe Text
+$sel:logFormat:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe Text
+</span><a href="#local-6989586621681261249"><span class="hs-identifier hs-var hs-var">logFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261249"><span class="hs-identifier hs-var">logFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261248"><span class="annot"><span class="annottext">s :: CreateFlowLogs
+</span><a href="#local-6989586621681261248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261247"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowLogs
+</span><a href="#local-6989586621681261248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logFormat:CreateFlowLogs' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AlogFormat%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">logFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- | The ARN for the IAM role that permits Amazon EC2 to publish flow logs to</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- a CloudWatch Logs log group in your account.</span><span>
+</span><span id="line-346"></span><span class="hs-comment">--</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- If you specify @LogDestinationType@ as @s3@, do not specify</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- @DeliverLogsPermissionArn@ or @LogGroupName@.</span><span>
+</span><span id="line-349"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_deliverLogsPermissionArn"><span class="hs-identifier hs-type">createFlowLogs_deliverLogsPermissionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span id="createFlowLogs_deliverLogsPermissionArn"><span class="annot"><span class="annottext">createFlowLogs_deliverLogsPermissionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateFlowLogs -&gt; f CreateFlowLogs
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_deliverLogsPermissionArn"><span class="hs-identifier hs-var hs-var">createFlowLogs_deliverLogsPermissionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowLogs -&gt; Maybe Text)
+-&gt; (CreateFlowLogs -&gt; Maybe Text -&gt; CreateFlowLogs)
+-&gt; Lens CreateFlowLogs CreateFlowLogs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261246"><span class="annot"><span class="annottext">Maybe Text
+deliverLogsPermissionArn :: Maybe Text
+$sel:deliverLogsPermissionArn:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe Text
+</span><a href="#local-6989586621681261246"><span class="hs-identifier hs-var hs-var">deliverLogsPermissionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261246"><span class="hs-identifier hs-var">deliverLogsPermissionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261245"><span class="annot"><span class="annottext">s :: CreateFlowLogs
+</span><a href="#local-6989586621681261245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261244"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowLogs
+</span><a href="#local-6989586621681261245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliverLogsPermissionArn:CreateFlowLogs' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AdeliverLogsPermissionArn%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">deliverLogsPermissionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- | The name of a new or existing CloudWatch Logs log group where Amazon EC2</span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- publishes your flow logs.</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- If you specify @LogDestinationType@ as @s3@, do not specify</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- @DeliverLogsPermissionArn@ or @LogGroupName@.</span><span>
+</span><span id="line-357"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_logGroupName"><span class="hs-identifier hs-type">createFlowLogs_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span id="createFlowLogs_logGroupName"><span class="annot"><span class="annottext">createFlowLogs_logGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateFlowLogs -&gt; f CreateFlowLogs
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_logGroupName"><span class="hs-identifier hs-var hs-var">createFlowLogs_logGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowLogs -&gt; Maybe Text)
+-&gt; (CreateFlowLogs -&gt; Maybe Text -&gt; CreateFlowLogs)
+-&gt; Lens CreateFlowLogs CreateFlowLogs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261243"><span class="annot"><span class="annottext">Maybe Text
+logGroupName :: Maybe Text
+$sel:logGroupName:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe Text
+</span><a href="#local-6989586621681261243"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261243"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261242"><span class="annot"><span class="annottext">s :: CreateFlowLogs
+</span><a href="#local-6989586621681261242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261241"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowLogs
+</span><a href="#local-6989586621681261242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:CreateFlowLogs' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AlogGroupName%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-359"></span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- | Specifies the type of destination to which the flow log data is to be</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- published. Flow log data can be published to CloudWatch Logs or Amazon</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- S3. To publish flow log data to CloudWatch Logs, specify</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- @cloud-watch-logs@. To publish flow log data to Amazon S3, specify @s3@.</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- If you specify @LogDestinationType@ as @s3@, do not specify</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- @DeliverLogsPermissionArn@ or @LogGroupName@.</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- Default: @cloud-watch-logs@</span><span>
+</span><span id="line-369"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_logDestinationType"><span class="hs-identifier hs-type">createFlowLogs_logDestinationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LogDestinationType.html#LogDestinationType"><span class="hs-identifier hs-type">LogDestinationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-370"></span><span id="createFlowLogs_logDestinationType"><span class="annot"><span class="annottext">createFlowLogs_logDestinationType :: (Maybe LogDestinationType -&gt; f (Maybe LogDestinationType))
+-&gt; CreateFlowLogs -&gt; f CreateFlowLogs
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_logDestinationType"><span class="hs-identifier hs-var hs-var">createFlowLogs_logDestinationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowLogs -&gt; Maybe LogDestinationType)
+-&gt; (CreateFlowLogs -&gt; Maybe LogDestinationType -&gt; CreateFlowLogs)
+-&gt; Lens
+     CreateFlowLogs
+     CreateFlowLogs
+     (Maybe LogDestinationType)
+     (Maybe LogDestinationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261240"><span class="annot"><span class="annottext">Maybe LogDestinationType
+logDestinationType :: Maybe LogDestinationType
+$sel:logDestinationType:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe LogDestinationType
+</span><a href="#local-6989586621681261240"><span class="hs-identifier hs-var hs-var">logDestinationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogDestinationType
+</span><a href="#local-6989586621681261240"><span class="hs-identifier hs-var">logDestinationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261239"><span class="annot"><span class="annottext">s :: CreateFlowLogs
+</span><a href="#local-6989586621681261239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261238"><span class="annot"><span class="annottext">Maybe LogDestinationType
+</span><a href="#local-6989586621681261238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowLogs
+</span><a href="#local-6989586621681261239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logDestinationType:CreateFlowLogs' :: Maybe LogDestinationType
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AlogDestinationType%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">logDestinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogDestinationType
+</span><a href="#local-6989586621681261238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-371"></span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency&gt;.</span><span>
+</span><span id="line-375"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_clientToken"><span class="hs-identifier hs-type">createFlowLogs_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span id="createFlowLogs_clientToken"><span class="annot"><span class="annottext">createFlowLogs_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateFlowLogs -&gt; f CreateFlowLogs
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_clientToken"><span class="hs-identifier hs-var hs-var">createFlowLogs_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowLogs -&gt; Maybe Text)
+-&gt; (CreateFlowLogs -&gt; Maybe Text -&gt; CreateFlowLogs)
+-&gt; Lens CreateFlowLogs CreateFlowLogs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261237"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe Text
+</span><a href="#local-6989586621681261237"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261237"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261236"><span class="annot"><span class="annottext">s :: CreateFlowLogs
+</span><a href="#local-6989586621681261236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261235"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowLogs
+</span><a href="#local-6989586621681261236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateFlowLogs' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AclientToken%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- | The ID of the subnet, network interface, or VPC for which you want to</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- create a flow log.</span><span>
+</span><span id="line-380"></span><span class="hs-comment">--</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- Constraints: Maximum of 1000 resources</span><span>
+</span><span id="line-382"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_resourceIds"><span class="hs-identifier hs-type">createFlowLogs_resourceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-383"></span><span id="createFlowLogs_resourceIds"><span class="annot"><span class="annottext">createFlowLogs_resourceIds :: ([Text] -&gt; f [Text]) -&gt; CreateFlowLogs -&gt; f CreateFlowLogs
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_resourceIds"><span class="hs-identifier hs-var hs-var">createFlowLogs_resourceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowLogs -&gt; [Text])
+-&gt; (CreateFlowLogs -&gt; [Text] -&gt; CreateFlowLogs)
+-&gt; Lens CreateFlowLogs CreateFlowLogs [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261234"><span class="annot"><span class="annottext">[Text]
+resourceIds :: [Text]
+$sel:resourceIds:CreateFlowLogs' :: CreateFlowLogs -&gt; [Text]
+</span><a href="#local-6989586621681261234"><span class="hs-identifier hs-var hs-var">resourceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681261234"><span class="hs-identifier hs-var">resourceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261233"><span class="annot"><span class="annottext">s :: CreateFlowLogs
+</span><a href="#local-6989586621681261233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261232"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681261232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowLogs
+</span><a href="#local-6989586621681261233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIds:CreateFlowLogs' :: [Text]
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AresourceIds%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">resourceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681261232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; CreateFlowLogs -&gt; f CreateFlowLogs)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; CreateFlowLogs
+-&gt; f CreateFlowLogs
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-384"></span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- | The type of resource for which to create the flow log. For example, if</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- you specified a VPC ID for the @ResourceId@ property, specify @VPC@ for</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- this property.</span><span>
+</span><span id="line-388"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_resourceType"><span class="hs-identifier hs-type">createFlowLogs_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FlowLogsResourceType.html#FlowLogsResourceType"><span class="hs-identifier hs-type">FlowLogsResourceType</span></a></span><span>
+</span><span id="line-389"></span><span id="createFlowLogs_resourceType"><span class="annot"><span class="annottext">createFlowLogs_resourceType :: (FlowLogsResourceType -&gt; f FlowLogsResourceType)
+-&gt; CreateFlowLogs -&gt; f CreateFlowLogs
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_resourceType"><span class="hs-identifier hs-var hs-var">createFlowLogs_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowLogs -&gt; FlowLogsResourceType)
+-&gt; (CreateFlowLogs -&gt; FlowLogsResourceType -&gt; CreateFlowLogs)
+-&gt; Lens
+     CreateFlowLogs
+     CreateFlowLogs
+     FlowLogsResourceType
+     FlowLogsResourceType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261231"><span class="annot"><span class="annottext">FlowLogsResourceType
+resourceType :: FlowLogsResourceType
+$sel:resourceType:CreateFlowLogs' :: CreateFlowLogs -&gt; FlowLogsResourceType
+</span><a href="#local-6989586621681261231"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlowLogsResourceType
+</span><a href="#local-6989586621681261231"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261230"><span class="annot"><span class="annottext">s :: CreateFlowLogs
+</span><a href="#local-6989586621681261230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261229"><span class="annot"><span class="annottext">FlowLogsResourceType
+</span><a href="#local-6989586621681261229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowLogs
+</span><a href="#local-6989586621681261230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:CreateFlowLogs' :: FlowLogsResourceType
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AresourceType%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FlowLogsResourceType
+</span><a href="#local-6989586621681261229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-390"></span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- | The type of traffic to log. You can log traffic that the resource</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- accepts or rejects, or all traffic.</span><span>
+</span><span id="line-393"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_trafficType"><span class="hs-identifier hs-type">createFlowLogs_trafficType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TrafficType.html#TrafficType"><span class="hs-identifier hs-type">TrafficType</span></a></span><span>
+</span><span id="line-394"></span><span id="createFlowLogs_trafficType"><span class="annot"><span class="annottext">createFlowLogs_trafficType :: (TrafficType -&gt; f TrafficType)
+-&gt; CreateFlowLogs -&gt; f CreateFlowLogs
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogs_trafficType"><span class="hs-identifier hs-var hs-var">createFlowLogs_trafficType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowLogs -&gt; TrafficType)
+-&gt; (CreateFlowLogs -&gt; TrafficType -&gt; CreateFlowLogs)
+-&gt; Lens CreateFlowLogs CreateFlowLogs TrafficType TrafficType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261228"><span class="annot"><span class="annottext">TrafficType
+trafficType :: TrafficType
+$sel:trafficType:CreateFlowLogs' :: CreateFlowLogs -&gt; TrafficType
+</span><a href="#local-6989586621681261228"><span class="hs-identifier hs-var hs-var">trafficType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficType
+</span><a href="#local-6989586621681261228"><span class="hs-identifier hs-var">trafficType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261227"><span class="annot"><span class="annottext">s :: CreateFlowLogs
+</span><a href="#local-6989586621681261227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261226"><span class="annot"><span class="annottext">TrafficType
+</span><a href="#local-6989586621681261226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowLogs
+</span><a href="#local-6989586621681261227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficType:CreateFlowLogs' :: TrafficType
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AtrafficType%3ACreateFlowLogs%27"><span class="hs-identifier hs-var">trafficType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrafficType
+</span><a href="#local-6989586621681261226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-395"></span><span>
+</span><span id="line-396"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-397"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-398"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-399"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse"><span class="hs-identifier hs-type">CreateFlowLogsResponse</span></a></span><span>
+</span><span id="line-400"></span><span>  </span><span id="local-6989586621681261222"><span class="annot"><span class="annottext">request :: CreateFlowLogs -&gt; Request CreateFlowLogs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateFlowLogs -&gt; Request CreateFlowLogs
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-401"></span><span>  </span><span id="local-6989586621681261218"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateFlowLogs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateFlowLogs)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-402"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse CreateFlowLogs))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateFlowLogs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateFlowLogs)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-403"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681261215"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681261215"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681261214"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681261214"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681261213"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681261213"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-404"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+-&gt; Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; CreateFlowLogsResponse
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse%27"><span class="hs-identifier hs-var">CreateFlowLogsResponse'</span></a></span><span>
+</span><span id="line-405"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [UnsuccessfulItem]
+ -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; CreateFlowLogsResponse)
+-&gt; Either String (Maybe [UnsuccessfulItem])
+-&gt; Either
+     String
+     (Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; CreateFlowLogsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681261213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;unsuccessful&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-406"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [UnsuccessfulItem]))
+-&gt; Either String (Maybe [UnsuccessfulItem])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [UnsuccessfulItem])
+-&gt; [Node] -&gt; Either String (Maybe [UnsuccessfulItem])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [UnsuccessfulItem]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-407"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-408"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; CreateFlowLogsResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; CreateFlowLogsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681261213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;flowLogIdSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-409"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-410"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-411"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateFlowLogsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateFlowLogsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681261213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-412"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateFlowLogsResponse)
+-&gt; Either String Int -&gt; Either String CreateFlowLogsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681261215"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-413"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-414"></span><span>
+</span><span id="line-415"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681261202"><span id="local-6989586621681261204"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span></span></span><span>
+</span><span id="line-416"></span><span>
+</span><span id="line-417"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681261199"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span></span><span>
+</span><span id="line-418"></span><span>
+</span><span id="line-419"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-420"></span><span>  </span><span id="local-6989586621681261195"><span class="annot"><span class="annottext">toHeaders :: CreateFlowLogs -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateFlowLogs -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-421"></span><span>
+</span><span id="line-422"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-423"></span><span>  </span><span id="local-6989586621681261190"><span class="annot"><span class="annottext">toPath :: CreateFlowLogs -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateFlowLogs -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-424"></span><span>
+</span><span id="line-425"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs"><span class="hs-identifier hs-type">CreateFlowLogs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-426"></span><span>  </span><span id="local-6989586621681261186"><span class="annot"><span class="annottext">toQuery :: CreateFlowLogs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogs%27"><span class="hs-identifier hs-type">CreateFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261173"><span id="local-6989586621681261174"><span id="local-6989586621681261175"><span id="local-6989586621681261176"><span id="local-6989586621681261177"><span id="local-6989586621681261178"><span id="local-6989586621681261179"><span id="local-6989586621681261180"><span id="local-6989586621681261181"><span id="local-6989586621681261182"><span id="local-6989586621681261183"><span id="local-6989586621681261184"><span class="annot"><span class="annottext">[Text]
+Maybe Bool
+Maybe Int
+Maybe [TagSpecification]
+Maybe Text
+Maybe LogDestinationType
+FlowLogsResourceType
+TrafficType
+trafficType :: TrafficType
+resourceType :: FlowLogsResourceType
+resourceIds :: [Text]
+clientToken :: Maybe Text
+logDestinationType :: Maybe LogDestinationType
+logGroupName :: Maybe Text
+deliverLogsPermissionArn :: Maybe Text
+logFormat :: Maybe Text
+logDestination :: Maybe Text
+dryRun :: Maybe Bool
+tagSpecifications :: Maybe [TagSpecification]
+maxAggregationInterval :: Maybe Int
+$sel:trafficType:CreateFlowLogs' :: CreateFlowLogs -&gt; TrafficType
+$sel:resourceType:CreateFlowLogs' :: CreateFlowLogs -&gt; FlowLogsResourceType
+$sel:resourceIds:CreateFlowLogs' :: CreateFlowLogs -&gt; [Text]
+$sel:clientToken:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe Text
+$sel:logDestinationType:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe LogDestinationType
+$sel:logGroupName:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe Text
+$sel:deliverLogsPermissionArn:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe Text
+$sel:logFormat:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe Text
+$sel:logDestination:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe Text
+$sel:dryRun:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe Bool
+$sel:tagSpecifications:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe [TagSpecification]
+$sel:maxAggregationInterval:CreateFlowLogs' :: CreateFlowLogs -&gt; Maybe Int
+</span><a href="#local-6989586621681261173"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-427"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-428"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-429"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateFlowLogs&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-430"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-431"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-432"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxAggregationInterval&quot;</span></span><span>
+</span><span id="line-433"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681261184"><span class="hs-identifier hs-var">maxAggregationInterval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-434"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-435"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [TagSpecification] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TagSpecification&quot;</span></span><span>
+</span><span id="line-436"></span><span>              </span><span class="annot"><span class="annottext">([TagSpecification] -&gt; QueryString)
+-&gt; Maybe [TagSpecification] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681261183"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
+</span><span id="line-437"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-438"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681261182"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-439"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LogDestination&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261181"><span class="hs-identifier hs-var">logDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-440"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LogFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261180"><span class="hs-identifier hs-var">logFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-441"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeliverLogsPermissionArn&quot;</span></span><span>
+</span><span id="line-442"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261179"><span class="hs-identifier hs-var">deliverLogsPermissionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-443"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LogGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261178"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-444"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LogDestinationType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe LogDestinationType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe LogDestinationType
+</span><a href="#local-6989586621681261177"><span class="hs-identifier hs-var">logDestinationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-445"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261176"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-446"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681261175"><span class="hs-identifier hs-var">resourceIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-447"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ResourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; FlowLogsResourceType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">FlowLogsResourceType
+</span><a href="#local-6989586621681261174"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-448"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TrafficType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TrafficType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">TrafficType
+</span><a href="#local-6989586621681261173"><span class="hs-identifier hs-var">trafficType</span></a></span><span>
+</span><span id="line-449"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-450"></span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- | /See:/ 'newCreateFlowLogsResponse' smart constructor.</span><span>
+</span><span id="line-452"></span><span id="local-6989586621681261169"><span id="local-6989586621681261170"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateFlowLogsResponse"><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse"><span class="hs-identifier hs-var">CreateFlowLogsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateFlowLogsResponse%27"><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse%27"><span class="hs-identifier hs-var">CreateFlowLogsResponse'</span></a></span></span><span>
+</span><span id="line-453"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the flow logs that could not be created successfully.</span><span>
+</span><span id="line-454"></span><span>    </span><span id="%24sel%3Aunsuccessful%3ACreateFlowLogsResponse%27"><span class="annot"><span class="annottext">CreateFlowLogsResponse -&gt; Maybe [UnsuccessfulItem]
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3Aunsuccessful%3ACreateFlowLogsResponse%27"><span class="hs-identifier hs-var hs-var">unsuccessful</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItem.html#UnsuccessfulItem"><span class="hs-identifier hs-type">UnsuccessfulItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-455"></span><span>    </span><span class="hs-comment">-- | The IDs of the flow logs.</span><span>
+</span><span id="line-456"></span><span>    </span><span id="%24sel%3AflowLogIds%3ACreateFlowLogsResponse%27"><span class="annot"><span class="annottext">CreateFlowLogsResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AflowLogIds%3ACreateFlowLogsResponse%27"><span class="hs-identifier hs-var hs-var">flowLogIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-457"></span><span>    </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-458"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-459"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateFlowLogsResponse%27"><span class="annot"><span class="annottext">CreateFlowLogsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AclientToken%3ACreateFlowLogsResponse%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-460"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-461"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateFlowLogsResponse%27"><span class="annot"><span class="annottext">CreateFlowLogsResponse -&gt; Int
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AhttpStatus%3ACreateFlowLogsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-462"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-463"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681261161"><span id="local-6989586621681261163"><span class="annot"><span class="annottext">CreateFlowLogsResponse -&gt; CreateFlowLogsResponse -&gt; Bool
+(CreateFlowLogsResponse -&gt; CreateFlowLogsResponse -&gt; Bool)
+-&gt; (CreateFlowLogsResponse -&gt; CreateFlowLogsResponse -&gt; Bool)
+-&gt; Eq CreateFlowLogsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateFlowLogsResponse -&gt; CreateFlowLogsResponse -&gt; Bool
+$c/= :: CreateFlowLogsResponse -&gt; CreateFlowLogsResponse -&gt; Bool
+== :: CreateFlowLogsResponse -&gt; CreateFlowLogsResponse -&gt; Bool
+$c== :: CreateFlowLogsResponse -&gt; CreateFlowLogsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681261153"><span id="local-6989586621681261155"><span id="local-6989586621681261157"><span id="local-6989586621681261159"><span class="annot"><span class="annottext">ReadPrec [CreateFlowLogsResponse]
+ReadPrec CreateFlowLogsResponse
+Int -&gt; ReadS CreateFlowLogsResponse
+ReadS [CreateFlowLogsResponse]
+(Int -&gt; ReadS CreateFlowLogsResponse)
+-&gt; ReadS [CreateFlowLogsResponse]
+-&gt; ReadPrec CreateFlowLogsResponse
+-&gt; ReadPrec [CreateFlowLogsResponse]
+-&gt; Read CreateFlowLogsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateFlowLogsResponse]
+$creadListPrec :: ReadPrec [CreateFlowLogsResponse]
+readPrec :: ReadPrec CreateFlowLogsResponse
+$creadPrec :: ReadPrec CreateFlowLogsResponse
+readList :: ReadS [CreateFlowLogsResponse]
+$creadList :: ReadS [CreateFlowLogsResponse]
+readsPrec :: Int -&gt; ReadS CreateFlowLogsResponse
+$creadsPrec :: Int -&gt; ReadS CreateFlowLogsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681261147"><span id="local-6989586621681261149"><span id="local-6989586621681261151"><span class="annot"><span class="annottext">Int -&gt; CreateFlowLogsResponse -&gt; ShowS
+[CreateFlowLogsResponse] -&gt; ShowS
+CreateFlowLogsResponse -&gt; String
+(Int -&gt; CreateFlowLogsResponse -&gt; ShowS)
+-&gt; (CreateFlowLogsResponse -&gt; String)
+-&gt; ([CreateFlowLogsResponse] -&gt; ShowS)
+-&gt; Show CreateFlowLogsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateFlowLogsResponse] -&gt; ShowS
+$cshowList :: [CreateFlowLogsResponse] -&gt; ShowS
+show :: CreateFlowLogsResponse -&gt; String
+$cshow :: CreateFlowLogsResponse -&gt; String
+showsPrec :: Int -&gt; CreateFlowLogsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateFlowLogsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateFlowLogsResponse -&gt; Rep CreateFlowLogsResponse x)
+-&gt; (forall x.
+    Rep CreateFlowLogsResponse x -&gt; CreateFlowLogsResponse)
+-&gt; Generic CreateFlowLogsResponse
+forall x. Rep CreateFlowLogsResponse x -&gt; CreateFlowLogsResponse
+forall x. CreateFlowLogsResponse -&gt; Rep CreateFlowLogsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateFlowLogsResponse x -&gt; CreateFlowLogsResponse
+$cfrom :: forall x. CreateFlowLogsResponse -&gt; Rep CreateFlowLogsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-464"></span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- Create a value of 'CreateFlowLogsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-467"></span><span class="hs-comment">--</span><span>
+</span><span id="line-468"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-469"></span><span class="hs-comment">--</span><span>
+</span><span id="line-470"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-471"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-472"></span><span class="hs-comment">--</span><span>
+</span><span id="line-473"></span><span class="hs-comment">-- 'unsuccessful', 'createFlowLogsResponse_unsuccessful' - Information about the flow logs that could not be created successfully.</span><span>
+</span><span id="line-474"></span><span class="hs-comment">--</span><span>
+</span><span id="line-475"></span><span class="hs-comment">-- 'flowLogIds', 'createFlowLogsResponse_flowLogIds' - The IDs of the flow logs.</span><span>
+</span><span id="line-476"></span><span class="hs-comment">--</span><span>
+</span><span id="line-477"></span><span class="hs-comment">-- 'clientToken', 'createFlowLogsResponse_clientToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-478"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-479"></span><span class="hs-comment">--</span><span>
+</span><span id="line-480"></span><span class="hs-comment">-- 'httpStatus', 'createFlowLogsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-481"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#newCreateFlowLogsResponse"><span class="hs-identifier hs-type">newCreateFlowLogsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-482"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-483"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-484"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse"><span class="hs-identifier hs-type">CreateFlowLogsResponse</span></a></span><span>
+</span><span id="line-485"></span><span id="newCreateFlowLogsResponse"><span class="annot"><span class="annottext">newCreateFlowLogsResponse :: Int -&gt; CreateFlowLogsResponse
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#newCreateFlowLogsResponse"><span class="hs-identifier hs-var hs-var">newCreateFlowLogsResponse</span></a></span></span><span> </span><span id="local-6989586621681261144"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681261144"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-486"></span><span>  </span><span class="annot"><span class="annottext">CreateFlowLogsResponse' :: Maybe [UnsuccessfulItem]
+-&gt; Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; CreateFlowLogsResponse
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse%27"><span class="hs-identifier hs-type">CreateFlowLogsResponse'</span></a></span><span>
+</span><span id="line-487"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:unsuccessful:CreateFlowLogsResponse' :: Maybe [UnsuccessfulItem]
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3Aunsuccessful%3ACreateFlowLogsResponse%27"><span class="hs-identifier hs-var">unsuccessful</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-488"></span><span>        </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-489"></span><span>      </span><span class="annot"><span class="annottext">$sel:flowLogIds:CreateFlowLogsResponse' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AflowLogIds%3ACreateFlowLogsResponse%27"><span class="hs-identifier hs-var">flowLogIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-490"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientToken:CreateFlowLogsResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AclientToken%3ACreateFlowLogsResponse%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-491"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateFlowLogsResponse' :: Int
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AhttpStatus%3ACreateFlowLogsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681261144"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-492"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-493"></span><span>
+</span><span id="line-494"></span><span class="hs-comment">-- | Information about the flow logs that could not be created successfully.</span><span>
+</span><span id="line-495"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogsResponse_unsuccessful"><span class="hs-identifier hs-type">createFlowLogsResponse_unsuccessful</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse"><span class="hs-identifier hs-type">CreateFlowLogsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItem.html#UnsuccessfulItem"><span class="hs-identifier hs-type">UnsuccessfulItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-496"></span><span id="createFlowLogsResponse_unsuccessful"><span class="annot"><span class="annottext">createFlowLogsResponse_unsuccessful :: (Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
+-&gt; CreateFlowLogsResponse -&gt; f CreateFlowLogsResponse
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogsResponse_unsuccessful"><span class="hs-identifier hs-var hs-var">createFlowLogsResponse_unsuccessful</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowLogsResponse -&gt; Maybe [UnsuccessfulItem])
+-&gt; (CreateFlowLogsResponse
+    -&gt; Maybe [UnsuccessfulItem] -&gt; CreateFlowLogsResponse)
+-&gt; Lens
+     CreateFlowLogsResponse
+     CreateFlowLogsResponse
+     (Maybe [UnsuccessfulItem])
+     (Maybe [UnsuccessfulItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse%27"><span class="hs-identifier hs-type">CreateFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261143"><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+unsuccessful :: Maybe [UnsuccessfulItem]
+$sel:unsuccessful:CreateFlowLogsResponse' :: CreateFlowLogsResponse -&gt; Maybe [UnsuccessfulItem]
+</span><a href="#local-6989586621681261143"><span class="hs-identifier hs-var hs-var">unsuccessful</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+</span><a href="#local-6989586621681261143"><span class="hs-identifier hs-var">unsuccessful</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261142"><span class="annot"><span class="annottext">s :: CreateFlowLogsResponse
+</span><a href="#local-6989586621681261142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse%27"><span class="hs-identifier hs-type">CreateFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261141"><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+</span><a href="#local-6989586621681261141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowLogsResponse
+</span><a href="#local-6989586621681261142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unsuccessful:CreateFlowLogsResponse' :: Maybe [UnsuccessfulItem]
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3Aunsuccessful%3ACreateFlowLogsResponse%27"><span class="hs-identifier hs-var">unsuccessful</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+</span><a href="#local-6989586621681261141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse"><span class="hs-identifier hs-type">CreateFlowLogsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
+ -&gt; CreateFlowLogsResponse -&gt; f CreateFlowLogsResponse)
+-&gt; ((Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
+    -&gt; Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
+-&gt; (Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
+-&gt; CreateFlowLogsResponse
+-&gt; f CreateFlowLogsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+-&gt; Iso
+     (Maybe [UnsuccessfulItem])
+     (Maybe [UnsuccessfulItem])
+     (Maybe [UnsuccessfulItem])
+     (Maybe [UnsuccessfulItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-497"></span><span>
+</span><span id="line-498"></span><span class="hs-comment">-- | The IDs of the flow logs.</span><span>
+</span><span id="line-499"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogsResponse_flowLogIds"><span class="hs-identifier hs-type">createFlowLogsResponse_flowLogIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse"><span class="hs-identifier hs-type">CreateFlowLogsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-500"></span><span id="createFlowLogsResponse_flowLogIds"><span class="annot"><span class="annottext">createFlowLogsResponse_flowLogIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateFlowLogsResponse -&gt; f CreateFlowLogsResponse
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogsResponse_flowLogIds"><span class="hs-identifier hs-var hs-var">createFlowLogsResponse_flowLogIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowLogsResponse -&gt; Maybe [Text])
+-&gt; (CreateFlowLogsResponse
+    -&gt; Maybe [Text] -&gt; CreateFlowLogsResponse)
+-&gt; Lens
+     CreateFlowLogsResponse
+     CreateFlowLogsResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse%27"><span class="hs-identifier hs-type">CreateFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261140"><span class="annot"><span class="annottext">Maybe [Text]
+flowLogIds :: Maybe [Text]
+$sel:flowLogIds:CreateFlowLogsResponse' :: CreateFlowLogsResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621681261140"><span class="hs-identifier hs-var hs-var">flowLogIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681261140"><span class="hs-identifier hs-var">flowLogIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261139"><span class="annot"><span class="annottext">s :: CreateFlowLogsResponse
+</span><a href="#local-6989586621681261139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse%27"><span class="hs-identifier hs-type">CreateFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261138"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681261138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowLogsResponse
+</span><a href="#local-6989586621681261139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowLogIds:CreateFlowLogsResponse' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AflowLogIds%3ACreateFlowLogsResponse%27"><span class="hs-identifier hs-var">flowLogIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681261138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse"><span class="hs-identifier hs-type">CreateFlowLogsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateFlowLogsResponse -&gt; f CreateFlowLogsResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateFlowLogsResponse
+-&gt; f CreateFlowLogsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-501"></span><span>
+</span><span id="line-502"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-503"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-504"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogsResponse_clientToken"><span class="hs-identifier hs-type">createFlowLogsResponse_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse"><span class="hs-identifier hs-type">CreateFlowLogsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-505"></span><span id="createFlowLogsResponse_clientToken"><span class="annot"><span class="annottext">createFlowLogsResponse_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateFlowLogsResponse -&gt; f CreateFlowLogsResponse
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogsResponse_clientToken"><span class="hs-identifier hs-var hs-var">createFlowLogsResponse_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowLogsResponse -&gt; Maybe Text)
+-&gt; (CreateFlowLogsResponse -&gt; Maybe Text -&gt; CreateFlowLogsResponse)
+-&gt; Lens
+     CreateFlowLogsResponse
+     CreateFlowLogsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse%27"><span class="hs-identifier hs-type">CreateFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261137"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateFlowLogsResponse' :: CreateFlowLogsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681261137"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261137"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261136"><span class="annot"><span class="annottext">s :: CreateFlowLogsResponse
+</span><a href="#local-6989586621681261136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse%27"><span class="hs-identifier hs-type">CreateFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261135"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowLogsResponse
+</span><a href="#local-6989586621681261136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateFlowLogsResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AclientToken%3ACreateFlowLogsResponse%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse"><span class="hs-identifier hs-type">CreateFlowLogsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-506"></span><span>
+</span><span id="line-507"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-508"></span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogsResponse_httpStatus"><span class="hs-identifier hs-type">createFlowLogsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse"><span class="hs-identifier hs-type">CreateFlowLogsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-509"></span><span id="createFlowLogsResponse_httpStatus"><span class="annot"><span class="annottext">createFlowLogsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateFlowLogsResponse -&gt; f CreateFlowLogsResponse
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#createFlowLogsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createFlowLogsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowLogsResponse -&gt; Int)
+-&gt; (CreateFlowLogsResponse -&gt; Int -&gt; CreateFlowLogsResponse)
+-&gt; Lens CreateFlowLogsResponse CreateFlowLogsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse%27"><span class="hs-identifier hs-type">CreateFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261134"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateFlowLogsResponse' :: CreateFlowLogsResponse -&gt; Int
+</span><a href="#local-6989586621681261134"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681261134"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261133"><span class="annot"><span class="annottext">s :: CreateFlowLogsResponse
+</span><a href="#local-6989586621681261133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse%27"><span class="hs-identifier hs-type">CreateFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261132"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681261132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowLogsResponse
+</span><a href="#local-6989586621681261133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateFlowLogsResponse' :: Int
+</span><a href="Network.AWS.EC2.CreateFlowLogs.html#%24sel%3AhttpStatus%3ACreateFlowLogsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681261132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse"><span class="hs-identifier hs-type">CreateFlowLogsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-510"></span><span>
+</span><span id="line-511"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681261130"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateFlowLogs.html#CreateFlowLogsResponse"><span class="hs-identifier hs-type">CreateFlowLogsResponse</span></a></span></span><span>
+</span><span id="line-512"></span></pre></body></html>

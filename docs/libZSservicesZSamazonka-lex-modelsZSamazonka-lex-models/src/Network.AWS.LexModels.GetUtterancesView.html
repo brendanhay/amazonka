@@ -1,0 +1,640 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.LexModels.GetUtterancesView</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Use the @GetUtterancesView@ operation to get information about the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- utterances that your users have made to your bot. You can use this list</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- to tune the utterances that your bot responds to.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- For example, say that you have created a bot to order flowers. After</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- your users have used your bot for a while, use the @GetUtterancesView@</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- operation to see the requests that they have made and whether they have</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- been successful. You might find that the utterance \&quot;I want flowers\&quot; is</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- not being recognized. You could add this utterance to the @OrderFlowers@</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- intent so that your bot recognizes that utterance.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- After you publish a new version of a bot, you can get information about</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- the old version and the new so that you can compare the performance</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- across the two versions.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Utterance statistics are generated once a day. Data is available for the</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- last 15 days. You can request information for up to 5 versions of your</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- bot in each request. Amazon Lex returns the most frequent utterances</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- received by the bot in the last 15 days. The response contains</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- information about a maximum of 100 utterances for each version.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- If you set @childDirected@ field to true when you created your bot, if</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- you are using slot obfuscation with one or more slots, or if you opted</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- out of participating in improving Amazon Lex, utterances are not</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- available.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- This operation requires permissions for the @lex:GetUtterancesView@</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LexModels.GetUtterancesView</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView"><span class="hs-identifier">GetUtterancesView</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#newGetUtterancesView"><span class="hs-identifier">newGetUtterancesView</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesView_botName"><span class="hs-identifier">getUtterancesView_botName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesView_botVersions"><span class="hs-identifier">getUtterancesView_botVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesView_statusType"><span class="hs-identifier">getUtterancesView_statusType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse"><span class="hs-identifier">GetUtterancesViewResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#newGetUtterancesViewResponse"><span class="hs-identifier">newGetUtterancesViewResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesViewResponse_botName"><span class="hs-identifier">getUtterancesViewResponse_botName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesViewResponse_utterances"><span class="hs-identifier">getUtterancesViewResponse_utterances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesViewResponse_httpStatus"><span class="hs-identifier">getUtterancesViewResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.html"><span class="hs-identifier">Network.AWS.LexModels.Types</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | /See:/ 'newGetUtterancesView' smart constructor.</span><span>
+</span><span id="line-80"></span><span id="local-6989586621679320268"><span id="local-6989586621679320269"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUtterancesView"><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView"><span class="hs-identifier hs-var">GetUtterancesView</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUtterancesView%27"><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView%27"><span class="hs-identifier hs-var">GetUtterancesView'</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the bot for which utterance information should be returned.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AbotName%3AGetUtterancesView%27"><span class="annot"><span class="annottext">GetUtterancesView -&gt; Text
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3AbotName%3AGetUtterancesView%27"><span class="hs-identifier hs-var hs-var">botName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | An array of bot versions for which utterance information should be</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- returned. The limit is 5 versions per request.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AbotVersions%3AGetUtterancesView%27"><span class="annot"><span class="annottext">GetUtterancesView -&gt; NonEmpty Text
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3AbotVersions%3AGetUtterancesView%27"><span class="hs-identifier hs-var hs-var">botVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | To return utterances that were recognized and handled, use @Detected@.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- To return utterances that were not recognized, use @Missed@.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AstatusType%3AGetUtterancesView%27"><span class="annot"><span class="annottext">GetUtterancesView -&gt; StatusType
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3AstatusType%3AGetUtterancesView%27"><span class="hs-identifier hs-var hs-var">statusType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.StatusType.html#StatusType"><span class="hs-identifier hs-type">StatusType</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679320260"><span id="local-6989586621679320262"><span class="annot"><span class="annottext">GetUtterancesView -&gt; GetUtterancesView -&gt; Bool
+(GetUtterancesView -&gt; GetUtterancesView -&gt; Bool)
+-&gt; (GetUtterancesView -&gt; GetUtterancesView -&gt; Bool)
+-&gt; Eq GetUtterancesView
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetUtterancesView -&gt; GetUtterancesView -&gt; Bool
+$c/= :: GetUtterancesView -&gt; GetUtterancesView -&gt; Bool
+== :: GetUtterancesView -&gt; GetUtterancesView -&gt; Bool
+$c== :: GetUtterancesView -&gt; GetUtterancesView -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320251"><span id="local-6989586621679320253"><span id="local-6989586621679320255"><span id="local-6989586621679320257"><span class="annot"><span class="annottext">ReadPrec [GetUtterancesView]
+ReadPrec GetUtterancesView
+Int -&gt; ReadS GetUtterancesView
+ReadS [GetUtterancesView]
+(Int -&gt; ReadS GetUtterancesView)
+-&gt; ReadS [GetUtterancesView]
+-&gt; ReadPrec GetUtterancesView
+-&gt; ReadPrec [GetUtterancesView]
+-&gt; Read GetUtterancesView
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetUtterancesView]
+$creadListPrec :: ReadPrec [GetUtterancesView]
+readPrec :: ReadPrec GetUtterancesView
+$creadPrec :: ReadPrec GetUtterancesView
+readList :: ReadS [GetUtterancesView]
+$creadList :: ReadS [GetUtterancesView]
+readsPrec :: Int -&gt; ReadS GetUtterancesView
+$creadsPrec :: Int -&gt; ReadS GetUtterancesView
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320244"><span id="local-6989586621679320246"><span id="local-6989586621679320248"><span class="annot"><span class="annottext">Int -&gt; GetUtterancesView -&gt; ShowS
+[GetUtterancesView] -&gt; ShowS
+GetUtterancesView -&gt; String
+(Int -&gt; GetUtterancesView -&gt; ShowS)
+-&gt; (GetUtterancesView -&gt; String)
+-&gt; ([GetUtterancesView] -&gt; ShowS)
+-&gt; Show GetUtterancesView
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetUtterancesView] -&gt; ShowS
+$cshowList :: [GetUtterancesView] -&gt; ShowS
+show :: GetUtterancesView -&gt; String
+$cshow :: GetUtterancesView -&gt; String
+showsPrec :: Int -&gt; GetUtterancesView -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetUtterancesView -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetUtterancesView -&gt; Rep GetUtterancesView x)
+-&gt; (forall x. Rep GetUtterancesView x -&gt; GetUtterancesView)
+-&gt; Generic GetUtterancesView
+forall x. Rep GetUtterancesView x -&gt; GetUtterancesView
+forall x. GetUtterancesView -&gt; Rep GetUtterancesView x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetUtterancesView x -&gt; GetUtterancesView
+$cfrom :: forall x. GetUtterancesView -&gt; Rep GetUtterancesView x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Create a value of 'GetUtterancesView' with all optional fields omitted.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'botName', 'getUtterancesView_botName' - The name of the bot for which utterance information should be returned.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'botVersions', 'getUtterancesView_botVersions' - An array of bot versions for which utterance information should be</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- returned. The limit is 5 versions per request.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'statusType', 'getUtterancesView_statusType' - To return utterances that were recognized and handled, use @Detected@.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- To return utterances that were not recognized, use @Missed@.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#newGetUtterancesView"><span class="hs-identifier hs-type">newGetUtterancesView</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'botName'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'botVersions'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'statusType'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.StatusType.html#StatusType"><span class="hs-identifier hs-type">StatusType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView"><span class="hs-identifier hs-type">GetUtterancesView</span></a></span><span>
+</span><span id="line-115"></span><span id="newGetUtterancesView"><span class="annot"><span class="annottext">newGetUtterancesView :: Text -&gt; NonEmpty Text -&gt; StatusType -&gt; GetUtterancesView
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#newGetUtterancesView"><span class="hs-identifier hs-var hs-var">newGetUtterancesView</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679320239"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679320239"><span class="hs-identifier hs-var">pBotName_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679320238"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679320238"><span class="hs-identifier hs-var">pBotVersions_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679320237"><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679320237"><span class="hs-identifier hs-var">pStatusType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">GetUtterancesView' :: Text -&gt; NonEmpty Text -&gt; StatusType -&gt; GetUtterancesView
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView%27"><span class="hs-identifier hs-type">GetUtterancesView'</span></a></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:botName:GetUtterancesView' :: Text
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3AbotName%3AGetUtterancesView%27"><span class="hs-identifier hs-var">botName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679320239"><span class="hs-identifier hs-var">pBotName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:botVersions:GetUtterancesView' :: NonEmpty Text
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3AbotVersions%3AGetUtterancesView%27"><span class="hs-identifier hs-var">botVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679320238"><span class="hs-identifier hs-var">pBotVersions_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:statusType:GetUtterancesView' :: StatusType
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3AstatusType%3AGetUtterancesView%27"><span class="hs-identifier hs-var">statusType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679320237"><span class="hs-identifier hs-var">pStatusType_</span></a></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The name of the bot for which utterance information should be returned.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesView_botName"><span class="hs-identifier hs-type">getUtterancesView_botName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView"><span class="hs-identifier hs-type">GetUtterancesView</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="getUtterancesView_botName"><span class="annot"><span class="annottext">getUtterancesView_botName :: (Text -&gt; f Text) -&gt; GetUtterancesView -&gt; f GetUtterancesView
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesView_botName"><span class="hs-identifier hs-var hs-var">getUtterancesView_botName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUtterancesView -&gt; Text)
+-&gt; (GetUtterancesView -&gt; Text -&gt; GetUtterancesView)
+-&gt; Lens GetUtterancesView GetUtterancesView Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView%27"><span class="hs-identifier hs-type">GetUtterancesView'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320232"><span class="annot"><span class="annottext">Text
+botName :: Text
+$sel:botName:GetUtterancesView' :: GetUtterancesView -&gt; Text
+</span><a href="#local-6989586621679320232"><span class="hs-identifier hs-var hs-var">botName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679320232"><span class="hs-identifier hs-var">botName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320231"><span class="annot"><span class="annottext">s :: GetUtterancesView
+</span><a href="#local-6989586621679320231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView%27"><span class="hs-identifier hs-type">GetUtterancesView'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320230"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679320230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUtterancesView
+</span><a href="#local-6989586621679320231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:botName:GetUtterancesView' :: Text
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3AbotName%3AGetUtterancesView%27"><span class="hs-identifier hs-var">botName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679320230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView"><span class="hs-identifier hs-type">GetUtterancesView</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | An array of bot versions for which utterance information should be</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- returned. The limit is 5 versions per request.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesView_botVersions"><span class="hs-identifier hs-type">getUtterancesView_botVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView"><span class="hs-identifier hs-type">GetUtterancesView</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="getUtterancesView_botVersions"><span class="annot"><span class="annottext">getUtterancesView_botVersions :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; GetUtterancesView -&gt; f GetUtterancesView
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesView_botVersions"><span class="hs-identifier hs-var hs-var">getUtterancesView_botVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUtterancesView -&gt; NonEmpty Text)
+-&gt; (GetUtterancesView -&gt; NonEmpty Text -&gt; GetUtterancesView)
+-&gt; Lens
+     GetUtterancesView GetUtterancesView (NonEmpty Text) (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView%27"><span class="hs-identifier hs-type">GetUtterancesView'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320229"><span class="annot"><span class="annottext">NonEmpty Text
+botVersions :: NonEmpty Text
+$sel:botVersions:GetUtterancesView' :: GetUtterancesView -&gt; NonEmpty Text
+</span><a href="#local-6989586621679320229"><span class="hs-identifier hs-var hs-var">botVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679320229"><span class="hs-identifier hs-var">botVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320228"><span class="annot"><span class="annottext">s :: GetUtterancesView
+</span><a href="#local-6989586621679320228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView%27"><span class="hs-identifier hs-type">GetUtterancesView'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320227"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679320227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUtterancesView
+</span><a href="#local-6989586621679320228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:botVersions:GetUtterancesView' :: NonEmpty Text
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3AbotVersions%3AGetUtterancesView%27"><span class="hs-identifier hs-var">botVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679320227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView"><span class="hs-identifier hs-type">GetUtterancesView</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; GetUtterancesView -&gt; f GetUtterancesView)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; GetUtterancesView
+-&gt; f GetUtterancesView
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | To return utterances that were recognized and handled, use @Detected@.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- To return utterances that were not recognized, use @Missed@.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesView_statusType"><span class="hs-identifier hs-type">getUtterancesView_statusType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView"><span class="hs-identifier hs-type">GetUtterancesView</span></a></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.StatusType.html#StatusType"><span class="hs-identifier hs-type">StatusType</span></a></span><span>
+</span><span id="line-137"></span><span id="getUtterancesView_statusType"><span class="annot"><span class="annottext">getUtterancesView_statusType :: (StatusType -&gt; f StatusType)
+-&gt; GetUtterancesView -&gt; f GetUtterancesView
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesView_statusType"><span class="hs-identifier hs-var hs-var">getUtterancesView_statusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUtterancesView -&gt; StatusType)
+-&gt; (GetUtterancesView -&gt; StatusType -&gt; GetUtterancesView)
+-&gt; Lens GetUtterancesView GetUtterancesView StatusType StatusType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView%27"><span class="hs-identifier hs-type">GetUtterancesView'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320225"><span class="annot"><span class="annottext">StatusType
+statusType :: StatusType
+$sel:statusType:GetUtterancesView' :: GetUtterancesView -&gt; StatusType
+</span><a href="#local-6989586621679320225"><span class="hs-identifier hs-var hs-var">statusType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679320225"><span class="hs-identifier hs-var">statusType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320224"><span class="annot"><span class="annottext">s :: GetUtterancesView
+</span><a href="#local-6989586621679320224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView%27"><span class="hs-identifier hs-type">GetUtterancesView'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320223"><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679320223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUtterancesView
+</span><a href="#local-6989586621679320224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusType:GetUtterancesView' :: StatusType
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3AstatusType%3AGetUtterancesView%27"><span class="hs-identifier hs-var">statusType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679320223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView"><span class="hs-identifier hs-type">GetUtterancesView</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView"><span class="hs-identifier hs-type">GetUtterancesView</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView"><span class="hs-identifier hs-type">GetUtterancesView</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse"><span class="hs-identifier hs-type">GetUtterancesViewResponse</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679320219"><span class="annot"><span class="annottext">request :: GetUtterancesView -&gt; Request GetUtterancesView
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetUtterancesView -&gt; Request GetUtterancesView
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LexModels.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679320215"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetUtterancesView
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetUtterancesView)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetUtterancesView))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetUtterancesView
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetUtterancesView)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679320212"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320212"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679320211"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679320211"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679320210"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320210"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [UtteranceList] -&gt; Int -&gt; GetUtterancesViewResponse
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse%27"><span class="hs-identifier hs-var">GetUtterancesViewResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [UtteranceList] -&gt; Int -&gt; GetUtterancesViewResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [UtteranceList] -&gt; Int -&gt; GetUtterancesViewResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;botName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [UtteranceList] -&gt; Int -&gt; GetUtterancesViewResponse)
+-&gt; Either String (Maybe [UtteranceList])
+-&gt; Either String (Int -&gt; GetUtterancesViewResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [UtteranceList]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;utterances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [UtteranceList]))
+-&gt; Maybe [UtteranceList] -&gt; Either String (Maybe [UtteranceList])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UtteranceList]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetUtterancesViewResponse)
+-&gt; Either String Int -&gt; Either String GetUtterancesViewResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320212"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320201"><span id="local-6989586621679320203"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView"><span class="hs-identifier hs-type">GetUtterancesView</span></a></span></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320198"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView"><span class="hs-identifier hs-type">GetUtterancesView</span></a></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView"><span class="hs-identifier hs-type">GetUtterancesView</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679320194"><span class="annot"><span class="annottext">toHeaders :: GetUtterancesView -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetUtterancesView -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-164"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView"><span class="hs-identifier hs-type">GetUtterancesView</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679320188"><span class="annot"><span class="annottext">toPath :: GetUtterancesView -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView%27"><span class="hs-identifier hs-type">GetUtterancesView'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320184"><span id="local-6989586621679320185"><span id="local-6989586621679320186"><span class="annot"><span class="annottext">NonEmpty Text
+Text
+StatusType
+statusType :: StatusType
+botVersions :: NonEmpty Text
+botName :: Text
+$sel:statusType:GetUtterancesView' :: GetUtterancesView -&gt; StatusType
+$sel:botVersions:GetUtterancesView' :: GetUtterancesView -&gt; NonEmpty Text
+$sel:botName:GetUtterancesView' :: GetUtterancesView -&gt; Text
+</span><a href="#local-6989586621679320184"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/bots/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679320186"><span class="hs-identifier hs-var">botName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/utterances&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView"><span class="hs-identifier hs-type">GetUtterancesView</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679320180"><span class="annot"><span class="annottext">toQuery :: GetUtterancesView -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesView%27"><span class="hs-identifier hs-type">GetUtterancesView'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320176"><span id="local-6989586621679320177"><span id="local-6989586621679320178"><span class="annot"><span class="annottext">NonEmpty Text
+Text
+StatusType
+statusType :: StatusType
+botVersions :: NonEmpty Text
+botName :: Text
+$sel:statusType:GetUtterancesView' :: GetUtterancesView -&gt; StatusType
+$sel:botVersions:GetUtterancesView' :: GetUtterancesView -&gt; NonEmpty Text
+$sel:botName:GetUtterancesView' :: GetUtterancesView -&gt; Text
+</span><a href="#local-6989586621679320176"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;bot_versions&quot;</span></span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; NonEmpty Text -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679320177"><span class="hs-identifier hs-var">botVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;status_type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StatusType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679320176"><span class="hs-identifier hs-var">statusType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;view=aggregation&quot;</span></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newGetUtterancesViewResponse' smart constructor.</span><span>
+</span><span id="line-183"></span><span id="local-6989586621679320172"><span id="local-6989586621679320173"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUtterancesViewResponse"><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse"><span class="hs-identifier hs-var">GetUtterancesViewResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUtterancesViewResponse%27"><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse%27"><span class="hs-identifier hs-var">GetUtterancesViewResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the bot for which utterance information was returned.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AbotName%3AGetUtterancesViewResponse%27"><span class="annot"><span class="annottext">GetUtterancesViewResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3AbotName%3AGetUtterancesViewResponse%27"><span class="hs-identifier hs-var hs-var">botName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | An array of UtteranceList objects, each containing a list of</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- UtteranceData objects describing the utterances that were processed by</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- your bot. The response contains a maximum of 100 @UtteranceData@ objects</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- for each version. Amazon Lex returns the most frequent utterances</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- received by the bot in the last 15 days.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3Autterances%3AGetUtterancesViewResponse%27"><span class="annot"><span class="annottext">GetUtterancesViewResponse -&gt; Maybe [UtteranceList]
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3Autterances%3AGetUtterancesViewResponse%27"><span class="hs-identifier hs-var hs-var">utterances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList"><span class="hs-identifier hs-type">UtteranceList</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetUtterancesViewResponse%27"><span class="annot"><span class="annottext">GetUtterancesViewResponse -&gt; Int
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3AhttpStatus%3AGetUtterancesViewResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679320165"><span id="local-6989586621679320167"><span class="annot"><span class="annottext">GetUtterancesViewResponse -&gt; GetUtterancesViewResponse -&gt; Bool
+(GetUtterancesViewResponse -&gt; GetUtterancesViewResponse -&gt; Bool)
+-&gt; (GetUtterancesViewResponse -&gt; GetUtterancesViewResponse -&gt; Bool)
+-&gt; Eq GetUtterancesViewResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetUtterancesViewResponse -&gt; GetUtterancesViewResponse -&gt; Bool
+$c/= :: GetUtterancesViewResponse -&gt; GetUtterancesViewResponse -&gt; Bool
+== :: GetUtterancesViewResponse -&gt; GetUtterancesViewResponse -&gt; Bool
+$c== :: GetUtterancesViewResponse -&gt; GetUtterancesViewResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320157"><span id="local-6989586621679320159"><span id="local-6989586621679320161"><span id="local-6989586621679320163"><span class="annot"><span class="annottext">ReadPrec [GetUtterancesViewResponse]
+ReadPrec GetUtterancesViewResponse
+Int -&gt; ReadS GetUtterancesViewResponse
+ReadS [GetUtterancesViewResponse]
+(Int -&gt; ReadS GetUtterancesViewResponse)
+-&gt; ReadS [GetUtterancesViewResponse]
+-&gt; ReadPrec GetUtterancesViewResponse
+-&gt; ReadPrec [GetUtterancesViewResponse]
+-&gt; Read GetUtterancesViewResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetUtterancesViewResponse]
+$creadListPrec :: ReadPrec [GetUtterancesViewResponse]
+readPrec :: ReadPrec GetUtterancesViewResponse
+$creadPrec :: ReadPrec GetUtterancesViewResponse
+readList :: ReadS [GetUtterancesViewResponse]
+$creadList :: ReadS [GetUtterancesViewResponse]
+readsPrec :: Int -&gt; ReadS GetUtterancesViewResponse
+$creadsPrec :: Int -&gt; ReadS GetUtterancesViewResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320151"><span id="local-6989586621679320153"><span id="local-6989586621679320155"><span class="annot"><span class="annottext">Int -&gt; GetUtterancesViewResponse -&gt; ShowS
+[GetUtterancesViewResponse] -&gt; ShowS
+GetUtterancesViewResponse -&gt; String
+(Int -&gt; GetUtterancesViewResponse -&gt; ShowS)
+-&gt; (GetUtterancesViewResponse -&gt; String)
+-&gt; ([GetUtterancesViewResponse] -&gt; ShowS)
+-&gt; Show GetUtterancesViewResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetUtterancesViewResponse] -&gt; ShowS
+$cshowList :: [GetUtterancesViewResponse] -&gt; ShowS
+show :: GetUtterancesViewResponse -&gt; String
+$cshow :: GetUtterancesViewResponse -&gt; String
+showsPrec :: Int -&gt; GetUtterancesViewResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetUtterancesViewResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetUtterancesViewResponse -&gt; Rep GetUtterancesViewResponse x)
+-&gt; (forall x.
+    Rep GetUtterancesViewResponse x -&gt; GetUtterancesViewResponse)
+-&gt; Generic GetUtterancesViewResponse
+forall x.
+Rep GetUtterancesViewResponse x -&gt; GetUtterancesViewResponse
+forall x.
+GetUtterancesViewResponse -&gt; Rep GetUtterancesViewResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetUtterancesViewResponse x -&gt; GetUtterancesViewResponse
+$cfrom :: forall x.
+GetUtterancesViewResponse -&gt; Rep GetUtterancesViewResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Create a value of 'GetUtterancesViewResponse' with all optional fields omitted.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'botName', 'getUtterancesViewResponse_botName' - The name of the bot for which utterance information was returned.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'utterances', 'getUtterancesViewResponse_utterances' - An array of UtteranceList objects, each containing a list of</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- UtteranceData objects describing the utterances that were processed by</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- your bot. The response contains a maximum of 100 @UtteranceData@ objects</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- for each version. Amazon Lex returns the most frequent utterances</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- received by the bot in the last 15 days.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'httpStatus', 'getUtterancesViewResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#newGetUtterancesViewResponse"><span class="hs-identifier hs-type">newGetUtterancesViewResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse"><span class="hs-identifier hs-type">GetUtterancesViewResponse</span></a></span><span>
+</span><span id="line-218"></span><span id="newGetUtterancesViewResponse"><span class="annot"><span class="annottext">newGetUtterancesViewResponse :: Int -&gt; GetUtterancesViewResponse
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#newGetUtterancesViewResponse"><span class="hs-identifier hs-var hs-var">newGetUtterancesViewResponse</span></a></span></span><span> </span><span id="local-6989586621679320148"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320148"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><span class="annottext">GetUtterancesViewResponse' :: Maybe Text
+-&gt; Maybe [UtteranceList] -&gt; Int -&gt; GetUtterancesViewResponse
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse%27"><span class="hs-identifier hs-type">GetUtterancesViewResponse'</span></a></span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:botName:GetUtterancesViewResponse' :: Maybe Text
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3AbotName%3AGetUtterancesViewResponse%27"><span class="hs-identifier hs-var">botName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:utterances:GetUtterancesViewResponse' :: Maybe [UtteranceList]
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3Autterances%3AGetUtterancesViewResponse%27"><span class="hs-identifier hs-var">utterances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UtteranceList]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetUtterancesViewResponse' :: Int
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3AhttpStatus%3AGetUtterancesViewResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320148"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The name of the bot for which utterance information was returned.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesViewResponse_botName"><span class="hs-identifier hs-type">getUtterancesViewResponse_botName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse"><span class="hs-identifier hs-type">GetUtterancesViewResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="getUtterancesViewResponse_botName"><span class="annot"><span class="annottext">getUtterancesViewResponse_botName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetUtterancesViewResponse -&gt; f GetUtterancesViewResponse
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesViewResponse_botName"><span class="hs-identifier hs-var hs-var">getUtterancesViewResponse_botName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUtterancesViewResponse -&gt; Maybe Text)
+-&gt; (GetUtterancesViewResponse
+    -&gt; Maybe Text -&gt; GetUtterancesViewResponse)
+-&gt; Lens
+     GetUtterancesViewResponse
+     GetUtterancesViewResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse%27"><span class="hs-identifier hs-type">GetUtterancesViewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320147"><span class="annot"><span class="annottext">Maybe Text
+botName :: Maybe Text
+$sel:botName:GetUtterancesViewResponse' :: GetUtterancesViewResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679320147"><span class="hs-identifier hs-var hs-var">botName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320147"><span class="hs-identifier hs-var">botName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320146"><span class="annot"><span class="annottext">s :: GetUtterancesViewResponse
+</span><a href="#local-6989586621679320146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse%27"><span class="hs-identifier hs-type">GetUtterancesViewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320145"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUtterancesViewResponse
+</span><a href="#local-6989586621679320146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:botName:GetUtterancesViewResponse' :: Maybe Text
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3AbotName%3AGetUtterancesViewResponse%27"><span class="hs-identifier hs-var">botName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse"><span class="hs-identifier hs-type">GetUtterancesViewResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | An array of UtteranceList objects, each containing a list of</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- UtteranceData objects describing the utterances that were processed by</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- your bot. The response contains a maximum of 100 @UtteranceData@ objects</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- for each version. Amazon Lex returns the most frequent utterances</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- received by the bot in the last 15 days.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesViewResponse_utterances"><span class="hs-identifier hs-type">getUtterancesViewResponse_utterances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse"><span class="hs-identifier hs-type">GetUtterancesViewResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList"><span class="hs-identifier hs-type">UtteranceList</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="getUtterancesViewResponse_utterances"><span class="annot"><span class="annottext">getUtterancesViewResponse_utterances :: (Maybe [UtteranceList] -&gt; f (Maybe [UtteranceList]))
+-&gt; GetUtterancesViewResponse -&gt; f GetUtterancesViewResponse
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesViewResponse_utterances"><span class="hs-identifier hs-var hs-var">getUtterancesViewResponse_utterances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUtterancesViewResponse -&gt; Maybe [UtteranceList])
+-&gt; (GetUtterancesViewResponse
+    -&gt; Maybe [UtteranceList] -&gt; GetUtterancesViewResponse)
+-&gt; Lens
+     GetUtterancesViewResponse
+     GetUtterancesViewResponse
+     (Maybe [UtteranceList])
+     (Maybe [UtteranceList])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse%27"><span class="hs-identifier hs-type">GetUtterancesViewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320144"><span class="annot"><span class="annottext">Maybe [UtteranceList]
+utterances :: Maybe [UtteranceList]
+$sel:utterances:GetUtterancesViewResponse' :: GetUtterancesViewResponse -&gt; Maybe [UtteranceList]
+</span><a href="#local-6989586621679320144"><span class="hs-identifier hs-var hs-var">utterances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UtteranceList]
+</span><a href="#local-6989586621679320144"><span class="hs-identifier hs-var">utterances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320143"><span class="annot"><span class="annottext">s :: GetUtterancesViewResponse
+</span><a href="#local-6989586621679320143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse%27"><span class="hs-identifier hs-type">GetUtterancesViewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320142"><span class="annot"><span class="annottext">Maybe [UtteranceList]
+</span><a href="#local-6989586621679320142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUtterancesViewResponse
+</span><a href="#local-6989586621679320143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:utterances:GetUtterancesViewResponse' :: Maybe [UtteranceList]
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3Autterances%3AGetUtterancesViewResponse%27"><span class="hs-identifier hs-var">utterances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UtteranceList]
+</span><a href="#local-6989586621679320142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse"><span class="hs-identifier hs-type">GetUtterancesViewResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UtteranceList] -&gt; f (Maybe [UtteranceList]))
+ -&gt; GetUtterancesViewResponse -&gt; f GetUtterancesViewResponse)
+-&gt; ((Maybe [UtteranceList] -&gt; f (Maybe [UtteranceList]))
+    -&gt; Maybe [UtteranceList] -&gt; f (Maybe [UtteranceList]))
+-&gt; (Maybe [UtteranceList] -&gt; f (Maybe [UtteranceList]))
+-&gt; GetUtterancesViewResponse
+-&gt; f GetUtterancesViewResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UtteranceList] [UtteranceList] [UtteranceList] [UtteranceList]
+-&gt; Iso
+     (Maybe [UtteranceList])
+     (Maybe [UtteranceList])
+     (Maybe [UtteranceList])
+     (Maybe [UtteranceList])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UtteranceList] [UtteranceList] [UtteranceList] [UtteranceList]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesViewResponse_httpStatus"><span class="hs-identifier hs-type">getUtterancesViewResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse"><span class="hs-identifier hs-type">GetUtterancesViewResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-240"></span><span id="getUtterancesViewResponse_httpStatus"><span class="annot"><span class="annottext">getUtterancesViewResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetUtterancesViewResponse -&gt; f GetUtterancesViewResponse
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#getUtterancesViewResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getUtterancesViewResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUtterancesViewResponse -&gt; Int)
+-&gt; (GetUtterancesViewResponse -&gt; Int -&gt; GetUtterancesViewResponse)
+-&gt; Lens GetUtterancesViewResponse GetUtterancesViewResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse%27"><span class="hs-identifier hs-type">GetUtterancesViewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320140"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetUtterancesViewResponse' :: GetUtterancesViewResponse -&gt; Int
+</span><a href="#local-6989586621679320140"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320140"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320139"><span class="annot"><span class="annottext">s :: GetUtterancesViewResponse
+</span><a href="#local-6989586621679320139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse%27"><span class="hs-identifier hs-type">GetUtterancesViewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320138"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUtterancesViewResponse
+</span><a href="#local-6989586621679320139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetUtterancesViewResponse' :: Int
+</span><a href="Network.AWS.LexModels.GetUtterancesView.html#%24sel%3AhttpStatus%3AGetUtterancesViewResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse"><span class="hs-identifier hs-type">GetUtterancesViewResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320136"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetUtterancesView.html#GetUtterancesViewResponse"><span class="hs-identifier hs-type">GetUtterancesViewResponse</span></a></span></span><span>
+</span><span id="line-243"></span></pre></body></html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTAnalytics.Types.Message</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTAnalytics.Types.Message</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information about a message.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMessage' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679257197"><span id="local-6989586621679257198"></span></span><span class="hs-keyword">data</span><span> </span><span id="Message"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message"><span class="hs-identifier hs-var">Message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Message%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message%27"><span class="hs-identifier hs-var">Message'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID you want to assign to the message. Each @messageId@ must be</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- unique within each batch sent.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AmessageId%3AMessage%27"><span class="annot"><span class="annottext">Message -&gt; Text
+</span><a href="Network.AWS.IoTAnalytics.Types.Message.html#%24sel%3AmessageId%3AMessage%27"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The payload of the message. This can be a JSON string or a</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- base64-encoded string representing binary data, in which case you must</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- decode it by means of a pipeline activity.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Apayload%3AMessage%27"><span class="annot"><span class="annottext">Message -&gt; Base64
+</span><a href="Network.AWS.IoTAnalytics.Types.Message.html#%24sel%3Apayload%3AMessage%27"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257190"><span id="local-6989586621679257192"><span class="annot"><span class="annottext">Message -&gt; Message -&gt; Bool
+(Message -&gt; Message -&gt; Bool)
+-&gt; (Message -&gt; Message -&gt; Bool) -&gt; Eq Message
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Message -&gt; Message -&gt; Bool
+$c/= :: Message -&gt; Message -&gt; Bool
+== :: Message -&gt; Message -&gt; Bool
+$c== :: Message -&gt; Message -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257181"><span id="local-6989586621679257183"><span id="local-6989586621679257185"><span id="local-6989586621679257187"><span class="annot"><span class="annottext">ReadPrec [Message]
+ReadPrec Message
+Int -&gt; ReadS Message
+ReadS [Message]
+(Int -&gt; ReadS Message)
+-&gt; ReadS [Message]
+-&gt; ReadPrec Message
+-&gt; ReadPrec [Message]
+-&gt; Read Message
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Message]
+$creadListPrec :: ReadPrec [Message]
+readPrec :: ReadPrec Message
+$creadPrec :: ReadPrec Message
+readList :: ReadS [Message]
+$creadList :: ReadS [Message]
+readsPrec :: Int -&gt; ReadS Message
+$creadsPrec :: Int -&gt; ReadS Message
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257174"><span id="local-6989586621679257176"><span id="local-6989586621679257178"><span class="annot"><span class="annottext">Int -&gt; Message -&gt; ShowS
+[Message] -&gt; ShowS
+Message -&gt; String
+(Int -&gt; Message -&gt; ShowS)
+-&gt; (Message -&gt; String) -&gt; ([Message] -&gt; ShowS) -&gt; Show Message
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Message] -&gt; ShowS
+$cshowList :: [Message] -&gt; ShowS
+show :: Message -&gt; String
+$cshow :: Message -&gt; String
+showsPrec :: Int -&gt; Message -&gt; ShowS
+$cshowsPrec :: Int -&gt; Message -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Message -&gt; Rep Message x)
+-&gt; (forall x. Rep Message x -&gt; Message) -&gt; Generic Message
+forall x. Rep Message x -&gt; Message
+forall x. Message -&gt; Rep Message x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Message x -&gt; Message
+$cfrom :: forall x. Message -&gt; Rep Message x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'Message' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'messageId', 'message_messageId' - The ID you want to assign to the message. Each @messageId@ must be</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- unique within each batch sent.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'payload', 'message_payload' - The payload of the message. This can be a JSON string or a</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- base64-encoded string representing binary data, in which case you must</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- decode it by means of a pipeline activity.--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#newMessage"><span class="hs-identifier hs-type">newMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-comment">-- | 'messageId'</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-comment">-- | 'payload'</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span>
+</span><span id="line-64"></span><span id="newMessage"><span class="annot"><span class="annottext">newMessage :: Text -&gt; ByteString -&gt; Message
+</span><a href="Network.AWS.IoTAnalytics.Types.Message.html#newMessage"><span class="hs-identifier hs-var hs-var">newMessage</span></a></span></span><span> </span><span id="local-6989586621679257168"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257168"><span class="hs-identifier hs-var">pMessageId_</span></a></span></span><span> </span><span id="local-6989586621679257167"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679257167"><span class="hs-identifier hs-var">pPayload_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">Message' :: Text -&gt; Base64 -&gt; Message
+</span><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:messageId:Message' :: Text
+</span><a href="Network.AWS.IoTAnalytics.Types.Message.html#%24sel%3AmessageId%3AMessage%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257168"><span class="hs-identifier hs-var">pMessageId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:payload:Message' :: Base64
+</span><a href="Network.AWS.IoTAnalytics.Types.Message.html#%24sel%3Apayload%3AMessage%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
+-&gt; Tagged Base64 (Identity Base64)
+Iso' Base64 ByteString
+</span><span class="hs-identifier hs-var">Core._Base64</span></span><span> </span><span class="annot"><span class="annottext">(Tagged ByteString (Identity ByteString)
+ -&gt; Tagged Base64 (Identity Base64))
+-&gt; ByteString -&gt; Base64
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679257167"><span class="hs-identifier hs-var">pPayload_</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The ID you want to assign to the message. Each @messageId@ must be</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- unique within each batch sent.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#message_messageId"><span class="hs-identifier hs-type">message_messageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="message_messageId"><span class="annot"><span class="annottext">message_messageId :: (Text -&gt; f Text) -&gt; Message -&gt; f Message
+</span><a href="Network.AWS.IoTAnalytics.Types.Message.html#message_messageId"><span class="hs-identifier hs-var hs-var">message_messageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Message -&gt; Text)
+-&gt; (Message -&gt; Text -&gt; Message) -&gt; Lens Message Message Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257161"><span class="annot"><span class="annottext">Text
+messageId :: Text
+$sel:messageId:Message' :: Message -&gt; Text
+</span><a href="#local-6989586621679257161"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257161"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257160"><span class="annot"><span class="annottext">s :: Message
+</span><a href="#local-6989586621679257160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257159"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679257160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:Message' :: Text
+</span><a href="Network.AWS.IoTAnalytics.Types.Message.html#%24sel%3AmessageId%3AMessage%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The payload of the message. This can be a JSON string or a</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- base64-encoded string representing binary data, in which case you must</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- decode it by means of a pipeline activity.--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#message_payload"><span class="hs-identifier hs-type">message_payload</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-83"></span><span id="message_payload"><span class="annot"><span class="annottext">message_payload :: (ByteString -&gt; f ByteString) -&gt; Message -&gt; f Message
+</span><a href="Network.AWS.IoTAnalytics.Types.Message.html#message_payload"><span class="hs-identifier hs-var hs-var">message_payload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Message -&gt; Base64)
+-&gt; (Message -&gt; Base64 -&gt; Message)
+-&gt; Lens Message Message Base64 Base64
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257157"><span class="annot"><span class="annottext">Base64
+payload :: Base64
+$sel:payload:Message' :: Message -&gt; Base64
+</span><a href="#local-6989586621679257157"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679257157"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257156"><span class="annot"><span class="annottext">s :: Message
+</span><a href="#local-6989586621679257156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257155"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679257155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679257156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:Message' :: Base64
+</span><a href="Network.AWS.IoTAnalytics.Types.Message.html#%24sel%3Apayload%3AMessage%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679257155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; Message -&gt; f Message)
+-&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
+-&gt; (ByteString -&gt; f ByteString)
+-&gt; Message
+-&gt; f Message
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64
+Iso' Base64 ByteString
+</span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257150"><span id="local-6989586621679257152"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257147"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257139"><span id="local-6989586621679257141"><span id="local-6989586621679257143"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679257137"><span class="annot"><span class="annottext">toJSON :: Message -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257134"><span id="local-6989586621679257135"><span class="annot"><span class="annottext">Text
+Base64
+payload :: Base64
+messageId :: Text
+$sel:payload:Message' :: Message -&gt; Base64
+$sel:messageId:Message' :: Message -&gt; Text
+</span><a href="#local-6989586621679257134"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-93"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;messageId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257135"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;payload&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679257134"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span></pre></body></html>

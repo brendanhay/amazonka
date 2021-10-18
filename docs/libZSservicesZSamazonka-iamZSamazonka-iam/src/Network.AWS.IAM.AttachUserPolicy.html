@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IAM.AttachUserPolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Attaches the specified managed policy to the specified user.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You use this operation to attach a /managed/ policy to a user. To embed</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- an inline policy in a user, use PutUserPolicy.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- As a best practice, you can validate your IAM policies. To learn more,</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html Validating IAM policies&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- For more information about policies, see</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed policies and inline policies&gt;</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IAM.AttachUserPolicy</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy"><span class="hs-identifier">AttachUserPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#newAttachUserPolicy"><span class="hs-identifier">newAttachUserPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#attachUserPolicy_userName"><span class="hs-identifier">attachUserPolicy_userName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#attachUserPolicy_policyArn"><span class="hs-identifier">attachUserPolicy_policyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicyResponse"><span class="hs-identifier">AttachUserPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#newAttachUserPolicyResponse"><span class="hs-identifier">newAttachUserPolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.html"><span class="hs-identifier">Network.AWS.IAM.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newAttachUserPolicy' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679460276"><span id="local-6989586621679460277"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachUserPolicy"><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy"><span class="hs-identifier hs-var">AttachUserPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachUserPolicy%27"><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy%27"><span class="hs-identifier hs-var">AttachUserPolicy'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name (friendly name, not ARN) of the IAM user to attach the policy</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- consisting of upper and lowercase alphanumeric characters with no</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- spaces. You can also include any of the following characters: _+=,.\@-</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AuserName%3AAttachUserPolicy%27"><span class="annot"><span class="annottext">AttachUserPolicy -&gt; Text
+</span><a href="Network.AWS.IAM.AttachUserPolicy.html#%24sel%3AuserName%3AAttachUserPolicy%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)&gt;</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3ApolicyArn%3AAttachUserPolicy%27"><span class="annot"><span class="annottext">AttachUserPolicy -&gt; Text
+</span><a href="Network.AWS.IAM.AttachUserPolicy.html#%24sel%3ApolicyArn%3AAttachUserPolicy%27"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679460269"><span id="local-6989586621679460271"><span class="annot"><span class="annottext">AttachUserPolicy -&gt; AttachUserPolicy -&gt; Bool
+(AttachUserPolicy -&gt; AttachUserPolicy -&gt; Bool)
+-&gt; (AttachUserPolicy -&gt; AttachUserPolicy -&gt; Bool)
+-&gt; Eq AttachUserPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AttachUserPolicy -&gt; AttachUserPolicy -&gt; Bool
+$c/= :: AttachUserPolicy -&gt; AttachUserPolicy -&gt; Bool
+== :: AttachUserPolicy -&gt; AttachUserPolicy -&gt; Bool
+$c== :: AttachUserPolicy -&gt; AttachUserPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460260"><span id="local-6989586621679460262"><span id="local-6989586621679460264"><span id="local-6989586621679460266"><span class="annot"><span class="annottext">ReadPrec [AttachUserPolicy]
+ReadPrec AttachUserPolicy
+Int -&gt; ReadS AttachUserPolicy
+ReadS [AttachUserPolicy]
+(Int -&gt; ReadS AttachUserPolicy)
+-&gt; ReadS [AttachUserPolicy]
+-&gt; ReadPrec AttachUserPolicy
+-&gt; ReadPrec [AttachUserPolicy]
+-&gt; Read AttachUserPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AttachUserPolicy]
+$creadListPrec :: ReadPrec [AttachUserPolicy]
+readPrec :: ReadPrec AttachUserPolicy
+$creadPrec :: ReadPrec AttachUserPolicy
+readList :: ReadS [AttachUserPolicy]
+$creadList :: ReadS [AttachUserPolicy]
+readsPrec :: Int -&gt; ReadS AttachUserPolicy
+$creadsPrec :: Int -&gt; ReadS AttachUserPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460253"><span id="local-6989586621679460255"><span id="local-6989586621679460257"><span class="annot"><span class="annottext">Int -&gt; AttachUserPolicy -&gt; ShowS
+[AttachUserPolicy] -&gt; ShowS
+AttachUserPolicy -&gt; String
+(Int -&gt; AttachUserPolicy -&gt; ShowS)
+-&gt; (AttachUserPolicy -&gt; String)
+-&gt; ([AttachUserPolicy] -&gt; ShowS)
+-&gt; Show AttachUserPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AttachUserPolicy] -&gt; ShowS
+$cshowList :: [AttachUserPolicy] -&gt; ShowS
+show :: AttachUserPolicy -&gt; String
+$cshow :: AttachUserPolicy -&gt; String
+showsPrec :: Int -&gt; AttachUserPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; AttachUserPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AttachUserPolicy -&gt; Rep AttachUserPolicy x)
+-&gt; (forall x. Rep AttachUserPolicy x -&gt; AttachUserPolicy)
+-&gt; Generic AttachUserPolicy
+forall x. Rep AttachUserPolicy x -&gt; AttachUserPolicy
+forall x. AttachUserPolicy -&gt; Rep AttachUserPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AttachUserPolicy x -&gt; AttachUserPolicy
+$cfrom :: forall x. AttachUserPolicy -&gt; Rep AttachUserPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'AttachUserPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'userName', 'attachUserPolicy_userName' - The name (friendly name, not ARN) of the IAM user to attach the policy</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- consisting of upper and lowercase alphanumeric characters with no</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- spaces. You can also include any of the following characters: _+=,.\@-</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'policyArn', 'attachUserPolicy_policyArn' - The Amazon Resource Name (ARN) of the IAM policy you want to attach.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)&gt;</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#newAttachUserPolicy"><span class="hs-identifier hs-type">newAttachUserPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'userName'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'policyArn'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy"><span class="hs-identifier hs-type">AttachUserPolicy</span></a></span><span>
+</span><span id="line-104"></span><span id="newAttachUserPolicy"><span class="annot"><span class="annottext">newAttachUserPolicy :: Text -&gt; Text -&gt; AttachUserPolicy
+</span><a href="Network.AWS.IAM.AttachUserPolicy.html#newAttachUserPolicy"><span class="hs-identifier hs-var hs-var">newAttachUserPolicy</span></a></span></span><span> </span><span id="local-6989586621679460248"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460248"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span id="local-6989586621679460247"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460247"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">AttachUserPolicy' :: Text -&gt; Text -&gt; AttachUserPolicy
+</span><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy%27"><span class="hs-identifier hs-type">AttachUserPolicy'</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userName:AttachUserPolicy' :: Text
+</span><a href="Network.AWS.IAM.AttachUserPolicy.html#%24sel%3AuserName%3AAttachUserPolicy%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460248"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyArn:AttachUserPolicy' :: Text
+</span><a href="Network.AWS.IAM.AttachUserPolicy.html#%24sel%3ApolicyArn%3AAttachUserPolicy%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460247"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The name (friendly name, not ARN) of the IAM user to attach the policy</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- consisting of upper and lowercase alphanumeric characters with no</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- spaces. You can also include any of the following characters: _+=,.\@-</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#attachUserPolicy_userName"><span class="hs-identifier hs-type">attachUserPolicy_userName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy"><span class="hs-identifier hs-type">AttachUserPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="attachUserPolicy_userName"><span class="annot"><span class="annottext">attachUserPolicy_userName :: (Text -&gt; f Text) -&gt; AttachUserPolicy -&gt; f AttachUserPolicy
+</span><a href="Network.AWS.IAM.AttachUserPolicy.html#attachUserPolicy_userName"><span class="hs-identifier hs-var hs-var">attachUserPolicy_userName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttachUserPolicy -&gt; Text)
+-&gt; (AttachUserPolicy -&gt; Text -&gt; AttachUserPolicy)
+-&gt; Lens AttachUserPolicy AttachUserPolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy%27"><span class="hs-identifier hs-type">AttachUserPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460244"><span class="annot"><span class="annottext">Text
+userName :: Text
+$sel:userName:AttachUserPolicy' :: AttachUserPolicy -&gt; Text
+</span><a href="#local-6989586621679460244"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460244"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460243"><span class="annot"><span class="annottext">s :: AttachUserPolicy
+</span><a href="#local-6989586621679460243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy%27"><span class="hs-identifier hs-type">AttachUserPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460242"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachUserPolicy
+</span><a href="#local-6989586621679460243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:AttachUserPolicy' :: Text
+</span><a href="Network.AWS.IAM.AttachUserPolicy.html#%24sel%3AuserName%3AAttachUserPolicy%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy"><span class="hs-identifier hs-type">AttachUserPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)&gt;</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#attachUserPolicy_policyArn"><span class="hs-identifier hs-type">attachUserPolicy_policyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy"><span class="hs-identifier hs-type">AttachUserPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-126"></span><span id="attachUserPolicy_policyArn"><span class="annot"><span class="annottext">attachUserPolicy_policyArn :: (Text -&gt; f Text) -&gt; AttachUserPolicy -&gt; f AttachUserPolicy
+</span><a href="Network.AWS.IAM.AttachUserPolicy.html#attachUserPolicy_policyArn"><span class="hs-identifier hs-var hs-var">attachUserPolicy_policyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttachUserPolicy -&gt; Text)
+-&gt; (AttachUserPolicy -&gt; Text -&gt; AttachUserPolicy)
+-&gt; Lens AttachUserPolicy AttachUserPolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy%27"><span class="hs-identifier hs-type">AttachUserPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460241"><span class="annot"><span class="annottext">Text
+policyArn :: Text
+$sel:policyArn:AttachUserPolicy' :: AttachUserPolicy -&gt; Text
+</span><a href="#local-6989586621679460241"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460241"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460240"><span class="annot"><span class="annottext">s :: AttachUserPolicy
+</span><a href="#local-6989586621679460240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy%27"><span class="hs-identifier hs-type">AttachUserPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460239"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachUserPolicy
+</span><a href="#local-6989586621679460240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyArn:AttachUserPolicy' :: Text
+</span><a href="Network.AWS.IAM.AttachUserPolicy.html#%24sel%3ApolicyArn%3AAttachUserPolicy%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy"><span class="hs-identifier hs-type">AttachUserPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy"><span class="hs-identifier hs-type">AttachUserPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-130"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy"><span class="hs-identifier hs-type">AttachUserPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicyResponse"><span class="hs-identifier hs-type">AttachUserPolicyResponse</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679460235"><span class="annot"><span class="annottext">request :: AttachUserPolicy -&gt; Request AttachUserPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AttachUserPolicy -&gt; Request AttachUserPolicy
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679460231"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AttachUserPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AttachUserPolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse AttachUserPolicy
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AttachUserPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AttachUserPolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse AttachUserPolicy
+AttachUserPolicyResponse
+</span><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicyResponse%27"><span class="hs-identifier hs-var">AttachUserPolicyResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460224"><span id="local-6989586621679460226"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy"><span class="hs-identifier hs-type">AttachUserPolicy</span></a></span></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460221"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy"><span class="hs-identifier hs-type">AttachUserPolicy</span></a></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy"><span class="hs-identifier hs-type">AttachUserPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679460217"><span class="annot"><span class="annottext">toHeaders :: AttachUserPolicy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; AttachUserPolicy -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy"><span class="hs-identifier hs-type">AttachUserPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679460212"><span class="annot"><span class="annottext">toPath :: AttachUserPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AttachUserPolicy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy"><span class="hs-identifier hs-type">AttachUserPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679460208"><span class="annot"><span class="annottext">toQuery :: AttachUserPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicy%27"><span class="hs-identifier hs-type">AttachUserPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460205"><span id="local-6989586621679460206"><span class="annot"><span class="annottext">Text
+policyArn :: Text
+userName :: Text
+$sel:policyArn:AttachUserPolicy' :: AttachUserPolicy -&gt; Text
+$sel:userName:AttachUserPolicy' :: AttachUserPolicy -&gt; Text
+</span><a href="#local-6989586621679460205"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AttachUserPolicy&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-08&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460206"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PolicyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460205"><span class="hs-identifier hs-var">policyArn</span></a></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newAttachUserPolicyResponse' smart constructor.</span><span>
+</span><span id="line-158"></span><span id="local-6989586621679460202"><span id="local-6989586621679460203"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachUserPolicyResponse"><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicyResponse"><span class="hs-identifier hs-var">AttachUserPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachUserPolicyResponse%27"><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicyResponse%27"><span class="hs-identifier hs-var">AttachUserPolicyResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679460198"><span id="local-6989586621679460200"><span class="annot"><span class="annottext">AttachUserPolicyResponse -&gt; AttachUserPolicyResponse -&gt; Bool
+(AttachUserPolicyResponse -&gt; AttachUserPolicyResponse -&gt; Bool)
+-&gt; (AttachUserPolicyResponse -&gt; AttachUserPolicyResponse -&gt; Bool)
+-&gt; Eq AttachUserPolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AttachUserPolicyResponse -&gt; AttachUserPolicyResponse -&gt; Bool
+$c/= :: AttachUserPolicyResponse -&gt; AttachUserPolicyResponse -&gt; Bool
+== :: AttachUserPolicyResponse -&gt; AttachUserPolicyResponse -&gt; Bool
+$c== :: AttachUserPolicyResponse -&gt; AttachUserPolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460190"><span id="local-6989586621679460192"><span id="local-6989586621679460194"><span id="local-6989586621679460196"><span class="annot"><span class="annottext">ReadPrec [AttachUserPolicyResponse]
+ReadPrec AttachUserPolicyResponse
+Int -&gt; ReadS AttachUserPolicyResponse
+ReadS [AttachUserPolicyResponse]
+(Int -&gt; ReadS AttachUserPolicyResponse)
+-&gt; ReadS [AttachUserPolicyResponse]
+-&gt; ReadPrec AttachUserPolicyResponse
+-&gt; ReadPrec [AttachUserPolicyResponse]
+-&gt; Read AttachUserPolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AttachUserPolicyResponse]
+$creadListPrec :: ReadPrec [AttachUserPolicyResponse]
+readPrec :: ReadPrec AttachUserPolicyResponse
+$creadPrec :: ReadPrec AttachUserPolicyResponse
+readList :: ReadS [AttachUserPolicyResponse]
+$creadList :: ReadS [AttachUserPolicyResponse]
+readsPrec :: Int -&gt; ReadS AttachUserPolicyResponse
+$creadsPrec :: Int -&gt; ReadS AttachUserPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460184"><span id="local-6989586621679460186"><span id="local-6989586621679460188"><span class="annot"><span class="annottext">Int -&gt; AttachUserPolicyResponse -&gt; ShowS
+[AttachUserPolicyResponse] -&gt; ShowS
+AttachUserPolicyResponse -&gt; String
+(Int -&gt; AttachUserPolicyResponse -&gt; ShowS)
+-&gt; (AttachUserPolicyResponse -&gt; String)
+-&gt; ([AttachUserPolicyResponse] -&gt; ShowS)
+-&gt; Show AttachUserPolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AttachUserPolicyResponse] -&gt; ShowS
+$cshowList :: [AttachUserPolicyResponse] -&gt; ShowS
+show :: AttachUserPolicyResponse -&gt; String
+$cshow :: AttachUserPolicyResponse -&gt; String
+showsPrec :: Int -&gt; AttachUserPolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AttachUserPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AttachUserPolicyResponse -&gt; Rep AttachUserPolicyResponse x)
+-&gt; (forall x.
+    Rep AttachUserPolicyResponse x -&gt; AttachUserPolicyResponse)
+-&gt; Generic AttachUserPolicyResponse
+forall x.
+Rep AttachUserPolicyResponse x -&gt; AttachUserPolicyResponse
+forall x.
+AttachUserPolicyResponse -&gt; Rep AttachUserPolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AttachUserPolicyResponse x -&gt; AttachUserPolicyResponse
+$cfrom :: forall x.
+AttachUserPolicyResponse -&gt; Rep AttachUserPolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Create a value of 'AttachUserPolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#newAttachUserPolicyResponse"><span class="hs-identifier hs-type">newAttachUserPolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicyResponse"><span class="hs-identifier hs-type">AttachUserPolicyResponse</span></a></span><span>
+</span><span id="line-169"></span><span id="newAttachUserPolicyResponse"><span class="annot"><span class="annottext">newAttachUserPolicyResponse :: AttachUserPolicyResponse
+</span><a href="Network.AWS.IAM.AttachUserPolicy.html#newAttachUserPolicyResponse"><span class="hs-identifier hs-var hs-var">newAttachUserPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">AttachUserPolicyResponse
+</span><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicyResponse%27"><span class="hs-identifier hs-var">AttachUserPolicyResponse'</span></a></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460180"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachUserPolicy.html#AttachUserPolicyResponse"><span class="hs-identifier hs-type">AttachUserPolicyResponse</span></a></span></span><span>
+</span><span id="line-173"></span></pre></body></html>

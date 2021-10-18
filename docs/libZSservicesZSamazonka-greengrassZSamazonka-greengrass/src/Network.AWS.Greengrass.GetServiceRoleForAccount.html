@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Greengrass.GetServiceRoleForAccount</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the service role that is attached to your account.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Greengrass.GetServiceRoleForAccount</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccount"><span class="hs-identifier">GetServiceRoleForAccount</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#newGetServiceRoleForAccount"><span class="hs-identifier">newGetServiceRoleForAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse"><span class="hs-identifier">GetServiceRoleForAccountResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#newGetServiceRoleForAccountResponse"><span class="hs-identifier">newGetServiceRoleForAccountResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#getServiceRoleForAccountResponse_roleArn"><span class="hs-identifier">getServiceRoleForAccountResponse_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#getServiceRoleForAccountResponse_associatedAt"><span class="hs-identifier">getServiceRoleForAccountResponse_associatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#getServiceRoleForAccountResponse_httpStatus"><span class="hs-identifier">getServiceRoleForAccountResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.html"><span class="hs-identifier">Network.AWS.Greengrass.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newGetServiceRoleForAccount' smart constructor.</span><span>
+</span><span id="line-48"></span><span id="local-6989586621679355879"><span id="local-6989586621679355880"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetServiceRoleForAccount"><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccount"><span class="hs-identifier hs-var">GetServiceRoleForAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetServiceRoleForAccount%27"><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccount%27"><span class="hs-identifier hs-var">GetServiceRoleForAccount'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679355874"><span id="local-6989586621679355876"><span class="annot"><span class="annottext">GetServiceRoleForAccount -&gt; GetServiceRoleForAccount -&gt; Bool
+(GetServiceRoleForAccount -&gt; GetServiceRoleForAccount -&gt; Bool)
+-&gt; (GetServiceRoleForAccount -&gt; GetServiceRoleForAccount -&gt; Bool)
+-&gt; Eq GetServiceRoleForAccount
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetServiceRoleForAccount -&gt; GetServiceRoleForAccount -&gt; Bool
+$c/= :: GetServiceRoleForAccount -&gt; GetServiceRoleForAccount -&gt; Bool
+== :: GetServiceRoleForAccount -&gt; GetServiceRoleForAccount -&gt; Bool
+$c== :: GetServiceRoleForAccount -&gt; GetServiceRoleForAccount -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355865"><span id="local-6989586621679355867"><span id="local-6989586621679355869"><span id="local-6989586621679355871"><span class="annot"><span class="annottext">ReadPrec [GetServiceRoleForAccount]
+ReadPrec GetServiceRoleForAccount
+Int -&gt; ReadS GetServiceRoleForAccount
+ReadS [GetServiceRoleForAccount]
+(Int -&gt; ReadS GetServiceRoleForAccount)
+-&gt; ReadS [GetServiceRoleForAccount]
+-&gt; ReadPrec GetServiceRoleForAccount
+-&gt; ReadPrec [GetServiceRoleForAccount]
+-&gt; Read GetServiceRoleForAccount
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetServiceRoleForAccount]
+$creadListPrec :: ReadPrec [GetServiceRoleForAccount]
+readPrec :: ReadPrec GetServiceRoleForAccount
+$creadPrec :: ReadPrec GetServiceRoleForAccount
+readList :: ReadS [GetServiceRoleForAccount]
+$creadList :: ReadS [GetServiceRoleForAccount]
+readsPrec :: Int -&gt; ReadS GetServiceRoleForAccount
+$creadsPrec :: Int -&gt; ReadS GetServiceRoleForAccount
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355858"><span id="local-6989586621679355860"><span id="local-6989586621679355862"><span class="annot"><span class="annottext">Int -&gt; GetServiceRoleForAccount -&gt; ShowS
+[GetServiceRoleForAccount] -&gt; ShowS
+GetServiceRoleForAccount -&gt; String
+(Int -&gt; GetServiceRoleForAccount -&gt; ShowS)
+-&gt; (GetServiceRoleForAccount -&gt; String)
+-&gt; ([GetServiceRoleForAccount] -&gt; ShowS)
+-&gt; Show GetServiceRoleForAccount
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetServiceRoleForAccount] -&gt; ShowS
+$cshowList :: [GetServiceRoleForAccount] -&gt; ShowS
+show :: GetServiceRoleForAccount -&gt; String
+$cshow :: GetServiceRoleForAccount -&gt; String
+showsPrec :: Int -&gt; GetServiceRoleForAccount -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetServiceRoleForAccount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetServiceRoleForAccount -&gt; Rep GetServiceRoleForAccount x)
+-&gt; (forall x.
+    Rep GetServiceRoleForAccount x -&gt; GetServiceRoleForAccount)
+-&gt; Generic GetServiceRoleForAccount
+forall x.
+Rep GetServiceRoleForAccount x -&gt; GetServiceRoleForAccount
+forall x.
+GetServiceRoleForAccount -&gt; Rep GetServiceRoleForAccount x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetServiceRoleForAccount x -&gt; GetServiceRoleForAccount
+$cfrom :: forall x.
+GetServiceRoleForAccount -&gt; Rep GetServiceRoleForAccount x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'GetServiceRoleForAccount' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#newGetServiceRoleForAccount"><span class="hs-identifier hs-type">newGetServiceRoleForAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccount"><span class="hs-identifier hs-type">GetServiceRoleForAccount</span></a></span><span>
+</span><span id="line-59"></span><span id="newGetServiceRoleForAccount"><span class="annot"><span class="annottext">newGetServiceRoleForAccount :: GetServiceRoleForAccount
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#newGetServiceRoleForAccount"><span class="hs-identifier hs-var hs-var">newGetServiceRoleForAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">GetServiceRoleForAccount
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccount%27"><span class="hs-identifier hs-var">GetServiceRoleForAccount'</span></a></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccount"><span class="hs-identifier hs-type">GetServiceRoleForAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-64"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccount"><span class="hs-identifier hs-type">GetServiceRoleForAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse"><span class="hs-identifier hs-type">GetServiceRoleForAccountResponse</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679355850"><span class="annot"><span class="annottext">request :: GetServiceRoleForAccount -&gt; Request GetServiceRoleForAccount
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetServiceRoleForAccount -&gt; Request GetServiceRoleForAccount
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679355846"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetServiceRoleForAccount
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetServiceRoleForAccount)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetServiceRoleForAccount))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetServiceRoleForAccount
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetServiceRoleForAccount)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679355843"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679355843"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679355842"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679355842"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679355841"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679355841"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetServiceRoleForAccountResponse
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-var">GetServiceRoleForAccountResponse'</span></a></span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Int -&gt; GetServiceRoleForAccountResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; GetServiceRoleForAccountResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679355841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; GetServiceRoleForAccountResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetServiceRoleForAccountResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679355841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssociatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetServiceRoleForAccountResponse)
+-&gt; Either String Int
+-&gt; Either String GetServiceRoleForAccountResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679355843"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355833"><span id="local-6989586621679355835"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccount"><span class="hs-identifier hs-type">GetServiceRoleForAccount</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccount"><span class="hs-identifier hs-type">GetServiceRoleForAccount</span></a></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccount"><span class="hs-identifier hs-type">GetServiceRoleForAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679355826"><span class="annot"><span class="annottext">toHeaders :: GetServiceRoleForAccount -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetServiceRoleForAccount -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-84"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-85"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-87"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccount"><span class="hs-identifier hs-type">GetServiceRoleForAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679355820"><span class="annot"><span class="annottext">toPath :: GetServiceRoleForAccount -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetServiceRoleForAccount -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/greengrass/servicerole&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccount"><span class="hs-identifier hs-type">GetServiceRoleForAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679355816"><span class="annot"><span class="annottext">toQuery :: GetServiceRoleForAccount -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetServiceRoleForAccount -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | /See:/ 'newGetServiceRoleForAccountResponse' smart constructor.</span><span>
+</span><span id="line-98"></span><span id="local-6989586621679355813"><span id="local-6989586621679355814"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetServiceRoleForAccountResponse"><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse"><span class="hs-identifier hs-var">GetServiceRoleForAccountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetServiceRoleForAccountResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-var">GetServiceRoleForAccountResponse'</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the role which is associated with the account.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AroleArn%3AGetServiceRoleForAccountResponse%27"><span class="annot"><span class="annottext">GetServiceRoleForAccountResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#%24sel%3AroleArn%3AGetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The time when the service role was associated with the account.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AassociatedAt%3AGetServiceRoleForAccountResponse%27"><span class="annot"><span class="annottext">GetServiceRoleForAccountResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#%24sel%3AassociatedAt%3AGetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-var hs-var">associatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetServiceRoleForAccountResponse%27"><span class="annot"><span class="annottext">GetServiceRoleForAccountResponse -&gt; Int
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#%24sel%3AhttpStatus%3AGetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679355806"><span id="local-6989586621679355808"><span class="annot"><span class="annottext">GetServiceRoleForAccountResponse
+-&gt; GetServiceRoleForAccountResponse -&gt; Bool
+(GetServiceRoleForAccountResponse
+ -&gt; GetServiceRoleForAccountResponse -&gt; Bool)
+-&gt; (GetServiceRoleForAccountResponse
+    -&gt; GetServiceRoleForAccountResponse -&gt; Bool)
+-&gt; Eq GetServiceRoleForAccountResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetServiceRoleForAccountResponse
+-&gt; GetServiceRoleForAccountResponse -&gt; Bool
+$c/= :: GetServiceRoleForAccountResponse
+-&gt; GetServiceRoleForAccountResponse -&gt; Bool
+== :: GetServiceRoleForAccountResponse
+-&gt; GetServiceRoleForAccountResponse -&gt; Bool
+$c== :: GetServiceRoleForAccountResponse
+-&gt; GetServiceRoleForAccountResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355798"><span id="local-6989586621679355800"><span id="local-6989586621679355802"><span id="local-6989586621679355804"><span class="annot"><span class="annottext">ReadPrec [GetServiceRoleForAccountResponse]
+ReadPrec GetServiceRoleForAccountResponse
+Int -&gt; ReadS GetServiceRoleForAccountResponse
+ReadS [GetServiceRoleForAccountResponse]
+(Int -&gt; ReadS GetServiceRoleForAccountResponse)
+-&gt; ReadS [GetServiceRoleForAccountResponse]
+-&gt; ReadPrec GetServiceRoleForAccountResponse
+-&gt; ReadPrec [GetServiceRoleForAccountResponse]
+-&gt; Read GetServiceRoleForAccountResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetServiceRoleForAccountResponse]
+$creadListPrec :: ReadPrec [GetServiceRoleForAccountResponse]
+readPrec :: ReadPrec GetServiceRoleForAccountResponse
+$creadPrec :: ReadPrec GetServiceRoleForAccountResponse
+readList :: ReadS [GetServiceRoleForAccountResponse]
+$creadList :: ReadS [GetServiceRoleForAccountResponse]
+readsPrec :: Int -&gt; ReadS GetServiceRoleForAccountResponse
+$creadsPrec :: Int -&gt; ReadS GetServiceRoleForAccountResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355792"><span id="local-6989586621679355794"><span id="local-6989586621679355796"><span class="annot"><span class="annottext">Int -&gt; GetServiceRoleForAccountResponse -&gt; ShowS
+[GetServiceRoleForAccountResponse] -&gt; ShowS
+GetServiceRoleForAccountResponse -&gt; String
+(Int -&gt; GetServiceRoleForAccountResponse -&gt; ShowS)
+-&gt; (GetServiceRoleForAccountResponse -&gt; String)
+-&gt; ([GetServiceRoleForAccountResponse] -&gt; ShowS)
+-&gt; Show GetServiceRoleForAccountResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetServiceRoleForAccountResponse] -&gt; ShowS
+$cshowList :: [GetServiceRoleForAccountResponse] -&gt; ShowS
+show :: GetServiceRoleForAccountResponse -&gt; String
+$cshow :: GetServiceRoleForAccountResponse -&gt; String
+showsPrec :: Int -&gt; GetServiceRoleForAccountResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetServiceRoleForAccountResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetServiceRoleForAccountResponse
+ -&gt; Rep GetServiceRoleForAccountResponse x)
+-&gt; (forall x.
+    Rep GetServiceRoleForAccountResponse x
+    -&gt; GetServiceRoleForAccountResponse)
+-&gt; Generic GetServiceRoleForAccountResponse
+forall x.
+Rep GetServiceRoleForAccountResponse x
+-&gt; GetServiceRoleForAccountResponse
+forall x.
+GetServiceRoleForAccountResponse
+-&gt; Rep GetServiceRoleForAccountResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetServiceRoleForAccountResponse x
+-&gt; GetServiceRoleForAccountResponse
+$cfrom :: forall x.
+GetServiceRoleForAccountResponse
+-&gt; Rep GetServiceRoleForAccountResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Create a value of 'GetServiceRoleForAccountResponse' with all optional fields omitted.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'roleArn', 'getServiceRoleForAccountResponse_roleArn' - The ARN of the role which is associated with the account.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'associatedAt', 'getServiceRoleForAccountResponse_associatedAt' - The time when the service role was associated with the account.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'httpStatus', 'getServiceRoleForAccountResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#newGetServiceRoleForAccountResponse"><span class="hs-identifier hs-type">newGetServiceRoleForAccountResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse"><span class="hs-identifier hs-type">GetServiceRoleForAccountResponse</span></a></span><span>
+</span><span id="line-125"></span><span id="newGetServiceRoleForAccountResponse"><span class="annot"><span class="annottext">newGetServiceRoleForAccountResponse :: Int -&gt; GetServiceRoleForAccountResponse
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#newGetServiceRoleForAccountResponse"><span class="hs-identifier hs-var hs-var">newGetServiceRoleForAccountResponse</span></a></span></span><span> </span><span id="local-6989586621679355789"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679355789"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="annottext">GetServiceRoleForAccountResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetServiceRoleForAccountResponse
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-type">GetServiceRoleForAccountResponse'</span></a></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleArn:GetServiceRoleForAccountResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#%24sel%3AroleArn%3AGetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:associatedAt:GetServiceRoleForAccountResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#%24sel%3AassociatedAt%3AGetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-var">associatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetServiceRoleForAccountResponse' :: Int
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#%24sel%3AhttpStatus%3AGetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679355789"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The ARN of the role which is associated with the account.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#getServiceRoleForAccountResponse_roleArn"><span class="hs-identifier hs-type">getServiceRoleForAccountResponse_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse"><span class="hs-identifier hs-type">GetServiceRoleForAccountResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="getServiceRoleForAccountResponse_roleArn"><span class="annot"><span class="annottext">getServiceRoleForAccountResponse_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetServiceRoleForAccountResponse
+-&gt; f GetServiceRoleForAccountResponse
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#getServiceRoleForAccountResponse_roleArn"><span class="hs-identifier hs-var hs-var">getServiceRoleForAccountResponse_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetServiceRoleForAccountResponse -&gt; Maybe Text)
+-&gt; (GetServiceRoleForAccountResponse
+    -&gt; Maybe Text -&gt; GetServiceRoleForAccountResponse)
+-&gt; Lens
+     GetServiceRoleForAccountResponse
+     GetServiceRoleForAccountResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-type">GetServiceRoleForAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355786"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:GetServiceRoleForAccountResponse' :: GetServiceRoleForAccountResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679355786"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355786"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355785"><span class="annot"><span class="annottext">s :: GetServiceRoleForAccountResponse
+</span><a href="#local-6989586621679355785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-type">GetServiceRoleForAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355784"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceRoleForAccountResponse
+</span><a href="#local-6989586621679355785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:GetServiceRoleForAccountResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#%24sel%3AroleArn%3AGetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse"><span class="hs-identifier hs-type">GetServiceRoleForAccountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The time when the service role was associated with the account.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#getServiceRoleForAccountResponse_associatedAt"><span class="hs-identifier hs-type">getServiceRoleForAccountResponse_associatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse"><span class="hs-identifier hs-type">GetServiceRoleForAccountResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="getServiceRoleForAccountResponse_associatedAt"><span class="annot"><span class="annottext">getServiceRoleForAccountResponse_associatedAt :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetServiceRoleForAccountResponse
+-&gt; f GetServiceRoleForAccountResponse
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#getServiceRoleForAccountResponse_associatedAt"><span class="hs-identifier hs-var hs-var">getServiceRoleForAccountResponse_associatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetServiceRoleForAccountResponse -&gt; Maybe Text)
+-&gt; (GetServiceRoleForAccountResponse
+    -&gt; Maybe Text -&gt; GetServiceRoleForAccountResponse)
+-&gt; Lens
+     GetServiceRoleForAccountResponse
+     GetServiceRoleForAccountResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-type">GetServiceRoleForAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355783"><span class="annot"><span class="annottext">Maybe Text
+associatedAt :: Maybe Text
+$sel:associatedAt:GetServiceRoleForAccountResponse' :: GetServiceRoleForAccountResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679355783"><span class="hs-identifier hs-var hs-var">associatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355783"><span class="hs-identifier hs-var">associatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355782"><span class="annot"><span class="annottext">s :: GetServiceRoleForAccountResponse
+</span><a href="#local-6989586621679355782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-type">GetServiceRoleForAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355781"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceRoleForAccountResponse
+</span><a href="#local-6989586621679355782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedAt:GetServiceRoleForAccountResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#%24sel%3AassociatedAt%3AGetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-var">associatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse"><span class="hs-identifier hs-type">GetServiceRoleForAccountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#getServiceRoleForAccountResponse_httpStatus"><span class="hs-identifier hs-type">getServiceRoleForAccountResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse"><span class="hs-identifier hs-type">GetServiceRoleForAccountResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span id="getServiceRoleForAccountResponse_httpStatus"><span class="annot"><span class="annottext">getServiceRoleForAccountResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetServiceRoleForAccountResponse
+-&gt; f GetServiceRoleForAccountResponse
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#getServiceRoleForAccountResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getServiceRoleForAccountResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetServiceRoleForAccountResponse -&gt; Int)
+-&gt; (GetServiceRoleForAccountResponse
+    -&gt; Int -&gt; GetServiceRoleForAccountResponse)
+-&gt; Lens
+     GetServiceRoleForAccountResponse
+     GetServiceRoleForAccountResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-type">GetServiceRoleForAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355780"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetServiceRoleForAccountResponse' :: GetServiceRoleForAccountResponse -&gt; Int
+</span><a href="#local-6989586621679355780"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679355780"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355779"><span class="annot"><span class="annottext">s :: GetServiceRoleForAccountResponse
+</span><a href="#local-6989586621679355779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-type">GetServiceRoleForAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355778"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679355778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceRoleForAccountResponse
+</span><a href="#local-6989586621679355779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetServiceRoleForAccountResponse' :: Int
+</span><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#%24sel%3AhttpStatus%3AGetServiceRoleForAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679355778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse"><span class="hs-identifier hs-type">GetServiceRoleForAccountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679355776"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetServiceRoleForAccount.html#GetServiceRoleForAccountResponse"><span class="hs-identifier hs-type">GetServiceRoleForAccountResponse</span></a></span></span><span>
+</span><span id="line-148"></span></pre></body></html>

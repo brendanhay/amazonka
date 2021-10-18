@@ -1,0 +1,1072 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Firehose.CreateDeliveryStream</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a Kinesis Data Firehose delivery stream.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- By default, you can create up to 50 delivery streams per AWS Region.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- This is an asynchronous operation that immediately returns. The initial</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- status of the delivery stream is @CREATING@. After the delivery stream</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- is created, its status is @ACTIVE@ and it now accepts data. If the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- delivery stream creation fails, the status transitions to</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- @CREATING_FAILED@. Attempts to send data to a delivery stream that is</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- not in the @ACTIVE@ state cause an exception. To check the state of a</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- delivery stream, use DescribeDeliveryStream.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- If the status of a delivery stream is @CREATING_FAILED@, this status</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- doesn\'t change, and you can\'t invoke @CreateDeliveryStream@ again on</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- it. However, you can invoke the DeleteDeliveryStream operation to delete</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- it.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- A Kinesis Data Firehose delivery stream can be configured to receive</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- records directly from providers using PutRecord or PutRecordBatch, or it</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- can be configured to use an existing Kinesis stream as its source. To</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- specify a Kinesis data stream as input, set the @DeliveryStreamType@</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- parameter to @KinesisStreamAsSource@, and provide the Kinesis stream</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Amazon Resource Name (ARN) and role ARN in the</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- @KinesisStreamSourceConfiguration@ parameter.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- To create a delivery stream with server-side encryption (SSE) enabled,</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- include DeliveryStreamEncryptionConfigurationInput in your request. This</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- is optional. You can also invoke StartDeliveryStreamEncryption to turn</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- on SSE for an existing delivery stream that doesn\'t have SSE enabled.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- A delivery stream is configured with a single destination: Amazon S3,</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Amazon ES, Amazon Redshift, or Splunk. You must specify only one of the</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- following destination configuration parameters:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- @ExtendedS3DestinationConfiguration@, @S3DestinationConfiguration@,</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- @ElasticsearchDestinationConfiguration@,</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- @RedshiftDestinationConfiguration@, or @SplunkDestinationConfiguration@.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- When you specify @S3DestinationConfiguration@, you can also provide the</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- following optional values: BufferingHints, @EncryptionConfiguration@,</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- and @CompressionFormat@. By default, if no @BufferingHints@ value is</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- provided, Kinesis Data Firehose buffers data up to 5 MB or for 5</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- minutes, whichever condition is satisfied first. @BufferingHints@ is a</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- hint, so there are some cases where the service cannot adhere to these</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- conditions strictly. For example, record boundaries might be such that</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- the size is a little over or under the configured buffering size. By</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- default, no encryption is performed. We strongly recommend that you</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- enable encryption to ensure secure data storage in Amazon S3.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- A few notes about Amazon Redshift as a destination:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- -   An Amazon Redshift destination requires an S3 bucket as intermediate</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--     location. Kinesis Data Firehose first delivers data to Amazon S3 and</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--     then uses @COPY@ syntax to load data into an Amazon Redshift table.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--     This is specified in the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--     @RedshiftDestinationConfiguration.S3Configuration@ parameter.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- -   The compression formats @SNAPPY@ or @ZIP@ cannot be specified in</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--     @RedshiftDestinationConfiguration.S3Configuration@ because the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--     Amazon Redshift @COPY@ operation that reads from the S3 bucket</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--     doesn\'t support these compression formats.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- -   We strongly recommend that you use the user name and password you</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--     provide exclusively with Kinesis Data Firehose, and that the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--     permissions for the account are restricted for Amazon Redshift</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--     @INSERT@ permissions.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Kinesis Data Firehose assumes the IAM role that is configured as part of</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- the destination. The role should allow the Kinesis Data Firehose</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- principal to assume the role, and the role should have permissions that</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- allow the service to deliver the data. For more information, see</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Grant Kinesis Data Firehose Access to an Amazon S3 Destination&gt;</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- in the /Amazon Kinesis Data Firehose Developer Guide/.</span><span>
+</span><span id="line-95"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Firehose.CreateDeliveryStream</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier">CreateDeliveryStream</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#newCreateDeliveryStream"><span class="hs-identifier">newCreateDeliveryStream</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_redshiftDestinationConfiguration"><span class="hs-identifier">createDeliveryStream_redshiftDestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_s3DestinationConfiguration"><span class="hs-identifier">createDeliveryStream_s3DestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_kinesisStreamSourceConfiguration"><span class="hs-identifier">createDeliveryStream_kinesisStreamSourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_extendedS3DestinationConfiguration"><span class="hs-identifier">createDeliveryStream_extendedS3DestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_httpEndpointDestinationConfiguration"><span class="hs-identifier">createDeliveryStream_httpEndpointDestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_elasticsearchDestinationConfiguration"><span class="hs-identifier">createDeliveryStream_elasticsearchDestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_tags"><span class="hs-identifier">createDeliveryStream_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_deliveryStreamEncryptionConfigurationInput"><span class="hs-identifier">createDeliveryStream_deliveryStreamEncryptionConfigurationInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_splunkDestinationConfiguration"><span class="hs-identifier">createDeliveryStream_splunkDestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_deliveryStreamType"><span class="hs-identifier">createDeliveryStream_deliveryStreamType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_deliveryStreamName"><span class="hs-identifier">createDeliveryStream_deliveryStreamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStreamResponse"><span class="hs-identifier">CreateDeliveryStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#newCreateDeliveryStreamResponse"><span class="hs-identifier">newCreateDeliveryStreamResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStreamResponse_deliveryStreamARN"><span class="hs-identifier">createDeliveryStreamResponse_deliveryStreamARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStreamResponse_httpStatus"><span class="hs-identifier">createDeliveryStreamResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.html"><span class="hs-identifier">Network.AWS.Firehose.Types</span></a></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newCreateDeliveryStream' smart constructor.</span><span>
+</span><span id="line-131"></span><span id="local-6989586621679269535"><span id="local-6989586621679269536"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDeliveryStream"><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-var">CreateDeliveryStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDeliveryStream%27"><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-var">CreateDeliveryStream'</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The destination in Amazon Redshift. You can specify only one</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- destination.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AredshiftDestinationConfiguration%3ACreateDeliveryStream%27"><span class="annot"><span class="annottext">CreateDeliveryStream -&gt; Maybe RedshiftDestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AredshiftDestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var hs-var">redshiftDestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RedshiftDestinationConfiguration.html#RedshiftDestinationConfiguration"><span class="hs-identifier hs-type">RedshiftDestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | [Deprecated] The destination in Amazon S3. You can specify only one</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- destination.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3As3DestinationConfiguration%3ACreateDeliveryStream%27"><span class="annot"><span class="annottext">CreateDeliveryStream -&gt; Maybe S3DestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3As3DestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var hs-var">s3DestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | When a Kinesis data stream is used as the source for the delivery</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- stream, a KinesisStreamSourceConfiguration containing the Kinesis data</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- stream Amazon Resource Name (ARN) and the role ARN for the source</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- stream.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AkinesisStreamSourceConfiguration%3ACreateDeliveryStream%27"><span class="annot"><span class="annottext">CreateDeliveryStream -&gt; Maybe KinesisStreamSourceConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AkinesisStreamSourceConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var hs-var">kinesisStreamSourceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.KinesisStreamSourceConfiguration.html#KinesisStreamSourceConfiguration"><span class="hs-identifier hs-type">KinesisStreamSourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The destination in Amazon S3. You can specify only one destination.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AextendedS3DestinationConfiguration%3ACreateDeliveryStream%27"><span class="annot"><span class="annottext">CreateDeliveryStream -&gt; Maybe ExtendedS3DestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AextendedS3DestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var hs-var">extendedS3DestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationConfiguration.html#ExtendedS3DestinationConfiguration"><span class="hs-identifier hs-type">ExtendedS3DestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | Enables configuring Kinesis Firehose to deliver data to any HTTP</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- endpoint destination. You can specify only one destination.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpEndpointDestinationConfiguration%3ACreateDeliveryStream%27"><span class="annot"><span class="annottext">CreateDeliveryStream -&gt; Maybe HttpEndpointDestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AhttpEndpointDestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var hs-var">httpEndpointDestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The destination in Amazon ES. You can specify only one destination.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AelasticsearchDestinationConfiguration%3ACreateDeliveryStream%27"><span class="annot"><span class="annottext">CreateDeliveryStream -&gt; Maybe ElasticsearchDestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AelasticsearchDestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationConfiguration.html#ElasticsearchDestinationConfiguration"><span class="hs-identifier hs-type">ElasticsearchDestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | A set of tags to assign to the delivery stream. A tag is a key-value</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- pair that you can define and assign to AWS resources. Tags are metadata.</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- For example, you can add friendly names and descriptions or other types</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- of information that can help you distinguish the delivery stream. For</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- more information about tags, see</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- in the AWS Billing and Cost Management User Guide.</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- You can specify up to 50 tags when creating a delivery stream.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3Atags%3ACreateDeliveryStream%27"><span class="annot"><span class="annottext">CreateDeliveryStream -&gt; Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3Atags%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- needed for Server-Side Encryption (SSE).</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AdeliveryStreamEncryptionConfigurationInput%3ACreateDeliveryStream%27"><span class="annot"><span class="annottext">CreateDeliveryStream
+-&gt; Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AdeliveryStreamEncryptionConfigurationInput%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var hs-var">deliveryStreamEncryptionConfigurationInput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The destination in Splunk. You can specify only one destination.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AsplunkDestinationConfiguration%3ACreateDeliveryStream%27"><span class="annot"><span class="annottext">CreateDeliveryStream -&gt; Maybe SplunkDestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AsplunkDestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var hs-var">splunkDestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationConfiguration.html#SplunkDestinationConfiguration"><span class="hs-identifier hs-type">SplunkDestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The delivery stream type. This parameter can be one of the following</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- values:</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- -   @DirectPut@: Provider applications access the delivery stream</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">--     directly.</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- -   @KinesisStreamAsSource@: The delivery stream uses a Kinesis data</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">--     stream as a source.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AdeliveryStreamType%3ACreateDeliveryStream%27"><span class="annot"><span class="annottext">CreateDeliveryStream -&gt; Maybe DeliveryStreamType
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AdeliveryStreamType%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var hs-var">deliveryStreamType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#DeliveryStreamType"><span class="hs-identifier hs-type">DeliveryStreamType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | The name of the delivery stream. This name must be unique per AWS</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- account in the same AWS Region. If the delivery streams are in different</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- accounts or different Regions, you can have multiple delivery streams</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- with the same name.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AdeliveryStreamName%3ACreateDeliveryStream%27"><span class="annot"><span class="annottext">CreateDeliveryStream -&gt; Text
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AdeliveryStreamName%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269519"><span id="local-6989586621679269521"><span class="annot"><span class="annottext">CreateDeliveryStream -&gt; CreateDeliveryStream -&gt; Bool
+(CreateDeliveryStream -&gt; CreateDeliveryStream -&gt; Bool)
+-&gt; (CreateDeliveryStream -&gt; CreateDeliveryStream -&gt; Bool)
+-&gt; Eq CreateDeliveryStream
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDeliveryStream -&gt; CreateDeliveryStream -&gt; Bool
+$c/= :: CreateDeliveryStream -&gt; CreateDeliveryStream -&gt; Bool
+== :: CreateDeliveryStream -&gt; CreateDeliveryStream -&gt; Bool
+$c== :: CreateDeliveryStream -&gt; CreateDeliveryStream -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269512"><span id="local-6989586621679269514"><span id="local-6989586621679269516"><span class="annot"><span class="annottext">Int -&gt; CreateDeliveryStream -&gt; ShowS
+[CreateDeliveryStream] -&gt; ShowS
+CreateDeliveryStream -&gt; String
+(Int -&gt; CreateDeliveryStream -&gt; ShowS)
+-&gt; (CreateDeliveryStream -&gt; String)
+-&gt; ([CreateDeliveryStream] -&gt; ShowS)
+-&gt; Show CreateDeliveryStream
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDeliveryStream] -&gt; ShowS
+$cshowList :: [CreateDeliveryStream] -&gt; ShowS
+show :: CreateDeliveryStream -&gt; String
+$cshow :: CreateDeliveryStream -&gt; String
+showsPrec :: Int -&gt; CreateDeliveryStream -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDeliveryStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateDeliveryStream -&gt; Rep CreateDeliveryStream x)
+-&gt; (forall x. Rep CreateDeliveryStream x -&gt; CreateDeliveryStream)
+-&gt; Generic CreateDeliveryStream
+forall x. Rep CreateDeliveryStream x -&gt; CreateDeliveryStream
+forall x. CreateDeliveryStream -&gt; Rep CreateDeliveryStream x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateDeliveryStream x -&gt; CreateDeliveryStream
+$cfrom :: forall x. CreateDeliveryStream -&gt; Rep CreateDeliveryStream x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'CreateDeliveryStream' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'redshiftDestinationConfiguration', 'createDeliveryStream_redshiftDestinationConfiguration' - The destination in Amazon Redshift. You can specify only one</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- destination.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 's3DestinationConfiguration', 'createDeliveryStream_s3DestinationConfiguration' - [Deprecated] The destination in Amazon S3. You can specify only one</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- destination.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'kinesisStreamSourceConfiguration', 'createDeliveryStream_kinesisStreamSourceConfiguration' - When a Kinesis data stream is used as the source for the delivery</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- stream, a KinesisStreamSourceConfiguration containing the Kinesis data</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- stream Amazon Resource Name (ARN) and the role ARN for the source</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- stream.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'extendedS3DestinationConfiguration', 'createDeliveryStream_extendedS3DestinationConfiguration' - The destination in Amazon S3. You can specify only one destination.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'httpEndpointDestinationConfiguration', 'createDeliveryStream_httpEndpointDestinationConfiguration' - Enables configuring Kinesis Firehose to deliver data to any HTTP</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- endpoint destination. You can specify only one destination.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'elasticsearchDestinationConfiguration', 'createDeliveryStream_elasticsearchDestinationConfiguration' - The destination in Amazon ES. You can specify only one destination.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'tags', 'createDeliveryStream_tags' - A set of tags to assign to the delivery stream. A tag is a key-value</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- pair that you can define and assign to AWS resources. Tags are metadata.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- For example, you can add friendly names and descriptions or other types</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- of information that can help you distinguish the delivery stream. For</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- more information about tags, see</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- in the AWS Billing and Cost Management User Guide.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- You can specify up to 50 tags when creating a delivery stream.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'deliveryStreamEncryptionConfigurationInput', 'createDeliveryStream_deliveryStreamEncryptionConfigurationInput' - Used to specify the type and Amazon Resource Name (ARN) of the KMS key</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- needed for Server-Side Encryption (SSE).</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'splunkDestinationConfiguration', 'createDeliveryStream_splunkDestinationConfiguration' - The destination in Splunk. You can specify only one destination.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'deliveryStreamType', 'createDeliveryStream_deliveryStreamType' - The delivery stream type. This parameter can be one of the following</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- values:</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- -   @DirectPut@: Provider applications access the delivery stream</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--     directly.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- -   @KinesisStreamAsSource@: The delivery stream uses a Kinesis data</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--     stream as a source.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'deliveryStreamName', 'createDeliveryStream_deliveryStreamName' - The name of the delivery stream. This name must be unique per AWS</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- account in the same AWS Region. If the delivery streams are in different</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- accounts or different Regions, you can have multiple delivery streams</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- with the same name.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#newCreateDeliveryStream"><span class="hs-identifier hs-type">newCreateDeliveryStream</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-237"></span><span>  </span><span class="hs-comment">-- | 'deliveryStreamName'</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span>
+</span><span id="line-240"></span><span id="newCreateDeliveryStream"><span class="annot"><span class="annottext">newCreateDeliveryStream :: Text -&gt; CreateDeliveryStream
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#newCreateDeliveryStream"><span class="hs-identifier hs-var hs-var">newCreateDeliveryStream</span></a></span></span><span> </span><span id="local-6989586621679269507"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269507"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><span class="annottext">CreateDeliveryStream' :: Maybe RedshiftDestinationConfiguration
+-&gt; Maybe S3DestinationConfiguration
+-&gt; Maybe KinesisStreamSourceConfiguration
+-&gt; Maybe ExtendedS3DestinationConfiguration
+-&gt; Maybe HttpEndpointDestinationConfiguration
+-&gt; Maybe ElasticsearchDestinationConfiguration
+-&gt; Maybe (NonEmpty Tag)
+-&gt; Maybe DeliveryStreamEncryptionConfigurationInput
+-&gt; Maybe SplunkDestinationConfiguration
+-&gt; Maybe DeliveryStreamType
+-&gt; Text
+-&gt; CreateDeliveryStream
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:redshiftDestinationConfiguration:CreateDeliveryStream' :: Maybe RedshiftDestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AredshiftDestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">redshiftDestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">Maybe RedshiftDestinationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3DestinationConfiguration:CreateDeliveryStream' :: Maybe S3DestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3As3DestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">s3DestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:kinesisStreamSourceConfiguration:CreateDeliveryStream' :: Maybe KinesisStreamSourceConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AkinesisStreamSourceConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">kinesisStreamSourceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamSourceConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:extendedS3DestinationConfiguration:CreateDeliveryStream' :: Maybe ExtendedS3DestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AextendedS3DestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">extendedS3DestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExtendedS3DestinationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpEndpointDestinationConfiguration:CreateDeliveryStream' :: Maybe HttpEndpointDestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AhttpEndpointDestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">httpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-248"></span><span>        </span><span class="annot"><span class="annottext">Maybe HttpEndpointDestinationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:elasticsearchDestinationConfiguration:CreateDeliveryStream' :: Maybe ElasticsearchDestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AelasticsearchDestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">elasticsearchDestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>        </span><span class="annot"><span class="annottext">Maybe ElasticsearchDestinationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateDeliveryStream' :: Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3Atags%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">$sel:deliveryStreamEncryptionConfigurationInput:CreateDeliveryStream' :: Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AdeliveryStreamEncryptionConfigurationInput%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">deliveryStreamEncryptionConfigurationInput</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">Maybe DeliveryStreamEncryptionConfigurationInput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">$sel:splunkDestinationConfiguration:CreateDeliveryStream' :: Maybe SplunkDestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AsplunkDestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">splunkDestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SplunkDestinationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:deliveryStreamType:CreateDeliveryStream' :: Maybe DeliveryStreamType
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AdeliveryStreamType%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">deliveryStreamType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStreamType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:deliveryStreamName:CreateDeliveryStream' :: Text
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AdeliveryStreamName%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269507"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The destination in Amazon Redshift. You can specify only one</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- destination.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_redshiftDestinationConfiguration"><span class="hs-identifier hs-type">createDeliveryStream_redshiftDestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RedshiftDestinationConfiguration.html#RedshiftDestinationConfiguration"><span class="hs-identifier hs-type">RedshiftDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="createDeliveryStream_redshiftDestinationConfiguration"><span class="annot"><span class="annottext">createDeliveryStream_redshiftDestinationConfiguration :: (Maybe RedshiftDestinationConfiguration
+ -&gt; f (Maybe RedshiftDestinationConfiguration))
+-&gt; CreateDeliveryStream -&gt; f CreateDeliveryStream
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_redshiftDestinationConfiguration"><span class="hs-identifier hs-var hs-var">createDeliveryStream_redshiftDestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliveryStream -&gt; Maybe RedshiftDestinationConfiguration)
+-&gt; (CreateDeliveryStream
+    -&gt; Maybe RedshiftDestinationConfiguration -&gt; CreateDeliveryStream)
+-&gt; Lens
+     CreateDeliveryStream
+     CreateDeliveryStream
+     (Maybe RedshiftDestinationConfiguration)
+     (Maybe RedshiftDestinationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269504"><span class="annot"><span class="annottext">Maybe RedshiftDestinationConfiguration
+redshiftDestinationConfiguration :: Maybe RedshiftDestinationConfiguration
+$sel:redshiftDestinationConfiguration:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe RedshiftDestinationConfiguration
+</span><a href="#local-6989586621679269504"><span class="hs-identifier hs-var hs-var">redshiftDestinationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftDestinationConfiguration
+</span><a href="#local-6989586621679269504"><span class="hs-identifier hs-var">redshiftDestinationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269503"><span class="annot"><span class="annottext">s :: CreateDeliveryStream
+</span><a href="#local-6989586621679269503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269502"><span class="annot"><span class="annottext">Maybe RedshiftDestinationConfiguration
+</span><a href="#local-6989586621679269502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliveryStream
+</span><a href="#local-6989586621679269503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redshiftDestinationConfiguration:CreateDeliveryStream' :: Maybe RedshiftDestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AredshiftDestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">redshiftDestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftDestinationConfiguration
+</span><a href="#local-6989586621679269502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | [Deprecated] The destination in Amazon S3. You can specify only one</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- destination.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_s3DestinationConfiguration"><span class="hs-identifier hs-type">createDeliveryStream_s3DestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="createDeliveryStream_s3DestinationConfiguration"><span class="annot"><span class="annottext">createDeliveryStream_s3DestinationConfiguration :: (Maybe S3DestinationConfiguration
+ -&gt; f (Maybe S3DestinationConfiguration))
+-&gt; CreateDeliveryStream -&gt; f CreateDeliveryStream
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_s3DestinationConfiguration"><span class="hs-identifier hs-var hs-var">createDeliveryStream_s3DestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliveryStream -&gt; Maybe S3DestinationConfiguration)
+-&gt; (CreateDeliveryStream
+    -&gt; Maybe S3DestinationConfiguration -&gt; CreateDeliveryStream)
+-&gt; Lens
+     CreateDeliveryStream
+     CreateDeliveryStream
+     (Maybe S3DestinationConfiguration)
+     (Maybe S3DestinationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269501"><span class="annot"><span class="annottext">Maybe S3DestinationConfiguration
+s3DestinationConfiguration :: Maybe S3DestinationConfiguration
+$sel:s3DestinationConfiguration:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe S3DestinationConfiguration
+</span><a href="#local-6989586621679269501"><span class="hs-identifier hs-var hs-var">s3DestinationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationConfiguration
+</span><a href="#local-6989586621679269501"><span class="hs-identifier hs-var">s3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269500"><span class="annot"><span class="annottext">s :: CreateDeliveryStream
+</span><a href="#local-6989586621679269500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269499"><span class="annot"><span class="annottext">Maybe S3DestinationConfiguration
+</span><a href="#local-6989586621679269499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliveryStream
+</span><a href="#local-6989586621679269500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DestinationConfiguration:CreateDeliveryStream' :: Maybe S3DestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3As3DestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">s3DestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationConfiguration
+</span><a href="#local-6989586621679269499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | When a Kinesis data stream is used as the source for the delivery</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- stream, a KinesisStreamSourceConfiguration containing the Kinesis data</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- stream Amazon Resource Name (ARN) and the role ARN for the source</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- stream.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_kinesisStreamSourceConfiguration"><span class="hs-identifier hs-type">createDeliveryStream_kinesisStreamSourceConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.KinesisStreamSourceConfiguration.html#KinesisStreamSourceConfiguration"><span class="hs-identifier hs-type">KinesisStreamSourceConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="createDeliveryStream_kinesisStreamSourceConfiguration"><span class="annot"><span class="annottext">createDeliveryStream_kinesisStreamSourceConfiguration :: (Maybe KinesisStreamSourceConfiguration
+ -&gt; f (Maybe KinesisStreamSourceConfiguration))
+-&gt; CreateDeliveryStream -&gt; f CreateDeliveryStream
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_kinesisStreamSourceConfiguration"><span class="hs-identifier hs-var hs-var">createDeliveryStream_kinesisStreamSourceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliveryStream -&gt; Maybe KinesisStreamSourceConfiguration)
+-&gt; (CreateDeliveryStream
+    -&gt; Maybe KinesisStreamSourceConfiguration -&gt; CreateDeliveryStream)
+-&gt; Lens
+     CreateDeliveryStream
+     CreateDeliveryStream
+     (Maybe KinesisStreamSourceConfiguration)
+     (Maybe KinesisStreamSourceConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269498"><span class="annot"><span class="annottext">Maybe KinesisStreamSourceConfiguration
+kinesisStreamSourceConfiguration :: Maybe KinesisStreamSourceConfiguration
+$sel:kinesisStreamSourceConfiguration:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe KinesisStreamSourceConfiguration
+</span><a href="#local-6989586621679269498"><span class="hs-identifier hs-var hs-var">kinesisStreamSourceConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamSourceConfiguration
+</span><a href="#local-6989586621679269498"><span class="hs-identifier hs-var">kinesisStreamSourceConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269497"><span class="annot"><span class="annottext">s :: CreateDeliveryStream
+</span><a href="#local-6989586621679269497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269496"><span class="annot"><span class="annottext">Maybe KinesisStreamSourceConfiguration
+</span><a href="#local-6989586621679269496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliveryStream
+</span><a href="#local-6989586621679269497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisStreamSourceConfiguration:CreateDeliveryStream' :: Maybe KinesisStreamSourceConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AkinesisStreamSourceConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">kinesisStreamSourceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamSourceConfiguration
+</span><a href="#local-6989586621679269496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | The destination in Amazon S3. You can specify only one destination.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_extendedS3DestinationConfiguration"><span class="hs-identifier hs-type">createDeliveryStream_extendedS3DestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationConfiguration.html#ExtendedS3DestinationConfiguration"><span class="hs-identifier hs-type">ExtendedS3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="createDeliveryStream_extendedS3DestinationConfiguration"><span class="annot"><span class="annottext">createDeliveryStream_extendedS3DestinationConfiguration :: (Maybe ExtendedS3DestinationConfiguration
+ -&gt; f (Maybe ExtendedS3DestinationConfiguration))
+-&gt; CreateDeliveryStream -&gt; f CreateDeliveryStream
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_extendedS3DestinationConfiguration"><span class="hs-identifier hs-var hs-var">createDeliveryStream_extendedS3DestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliveryStream -&gt; Maybe ExtendedS3DestinationConfiguration)
+-&gt; (CreateDeliveryStream
+    -&gt; Maybe ExtendedS3DestinationConfiguration
+    -&gt; CreateDeliveryStream)
+-&gt; Lens
+     CreateDeliveryStream
+     CreateDeliveryStream
+     (Maybe ExtendedS3DestinationConfiguration)
+     (Maybe ExtendedS3DestinationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269495"><span class="annot"><span class="annottext">Maybe ExtendedS3DestinationConfiguration
+extendedS3DestinationConfiguration :: Maybe ExtendedS3DestinationConfiguration
+$sel:extendedS3DestinationConfiguration:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe ExtendedS3DestinationConfiguration
+</span><a href="#local-6989586621679269495"><span class="hs-identifier hs-var hs-var">extendedS3DestinationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExtendedS3DestinationConfiguration
+</span><a href="#local-6989586621679269495"><span class="hs-identifier hs-var">extendedS3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269494"><span class="annot"><span class="annottext">s :: CreateDeliveryStream
+</span><a href="#local-6989586621679269494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269493"><span class="annot"><span class="annottext">Maybe ExtendedS3DestinationConfiguration
+</span><a href="#local-6989586621679269493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliveryStream
+</span><a href="#local-6989586621679269494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extendedS3DestinationConfiguration:CreateDeliveryStream' :: Maybe ExtendedS3DestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AextendedS3DestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">extendedS3DestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExtendedS3DestinationConfiguration
+</span><a href="#local-6989586621679269493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | Enables configuring Kinesis Firehose to deliver data to any HTTP</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- endpoint destination. You can specify only one destination.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_httpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">createDeliveryStream_httpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="createDeliveryStream_httpEndpointDestinationConfiguration"><span class="annot"><span class="annottext">createDeliveryStream_httpEndpointDestinationConfiguration :: (Maybe HttpEndpointDestinationConfiguration
+ -&gt; f (Maybe HttpEndpointDestinationConfiguration))
+-&gt; CreateDeliveryStream -&gt; f CreateDeliveryStream
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_httpEndpointDestinationConfiguration"><span class="hs-identifier hs-var hs-var">createDeliveryStream_httpEndpointDestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliveryStream
+ -&gt; Maybe HttpEndpointDestinationConfiguration)
+-&gt; (CreateDeliveryStream
+    -&gt; Maybe HttpEndpointDestinationConfiguration
+    -&gt; CreateDeliveryStream)
+-&gt; Lens
+     CreateDeliveryStream
+     CreateDeliveryStream
+     (Maybe HttpEndpointDestinationConfiguration)
+     (Maybe HttpEndpointDestinationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269492"><span class="annot"><span class="annottext">Maybe HttpEndpointDestinationConfiguration
+httpEndpointDestinationConfiguration :: Maybe HttpEndpointDestinationConfiguration
+$sel:httpEndpointDestinationConfiguration:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679269492"><span class="hs-identifier hs-var hs-var">httpEndpointDestinationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679269492"><span class="hs-identifier hs-var">httpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269491"><span class="annot"><span class="annottext">s :: CreateDeliveryStream
+</span><a href="#local-6989586621679269491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269490"><span class="annot"><span class="annottext">Maybe HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679269490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliveryStream
+</span><a href="#local-6989586621679269491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpEndpointDestinationConfiguration:CreateDeliveryStream' :: Maybe HttpEndpointDestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AhttpEndpointDestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">httpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679269490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The destination in Amazon ES. You can specify only one destination.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_elasticsearchDestinationConfiguration"><span class="hs-identifier hs-type">createDeliveryStream_elasticsearchDestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationConfiguration.html#ElasticsearchDestinationConfiguration"><span class="hs-identifier hs-type">ElasticsearchDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="createDeliveryStream_elasticsearchDestinationConfiguration"><span class="annot"><span class="annottext">createDeliveryStream_elasticsearchDestinationConfiguration :: (Maybe ElasticsearchDestinationConfiguration
+ -&gt; f (Maybe ElasticsearchDestinationConfiguration))
+-&gt; CreateDeliveryStream -&gt; f CreateDeliveryStream
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_elasticsearchDestinationConfiguration"><span class="hs-identifier hs-var hs-var">createDeliveryStream_elasticsearchDestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliveryStream
+ -&gt; Maybe ElasticsearchDestinationConfiguration)
+-&gt; (CreateDeliveryStream
+    -&gt; Maybe ElasticsearchDestinationConfiguration
+    -&gt; CreateDeliveryStream)
+-&gt; Lens
+     CreateDeliveryStream
+     CreateDeliveryStream
+     (Maybe ElasticsearchDestinationConfiguration)
+     (Maybe ElasticsearchDestinationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269489"><span class="annot"><span class="annottext">Maybe ElasticsearchDestinationConfiguration
+elasticsearchDestinationConfiguration :: Maybe ElasticsearchDestinationConfiguration
+$sel:elasticsearchDestinationConfiguration:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe ElasticsearchDestinationConfiguration
+</span><a href="#local-6989586621679269489"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchDestinationConfiguration
+</span><a href="#local-6989586621679269489"><span class="hs-identifier hs-var">elasticsearchDestinationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269488"><span class="annot"><span class="annottext">s :: CreateDeliveryStream
+</span><a href="#local-6989586621679269488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269487"><span class="annot"><span class="annottext">Maybe ElasticsearchDestinationConfiguration
+</span><a href="#local-6989586621679269487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliveryStream
+</span><a href="#local-6989586621679269488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticsearchDestinationConfiguration:CreateDeliveryStream' :: Maybe ElasticsearchDestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AelasticsearchDestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">elasticsearchDestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchDestinationConfiguration
+</span><a href="#local-6989586621679269487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | A set of tags to assign to the delivery stream. A tag is a key-value</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- pair that you can define and assign to AWS resources. Tags are metadata.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- For example, you can add friendly names and descriptions or other types</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- of information that can help you distinguish the delivery stream. For</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- more information about tags, see</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- in the AWS Billing and Cost Management User Guide.</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- You can specify up to 50 tags when creating a delivery stream.</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_tags"><span class="hs-identifier hs-type">createDeliveryStream_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span id="createDeliveryStream_tags"><span class="annot"><span class="annottext">createDeliveryStream_tags :: (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; CreateDeliveryStream -&gt; f CreateDeliveryStream
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_tags"><span class="hs-identifier hs-var hs-var">createDeliveryStream_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliveryStream -&gt; Maybe (NonEmpty Tag))
+-&gt; (CreateDeliveryStream
+    -&gt; Maybe (NonEmpty Tag) -&gt; CreateDeliveryStream)
+-&gt; Lens
+     CreateDeliveryStream
+     CreateDeliveryStream
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269486"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+tags :: Maybe (NonEmpty Tag)
+$sel:tags:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679269486"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679269486"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269485"><span class="annot"><span class="annottext">s :: CreateDeliveryStream
+</span><a href="#local-6989586621679269485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269484"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679269484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliveryStream
+</span><a href="#local-6989586621679269485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDeliveryStream' :: Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3Atags%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679269484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+ -&gt; CreateDeliveryStream -&gt; f CreateDeliveryStream)
+-&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+    -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; CreateDeliveryStream
+-&gt; f CreateDeliveryStream
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+-&gt; Iso
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- needed for Server-Side Encryption (SSE).</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_deliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-type">createDeliveryStream_deliveryStreamEncryptionConfigurationInput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span id="createDeliveryStream_deliveryStreamEncryptionConfigurationInput"><span class="annot"><span class="annottext">createDeliveryStream_deliveryStreamEncryptionConfigurationInput :: (Maybe DeliveryStreamEncryptionConfigurationInput
+ -&gt; f (Maybe DeliveryStreamEncryptionConfigurationInput))
+-&gt; CreateDeliveryStream -&gt; f CreateDeliveryStream
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_deliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-var hs-var">createDeliveryStream_deliveryStreamEncryptionConfigurationInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliveryStream
+ -&gt; Maybe DeliveryStreamEncryptionConfigurationInput)
+-&gt; (CreateDeliveryStream
+    -&gt; Maybe DeliveryStreamEncryptionConfigurationInput
+    -&gt; CreateDeliveryStream)
+-&gt; Lens
+     CreateDeliveryStream
+     CreateDeliveryStream
+     (Maybe DeliveryStreamEncryptionConfigurationInput)
+     (Maybe DeliveryStreamEncryptionConfigurationInput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269480"><span class="annot"><span class="annottext">Maybe DeliveryStreamEncryptionConfigurationInput
+deliveryStreamEncryptionConfigurationInput :: Maybe DeliveryStreamEncryptionConfigurationInput
+$sel:deliveryStreamEncryptionConfigurationInput:CreateDeliveryStream' :: CreateDeliveryStream
+-&gt; Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="#local-6989586621679269480"><span class="hs-identifier hs-var hs-var">deliveryStreamEncryptionConfigurationInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="#local-6989586621679269480"><span class="hs-identifier hs-var">deliveryStreamEncryptionConfigurationInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269479"><span class="annot"><span class="annottext">s :: CreateDeliveryStream
+</span><a href="#local-6989586621679269479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269478"><span class="annot"><span class="annottext">Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="#local-6989586621679269478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliveryStream
+</span><a href="#local-6989586621679269479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamEncryptionConfigurationInput:CreateDeliveryStream' :: Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AdeliveryStreamEncryptionConfigurationInput%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">deliveryStreamEncryptionConfigurationInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="#local-6989586621679269478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | The destination in Splunk. You can specify only one destination.</span><span>
+</span><span id="line-307"></span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_splunkDestinationConfiguration"><span class="hs-identifier hs-type">createDeliveryStream_splunkDestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationConfiguration.html#SplunkDestinationConfiguration"><span class="hs-identifier hs-type">SplunkDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span id="createDeliveryStream_splunkDestinationConfiguration"><span class="annot"><span class="annottext">createDeliveryStream_splunkDestinationConfiguration :: (Maybe SplunkDestinationConfiguration
+ -&gt; f (Maybe SplunkDestinationConfiguration))
+-&gt; CreateDeliveryStream -&gt; f CreateDeliveryStream
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_splunkDestinationConfiguration"><span class="hs-identifier hs-var hs-var">createDeliveryStream_splunkDestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliveryStream -&gt; Maybe SplunkDestinationConfiguration)
+-&gt; (CreateDeliveryStream
+    -&gt; Maybe SplunkDestinationConfiguration -&gt; CreateDeliveryStream)
+-&gt; Lens
+     CreateDeliveryStream
+     CreateDeliveryStream
+     (Maybe SplunkDestinationConfiguration)
+     (Maybe SplunkDestinationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269477"><span class="annot"><span class="annottext">Maybe SplunkDestinationConfiguration
+splunkDestinationConfiguration :: Maybe SplunkDestinationConfiguration
+$sel:splunkDestinationConfiguration:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe SplunkDestinationConfiguration
+</span><a href="#local-6989586621679269477"><span class="hs-identifier hs-var hs-var">splunkDestinationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SplunkDestinationConfiguration
+</span><a href="#local-6989586621679269477"><span class="hs-identifier hs-var">splunkDestinationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269476"><span class="annot"><span class="annottext">s :: CreateDeliveryStream
+</span><a href="#local-6989586621679269476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269475"><span class="annot"><span class="annottext">Maybe SplunkDestinationConfiguration
+</span><a href="#local-6989586621679269475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliveryStream
+</span><a href="#local-6989586621679269476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:splunkDestinationConfiguration:CreateDeliveryStream' :: Maybe SplunkDestinationConfiguration
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AsplunkDestinationConfiguration%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">splunkDestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SplunkDestinationConfiguration
+</span><a href="#local-6989586621679269475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- | The delivery stream type. This parameter can be one of the following</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- values:</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- -   @DirectPut@: Provider applications access the delivery stream</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--     directly.</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- -   @KinesisStreamAsSource@: The delivery stream uses a Kinesis data</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--     stream as a source.</span><span>
+</span><span id="line-318"></span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_deliveryStreamType"><span class="hs-identifier hs-type">createDeliveryStream_deliveryStreamType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#DeliveryStreamType"><span class="hs-identifier hs-type">DeliveryStreamType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span id="createDeliveryStream_deliveryStreamType"><span class="annot"><span class="annottext">createDeliveryStream_deliveryStreamType :: (Maybe DeliveryStreamType -&gt; f (Maybe DeliveryStreamType))
+-&gt; CreateDeliveryStream -&gt; f CreateDeliveryStream
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_deliveryStreamType"><span class="hs-identifier hs-var hs-var">createDeliveryStream_deliveryStreamType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliveryStream -&gt; Maybe DeliveryStreamType)
+-&gt; (CreateDeliveryStream
+    -&gt; Maybe DeliveryStreamType -&gt; CreateDeliveryStream)
+-&gt; Lens
+     CreateDeliveryStream
+     CreateDeliveryStream
+     (Maybe DeliveryStreamType)
+     (Maybe DeliveryStreamType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269474"><span class="annot"><span class="annottext">Maybe DeliveryStreamType
+deliveryStreamType :: Maybe DeliveryStreamType
+$sel:deliveryStreamType:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe DeliveryStreamType
+</span><a href="#local-6989586621679269474"><span class="hs-identifier hs-var hs-var">deliveryStreamType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStreamType
+</span><a href="#local-6989586621679269474"><span class="hs-identifier hs-var">deliveryStreamType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269473"><span class="annot"><span class="annottext">s :: CreateDeliveryStream
+</span><a href="#local-6989586621679269473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269472"><span class="annot"><span class="annottext">Maybe DeliveryStreamType
+</span><a href="#local-6989586621679269472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliveryStream
+</span><a href="#local-6989586621679269473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamType:CreateDeliveryStream' :: Maybe DeliveryStreamType
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AdeliveryStreamType%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">deliveryStreamType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStreamType
+</span><a href="#local-6989586621679269472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-320"></span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- | The name of the delivery stream. This name must be unique per AWS</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- account in the same AWS Region. If the delivery streams are in different</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- accounts or different Regions, you can have multiple delivery streams</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- with the same name.</span><span>
+</span><span id="line-325"></span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_deliveryStreamName"><span class="hs-identifier hs-type">createDeliveryStream_deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-326"></span><span id="createDeliveryStream_deliveryStreamName"><span class="annot"><span class="annottext">createDeliveryStream_deliveryStreamName :: (Text -&gt; f Text) -&gt; CreateDeliveryStream -&gt; f CreateDeliveryStream
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStream_deliveryStreamName"><span class="hs-identifier hs-var hs-var">createDeliveryStream_deliveryStreamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliveryStream -&gt; Text)
+-&gt; (CreateDeliveryStream -&gt; Text -&gt; CreateDeliveryStream)
+-&gt; Lens CreateDeliveryStream CreateDeliveryStream Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269471"><span class="annot"><span class="annottext">Text
+deliveryStreamName :: Text
+$sel:deliveryStreamName:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Text
+</span><a href="#local-6989586621679269471"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269471"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269470"><span class="annot"><span class="annottext">s :: CreateDeliveryStream
+</span><a href="#local-6989586621679269470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269469"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliveryStream
+</span><a href="#local-6989586621679269470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamName:CreateDeliveryStream' :: Text
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AdeliveryStreamName%3ACreateDeliveryStream%27"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-329"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-330"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-331"></span><span>      </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStreamResponse"><span class="hs-identifier hs-type">CreateDeliveryStreamResponse</span></a></span><span>
+</span><span id="line-332"></span><span>  </span><span id="local-6989586621679269465"><span class="annot"><span class="annottext">request :: CreateDeliveryStream -&gt; Request CreateDeliveryStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDeliveryStream -&gt; Request CreateDeliveryStream
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Firehose.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-333"></span><span>  </span><span id="local-6989586621679269461"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateDeliveryStream
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateDeliveryStream)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-334"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateDeliveryStream))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateDeliveryStream
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateDeliveryStream)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-335"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679269458"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269458"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679269457"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679269457"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679269456"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269456"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-336"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateDeliveryStreamResponse
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStreamResponse%27"><span class="hs-identifier hs-var">CreateDeliveryStreamResponse'</span></a></span><span>
+</span><span id="line-337"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateDeliveryStreamResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateDeliveryStreamResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryStreamARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateDeliveryStreamResponse)
+-&gt; Either String Int -&gt; Either String CreateDeliveryStreamResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269458"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269448"><span id="local-6989586621679269450"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span></span></span><span>
+</span><span id="line-342"></span><span>
+</span><span id="line-343"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269445"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span></span><span>
+</span><span id="line-344"></span><span>
+</span><span id="line-345"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-346"></span><span>  </span><span id="local-6989586621679269441"><span class="annot"><span class="annottext">toHeaders :: CreateDeliveryStream -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-347"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDeliveryStream -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-348"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-349"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-350"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Firehose_20150804.CreateDeliveryStream&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-351"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-352"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-353"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-354"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-355"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-356"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-358"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-359"></span><span>
+</span><span id="line-360"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269431"><span id="local-6989586621679269433"><span id="local-6989586621679269435"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-361"></span><span>  </span><span id="local-6989586621679269429"><span class="annot"><span class="annottext">toJSON :: CreateDeliveryStream -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream%27"><span class="hs-identifier hs-type">CreateDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269417"><span id="local-6989586621679269418"><span id="local-6989586621679269419"><span id="local-6989586621679269420"><span id="local-6989586621679269421"><span id="local-6989586621679269422"><span id="local-6989586621679269423"><span id="local-6989586621679269424"><span id="local-6989586621679269425"><span id="local-6989586621679269426"><span id="local-6989586621679269427"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+Maybe DeliveryStreamType
+Maybe DeliveryStreamEncryptionConfigurationInput
+Maybe KinesisStreamSourceConfiguration
+Maybe S3DestinationConfiguration
+Maybe RedshiftDestinationConfiguration
+Maybe HttpEndpointDestinationConfiguration
+Maybe ExtendedS3DestinationConfiguration
+Maybe SplunkDestinationConfiguration
+Maybe ElasticsearchDestinationConfiguration
+Text
+deliveryStreamName :: Text
+deliveryStreamType :: Maybe DeliveryStreamType
+splunkDestinationConfiguration :: Maybe SplunkDestinationConfiguration
+deliveryStreamEncryptionConfigurationInput :: Maybe DeliveryStreamEncryptionConfigurationInput
+tags :: Maybe (NonEmpty Tag)
+elasticsearchDestinationConfiguration :: Maybe ElasticsearchDestinationConfiguration
+httpEndpointDestinationConfiguration :: Maybe HttpEndpointDestinationConfiguration
+extendedS3DestinationConfiguration :: Maybe ExtendedS3DestinationConfiguration
+kinesisStreamSourceConfiguration :: Maybe KinesisStreamSourceConfiguration
+s3DestinationConfiguration :: Maybe S3DestinationConfiguration
+redshiftDestinationConfiguration :: Maybe RedshiftDestinationConfiguration
+$sel:deliveryStreamName:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Text
+$sel:deliveryStreamType:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe DeliveryStreamType
+$sel:splunkDestinationConfiguration:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe SplunkDestinationConfiguration
+$sel:deliveryStreamEncryptionConfigurationInput:CreateDeliveryStream' :: CreateDeliveryStream
+-&gt; Maybe DeliveryStreamEncryptionConfigurationInput
+$sel:tags:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe (NonEmpty Tag)
+$sel:elasticsearchDestinationConfiguration:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe ElasticsearchDestinationConfiguration
+$sel:httpEndpointDestinationConfiguration:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe HttpEndpointDestinationConfiguration
+$sel:extendedS3DestinationConfiguration:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe ExtendedS3DestinationConfiguration
+$sel:kinesisStreamSourceConfiguration:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe KinesisStreamSourceConfiguration
+$sel:s3DestinationConfiguration:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe S3DestinationConfiguration
+$sel:redshiftDestinationConfiguration:CreateDeliveryStream' :: CreateDeliveryStream -&gt; Maybe RedshiftDestinationConfiguration
+</span><a href="#local-6989586621679269417"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-362"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-363"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-364"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RedshiftDestinationConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RedshiftDestinationConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-365"></span><span>              </span><span class="annot"><span class="annottext">(RedshiftDestinationConfiguration -&gt; Pair)
+-&gt; Maybe RedshiftDestinationConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftDestinationConfiguration
+</span><a href="#local-6989586621679269427"><span class="hs-identifier hs-var">redshiftDestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3DestinationConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3DestinationConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-367"></span><span>              </span><span class="annot"><span class="annottext">(S3DestinationConfiguration -&gt; Pair)
+-&gt; Maybe S3DestinationConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationConfiguration
+</span><a href="#local-6989586621679269426"><span class="hs-identifier hs-var">s3DestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-368"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KinesisStreamSourceConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KinesisStreamSourceConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-369"></span><span>              </span><span class="annot"><span class="annottext">(KinesisStreamSourceConfiguration -&gt; Pair)
+-&gt; Maybe KinesisStreamSourceConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamSourceConfiguration
+</span><a href="#local-6989586621679269425"><span class="hs-identifier hs-var">kinesisStreamSourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-370"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExtendedS3DestinationConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExtendedS3DestinationConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-371"></span><span>              </span><span class="annot"><span class="annottext">(ExtendedS3DestinationConfiguration -&gt; Pair)
+-&gt; Maybe ExtendedS3DestinationConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExtendedS3DestinationConfiguration
+</span><a href="#local-6989586621679269424"><span class="hs-identifier hs-var">extendedS3DestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-372"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HttpEndpointDestinationConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpEndpointDestinationConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-373"></span><span>              </span><span class="annot"><span class="annottext">(HttpEndpointDestinationConfiguration -&gt; Pair)
+-&gt; Maybe HttpEndpointDestinationConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679269423"><span class="hs-identifier hs-var">httpEndpointDestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-374"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ElasticsearchDestinationConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ElasticsearchDestinationConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-375"></span><span>              </span><span class="annot"><span class="annottext">(ElasticsearchDestinationConfiguration -&gt; Pair)
+-&gt; Maybe ElasticsearchDestinationConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchDestinationConfiguration
+</span><a href="#local-6989586621679269422"><span class="hs-identifier hs-var">elasticsearchDestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-376"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Tag -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679269421"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-377"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryStreamEncryptionConfigurationInput&quot;</span></span><span>
+</span><span id="line-378"></span><span>                </span><span class="annot"><span class="annottext">Text -&gt; DeliveryStreamEncryptionConfigurationInput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span>
+</span><span id="line-379"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-380"></span><span>              </span><span class="annot"><span class="annottext">(DeliveryStreamEncryptionConfigurationInput -&gt; Pair)
+-&gt; Maybe DeliveryStreamEncryptionConfigurationInput -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="#local-6989586621679269420"><span class="hs-identifier hs-var">deliveryStreamEncryptionConfigurationInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-381"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SplunkDestinationConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SplunkDestinationConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span>              </span><span class="annot"><span class="annottext">(SplunkDestinationConfiguration -&gt; Pair)
+-&gt; Maybe SplunkDestinationConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SplunkDestinationConfiguration
+</span><a href="#local-6989586621679269419"><span class="hs-identifier hs-var">splunkDestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-383"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryStreamType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeliveryStreamType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-384"></span><span>              </span><span class="annot"><span class="annottext">(DeliveryStreamType -&gt; Pair)
+-&gt; Maybe DeliveryStreamType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStreamType
+</span><a href="#local-6989586621679269418"><span class="hs-identifier hs-var">deliveryStreamType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-385"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-386"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryStreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269417"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-387"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-388"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-389"></span><span>
+</span><span id="line-390"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-391"></span><span>  </span><span id="local-6989586621679269411"><span class="annot"><span class="annottext">toPath :: CreateDeliveryStream -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDeliveryStream -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-392"></span><span>
+</span><span id="line-393"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStream"><span class="hs-identifier hs-type">CreateDeliveryStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-394"></span><span>  </span><span id="local-6989586621679269407"><span class="annot"><span class="annottext">toQuery :: CreateDeliveryStream -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDeliveryStream -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-395"></span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- | /See:/ 'newCreateDeliveryStreamResponse' smart constructor.</span><span>
+</span><span id="line-397"></span><span id="local-6989586621679269404"><span id="local-6989586621679269405"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDeliveryStreamResponse"><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStreamResponse"><span class="hs-identifier hs-var">CreateDeliveryStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDeliveryStreamResponse%27"><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStreamResponse%27"><span class="hs-identifier hs-var">CreateDeliveryStreamResponse'</span></a></span></span><span>
+</span><span id="line-398"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the delivery stream.</span><span>
+</span><span id="line-399"></span><span>    </span><span id="%24sel%3AdeliveryStreamARN%3ACreateDeliveryStreamResponse%27"><span class="annot"><span class="annottext">CreateDeliveryStreamResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AdeliveryStreamARN%3ACreateDeliveryStreamResponse%27"><span class="hs-identifier hs-var hs-var">deliveryStreamARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-400"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-401"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDeliveryStreamResponse%27"><span class="annot"><span class="annottext">CreateDeliveryStreamResponse -&gt; Int
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AhttpStatus%3ACreateDeliveryStreamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-402"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-403"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269398"><span id="local-6989586621679269400"><span class="annot"><span class="annottext">CreateDeliveryStreamResponse
+-&gt; CreateDeliveryStreamResponse -&gt; Bool
+(CreateDeliveryStreamResponse
+ -&gt; CreateDeliveryStreamResponse -&gt; Bool)
+-&gt; (CreateDeliveryStreamResponse
+    -&gt; CreateDeliveryStreamResponse -&gt; Bool)
+-&gt; Eq CreateDeliveryStreamResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDeliveryStreamResponse
+-&gt; CreateDeliveryStreamResponse -&gt; Bool
+$c/= :: CreateDeliveryStreamResponse
+-&gt; CreateDeliveryStreamResponse -&gt; Bool
+== :: CreateDeliveryStreamResponse
+-&gt; CreateDeliveryStreamResponse -&gt; Bool
+$c== :: CreateDeliveryStreamResponse
+-&gt; CreateDeliveryStreamResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269390"><span id="local-6989586621679269392"><span id="local-6989586621679269394"><span id="local-6989586621679269396"><span class="annot"><span class="annottext">ReadPrec [CreateDeliveryStreamResponse]
+ReadPrec CreateDeliveryStreamResponse
+Int -&gt; ReadS CreateDeliveryStreamResponse
+ReadS [CreateDeliveryStreamResponse]
+(Int -&gt; ReadS CreateDeliveryStreamResponse)
+-&gt; ReadS [CreateDeliveryStreamResponse]
+-&gt; ReadPrec CreateDeliveryStreamResponse
+-&gt; ReadPrec [CreateDeliveryStreamResponse]
+-&gt; Read CreateDeliveryStreamResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDeliveryStreamResponse]
+$creadListPrec :: ReadPrec [CreateDeliveryStreamResponse]
+readPrec :: ReadPrec CreateDeliveryStreamResponse
+$creadPrec :: ReadPrec CreateDeliveryStreamResponse
+readList :: ReadS [CreateDeliveryStreamResponse]
+$creadList :: ReadS [CreateDeliveryStreamResponse]
+readsPrec :: Int -&gt; ReadS CreateDeliveryStreamResponse
+$creadsPrec :: Int -&gt; ReadS CreateDeliveryStreamResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269383"><span id="local-6989586621679269385"><span id="local-6989586621679269387"><span class="annot"><span class="annottext">Int -&gt; CreateDeliveryStreamResponse -&gt; ShowS
+[CreateDeliveryStreamResponse] -&gt; ShowS
+CreateDeliveryStreamResponse -&gt; String
+(Int -&gt; CreateDeliveryStreamResponse -&gt; ShowS)
+-&gt; (CreateDeliveryStreamResponse -&gt; String)
+-&gt; ([CreateDeliveryStreamResponse] -&gt; ShowS)
+-&gt; Show CreateDeliveryStreamResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDeliveryStreamResponse] -&gt; ShowS
+$cshowList :: [CreateDeliveryStreamResponse] -&gt; ShowS
+show :: CreateDeliveryStreamResponse -&gt; String
+$cshow :: CreateDeliveryStreamResponse -&gt; String
+showsPrec :: Int -&gt; CreateDeliveryStreamResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDeliveryStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateDeliveryStreamResponse -&gt; Rep CreateDeliveryStreamResponse x)
+-&gt; (forall x.
+    Rep CreateDeliveryStreamResponse x -&gt; CreateDeliveryStreamResponse)
+-&gt; Generic CreateDeliveryStreamResponse
+forall x.
+Rep CreateDeliveryStreamResponse x -&gt; CreateDeliveryStreamResponse
+forall x.
+CreateDeliveryStreamResponse -&gt; Rep CreateDeliveryStreamResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateDeliveryStreamResponse x -&gt; CreateDeliveryStreamResponse
+$cfrom :: forall x.
+CreateDeliveryStreamResponse -&gt; Rep CreateDeliveryStreamResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-404"></span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- Create a value of 'CreateDeliveryStreamResponse' with all optional fields omitted.</span><span>
+</span><span id="line-407"></span><span class="hs-comment">--</span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-409"></span><span class="hs-comment">--</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-412"></span><span class="hs-comment">--</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- 'deliveryStreamARN', 'createDeliveryStreamResponse_deliveryStreamARN' - The ARN of the delivery stream.</span><span>
+</span><span id="line-414"></span><span class="hs-comment">--</span><span>
+</span><span id="line-415"></span><span class="hs-comment">-- 'httpStatus', 'createDeliveryStreamResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-416"></span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#newCreateDeliveryStreamResponse"><span class="hs-identifier hs-type">newCreateDeliveryStreamResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-417"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-418"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-419"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStreamResponse"><span class="hs-identifier hs-type">CreateDeliveryStreamResponse</span></a></span><span>
+</span><span id="line-420"></span><span id="newCreateDeliveryStreamResponse"><span class="annot"><span class="annottext">newCreateDeliveryStreamResponse :: Int -&gt; CreateDeliveryStreamResponse
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#newCreateDeliveryStreamResponse"><span class="hs-identifier hs-var hs-var">newCreateDeliveryStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679269380"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269380"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-421"></span><span>  </span><span class="annot"><span class="annottext">CreateDeliveryStreamResponse' :: Maybe Text -&gt; Int -&gt; CreateDeliveryStreamResponse
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStreamResponse%27"><span class="hs-identifier hs-type">CreateDeliveryStreamResponse'</span></a></span><span>
+</span><span id="line-422"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deliveryStreamARN:CreateDeliveryStreamResponse' :: Maybe Text
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AdeliveryStreamARN%3ACreateDeliveryStreamResponse%27"><span class="hs-identifier hs-var">deliveryStreamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-423"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-424"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDeliveryStreamResponse' :: Int
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AhttpStatus%3ACreateDeliveryStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269380"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-425"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-426"></span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- | The ARN of the delivery stream.</span><span>
+</span><span id="line-428"></span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStreamResponse_deliveryStreamARN"><span class="hs-identifier hs-type">createDeliveryStreamResponse_deliveryStreamARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStreamResponse"><span class="hs-identifier hs-type">CreateDeliveryStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-429"></span><span id="createDeliveryStreamResponse_deliveryStreamARN"><span class="annot"><span class="annottext">createDeliveryStreamResponse_deliveryStreamARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDeliveryStreamResponse -&gt; f CreateDeliveryStreamResponse
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStreamResponse_deliveryStreamARN"><span class="hs-identifier hs-var hs-var">createDeliveryStreamResponse_deliveryStreamARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliveryStreamResponse -&gt; Maybe Text)
+-&gt; (CreateDeliveryStreamResponse
+    -&gt; Maybe Text -&gt; CreateDeliveryStreamResponse)
+-&gt; Lens
+     CreateDeliveryStreamResponse
+     CreateDeliveryStreamResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStreamResponse%27"><span class="hs-identifier hs-type">CreateDeliveryStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269379"><span class="annot"><span class="annottext">Maybe Text
+deliveryStreamARN :: Maybe Text
+$sel:deliveryStreamARN:CreateDeliveryStreamResponse' :: CreateDeliveryStreamResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679269379"><span class="hs-identifier hs-var hs-var">deliveryStreamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269379"><span class="hs-identifier hs-var">deliveryStreamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269378"><span class="annot"><span class="annottext">s :: CreateDeliveryStreamResponse
+</span><a href="#local-6989586621679269378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStreamResponse%27"><span class="hs-identifier hs-type">CreateDeliveryStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269377"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliveryStreamResponse
+</span><a href="#local-6989586621679269378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamARN:CreateDeliveryStreamResponse' :: Maybe Text
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AdeliveryStreamARN%3ACreateDeliveryStreamResponse%27"><span class="hs-identifier hs-var">deliveryStreamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStreamResponse"><span class="hs-identifier hs-type">CreateDeliveryStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-430"></span><span>
+</span><span id="line-431"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-432"></span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStreamResponse_httpStatus"><span class="hs-identifier hs-type">createDeliveryStreamResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStreamResponse"><span class="hs-identifier hs-type">CreateDeliveryStreamResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-433"></span><span id="createDeliveryStreamResponse_httpStatus"><span class="annot"><span class="annottext">createDeliveryStreamResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateDeliveryStreamResponse -&gt; f CreateDeliveryStreamResponse
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#createDeliveryStreamResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createDeliveryStreamResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliveryStreamResponse -&gt; Int)
+-&gt; (CreateDeliveryStreamResponse
+    -&gt; Int -&gt; CreateDeliveryStreamResponse)
+-&gt; Lens
+     CreateDeliveryStreamResponse CreateDeliveryStreamResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStreamResponse%27"><span class="hs-identifier hs-type">CreateDeliveryStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269376"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateDeliveryStreamResponse' :: CreateDeliveryStreamResponse -&gt; Int
+</span><a href="#local-6989586621679269376"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269376"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269375"><span class="annot"><span class="annottext">s :: CreateDeliveryStreamResponse
+</span><a href="#local-6989586621679269375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStreamResponse%27"><span class="hs-identifier hs-type">CreateDeliveryStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269374"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliveryStreamResponse
+</span><a href="#local-6989586621679269375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDeliveryStreamResponse' :: Int
+</span><a href="Network.AWS.Firehose.CreateDeliveryStream.html#%24sel%3AhttpStatus%3ACreateDeliveryStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStreamResponse"><span class="hs-identifier hs-type">CreateDeliveryStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-434"></span><span>
+</span><span id="line-435"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.CreateDeliveryStream.html#CreateDeliveryStreamResponse"><span class="hs-identifier hs-type">CreateDeliveryStreamResponse</span></a></span></span><span>
+</span><span id="line-436"></span></pre></body></html>

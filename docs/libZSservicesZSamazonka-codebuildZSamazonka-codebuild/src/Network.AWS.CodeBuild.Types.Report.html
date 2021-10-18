@@ -1,0 +1,795 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeBuild.Types.Report</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeBuild.Types.Report</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html"><span class="hs-identifier">Network.AWS.CodeBuild.Types.CodeCoverageReportSummary</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html"><span class="hs-identifier">Network.AWS.CodeBuild.Types.ReportExportConfig</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportStatusType.html"><span class="hs-identifier">Network.AWS.CodeBuild.Types.ReportStatusType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportType.html"><span class="hs-identifier">Network.AWS.CodeBuild.Types.ReportType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.TestReportSummary.html"><span class="hs-identifier">Network.AWS.CodeBuild.Types.TestReportSummary</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Information about the results from running a series of test cases during</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- the run of a build project. The test cases are specified in the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- buildspec for the build project using one or more paths to the test case</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- files. You can specify any type of tests you want, such as unit tests,</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- integration tests, and functional tests.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newReport' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679378221"><span id="local-6989586621679378222"></span></span><span class="hs-keyword">data</span><span> </span><span id="Report"><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-var">Report</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Report%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-var">Report'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A @CodeCoverageReportSummary@ object that contains a code coverage</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- summary for this report.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcodeCoverageSummary%3AReport%27"><span class="annot"><span class="annottext">Report -&gt; Maybe CodeCoverageReportSummary
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3AcodeCoverageSummary%3AReport%27"><span class="hs-identifier hs-var hs-var">codeCoverageSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The status of this report.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Astatus%3AReport%27"><span class="annot"><span class="annottext">Report -&gt; Maybe ReportStatusType
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Astatus%3AReport%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportStatusType.html#ReportStatusType"><span class="hs-identifier hs-type">ReportStatusType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The ARN of the report group associated with this report.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AreportGroupArn%3AReport%27"><span class="annot"><span class="annottext">Report -&gt; Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3AreportGroupArn%3AReport%27"><span class="hs-identifier hs-var hs-var">reportGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Information about where the raw data used to generate this report was</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- exported.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AexportConfig%3AReport%27"><span class="annot"><span class="annottext">Report -&gt; Maybe ReportExportConfig
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3AexportConfig%3AReport%27"><span class="hs-identifier hs-var hs-var">exportConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig"><span class="hs-identifier hs-type">ReportExportConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The ARN of the report run.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aarn%3AReport%27"><span class="annot"><span class="annottext">Report -&gt; Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Aarn%3AReport%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | A @TestReportSummary@ object that contains information about this test</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- report.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AtestSummary%3AReport%27"><span class="annot"><span class="annottext">Report -&gt; Maybe TestReportSummary
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3AtestSummary%3AReport%27"><span class="hs-identifier hs-var hs-var">testSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.TestReportSummary.html#TestReportSummary"><span class="hs-identifier hs-type">TestReportSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The ARN of the build run that generated this report.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AexecutionId%3AReport%27"><span class="annot"><span class="annottext">Report -&gt; Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3AexecutionId%3AReport%27"><span class="hs-identifier hs-var hs-var">executionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The date and time a report expires. A report expires 30 days after it is</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- created. An expired report is not available to view in CodeBuild.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aexpired%3AReport%27"><span class="annot"><span class="annottext">Report -&gt; Maybe POSIX
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Aexpired%3AReport%27"><span class="hs-identifier hs-var hs-var">expired</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the report that was run.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Aname%3AReport%27"><span class="annot"><span class="annottext">Report -&gt; Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Aname%3AReport%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The type of the report that was run.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- [CODE_COVERAGE]</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     A code coverage report.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- [TEST]</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     A test report.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Atype%27%3AReport%27"><span class="annot"><span class="annottext">Report -&gt; Maybe ReportType
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Atype%27%3AReport%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportType.html#ReportType"><span class="hs-identifier hs-type">ReportType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The date and time this report run occurred.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Acreated%3AReport%27"><span class="annot"><span class="annottext">Report -&gt; Maybe POSIX
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Acreated%3AReport%27"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | A boolean that specifies if this report run is truncated. The list of</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- test cases is truncated after the maximum number of test cases is</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- reached.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Atruncated%3AReport%27"><span class="annot"><span class="annottext">Report -&gt; Maybe Bool
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Atruncated%3AReport%27"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378204"><span id="local-6989586621679378206"><span class="annot"><span class="annottext">Report -&gt; Report -&gt; Bool
+(Report -&gt; Report -&gt; Bool)
+-&gt; (Report -&gt; Report -&gt; Bool) -&gt; Eq Report
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Report -&gt; Report -&gt; Bool
+$c/= :: Report -&gt; Report -&gt; Bool
+== :: Report -&gt; Report -&gt; Bool
+$c== :: Report -&gt; Report -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378195"><span id="local-6989586621679378197"><span id="local-6989586621679378199"><span id="local-6989586621679378201"><span class="annot"><span class="annottext">ReadPrec [Report]
+ReadPrec Report
+Int -&gt; ReadS Report
+ReadS [Report]
+(Int -&gt; ReadS Report)
+-&gt; ReadS [Report]
+-&gt; ReadPrec Report
+-&gt; ReadPrec [Report]
+-&gt; Read Report
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Report]
+$creadListPrec :: ReadPrec [Report]
+readPrec :: ReadPrec Report
+$creadPrec :: ReadPrec Report
+readList :: ReadS [Report]
+$creadList :: ReadS [Report]
+readsPrec :: Int -&gt; ReadS Report
+$creadsPrec :: Int -&gt; ReadS Report
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378188"><span id="local-6989586621679378190"><span id="local-6989586621679378192"><span class="annot"><span class="annottext">Int -&gt; Report -&gt; ShowS
+[Report] -&gt; ShowS
+Report -&gt; String
+(Int -&gt; Report -&gt; ShowS)
+-&gt; (Report -&gt; String) -&gt; ([Report] -&gt; ShowS) -&gt; Show Report
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Report] -&gt; ShowS
+$cshowList :: [Report] -&gt; ShowS
+show :: Report -&gt; String
+$cshow :: Report -&gt; String
+showsPrec :: Int -&gt; Report -&gt; ShowS
+$cshowsPrec :: Int -&gt; Report -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Report -&gt; Rep Report x)
+-&gt; (forall x. Rep Report x -&gt; Report) -&gt; Generic Report
+forall x. Rep Report x -&gt; Report
+forall x. Report -&gt; Rep Report x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Report x -&gt; Report
+$cfrom :: forall x. Report -&gt; Rep Report x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'Report' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'codeCoverageSummary', 'report_codeCoverageSummary' - A @CodeCoverageReportSummary@ object that contains a code coverage</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- summary for this report.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'status', 'report_status' - The status of this report.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'reportGroupArn', 'report_reportGroupArn' - The ARN of the report group associated with this report.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'exportConfig', 'report_exportConfig' - Information about where the raw data used to generate this report was</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- exported.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'arn', 'report_arn' - The ARN of the report run.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'testSummary', 'report_testSummary' - A @TestReportSummary@ object that contains information about this test</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- report.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'executionId', 'report_executionId' - The ARN of the build run that generated this report.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'expired', 'report_expired' - The date and time a report expires. A report expires 30 days after it is</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- created. An expired report is not available to view in CodeBuild.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'name', 'report_name' - The name of the report that was run.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'type'', 'report_type' - The type of the report that was run.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- [CODE_COVERAGE]</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--     A code coverage report.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- [TEST]</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--     A test report.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'created', 'report_created' - The date and time this report run occurred.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'truncated', 'report_truncated' - A boolean that specifies if this report run is truncated. The list of</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- test cases is truncated after the maximum number of test cases is</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- reached.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#newReport"><span class="hs-identifier hs-type">newReport</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span>
+</span><span id="line-123"></span><span id="newReport"><span class="annot"><span class="annottext">newReport :: Report
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#newReport"><span class="hs-identifier hs-var hs-var">newReport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="annottext">Report' :: Maybe CodeCoverageReportSummary
+-&gt; Maybe ReportStatusType
+-&gt; Maybe Text
+-&gt; Maybe ReportExportConfig
+-&gt; Maybe Text
+-&gt; Maybe TestReportSummary
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ReportType
+-&gt; Maybe POSIX
+-&gt; Maybe Bool
+-&gt; Report
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:codeCoverageSummary:Report' :: Maybe CodeCoverageReportSummary
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3AcodeCoverageSummary%3AReport%27"><span class="hs-identifier hs-var">codeCoverageSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CodeCoverageReportSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:Report' :: Maybe ReportStatusType
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Astatus%3AReport%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReportStatusType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:reportGroupArn:Report' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3AreportGroupArn%3AReport%27"><span class="hs-identifier hs-var">reportGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:exportConfig:Report' :: Maybe ReportExportConfig
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3AexportConfig%3AReport%27"><span class="hs-identifier hs-var">exportConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReportExportConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Report' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Aarn%3AReport%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:testSummary:Report' :: Maybe TestReportSummary
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3AtestSummary%3AReport%27"><span class="hs-identifier hs-var">testSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TestReportSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionId:Report' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3AexecutionId%3AReport%27"><span class="hs-identifier hs-var">executionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:expired:Report' :: Maybe POSIX
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Aexpired%3AReport%27"><span class="hs-identifier hs-var">expired</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Report' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Aname%3AReport%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Report' :: Maybe ReportType
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Atype%27%3AReport%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReportType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:created:Report' :: Maybe POSIX
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Acreated%3AReport%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:truncated:Report' :: Maybe Bool
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Atruncated%3AReport%27"><span class="hs-identifier hs-var">truncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | A @CodeCoverageReportSummary@ object that contains a code coverage</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- summary for this report.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#report_codeCoverageSummary"><span class="hs-identifier hs-type">report_codeCoverageSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="report_codeCoverageSummary"><span class="annot"><span class="annottext">report_codeCoverageSummary :: (Maybe CodeCoverageReportSummary
+ -&gt; f (Maybe CodeCoverageReportSummary))
+-&gt; Report -&gt; f Report
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#report_codeCoverageSummary"><span class="hs-identifier hs-var hs-var">report_codeCoverageSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Report -&gt; Maybe CodeCoverageReportSummary)
+-&gt; (Report -&gt; Maybe CodeCoverageReportSummary -&gt; Report)
+-&gt; Lens
+     Report
+     Report
+     (Maybe CodeCoverageReportSummary)
+     (Maybe CodeCoverageReportSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378179"><span class="annot"><span class="annottext">Maybe CodeCoverageReportSummary
+codeCoverageSummary :: Maybe CodeCoverageReportSummary
+$sel:codeCoverageSummary:Report' :: Report -&gt; Maybe CodeCoverageReportSummary
+</span><a href="#local-6989586621679378179"><span class="hs-identifier hs-var hs-var">codeCoverageSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CodeCoverageReportSummary
+</span><a href="#local-6989586621679378179"><span class="hs-identifier hs-var">codeCoverageSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378178"><span class="annot"><span class="annottext">s :: Report
+</span><a href="#local-6989586621679378178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378177"><span class="annot"><span class="annottext">Maybe CodeCoverageReportSummary
+</span><a href="#local-6989586621679378177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Report
+</span><a href="#local-6989586621679378178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeCoverageSummary:Report' :: Maybe CodeCoverageReportSummary
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3AcodeCoverageSummary%3AReport%27"><span class="hs-identifier hs-var">codeCoverageSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CodeCoverageReportSummary
+</span><a href="#local-6989586621679378177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The status of this report.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#report_status"><span class="hs-identifier hs-type">report_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportStatusType.html#ReportStatusType"><span class="hs-identifier hs-type">ReportStatusType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="report_status"><span class="annot"><span class="annottext">report_status :: (Maybe ReportStatusType -&gt; f (Maybe ReportStatusType))
+-&gt; Report -&gt; f Report
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#report_status"><span class="hs-identifier hs-var hs-var">report_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Report -&gt; Maybe ReportStatusType)
+-&gt; (Report -&gt; Maybe ReportStatusType -&gt; Report)
+-&gt; Lens
+     Report Report (Maybe ReportStatusType) (Maybe ReportStatusType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378175"><span class="annot"><span class="annottext">Maybe ReportStatusType
+status :: Maybe ReportStatusType
+$sel:status:Report' :: Report -&gt; Maybe ReportStatusType
+</span><a href="#local-6989586621679378175"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReportStatusType
+</span><a href="#local-6989586621679378175"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378174"><span class="annot"><span class="annottext">s :: Report
+</span><a href="#local-6989586621679378174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378173"><span class="annot"><span class="annottext">Maybe ReportStatusType
+</span><a href="#local-6989586621679378173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Report
+</span><a href="#local-6989586621679378174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Report' :: Maybe ReportStatusType
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Astatus%3AReport%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReportStatusType
+</span><a href="#local-6989586621679378173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The ARN of the report group associated with this report.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#report_reportGroupArn"><span class="hs-identifier hs-type">report_reportGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="report_reportGroupArn"><span class="annot"><span class="annottext">report_reportGroupArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Report -&gt; f Report
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#report_reportGroupArn"><span class="hs-identifier hs-var hs-var">report_reportGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Report -&gt; Maybe Text)
+-&gt; (Report -&gt; Maybe Text -&gt; Report)
+-&gt; Lens Report Report (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378171"><span class="annot"><span class="annottext">Maybe Text
+reportGroupArn :: Maybe Text
+$sel:reportGroupArn:Report' :: Report -&gt; Maybe Text
+</span><a href="#local-6989586621679378171"><span class="hs-identifier hs-var hs-var">reportGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378171"><span class="hs-identifier hs-var">reportGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378170"><span class="annot"><span class="annottext">s :: Report
+</span><a href="#local-6989586621679378170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378169"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Report
+</span><a href="#local-6989586621679378170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportGroupArn:Report' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3AreportGroupArn%3AReport%27"><span class="hs-identifier hs-var">reportGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Information about where the raw data used to generate this report was</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- exported.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#report_exportConfig"><span class="hs-identifier hs-type">report_exportConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig"><span class="hs-identifier hs-type">ReportExportConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="report_exportConfig"><span class="annot"><span class="annottext">report_exportConfig :: (Maybe ReportExportConfig -&gt; f (Maybe ReportExportConfig))
+-&gt; Report -&gt; f Report
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#report_exportConfig"><span class="hs-identifier hs-var hs-var">report_exportConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Report -&gt; Maybe ReportExportConfig)
+-&gt; (Report -&gt; Maybe ReportExportConfig -&gt; Report)
+-&gt; Lens
+     Report Report (Maybe ReportExportConfig) (Maybe ReportExportConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378167"><span class="annot"><span class="annottext">Maybe ReportExportConfig
+exportConfig :: Maybe ReportExportConfig
+$sel:exportConfig:Report' :: Report -&gt; Maybe ReportExportConfig
+</span><a href="#local-6989586621679378167"><span class="hs-identifier hs-var hs-var">exportConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReportExportConfig
+</span><a href="#local-6989586621679378167"><span class="hs-identifier hs-var">exportConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378166"><span class="annot"><span class="annottext">s :: Report
+</span><a href="#local-6989586621679378166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378165"><span class="annot"><span class="annottext">Maybe ReportExportConfig
+</span><a href="#local-6989586621679378165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Report
+</span><a href="#local-6989586621679378166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportConfig:Report' :: Maybe ReportExportConfig
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3AexportConfig%3AReport%27"><span class="hs-identifier hs-var">exportConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReportExportConfig
+</span><a href="#local-6989586621679378165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The ARN of the report run.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#report_arn"><span class="hs-identifier hs-type">report_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="report_arn"><span class="annot"><span class="annottext">report_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Report -&gt; f Report
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#report_arn"><span class="hs-identifier hs-var hs-var">report_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Report -&gt; Maybe Text)
+-&gt; (Report -&gt; Maybe Text -&gt; Report)
+-&gt; Lens Report Report (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378163"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Report' :: Report -&gt; Maybe Text
+</span><a href="#local-6989586621679378163"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378163"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378162"><span class="annot"><span class="annottext">s :: Report
+</span><a href="#local-6989586621679378162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378161"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Report
+</span><a href="#local-6989586621679378162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Report' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Aarn%3AReport%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | A @TestReportSummary@ object that contains information about this test</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- report.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#report_testSummary"><span class="hs-identifier hs-type">report_testSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.TestReportSummary.html#TestReportSummary"><span class="hs-identifier hs-type">TestReportSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="report_testSummary"><span class="annot"><span class="annottext">report_testSummary :: (Maybe TestReportSummary -&gt; f (Maybe TestReportSummary))
+-&gt; Report -&gt; f Report
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#report_testSummary"><span class="hs-identifier hs-var hs-var">report_testSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Report -&gt; Maybe TestReportSummary)
+-&gt; (Report -&gt; Maybe TestReportSummary -&gt; Report)
+-&gt; Lens
+     Report Report (Maybe TestReportSummary) (Maybe TestReportSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378159"><span class="annot"><span class="annottext">Maybe TestReportSummary
+testSummary :: Maybe TestReportSummary
+$sel:testSummary:Report' :: Report -&gt; Maybe TestReportSummary
+</span><a href="#local-6989586621679378159"><span class="hs-identifier hs-var hs-var">testSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TestReportSummary
+</span><a href="#local-6989586621679378159"><span class="hs-identifier hs-var">testSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378158"><span class="annot"><span class="annottext">s :: Report
+</span><a href="#local-6989586621679378158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378157"><span class="annot"><span class="annottext">Maybe TestReportSummary
+</span><a href="#local-6989586621679378157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Report
+</span><a href="#local-6989586621679378158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:testSummary:Report' :: Maybe TestReportSummary
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3AtestSummary%3AReport%27"><span class="hs-identifier hs-var">testSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TestReportSummary
+</span><a href="#local-6989586621679378157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The ARN of the build run that generated this report.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#report_executionId"><span class="hs-identifier hs-type">report_executionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="report_executionId"><span class="annot"><span class="annottext">report_executionId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Report -&gt; f Report
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#report_executionId"><span class="hs-identifier hs-var hs-var">report_executionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Report -&gt; Maybe Text)
+-&gt; (Report -&gt; Maybe Text -&gt; Report)
+-&gt; Lens Report Report (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378155"><span class="annot"><span class="annottext">Maybe Text
+executionId :: Maybe Text
+$sel:executionId:Report' :: Report -&gt; Maybe Text
+</span><a href="#local-6989586621679378155"><span class="hs-identifier hs-var hs-var">executionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378155"><span class="hs-identifier hs-var">executionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378154"><span class="annot"><span class="annottext">s :: Report
+</span><a href="#local-6989586621679378154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378153"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Report
+</span><a href="#local-6989586621679378154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionId:Report' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3AexecutionId%3AReport%27"><span class="hs-identifier hs-var">executionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The date and time a report expires. A report expires 30 days after it is</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- created. An expired report is not available to view in CodeBuild.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#report_expired"><span class="hs-identifier hs-type">report_expired</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="report_expired"><span class="annot"><span class="annottext">report_expired :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Report -&gt; f Report
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#report_expired"><span class="hs-identifier hs-var hs-var">report_expired</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Report -&gt; Maybe POSIX)
+-&gt; (Report -&gt; Maybe POSIX -&gt; Report)
+-&gt; Lens Report Report (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378151"><span class="annot"><span class="annottext">Maybe POSIX
+expired :: Maybe POSIX
+$sel:expired:Report' :: Report -&gt; Maybe POSIX
+</span><a href="#local-6989586621679378151"><span class="hs-identifier hs-var hs-var">expired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679378151"><span class="hs-identifier hs-var">expired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378150"><span class="annot"><span class="annottext">s :: Report
+</span><a href="#local-6989586621679378150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378149"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679378149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Report
+</span><a href="#local-6989586621679378150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expired:Report' :: Maybe POSIX
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Aexpired%3AReport%27"><span class="hs-identifier hs-var">expired</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679378149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Report -&gt; f Report)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Report
+-&gt; f Report
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The name of the report that was run.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#report_name"><span class="hs-identifier hs-type">report_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="report_name"><span class="annot"><span class="annottext">report_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Report -&gt; f Report
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#report_name"><span class="hs-identifier hs-var hs-var">report_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Report -&gt; Maybe Text)
+-&gt; (Report -&gt; Maybe Text -&gt; Report)
+-&gt; Lens Report Report (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378144"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Report' :: Report -&gt; Maybe Text
+</span><a href="#local-6989586621679378144"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378144"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378143"><span class="annot"><span class="annottext">s :: Report
+</span><a href="#local-6989586621679378143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378142"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Report
+</span><a href="#local-6989586621679378143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Report' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Aname%3AReport%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The type of the report that was run.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- [CODE_COVERAGE]</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     A code coverage report.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- [TEST]</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--     A test report.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#report_type"><span class="hs-identifier hs-type">report_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportType.html#ReportType"><span class="hs-identifier hs-type">ReportType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="report_type"><span class="annot"><span class="annottext">report_type :: (Maybe ReportType -&gt; f (Maybe ReportType)) -&gt; Report -&gt; f Report
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#report_type"><span class="hs-identifier hs-var hs-var">report_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Report -&gt; Maybe ReportType)
+-&gt; (Report -&gt; Maybe ReportType -&gt; Report)
+-&gt; Lens Report Report (Maybe ReportType) (Maybe ReportType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378140"><span class="annot"><span class="annottext">Maybe ReportType
+type' :: Maybe ReportType
+$sel:type':Report' :: Report -&gt; Maybe ReportType
+</span><a href="#local-6989586621679378140"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReportType
+</span><a href="#local-6989586621679378140"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378139"><span class="annot"><span class="annottext">s :: Report
+</span><a href="#local-6989586621679378139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378138"><span class="annot"><span class="annottext">Maybe ReportType
+</span><a href="#local-6989586621679378138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Report
+</span><a href="#local-6989586621679378139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Report' :: Maybe ReportType
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Atype%27%3AReport%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReportType
+</span><a href="#local-6989586621679378138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The date and time this report run occurred.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#report_created"><span class="hs-identifier hs-type">report_created</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="report_created"><span class="annot"><span class="annottext">report_created :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Report -&gt; f Report
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#report_created"><span class="hs-identifier hs-var hs-var">report_created</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Report -&gt; Maybe POSIX)
+-&gt; (Report -&gt; Maybe POSIX -&gt; Report)
+-&gt; Lens Report Report (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378136"><span class="annot"><span class="annottext">Maybe POSIX
+created :: Maybe POSIX
+$sel:created:Report' :: Report -&gt; Maybe POSIX
+</span><a href="#local-6989586621679378136"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679378136"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378135"><span class="annot"><span class="annottext">s :: Report
+</span><a href="#local-6989586621679378135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378134"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679378134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Report
+</span><a href="#local-6989586621679378135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:Report' :: Maybe POSIX
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Acreated%3AReport%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679378134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Report -&gt; f Report)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Report
+-&gt; f Report
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | A boolean that specifies if this report run is truncated. The list of</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- test cases is truncated after the maximum number of test cases is</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- reached.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#report_truncated"><span class="hs-identifier hs-type">report_truncated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="report_truncated"><span class="annot"><span class="annottext">report_truncated :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Report -&gt; f Report
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#report_truncated"><span class="hs-identifier hs-var hs-var">report_truncated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Report -&gt; Maybe Bool)
+-&gt; (Report -&gt; Maybe Bool -&gt; Report)
+-&gt; Lens Report Report (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378132"><span class="annot"><span class="annottext">Maybe Bool
+truncated :: Maybe Bool
+$sel:truncated:Report' :: Report -&gt; Maybe Bool
+</span><a href="#local-6989586621679378132"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378132"><span class="hs-identifier hs-var">truncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378131"><span class="annot"><span class="annottext">s :: Report
+</span><a href="#local-6989586621679378131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-type">Report'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378130"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Report
+</span><a href="#local-6989586621679378131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:truncated:Report' :: Maybe Bool
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#%24sel%3Atruncated%3AReport%27"><span class="hs-identifier hs-var">truncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378127"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679378125"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Report
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Report) -&gt; Value -&gt; Parser Report
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Report&quot;</span></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378122"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378122"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>          </span><span class="annot"><span class="annottext">Maybe CodeCoverageReportSummary
+-&gt; Maybe ReportStatusType
+-&gt; Maybe Text
+-&gt; Maybe ReportExportConfig
+-&gt; Maybe Text
+-&gt; Maybe TestReportSummary
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ReportType
+-&gt; Maybe POSIX
+-&gt; Maybe Bool
+-&gt; Report
+</span><a href="Network.AWS.CodeBuild.Types.Report.html#Report%27"><span class="hs-identifier hs-var">Report'</span></a></span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CodeCoverageReportSummary
+ -&gt; Maybe ReportStatusType
+ -&gt; Maybe Text
+ -&gt; Maybe ReportExportConfig
+ -&gt; Maybe Text
+ -&gt; Maybe TestReportSummary
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe ReportType
+ -&gt; Maybe POSIX
+ -&gt; Maybe Bool
+ -&gt; Report)
+-&gt; Parser (Maybe CodeCoverageReportSummary)
+-&gt; Parser
+     (Maybe ReportStatusType
+      -&gt; Maybe Text
+      -&gt; Maybe ReportExportConfig
+      -&gt; Maybe Text
+      -&gt; Maybe TestReportSummary
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ReportType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Report)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CodeCoverageReportSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;codeCoverageSummary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReportStatusType
+   -&gt; Maybe Text
+   -&gt; Maybe ReportExportConfig
+   -&gt; Maybe Text
+   -&gt; Maybe TestReportSummary
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ReportType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Report)
+-&gt; Parser (Maybe ReportStatusType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ReportExportConfig
+      -&gt; Maybe Text
+      -&gt; Maybe TestReportSummary
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ReportType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Report)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReportStatusType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ReportExportConfig
+   -&gt; Maybe Text
+   -&gt; Maybe TestReportSummary
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ReportType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Report)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ReportExportConfig
+      -&gt; Maybe Text
+      -&gt; Maybe TestReportSummary
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ReportType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Report)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reportGroupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReportExportConfig
+   -&gt; Maybe Text
+   -&gt; Maybe TestReportSummary
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ReportType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Report)
+-&gt; Parser (Maybe ReportExportConfig)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe TestReportSummary
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ReportType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Report)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReportExportConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;exportConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe TestReportSummary
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ReportType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Report)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe TestReportSummary
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ReportType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Report)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TestReportSummary
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ReportType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Report)
+-&gt; Parser (Maybe TestReportSummary)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ReportType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Report)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TestReportSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;testSummary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ReportType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Report)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ReportType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Report)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;executionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ReportType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Report)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ReportType -&gt; Maybe POSIX -&gt; Maybe Bool -&gt; Report)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;expired&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ReportType -&gt; Maybe POSIX -&gt; Maybe Bool -&gt; Report)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ReportType -&gt; Maybe POSIX -&gt; Maybe Bool -&gt; Report)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ReportType -&gt; Maybe POSIX -&gt; Maybe Bool -&gt; Report)
+-&gt; Parser (Maybe ReportType)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Bool -&gt; Report)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReportType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Bool -&gt; Report)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Bool -&gt; Report)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;created&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Report)
+-&gt; Parser (Maybe Bool) -&gt; Parser Report
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;truncated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378116"><span id="local-6989586621679378118"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span></span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Report.html#Report"><span class="hs-identifier hs-type">Report</span></a></span></span><span>
+</span><span id="line-222"></span></pre></body></html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.ContainerFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.ContainerFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ContainerFormat.html#ContainerFormat"><span class="hs-identifier">ContainerFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.ContainerFormat.html#ContainerFormat_Ova"><span class="hs-identifier">ContainerFormat_Ova</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681063112"><span id="local-6989586621681063113"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerFormat"><span class="annot"><a href="Network.AWS.EC2.Types.ContainerFormat.html#ContainerFormat"><span class="hs-identifier hs-var">ContainerFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerFormat%27"><span class="annot"><a href="Network.AWS.EC2.Types.ContainerFormat.html#ContainerFormat%27"><span class="hs-identifier hs-var">ContainerFormat'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContainerFormat"><span class="annot"><span class="annottext">ContainerFormat -&gt; Text
+</span><a href="Network.AWS.EC2.Types.ContainerFormat.html#fromContainerFormat"><span class="hs-identifier hs-var hs-var">fromContainerFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681063104"><span id="local-6989586621681063106"><span id="local-6989586621681063108"><span class="annot"><span class="annottext">Int -&gt; ContainerFormat -&gt; ShowS
+[ContainerFormat] -&gt; ShowS
+ContainerFormat -&gt; String
+(Int -&gt; ContainerFormat -&gt; ShowS)
+-&gt; (ContainerFormat -&gt; String)
+-&gt; ([ContainerFormat] -&gt; ShowS)
+-&gt; Show ContainerFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContainerFormat] -&gt; ShowS
+$cshowList :: [ContainerFormat] -&gt; ShowS
+show :: ContainerFormat -&gt; String
+$cshow :: ContainerFormat -&gt; String
+showsPrec :: Int -&gt; ContainerFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContainerFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681063095"><span id="local-6989586621681063097"><span id="local-6989586621681063099"><span id="local-6989586621681063101"><span class="annot"><span class="annottext">ReadPrec [ContainerFormat]
+ReadPrec ContainerFormat
+Int -&gt; ReadS ContainerFormat
+ReadS [ContainerFormat]
+(Int -&gt; ReadS ContainerFormat)
+-&gt; ReadS [ContainerFormat]
+-&gt; ReadPrec ContainerFormat
+-&gt; ReadPrec [ContainerFormat]
+-&gt; Read ContainerFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContainerFormat]
+$creadListPrec :: ReadPrec [ContainerFormat]
+readPrec :: ReadPrec ContainerFormat
+$creadPrec :: ReadPrec ContainerFormat
+readList :: ReadS [ContainerFormat]
+$creadList :: ReadS [ContainerFormat]
+readsPrec :: Int -&gt; ReadS ContainerFormat
+$creadsPrec :: Int -&gt; ReadS ContainerFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681063090"><span id="local-6989586621681063092"><span class="annot"><span class="annottext">ContainerFormat -&gt; ContainerFormat -&gt; Bool
+(ContainerFormat -&gt; ContainerFormat -&gt; Bool)
+-&gt; (ContainerFormat -&gt; ContainerFormat -&gt; Bool)
+-&gt; Eq ContainerFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContainerFormat -&gt; ContainerFormat -&gt; Bool
+$c/= :: ContainerFormat -&gt; ContainerFormat -&gt; Bool
+== :: ContainerFormat -&gt; ContainerFormat -&gt; Bool
+$c== :: ContainerFormat -&gt; ContainerFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681063074"><span id="local-6989586621681063076"><span id="local-6989586621681063078"><span id="local-6989586621681063080"><span id="local-6989586621681063082"><span id="local-6989586621681063084"><span id="local-6989586621681063086"><span class="annot"><span class="annottext">Eq ContainerFormat
+Eq ContainerFormat
+-&gt; (ContainerFormat -&gt; ContainerFormat -&gt; Ordering)
+-&gt; (ContainerFormat -&gt; ContainerFormat -&gt; Bool)
+-&gt; (ContainerFormat -&gt; ContainerFormat -&gt; Bool)
+-&gt; (ContainerFormat -&gt; ContainerFormat -&gt; Bool)
+-&gt; (ContainerFormat -&gt; ContainerFormat -&gt; Bool)
+-&gt; (ContainerFormat -&gt; ContainerFormat -&gt; ContainerFormat)
+-&gt; (ContainerFormat -&gt; ContainerFormat -&gt; ContainerFormat)
+-&gt; Ord ContainerFormat
+ContainerFormat -&gt; ContainerFormat -&gt; Bool
+ContainerFormat -&gt; ContainerFormat -&gt; Ordering
+ContainerFormat -&gt; ContainerFormat -&gt; ContainerFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ContainerFormat -&gt; ContainerFormat -&gt; ContainerFormat
+$cmin :: ContainerFormat -&gt; ContainerFormat -&gt; ContainerFormat
+max :: ContainerFormat -&gt; ContainerFormat -&gt; ContainerFormat
+$cmax :: ContainerFormat -&gt; ContainerFormat -&gt; ContainerFormat
+&gt;= :: ContainerFormat -&gt; ContainerFormat -&gt; Bool
+$c&gt;= :: ContainerFormat -&gt; ContainerFormat -&gt; Bool
+&gt; :: ContainerFormat -&gt; ContainerFormat -&gt; Bool
+$c&gt; :: ContainerFormat -&gt; ContainerFormat -&gt; Bool
+&lt;= :: ContainerFormat -&gt; ContainerFormat -&gt; Bool
+$c&lt;= :: ContainerFormat -&gt; ContainerFormat -&gt; Bool
+&lt; :: ContainerFormat -&gt; ContainerFormat -&gt; Bool
+$c&lt; :: ContainerFormat -&gt; ContainerFormat -&gt; Bool
+compare :: ContainerFormat -&gt; ContainerFormat -&gt; Ordering
+$ccompare :: ContainerFormat -&gt; ContainerFormat -&gt; Ordering
+$cp1Ord :: Eq ContainerFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ContainerFormat -&gt; Rep ContainerFormat x)
+-&gt; (forall x. Rep ContainerFormat x -&gt; ContainerFormat)
+-&gt; Generic ContainerFormat
+forall x. Rep ContainerFormat x -&gt; ContainerFormat
+forall x. ContainerFormat -&gt; Rep ContainerFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ContainerFormat x -&gt; ContainerFormat
+$cfrom :: forall x. ContainerFormat -&gt; Rep ContainerFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681063066"><span id="local-6989586621681063068"><span class="annot"><span class="annottext">Int -&gt; ContainerFormat -&gt; Int
+ContainerFormat -&gt; Int
+(Int -&gt; ContainerFormat -&gt; Int)
+-&gt; (ContainerFormat -&gt; Int) -&gt; Hashable ContainerFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ContainerFormat -&gt; Int
+$chash :: ContainerFormat -&gt; Int
+hashWithSalt :: Int -&gt; ContainerFormat -&gt; Int
+$chashWithSalt :: Int -&gt; ContainerFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681063063"><span class="annot"><span class="annottext">ContainerFormat -&gt; ()
+(ContainerFormat -&gt; ()) -&gt; NFData ContainerFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ContainerFormat -&gt; ()
+$crnf :: ContainerFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681063060"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerFormat
+(Text -&gt; Either String ContainerFormat) -&gt; FromText ContainerFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ContainerFormat
+$cfromText :: Text -&gt; Either String ContainerFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681063057"><span class="annot"><span class="annottext">ContainerFormat -&gt; Text
+(ContainerFormat -&gt; Text) -&gt; ToText ContainerFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ContainerFormat -&gt; Text
+$ctoText :: ContainerFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681063054"><span class="annot"><span class="annottext">ContainerFormat -&gt; ByteString
+(ContainerFormat -&gt; ByteString) -&gt; ToByteString ContainerFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ContainerFormat -&gt; ByteString
+$ctoBS :: ContainerFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681063051"><span class="annot"><span class="annottext">ContainerFormat -&gt; ByteStringBuilder
+(ContainerFormat -&gt; ByteStringBuilder) -&gt; ToLog ContainerFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ContainerFormat -&gt; ByteStringBuilder
+$cbuild :: ContainerFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681063048"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerFormat -&gt; [Header]
+(HeaderName -&gt; ContainerFormat -&gt; [Header])
+-&gt; ToHeader ContainerFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ContainerFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ContainerFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681063045"><span class="annot"><span class="annottext">ContainerFormat -&gt; QueryString
+(ContainerFormat -&gt; QueryString) -&gt; ToQuery ContainerFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ContainerFormat -&gt; QueryString
+$ctoQuery :: ContainerFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681063040"><span id="local-6989586621681063042"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerFormat]
+Value -&gt; Parser ContainerFormat
+(Value -&gt; Parser ContainerFormat)
+-&gt; (Value -&gt; Parser [ContainerFormat]) -&gt; FromJSON ContainerFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ContainerFormat]
+$cparseJSONList :: Value -&gt; Parser [ContainerFormat]
+parseJSON :: Value -&gt; Parser ContainerFormat
+$cparseJSON :: Value -&gt; Parser ContainerFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681063035"><span id="local-6989586621681063037"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerFormat]
+FromJSONKeyFunction ContainerFormat
+FromJSONKeyFunction ContainerFormat
+-&gt; FromJSONKeyFunction [ContainerFormat]
+-&gt; FromJSONKey ContainerFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ContainerFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [ContainerFormat]
+fromJSONKey :: FromJSONKeyFunction ContainerFormat
+$cfromJSONKey :: FromJSONKeyFunction ContainerFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681063026"><span id="local-6989586621681063028"><span id="local-6989586621681063030"><span id="local-6989586621681063032"><span class="annot"><span class="annottext">[ContainerFormat] -&gt; Encoding
+[ContainerFormat] -&gt; Value
+ContainerFormat -&gt; Encoding
+ContainerFormat -&gt; Value
+(ContainerFormat -&gt; Value)
+-&gt; (ContainerFormat -&gt; Encoding)
+-&gt; ([ContainerFormat] -&gt; Value)
+-&gt; ([ContainerFormat] -&gt; Encoding)
+-&gt; ToJSON ContainerFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ContainerFormat] -&gt; Encoding
+$ctoEncodingList :: [ContainerFormat] -&gt; Encoding
+toJSONList :: [ContainerFormat] -&gt; Value
+$ctoJSONList :: [ContainerFormat] -&gt; Value
+toEncoding :: ContainerFormat -&gt; Encoding
+$ctoEncoding :: ContainerFormat -&gt; Encoding
+toJSON :: ContainerFormat -&gt; Value
+$ctoJSON :: ContainerFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681063021"><span id="local-6989586621681063023"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerFormat]
+ToJSONKeyFunction ContainerFormat
+ToJSONKeyFunction ContainerFormat
+-&gt; ToJSONKeyFunction [ContainerFormat] -&gt; ToJSONKey ContainerFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ContainerFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [ContainerFormat]
+toJSONKey :: ToJSONKeyFunction ContainerFormat
+$ctoJSONKey :: ToJSONKeyFunction ContainerFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681063018"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerFormat
+([Node] -&gt; Either String ContainerFormat)
+-&gt; FromXML ContainerFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ContainerFormat
+$cparseXML :: [Node] -&gt; Either String ContainerFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681063015"><span class="annot"><span class="annottext">ContainerFormat -&gt; XML
+(ContainerFormat -&gt; XML) -&gt; ToXML ContainerFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ContainerFormat -&gt; XML
+$ctoXML :: ContainerFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ContainerFormat.html#ContainerFormat_Ova"><span class="hs-identifier hs-type">ContainerFormat_Ova</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ContainerFormat.html#ContainerFormat"><span class="hs-identifier hs-type">ContainerFormat</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContainerFormat_Ova"><span id="%24mContainerFormat_Ova"><span id="ContainerFormat_Ova"><span class="annot"><span class="annottext">$bContainerFormat_Ova :: ContainerFormat
+$mContainerFormat_Ova :: forall r. ContainerFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.ContainerFormat.html#%24bContainerFormat_Ova"><span class="hs-identifier hs-var hs-var hs-var">ContainerFormat_Ova</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ContainerFormat.html#ContainerFormat%27"><span class="hs-identifier hs-type">ContainerFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ova&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ContainerFormat.html#ContainerFormat_Ova"><span class="hs-pragma hs-type">ContainerFormat_Ova</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ContainerFormat.html#ContainerFormat%27"><span class="hs-pragma hs-type">ContainerFormat'</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-67"></span></pre></body></html>

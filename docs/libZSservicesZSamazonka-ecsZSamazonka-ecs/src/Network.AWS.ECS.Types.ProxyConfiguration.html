@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ECS.Types.ProxyConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ECS.Types.ProxyConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.KeyValuePair.html"><span class="hs-identifier">Network.AWS.ECS.Types.KeyValuePair</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfigurationType.html"><span class="hs-identifier">Network.AWS.ECS.Types.ProxyConfigurationType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The configuration details for the App Mesh proxy.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- For tasks using the EC2 launch type, the container instances require at</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- least version 1.26.0 of the container agent and at least version</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- 1.26.0-1 of the @ecs-init@ package to enable a proxy configuration. If</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- your container instances are launched from the Amazon ECS-optimized AMI</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- version @20190301@ or later, then they contain the required versions of</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- the container agent and @ecs-init@. For more information, see</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized Linux AMI&gt;</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newProxyConfiguration' smart constructor.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679458013"><span id="local-6989586621679458014"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProxyConfiguration"><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration"><span class="hs-identifier hs-var">ProxyConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProxyConfiguration%27"><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration%27"><span class="hs-identifier hs-var">ProxyConfiguration'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The set of network configuration parameters to provide the Container</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Network Interface (CNI) plugin, specified as key-value pairs.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   @IgnoredUID@ - (Required) The user ID (UID) of the proxy container</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     as defined by the @user@ parameter in a container definition. This</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     is used to ensure the proxy ignores its own traffic. If @IgnoredGID@</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     is specified, this field can be empty.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   @IgnoredGID@ - (Required) The group ID (GID) of the proxy container</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     as defined by the @user@ parameter in a container definition. This</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     is used to ensure the proxy ignores its own traffic. If @IgnoredUID@</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     is specified, this field can be empty.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   @AppPorts@ - (Required) The list of ports that the application uses.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     Network traffic to these ports is forwarded to the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     @ProxyIngressPort@ and @ProxyEgressPort@.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- -   @ProxyIngressPort@ - (Required) Specifies the port that incoming</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     traffic to the @AppPorts@ is directed to.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   @ProxyEgressPort@ - (Required) Specifies the port that outgoing</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     traffic from the @AppPorts@ is directed to.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @EgressIgnoredPorts@ - (Required) The egress traffic going to the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     specified ports is ignored and not redirected to the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     @ProxyEgressPort@. It can be an empty list.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   @EgressIgnoredIPs@ - (Required) The egress traffic going to the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     specified IP addresses is ignored and not redirected to the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     @ProxyEgressPort@. It can be an empty list.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Aproperties%3AProxyConfiguration%27"><span class="annot"><span class="annottext">ProxyConfiguration -&gt; Maybe [KeyValuePair]
+</span><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#%24sel%3Aproperties%3AProxyConfiguration%27"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.KeyValuePair.html#KeyValuePair"><span class="hs-identifier hs-type">KeyValuePair</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The proxy type. The only supported value is @APPMESH@.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Atype%27%3AProxyConfiguration%27"><span class="annot"><span class="annottext">ProxyConfiguration -&gt; Maybe ProxyConfigurationType
+</span><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#%24sel%3Atype%27%3AProxyConfiguration%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfigurationType.html#ProxyConfigurationType"><span class="hs-identifier hs-type">ProxyConfigurationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The name of the container that will serve as the App Mesh proxy.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AcontainerName%3AProxyConfiguration%27"><span class="annot"><span class="annottext">ProxyConfiguration -&gt; Text
+</span><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#%24sel%3AcontainerName%3AProxyConfiguration%27"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679458005"><span id="local-6989586621679458007"><span class="annot"><span class="annottext">ProxyConfiguration -&gt; ProxyConfiguration -&gt; Bool
+(ProxyConfiguration -&gt; ProxyConfiguration -&gt; Bool)
+-&gt; (ProxyConfiguration -&gt; ProxyConfiguration -&gt; Bool)
+-&gt; Eq ProxyConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProxyConfiguration -&gt; ProxyConfiguration -&gt; Bool
+$c/= :: ProxyConfiguration -&gt; ProxyConfiguration -&gt; Bool
+== :: ProxyConfiguration -&gt; ProxyConfiguration -&gt; Bool
+$c== :: ProxyConfiguration -&gt; ProxyConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457996"><span id="local-6989586621679457998"><span id="local-6989586621679458000"><span id="local-6989586621679458002"><span class="annot"><span class="annottext">ReadPrec [ProxyConfiguration]
+ReadPrec ProxyConfiguration
+Int -&gt; ReadS ProxyConfiguration
+ReadS [ProxyConfiguration]
+(Int -&gt; ReadS ProxyConfiguration)
+-&gt; ReadS [ProxyConfiguration]
+-&gt; ReadPrec ProxyConfiguration
+-&gt; ReadPrec [ProxyConfiguration]
+-&gt; Read ProxyConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProxyConfiguration]
+$creadListPrec :: ReadPrec [ProxyConfiguration]
+readPrec :: ReadPrec ProxyConfiguration
+$creadPrec :: ReadPrec ProxyConfiguration
+readList :: ReadS [ProxyConfiguration]
+$creadList :: ReadS [ProxyConfiguration]
+readsPrec :: Int -&gt; ReadS ProxyConfiguration
+$creadsPrec :: Int -&gt; ReadS ProxyConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457989"><span id="local-6989586621679457991"><span id="local-6989586621679457993"><span class="annot"><span class="annottext">Int -&gt; ProxyConfiguration -&gt; ShowS
+[ProxyConfiguration] -&gt; ShowS
+ProxyConfiguration -&gt; String
+(Int -&gt; ProxyConfiguration -&gt; ShowS)
+-&gt; (ProxyConfiguration -&gt; String)
+-&gt; ([ProxyConfiguration] -&gt; ShowS)
+-&gt; Show ProxyConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProxyConfiguration] -&gt; ShowS
+$cshowList :: [ProxyConfiguration] -&gt; ShowS
+show :: ProxyConfiguration -&gt; String
+$cshow :: ProxyConfiguration -&gt; String
+showsPrec :: Int -&gt; ProxyConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProxyConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ProxyConfiguration -&gt; Rep ProxyConfiguration x)
+-&gt; (forall x. Rep ProxyConfiguration x -&gt; ProxyConfiguration)
+-&gt; Generic ProxyConfiguration
+forall x. Rep ProxyConfiguration x -&gt; ProxyConfiguration
+forall x. ProxyConfiguration -&gt; Rep ProxyConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProxyConfiguration x -&gt; ProxyConfiguration
+$cfrom :: forall x. ProxyConfiguration -&gt; Rep ProxyConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'ProxyConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'properties', 'proxyConfiguration_properties' - The set of network configuration parameters to provide the Container</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Network Interface (CNI) plugin, specified as key-value pairs.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- -   @IgnoredUID@ - (Required) The user ID (UID) of the proxy container</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--     as defined by the @user@ parameter in a container definition. This</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--     is used to ensure the proxy ignores its own traffic. If @IgnoredGID@</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--     is specified, this field can be empty.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   @IgnoredGID@ - (Required) The group ID (GID) of the proxy container</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--     as defined by the @user@ parameter in a container definition. This</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--     is used to ensure the proxy ignores its own traffic. If @IgnoredUID@</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--     is specified, this field can be empty.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- -   @AppPorts@ - (Required) The list of ports that the application uses.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--     Network traffic to these ports is forwarded to the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--     @ProxyIngressPort@ and @ProxyEgressPort@.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- -   @ProxyIngressPort@ - (Required) Specifies the port that incoming</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--     traffic to the @AppPorts@ is directed to.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- -   @ProxyEgressPort@ - (Required) Specifies the port that outgoing</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--     traffic from the @AppPorts@ is directed to.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- -   @EgressIgnoredPorts@ - (Required) The egress traffic going to the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--     specified ports is ignored and not redirected to the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--     @ProxyEgressPort@. It can be an empty list.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   @EgressIgnoredIPs@ - (Required) The egress traffic going to the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--     specified IP addresses is ignored and not redirected to the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--     @ProxyEgressPort@. It can be an empty list.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'type'', 'proxyConfiguration_type' - The proxy type. The only supported value is @APPMESH@.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'containerName', 'proxyConfiguration_containerName' - The name of the container that will serve as the App Mesh proxy.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#newProxyConfiguration"><span class="hs-identifier hs-type">newProxyConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-comment">-- | 'containerName'</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration"><span class="hs-identifier hs-type">ProxyConfiguration</span></a></span><span>
+</span><span id="line-124"></span><span id="newProxyConfiguration"><span class="annot"><span class="annottext">newProxyConfiguration :: Text -&gt; ProxyConfiguration
+</span><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#newProxyConfiguration"><span class="hs-identifier hs-var hs-var">newProxyConfiguration</span></a></span></span><span> </span><span id="local-6989586621679457983"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457983"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="annottext">ProxyConfiguration' :: Maybe [KeyValuePair]
+-&gt; Maybe ProxyConfigurationType -&gt; Text -&gt; ProxyConfiguration
+</span><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration%27"><span class="hs-identifier hs-type">ProxyConfiguration'</span></a></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:properties:ProxyConfiguration' :: Maybe [KeyValuePair]
+</span><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#%24sel%3Aproperties%3AProxyConfiguration%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ProxyConfiguration' :: Maybe ProxyConfigurationType
+</span><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#%24sel%3Atype%27%3AProxyConfiguration%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProxyConfigurationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerName:ProxyConfiguration' :: Text
+</span><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#%24sel%3AcontainerName%3AProxyConfiguration%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457983"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The set of network configuration parameters to provide the Container</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Network Interface (CNI) plugin, specified as key-value pairs.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   @IgnoredUID@ - (Required) The user ID (UID) of the proxy container</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--     as defined by the @user@ parameter in a container definition. This</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--     is used to ensure the proxy ignores its own traffic. If @IgnoredGID@</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--     is specified, this field can be empty.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- -   @IgnoredGID@ - (Required) The group ID (GID) of the proxy container</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--     as defined by the @user@ parameter in a container definition. This</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--     is used to ensure the proxy ignores its own traffic. If @IgnoredUID@</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--     is specified, this field can be empty.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   @AppPorts@ - (Required) The list of ports that the application uses.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     Network traffic to these ports is forwarded to the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--     @ProxyIngressPort@ and @ProxyEgressPort@.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   @ProxyIngressPort@ - (Required) Specifies the port that incoming</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--     traffic to the @AppPorts@ is directed to.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   @ProxyEgressPort@ - (Required) Specifies the port that outgoing</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--     traffic from the @AppPorts@ is directed to.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- -   @EgressIgnoredPorts@ - (Required) The egress traffic going to the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--     specified ports is ignored and not redirected to the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--     @ProxyEgressPort@. It can be an empty list.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- -   @EgressIgnoredIPs@ - (Required) The egress traffic going to the</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--     specified IP addresses is ignored and not redirected to the</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     @ProxyEgressPort@. It can be an empty list.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#proxyConfiguration_properties"><span class="hs-identifier hs-type">proxyConfiguration_properties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration"><span class="hs-identifier hs-type">ProxyConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.KeyValuePair.html#KeyValuePair"><span class="hs-identifier hs-type">KeyValuePair</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="proxyConfiguration_properties"><span class="annot"><span class="annottext">proxyConfiguration_properties :: (Maybe [KeyValuePair] -&gt; f (Maybe [KeyValuePair]))
+-&gt; ProxyConfiguration -&gt; f ProxyConfiguration
+</span><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#proxyConfiguration_properties"><span class="hs-identifier hs-var hs-var">proxyConfiguration_properties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProxyConfiguration -&gt; Maybe [KeyValuePair])
+-&gt; (ProxyConfiguration
+    -&gt; Maybe [KeyValuePair] -&gt; ProxyConfiguration)
+-&gt; Lens
+     ProxyConfiguration
+     ProxyConfiguration
+     (Maybe [KeyValuePair])
+     (Maybe [KeyValuePair])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration%27"><span class="hs-identifier hs-type">ProxyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457979"><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+properties :: Maybe [KeyValuePair]
+$sel:properties:ProxyConfiguration' :: ProxyConfiguration -&gt; Maybe [KeyValuePair]
+</span><a href="#local-6989586621679457979"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+</span><a href="#local-6989586621679457979"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457978"><span class="annot"><span class="annottext">s :: ProxyConfiguration
+</span><a href="#local-6989586621679457978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration%27"><span class="hs-identifier hs-type">ProxyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457977"><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+</span><a href="#local-6989586621679457977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProxyConfiguration
+</span><a href="#local-6989586621679457978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:properties:ProxyConfiguration' :: Maybe [KeyValuePair]
+</span><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#%24sel%3Aproperties%3AProxyConfiguration%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+</span><a href="#local-6989586621679457977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration"><span class="hs-identifier hs-type">ProxyConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [KeyValuePair] -&gt; f (Maybe [KeyValuePair]))
+ -&gt; ProxyConfiguration -&gt; f ProxyConfiguration)
+-&gt; ((Maybe [KeyValuePair] -&gt; f (Maybe [KeyValuePair]))
+    -&gt; Maybe [KeyValuePair] -&gt; f (Maybe [KeyValuePair]))
+-&gt; (Maybe [KeyValuePair] -&gt; f (Maybe [KeyValuePair]))
+-&gt; ProxyConfiguration
+-&gt; f ProxyConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [KeyValuePair] [KeyValuePair] [KeyValuePair] [KeyValuePair]
+-&gt; Iso
+     (Maybe [KeyValuePair])
+     (Maybe [KeyValuePair])
+     (Maybe [KeyValuePair])
+     (Maybe [KeyValuePair])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [KeyValuePair] [KeyValuePair] [KeyValuePair] [KeyValuePair]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The proxy type. The only supported value is @APPMESH@.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#proxyConfiguration_type"><span class="hs-identifier hs-type">proxyConfiguration_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration"><span class="hs-identifier hs-type">ProxyConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfigurationType.html#ProxyConfigurationType"><span class="hs-identifier hs-type">ProxyConfigurationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="proxyConfiguration_type"><span class="annot"><span class="annottext">proxyConfiguration_type :: (Maybe ProxyConfigurationType -&gt; f (Maybe ProxyConfigurationType))
+-&gt; ProxyConfiguration -&gt; f ProxyConfiguration
+</span><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#proxyConfiguration_type"><span class="hs-identifier hs-var hs-var">proxyConfiguration_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProxyConfiguration -&gt; Maybe ProxyConfigurationType)
+-&gt; (ProxyConfiguration
+    -&gt; Maybe ProxyConfigurationType -&gt; ProxyConfiguration)
+-&gt; Lens
+     ProxyConfiguration
+     ProxyConfiguration
+     (Maybe ProxyConfigurationType)
+     (Maybe ProxyConfigurationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration%27"><span class="hs-identifier hs-type">ProxyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457972"><span class="annot"><span class="annottext">Maybe ProxyConfigurationType
+type' :: Maybe ProxyConfigurationType
+$sel:type':ProxyConfiguration' :: ProxyConfiguration -&gt; Maybe ProxyConfigurationType
+</span><a href="#local-6989586621679457972"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProxyConfigurationType
+</span><a href="#local-6989586621679457972"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457971"><span class="annot"><span class="annottext">s :: ProxyConfiguration
+</span><a href="#local-6989586621679457971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration%27"><span class="hs-identifier hs-type">ProxyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457970"><span class="annot"><span class="annottext">Maybe ProxyConfigurationType
+</span><a href="#local-6989586621679457970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProxyConfiguration
+</span><a href="#local-6989586621679457971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ProxyConfiguration' :: Maybe ProxyConfigurationType
+</span><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#%24sel%3Atype%27%3AProxyConfiguration%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProxyConfigurationType
+</span><a href="#local-6989586621679457970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration"><span class="hs-identifier hs-type">ProxyConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The name of the container that will serve as the App Mesh proxy.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#proxyConfiguration_containerName"><span class="hs-identifier hs-type">proxyConfiguration_containerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration"><span class="hs-identifier hs-type">ProxyConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-170"></span><span id="proxyConfiguration_containerName"><span class="annot"><span class="annottext">proxyConfiguration_containerName :: (Text -&gt; f Text) -&gt; ProxyConfiguration -&gt; f ProxyConfiguration
+</span><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#proxyConfiguration_containerName"><span class="hs-identifier hs-var hs-var">proxyConfiguration_containerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProxyConfiguration -&gt; Text)
+-&gt; (ProxyConfiguration -&gt; Text -&gt; ProxyConfiguration)
+-&gt; Lens ProxyConfiguration ProxyConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration%27"><span class="hs-identifier hs-type">ProxyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457968"><span class="annot"><span class="annottext">Text
+containerName :: Text
+$sel:containerName:ProxyConfiguration' :: ProxyConfiguration -&gt; Text
+</span><a href="#local-6989586621679457968"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457968"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457967"><span class="annot"><span class="annottext">s :: ProxyConfiguration
+</span><a href="#local-6989586621679457967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration%27"><span class="hs-identifier hs-type">ProxyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457966"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProxyConfiguration
+</span><a href="#local-6989586621679457967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:ProxyConfiguration' :: Text
+</span><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#%24sel%3AcontainerName%3AProxyConfiguration%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration"><span class="hs-identifier hs-type">ProxyConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457963"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration"><span class="hs-identifier hs-type">ProxyConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679457961"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProxyConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ProxyConfiguration)
+-&gt; Value
+-&gt; Parser ProxyConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ProxyConfiguration&quot;</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679457958"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679457958"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+-&gt; Maybe ProxyConfigurationType -&gt; Text -&gt; ProxyConfiguration
+</span><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration%27"><span class="hs-identifier hs-var">ProxyConfiguration'</span></a></span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [KeyValuePair]
+ -&gt; Maybe ProxyConfigurationType -&gt; Text -&gt; ProxyConfiguration)
+-&gt; Parser (Maybe [KeyValuePair])
+-&gt; Parser
+     (Maybe ProxyConfigurationType -&gt; Text -&gt; ProxyConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679457958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [KeyValuePair]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;properties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [KeyValuePair]))
+-&gt; Maybe [KeyValuePair] -&gt; Parser (Maybe [KeyValuePair])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ProxyConfigurationType -&gt; Text -&gt; ProxyConfiguration)
+-&gt; Parser (Maybe ProxyConfigurationType)
+-&gt; Parser (Text -&gt; ProxyConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679457958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProxyConfigurationType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ProxyConfiguration)
+-&gt; Parser Text -&gt; Parser ProxyConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679457958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457950"><span id="local-6989586621679457952"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration"><span class="hs-identifier hs-type">ProxyConfiguration</span></a></span></span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457947"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration"><span class="hs-identifier hs-type">ProxyConfiguration</span></a></span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457939"><span id="local-6989586621679457941"><span id="local-6989586621679457943"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration"><span class="hs-identifier hs-type">ProxyConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679457937"><span class="annot"><span class="annottext">toJSON :: ProxyConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfiguration.html#ProxyConfiguration%27"><span class="hs-identifier hs-type">ProxyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457933"><span id="local-6989586621679457934"><span id="local-6989586621679457935"><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+Maybe ProxyConfigurationType
+Text
+containerName :: Text
+type' :: Maybe ProxyConfigurationType
+properties :: Maybe [KeyValuePair]
+$sel:containerName:ProxyConfiguration' :: ProxyConfiguration -&gt; Text
+$sel:type':ProxyConfiguration' :: ProxyConfiguration -&gt; Maybe ProxyConfigurationType
+$sel:properties:ProxyConfiguration' :: ProxyConfiguration -&gt; Maybe [KeyValuePair]
+</span><a href="#local-6989586621679457933"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;properties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [KeyValuePair] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([KeyValuePair] -&gt; Pair) -&gt; Maybe [KeyValuePair] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+</span><a href="#local-6989586621679457935"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProxyConfigurationType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ProxyConfigurationType -&gt; Pair)
+-&gt; Maybe ProxyConfigurationType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProxyConfigurationType
+</span><a href="#local-6989586621679457934"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-194"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457933"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span></pre></body></html>

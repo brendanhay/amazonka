@@ -1,0 +1,837 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SESv2.GetDeliverabilityDashboardOptions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieve information about the status of the Deliverability dashboard</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- for your account. When the Deliverability dashboard is enabled, you gain</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- access to reputation, deliverability, and other metrics for the domains</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- that you use to send email. You also gain the ability to perform</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- predictive inbox placement tests.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- When you use the Deliverability dashboard, you pay a monthly</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- subscription charge, in addition to any other fees that you accrue by</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- using Amazon SES and other AWS services. For more information about the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- features and cost of a Deliverability dashboard subscription, see</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/ses/pricing/ Amazon SES Pricing&gt;.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SESv2.GetDeliverabilityDashboardOptions</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptions"><span class="hs-identifier">GetDeliverabilityDashboardOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#newGetDeliverabilityDashboardOptions"><span class="hs-identifier">newGetDeliverabilityDashboardOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier">GetDeliverabilityDashboardOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#newGetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier">newGetDeliverabilityDashboardOptionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate"><span class="hs-identifier">getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_accountStatus"><span class="hs-identifier">getDeliverabilityDashboardOptionsResponse_accountStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains"><span class="hs-identifier">getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains"><span class="hs-identifier">getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_httpStatus"><span class="hs-identifier">getDeliverabilityDashboardOptionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_dashboardEnabled"><span class="hs-identifier">getDeliverabilityDashboardOptionsResponse_dashboardEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.html"><span class="hs-identifier">Network.AWS.SESv2.Types</span></a></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | Retrieve information about the status of the Deliverability dashboard</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for your AWS account. When the Deliverability dashboard is enabled, you</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- gain access to reputation, deliverability, and other metrics for your</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- domains. You also gain the ability to perform predictive inbox placement</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- tests.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- When you use the Deliverability dashboard, you pay a monthly</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- subscription charge, in addition to any other fees that you accrue by</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- using Amazon SES and other AWS services. For more information about the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- features and cost of a Deliverability dashboard subscription, see</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/pinpoint/pricing/ Amazon Pinpoint Pricing&gt;.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- /See:/ 'newGetDeliverabilityDashboardOptions' smart constructor.</span><span>
+</span><span id="line-73"></span><span id="local-6989586621679343743"><span id="local-6989586621679343744"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDeliverabilityDashboardOptions"><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptions"><span class="hs-identifier hs-var">GetDeliverabilityDashboardOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDeliverabilityDashboardOptions%27"><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptions%27"><span class="hs-identifier hs-var">GetDeliverabilityDashboardOptions'</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343738"><span id="local-6989586621679343740"><span class="annot"><span class="annottext">GetDeliverabilityDashboardOptions
+-&gt; GetDeliverabilityDashboardOptions -&gt; Bool
+(GetDeliverabilityDashboardOptions
+ -&gt; GetDeliverabilityDashboardOptions -&gt; Bool)
+-&gt; (GetDeliverabilityDashboardOptions
+    -&gt; GetDeliverabilityDashboardOptions -&gt; Bool)
+-&gt; Eq GetDeliverabilityDashboardOptions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDeliverabilityDashboardOptions
+-&gt; GetDeliverabilityDashboardOptions -&gt; Bool
+$c/= :: GetDeliverabilityDashboardOptions
+-&gt; GetDeliverabilityDashboardOptions -&gt; Bool
+== :: GetDeliverabilityDashboardOptions
+-&gt; GetDeliverabilityDashboardOptions -&gt; Bool
+$c== :: GetDeliverabilityDashboardOptions
+-&gt; GetDeliverabilityDashboardOptions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343729"><span id="local-6989586621679343731"><span id="local-6989586621679343733"><span id="local-6989586621679343735"><span class="annot"><span class="annottext">ReadPrec [GetDeliverabilityDashboardOptions]
+ReadPrec GetDeliverabilityDashboardOptions
+Int -&gt; ReadS GetDeliverabilityDashboardOptions
+ReadS [GetDeliverabilityDashboardOptions]
+(Int -&gt; ReadS GetDeliverabilityDashboardOptions)
+-&gt; ReadS [GetDeliverabilityDashboardOptions]
+-&gt; ReadPrec GetDeliverabilityDashboardOptions
+-&gt; ReadPrec [GetDeliverabilityDashboardOptions]
+-&gt; Read GetDeliverabilityDashboardOptions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDeliverabilityDashboardOptions]
+$creadListPrec :: ReadPrec [GetDeliverabilityDashboardOptions]
+readPrec :: ReadPrec GetDeliverabilityDashboardOptions
+$creadPrec :: ReadPrec GetDeliverabilityDashboardOptions
+readList :: ReadS [GetDeliverabilityDashboardOptions]
+$creadList :: ReadS [GetDeliverabilityDashboardOptions]
+readsPrec :: Int -&gt; ReadS GetDeliverabilityDashboardOptions
+$creadsPrec :: Int -&gt; ReadS GetDeliverabilityDashboardOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343722"><span id="local-6989586621679343724"><span id="local-6989586621679343726"><span class="annot"><span class="annottext">Int -&gt; GetDeliverabilityDashboardOptions -&gt; ShowS
+[GetDeliverabilityDashboardOptions] -&gt; ShowS
+GetDeliverabilityDashboardOptions -&gt; String
+(Int -&gt; GetDeliverabilityDashboardOptions -&gt; ShowS)
+-&gt; (GetDeliverabilityDashboardOptions -&gt; String)
+-&gt; ([GetDeliverabilityDashboardOptions] -&gt; ShowS)
+-&gt; Show GetDeliverabilityDashboardOptions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDeliverabilityDashboardOptions] -&gt; ShowS
+$cshowList :: [GetDeliverabilityDashboardOptions] -&gt; ShowS
+show :: GetDeliverabilityDashboardOptions -&gt; String
+$cshow :: GetDeliverabilityDashboardOptions -&gt; String
+showsPrec :: Int -&gt; GetDeliverabilityDashboardOptions -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDeliverabilityDashboardOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDeliverabilityDashboardOptions
+ -&gt; Rep GetDeliverabilityDashboardOptions x)
+-&gt; (forall x.
+    Rep GetDeliverabilityDashboardOptions x
+    -&gt; GetDeliverabilityDashboardOptions)
+-&gt; Generic GetDeliverabilityDashboardOptions
+forall x.
+Rep GetDeliverabilityDashboardOptions x
+-&gt; GetDeliverabilityDashboardOptions
+forall x.
+GetDeliverabilityDashboardOptions
+-&gt; Rep GetDeliverabilityDashboardOptions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetDeliverabilityDashboardOptions x
+-&gt; GetDeliverabilityDashboardOptions
+$cfrom :: forall x.
+GetDeliverabilityDashboardOptions
+-&gt; Rep GetDeliverabilityDashboardOptions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'GetDeliverabilityDashboardOptions' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#newGetDeliverabilityDashboardOptions"><span class="hs-identifier hs-type">newGetDeliverabilityDashboardOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptions"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptions</span></a></span><span>
+</span><span id="line-84"></span><span id="newGetDeliverabilityDashboardOptions"><span class="annot"><span class="annottext">newGetDeliverabilityDashboardOptions :: GetDeliverabilityDashboardOptions
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#newGetDeliverabilityDashboardOptions"><span class="hs-identifier hs-var hs-var">newGetDeliverabilityDashboardOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">GetDeliverabilityDashboardOptions
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptions%27"><span class="hs-identifier hs-var">GetDeliverabilityDashboardOptions'</span></a></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptions"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptions</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptions"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679343714"><span class="annot"><span class="annottext">request :: GetDeliverabilityDashboardOptions
+-&gt; Request GetDeliverabilityDashboardOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetDeliverabilityDashboardOptions
+-&gt; Request GetDeliverabilityDashboardOptions
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679343710"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDeliverabilityDashboardOptions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetDeliverabilityDashboardOptions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDeliverabilityDashboardOptions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDeliverabilityDashboardOptions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetDeliverabilityDashboardOptions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679343707"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343707"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679343706"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679343706"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679343705"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343705"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe DeliverabilityDashboardAccountStatus
+-&gt; Maybe [DomainDeliverabilityTrackingOption]
+-&gt; Maybe [DomainDeliverabilityTrackingOption]
+-&gt; Int
+-&gt; Bool
+-&gt; GetDeliverabilityDashboardOptionsResponse
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var">GetDeliverabilityDashboardOptionsResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe DeliverabilityDashboardAccountStatus
+ -&gt; Maybe [DomainDeliverabilityTrackingOption]
+ -&gt; Maybe [DomainDeliverabilityTrackingOption]
+ -&gt; Int
+ -&gt; Bool
+ -&gt; GetDeliverabilityDashboardOptionsResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe DeliverabilityDashboardAccountStatus
+      -&gt; Maybe [DomainDeliverabilityTrackingOption]
+      -&gt; Maybe [DomainDeliverabilityTrackingOption]
+      -&gt; Int
+      -&gt; Bool
+      -&gt; GetDeliverabilityDashboardOptionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubscriptionExpiryDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe DeliverabilityDashboardAccountStatus
+   -&gt; Maybe [DomainDeliverabilityTrackingOption]
+   -&gt; Maybe [DomainDeliverabilityTrackingOption]
+   -&gt; Int
+   -&gt; Bool
+   -&gt; GetDeliverabilityDashboardOptionsResponse)
+-&gt; Either String (Maybe DeliverabilityDashboardAccountStatus)
+-&gt; Either
+     String
+     (Maybe [DomainDeliverabilityTrackingOption]
+      -&gt; Maybe [DomainDeliverabilityTrackingOption]
+      -&gt; Int
+      -&gt; Bool
+      -&gt; GetDeliverabilityDashboardOptionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe DeliverabilityDashboardAccountStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [DomainDeliverabilityTrackingOption]
+   -&gt; Maybe [DomainDeliverabilityTrackingOption]
+   -&gt; Int
+   -&gt; Bool
+   -&gt; GetDeliverabilityDashboardOptionsResponse)
+-&gt; Either String (Maybe [DomainDeliverabilityTrackingOption])
+-&gt; Either
+     String
+     (Maybe [DomainDeliverabilityTrackingOption]
+      -&gt; Int -&gt; Bool -&gt; GetDeliverabilityDashboardOptionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either
+     String (Maybe (Maybe [DomainDeliverabilityTrackingOption]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActiveSubscribedDomains&quot;</span></span><span>
+</span><span id="line-102"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DomainDeliverabilityTrackingOption]))
+-&gt; Maybe [DomainDeliverabilityTrackingOption]
+-&gt; Either String (Maybe [DomainDeliverabilityTrackingOption])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DomainDeliverabilityTrackingOption]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-103"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [DomainDeliverabilityTrackingOption]
+   -&gt; Int -&gt; Bool -&gt; GetDeliverabilityDashboardOptionsResponse)
+-&gt; Either String (Maybe [DomainDeliverabilityTrackingOption])
+-&gt; Either
+     String (Int -&gt; Bool -&gt; GetDeliverabilityDashboardOptionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either
+     String (Maybe (Maybe [DomainDeliverabilityTrackingOption]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PendingExpirationSubscribedDomains&quot;</span></span><span>
+</span><span id="line-105"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DomainDeliverabilityTrackingOption]))
+-&gt; Maybe [DomainDeliverabilityTrackingOption]
+-&gt; Either String (Maybe [DomainDeliverabilityTrackingOption])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DomainDeliverabilityTrackingOption]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-106"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; Bool -&gt; GetDeliverabilityDashboardOptionsResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (Bool -&gt; GetDeliverabilityDashboardOptionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343707"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">Either String (Bool -&gt; GetDeliverabilityDashboardOptionsResponse)
+-&gt; Either String Bool
+-&gt; Either String GetDeliverabilityDashboardOptionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Bool
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DashboardEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679343695"><span id="local-6989586621679343697"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptions"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptions</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679343692"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptions"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptions</span></a></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptions"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptions</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679343688"><span class="annot"><span class="annottext">toHeaders :: GetDeliverabilityDashboardOptions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GetDeliverabilityDashboardOptions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-129"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptions"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptions</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679343682"><span class="annot"><span class="annottext">toPath :: GetDeliverabilityDashboardOptions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; GetDeliverabilityDashboardOptions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v2/email/deliverability-dashboard&quot;</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptions"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptions</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679343678"><span class="annot"><span class="annottext">toQuery :: GetDeliverabilityDashboardOptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDeliverabilityDashboardOptions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | An object that shows the status of the Deliverability dashboard.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- /See:/ 'newGetDeliverabilityDashboardOptionsResponse' smart constructor.</span><span>
+</span><span id="line-149"></span><span id="local-6989586621679343675"><span id="local-6989586621679343676"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDeliverabilityDashboardOptionsResponse"><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-var">GetDeliverabilityDashboardOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDeliverabilityDashboardOptionsResponse%27"><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var">GetDeliverabilityDashboardOptionsResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date, in Unix time format, when your current subscription to the</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- Deliverability dashboard is scheduled to expire, if your subscription is</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- scheduled to expire at the end of the current calendar month. This value</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- is null if you have an active subscription that isn&#8217;t due to expire at</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- the end of the month.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AsubscriptionExpiryDate%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="annot"><span class="annottext">GetDeliverabilityDashboardOptionsResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3AsubscriptionExpiryDate%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var hs-var">subscriptionExpiryDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | The current status of your Deliverability dashboard subscription. If</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- this value is @PENDING_EXPIRATION@, your subscription is scheduled to</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- expire at the end of the current calendar month.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AaccountStatus%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="annot"><span class="annottext">GetDeliverabilityDashboardOptionsResponse
+-&gt; Maybe DeliverabilityDashboardAccountStatus
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3AaccountStatus%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var hs-var">accountStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus"><span class="hs-identifier hs-type">DeliverabilityDashboardAccountStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | An array of objects, one for each verified domain that you use to send</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- email and currently has an active Deliverability dashboard subscription</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- that isn&#8217;t scheduled to expire at the end of the current calendar month.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AactiveSubscribedDomains%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="annot"><span class="annottext">GetDeliverabilityDashboardOptionsResponse
+-&gt; Maybe [DomainDeliverabilityTrackingOption]
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3AactiveSubscribedDomains%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var hs-var">activeSubscribedDomains</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.DomainDeliverabilityTrackingOption.html#DomainDeliverabilityTrackingOption"><span class="hs-identifier hs-type">DomainDeliverabilityTrackingOption</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | An array of objects, one for each verified domain that you use to send</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- email and currently has an active Deliverability dashboard subscription</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- that\'s scheduled to expire at the end of the current calendar month.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3ApendingExpirationSubscribedDomains%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="annot"><span class="annottext">GetDeliverabilityDashboardOptionsResponse
+-&gt; Maybe [DomainDeliverabilityTrackingOption]
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3ApendingExpirationSubscribedDomains%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var hs-var">pendingExpirationSubscribedDomains</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.DomainDeliverabilityTrackingOption.html#DomainDeliverabilityTrackingOption"><span class="hs-identifier hs-type">DomainDeliverabilityTrackingOption</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="annot"><span class="annottext">GetDeliverabilityDashboardOptionsResponse -&gt; Int
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3AhttpStatus%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | Specifies whether the Deliverability dashboard is enabled. If this value</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- is @true@, the dashboard is enabled.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AdashboardEnabled%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="annot"><span class="annottext">GetDeliverabilityDashboardOptionsResponse -&gt; Bool
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3AdashboardEnabled%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var hs-var">dashboardEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343665"><span id="local-6989586621679343667"><span class="annot"><span class="annottext">GetDeliverabilityDashboardOptionsResponse
+-&gt; GetDeliverabilityDashboardOptionsResponse -&gt; Bool
+(GetDeliverabilityDashboardOptionsResponse
+ -&gt; GetDeliverabilityDashboardOptionsResponse -&gt; Bool)
+-&gt; (GetDeliverabilityDashboardOptionsResponse
+    -&gt; GetDeliverabilityDashboardOptionsResponse -&gt; Bool)
+-&gt; Eq GetDeliverabilityDashboardOptionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDeliverabilityDashboardOptionsResponse
+-&gt; GetDeliverabilityDashboardOptionsResponse -&gt; Bool
+$c/= :: GetDeliverabilityDashboardOptionsResponse
+-&gt; GetDeliverabilityDashboardOptionsResponse -&gt; Bool
+== :: GetDeliverabilityDashboardOptionsResponse
+-&gt; GetDeliverabilityDashboardOptionsResponse -&gt; Bool
+$c== :: GetDeliverabilityDashboardOptionsResponse
+-&gt; GetDeliverabilityDashboardOptionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343657"><span id="local-6989586621679343659"><span id="local-6989586621679343661"><span id="local-6989586621679343663"><span class="annot"><span class="annottext">ReadPrec [GetDeliverabilityDashboardOptionsResponse]
+ReadPrec GetDeliverabilityDashboardOptionsResponse
+Int -&gt; ReadS GetDeliverabilityDashboardOptionsResponse
+ReadS [GetDeliverabilityDashboardOptionsResponse]
+(Int -&gt; ReadS GetDeliverabilityDashboardOptionsResponse)
+-&gt; ReadS [GetDeliverabilityDashboardOptionsResponse]
+-&gt; ReadPrec GetDeliverabilityDashboardOptionsResponse
+-&gt; ReadPrec [GetDeliverabilityDashboardOptionsResponse]
+-&gt; Read GetDeliverabilityDashboardOptionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDeliverabilityDashboardOptionsResponse]
+$creadListPrec :: ReadPrec [GetDeliverabilityDashboardOptionsResponse]
+readPrec :: ReadPrec GetDeliverabilityDashboardOptionsResponse
+$creadPrec :: ReadPrec GetDeliverabilityDashboardOptionsResponse
+readList :: ReadS [GetDeliverabilityDashboardOptionsResponse]
+$creadList :: ReadS [GetDeliverabilityDashboardOptionsResponse]
+readsPrec :: Int -&gt; ReadS GetDeliverabilityDashboardOptionsResponse
+$creadsPrec :: Int -&gt; ReadS GetDeliverabilityDashboardOptionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343651"><span id="local-6989586621679343653"><span id="local-6989586621679343655"><span class="annot"><span class="annottext">Int -&gt; GetDeliverabilityDashboardOptionsResponse -&gt; ShowS
+[GetDeliverabilityDashboardOptionsResponse] -&gt; ShowS
+GetDeliverabilityDashboardOptionsResponse -&gt; String
+(Int -&gt; GetDeliverabilityDashboardOptionsResponse -&gt; ShowS)
+-&gt; (GetDeliverabilityDashboardOptionsResponse -&gt; String)
+-&gt; ([GetDeliverabilityDashboardOptionsResponse] -&gt; ShowS)
+-&gt; Show GetDeliverabilityDashboardOptionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDeliverabilityDashboardOptionsResponse] -&gt; ShowS
+$cshowList :: [GetDeliverabilityDashboardOptionsResponse] -&gt; ShowS
+show :: GetDeliverabilityDashboardOptionsResponse -&gt; String
+$cshow :: GetDeliverabilityDashboardOptionsResponse -&gt; String
+showsPrec :: Int -&gt; GetDeliverabilityDashboardOptionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDeliverabilityDashboardOptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDeliverabilityDashboardOptionsResponse
+ -&gt; Rep GetDeliverabilityDashboardOptionsResponse x)
+-&gt; (forall x.
+    Rep GetDeliverabilityDashboardOptionsResponse x
+    -&gt; GetDeliverabilityDashboardOptionsResponse)
+-&gt; Generic GetDeliverabilityDashboardOptionsResponse
+forall x.
+Rep GetDeliverabilityDashboardOptionsResponse x
+-&gt; GetDeliverabilityDashboardOptionsResponse
+forall x.
+GetDeliverabilityDashboardOptionsResponse
+-&gt; Rep GetDeliverabilityDashboardOptionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetDeliverabilityDashboardOptionsResponse x
+-&gt; GetDeliverabilityDashboardOptionsResponse
+$cfrom :: forall x.
+GetDeliverabilityDashboardOptionsResponse
+-&gt; Rep GetDeliverabilityDashboardOptionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Create a value of 'GetDeliverabilityDashboardOptionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'subscriptionExpiryDate', 'getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate' - The date, in Unix time format, when your current subscription to the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Deliverability dashboard is scheduled to expire, if your subscription is</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- scheduled to expire at the end of the current calendar month. This value</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- is null if you have an active subscription that isn&#8217;t due to expire at</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- the end of the month.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'accountStatus', 'getDeliverabilityDashboardOptionsResponse_accountStatus' - The current status of your Deliverability dashboard subscription. If</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- this value is @PENDING_EXPIRATION@, your subscription is scheduled to</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- expire at the end of the current calendar month.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'activeSubscribedDomains', 'getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains' - An array of objects, one for each verified domain that you use to send</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- email and currently has an active Deliverability dashboard subscription</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- that isn&#8217;t scheduled to expire at the end of the current calendar month.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'pendingExpirationSubscribedDomains', 'getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains' - An array of objects, one for each verified domain that you use to send</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- email and currently has an active Deliverability dashboard subscription</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- that\'s scheduled to expire at the end of the current calendar month.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'httpStatus', 'getDeliverabilityDashboardOptionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'dashboardEnabled', 'getDeliverabilityDashboardOptionsResponse_dashboardEnabled' - Specifies whether the Deliverability dashboard is enabled. If this value</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- is @true@, the dashboard is enabled.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#newGetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-type">newGetDeliverabilityDashboardOptionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-comment">-- | 'dashboardEnabled'</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse</span></a></span><span>
+</span><span id="line-212"></span><span id="newGetDeliverabilityDashboardOptionsResponse"><span class="annot"><span class="annottext">newGetDeliverabilityDashboardOptionsResponse :: Int -&gt; Bool -&gt; GetDeliverabilityDashboardOptionsResponse
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#newGetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-var hs-var">newGetDeliverabilityDashboardOptionsResponse</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679343648"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343648"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679343647"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679343647"><span class="hs-identifier hs-var">pDashboardEnabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">GetDeliverabilityDashboardOptionsResponse' :: Maybe POSIX
+-&gt; Maybe DeliverabilityDashboardAccountStatus
+-&gt; Maybe [DomainDeliverabilityTrackingOption]
+-&gt; Maybe [DomainDeliverabilityTrackingOption]
+-&gt; Int
+-&gt; Bool
+-&gt; GetDeliverabilityDashboardOptionsResponse
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subscriptionExpiryDate:GetDeliverabilityDashboardOptionsResponse' :: Maybe POSIX
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3AsubscriptionExpiryDate%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var">subscriptionExpiryDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:accountStatus:GetDeliverabilityDashboardOptionsResponse' :: Maybe DeliverabilityDashboardAccountStatus
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3AaccountStatus%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var">accountStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeliverabilityDashboardAccountStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">$sel:activeSubscribedDomains:GetDeliverabilityDashboardOptionsResponse' :: Maybe [DomainDeliverabilityTrackingOption]
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3AactiveSubscribedDomains%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var">activeSubscribedDomains</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DomainDeliverabilityTrackingOption]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">$sel:pendingExpirationSubscribedDomains:GetDeliverabilityDashboardOptionsResponse' :: Maybe [DomainDeliverabilityTrackingOption]
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3ApendingExpirationSubscribedDomains%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var">pendingExpirationSubscribedDomains</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DomainDeliverabilityTrackingOption]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDeliverabilityDashboardOptionsResponse' :: Int
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3AhttpStatus%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343648"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">$sel:dashboardEnabled:GetDeliverabilityDashboardOptionsResponse' :: Bool
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3AdashboardEnabled%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var">dashboardEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679343647"><span class="hs-identifier hs-var">pDashboardEnabled_</span></a></span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The date, in Unix time format, when your current subscription to the</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- Deliverability dashboard is scheduled to expire, if your subscription is</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- scheduled to expire at the end of the current calendar month. This value</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- is null if you have an active subscription that isn&#8217;t due to expire at</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- the end of the month.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate"><span class="hs-identifier hs-type">getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate"><span class="annot"><span class="annottext">getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetDeliverabilityDashboardOptionsResponse
+-&gt; f GetDeliverabilityDashboardOptionsResponse
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate"><span class="hs-identifier hs-var hs-var">getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDeliverabilityDashboardOptionsResponse -&gt; Maybe POSIX)
+-&gt; (GetDeliverabilityDashboardOptionsResponse
+    -&gt; Maybe POSIX -&gt; GetDeliverabilityDashboardOptionsResponse)
+-&gt; Lens
+     GetDeliverabilityDashboardOptionsResponse
+     GetDeliverabilityDashboardOptionsResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343644"><span class="annot"><span class="annottext">Maybe POSIX
+subscriptionExpiryDate :: Maybe POSIX
+$sel:subscriptionExpiryDate:GetDeliverabilityDashboardOptionsResponse' :: GetDeliverabilityDashboardOptionsResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679343644"><span class="hs-identifier hs-var hs-var">subscriptionExpiryDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679343644"><span class="hs-identifier hs-var">subscriptionExpiryDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343643"><span class="annot"><span class="annottext">s :: GetDeliverabilityDashboardOptionsResponse
+</span><a href="#local-6989586621679343643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343642"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679343642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeliverabilityDashboardOptionsResponse
+</span><a href="#local-6989586621679343643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionExpiryDate:GetDeliverabilityDashboardOptionsResponse' :: Maybe POSIX
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3AsubscriptionExpiryDate%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var">subscriptionExpiryDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679343642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetDeliverabilityDashboardOptionsResponse
+ -&gt; f GetDeliverabilityDashboardOptionsResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetDeliverabilityDashboardOptionsResponse
+-&gt; f GetDeliverabilityDashboardOptionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The current status of your Deliverability dashboard subscription. If</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- this value is @PENDING_EXPIRATION@, your subscription is scheduled to</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- expire at the end of the current calendar month.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_accountStatus"><span class="hs-identifier hs-type">getDeliverabilityDashboardOptionsResponse_accountStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus"><span class="hs-identifier hs-type">DeliverabilityDashboardAccountStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="getDeliverabilityDashboardOptionsResponse_accountStatus"><span class="annot"><span class="annottext">getDeliverabilityDashboardOptionsResponse_accountStatus :: (Maybe DeliverabilityDashboardAccountStatus
+ -&gt; f (Maybe DeliverabilityDashboardAccountStatus))
+-&gt; GetDeliverabilityDashboardOptionsResponse
+-&gt; f GetDeliverabilityDashboardOptionsResponse
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_accountStatus"><span class="hs-identifier hs-var hs-var">getDeliverabilityDashboardOptionsResponse_accountStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDeliverabilityDashboardOptionsResponse
+ -&gt; Maybe DeliverabilityDashboardAccountStatus)
+-&gt; (GetDeliverabilityDashboardOptionsResponse
+    -&gt; Maybe DeliverabilityDashboardAccountStatus
+    -&gt; GetDeliverabilityDashboardOptionsResponse)
+-&gt; Lens
+     GetDeliverabilityDashboardOptionsResponse
+     GetDeliverabilityDashboardOptionsResponse
+     (Maybe DeliverabilityDashboardAccountStatus)
+     (Maybe DeliverabilityDashboardAccountStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343638"><span class="annot"><span class="annottext">Maybe DeliverabilityDashboardAccountStatus
+accountStatus :: Maybe DeliverabilityDashboardAccountStatus
+$sel:accountStatus:GetDeliverabilityDashboardOptionsResponse' :: GetDeliverabilityDashboardOptionsResponse
+-&gt; Maybe DeliverabilityDashboardAccountStatus
+</span><a href="#local-6989586621679343638"><span class="hs-identifier hs-var hs-var">accountStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeliverabilityDashboardAccountStatus
+</span><a href="#local-6989586621679343638"><span class="hs-identifier hs-var">accountStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343637"><span class="annot"><span class="annottext">s :: GetDeliverabilityDashboardOptionsResponse
+</span><a href="#local-6989586621679343637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343636"><span class="annot"><span class="annottext">Maybe DeliverabilityDashboardAccountStatus
+</span><a href="#local-6989586621679343636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeliverabilityDashboardOptionsResponse
+</span><a href="#local-6989586621679343637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountStatus:GetDeliverabilityDashboardOptionsResponse' :: Maybe DeliverabilityDashboardAccountStatus
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3AaccountStatus%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var">accountStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeliverabilityDashboardAccountStatus
+</span><a href="#local-6989586621679343636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | An array of objects, one for each verified domain that you use to send</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- email and currently has an active Deliverability dashboard subscription</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- that isn&#8217;t scheduled to expire at the end of the current calendar month.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains"><span class="hs-identifier hs-type">getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.DomainDeliverabilityTrackingOption.html#DomainDeliverabilityTrackingOption"><span class="hs-identifier hs-type">DomainDeliverabilityTrackingOption</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains"><span class="annot"><span class="annottext">getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains :: (Maybe [DomainDeliverabilityTrackingOption]
+ -&gt; f (Maybe [DomainDeliverabilityTrackingOption]))
+-&gt; GetDeliverabilityDashboardOptionsResponse
+-&gt; f GetDeliverabilityDashboardOptionsResponse
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains"><span class="hs-identifier hs-var hs-var">getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDeliverabilityDashboardOptionsResponse
+ -&gt; Maybe [DomainDeliverabilityTrackingOption])
+-&gt; (GetDeliverabilityDashboardOptionsResponse
+    -&gt; Maybe [DomainDeliverabilityTrackingOption]
+    -&gt; GetDeliverabilityDashboardOptionsResponse)
+-&gt; Lens
+     GetDeliverabilityDashboardOptionsResponse
+     GetDeliverabilityDashboardOptionsResponse
+     (Maybe [DomainDeliverabilityTrackingOption])
+     (Maybe [DomainDeliverabilityTrackingOption])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343635"><span class="annot"><span class="annottext">Maybe [DomainDeliverabilityTrackingOption]
+activeSubscribedDomains :: Maybe [DomainDeliverabilityTrackingOption]
+$sel:activeSubscribedDomains:GetDeliverabilityDashboardOptionsResponse' :: GetDeliverabilityDashboardOptionsResponse
+-&gt; Maybe [DomainDeliverabilityTrackingOption]
+</span><a href="#local-6989586621679343635"><span class="hs-identifier hs-var hs-var">activeSubscribedDomains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DomainDeliverabilityTrackingOption]
+</span><a href="#local-6989586621679343635"><span class="hs-identifier hs-var">activeSubscribedDomains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343634"><span class="annot"><span class="annottext">s :: GetDeliverabilityDashboardOptionsResponse
+</span><a href="#local-6989586621679343634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343633"><span class="annot"><span class="annottext">Maybe [DomainDeliverabilityTrackingOption]
+</span><a href="#local-6989586621679343633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeliverabilityDashboardOptionsResponse
+</span><a href="#local-6989586621679343634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activeSubscribedDomains:GetDeliverabilityDashboardOptionsResponse' :: Maybe [DomainDeliverabilityTrackingOption]
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3AactiveSubscribedDomains%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var">activeSubscribedDomains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DomainDeliverabilityTrackingOption]
+</span><a href="#local-6989586621679343633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DomainDeliverabilityTrackingOption]
+  -&gt; f (Maybe [DomainDeliverabilityTrackingOption]))
+ -&gt; GetDeliverabilityDashboardOptionsResponse
+ -&gt; f GetDeliverabilityDashboardOptionsResponse)
+-&gt; ((Maybe [DomainDeliverabilityTrackingOption]
+     -&gt; f (Maybe [DomainDeliverabilityTrackingOption]))
+    -&gt; Maybe [DomainDeliverabilityTrackingOption]
+    -&gt; f (Maybe [DomainDeliverabilityTrackingOption]))
+-&gt; (Maybe [DomainDeliverabilityTrackingOption]
+    -&gt; f (Maybe [DomainDeliverabilityTrackingOption]))
+-&gt; GetDeliverabilityDashboardOptionsResponse
+-&gt; f GetDeliverabilityDashboardOptionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DomainDeliverabilityTrackingOption]
+  [DomainDeliverabilityTrackingOption]
+  [DomainDeliverabilityTrackingOption]
+  [DomainDeliverabilityTrackingOption]
+-&gt; Iso
+     (Maybe [DomainDeliverabilityTrackingOption])
+     (Maybe [DomainDeliverabilityTrackingOption])
+     (Maybe [DomainDeliverabilityTrackingOption])
+     (Maybe [DomainDeliverabilityTrackingOption])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DomainDeliverabilityTrackingOption]
+  [DomainDeliverabilityTrackingOption]
+  [DomainDeliverabilityTrackingOption]
+  [DomainDeliverabilityTrackingOption]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | An array of objects, one for each verified domain that you use to send</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- email and currently has an active Deliverability dashboard subscription</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- that\'s scheduled to expire at the end of the current calendar month.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains"><span class="hs-identifier hs-type">getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.DomainDeliverabilityTrackingOption.html#DomainDeliverabilityTrackingOption"><span class="hs-identifier hs-type">DomainDeliverabilityTrackingOption</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains"><span class="annot"><span class="annottext">getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains :: (Maybe [DomainDeliverabilityTrackingOption]
+ -&gt; f (Maybe [DomainDeliverabilityTrackingOption]))
+-&gt; GetDeliverabilityDashboardOptionsResponse
+-&gt; f GetDeliverabilityDashboardOptionsResponse
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains"><span class="hs-identifier hs-var hs-var">getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDeliverabilityDashboardOptionsResponse
+ -&gt; Maybe [DomainDeliverabilityTrackingOption])
+-&gt; (GetDeliverabilityDashboardOptionsResponse
+    -&gt; Maybe [DomainDeliverabilityTrackingOption]
+    -&gt; GetDeliverabilityDashboardOptionsResponse)
+-&gt; Lens
+     GetDeliverabilityDashboardOptionsResponse
+     GetDeliverabilityDashboardOptionsResponse
+     (Maybe [DomainDeliverabilityTrackingOption])
+     (Maybe [DomainDeliverabilityTrackingOption])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343631"><span class="annot"><span class="annottext">Maybe [DomainDeliverabilityTrackingOption]
+pendingExpirationSubscribedDomains :: Maybe [DomainDeliverabilityTrackingOption]
+$sel:pendingExpirationSubscribedDomains:GetDeliverabilityDashboardOptionsResponse' :: GetDeliverabilityDashboardOptionsResponse
+-&gt; Maybe [DomainDeliverabilityTrackingOption]
+</span><a href="#local-6989586621679343631"><span class="hs-identifier hs-var hs-var">pendingExpirationSubscribedDomains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DomainDeliverabilityTrackingOption]
+</span><a href="#local-6989586621679343631"><span class="hs-identifier hs-var">pendingExpirationSubscribedDomains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343630"><span class="annot"><span class="annottext">s :: GetDeliverabilityDashboardOptionsResponse
+</span><a href="#local-6989586621679343630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343629"><span class="annot"><span class="annottext">Maybe [DomainDeliverabilityTrackingOption]
+</span><a href="#local-6989586621679343629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeliverabilityDashboardOptionsResponse
+</span><a href="#local-6989586621679343630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingExpirationSubscribedDomains:GetDeliverabilityDashboardOptionsResponse' :: Maybe [DomainDeliverabilityTrackingOption]
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3ApendingExpirationSubscribedDomains%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var">pendingExpirationSubscribedDomains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DomainDeliverabilityTrackingOption]
+</span><a href="#local-6989586621679343629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DomainDeliverabilityTrackingOption]
+  -&gt; f (Maybe [DomainDeliverabilityTrackingOption]))
+ -&gt; GetDeliverabilityDashboardOptionsResponse
+ -&gt; f GetDeliverabilityDashboardOptionsResponse)
+-&gt; ((Maybe [DomainDeliverabilityTrackingOption]
+     -&gt; f (Maybe [DomainDeliverabilityTrackingOption]))
+    -&gt; Maybe [DomainDeliverabilityTrackingOption]
+    -&gt; f (Maybe [DomainDeliverabilityTrackingOption]))
+-&gt; (Maybe [DomainDeliverabilityTrackingOption]
+    -&gt; f (Maybe [DomainDeliverabilityTrackingOption]))
+-&gt; GetDeliverabilityDashboardOptionsResponse
+-&gt; f GetDeliverabilityDashboardOptionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DomainDeliverabilityTrackingOption]
+  [DomainDeliverabilityTrackingOption]
+  [DomainDeliverabilityTrackingOption]
+  [DomainDeliverabilityTrackingOption]
+-&gt; Iso
+     (Maybe [DomainDeliverabilityTrackingOption])
+     (Maybe [DomainDeliverabilityTrackingOption])
+     (Maybe [DomainDeliverabilityTrackingOption])
+     (Maybe [DomainDeliverabilityTrackingOption])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DomainDeliverabilityTrackingOption]
+  [DomainDeliverabilityTrackingOption]
+  [DomainDeliverabilityTrackingOption]
+  [DomainDeliverabilityTrackingOption]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_httpStatus"><span class="hs-identifier hs-type">getDeliverabilityDashboardOptionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-256"></span><span id="getDeliverabilityDashboardOptionsResponse_httpStatus"><span class="annot"><span class="annottext">getDeliverabilityDashboardOptionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetDeliverabilityDashboardOptionsResponse
+-&gt; f GetDeliverabilityDashboardOptionsResponse
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDeliverabilityDashboardOptionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDeliverabilityDashboardOptionsResponse -&gt; Int)
+-&gt; (GetDeliverabilityDashboardOptionsResponse
+    -&gt; Int -&gt; GetDeliverabilityDashboardOptionsResponse)
+-&gt; Lens
+     GetDeliverabilityDashboardOptionsResponse
+     GetDeliverabilityDashboardOptionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343628"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDeliverabilityDashboardOptionsResponse' :: GetDeliverabilityDashboardOptionsResponse -&gt; Int
+</span><a href="#local-6989586621679343628"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343628"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343627"><span class="annot"><span class="annottext">s :: GetDeliverabilityDashboardOptionsResponse
+</span><a href="#local-6989586621679343627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343626"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeliverabilityDashboardOptionsResponse
+</span><a href="#local-6989586621679343627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDeliverabilityDashboardOptionsResponse' :: Int
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3AhttpStatus%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | Specifies whether the Deliverability dashboard is enabled. If this value</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- is @true@, the dashboard is enabled.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_dashboardEnabled"><span class="hs-identifier hs-type">getDeliverabilityDashboardOptionsResponse_dashboardEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-261"></span><span id="getDeliverabilityDashboardOptionsResponse_dashboardEnabled"><span class="annot"><span class="annottext">getDeliverabilityDashboardOptionsResponse_dashboardEnabled :: (Bool -&gt; f Bool)
+-&gt; GetDeliverabilityDashboardOptionsResponse
+-&gt; f GetDeliverabilityDashboardOptionsResponse
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#getDeliverabilityDashboardOptionsResponse_dashboardEnabled"><span class="hs-identifier hs-var hs-var">getDeliverabilityDashboardOptionsResponse_dashboardEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDeliverabilityDashboardOptionsResponse -&gt; Bool)
+-&gt; (GetDeliverabilityDashboardOptionsResponse
+    -&gt; Bool -&gt; GetDeliverabilityDashboardOptionsResponse)
+-&gt; Lens
+     GetDeliverabilityDashboardOptionsResponse
+     GetDeliverabilityDashboardOptionsResponse
+     Bool
+     Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343625"><span class="annot"><span class="annottext">Bool
+dashboardEnabled :: Bool
+$sel:dashboardEnabled:GetDeliverabilityDashboardOptionsResponse' :: GetDeliverabilityDashboardOptionsResponse -&gt; Bool
+</span><a href="#local-6989586621679343625"><span class="hs-identifier hs-var hs-var">dashboardEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679343625"><span class="hs-identifier hs-var">dashboardEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343624"><span class="annot"><span class="annottext">s :: GetDeliverabilityDashboardOptionsResponse
+</span><a href="#local-6989586621679343624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343623"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679343623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeliverabilityDashboardOptionsResponse
+</span><a href="#local-6989586621679343624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardEnabled:GetDeliverabilityDashboardOptionsResponse' :: Bool
+</span><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#%24sel%3AdashboardEnabled%3AGetDeliverabilityDashboardOptionsResponse%27"><span class="hs-identifier hs-var">dashboardEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679343623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679343621"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.GetDeliverabilityDashboardOptions.html#GetDeliverabilityDashboardOptionsResponse"><span class="hs-identifier hs-type">GetDeliverabilityDashboardOptionsResponse</span></a></span></span><span>
+</span><span id="line-266"></span></pre></body></html>

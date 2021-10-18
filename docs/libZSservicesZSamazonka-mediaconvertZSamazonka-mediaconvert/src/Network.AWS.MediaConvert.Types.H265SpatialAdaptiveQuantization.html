@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#H265SpatialAdaptiveQuantization"><span class="hs-identifier">H265SpatialAdaptiveQuantization</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#H265SpatialAdaptiveQuantization_DISABLED"><span class="hs-identifier">H265SpatialAdaptiveQuantization_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#H265SpatialAdaptiveQuantization_ENABLED"><span class="hs-identifier">H265SpatialAdaptiveQuantization_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Keep the default value, Enabled (ENABLED), to adjust quantization within</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- each frame based on spatial variation of content complexity. When you</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- enable this feature, the encoder uses fewer bits on areas that can</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- sustain more distortion with no noticeable visual degradation and uses</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- more bits on areas where any small distortion will be noticeable. For</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- example, complex textured blocks are encoded with fewer bits and smooth</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- textured blocks are encoded with more bits. Enabling this feature will</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- almost always improve your video quality. Note, though, that this</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- feature doesn\'t take into account where the viewer\'s attention is</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- likely to be. If viewers are likely to be focusing their attention on a</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- part of the screen with a lot of complex texture, you might choose to</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- disable this feature. Related setting: When you enable spatial adaptive</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- quantization, set the value for Adaptive quantization</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- (adaptiveQuantization) depending on your content. For homogeneous</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- content, such as cartoons and video games, set it to Low. For content</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- with a wider variety of textures, set it to High or Higher.</span><span>
+</span><span id="line-48"></span><span id="local-6989586621679968454"><span id="local-6989586621679968455"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265SpatialAdaptiveQuantization"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#H265SpatialAdaptiveQuantization"><span class="hs-identifier hs-var">H265SpatialAdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265SpatialAdaptiveQuantization%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#H265SpatialAdaptiveQuantization%27"><span class="hs-identifier hs-var">H265SpatialAdaptiveQuantization'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265SpatialAdaptiveQuantization"><span class="annot"><span class="annottext">H265SpatialAdaptiveQuantization -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#fromH265SpatialAdaptiveQuantization"><span class="hs-identifier hs-var hs-var">fromH265SpatialAdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679968446"><span id="local-6989586621679968448"><span id="local-6989586621679968450"><span class="annot"><span class="annottext">Int -&gt; H265SpatialAdaptiveQuantization -&gt; ShowS
+[H265SpatialAdaptiveQuantization] -&gt; ShowS
+H265SpatialAdaptiveQuantization -&gt; String
+(Int -&gt; H265SpatialAdaptiveQuantization -&gt; ShowS)
+-&gt; (H265SpatialAdaptiveQuantization -&gt; String)
+-&gt; ([H265SpatialAdaptiveQuantization] -&gt; ShowS)
+-&gt; Show H265SpatialAdaptiveQuantization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [H265SpatialAdaptiveQuantization] -&gt; ShowS
+$cshowList :: [H265SpatialAdaptiveQuantization] -&gt; ShowS
+show :: H265SpatialAdaptiveQuantization -&gt; String
+$cshow :: H265SpatialAdaptiveQuantization -&gt; String
+showsPrec :: Int -&gt; H265SpatialAdaptiveQuantization -&gt; ShowS
+$cshowsPrec :: Int -&gt; H265SpatialAdaptiveQuantization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679968437"><span id="local-6989586621679968439"><span id="local-6989586621679968441"><span id="local-6989586621679968443"><span class="annot"><span class="annottext">ReadPrec [H265SpatialAdaptiveQuantization]
+ReadPrec H265SpatialAdaptiveQuantization
+Int -&gt; ReadS H265SpatialAdaptiveQuantization
+ReadS [H265SpatialAdaptiveQuantization]
+(Int -&gt; ReadS H265SpatialAdaptiveQuantization)
+-&gt; ReadS [H265SpatialAdaptiveQuantization]
+-&gt; ReadPrec H265SpatialAdaptiveQuantization
+-&gt; ReadPrec [H265SpatialAdaptiveQuantization]
+-&gt; Read H265SpatialAdaptiveQuantization
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [H265SpatialAdaptiveQuantization]
+$creadListPrec :: ReadPrec [H265SpatialAdaptiveQuantization]
+readPrec :: ReadPrec H265SpatialAdaptiveQuantization
+$creadPrec :: ReadPrec H265SpatialAdaptiveQuantization
+readList :: ReadS [H265SpatialAdaptiveQuantization]
+$creadList :: ReadS [H265SpatialAdaptiveQuantization]
+readsPrec :: Int -&gt; ReadS H265SpatialAdaptiveQuantization
+$creadsPrec :: Int -&gt; ReadS H265SpatialAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679968432"><span id="local-6989586621679968434"><span class="annot"><span class="annottext">H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Bool
+(H265SpatialAdaptiveQuantization
+ -&gt; H265SpatialAdaptiveQuantization -&gt; Bool)
+-&gt; (H265SpatialAdaptiveQuantization
+    -&gt; H265SpatialAdaptiveQuantization -&gt; Bool)
+-&gt; Eq H265SpatialAdaptiveQuantization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Bool
+$c/= :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Bool
+== :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Bool
+$c== :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679968416"><span id="local-6989586621679968418"><span id="local-6989586621679968420"><span id="local-6989586621679968422"><span id="local-6989586621679968424"><span id="local-6989586621679968426"><span id="local-6989586621679968428"><span class="annot"><span class="annottext">Eq H265SpatialAdaptiveQuantization
+Eq H265SpatialAdaptiveQuantization
+-&gt; (H265SpatialAdaptiveQuantization
+    -&gt; H265SpatialAdaptiveQuantization -&gt; Ordering)
+-&gt; (H265SpatialAdaptiveQuantization
+    -&gt; H265SpatialAdaptiveQuantization -&gt; Bool)
+-&gt; (H265SpatialAdaptiveQuantization
+    -&gt; H265SpatialAdaptiveQuantization -&gt; Bool)
+-&gt; (H265SpatialAdaptiveQuantization
+    -&gt; H265SpatialAdaptiveQuantization -&gt; Bool)
+-&gt; (H265SpatialAdaptiveQuantization
+    -&gt; H265SpatialAdaptiveQuantization -&gt; Bool)
+-&gt; (H265SpatialAdaptiveQuantization
+    -&gt; H265SpatialAdaptiveQuantization
+    -&gt; H265SpatialAdaptiveQuantization)
+-&gt; (H265SpatialAdaptiveQuantization
+    -&gt; H265SpatialAdaptiveQuantization
+    -&gt; H265SpatialAdaptiveQuantization)
+-&gt; Ord H265SpatialAdaptiveQuantization
+H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Bool
+H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Ordering
+H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization
+$cmin :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization
+max :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization
+$cmax :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization
+&gt;= :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Bool
+$c&gt;= :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Bool
+&gt; :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Bool
+$c&gt; :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Bool
+&lt;= :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Bool
+$c&lt;= :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Bool
+&lt; :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Bool
+$c&lt; :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Bool
+compare :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Ordering
+$ccompare :: H265SpatialAdaptiveQuantization
+-&gt; H265SpatialAdaptiveQuantization -&gt; Ordering
+$cp1Ord :: Eq H265SpatialAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ H265SpatialAdaptiveQuantization
+ -&gt; Rep H265SpatialAdaptiveQuantization x)
+-&gt; (forall x.
+    Rep H265SpatialAdaptiveQuantization x
+    -&gt; H265SpatialAdaptiveQuantization)
+-&gt; Generic H265SpatialAdaptiveQuantization
+forall x.
+Rep H265SpatialAdaptiveQuantization x
+-&gt; H265SpatialAdaptiveQuantization
+forall x.
+H265SpatialAdaptiveQuantization
+-&gt; Rep H265SpatialAdaptiveQuantization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep H265SpatialAdaptiveQuantization x
+-&gt; H265SpatialAdaptiveQuantization
+$cfrom :: forall x.
+H265SpatialAdaptiveQuantization
+-&gt; Rep H265SpatialAdaptiveQuantization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679968408"><span id="local-6989586621679968410"><span class="annot"><span class="annottext">Int -&gt; H265SpatialAdaptiveQuantization -&gt; Int
+H265SpatialAdaptiveQuantization -&gt; Int
+(Int -&gt; H265SpatialAdaptiveQuantization -&gt; Int)
+-&gt; (H265SpatialAdaptiveQuantization -&gt; Int)
+-&gt; Hashable H265SpatialAdaptiveQuantization
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: H265SpatialAdaptiveQuantization -&gt; Int
+$chash :: H265SpatialAdaptiveQuantization -&gt; Int
+hashWithSalt :: Int -&gt; H265SpatialAdaptiveQuantization -&gt; Int
+$chashWithSalt :: Int -&gt; H265SpatialAdaptiveQuantization -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679968405"><span class="annot"><span class="annottext">H265SpatialAdaptiveQuantization -&gt; ()
+(H265SpatialAdaptiveQuantization -&gt; ())
+-&gt; NFData H265SpatialAdaptiveQuantization
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: H265SpatialAdaptiveQuantization -&gt; ()
+$crnf :: H265SpatialAdaptiveQuantization -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679968402"><span class="annot"><span class="annottext">Text -&gt; Either String H265SpatialAdaptiveQuantization
+(Text -&gt; Either String H265SpatialAdaptiveQuantization)
+-&gt; FromText H265SpatialAdaptiveQuantization
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String H265SpatialAdaptiveQuantization
+$cfromText :: Text -&gt; Either String H265SpatialAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679968399"><span class="annot"><span class="annottext">H265SpatialAdaptiveQuantization -&gt; Text
+(H265SpatialAdaptiveQuantization -&gt; Text)
+-&gt; ToText H265SpatialAdaptiveQuantization
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: H265SpatialAdaptiveQuantization -&gt; Text
+$ctoText :: H265SpatialAdaptiveQuantization -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679968396"><span class="annot"><span class="annottext">H265SpatialAdaptiveQuantization -&gt; ByteString
+(H265SpatialAdaptiveQuantization -&gt; ByteString)
+-&gt; ToByteString H265SpatialAdaptiveQuantization
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: H265SpatialAdaptiveQuantization -&gt; ByteString
+$ctoBS :: H265SpatialAdaptiveQuantization -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679968393"><span class="annot"><span class="annottext">H265SpatialAdaptiveQuantization -&gt; ByteStringBuilder
+(H265SpatialAdaptiveQuantization -&gt; ByteStringBuilder)
+-&gt; ToLog H265SpatialAdaptiveQuantization
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: H265SpatialAdaptiveQuantization -&gt; ByteStringBuilder
+$cbuild :: H265SpatialAdaptiveQuantization -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679968390"><span class="annot"><span class="annottext">HeaderName -&gt; H265SpatialAdaptiveQuantization -&gt; [Header]
+(HeaderName -&gt; H265SpatialAdaptiveQuantization -&gt; [Header])
+-&gt; ToHeader H265SpatialAdaptiveQuantization
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; H265SpatialAdaptiveQuantization -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; H265SpatialAdaptiveQuantization -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679968387"><span class="annot"><span class="annottext">H265SpatialAdaptiveQuantization -&gt; QueryString
+(H265SpatialAdaptiveQuantization -&gt; QueryString)
+-&gt; ToQuery H265SpatialAdaptiveQuantization
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: H265SpatialAdaptiveQuantization -&gt; QueryString
+$ctoQuery :: H265SpatialAdaptiveQuantization -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679968382"><span id="local-6989586621679968384"><span class="annot"><span class="annottext">Value -&gt; Parser [H265SpatialAdaptiveQuantization]
+Value -&gt; Parser H265SpatialAdaptiveQuantization
+(Value -&gt; Parser H265SpatialAdaptiveQuantization)
+-&gt; (Value -&gt; Parser [H265SpatialAdaptiveQuantization])
+-&gt; FromJSON H265SpatialAdaptiveQuantization
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [H265SpatialAdaptiveQuantization]
+$cparseJSONList :: Value -&gt; Parser [H265SpatialAdaptiveQuantization]
+parseJSON :: Value -&gt; Parser H265SpatialAdaptiveQuantization
+$cparseJSON :: Value -&gt; Parser H265SpatialAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679968377"><span id="local-6989586621679968379"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265SpatialAdaptiveQuantization]
+FromJSONKeyFunction H265SpatialAdaptiveQuantization
+FromJSONKeyFunction H265SpatialAdaptiveQuantization
+-&gt; FromJSONKeyFunction [H265SpatialAdaptiveQuantization]
+-&gt; FromJSONKey H265SpatialAdaptiveQuantization
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [H265SpatialAdaptiveQuantization]
+$cfromJSONKeyList :: FromJSONKeyFunction [H265SpatialAdaptiveQuantization]
+fromJSONKey :: FromJSONKeyFunction H265SpatialAdaptiveQuantization
+$cfromJSONKey :: FromJSONKeyFunction H265SpatialAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679968368"><span id="local-6989586621679968370"><span id="local-6989586621679968372"><span id="local-6989586621679968374"><span class="annot"><span class="annottext">[H265SpatialAdaptiveQuantization] -&gt; Encoding
+[H265SpatialAdaptiveQuantization] -&gt; Value
+H265SpatialAdaptiveQuantization -&gt; Encoding
+H265SpatialAdaptiveQuantization -&gt; Value
+(H265SpatialAdaptiveQuantization -&gt; Value)
+-&gt; (H265SpatialAdaptiveQuantization -&gt; Encoding)
+-&gt; ([H265SpatialAdaptiveQuantization] -&gt; Value)
+-&gt; ([H265SpatialAdaptiveQuantization] -&gt; Encoding)
+-&gt; ToJSON H265SpatialAdaptiveQuantization
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [H265SpatialAdaptiveQuantization] -&gt; Encoding
+$ctoEncodingList :: [H265SpatialAdaptiveQuantization] -&gt; Encoding
+toJSONList :: [H265SpatialAdaptiveQuantization] -&gt; Value
+$ctoJSONList :: [H265SpatialAdaptiveQuantization] -&gt; Value
+toEncoding :: H265SpatialAdaptiveQuantization -&gt; Encoding
+$ctoEncoding :: H265SpatialAdaptiveQuantization -&gt; Encoding
+toJSON :: H265SpatialAdaptiveQuantization -&gt; Value
+$ctoJSON :: H265SpatialAdaptiveQuantization -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679968363"><span id="local-6989586621679968365"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265SpatialAdaptiveQuantization]
+ToJSONKeyFunction H265SpatialAdaptiveQuantization
+ToJSONKeyFunction H265SpatialAdaptiveQuantization
+-&gt; ToJSONKeyFunction [H265SpatialAdaptiveQuantization]
+-&gt; ToJSONKey H265SpatialAdaptiveQuantization
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [H265SpatialAdaptiveQuantization]
+$ctoJSONKeyList :: ToJSONKeyFunction [H265SpatialAdaptiveQuantization]
+toJSONKey :: ToJSONKeyFunction H265SpatialAdaptiveQuantization
+$ctoJSONKey :: ToJSONKeyFunction H265SpatialAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679968360"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265SpatialAdaptiveQuantization
+([Node] -&gt; Either String H265SpatialAdaptiveQuantization)
+-&gt; FromXML H265SpatialAdaptiveQuantization
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String H265SpatialAdaptiveQuantization
+$cparseXML :: [Node] -&gt; Either String H265SpatialAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679968357"><span class="annot"><span class="annottext">H265SpatialAdaptiveQuantization -&gt; XML
+(H265SpatialAdaptiveQuantization -&gt; XML)
+-&gt; ToXML H265SpatialAdaptiveQuantization
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: H265SpatialAdaptiveQuantization -&gt; XML
+$ctoXML :: H265SpatialAdaptiveQuantization -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#H265SpatialAdaptiveQuantization_DISABLED"><span class="hs-identifier hs-type">H265SpatialAdaptiveQuantization_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#H265SpatialAdaptiveQuantization"><span class="hs-identifier hs-type">H265SpatialAdaptiveQuantization</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265SpatialAdaptiveQuantization_DISABLED"><span id="%24mH265SpatialAdaptiveQuantization_DISABLED"><span id="H265SpatialAdaptiveQuantization_DISABLED"><span class="annot"><span class="annottext">$bH265SpatialAdaptiveQuantization_DISABLED :: H265SpatialAdaptiveQuantization
+$mH265SpatialAdaptiveQuantization_DISABLED :: forall r.
+H265SpatialAdaptiveQuantization
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#%24bH265SpatialAdaptiveQuantization_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">H265SpatialAdaptiveQuantization_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#H265SpatialAdaptiveQuantization%27"><span class="hs-identifier hs-type">H265SpatialAdaptiveQuantization'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#H265SpatialAdaptiveQuantization_ENABLED"><span class="hs-identifier hs-type">H265SpatialAdaptiveQuantization_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#H265SpatialAdaptiveQuantization"><span class="hs-identifier hs-type">H265SpatialAdaptiveQuantization</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265SpatialAdaptiveQuantization_ENABLED"><span id="%24mH265SpatialAdaptiveQuantization_ENABLED"><span id="H265SpatialAdaptiveQuantization_ENABLED"><span class="annot"><span class="annottext">$bH265SpatialAdaptiveQuantization_ENABLED :: H265SpatialAdaptiveQuantization
+$mH265SpatialAdaptiveQuantization_ENABLED :: forall r.
+H265SpatialAdaptiveQuantization
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#%24bH265SpatialAdaptiveQuantization_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">H265SpatialAdaptiveQuantization_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#H265SpatialAdaptiveQuantization%27"><span class="hs-identifier hs-type">H265SpatialAdaptiveQuantization'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#H265SpatialAdaptiveQuantization_DISABLED"><span class="hs-pragma hs-type">H265SpatialAdaptiveQuantization_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#H265SpatialAdaptiveQuantization_ENABLED"><span class="hs-pragma hs-type">H265SpatialAdaptiveQuantization_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization.html#H265SpatialAdaptiveQuantization%27"><span class="hs-pragma hs-type">H265SpatialAdaptiveQuantization'</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-87"></span></pre></body></html>

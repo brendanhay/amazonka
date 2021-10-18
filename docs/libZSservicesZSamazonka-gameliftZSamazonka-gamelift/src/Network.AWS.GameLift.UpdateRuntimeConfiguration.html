@@ -1,0 +1,561 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.GameLift.UpdateRuntimeConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the current runtime configuration for the specified fleet, which</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- tells GameLift how to launch server processes on all instances in the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- fleet. You can update a fleet\'s runtime configuration at any time after</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- the fleet is created; it does not need to be in @ACTIVE@ status.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- To update runtime configuration, specify the fleet ID and provide a</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- @RuntimeConfiguration@ with an updated set of server process</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- configurations.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- If successful, the fleet\'s runtime configuration settings are updated.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Each instance in the fleet regularly checks for and retrieves updated</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- runtime configurations. Instances immediately begin complying with the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- new configuration by launching new server processes or not replacing</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- existing processes when they shut down. Updating a fleet\'s runtime</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- configuration never affects existing server processes.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- __Learn more__</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets&gt;</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- __Related actions__</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- CreateFleetLocations | UpdateFleetAttributes | UpdateFleetCapacity |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- UpdateFleetPortSettings | UpdateRuntimeConfiguration | StopFleetActions</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- | StartFleetActions | PutScalingPolicy | DeleteFleet |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- DeleteFleetLocations | DeleteScalingPolicy |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task&gt;</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GameLift.UpdateRuntimeConfiguration</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration"><span class="hs-identifier">UpdateRuntimeConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#newUpdateRuntimeConfiguration"><span class="hs-identifier">newUpdateRuntimeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#updateRuntimeConfiguration_fleetId"><span class="hs-identifier">updateRuntimeConfiguration_fleetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#updateRuntimeConfiguration_runtimeConfiguration"><span class="hs-identifier">updateRuntimeConfiguration_runtimeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfigurationResponse"><span class="hs-identifier">UpdateRuntimeConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#newUpdateRuntimeConfigurationResponse"><span class="hs-identifier">newUpdateRuntimeConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#updateRuntimeConfigurationResponse_runtimeConfiguration"><span class="hs-identifier">updateRuntimeConfigurationResponse_runtimeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#updateRuntimeConfigurationResponse_httpStatus"><span class="hs-identifier">updateRuntimeConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.html"><span class="hs-identifier">Network.AWS.GameLift.Types</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- /See:/ 'newUpdateRuntimeConfiguration' smart constructor.</span><span>
+</span><span id="line-79"></span><span id="local-6989586621679465932"><span id="local-6989586621679465933"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRuntimeConfiguration"><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration"><span class="hs-identifier hs-var">UpdateRuntimeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRuntimeConfiguration%27"><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration%27"><span class="hs-identifier hs-var">UpdateRuntimeConfiguration'</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the fleet to update runtime configuration for.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- You can use either the fleet ID or ARN value.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AfleetId%3AUpdateRuntimeConfiguration%27"><span class="annot"><span class="annottext">UpdateRuntimeConfiguration -&gt; Text
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#%24sel%3AfleetId%3AUpdateRuntimeConfiguration%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | Instructions for launching server processes on each instance in the</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- fleet. Server processes run either a custom game build executable or a</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- Realtime Servers script. The runtime configuration lists the types of</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- server processes to run on an instance, how to launch them, and the</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- number of processes to run concurrently.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AruntimeConfiguration%3AUpdateRuntimeConfiguration%27"><span class="annot"><span class="annottext">UpdateRuntimeConfiguration -&gt; RuntimeConfiguration
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#%24sel%3AruntimeConfiguration%3AUpdateRuntimeConfiguration%27"><span class="hs-identifier hs-var hs-var">runtimeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465925"><span id="local-6989586621679465927"><span class="annot"><span class="annottext">UpdateRuntimeConfiguration -&gt; UpdateRuntimeConfiguration -&gt; Bool
+(UpdateRuntimeConfiguration -&gt; UpdateRuntimeConfiguration -&gt; Bool)
+-&gt; (UpdateRuntimeConfiguration
+    -&gt; UpdateRuntimeConfiguration -&gt; Bool)
+-&gt; Eq UpdateRuntimeConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRuntimeConfiguration -&gt; UpdateRuntimeConfiguration -&gt; Bool
+$c/= :: UpdateRuntimeConfiguration -&gt; UpdateRuntimeConfiguration -&gt; Bool
+== :: UpdateRuntimeConfiguration -&gt; UpdateRuntimeConfiguration -&gt; Bool
+$c== :: UpdateRuntimeConfiguration -&gt; UpdateRuntimeConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465916"><span id="local-6989586621679465918"><span id="local-6989586621679465920"><span id="local-6989586621679465922"><span class="annot"><span class="annottext">ReadPrec [UpdateRuntimeConfiguration]
+ReadPrec UpdateRuntimeConfiguration
+Int -&gt; ReadS UpdateRuntimeConfiguration
+ReadS [UpdateRuntimeConfiguration]
+(Int -&gt; ReadS UpdateRuntimeConfiguration)
+-&gt; ReadS [UpdateRuntimeConfiguration]
+-&gt; ReadPrec UpdateRuntimeConfiguration
+-&gt; ReadPrec [UpdateRuntimeConfiguration]
+-&gt; Read UpdateRuntimeConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateRuntimeConfiguration]
+$creadListPrec :: ReadPrec [UpdateRuntimeConfiguration]
+readPrec :: ReadPrec UpdateRuntimeConfiguration
+$creadPrec :: ReadPrec UpdateRuntimeConfiguration
+readList :: ReadS [UpdateRuntimeConfiguration]
+$creadList :: ReadS [UpdateRuntimeConfiguration]
+readsPrec :: Int -&gt; ReadS UpdateRuntimeConfiguration
+$creadsPrec :: Int -&gt; ReadS UpdateRuntimeConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465909"><span id="local-6989586621679465911"><span id="local-6989586621679465913"><span class="annot"><span class="annottext">Int -&gt; UpdateRuntimeConfiguration -&gt; ShowS
+[UpdateRuntimeConfiguration] -&gt; ShowS
+UpdateRuntimeConfiguration -&gt; String
+(Int -&gt; UpdateRuntimeConfiguration -&gt; ShowS)
+-&gt; (UpdateRuntimeConfiguration -&gt; String)
+-&gt; ([UpdateRuntimeConfiguration] -&gt; ShowS)
+-&gt; Show UpdateRuntimeConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRuntimeConfiguration] -&gt; ShowS
+$cshowList :: [UpdateRuntimeConfiguration] -&gt; ShowS
+show :: UpdateRuntimeConfiguration -&gt; String
+$cshow :: UpdateRuntimeConfiguration -&gt; String
+showsPrec :: Int -&gt; UpdateRuntimeConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRuntimeConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateRuntimeConfiguration -&gt; Rep UpdateRuntimeConfiguration x)
+-&gt; (forall x.
+    Rep UpdateRuntimeConfiguration x -&gt; UpdateRuntimeConfiguration)
+-&gt; Generic UpdateRuntimeConfiguration
+forall x.
+Rep UpdateRuntimeConfiguration x -&gt; UpdateRuntimeConfiguration
+forall x.
+UpdateRuntimeConfiguration -&gt; Rep UpdateRuntimeConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateRuntimeConfiguration x -&gt; UpdateRuntimeConfiguration
+$cfrom :: forall x.
+UpdateRuntimeConfiguration -&gt; Rep UpdateRuntimeConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Create a value of 'UpdateRuntimeConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'fleetId', 'updateRuntimeConfiguration_fleetId' - A unique identifier for the fleet to update runtime configuration for.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- You can use either the fleet ID or ARN value.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'runtimeConfiguration', 'updateRuntimeConfiguration_runtimeConfiguration' - Instructions for launching server processes on each instance in the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- fleet. Server processes run either a custom game build executable or a</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Realtime Servers script. The runtime configuration lists the types of</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- server processes to run on an instance, how to launch them, and the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- number of processes to run concurrently.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#newUpdateRuntimeConfiguration"><span class="hs-identifier hs-type">newUpdateRuntimeConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-comment">-- | 'fleetId'</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-comment">-- | 'runtimeConfiguration'</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration</span></a></span><span>
+</span><span id="line-114"></span><span id="newUpdateRuntimeConfiguration"><span class="annot"><span class="annottext">newUpdateRuntimeConfiguration :: Text -&gt; RuntimeConfiguration -&gt; UpdateRuntimeConfiguration
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#newUpdateRuntimeConfiguration"><span class="hs-identifier hs-var hs-var">newUpdateRuntimeConfiguration</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679465904"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465904"><span class="hs-identifier hs-var">pFleetId_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679465903"><span class="annot"><span class="annottext">RuntimeConfiguration
+</span><a href="#local-6989586621679465903"><span class="hs-identifier hs-var">pRuntimeConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">UpdateRuntimeConfiguration' :: Text -&gt; RuntimeConfiguration -&gt; UpdateRuntimeConfiguration
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration%27"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration'</span></a></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fleetId:UpdateRuntimeConfiguration' :: Text
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#%24sel%3AfleetId%3AUpdateRuntimeConfiguration%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465904"><span class="hs-identifier hs-var">pFleetId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:runtimeConfiguration:UpdateRuntimeConfiguration' :: RuntimeConfiguration
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#%24sel%3AruntimeConfiguration%3AUpdateRuntimeConfiguration%27"><span class="hs-identifier hs-var">runtimeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RuntimeConfiguration
+</span><a href="#local-6989586621679465903"><span class="hs-identifier hs-var">pRuntimeConfiguration_</span></a></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | A unique identifier for the fleet to update runtime configuration for.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- You can use either the fleet ID or ARN value.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#updateRuntimeConfiguration_fleetId"><span class="hs-identifier hs-type">updateRuntimeConfiguration_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-125"></span><span id="updateRuntimeConfiguration_fleetId"><span class="annot"><span class="annottext">updateRuntimeConfiguration_fleetId :: (Text -&gt; f Text)
+-&gt; UpdateRuntimeConfiguration -&gt; f UpdateRuntimeConfiguration
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#updateRuntimeConfiguration_fleetId"><span class="hs-identifier hs-var hs-var">updateRuntimeConfiguration_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRuntimeConfiguration -&gt; Text)
+-&gt; (UpdateRuntimeConfiguration
+    -&gt; Text -&gt; UpdateRuntimeConfiguration)
+-&gt; Lens
+     UpdateRuntimeConfiguration UpdateRuntimeConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration%27"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465900"><span class="annot"><span class="annottext">Text
+fleetId :: Text
+$sel:fleetId:UpdateRuntimeConfiguration' :: UpdateRuntimeConfiguration -&gt; Text
+</span><a href="#local-6989586621679465900"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465900"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465899"><span class="annot"><span class="annottext">s :: UpdateRuntimeConfiguration
+</span><a href="#local-6989586621679465899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration%27"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRuntimeConfiguration
+</span><a href="#local-6989586621679465899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:UpdateRuntimeConfiguration' :: Text
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#%24sel%3AfleetId%3AUpdateRuntimeConfiguration%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Instructions for launching server processes on each instance in the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- fleet. Server processes run either a custom game build executable or a</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Realtime Servers script. The runtime configuration lists the types of</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- server processes to run on an instance, how to launch them, and the</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- number of processes to run concurrently.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#updateRuntimeConfiguration_runtimeConfiguration"><span class="hs-identifier hs-type">updateRuntimeConfiguration_runtimeConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span><span>
+</span><span id="line-133"></span><span id="updateRuntimeConfiguration_runtimeConfiguration"><span class="annot"><span class="annottext">updateRuntimeConfiguration_runtimeConfiguration :: (RuntimeConfiguration -&gt; f RuntimeConfiguration)
+-&gt; UpdateRuntimeConfiguration -&gt; f UpdateRuntimeConfiguration
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#updateRuntimeConfiguration_runtimeConfiguration"><span class="hs-identifier hs-var hs-var">updateRuntimeConfiguration_runtimeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRuntimeConfiguration -&gt; RuntimeConfiguration)
+-&gt; (UpdateRuntimeConfiguration
+    -&gt; RuntimeConfiguration -&gt; UpdateRuntimeConfiguration)
+-&gt; Lens
+     UpdateRuntimeConfiguration
+     UpdateRuntimeConfiguration
+     RuntimeConfiguration
+     RuntimeConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration%27"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465897"><span class="annot"><span class="annottext">RuntimeConfiguration
+runtimeConfiguration :: RuntimeConfiguration
+$sel:runtimeConfiguration:UpdateRuntimeConfiguration' :: UpdateRuntimeConfiguration -&gt; RuntimeConfiguration
+</span><a href="#local-6989586621679465897"><span class="hs-identifier hs-var hs-var">runtimeConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuntimeConfiguration
+</span><a href="#local-6989586621679465897"><span class="hs-identifier hs-var">runtimeConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465896"><span class="annot"><span class="annottext">s :: UpdateRuntimeConfiguration
+</span><a href="#local-6989586621679465896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration%27"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465895"><span class="annot"><span class="annottext">RuntimeConfiguration
+</span><a href="#local-6989586621679465895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRuntimeConfiguration
+</span><a href="#local-6989586621679465896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runtimeConfiguration:UpdateRuntimeConfiguration' :: RuntimeConfiguration
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#%24sel%3AruntimeConfiguration%3AUpdateRuntimeConfiguration%27"><span class="hs-identifier hs-var">runtimeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RuntimeConfiguration
+</span><a href="#local-6989586621679465895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-137"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfigurationResponse"><span class="hs-identifier hs-type">UpdateRuntimeConfigurationResponse</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679465891"><span class="annot"><span class="annottext">request :: UpdateRuntimeConfiguration -&gt; Request UpdateRuntimeConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateRuntimeConfiguration -&gt; Request UpdateRuntimeConfiguration
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679465887"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateRuntimeConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateRuntimeConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateRuntimeConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateRuntimeConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateRuntimeConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679465884"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465884"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679465883"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679465883"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679465882"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679465882"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe RuntimeConfiguration
+-&gt; Int -&gt; UpdateRuntimeConfigurationResponse
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfigurationResponse%27"><span class="hs-identifier hs-var">UpdateRuntimeConfigurationResponse'</span></a></span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RuntimeConfiguration
+ -&gt; Int -&gt; UpdateRuntimeConfigurationResponse)
+-&gt; Either String (Maybe RuntimeConfiguration)
+-&gt; Either String (Int -&gt; UpdateRuntimeConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679465882"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RuntimeConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuntimeConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateRuntimeConfigurationResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateRuntimeConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465884"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465874"><span id="local-6989586621679465876"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration</span></a></span></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465871"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration</span></a></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679465867"><span class="annot"><span class="annottext">toHeaders :: UpdateRuntimeConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateRuntimeConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GameLift.UpdateRuntimeConfiguration&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-159"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-162"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-163"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465857"><span id="local-6989586621679465859"><span id="local-6989586621679465861"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679465855"><span class="annot"><span class="annottext">toJSON :: UpdateRuntimeConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration%27"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465852"><span id="local-6989586621679465853"><span class="annot"><span class="annottext">Text
+RuntimeConfiguration
+runtimeConfiguration :: RuntimeConfiguration
+fleetId :: Text
+$sel:runtimeConfiguration:UpdateRuntimeConfiguration' :: UpdateRuntimeConfiguration -&gt; RuntimeConfiguration
+$sel:fleetId:UpdateRuntimeConfiguration' :: UpdateRuntimeConfiguration -&gt; Text
+</span><a href="#local-6989586621679465852"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465853"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-173"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuntimeConfiguration&quot;</span></span><span>
+</span><span id="line-174"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; RuntimeConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RuntimeConfiguration
+</span><a href="#local-6989586621679465852"><span class="hs-identifier hs-var">runtimeConfiguration</span></a></span><span>
+</span><span id="line-175"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679465846"><span class="annot"><span class="annottext">toPath :: UpdateRuntimeConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateRuntimeConfiguration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfiguration"><span class="hs-identifier hs-type">UpdateRuntimeConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679465842"><span class="annot"><span class="annottext">toQuery :: UpdateRuntimeConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateRuntimeConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- /See:/ 'newUpdateRuntimeConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-188"></span><span id="local-6989586621679465839"><span id="local-6989586621679465840"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRuntimeConfigurationResponse"><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfigurationResponse"><span class="hs-identifier hs-var">UpdateRuntimeConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRuntimeConfigurationResponse%27"><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfigurationResponse%27"><span class="hs-identifier hs-var">UpdateRuntimeConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The runtime configuration currently in use by all instances in the</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- fleet. If the update was successful, all property changes are shown.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AruntimeConfiguration%3AUpdateRuntimeConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateRuntimeConfigurationResponse -&gt; Maybe RuntimeConfiguration
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#%24sel%3AruntimeConfiguration%3AUpdateRuntimeConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">runtimeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateRuntimeConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateRuntimeConfigurationResponse -&gt; Int
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#%24sel%3AhttpStatus%3AUpdateRuntimeConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465833"><span id="local-6989586621679465835"><span class="annot"><span class="annottext">UpdateRuntimeConfigurationResponse
+-&gt; UpdateRuntimeConfigurationResponse -&gt; Bool
+(UpdateRuntimeConfigurationResponse
+ -&gt; UpdateRuntimeConfigurationResponse -&gt; Bool)
+-&gt; (UpdateRuntimeConfigurationResponse
+    -&gt; UpdateRuntimeConfigurationResponse -&gt; Bool)
+-&gt; Eq UpdateRuntimeConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRuntimeConfigurationResponse
+-&gt; UpdateRuntimeConfigurationResponse -&gt; Bool
+$c/= :: UpdateRuntimeConfigurationResponse
+-&gt; UpdateRuntimeConfigurationResponse -&gt; Bool
+== :: UpdateRuntimeConfigurationResponse
+-&gt; UpdateRuntimeConfigurationResponse -&gt; Bool
+$c== :: UpdateRuntimeConfigurationResponse
+-&gt; UpdateRuntimeConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465825"><span id="local-6989586621679465827"><span id="local-6989586621679465829"><span id="local-6989586621679465831"><span class="annot"><span class="annottext">ReadPrec [UpdateRuntimeConfigurationResponse]
+ReadPrec UpdateRuntimeConfigurationResponse
+Int -&gt; ReadS UpdateRuntimeConfigurationResponse
+ReadS [UpdateRuntimeConfigurationResponse]
+(Int -&gt; ReadS UpdateRuntimeConfigurationResponse)
+-&gt; ReadS [UpdateRuntimeConfigurationResponse]
+-&gt; ReadPrec UpdateRuntimeConfigurationResponse
+-&gt; ReadPrec [UpdateRuntimeConfigurationResponse]
+-&gt; Read UpdateRuntimeConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateRuntimeConfigurationResponse]
+$creadListPrec :: ReadPrec [UpdateRuntimeConfigurationResponse]
+readPrec :: ReadPrec UpdateRuntimeConfigurationResponse
+$creadPrec :: ReadPrec UpdateRuntimeConfigurationResponse
+readList :: ReadS [UpdateRuntimeConfigurationResponse]
+$creadList :: ReadS [UpdateRuntimeConfigurationResponse]
+readsPrec :: Int -&gt; ReadS UpdateRuntimeConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS UpdateRuntimeConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465819"><span id="local-6989586621679465821"><span id="local-6989586621679465823"><span class="annot"><span class="annottext">Int -&gt; UpdateRuntimeConfigurationResponse -&gt; ShowS
+[UpdateRuntimeConfigurationResponse] -&gt; ShowS
+UpdateRuntimeConfigurationResponse -&gt; String
+(Int -&gt; UpdateRuntimeConfigurationResponse -&gt; ShowS)
+-&gt; (UpdateRuntimeConfigurationResponse -&gt; String)
+-&gt; ([UpdateRuntimeConfigurationResponse] -&gt; ShowS)
+-&gt; Show UpdateRuntimeConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRuntimeConfigurationResponse] -&gt; ShowS
+$cshowList :: [UpdateRuntimeConfigurationResponse] -&gt; ShowS
+show :: UpdateRuntimeConfigurationResponse -&gt; String
+$cshow :: UpdateRuntimeConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; UpdateRuntimeConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRuntimeConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateRuntimeConfigurationResponse
+ -&gt; Rep UpdateRuntimeConfigurationResponse x)
+-&gt; (forall x.
+    Rep UpdateRuntimeConfigurationResponse x
+    -&gt; UpdateRuntimeConfigurationResponse)
+-&gt; Generic UpdateRuntimeConfigurationResponse
+forall x.
+Rep UpdateRuntimeConfigurationResponse x
+-&gt; UpdateRuntimeConfigurationResponse
+forall x.
+UpdateRuntimeConfigurationResponse
+-&gt; Rep UpdateRuntimeConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateRuntimeConfigurationResponse x
+-&gt; UpdateRuntimeConfigurationResponse
+$cfrom :: forall x.
+UpdateRuntimeConfigurationResponse
+-&gt; Rep UpdateRuntimeConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Create a value of 'UpdateRuntimeConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'runtimeConfiguration', 'updateRuntimeConfigurationResponse_runtimeConfiguration' - The runtime configuration currently in use by all instances in the</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- fleet. If the update was successful, all property changes are shown.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'httpStatus', 'updateRuntimeConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#newUpdateRuntimeConfigurationResponse"><span class="hs-identifier hs-type">newUpdateRuntimeConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfigurationResponse"><span class="hs-identifier hs-type">UpdateRuntimeConfigurationResponse</span></a></span><span>
+</span><span id="line-213"></span><span id="newUpdateRuntimeConfigurationResponse"><span class="annot"><span class="annottext">newUpdateRuntimeConfigurationResponse :: Int -&gt; UpdateRuntimeConfigurationResponse
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#newUpdateRuntimeConfigurationResponse"><span class="hs-identifier hs-var hs-var">newUpdateRuntimeConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679465816"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465816"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><span class="annottext">UpdateRuntimeConfigurationResponse' :: Maybe RuntimeConfiguration
+-&gt; Int -&gt; UpdateRuntimeConfigurationResponse
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateRuntimeConfigurationResponse'</span></a></span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:runtimeConfiguration:UpdateRuntimeConfigurationResponse' :: Maybe RuntimeConfiguration
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#%24sel%3AruntimeConfiguration%3AUpdateRuntimeConfigurationResponse%27"><span class="hs-identifier hs-var">runtimeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">Maybe RuntimeConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRuntimeConfigurationResponse' :: Int
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#%24sel%3AhttpStatus%3AUpdateRuntimeConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465816"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The runtime configuration currently in use by all instances in the</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- fleet. If the update was successful, all property changes are shown.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#updateRuntimeConfigurationResponse_runtimeConfiguration"><span class="hs-identifier hs-type">updateRuntimeConfigurationResponse_runtimeConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfigurationResponse"><span class="hs-identifier hs-type">UpdateRuntimeConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="updateRuntimeConfigurationResponse_runtimeConfiguration"><span class="annot"><span class="annottext">updateRuntimeConfigurationResponse_runtimeConfiguration :: (Maybe RuntimeConfiguration -&gt; f (Maybe RuntimeConfiguration))
+-&gt; UpdateRuntimeConfigurationResponse
+-&gt; f UpdateRuntimeConfigurationResponse
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#updateRuntimeConfigurationResponse_runtimeConfiguration"><span class="hs-identifier hs-var hs-var">updateRuntimeConfigurationResponse_runtimeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRuntimeConfigurationResponse -&gt; Maybe RuntimeConfiguration)
+-&gt; (UpdateRuntimeConfigurationResponse
+    -&gt; Maybe RuntimeConfiguration
+    -&gt; UpdateRuntimeConfigurationResponse)
+-&gt; Lens
+     UpdateRuntimeConfigurationResponse
+     UpdateRuntimeConfigurationResponse
+     (Maybe RuntimeConfiguration)
+     (Maybe RuntimeConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateRuntimeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465815"><span class="annot"><span class="annottext">Maybe RuntimeConfiguration
+runtimeConfiguration :: Maybe RuntimeConfiguration
+$sel:runtimeConfiguration:UpdateRuntimeConfigurationResponse' :: UpdateRuntimeConfigurationResponse -&gt; Maybe RuntimeConfiguration
+</span><a href="#local-6989586621679465815"><span class="hs-identifier hs-var hs-var">runtimeConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RuntimeConfiguration
+</span><a href="#local-6989586621679465815"><span class="hs-identifier hs-var">runtimeConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465814"><span class="annot"><span class="annottext">s :: UpdateRuntimeConfigurationResponse
+</span><a href="#local-6989586621679465814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateRuntimeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465813"><span class="annot"><span class="annottext">Maybe RuntimeConfiguration
+</span><a href="#local-6989586621679465813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRuntimeConfigurationResponse
+</span><a href="#local-6989586621679465814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runtimeConfiguration:UpdateRuntimeConfigurationResponse' :: Maybe RuntimeConfiguration
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#%24sel%3AruntimeConfiguration%3AUpdateRuntimeConfigurationResponse%27"><span class="hs-identifier hs-var">runtimeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RuntimeConfiguration
+</span><a href="#local-6989586621679465813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfigurationResponse"><span class="hs-identifier hs-type">UpdateRuntimeConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#updateRuntimeConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">updateRuntimeConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfigurationResponse"><span class="hs-identifier hs-type">UpdateRuntimeConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-227"></span><span id="updateRuntimeConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">updateRuntimeConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateRuntimeConfigurationResponse
+-&gt; f UpdateRuntimeConfigurationResponse
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#updateRuntimeConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateRuntimeConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRuntimeConfigurationResponse -&gt; Int)
+-&gt; (UpdateRuntimeConfigurationResponse
+    -&gt; Int -&gt; UpdateRuntimeConfigurationResponse)
+-&gt; Lens
+     UpdateRuntimeConfigurationResponse
+     UpdateRuntimeConfigurationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateRuntimeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465812"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateRuntimeConfigurationResponse' :: UpdateRuntimeConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679465812"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465812"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465811"><span class="annot"><span class="annottext">s :: UpdateRuntimeConfigurationResponse
+</span><a href="#local-6989586621679465811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateRuntimeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465810"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRuntimeConfigurationResponse
+</span><a href="#local-6989586621679465811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRuntimeConfigurationResponse' :: Int
+</span><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#%24sel%3AhttpStatus%3AUpdateRuntimeConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfigurationResponse"><span class="hs-identifier hs-type">UpdateRuntimeConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679465808"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateRuntimeConfiguration.html#UpdateRuntimeConfigurationResponse"><span class="hs-identifier hs-type">UpdateRuntimeConfigurationResponse</span></a></span></span><span>
+</span><span id="line-232"></span></pre></body></html>

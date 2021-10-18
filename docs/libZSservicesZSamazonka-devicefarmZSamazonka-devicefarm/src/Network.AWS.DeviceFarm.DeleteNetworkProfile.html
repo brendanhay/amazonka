@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DeviceFarm.DeleteNetworkProfile</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a network profile.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DeviceFarm.DeleteNetworkProfile</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier">DeleteNetworkProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#newDeleteNetworkProfile"><span class="hs-identifier">newDeleteNetworkProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#deleteNetworkProfile_arn"><span class="hs-identifier">deleteNetworkProfile_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfileResponse"><span class="hs-identifier">DeleteNetworkProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#newDeleteNetworkProfileResponse"><span class="hs-identifier">newDeleteNetworkProfileResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#deleteNetworkProfileResponse_httpStatus"><span class="hs-identifier">deleteNetworkProfileResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.html"><span class="hs-identifier">Network.AWS.DeviceFarm.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteNetworkProfile' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679386332"><span id="local-6989586621679386333"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteNetworkProfile"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-var">DeleteNetworkProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteNetworkProfile%27"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile%27"><span class="hs-identifier hs-var">DeleteNetworkProfile'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the network profile to delete.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aarn%3ADeleteNetworkProfile%27"><span class="annot"><span class="annottext">DeleteNetworkProfile -&gt; Text
+</span><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#%24sel%3Aarn%3ADeleteNetworkProfile%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386326"><span id="local-6989586621679386328"><span class="annot"><span class="annottext">DeleteNetworkProfile -&gt; DeleteNetworkProfile -&gt; Bool
+(DeleteNetworkProfile -&gt; DeleteNetworkProfile -&gt; Bool)
+-&gt; (DeleteNetworkProfile -&gt; DeleteNetworkProfile -&gt; Bool)
+-&gt; Eq DeleteNetworkProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteNetworkProfile -&gt; DeleteNetworkProfile -&gt; Bool
+$c/= :: DeleteNetworkProfile -&gt; DeleteNetworkProfile -&gt; Bool
+== :: DeleteNetworkProfile -&gt; DeleteNetworkProfile -&gt; Bool
+$c== :: DeleteNetworkProfile -&gt; DeleteNetworkProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386317"><span id="local-6989586621679386319"><span id="local-6989586621679386321"><span id="local-6989586621679386323"><span class="annot"><span class="annottext">ReadPrec [DeleteNetworkProfile]
+ReadPrec DeleteNetworkProfile
+Int -&gt; ReadS DeleteNetworkProfile
+ReadS [DeleteNetworkProfile]
+(Int -&gt; ReadS DeleteNetworkProfile)
+-&gt; ReadS [DeleteNetworkProfile]
+-&gt; ReadPrec DeleteNetworkProfile
+-&gt; ReadPrec [DeleteNetworkProfile]
+-&gt; Read DeleteNetworkProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteNetworkProfile]
+$creadListPrec :: ReadPrec [DeleteNetworkProfile]
+readPrec :: ReadPrec DeleteNetworkProfile
+$creadPrec :: ReadPrec DeleteNetworkProfile
+readList :: ReadS [DeleteNetworkProfile]
+$creadList :: ReadS [DeleteNetworkProfile]
+readsPrec :: Int -&gt; ReadS DeleteNetworkProfile
+$creadsPrec :: Int -&gt; ReadS DeleteNetworkProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386310"><span id="local-6989586621679386312"><span id="local-6989586621679386314"><span class="annot"><span class="annottext">Int -&gt; DeleteNetworkProfile -&gt; ShowS
+[DeleteNetworkProfile] -&gt; ShowS
+DeleteNetworkProfile -&gt; String
+(Int -&gt; DeleteNetworkProfile -&gt; ShowS)
+-&gt; (DeleteNetworkProfile -&gt; String)
+-&gt; ([DeleteNetworkProfile] -&gt; ShowS)
+-&gt; Show DeleteNetworkProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteNetworkProfile] -&gt; ShowS
+$cshowList :: [DeleteNetworkProfile] -&gt; ShowS
+show :: DeleteNetworkProfile -&gt; String
+$cshow :: DeleteNetworkProfile -&gt; String
+showsPrec :: Int -&gt; DeleteNetworkProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteNetworkProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteNetworkProfile -&gt; Rep DeleteNetworkProfile x)
+-&gt; (forall x. Rep DeleteNetworkProfile x -&gt; DeleteNetworkProfile)
+-&gt; Generic DeleteNetworkProfile
+forall x. Rep DeleteNetworkProfile x -&gt; DeleteNetworkProfile
+forall x. DeleteNetworkProfile -&gt; Rep DeleteNetworkProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteNetworkProfile x -&gt; DeleteNetworkProfile
+$cfrom :: forall x. DeleteNetworkProfile -&gt; Rep DeleteNetworkProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'DeleteNetworkProfile' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'arn', 'deleteNetworkProfile_arn' - The ARN of the network profile to delete.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#newDeleteNetworkProfile"><span class="hs-identifier hs-type">newDeleteNetworkProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span><span>
+</span><span id="line-68"></span><span id="newDeleteNetworkProfile"><span class="annot"><span class="annottext">newDeleteNetworkProfile :: Text -&gt; DeleteNetworkProfile
+</span><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#newDeleteNetworkProfile"><span class="hs-identifier hs-var hs-var">newDeleteNetworkProfile</span></a></span></span><span> </span><span id="local-6989586621679386305"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386305"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteNetworkProfile' :: Text -&gt; DeleteNetworkProfile
+</span><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile%27"><span class="hs-identifier hs-type">DeleteNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DeleteNetworkProfile' :: Text
+</span><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#%24sel%3Aarn%3ADeleteNetworkProfile%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386305"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The ARN of the network profile to delete.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#deleteNetworkProfile_arn"><span class="hs-identifier hs-type">deleteNetworkProfile_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="deleteNetworkProfile_arn"><span class="annot"><span class="annottext">deleteNetworkProfile_arn :: (Text -&gt; f Text) -&gt; DeleteNetworkProfile -&gt; f DeleteNetworkProfile
+</span><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#deleteNetworkProfile_arn"><span class="hs-identifier hs-var hs-var">deleteNetworkProfile_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteNetworkProfile -&gt; Text)
+-&gt; (DeleteNetworkProfile -&gt; Text -&gt; DeleteNetworkProfile)
+-&gt; Lens DeleteNetworkProfile DeleteNetworkProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile%27"><span class="hs-identifier hs-type">DeleteNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386302"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:DeleteNetworkProfile' :: DeleteNetworkProfile -&gt; Text
+</span><a href="#local-6989586621679386302"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386302"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386301"><span class="annot"><span class="annottext">s :: DeleteNetworkProfile
+</span><a href="#local-6989586621679386301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile%27"><span class="hs-identifier hs-type">DeleteNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386300"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNetworkProfile
+</span><a href="#local-6989586621679386301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DeleteNetworkProfile' :: Text
+</span><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#%24sel%3Aarn%3ADeleteNetworkProfile%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfileResponse"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679386296"><span class="annot"><span class="annottext">request :: DeleteNetworkProfile -&gt; Request DeleteNetworkProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteNetworkProfile -&gt; Request DeleteNetworkProfile
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679386292"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteNetworkProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteNetworkProfile)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteNetworkProfile))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteNetworkProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteNetworkProfile)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386289"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386289"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386288"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679386288"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386287"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679386287"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteNetworkProfileResponse
+</span><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfileResponse%27"><span class="hs-identifier hs-var">DeleteNetworkProfileResponse'</span></a></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteNetworkProfileResponse)
+-&gt; Either String Int -&gt; Either String DeleteNetworkProfileResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386289"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386280"><span id="local-6989586621679386282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679386273"><span class="annot"><span class="annottext">toHeaders :: DeleteNetworkProfile -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteNetworkProfile -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeviceFarm_20150623.DeleteNetworkProfile&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-98"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-102"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386263"><span id="local-6989586621679386265"><span id="local-6989586621679386267"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679386261"><span class="annot"><span class="annottext">toJSON :: DeleteNetworkProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile%27"><span class="hs-identifier hs-type">DeleteNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386259"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:DeleteNetworkProfile' :: DeleteNetworkProfile -&gt; Text
+</span><a href="#local-6989586621679386259"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386259"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679386253"><span class="annot"><span class="annottext">toPath :: DeleteNetworkProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteNetworkProfile -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679386249"><span class="annot"><span class="annottext">toQuery :: DeleteNetworkProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteNetworkProfile -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newDeleteNetworkProfileResponse' smart constructor.</span><span>
+</span><span id="line-120"></span><span id="local-6989586621679386246"><span id="local-6989586621679386247"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteNetworkProfileResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfileResponse"><span class="hs-identifier hs-var">DeleteNetworkProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteNetworkProfileResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfileResponse%27"><span class="hs-identifier hs-var">DeleteNetworkProfileResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteNetworkProfileResponse%27"><span class="annot"><span class="annottext">DeleteNetworkProfileResponse -&gt; Int
+</span><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#%24sel%3AhttpStatus%3ADeleteNetworkProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386241"><span id="local-6989586621679386243"><span class="annot"><span class="annottext">DeleteNetworkProfileResponse
+-&gt; DeleteNetworkProfileResponse -&gt; Bool
+(DeleteNetworkProfileResponse
+ -&gt; DeleteNetworkProfileResponse -&gt; Bool)
+-&gt; (DeleteNetworkProfileResponse
+    -&gt; DeleteNetworkProfileResponse -&gt; Bool)
+-&gt; Eq DeleteNetworkProfileResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteNetworkProfileResponse
+-&gt; DeleteNetworkProfileResponse -&gt; Bool
+$c/= :: DeleteNetworkProfileResponse
+-&gt; DeleteNetworkProfileResponse -&gt; Bool
+== :: DeleteNetworkProfileResponse
+-&gt; DeleteNetworkProfileResponse -&gt; Bool
+$c== :: DeleteNetworkProfileResponse
+-&gt; DeleteNetworkProfileResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386233"><span id="local-6989586621679386235"><span id="local-6989586621679386237"><span id="local-6989586621679386239"><span class="annot"><span class="annottext">ReadPrec [DeleteNetworkProfileResponse]
+ReadPrec DeleteNetworkProfileResponse
+Int -&gt; ReadS DeleteNetworkProfileResponse
+ReadS [DeleteNetworkProfileResponse]
+(Int -&gt; ReadS DeleteNetworkProfileResponse)
+-&gt; ReadS [DeleteNetworkProfileResponse]
+-&gt; ReadPrec DeleteNetworkProfileResponse
+-&gt; ReadPrec [DeleteNetworkProfileResponse]
+-&gt; Read DeleteNetworkProfileResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteNetworkProfileResponse]
+$creadListPrec :: ReadPrec [DeleteNetworkProfileResponse]
+readPrec :: ReadPrec DeleteNetworkProfileResponse
+$creadPrec :: ReadPrec DeleteNetworkProfileResponse
+readList :: ReadS [DeleteNetworkProfileResponse]
+$creadList :: ReadS [DeleteNetworkProfileResponse]
+readsPrec :: Int -&gt; ReadS DeleteNetworkProfileResponse
+$creadsPrec :: Int -&gt; ReadS DeleteNetworkProfileResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386227"><span id="local-6989586621679386229"><span id="local-6989586621679386231"><span class="annot"><span class="annottext">Int -&gt; DeleteNetworkProfileResponse -&gt; ShowS
+[DeleteNetworkProfileResponse] -&gt; ShowS
+DeleteNetworkProfileResponse -&gt; String
+(Int -&gt; DeleteNetworkProfileResponse -&gt; ShowS)
+-&gt; (DeleteNetworkProfileResponse -&gt; String)
+-&gt; ([DeleteNetworkProfileResponse] -&gt; ShowS)
+-&gt; Show DeleteNetworkProfileResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteNetworkProfileResponse] -&gt; ShowS
+$cshowList :: [DeleteNetworkProfileResponse] -&gt; ShowS
+show :: DeleteNetworkProfileResponse -&gt; String
+$cshow :: DeleteNetworkProfileResponse -&gt; String
+showsPrec :: Int -&gt; DeleteNetworkProfileResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteNetworkProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteNetworkProfileResponse -&gt; Rep DeleteNetworkProfileResponse x)
+-&gt; (forall x.
+    Rep DeleteNetworkProfileResponse x -&gt; DeleteNetworkProfileResponse)
+-&gt; Generic DeleteNetworkProfileResponse
+forall x.
+Rep DeleteNetworkProfileResponse x -&gt; DeleteNetworkProfileResponse
+forall x.
+DeleteNetworkProfileResponse -&gt; Rep DeleteNetworkProfileResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteNetworkProfileResponse x -&gt; DeleteNetworkProfileResponse
+$cfrom :: forall x.
+DeleteNetworkProfileResponse -&gt; Rep DeleteNetworkProfileResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Create a value of 'DeleteNetworkProfileResponse' with all optional fields omitted.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'httpStatus', 'deleteNetworkProfileResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#newDeleteNetworkProfileResponse"><span class="hs-identifier hs-type">newDeleteNetworkProfileResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfileResponse"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse</span></a></span><span>
+</span><span id="line-139"></span><span id="newDeleteNetworkProfileResponse"><span class="annot"><span class="annottext">newDeleteNetworkProfileResponse :: Int -&gt; DeleteNetworkProfileResponse
+</span><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#newDeleteNetworkProfileResponse"><span class="hs-identifier hs-var hs-var">newDeleteNetworkProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679386224"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386224"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">DeleteNetworkProfileResponse' :: Int -&gt; DeleteNetworkProfileResponse
+</span><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfileResponse%27"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteNetworkProfileResponse' :: Int
+</span><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#%24sel%3AhttpStatus%3ADeleteNetworkProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386224"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#deleteNetworkProfileResponse_httpStatus"><span class="hs-identifier hs-type">deleteNetworkProfileResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfileResponse"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-147"></span><span id="deleteNetworkProfileResponse_httpStatus"><span class="annot"><span class="annottext">deleteNetworkProfileResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteNetworkProfileResponse -&gt; f DeleteNetworkProfileResponse
+</span><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#deleteNetworkProfileResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteNetworkProfileResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteNetworkProfileResponse -&gt; Int)
+-&gt; (DeleteNetworkProfileResponse
+    -&gt; Int -&gt; DeleteNetworkProfileResponse)
+-&gt; Lens
+     DeleteNetworkProfileResponse DeleteNetworkProfileResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfileResponse%27"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386223"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteNetworkProfileResponse' :: DeleteNetworkProfileResponse -&gt; Int
+</span><a href="#local-6989586621679386223"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386223"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386222"><span class="annot"><span class="annottext">s :: DeleteNetworkProfileResponse
+</span><a href="#local-6989586621679386222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfileResponse%27"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386221"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNetworkProfileResponse
+</span><a href="#local-6989586621679386222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteNetworkProfileResponse' :: Int
+</span><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#%24sel%3AhttpStatus%3ADeleteNetworkProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfileResponse"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteNetworkProfile.html#DeleteNetworkProfileResponse"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse</span></a></span></span><span>
+</span><span id="line-150"></span></pre></body></html>

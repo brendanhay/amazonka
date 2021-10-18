@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DynamoDB.Types.TimeToLiveStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DynamoDB.Types.TimeToLiveStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus"><span class="hs-identifier">TimeToLiveStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus_DISABLED"><span class="hs-identifier">TimeToLiveStatus_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus_DISABLING"><span class="hs-identifier">TimeToLiveStatus_DISABLING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus_ENABLED"><span class="hs-identifier">TimeToLiveStatus_ENABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus_ENABLING"><span class="hs-identifier">TimeToLiveStatus_ENABLING</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679382412"><span id="local-6989586621679382413"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TimeToLiveStatus"><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus"><span class="hs-identifier hs-var">TimeToLiveStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeToLiveStatus%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus%27"><span class="hs-identifier hs-var">TimeToLiveStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTimeToLiveStatus"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; Text
+</span><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#fromTimeToLiveStatus"><span class="hs-identifier hs-var hs-var">fromTimeToLiveStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679382404"><span id="local-6989586621679382406"><span id="local-6989586621679382408"><span class="annot"><span class="annottext">Int -&gt; TimeToLiveStatus -&gt; ShowS
+[TimeToLiveStatus] -&gt; ShowS
+TimeToLiveStatus -&gt; String
+(Int -&gt; TimeToLiveStatus -&gt; ShowS)
+-&gt; (TimeToLiveStatus -&gt; String)
+-&gt; ([TimeToLiveStatus] -&gt; ShowS)
+-&gt; Show TimeToLiveStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TimeToLiveStatus] -&gt; ShowS
+$cshowList :: [TimeToLiveStatus] -&gt; ShowS
+show :: TimeToLiveStatus -&gt; String
+$cshow :: TimeToLiveStatus -&gt; String
+showsPrec :: Int -&gt; TimeToLiveStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; TimeToLiveStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679382395"><span id="local-6989586621679382397"><span id="local-6989586621679382399"><span id="local-6989586621679382401"><span class="annot"><span class="annottext">ReadPrec [TimeToLiveStatus]
+ReadPrec TimeToLiveStatus
+Int -&gt; ReadS TimeToLiveStatus
+ReadS [TimeToLiveStatus]
+(Int -&gt; ReadS TimeToLiveStatus)
+-&gt; ReadS [TimeToLiveStatus]
+-&gt; ReadPrec TimeToLiveStatus
+-&gt; ReadPrec [TimeToLiveStatus]
+-&gt; Read TimeToLiveStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TimeToLiveStatus]
+$creadListPrec :: ReadPrec [TimeToLiveStatus]
+readPrec :: ReadPrec TimeToLiveStatus
+$creadPrec :: ReadPrec TimeToLiveStatus
+readList :: ReadS [TimeToLiveStatus]
+$creadList :: ReadS [TimeToLiveStatus]
+readsPrec :: Int -&gt; ReadS TimeToLiveStatus
+$creadsPrec :: Int -&gt; ReadS TimeToLiveStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679382390"><span id="local-6989586621679382392"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
+(TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool)
+-&gt; (TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool)
+-&gt; Eq TimeToLiveStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
+$c/= :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
+== :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
+$c== :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679382374"><span id="local-6989586621679382376"><span id="local-6989586621679382378"><span id="local-6989586621679382380"><span id="local-6989586621679382382"><span id="local-6989586621679382384"><span id="local-6989586621679382386"><span class="annot"><span class="annottext">Eq TimeToLiveStatus
+Eq TimeToLiveStatus
+-&gt; (TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Ordering)
+-&gt; (TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool)
+-&gt; (TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool)
+-&gt; (TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool)
+-&gt; (TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool)
+-&gt; (TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; TimeToLiveStatus)
+-&gt; (TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; TimeToLiveStatus)
+-&gt; Ord TimeToLiveStatus
+TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
+TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Ordering
+TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; TimeToLiveStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; TimeToLiveStatus
+$cmin :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; TimeToLiveStatus
+max :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; TimeToLiveStatus
+$cmax :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; TimeToLiveStatus
+&gt;= :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
+$c&gt;= :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
+&gt; :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
+$c&gt; :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
+&lt;= :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
+$c&lt;= :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
+&lt; :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
+$c&lt; :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
+compare :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Ordering
+$ccompare :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Ordering
+$cp1Ord :: Eq TimeToLiveStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TimeToLiveStatus -&gt; Rep TimeToLiveStatus x)
+-&gt; (forall x. Rep TimeToLiveStatus x -&gt; TimeToLiveStatus)
+-&gt; Generic TimeToLiveStatus
+forall x. Rep TimeToLiveStatus x -&gt; TimeToLiveStatus
+forall x. TimeToLiveStatus -&gt; Rep TimeToLiveStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TimeToLiveStatus x -&gt; TimeToLiveStatus
+$cfrom :: forall x. TimeToLiveStatus -&gt; Rep TimeToLiveStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679382366"><span id="local-6989586621679382368"><span class="annot"><span class="annottext">Int -&gt; TimeToLiveStatus -&gt; Int
+TimeToLiveStatus -&gt; Int
+(Int -&gt; TimeToLiveStatus -&gt; Int)
+-&gt; (TimeToLiveStatus -&gt; Int) -&gt; Hashable TimeToLiveStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TimeToLiveStatus -&gt; Int
+$chash :: TimeToLiveStatus -&gt; Int
+hashWithSalt :: Int -&gt; TimeToLiveStatus -&gt; Int
+$chashWithSalt :: Int -&gt; TimeToLiveStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679382363"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; ()
+(TimeToLiveStatus -&gt; ()) -&gt; NFData TimeToLiveStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TimeToLiveStatus -&gt; ()
+$crnf :: TimeToLiveStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679382360"><span class="annot"><span class="annottext">Text -&gt; Either String TimeToLiveStatus
+(Text -&gt; Either String TimeToLiveStatus)
+-&gt; FromText TimeToLiveStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TimeToLiveStatus
+$cfromText :: Text -&gt; Either String TimeToLiveStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679382357"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; Text
+(TimeToLiveStatus -&gt; Text) -&gt; ToText TimeToLiveStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TimeToLiveStatus -&gt; Text
+$ctoText :: TimeToLiveStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679382354"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; ByteString
+(TimeToLiveStatus -&gt; ByteString) -&gt; ToByteString TimeToLiveStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TimeToLiveStatus -&gt; ByteString
+$ctoBS :: TimeToLiveStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679382351"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; ByteStringBuilder
+(TimeToLiveStatus -&gt; ByteStringBuilder) -&gt; ToLog TimeToLiveStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TimeToLiveStatus -&gt; ByteStringBuilder
+$cbuild :: TimeToLiveStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679382348"><span class="annot"><span class="annottext">HeaderName -&gt; TimeToLiveStatus -&gt; [Header]
+(HeaderName -&gt; TimeToLiveStatus -&gt; [Header])
+-&gt; ToHeader TimeToLiveStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TimeToLiveStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TimeToLiveStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679382345"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; QueryString
+(TimeToLiveStatus -&gt; QueryString) -&gt; ToQuery TimeToLiveStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TimeToLiveStatus -&gt; QueryString
+$ctoQuery :: TimeToLiveStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679382340"><span id="local-6989586621679382342"><span class="annot"><span class="annottext">Value -&gt; Parser [TimeToLiveStatus]
+Value -&gt; Parser TimeToLiveStatus
+(Value -&gt; Parser TimeToLiveStatus)
+-&gt; (Value -&gt; Parser [TimeToLiveStatus])
+-&gt; FromJSON TimeToLiveStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TimeToLiveStatus]
+$cparseJSONList :: Value -&gt; Parser [TimeToLiveStatus]
+parseJSON :: Value -&gt; Parser TimeToLiveStatus
+$cparseJSON :: Value -&gt; Parser TimeToLiveStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679382335"><span id="local-6989586621679382337"><span class="annot"><span class="annottext">FromJSONKeyFunction [TimeToLiveStatus]
+FromJSONKeyFunction TimeToLiveStatus
+FromJSONKeyFunction TimeToLiveStatus
+-&gt; FromJSONKeyFunction [TimeToLiveStatus]
+-&gt; FromJSONKey TimeToLiveStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TimeToLiveStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [TimeToLiveStatus]
+fromJSONKey :: FromJSONKeyFunction TimeToLiveStatus
+$cfromJSONKey :: FromJSONKeyFunction TimeToLiveStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679382326"><span id="local-6989586621679382328"><span id="local-6989586621679382330"><span id="local-6989586621679382332"><span class="annot"><span class="annottext">[TimeToLiveStatus] -&gt; Encoding
+[TimeToLiveStatus] -&gt; Value
+TimeToLiveStatus -&gt; Encoding
+TimeToLiveStatus -&gt; Value
+(TimeToLiveStatus -&gt; Value)
+-&gt; (TimeToLiveStatus -&gt; Encoding)
+-&gt; ([TimeToLiveStatus] -&gt; Value)
+-&gt; ([TimeToLiveStatus] -&gt; Encoding)
+-&gt; ToJSON TimeToLiveStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TimeToLiveStatus] -&gt; Encoding
+$ctoEncodingList :: [TimeToLiveStatus] -&gt; Encoding
+toJSONList :: [TimeToLiveStatus] -&gt; Value
+$ctoJSONList :: [TimeToLiveStatus] -&gt; Value
+toEncoding :: TimeToLiveStatus -&gt; Encoding
+$ctoEncoding :: TimeToLiveStatus -&gt; Encoding
+toJSON :: TimeToLiveStatus -&gt; Value
+$ctoJSON :: TimeToLiveStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679382321"><span id="local-6989586621679382323"><span class="annot"><span class="annottext">ToJSONKeyFunction [TimeToLiveStatus]
+ToJSONKeyFunction TimeToLiveStatus
+ToJSONKeyFunction TimeToLiveStatus
+-&gt; ToJSONKeyFunction [TimeToLiveStatus]
+-&gt; ToJSONKey TimeToLiveStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TimeToLiveStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [TimeToLiveStatus]
+toJSONKey :: ToJSONKeyFunction TimeToLiveStatus
+$ctoJSONKey :: ToJSONKeyFunction TimeToLiveStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679382318"><span class="annot"><span class="annottext">[Node] -&gt; Either String TimeToLiveStatus
+([Node] -&gt; Either String TimeToLiveStatus)
+-&gt; FromXML TimeToLiveStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TimeToLiveStatus
+$cparseXML :: [Node] -&gt; Either String TimeToLiveStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679382315"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; XML
+(TimeToLiveStatus -&gt; XML) -&gt; ToXML TimeToLiveStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TimeToLiveStatus -&gt; XML
+$ctoXML :: TimeToLiveStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus_DISABLED"><span class="hs-identifier hs-type">TimeToLiveStatus_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus"><span class="hs-identifier hs-type">TimeToLiveStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTimeToLiveStatus_DISABLED"><span id="%24mTimeToLiveStatus_DISABLED"><span id="TimeToLiveStatus_DISABLED"><span class="annot"><span class="annottext">$bTimeToLiveStatus_DISABLED :: TimeToLiveStatus
+$mTimeToLiveStatus_DISABLED :: forall r. TimeToLiveStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#%24bTimeToLiveStatus_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">TimeToLiveStatus_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus%27"><span class="hs-identifier hs-type">TimeToLiveStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus_DISABLING"><span class="hs-identifier hs-type">TimeToLiveStatus_DISABLING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus"><span class="hs-identifier hs-type">TimeToLiveStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTimeToLiveStatus_DISABLING"><span id="%24mTimeToLiveStatus_DISABLING"><span id="TimeToLiveStatus_DISABLING"><span class="annot"><span class="annottext">$bTimeToLiveStatus_DISABLING :: TimeToLiveStatus
+$mTimeToLiveStatus_DISABLING :: forall r. TimeToLiveStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#%24bTimeToLiveStatus_DISABLING"><span class="hs-identifier hs-var hs-var hs-var">TimeToLiveStatus_DISABLING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus%27"><span class="hs-identifier hs-type">TimeToLiveStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLING&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus_ENABLED"><span class="hs-identifier hs-type">TimeToLiveStatus_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus"><span class="hs-identifier hs-type">TimeToLiveStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTimeToLiveStatus_ENABLED"><span id="%24mTimeToLiveStatus_ENABLED"><span id="TimeToLiveStatus_ENABLED"><span class="annot"><span class="annottext">$bTimeToLiveStatus_ENABLED :: TimeToLiveStatus
+$mTimeToLiveStatus_ENABLED :: forall r. TimeToLiveStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#%24bTimeToLiveStatus_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">TimeToLiveStatus_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus%27"><span class="hs-identifier hs-type">TimeToLiveStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus_ENABLING"><span class="hs-identifier hs-type">TimeToLiveStatus_ENABLING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus"><span class="hs-identifier hs-type">TimeToLiveStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTimeToLiveStatus_ENABLING"><span id="%24mTimeToLiveStatus_ENABLING"><span id="TimeToLiveStatus_ENABLING"><span class="annot"><span class="annottext">$bTimeToLiveStatus_ENABLING :: TimeToLiveStatus
+$mTimeToLiveStatus_ENABLING :: forall r. TimeToLiveStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#%24bTimeToLiveStatus_ENABLING"><span class="hs-identifier hs-var hs-var hs-var">TimeToLiveStatus_ENABLING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus%27"><span class="hs-identifier hs-type">TimeToLiveStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLING&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus_DISABLED"><span class="hs-pragma hs-type">TimeToLiveStatus_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus_DISABLING"><span class="hs-pragma hs-type">TimeToLiveStatus_DISABLING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus_ENABLED"><span class="hs-pragma hs-type">TimeToLiveStatus_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus_ENABLING"><span class="hs-pragma hs-type">TimeToLiveStatus_ENABLING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus%27"><span class="hs-pragma hs-type">TimeToLiveStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

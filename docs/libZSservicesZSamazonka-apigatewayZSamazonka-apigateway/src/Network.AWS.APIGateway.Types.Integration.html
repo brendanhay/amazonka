@@ -1,0 +1,1488 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.APIGateway.Types.Integration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.APIGateway.Types.Integration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ConnectionType.html"><span class="hs-identifier">Network.AWS.APIGateway.Types.ConnectionType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ContentHandlingStrategy.html"><span class="hs-identifier">Network.AWS.APIGateway.Types.ContentHandlingStrategy</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationResponse.html"><span class="hs-identifier">Network.AWS.APIGateway.Types.IntegrationResponse</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationType.html"><span class="hs-identifier">Network.AWS.APIGateway.Types.IntegrationType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html"><span class="hs-identifier">Network.AWS.APIGateway.Types.TlsConfig</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Represents an HTTP, HTTP_PROXY, AWS, AWS_PROXY, or Mock integration.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- In the API Gateway console, the built-in Lambda integration is an AWS</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- integration.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API&gt;</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newIntegration' smart constructor.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679370306"><span id="local-6989586621679370307"></span></span><span class="hs-keyword">data</span><span> </span><span id="Integration"><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-var">Integration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Integration%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-var">Integration'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the integration\'s HTTP method type.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AhttpMethod%3AIntegration%27"><span class="annot"><span class="annottext">Integration -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AhttpMethod%3AIntegration%27"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Specifies how to handle request payload content type conversions.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- following behaviors:</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @CONVERT_TO_BINARY@: Converts a request payload from a</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     Base64-encoded string to the corresponding binary blob.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   @CONVERT_TO_TEXT@: Converts a request payload from a binary blob to</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     a Base64-encoded string.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- If this property is not defined, the request payload will be passed</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- through from the method request to integration request without</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- modification, provided that the @passthroughBehavior@ is configured to</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- support payload pass-through.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AcontentHandling%3AIntegration%27"><span class="annot"><span class="annottext">Integration -&gt; Maybe ContentHandlingStrategy
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AcontentHandling%3AIntegration%27"><span class="hs-identifier hs-var hs-var">contentHandling</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ContentHandlingStrategy.html#ContentHandlingStrategy"><span class="hs-identifier hs-type">ContentHandlingStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Specifies Uniform Resource Identifier (URI) of the integration endpoint.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- -   For @HTTP@ or @HTTP_PROXY@ integrations, the URI must be a fully</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     formed, encoded HTTP(S) URL according to the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     &lt;https://en.wikipedia.org/wiki/Uniform_Resource_Identifier RFC-3986 specification&gt;,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     for either standard integration, where @connectionType@ is not</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     @VPC_LINK@, or private integration, where @connectionType@ is</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     @VPC_LINK@. For a private HTTP integration, the URI is not used for</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     routing.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   For @AWS@ or @AWS_PROXY@ integrations, the URI is of the form</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     @arn:aws:apigateway:{region}:{subdomain.service|service}:path|action\/{service_api}@.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     Here, @{Region}@ is the API Gateway region (e.g., @us-east-1@);</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     @{service}@ is the name of the integrated AWS service (e.g., @s3@);</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     and @{subdomain}@ is a designated subdomain supported by certain AWS</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     service for fast host-name lookup. @action@ can be used for an AWS</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     service action-based API, using an</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     @Action={name}&amp;{p1}={v1}&amp;p2={v2}...@ query string. The ensuing</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     @{service_api}@ refers to a supported action @{name}@ plus any</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     required input parameters. Alternatively, @path@ can be used for an</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     AWS service path-based API. The ensuing @service_api@ refers to the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     path to an AWS service resource, including the region of the</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     integrated AWS service, if applicable. For example, for integration</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     with the S3 API of @GetObject@, the @uri@ can be either</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     @arn:aws:apigateway:us-west-2:s3:action\/GetObject&amp;Bucket={bucket}&amp;Key={key}@</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     or @arn:aws:apigateway:us-west-2:s3:path\/{bucket}\/{key}@</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Auri%3AIntegration%27"><span class="annot"><span class="annottext">Integration -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3Auri%3AIntegration%27"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The type of the network connection to the integration endpoint. The</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- valid value is @INTERNET@ for connections through the public routable</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- internet or @VPC_LINK@ for private connections between API Gateway and a</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- network load balancer in a VPC. The default value is @INTERNET@.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AconnectionType%3AIntegration%27"><span class="annot"><span class="annottext">Integration -&gt; Maybe ConnectionType
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AconnectionType%3AIntegration%27"><span class="hs-identifier hs-var hs-var">connectionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ConnectionType.html#ConnectionType"><span class="hs-identifier hs-type">ConnectionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | Specifies how the method request body of an unmapped content type will</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- be passed through the integration request to the back end without</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- transformation. A content type is unmapped if no mapping template is</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- defined in the integration or the content type does not match any of the</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- mapped content types, as specified in @requestTemplates@. The valid</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- value is one of the following:</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- -   @WHEN_NO_MATCH@: passes the method request body through the</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     integration request to the back end without transformation when the</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     method request content type does not match any content type</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--     associated with the mapping templates defined in the integration</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     request.</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   @WHEN_NO_TEMPLATES@: passes the method request body through the</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     integration request to the back end without transformation when no</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--     mapping template is defined in the integration request. If a</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--     template is defined when this option is selected, the method request</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--     of an unmapped content-type will be rejected with an HTTP</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--     @415 Unsupported Media Type@ response.</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- -   @NEVER@: rejects the method request with an HTTP</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--     @415 Unsupported Media Type@ response when either the method request</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--     content type does not match any content type associated with the</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--     mapping templates defined in the integration request or no mapping</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--     template is defined in the integration request.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3ApassthroughBehavior%3AIntegration%27"><span class="annot"><span class="annottext">Integration -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3ApassthroughBehavior%3AIntegration%27"><span class="hs-identifier hs-var hs-var">passthroughBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/apigateway/api-reference/resource/vpc-link/#id id&gt;)</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- of the VpcLink used for the integration when @connectionType=VPC_LINK@</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- and undefined, otherwise.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3AconnectionId%3AIntegration%27"><span class="annot"><span class="annottext">Integration -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AconnectionId%3AIntegration%27"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | Custom timeout between 50 and 29,000 milliseconds. The default value is</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- 29,000 milliseconds or 29 seconds.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AtimeoutInMillis%3AIntegration%27"><span class="annot"><span class="annottext">Integration -&gt; Maybe Int
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AtimeoutInMillis%3AIntegration%27"><span class="hs-identifier hs-var hs-var">timeoutInMillis</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | Represents a map of Velocity templates that are applied on the request</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- payload based on the value of the Content-Type header sent by the</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- client. The content type value is the key in this map, and the template</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- (as a String) is the value.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3ArequestTemplates%3AIntegration%27"><span class="annot"><span class="annottext">Integration -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3ArequestTemplates%3AIntegration%27"><span class="hs-identifier hs-var hs-var">requestTemplates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | Specifies a group of related cached parameters. By default, API Gateway</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- uses the resource ID as the @cacheNamespace@. You can specify the same</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- @cacheNamespace@ across resources to return the same cached data for</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- requests to different resources.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AcacheNamespace%3AIntegration%27"><span class="annot"><span class="annottext">Integration -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AcacheNamespace%3AIntegration%27"><span class="hs-identifier hs-var hs-var">cacheNamespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | Specifies the TLS configuration for an integration.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AtlsConfig%3AIntegration%27"><span class="annot"><span class="annottext">Integration -&gt; Maybe TlsConfig
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AtlsConfig%3AIntegration%27"><span class="hs-identifier hs-var hs-var">tlsConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig"><span class="hs-identifier hs-type">TlsConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | A list of request parameters whose values API Gateway caches. To be</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- valid values for @cacheKeyParameters@, these parameters must also be</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- specified for Method @requestParameters@.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AcacheKeyParameters%3AIntegration%27"><span class="annot"><span class="annottext">Integration -&gt; Maybe [Text]
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AcacheKeyParameters%3AIntegration%27"><span class="hs-identifier hs-var hs-var">cacheKeyParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | Specifies the integration\'s responses.</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- ==== Example: Get integration responses of a method</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- ===== Request</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- &gt; GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200 HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160607T191449Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160607/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- ===== Response</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- The successful response returns @200 OK@ status and a payload as</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- follows:</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- &gt; { &quot;_links&quot;: { &quot;curies&quot;: { &quot;href&quot;: &quot;https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html&quot;, &quot;name&quot;: &quot;integrationresponse&quot;, &quot;templated&quot;: true }, &quot;self&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200&quot;, &quot;title&quot;: &quot;200&quot; }, &quot;integrationresponse:delete&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200&quot; }, &quot;integrationresponse:update&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200&quot; } }, &quot;responseParameters&quot;: { &quot;method.response.header.Content-Type&quot;: &quot;'application/xml'&quot; }, &quot;responseTemplates&quot;: { &quot;application/json&quot;: &quot;$util.urlDecode(\&quot;%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\&quot;)\n&quot; }, &quot;statusCode&quot;: &quot;200&quot; }</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API&gt;</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AintegrationResponses%3AIntegration%27"><span class="annot"><span class="annottext">Integration -&gt; Maybe (HashMap Text IntegrationResponse)
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AintegrationResponses%3AIntegration%27"><span class="hs-identifier hs-var hs-var">integrationResponses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationResponse.html#IntegrationResponse"><span class="hs-identifier hs-type">IntegrationResponse</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | A key-value map specifying request parameters that are passed from the</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- method request to the back end. The key is an integration request</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- parameter name and the associated value is a method request parameter</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- value or static value that must be enclosed within single quotes and</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- pre-encoded as required by the back end. The method request parameter</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- value must match the pattern of @method.request.{location}.{name}@,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- where @location@ is @querystring@, @path@, or @header@ and @name@ must</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- be a valid and unique method request parameter name.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3ArequestParameters%3AIntegration%27"><span class="annot"><span class="annottext">Integration -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3ArequestParameters%3AIntegration%27"><span class="hs-identifier hs-var hs-var">requestParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | Specifies the credentials required for the integration, if any. For AWS</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- integrations, three options are available. To specify an IAM Role for</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- require that the caller\'s identity be passed through from the request,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- specify the string @arn:aws:iam::\\*:user\/\\*@. To use resource-based</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- permissions on supported AWS services, specify null.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3Acredentials%3AIntegration%27"><span class="annot"><span class="annottext">Integration -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3Acredentials%3AIntegration%27"><span class="hs-identifier hs-var hs-var">credentials</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | Specifies an API method integration type. The valid value is one of the</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- following:</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- -   @AWS@: for integrating the API method request with an AWS service</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">--     action, including the Lambda function-invoking action. With the</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">--     Lambda function-invoking action, this is referred to as the Lambda</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">--     custom integration. With any other AWS service action, this is known</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">--     as AWS integration.</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- -   @AWS_PROXY@: for integrating the API method request with the Lambda</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">--     function-invoking action with the client request passed through</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">--     as-is. This integration is also referred to as the Lambda proxy</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">--     integration.</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- -   @HTTP@: for integrating the API method request with an HTTP</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">--     endpoint, including a private HTTP endpoint within a VPC. This</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">--     integration is also referred to as the HTTP custom integration.</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- -   @HTTP_PROXY@: for integrating the API method request with an HTTP</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">--     endpoint, including a private HTTP endpoint within a VPC, with the</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">--     client request passed through as-is. This is also referred to as the</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">--     HTTP proxy integration.</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- -   @MOCK@: for integrating the API method request with API Gateway as a</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">--     \&quot;loop-back\&quot; endpoint without invoking any backend.</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- For the HTTP and HTTP proxy integrations, each integration can specify a</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- protocol (@http\/https@), port and path. Standard 80 and 443 ports are</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- supported as well as custom ports above 1024. An HTTP or HTTP proxy</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- integration with a @connectionType@ of @VPC_LINK@ is referred to as a</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- private integration and uses a VpcLink to connect API Gateway to a</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- network load balancer of a VPC.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3Atype%27%3AIntegration%27"><span class="annot"><span class="annottext">Integration -&gt; Maybe IntegrationType
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3Atype%27%3AIntegration%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationType.html#IntegrationType"><span class="hs-identifier hs-type">IntegrationType</span></a></span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370286"><span id="local-6989586621679370288"><span class="annot"><span class="annottext">Integration -&gt; Integration -&gt; Bool
+(Integration -&gt; Integration -&gt; Bool)
+-&gt; (Integration -&gt; Integration -&gt; Bool) -&gt; Eq Integration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Integration -&gt; Integration -&gt; Bool
+$c/= :: Integration -&gt; Integration -&gt; Bool
+== :: Integration -&gt; Integration -&gt; Bool
+$c== :: Integration -&gt; Integration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370277"><span id="local-6989586621679370279"><span id="local-6989586621679370281"><span id="local-6989586621679370283"><span class="annot"><span class="annottext">ReadPrec [Integration]
+ReadPrec Integration
+Int -&gt; ReadS Integration
+ReadS [Integration]
+(Int -&gt; ReadS Integration)
+-&gt; ReadS [Integration]
+-&gt; ReadPrec Integration
+-&gt; ReadPrec [Integration]
+-&gt; Read Integration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Integration]
+$creadListPrec :: ReadPrec [Integration]
+readPrec :: ReadPrec Integration
+$creadPrec :: ReadPrec Integration
+readList :: ReadS [Integration]
+$creadList :: ReadS [Integration]
+readsPrec :: Int -&gt; ReadS Integration
+$creadsPrec :: Int -&gt; ReadS Integration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370270"><span id="local-6989586621679370272"><span id="local-6989586621679370274"><span class="annot"><span class="annottext">Int -&gt; Integration -&gt; ShowS
+[Integration] -&gt; ShowS
+Integration -&gt; String
+(Int -&gt; Integration -&gt; ShowS)
+-&gt; (Integration -&gt; String)
+-&gt; ([Integration] -&gt; ShowS)
+-&gt; Show Integration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Integration] -&gt; ShowS
+$cshowList :: [Integration] -&gt; ShowS
+show :: Integration -&gt; String
+$cshow :: Integration -&gt; String
+showsPrec :: Int -&gt; Integration -&gt; ShowS
+$cshowsPrec :: Int -&gt; Integration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Integration -&gt; Rep Integration x)
+-&gt; (forall x. Rep Integration x -&gt; Integration)
+-&gt; Generic Integration
+forall x. Rep Integration x -&gt; Integration
+forall x. Integration -&gt; Rep Integration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Integration x -&gt; Integration
+$cfrom :: forall x. Integration -&gt; Rep Integration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Create a value of 'Integration' with all optional fields omitted.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'httpMethod', 'integration_httpMethod' - Specifies the integration\'s HTTP method type.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'contentHandling', 'integration_contentHandling' - Specifies how to handle request payload content type conversions.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- following behaviors:</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- -   @CONVERT_TO_BINARY@: Converts a request payload from a</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--     Base64-encoded string to the corresponding binary blob.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- -   @CONVERT_TO_TEXT@: Converts a request payload from a binary blob to</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--     a Base64-encoded string.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- If this property is not defined, the request payload will be passed</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- through from the method request to integration request without</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- modification, provided that the @passthroughBehavior@ is configured to</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- support payload pass-through.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'uri', 'integration_uri' - Specifies Uniform Resource Identifier (URI) of the integration endpoint.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- -   For @HTTP@ or @HTTP_PROXY@ integrations, the URI must be a fully</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--     formed, encoded HTTP(S) URL according to the</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--     &lt;https://en.wikipedia.org/wiki/Uniform_Resource_Identifier RFC-3986 specification&gt;,</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--     for either standard integration, where @connectionType@ is not</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--     @VPC_LINK@, or private integration, where @connectionType@ is</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     @VPC_LINK@. For a private HTTP integration, the URI is not used for</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--     routing.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- -   For @AWS@ or @AWS_PROXY@ integrations, the URI is of the form</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--     @arn:aws:apigateway:{region}:{subdomain.service|service}:path|action\/{service_api}@.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--     Here, @{Region}@ is the API Gateway region (e.g., @us-east-1@);</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--     @{service}@ is the name of the integrated AWS service (e.g., @s3@);</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     and @{subdomain}@ is a designated subdomain supported by certain AWS</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--     service for fast host-name lookup. @action@ can be used for an AWS</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--     service action-based API, using an</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--     @Action={name}&amp;{p1}={v1}&amp;p2={v2}...@ query string. The ensuing</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--     @{service_api}@ refers to a supported action @{name}@ plus any</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--     required input parameters. Alternatively, @path@ can be used for an</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--     AWS service path-based API. The ensuing @service_api@ refers to the</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--     path to an AWS service resource, including the region of the</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--     integrated AWS service, if applicable. For example, for integration</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--     with the S3 API of @GetObject@, the @uri@ can be either</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     @arn:aws:apigateway:us-west-2:s3:action\/GetObject&amp;Bucket={bucket}&amp;Key={key}@</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     or @arn:aws:apigateway:us-west-2:s3:path\/{bucket}\/{key}@</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- 'connectionType', 'integration_connectionType' - The type of the network connection to the integration endpoint. The</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- valid value is @INTERNET@ for connections through the public routable</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- internet or @VPC_LINK@ for private connections between API Gateway and a</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- network load balancer in a VPC. The default value is @INTERNET@.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- 'passthroughBehavior', 'integration_passthroughBehavior' - Specifies how the method request body of an unmapped content type will</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- be passed through the integration request to the back end without</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- transformation. A content type is unmapped if no mapping template is</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- defined in the integration or the content type does not match any of the</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- mapped content types, as specified in @requestTemplates@. The valid</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- value is one of the following:</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- -   @WHEN_NO_MATCH@: passes the method request body through the</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--     integration request to the back end without transformation when the</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--     method request content type does not match any content type</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--     associated with the mapping templates defined in the integration</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--     request.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- -   @WHEN_NO_TEMPLATES@: passes the method request body through the</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--     integration request to the back end without transformation when no</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--     mapping template is defined in the integration request. If a</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--     template is defined when this option is selected, the method request</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--     of an unmapped content-type will be rejected with an HTTP</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--     @415 Unsupported Media Type@ response.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- -   @NEVER@: rejects the method request with an HTTP</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--     @415 Unsupported Media Type@ response when either the method request</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--     content type does not match any content type associated with the</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--     mapping templates defined in the integration request or no mapping</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--     template is defined in the integration request.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- 'connectionId', 'integration_connectionId' - The</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/apigateway/api-reference/resource/vpc-link/#id id&gt;)</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- of the VpcLink used for the integration when @connectionType=VPC_LINK@</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- and undefined, otherwise.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- 'timeoutInMillis', 'integration_timeoutInMillis' - Custom timeout between 50 and 29,000 milliseconds. The default value is</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- 29,000 milliseconds or 29 seconds.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- 'requestTemplates', 'integration_requestTemplates' - Represents a map of Velocity templates that are applied on the request</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- payload based on the value of the Content-Type header sent by the</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- client. The content type value is the key in this map, and the template</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- (as a String) is the value.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- 'cacheNamespace', 'integration_cacheNamespace' - Specifies a group of related cached parameters. By default, API Gateway</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- uses the resource ID as the @cacheNamespace@. You can specify the same</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- @cacheNamespace@ across resources to return the same cached data for</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- requests to different resources.</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- 'tlsConfig', 'integration_tlsConfig' - Specifies the TLS configuration for an integration.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- 'cacheKeyParameters', 'integration_cacheKeyParameters' - A list of request parameters whose values API Gateway caches. To be</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- valid values for @cacheKeyParameters@, these parameters must also be</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- specified for Method @requestParameters@.</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- 'integrationResponses', 'integration_integrationResponses' - Specifies the integration\'s responses.</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- ==== Example: Get integration responses of a method</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- ===== Request</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- &gt; GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200 HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160607T191449Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160607/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- ===== Response</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- The successful response returns @200 OK@ status and a payload as</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- follows:</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- &gt; { &quot;_links&quot;: { &quot;curies&quot;: { &quot;href&quot;: &quot;https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html&quot;, &quot;name&quot;: &quot;integrationresponse&quot;, &quot;templated&quot;: true }, &quot;self&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200&quot;, &quot;title&quot;: &quot;200&quot; }, &quot;integrationresponse:delete&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200&quot; }, &quot;integrationresponse:update&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200&quot; } }, &quot;responseParameters&quot;: { &quot;method.response.header.Content-Type&quot;: &quot;'application/xml'&quot; }, &quot;responseTemplates&quot;: { &quot;application/json&quot;: &quot;$util.urlDecode(\&quot;%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\&quot;)\n&quot; }, &quot;statusCode&quot;: &quot;200&quot; }</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API&gt;</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- 'requestParameters', 'integration_requestParameters' - A key-value map specifying request parameters that are passed from the</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- method request to the back end. The key is an integration request</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- parameter name and the associated value is a method request parameter</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- value or static value that must be enclosed within single quotes and</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- pre-encoded as required by the back end. The method request parameter</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- value must match the pattern of @method.request.{location}.{name}@,</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- where @location@ is @querystring@, @path@, or @header@ and @name@ must</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- be a valid and unique method request parameter name.</span><span>
+</span><span id="line-332"></span><span class="hs-comment">--</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- 'credentials', 'integration_credentials' - Specifies the credentials required for the integration, if any. For AWS</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- integrations, three options are available. To specify an IAM Role for</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- require that the caller\'s identity be passed through from the request,</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- specify the string @arn:aws:iam::\\*:user\/\\*@. To use resource-based</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- permissions on supported AWS services, specify null.</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- 'type'', 'integration_type' - Specifies an API method integration type. The valid value is one of the</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- following:</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- -   @AWS@: for integrating the API method request with an AWS service</span><span>
+</span><span id="line-344"></span><span class="hs-comment">--     action, including the Lambda function-invoking action. With the</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--     Lambda function-invoking action, this is referred to as the Lambda</span><span>
+</span><span id="line-346"></span><span class="hs-comment">--     custom integration. With any other AWS service action, this is known</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--     as AWS integration.</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- -   @AWS_PROXY@: for integrating the API method request with the Lambda</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--     function-invoking action with the client request passed through</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--     as-is. This integration is also referred to as the Lambda proxy</span><span>
+</span><span id="line-351"></span><span class="hs-comment">--     integration.</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- -   @HTTP@: for integrating the API method request with an HTTP</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--     endpoint, including a private HTTP endpoint within a VPC. This</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--     integration is also referred to as the HTTP custom integration.</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- -   @HTTP_PROXY@: for integrating the API method request with an HTTP</span><span>
+</span><span id="line-356"></span><span class="hs-comment">--     endpoint, including a private HTTP endpoint within a VPC, with the</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--     client request passed through as-is. This is also referred to as the</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--     HTTP proxy integration.</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- -   @MOCK@: for integrating the API method request with API Gateway as a</span><span>
+</span><span id="line-360"></span><span class="hs-comment">--     \&quot;loop-back\&quot; endpoint without invoking any backend.</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- For the HTTP and HTTP proxy integrations, each integration can specify a</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- protocol (@http\/https@), port and path. Standard 80 and 443 ports are</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- supported as well as custom ports above 1024. An HTTP or HTTP proxy</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- integration with a @connectionType@ of @VPC_LINK@ is referred to as a</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- private integration and uses a VpcLink to connect API Gateway to a</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- network load balancer of a VPC.</span><span>
+</span><span id="line-368"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#newIntegration"><span class="hs-identifier hs-type">newIntegration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-369"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span>
+</span><span id="line-370"></span><span id="newIntegration"><span class="annot"><span class="annottext">newIntegration :: Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#newIntegration"><span class="hs-identifier hs-var hs-var">newIntegration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-371"></span><span>  </span><span class="annot"><span class="annottext">Integration' :: Maybe Text
+-&gt; Maybe ContentHandlingStrategy
+-&gt; Maybe Text
+-&gt; Maybe ConnectionType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe TlsConfig
+-&gt; Maybe [Text]
+-&gt; Maybe (HashMap Text IntegrationResponse)
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe IntegrationType
+-&gt; Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span>
+</span><span id="line-372"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpMethod:Integration' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AhttpMethod%3AIntegration%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-373"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentHandling:Integration' :: Maybe ContentHandlingStrategy
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AcontentHandling%3AIntegration%27"><span class="hs-identifier hs-var">contentHandling</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-374"></span><span>      </span><span class="annot"><span class="annottext">$sel:uri:Integration' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3Auri%3AIntegration%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-375"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionType:Integration' :: Maybe ConnectionType
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AconnectionType%3AIntegration%27"><span class="hs-identifier hs-var">connectionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-376"></span><span>      </span><span class="annot"><span class="annottext">$sel:passthroughBehavior:Integration' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3ApassthroughBehavior%3AIntegration%27"><span class="hs-identifier hs-var">passthroughBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-377"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionId:Integration' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AconnectionId%3AIntegration%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeoutInMillis:Integration' :: Maybe Int
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AtimeoutInMillis%3AIntegration%27"><span class="hs-identifier hs-var">timeoutInMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-379"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestTemplates:Integration' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3ArequestTemplates%3AIntegration%27"><span class="hs-identifier hs-var">requestTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-380"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheNamespace:Integration' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AcacheNamespace%3AIntegration%27"><span class="hs-identifier hs-var">cacheNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-381"></span><span>      </span><span class="annot"><span class="annottext">$sel:tlsConfig:Integration' :: Maybe TlsConfig
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AtlsConfig%3AIntegration%27"><span class="hs-identifier hs-var">tlsConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TlsConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-382"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheKeyParameters:Integration' :: Maybe [Text]
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AcacheKeyParameters%3AIntegration%27"><span class="hs-identifier hs-var">cacheKeyParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-383"></span><span>      </span><span class="annot"><span class="annottext">$sel:integrationResponses:Integration' :: Maybe (HashMap Text IntegrationResponse)
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AintegrationResponses%3AIntegration%27"><span class="hs-identifier hs-var">integrationResponses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text IntegrationResponse)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-384"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestParameters:Integration' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3ArequestParameters%3AIntegration%27"><span class="hs-identifier hs-var">requestParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-385"></span><span>      </span><span class="annot"><span class="annottext">$sel:credentials:Integration' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3Acredentials%3AIntegration%27"><span class="hs-identifier hs-var">credentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-386"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Integration' :: Maybe IntegrationType
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3Atype%27%3AIntegration%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IntegrationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-387"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-388"></span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- | Specifies the integration\'s HTTP method type.</span><span>
+</span><span id="line-390"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#integration_httpMethod"><span class="hs-identifier hs-type">integration_httpMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-391"></span><span id="integration_httpMethod"><span class="annot"><span class="annottext">integration_httpMethod :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Integration -&gt; f Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#integration_httpMethod"><span class="hs-identifier hs-var hs-var">integration_httpMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Integration -&gt; Maybe Text)
+-&gt; (Integration -&gt; Maybe Text -&gt; Integration)
+-&gt; Lens Integration Integration (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370261"><span class="annot"><span class="annottext">Maybe Text
+httpMethod :: Maybe Text
+$sel:httpMethod:Integration' :: Integration -&gt; Maybe Text
+</span><a href="#local-6989586621679370261"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370261"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370260"><span class="annot"><span class="annottext">s :: Integration
+</span><a href="#local-6989586621679370260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370259"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integration
+</span><a href="#local-6989586621679370260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:Integration' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AhttpMethod%3AIntegration%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-392"></span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- | Specifies how to handle request payload content type conversions.</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the</span><span>
+</span><span id="line-395"></span><span class="hs-comment">-- following behaviors:</span><span>
+</span><span id="line-396"></span><span class="hs-comment">--</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- -   @CONVERT_TO_BINARY@: Converts a request payload from a</span><span>
+</span><span id="line-398"></span><span class="hs-comment">--     Base64-encoded string to the corresponding binary blob.</span><span>
+</span><span id="line-399"></span><span class="hs-comment">--</span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- -   @CONVERT_TO_TEXT@: Converts a request payload from a binary blob to</span><span>
+</span><span id="line-401"></span><span class="hs-comment">--     a Base64-encoded string.</span><span>
+</span><span id="line-402"></span><span class="hs-comment">--</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- If this property is not defined, the request payload will be passed</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- through from the method request to integration request without</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- modification, provided that the @passthroughBehavior@ is configured to</span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- support payload pass-through.</span><span>
+</span><span id="line-407"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#integration_contentHandling"><span class="hs-identifier hs-type">integration_contentHandling</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ContentHandlingStrategy.html#ContentHandlingStrategy"><span class="hs-identifier hs-type">ContentHandlingStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-408"></span><span id="integration_contentHandling"><span class="annot"><span class="annottext">integration_contentHandling :: (Maybe ContentHandlingStrategy
+ -&gt; f (Maybe ContentHandlingStrategy))
+-&gt; Integration -&gt; f Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#integration_contentHandling"><span class="hs-identifier hs-var hs-var">integration_contentHandling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Integration -&gt; Maybe ContentHandlingStrategy)
+-&gt; (Integration -&gt; Maybe ContentHandlingStrategy -&gt; Integration)
+-&gt; Lens
+     Integration
+     Integration
+     (Maybe ContentHandlingStrategy)
+     (Maybe ContentHandlingStrategy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370257"><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+contentHandling :: Maybe ContentHandlingStrategy
+$sel:contentHandling:Integration' :: Integration -&gt; Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679370257"><span class="hs-identifier hs-var hs-var">contentHandling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679370257"><span class="hs-identifier hs-var">contentHandling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370256"><span class="annot"><span class="annottext">s :: Integration
+</span><a href="#local-6989586621679370256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370255"><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679370255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integration
+</span><a href="#local-6989586621679370256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentHandling:Integration' :: Maybe ContentHandlingStrategy
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AcontentHandling%3AIntegration%27"><span class="hs-identifier hs-var">contentHandling</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679370255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-409"></span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- | Specifies Uniform Resource Identifier (URI) of the integration endpoint.</span><span>
+</span><span id="line-411"></span><span class="hs-comment">--</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- -   For @HTTP@ or @HTTP_PROXY@ integrations, the URI must be a fully</span><span>
+</span><span id="line-413"></span><span class="hs-comment">--     formed, encoded HTTP(S) URL according to the</span><span>
+</span><span id="line-414"></span><span class="hs-comment">--     &lt;https://en.wikipedia.org/wiki/Uniform_Resource_Identifier RFC-3986 specification&gt;,</span><span>
+</span><span id="line-415"></span><span class="hs-comment">--     for either standard integration, where @connectionType@ is not</span><span>
+</span><span id="line-416"></span><span class="hs-comment">--     @VPC_LINK@, or private integration, where @connectionType@ is</span><span>
+</span><span id="line-417"></span><span class="hs-comment">--     @VPC_LINK@. For a private HTTP integration, the URI is not used for</span><span>
+</span><span id="line-418"></span><span class="hs-comment">--     routing.</span><span>
+</span><span id="line-419"></span><span class="hs-comment">--</span><span>
+</span><span id="line-420"></span><span class="hs-comment">-- -   For @AWS@ or @AWS_PROXY@ integrations, the URI is of the form</span><span>
+</span><span id="line-421"></span><span class="hs-comment">--     @arn:aws:apigateway:{region}:{subdomain.service|service}:path|action\/{service_api}@.</span><span>
+</span><span id="line-422"></span><span class="hs-comment">--     Here, @{Region}@ is the API Gateway region (e.g., @us-east-1@);</span><span>
+</span><span id="line-423"></span><span class="hs-comment">--     @{service}@ is the name of the integrated AWS service (e.g., @s3@);</span><span>
+</span><span id="line-424"></span><span class="hs-comment">--     and @{subdomain}@ is a designated subdomain supported by certain AWS</span><span>
+</span><span id="line-425"></span><span class="hs-comment">--     service for fast host-name lookup. @action@ can be used for an AWS</span><span>
+</span><span id="line-426"></span><span class="hs-comment">--     service action-based API, using an</span><span>
+</span><span id="line-427"></span><span class="hs-comment">--     @Action={name}&amp;{p1}={v1}&amp;p2={v2}...@ query string. The ensuing</span><span>
+</span><span id="line-428"></span><span class="hs-comment">--     @{service_api}@ refers to a supported action @{name}@ plus any</span><span>
+</span><span id="line-429"></span><span class="hs-comment">--     required input parameters. Alternatively, @path@ can be used for an</span><span>
+</span><span id="line-430"></span><span class="hs-comment">--     AWS service path-based API. The ensuing @service_api@ refers to the</span><span>
+</span><span id="line-431"></span><span class="hs-comment">--     path to an AWS service resource, including the region of the</span><span>
+</span><span id="line-432"></span><span class="hs-comment">--     integrated AWS service, if applicable. For example, for integration</span><span>
+</span><span id="line-433"></span><span class="hs-comment">--     with the S3 API of @GetObject@, the @uri@ can be either</span><span>
+</span><span id="line-434"></span><span class="hs-comment">--     @arn:aws:apigateway:us-west-2:s3:action\/GetObject&amp;Bucket={bucket}&amp;Key={key}@</span><span>
+</span><span id="line-435"></span><span class="hs-comment">--     or @arn:aws:apigateway:us-west-2:s3:path\/{bucket}\/{key}@</span><span>
+</span><span id="line-436"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#integration_uri"><span class="hs-identifier hs-type">integration_uri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-437"></span><span id="integration_uri"><span class="annot"><span class="annottext">integration_uri :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Integration -&gt; f Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#integration_uri"><span class="hs-identifier hs-var hs-var">integration_uri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Integration -&gt; Maybe Text)
+-&gt; (Integration -&gt; Maybe Text -&gt; Integration)
+-&gt; Lens Integration Integration (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370253"><span class="annot"><span class="annottext">Maybe Text
+uri :: Maybe Text
+$sel:uri:Integration' :: Integration -&gt; Maybe Text
+</span><a href="#local-6989586621679370253"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370253"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370252"><span class="annot"><span class="annottext">s :: Integration
+</span><a href="#local-6989586621679370252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370251"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integration
+</span><a href="#local-6989586621679370252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uri:Integration' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3Auri%3AIntegration%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-438"></span><span>
+</span><span id="line-439"></span><span class="hs-comment">-- | The type of the network connection to the integration endpoint. The</span><span>
+</span><span id="line-440"></span><span class="hs-comment">-- valid value is @INTERNET@ for connections through the public routable</span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- internet or @VPC_LINK@ for private connections between API Gateway and a</span><span>
+</span><span id="line-442"></span><span class="hs-comment">-- network load balancer in a VPC. The default value is @INTERNET@.</span><span>
+</span><span id="line-443"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#integration_connectionType"><span class="hs-identifier hs-type">integration_connectionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ConnectionType.html#ConnectionType"><span class="hs-identifier hs-type">ConnectionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-444"></span><span id="integration_connectionType"><span class="annot"><span class="annottext">integration_connectionType :: (Maybe ConnectionType -&gt; f (Maybe ConnectionType))
+-&gt; Integration -&gt; f Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#integration_connectionType"><span class="hs-identifier hs-var hs-var">integration_connectionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Integration -&gt; Maybe ConnectionType)
+-&gt; (Integration -&gt; Maybe ConnectionType -&gt; Integration)
+-&gt; Lens
+     Integration
+     Integration
+     (Maybe ConnectionType)
+     (Maybe ConnectionType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370249"><span class="annot"><span class="annottext">Maybe ConnectionType
+connectionType :: Maybe ConnectionType
+$sel:connectionType:Integration' :: Integration -&gt; Maybe ConnectionType
+</span><a href="#local-6989586621679370249"><span class="hs-identifier hs-var hs-var">connectionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionType
+</span><a href="#local-6989586621679370249"><span class="hs-identifier hs-var">connectionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370248"><span class="annot"><span class="annottext">s :: Integration
+</span><a href="#local-6989586621679370248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370247"><span class="annot"><span class="annottext">Maybe ConnectionType
+</span><a href="#local-6989586621679370247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integration
+</span><a href="#local-6989586621679370248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionType:Integration' :: Maybe ConnectionType
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AconnectionType%3AIntegration%27"><span class="hs-identifier hs-var">connectionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionType
+</span><a href="#local-6989586621679370247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-445"></span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- | Specifies how the method request body of an unmapped content type will</span><span>
+</span><span id="line-447"></span><span class="hs-comment">-- be passed through the integration request to the back end without</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- transformation. A content type is unmapped if no mapping template is</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- defined in the integration or the content type does not match any of the</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- mapped content types, as specified in @requestTemplates@. The valid</span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- value is one of the following:</span><span>
+</span><span id="line-452"></span><span class="hs-comment">--</span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- -   @WHEN_NO_MATCH@: passes the method request body through the</span><span>
+</span><span id="line-454"></span><span class="hs-comment">--     integration request to the back end without transformation when the</span><span>
+</span><span id="line-455"></span><span class="hs-comment">--     method request content type does not match any content type</span><span>
+</span><span id="line-456"></span><span class="hs-comment">--     associated with the mapping templates defined in the integration</span><span>
+</span><span id="line-457"></span><span class="hs-comment">--     request.</span><span>
+</span><span id="line-458"></span><span class="hs-comment">-- -   @WHEN_NO_TEMPLATES@: passes the method request body through the</span><span>
+</span><span id="line-459"></span><span class="hs-comment">--     integration request to the back end without transformation when no</span><span>
+</span><span id="line-460"></span><span class="hs-comment">--     mapping template is defined in the integration request. If a</span><span>
+</span><span id="line-461"></span><span class="hs-comment">--     template is defined when this option is selected, the method request</span><span>
+</span><span id="line-462"></span><span class="hs-comment">--     of an unmapped content-type will be rejected with an HTTP</span><span>
+</span><span id="line-463"></span><span class="hs-comment">--     @415 Unsupported Media Type@ response.</span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- -   @NEVER@: rejects the method request with an HTTP</span><span>
+</span><span id="line-465"></span><span class="hs-comment">--     @415 Unsupported Media Type@ response when either the method request</span><span>
+</span><span id="line-466"></span><span class="hs-comment">--     content type does not match any content type associated with the</span><span>
+</span><span id="line-467"></span><span class="hs-comment">--     mapping templates defined in the integration request or no mapping</span><span>
+</span><span id="line-468"></span><span class="hs-comment">--     template is defined in the integration request.</span><span>
+</span><span id="line-469"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#integration_passthroughBehavior"><span class="hs-identifier hs-type">integration_passthroughBehavior</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-470"></span><span id="integration_passthroughBehavior"><span class="annot"><span class="annottext">integration_passthroughBehavior :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Integration -&gt; f Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#integration_passthroughBehavior"><span class="hs-identifier hs-var hs-var">integration_passthroughBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Integration -&gt; Maybe Text)
+-&gt; (Integration -&gt; Maybe Text -&gt; Integration)
+-&gt; Lens Integration Integration (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370245"><span class="annot"><span class="annottext">Maybe Text
+passthroughBehavior :: Maybe Text
+$sel:passthroughBehavior:Integration' :: Integration -&gt; Maybe Text
+</span><a href="#local-6989586621679370245"><span class="hs-identifier hs-var hs-var">passthroughBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370245"><span class="hs-identifier hs-var">passthroughBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370244"><span class="annot"><span class="annottext">s :: Integration
+</span><a href="#local-6989586621679370244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370243"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integration
+</span><a href="#local-6989586621679370244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passthroughBehavior:Integration' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3ApassthroughBehavior%3AIntegration%27"><span class="hs-identifier hs-var">passthroughBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-471"></span><span>
+</span><span id="line-472"></span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-473"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/apigateway/api-reference/resource/vpc-link/#id id&gt;)</span><span>
+</span><span id="line-474"></span><span class="hs-comment">-- of the VpcLink used for the integration when @connectionType=VPC_LINK@</span><span>
+</span><span id="line-475"></span><span class="hs-comment">-- and undefined, otherwise.</span><span>
+</span><span id="line-476"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#integration_connectionId"><span class="hs-identifier hs-type">integration_connectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-477"></span><span id="integration_connectionId"><span class="annot"><span class="annottext">integration_connectionId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Integration -&gt; f Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#integration_connectionId"><span class="hs-identifier hs-var hs-var">integration_connectionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Integration -&gt; Maybe Text)
+-&gt; (Integration -&gt; Maybe Text -&gt; Integration)
+-&gt; Lens Integration Integration (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370241"><span class="annot"><span class="annottext">Maybe Text
+connectionId :: Maybe Text
+$sel:connectionId:Integration' :: Integration -&gt; Maybe Text
+</span><a href="#local-6989586621679370241"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370241"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370240"><span class="annot"><span class="annottext">s :: Integration
+</span><a href="#local-6989586621679370240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370239"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integration
+</span><a href="#local-6989586621679370240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:Integration' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AconnectionId%3AIntegration%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-478"></span><span>
+</span><span id="line-479"></span><span class="hs-comment">-- | Custom timeout between 50 and 29,000 milliseconds. The default value is</span><span>
+</span><span id="line-480"></span><span class="hs-comment">-- 29,000 milliseconds or 29 seconds.</span><span>
+</span><span id="line-481"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#integration_timeoutInMillis"><span class="hs-identifier hs-type">integration_timeoutInMillis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-482"></span><span id="integration_timeoutInMillis"><span class="annot"><span class="annottext">integration_timeoutInMillis :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Integration -&gt; f Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#integration_timeoutInMillis"><span class="hs-identifier hs-var hs-var">integration_timeoutInMillis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Integration -&gt; Maybe Int)
+-&gt; (Integration -&gt; Maybe Int -&gt; Integration)
+-&gt; Lens Integration Integration (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370237"><span class="annot"><span class="annottext">Maybe Int
+timeoutInMillis :: Maybe Int
+$sel:timeoutInMillis:Integration' :: Integration -&gt; Maybe Int
+</span><a href="#local-6989586621679370237"><span class="hs-identifier hs-var hs-var">timeoutInMillis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679370237"><span class="hs-identifier hs-var">timeoutInMillis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370236"><span class="annot"><span class="annottext">s :: Integration
+</span><a href="#local-6989586621679370236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370235"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679370235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integration
+</span><a href="#local-6989586621679370236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutInMillis:Integration' :: Maybe Int
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AtimeoutInMillis%3AIntegration%27"><span class="hs-identifier hs-var">timeoutInMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679370235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-483"></span><span>
+</span><span id="line-484"></span><span class="hs-comment">-- | Represents a map of Velocity templates that are applied on the request</span><span>
+</span><span id="line-485"></span><span class="hs-comment">-- payload based on the value of the Content-Type header sent by the</span><span>
+</span><span id="line-486"></span><span class="hs-comment">-- client. The content type value is the key in this map, and the template</span><span>
+</span><span id="line-487"></span><span class="hs-comment">-- (as a String) is the value.</span><span>
+</span><span id="line-488"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#integration_requestTemplates"><span class="hs-identifier hs-type">integration_requestTemplates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-489"></span><span id="integration_requestTemplates"><span class="annot"><span class="annottext">integration_requestTemplates :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Integration -&gt; f Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#integration_requestTemplates"><span class="hs-identifier hs-var hs-var">integration_requestTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Integration -&gt; Maybe (HashMap Text Text))
+-&gt; (Integration -&gt; Maybe (HashMap Text Text) -&gt; Integration)
+-&gt; Lens
+     Integration
+     Integration
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370233"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+requestTemplates :: Maybe (HashMap Text Text)
+$sel:requestTemplates:Integration' :: Integration -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679370233"><span class="hs-identifier hs-var hs-var">requestTemplates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679370233"><span class="hs-identifier hs-var">requestTemplates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370232"><span class="annot"><span class="annottext">s :: Integration
+</span><a href="#local-6989586621679370232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370231"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679370231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integration
+</span><a href="#local-6989586621679370232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestTemplates:Integration' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3ArequestTemplates%3AIntegration%27"><span class="hs-identifier hs-var">requestTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679370231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Integration -&gt; f Integration)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Integration
+-&gt; f Integration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-490"></span><span>
+</span><span id="line-491"></span><span class="hs-comment">-- | Specifies a group of related cached parameters. By default, API Gateway</span><span>
+</span><span id="line-492"></span><span class="hs-comment">-- uses the resource ID as the @cacheNamespace@. You can specify the same</span><span>
+</span><span id="line-493"></span><span class="hs-comment">-- @cacheNamespace@ across resources to return the same cached data for</span><span>
+</span><span id="line-494"></span><span class="hs-comment">-- requests to different resources.</span><span>
+</span><span id="line-495"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#integration_cacheNamespace"><span class="hs-identifier hs-type">integration_cacheNamespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-496"></span><span id="integration_cacheNamespace"><span class="annot"><span class="annottext">integration_cacheNamespace :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Integration -&gt; f Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#integration_cacheNamespace"><span class="hs-identifier hs-var hs-var">integration_cacheNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Integration -&gt; Maybe Text)
+-&gt; (Integration -&gt; Maybe Text -&gt; Integration)
+-&gt; Lens Integration Integration (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370226"><span class="annot"><span class="annottext">Maybe Text
+cacheNamespace :: Maybe Text
+$sel:cacheNamespace:Integration' :: Integration -&gt; Maybe Text
+</span><a href="#local-6989586621679370226"><span class="hs-identifier hs-var hs-var">cacheNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370226"><span class="hs-identifier hs-var">cacheNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370225"><span class="annot"><span class="annottext">s :: Integration
+</span><a href="#local-6989586621679370225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370224"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integration
+</span><a href="#local-6989586621679370225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheNamespace:Integration' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AcacheNamespace%3AIntegration%27"><span class="hs-identifier hs-var">cacheNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-497"></span><span>
+</span><span id="line-498"></span><span class="hs-comment">-- | Specifies the TLS configuration for an integration.</span><span>
+</span><span id="line-499"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#integration_tlsConfig"><span class="hs-identifier hs-type">integration_tlsConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig"><span class="hs-identifier hs-type">TlsConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-500"></span><span id="integration_tlsConfig"><span class="annot"><span class="annottext">integration_tlsConfig :: (Maybe TlsConfig -&gt; f (Maybe TlsConfig))
+-&gt; Integration -&gt; f Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#integration_tlsConfig"><span class="hs-identifier hs-var hs-var">integration_tlsConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Integration -&gt; Maybe TlsConfig)
+-&gt; (Integration -&gt; Maybe TlsConfig -&gt; Integration)
+-&gt; Lens Integration Integration (Maybe TlsConfig) (Maybe TlsConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370222"><span class="annot"><span class="annottext">Maybe TlsConfig
+tlsConfig :: Maybe TlsConfig
+$sel:tlsConfig:Integration' :: Integration -&gt; Maybe TlsConfig
+</span><a href="#local-6989586621679370222"><span class="hs-identifier hs-var hs-var">tlsConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TlsConfig
+</span><a href="#local-6989586621679370222"><span class="hs-identifier hs-var">tlsConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370221"><span class="annot"><span class="annottext">s :: Integration
+</span><a href="#local-6989586621679370221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370220"><span class="annot"><span class="annottext">Maybe TlsConfig
+</span><a href="#local-6989586621679370220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integration
+</span><a href="#local-6989586621679370221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tlsConfig:Integration' :: Maybe TlsConfig
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AtlsConfig%3AIntegration%27"><span class="hs-identifier hs-var">tlsConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TlsConfig
+</span><a href="#local-6989586621679370220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-501"></span><span>
+</span><span id="line-502"></span><span class="hs-comment">-- | A list of request parameters whose values API Gateway caches. To be</span><span>
+</span><span id="line-503"></span><span class="hs-comment">-- valid values for @cacheKeyParameters@, these parameters must also be</span><span>
+</span><span id="line-504"></span><span class="hs-comment">-- specified for Method @requestParameters@.</span><span>
+</span><span id="line-505"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#integration_cacheKeyParameters"><span class="hs-identifier hs-type">integration_cacheKeyParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-506"></span><span id="integration_cacheKeyParameters"><span class="annot"><span class="annottext">integration_cacheKeyParameters :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Integration -&gt; f Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#integration_cacheKeyParameters"><span class="hs-identifier hs-var hs-var">integration_cacheKeyParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Integration -&gt; Maybe [Text])
+-&gt; (Integration -&gt; Maybe [Text] -&gt; Integration)
+-&gt; Lens Integration Integration (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370218"><span class="annot"><span class="annottext">Maybe [Text]
+cacheKeyParameters :: Maybe [Text]
+$sel:cacheKeyParameters:Integration' :: Integration -&gt; Maybe [Text]
+</span><a href="#local-6989586621679370218"><span class="hs-identifier hs-var hs-var">cacheKeyParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679370218"><span class="hs-identifier hs-var">cacheKeyParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370217"><span class="annot"><span class="annottext">s :: Integration
+</span><a href="#local-6989586621679370217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370216"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679370216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integration
+</span><a href="#local-6989586621679370217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheKeyParameters:Integration' :: Maybe [Text]
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AcacheKeyParameters%3AIntegration%27"><span class="hs-identifier hs-var">cacheKeyParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679370216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; Integration -&gt; f Integration)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Integration
+-&gt; f Integration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-507"></span><span>
+</span><span id="line-508"></span><span class="hs-comment">-- | Specifies the integration\'s responses.</span><span>
+</span><span id="line-509"></span><span class="hs-comment">--</span><span>
+</span><span id="line-510"></span><span class="hs-comment">-- ==== Example: Get integration responses of a method</span><span>
+</span><span id="line-511"></span><span class="hs-comment">--</span><span>
+</span><span id="line-512"></span><span class="hs-comment">-- ===== Request</span><span>
+</span><span id="line-513"></span><span class="hs-comment">--</span><span>
+</span><span id="line-514"></span><span class="hs-comment">-- &gt; GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200 HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160607T191449Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160607/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}</span><span>
+</span><span id="line-515"></span><span class="hs-comment">--</span><span>
+</span><span id="line-516"></span><span class="hs-comment">-- ===== Response</span><span>
+</span><span id="line-517"></span><span class="hs-comment">--</span><span>
+</span><span id="line-518"></span><span class="hs-comment">-- The successful response returns @200 OK@ status and a payload as</span><span>
+</span><span id="line-519"></span><span class="hs-comment">-- follows:</span><span>
+</span><span id="line-520"></span><span class="hs-comment">--</span><span>
+</span><span id="line-521"></span><span class="hs-comment">-- &gt; { &quot;_links&quot;: { &quot;curies&quot;: { &quot;href&quot;: &quot;https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html&quot;, &quot;name&quot;: &quot;integrationresponse&quot;, &quot;templated&quot;: true }, &quot;self&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200&quot;, &quot;title&quot;: &quot;200&quot; }, &quot;integrationresponse:delete&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200&quot; }, &quot;integrationresponse:update&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200&quot; } }, &quot;responseParameters&quot;: { &quot;method.response.header.Content-Type&quot;: &quot;'application/xml'&quot; }, &quot;responseTemplates&quot;: { &quot;application/json&quot;: &quot;$util.urlDecode(\&quot;%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\&quot;)\n&quot; }, &quot;statusCode&quot;: &quot;200&quot; }</span><span>
+</span><span id="line-522"></span><span class="hs-comment">--</span><span>
+</span><span id="line-523"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API&gt;</span><span>
+</span><span id="line-524"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#integration_integrationResponses"><span class="hs-identifier hs-type">integration_integrationResponses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationResponse.html#IntegrationResponse"><span class="hs-identifier hs-type">IntegrationResponse</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-525"></span><span id="integration_integrationResponses"><span class="annot"><span class="annottext">integration_integrationResponses :: (Maybe (HashMap Text IntegrationResponse)
+ -&gt; f (Maybe (HashMap Text IntegrationResponse)))
+-&gt; Integration -&gt; f Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#integration_integrationResponses"><span class="hs-identifier hs-var hs-var">integration_integrationResponses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Integration -&gt; Maybe (HashMap Text IntegrationResponse))
+-&gt; (Integration
+    -&gt; Maybe (HashMap Text IntegrationResponse) -&gt; Integration)
+-&gt; Lens
+     Integration
+     Integration
+     (Maybe (HashMap Text IntegrationResponse))
+     (Maybe (HashMap Text IntegrationResponse))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370214"><span class="annot"><span class="annottext">Maybe (HashMap Text IntegrationResponse)
+integrationResponses :: Maybe (HashMap Text IntegrationResponse)
+$sel:integrationResponses:Integration' :: Integration -&gt; Maybe (HashMap Text IntegrationResponse)
+</span><a href="#local-6989586621679370214"><span class="hs-identifier hs-var hs-var">integrationResponses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text IntegrationResponse)
+</span><a href="#local-6989586621679370214"><span class="hs-identifier hs-var">integrationResponses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370213"><span class="annot"><span class="annottext">s :: Integration
+</span><a href="#local-6989586621679370213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370212"><span class="annot"><span class="annottext">Maybe (HashMap Text IntegrationResponse)
+</span><a href="#local-6989586621679370212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integration
+</span><a href="#local-6989586621679370213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integrationResponses:Integration' :: Maybe (HashMap Text IntegrationResponse)
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3AintegrationResponses%3AIntegration%27"><span class="hs-identifier hs-var">integrationResponses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text IntegrationResponse)
+</span><a href="#local-6989586621679370212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text IntegrationResponse)
+  -&gt; f (Maybe (HashMap Text IntegrationResponse)))
+ -&gt; Integration -&gt; f Integration)
+-&gt; ((Maybe (HashMap Text IntegrationResponse)
+     -&gt; f (Maybe (HashMap Text IntegrationResponse)))
+    -&gt; Maybe (HashMap Text IntegrationResponse)
+    -&gt; f (Maybe (HashMap Text IntegrationResponse)))
+-&gt; (Maybe (HashMap Text IntegrationResponse)
+    -&gt; f (Maybe (HashMap Text IntegrationResponse)))
+-&gt; Integration
+-&gt; f Integration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text IntegrationResponse)
+  (HashMap Text IntegrationResponse)
+  (HashMap Text IntegrationResponse)
+  (HashMap Text IntegrationResponse)
+-&gt; Iso
+     (Maybe (HashMap Text IntegrationResponse))
+     (Maybe (HashMap Text IntegrationResponse))
+     (Maybe (HashMap Text IntegrationResponse))
+     (Maybe (HashMap Text IntegrationResponse))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text IntegrationResponse)
+  (HashMap Text IntegrationResponse)
+  (HashMap Text IntegrationResponse)
+  (HashMap Text IntegrationResponse)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-526"></span><span>
+</span><span id="line-527"></span><span class="hs-comment">-- | A key-value map specifying request parameters that are passed from the</span><span>
+</span><span id="line-528"></span><span class="hs-comment">-- method request to the back end. The key is an integration request</span><span>
+</span><span id="line-529"></span><span class="hs-comment">-- parameter name and the associated value is a method request parameter</span><span>
+</span><span id="line-530"></span><span class="hs-comment">-- value or static value that must be enclosed within single quotes and</span><span>
+</span><span id="line-531"></span><span class="hs-comment">-- pre-encoded as required by the back end. The method request parameter</span><span>
+</span><span id="line-532"></span><span class="hs-comment">-- value must match the pattern of @method.request.{location}.{name}@,</span><span>
+</span><span id="line-533"></span><span class="hs-comment">-- where @location@ is @querystring@, @path@, or @header@ and @name@ must</span><span>
+</span><span id="line-534"></span><span class="hs-comment">-- be a valid and unique method request parameter name.</span><span>
+</span><span id="line-535"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#integration_requestParameters"><span class="hs-identifier hs-type">integration_requestParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-536"></span><span id="integration_requestParameters"><span class="annot"><span class="annottext">integration_requestParameters :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Integration -&gt; f Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#integration_requestParameters"><span class="hs-identifier hs-var hs-var">integration_requestParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Integration -&gt; Maybe (HashMap Text Text))
+-&gt; (Integration -&gt; Maybe (HashMap Text Text) -&gt; Integration)
+-&gt; Lens
+     Integration
+     Integration
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370210"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+requestParameters :: Maybe (HashMap Text Text)
+$sel:requestParameters:Integration' :: Integration -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679370210"><span class="hs-identifier hs-var hs-var">requestParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679370210"><span class="hs-identifier hs-var">requestParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370209"><span class="annot"><span class="annottext">s :: Integration
+</span><a href="#local-6989586621679370209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370208"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679370208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integration
+</span><a href="#local-6989586621679370209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestParameters:Integration' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3ArequestParameters%3AIntegration%27"><span class="hs-identifier hs-var">requestParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679370208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Integration -&gt; f Integration)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Integration
+-&gt; f Integration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-537"></span><span>
+</span><span id="line-538"></span><span class="hs-comment">-- | Specifies the credentials required for the integration, if any. For AWS</span><span>
+</span><span id="line-539"></span><span class="hs-comment">-- integrations, three options are available. To specify an IAM Role for</span><span>
+</span><span id="line-540"></span><span class="hs-comment">-- API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To</span><span>
+</span><span id="line-541"></span><span class="hs-comment">-- require that the caller\'s identity be passed through from the request,</span><span>
+</span><span id="line-542"></span><span class="hs-comment">-- specify the string @arn:aws:iam::\\*:user\/\\*@. To use resource-based</span><span>
+</span><span id="line-543"></span><span class="hs-comment">-- permissions on supported AWS services, specify null.</span><span>
+</span><span id="line-544"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#integration_credentials"><span class="hs-identifier hs-type">integration_credentials</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-545"></span><span id="integration_credentials"><span class="annot"><span class="annottext">integration_credentials :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Integration -&gt; f Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#integration_credentials"><span class="hs-identifier hs-var hs-var">integration_credentials</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Integration -&gt; Maybe Text)
+-&gt; (Integration -&gt; Maybe Text -&gt; Integration)
+-&gt; Lens Integration Integration (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370206"><span class="annot"><span class="annottext">Maybe Text
+credentials :: Maybe Text
+$sel:credentials:Integration' :: Integration -&gt; Maybe Text
+</span><a href="#local-6989586621679370206"><span class="hs-identifier hs-var hs-var">credentials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370206"><span class="hs-identifier hs-var">credentials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370205"><span class="annot"><span class="annottext">s :: Integration
+</span><a href="#local-6989586621679370205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370204"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integration
+</span><a href="#local-6989586621679370205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:credentials:Integration' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3Acredentials%3AIntegration%27"><span class="hs-identifier hs-var">credentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-546"></span><span>
+</span><span id="line-547"></span><span class="hs-comment">-- | Specifies an API method integration type. The valid value is one of the</span><span>
+</span><span id="line-548"></span><span class="hs-comment">-- following:</span><span>
+</span><span id="line-549"></span><span class="hs-comment">--</span><span>
+</span><span id="line-550"></span><span class="hs-comment">-- -   @AWS@: for integrating the API method request with an AWS service</span><span>
+</span><span id="line-551"></span><span class="hs-comment">--     action, including the Lambda function-invoking action. With the</span><span>
+</span><span id="line-552"></span><span class="hs-comment">--     Lambda function-invoking action, this is referred to as the Lambda</span><span>
+</span><span id="line-553"></span><span class="hs-comment">--     custom integration. With any other AWS service action, this is known</span><span>
+</span><span id="line-554"></span><span class="hs-comment">--     as AWS integration.</span><span>
+</span><span id="line-555"></span><span class="hs-comment">-- -   @AWS_PROXY@: for integrating the API method request with the Lambda</span><span>
+</span><span id="line-556"></span><span class="hs-comment">--     function-invoking action with the client request passed through</span><span>
+</span><span id="line-557"></span><span class="hs-comment">--     as-is. This integration is also referred to as the Lambda proxy</span><span>
+</span><span id="line-558"></span><span class="hs-comment">--     integration.</span><span>
+</span><span id="line-559"></span><span class="hs-comment">-- -   @HTTP@: for integrating the API method request with an HTTP</span><span>
+</span><span id="line-560"></span><span class="hs-comment">--     endpoint, including a private HTTP endpoint within a VPC. This</span><span>
+</span><span id="line-561"></span><span class="hs-comment">--     integration is also referred to as the HTTP custom integration.</span><span>
+</span><span id="line-562"></span><span class="hs-comment">-- -   @HTTP_PROXY@: for integrating the API method request with an HTTP</span><span>
+</span><span id="line-563"></span><span class="hs-comment">--     endpoint, including a private HTTP endpoint within a VPC, with the</span><span>
+</span><span id="line-564"></span><span class="hs-comment">--     client request passed through as-is. This is also referred to as the</span><span>
+</span><span id="line-565"></span><span class="hs-comment">--     HTTP proxy integration.</span><span>
+</span><span id="line-566"></span><span class="hs-comment">-- -   @MOCK@: for integrating the API method request with API Gateway as a</span><span>
+</span><span id="line-567"></span><span class="hs-comment">--     \&quot;loop-back\&quot; endpoint without invoking any backend.</span><span>
+</span><span id="line-568"></span><span class="hs-comment">--</span><span>
+</span><span id="line-569"></span><span class="hs-comment">-- For the HTTP and HTTP proxy integrations, each integration can specify a</span><span>
+</span><span id="line-570"></span><span class="hs-comment">-- protocol (@http\/https@), port and path. Standard 80 and 443 ports are</span><span>
+</span><span id="line-571"></span><span class="hs-comment">-- supported as well as custom ports above 1024. An HTTP or HTTP proxy</span><span>
+</span><span id="line-572"></span><span class="hs-comment">-- integration with a @connectionType@ of @VPC_LINK@ is referred to as a</span><span>
+</span><span id="line-573"></span><span class="hs-comment">-- private integration and uses a VpcLink to connect API Gateway to a</span><span>
+</span><span id="line-574"></span><span class="hs-comment">-- network load balancer of a VPC.</span><span>
+</span><span id="line-575"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#integration_type"><span class="hs-identifier hs-type">integration_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationType.html#IntegrationType"><span class="hs-identifier hs-type">IntegrationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-576"></span><span id="integration_type"><span class="annot"><span class="annottext">integration_type :: (Maybe IntegrationType -&gt; f (Maybe IntegrationType))
+-&gt; Integration -&gt; f Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#integration_type"><span class="hs-identifier hs-var hs-var">integration_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Integration -&gt; Maybe IntegrationType)
+-&gt; (Integration -&gt; Maybe IntegrationType -&gt; Integration)
+-&gt; Lens
+     Integration
+     Integration
+     (Maybe IntegrationType)
+     (Maybe IntegrationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370202"><span class="annot"><span class="annottext">Maybe IntegrationType
+type' :: Maybe IntegrationType
+$sel:type':Integration' :: Integration -&gt; Maybe IntegrationType
+</span><a href="#local-6989586621679370202"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IntegrationType
+</span><a href="#local-6989586621679370202"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370201"><span class="annot"><span class="annottext">s :: Integration
+</span><a href="#local-6989586621679370201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-type">Integration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370200"><span class="annot"><span class="annottext">Maybe IntegrationType
+</span><a href="#local-6989586621679370200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integration
+</span><a href="#local-6989586621679370201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Integration' :: Maybe IntegrationType
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#%24sel%3Atype%27%3AIntegration%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IntegrationType
+</span><a href="#local-6989586621679370200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-577"></span><span>
+</span><span id="line-578"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370197"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-579"></span><span>  </span><span id="local-6989586621679370195"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Integration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-580"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Integration) -&gt; Value -&gt; Parser Integration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-581"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Integration&quot;</span></span><span>
+</span><span id="line-582"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370192"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-583"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ContentHandlingStrategy
+-&gt; Maybe Text
+-&gt; Maybe ConnectionType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe TlsConfig
+-&gt; Maybe [Text]
+-&gt; Maybe (HashMap Text IntegrationResponse)
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe IntegrationType
+-&gt; Integration
+</span><a href="Network.AWS.APIGateway.Types.Integration.html#Integration%27"><span class="hs-identifier hs-var">Integration'</span></a></span><span>
+</span><span id="line-584"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ContentHandlingStrategy
+ -&gt; Maybe Text
+ -&gt; Maybe ConnectionType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Maybe TlsConfig
+ -&gt; Maybe [Text]
+ -&gt; Maybe (HashMap Text IntegrationResponse)
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Maybe IntegrationType
+ -&gt; Integration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ContentHandlingStrategy
+      -&gt; Maybe Text
+      -&gt; Maybe ConnectionType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe TlsConfig
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text IntegrationResponse)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe IntegrationType
+      -&gt; Integration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;httpMethod&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-585"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ContentHandlingStrategy
+   -&gt; Maybe Text
+   -&gt; Maybe ConnectionType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe TlsConfig
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text IntegrationResponse)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe IntegrationType
+   -&gt; Integration)
+-&gt; Parser (Maybe ContentHandlingStrategy)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ConnectionType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe TlsConfig
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text IntegrationResponse)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe IntegrationType
+      -&gt; Integration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContentHandlingStrategy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contentHandling&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-586"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ConnectionType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe TlsConfig
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text IntegrationResponse)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe IntegrationType
+   -&gt; Integration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ConnectionType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe TlsConfig
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text IntegrationResponse)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe IntegrationType
+      -&gt; Integration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-587"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ConnectionType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe TlsConfig
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text IntegrationResponse)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe IntegrationType
+   -&gt; Integration)
+-&gt; Parser (Maybe ConnectionType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe TlsConfig
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text IntegrationResponse)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe IntegrationType
+      -&gt; Integration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConnectionType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-588"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe TlsConfig
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text IntegrationResponse)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe IntegrationType
+   -&gt; Integration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe TlsConfig
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text IntegrationResponse)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe IntegrationType
+      -&gt; Integration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;passthroughBehavior&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-589"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe TlsConfig
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text IntegrationResponse)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe IntegrationType
+   -&gt; Integration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe TlsConfig
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text IntegrationResponse)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe IntegrationType
+      -&gt; Integration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-590"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe TlsConfig
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text IntegrationResponse)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe IntegrationType
+   -&gt; Integration)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe TlsConfig
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text IntegrationResponse)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe IntegrationType
+      -&gt; Integration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timeoutInMillis&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-591"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe TlsConfig
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text IntegrationResponse)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe IntegrationType
+   -&gt; Integration)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe TlsConfig
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text IntegrationResponse)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe IntegrationType
+      -&gt; Integration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;requestTemplates&quot;</span></span><span>
+</span><span id="line-592"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-593"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-594"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe TlsConfig
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text IntegrationResponse)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe IntegrationType
+   -&gt; Integration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe TlsConfig
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text IntegrationResponse)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe IntegrationType
+      -&gt; Integration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cacheNamespace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-595"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TlsConfig
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text IntegrationResponse)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe IntegrationType
+   -&gt; Integration)
+-&gt; Parser (Maybe TlsConfig)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe (HashMap Text IntegrationResponse)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe IntegrationType
+      -&gt; Integration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TlsConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tlsConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-596"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe (HashMap Text IntegrationResponse)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe IntegrationType
+   -&gt; Integration)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe (HashMap Text IntegrationResponse)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe IntegrationType
+      -&gt; Integration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cacheKeyParameters&quot;</span></span><span>
+</span><span id="line-597"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-598"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-599"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text IntegrationResponse)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe IntegrationType
+   -&gt; Integration)
+-&gt; Parser (Maybe (HashMap Text IntegrationResponse))
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text -&gt; Maybe IntegrationType -&gt; Integration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe (Maybe (HashMap Text IntegrationResponse)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;integrationResponses&quot;</span></span><span>
+</span><span id="line-600"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text IntegrationResponse)))
+-&gt; Maybe (HashMap Text IntegrationResponse)
+-&gt; Parser (Maybe (HashMap Text IntegrationResponse))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text IntegrationResponse)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-601"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-602"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text -&gt; Maybe IntegrationType -&gt; Integration)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Maybe Text -&gt; Maybe IntegrationType -&gt; Integration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;requestParameters&quot;</span></span><span>
+</span><span id="line-603"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-604"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-605"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe IntegrationType -&gt; Integration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe IntegrationType -&gt; Integration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;credentials&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-606"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe IntegrationType -&gt; Integration)
+-&gt; Parser (Maybe IntegrationType) -&gt; Parser Integration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IntegrationType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-607"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-608"></span><span>
+</span><span id="line-609"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370185"><span id="local-6989586621679370187"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span></span></span><span>
+</span><span id="line-610"></span><span>
+</span><span id="line-611"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370182"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span></span><span>
+</span><span id="line-612"></span></pre></body></html>

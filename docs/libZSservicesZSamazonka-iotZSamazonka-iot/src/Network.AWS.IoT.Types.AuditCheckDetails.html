@@ -1,0 +1,470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.Types.AuditCheckDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.Types.AuditCheckDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckRunStatus.html"><span class="hs-identifier">Network.AWS.IoT.Types.AuditCheckRunStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about the audit check.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAuditCheckDetails' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679774092"><span id="local-6989586621679774093"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuditCheckDetails"><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-var">AuditCheckDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuditCheckDetails%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-var">AuditCheckDetails'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | True if the check is complete and found all resources compliant.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcheckCompliant%3AAuditCheckDetails%27"><span class="annot"><span class="annottext">AuditCheckDetails -&gt; Maybe Bool
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AcheckCompliant%3AAuditCheckDetails%27"><span class="hs-identifier hs-var hs-var">checkCompliant</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The message associated with any error encountered when this check is</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- performed during this audit.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Amessage%3AAuditCheckDetails%27"><span class="annot"><span class="annottext">AuditCheckDetails -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3Amessage%3AAuditCheckDetails%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Describes how many of the non-compliant resources created during the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- evaluation of an audit check were marked as suppressed.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsuppressedNonCompliantResourcesCount%3AAuditCheckDetails%27"><span class="annot"><span class="annottext">AuditCheckDetails -&gt; Maybe Integer
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AsuppressedNonCompliantResourcesCount%3AAuditCheckDetails%27"><span class="hs-identifier hs-var hs-var">suppressedNonCompliantResourcesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The completion status of this check. One of \&quot;IN_PROGRESS\&quot;,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- \&quot;WAITING_FOR_DATA_COLLECTION\&quot;, \&quot;CANCELED\&quot;, \&quot;COMPLETED_COMPLIANT\&quot;,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- \&quot;COMPLETED_NON_COMPLIANT\&quot;, or \&quot;FAILED\&quot;.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcheckRunStatus%3AAuditCheckDetails%27"><span class="annot"><span class="annottext">AuditCheckDetails -&gt; Maybe AuditCheckRunStatus
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AcheckRunStatus%3AAuditCheckDetails%27"><span class="hs-identifier hs-var hs-var">checkRunStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckRunStatus.html#AuditCheckRunStatus"><span class="hs-identifier hs-type">AuditCheckRunStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The number of resources on which the check was performed.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AtotalResourcesCount%3AAuditCheckDetails%27"><span class="annot"><span class="annottext">AuditCheckDetails -&gt; Maybe Integer
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AtotalResourcesCount%3AAuditCheckDetails%27"><span class="hs-identifier hs-var hs-var">totalResourcesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The code of any error encountered when this check is performed during</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- this audit. One of \&quot;INSUFFICIENT_PERMISSIONS\&quot; or</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- \&quot;AUDIT_CHECK_DISABLED\&quot;.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AerrorCode%3AAuditCheckDetails%27"><span class="annot"><span class="annottext">AuditCheckDetails -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AerrorCode%3AAuditCheckDetails%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The number of resources that were found noncompliant during the check.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AnonCompliantResourcesCount%3AAuditCheckDetails%27"><span class="annot"><span class="annottext">AuditCheckDetails -&gt; Maybe Integer
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AnonCompliantResourcesCount%3AAuditCheckDetails%27"><span class="hs-identifier hs-var hs-var">nonCompliantResourcesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679774080"><span id="local-6989586621679774082"><span class="annot"><span class="annottext">AuditCheckDetails -&gt; AuditCheckDetails -&gt; Bool
+(AuditCheckDetails -&gt; AuditCheckDetails -&gt; Bool)
+-&gt; (AuditCheckDetails -&gt; AuditCheckDetails -&gt; Bool)
+-&gt; Eq AuditCheckDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AuditCheckDetails -&gt; AuditCheckDetails -&gt; Bool
+$c/= :: AuditCheckDetails -&gt; AuditCheckDetails -&gt; Bool
+== :: AuditCheckDetails -&gt; AuditCheckDetails -&gt; Bool
+$c== :: AuditCheckDetails -&gt; AuditCheckDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774071"><span id="local-6989586621679774073"><span id="local-6989586621679774075"><span id="local-6989586621679774077"><span class="annot"><span class="annottext">ReadPrec [AuditCheckDetails]
+ReadPrec AuditCheckDetails
+Int -&gt; ReadS AuditCheckDetails
+ReadS [AuditCheckDetails]
+(Int -&gt; ReadS AuditCheckDetails)
+-&gt; ReadS [AuditCheckDetails]
+-&gt; ReadPrec AuditCheckDetails
+-&gt; ReadPrec [AuditCheckDetails]
+-&gt; Read AuditCheckDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AuditCheckDetails]
+$creadListPrec :: ReadPrec [AuditCheckDetails]
+readPrec :: ReadPrec AuditCheckDetails
+$creadPrec :: ReadPrec AuditCheckDetails
+readList :: ReadS [AuditCheckDetails]
+$creadList :: ReadS [AuditCheckDetails]
+readsPrec :: Int -&gt; ReadS AuditCheckDetails
+$creadsPrec :: Int -&gt; ReadS AuditCheckDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774064"><span id="local-6989586621679774066"><span id="local-6989586621679774068"><span class="annot"><span class="annottext">Int -&gt; AuditCheckDetails -&gt; ShowS
+[AuditCheckDetails] -&gt; ShowS
+AuditCheckDetails -&gt; String
+(Int -&gt; AuditCheckDetails -&gt; ShowS)
+-&gt; (AuditCheckDetails -&gt; String)
+-&gt; ([AuditCheckDetails] -&gt; ShowS)
+-&gt; Show AuditCheckDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AuditCheckDetails] -&gt; ShowS
+$cshowList :: [AuditCheckDetails] -&gt; ShowS
+show :: AuditCheckDetails -&gt; String
+$cshow :: AuditCheckDetails -&gt; String
+showsPrec :: Int -&gt; AuditCheckDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; AuditCheckDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AuditCheckDetails -&gt; Rep AuditCheckDetails x)
+-&gt; (forall x. Rep AuditCheckDetails x -&gt; AuditCheckDetails)
+-&gt; Generic AuditCheckDetails
+forall x. Rep AuditCheckDetails x -&gt; AuditCheckDetails
+forall x. AuditCheckDetails -&gt; Rep AuditCheckDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AuditCheckDetails x -&gt; AuditCheckDetails
+$cfrom :: forall x. AuditCheckDetails -&gt; Rep AuditCheckDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'AuditCheckDetails' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'checkCompliant', 'auditCheckDetails_checkCompliant' - True if the check is complete and found all resources compliant.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'message', 'auditCheckDetails_message' - The message associated with any error encountered when this check is</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- performed during this audit.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'suppressedNonCompliantResourcesCount', 'auditCheckDetails_suppressedNonCompliantResourcesCount' - Describes how many of the non-compliant resources created during the</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- evaluation of an audit check were marked as suppressed.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'checkRunStatus', 'auditCheckDetails_checkRunStatus' - The completion status of this check. One of \&quot;IN_PROGRESS\&quot;,</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- \&quot;WAITING_FOR_DATA_COLLECTION\&quot;, \&quot;CANCELED\&quot;, \&quot;COMPLETED_COMPLIANT\&quot;,</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- \&quot;COMPLETED_NON_COMPLIANT\&quot;, or \&quot;FAILED\&quot;.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'totalResourcesCount', 'auditCheckDetails_totalResourcesCount' - The number of resources on which the check was performed.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'errorCode', 'auditCheckDetails_errorCode' - The code of any error encountered when this check is performed during</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- this audit. One of \&quot;INSUFFICIENT_PERMISSIONS\&quot; or</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- \&quot;AUDIT_CHECK_DISABLED\&quot;.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'nonCompliantResourcesCount', 'auditCheckDetails_nonCompliantResourcesCount' - The number of resources that were found noncompliant during the check.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#newAuditCheckDetails"><span class="hs-identifier hs-type">newAuditCheckDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span><span>
+</span><span id="line-83"></span><span id="newAuditCheckDetails"><span class="annot"><span class="annottext">newAuditCheckDetails :: AuditCheckDetails
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#newAuditCheckDetails"><span class="hs-identifier hs-var hs-var">newAuditCheckDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">AuditCheckDetails' :: Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe AuditCheckRunStatus
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; AuditCheckDetails
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-type">AuditCheckDetails'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:checkCompliant:AuditCheckDetails' :: Maybe Bool
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AcheckCompliant%3AAuditCheckDetails%27"><span class="hs-identifier hs-var">checkCompliant</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:AuditCheckDetails' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3Amessage%3AAuditCheckDetails%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:suppressedNonCompliantResourcesCount:AuditCheckDetails' :: Maybe Integer
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AsuppressedNonCompliantResourcesCount%3AAuditCheckDetails%27"><span class="hs-identifier hs-var">suppressedNonCompliantResourcesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:checkRunStatus:AuditCheckDetails' :: Maybe AuditCheckRunStatus
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AcheckRunStatus%3AAuditCheckDetails%27"><span class="hs-identifier hs-var">checkRunStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuditCheckRunStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalResourcesCount:AuditCheckDetails' :: Maybe Integer
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AtotalResourcesCount%3AAuditCheckDetails%27"><span class="hs-identifier hs-var">totalResourcesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:AuditCheckDetails' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AerrorCode%3AAuditCheckDetails%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:nonCompliantResourcesCount:AuditCheckDetails' :: Maybe Integer
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AnonCompliantResourcesCount%3AAuditCheckDetails%27"><span class="hs-identifier hs-var">nonCompliantResourcesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | True if the check is complete and found all resources compliant.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#auditCheckDetails_checkCompliant"><span class="hs-identifier hs-type">auditCheckDetails_checkCompliant</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="auditCheckDetails_checkCompliant"><span class="annot"><span class="annottext">auditCheckDetails_checkCompliant :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AuditCheckDetails -&gt; f AuditCheckDetails
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#auditCheckDetails_checkCompliant"><span class="hs-identifier hs-var hs-var">auditCheckDetails_checkCompliant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuditCheckDetails -&gt; Maybe Bool)
+-&gt; (AuditCheckDetails -&gt; Maybe Bool -&gt; AuditCheckDetails)
+-&gt; Lens
+     AuditCheckDetails AuditCheckDetails (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-type">AuditCheckDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774055"><span class="annot"><span class="annottext">Maybe Bool
+checkCompliant :: Maybe Bool
+$sel:checkCompliant:AuditCheckDetails' :: AuditCheckDetails -&gt; Maybe Bool
+</span><a href="#local-6989586621679774055"><span class="hs-identifier hs-var hs-var">checkCompliant</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679774055"><span class="hs-identifier hs-var">checkCompliant</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774054"><span class="annot"><span class="annottext">s :: AuditCheckDetails
+</span><a href="#local-6989586621679774054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-type">AuditCheckDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774053"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679774053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditCheckDetails
+</span><a href="#local-6989586621679774054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkCompliant:AuditCheckDetails' :: Maybe Bool
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AcheckCompliant%3AAuditCheckDetails%27"><span class="hs-identifier hs-var">checkCompliant</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679774053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The message associated with any error encountered when this check is</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- performed during this audit.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#auditCheckDetails_message"><span class="hs-identifier hs-type">auditCheckDetails_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="auditCheckDetails_message"><span class="annot"><span class="annottext">auditCheckDetails_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuditCheckDetails -&gt; f AuditCheckDetails
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#auditCheckDetails_message"><span class="hs-identifier hs-var hs-var">auditCheckDetails_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuditCheckDetails -&gt; Maybe Text)
+-&gt; (AuditCheckDetails -&gt; Maybe Text -&gt; AuditCheckDetails)
+-&gt; Lens
+     AuditCheckDetails AuditCheckDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-type">AuditCheckDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774051"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:AuditCheckDetails' :: AuditCheckDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679774051"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774051"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774050"><span class="annot"><span class="annottext">s :: AuditCheckDetails
+</span><a href="#local-6989586621679774050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-type">AuditCheckDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774049"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditCheckDetails
+</span><a href="#local-6989586621679774050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:AuditCheckDetails' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3Amessage%3AAuditCheckDetails%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Describes how many of the non-compliant resources created during the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- evaluation of an audit check were marked as suppressed.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#auditCheckDetails_suppressedNonCompliantResourcesCount"><span class="hs-identifier hs-type">auditCheckDetails_suppressedNonCompliantResourcesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="auditCheckDetails_suppressedNonCompliantResourcesCount"><span class="annot"><span class="annottext">auditCheckDetails_suppressedNonCompliantResourcesCount :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; AuditCheckDetails -&gt; f AuditCheckDetails
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#auditCheckDetails_suppressedNonCompliantResourcesCount"><span class="hs-identifier hs-var hs-var">auditCheckDetails_suppressedNonCompliantResourcesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuditCheckDetails -&gt; Maybe Integer)
+-&gt; (AuditCheckDetails -&gt; Maybe Integer -&gt; AuditCheckDetails)
+-&gt; Lens
+     AuditCheckDetails AuditCheckDetails (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-type">AuditCheckDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774047"><span class="annot"><span class="annottext">Maybe Integer
+suppressedNonCompliantResourcesCount :: Maybe Integer
+$sel:suppressedNonCompliantResourcesCount:AuditCheckDetails' :: AuditCheckDetails -&gt; Maybe Integer
+</span><a href="#local-6989586621679774047"><span class="hs-identifier hs-var hs-var">suppressedNonCompliantResourcesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679774047"><span class="hs-identifier hs-var">suppressedNonCompliantResourcesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774046"><span class="annot"><span class="annottext">s :: AuditCheckDetails
+</span><a href="#local-6989586621679774046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-type">AuditCheckDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774045"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679774045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditCheckDetails
+</span><a href="#local-6989586621679774046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressedNonCompliantResourcesCount:AuditCheckDetails' :: Maybe Integer
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AsuppressedNonCompliantResourcesCount%3AAuditCheckDetails%27"><span class="hs-identifier hs-var">suppressedNonCompliantResourcesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679774045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The completion status of this check. One of \&quot;IN_PROGRESS\&quot;,</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- \&quot;WAITING_FOR_DATA_COLLECTION\&quot;, \&quot;CANCELED\&quot;, \&quot;COMPLETED_COMPLIANT\&quot;,</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- \&quot;COMPLETED_NON_COMPLIANT\&quot;, or \&quot;FAILED\&quot;.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#auditCheckDetails_checkRunStatus"><span class="hs-identifier hs-type">auditCheckDetails_checkRunStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckRunStatus.html#AuditCheckRunStatus"><span class="hs-identifier hs-type">AuditCheckRunStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="auditCheckDetails_checkRunStatus"><span class="annot"><span class="annottext">auditCheckDetails_checkRunStatus :: (Maybe AuditCheckRunStatus -&gt; f (Maybe AuditCheckRunStatus))
+-&gt; AuditCheckDetails -&gt; f AuditCheckDetails
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#auditCheckDetails_checkRunStatus"><span class="hs-identifier hs-var hs-var">auditCheckDetails_checkRunStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuditCheckDetails -&gt; Maybe AuditCheckRunStatus)
+-&gt; (AuditCheckDetails
+    -&gt; Maybe AuditCheckRunStatus -&gt; AuditCheckDetails)
+-&gt; Lens
+     AuditCheckDetails
+     AuditCheckDetails
+     (Maybe AuditCheckRunStatus)
+     (Maybe AuditCheckRunStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-type">AuditCheckDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774043"><span class="annot"><span class="annottext">Maybe AuditCheckRunStatus
+checkRunStatus :: Maybe AuditCheckRunStatus
+$sel:checkRunStatus:AuditCheckDetails' :: AuditCheckDetails -&gt; Maybe AuditCheckRunStatus
+</span><a href="#local-6989586621679774043"><span class="hs-identifier hs-var hs-var">checkRunStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuditCheckRunStatus
+</span><a href="#local-6989586621679774043"><span class="hs-identifier hs-var">checkRunStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774042"><span class="annot"><span class="annottext">s :: AuditCheckDetails
+</span><a href="#local-6989586621679774042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-type">AuditCheckDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774041"><span class="annot"><span class="annottext">Maybe AuditCheckRunStatus
+</span><a href="#local-6989586621679774041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditCheckDetails
+</span><a href="#local-6989586621679774042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkRunStatus:AuditCheckDetails' :: Maybe AuditCheckRunStatus
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AcheckRunStatus%3AAuditCheckDetails%27"><span class="hs-identifier hs-var">checkRunStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuditCheckRunStatus
+</span><a href="#local-6989586621679774041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The number of resources on which the check was performed.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#auditCheckDetails_totalResourcesCount"><span class="hs-identifier hs-type">auditCheckDetails_totalResourcesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="auditCheckDetails_totalResourcesCount"><span class="annot"><span class="annottext">auditCheckDetails_totalResourcesCount :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; AuditCheckDetails -&gt; f AuditCheckDetails
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#auditCheckDetails_totalResourcesCount"><span class="hs-identifier hs-var hs-var">auditCheckDetails_totalResourcesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuditCheckDetails -&gt; Maybe Integer)
+-&gt; (AuditCheckDetails -&gt; Maybe Integer -&gt; AuditCheckDetails)
+-&gt; Lens
+     AuditCheckDetails AuditCheckDetails (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-type">AuditCheckDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774039"><span class="annot"><span class="annottext">Maybe Integer
+totalResourcesCount :: Maybe Integer
+$sel:totalResourcesCount:AuditCheckDetails' :: AuditCheckDetails -&gt; Maybe Integer
+</span><a href="#local-6989586621679774039"><span class="hs-identifier hs-var hs-var">totalResourcesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679774039"><span class="hs-identifier hs-var">totalResourcesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774038"><span class="annot"><span class="annottext">s :: AuditCheckDetails
+</span><a href="#local-6989586621679774038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-type">AuditCheckDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774037"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679774037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditCheckDetails
+</span><a href="#local-6989586621679774038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalResourcesCount:AuditCheckDetails' :: Maybe Integer
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AtotalResourcesCount%3AAuditCheckDetails%27"><span class="hs-identifier hs-var">totalResourcesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679774037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The code of any error encountered when this check is performed during</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- this audit. One of \&quot;INSUFFICIENT_PERMISSIONS\&quot; or</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- \&quot;AUDIT_CHECK_DISABLED\&quot;.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#auditCheckDetails_errorCode"><span class="hs-identifier hs-type">auditCheckDetails_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="auditCheckDetails_errorCode"><span class="annot"><span class="annottext">auditCheckDetails_errorCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuditCheckDetails -&gt; f AuditCheckDetails
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#auditCheckDetails_errorCode"><span class="hs-identifier hs-var hs-var">auditCheckDetails_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuditCheckDetails -&gt; Maybe Text)
+-&gt; (AuditCheckDetails -&gt; Maybe Text -&gt; AuditCheckDetails)
+-&gt; Lens
+     AuditCheckDetails AuditCheckDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-type">AuditCheckDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774035"><span class="annot"><span class="annottext">Maybe Text
+errorCode :: Maybe Text
+$sel:errorCode:AuditCheckDetails' :: AuditCheckDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679774035"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774035"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774034"><span class="annot"><span class="annottext">s :: AuditCheckDetails
+</span><a href="#local-6989586621679774034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-type">AuditCheckDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774033"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditCheckDetails
+</span><a href="#local-6989586621679774034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:AuditCheckDetails' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AerrorCode%3AAuditCheckDetails%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The number of resources that were found noncompliant during the check.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#auditCheckDetails_nonCompliantResourcesCount"><span class="hs-identifier hs-type">auditCheckDetails_nonCompliantResourcesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="auditCheckDetails_nonCompliantResourcesCount"><span class="annot"><span class="annottext">auditCheckDetails_nonCompliantResourcesCount :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; AuditCheckDetails -&gt; f AuditCheckDetails
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#auditCheckDetails_nonCompliantResourcesCount"><span class="hs-identifier hs-var hs-var">auditCheckDetails_nonCompliantResourcesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuditCheckDetails -&gt; Maybe Integer)
+-&gt; (AuditCheckDetails -&gt; Maybe Integer -&gt; AuditCheckDetails)
+-&gt; Lens
+     AuditCheckDetails AuditCheckDetails (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-type">AuditCheckDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774031"><span class="annot"><span class="annottext">Maybe Integer
+nonCompliantResourcesCount :: Maybe Integer
+$sel:nonCompliantResourcesCount:AuditCheckDetails' :: AuditCheckDetails -&gt; Maybe Integer
+</span><a href="#local-6989586621679774031"><span class="hs-identifier hs-var hs-var">nonCompliantResourcesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679774031"><span class="hs-identifier hs-var">nonCompliantResourcesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774030"><span class="annot"><span class="annottext">s :: AuditCheckDetails
+</span><a href="#local-6989586621679774030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-type">AuditCheckDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774029"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679774029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditCheckDetails
+</span><a href="#local-6989586621679774030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonCompliantResourcesCount:AuditCheckDetails' :: Maybe Integer
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#%24sel%3AnonCompliantResourcesCount%3AAuditCheckDetails%27"><span class="hs-identifier hs-var">nonCompliantResourcesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679774029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774026"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679774024"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AuditCheckDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AuditCheckDetails)
+-&gt; Value
+-&gt; Parser AuditCheckDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AuditCheckDetails&quot;</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679774021"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679774021"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe AuditCheckRunStatus
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; AuditCheckDetails
+</span><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails%27"><span class="hs-identifier hs-var">AuditCheckDetails'</span></a></span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe AuditCheckRunStatus
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; AuditCheckDetails)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe AuditCheckRunStatus
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; AuditCheckDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679774021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;checkCompliant&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe AuditCheckRunStatus
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; AuditCheckDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe AuditCheckRunStatus
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; AuditCheckDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679774021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe AuditCheckRunStatus
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; AuditCheckDetails)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe AuditCheckRunStatus
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; AuditCheckDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679774021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;suppressedNonCompliantResourcesCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AuditCheckRunStatus
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; AuditCheckDetails)
+-&gt; Parser (Maybe AuditCheckRunStatus)
+-&gt; Parser
+     (Maybe Integer -&gt; Maybe Text -&gt; Maybe Integer -&gt; AuditCheckDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679774021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AuditCheckRunStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;checkRunStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer -&gt; Maybe Text -&gt; Maybe Integer -&gt; AuditCheckDetails)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser (Maybe Text -&gt; Maybe Integer -&gt; AuditCheckDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679774021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;totalResourcesCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Integer -&gt; AuditCheckDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Integer -&gt; AuditCheckDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679774021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; AuditCheckDetails)
+-&gt; Parser (Maybe Integer) -&gt; Parser AuditCheckDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679774021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nonCompliantResourcesCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774015"><span id="local-6989586621679774017"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span></span><span>
+</span><span id="line-148"></span></pre></body></html>

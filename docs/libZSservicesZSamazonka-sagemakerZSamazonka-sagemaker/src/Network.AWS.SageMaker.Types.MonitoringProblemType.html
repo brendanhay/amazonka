@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.MonitoringProblemType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.MonitoringProblemType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType"><span class="hs-identifier">MonitoringProblemType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType_BinaryClassification"><span class="hs-identifier">MonitoringProblemType_BinaryClassification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType_MulticlassClassification"><span class="hs-identifier">MonitoringProblemType_MulticlassClassification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType_Regression"><span class="hs-identifier">MonitoringProblemType_Regression</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621680320149"><span id="local-6989586621680320150"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MonitoringProblemType"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType"><span class="hs-identifier hs-var">MonitoringProblemType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringProblemType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType%27"><span class="hs-identifier hs-var">MonitoringProblemType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMonitoringProblemType"><span class="annot"><span class="annottext">MonitoringProblemType -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#fromMonitoringProblemType"><span class="hs-identifier hs-var hs-var">fromMonitoringProblemType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680320141"><span id="local-6989586621680320143"><span id="local-6989586621680320145"><span class="annot"><span class="annottext">Int -&gt; MonitoringProblemType -&gt; ShowS
+[MonitoringProblemType] -&gt; ShowS
+MonitoringProblemType -&gt; String
+(Int -&gt; MonitoringProblemType -&gt; ShowS)
+-&gt; (MonitoringProblemType -&gt; String)
+-&gt; ([MonitoringProblemType] -&gt; ShowS)
+-&gt; Show MonitoringProblemType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MonitoringProblemType] -&gt; ShowS
+$cshowList :: [MonitoringProblemType] -&gt; ShowS
+show :: MonitoringProblemType -&gt; String
+$cshow :: MonitoringProblemType -&gt; String
+showsPrec :: Int -&gt; MonitoringProblemType -&gt; ShowS
+$cshowsPrec :: Int -&gt; MonitoringProblemType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680320132"><span id="local-6989586621680320134"><span id="local-6989586621680320136"><span id="local-6989586621680320138"><span class="annot"><span class="annottext">ReadPrec [MonitoringProblemType]
+ReadPrec MonitoringProblemType
+Int -&gt; ReadS MonitoringProblemType
+ReadS [MonitoringProblemType]
+(Int -&gt; ReadS MonitoringProblemType)
+-&gt; ReadS [MonitoringProblemType]
+-&gt; ReadPrec MonitoringProblemType
+-&gt; ReadPrec [MonitoringProblemType]
+-&gt; Read MonitoringProblemType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MonitoringProblemType]
+$creadListPrec :: ReadPrec [MonitoringProblemType]
+readPrec :: ReadPrec MonitoringProblemType
+$creadPrec :: ReadPrec MonitoringProblemType
+readList :: ReadS [MonitoringProblemType]
+$creadList :: ReadS [MonitoringProblemType]
+readsPrec :: Int -&gt; ReadS MonitoringProblemType
+$creadsPrec :: Int -&gt; ReadS MonitoringProblemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680320127"><span id="local-6989586621680320129"><span class="annot"><span class="annottext">MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool
+(MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool)
+-&gt; (MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool)
+-&gt; Eq MonitoringProblemType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool
+$c/= :: MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool
+== :: MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool
+$c== :: MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680320111"><span id="local-6989586621680320113"><span id="local-6989586621680320115"><span id="local-6989586621680320117"><span id="local-6989586621680320119"><span id="local-6989586621680320121"><span id="local-6989586621680320123"><span class="annot"><span class="annottext">Eq MonitoringProblemType
+Eq MonitoringProblemType
+-&gt; (MonitoringProblemType -&gt; MonitoringProblemType -&gt; Ordering)
+-&gt; (MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool)
+-&gt; (MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool)
+-&gt; (MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool)
+-&gt; (MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool)
+-&gt; (MonitoringProblemType
+    -&gt; MonitoringProblemType -&gt; MonitoringProblemType)
+-&gt; (MonitoringProblemType
+    -&gt; MonitoringProblemType -&gt; MonitoringProblemType)
+-&gt; Ord MonitoringProblemType
+MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool
+MonitoringProblemType -&gt; MonitoringProblemType -&gt; Ordering
+MonitoringProblemType
+-&gt; MonitoringProblemType -&gt; MonitoringProblemType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MonitoringProblemType
+-&gt; MonitoringProblemType -&gt; MonitoringProblemType
+$cmin :: MonitoringProblemType
+-&gt; MonitoringProblemType -&gt; MonitoringProblemType
+max :: MonitoringProblemType
+-&gt; MonitoringProblemType -&gt; MonitoringProblemType
+$cmax :: MonitoringProblemType
+-&gt; MonitoringProblemType -&gt; MonitoringProblemType
+&gt;= :: MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool
+$c&gt;= :: MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool
+&gt; :: MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool
+$c&gt; :: MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool
+&lt;= :: MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool
+$c&lt;= :: MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool
+&lt; :: MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool
+$c&lt; :: MonitoringProblemType -&gt; MonitoringProblemType -&gt; Bool
+compare :: MonitoringProblemType -&gt; MonitoringProblemType -&gt; Ordering
+$ccompare :: MonitoringProblemType -&gt; MonitoringProblemType -&gt; Ordering
+$cp1Ord :: Eq MonitoringProblemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MonitoringProblemType -&gt; Rep MonitoringProblemType x)
+-&gt; (forall x. Rep MonitoringProblemType x -&gt; MonitoringProblemType)
+-&gt; Generic MonitoringProblemType
+forall x. Rep MonitoringProblemType x -&gt; MonitoringProblemType
+forall x. MonitoringProblemType -&gt; Rep MonitoringProblemType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MonitoringProblemType x -&gt; MonitoringProblemType
+$cfrom :: forall x. MonitoringProblemType -&gt; Rep MonitoringProblemType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680320103"><span id="local-6989586621680320105"><span class="annot"><span class="annottext">Int -&gt; MonitoringProblemType -&gt; Int
+MonitoringProblemType -&gt; Int
+(Int -&gt; MonitoringProblemType -&gt; Int)
+-&gt; (MonitoringProblemType -&gt; Int) -&gt; Hashable MonitoringProblemType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MonitoringProblemType -&gt; Int
+$chash :: MonitoringProblemType -&gt; Int
+hashWithSalt :: Int -&gt; MonitoringProblemType -&gt; Int
+$chashWithSalt :: Int -&gt; MonitoringProblemType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680320100"><span class="annot"><span class="annottext">MonitoringProblemType -&gt; ()
+(MonitoringProblemType -&gt; ()) -&gt; NFData MonitoringProblemType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MonitoringProblemType -&gt; ()
+$crnf :: MonitoringProblemType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680320097"><span class="annot"><span class="annottext">Text -&gt; Either String MonitoringProblemType
+(Text -&gt; Either String MonitoringProblemType)
+-&gt; FromText MonitoringProblemType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MonitoringProblemType
+$cfromText :: Text -&gt; Either String MonitoringProblemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680320094"><span class="annot"><span class="annottext">MonitoringProblemType -&gt; Text
+(MonitoringProblemType -&gt; Text) -&gt; ToText MonitoringProblemType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MonitoringProblemType -&gt; Text
+$ctoText :: MonitoringProblemType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680320091"><span class="annot"><span class="annottext">MonitoringProblemType -&gt; ByteString
+(MonitoringProblemType -&gt; ByteString)
+-&gt; ToByteString MonitoringProblemType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MonitoringProblemType -&gt; ByteString
+$ctoBS :: MonitoringProblemType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680320088"><span class="annot"><span class="annottext">MonitoringProblemType -&gt; ByteStringBuilder
+(MonitoringProblemType -&gt; ByteStringBuilder)
+-&gt; ToLog MonitoringProblemType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MonitoringProblemType -&gt; ByteStringBuilder
+$cbuild :: MonitoringProblemType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680320085"><span class="annot"><span class="annottext">HeaderName -&gt; MonitoringProblemType -&gt; [Header]
+(HeaderName -&gt; MonitoringProblemType -&gt; [Header])
+-&gt; ToHeader MonitoringProblemType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MonitoringProblemType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MonitoringProblemType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680320082"><span class="annot"><span class="annottext">MonitoringProblemType -&gt; QueryString
+(MonitoringProblemType -&gt; QueryString)
+-&gt; ToQuery MonitoringProblemType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MonitoringProblemType -&gt; QueryString
+$ctoQuery :: MonitoringProblemType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680320077"><span id="local-6989586621680320079"><span class="annot"><span class="annottext">Value -&gt; Parser [MonitoringProblemType]
+Value -&gt; Parser MonitoringProblemType
+(Value -&gt; Parser MonitoringProblemType)
+-&gt; (Value -&gt; Parser [MonitoringProblemType])
+-&gt; FromJSON MonitoringProblemType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MonitoringProblemType]
+$cparseJSONList :: Value -&gt; Parser [MonitoringProblemType]
+parseJSON :: Value -&gt; Parser MonitoringProblemType
+$cparseJSON :: Value -&gt; Parser MonitoringProblemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680320072"><span id="local-6989586621680320074"><span class="annot"><span class="annottext">FromJSONKeyFunction [MonitoringProblemType]
+FromJSONKeyFunction MonitoringProblemType
+FromJSONKeyFunction MonitoringProblemType
+-&gt; FromJSONKeyFunction [MonitoringProblemType]
+-&gt; FromJSONKey MonitoringProblemType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MonitoringProblemType]
+$cfromJSONKeyList :: FromJSONKeyFunction [MonitoringProblemType]
+fromJSONKey :: FromJSONKeyFunction MonitoringProblemType
+$cfromJSONKey :: FromJSONKeyFunction MonitoringProblemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680320063"><span id="local-6989586621680320065"><span id="local-6989586621680320067"><span id="local-6989586621680320069"><span class="annot"><span class="annottext">[MonitoringProblemType] -&gt; Encoding
+[MonitoringProblemType] -&gt; Value
+MonitoringProblemType -&gt; Encoding
+MonitoringProblemType -&gt; Value
+(MonitoringProblemType -&gt; Value)
+-&gt; (MonitoringProblemType -&gt; Encoding)
+-&gt; ([MonitoringProblemType] -&gt; Value)
+-&gt; ([MonitoringProblemType] -&gt; Encoding)
+-&gt; ToJSON MonitoringProblemType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MonitoringProblemType] -&gt; Encoding
+$ctoEncodingList :: [MonitoringProblemType] -&gt; Encoding
+toJSONList :: [MonitoringProblemType] -&gt; Value
+$ctoJSONList :: [MonitoringProblemType] -&gt; Value
+toEncoding :: MonitoringProblemType -&gt; Encoding
+$ctoEncoding :: MonitoringProblemType -&gt; Encoding
+toJSON :: MonitoringProblemType -&gt; Value
+$ctoJSON :: MonitoringProblemType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680320058"><span id="local-6989586621680320060"><span class="annot"><span class="annottext">ToJSONKeyFunction [MonitoringProblemType]
+ToJSONKeyFunction MonitoringProblemType
+ToJSONKeyFunction MonitoringProblemType
+-&gt; ToJSONKeyFunction [MonitoringProblemType]
+-&gt; ToJSONKey MonitoringProblemType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MonitoringProblemType]
+$ctoJSONKeyList :: ToJSONKeyFunction [MonitoringProblemType]
+toJSONKey :: ToJSONKeyFunction MonitoringProblemType
+$ctoJSONKey :: ToJSONKeyFunction MonitoringProblemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680320055"><span class="annot"><span class="annottext">[Node] -&gt; Either String MonitoringProblemType
+([Node] -&gt; Either String MonitoringProblemType)
+-&gt; FromXML MonitoringProblemType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MonitoringProblemType
+$cparseXML :: [Node] -&gt; Either String MonitoringProblemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680320052"><span class="annot"><span class="annottext">MonitoringProblemType -&gt; XML
+(MonitoringProblemType -&gt; XML) -&gt; ToXML MonitoringProblemType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MonitoringProblemType -&gt; XML
+$ctoXML :: MonitoringProblemType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType_BinaryClassification"><span class="hs-identifier hs-type">MonitoringProblemType_BinaryClassification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType"><span class="hs-identifier hs-type">MonitoringProblemType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMonitoringProblemType_BinaryClassification"><span id="%24mMonitoringProblemType_BinaryClassification"><span id="MonitoringProblemType_BinaryClassification"><span class="annot"><span class="annottext">$bMonitoringProblemType_BinaryClassification :: MonitoringProblemType
+$mMonitoringProblemType_BinaryClassification :: forall r.
+MonitoringProblemType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#%24bMonitoringProblemType_BinaryClassification"><span class="hs-identifier hs-var hs-var hs-var">MonitoringProblemType_BinaryClassification</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType%27"><span class="hs-identifier hs-type">MonitoringProblemType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BinaryClassification&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType_MulticlassClassification"><span class="hs-identifier hs-type">MonitoringProblemType_MulticlassClassification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType"><span class="hs-identifier hs-type">MonitoringProblemType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMonitoringProblemType_MulticlassClassification"><span id="%24mMonitoringProblemType_MulticlassClassification"><span id="MonitoringProblemType_MulticlassClassification"><span class="annot"><span class="annottext">$bMonitoringProblemType_MulticlassClassification :: MonitoringProblemType
+$mMonitoringProblemType_MulticlassClassification :: forall r.
+MonitoringProblemType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#%24bMonitoringProblemType_MulticlassClassification"><span class="hs-identifier hs-var hs-var hs-var">MonitoringProblemType_MulticlassClassification</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType%27"><span class="hs-identifier hs-type">MonitoringProblemType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MulticlassClassification&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType_Regression"><span class="hs-identifier hs-type">MonitoringProblemType_Regression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType"><span class="hs-identifier hs-type">MonitoringProblemType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMonitoringProblemType_Regression"><span id="%24mMonitoringProblemType_Regression"><span id="MonitoringProblemType_Regression"><span class="annot"><span class="annottext">$bMonitoringProblemType_Regression :: MonitoringProblemType
+$mMonitoringProblemType_Regression :: forall r.
+MonitoringProblemType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#%24bMonitoringProblemType_Regression"><span class="hs-identifier hs-var hs-var hs-var">MonitoringProblemType_Regression</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType%27"><span class="hs-identifier hs-type">MonitoringProblemType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Regression&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType_BinaryClassification"><span class="hs-pragma hs-type">MonitoringProblemType_BinaryClassification</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType_MulticlassClassification"><span class="hs-pragma hs-type">MonitoringProblemType_MulticlassClassification</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType_Regression"><span class="hs-pragma hs-type">MonitoringProblemType_Regression</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType%27"><span class="hs-pragma hs-type">MonitoringProblemType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

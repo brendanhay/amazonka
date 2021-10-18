@@ -1,0 +1,648 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Lambda.GetFunction</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about the function or function version, with a link</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- to download the deployment package that\'s valid for 10 minutes. If you</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- specify a function version, only details that are specific to that</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- version are returned.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Lambda.GetFunction</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction"><span class="hs-identifier">GetFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#newGetFunction"><span class="hs-identifier">newGetFunction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#getFunction_qualifier"><span class="hs-identifier">getFunction_qualifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#getFunction_functionName"><span class="hs-identifier">getFunction_functionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse"><span class="hs-identifier">GetFunctionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#newGetFunctionResponse"><span class="hs-identifier">newGetFunctionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#getFunctionResponse_configuration"><span class="hs-identifier">getFunctionResponse_configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#getFunctionResponse_code"><span class="hs-identifier">getFunctionResponse_code</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#getFunctionResponse_tags"><span class="hs-identifier">getFunctionResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#getFunctionResponse_concurrency"><span class="hs-identifier">getFunctionResponse_concurrency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#getFunctionResponse_httpStatus"><span class="hs-identifier">getFunctionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.html"><span class="hs-identifier">Network.AWS.Lambda.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newGetFunction' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679303453"><span id="local-6989586621679303454"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFunction"><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction"><span class="hs-identifier hs-var">GetFunction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFunction%27"><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction%27"><span class="hs-identifier hs-var">GetFunction'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify a version or alias to get details about a published version of</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- the function.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Aqualifier%3AGetFunction%27"><span class="annot"><span class="annottext">GetFunction -&gt; Maybe Text
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3Aqualifier%3AGetFunction%27"><span class="hs-identifier hs-var hs-var">qualifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The name of the Lambda function, version, or alias.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- __Name formats__</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   __Function name__ - @my-function@ (name-only), @my-function:v1@</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     (with alias).</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   __Function ARN__ -</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   __Partial ARN__ - @123456789012:function:my-function@.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- You can append a version number or alias to any of the formats. The</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- length constraint applies only to the full ARN. If you specify only the</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- function name, it is limited to 64 characters in length.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AfunctionName%3AGetFunction%27"><span class="annot"><span class="annottext">GetFunction -&gt; Text
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3AfunctionName%3AGetFunction%27"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303446"><span id="local-6989586621679303448"><span class="annot"><span class="annottext">GetFunction -&gt; GetFunction -&gt; Bool
+(GetFunction -&gt; GetFunction -&gt; Bool)
+-&gt; (GetFunction -&gt; GetFunction -&gt; Bool) -&gt; Eq GetFunction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetFunction -&gt; GetFunction -&gt; Bool
+$c/= :: GetFunction -&gt; GetFunction -&gt; Bool
+== :: GetFunction -&gt; GetFunction -&gt; Bool
+$c== :: GetFunction -&gt; GetFunction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303437"><span id="local-6989586621679303439"><span id="local-6989586621679303441"><span id="local-6989586621679303443"><span class="annot"><span class="annottext">ReadPrec [GetFunction]
+ReadPrec GetFunction
+Int -&gt; ReadS GetFunction
+ReadS [GetFunction]
+(Int -&gt; ReadS GetFunction)
+-&gt; ReadS [GetFunction]
+-&gt; ReadPrec GetFunction
+-&gt; ReadPrec [GetFunction]
+-&gt; Read GetFunction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetFunction]
+$creadListPrec :: ReadPrec [GetFunction]
+readPrec :: ReadPrec GetFunction
+$creadPrec :: ReadPrec GetFunction
+readList :: ReadS [GetFunction]
+$creadList :: ReadS [GetFunction]
+readsPrec :: Int -&gt; ReadS GetFunction
+$creadsPrec :: Int -&gt; ReadS GetFunction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303430"><span id="local-6989586621679303432"><span id="local-6989586621679303434"><span class="annot"><span class="annottext">Int -&gt; GetFunction -&gt; ShowS
+[GetFunction] -&gt; ShowS
+GetFunction -&gt; String
+(Int -&gt; GetFunction -&gt; ShowS)
+-&gt; (GetFunction -&gt; String)
+-&gt; ([GetFunction] -&gt; ShowS)
+-&gt; Show GetFunction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetFunction] -&gt; ShowS
+$cshowList :: [GetFunction] -&gt; ShowS
+show :: GetFunction -&gt; String
+$cshow :: GetFunction -&gt; String
+showsPrec :: Int -&gt; GetFunction -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetFunction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetFunction -&gt; Rep GetFunction x)
+-&gt; (forall x. Rep GetFunction x -&gt; GetFunction)
+-&gt; Generic GetFunction
+forall x. Rep GetFunction x -&gt; GetFunction
+forall x. GetFunction -&gt; Rep GetFunction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetFunction x -&gt; GetFunction
+$cfrom :: forall x. GetFunction -&gt; Rep GetFunction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'GetFunction' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'qualifier', 'getFunction_qualifier' - Specify a version or alias to get details about a published version of</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- the function.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'functionName', 'getFunction_functionName' - The name of the Lambda function, version, or alias.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- __Name formats__</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   __Function name__ - @my-function@ (name-only), @my-function:v1@</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--     (with alias).</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   __Function ARN__ -</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- -   __Partial ARN__ - @123456789012:function:my-function@.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- You can append a version number or alias to any of the formats. The</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- length constraint applies only to the full ARN. If you specify only the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- function name, it is limited to 64 characters in length.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#newGetFunction"><span class="hs-identifier hs-type">newGetFunction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'functionName'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span>
+</span><span id="line-110"></span><span id="newGetFunction"><span class="annot"><span class="annottext">newGetFunction :: Text -&gt; GetFunction
+</span><a href="Network.AWS.Lambda.GetFunction.html#newGetFunction"><span class="hs-identifier hs-var hs-var">newGetFunction</span></a></span></span><span> </span><span id="local-6989586621679303425"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303425"><span class="hs-identifier hs-var">pFunctionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="annottext">GetFunction' :: Maybe Text -&gt; Text -&gt; GetFunction
+</span><a href="Network.AWS.Lambda.GetFunction.html#GetFunction%27"><span class="hs-identifier hs-type">GetFunction'</span></a></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:qualifier:GetFunction' :: Maybe Text
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3Aqualifier%3AGetFunction%27"><span class="hs-identifier hs-var">qualifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:functionName:GetFunction' :: Text
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3AfunctionName%3AGetFunction%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303425"><span class="hs-identifier hs-var">pFunctionName_</span></a></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Specify a version or alias to get details about a published version of</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- the function.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#getFunction_qualifier"><span class="hs-identifier hs-type">getFunction_qualifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="getFunction_qualifier"><span class="annot"><span class="annottext">getFunction_qualifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetFunction -&gt; f GetFunction
+</span><a href="Network.AWS.Lambda.GetFunction.html#getFunction_qualifier"><span class="hs-identifier hs-var hs-var">getFunction_qualifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunction -&gt; Maybe Text)
+-&gt; (GetFunction -&gt; Maybe Text -&gt; GetFunction)
+-&gt; Lens GetFunction GetFunction (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction%27"><span class="hs-identifier hs-type">GetFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303422"><span class="annot"><span class="annottext">Maybe Text
+qualifier :: Maybe Text
+$sel:qualifier:GetFunction' :: GetFunction -&gt; Maybe Text
+</span><a href="#local-6989586621679303422"><span class="hs-identifier hs-var hs-var">qualifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303422"><span class="hs-identifier hs-var">qualifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303421"><span class="annot"><span class="annottext">s :: GetFunction
+</span><a href="#local-6989586621679303421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction%27"><span class="hs-identifier hs-type">GetFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303420"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunction
+</span><a href="#local-6989586621679303421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualifier:GetFunction' :: Maybe Text
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3Aqualifier%3AGetFunction%27"><span class="hs-identifier hs-var">qualifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The name of the Lambda function, version, or alias.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- __Name formats__</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   __Function name__ - @my-function@ (name-only), @my-function:v1@</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     (with alias).</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   __Function ARN__ -</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   __Partial ARN__ - @123456789012:function:my-function@.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- You can append a version number or alias to any of the formats. The</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- length constraint applies only to the full ARN. If you specify only the</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- function name, it is limited to 64 characters in length.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#getFunction_functionName"><span class="hs-identifier hs-type">getFunction_functionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-137"></span><span id="getFunction_functionName"><span class="annot"><span class="annottext">getFunction_functionName :: (Text -&gt; f Text) -&gt; GetFunction -&gt; f GetFunction
+</span><a href="Network.AWS.Lambda.GetFunction.html#getFunction_functionName"><span class="hs-identifier hs-var hs-var">getFunction_functionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunction -&gt; Text)
+-&gt; (GetFunction -&gt; Text -&gt; GetFunction)
+-&gt; Lens GetFunction GetFunction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction%27"><span class="hs-identifier hs-type">GetFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303419"><span class="annot"><span class="annottext">Text
+functionName :: Text
+$sel:functionName:GetFunction' :: GetFunction -&gt; Text
+</span><a href="#local-6989586621679303419"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303419"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303418"><span class="annot"><span class="annottext">s :: GetFunction
+</span><a href="#local-6989586621679303418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction%27"><span class="hs-identifier hs-type">GetFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303417"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunction
+</span><a href="#local-6989586621679303418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionName:GetFunction' :: Text
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3AfunctionName%3AGetFunction%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679303413"><span class="annot"><span class="annottext">request :: GetFunction -&gt; Request GetFunction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetFunction -&gt; Request GetFunction
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Lambda.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679303409"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetFunction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetFunction)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetFunction))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetFunction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetFunction)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303406"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303406"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679303405"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679303405"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679303404"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303404"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe FunctionConfiguration
+-&gt; Maybe FunctionCodeLocation
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Concurrency
+-&gt; Int
+-&gt; GetFunctionResponse
+</span><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-var">GetFunctionResponse'</span></a></span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FunctionConfiguration
+ -&gt; Maybe FunctionCodeLocation
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Concurrency
+ -&gt; Int
+ -&gt; GetFunctionResponse)
+-&gt; Either String (Maybe FunctionConfiguration)
+-&gt; Either
+     String
+     (Maybe FunctionCodeLocation
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Concurrency
+      -&gt; Int
+      -&gt; GetFunctionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303404"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe FunctionConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Configuration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe FunctionCodeLocation
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Concurrency
+   -&gt; Int
+   -&gt; GetFunctionResponse)
+-&gt; Either String (Maybe FunctionCodeLocation)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Concurrency -&gt; Int -&gt; GetFunctionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303404"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe FunctionCodeLocation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Concurrency -&gt; Int -&gt; GetFunctionResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Maybe Concurrency -&gt; Int -&gt; GetFunctionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303404"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Concurrency -&gt; Int -&gt; GetFunctionResponse)
+-&gt; Either String (Maybe Concurrency)
+-&gt; Either String (Int -&gt; GetFunctionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303404"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Concurrency)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Concurrency&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetFunctionResponse)
+-&gt; Either String Int -&gt; Either String GetFunctionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303406"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303395"><span id="local-6989586621679303397"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303392"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679303388"><span class="annot"><span class="annottext">toHeaders :: GetFunction -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetFunction -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679303383"><span class="annot"><span class="annottext">toPath :: GetFunction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction%27"><span class="hs-identifier hs-type">GetFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303380"><span id="local-6989586621679303381"><span class="annot"><span class="annottext">Maybe Text
+Text
+functionName :: Text
+qualifier :: Maybe Text
+$sel:functionName:GetFunction' :: GetFunction -&gt; Text
+$sel:qualifier:GetFunction' :: GetFunction -&gt; Maybe Text
+</span><a href="#local-6989586621679303380"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2015-03-31/functions/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303380"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679303376"><span class="annot"><span class="annottext">toQuery :: GetFunction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunction%27"><span class="hs-identifier hs-type">GetFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303373"><span id="local-6989586621679303374"><span class="annot"><span class="annottext">Maybe Text
+Text
+functionName :: Text
+qualifier :: Maybe Text
+$sel:functionName:GetFunction' :: GetFunction -&gt; Text
+$sel:qualifier:GetFunction' :: GetFunction -&gt; Maybe Text
+</span><a href="#local-6989586621679303373"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Qualifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303374"><span class="hs-identifier hs-var">qualifier</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | /See:/ 'newGetFunctionResponse' smart constructor.</span><span>
+</span><span id="line-170"></span><span id="local-6989586621679303370"><span id="local-6989586621679303371"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFunctionResponse"><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-var">GetFunctionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFunctionResponse%27"><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-var">GetFunctionResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration of the function or version.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3Aconfiguration%3AGetFunctionResponse%27"><span class="annot"><span class="annottext">GetFunctionResponse -&gt; Maybe FunctionConfiguration
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3Aconfiguration%3AGetFunctionResponse%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionConfiguration.html#FunctionConfiguration"><span class="hs-identifier hs-type">FunctionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The deployment package of the function or version.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3Acode%3AGetFunctionResponse%27"><span class="annot"><span class="annottext">GetFunctionResponse -&gt; Maybe FunctionCodeLocation
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3Acode%3AGetFunctionResponse%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCodeLocation.html#FunctionCodeLocation"><span class="hs-identifier hs-type">FunctionCodeLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The function\'s</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags&gt;.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3Atags%3AGetFunctionResponse%27"><span class="annot"><span class="annottext">GetFunctionResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3Atags%3AGetFunctionResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | The function\'s</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html reserved concurrency&gt;.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3Aconcurrency%3AGetFunctionResponse%27"><span class="annot"><span class="annottext">GetFunctionResponse -&gt; Maybe Concurrency
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3Aconcurrency%3AGetFunctionResponse%27"><span class="hs-identifier hs-var hs-var">concurrency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency"><span class="hs-identifier hs-type">Concurrency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetFunctionResponse%27"><span class="annot"><span class="annottext">GetFunctionResponse -&gt; Int
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3AhttpStatus%3AGetFunctionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303361"><span id="local-6989586621679303363"><span class="annot"><span class="annottext">GetFunctionResponse -&gt; GetFunctionResponse -&gt; Bool
+(GetFunctionResponse -&gt; GetFunctionResponse -&gt; Bool)
+-&gt; (GetFunctionResponse -&gt; GetFunctionResponse -&gt; Bool)
+-&gt; Eq GetFunctionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetFunctionResponse -&gt; GetFunctionResponse -&gt; Bool
+$c/= :: GetFunctionResponse -&gt; GetFunctionResponse -&gt; Bool
+== :: GetFunctionResponse -&gt; GetFunctionResponse -&gt; Bool
+$c== :: GetFunctionResponse -&gt; GetFunctionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303355"><span id="local-6989586621679303357"><span id="local-6989586621679303359"><span class="annot"><span class="annottext">Int -&gt; GetFunctionResponse -&gt; ShowS
+[GetFunctionResponse] -&gt; ShowS
+GetFunctionResponse -&gt; String
+(Int -&gt; GetFunctionResponse -&gt; ShowS)
+-&gt; (GetFunctionResponse -&gt; String)
+-&gt; ([GetFunctionResponse] -&gt; ShowS)
+-&gt; Show GetFunctionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetFunctionResponse] -&gt; ShowS
+$cshowList :: [GetFunctionResponse] -&gt; ShowS
+show :: GetFunctionResponse -&gt; String
+$cshow :: GetFunctionResponse -&gt; String
+showsPrec :: Int -&gt; GetFunctionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetFunctionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetFunctionResponse -&gt; Rep GetFunctionResponse x)
+-&gt; (forall x. Rep GetFunctionResponse x -&gt; GetFunctionResponse)
+-&gt; Generic GetFunctionResponse
+forall x. Rep GetFunctionResponse x -&gt; GetFunctionResponse
+forall x. GetFunctionResponse -&gt; Rep GetFunctionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetFunctionResponse x -&gt; GetFunctionResponse
+$cfrom :: forall x. GetFunctionResponse -&gt; Rep GetFunctionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Create a value of 'GetFunctionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'configuration', 'getFunctionResponse_configuration' - The configuration of the function or version.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'code', 'getFunctionResponse_code' - The deployment package of the function or version.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'tags', 'getFunctionResponse_tags' - The function\'s</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags&gt;.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'concurrency', 'getFunctionResponse_concurrency' - The function\'s</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html reserved concurrency&gt;.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'httpStatus', 'getFunctionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#newGetFunctionResponse"><span class="hs-identifier hs-type">newGetFunctionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span>
+</span><span id="line-209"></span><span id="newGetFunctionResponse"><span class="annot"><span class="annottext">newGetFunctionResponse :: Int -&gt; GetFunctionResponse
+</span><a href="Network.AWS.Lambda.GetFunction.html#newGetFunctionResponse"><span class="hs-identifier hs-var hs-var">newGetFunctionResponse</span></a></span></span><span> </span><span id="local-6989586621679303352"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303352"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">GetFunctionResponse' :: Maybe FunctionConfiguration
+-&gt; Maybe FunctionCodeLocation
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Concurrency
+-&gt; Int
+-&gt; GetFunctionResponse
+</span><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configuration:GetFunctionResponse' :: Maybe FunctionConfiguration
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3Aconfiguration%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">Maybe FunctionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:GetFunctionResponse' :: Maybe FunctionCodeLocation
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3Acode%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionCodeLocation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:GetFunctionResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3Atags%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:concurrency:GetFunctionResponse' :: Maybe Concurrency
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3Aconcurrency%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">concurrency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Concurrency
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetFunctionResponse' :: Int
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3AhttpStatus%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303352"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The configuration of the function or version.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#getFunctionResponse_configuration"><span class="hs-identifier hs-type">getFunctionResponse_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionConfiguration.html#FunctionConfiguration"><span class="hs-identifier hs-type">FunctionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="getFunctionResponse_configuration"><span class="annot"><span class="annottext">getFunctionResponse_configuration :: (Maybe FunctionConfiguration -&gt; f (Maybe FunctionConfiguration))
+-&gt; GetFunctionResponse -&gt; f GetFunctionResponse
+</span><a href="Network.AWS.Lambda.GetFunction.html#getFunctionResponse_configuration"><span class="hs-identifier hs-var hs-var">getFunctionResponse_configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionResponse -&gt; Maybe FunctionConfiguration)
+-&gt; (GetFunctionResponse
+    -&gt; Maybe FunctionConfiguration -&gt; GetFunctionResponse)
+-&gt; Lens
+     GetFunctionResponse
+     GetFunctionResponse
+     (Maybe FunctionConfiguration)
+     (Maybe FunctionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303351"><span class="annot"><span class="annottext">Maybe FunctionConfiguration
+configuration :: Maybe FunctionConfiguration
+$sel:configuration:GetFunctionResponse' :: GetFunctionResponse -&gt; Maybe FunctionConfiguration
+</span><a href="#local-6989586621679303351"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionConfiguration
+</span><a href="#local-6989586621679303351"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303350"><span class="annot"><span class="annottext">s :: GetFunctionResponse
+</span><a href="#local-6989586621679303350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303349"><span class="annot"><span class="annottext">Maybe FunctionConfiguration
+</span><a href="#local-6989586621679303349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionResponse
+</span><a href="#local-6989586621679303350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:GetFunctionResponse' :: Maybe FunctionConfiguration
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3Aconfiguration%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionConfiguration
+</span><a href="#local-6989586621679303349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The deployment package of the function or version.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#getFunctionResponse_code"><span class="hs-identifier hs-type">getFunctionResponse_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCodeLocation.html#FunctionCodeLocation"><span class="hs-identifier hs-type">FunctionCodeLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="getFunctionResponse_code"><span class="annot"><span class="annottext">getFunctionResponse_code :: (Maybe FunctionCodeLocation -&gt; f (Maybe FunctionCodeLocation))
+-&gt; GetFunctionResponse -&gt; f GetFunctionResponse
+</span><a href="Network.AWS.Lambda.GetFunction.html#getFunctionResponse_code"><span class="hs-identifier hs-var hs-var">getFunctionResponse_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionResponse -&gt; Maybe FunctionCodeLocation)
+-&gt; (GetFunctionResponse
+    -&gt; Maybe FunctionCodeLocation -&gt; GetFunctionResponse)
+-&gt; Lens
+     GetFunctionResponse
+     GetFunctionResponse
+     (Maybe FunctionCodeLocation)
+     (Maybe FunctionCodeLocation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303348"><span class="annot"><span class="annottext">Maybe FunctionCodeLocation
+code :: Maybe FunctionCodeLocation
+$sel:code:GetFunctionResponse' :: GetFunctionResponse -&gt; Maybe FunctionCodeLocation
+</span><a href="#local-6989586621679303348"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionCodeLocation
+</span><a href="#local-6989586621679303348"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303347"><span class="annot"><span class="annottext">s :: GetFunctionResponse
+</span><a href="#local-6989586621679303347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303346"><span class="annot"><span class="annottext">Maybe FunctionCodeLocation
+</span><a href="#local-6989586621679303346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionResponse
+</span><a href="#local-6989586621679303347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:GetFunctionResponse' :: Maybe FunctionCodeLocation
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3Acode%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionCodeLocation
+</span><a href="#local-6989586621679303346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The function\'s</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags&gt;.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#getFunctionResponse_tags"><span class="hs-identifier hs-type">getFunctionResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="getFunctionResponse_tags"><span class="annot"><span class="annottext">getFunctionResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetFunctionResponse -&gt; f GetFunctionResponse
+</span><a href="Network.AWS.Lambda.GetFunction.html#getFunctionResponse_tags"><span class="hs-identifier hs-var hs-var">getFunctionResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (GetFunctionResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; GetFunctionResponse)
+-&gt; Lens
+     GetFunctionResponse
+     GetFunctionResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303345"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:GetFunctionResponse' :: GetFunctionResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679303345"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679303345"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303344"><span class="annot"><span class="annottext">s :: GetFunctionResponse
+</span><a href="#local-6989586621679303344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303343"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679303343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionResponse
+</span><a href="#local-6989586621679303344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetFunctionResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3Atags%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679303343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; GetFunctionResponse -&gt; f GetFunctionResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetFunctionResponse
+-&gt; f GetFunctionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The function\'s</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html reserved concurrency&gt;.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#getFunctionResponse_concurrency"><span class="hs-identifier hs-type">getFunctionResponse_concurrency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency"><span class="hs-identifier hs-type">Concurrency</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="getFunctionResponse_concurrency"><span class="annot"><span class="annottext">getFunctionResponse_concurrency :: (Maybe Concurrency -&gt; f (Maybe Concurrency))
+-&gt; GetFunctionResponse -&gt; f GetFunctionResponse
+</span><a href="Network.AWS.Lambda.GetFunction.html#getFunctionResponse_concurrency"><span class="hs-identifier hs-var hs-var">getFunctionResponse_concurrency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionResponse -&gt; Maybe Concurrency)
+-&gt; (GetFunctionResponse
+    -&gt; Maybe Concurrency -&gt; GetFunctionResponse)
+-&gt; Lens
+     GetFunctionResponse
+     GetFunctionResponse
+     (Maybe Concurrency)
+     (Maybe Concurrency)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303339"><span class="annot"><span class="annottext">Maybe Concurrency
+concurrency :: Maybe Concurrency
+$sel:concurrency:GetFunctionResponse' :: GetFunctionResponse -&gt; Maybe Concurrency
+</span><a href="#local-6989586621679303339"><span class="hs-identifier hs-var hs-var">concurrency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Concurrency
+</span><a href="#local-6989586621679303339"><span class="hs-identifier hs-var">concurrency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303338"><span class="annot"><span class="annottext">s :: GetFunctionResponse
+</span><a href="#local-6989586621679303338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303337"><span class="annot"><span class="annottext">Maybe Concurrency
+</span><a href="#local-6989586621679303337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionResponse
+</span><a href="#local-6989586621679303338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:concurrency:GetFunctionResponse' :: Maybe Concurrency
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3Aconcurrency%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">concurrency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Concurrency
+</span><a href="#local-6989586621679303337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#getFunctionResponse_httpStatus"><span class="hs-identifier hs-type">getFunctionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-239"></span><span id="getFunctionResponse_httpStatus"><span class="annot"><span class="annottext">getFunctionResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetFunctionResponse -&gt; f GetFunctionResponse
+</span><a href="Network.AWS.Lambda.GetFunction.html#getFunctionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getFunctionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionResponse -&gt; Int)
+-&gt; (GetFunctionResponse -&gt; Int -&gt; GetFunctionResponse)
+-&gt; Lens GetFunctionResponse GetFunctionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303336"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetFunctionResponse' :: GetFunctionResponse -&gt; Int
+</span><a href="#local-6989586621679303336"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303336"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303335"><span class="annot"><span class="annottext">s :: GetFunctionResponse
+</span><a href="#local-6989586621679303335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse%27"><span class="hs-identifier hs-type">GetFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303334"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionResponse
+</span><a href="#local-6989586621679303335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetFunctionResponse' :: Int
+</span><a href="Network.AWS.Lambda.GetFunction.html#%24sel%3AhttpStatus%3AGetFunctionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303332"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetFunction.html#GetFunctionResponse"><span class="hs-identifier hs-type">GetFunctionResponse</span></a></span></span><span>
+</span><span id="line-242"></span></pre></body></html>

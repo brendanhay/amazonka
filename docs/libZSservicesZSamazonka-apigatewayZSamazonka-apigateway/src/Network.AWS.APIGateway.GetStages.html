@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.APIGateway.GetStages</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets information about one or more Stage resources.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.APIGateway.GetStages</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages"><span class="hs-identifier">GetStages</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#newGetStages"><span class="hs-identifier">newGetStages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#getStages_deploymentId"><span class="hs-identifier">getStages_deploymentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#getStages_restApiId"><span class="hs-identifier">getStages_restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStagesResponse"><span class="hs-identifier">GetStagesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#newGetStagesResponse"><span class="hs-identifier">newGetStagesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#getStagesResponse_item"><span class="hs-identifier">getStagesResponse_item</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#getStagesResponse_httpStatus"><span class="hs-identifier">getStagesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.html"><span class="hs-identifier">Network.AWS.APIGateway.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | Requests API Gateway to get information about one or more Stage</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- resources.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newGetStages' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679377680"><span id="local-6989586621679377681"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetStages"><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages"><span class="hs-identifier hs-var">GetStages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetStages%27"><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages%27"><span class="hs-identifier hs-var">GetStages'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The stages\' deployment identifiers.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AdeploymentId%3AGetStages%27"><span class="annot"><span class="annottext">GetStages -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.GetStages.html#%24sel%3AdeploymentId%3AGetStages%27"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3ArestApiId%3AGetStages%27"><span class="annot"><span class="annottext">GetStages -&gt; Text
+</span><a href="Network.AWS.APIGateway.GetStages.html#%24sel%3ArestApiId%3AGetStages%27"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377673"><span id="local-6989586621679377675"><span class="annot"><span class="annottext">GetStages -&gt; GetStages -&gt; Bool
+(GetStages -&gt; GetStages -&gt; Bool)
+-&gt; (GetStages -&gt; GetStages -&gt; Bool) -&gt; Eq GetStages
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetStages -&gt; GetStages -&gt; Bool
+$c/= :: GetStages -&gt; GetStages -&gt; Bool
+== :: GetStages -&gt; GetStages -&gt; Bool
+$c== :: GetStages -&gt; GetStages -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377664"><span id="local-6989586621679377666"><span id="local-6989586621679377668"><span id="local-6989586621679377670"><span class="annot"><span class="annottext">ReadPrec [GetStages]
+ReadPrec GetStages
+Int -&gt; ReadS GetStages
+ReadS [GetStages]
+(Int -&gt; ReadS GetStages)
+-&gt; ReadS [GetStages]
+-&gt; ReadPrec GetStages
+-&gt; ReadPrec [GetStages]
+-&gt; Read GetStages
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetStages]
+$creadListPrec :: ReadPrec [GetStages]
+readPrec :: ReadPrec GetStages
+$creadPrec :: ReadPrec GetStages
+readList :: ReadS [GetStages]
+$creadList :: ReadS [GetStages]
+readsPrec :: Int -&gt; ReadS GetStages
+$creadsPrec :: Int -&gt; ReadS GetStages
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377657"><span id="local-6989586621679377659"><span id="local-6989586621679377661"><span class="annot"><span class="annottext">Int -&gt; GetStages -&gt; ShowS
+[GetStages] -&gt; ShowS
+GetStages -&gt; String
+(Int -&gt; GetStages -&gt; ShowS)
+-&gt; (GetStages -&gt; String)
+-&gt; ([GetStages] -&gt; ShowS)
+-&gt; Show GetStages
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetStages] -&gt; ShowS
+$cshowList :: [GetStages] -&gt; ShowS
+show :: GetStages -&gt; String
+$cshow :: GetStages -&gt; String
+showsPrec :: Int -&gt; GetStages -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetStages -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetStages -&gt; Rep GetStages x)
+-&gt; (forall x. Rep GetStages x -&gt; GetStages) -&gt; Generic GetStages
+forall x. Rep GetStages x -&gt; GetStages
+forall x. GetStages -&gt; Rep GetStages x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetStages x -&gt; GetStages
+$cfrom :: forall x. GetStages -&gt; Rep GetStages x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'GetStages' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'deploymentId', 'getStages_deploymentId' - The stages\' deployment identifiers.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'restApiId', 'getStages_restApiId' - [Required] The string identifier of the associated RestApi.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#newGetStages"><span class="hs-identifier hs-type">newGetStages</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'restApiId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages"><span class="hs-identifier hs-type">GetStages</span></a></span><span>
+</span><span id="line-77"></span><span id="newGetStages"><span class="annot"><span class="annottext">newGetStages :: Text -&gt; GetStages
+</span><a href="Network.AWS.APIGateway.GetStages.html#newGetStages"><span class="hs-identifier hs-var hs-var">newGetStages</span></a></span></span><span> </span><span id="local-6989586621679377652"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377652"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">GetStages' :: Maybe Text -&gt; Text -&gt; GetStages
+</span><a href="Network.AWS.APIGateway.GetStages.html#GetStages%27"><span class="hs-identifier hs-type">GetStages'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deploymentId:GetStages' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.GetStages.html#%24sel%3AdeploymentId%3AGetStages%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:restApiId:GetStages' :: Text
+</span><a href="Network.AWS.APIGateway.GetStages.html#%24sel%3ArestApiId%3AGetStages%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377652"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The stages\' deployment identifiers.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#getStages_deploymentId"><span class="hs-identifier hs-type">getStages_deploymentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages"><span class="hs-identifier hs-type">GetStages</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="getStages_deploymentId"><span class="annot"><span class="annottext">getStages_deploymentId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetStages -&gt; f GetStages
+</span><a href="Network.AWS.APIGateway.GetStages.html#getStages_deploymentId"><span class="hs-identifier hs-var hs-var">getStages_deploymentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStages -&gt; Maybe Text)
+-&gt; (GetStages -&gt; Maybe Text -&gt; GetStages)
+-&gt; Lens GetStages GetStages (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages%27"><span class="hs-identifier hs-type">GetStages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377649"><span class="annot"><span class="annottext">Maybe Text
+deploymentId :: Maybe Text
+$sel:deploymentId:GetStages' :: GetStages -&gt; Maybe Text
+</span><a href="#local-6989586621679377649"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377649"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377648"><span class="annot"><span class="annottext">s :: GetStages
+</span><a href="#local-6989586621679377648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages%27"><span class="hs-identifier hs-type">GetStages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377647"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStages
+</span><a href="#local-6989586621679377648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:GetStages' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.GetStages.html#%24sel%3AdeploymentId%3AGetStages%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages"><span class="hs-identifier hs-type">GetStages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#getStages_restApiId"><span class="hs-identifier hs-type">getStages_restApiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages"><span class="hs-identifier hs-type">GetStages</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="getStages_restApiId"><span class="annot"><span class="annottext">getStages_restApiId :: (Text -&gt; f Text) -&gt; GetStages -&gt; f GetStages
+</span><a href="Network.AWS.APIGateway.GetStages.html#getStages_restApiId"><span class="hs-identifier hs-var hs-var">getStages_restApiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStages -&gt; Text)
+-&gt; (GetStages -&gt; Text -&gt; GetStages)
+-&gt; Lens GetStages GetStages Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages%27"><span class="hs-identifier hs-type">GetStages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377646"><span class="annot"><span class="annottext">Text
+restApiId :: Text
+$sel:restApiId:GetStages' :: GetStages -&gt; Text
+</span><a href="#local-6989586621679377646"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377646"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377645"><span class="annot"><span class="annottext">s :: GetStages
+</span><a href="#local-6989586621679377645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages%27"><span class="hs-identifier hs-type">GetStages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377644"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStages
+</span><a href="#local-6989586621679377645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:GetStages' :: Text
+</span><a href="Network.AWS.APIGateway.GetStages.html#%24sel%3ArestApiId%3AGetStages%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages"><span class="hs-identifier hs-type">GetStages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages"><span class="hs-identifier hs-type">GetStages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages"><span class="hs-identifier hs-type">GetStages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStagesResponse"><span class="hs-identifier hs-type">GetStagesResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679377640"><span class="annot"><span class="annottext">request :: GetStages -&gt; Request GetStages
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetStages -&gt; Request GetStages
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679377636"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetStages
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetStages)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetStages))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetStages
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetStages)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377633"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377633"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679377632"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679377632"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679377631"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377631"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Stage] -&gt; Int -&gt; GetStagesResponse
+</span><a href="Network.AWS.APIGateway.GetStages.html#GetStagesResponse%27"><span class="hs-identifier hs-var">GetStagesResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Stage] -&gt; Int -&gt; GetStagesResponse)
+-&gt; Either String (Maybe [Stage])
+-&gt; Either String (Int -&gt; GetStagesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Stage]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Stage]))
+-&gt; Maybe [Stage] -&gt; Either String (Maybe [Stage])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Stage]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetStagesResponse)
+-&gt; Either String Int -&gt; Either String GetStagesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377633"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377622"><span id="local-6989586621679377624"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages"><span class="hs-identifier hs-type">GetStages</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages"><span class="hs-identifier hs-type">GetStages</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages"><span class="hs-identifier hs-type">GetStages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679377615"><span class="annot"><span class="annottext">toHeaders :: GetStages -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetStages -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Accept&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/json&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages"><span class="hs-identifier hs-type">GetStages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679377609"><span class="annot"><span class="annottext">toPath :: GetStages -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages%27"><span class="hs-identifier hs-type">GetStages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377606"><span id="local-6989586621679377607"><span class="annot"><span class="annottext">Maybe Text
+Text
+restApiId :: Text
+deploymentId :: Maybe Text
+$sel:restApiId:GetStages' :: GetStages -&gt; Text
+$sel:deploymentId:GetStages' :: GetStages -&gt; Maybe Text
+</span><a href="#local-6989586621679377606"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/restapis/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377606"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/stages&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages"><span class="hs-identifier hs-type">GetStages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679377602"><span class="annot"><span class="annottext">toQuery :: GetStages -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStages%27"><span class="hs-identifier hs-type">GetStages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377599"><span id="local-6989586621679377600"><span class="annot"><span class="annottext">Maybe Text
+Text
+restApiId :: Text
+deploymentId :: Maybe Text
+$sel:restApiId:GetStages' :: GetStages -&gt; Text
+$sel:deploymentId:GetStages' :: GetStages -&gt; Maybe Text
+</span><a href="#local-6989586621679377599"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;deploymentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377600"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | A list of Stage resources that are associated with the ApiKey resource.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/stages.html Deploying API in Stages&gt;</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- /See:/ 'newGetStagesResponse' smart constructor.</span><span>
+</span><span id="line-130"></span><span id="local-6989586621679377596"><span id="local-6989586621679377597"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetStagesResponse"><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStagesResponse"><span class="hs-identifier hs-var">GetStagesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetStagesResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStagesResponse%27"><span class="hs-identifier hs-var">GetStagesResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current page of elements from this collection.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3Aitem%3AGetStagesResponse%27"><span class="annot"><span class="annottext">GetStagesResponse -&gt; Maybe [Stage]
+</span><a href="Network.AWS.APIGateway.GetStages.html#%24sel%3Aitem%3AGetStagesResponse%27"><span class="hs-identifier hs-var hs-var">item</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Stage.html#Stage"><span class="hs-identifier hs-type">Stage</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetStagesResponse%27"><span class="annot"><span class="annottext">GetStagesResponse -&gt; Int
+</span><a href="Network.AWS.APIGateway.GetStages.html#%24sel%3AhttpStatus%3AGetStagesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377590"><span id="local-6989586621679377592"><span class="annot"><span class="annottext">GetStagesResponse -&gt; GetStagesResponse -&gt; Bool
+(GetStagesResponse -&gt; GetStagesResponse -&gt; Bool)
+-&gt; (GetStagesResponse -&gt; GetStagesResponse -&gt; Bool)
+-&gt; Eq GetStagesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetStagesResponse -&gt; GetStagesResponse -&gt; Bool
+$c/= :: GetStagesResponse -&gt; GetStagesResponse -&gt; Bool
+== :: GetStagesResponse -&gt; GetStagesResponse -&gt; Bool
+$c== :: GetStagesResponse -&gt; GetStagesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377582"><span id="local-6989586621679377584"><span id="local-6989586621679377586"><span id="local-6989586621679377588"><span class="annot"><span class="annottext">ReadPrec [GetStagesResponse]
+ReadPrec GetStagesResponse
+Int -&gt; ReadS GetStagesResponse
+ReadS [GetStagesResponse]
+(Int -&gt; ReadS GetStagesResponse)
+-&gt; ReadS [GetStagesResponse]
+-&gt; ReadPrec GetStagesResponse
+-&gt; ReadPrec [GetStagesResponse]
+-&gt; Read GetStagesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetStagesResponse]
+$creadListPrec :: ReadPrec [GetStagesResponse]
+readPrec :: ReadPrec GetStagesResponse
+$creadPrec :: ReadPrec GetStagesResponse
+readList :: ReadS [GetStagesResponse]
+$creadList :: ReadS [GetStagesResponse]
+readsPrec :: Int -&gt; ReadS GetStagesResponse
+$creadsPrec :: Int -&gt; ReadS GetStagesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377576"><span id="local-6989586621679377578"><span id="local-6989586621679377580"><span class="annot"><span class="annottext">Int -&gt; GetStagesResponse -&gt; ShowS
+[GetStagesResponse] -&gt; ShowS
+GetStagesResponse -&gt; String
+(Int -&gt; GetStagesResponse -&gt; ShowS)
+-&gt; (GetStagesResponse -&gt; String)
+-&gt; ([GetStagesResponse] -&gt; ShowS)
+-&gt; Show GetStagesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetStagesResponse] -&gt; ShowS
+$cshowList :: [GetStagesResponse] -&gt; ShowS
+show :: GetStagesResponse -&gt; String
+$cshow :: GetStagesResponse -&gt; String
+showsPrec :: Int -&gt; GetStagesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetStagesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetStagesResponse -&gt; Rep GetStagesResponse x)
+-&gt; (forall x. Rep GetStagesResponse x -&gt; GetStagesResponse)
+-&gt; Generic GetStagesResponse
+forall x. Rep GetStagesResponse x -&gt; GetStagesResponse
+forall x. GetStagesResponse -&gt; Rep GetStagesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetStagesResponse x -&gt; GetStagesResponse
+$cfrom :: forall x. GetStagesResponse -&gt; Rep GetStagesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Create a value of 'GetStagesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'item', 'getStagesResponse_item' - The current page of elements from this collection.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'httpStatus', 'getStagesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#newGetStagesResponse"><span class="hs-identifier hs-type">newGetStagesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStagesResponse"><span class="hs-identifier hs-type">GetStagesResponse</span></a></span><span>
+</span><span id="line-153"></span><span id="newGetStagesResponse"><span class="annot"><span class="annottext">newGetStagesResponse :: Int -&gt; GetStagesResponse
+</span><a href="Network.AWS.APIGateway.GetStages.html#newGetStagesResponse"><span class="hs-identifier hs-var hs-var">newGetStagesResponse</span></a></span></span><span> </span><span id="local-6989586621679377573"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377573"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">GetStagesResponse' :: Maybe [Stage] -&gt; Int -&gt; GetStagesResponse
+</span><a href="Network.AWS.APIGateway.GetStages.html#GetStagesResponse%27"><span class="hs-identifier hs-type">GetStagesResponse'</span></a></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:item:GetStagesResponse' :: Maybe [Stage]
+</span><a href="Network.AWS.APIGateway.GetStages.html#%24sel%3Aitem%3AGetStagesResponse%27"><span class="hs-identifier hs-var">item</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Stage]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetStagesResponse' :: Int
+</span><a href="Network.AWS.APIGateway.GetStages.html#%24sel%3AhttpStatus%3AGetStagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377573"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The current page of elements from this collection.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#getStagesResponse_item"><span class="hs-identifier hs-type">getStagesResponse_item</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStagesResponse"><span class="hs-identifier hs-type">GetStagesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Stage.html#Stage"><span class="hs-identifier hs-type">Stage</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="getStagesResponse_item"><span class="annot"><span class="annottext">getStagesResponse_item :: (Maybe [Stage] -&gt; f (Maybe [Stage]))
+-&gt; GetStagesResponse -&gt; f GetStagesResponse
+</span><a href="Network.AWS.APIGateway.GetStages.html#getStagesResponse_item"><span class="hs-identifier hs-var hs-var">getStagesResponse_item</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStagesResponse -&gt; Maybe [Stage])
+-&gt; (GetStagesResponse -&gt; Maybe [Stage] -&gt; GetStagesResponse)
+-&gt; Lens
+     GetStagesResponse GetStagesResponse (Maybe [Stage]) (Maybe [Stage])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStagesResponse%27"><span class="hs-identifier hs-type">GetStagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377572"><span class="annot"><span class="annottext">Maybe [Stage]
+item :: Maybe [Stage]
+$sel:item:GetStagesResponse' :: GetStagesResponse -&gt; Maybe [Stage]
+</span><a href="#local-6989586621679377572"><span class="hs-identifier hs-var hs-var">item</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Stage]
+</span><a href="#local-6989586621679377572"><span class="hs-identifier hs-var">item</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377571"><span class="annot"><span class="annottext">s :: GetStagesResponse
+</span><a href="#local-6989586621679377571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStagesResponse%27"><span class="hs-identifier hs-type">GetStagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377570"><span class="annot"><span class="annottext">Maybe [Stage]
+</span><a href="#local-6989586621679377570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStagesResponse
+</span><a href="#local-6989586621679377571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:item:GetStagesResponse' :: Maybe [Stage]
+</span><a href="Network.AWS.APIGateway.GetStages.html#%24sel%3Aitem%3AGetStagesResponse%27"><span class="hs-identifier hs-var">item</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Stage]
+</span><a href="#local-6989586621679377570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStagesResponse"><span class="hs-identifier hs-type">GetStagesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Stage] -&gt; f (Maybe [Stage]))
+ -&gt; GetStagesResponse -&gt; f GetStagesResponse)
+-&gt; ((Maybe [Stage] -&gt; f (Maybe [Stage]))
+    -&gt; Maybe [Stage] -&gt; f (Maybe [Stage]))
+-&gt; (Maybe [Stage] -&gt; f (Maybe [Stage]))
+-&gt; GetStagesResponse
+-&gt; f GetStagesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Stage] [Stage] [Stage] [Stage]
+-&gt; Iso
+     (Maybe [Stage]) (Maybe [Stage]) (Maybe [Stage]) (Maybe [Stage])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Stage] [Stage] [Stage] [Stage]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#getStagesResponse_httpStatus"><span class="hs-identifier hs-type">getStagesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStagesResponse"><span class="hs-identifier hs-type">GetStagesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span id="getStagesResponse_httpStatus"><span class="annot"><span class="annottext">getStagesResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetStagesResponse -&gt; f GetStagesResponse
+</span><a href="Network.AWS.APIGateway.GetStages.html#getStagesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getStagesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStagesResponse -&gt; Int)
+-&gt; (GetStagesResponse -&gt; Int -&gt; GetStagesResponse)
+-&gt; Lens GetStagesResponse GetStagesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStagesResponse%27"><span class="hs-identifier hs-type">GetStagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377566"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetStagesResponse' :: GetStagesResponse -&gt; Int
+</span><a href="#local-6989586621679377566"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377566"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377565"><span class="annot"><span class="annottext">s :: GetStagesResponse
+</span><a href="#local-6989586621679377565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStagesResponse%27"><span class="hs-identifier hs-type">GetStagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377564"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStagesResponse
+</span><a href="#local-6989586621679377565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetStagesResponse' :: Int
+</span><a href="Network.AWS.APIGateway.GetStages.html#%24sel%3AhttpStatus%3AGetStagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStagesResponse"><span class="hs-identifier hs-type">GetStagesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377562"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetStages.html#GetStagesResponse"><span class="hs-identifier hs-type">GetStagesResponse</span></a></span></span><span>
+</span><span id="line-168"></span></pre></body></html>

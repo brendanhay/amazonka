@@ -1,0 +1,598 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.CreateResourceDataSync</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- A resource data sync helps you view data from multiple sources in a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- single location. Amazon Web Services Systems Manager offers two types of</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- resource data sync: @SyncToDestination@ and @SyncFromSource@.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- You can configure Systems Manager Inventory to use the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- @SyncToDestination@ type to synchronize Inventory data from multiple</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Amazon Web Services Regions to a single Amazon Simple Storage Service</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- (Amazon S3) bucket. For more information, see</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html Configuring resource data sync for Inventory&gt;</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- in the /Amazon Web Services Systems Manager User Guide/.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- You can configure Systems Manager Explorer to use the @SyncFromSource@</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- type to synchronize operational work items (OpsItems) and operational</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- data (OpsData) from multiple Amazon Web Services Regions to a single</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Amazon S3 bucket. This type can synchronize OpsItems and OpsData from</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- multiple Amazon Web Services accounts and Amazon Web Services Regions or</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- @EntireOrganization@ by using Organizations. For more information, see</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html Setting up Systems Manager Explorer to display data from multiple accounts and Regions&gt;</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- in the /Amazon Web Services Systems Manager User Guide/.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- A resource data sync is an asynchronous operation that returns</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- immediately. After a successful initial sync is completed, the system</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- continuously syncs data. To check the status of a sync, use the</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- ListResourceDataSync.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- By default, data isn\'t encrypted in Amazon S3. We strongly recommend</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- that you enable encryption in Amazon S3 to ensure secure data storage.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- We also recommend that you secure access to the Amazon S3 bucket by</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- creating a restrictive bucket policy.</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.CreateResourceDataSync</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier">CreateResourceDataSync</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#newCreateResourceDataSync"><span class="hs-identifier">newCreateResourceDataSync</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#createResourceDataSync_syncType"><span class="hs-identifier">createResourceDataSync_syncType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#createResourceDataSync_s3Destination"><span class="hs-identifier">createResourceDataSync_s3Destination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#createResourceDataSync_syncSource"><span class="hs-identifier">createResourceDataSync_syncSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#createResourceDataSync_syncName"><span class="hs-identifier">createResourceDataSync_syncName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSyncResponse"><span class="hs-identifier">CreateResourceDataSyncResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#newCreateResourceDataSyncResponse"><span class="hs-identifier">newCreateResourceDataSyncResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#createResourceDataSyncResponse_httpStatus"><span class="hs-identifier">createResourceDataSyncResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | /See:/ 'newCreateResourceDataSync' smart constructor.</span><span>
+</span><span id="line-80"></span><span id="local-6989586621679850799"><span id="local-6989586621679850800"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateResourceDataSync"><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-var">CreateResourceDataSync</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateResourceDataSync%27"><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync%27"><span class="hs-identifier hs-var">CreateResourceDataSync'</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify @SyncToDestination@ to create a resource data sync that</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- synchronizes data to an S3 bucket for Inventory. If you specify</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- @SyncToDestination@, you must provide a value for @S3Destination@.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- Specify @SyncFromSource@ to synchronize data from a single account and</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- multiple Regions, or multiple Amazon Web Services accounts and Amazon</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- Web Services Regions, as listed in Organizations for Explorer. If you</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- specify @SyncFromSource@, you must provide a value for @SyncSource@. The</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- default value is @SyncToDestination@.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AsyncType%3ACreateResourceDataSync%27"><span class="annot"><span class="annottext">CreateResourceDataSync -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#%24sel%3AsyncType%3ACreateResourceDataSync%27"><span class="hs-identifier hs-var hs-var">syncType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | Amazon S3 configuration details for the sync. This parameter is required</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- if the @SyncType@ value is SyncToDestination.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3As3Destination%3ACreateResourceDataSync%27"><span class="annot"><span class="annottext">CreateResourceDataSync -&gt; Maybe ResourceDataSyncS3Destination
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#%24sel%3As3Destination%3ACreateResourceDataSync%27"><span class="hs-identifier hs-var hs-var">s3Destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | Specify information about the data sources to synchronize. This</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- parameter is required if the @SyncType@ value is SyncFromSource.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AsyncSource%3ACreateResourceDataSync%27"><span class="annot"><span class="annottext">CreateResourceDataSync -&gt; Maybe ResourceDataSyncSource
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#%24sel%3AsyncSource%3ACreateResourceDataSync%27"><span class="hs-identifier hs-var hs-var">syncSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | A name for the configuration.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AsyncName%3ACreateResourceDataSync%27"><span class="annot"><span class="annottext">CreateResourceDataSync -&gt; Text
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#%24sel%3AsyncName%3ACreateResourceDataSync%27"><span class="hs-identifier hs-var hs-var">syncName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679850790"><span id="local-6989586621679850792"><span class="annot"><span class="annottext">CreateResourceDataSync -&gt; CreateResourceDataSync -&gt; Bool
+(CreateResourceDataSync -&gt; CreateResourceDataSync -&gt; Bool)
+-&gt; (CreateResourceDataSync -&gt; CreateResourceDataSync -&gt; Bool)
+-&gt; Eq CreateResourceDataSync
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateResourceDataSync -&gt; CreateResourceDataSync -&gt; Bool
+$c/= :: CreateResourceDataSync -&gt; CreateResourceDataSync -&gt; Bool
+== :: CreateResourceDataSync -&gt; CreateResourceDataSync -&gt; Bool
+$c== :: CreateResourceDataSync -&gt; CreateResourceDataSync -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679850781"><span id="local-6989586621679850783"><span id="local-6989586621679850785"><span id="local-6989586621679850787"><span class="annot"><span class="annottext">ReadPrec [CreateResourceDataSync]
+ReadPrec CreateResourceDataSync
+Int -&gt; ReadS CreateResourceDataSync
+ReadS [CreateResourceDataSync]
+(Int -&gt; ReadS CreateResourceDataSync)
+-&gt; ReadS [CreateResourceDataSync]
+-&gt; ReadPrec CreateResourceDataSync
+-&gt; ReadPrec [CreateResourceDataSync]
+-&gt; Read CreateResourceDataSync
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateResourceDataSync]
+$creadListPrec :: ReadPrec [CreateResourceDataSync]
+readPrec :: ReadPrec CreateResourceDataSync
+$creadPrec :: ReadPrec CreateResourceDataSync
+readList :: ReadS [CreateResourceDataSync]
+$creadList :: ReadS [CreateResourceDataSync]
+readsPrec :: Int -&gt; ReadS CreateResourceDataSync
+$creadsPrec :: Int -&gt; ReadS CreateResourceDataSync
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679850774"><span id="local-6989586621679850776"><span id="local-6989586621679850778"><span class="annot"><span class="annottext">Int -&gt; CreateResourceDataSync -&gt; ShowS
+[CreateResourceDataSync] -&gt; ShowS
+CreateResourceDataSync -&gt; String
+(Int -&gt; CreateResourceDataSync -&gt; ShowS)
+-&gt; (CreateResourceDataSync -&gt; String)
+-&gt; ([CreateResourceDataSync] -&gt; ShowS)
+-&gt; Show CreateResourceDataSync
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateResourceDataSync] -&gt; ShowS
+$cshowList :: [CreateResourceDataSync] -&gt; ShowS
+show :: CreateResourceDataSync -&gt; String
+$cshow :: CreateResourceDataSync -&gt; String
+showsPrec :: Int -&gt; CreateResourceDataSync -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateResourceDataSync -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateResourceDataSync -&gt; Rep CreateResourceDataSync x)
+-&gt; (forall x.
+    Rep CreateResourceDataSync x -&gt; CreateResourceDataSync)
+-&gt; Generic CreateResourceDataSync
+forall x. Rep CreateResourceDataSync x -&gt; CreateResourceDataSync
+forall x. CreateResourceDataSync -&gt; Rep CreateResourceDataSync x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateResourceDataSync x -&gt; CreateResourceDataSync
+$cfrom :: forall x. CreateResourceDataSync -&gt; Rep CreateResourceDataSync x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Create a value of 'CreateResourceDataSync' with all optional fields omitted.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'syncType', 'createResourceDataSync_syncType' - Specify @SyncToDestination@ to create a resource data sync that</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- synchronizes data to an S3 bucket for Inventory. If you specify</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- @SyncToDestination@, you must provide a value for @S3Destination@.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Specify @SyncFromSource@ to synchronize data from a single account and</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- multiple Regions, or multiple Amazon Web Services accounts and Amazon</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Web Services Regions, as listed in Organizations for Explorer. If you</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- specify @SyncFromSource@, you must provide a value for @SyncSource@. The</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- default value is @SyncToDestination@.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 's3Destination', 'createResourceDataSync_s3Destination' - Amazon S3 configuration details for the sync. This parameter is required</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- if the @SyncType@ value is SyncToDestination.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'syncSource', 'createResourceDataSync_syncSource' - Specify information about the data sources to synchronize. This</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- parameter is required if the @SyncType@ value is SyncFromSource.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'syncName', 'createResourceDataSync_syncName' - A name for the configuration.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#newCreateResourceDataSync"><span class="hs-identifier hs-type">newCreateResourceDataSync</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'syncName'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span><span>
+</span><span id="line-129"></span><span id="newCreateResourceDataSync"><span class="annot"><span class="annottext">newCreateResourceDataSync :: Text -&gt; CreateResourceDataSync
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#newCreateResourceDataSync"><span class="hs-identifier hs-var hs-var">newCreateResourceDataSync</span></a></span></span><span> </span><span id="local-6989586621679850769"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679850769"><span class="hs-identifier hs-var">pSyncName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">CreateResourceDataSync' :: Maybe Text
+-&gt; Maybe ResourceDataSyncS3Destination
+-&gt; Maybe ResourceDataSyncSource
+-&gt; Text
+-&gt; CreateResourceDataSync
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync%27"><span class="hs-identifier hs-type">CreateResourceDataSync'</span></a></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:syncType:CreateResourceDataSync' :: Maybe Text
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#%24sel%3AsyncType%3ACreateResourceDataSync%27"><span class="hs-identifier hs-var">syncType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Destination:CreateResourceDataSync' :: Maybe ResourceDataSyncS3Destination
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#%24sel%3As3Destination%3ACreateResourceDataSync%27"><span class="hs-identifier hs-var">s3Destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncS3Destination
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:syncSource:CreateResourceDataSync' :: Maybe ResourceDataSyncSource
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#%24sel%3AsyncSource%3ACreateResourceDataSync%27"><span class="hs-identifier hs-var">syncSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncSource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:syncName:CreateResourceDataSync' :: Text
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#%24sel%3AsyncName%3ACreateResourceDataSync%27"><span class="hs-identifier hs-var">syncName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679850769"><span class="hs-identifier hs-var">pSyncName_</span></a></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Specify @SyncToDestination@ to create a resource data sync that</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- synchronizes data to an S3 bucket for Inventory. If you specify</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- @SyncToDestination@, you must provide a value for @S3Destination@.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Specify @SyncFromSource@ to synchronize data from a single account and</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- multiple Regions, or multiple Amazon Web Services accounts and Amazon</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Web Services Regions, as listed in Organizations for Explorer. If you</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- specify @SyncFromSource@, you must provide a value for @SyncSource@. The</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- default value is @SyncToDestination@.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#createResourceDataSync_syncType"><span class="hs-identifier hs-type">createResourceDataSync_syncType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="createResourceDataSync_syncType"><span class="annot"><span class="annottext">createResourceDataSync_syncType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateResourceDataSync -&gt; f CreateResourceDataSync
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#createResourceDataSync_syncType"><span class="hs-identifier hs-var hs-var">createResourceDataSync_syncType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResourceDataSync -&gt; Maybe Text)
+-&gt; (CreateResourceDataSync -&gt; Maybe Text -&gt; CreateResourceDataSync)
+-&gt; Lens
+     CreateResourceDataSync
+     CreateResourceDataSync
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync%27"><span class="hs-identifier hs-type">CreateResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679850766"><span class="annot"><span class="annottext">Maybe Text
+syncType :: Maybe Text
+$sel:syncType:CreateResourceDataSync' :: CreateResourceDataSync -&gt; Maybe Text
+</span><a href="#local-6989586621679850766"><span class="hs-identifier hs-var hs-var">syncType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679850766"><span class="hs-identifier hs-var">syncType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679850765"><span class="annot"><span class="annottext">s :: CreateResourceDataSync
+</span><a href="#local-6989586621679850765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync%27"><span class="hs-identifier hs-type">CreateResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679850764"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679850764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResourceDataSync
+</span><a href="#local-6989586621679850765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syncType:CreateResourceDataSync' :: Maybe Text
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#%24sel%3AsyncType%3ACreateResourceDataSync%27"><span class="hs-identifier hs-var">syncType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679850764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | Amazon S3 configuration details for the sync. This parameter is required</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- if the @SyncType@ value is SyncToDestination.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#createResourceDataSync_s3Destination"><span class="hs-identifier hs-type">createResourceDataSync_s3Destination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="createResourceDataSync_s3Destination"><span class="annot"><span class="annottext">createResourceDataSync_s3Destination :: (Maybe ResourceDataSyncS3Destination
+ -&gt; f (Maybe ResourceDataSyncS3Destination))
+-&gt; CreateResourceDataSync -&gt; f CreateResourceDataSync
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#createResourceDataSync_s3Destination"><span class="hs-identifier hs-var hs-var">createResourceDataSync_s3Destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResourceDataSync -&gt; Maybe ResourceDataSyncS3Destination)
+-&gt; (CreateResourceDataSync
+    -&gt; Maybe ResourceDataSyncS3Destination -&gt; CreateResourceDataSync)
+-&gt; Lens
+     CreateResourceDataSync
+     CreateResourceDataSync
+     (Maybe ResourceDataSyncS3Destination)
+     (Maybe ResourceDataSyncS3Destination)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync%27"><span class="hs-identifier hs-type">CreateResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679850763"><span class="annot"><span class="annottext">Maybe ResourceDataSyncS3Destination
+s3Destination :: Maybe ResourceDataSyncS3Destination
+$sel:s3Destination:CreateResourceDataSync' :: CreateResourceDataSync -&gt; Maybe ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679850763"><span class="hs-identifier hs-var hs-var">s3Destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679850763"><span class="hs-identifier hs-var">s3Destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679850762"><span class="annot"><span class="annottext">s :: CreateResourceDataSync
+</span><a href="#local-6989586621679850762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync%27"><span class="hs-identifier hs-type">CreateResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679850761"><span class="annot"><span class="annottext">Maybe ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679850761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResourceDataSync
+</span><a href="#local-6989586621679850762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Destination:CreateResourceDataSync' :: Maybe ResourceDataSyncS3Destination
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#%24sel%3As3Destination%3ACreateResourceDataSync%27"><span class="hs-identifier hs-var">s3Destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679850761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Specify information about the data sources to synchronize. This</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- parameter is required if the @SyncType@ value is SyncFromSource.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#createResourceDataSync_syncSource"><span class="hs-identifier hs-type">createResourceDataSync_syncSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="createResourceDataSync_syncSource"><span class="annot"><span class="annottext">createResourceDataSync_syncSource :: (Maybe ResourceDataSyncSource -&gt; f (Maybe ResourceDataSyncSource))
+-&gt; CreateResourceDataSync -&gt; f CreateResourceDataSync
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#createResourceDataSync_syncSource"><span class="hs-identifier hs-var hs-var">createResourceDataSync_syncSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResourceDataSync -&gt; Maybe ResourceDataSyncSource)
+-&gt; (CreateResourceDataSync
+    -&gt; Maybe ResourceDataSyncSource -&gt; CreateResourceDataSync)
+-&gt; Lens
+     CreateResourceDataSync
+     CreateResourceDataSync
+     (Maybe ResourceDataSyncSource)
+     (Maybe ResourceDataSyncSource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync%27"><span class="hs-identifier hs-type">CreateResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679850760"><span class="annot"><span class="annottext">Maybe ResourceDataSyncSource
+syncSource :: Maybe ResourceDataSyncSource
+$sel:syncSource:CreateResourceDataSync' :: CreateResourceDataSync -&gt; Maybe ResourceDataSyncSource
+</span><a href="#local-6989586621679850760"><span class="hs-identifier hs-var hs-var">syncSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncSource
+</span><a href="#local-6989586621679850760"><span class="hs-identifier hs-var">syncSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679850759"><span class="annot"><span class="annottext">s :: CreateResourceDataSync
+</span><a href="#local-6989586621679850759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync%27"><span class="hs-identifier hs-type">CreateResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679850758"><span class="annot"><span class="annottext">Maybe ResourceDataSyncSource
+</span><a href="#local-6989586621679850758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResourceDataSync
+</span><a href="#local-6989586621679850759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syncSource:CreateResourceDataSync' :: Maybe ResourceDataSyncSource
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#%24sel%3AsyncSource%3ACreateResourceDataSync%27"><span class="hs-identifier hs-var">syncSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncSource
+</span><a href="#local-6989586621679850758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | A name for the configuration.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#createResourceDataSync_syncName"><span class="hs-identifier hs-type">createResourceDataSync_syncName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-160"></span><span id="createResourceDataSync_syncName"><span class="annot"><span class="annottext">createResourceDataSync_syncName :: (Text -&gt; f Text)
+-&gt; CreateResourceDataSync -&gt; f CreateResourceDataSync
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#createResourceDataSync_syncName"><span class="hs-identifier hs-var hs-var">createResourceDataSync_syncName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResourceDataSync -&gt; Text)
+-&gt; (CreateResourceDataSync -&gt; Text -&gt; CreateResourceDataSync)
+-&gt; Lens CreateResourceDataSync CreateResourceDataSync Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync%27"><span class="hs-identifier hs-type">CreateResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679850757"><span class="annot"><span class="annottext">Text
+syncName :: Text
+$sel:syncName:CreateResourceDataSync' :: CreateResourceDataSync -&gt; Text
+</span><a href="#local-6989586621679850757"><span class="hs-identifier hs-var hs-var">syncName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679850757"><span class="hs-identifier hs-var">syncName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679850756"><span class="annot"><span class="annottext">s :: CreateResourceDataSync
+</span><a href="#local-6989586621679850756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync%27"><span class="hs-identifier hs-type">CreateResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679850755"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679850755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResourceDataSync
+</span><a href="#local-6989586621679850756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syncName:CreateResourceDataSync' :: Text
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#%24sel%3AsyncName%3ACreateResourceDataSync%27"><span class="hs-identifier hs-var">syncName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679850755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-164"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSyncResponse"><span class="hs-identifier hs-type">CreateResourceDataSyncResponse</span></a></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679850751"><span class="annot"><span class="annottext">request :: CreateResourceDataSync -&gt; Request CreateResourceDataSync
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateResourceDataSync -&gt; Request CreateResourceDataSync
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679850747"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateResourceDataSync
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateResourceDataSync)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse CreateResourceDataSync))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateResourceDataSync
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateResourceDataSync)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679850744"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679850744"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679850743"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679850743"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679850742"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679850742"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateResourceDataSyncResponse
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSyncResponse%27"><span class="hs-identifier hs-var">CreateResourceDataSyncResponse'</span></a></span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateResourceDataSyncResponse)
+-&gt; Either String Int
+-&gt; Either String CreateResourceDataSyncResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679850744"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679850735"><span id="local-6989586621679850737"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679850732"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679850728"><span class="annot"><span class="annottext">toHeaders :: CreateResourceDataSync -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateResourceDataSync -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonSSM.CreateResourceDataSync&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-185"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-189"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679850718"><span id="local-6989586621679850720"><span id="local-6989586621679850722"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679850716"><span class="annot"><span class="annottext">toJSON :: CreateResourceDataSync -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync%27"><span class="hs-identifier hs-type">CreateResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679850711"><span id="local-6989586621679850712"><span id="local-6989586621679850713"><span id="local-6989586621679850714"><span class="annot"><span class="annottext">Maybe Text
+Maybe ResourceDataSyncS3Destination
+Maybe ResourceDataSyncSource
+Text
+syncName :: Text
+syncSource :: Maybe ResourceDataSyncSource
+s3Destination :: Maybe ResourceDataSyncS3Destination
+syncType :: Maybe Text
+$sel:syncName:CreateResourceDataSync' :: CreateResourceDataSync -&gt; Text
+$sel:syncSource:CreateResourceDataSync' :: CreateResourceDataSync -&gt; Maybe ResourceDataSyncSource
+$sel:s3Destination:CreateResourceDataSync' :: CreateResourceDataSync -&gt; Maybe ResourceDataSyncS3Destination
+$sel:syncType:CreateResourceDataSync' :: CreateResourceDataSync -&gt; Maybe Text
+</span><a href="#local-6989586621679850711"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-197"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SyncType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679850714"><span class="hs-identifier hs-var">syncType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceDataSyncS3Destination -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ResourceDataSyncS3Destination -&gt; Pair)
+-&gt; Maybe ResourceDataSyncS3Destination -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679850713"><span class="hs-identifier hs-var">s3Destination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SyncSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceDataSyncSource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ResourceDataSyncSource -&gt; Pair)
+-&gt; Maybe ResourceDataSyncSource -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncSource
+</span><a href="#local-6989586621679850712"><span class="hs-identifier hs-var">syncSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SyncName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679850711"><span class="hs-identifier hs-var">syncName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679850705"><span class="annot"><span class="annottext">toPath :: CreateResourceDataSync -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateResourceDataSync -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSync"><span class="hs-identifier hs-type">CreateResourceDataSync</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679850701"><span class="annot"><span class="annottext">toQuery :: CreateResourceDataSync -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateResourceDataSync -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | /See:/ 'newCreateResourceDataSyncResponse' smart constructor.</span><span>
+</span><span id="line-211"></span><span id="local-6989586621679850698"><span id="local-6989586621679850699"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateResourceDataSyncResponse"><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSyncResponse"><span class="hs-identifier hs-var">CreateResourceDataSyncResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateResourceDataSyncResponse%27"><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSyncResponse%27"><span class="hs-identifier hs-var">CreateResourceDataSyncResponse'</span></a></span></span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateResourceDataSyncResponse%27"><span class="annot"><span class="annottext">CreateResourceDataSyncResponse -&gt; Int
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#%24sel%3AhttpStatus%3ACreateResourceDataSyncResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679850693"><span id="local-6989586621679850695"><span class="annot"><span class="annottext">CreateResourceDataSyncResponse
+-&gt; CreateResourceDataSyncResponse -&gt; Bool
+(CreateResourceDataSyncResponse
+ -&gt; CreateResourceDataSyncResponse -&gt; Bool)
+-&gt; (CreateResourceDataSyncResponse
+    -&gt; CreateResourceDataSyncResponse -&gt; Bool)
+-&gt; Eq CreateResourceDataSyncResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateResourceDataSyncResponse
+-&gt; CreateResourceDataSyncResponse -&gt; Bool
+$c/= :: CreateResourceDataSyncResponse
+-&gt; CreateResourceDataSyncResponse -&gt; Bool
+== :: CreateResourceDataSyncResponse
+-&gt; CreateResourceDataSyncResponse -&gt; Bool
+$c== :: CreateResourceDataSyncResponse
+-&gt; CreateResourceDataSyncResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679850685"><span id="local-6989586621679850687"><span id="local-6989586621679850689"><span id="local-6989586621679850691"><span class="annot"><span class="annottext">ReadPrec [CreateResourceDataSyncResponse]
+ReadPrec CreateResourceDataSyncResponse
+Int -&gt; ReadS CreateResourceDataSyncResponse
+ReadS [CreateResourceDataSyncResponse]
+(Int -&gt; ReadS CreateResourceDataSyncResponse)
+-&gt; ReadS [CreateResourceDataSyncResponse]
+-&gt; ReadPrec CreateResourceDataSyncResponse
+-&gt; ReadPrec [CreateResourceDataSyncResponse]
+-&gt; Read CreateResourceDataSyncResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateResourceDataSyncResponse]
+$creadListPrec :: ReadPrec [CreateResourceDataSyncResponse]
+readPrec :: ReadPrec CreateResourceDataSyncResponse
+$creadPrec :: ReadPrec CreateResourceDataSyncResponse
+readList :: ReadS [CreateResourceDataSyncResponse]
+$creadList :: ReadS [CreateResourceDataSyncResponse]
+readsPrec :: Int -&gt; ReadS CreateResourceDataSyncResponse
+$creadsPrec :: Int -&gt; ReadS CreateResourceDataSyncResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679850679"><span id="local-6989586621679850681"><span id="local-6989586621679850683"><span class="annot"><span class="annottext">Int -&gt; CreateResourceDataSyncResponse -&gt; ShowS
+[CreateResourceDataSyncResponse] -&gt; ShowS
+CreateResourceDataSyncResponse -&gt; String
+(Int -&gt; CreateResourceDataSyncResponse -&gt; ShowS)
+-&gt; (CreateResourceDataSyncResponse -&gt; String)
+-&gt; ([CreateResourceDataSyncResponse] -&gt; ShowS)
+-&gt; Show CreateResourceDataSyncResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateResourceDataSyncResponse] -&gt; ShowS
+$cshowList :: [CreateResourceDataSyncResponse] -&gt; ShowS
+show :: CreateResourceDataSyncResponse -&gt; String
+$cshow :: CreateResourceDataSyncResponse -&gt; String
+showsPrec :: Int -&gt; CreateResourceDataSyncResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateResourceDataSyncResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateResourceDataSyncResponse
+ -&gt; Rep CreateResourceDataSyncResponse x)
+-&gt; (forall x.
+    Rep CreateResourceDataSyncResponse x
+    -&gt; CreateResourceDataSyncResponse)
+-&gt; Generic CreateResourceDataSyncResponse
+forall x.
+Rep CreateResourceDataSyncResponse x
+-&gt; CreateResourceDataSyncResponse
+forall x.
+CreateResourceDataSyncResponse
+-&gt; Rep CreateResourceDataSyncResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateResourceDataSyncResponse x
+-&gt; CreateResourceDataSyncResponse
+$cfrom :: forall x.
+CreateResourceDataSyncResponse
+-&gt; Rep CreateResourceDataSyncResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Create a value of 'CreateResourceDataSyncResponse' with all optional fields omitted.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'httpStatus', 'createResourceDataSyncResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#newCreateResourceDataSyncResponse"><span class="hs-identifier hs-type">newCreateResourceDataSyncResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-228"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSyncResponse"><span class="hs-identifier hs-type">CreateResourceDataSyncResponse</span></a></span><span>
+</span><span id="line-230"></span><span id="newCreateResourceDataSyncResponse"><span class="annot"><span class="annottext">newCreateResourceDataSyncResponse :: Int -&gt; CreateResourceDataSyncResponse
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#newCreateResourceDataSyncResponse"><span class="hs-identifier hs-var hs-var">newCreateResourceDataSyncResponse</span></a></span></span><span> </span><span id="local-6989586621679850676"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679850676"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="annottext">CreateResourceDataSyncResponse' :: Int -&gt; CreateResourceDataSyncResponse
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSyncResponse%27"><span class="hs-identifier hs-type">CreateResourceDataSyncResponse'</span></a></span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateResourceDataSyncResponse' :: Int
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#%24sel%3AhttpStatus%3ACreateResourceDataSyncResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679850676"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#createResourceDataSyncResponse_httpStatus"><span class="hs-identifier hs-type">createResourceDataSyncResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSyncResponse"><span class="hs-identifier hs-type">CreateResourceDataSyncResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-238"></span><span id="createResourceDataSyncResponse_httpStatus"><span class="annot"><span class="annottext">createResourceDataSyncResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateResourceDataSyncResponse
+-&gt; f CreateResourceDataSyncResponse
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#createResourceDataSyncResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createResourceDataSyncResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResourceDataSyncResponse -&gt; Int)
+-&gt; (CreateResourceDataSyncResponse
+    -&gt; Int -&gt; CreateResourceDataSyncResponse)
+-&gt; Lens
+     CreateResourceDataSyncResponse
+     CreateResourceDataSyncResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSyncResponse%27"><span class="hs-identifier hs-type">CreateResourceDataSyncResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679850675"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateResourceDataSyncResponse' :: CreateResourceDataSyncResponse -&gt; Int
+</span><a href="#local-6989586621679850675"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679850675"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679850674"><span class="annot"><span class="annottext">s :: CreateResourceDataSyncResponse
+</span><a href="#local-6989586621679850674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSyncResponse%27"><span class="hs-identifier hs-type">CreateResourceDataSyncResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679850673"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679850673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResourceDataSyncResponse
+</span><a href="#local-6989586621679850674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateResourceDataSyncResponse' :: Int
+</span><a href="Network.AWS.SSM.CreateResourceDataSync.html#%24sel%3AhttpStatus%3ACreateResourceDataSyncResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679850673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSyncResponse"><span class="hs-identifier hs-type">CreateResourceDataSyncResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679850671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateResourceDataSync.html#CreateResourceDataSyncResponse"><span class="hs-identifier hs-type">CreateResourceDataSyncResponse</span></a></span></span><span>
+</span><span id="line-243"></span></pre></body></html>

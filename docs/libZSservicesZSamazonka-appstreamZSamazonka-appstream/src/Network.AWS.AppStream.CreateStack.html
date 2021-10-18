@@ -1,0 +1,1039 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AppStream.CreateStack</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a stack to start streaming applications to users. A stack</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- consists of an associated fleet, user access policies, and storage</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- configurations.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppStream.CreateStack</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier">CreateStack</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#newCreateStack"><span class="hs-identifier">newCreateStack</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_userSettings"><span class="hs-identifier">createStack_userSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_accessEndpoints"><span class="hs-identifier">createStack_accessEndpoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_redirectURL"><span class="hs-identifier">createStack_redirectURL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_applicationSettings"><span class="hs-identifier">createStack_applicationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_tags"><span class="hs-identifier">createStack_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_storageConnectors"><span class="hs-identifier">createStack_storageConnectors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_description"><span class="hs-identifier">createStack_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_embedHostDomains"><span class="hs-identifier">createStack_embedHostDomains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_displayName"><span class="hs-identifier">createStack_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_feedbackURL"><span class="hs-identifier">createStack_feedbackURL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_name"><span class="hs-identifier">createStack_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStackResponse"><span class="hs-identifier">CreateStackResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#newCreateStackResponse"><span class="hs-identifier">newCreateStackResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStackResponse_stack"><span class="hs-identifier">createStackResponse_stack</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStackResponse_httpStatus"><span class="hs-identifier">createStackResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.html"><span class="hs-identifier">Network.AWS.AppStream.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newCreateStack' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679301160"><span id="local-6989586621679301161"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStack"><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-var">CreateStack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStack%27"><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-var">CreateStack'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The actions that are enabled or disabled for users during their</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- streaming sessions. By default, these actions are enabled.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AuserSettings%3ACreateStack%27"><span class="annot"><span class="annottext">CreateStack -&gt; Maybe (NonEmpty UserSetting)
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AuserSettings%3ACreateStack%27"><span class="hs-identifier hs-var hs-var">userSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserSetting.html#UserSetting"><span class="hs-identifier hs-type">UserSetting</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The list of interface VPC endpoint (interface endpoint) objects. Users</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- of the stack can connect to AppStream 2.0 only through the specified</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- endpoints.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AaccessEndpoints%3ACreateStack%27"><span class="annot"><span class="annottext">CreateStack -&gt; Maybe (NonEmpty AccessEndpoint)
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AaccessEndpoints%3ACreateStack%27"><span class="hs-identifier hs-var hs-var">accessEndpoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.AccessEndpoint.html#AccessEndpoint"><span class="hs-identifier hs-type">AccessEndpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The URL that users are redirected to after their streaming session ends.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AredirectURL%3ACreateStack%27"><span class="annot"><span class="annottext">CreateStack -&gt; Maybe Text
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AredirectURL%3ACreateStack%27"><span class="hs-identifier hs-var hs-var">redirectURL</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The persistent application settings for users of a stack. When these</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- settings are enabled, changes that users make to applications and</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- Windows settings are automatically saved after each session and applied</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- to the next session.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AapplicationSettings%3ACreateStack%27"><span class="annot"><span class="annottext">CreateStack -&gt; Maybe ApplicationSettings
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AapplicationSettings%3ACreateStack%27"><span class="hs-identifier hs-var hs-var">applicationSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings"><span class="hs-identifier hs-type">ApplicationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The tags to associate with the stack. A tag is a key-value pair, and the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- value is optional. For example, Environment=Test. If you do not specify</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- a value, Environment=.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- If you do not specify a value, the value is set to an empty string.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- Generally allowed characters are: letters, numbers, and spaces</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- representable in UTF-8, and the following special characters:</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- _ . : \/ = + \\ - \@</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- For more information about tags, see</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources&gt;</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- in the /Amazon AppStream 2.0 Administration Guide/.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3Atags%3ACreateStack%27"><span class="annot"><span class="annottext">CreateStack -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3Atags%3ACreateStack%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The storage connectors to enable.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AstorageConnectors%3ACreateStack%27"><span class="annot"><span class="annottext">CreateStack -&gt; Maybe [StorageConnector]
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AstorageConnectors%3ACreateStack%27"><span class="hs-identifier hs-var hs-var">storageConnectors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppStream.Types.StorageConnector.html#StorageConnector"><span class="hs-identifier hs-type">StorageConnector</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The description to display.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3Adescription%3ACreateStack%27"><span class="annot"><span class="annottext">CreateStack -&gt; Maybe Text
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3Adescription%3ACreateStack%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The domains where AppStream 2.0 streaming sessions can be embedded in an</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- iframe. You must approve the domains that you want to host embedded</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- AppStream 2.0 streaming sessions.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AembedHostDomains%3ACreateStack%27"><span class="annot"><span class="annottext">CreateStack -&gt; Maybe (NonEmpty Text)
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AembedHostDomains%3ACreateStack%27"><span class="hs-identifier hs-var hs-var">embedHostDomains</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | The stack name to display.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AdisplayName%3ACreateStack%27"><span class="annot"><span class="annottext">CreateStack -&gt; Maybe Text
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AdisplayName%3ACreateStack%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The URL that users are redirected to after they click the Send Feedback</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- link. If no URL is specified, no Send Feedback link is displayed.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AfeedbackURL%3ACreateStack%27"><span class="annot"><span class="annottext">CreateStack -&gt; Maybe Text
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AfeedbackURL%3ACreateStack%27"><span class="hs-identifier hs-var hs-var">feedbackURL</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | The name of the stack.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3Aname%3ACreateStack%27"><span class="annot"><span class="annottext">CreateStack -&gt; Text
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3Aname%3ACreateStack%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301144"><span id="local-6989586621679301146"><span class="annot"><span class="annottext">CreateStack -&gt; CreateStack -&gt; Bool
+(CreateStack -&gt; CreateStack -&gt; Bool)
+-&gt; (CreateStack -&gt; CreateStack -&gt; Bool) -&gt; Eq CreateStack
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateStack -&gt; CreateStack -&gt; Bool
+$c/= :: CreateStack -&gt; CreateStack -&gt; Bool
+== :: CreateStack -&gt; CreateStack -&gt; Bool
+$c== :: CreateStack -&gt; CreateStack -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301135"><span id="local-6989586621679301137"><span id="local-6989586621679301139"><span id="local-6989586621679301141"><span class="annot"><span class="annottext">ReadPrec [CreateStack]
+ReadPrec CreateStack
+Int -&gt; ReadS CreateStack
+ReadS [CreateStack]
+(Int -&gt; ReadS CreateStack)
+-&gt; ReadS [CreateStack]
+-&gt; ReadPrec CreateStack
+-&gt; ReadPrec [CreateStack]
+-&gt; Read CreateStack
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateStack]
+$creadListPrec :: ReadPrec [CreateStack]
+readPrec :: ReadPrec CreateStack
+$creadPrec :: ReadPrec CreateStack
+readList :: ReadS [CreateStack]
+$creadList :: ReadS [CreateStack]
+readsPrec :: Int -&gt; ReadS CreateStack
+$creadsPrec :: Int -&gt; ReadS CreateStack
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301128"><span id="local-6989586621679301130"><span id="local-6989586621679301132"><span class="annot"><span class="annottext">Int -&gt; CreateStack -&gt; ShowS
+[CreateStack] -&gt; ShowS
+CreateStack -&gt; String
+(Int -&gt; CreateStack -&gt; ShowS)
+-&gt; (CreateStack -&gt; String)
+-&gt; ([CreateStack] -&gt; ShowS)
+-&gt; Show CreateStack
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateStack] -&gt; ShowS
+$cshowList :: [CreateStack] -&gt; ShowS
+show :: CreateStack -&gt; String
+$cshow :: CreateStack -&gt; String
+showsPrec :: Int -&gt; CreateStack -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateStack -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateStack -&gt; Rep CreateStack x)
+-&gt; (forall x. Rep CreateStack x -&gt; CreateStack)
+-&gt; Generic CreateStack
+forall x. Rep CreateStack x -&gt; CreateStack
+forall x. CreateStack -&gt; Rep CreateStack x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateStack x -&gt; CreateStack
+$cfrom :: forall x. CreateStack -&gt; Rep CreateStack x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Create a value of 'CreateStack' with all optional fields omitted.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'userSettings', 'createStack_userSettings' - The actions that are enabled or disabled for users during their</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- streaming sessions. By default, these actions are enabled.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'accessEndpoints', 'createStack_accessEndpoints' - The list of interface VPC endpoint (interface endpoint) objects. Users</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- of the stack can connect to AppStream 2.0 only through the specified</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- endpoints.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'redirectURL', 'createStack_redirectURL' - The URL that users are redirected to after their streaming session ends.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'applicationSettings', 'createStack_applicationSettings' - The persistent application settings for users of a stack. When these</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- settings are enabled, changes that users make to applications and</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Windows settings are automatically saved after each session and applied</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- to the next session.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'tags', 'createStack_tags' - The tags to associate with the stack. A tag is a key-value pair, and the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- value is optional. For example, Environment=Test. If you do not specify</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- a value, Environment=.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- If you do not specify a value, the value is set to an empty string.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Generally allowed characters are: letters, numbers, and spaces</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- representable in UTF-8, and the following special characters:</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- _ . : \/ = + \\ - \@</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- For more information about tags, see</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources&gt;</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- in the /Amazon AppStream 2.0 Administration Guide/.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'storageConnectors', 'createStack_storageConnectors' - The storage connectors to enable.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'description', 'createStack_description' - The description to display.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'embedHostDomains', 'createStack_embedHostDomains' - The domains where AppStream 2.0 streaming sessions can be embedded in an</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- iframe. You must approve the domains that you want to host embedded</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- AppStream 2.0 streaming sessions.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'displayName', 'createStack_displayName' - The stack name to display.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'feedbackURL', 'createStack_feedbackURL' - The URL that users are redirected to after they click the Send Feedback</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- link. If no URL is specified, no Send Feedback link is displayed.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'name', 'createStack_name' - The name of the stack.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#newCreateStack"><span class="hs-identifier hs-type">newCreateStack</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span>
+</span><span id="line-165"></span><span id="newCreateStack"><span class="annot"><span class="annottext">newCreateStack :: Text -&gt; CreateStack
+</span><a href="Network.AWS.AppStream.CreateStack.html#newCreateStack"><span class="hs-identifier hs-var hs-var">newCreateStack</span></a></span></span><span> </span><span id="local-6989586621679301123"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301123"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">CreateStack' :: Maybe (NonEmpty UserSetting)
+-&gt; Maybe (NonEmpty AccessEndpoint)
+-&gt; Maybe Text
+-&gt; Maybe ApplicationSettings
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe [StorageConnector]
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; CreateStack
+</span><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userSettings:CreateStack' :: Maybe (NonEmpty UserSetting)
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AuserSettings%3ACreateStack%27"><span class="hs-identifier hs-var">userSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty UserSetting)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessEndpoints:CreateStack' :: Maybe (NonEmpty AccessEndpoint)
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AaccessEndpoints%3ACreateStack%27"><span class="hs-identifier hs-var">accessEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AccessEndpoint)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:redirectURL:CreateStack' :: Maybe Text
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AredirectURL%3ACreateStack%27"><span class="hs-identifier hs-var">redirectURL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationSettings:CreateStack' :: Maybe ApplicationSettings
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AapplicationSettings%3ACreateStack%27"><span class="hs-identifier hs-var">applicationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateStack' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3Atags%3ACreateStack%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:storageConnectors:CreateStack' :: Maybe [StorageConnector]
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AstorageConnectors%3ACreateStack%27"><span class="hs-identifier hs-var">storageConnectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StorageConnector]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateStack' :: Maybe Text
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3Adescription%3ACreateStack%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:embedHostDomains:CreateStack' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AembedHostDomains%3ACreateStack%27"><span class="hs-identifier hs-var">embedHostDomains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:CreateStack' :: Maybe Text
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AdisplayName%3ACreateStack%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:feedbackURL:CreateStack' :: Maybe Text
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AfeedbackURL%3ACreateStack%27"><span class="hs-identifier hs-var">feedbackURL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateStack' :: Text
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3Aname%3ACreateStack%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301123"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The actions that are enabled or disabled for users during their</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- streaming sessions. By default, these actions are enabled.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_userSettings"><span class="hs-identifier hs-type">createStack_userSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserSetting.html#UserSetting"><span class="hs-identifier hs-type">UserSetting</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="createStack_userSettings"><span class="annot"><span class="annottext">createStack_userSettings :: (Maybe (NonEmpty UserSetting) -&gt; f (Maybe (NonEmpty UserSetting)))
+-&gt; CreateStack -&gt; f CreateStack
+</span><a href="Network.AWS.AppStream.CreateStack.html#createStack_userSettings"><span class="hs-identifier hs-var hs-var">createStack_userSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStack -&gt; Maybe (NonEmpty UserSetting))
+-&gt; (CreateStack -&gt; Maybe (NonEmpty UserSetting) -&gt; CreateStack)
+-&gt; Lens
+     CreateStack
+     CreateStack
+     (Maybe (NonEmpty UserSetting))
+     (Maybe (NonEmpty UserSetting))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301120"><span class="annot"><span class="annottext">Maybe (NonEmpty UserSetting)
+userSettings :: Maybe (NonEmpty UserSetting)
+$sel:userSettings:CreateStack' :: CreateStack -&gt; Maybe (NonEmpty UserSetting)
+</span><a href="#local-6989586621679301120"><span class="hs-identifier hs-var hs-var">userSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty UserSetting)
+</span><a href="#local-6989586621679301120"><span class="hs-identifier hs-var">userSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301119"><span class="annot"><span class="annottext">s :: CreateStack
+</span><a href="#local-6989586621679301119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301118"><span class="annot"><span class="annottext">Maybe (NonEmpty UserSetting)
+</span><a href="#local-6989586621679301118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStack
+</span><a href="#local-6989586621679301119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userSettings:CreateStack' :: Maybe (NonEmpty UserSetting)
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AuserSettings%3ACreateStack%27"><span class="hs-identifier hs-var">userSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty UserSetting)
+</span><a href="#local-6989586621679301118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty UserSetting) -&gt; f (Maybe (NonEmpty UserSetting)))
+ -&gt; CreateStack -&gt; f CreateStack)
+-&gt; ((Maybe (NonEmpty UserSetting)
+     -&gt; f (Maybe (NonEmpty UserSetting)))
+    -&gt; Maybe (NonEmpty UserSetting)
+    -&gt; f (Maybe (NonEmpty UserSetting)))
+-&gt; (Maybe (NonEmpty UserSetting)
+    -&gt; f (Maybe (NonEmpty UserSetting)))
+-&gt; CreateStack
+-&gt; f CreateStack
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty UserSetting)
+  (NonEmpty UserSetting)
+  (NonEmpty UserSetting)
+  (NonEmpty UserSetting)
+-&gt; Iso
+     (Maybe (NonEmpty UserSetting))
+     (Maybe (NonEmpty UserSetting))
+     (Maybe (NonEmpty UserSetting))
+     (Maybe (NonEmpty UserSetting))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty UserSetting)
+  (NonEmpty UserSetting)
+  (NonEmpty UserSetting)
+  (NonEmpty UserSetting)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The list of interface VPC endpoint (interface endpoint) objects. Users</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- of the stack can connect to AppStream 2.0 only through the specified</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- endpoints.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_accessEndpoints"><span class="hs-identifier hs-type">createStack_accessEndpoints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.AccessEndpoint.html#AccessEndpoint"><span class="hs-identifier hs-type">AccessEndpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="createStack_accessEndpoints"><span class="annot"><span class="annottext">createStack_accessEndpoints :: (Maybe (NonEmpty AccessEndpoint)
+ -&gt; f (Maybe (NonEmpty AccessEndpoint)))
+-&gt; CreateStack -&gt; f CreateStack
+</span><a href="Network.AWS.AppStream.CreateStack.html#createStack_accessEndpoints"><span class="hs-identifier hs-var hs-var">createStack_accessEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStack -&gt; Maybe (NonEmpty AccessEndpoint))
+-&gt; (CreateStack -&gt; Maybe (NonEmpty AccessEndpoint) -&gt; CreateStack)
+-&gt; Lens
+     CreateStack
+     CreateStack
+     (Maybe (NonEmpty AccessEndpoint))
+     (Maybe (NonEmpty AccessEndpoint))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301114"><span class="annot"><span class="annottext">Maybe (NonEmpty AccessEndpoint)
+accessEndpoints :: Maybe (NonEmpty AccessEndpoint)
+$sel:accessEndpoints:CreateStack' :: CreateStack -&gt; Maybe (NonEmpty AccessEndpoint)
+</span><a href="#local-6989586621679301114"><span class="hs-identifier hs-var hs-var">accessEndpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AccessEndpoint)
+</span><a href="#local-6989586621679301114"><span class="hs-identifier hs-var">accessEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301113"><span class="annot"><span class="annottext">s :: CreateStack
+</span><a href="#local-6989586621679301113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301112"><span class="annot"><span class="annottext">Maybe (NonEmpty AccessEndpoint)
+</span><a href="#local-6989586621679301112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStack
+</span><a href="#local-6989586621679301113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessEndpoints:CreateStack' :: Maybe (NonEmpty AccessEndpoint)
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AaccessEndpoints%3ACreateStack%27"><span class="hs-identifier hs-var">accessEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AccessEndpoint)
+</span><a href="#local-6989586621679301112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty AccessEndpoint)
+  -&gt; f (Maybe (NonEmpty AccessEndpoint)))
+ -&gt; CreateStack -&gt; f CreateStack)
+-&gt; ((Maybe (NonEmpty AccessEndpoint)
+     -&gt; f (Maybe (NonEmpty AccessEndpoint)))
+    -&gt; Maybe (NonEmpty AccessEndpoint)
+    -&gt; f (Maybe (NonEmpty AccessEndpoint)))
+-&gt; (Maybe (NonEmpty AccessEndpoint)
+    -&gt; f (Maybe (NonEmpty AccessEndpoint)))
+-&gt; CreateStack
+-&gt; f CreateStack
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty AccessEndpoint)
+  (NonEmpty AccessEndpoint)
+  (NonEmpty AccessEndpoint)
+  (NonEmpty AccessEndpoint)
+-&gt; Iso
+     (Maybe (NonEmpty AccessEndpoint))
+     (Maybe (NonEmpty AccessEndpoint))
+     (Maybe (NonEmpty AccessEndpoint))
+     (Maybe (NonEmpty AccessEndpoint))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty AccessEndpoint)
+  (NonEmpty AccessEndpoint)
+  (NonEmpty AccessEndpoint)
+  (NonEmpty AccessEndpoint)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The URL that users are redirected to after their streaming session ends.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_redirectURL"><span class="hs-identifier hs-type">createStack_redirectURL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="createStack_redirectURL"><span class="annot"><span class="annottext">createStack_redirectURL :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateStack -&gt; f CreateStack
+</span><a href="Network.AWS.AppStream.CreateStack.html#createStack_redirectURL"><span class="hs-identifier hs-var hs-var">createStack_redirectURL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStack -&gt; Maybe Text)
+-&gt; (CreateStack -&gt; Maybe Text -&gt; CreateStack)
+-&gt; Lens CreateStack CreateStack (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301111"><span class="annot"><span class="annottext">Maybe Text
+redirectURL :: Maybe Text
+$sel:redirectURL:CreateStack' :: CreateStack -&gt; Maybe Text
+</span><a href="#local-6989586621679301111"><span class="hs-identifier hs-var hs-var">redirectURL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301111"><span class="hs-identifier hs-var">redirectURL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301110"><span class="annot"><span class="annottext">s :: CreateStack
+</span><a href="#local-6989586621679301110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301109"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStack
+</span><a href="#local-6989586621679301110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redirectURL:CreateStack' :: Maybe Text
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AredirectURL%3ACreateStack%27"><span class="hs-identifier hs-var">redirectURL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The persistent application settings for users of a stack. When these</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- settings are enabled, changes that users make to applications and</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Windows settings are automatically saved after each session and applied</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- to the next session.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_applicationSettings"><span class="hs-identifier hs-type">createStack_applicationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings"><span class="hs-identifier hs-type">ApplicationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="createStack_applicationSettings"><span class="annot"><span class="annottext">createStack_applicationSettings :: (Maybe ApplicationSettings -&gt; f (Maybe ApplicationSettings))
+-&gt; CreateStack -&gt; f CreateStack
+</span><a href="Network.AWS.AppStream.CreateStack.html#createStack_applicationSettings"><span class="hs-identifier hs-var hs-var">createStack_applicationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStack -&gt; Maybe ApplicationSettings)
+-&gt; (CreateStack -&gt; Maybe ApplicationSettings -&gt; CreateStack)
+-&gt; Lens
+     CreateStack
+     CreateStack
+     (Maybe ApplicationSettings)
+     (Maybe ApplicationSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301108"><span class="annot"><span class="annottext">Maybe ApplicationSettings
+applicationSettings :: Maybe ApplicationSettings
+$sel:applicationSettings:CreateStack' :: CreateStack -&gt; Maybe ApplicationSettings
+</span><a href="#local-6989586621679301108"><span class="hs-identifier hs-var hs-var">applicationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationSettings
+</span><a href="#local-6989586621679301108"><span class="hs-identifier hs-var">applicationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301107"><span class="annot"><span class="annottext">s :: CreateStack
+</span><a href="#local-6989586621679301107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301106"><span class="annot"><span class="annottext">Maybe ApplicationSettings
+</span><a href="#local-6989586621679301106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStack
+</span><a href="#local-6989586621679301107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationSettings:CreateStack' :: Maybe ApplicationSettings
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AapplicationSettings%3ACreateStack%27"><span class="hs-identifier hs-var">applicationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationSettings
+</span><a href="#local-6989586621679301106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The tags to associate with the stack. A tag is a key-value pair, and the</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- value is optional. For example, Environment=Test. If you do not specify</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- a value, Environment=.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- If you do not specify a value, the value is set to an empty string.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Generally allowed characters are: letters, numbers, and spaces</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- representable in UTF-8, and the following special characters:</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- _ . : \/ = + \\ - \@</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- For more information about tags, see</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources&gt;</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- in the /Amazon AppStream 2.0 Administration Guide/.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_tags"><span class="hs-identifier hs-type">createStack_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="createStack_tags"><span class="annot"><span class="annottext">createStack_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateStack -&gt; f CreateStack
+</span><a href="Network.AWS.AppStream.CreateStack.html#createStack_tags"><span class="hs-identifier hs-var hs-var">createStack_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStack -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateStack -&gt; Maybe (HashMap Text Text) -&gt; CreateStack)
+-&gt; Lens
+     CreateStack
+     CreateStack
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301105"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateStack' :: CreateStack -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679301105"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679301105"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301104"><span class="annot"><span class="annottext">s :: CreateStack
+</span><a href="#local-6989586621679301104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301103"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679301103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStack
+</span><a href="#local-6989586621679301104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateStack' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3Atags%3ACreateStack%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679301103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateStack -&gt; f CreateStack)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateStack
+-&gt; f CreateStack
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The storage connectors to enable.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_storageConnectors"><span class="hs-identifier hs-type">createStack_storageConnectors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppStream.Types.StorageConnector.html#StorageConnector"><span class="hs-identifier hs-type">StorageConnector</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="createStack_storageConnectors"><span class="annot"><span class="annottext">createStack_storageConnectors :: (Maybe [StorageConnector] -&gt; f (Maybe [StorageConnector]))
+-&gt; CreateStack -&gt; f CreateStack
+</span><a href="Network.AWS.AppStream.CreateStack.html#createStack_storageConnectors"><span class="hs-identifier hs-var hs-var">createStack_storageConnectors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStack -&gt; Maybe [StorageConnector])
+-&gt; (CreateStack -&gt; Maybe [StorageConnector] -&gt; CreateStack)
+-&gt; Lens
+     CreateStack
+     CreateStack
+     (Maybe [StorageConnector])
+     (Maybe [StorageConnector])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301102"><span class="annot"><span class="annottext">Maybe [StorageConnector]
+storageConnectors :: Maybe [StorageConnector]
+$sel:storageConnectors:CreateStack' :: CreateStack -&gt; Maybe [StorageConnector]
+</span><a href="#local-6989586621679301102"><span class="hs-identifier hs-var hs-var">storageConnectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StorageConnector]
+</span><a href="#local-6989586621679301102"><span class="hs-identifier hs-var">storageConnectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301101"><span class="annot"><span class="annottext">s :: CreateStack
+</span><a href="#local-6989586621679301101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301100"><span class="annot"><span class="annottext">Maybe [StorageConnector]
+</span><a href="#local-6989586621679301100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStack
+</span><a href="#local-6989586621679301101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageConnectors:CreateStack' :: Maybe [StorageConnector]
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AstorageConnectors%3ACreateStack%27"><span class="hs-identifier hs-var">storageConnectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StorageConnector]
+</span><a href="#local-6989586621679301100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StorageConnector] -&gt; f (Maybe [StorageConnector]))
+ -&gt; CreateStack -&gt; f CreateStack)
+-&gt; ((Maybe [StorageConnector] -&gt; f (Maybe [StorageConnector]))
+    -&gt; Maybe [StorageConnector] -&gt; f (Maybe [StorageConnector]))
+-&gt; (Maybe [StorageConnector] -&gt; f (Maybe [StorageConnector]))
+-&gt; CreateStack
+-&gt; f CreateStack
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [StorageConnector]
+  [StorageConnector]
+  [StorageConnector]
+  [StorageConnector]
+-&gt; Iso
+     (Maybe [StorageConnector])
+     (Maybe [StorageConnector])
+     (Maybe [StorageConnector])
+     (Maybe [StorageConnector])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [StorageConnector]
+  [StorageConnector]
+  [StorageConnector]
+  [StorageConnector]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The description to display.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_description"><span class="hs-identifier hs-type">createStack_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="createStack_description"><span class="annot"><span class="annottext">createStack_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateStack -&gt; f CreateStack
+</span><a href="Network.AWS.AppStream.CreateStack.html#createStack_description"><span class="hs-identifier hs-var hs-var">createStack_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStack -&gt; Maybe Text)
+-&gt; (CreateStack -&gt; Maybe Text -&gt; CreateStack)
+-&gt; Lens CreateStack CreateStack (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301099"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateStack' :: CreateStack -&gt; Maybe Text
+</span><a href="#local-6989586621679301099"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301099"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301098"><span class="annot"><span class="annottext">s :: CreateStack
+</span><a href="#local-6989586621679301098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301097"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStack
+</span><a href="#local-6989586621679301098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateStack' :: Maybe Text
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3Adescription%3ACreateStack%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The domains where AppStream 2.0 streaming sessions can be embedded in an</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- iframe. You must approve the domains that you want to host embedded</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- AppStream 2.0 streaming sessions.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_embedHostDomains"><span class="hs-identifier hs-type">createStack_embedHostDomains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="createStack_embedHostDomains"><span class="annot"><span class="annottext">createStack_embedHostDomains :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; CreateStack -&gt; f CreateStack
+</span><a href="Network.AWS.AppStream.CreateStack.html#createStack_embedHostDomains"><span class="hs-identifier hs-var hs-var">createStack_embedHostDomains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStack -&gt; Maybe (NonEmpty Text))
+-&gt; (CreateStack -&gt; Maybe (NonEmpty Text) -&gt; CreateStack)
+-&gt; Lens
+     CreateStack
+     CreateStack
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301096"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+embedHostDomains :: Maybe (NonEmpty Text)
+$sel:embedHostDomains:CreateStack' :: CreateStack -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679301096"><span class="hs-identifier hs-var hs-var">embedHostDomains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679301096"><span class="hs-identifier hs-var">embedHostDomains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301095"><span class="annot"><span class="annottext">s :: CreateStack
+</span><a href="#local-6989586621679301095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301094"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679301094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStack
+</span><a href="#local-6989586621679301095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:embedHostDomains:CreateStack' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AembedHostDomains%3ACreateStack%27"><span class="hs-identifier hs-var">embedHostDomains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679301094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; CreateStack -&gt; f CreateStack)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; CreateStack
+-&gt; f CreateStack
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The stack name to display.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_displayName"><span class="hs-identifier hs-type">createStack_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="createStack_displayName"><span class="annot"><span class="annottext">createStack_displayName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateStack -&gt; f CreateStack
+</span><a href="Network.AWS.AppStream.CreateStack.html#createStack_displayName"><span class="hs-identifier hs-var hs-var">createStack_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStack -&gt; Maybe Text)
+-&gt; (CreateStack -&gt; Maybe Text -&gt; CreateStack)
+-&gt; Lens CreateStack CreateStack (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301093"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:CreateStack' :: CreateStack -&gt; Maybe Text
+</span><a href="#local-6989586621679301093"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301093"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301092"><span class="annot"><span class="annottext">s :: CreateStack
+</span><a href="#local-6989586621679301092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301091"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStack
+</span><a href="#local-6989586621679301092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:CreateStack' :: Maybe Text
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AdisplayName%3ACreateStack%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The URL that users are redirected to after they click the Send Feedback</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- link. If no URL is specified, no Send Feedback link is displayed.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_feedbackURL"><span class="hs-identifier hs-type">createStack_feedbackURL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="createStack_feedbackURL"><span class="annot"><span class="annottext">createStack_feedbackURL :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateStack -&gt; f CreateStack
+</span><a href="Network.AWS.AppStream.CreateStack.html#createStack_feedbackURL"><span class="hs-identifier hs-var hs-var">createStack_feedbackURL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStack -&gt; Maybe Text)
+-&gt; (CreateStack -&gt; Maybe Text -&gt; CreateStack)
+-&gt; Lens CreateStack CreateStack (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301090"><span class="annot"><span class="annottext">Maybe Text
+feedbackURL :: Maybe Text
+$sel:feedbackURL:CreateStack' :: CreateStack -&gt; Maybe Text
+</span><a href="#local-6989586621679301090"><span class="hs-identifier hs-var hs-var">feedbackURL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301090"><span class="hs-identifier hs-var">feedbackURL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301089"><span class="annot"><span class="annottext">s :: CreateStack
+</span><a href="#local-6989586621679301089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301088"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStack
+</span><a href="#local-6989586621679301089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:feedbackURL:CreateStack' :: Maybe Text
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AfeedbackURL%3ACreateStack%27"><span class="hs-identifier hs-var">feedbackURL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The name of the stack.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStack_name"><span class="hs-identifier hs-type">createStack_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-244"></span><span id="createStack_name"><span class="annot"><span class="annottext">createStack_name :: (Text -&gt; f Text) -&gt; CreateStack -&gt; f CreateStack
+</span><a href="Network.AWS.AppStream.CreateStack.html#createStack_name"><span class="hs-identifier hs-var hs-var">createStack_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStack -&gt; Text)
+-&gt; (CreateStack -&gt; Text -&gt; CreateStack)
+-&gt; Lens CreateStack CreateStack Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301087"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateStack' :: CreateStack -&gt; Text
+</span><a href="#local-6989586621679301087"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301087"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301086"><span class="annot"><span class="annottext">s :: CreateStack
+</span><a href="#local-6989586621679301086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301085"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStack
+</span><a href="#local-6989586621679301086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateStack' :: Text
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3Aname%3ACreateStack%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStackResponse"><span class="hs-identifier hs-type">CreateStackResponse</span></a></span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679301081"><span class="annot"><span class="annottext">request :: CreateStack -&gt; Request CreateStack
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateStack -&gt; Request CreateStack
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679301077"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateStack
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateStack)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateStack))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateStack
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateStack)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679301074"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301074"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679301073"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679301073"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679301072"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301072"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-252"></span><span>          </span><span class="annot"><span class="annottext">Maybe Stack -&gt; Int -&gt; CreateStackResponse
+</span><a href="Network.AWS.AppStream.CreateStack.html#CreateStackResponse%27"><span class="hs-identifier hs-var">CreateStackResponse'</span></a></span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Stack -&gt; Int -&gt; CreateStackResponse)
+-&gt; Either String (Maybe Stack)
+-&gt; Either String (Int -&gt; CreateStackResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Stack)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Stack&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateStackResponse)
+-&gt; Either String Int -&gt; Either String CreateStackResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301074"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301064"><span id="local-6989586621679301066"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span></span></span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span></span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679301057"><span class="annot"><span class="annottext">toHeaders :: CreateStack -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateStack -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-265"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-266"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PhotonAdminProxyService.CreateStack&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-267"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-268"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-270"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-271"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-272"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-274"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301047"><span id="local-6989586621679301049"><span id="local-6989586621679301051"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-277"></span><span>  </span><span id="local-6989586621679301045"><span class="annot"><span class="annottext">toJSON :: CreateStack -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack%27"><span class="hs-identifier hs-type">CreateStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301033"><span id="local-6989586621679301034"><span id="local-6989586621679301035"><span id="local-6989586621679301036"><span id="local-6989586621679301037"><span id="local-6989586621679301038"><span id="local-6989586621679301039"><span id="local-6989586621679301040"><span id="local-6989586621679301041"><span id="local-6989586621679301042"><span id="local-6989586621679301043"><span class="annot"><span class="annottext">Maybe [StorageConnector]
+Maybe (NonEmpty Text)
+Maybe (NonEmpty AccessEndpoint)
+Maybe (NonEmpty UserSetting)
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe ApplicationSettings
+Text
+name :: Text
+feedbackURL :: Maybe Text
+displayName :: Maybe Text
+embedHostDomains :: Maybe (NonEmpty Text)
+description :: Maybe Text
+storageConnectors :: Maybe [StorageConnector]
+tags :: Maybe (HashMap Text Text)
+applicationSettings :: Maybe ApplicationSettings
+redirectURL :: Maybe Text
+accessEndpoints :: Maybe (NonEmpty AccessEndpoint)
+userSettings :: Maybe (NonEmpty UserSetting)
+$sel:name:CreateStack' :: CreateStack -&gt; Text
+$sel:feedbackURL:CreateStack' :: CreateStack -&gt; Maybe Text
+$sel:displayName:CreateStack' :: CreateStack -&gt; Maybe Text
+$sel:embedHostDomains:CreateStack' :: CreateStack -&gt; Maybe (NonEmpty Text)
+$sel:description:CreateStack' :: CreateStack -&gt; Maybe Text
+$sel:storageConnectors:CreateStack' :: CreateStack -&gt; Maybe [StorageConnector]
+$sel:tags:CreateStack' :: CreateStack -&gt; Maybe (HashMap Text Text)
+$sel:applicationSettings:CreateStack' :: CreateStack -&gt; Maybe ApplicationSettings
+$sel:redirectURL:CreateStack' :: CreateStack -&gt; Maybe Text
+$sel:accessEndpoints:CreateStack' :: CreateStack -&gt; Maybe (NonEmpty AccessEndpoint)
+$sel:userSettings:CreateStack' :: CreateStack -&gt; Maybe (NonEmpty UserSetting)
+</span><a href="#local-6989586621679301033"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-279"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-280"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty UserSetting -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty UserSetting -&gt; Pair)
+-&gt; Maybe (NonEmpty UserSetting) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty UserSetting)
+</span><a href="#local-6989586621679301043"><span class="hs-identifier hs-var">userSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccessEndpoints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty AccessEndpoint -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty AccessEndpoint -&gt; Pair)
+-&gt; Maybe (NonEmpty AccessEndpoint) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AccessEndpoint)
+</span><a href="#local-6989586621679301042"><span class="hs-identifier hs-var">accessEndpoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RedirectURL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301041"><span class="hs-identifier hs-var">redirectURL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ApplicationSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>              </span><span class="annot"><span class="annottext">(ApplicationSettings -&gt; Pair)
+-&gt; Maybe ApplicationSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationSettings
+</span><a href="#local-6989586621679301040"><span class="hs-identifier hs-var">applicationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679301039"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StorageConnectors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [StorageConnector] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>              </span><span class="annot"><span class="annottext">([StorageConnector] -&gt; Pair)
+-&gt; Maybe [StorageConnector] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [StorageConnector]
+</span><a href="#local-6989586621679301038"><span class="hs-identifier hs-var">storageConnectors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301037"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EmbedHostDomains&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679301036"><span class="hs-identifier hs-var">embedHostDomains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301035"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeedbackURL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301034"><span class="hs-identifier hs-var">feedbackURL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301033"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-296"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-299"></span><span>  </span><span id="local-6989586621679301027"><span class="annot"><span class="annottext">toPath :: CreateStack -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateStack -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStack"><span class="hs-identifier hs-type">CreateStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-302"></span><span>  </span><span id="local-6989586621679301023"><span class="annot"><span class="annottext">toQuery :: CreateStack -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateStack -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | /See:/ 'newCreateStackResponse' smart constructor.</span><span>
+</span><span id="line-305"></span><span id="local-6989586621679301020"><span id="local-6989586621679301021"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStackResponse"><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStackResponse"><span class="hs-identifier hs-var">CreateStackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStackResponse%27"><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStackResponse%27"><span class="hs-identifier hs-var">CreateStackResponse'</span></a></span></span><span>
+</span><span id="line-306"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the stack.</span><span>
+</span><span id="line-307"></span><span>    </span><span id="%24sel%3Astack%3ACreateStackResponse%27"><span class="annot"><span class="annottext">CreateStackResponse -&gt; Maybe Stack
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3Astack%3ACreateStackResponse%27"><span class="hs-identifier hs-var hs-var">stack</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.Stack.html#Stack"><span class="hs-identifier hs-type">Stack</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-309"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateStackResponse%27"><span class="annot"><span class="annottext">CreateStackResponse -&gt; Int
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AhttpStatus%3ACreateStackResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-310"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-311"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301014"><span id="local-6989586621679301016"><span class="annot"><span class="annottext">CreateStackResponse -&gt; CreateStackResponse -&gt; Bool
+(CreateStackResponse -&gt; CreateStackResponse -&gt; Bool)
+-&gt; (CreateStackResponse -&gt; CreateStackResponse -&gt; Bool)
+-&gt; Eq CreateStackResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateStackResponse -&gt; CreateStackResponse -&gt; Bool
+$c/= :: CreateStackResponse -&gt; CreateStackResponse -&gt; Bool
+== :: CreateStackResponse -&gt; CreateStackResponse -&gt; Bool
+$c== :: CreateStackResponse -&gt; CreateStackResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301006"><span id="local-6989586621679301008"><span id="local-6989586621679301010"><span id="local-6989586621679301012"><span class="annot"><span class="annottext">ReadPrec [CreateStackResponse]
+ReadPrec CreateStackResponse
+Int -&gt; ReadS CreateStackResponse
+ReadS [CreateStackResponse]
+(Int -&gt; ReadS CreateStackResponse)
+-&gt; ReadS [CreateStackResponse]
+-&gt; ReadPrec CreateStackResponse
+-&gt; ReadPrec [CreateStackResponse]
+-&gt; Read CreateStackResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateStackResponse]
+$creadListPrec :: ReadPrec [CreateStackResponse]
+readPrec :: ReadPrec CreateStackResponse
+$creadPrec :: ReadPrec CreateStackResponse
+readList :: ReadS [CreateStackResponse]
+$creadList :: ReadS [CreateStackResponse]
+readsPrec :: Int -&gt; ReadS CreateStackResponse
+$creadsPrec :: Int -&gt; ReadS CreateStackResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301000"><span id="local-6989586621679301002"><span id="local-6989586621679301004"><span class="annot"><span class="annottext">Int -&gt; CreateStackResponse -&gt; ShowS
+[CreateStackResponse] -&gt; ShowS
+CreateStackResponse -&gt; String
+(Int -&gt; CreateStackResponse -&gt; ShowS)
+-&gt; (CreateStackResponse -&gt; String)
+-&gt; ([CreateStackResponse] -&gt; ShowS)
+-&gt; Show CreateStackResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateStackResponse] -&gt; ShowS
+$cshowList :: [CreateStackResponse] -&gt; ShowS
+show :: CreateStackResponse -&gt; String
+$cshow :: CreateStackResponse -&gt; String
+showsPrec :: Int -&gt; CreateStackResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateStackResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateStackResponse -&gt; Rep CreateStackResponse x)
+-&gt; (forall x. Rep CreateStackResponse x -&gt; CreateStackResponse)
+-&gt; Generic CreateStackResponse
+forall x. Rep CreateStackResponse x -&gt; CreateStackResponse
+forall x. CreateStackResponse -&gt; Rep CreateStackResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateStackResponse x -&gt; CreateStackResponse
+$cfrom :: forall x. CreateStackResponse -&gt; Rep CreateStackResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- Create a value of 'CreateStackResponse' with all optional fields omitted.</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- 'stack', 'createStackResponse_stack' - Information about the stack.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- 'httpStatus', 'createStackResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-324"></span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#newCreateStackResponse"><span class="hs-identifier hs-type">newCreateStackResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-325"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-326"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-327"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStackResponse"><span class="hs-identifier hs-type">CreateStackResponse</span></a></span><span>
+</span><span id="line-328"></span><span id="newCreateStackResponse"><span class="annot"><span class="annottext">newCreateStackResponse :: Int -&gt; CreateStackResponse
+</span><a href="Network.AWS.AppStream.CreateStack.html#newCreateStackResponse"><span class="hs-identifier hs-var hs-var">newCreateStackResponse</span></a></span></span><span> </span><span id="local-6989586621679300997"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300997"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-329"></span><span>  </span><span class="annot"><span class="annottext">CreateStackResponse' :: Maybe Stack -&gt; Int -&gt; CreateStackResponse
+</span><a href="Network.AWS.AppStream.CreateStack.html#CreateStackResponse%27"><span class="hs-identifier hs-type">CreateStackResponse'</span></a></span><span>
+</span><span id="line-330"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stack:CreateStackResponse' :: Maybe Stack
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3Astack%3ACreateStackResponse%27"><span class="hs-identifier hs-var">stack</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Stack
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateStackResponse' :: Int
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AhttpStatus%3ACreateStackResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300997"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-332"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-333"></span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- | Information about the stack.</span><span>
+</span><span id="line-335"></span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStackResponse_stack"><span class="hs-identifier hs-type">createStackResponse_stack</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStackResponse"><span class="hs-identifier hs-type">CreateStackResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.Stack.html#Stack"><span class="hs-identifier hs-type">Stack</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span id="createStackResponse_stack"><span class="annot"><span class="annottext">createStackResponse_stack :: (Maybe Stack -&gt; f (Maybe Stack))
+-&gt; CreateStackResponse -&gt; f CreateStackResponse
+</span><a href="Network.AWS.AppStream.CreateStack.html#createStackResponse_stack"><span class="hs-identifier hs-var hs-var">createStackResponse_stack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStackResponse -&gt; Maybe Stack)
+-&gt; (CreateStackResponse -&gt; Maybe Stack -&gt; CreateStackResponse)
+-&gt; Lens
+     CreateStackResponse CreateStackResponse (Maybe Stack) (Maybe Stack)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStackResponse%27"><span class="hs-identifier hs-type">CreateStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300996"><span class="annot"><span class="annottext">Maybe Stack
+stack :: Maybe Stack
+$sel:stack:CreateStackResponse' :: CreateStackResponse -&gt; Maybe Stack
+</span><a href="#local-6989586621679300996"><span class="hs-identifier hs-var hs-var">stack</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Stack
+</span><a href="#local-6989586621679300996"><span class="hs-identifier hs-var">stack</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300995"><span class="annot"><span class="annottext">s :: CreateStackResponse
+</span><a href="#local-6989586621679300995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStackResponse%27"><span class="hs-identifier hs-type">CreateStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300994"><span class="annot"><span class="annottext">Maybe Stack
+</span><a href="#local-6989586621679300994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStackResponse
+</span><a href="#local-6989586621679300995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stack:CreateStackResponse' :: Maybe Stack
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3Astack%3ACreateStackResponse%27"><span class="hs-identifier hs-var">stack</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Stack
+</span><a href="#local-6989586621679300994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStackResponse"><span class="hs-identifier hs-type">CreateStackResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-339"></span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#createStackResponse_httpStatus"><span class="hs-identifier hs-type">createStackResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStackResponse"><span class="hs-identifier hs-type">CreateStackResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-340"></span><span id="createStackResponse_httpStatus"><span class="annot"><span class="annottext">createStackResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateStackResponse -&gt; f CreateStackResponse
+</span><a href="Network.AWS.AppStream.CreateStack.html#createStackResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createStackResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStackResponse -&gt; Int)
+-&gt; (CreateStackResponse -&gt; Int -&gt; CreateStackResponse)
+-&gt; Lens CreateStackResponse CreateStackResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStackResponse%27"><span class="hs-identifier hs-type">CreateStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300993"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateStackResponse' :: CreateStackResponse -&gt; Int
+</span><a href="#local-6989586621679300993"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300993"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300992"><span class="annot"><span class="annottext">s :: CreateStackResponse
+</span><a href="#local-6989586621679300992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStackResponse%27"><span class="hs-identifier hs-type">CreateStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300991"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStackResponse
+</span><a href="#local-6989586621679300992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateStackResponse' :: Int
+</span><a href="Network.AWS.AppStream.CreateStack.html#%24sel%3AhttpStatus%3ACreateStackResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStackResponse"><span class="hs-identifier hs-type">CreateStackResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>
+</span><span id="line-342"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300989"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CreateStack.html#CreateStackResponse"><span class="hs-identifier hs-type">CreateStackResponse</span></a></span></span><span>
+</span><span id="line-343"></span></pre></body></html>

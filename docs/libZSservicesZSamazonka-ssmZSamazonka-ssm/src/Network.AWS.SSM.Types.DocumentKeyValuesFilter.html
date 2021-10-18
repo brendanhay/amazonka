@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.DocumentKeyValuesFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.DocumentKeyValuesFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | One or more filters. Use a filter to return a more specific list of</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- documents.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- For keys, you can specify one or more tags that have been applied to a</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- document.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- You can also use Amazon Web Services-provided keys, some of which have</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- specific allowed values. These keys and their associated values are as</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- follows:</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- [DocumentType]</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     -   @ApplicationConfiguration@</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     -   @ApplicationConfigurationSchema@</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     -   @Automation@</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     -   @ChangeCalendar@</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--     -   @Command@</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--     -   @DeploymentStrategy@</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--     -   @Package@</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--     -   @Policy@</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--     -   @Session@</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- [Owner]</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--     Note that only one @Owner@ can be specified in a request. For</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--     example: @Key=Owner,Values=Self@.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--     -   @Amazon@</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--     -   @Private@</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--     -   @Public@</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--     -   @Self@</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--     -   @ThirdParty@</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- [PlatformTypes]</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--     -   @Linux@</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--     -   @Windows@</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- @Name@ is another Amazon Web Services-provided key. If you use @Name@ as</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- a key, you can use a name prefix to return a list of documents. For</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- example, in the Amazon Web Services CLI, to return a list of all</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- documents that begin with @Te@, run the following command:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- @aws ssm list-documents --filters Key=Name,Values=Te@</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- You can also use the @TargetType@ Amazon Web Services-provided key. For</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- a list of valid resource type values that can be used with this key, see</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference&gt;</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- If you specify more than two keys, only documents that are identified by</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- all the tags are returned in the results. If you specify more than two</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- values for a key, documents that are identified by any of the values are</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- returned in the results.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- To specify a custom key-value pair, use the format</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- @Key=tag:tagName,Values=valueName@.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- For example, if you created a key called region and are using the Amazon</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Web Services CLI to call the @list-documents@ command:</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- @aws ssm list-documents --filters Key=tag:region,Values=east,west Key=Owner,Values=Self@</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- /See:/ 'newDocumentKeyValuesFilter' smart constructor.</span><span>
+</span><span id="line-100"></span><span id="local-6989586621679791543"><span id="local-6989586621679791544"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentKeyValuesFilter"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#DocumentKeyValuesFilter"><span class="hs-identifier hs-var">DocumentKeyValuesFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentKeyValuesFilter%27"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#DocumentKeyValuesFilter%27"><span class="hs-identifier hs-var">DocumentKeyValuesFilter'</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the filter key.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3Akey%3ADocumentKeyValuesFilter%27"><span class="annot"><span class="annottext">DocumentKeyValuesFilter -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#%24sel%3Akey%3ADocumentKeyValuesFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The value for the filter key.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3Avalues%3ADocumentKeyValuesFilter%27"><span class="annot"><span class="annottext">DocumentKeyValuesFilter -&gt; Maybe [Text]
+</span><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#%24sel%3Avalues%3ADocumentKeyValuesFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791536"><span id="local-6989586621679791538"><span class="annot"><span class="annottext">DocumentKeyValuesFilter -&gt; DocumentKeyValuesFilter -&gt; Bool
+(DocumentKeyValuesFilter -&gt; DocumentKeyValuesFilter -&gt; Bool)
+-&gt; (DocumentKeyValuesFilter -&gt; DocumentKeyValuesFilter -&gt; Bool)
+-&gt; Eq DocumentKeyValuesFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DocumentKeyValuesFilter -&gt; DocumentKeyValuesFilter -&gt; Bool
+$c/= :: DocumentKeyValuesFilter -&gt; DocumentKeyValuesFilter -&gt; Bool
+== :: DocumentKeyValuesFilter -&gt; DocumentKeyValuesFilter -&gt; Bool
+$c== :: DocumentKeyValuesFilter -&gt; DocumentKeyValuesFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791527"><span id="local-6989586621679791529"><span id="local-6989586621679791531"><span id="local-6989586621679791533"><span class="annot"><span class="annottext">ReadPrec [DocumentKeyValuesFilter]
+ReadPrec DocumentKeyValuesFilter
+Int -&gt; ReadS DocumentKeyValuesFilter
+ReadS [DocumentKeyValuesFilter]
+(Int -&gt; ReadS DocumentKeyValuesFilter)
+-&gt; ReadS [DocumentKeyValuesFilter]
+-&gt; ReadPrec DocumentKeyValuesFilter
+-&gt; ReadPrec [DocumentKeyValuesFilter]
+-&gt; Read DocumentKeyValuesFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DocumentKeyValuesFilter]
+$creadListPrec :: ReadPrec [DocumentKeyValuesFilter]
+readPrec :: ReadPrec DocumentKeyValuesFilter
+$creadPrec :: ReadPrec DocumentKeyValuesFilter
+readList :: ReadS [DocumentKeyValuesFilter]
+$creadList :: ReadS [DocumentKeyValuesFilter]
+readsPrec :: Int -&gt; ReadS DocumentKeyValuesFilter
+$creadsPrec :: Int -&gt; ReadS DocumentKeyValuesFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791520"><span id="local-6989586621679791522"><span id="local-6989586621679791524"><span class="annot"><span class="annottext">Int -&gt; DocumentKeyValuesFilter -&gt; ShowS
+[DocumentKeyValuesFilter] -&gt; ShowS
+DocumentKeyValuesFilter -&gt; String
+(Int -&gt; DocumentKeyValuesFilter -&gt; ShowS)
+-&gt; (DocumentKeyValuesFilter -&gt; String)
+-&gt; ([DocumentKeyValuesFilter] -&gt; ShowS)
+-&gt; Show DocumentKeyValuesFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DocumentKeyValuesFilter] -&gt; ShowS
+$cshowList :: [DocumentKeyValuesFilter] -&gt; ShowS
+show :: DocumentKeyValuesFilter -&gt; String
+$cshow :: DocumentKeyValuesFilter -&gt; String
+showsPrec :: Int -&gt; DocumentKeyValuesFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; DocumentKeyValuesFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DocumentKeyValuesFilter -&gt; Rep DocumentKeyValuesFilter x)
+-&gt; (forall x.
+    Rep DocumentKeyValuesFilter x -&gt; DocumentKeyValuesFilter)
+-&gt; Generic DocumentKeyValuesFilter
+forall x. Rep DocumentKeyValuesFilter x -&gt; DocumentKeyValuesFilter
+forall x. DocumentKeyValuesFilter -&gt; Rep DocumentKeyValuesFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DocumentKeyValuesFilter x -&gt; DocumentKeyValuesFilter
+$cfrom :: forall x. DocumentKeyValuesFilter -&gt; Rep DocumentKeyValuesFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Create a value of 'DocumentKeyValuesFilter' with all optional fields omitted.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'key', 'documentKeyValuesFilter_key' - The name of the filter key.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'values', 'documentKeyValuesFilter_values' - The value for the filter key.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#newDocumentKeyValuesFilter"><span class="hs-identifier hs-type">newDocumentKeyValuesFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#DocumentKeyValuesFilter"><span class="hs-identifier hs-type">DocumentKeyValuesFilter</span></a></span><span>
+</span><span id="line-121"></span><span id="newDocumentKeyValuesFilter"><span class="annot"><span class="annottext">newDocumentKeyValuesFilter :: DocumentKeyValuesFilter
+</span><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#newDocumentKeyValuesFilter"><span class="hs-identifier hs-var hs-var">newDocumentKeyValuesFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="annottext">DocumentKeyValuesFilter' :: Maybe Text -&gt; Maybe [Text] -&gt; DocumentKeyValuesFilter
+</span><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#DocumentKeyValuesFilter%27"><span class="hs-identifier hs-type">DocumentKeyValuesFilter'</span></a></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:DocumentKeyValuesFilter' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#%24sel%3Akey%3ADocumentKeyValuesFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:DocumentKeyValuesFilter' :: Maybe [Text]
+</span><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#%24sel%3Avalues%3ADocumentKeyValuesFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The name of the filter key.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#documentKeyValuesFilter_key"><span class="hs-identifier hs-type">documentKeyValuesFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#DocumentKeyValuesFilter"><span class="hs-identifier hs-type">DocumentKeyValuesFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="documentKeyValuesFilter_key"><span class="annot"><span class="annottext">documentKeyValuesFilter_key :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentKeyValuesFilter -&gt; f DocumentKeyValuesFilter
+</span><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#documentKeyValuesFilter_key"><span class="hs-identifier hs-var hs-var">documentKeyValuesFilter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentKeyValuesFilter -&gt; Maybe Text)
+-&gt; (DocumentKeyValuesFilter
+    -&gt; Maybe Text -&gt; DocumentKeyValuesFilter)
+-&gt; Lens
+     DocumentKeyValuesFilter
+     DocumentKeyValuesFilter
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#DocumentKeyValuesFilter%27"><span class="hs-identifier hs-type">DocumentKeyValuesFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791511"><span class="annot"><span class="annottext">Maybe Text
+key :: Maybe Text
+$sel:key:DocumentKeyValuesFilter' :: DocumentKeyValuesFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679791511"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791511"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791510"><span class="annot"><span class="annottext">s :: DocumentKeyValuesFilter
+</span><a href="#local-6989586621679791510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#DocumentKeyValuesFilter%27"><span class="hs-identifier hs-type">DocumentKeyValuesFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791509"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentKeyValuesFilter
+</span><a href="#local-6989586621679791510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:DocumentKeyValuesFilter' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#%24sel%3Akey%3ADocumentKeyValuesFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#DocumentKeyValuesFilter"><span class="hs-identifier hs-type">DocumentKeyValuesFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The value for the filter key.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#documentKeyValuesFilter_values"><span class="hs-identifier hs-type">documentKeyValuesFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#DocumentKeyValuesFilter"><span class="hs-identifier hs-type">DocumentKeyValuesFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="documentKeyValuesFilter_values"><span class="annot"><span class="annottext">documentKeyValuesFilter_values :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DocumentKeyValuesFilter -&gt; f DocumentKeyValuesFilter
+</span><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#documentKeyValuesFilter_values"><span class="hs-identifier hs-var hs-var">documentKeyValuesFilter_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentKeyValuesFilter -&gt; Maybe [Text])
+-&gt; (DocumentKeyValuesFilter
+    -&gt; Maybe [Text] -&gt; DocumentKeyValuesFilter)
+-&gt; Lens
+     DocumentKeyValuesFilter
+     DocumentKeyValuesFilter
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#DocumentKeyValuesFilter%27"><span class="hs-identifier hs-type">DocumentKeyValuesFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791507"><span class="annot"><span class="annottext">Maybe [Text]
+values :: Maybe [Text]
+$sel:values:DocumentKeyValuesFilter' :: DocumentKeyValuesFilter -&gt; Maybe [Text]
+</span><a href="#local-6989586621679791507"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679791507"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791506"><span class="annot"><span class="annottext">s :: DocumentKeyValuesFilter
+</span><a href="#local-6989586621679791506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#DocumentKeyValuesFilter%27"><span class="hs-identifier hs-type">DocumentKeyValuesFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791505"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679791505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentKeyValuesFilter
+</span><a href="#local-6989586621679791506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:DocumentKeyValuesFilter' :: Maybe [Text]
+</span><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#%24sel%3Avalues%3ADocumentKeyValuesFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679791505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#DocumentKeyValuesFilter"><span class="hs-identifier hs-type">DocumentKeyValuesFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DocumentKeyValuesFilter -&gt; f DocumentKeyValuesFilter)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DocumentKeyValuesFilter
+-&gt; f DocumentKeyValuesFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791498"><span id="local-6989586621679791500"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#DocumentKeyValuesFilter"><span class="hs-identifier hs-type">DocumentKeyValuesFilter</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#DocumentKeyValuesFilter"><span class="hs-identifier hs-type">DocumentKeyValuesFilter</span></a></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791487"><span id="local-6989586621679791489"><span id="local-6989586621679791491"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#DocumentKeyValuesFilter"><span class="hs-identifier hs-type">DocumentKeyValuesFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679791485"><span class="annot"><span class="annottext">toJSON :: DocumentKeyValuesFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentKeyValuesFilter.html#DocumentKeyValuesFilter%27"><span class="hs-identifier hs-type">DocumentKeyValuesFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791482"><span id="local-6989586621679791483"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe Text
+values :: Maybe [Text]
+key :: Maybe Text
+$sel:values:DocumentKeyValuesFilter' :: DocumentKeyValuesFilter -&gt; Maybe [Text]
+$sel:key:DocumentKeyValuesFilter' :: DocumentKeyValuesFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679791482"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791483"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679791482"><span class="hs-identifier hs-var">values</span></a></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span></pre></body></html>

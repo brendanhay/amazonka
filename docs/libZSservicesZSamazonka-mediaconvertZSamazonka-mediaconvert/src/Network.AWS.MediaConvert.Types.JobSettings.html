@@ -1,0 +1,1106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.JobSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.JobSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.AvailBlanking</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EsamSettings.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.EsamSettings</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.ExtendedDataServices</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Input.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.Input</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.KantarWatermarkSettings</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.MotionImageInserter</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenConfiguration.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.NielsenConfiguration</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroup.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.OutputGroup</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeConfig.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.TimecodeConfig</span></a></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimedMetadataInsertion.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.TimedMetadataInsertion</span></a></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- | JobSettings contains all the transcode settings for a job.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newJobSettings' smart constructor.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621680018460"><span id="local-6989586621680018461"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-var">JobSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-var">JobSettings'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If your source content has EIA-608 Line 21 Data Services, enable this</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- feature to specify what MediaConvert does with the Extended Data</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Services (XDS) packets. You can choose to pass through XDS packets, or</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- remove them from the output. For more information about XDS, see EIA-608</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Line Data Services, section 9.5.1.5 05h Content Advisory.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AextendedDataServices%3AJobSettings%27"><span class="annot"><span class="annottext">JobSettings -&gt; Maybe ExtendedDataServices
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AextendedDataServices%3AJobSettings%27"><span class="hs-identifier hs-var hs-var">extendedDataServices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- tags in any HLS outputs. To include timed metadata, you must enable it</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- here, enable it in each output container, and specify tags and timecodes</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- in ID3 insertion (Id3Insertion) objects.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AtimedMetadataInsertion%3AJobSettings%27"><span class="annot"><span class="annottext">JobSettings -&gt; Maybe TimedMetadataInsertion
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AtimedMetadataInsertion%3AJobSettings%27"><span class="hs-identifier hs-var hs-var">timedMetadataInsertion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimedMetadataInsertion.html#TimedMetadataInsertion"><span class="hs-identifier hs-type">TimedMetadataInsertion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Use these settings only when you use Kantar watermarking. Specify the</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- values that MediaConvert uses to generate and place Kantar watermarks in</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- your output audio. These settings apply to every output in your job. In</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- addition to specifying these values, you also need to store your Kantar</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- credentials in AWS Secrets Manager. For more information, see</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/kantar-watermarking.html.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AkantarWatermark%3AJobSettings%27"><span class="annot"><span class="annottext">JobSettings -&gt; Maybe KantarWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AkantarWatermark%3AJobSettings%27"><span class="hs-identifier hs-var hs-var">kantarWatermark</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | When specified, this offset (in milliseconds) is added to the input Ad</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Avail PTS time.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AadAvailOffset%3AJobSettings%27"><span class="annot"><span class="annottext">JobSettings -&gt; Maybe Int
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AadAvailOffset%3AJobSettings%27"><span class="hs-identifier hs-var hs-var">adAvailOffset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Settings for Event Signaling And Messaging (ESAM). If you don\'t do ad</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- insertion, you can ignore these settings.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aesam%3AJobSettings%27"><span class="annot"><span class="annottext">JobSettings -&gt; Maybe EsamSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3Aesam%3AJobSettings%27"><span class="hs-identifier hs-var hs-var">esam</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EsamSettings.html#EsamSettings"><span class="hs-identifier hs-type">EsamSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Ignore these settings unless you are using Nielsen non-linear</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- watermarking. Specify the values that MediaConvert uses to generate and</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- place Nielsen watermarks in your output audio. In addition to specifying</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- these values, you also need to set up your cloud TIC server. These</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- settings apply to every output in your job. The MediaConvert</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- implementation is currently with the following Nielsen versions: Nielsen</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AnielsenNonLinearWatermark%3AJobSettings%27"><span class="annot"><span class="annottext">JobSettings -&gt; Maybe NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AnielsenNonLinearWatermark%3AJobSettings%27"><span class="hs-identifier hs-var hs-var">nielsenNonLinearWatermark</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Overlay motion graphics on top of your video. The motion graphics that</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- you specify here appear on all outputs in all output groups. For more</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/motion-graphic-overlay.html.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AmotionImageInserter%3AJobSettings%27"><span class="annot"><span class="annottext">JobSettings -&gt; Maybe MotionImageInserter
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AmotionImageInserter%3AJobSettings%27"><span class="hs-identifier hs-var hs-var">motionImageInserter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | Settings for ad avail blanking. Video can be blanked or overlaid with an</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- image, and audio muted during SCTE-35 triggered ad avails.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AavailBlanking%3AJobSettings%27"><span class="annot"><span class="annottext">JobSettings -&gt; Maybe AvailBlanking
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AavailBlanking%3AJobSettings%27"><span class="hs-identifier hs-var hs-var">availBlanking</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking"><span class="hs-identifier hs-type">AvailBlanking</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Settings for your Nielsen configuration. If you don\'t do Nielsen</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- measurement and analytics, ignore these settings. When you enable</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- Nielsen configuration (nielsenConfiguration), MediaConvert enables PCM</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- to ID3 tagging for all outputs in the job. To enable Nielsen</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- configuration programmatically, include an instance of</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- nielsenConfiguration in your JSON job specification. Even if you don\'t</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- include any children of nielsenConfiguration, you still enable the</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- setting.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AnielsenConfiguration%3AJobSettings%27"><span class="annot"><span class="annottext">JobSettings -&gt; Maybe NielsenConfiguration
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AnielsenConfiguration%3AJobSettings%27"><span class="hs-identifier hs-var hs-var">nielsenConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenConfiguration.html#NielsenConfiguration"><span class="hs-identifier hs-type">NielsenConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | (OutputGroups) contains one group of settings for each set of outputs</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- that share a common package type. All unpackaged files (MPEG-4, MPEG-2</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- TS, Quicktime, MXF, and no container) are grouped in a single output</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- group as well. Required in (OutputGroups) is a group of settings that</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- apply to the whole group. This required object depends on the value you</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- set for (Type) under (OutputGroups)&gt;(OutputGroupSettings). Type,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- settings object pairs are as follows. * FILE_GROUP_SETTINGS,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings *</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings *</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- CmafGroupSettings</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AoutputGroups%3AJobSettings%27"><span class="annot"><span class="annottext">JobSettings -&gt; Maybe [OutputGroup]
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AoutputGroups%3AJobSettings%27"><span class="hs-identifier hs-var hs-var">outputGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroup.html#OutputGroup"><span class="hs-identifier hs-type">OutputGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | Use Inputs (inputs) to define source file used in the transcode job.</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- There can be multiple inputs add in a job. These inputs will be</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- concantenated together to create the output.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3Ainputs%3AJobSettings%27"><span class="annot"><span class="annottext">JobSettings -&gt; Maybe [Input]
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3Ainputs%3AJobSettings%27"><span class="hs-identifier hs-var hs-var">inputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Input.html#Input"><span class="hs-identifier hs-type">Input</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | These settings control how the service handles timecodes throughout the</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- job. These settings don\'t affect input clipping.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AtimecodeConfig%3AJobSettings%27"><span class="annot"><span class="annottext">JobSettings -&gt; Maybe TimecodeConfig
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AtimecodeConfig%3AJobSettings%27"><span class="hs-identifier hs-var hs-var">timecodeConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680018443"><span id="local-6989586621680018445"><span class="annot"><span class="annottext">JobSettings -&gt; JobSettings -&gt; Bool
+(JobSettings -&gt; JobSettings -&gt; Bool)
+-&gt; (JobSettings -&gt; JobSettings -&gt; Bool) -&gt; Eq JobSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JobSettings -&gt; JobSettings -&gt; Bool
+$c/= :: JobSettings -&gt; JobSettings -&gt; Bool
+== :: JobSettings -&gt; JobSettings -&gt; Bool
+$c== :: JobSettings -&gt; JobSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680018434"><span id="local-6989586621680018436"><span id="local-6989586621680018438"><span id="local-6989586621680018440"><span class="annot"><span class="annottext">ReadPrec [JobSettings]
+ReadPrec JobSettings
+Int -&gt; ReadS JobSettings
+ReadS [JobSettings]
+(Int -&gt; ReadS JobSettings)
+-&gt; ReadS [JobSettings]
+-&gt; ReadPrec JobSettings
+-&gt; ReadPrec [JobSettings]
+-&gt; Read JobSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JobSettings]
+$creadListPrec :: ReadPrec [JobSettings]
+readPrec :: ReadPrec JobSettings
+$creadPrec :: ReadPrec JobSettings
+readList :: ReadS [JobSettings]
+$creadList :: ReadS [JobSettings]
+readsPrec :: Int -&gt; ReadS JobSettings
+$creadsPrec :: Int -&gt; ReadS JobSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680018427"><span id="local-6989586621680018429"><span id="local-6989586621680018431"><span class="annot"><span class="annottext">Int -&gt; JobSettings -&gt; ShowS
+[JobSettings] -&gt; ShowS
+JobSettings -&gt; String
+(Int -&gt; JobSettings -&gt; ShowS)
+-&gt; (JobSettings -&gt; String)
+-&gt; ([JobSettings] -&gt; ShowS)
+-&gt; Show JobSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JobSettings] -&gt; ShowS
+$cshowList :: [JobSettings] -&gt; ShowS
+show :: JobSettings -&gt; String
+$cshow :: JobSettings -&gt; String
+showsPrec :: Int -&gt; JobSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; JobSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. JobSettings -&gt; Rep JobSettings x)
+-&gt; (forall x. Rep JobSettings x -&gt; JobSettings)
+-&gt; Generic JobSettings
+forall x. Rep JobSettings x -&gt; JobSettings
+forall x. JobSettings -&gt; Rep JobSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JobSettings x -&gt; JobSettings
+$cfrom :: forall x. JobSettings -&gt; Rep JobSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Create a value of 'JobSettings' with all optional fields omitted.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'extendedDataServices', 'jobSettings_extendedDataServices' - If your source content has EIA-608 Line 21 Data Services, enable this</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- feature to specify what MediaConvert does with the Extended Data</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Services (XDS) packets. You can choose to pass through XDS packets, or</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- remove them from the output. For more information about XDS, see EIA-608</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Line Data Services, section 9.5.1.5 05h Content Advisory.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'timedMetadataInsertion', 'jobSettings_timedMetadataInsertion' - Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- tags in any HLS outputs. To include timed metadata, you must enable it</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- here, enable it in each output container, and specify tags and timecodes</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- in ID3 insertion (Id3Insertion) objects.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'kantarWatermark', 'jobSettings_kantarWatermark' - Use these settings only when you use Kantar watermarking. Specify the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- values that MediaConvert uses to generate and place Kantar watermarks in</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- your output audio. These settings apply to every output in your job. In</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- addition to specifying these values, you also need to store your Kantar</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- credentials in AWS Secrets Manager. For more information, see</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/kantar-watermarking.html.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'adAvailOffset', 'jobSettings_adAvailOffset' - When specified, this offset (in milliseconds) is added to the input Ad</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Avail PTS time.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'esam', 'jobSettings_esam' - Settings for Event Signaling And Messaging (ESAM). If you don\'t do ad</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- insertion, you can ignore these settings.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'nielsenNonLinearWatermark', 'jobSettings_nielsenNonLinearWatermark' - Ignore these settings unless you are using Nielsen non-linear</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- watermarking. Specify the values that MediaConvert uses to generate and</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- place Nielsen watermarks in your output audio. In addition to specifying</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- these values, you also need to set up your cloud TIC server. These</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- settings apply to every output in your job. The MediaConvert</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- implementation is currently with the following Nielsen versions: Nielsen</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'motionImageInserter', 'jobSettings_motionImageInserter' - Overlay motion graphics on top of your video. The motion graphics that</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- you specify here appear on all outputs in all output groups. For more</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/motion-graphic-overlay.html.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'availBlanking', 'jobSettings_availBlanking' - Settings for ad avail blanking. Video can be blanked or overlaid with an</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- image, and audio muted during SCTE-35 triggered ad avails.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'nielsenConfiguration', 'jobSettings_nielsenConfiguration' - Settings for your Nielsen configuration. If you don\'t do Nielsen</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- measurement and analytics, ignore these settings. When you enable</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Nielsen configuration (nielsenConfiguration), MediaConvert enables PCM</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- to ID3 tagging for all outputs in the job. To enable Nielsen</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- configuration programmatically, include an instance of</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- nielsenConfiguration in your JSON job specification. Even if you don\'t</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- include any children of nielsenConfiguration, you still enable the</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- setting.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'outputGroups', 'jobSettings_outputGroups' - (OutputGroups) contains one group of settings for each set of outputs</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- that share a common package type. All unpackaged files (MPEG-4, MPEG-2</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- TS, Quicktime, MXF, and no container) are grouped in a single output</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- group as well. Required in (OutputGroups) is a group of settings that</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- apply to the whole group. This required object depends on the value you</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- set for (Type) under (OutputGroups)&gt;(OutputGroupSettings). Type,</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- settings object pairs are as follows. * FILE_GROUP_SETTINGS,</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings *</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings *</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS,</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- CmafGroupSettings</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'inputs', 'jobSettings_inputs' - Use Inputs (inputs) to define source file used in the transcode job.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- There can be multiple inputs add in a job. These inputs will be</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- concantenated together to create the output.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'timecodeConfig', 'jobSettings_timecodeConfig' - These settings control how the service handles timecodes throughout the</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- job. These settings don\'t affect input clipping.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#newJobSettings"><span class="hs-identifier hs-type">newJobSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span>
+</span><span id="line-191"></span><span id="newJobSettings"><span class="annot"><span class="annottext">newJobSettings :: JobSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#newJobSettings"><span class="hs-identifier hs-var hs-var">newJobSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="annottext">JobSettings' :: Maybe ExtendedDataServices
+-&gt; Maybe TimedMetadataInsertion
+-&gt; Maybe KantarWatermarkSettings
+-&gt; Maybe Int
+-&gt; Maybe EsamSettings
+-&gt; Maybe NielsenNonLinearWatermarkSettings
+-&gt; Maybe MotionImageInserter
+-&gt; Maybe AvailBlanking
+-&gt; Maybe NielsenConfiguration
+-&gt; Maybe [OutputGroup]
+-&gt; Maybe [Input]
+-&gt; Maybe TimecodeConfig
+-&gt; JobSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:extendedDataServices:JobSettings' :: Maybe ExtendedDataServices
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AextendedDataServices%3AJobSettings%27"><span class="hs-identifier hs-var">extendedDataServices</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">Maybe ExtendedDataServices
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:timedMetadataInsertion:JobSettings' :: Maybe TimedMetadataInsertion
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AtimedMetadataInsertion%3AJobSettings%27"><span class="hs-identifier hs-var">timedMetadataInsertion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimedMetadataInsertion
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:kantarWatermark:JobSettings' :: Maybe KantarWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AkantarWatermark%3AJobSettings%27"><span class="hs-identifier hs-var">kantarWatermark</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KantarWatermarkSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:adAvailOffset:JobSettings' :: Maybe Int
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AadAvailOffset%3AJobSettings%27"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:esam:JobSettings' :: Maybe EsamSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3Aesam%3AJobSettings%27"><span class="hs-identifier hs-var">esam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EsamSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:nielsenNonLinearWatermark:JobSettings' :: Maybe NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AnielsenNonLinearWatermark%3AJobSettings%27"><span class="hs-identifier hs-var">nielsenNonLinearWatermark</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenNonLinearWatermarkSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:motionImageInserter:JobSettings' :: Maybe MotionImageInserter
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AmotionImageInserter%3AJobSettings%27"><span class="hs-identifier hs-var">motionImageInserter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInserter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:availBlanking:JobSettings' :: Maybe AvailBlanking
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AavailBlanking%3AJobSettings%27"><span class="hs-identifier hs-var">availBlanking</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvailBlanking
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:nielsenConfiguration:JobSettings' :: Maybe NielsenConfiguration
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AnielsenConfiguration%3AJobSettings%27"><span class="hs-identifier hs-var">nielsenConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputGroups:JobSettings' :: Maybe [OutputGroup]
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AoutputGroups%3AJobSettings%27"><span class="hs-identifier hs-var">outputGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputGroup]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputs:JobSettings' :: Maybe [Input]
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3Ainputs%3AJobSettings%27"><span class="hs-identifier hs-var">inputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Input]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:timecodeConfig:JobSettings' :: Maybe TimecodeConfig
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AtimecodeConfig%3AJobSettings%27"><span class="hs-identifier hs-var">timecodeConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | If your source content has EIA-608 Line 21 Data Services, enable this</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- feature to specify what MediaConvert does with the Extended Data</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- Services (XDS) packets. You can choose to pass through XDS packets, or</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- remove them from the output. For more information about XDS, see EIA-608</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- Line Data Services, section 9.5.1.5 05h Content Advisory.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_extendedDataServices"><span class="hs-identifier hs-type">jobSettings_extendedDataServices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="jobSettings_extendedDataServices"><span class="annot"><span class="annottext">jobSettings_extendedDataServices :: (Maybe ExtendedDataServices -&gt; f (Maybe ExtendedDataServices))
+-&gt; JobSettings -&gt; f JobSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_extendedDataServices"><span class="hs-identifier hs-var hs-var">jobSettings_extendedDataServices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSettings -&gt; Maybe ExtendedDataServices)
+-&gt; (JobSettings -&gt; Maybe ExtendedDataServices -&gt; JobSettings)
+-&gt; Lens
+     JobSettings
+     JobSettings
+     (Maybe ExtendedDataServices)
+     (Maybe ExtendedDataServices)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018418"><span class="annot"><span class="annottext">Maybe ExtendedDataServices
+extendedDataServices :: Maybe ExtendedDataServices
+$sel:extendedDataServices:JobSettings' :: JobSettings -&gt; Maybe ExtendedDataServices
+</span><a href="#local-6989586621680018418"><span class="hs-identifier hs-var hs-var">extendedDataServices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExtendedDataServices
+</span><a href="#local-6989586621680018418"><span class="hs-identifier hs-var">extendedDataServices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018417"><span class="annot"><span class="annottext">s :: JobSettings
+</span><a href="#local-6989586621680018417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018416"><span class="annot"><span class="annottext">Maybe ExtendedDataServices
+</span><a href="#local-6989586621680018416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSettings
+</span><a href="#local-6989586621680018417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extendedDataServices:JobSettings' :: Maybe ExtendedDataServices
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AextendedDataServices%3AJobSettings%27"><span class="hs-identifier hs-var">extendedDataServices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExtendedDataServices
+</span><a href="#local-6989586621680018416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- tags in any HLS outputs. To include timed metadata, you must enable it</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- here, enable it in each output container, and specify tags and timecodes</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- in ID3 insertion (Id3Insertion) objects.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_timedMetadataInsertion"><span class="hs-identifier hs-type">jobSettings_timedMetadataInsertion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimedMetadataInsertion.html#TimedMetadataInsertion"><span class="hs-identifier hs-type">TimedMetadataInsertion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="jobSettings_timedMetadataInsertion"><span class="annot"><span class="annottext">jobSettings_timedMetadataInsertion :: (Maybe TimedMetadataInsertion -&gt; f (Maybe TimedMetadataInsertion))
+-&gt; JobSettings -&gt; f JobSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_timedMetadataInsertion"><span class="hs-identifier hs-var hs-var">jobSettings_timedMetadataInsertion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSettings -&gt; Maybe TimedMetadataInsertion)
+-&gt; (JobSettings -&gt; Maybe TimedMetadataInsertion -&gt; JobSettings)
+-&gt; Lens
+     JobSettings
+     JobSettings
+     (Maybe TimedMetadataInsertion)
+     (Maybe TimedMetadataInsertion)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018414"><span class="annot"><span class="annottext">Maybe TimedMetadataInsertion
+timedMetadataInsertion :: Maybe TimedMetadataInsertion
+$sel:timedMetadataInsertion:JobSettings' :: JobSettings -&gt; Maybe TimedMetadataInsertion
+</span><a href="#local-6989586621680018414"><span class="hs-identifier hs-var hs-var">timedMetadataInsertion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimedMetadataInsertion
+</span><a href="#local-6989586621680018414"><span class="hs-identifier hs-var">timedMetadataInsertion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018413"><span class="annot"><span class="annottext">s :: JobSettings
+</span><a href="#local-6989586621680018413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018412"><span class="annot"><span class="annottext">Maybe TimedMetadataInsertion
+</span><a href="#local-6989586621680018412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSettings
+</span><a href="#local-6989586621680018413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timedMetadataInsertion:JobSettings' :: Maybe TimedMetadataInsertion
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AtimedMetadataInsertion%3AJobSettings%27"><span class="hs-identifier hs-var">timedMetadataInsertion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimedMetadataInsertion
+</span><a href="#local-6989586621680018412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | Use these settings only when you use Kantar watermarking. Specify the</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- values that MediaConvert uses to generate and place Kantar watermarks in</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- your output audio. These settings apply to every output in your job. In</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- addition to specifying these values, you also need to store your Kantar</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- credentials in AWS Secrets Manager. For more information, see</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/kantar-watermarking.html.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_kantarWatermark"><span class="hs-identifier hs-type">jobSettings_kantarWatermark</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="jobSettings_kantarWatermark"><span class="annot"><span class="annottext">jobSettings_kantarWatermark :: (Maybe KantarWatermarkSettings
+ -&gt; f (Maybe KantarWatermarkSettings))
+-&gt; JobSettings -&gt; f JobSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_kantarWatermark"><span class="hs-identifier hs-var hs-var">jobSettings_kantarWatermark</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSettings -&gt; Maybe KantarWatermarkSettings)
+-&gt; (JobSettings -&gt; Maybe KantarWatermarkSettings -&gt; JobSettings)
+-&gt; Lens
+     JobSettings
+     JobSettings
+     (Maybe KantarWatermarkSettings)
+     (Maybe KantarWatermarkSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018410"><span class="annot"><span class="annottext">Maybe KantarWatermarkSettings
+kantarWatermark :: Maybe KantarWatermarkSettings
+$sel:kantarWatermark:JobSettings' :: JobSettings -&gt; Maybe KantarWatermarkSettings
+</span><a href="#local-6989586621680018410"><span class="hs-identifier hs-var hs-var">kantarWatermark</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KantarWatermarkSettings
+</span><a href="#local-6989586621680018410"><span class="hs-identifier hs-var">kantarWatermark</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018409"><span class="annot"><span class="annottext">s :: JobSettings
+</span><a href="#local-6989586621680018409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018408"><span class="annot"><span class="annottext">Maybe KantarWatermarkSettings
+</span><a href="#local-6989586621680018408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSettings
+</span><a href="#local-6989586621680018409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kantarWatermark:JobSettings' :: Maybe KantarWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AkantarWatermark%3AJobSettings%27"><span class="hs-identifier hs-var">kantarWatermark</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KantarWatermarkSettings
+</span><a href="#local-6989586621680018408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | When specified, this offset (in milliseconds) is added to the input Ad</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- Avail PTS time.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_adAvailOffset"><span class="hs-identifier hs-type">jobSettings_adAvailOffset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="jobSettings_adAvailOffset"><span class="annot"><span class="annottext">jobSettings_adAvailOffset :: (Maybe Int -&gt; f (Maybe Int)) -&gt; JobSettings -&gt; f JobSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_adAvailOffset"><span class="hs-identifier hs-var hs-var">jobSettings_adAvailOffset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSettings -&gt; Maybe Int)
+-&gt; (JobSettings -&gt; Maybe Int -&gt; JobSettings)
+-&gt; Lens JobSettings JobSettings (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018406"><span class="annot"><span class="annottext">Maybe Int
+adAvailOffset :: Maybe Int
+$sel:adAvailOffset:JobSettings' :: JobSettings -&gt; Maybe Int
+</span><a href="#local-6989586621680018406"><span class="hs-identifier hs-var hs-var">adAvailOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680018406"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018405"><span class="annot"><span class="annottext">s :: JobSettings
+</span><a href="#local-6989586621680018405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018404"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680018404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSettings
+</span><a href="#local-6989586621680018405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adAvailOffset:JobSettings' :: Maybe Int
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AadAvailOffset%3AJobSettings%27"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680018404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | Settings for Event Signaling And Messaging (ESAM). If you don\'t do ad</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- insertion, you can ignore these settings.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_esam"><span class="hs-identifier hs-type">jobSettings_esam</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EsamSettings.html#EsamSettings"><span class="hs-identifier hs-type">EsamSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="jobSettings_esam"><span class="annot"><span class="annottext">jobSettings_esam :: (Maybe EsamSettings -&gt; f (Maybe EsamSettings))
+-&gt; JobSettings -&gt; f JobSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_esam"><span class="hs-identifier hs-var hs-var">jobSettings_esam</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSettings -&gt; Maybe EsamSettings)
+-&gt; (JobSettings -&gt; Maybe EsamSettings -&gt; JobSettings)
+-&gt; Lens
+     JobSettings JobSettings (Maybe EsamSettings) (Maybe EsamSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018402"><span class="annot"><span class="annottext">Maybe EsamSettings
+esam :: Maybe EsamSettings
+$sel:esam:JobSettings' :: JobSettings -&gt; Maybe EsamSettings
+</span><a href="#local-6989586621680018402"><span class="hs-identifier hs-var hs-var">esam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EsamSettings
+</span><a href="#local-6989586621680018402"><span class="hs-identifier hs-var">esam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018401"><span class="annot"><span class="annottext">s :: JobSettings
+</span><a href="#local-6989586621680018401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018400"><span class="annot"><span class="annottext">Maybe EsamSettings
+</span><a href="#local-6989586621680018400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSettings
+</span><a href="#local-6989586621680018401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:esam:JobSettings' :: Maybe EsamSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3Aesam%3AJobSettings%27"><span class="hs-identifier hs-var">esam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EsamSettings
+</span><a href="#local-6989586621680018400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | Ignore these settings unless you are using Nielsen non-linear</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- watermarking. Specify the values that MediaConvert uses to generate and</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- place Nielsen watermarks in your output audio. In addition to specifying</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- these values, you also need to set up your cloud TIC server. These</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- settings apply to every output in your job. The MediaConvert</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- implementation is currently with the following Nielsen versions: Nielsen</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_nielsenNonLinearWatermark"><span class="hs-identifier hs-type">jobSettings_nielsenNonLinearWatermark</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings.html#NielsenNonLinearWatermarkSettings"><span class="hs-identifier hs-type">NielsenNonLinearWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="jobSettings_nielsenNonLinearWatermark"><span class="annot"><span class="annottext">jobSettings_nielsenNonLinearWatermark :: (Maybe NielsenNonLinearWatermarkSettings
+ -&gt; f (Maybe NielsenNonLinearWatermarkSettings))
+-&gt; JobSettings -&gt; f JobSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_nielsenNonLinearWatermark"><span class="hs-identifier hs-var hs-var">jobSettings_nielsenNonLinearWatermark</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSettings -&gt; Maybe NielsenNonLinearWatermarkSettings)
+-&gt; (JobSettings
+    -&gt; Maybe NielsenNonLinearWatermarkSettings -&gt; JobSettings)
+-&gt; Lens
+     JobSettings
+     JobSettings
+     (Maybe NielsenNonLinearWatermarkSettings)
+     (Maybe NielsenNonLinearWatermarkSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018398"><span class="annot"><span class="annottext">Maybe NielsenNonLinearWatermarkSettings
+nielsenNonLinearWatermark :: Maybe NielsenNonLinearWatermarkSettings
+$sel:nielsenNonLinearWatermark:JobSettings' :: JobSettings -&gt; Maybe NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621680018398"><span class="hs-identifier hs-var hs-var">nielsenNonLinearWatermark</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621680018398"><span class="hs-identifier hs-var">nielsenNonLinearWatermark</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018397"><span class="annot"><span class="annottext">s :: JobSettings
+</span><a href="#local-6989586621680018397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018396"><span class="annot"><span class="annottext">Maybe NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621680018396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSettings
+</span><a href="#local-6989586621680018397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nielsenNonLinearWatermark:JobSettings' :: Maybe NielsenNonLinearWatermarkSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AnielsenNonLinearWatermark%3AJobSettings%27"><span class="hs-identifier hs-var">nielsenNonLinearWatermark</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621680018396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | Overlay motion graphics on top of your video. The motion graphics that</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- you specify here appear on all outputs in all output groups. For more</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/motion-graphic-overlay.html.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_motionImageInserter"><span class="hs-identifier hs-type">jobSettings_motionImageInserter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="jobSettings_motionImageInserter"><span class="annot"><span class="annottext">jobSettings_motionImageInserter :: (Maybe MotionImageInserter -&gt; f (Maybe MotionImageInserter))
+-&gt; JobSettings -&gt; f JobSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_motionImageInserter"><span class="hs-identifier hs-var hs-var">jobSettings_motionImageInserter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSettings -&gt; Maybe MotionImageInserter)
+-&gt; (JobSettings -&gt; Maybe MotionImageInserter -&gt; JobSettings)
+-&gt; Lens
+     JobSettings
+     JobSettings
+     (Maybe MotionImageInserter)
+     (Maybe MotionImageInserter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018394"><span class="annot"><span class="annottext">Maybe MotionImageInserter
+motionImageInserter :: Maybe MotionImageInserter
+$sel:motionImageInserter:JobSettings' :: JobSettings -&gt; Maybe MotionImageInserter
+</span><a href="#local-6989586621680018394"><span class="hs-identifier hs-var hs-var">motionImageInserter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInserter
+</span><a href="#local-6989586621680018394"><span class="hs-identifier hs-var">motionImageInserter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018393"><span class="annot"><span class="annottext">s :: JobSettings
+</span><a href="#local-6989586621680018393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018392"><span class="annot"><span class="annottext">Maybe MotionImageInserter
+</span><a href="#local-6989586621680018392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSettings
+</span><a href="#local-6989586621680018393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:motionImageInserter:JobSettings' :: Maybe MotionImageInserter
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AmotionImageInserter%3AJobSettings%27"><span class="hs-identifier hs-var">motionImageInserter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInserter
+</span><a href="#local-6989586621680018392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | Settings for ad avail blanking. Video can be blanked or overlaid with an</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- image, and audio muted during SCTE-35 triggered ad avails.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_availBlanking"><span class="hs-identifier hs-type">jobSettings_availBlanking</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking"><span class="hs-identifier hs-type">AvailBlanking</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="jobSettings_availBlanking"><span class="annot"><span class="annottext">jobSettings_availBlanking :: (Maybe AvailBlanking -&gt; f (Maybe AvailBlanking))
+-&gt; JobSettings -&gt; f JobSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_availBlanking"><span class="hs-identifier hs-var hs-var">jobSettings_availBlanking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSettings -&gt; Maybe AvailBlanking)
+-&gt; (JobSettings -&gt; Maybe AvailBlanking -&gt; JobSettings)
+-&gt; Lens
+     JobSettings JobSettings (Maybe AvailBlanking) (Maybe AvailBlanking)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018390"><span class="annot"><span class="annottext">Maybe AvailBlanking
+availBlanking :: Maybe AvailBlanking
+$sel:availBlanking:JobSettings' :: JobSettings -&gt; Maybe AvailBlanking
+</span><a href="#local-6989586621680018390"><span class="hs-identifier hs-var hs-var">availBlanking</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvailBlanking
+</span><a href="#local-6989586621680018390"><span class="hs-identifier hs-var">availBlanking</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018389"><span class="annot"><span class="annottext">s :: JobSettings
+</span><a href="#local-6989586621680018389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018388"><span class="annot"><span class="annottext">Maybe AvailBlanking
+</span><a href="#local-6989586621680018388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSettings
+</span><a href="#local-6989586621680018389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availBlanking:JobSettings' :: Maybe AvailBlanking
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AavailBlanking%3AJobSettings%27"><span class="hs-identifier hs-var">availBlanking</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvailBlanking
+</span><a href="#local-6989586621680018388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | Settings for your Nielsen configuration. If you don\'t do Nielsen</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- measurement and analytics, ignore these settings. When you enable</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- Nielsen configuration (nielsenConfiguration), MediaConvert enables PCM</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- to ID3 tagging for all outputs in the job. To enable Nielsen</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- configuration programmatically, include an instance of</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- nielsenConfiguration in your JSON job specification. Even if you don\'t</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- include any children of nielsenConfiguration, you still enable the</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- setting.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_nielsenConfiguration"><span class="hs-identifier hs-type">jobSettings_nielsenConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenConfiguration.html#NielsenConfiguration"><span class="hs-identifier hs-type">NielsenConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="jobSettings_nielsenConfiguration"><span class="annot"><span class="annottext">jobSettings_nielsenConfiguration :: (Maybe NielsenConfiguration -&gt; f (Maybe NielsenConfiguration))
+-&gt; JobSettings -&gt; f JobSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_nielsenConfiguration"><span class="hs-identifier hs-var hs-var">jobSettings_nielsenConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSettings -&gt; Maybe NielsenConfiguration)
+-&gt; (JobSettings -&gt; Maybe NielsenConfiguration -&gt; JobSettings)
+-&gt; Lens
+     JobSettings
+     JobSettings
+     (Maybe NielsenConfiguration)
+     (Maybe NielsenConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018386"><span class="annot"><span class="annottext">Maybe NielsenConfiguration
+nielsenConfiguration :: Maybe NielsenConfiguration
+$sel:nielsenConfiguration:JobSettings' :: JobSettings -&gt; Maybe NielsenConfiguration
+</span><a href="#local-6989586621680018386"><span class="hs-identifier hs-var hs-var">nielsenConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenConfiguration
+</span><a href="#local-6989586621680018386"><span class="hs-identifier hs-var">nielsenConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018385"><span class="annot"><span class="annottext">s :: JobSettings
+</span><a href="#local-6989586621680018385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018384"><span class="annot"><span class="annottext">Maybe NielsenConfiguration
+</span><a href="#local-6989586621680018384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSettings
+</span><a href="#local-6989586621680018385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nielsenConfiguration:JobSettings' :: Maybe NielsenConfiguration
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AnielsenConfiguration%3AJobSettings%27"><span class="hs-identifier hs-var">nielsenConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenConfiguration
+</span><a href="#local-6989586621680018384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | (OutputGroups) contains one group of settings for each set of outputs</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- that share a common package type. All unpackaged files (MPEG-4, MPEG-2</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- TS, Quicktime, MXF, and no container) are grouped in a single output</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- group as well. Required in (OutputGroups) is a group of settings that</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- apply to the whole group. This required object depends on the value you</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- set for (Type) under (OutputGroups)&gt;(OutputGroupSettings). Type,</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- settings object pairs are as follows. * FILE_GROUP_SETTINGS,</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings *</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings *</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS,</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- CmafGroupSettings</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_outputGroups"><span class="hs-identifier hs-type">jobSettings_outputGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroup.html#OutputGroup"><span class="hs-identifier hs-type">OutputGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span id="jobSettings_outputGroups"><span class="annot"><span class="annottext">jobSettings_outputGroups :: (Maybe [OutputGroup] -&gt; f (Maybe [OutputGroup]))
+-&gt; JobSettings -&gt; f JobSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_outputGroups"><span class="hs-identifier hs-var hs-var">jobSettings_outputGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSettings -&gt; Maybe [OutputGroup])
+-&gt; (JobSettings -&gt; Maybe [OutputGroup] -&gt; JobSettings)
+-&gt; Lens
+     JobSettings JobSettings (Maybe [OutputGroup]) (Maybe [OutputGroup])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018382"><span class="annot"><span class="annottext">Maybe [OutputGroup]
+outputGroups :: Maybe [OutputGroup]
+$sel:outputGroups:JobSettings' :: JobSettings -&gt; Maybe [OutputGroup]
+</span><a href="#local-6989586621680018382"><span class="hs-identifier hs-var hs-var">outputGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputGroup]
+</span><a href="#local-6989586621680018382"><span class="hs-identifier hs-var">outputGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018381"><span class="annot"><span class="annottext">s :: JobSettings
+</span><a href="#local-6989586621680018381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018380"><span class="annot"><span class="annottext">Maybe [OutputGroup]
+</span><a href="#local-6989586621680018380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSettings
+</span><a href="#local-6989586621680018381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputGroups:JobSettings' :: Maybe [OutputGroup]
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AoutputGroups%3AJobSettings%27"><span class="hs-identifier hs-var">outputGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputGroup]
+</span><a href="#local-6989586621680018380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OutputGroup] -&gt; f (Maybe [OutputGroup]))
+ -&gt; JobSettings -&gt; f JobSettings)
+-&gt; ((Maybe [OutputGroup] -&gt; f (Maybe [OutputGroup]))
+    -&gt; Maybe [OutputGroup] -&gt; f (Maybe [OutputGroup]))
+-&gt; (Maybe [OutputGroup] -&gt; f (Maybe [OutputGroup]))
+-&gt; JobSettings
+-&gt; f JobSettings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [OutputGroup] [OutputGroup] [OutputGroup] [OutputGroup]
+-&gt; Iso
+     (Maybe [OutputGroup])
+     (Maybe [OutputGroup])
+     (Maybe [OutputGroup])
+     (Maybe [OutputGroup])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [OutputGroup] [OutputGroup] [OutputGroup] [OutputGroup]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | Use Inputs (inputs) to define source file used in the transcode job.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- There can be multiple inputs add in a job. These inputs will be</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- concantenated together to create the output.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_inputs"><span class="hs-identifier hs-type">jobSettings_inputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Input.html#Input"><span class="hs-identifier hs-type">Input</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span id="jobSettings_inputs"><span class="annot"><span class="annottext">jobSettings_inputs :: (Maybe [Input] -&gt; f (Maybe [Input]))
+-&gt; JobSettings -&gt; f JobSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_inputs"><span class="hs-identifier hs-var hs-var">jobSettings_inputs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSettings -&gt; Maybe [Input])
+-&gt; (JobSettings -&gt; Maybe [Input] -&gt; JobSettings)
+-&gt; Lens JobSettings JobSettings (Maybe [Input]) (Maybe [Input])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018375"><span class="annot"><span class="annottext">Maybe [Input]
+inputs :: Maybe [Input]
+$sel:inputs:JobSettings' :: JobSettings -&gt; Maybe [Input]
+</span><a href="#local-6989586621680018375"><span class="hs-identifier hs-var hs-var">inputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Input]
+</span><a href="#local-6989586621680018375"><span class="hs-identifier hs-var">inputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018374"><span class="annot"><span class="annottext">s :: JobSettings
+</span><a href="#local-6989586621680018374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018373"><span class="annot"><span class="annottext">Maybe [Input]
+</span><a href="#local-6989586621680018373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSettings
+</span><a href="#local-6989586621680018374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputs:JobSettings' :: Maybe [Input]
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3Ainputs%3AJobSettings%27"><span class="hs-identifier hs-var">inputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Input]
+</span><a href="#local-6989586621680018373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Input] -&gt; f (Maybe [Input]))
+ -&gt; JobSettings -&gt; f JobSettings)
+-&gt; ((Maybe [Input] -&gt; f (Maybe [Input]))
+    -&gt; Maybe [Input] -&gt; f (Maybe [Input]))
+-&gt; (Maybe [Input] -&gt; f (Maybe [Input]))
+-&gt; JobSettings
+-&gt; f JobSettings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Input] [Input] [Input] [Input]
+-&gt; Iso
+     (Maybe [Input]) (Maybe [Input]) (Maybe [Input]) (Maybe [Input])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Input] [Input] [Input] [Input]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- | These settings control how the service handles timecodes throughout the</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- job. These settings don\'t affect input clipping.</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_timecodeConfig"><span class="hs-identifier hs-type">jobSettings_timecodeConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span id="jobSettings_timecodeConfig"><span class="annot"><span class="annottext">jobSettings_timecodeConfig :: (Maybe TimecodeConfig -&gt; f (Maybe TimecodeConfig))
+-&gt; JobSettings -&gt; f JobSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#jobSettings_timecodeConfig"><span class="hs-identifier hs-var hs-var">jobSettings_timecodeConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSettings -&gt; Maybe TimecodeConfig)
+-&gt; (JobSettings -&gt; Maybe TimecodeConfig -&gt; JobSettings)
+-&gt; Lens
+     JobSettings
+     JobSettings
+     (Maybe TimecodeConfig)
+     (Maybe TimecodeConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018371"><span class="annot"><span class="annottext">Maybe TimecodeConfig
+timecodeConfig :: Maybe TimecodeConfig
+$sel:timecodeConfig:JobSettings' :: JobSettings -&gt; Maybe TimecodeConfig
+</span><a href="#local-6989586621680018371"><span class="hs-identifier hs-var hs-var">timecodeConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeConfig
+</span><a href="#local-6989586621680018371"><span class="hs-identifier hs-var">timecodeConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018370"><span class="annot"><span class="annottext">s :: JobSettings
+</span><a href="#local-6989586621680018370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018369"><span class="annot"><span class="annottext">Maybe TimecodeConfig
+</span><a href="#local-6989586621680018369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSettings
+</span><a href="#local-6989586621680018370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecodeConfig:JobSettings' :: Maybe TimecodeConfig
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#%24sel%3AtimecodeConfig%3AJobSettings%27"><span class="hs-identifier hs-var">timecodeConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeConfig
+</span><a href="#local-6989586621680018369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680018366"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-302"></span><span>  </span><span id="local-6989586621680018364"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser JobSettings) -&gt; Value -&gt; Parser JobSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-304"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;JobSettings&quot;</span></span><span>
+</span><span id="line-305"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680018361"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018361"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-306"></span><span>          </span><span class="annot"><span class="annottext">Maybe ExtendedDataServices
+-&gt; Maybe TimedMetadataInsertion
+-&gt; Maybe KantarWatermarkSettings
+-&gt; Maybe Int
+-&gt; Maybe EsamSettings
+-&gt; Maybe NielsenNonLinearWatermarkSettings
+-&gt; Maybe MotionImageInserter
+-&gt; Maybe AvailBlanking
+-&gt; Maybe NielsenConfiguration
+-&gt; Maybe [OutputGroup]
+-&gt; Maybe [Input]
+-&gt; Maybe TimecodeConfig
+-&gt; JobSettings
+</span><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-var">JobSettings'</span></a></span><span>
+</span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ExtendedDataServices
+ -&gt; Maybe TimedMetadataInsertion
+ -&gt; Maybe KantarWatermarkSettings
+ -&gt; Maybe Int
+ -&gt; Maybe EsamSettings
+ -&gt; Maybe NielsenNonLinearWatermarkSettings
+ -&gt; Maybe MotionImageInserter
+ -&gt; Maybe AvailBlanking
+ -&gt; Maybe NielsenConfiguration
+ -&gt; Maybe [OutputGroup]
+ -&gt; Maybe [Input]
+ -&gt; Maybe TimecodeConfig
+ -&gt; JobSettings)
+-&gt; Parser (Maybe ExtendedDataServices)
+-&gt; Parser
+     (Maybe TimedMetadataInsertion
+      -&gt; Maybe KantarWatermarkSettings
+      -&gt; Maybe Int
+      -&gt; Maybe EsamSettings
+      -&gt; Maybe NielsenNonLinearWatermarkSettings
+      -&gt; Maybe MotionImageInserter
+      -&gt; Maybe AvailBlanking
+      -&gt; Maybe NielsenConfiguration
+      -&gt; Maybe [OutputGroup]
+      -&gt; Maybe [Input]
+      -&gt; Maybe TimecodeConfig
+      -&gt; JobSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExtendedDataServices)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;extendedDataServices&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TimedMetadataInsertion
+   -&gt; Maybe KantarWatermarkSettings
+   -&gt; Maybe Int
+   -&gt; Maybe EsamSettings
+   -&gt; Maybe NielsenNonLinearWatermarkSettings
+   -&gt; Maybe MotionImageInserter
+   -&gt; Maybe AvailBlanking
+   -&gt; Maybe NielsenConfiguration
+   -&gt; Maybe [OutputGroup]
+   -&gt; Maybe [Input]
+   -&gt; Maybe TimecodeConfig
+   -&gt; JobSettings)
+-&gt; Parser (Maybe TimedMetadataInsertion)
+-&gt; Parser
+     (Maybe KantarWatermarkSettings
+      -&gt; Maybe Int
+      -&gt; Maybe EsamSettings
+      -&gt; Maybe NielsenNonLinearWatermarkSettings
+      -&gt; Maybe MotionImageInserter
+      -&gt; Maybe AvailBlanking
+      -&gt; Maybe NielsenConfiguration
+      -&gt; Maybe [OutputGroup]
+      -&gt; Maybe [Input]
+      -&gt; Maybe TimecodeConfig
+      -&gt; JobSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimedMetadataInsertion)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timedMetadataInsertion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe KantarWatermarkSettings
+   -&gt; Maybe Int
+   -&gt; Maybe EsamSettings
+   -&gt; Maybe NielsenNonLinearWatermarkSettings
+   -&gt; Maybe MotionImageInserter
+   -&gt; Maybe AvailBlanking
+   -&gt; Maybe NielsenConfiguration
+   -&gt; Maybe [OutputGroup]
+   -&gt; Maybe [Input]
+   -&gt; Maybe TimecodeConfig
+   -&gt; JobSettings)
+-&gt; Parser (Maybe KantarWatermarkSettings)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe EsamSettings
+      -&gt; Maybe NielsenNonLinearWatermarkSettings
+      -&gt; Maybe MotionImageInserter
+      -&gt; Maybe AvailBlanking
+      -&gt; Maybe NielsenConfiguration
+      -&gt; Maybe [OutputGroup]
+      -&gt; Maybe [Input]
+      -&gt; Maybe TimecodeConfig
+      -&gt; JobSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KantarWatermarkSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kantarWatermark&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe EsamSettings
+   -&gt; Maybe NielsenNonLinearWatermarkSettings
+   -&gt; Maybe MotionImageInserter
+   -&gt; Maybe AvailBlanking
+   -&gt; Maybe NielsenConfiguration
+   -&gt; Maybe [OutputGroup]
+   -&gt; Maybe [Input]
+   -&gt; Maybe TimecodeConfig
+   -&gt; JobSettings)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe EsamSettings
+      -&gt; Maybe NielsenNonLinearWatermarkSettings
+      -&gt; Maybe MotionImageInserter
+      -&gt; Maybe AvailBlanking
+      -&gt; Maybe NielsenConfiguration
+      -&gt; Maybe [OutputGroup]
+      -&gt; Maybe [Input]
+      -&gt; Maybe TimecodeConfig
+      -&gt; JobSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;adAvailOffset&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EsamSettings
+   -&gt; Maybe NielsenNonLinearWatermarkSettings
+   -&gt; Maybe MotionImageInserter
+   -&gt; Maybe AvailBlanking
+   -&gt; Maybe NielsenConfiguration
+   -&gt; Maybe [OutputGroup]
+   -&gt; Maybe [Input]
+   -&gt; Maybe TimecodeConfig
+   -&gt; JobSettings)
+-&gt; Parser (Maybe EsamSettings)
+-&gt; Parser
+     (Maybe NielsenNonLinearWatermarkSettings
+      -&gt; Maybe MotionImageInserter
+      -&gt; Maybe AvailBlanking
+      -&gt; Maybe NielsenConfiguration
+      -&gt; Maybe [OutputGroup]
+      -&gt; Maybe [Input]
+      -&gt; Maybe TimecodeConfig
+      -&gt; JobSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EsamSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;esam&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NielsenNonLinearWatermarkSettings
+   -&gt; Maybe MotionImageInserter
+   -&gt; Maybe AvailBlanking
+   -&gt; Maybe NielsenConfiguration
+   -&gt; Maybe [OutputGroup]
+   -&gt; Maybe [Input]
+   -&gt; Maybe TimecodeConfig
+   -&gt; JobSettings)
+-&gt; Parser (Maybe NielsenNonLinearWatermarkSettings)
+-&gt; Parser
+     (Maybe MotionImageInserter
+      -&gt; Maybe AvailBlanking
+      -&gt; Maybe NielsenConfiguration
+      -&gt; Maybe [OutputGroup]
+      -&gt; Maybe [Input]
+      -&gt; Maybe TimecodeConfig
+      -&gt; JobSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NielsenNonLinearWatermarkSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nielsenNonLinearWatermark&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MotionImageInserter
+   -&gt; Maybe AvailBlanking
+   -&gt; Maybe NielsenConfiguration
+   -&gt; Maybe [OutputGroup]
+   -&gt; Maybe [Input]
+   -&gt; Maybe TimecodeConfig
+   -&gt; JobSettings)
+-&gt; Parser (Maybe MotionImageInserter)
+-&gt; Parser
+     (Maybe AvailBlanking
+      -&gt; Maybe NielsenConfiguration
+      -&gt; Maybe [OutputGroup]
+      -&gt; Maybe [Input]
+      -&gt; Maybe TimecodeConfig
+      -&gt; JobSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MotionImageInserter)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;motionImageInserter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AvailBlanking
+   -&gt; Maybe NielsenConfiguration
+   -&gt; Maybe [OutputGroup]
+   -&gt; Maybe [Input]
+   -&gt; Maybe TimecodeConfig
+   -&gt; JobSettings)
+-&gt; Parser (Maybe AvailBlanking)
+-&gt; Parser
+     (Maybe NielsenConfiguration
+      -&gt; Maybe [OutputGroup]
+      -&gt; Maybe [Input]
+      -&gt; Maybe TimecodeConfig
+      -&gt; JobSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvailBlanking)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;availBlanking&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NielsenConfiguration
+   -&gt; Maybe [OutputGroup]
+   -&gt; Maybe [Input]
+   -&gt; Maybe TimecodeConfig
+   -&gt; JobSettings)
+-&gt; Parser (Maybe NielsenConfiguration)
+-&gt; Parser
+     (Maybe [OutputGroup]
+      -&gt; Maybe [Input] -&gt; Maybe TimecodeConfig -&gt; JobSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NielsenConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nielsenConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [OutputGroup]
+   -&gt; Maybe [Input] -&gt; Maybe TimecodeConfig -&gt; JobSettings)
+-&gt; Parser (Maybe [OutputGroup])
+-&gt; Parser (Maybe [Input] -&gt; Maybe TimecodeConfig -&gt; JobSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [OutputGroup]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [OutputGroup]))
+-&gt; Maybe [OutputGroup] -&gt; Parser (Maybe [OutputGroup])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OutputGroup]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Input] -&gt; Maybe TimecodeConfig -&gt; JobSettings)
+-&gt; Parser (Maybe [Input])
+-&gt; Parser (Maybe TimecodeConfig -&gt; JobSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Input]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Input]))
+-&gt; Maybe [Input] -&gt; Parser (Maybe [Input])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Input]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TimecodeConfig -&gt; JobSettings)
+-&gt; Parser (Maybe TimecodeConfig) -&gt; Parser JobSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimecodeConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timecodeConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-320"></span><span>
+</span><span id="line-321"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680018354"><span id="local-6989586621680018356"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span></span></span><span>
+</span><span id="line-322"></span><span>
+</span><span id="line-323"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680018351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span></span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680018343"><span id="local-6989586621680018345"><span id="local-6989586621680018347"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings"><span class="hs-identifier hs-type">JobSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-326"></span><span>  </span><span id="local-6989586621680018341"><span class="annot"><span class="annottext">toJSON :: JobSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobSettings.html#JobSettings%27"><span class="hs-identifier hs-type">JobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018328"><span id="local-6989586621680018329"><span id="local-6989586621680018330"><span id="local-6989586621680018331"><span id="local-6989586621680018332"><span id="local-6989586621680018333"><span id="local-6989586621680018334"><span id="local-6989586621680018335"><span id="local-6989586621680018336"><span id="local-6989586621680018337"><span id="local-6989586621680018338"><span id="local-6989586621680018339"><span class="annot"><span class="annottext">Maybe Int
+Maybe [Input]
+Maybe [OutputGroup]
+Maybe AvailBlanking
+Maybe EsamSettings
+Maybe KantarWatermarkSettings
+Maybe MotionImageInserter
+Maybe NielsenConfiguration
+Maybe NielsenNonLinearWatermarkSettings
+Maybe TimecodeConfig
+Maybe TimedMetadataInsertion
+Maybe ExtendedDataServices
+timecodeConfig :: Maybe TimecodeConfig
+inputs :: Maybe [Input]
+outputGroups :: Maybe [OutputGroup]
+nielsenConfiguration :: Maybe NielsenConfiguration
+availBlanking :: Maybe AvailBlanking
+motionImageInserter :: Maybe MotionImageInserter
+nielsenNonLinearWatermark :: Maybe NielsenNonLinearWatermarkSettings
+esam :: Maybe EsamSettings
+adAvailOffset :: Maybe Int
+kantarWatermark :: Maybe KantarWatermarkSettings
+timedMetadataInsertion :: Maybe TimedMetadataInsertion
+extendedDataServices :: Maybe ExtendedDataServices
+$sel:timecodeConfig:JobSettings' :: JobSettings -&gt; Maybe TimecodeConfig
+$sel:inputs:JobSettings' :: JobSettings -&gt; Maybe [Input]
+$sel:outputGroups:JobSettings' :: JobSettings -&gt; Maybe [OutputGroup]
+$sel:nielsenConfiguration:JobSettings' :: JobSettings -&gt; Maybe NielsenConfiguration
+$sel:availBlanking:JobSettings' :: JobSettings -&gt; Maybe AvailBlanking
+$sel:motionImageInserter:JobSettings' :: JobSettings -&gt; Maybe MotionImageInserter
+$sel:nielsenNonLinearWatermark:JobSettings' :: JobSettings -&gt; Maybe NielsenNonLinearWatermarkSettings
+$sel:esam:JobSettings' :: JobSettings -&gt; Maybe EsamSettings
+$sel:adAvailOffset:JobSettings' :: JobSettings -&gt; Maybe Int
+$sel:kantarWatermark:JobSettings' :: JobSettings -&gt; Maybe KantarWatermarkSettings
+$sel:timedMetadataInsertion:JobSettings' :: JobSettings -&gt; Maybe TimedMetadataInsertion
+$sel:extendedDataServices:JobSettings' :: JobSettings -&gt; Maybe ExtendedDataServices
+</span><a href="#local-6989586621680018328"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-327"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-328"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-329"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;extendedDataServices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExtendedDataServices -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>              </span><span class="annot"><span class="annottext">(ExtendedDataServices -&gt; Pair)
+-&gt; Maybe ExtendedDataServices -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExtendedDataServices
+</span><a href="#local-6989586621680018339"><span class="hs-identifier hs-var">extendedDataServices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timedMetadataInsertion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimedMetadataInsertion -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span>              </span><span class="annot"><span class="annottext">(TimedMetadataInsertion -&gt; Pair)
+-&gt; Maybe TimedMetadataInsertion -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimedMetadataInsertion
+</span><a href="#local-6989586621680018338"><span class="hs-identifier hs-var">timedMetadataInsertion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kantarWatermark&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KantarWatermarkSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span>              </span><span class="annot"><span class="annottext">(KantarWatermarkSettings -&gt; Pair)
+-&gt; Maybe KantarWatermarkSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KantarWatermarkSettings
+</span><a href="#local-6989586621680018337"><span class="hs-identifier hs-var">kantarWatermark</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;adAvailOffset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680018336"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;esam&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EsamSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EsamSettings -&gt; Pair) -&gt; Maybe EsamSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EsamSettings
+</span><a href="#local-6989586621680018335"><span class="hs-identifier hs-var">esam</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nielsenNonLinearWatermark&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NielsenNonLinearWatermarkSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>              </span><span class="annot"><span class="annottext">(NielsenNonLinearWatermarkSettings -&gt; Pair)
+-&gt; Maybe NielsenNonLinearWatermarkSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621680018334"><span class="hs-identifier hs-var">nielsenNonLinearWatermark</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;motionImageInserter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MotionImageInserter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>              </span><span class="annot"><span class="annottext">(MotionImageInserter -&gt; Pair)
+-&gt; Maybe MotionImageInserter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInserter
+</span><a href="#local-6989586621680018333"><span class="hs-identifier hs-var">motionImageInserter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;availBlanking&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AvailBlanking -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AvailBlanking -&gt; Pair) -&gt; Maybe AvailBlanking -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AvailBlanking
+</span><a href="#local-6989586621680018332"><span class="hs-identifier hs-var">availBlanking</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nielsenConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NielsenConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>              </span><span class="annot"><span class="annottext">(NielsenConfiguration -&gt; Pair)
+-&gt; Maybe NielsenConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NielsenConfiguration
+</span><a href="#local-6989586621680018331"><span class="hs-identifier hs-var">nielsenConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [OutputGroup] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([OutputGroup] -&gt; Pair) -&gt; Maybe [OutputGroup] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OutputGroup]
+</span><a href="#local-6989586621680018330"><span class="hs-identifier hs-var">outputGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Input] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Input] -&gt; Pair) -&gt; Maybe [Input] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Input]
+</span><a href="#local-6989586621680018329"><span class="hs-identifier hs-var">inputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-346"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timecodeConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimecodeConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span>              </span><span class="annot"><span class="annottext">(TimecodeConfig -&gt; Pair) -&gt; Maybe TimecodeConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeConfig
+</span><a href="#local-6989586621680018328"><span class="hs-identifier hs-var">timecodeConfig</span></a></span><span>
+</span><span id="line-348"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-349"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span></pre></body></html>

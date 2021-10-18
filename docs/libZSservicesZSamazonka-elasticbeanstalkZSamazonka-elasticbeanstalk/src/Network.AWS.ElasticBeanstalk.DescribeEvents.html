@@ -1,0 +1,1107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticBeanstalk.DescribeEvents</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns list of event descriptions matching criteria up to the last 6</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- weeks.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This action returns the most recent 1,000 events from the specified</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @NextToken@.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticBeanstalk.DescribeEvents</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier">DescribeEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#newDescribeEvents"><span class="hs-identifier">newDescribeEvents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_templateName"><span class="hs-identifier">describeEvents_templateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_nextToken"><span class="hs-identifier">describeEvents_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_severity"><span class="hs-identifier">describeEvents_severity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_environmentId"><span class="hs-identifier">describeEvents_environmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_startTime"><span class="hs-identifier">describeEvents_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_platformArn"><span class="hs-identifier">describeEvents_platformArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_endTime"><span class="hs-identifier">describeEvents_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_environmentName"><span class="hs-identifier">describeEvents_environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_versionLabel"><span class="hs-identifier">describeEvents_versionLabel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_requestId"><span class="hs-identifier">describeEvents_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_applicationName"><span class="hs-identifier">describeEvents_applicationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_maxRecords"><span class="hs-identifier">describeEvents_maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse"><span class="hs-identifier">DescribeEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#newDescribeEventsResponse"><span class="hs-identifier">newDescribeEventsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEventsResponse_nextToken"><span class="hs-identifier">describeEventsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEventsResponse_events"><span class="hs-identifier">describeEventsResponse_events</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEventsResponse_httpStatus"><span class="hs-identifier">describeEventsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.html"><span class="hs-identifier">Network.AWS.ElasticBeanstalk.Types</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | Request to retrieve a list of events for an environment.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- /See:/ 'newDescribeEvents' smart constructor.</span><span>
+</span><span id="line-70"></span><span id="local-6989586621679312188"><span id="local-6989586621679312189"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEvents"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-var">DescribeEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEvents%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-var">DescribeEvents'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- to those that are associated with this environment configuration.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AtemplateName%3ADescribeEvents%27"><span class="annot"><span class="annottext">DescribeEvents -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AtemplateName%3ADescribeEvents%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Pagination token. If specified, the events return the next batch of</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeEvents%27"><span class="annot"><span class="annottext">DescribeEvents -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AnextToken%3ADescribeEvents%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | If specified, limits the events returned from this call to include only</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- those with the specified severity or higher.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Aseverity%3ADescribeEvents%27"><span class="annot"><span class="annottext">DescribeEvents -&gt; Maybe EventSeverity
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3Aseverity%3ADescribeEvents%27"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EventSeverity.html#EventSeverity"><span class="hs-identifier hs-type">EventSeverity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- to those associated with this environment.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AenvironmentId%3ADescribeEvents%27"><span class="annot"><span class="annottext">DescribeEvents -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AenvironmentId%3ADescribeEvents%27"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- to those that occur on or after this time.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AstartTime%3ADescribeEvents%27"><span class="annot"><span class="annottext">DescribeEvents -&gt; Maybe ISO8601
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AstartTime%3ADescribeEvents%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The ARN of a custom platform version. If specified, AWS Elastic</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- Beanstalk restricts the returned descriptions to those associated with</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- this custom platform version.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AplatformArn%3ADescribeEvents%27"><span class="annot"><span class="annottext">DescribeEvents -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AplatformArn%3ADescribeEvents%27"><span class="hs-identifier hs-var hs-var">platformArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- to those that occur up to, but not including, the @EndTime@.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AendTime%3ADescribeEvents%27"><span class="annot"><span class="annottext">DescribeEvents -&gt; Maybe ISO8601
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AendTime%3ADescribeEvents%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- to those associated with this environment.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AenvironmentName%3ADescribeEvents%27"><span class="annot"><span class="annottext">DescribeEvents -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AenvironmentName%3ADescribeEvents%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- to those associated with this application version.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AversionLabel%3ADescribeEvents%27"><span class="annot"><span class="annottext">DescribeEvents -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AversionLabel%3ADescribeEvents%27"><span class="hs-identifier hs-var hs-var">versionLabel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | If specified, AWS Elastic Beanstalk restricts the described events to</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- include only those associated with this request ID.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3ArequestId%3ADescribeEvents%27"><span class="annot"><span class="annottext">DescribeEvents -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3ArequestId%3ADescribeEvents%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- to include only those associated with this application.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AapplicationName%3ADescribeEvents%27"><span class="annot"><span class="annottext">DescribeEvents -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AapplicationName%3ADescribeEvents%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | Specifies the maximum number of events that can be returned, beginning</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- with the most recent event.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeEvents%27"><span class="annot"><span class="annottext">DescribeEvents -&gt; Maybe Natural
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AmaxRecords%3ADescribeEvents%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312171"><span id="local-6989586621679312173"><span class="annot"><span class="annottext">DescribeEvents -&gt; DescribeEvents -&gt; Bool
+(DescribeEvents -&gt; DescribeEvents -&gt; Bool)
+-&gt; (DescribeEvents -&gt; DescribeEvents -&gt; Bool) -&gt; Eq DescribeEvents
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEvents -&gt; DescribeEvents -&gt; Bool
+$c/= :: DescribeEvents -&gt; DescribeEvents -&gt; Bool
+== :: DescribeEvents -&gt; DescribeEvents -&gt; Bool
+$c== :: DescribeEvents -&gt; DescribeEvents -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312162"><span id="local-6989586621679312164"><span id="local-6989586621679312166"><span id="local-6989586621679312168"><span class="annot"><span class="annottext">ReadPrec [DescribeEvents]
+ReadPrec DescribeEvents
+Int -&gt; ReadS DescribeEvents
+ReadS [DescribeEvents]
+(Int -&gt; ReadS DescribeEvents)
+-&gt; ReadS [DescribeEvents]
+-&gt; ReadPrec DescribeEvents
+-&gt; ReadPrec [DescribeEvents]
+-&gt; Read DescribeEvents
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEvents]
+$creadListPrec :: ReadPrec [DescribeEvents]
+readPrec :: ReadPrec DescribeEvents
+$creadPrec :: ReadPrec DescribeEvents
+readList :: ReadS [DescribeEvents]
+$creadList :: ReadS [DescribeEvents]
+readsPrec :: Int -&gt; ReadS DescribeEvents
+$creadsPrec :: Int -&gt; ReadS DescribeEvents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312155"><span id="local-6989586621679312157"><span id="local-6989586621679312159"><span class="annot"><span class="annottext">Int -&gt; DescribeEvents -&gt; ShowS
+[DescribeEvents] -&gt; ShowS
+DescribeEvents -&gt; String
+(Int -&gt; DescribeEvents -&gt; ShowS)
+-&gt; (DescribeEvents -&gt; String)
+-&gt; ([DescribeEvents] -&gt; ShowS)
+-&gt; Show DescribeEvents
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEvents] -&gt; ShowS
+$cshowList :: [DescribeEvents] -&gt; ShowS
+show :: DescribeEvents -&gt; String
+$cshow :: DescribeEvents -&gt; String
+showsPrec :: Int -&gt; DescribeEvents -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEvents -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeEvents -&gt; Rep DescribeEvents x)
+-&gt; (forall x. Rep DescribeEvents x -&gt; DescribeEvents)
+-&gt; Generic DescribeEvents
+forall x. Rep DescribeEvents x -&gt; DescribeEvents
+forall x. DescribeEvents -&gt; Rep DescribeEvents x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeEvents x -&gt; DescribeEvents
+$cfrom :: forall x. DescribeEvents -&gt; Rep DescribeEvents x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Create a value of 'DescribeEvents' with all optional fields omitted.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'templateName', 'describeEvents_templateName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- to those that are associated with this environment configuration.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'nextToken', 'describeEvents_nextToken' - Pagination token. If specified, the events return the next batch of</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'severity', 'describeEvents_severity' - If specified, limits the events returned from this call to include only</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- those with the specified severity or higher.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'environmentId', 'describeEvents_environmentId' - If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- to those associated with this environment.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'startTime', 'describeEvents_startTime' - If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- to those that occur on or after this time.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'platformArn', 'describeEvents_platformArn' - The ARN of a custom platform version. If specified, AWS Elastic</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Beanstalk restricts the returned descriptions to those associated with</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- this custom platform version.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'endTime', 'describeEvents_endTime' - If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- to those that occur up to, but not including, the @EndTime@.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'environmentName', 'describeEvents_environmentName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- to those associated with this environment.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'versionLabel', 'describeEvents_versionLabel' - If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- to those associated with this application version.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'requestId', 'describeEvents_requestId' - If specified, AWS Elastic Beanstalk restricts the described events to</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- include only those associated with this request ID.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'applicationName', 'describeEvents_applicationName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- to include only those associated with this application.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'maxRecords', 'describeEvents_maxRecords' - Specifies the maximum number of events that can be returned, beginning</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- with the most recent event.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#newDescribeEvents"><span class="hs-identifier hs-type">newDescribeEvents</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span>
+</span><span id="line-157"></span><span id="newDescribeEvents"><span class="annot"><span class="annottext">newDescribeEvents :: DescribeEvents
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#newDescribeEvents"><span class="hs-identifier hs-var hs-var">newDescribeEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">DescribeEvents' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe EventSeverity
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; DescribeEvents
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:templateName:DescribeEvents' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AtemplateName%3ADescribeEvents%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEvents' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AnextToken%3ADescribeEvents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:severity:DescribeEvents' :: Maybe EventSeverity
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3Aseverity%3ADescribeEvents%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventSeverity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentId:DescribeEvents' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AenvironmentId%3ADescribeEvents%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:DescribeEvents' :: Maybe ISO8601
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AstartTime%3ADescribeEvents%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:platformArn:DescribeEvents' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AplatformArn%3ADescribeEvents%27"><span class="hs-identifier hs-var">platformArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:DescribeEvents' :: Maybe ISO8601
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AendTime%3ADescribeEvents%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentName:DescribeEvents' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AenvironmentName%3ADescribeEvents%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionLabel:DescribeEvents' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AversionLabel%3ADescribeEvents%27"><span class="hs-identifier hs-var">versionLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestId:DescribeEvents' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3ArequestId%3ADescribeEvents%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationName:DescribeEvents' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AapplicationName%3ADescribeEvents%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeEvents' :: Maybe Natural
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AmaxRecords%3ADescribeEvents%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- to those that are associated with this environment configuration.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_templateName"><span class="hs-identifier hs-type">describeEvents_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="describeEvents_templateName"><span class="annot"><span class="annottext">describeEvents_templateName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEvents -&gt; f DescribeEvents
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_templateName"><span class="hs-identifier hs-var hs-var">describeEvents_templateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEvents -&gt; Maybe Text)
+-&gt; (DescribeEvents -&gt; Maybe Text -&gt; DescribeEvents)
+-&gt; Lens DescribeEvents DescribeEvents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312149"><span class="annot"><span class="annottext">Maybe Text
+templateName :: Maybe Text
+$sel:templateName:DescribeEvents' :: DescribeEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679312149"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312149"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312148"><span class="annot"><span class="annottext">s :: DescribeEvents
+</span><a href="#local-6989586621679312148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312147"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEvents
+</span><a href="#local-6989586621679312148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:DescribeEvents' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AtemplateName%3ADescribeEvents%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | Pagination token. If specified, the events return the next batch of</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_nextToken"><span class="hs-identifier hs-type">describeEvents_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="describeEvents_nextToken"><span class="annot"><span class="annottext">describeEvents_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEvents -&gt; f DescribeEvents
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_nextToken"><span class="hs-identifier hs-var hs-var">describeEvents_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEvents -&gt; Maybe Text)
+-&gt; (DescribeEvents -&gt; Maybe Text -&gt; DescribeEvents)
+-&gt; Lens DescribeEvents DescribeEvents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312146"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeEvents' :: DescribeEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679312146"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312146"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312145"><span class="annot"><span class="annottext">s :: DescribeEvents
+</span><a href="#local-6989586621679312145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312144"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEvents
+</span><a href="#local-6989586621679312145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEvents' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AnextToken%3ADescribeEvents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | If specified, limits the events returned from this call to include only</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- those with the specified severity or higher.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_severity"><span class="hs-identifier hs-type">describeEvents_severity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EventSeverity.html#EventSeverity"><span class="hs-identifier hs-type">EventSeverity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="describeEvents_severity"><span class="annot"><span class="annottext">describeEvents_severity :: (Maybe EventSeverity -&gt; f (Maybe EventSeverity))
+-&gt; DescribeEvents -&gt; f DescribeEvents
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_severity"><span class="hs-identifier hs-var hs-var">describeEvents_severity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEvents -&gt; Maybe EventSeverity)
+-&gt; (DescribeEvents -&gt; Maybe EventSeverity -&gt; DescribeEvents)
+-&gt; Lens
+     DescribeEvents
+     DescribeEvents
+     (Maybe EventSeverity)
+     (Maybe EventSeverity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312143"><span class="annot"><span class="annottext">Maybe EventSeverity
+severity :: Maybe EventSeverity
+$sel:severity:DescribeEvents' :: DescribeEvents -&gt; Maybe EventSeverity
+</span><a href="#local-6989586621679312143"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventSeverity
+</span><a href="#local-6989586621679312143"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312142"><span class="annot"><span class="annottext">s :: DescribeEvents
+</span><a href="#local-6989586621679312142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312141"><span class="annot"><span class="annottext">Maybe EventSeverity
+</span><a href="#local-6989586621679312141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEvents
+</span><a href="#local-6989586621679312142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severity:DescribeEvents' :: Maybe EventSeverity
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3Aseverity%3ADescribeEvents%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventSeverity
+</span><a href="#local-6989586621679312141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- to those associated with this environment.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_environmentId"><span class="hs-identifier hs-type">describeEvents_environmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="describeEvents_environmentId"><span class="annot"><span class="annottext">describeEvents_environmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEvents -&gt; f DescribeEvents
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_environmentId"><span class="hs-identifier hs-var hs-var">describeEvents_environmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEvents -&gt; Maybe Text)
+-&gt; (DescribeEvents -&gt; Maybe Text -&gt; DescribeEvents)
+-&gt; Lens DescribeEvents DescribeEvents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312140"><span class="annot"><span class="annottext">Maybe Text
+environmentId :: Maybe Text
+$sel:environmentId:DescribeEvents' :: DescribeEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679312140"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312140"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312139"><span class="annot"><span class="annottext">s :: DescribeEvents
+</span><a href="#local-6989586621679312139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312138"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEvents
+</span><a href="#local-6989586621679312139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentId:DescribeEvents' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AenvironmentId%3ADescribeEvents%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- to those that occur on or after this time.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_startTime"><span class="hs-identifier hs-type">describeEvents_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="describeEvents_startTime"><span class="annot"><span class="annottext">describeEvents_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeEvents -&gt; f DescribeEvents
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_startTime"><span class="hs-identifier hs-var hs-var">describeEvents_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEvents -&gt; Maybe ISO8601)
+-&gt; (DescribeEvents -&gt; Maybe ISO8601 -&gt; DescribeEvents)
+-&gt; Lens
+     DescribeEvents DescribeEvents (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312137"><span class="annot"><span class="annottext">Maybe ISO8601
+startTime :: Maybe ISO8601
+$sel:startTime:DescribeEvents' :: DescribeEvents -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679312137"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679312137"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312136"><span class="annot"><span class="annottext">s :: DescribeEvents
+</span><a href="#local-6989586621679312136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312135"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679312135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEvents
+</span><a href="#local-6989586621679312136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:DescribeEvents' :: Maybe ISO8601
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AstartTime%3ADescribeEvents%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679312135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; DescribeEvents -&gt; f DescribeEvents)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeEvents
+-&gt; f DescribeEvents
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The ARN of a custom platform version. If specified, AWS Elastic</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Beanstalk restricts the returned descriptions to those associated with</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- this custom platform version.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_platformArn"><span class="hs-identifier hs-type">describeEvents_platformArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="describeEvents_platformArn"><span class="annot"><span class="annottext">describeEvents_platformArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEvents -&gt; f DescribeEvents
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_platformArn"><span class="hs-identifier hs-var hs-var">describeEvents_platformArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEvents -&gt; Maybe Text)
+-&gt; (DescribeEvents -&gt; Maybe Text -&gt; DescribeEvents)
+-&gt; Lens DescribeEvents DescribeEvents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312131"><span class="annot"><span class="annottext">Maybe Text
+platformArn :: Maybe Text
+$sel:platformArn:DescribeEvents' :: DescribeEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679312131"><span class="hs-identifier hs-var hs-var">platformArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312131"><span class="hs-identifier hs-var">platformArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312130"><span class="annot"><span class="annottext">s :: DescribeEvents
+</span><a href="#local-6989586621679312130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312129"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEvents
+</span><a href="#local-6989586621679312130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformArn:DescribeEvents' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AplatformArn%3ADescribeEvents%27"><span class="hs-identifier hs-var">platformArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- to those that occur up to, but not including, the @EndTime@.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_endTime"><span class="hs-identifier hs-type">describeEvents_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="describeEvents_endTime"><span class="annot"><span class="annottext">describeEvents_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeEvents -&gt; f DescribeEvents
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_endTime"><span class="hs-identifier hs-var hs-var">describeEvents_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEvents -&gt; Maybe ISO8601)
+-&gt; (DescribeEvents -&gt; Maybe ISO8601 -&gt; DescribeEvents)
+-&gt; Lens
+     DescribeEvents DescribeEvents (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312128"><span class="annot"><span class="annottext">Maybe ISO8601
+endTime :: Maybe ISO8601
+$sel:endTime:DescribeEvents' :: DescribeEvents -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679312128"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679312128"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312127"><span class="annot"><span class="annottext">s :: DescribeEvents
+</span><a href="#local-6989586621679312127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312126"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679312126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEvents
+</span><a href="#local-6989586621679312127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:DescribeEvents' :: Maybe ISO8601
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AendTime%3ADescribeEvents%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679312126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; DescribeEvents -&gt; f DescribeEvents)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeEvents
+-&gt; f DescribeEvents
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- to those associated with this environment.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_environmentName"><span class="hs-identifier hs-type">describeEvents_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="describeEvents_environmentName"><span class="annot"><span class="annottext">describeEvents_environmentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEvents -&gt; f DescribeEvents
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_environmentName"><span class="hs-identifier hs-var hs-var">describeEvents_environmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEvents -&gt; Maybe Text)
+-&gt; (DescribeEvents -&gt; Maybe Text -&gt; DescribeEvents)
+-&gt; Lens DescribeEvents DescribeEvents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312125"><span class="annot"><span class="annottext">Maybe Text
+environmentName :: Maybe Text
+$sel:environmentName:DescribeEvents' :: DescribeEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679312125"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312125"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312124"><span class="annot"><span class="annottext">s :: DescribeEvents
+</span><a href="#local-6989586621679312124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312123"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEvents
+</span><a href="#local-6989586621679312124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:DescribeEvents' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AenvironmentName%3ADescribeEvents%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- to those associated with this application version.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_versionLabel"><span class="hs-identifier hs-type">describeEvents_versionLabel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="describeEvents_versionLabel"><span class="annot"><span class="annottext">describeEvents_versionLabel :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEvents -&gt; f DescribeEvents
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_versionLabel"><span class="hs-identifier hs-var hs-var">describeEvents_versionLabel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEvents -&gt; Maybe Text)
+-&gt; (DescribeEvents -&gt; Maybe Text -&gt; DescribeEvents)
+-&gt; Lens DescribeEvents DescribeEvents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312122"><span class="annot"><span class="annottext">Maybe Text
+versionLabel :: Maybe Text
+$sel:versionLabel:DescribeEvents' :: DescribeEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679312122"><span class="hs-identifier hs-var hs-var">versionLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312122"><span class="hs-identifier hs-var">versionLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312121"><span class="annot"><span class="annottext">s :: DescribeEvents
+</span><a href="#local-6989586621679312121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312120"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEvents
+</span><a href="#local-6989586621679312121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionLabel:DescribeEvents' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AversionLabel%3ADescribeEvents%27"><span class="hs-identifier hs-var">versionLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | If specified, AWS Elastic Beanstalk restricts the described events to</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- include only those associated with this request ID.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_requestId"><span class="hs-identifier hs-type">describeEvents_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="describeEvents_requestId"><span class="annot"><span class="annottext">describeEvents_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEvents -&gt; f DescribeEvents
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_requestId"><span class="hs-identifier hs-var hs-var">describeEvents_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEvents -&gt; Maybe Text)
+-&gt; (DescribeEvents -&gt; Maybe Text -&gt; DescribeEvents)
+-&gt; Lens DescribeEvents DescribeEvents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312119"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:DescribeEvents' :: DescribeEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679312119"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312119"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312118"><span class="annot"><span class="annottext">s :: DescribeEvents
+</span><a href="#local-6989586621679312118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312117"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEvents
+</span><a href="#local-6989586621679312118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:DescribeEvents' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3ArequestId%3ADescribeEvents%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- to include only those associated with this application.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_applicationName"><span class="hs-identifier hs-type">describeEvents_applicationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="describeEvents_applicationName"><span class="annot"><span class="annottext">describeEvents_applicationName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEvents -&gt; f DescribeEvents
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_applicationName"><span class="hs-identifier hs-var hs-var">describeEvents_applicationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEvents -&gt; Maybe Text)
+-&gt; (DescribeEvents -&gt; Maybe Text -&gt; DescribeEvents)
+-&gt; Lens DescribeEvents DescribeEvents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312116"><span class="annot"><span class="annottext">Maybe Text
+applicationName :: Maybe Text
+$sel:applicationName:DescribeEvents' :: DescribeEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679312116"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312116"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312115"><span class="annot"><span class="annottext">s :: DescribeEvents
+</span><a href="#local-6989586621679312115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312114"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEvents
+</span><a href="#local-6989586621679312115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:DescribeEvents' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AapplicationName%3ADescribeEvents%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | Specifies the maximum number of events that can be returned, beginning</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- with the most recent event.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_maxRecords"><span class="hs-identifier hs-type">describeEvents_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="describeEvents_maxRecords"><span class="annot"><span class="annottext">describeEvents_maxRecords :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeEvents -&gt; f DescribeEvents
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_maxRecords"><span class="hs-identifier hs-var hs-var">describeEvents_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEvents -&gt; Maybe Natural)
+-&gt; (DescribeEvents -&gt; Maybe Natural -&gt; DescribeEvents)
+-&gt; Lens
+     DescribeEvents DescribeEvents (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312113"><span class="annot"><span class="annottext">Maybe Natural
+maxRecords :: Maybe Natural
+$sel:maxRecords:DescribeEvents' :: DescribeEvents -&gt; Maybe Natural
+</span><a href="#local-6989586621679312113"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679312113"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312112"><span class="annot"><span class="annottext">s :: DescribeEvents
+</span><a href="#local-6989586621679312112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312111"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679312111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEvents
+</span><a href="#local-6989586621679312112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeEvents' :: Maybe Natural
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AmaxRecords%3ADescribeEvents%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679312111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679312107"><span class="annot"><span class="annottext">page :: DescribeEvents
+-&gt; AWSResponse DescribeEvents -&gt; Maybe DescribeEvents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679312105"><span class="annot"><span class="annottext">DescribeEvents
+</span><a href="#local-6989586621679312105"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679312104"><span class="annot"><span class="annottext">AWSResponse DescribeEvents
+</span><a href="#local-6989586621679312104"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-237"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEvents
+DescribeEventsResponse
+</span><a href="#local-6989586621679312104"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">DescribeEventsResponse
+-&gt; Getting (First Text) DescribeEventsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeEventsResponse
+-&gt; Const (First Text) DescribeEventsResponse
+Lens' DescribeEventsResponse (Maybe Text)
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEventsResponse_nextToken"><span class="hs-identifier hs-var">describeEventsResponse_nextToken</span></a></span><span>
+</span><span id="line-239"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeEventsResponse
+ -&gt; Const (First Text) DescribeEventsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeEventsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-240"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeEvents
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [EventDescription] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-243"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEvents
+DescribeEventsResponse
+</span><a href="#local-6989586621679312104"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">DescribeEventsResponse
+-&gt; Getting
+     (First [EventDescription])
+     DescribeEventsResponse
+     [EventDescription]
+-&gt; Maybe [EventDescription]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [EventDescription]
+ -&gt; Const (First [EventDescription]) (Maybe [EventDescription]))
+-&gt; DescribeEventsResponse
+-&gt; Const (First [EventDescription]) DescribeEventsResponse
+Lens' DescribeEventsResponse (Maybe [EventDescription])
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEventsResponse_events"><span class="hs-identifier hs-var">describeEventsResponse_events</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [EventDescription]
+  -&gt; Const (First [EventDescription]) (Maybe [EventDescription]))
+ -&gt; DescribeEventsResponse
+ -&gt; Const (First [EventDescription]) DescribeEventsResponse)
+-&gt; (([EventDescription]
+     -&gt; Const (First [EventDescription]) [EventDescription])
+    -&gt; Maybe [EventDescription]
+    -&gt; Const (First [EventDescription]) (Maybe [EventDescription]))
+-&gt; Getting
+     (First [EventDescription])
+     DescribeEventsResponse
+     [EventDescription]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([EventDescription]
+ -&gt; Const (First [EventDescription]) [EventDescription])
+-&gt; Maybe [EventDescription]
+-&gt; Const (First [EventDescription]) (Maybe [EventDescription])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-245"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeEvents
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">DescribeEvents -&gt; Maybe DescribeEvents
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeEvents -&gt; Maybe DescribeEvents)
+-&gt; DescribeEvents -&gt; Maybe DescribeEvents
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">DescribeEvents
+</span><a href="#local-6989586621679312105"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-250"></span><span>          </span><span class="annot"><span class="annottext">DescribeEvents
+-&gt; (DescribeEvents -&gt; DescribeEvents) -&gt; DescribeEvents
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeEvents -&gt; Identity DescribeEvents
+Lens DescribeEvents DescribeEvents (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEvents_nextToken"><span class="hs-identifier hs-var">describeEvents_nextToken</span></a></span><span>
+</span><span id="line-251"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeEvents -&gt; Identity DescribeEvents)
+-&gt; Maybe Text -&gt; DescribeEvents -&gt; DescribeEvents
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEvents
+DescribeEventsResponse
+</span><a href="#local-6989586621679312104"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-252"></span><span>          </span><span class="annot"><span class="annottext">DescribeEventsResponse
+-&gt; Getting (First Text) DescribeEventsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeEventsResponse
+-&gt; Const (First Text) DescribeEventsResponse
+Lens' DescribeEventsResponse (Maybe Text)
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEventsResponse_nextToken"><span class="hs-identifier hs-var">describeEventsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeEventsResponse
+ -&gt; Const (First Text) DescribeEventsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeEventsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-255"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-256"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse"><span class="hs-identifier hs-type">DescribeEventsResponse</span></a></span><span>
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679312095"><span class="annot"><span class="annottext">request :: DescribeEvents -&gt; Request DescribeEvents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeEvents -&gt; Request DescribeEvents
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ElasticBeanstalk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-259"></span><span>  </span><span id="local-6989586621679312091"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeEvents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeEvents)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DescribeEvents))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeEvents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeEvents)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-261"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribeEventsResult&quot;</span></span><span>
+</span><span id="line-262"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312088"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312088"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312087"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312087"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312086"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679312086"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-263"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [EventDescription] -&gt; Int -&gt; DescribeEventsResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse%27"><span class="hs-identifier hs-var">DescribeEventsResponse'</span></a></span><span>
+</span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [EventDescription] -&gt; Int -&gt; DescribeEventsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [EventDescription] -&gt; Int -&gt; DescribeEventsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679312086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [EventDescription] -&gt; Int -&gt; DescribeEventsResponse)
+-&gt; Either String (Maybe [EventDescription])
+-&gt; Either String (Int -&gt; DescribeEventsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679312086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Events&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-266"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [EventDescription]))
+-&gt; Either String (Maybe [EventDescription])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [EventDescription])
+-&gt; [Node] -&gt; Either String (Maybe [EventDescription])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [EventDescription]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeEventsResponse)
+-&gt; Either String Int -&gt; Either String DescribeEventsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312088"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312075"><span id="local-6989586621679312077"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span></span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312072"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span></span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-276"></span><span>  </span><span id="local-6989586621679312068"><span class="annot"><span class="annottext">toHeaders :: DescribeEvents -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeEvents -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-279"></span><span>  </span><span id="local-6989586621679312063"><span class="annot"><span class="annottext">toPath :: DescribeEvents -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEvents -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents"><span class="hs-identifier hs-type">DescribeEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-282"></span><span>  </span><span id="local-6989586621679312059"><span class="annot"><span class="annottext">toQuery :: DescribeEvents -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEvents%27"><span class="hs-identifier hs-type">DescribeEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312046"><span id="local-6989586621679312047"><span id="local-6989586621679312048"><span id="local-6989586621679312049"><span id="local-6989586621679312050"><span id="local-6989586621679312051"><span id="local-6989586621679312052"><span id="local-6989586621679312053"><span id="local-6989586621679312054"><span id="local-6989586621679312055"><span id="local-6989586621679312056"><span id="local-6989586621679312057"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe ISO8601
+Maybe EventSeverity
+maxRecords :: Maybe Natural
+applicationName :: Maybe Text
+requestId :: Maybe Text
+versionLabel :: Maybe Text
+environmentName :: Maybe Text
+endTime :: Maybe ISO8601
+platformArn :: Maybe Text
+startTime :: Maybe ISO8601
+environmentId :: Maybe Text
+severity :: Maybe EventSeverity
+nextToken :: Maybe Text
+templateName :: Maybe Text
+$sel:maxRecords:DescribeEvents' :: DescribeEvents -&gt; Maybe Natural
+$sel:applicationName:DescribeEvents' :: DescribeEvents -&gt; Maybe Text
+$sel:requestId:DescribeEvents' :: DescribeEvents -&gt; Maybe Text
+$sel:versionLabel:DescribeEvents' :: DescribeEvents -&gt; Maybe Text
+$sel:environmentName:DescribeEvents' :: DescribeEvents -&gt; Maybe Text
+$sel:endTime:DescribeEvents' :: DescribeEvents -&gt; Maybe ISO8601
+$sel:platformArn:DescribeEvents' :: DescribeEvents -&gt; Maybe Text
+$sel:startTime:DescribeEvents' :: DescribeEvents -&gt; Maybe ISO8601
+$sel:environmentId:DescribeEvents' :: DescribeEvents -&gt; Maybe Text
+$sel:severity:DescribeEvents' :: DescribeEvents -&gt; Maybe EventSeverity
+$sel:nextToken:DescribeEvents' :: DescribeEvents -&gt; Maybe Text
+$sel:templateName:DescribeEvents' :: DescribeEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679312046"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-283"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-284"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-285"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeEvents&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-287"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TemplateName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312057"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312056"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Severity&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe EventSeverity -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe EventSeverity
+</span><a href="#local-6989586621679312055"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnvironmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312054"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ISO8601 -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679312053"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PlatformArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312052"><span class="hs-identifier hs-var">platformArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ISO8601 -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679312051"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnvironmentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312050"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VersionLabel&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312049"><span class="hs-identifier hs-var">versionLabel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312048"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ApplicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312047"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679312046"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
+</span><span id="line-300"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- | Result message wrapping a list of event descriptions.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- /See:/ 'newDescribeEventsResponse' smart constructor.</span><span>
+</span><span id="line-305"></span><span id="local-6989586621679312043"><span id="local-6989586621679312044"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventsResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse"><span class="hs-identifier hs-var">DescribeEventsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventsResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse%27"><span class="hs-identifier hs-var">DescribeEventsResponse'</span></a></span></span><span>
+</span><span id="line-306"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If returned, this indicates that there are more results to obtain. Use</span><span>
+</span><span id="line-307"></span><span>    </span><span class="hs-comment">-- this token in the next DescribeEvents call to get the next batch of</span><span>
+</span><span id="line-308"></span><span>    </span><span class="hs-comment">-- events.</span><span>
+</span><span id="line-309"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeEventsResponse%27"><span class="annot"><span class="annottext">DescribeEventsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AnextToken%3ADescribeEventsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>    </span><span class="hs-comment">-- | A list of EventDescription.</span><span>
+</span><span id="line-311"></span><span>    </span><span id="%24sel%3Aevents%3ADescribeEventsResponse%27"><span class="annot"><span class="annottext">DescribeEventsResponse -&gt; Maybe [EventDescription]
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3Aevents%3ADescribeEventsResponse%27"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EventDescription.html#EventDescription"><span class="hs-identifier hs-type">EventDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-313"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEventsResponse%27"><span class="annot"><span class="annottext">DescribeEventsResponse -&gt; Int
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AhttpStatus%3ADescribeEventsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-314"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-315"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312036"><span id="local-6989586621679312038"><span class="annot"><span class="annottext">DescribeEventsResponse -&gt; DescribeEventsResponse -&gt; Bool
+(DescribeEventsResponse -&gt; DescribeEventsResponse -&gt; Bool)
+-&gt; (DescribeEventsResponse -&gt; DescribeEventsResponse -&gt; Bool)
+-&gt; Eq DescribeEventsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEventsResponse -&gt; DescribeEventsResponse -&gt; Bool
+$c/= :: DescribeEventsResponse -&gt; DescribeEventsResponse -&gt; Bool
+== :: DescribeEventsResponse -&gt; DescribeEventsResponse -&gt; Bool
+$c== :: DescribeEventsResponse -&gt; DescribeEventsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312028"><span id="local-6989586621679312030"><span id="local-6989586621679312032"><span id="local-6989586621679312034"><span class="annot"><span class="annottext">ReadPrec [DescribeEventsResponse]
+ReadPrec DescribeEventsResponse
+Int -&gt; ReadS DescribeEventsResponse
+ReadS [DescribeEventsResponse]
+(Int -&gt; ReadS DescribeEventsResponse)
+-&gt; ReadS [DescribeEventsResponse]
+-&gt; ReadPrec DescribeEventsResponse
+-&gt; ReadPrec [DescribeEventsResponse]
+-&gt; Read DescribeEventsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEventsResponse]
+$creadListPrec :: ReadPrec [DescribeEventsResponse]
+readPrec :: ReadPrec DescribeEventsResponse
+$creadPrec :: ReadPrec DescribeEventsResponse
+readList :: ReadS [DescribeEventsResponse]
+$creadList :: ReadS [DescribeEventsResponse]
+readsPrec :: Int -&gt; ReadS DescribeEventsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeEventsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312022"><span id="local-6989586621679312024"><span id="local-6989586621679312026"><span class="annot"><span class="annottext">Int -&gt; DescribeEventsResponse -&gt; ShowS
+[DescribeEventsResponse] -&gt; ShowS
+DescribeEventsResponse -&gt; String
+(Int -&gt; DescribeEventsResponse -&gt; ShowS)
+-&gt; (DescribeEventsResponse -&gt; String)
+-&gt; ([DescribeEventsResponse] -&gt; ShowS)
+-&gt; Show DescribeEventsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEventsResponse] -&gt; ShowS
+$cshowList :: [DescribeEventsResponse] -&gt; ShowS
+show :: DescribeEventsResponse -&gt; String
+$cshow :: DescribeEventsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeEventsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEventsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeEventsResponse -&gt; Rep DescribeEventsResponse x)
+-&gt; (forall x.
+    Rep DescribeEventsResponse x -&gt; DescribeEventsResponse)
+-&gt; Generic DescribeEventsResponse
+forall x. Rep DescribeEventsResponse x -&gt; DescribeEventsResponse
+forall x. DescribeEventsResponse -&gt; Rep DescribeEventsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeEventsResponse x -&gt; DescribeEventsResponse
+$cfrom :: forall x. DescribeEventsResponse -&gt; Rep DescribeEventsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- Create a value of 'DescribeEventsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- 'nextToken', 'describeEventsResponse_nextToken' - If returned, this indicates that there are more results to obtain. Use</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- this token in the next DescribeEvents call to get the next batch of</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- events.</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- 'events', 'describeEventsResponse_events' - A list of EventDescription.</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- 'httpStatus', 'describeEventsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-332"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#newDescribeEventsResponse"><span class="hs-identifier hs-type">newDescribeEventsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-333"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-334"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-335"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse"><span class="hs-identifier hs-type">DescribeEventsResponse</span></a></span><span>
+</span><span id="line-336"></span><span id="newDescribeEventsResponse"><span class="annot"><span class="annottext">newDescribeEventsResponse :: Int -&gt; DescribeEventsResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#newDescribeEventsResponse"><span class="hs-identifier hs-var hs-var">newDescribeEventsResponse</span></a></span></span><span> </span><span id="local-6989586621679312019"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312019"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-337"></span><span>  </span><span class="annot"><span class="annottext">DescribeEventsResponse' :: Maybe Text
+-&gt; Maybe [EventDescription] -&gt; Int -&gt; DescribeEventsResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse%27"><span class="hs-identifier hs-type">DescribeEventsResponse'</span></a></span><span>
+</span><span id="line-338"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEventsResponse' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AnextToken%3ADescribeEventsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-339"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>      </span><span class="annot"><span class="annottext">$sel:events:DescribeEventsResponse' :: Maybe [EventDescription]
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3Aevents%3ADescribeEventsResponse%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EventDescription]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventsResponse' :: Int
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AhttpStatus%3ADescribeEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312019"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-342"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-343"></span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- | If returned, this indicates that there are more results to obtain. Use</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- this token in the next DescribeEvents call to get the next batch of</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- events.</span><span>
+</span><span id="line-347"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEventsResponse_nextToken"><span class="hs-identifier hs-type">describeEventsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse"><span class="hs-identifier hs-type">DescribeEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span id="describeEventsResponse_nextToken"><span class="annot"><span class="annottext">describeEventsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEventsResponse -&gt; f DescribeEventsResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEventsResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeEventsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventsResponse -&gt; Maybe Text)
+-&gt; (DescribeEventsResponse -&gt; Maybe Text -&gt; DescribeEventsResponse)
+-&gt; Lens' DescribeEventsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse%27"><span class="hs-identifier hs-type">DescribeEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312018"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeEventsResponse' :: DescribeEventsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679312018"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312018"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312017"><span class="annot"><span class="annottext">s :: DescribeEventsResponse
+</span><a href="#local-6989586621679312017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse%27"><span class="hs-identifier hs-type">DescribeEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312016"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventsResponse
+</span><a href="#local-6989586621679312017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEventsResponse' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AnextToken%3ADescribeEventsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse"><span class="hs-identifier hs-type">DescribeEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- | A list of EventDescription.</span><span>
+</span><span id="line-351"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEventsResponse_events"><span class="hs-identifier hs-type">describeEventsResponse_events</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse"><span class="hs-identifier hs-type">DescribeEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EventDescription.html#EventDescription"><span class="hs-identifier hs-type">EventDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span id="describeEventsResponse_events"><span class="annot"><span class="annottext">describeEventsResponse_events :: (Maybe [EventDescription] -&gt; f (Maybe [EventDescription]))
+-&gt; DescribeEventsResponse -&gt; f DescribeEventsResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEventsResponse_events"><span class="hs-identifier hs-var hs-var">describeEventsResponse_events</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventsResponse -&gt; Maybe [EventDescription])
+-&gt; (DescribeEventsResponse
+    -&gt; Maybe [EventDescription] -&gt; DescribeEventsResponse)
+-&gt; Lens' DescribeEventsResponse (Maybe [EventDescription])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse%27"><span class="hs-identifier hs-type">DescribeEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312015"><span class="annot"><span class="annottext">Maybe [EventDescription]
+events :: Maybe [EventDescription]
+$sel:events:DescribeEventsResponse' :: DescribeEventsResponse -&gt; Maybe [EventDescription]
+</span><a href="#local-6989586621679312015"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EventDescription]
+</span><a href="#local-6989586621679312015"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312014"><span class="annot"><span class="annottext">s :: DescribeEventsResponse
+</span><a href="#local-6989586621679312014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse%27"><span class="hs-identifier hs-type">DescribeEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312013"><span class="annot"><span class="annottext">Maybe [EventDescription]
+</span><a href="#local-6989586621679312013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventsResponse
+</span><a href="#local-6989586621679312014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:DescribeEventsResponse' :: Maybe [EventDescription]
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3Aevents%3ADescribeEventsResponse%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EventDescription]
+</span><a href="#local-6989586621679312013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse"><span class="hs-identifier hs-type">DescribeEventsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EventDescription] -&gt; f (Maybe [EventDescription]))
+ -&gt; DescribeEventsResponse -&gt; f DescribeEventsResponse)
+-&gt; ((Maybe [EventDescription] -&gt; f (Maybe [EventDescription]))
+    -&gt; Maybe [EventDescription] -&gt; f (Maybe [EventDescription]))
+-&gt; (Maybe [EventDescription] -&gt; f (Maybe [EventDescription]))
+-&gt; DescribeEventsResponse
+-&gt; f DescribeEventsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EventDescription]
+  [EventDescription]
+  [EventDescription]
+  [EventDescription]
+-&gt; Iso
+     (Maybe [EventDescription])
+     (Maybe [EventDescription])
+     (Maybe [EventDescription])
+     (Maybe [EventDescription])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EventDescription]
+  [EventDescription]
+  [EventDescription]
+  [EventDescription]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-355"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEventsResponse_httpStatus"><span class="hs-identifier hs-type">describeEventsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse"><span class="hs-identifier hs-type">DescribeEventsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-356"></span><span id="describeEventsResponse_httpStatus"><span class="annot"><span class="annottext">describeEventsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeEventsResponse -&gt; f DescribeEventsResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#describeEventsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeEventsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventsResponse -&gt; Int)
+-&gt; (DescribeEventsResponse -&gt; Int -&gt; DescribeEventsResponse)
+-&gt; Lens DescribeEventsResponse DescribeEventsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse%27"><span class="hs-identifier hs-type">DescribeEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312011"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeEventsResponse' :: DescribeEventsResponse -&gt; Int
+</span><a href="#local-6989586621679312011"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312011"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312010"><span class="annot"><span class="annottext">s :: DescribeEventsResponse
+</span><a href="#local-6989586621679312010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse%27"><span class="hs-identifier hs-type">DescribeEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312009"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventsResponse
+</span><a href="#local-6989586621679312010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventsResponse' :: Int
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#%24sel%3AhttpStatus%3ADescribeEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse"><span class="hs-identifier hs-type">DescribeEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span>
+</span><span id="line-358"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312007"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEvents.html#DescribeEventsResponse"><span class="hs-identifier hs-type">DescribeEventsResponse</span></a></span></span><span>
+</span><span id="line-359"></span></pre></body></html>

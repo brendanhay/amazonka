@@ -1,0 +1,989 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Textract.GetDocumentAnalysis</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the results for an Amazon Textract asynchronous operation that</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- analyzes text in a document.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- You start asynchronous text analysis by calling StartDocumentAnalysis,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- which returns a job identifier (@JobId@). When the text analysis</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- operation finishes, Amazon Textract publishes a completion status to the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Amazon Simple Notification Service (Amazon SNS) topic that\'s registered</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- in the initial call to @StartDocumentAnalysis@. To get the results of</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- the text-detection operation, first check that the status value</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- published to the Amazon SNS topic is @SUCCEEDED@. If so, call</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- @GetDocumentAnalysis@, and pass the job identifier (@JobId@) from the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- initial call to @StartDocumentAnalysis@.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @GetDocumentAnalysis@ returns an array of Block objects. The following</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- types of information are returned:</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- -   Form data (key-value pairs). The related information is returned in</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     two Block objects, each of type @KEY_VALUE_SET@: a KEY @Block@</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     object and a VALUE @Block@ object. For example, /Name: Ana Silva</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     Carolina/ contains a key and value. /Name:/ is the key. /Ana Silva</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     Carolina/ is the value.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- -   Table and table cell data. A TABLE @Block@ object contains</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--     information about a detected table. A CELL @Block@ object is</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--     returned for each cell in a table.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- -   Lines and words of text. A LINE @Block@ object contains one or more</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--     WORD @Block@ objects. All lines and words that are detected in the</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--     document are returned (including text that doesn\'t have a</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--     relationship with the value of the @StartDocumentAnalysis@</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--     @FeatureTypes@ input parameter).</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Selection elements such as check boxes and option buttons (radio</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- buttons) can be detected in form data and in tables. A SELECTION_ELEMENT</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- @Block@ object contains information about a selection element, including</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- the selection status.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use the @MaxResults@ parameter to limit the number of blocks that are</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- returned. If there are more results than specified in @MaxResults@, the</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- value of @NextToken@ in the operation response contains a pagination</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- token for getting the next set of results. To get the next page of</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- results, call @GetDocumentAnalysis@, and populate the @NextToken@</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- request parameter with the token value that\'s returned from the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- previous call to @GetDocumentAnalysis@.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html Document Text Analysis&gt;.</span><span>
+</span><span id="line-70"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Textract.GetDocumentAnalysis</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier">GetDocumentAnalysis</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#newGetDocumentAnalysis"><span class="hs-identifier">newGetDocumentAnalysis</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysis_nextToken"><span class="hs-identifier">getDocumentAnalysis_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysis_maxResults"><span class="hs-identifier">getDocumentAnalysis_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysis_jobId"><span class="hs-identifier">getDocumentAnalysis_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier">GetDocumentAnalysisResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#newGetDocumentAnalysisResponse"><span class="hs-identifier">newGetDocumentAnalysisResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_statusMessage"><span class="hs-identifier">getDocumentAnalysisResponse_statusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_nextToken"><span class="hs-identifier">getDocumentAnalysisResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_warnings"><span class="hs-identifier">getDocumentAnalysisResponse_warnings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_analyzeDocumentModelVersion"><span class="hs-identifier">getDocumentAnalysisResponse_analyzeDocumentModelVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_jobStatus"><span class="hs-identifier">getDocumentAnalysisResponse_jobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_blocks"><span class="hs-identifier">getDocumentAnalysisResponse_blocks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_documentMetadata"><span class="hs-identifier">getDocumentAnalysisResponse_documentMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_httpStatus"><span class="hs-identifier">getDocumentAnalysisResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.html"><span class="hs-identifier">Network.AWS.Textract.Types</span></a></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | /See:/ 'newGetDocumentAnalysis' smart constructor.</span><span>
+</span><span id="line-104"></span><span id="local-6989586621679179411"><span id="local-6989586621679179412"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDocumentAnalysis"><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier hs-var">GetDocumentAnalysis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDocumentAnalysis%27"><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis%27"><span class="hs-identifier hs-var">GetDocumentAnalysis'</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the previous response was incomplete (because there are more blocks</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- to retrieve), Amazon Textract returns a pagination token in the</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- response. You can use this pagination token to retrieve the next set of</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- blocks.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AnextToken%3AGetDocumentAnalysis%27"><span class="annot"><span class="annottext">GetDocumentAnalysis -&gt; Maybe Text
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AnextToken%3AGetDocumentAnalysis%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return per paginated call. The largest</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- value that you can specify is 1,000. If you specify a value greater than</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- 1,000, a maximum of 1,000 results is returned. The default value is</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- 1,000.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetDocumentAnalysis%27"><span class="annot"><span class="annottext">GetDocumentAnalysis -&gt; Maybe Natural
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AmaxResults%3AGetDocumentAnalysis%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the text-detection job. The @JobId@ is returned</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- from @StartDocumentAnalysis@. A @JobId@ value is only valid for 7 days.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3AjobId%3AGetDocumentAnalysis%27"><span class="annot"><span class="annottext">GetDocumentAnalysis -&gt; Text
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AjobId%3AGetDocumentAnalysis%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179403"><span id="local-6989586621679179405"><span class="annot"><span class="annottext">GetDocumentAnalysis -&gt; GetDocumentAnalysis -&gt; Bool
+(GetDocumentAnalysis -&gt; GetDocumentAnalysis -&gt; Bool)
+-&gt; (GetDocumentAnalysis -&gt; GetDocumentAnalysis -&gt; Bool)
+-&gt; Eq GetDocumentAnalysis
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDocumentAnalysis -&gt; GetDocumentAnalysis -&gt; Bool
+$c/= :: GetDocumentAnalysis -&gt; GetDocumentAnalysis -&gt; Bool
+== :: GetDocumentAnalysis -&gt; GetDocumentAnalysis -&gt; Bool
+$c== :: GetDocumentAnalysis -&gt; GetDocumentAnalysis -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179394"><span id="local-6989586621679179396"><span id="local-6989586621679179398"><span id="local-6989586621679179400"><span class="annot"><span class="annottext">ReadPrec [GetDocumentAnalysis]
+ReadPrec GetDocumentAnalysis
+Int -&gt; ReadS GetDocumentAnalysis
+ReadS [GetDocumentAnalysis]
+(Int -&gt; ReadS GetDocumentAnalysis)
+-&gt; ReadS [GetDocumentAnalysis]
+-&gt; ReadPrec GetDocumentAnalysis
+-&gt; ReadPrec [GetDocumentAnalysis]
+-&gt; Read GetDocumentAnalysis
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDocumentAnalysis]
+$creadListPrec :: ReadPrec [GetDocumentAnalysis]
+readPrec :: ReadPrec GetDocumentAnalysis
+$creadPrec :: ReadPrec GetDocumentAnalysis
+readList :: ReadS [GetDocumentAnalysis]
+$creadList :: ReadS [GetDocumentAnalysis]
+readsPrec :: Int -&gt; ReadS GetDocumentAnalysis
+$creadsPrec :: Int -&gt; ReadS GetDocumentAnalysis
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179387"><span id="local-6989586621679179389"><span id="local-6989586621679179391"><span class="annot"><span class="annottext">Int -&gt; GetDocumentAnalysis -&gt; ShowS
+[GetDocumentAnalysis] -&gt; ShowS
+GetDocumentAnalysis -&gt; String
+(Int -&gt; GetDocumentAnalysis -&gt; ShowS)
+-&gt; (GetDocumentAnalysis -&gt; String)
+-&gt; ([GetDocumentAnalysis] -&gt; ShowS)
+-&gt; Show GetDocumentAnalysis
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDocumentAnalysis] -&gt; ShowS
+$cshowList :: [GetDocumentAnalysis] -&gt; ShowS
+show :: GetDocumentAnalysis -&gt; String
+$cshow :: GetDocumentAnalysis -&gt; String
+showsPrec :: Int -&gt; GetDocumentAnalysis -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDocumentAnalysis -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDocumentAnalysis -&gt; Rep GetDocumentAnalysis x)
+-&gt; (forall x. Rep GetDocumentAnalysis x -&gt; GetDocumentAnalysis)
+-&gt; Generic GetDocumentAnalysis
+forall x. Rep GetDocumentAnalysis x -&gt; GetDocumentAnalysis
+forall x. GetDocumentAnalysis -&gt; Rep GetDocumentAnalysis x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDocumentAnalysis x -&gt; GetDocumentAnalysis
+$cfrom :: forall x. GetDocumentAnalysis -&gt; Rep GetDocumentAnalysis x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Create a value of 'GetDocumentAnalysis' with all optional fields omitted.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'nextToken', 'getDocumentAnalysis_nextToken' - If the previous response was incomplete (because there are more blocks</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- to retrieve), Amazon Textract returns a pagination token in the</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- response. You can use this pagination token to retrieve the next set of</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- blocks.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'maxResults', 'getDocumentAnalysis_maxResults' - The maximum number of results to return per paginated call. The largest</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- value that you can specify is 1,000. If you specify a value greater than</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 1,000, a maximum of 1,000 results is returned. The default value is</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 1,000.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'jobId', 'getDocumentAnalysis_jobId' - A unique identifier for the text-detection job. The @JobId@ is returned</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- from @StartDocumentAnalysis@. A @JobId@ value is only valid for 7 days.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#newGetDocumentAnalysis"><span class="hs-identifier hs-type">newGetDocumentAnalysis</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier hs-type">GetDocumentAnalysis</span></a></span><span>
+</span><span id="line-145"></span><span id="newGetDocumentAnalysis"><span class="annot"><span class="annottext">newGetDocumentAnalysis :: Text -&gt; GetDocumentAnalysis
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#newGetDocumentAnalysis"><span class="hs-identifier hs-var hs-var">newGetDocumentAnalysis</span></a></span></span><span> </span><span id="local-6989586621679179382"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179382"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">GetDocumentAnalysis' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; GetDocumentAnalysis
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis%27"><span class="hs-identifier hs-type">GetDocumentAnalysis'</span></a></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetDocumentAnalysis' :: Maybe Text
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AnextToken%3AGetDocumentAnalysis%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetDocumentAnalysis' :: Maybe Natural
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AmaxResults%3AGetDocumentAnalysis%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:GetDocumentAnalysis' :: Text
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AjobId%3AGetDocumentAnalysis%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179382"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | If the previous response was incomplete (because there are more blocks</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- to retrieve), Amazon Textract returns a pagination token in the</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- response. You can use this pagination token to retrieve the next set of</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- blocks.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysis_nextToken"><span class="hs-identifier hs-type">getDocumentAnalysis_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier hs-type">GetDocumentAnalysis</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="getDocumentAnalysis_nextToken"><span class="annot"><span class="annottext">getDocumentAnalysis_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDocumentAnalysis -&gt; f GetDocumentAnalysis
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysis_nextToken"><span class="hs-identifier hs-var hs-var">getDocumentAnalysis_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDocumentAnalysis -&gt; Maybe Text)
+-&gt; (GetDocumentAnalysis -&gt; Maybe Text -&gt; GetDocumentAnalysis)
+-&gt; Lens
+     GetDocumentAnalysis GetDocumentAnalysis (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis%27"><span class="hs-identifier hs-type">GetDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179379"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetDocumentAnalysis' :: GetDocumentAnalysis -&gt; Maybe Text
+</span><a href="#local-6989586621679179379"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179379"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179378"><span class="annot"><span class="annottext">s :: GetDocumentAnalysis
+</span><a href="#local-6989586621679179378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis%27"><span class="hs-identifier hs-type">GetDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179377"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDocumentAnalysis
+</span><a href="#local-6989586621679179378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetDocumentAnalysis' :: Maybe Text
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AnextToken%3AGetDocumentAnalysis%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier hs-type">GetDocumentAnalysis</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The maximum number of results to return per paginated call. The largest</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- value that you can specify is 1,000. If you specify a value greater than</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 1,000, a maximum of 1,000 results is returned. The default value is</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 1,000.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysis_maxResults"><span class="hs-identifier hs-type">getDocumentAnalysis_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier hs-type">GetDocumentAnalysis</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="getDocumentAnalysis_maxResults"><span class="annot"><span class="annottext">getDocumentAnalysis_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetDocumentAnalysis -&gt; f GetDocumentAnalysis
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysis_maxResults"><span class="hs-identifier hs-var hs-var">getDocumentAnalysis_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDocumentAnalysis -&gt; Maybe Natural)
+-&gt; (GetDocumentAnalysis -&gt; Maybe Natural -&gt; GetDocumentAnalysis)
+-&gt; Lens
+     GetDocumentAnalysis
+     GetDocumentAnalysis
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis%27"><span class="hs-identifier hs-type">GetDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179376"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetDocumentAnalysis' :: GetDocumentAnalysis -&gt; Maybe Natural
+</span><a href="#local-6989586621679179376"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179376"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179375"><span class="annot"><span class="annottext">s :: GetDocumentAnalysis
+</span><a href="#local-6989586621679179375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis%27"><span class="hs-identifier hs-type">GetDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179374"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDocumentAnalysis
+</span><a href="#local-6989586621679179375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetDocumentAnalysis' :: Maybe Natural
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AmaxResults%3AGetDocumentAnalysis%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier hs-type">GetDocumentAnalysis</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | A unique identifier for the text-detection job. The @JobId@ is returned</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- from @StartDocumentAnalysis@. A @JobId@ value is only valid for 7 days.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysis_jobId"><span class="hs-identifier hs-type">getDocumentAnalysis_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier hs-type">GetDocumentAnalysis</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-169"></span><span id="getDocumentAnalysis_jobId"><span class="annot"><span class="annottext">getDocumentAnalysis_jobId :: (Text -&gt; f Text) -&gt; GetDocumentAnalysis -&gt; f GetDocumentAnalysis
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysis_jobId"><span class="hs-identifier hs-var hs-var">getDocumentAnalysis_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDocumentAnalysis -&gt; Text)
+-&gt; (GetDocumentAnalysis -&gt; Text -&gt; GetDocumentAnalysis)
+-&gt; Lens GetDocumentAnalysis GetDocumentAnalysis Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis%27"><span class="hs-identifier hs-type">GetDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179373"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:GetDocumentAnalysis' :: GetDocumentAnalysis -&gt; Text
+</span><a href="#local-6989586621679179373"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179373"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179372"><span class="annot"><span class="annottext">s :: GetDocumentAnalysis
+</span><a href="#local-6989586621679179372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis%27"><span class="hs-identifier hs-type">GetDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179371"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDocumentAnalysis
+</span><a href="#local-6989586621679179372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetDocumentAnalysis' :: Text
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AjobId%3AGetDocumentAnalysis%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier hs-type">GetDocumentAnalysis</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier hs-type">GetDocumentAnalysis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-173"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier hs-type">GetDocumentAnalysis</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679179367"><span class="annot"><span class="annottext">request :: GetDocumentAnalysis -&gt; Request GetDocumentAnalysis
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDocumentAnalysis -&gt; Request GetDocumentAnalysis
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Textract.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679179363"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDocumentAnalysis
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetDocumentAnalysis)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDocumentAnalysis))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDocumentAnalysis
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetDocumentAnalysis)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179360"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179360"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179359"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679179359"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179358"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179358"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Warning]
+-&gt; Maybe Text
+-&gt; Maybe JobStatus
+-&gt; Maybe [Block]
+-&gt; Maybe DocumentMetadata
+-&gt; Int
+-&gt; GetDocumentAnalysisResponse
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">GetDocumentAnalysisResponse'</span></a></span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Warning]
+ -&gt; Maybe Text
+ -&gt; Maybe JobStatus
+ -&gt; Maybe [Block]
+ -&gt; Maybe DocumentMetadata
+ -&gt; Int
+ -&gt; GetDocumentAnalysisResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Warning]
+      -&gt; Maybe Text
+      -&gt; Maybe JobStatus
+      -&gt; Maybe [Block]
+      -&gt; Maybe DocumentMetadata
+      -&gt; Int
+      -&gt; GetDocumentAnalysisResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Warning]
+   -&gt; Maybe Text
+   -&gt; Maybe JobStatus
+   -&gt; Maybe [Block]
+   -&gt; Maybe DocumentMetadata
+   -&gt; Int
+   -&gt; GetDocumentAnalysisResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Warning]
+      -&gt; Maybe Text
+      -&gt; Maybe JobStatus
+      -&gt; Maybe [Block]
+      -&gt; Maybe DocumentMetadata
+      -&gt; Int
+      -&gt; GetDocumentAnalysisResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Warning]
+   -&gt; Maybe Text
+   -&gt; Maybe JobStatus
+   -&gt; Maybe [Block]
+   -&gt; Maybe DocumentMetadata
+   -&gt; Int
+   -&gt; GetDocumentAnalysisResponse)
+-&gt; Either String (Maybe [Warning])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe JobStatus
+      -&gt; Maybe [Block]
+      -&gt; Maybe DocumentMetadata
+      -&gt; Int
+      -&gt; GetDocumentAnalysisResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Warning]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Warnings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Warning]))
+-&gt; Maybe [Warning] -&gt; Either String (Maybe [Warning])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Warning]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe JobStatus
+   -&gt; Maybe [Block]
+   -&gt; Maybe DocumentMetadata
+   -&gt; Int
+   -&gt; GetDocumentAnalysisResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe JobStatus
+      -&gt; Maybe [Block]
+      -&gt; Maybe DocumentMetadata
+      -&gt; Int
+      -&gt; GetDocumentAnalysisResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnalyzeDocumentModelVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe JobStatus
+   -&gt; Maybe [Block]
+   -&gt; Maybe DocumentMetadata
+   -&gt; Int
+   -&gt; GetDocumentAnalysisResponse)
+-&gt; Either String (Maybe JobStatus)
+-&gt; Either
+     String
+     (Maybe [Block]
+      -&gt; Maybe DocumentMetadata -&gt; Int -&gt; GetDocumentAnalysisResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe JobStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Block]
+   -&gt; Maybe DocumentMetadata -&gt; Int -&gt; GetDocumentAnalysisResponse)
+-&gt; Either String (Maybe [Block])
+-&gt; Either
+     String
+     (Maybe DocumentMetadata -&gt; Int -&gt; GetDocumentAnalysisResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Block]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Blocks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Block]))
+-&gt; Maybe [Block] -&gt; Either String (Maybe [Block])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Block]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe DocumentMetadata -&gt; Int -&gt; GetDocumentAnalysisResponse)
+-&gt; Either String (Maybe DocumentMetadata)
+-&gt; Either String (Int -&gt; GetDocumentAnalysisResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DocumentMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DocumentMetadata&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDocumentAnalysisResponse)
+-&gt; Either String Int -&gt; Either String GetDocumentAnalysisResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179360"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179349"><span id="local-6989586621679179351"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier hs-type">GetDocumentAnalysis</span></a></span></span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier hs-type">GetDocumentAnalysis</span></a></span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier hs-type">GetDocumentAnalysis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679179342"><span class="annot"><span class="annottext">toHeaders :: GetDocumentAnalysis -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDocumentAnalysis -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-198"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-199"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Textract.GetDocumentAnalysis&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-200"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-201"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-204"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-205"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179332"><span id="local-6989586621679179334"><span id="local-6989586621679179336"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier hs-type">GetDocumentAnalysis</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679179330"><span class="annot"><span class="annottext">toJSON :: GetDocumentAnalysis -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis%27"><span class="hs-identifier hs-type">GetDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179326"><span id="local-6989586621679179327"><span id="local-6989586621679179328"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+jobId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:jobId:GetDocumentAnalysis' :: GetDocumentAnalysis -&gt; Text
+$sel:maxResults:GetDocumentAnalysis' :: GetDocumentAnalysis -&gt; Maybe Natural
+$sel:nextToken:GetDocumentAnalysis' :: GetDocumentAnalysis -&gt; Maybe Text
+</span><a href="#local-6989586621679179326"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-213"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179328"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179327"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179326"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier hs-type">GetDocumentAnalysis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679179320"><span class="annot"><span class="annottext">toPath :: GetDocumentAnalysis -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDocumentAnalysis -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysis"><span class="hs-identifier hs-type">GetDocumentAnalysis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679179316"><span class="annot"><span class="annottext">toQuery :: GetDocumentAnalysis -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDocumentAnalysis -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | /See:/ 'newGetDocumentAnalysisResponse' smart constructor.</span><span>
+</span><span id="line-226"></span><span id="local-6989586621679179313"><span id="local-6989586621679179314"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDocumentAnalysisResponse"><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-var">GetDocumentAnalysisResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDocumentAnalysisResponse%27"><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">GetDocumentAnalysisResponse'</span></a></span></span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns if the detection job could not be completed. Contains</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- explanation for what error occured.</span><span>
+</span><span id="line-229"></span><span>    </span><span id="%24sel%3AstatusMessage%3AGetDocumentAnalysisResponse%27"><span class="annot"><span class="annottext">GetDocumentAnalysisResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AstatusMessage%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- | If the response is truncated, Amazon Textract returns this token. You</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- can use this token in the subsequent request to retrieve the next set of</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- text detection results.</span><span>
+</span><span id="line-233"></span><span>    </span><span id="%24sel%3AnextToken%3AGetDocumentAnalysisResponse%27"><span class="annot"><span class="annottext">GetDocumentAnalysisResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AnextToken%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">-- | A list of warnings that occurred during the document-analysis operation.</span><span>
+</span><span id="line-235"></span><span>    </span><span id="%24sel%3Awarnings%3AGetDocumentAnalysisResponse%27"><span class="annot"><span class="annottext">GetDocumentAnalysisResponse -&gt; Maybe [Warning]
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3Awarnings%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var hs-var">warnings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning"><span class="hs-identifier hs-type">Warning</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span id="%24sel%3AanalyzeDocumentModelVersion%3AGetDocumentAnalysisResponse%27"><span class="annot"><span class="annottext">GetDocumentAnalysisResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AanalyzeDocumentModelVersion%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var hs-var">analyzeDocumentModelVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- | The current status of the text detection job.</span><span>
+</span><span id="line-238"></span><span>    </span><span id="%24sel%3AjobStatus%3AGetDocumentAnalysisResponse%27"><span class="annot"><span class="annottext">GetDocumentAnalysisResponse -&gt; Maybe JobStatus
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AjobStatus%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- | The results of the text-analysis operation.</span><span>
+</span><span id="line-240"></span><span>    </span><span id="%24sel%3Ablocks%3AGetDocumentAnalysisResponse%27"><span class="annot"><span class="annottext">GetDocumentAnalysisResponse -&gt; Maybe [Block]
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3Ablocks%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var hs-var">blocks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-comment">-- | Information about a document that Amazon Textract processed.</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">-- @DocumentMetadata@ is returned in every page of paginated responses from</span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-comment">-- an Amazon Textract video operation.</span><span>
+</span><span id="line-244"></span><span>    </span><span id="%24sel%3AdocumentMetadata%3AGetDocumentAnalysisResponse%27"><span class="annot"><span class="annottext">GetDocumentAnalysisResponse -&gt; Maybe DocumentMetadata
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AdocumentMetadata%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var hs-var">documentMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-type">DocumentMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-246"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDocumentAnalysisResponse%27"><span class="annot"><span class="annottext">GetDocumentAnalysisResponse -&gt; Int
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AhttpStatus%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-248"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179301"><span id="local-6989586621679179303"><span class="annot"><span class="annottext">GetDocumentAnalysisResponse -&gt; GetDocumentAnalysisResponse -&gt; Bool
+(GetDocumentAnalysisResponse
+ -&gt; GetDocumentAnalysisResponse -&gt; Bool)
+-&gt; (GetDocumentAnalysisResponse
+    -&gt; GetDocumentAnalysisResponse -&gt; Bool)
+-&gt; Eq GetDocumentAnalysisResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDocumentAnalysisResponse -&gt; GetDocumentAnalysisResponse -&gt; Bool
+$c/= :: GetDocumentAnalysisResponse -&gt; GetDocumentAnalysisResponse -&gt; Bool
+== :: GetDocumentAnalysisResponse -&gt; GetDocumentAnalysisResponse -&gt; Bool
+$c== :: GetDocumentAnalysisResponse -&gt; GetDocumentAnalysisResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179293"><span id="local-6989586621679179295"><span id="local-6989586621679179297"><span id="local-6989586621679179299"><span class="annot"><span class="annottext">ReadPrec [GetDocumentAnalysisResponse]
+ReadPrec GetDocumentAnalysisResponse
+Int -&gt; ReadS GetDocumentAnalysisResponse
+ReadS [GetDocumentAnalysisResponse]
+(Int -&gt; ReadS GetDocumentAnalysisResponse)
+-&gt; ReadS [GetDocumentAnalysisResponse]
+-&gt; ReadPrec GetDocumentAnalysisResponse
+-&gt; ReadPrec [GetDocumentAnalysisResponse]
+-&gt; Read GetDocumentAnalysisResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDocumentAnalysisResponse]
+$creadListPrec :: ReadPrec [GetDocumentAnalysisResponse]
+readPrec :: ReadPrec GetDocumentAnalysisResponse
+$creadPrec :: ReadPrec GetDocumentAnalysisResponse
+readList :: ReadS [GetDocumentAnalysisResponse]
+$creadList :: ReadS [GetDocumentAnalysisResponse]
+readsPrec :: Int -&gt; ReadS GetDocumentAnalysisResponse
+$creadsPrec :: Int -&gt; ReadS GetDocumentAnalysisResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179287"><span id="local-6989586621679179289"><span id="local-6989586621679179291"><span class="annot"><span class="annottext">Int -&gt; GetDocumentAnalysisResponse -&gt; ShowS
+[GetDocumentAnalysisResponse] -&gt; ShowS
+GetDocumentAnalysisResponse -&gt; String
+(Int -&gt; GetDocumentAnalysisResponse -&gt; ShowS)
+-&gt; (GetDocumentAnalysisResponse -&gt; String)
+-&gt; ([GetDocumentAnalysisResponse] -&gt; ShowS)
+-&gt; Show GetDocumentAnalysisResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDocumentAnalysisResponse] -&gt; ShowS
+$cshowList :: [GetDocumentAnalysisResponse] -&gt; ShowS
+show :: GetDocumentAnalysisResponse -&gt; String
+$cshow :: GetDocumentAnalysisResponse -&gt; String
+showsPrec :: Int -&gt; GetDocumentAnalysisResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDocumentAnalysisResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDocumentAnalysisResponse -&gt; Rep GetDocumentAnalysisResponse x)
+-&gt; (forall x.
+    Rep GetDocumentAnalysisResponse x -&gt; GetDocumentAnalysisResponse)
+-&gt; Generic GetDocumentAnalysisResponse
+forall x.
+Rep GetDocumentAnalysisResponse x -&gt; GetDocumentAnalysisResponse
+forall x.
+GetDocumentAnalysisResponse -&gt; Rep GetDocumentAnalysisResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetDocumentAnalysisResponse x -&gt; GetDocumentAnalysisResponse
+$cfrom :: forall x.
+GetDocumentAnalysisResponse -&gt; Rep GetDocumentAnalysisResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- Create a value of 'GetDocumentAnalysisResponse' with all optional fields omitted.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- 'statusMessage', 'getDocumentAnalysisResponse_statusMessage' - Returns if the detection job could not be completed. Contains</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- explanation for what error occured.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- 'nextToken', 'getDocumentAnalysisResponse_nextToken' - If the response is truncated, Amazon Textract returns this token. You</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- can use this token in the subsequent request to retrieve the next set of</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- text detection results.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- 'warnings', 'getDocumentAnalysisResponse_warnings' - A list of warnings that occurred during the document-analysis operation.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 'analyzeDocumentModelVersion', 'getDocumentAnalysisResponse_analyzeDocumentModelVersion' -</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- 'jobStatus', 'getDocumentAnalysisResponse_jobStatus' - The current status of the text detection job.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- 'blocks', 'getDocumentAnalysisResponse_blocks' - The results of the text-analysis operation.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- 'documentMetadata', 'getDocumentAnalysisResponse_documentMetadata' - Information about a document that Amazon Textract processed.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- @DocumentMetadata@ is returned in every page of paginated responses from</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- an Amazon Textract video operation.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- 'httpStatus', 'getDocumentAnalysisResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#newGetDocumentAnalysisResponse"><span class="hs-identifier hs-type">newGetDocumentAnalysisResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-279"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-280"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-281"></span><span>  </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span>
+</span><span id="line-282"></span><span id="newGetDocumentAnalysisResponse"><span class="annot"><span class="annottext">newGetDocumentAnalysisResponse :: Int -&gt; GetDocumentAnalysisResponse
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#newGetDocumentAnalysisResponse"><span class="hs-identifier hs-var hs-var">newGetDocumentAnalysisResponse</span></a></span></span><span> </span><span id="local-6989586621679179284"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179284"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-283"></span><span>  </span><span class="annot"><span class="annottext">GetDocumentAnalysisResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Warning]
+-&gt; Maybe Text
+-&gt; Maybe JobStatus
+-&gt; Maybe [Block]
+-&gt; Maybe DocumentMetadata
+-&gt; Int
+-&gt; GetDocumentAnalysisResponse
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span>
+</span><span id="line-284"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statusMessage:GetDocumentAnalysisResponse' :: Maybe Text
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AstatusMessage%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-285"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetDocumentAnalysisResponse' :: Maybe Text
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AnextToken%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>      </span><span class="annot"><span class="annottext">$sel:warnings:GetDocumentAnalysisResponse' :: Maybe [Warning]
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3Awarnings%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">warnings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Warning]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>      </span><span class="annot"><span class="annottext">$sel:analyzeDocumentModelVersion:GetDocumentAnalysisResponse' :: Maybe Text
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AanalyzeDocumentModelVersion%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">analyzeDocumentModelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobStatus:GetDocumentAnalysisResponse' :: Maybe JobStatus
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AjobStatus%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>      </span><span class="annot"><span class="annottext">$sel:blocks:GetDocumentAnalysisResponse' :: Maybe [Block]
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3Ablocks%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">blocks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Block]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentMetadata:GetDocumentAnalysisResponse' :: Maybe DocumentMetadata
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AdocumentMetadata%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">documentMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDocumentAnalysisResponse' :: Int
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AhttpStatus%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179284"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-293"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- | Returns if the detection job could not be completed. Contains</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- explanation for what error occured.</span><span>
+</span><span id="line-297"></span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_statusMessage"><span class="hs-identifier hs-type">getDocumentAnalysisResponse_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span id="getDocumentAnalysisResponse_statusMessage"><span class="annot"><span class="annottext">getDocumentAnalysisResponse_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDocumentAnalysisResponse -&gt; f GetDocumentAnalysisResponse
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_statusMessage"><span class="hs-identifier hs-var hs-var">getDocumentAnalysisResponse_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDocumentAnalysisResponse -&gt; Maybe Text)
+-&gt; (GetDocumentAnalysisResponse
+    -&gt; Maybe Text -&gt; GetDocumentAnalysisResponse)
+-&gt; Lens
+     GetDocumentAnalysisResponse
+     GetDocumentAnalysisResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179283"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:GetDocumentAnalysisResponse' :: GetDocumentAnalysisResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679179283"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179283"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179282"><span class="annot"><span class="annottext">s :: GetDocumentAnalysisResponse
+</span><a href="#local-6989586621679179282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179281"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDocumentAnalysisResponse
+</span><a href="#local-6989586621679179282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:GetDocumentAnalysisResponse' :: Maybe Text
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AstatusMessage%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | If the response is truncated, Amazon Textract returns this token. You</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- can use this token in the subsequent request to retrieve the next set of</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- text detection results.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_nextToken"><span class="hs-identifier hs-type">getDocumentAnalysisResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span id="getDocumentAnalysisResponse_nextToken"><span class="annot"><span class="annottext">getDocumentAnalysisResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDocumentAnalysisResponse -&gt; f GetDocumentAnalysisResponse
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_nextToken"><span class="hs-identifier hs-var hs-var">getDocumentAnalysisResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDocumentAnalysisResponse -&gt; Maybe Text)
+-&gt; (GetDocumentAnalysisResponse
+    -&gt; Maybe Text -&gt; GetDocumentAnalysisResponse)
+-&gt; Lens
+     GetDocumentAnalysisResponse
+     GetDocumentAnalysisResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179280"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetDocumentAnalysisResponse' :: GetDocumentAnalysisResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679179280"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179280"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179279"><span class="annot"><span class="annottext">s :: GetDocumentAnalysisResponse
+</span><a href="#local-6989586621679179279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179278"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDocumentAnalysisResponse
+</span><a href="#local-6989586621679179279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetDocumentAnalysisResponse' :: Maybe Text
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AnextToken%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | A list of warnings that occurred during the document-analysis operation.</span><span>
+</span><span id="line-307"></span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_warnings"><span class="hs-identifier hs-type">getDocumentAnalysisResponse_warnings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning"><span class="hs-identifier hs-type">Warning</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span id="getDocumentAnalysisResponse_warnings"><span class="annot"><span class="annottext">getDocumentAnalysisResponse_warnings :: (Maybe [Warning] -&gt; f (Maybe [Warning]))
+-&gt; GetDocumentAnalysisResponse -&gt; f GetDocumentAnalysisResponse
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_warnings"><span class="hs-identifier hs-var hs-var">getDocumentAnalysisResponse_warnings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDocumentAnalysisResponse -&gt; Maybe [Warning])
+-&gt; (GetDocumentAnalysisResponse
+    -&gt; Maybe [Warning] -&gt; GetDocumentAnalysisResponse)
+-&gt; Lens
+     GetDocumentAnalysisResponse
+     GetDocumentAnalysisResponse
+     (Maybe [Warning])
+     (Maybe [Warning])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179277"><span class="annot"><span class="annottext">Maybe [Warning]
+warnings :: Maybe [Warning]
+$sel:warnings:GetDocumentAnalysisResponse' :: GetDocumentAnalysisResponse -&gt; Maybe [Warning]
+</span><a href="#local-6989586621679179277"><span class="hs-identifier hs-var hs-var">warnings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Warning]
+</span><a href="#local-6989586621679179277"><span class="hs-identifier hs-var">warnings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179276"><span class="annot"><span class="annottext">s :: GetDocumentAnalysisResponse
+</span><a href="#local-6989586621679179276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179275"><span class="annot"><span class="annottext">Maybe [Warning]
+</span><a href="#local-6989586621679179275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDocumentAnalysisResponse
+</span><a href="#local-6989586621679179276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warnings:GetDocumentAnalysisResponse' :: Maybe [Warning]
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3Awarnings%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">warnings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Warning]
+</span><a href="#local-6989586621679179275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Warning] -&gt; f (Maybe [Warning]))
+ -&gt; GetDocumentAnalysisResponse -&gt; f GetDocumentAnalysisResponse)
+-&gt; ((Maybe [Warning] -&gt; f (Maybe [Warning]))
+    -&gt; Maybe [Warning] -&gt; f (Maybe [Warning]))
+-&gt; (Maybe [Warning] -&gt; f (Maybe [Warning]))
+-&gt; GetDocumentAnalysisResponse
+-&gt; f GetDocumentAnalysisResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Warning] [Warning] [Warning] [Warning]
+-&gt; Iso
+     (Maybe [Warning])
+     (Maybe [Warning])
+     (Maybe [Warning])
+     (Maybe [Warning])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Warning] [Warning] [Warning] [Warning]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_analyzeDocumentModelVersion"><span class="hs-identifier hs-type">getDocumentAnalysisResponse_analyzeDocumentModelVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span id="getDocumentAnalysisResponse_analyzeDocumentModelVersion"><span class="annot"><span class="annottext">getDocumentAnalysisResponse_analyzeDocumentModelVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDocumentAnalysisResponse -&gt; f GetDocumentAnalysisResponse
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_analyzeDocumentModelVersion"><span class="hs-identifier hs-var hs-var">getDocumentAnalysisResponse_analyzeDocumentModelVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDocumentAnalysisResponse -&gt; Maybe Text)
+-&gt; (GetDocumentAnalysisResponse
+    -&gt; Maybe Text -&gt; GetDocumentAnalysisResponse)
+-&gt; Lens
+     GetDocumentAnalysisResponse
+     GetDocumentAnalysisResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179271"><span class="annot"><span class="annottext">Maybe Text
+analyzeDocumentModelVersion :: Maybe Text
+$sel:analyzeDocumentModelVersion:GetDocumentAnalysisResponse' :: GetDocumentAnalysisResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679179271"><span class="hs-identifier hs-var hs-var">analyzeDocumentModelVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179271"><span class="hs-identifier hs-var">analyzeDocumentModelVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179270"><span class="annot"><span class="annottext">s :: GetDocumentAnalysisResponse
+</span><a href="#local-6989586621679179270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179269"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDocumentAnalysisResponse
+</span><a href="#local-6989586621679179270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analyzeDocumentModelVersion:GetDocumentAnalysisResponse' :: Maybe Text
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AanalyzeDocumentModelVersion%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">analyzeDocumentModelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- | The current status of the text detection job.</span><span>
+</span><span id="line-315"></span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_jobStatus"><span class="hs-identifier hs-type">getDocumentAnalysisResponse_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span id="getDocumentAnalysisResponse_jobStatus"><span class="annot"><span class="annottext">getDocumentAnalysisResponse_jobStatus :: (Maybe JobStatus -&gt; f (Maybe JobStatus))
+-&gt; GetDocumentAnalysisResponse -&gt; f GetDocumentAnalysisResponse
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_jobStatus"><span class="hs-identifier hs-var hs-var">getDocumentAnalysisResponse_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDocumentAnalysisResponse -&gt; Maybe JobStatus)
+-&gt; (GetDocumentAnalysisResponse
+    -&gt; Maybe JobStatus -&gt; GetDocumentAnalysisResponse)
+-&gt; Lens
+     GetDocumentAnalysisResponse
+     GetDocumentAnalysisResponse
+     (Maybe JobStatus)
+     (Maybe JobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179268"><span class="annot"><span class="annottext">Maybe JobStatus
+jobStatus :: Maybe JobStatus
+$sel:jobStatus:GetDocumentAnalysisResponse' :: GetDocumentAnalysisResponse -&gt; Maybe JobStatus
+</span><a href="#local-6989586621679179268"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679179268"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179267"><span class="annot"><span class="annottext">s :: GetDocumentAnalysisResponse
+</span><a href="#local-6989586621679179267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179266"><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679179266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDocumentAnalysisResponse
+</span><a href="#local-6989586621679179267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:GetDocumentAnalysisResponse' :: Maybe JobStatus
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AjobStatus%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679179266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- | The results of the text-analysis operation.</span><span>
+</span><span id="line-319"></span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_blocks"><span class="hs-identifier hs-type">getDocumentAnalysisResponse_blocks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-320"></span><span id="getDocumentAnalysisResponse_blocks"><span class="annot"><span class="annottext">getDocumentAnalysisResponse_blocks :: (Maybe [Block] -&gt; f (Maybe [Block]))
+-&gt; GetDocumentAnalysisResponse -&gt; f GetDocumentAnalysisResponse
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_blocks"><span class="hs-identifier hs-var hs-var">getDocumentAnalysisResponse_blocks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDocumentAnalysisResponse -&gt; Maybe [Block])
+-&gt; (GetDocumentAnalysisResponse
+    -&gt; Maybe [Block] -&gt; GetDocumentAnalysisResponse)
+-&gt; Lens
+     GetDocumentAnalysisResponse
+     GetDocumentAnalysisResponse
+     (Maybe [Block])
+     (Maybe [Block])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179265"><span class="annot"><span class="annottext">Maybe [Block]
+blocks :: Maybe [Block]
+$sel:blocks:GetDocumentAnalysisResponse' :: GetDocumentAnalysisResponse -&gt; Maybe [Block]
+</span><a href="#local-6989586621679179265"><span class="hs-identifier hs-var hs-var">blocks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Block]
+</span><a href="#local-6989586621679179265"><span class="hs-identifier hs-var">blocks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179264"><span class="annot"><span class="annottext">s :: GetDocumentAnalysisResponse
+</span><a href="#local-6989586621679179264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179263"><span class="annot"><span class="annottext">Maybe [Block]
+</span><a href="#local-6989586621679179263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDocumentAnalysisResponse
+</span><a href="#local-6989586621679179264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blocks:GetDocumentAnalysisResponse' :: Maybe [Block]
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3Ablocks%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">blocks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Block]
+</span><a href="#local-6989586621679179263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Block] -&gt; f (Maybe [Block]))
+ -&gt; GetDocumentAnalysisResponse -&gt; f GetDocumentAnalysisResponse)
+-&gt; ((Maybe [Block] -&gt; f (Maybe [Block]))
+    -&gt; Maybe [Block] -&gt; f (Maybe [Block]))
+-&gt; (Maybe [Block] -&gt; f (Maybe [Block]))
+-&gt; GetDocumentAnalysisResponse
+-&gt; f GetDocumentAnalysisResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Block] [Block] [Block] [Block]
+-&gt; Iso
+     (Maybe [Block]) (Maybe [Block]) (Maybe [Block]) (Maybe [Block])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Block] [Block] [Block] [Block]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-321"></span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- | Information about a document that Amazon Textract processed.</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- @DocumentMetadata@ is returned in every page of paginated responses from</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- an Amazon Textract video operation.</span><span>
+</span><span id="line-325"></span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_documentMetadata"><span class="hs-identifier hs-type">getDocumentAnalysisResponse_documentMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-type">DocumentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span id="getDocumentAnalysisResponse_documentMetadata"><span class="annot"><span class="annottext">getDocumentAnalysisResponse_documentMetadata :: (Maybe DocumentMetadata -&gt; f (Maybe DocumentMetadata))
+-&gt; GetDocumentAnalysisResponse -&gt; f GetDocumentAnalysisResponse
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_documentMetadata"><span class="hs-identifier hs-var hs-var">getDocumentAnalysisResponse_documentMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDocumentAnalysisResponse -&gt; Maybe DocumentMetadata)
+-&gt; (GetDocumentAnalysisResponse
+    -&gt; Maybe DocumentMetadata -&gt; GetDocumentAnalysisResponse)
+-&gt; Lens
+     GetDocumentAnalysisResponse
+     GetDocumentAnalysisResponse
+     (Maybe DocumentMetadata)
+     (Maybe DocumentMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179262"><span class="annot"><span class="annottext">Maybe DocumentMetadata
+documentMetadata :: Maybe DocumentMetadata
+$sel:documentMetadata:GetDocumentAnalysisResponse' :: GetDocumentAnalysisResponse -&gt; Maybe DocumentMetadata
+</span><a href="#local-6989586621679179262"><span class="hs-identifier hs-var hs-var">documentMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentMetadata
+</span><a href="#local-6989586621679179262"><span class="hs-identifier hs-var">documentMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179261"><span class="annot"><span class="annottext">s :: GetDocumentAnalysisResponse
+</span><a href="#local-6989586621679179261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179260"><span class="annot"><span class="annottext">Maybe DocumentMetadata
+</span><a href="#local-6989586621679179260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDocumentAnalysisResponse
+</span><a href="#local-6989586621679179261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentMetadata:GetDocumentAnalysisResponse' :: Maybe DocumentMetadata
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AdocumentMetadata%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">documentMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentMetadata
+</span><a href="#local-6989586621679179260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-329"></span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_httpStatus"><span class="hs-identifier hs-type">getDocumentAnalysisResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-330"></span><span id="getDocumentAnalysisResponse_httpStatus"><span class="annot"><span class="annottext">getDocumentAnalysisResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetDocumentAnalysisResponse -&gt; f GetDocumentAnalysisResponse
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#getDocumentAnalysisResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDocumentAnalysisResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDocumentAnalysisResponse -&gt; Int)
+-&gt; (GetDocumentAnalysisResponse
+    -&gt; Int -&gt; GetDocumentAnalysisResponse)
+-&gt; Lens
+     GetDocumentAnalysisResponse GetDocumentAnalysisResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179259"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDocumentAnalysisResponse' :: GetDocumentAnalysisResponse -&gt; Int
+</span><a href="#local-6989586621679179259"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179259"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179258"><span class="annot"><span class="annottext">s :: GetDocumentAnalysisResponse
+</span><a href="#local-6989586621679179258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179257"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDocumentAnalysisResponse
+</span><a href="#local-6989586621679179258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDocumentAnalysisResponse' :: Int
+</span><a href="Network.AWS.Textract.GetDocumentAnalysis.html#%24sel%3AhttpStatus%3AGetDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179255"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.GetDocumentAnalysis.html#GetDocumentAnalysisResponse"><span class="hs-identifier hs-type">GetDocumentAnalysisResponse</span></a></span></span><span>
+</span><span id="line-333"></span></pre></body></html>

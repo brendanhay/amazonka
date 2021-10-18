@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodePipeline.Types.ExecutorConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodePipeline.Types.ExecutorConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html"><span class="hs-identifier">Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.LambdaExecutorConfiguration.html"><span class="hs-identifier">Network.AWS.CodePipeline.Types.LambdaExecutorConfiguration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The action engine, or executor, related to the supported integration</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- model used to create and update the action type. The available executor</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- types are @Lambda@ and @JobWorker@.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newExecutorConfiguration' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679278709"><span id="local-6989586621679278710"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecutorConfiguration"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration"><span class="hs-identifier hs-var">ExecutorConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutorConfiguration%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration%27"><span class="hs-identifier hs-var">ExecutorConfiguration'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the @JobWorker@ executor of the action type.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AjobWorkerExecutorConfiguration%3AExecutorConfiguration%27"><span class="annot"><span class="annottext">ExecutorConfiguration -&gt; Maybe JobWorkerExecutorConfiguration
+</span><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#%24sel%3AjobWorkerExecutorConfiguration%3AExecutorConfiguration%27"><span class="hs-identifier hs-var hs-var">jobWorkerExecutorConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Details about the @Lambda@ executor of the action type.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlambdaExecutorConfiguration%3AExecutorConfiguration%27"><span class="annot"><span class="annottext">ExecutorConfiguration -&gt; Maybe LambdaExecutorConfiguration
+</span><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#%24sel%3AlambdaExecutorConfiguration%3AExecutorConfiguration%27"><span class="hs-identifier hs-var hs-var">lambdaExecutorConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.LambdaExecutorConfiguration.html#LambdaExecutorConfiguration"><span class="hs-identifier hs-type">LambdaExecutorConfiguration</span></a></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278702"><span id="local-6989586621679278704"><span class="annot"><span class="annottext">ExecutorConfiguration -&gt; ExecutorConfiguration -&gt; Bool
+(ExecutorConfiguration -&gt; ExecutorConfiguration -&gt; Bool)
+-&gt; (ExecutorConfiguration -&gt; ExecutorConfiguration -&gt; Bool)
+-&gt; Eq ExecutorConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExecutorConfiguration -&gt; ExecutorConfiguration -&gt; Bool
+$c/= :: ExecutorConfiguration -&gt; ExecutorConfiguration -&gt; Bool
+== :: ExecutorConfiguration -&gt; ExecutorConfiguration -&gt; Bool
+$c== :: ExecutorConfiguration -&gt; ExecutorConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278693"><span id="local-6989586621679278695"><span id="local-6989586621679278697"><span id="local-6989586621679278699"><span class="annot"><span class="annottext">ReadPrec [ExecutorConfiguration]
+ReadPrec ExecutorConfiguration
+Int -&gt; ReadS ExecutorConfiguration
+ReadS [ExecutorConfiguration]
+(Int -&gt; ReadS ExecutorConfiguration)
+-&gt; ReadS [ExecutorConfiguration]
+-&gt; ReadPrec ExecutorConfiguration
+-&gt; ReadPrec [ExecutorConfiguration]
+-&gt; Read ExecutorConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExecutorConfiguration]
+$creadListPrec :: ReadPrec [ExecutorConfiguration]
+readPrec :: ReadPrec ExecutorConfiguration
+$creadPrec :: ReadPrec ExecutorConfiguration
+readList :: ReadS [ExecutorConfiguration]
+$creadList :: ReadS [ExecutorConfiguration]
+readsPrec :: Int -&gt; ReadS ExecutorConfiguration
+$creadsPrec :: Int -&gt; ReadS ExecutorConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278686"><span id="local-6989586621679278688"><span id="local-6989586621679278690"><span class="annot"><span class="annottext">Int -&gt; ExecutorConfiguration -&gt; ShowS
+[ExecutorConfiguration] -&gt; ShowS
+ExecutorConfiguration -&gt; String
+(Int -&gt; ExecutorConfiguration -&gt; ShowS)
+-&gt; (ExecutorConfiguration -&gt; String)
+-&gt; ([ExecutorConfiguration] -&gt; ShowS)
+-&gt; Show ExecutorConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExecutorConfiguration] -&gt; ShowS
+$cshowList :: [ExecutorConfiguration] -&gt; ShowS
+show :: ExecutorConfiguration -&gt; String
+$cshow :: ExecutorConfiguration -&gt; String
+showsPrec :: Int -&gt; ExecutorConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExecutorConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ExecutorConfiguration -&gt; Rep ExecutorConfiguration x)
+-&gt; (forall x. Rep ExecutorConfiguration x -&gt; ExecutorConfiguration)
+-&gt; Generic ExecutorConfiguration
+forall x. Rep ExecutorConfiguration x -&gt; ExecutorConfiguration
+forall x. ExecutorConfiguration -&gt; Rep ExecutorConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExecutorConfiguration x -&gt; ExecutorConfiguration
+$cfrom :: forall x. ExecutorConfiguration -&gt; Rep ExecutorConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'ExecutorConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'jobWorkerExecutorConfiguration', 'executorConfiguration_jobWorkerExecutorConfiguration' - Details about the @JobWorker@ executor of the action type.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'lambdaExecutorConfiguration', 'executorConfiguration_lambdaExecutorConfiguration' - Details about the @Lambda@ executor of the action type.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#newExecutorConfiguration"><span class="hs-identifier hs-type">newExecutorConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration"><span class="hs-identifier hs-type">ExecutorConfiguration</span></a></span><span>
+</span><span id="line-54"></span><span id="newExecutorConfiguration"><span class="annot"><span class="annottext">newExecutorConfiguration :: ExecutorConfiguration
+</span><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#newExecutorConfiguration"><span class="hs-identifier hs-var hs-var">newExecutorConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ExecutorConfiguration' :: Maybe JobWorkerExecutorConfiguration
+-&gt; Maybe LambdaExecutorConfiguration -&gt; ExecutorConfiguration
+</span><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration%27"><span class="hs-identifier hs-type">ExecutorConfiguration'</span></a></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobWorkerExecutorConfiguration:ExecutorConfiguration' :: Maybe JobWorkerExecutorConfiguration
+</span><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#%24sel%3AjobWorkerExecutorConfiguration%3AExecutorConfiguration%27"><span class="hs-identifier hs-var">jobWorkerExecutorConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe JobWorkerExecutorConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:lambdaExecutorConfiguration:ExecutorConfiguration' :: Maybe LambdaExecutorConfiguration
+</span><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#%24sel%3AlambdaExecutorConfiguration%3AExecutorConfiguration%27"><span class="hs-identifier hs-var">lambdaExecutorConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaExecutorConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Details about the @JobWorker@ executor of the action type.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#executorConfiguration_jobWorkerExecutorConfiguration"><span class="hs-identifier hs-type">executorConfiguration_jobWorkerExecutorConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration"><span class="hs-identifier hs-type">ExecutorConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="executorConfiguration_jobWorkerExecutorConfiguration"><span class="annot"><span class="annottext">executorConfiguration_jobWorkerExecutorConfiguration :: (Maybe JobWorkerExecutorConfiguration
+ -&gt; f (Maybe JobWorkerExecutorConfiguration))
+-&gt; ExecutorConfiguration -&gt; f ExecutorConfiguration
+</span><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#executorConfiguration_jobWorkerExecutorConfiguration"><span class="hs-identifier hs-var hs-var">executorConfiguration_jobWorkerExecutorConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecutorConfiguration -&gt; Maybe JobWorkerExecutorConfiguration)
+-&gt; (ExecutorConfiguration
+    -&gt; Maybe JobWorkerExecutorConfiguration -&gt; ExecutorConfiguration)
+-&gt; Lens
+     ExecutorConfiguration
+     ExecutorConfiguration
+     (Maybe JobWorkerExecutorConfiguration)
+     (Maybe JobWorkerExecutorConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration%27"><span class="hs-identifier hs-type">ExecutorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278677"><span class="annot"><span class="annottext">Maybe JobWorkerExecutorConfiguration
+jobWorkerExecutorConfiguration :: Maybe JobWorkerExecutorConfiguration
+$sel:jobWorkerExecutorConfiguration:ExecutorConfiguration' :: ExecutorConfiguration -&gt; Maybe JobWorkerExecutorConfiguration
+</span><a href="#local-6989586621679278677"><span class="hs-identifier hs-var hs-var">jobWorkerExecutorConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobWorkerExecutorConfiguration
+</span><a href="#local-6989586621679278677"><span class="hs-identifier hs-var">jobWorkerExecutorConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278676"><span class="annot"><span class="annottext">s :: ExecutorConfiguration
+</span><a href="#local-6989586621679278676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration%27"><span class="hs-identifier hs-type">ExecutorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278675"><span class="annot"><span class="annottext">Maybe JobWorkerExecutorConfiguration
+</span><a href="#local-6989586621679278675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutorConfiguration
+</span><a href="#local-6989586621679278676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobWorkerExecutorConfiguration:ExecutorConfiguration' :: Maybe JobWorkerExecutorConfiguration
+</span><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#%24sel%3AjobWorkerExecutorConfiguration%3AExecutorConfiguration%27"><span class="hs-identifier hs-var">jobWorkerExecutorConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobWorkerExecutorConfiguration
+</span><a href="#local-6989586621679278675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration"><span class="hs-identifier hs-type">ExecutorConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | Details about the @Lambda@ executor of the action type.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#executorConfiguration_lambdaExecutorConfiguration"><span class="hs-identifier hs-type">executorConfiguration_lambdaExecutorConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration"><span class="hs-identifier hs-type">ExecutorConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.LambdaExecutorConfiguration.html#LambdaExecutorConfiguration"><span class="hs-identifier hs-type">LambdaExecutorConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="executorConfiguration_lambdaExecutorConfiguration"><span class="annot"><span class="annottext">executorConfiguration_lambdaExecutorConfiguration :: (Maybe LambdaExecutorConfiguration
+ -&gt; f (Maybe LambdaExecutorConfiguration))
+-&gt; ExecutorConfiguration -&gt; f ExecutorConfiguration
+</span><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#executorConfiguration_lambdaExecutorConfiguration"><span class="hs-identifier hs-var hs-var">executorConfiguration_lambdaExecutorConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecutorConfiguration -&gt; Maybe LambdaExecutorConfiguration)
+-&gt; (ExecutorConfiguration
+    -&gt; Maybe LambdaExecutorConfiguration -&gt; ExecutorConfiguration)
+-&gt; Lens
+     ExecutorConfiguration
+     ExecutorConfiguration
+     (Maybe LambdaExecutorConfiguration)
+     (Maybe LambdaExecutorConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration%27"><span class="hs-identifier hs-type">ExecutorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278673"><span class="annot"><span class="annottext">Maybe LambdaExecutorConfiguration
+lambdaExecutorConfiguration :: Maybe LambdaExecutorConfiguration
+$sel:lambdaExecutorConfiguration:ExecutorConfiguration' :: ExecutorConfiguration -&gt; Maybe LambdaExecutorConfiguration
+</span><a href="#local-6989586621679278673"><span class="hs-identifier hs-var hs-var">lambdaExecutorConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaExecutorConfiguration
+</span><a href="#local-6989586621679278673"><span class="hs-identifier hs-var">lambdaExecutorConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278672"><span class="annot"><span class="annottext">s :: ExecutorConfiguration
+</span><a href="#local-6989586621679278672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration%27"><span class="hs-identifier hs-type">ExecutorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278671"><span class="annot"><span class="annottext">Maybe LambdaExecutorConfiguration
+</span><a href="#local-6989586621679278671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutorConfiguration
+</span><a href="#local-6989586621679278672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaExecutorConfiguration:ExecutorConfiguration' :: Maybe LambdaExecutorConfiguration
+</span><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#%24sel%3AlambdaExecutorConfiguration%3AExecutorConfiguration%27"><span class="hs-identifier hs-var">lambdaExecutorConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaExecutorConfiguration
+</span><a href="#local-6989586621679278671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration"><span class="hs-identifier hs-type">ExecutorConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278668"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration"><span class="hs-identifier hs-type">ExecutorConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679278666"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExecutorConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ExecutorConfiguration)
+-&gt; Value
+-&gt; Parser ExecutorConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ExecutorConfiguration&quot;</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278663"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278663"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe JobWorkerExecutorConfiguration
+-&gt; Maybe LambdaExecutorConfiguration -&gt; ExecutorConfiguration
+</span><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration%27"><span class="hs-identifier hs-var">ExecutorConfiguration'</span></a></span><span>
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe JobWorkerExecutorConfiguration
+ -&gt; Maybe LambdaExecutorConfiguration -&gt; ExecutorConfiguration)
+-&gt; Parser (Maybe JobWorkerExecutorConfiguration)
+-&gt; Parser
+     (Maybe LambdaExecutorConfiguration -&gt; ExecutorConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobWorkerExecutorConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobWorkerExecutorConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe LambdaExecutorConfiguration -&gt; ExecutorConfiguration)
+-&gt; Parser (Maybe LambdaExecutorConfiguration)
+-&gt; Parser ExecutorConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LambdaExecutorConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lambdaExecutorConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278657"><span id="local-6989586621679278659"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration"><span class="hs-identifier hs-type">ExecutorConfiguration</span></a></span></span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278654"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration"><span class="hs-identifier hs-type">ExecutorConfiguration</span></a></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278646"><span id="local-6989586621679278648"><span id="local-6989586621679278650"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration"><span class="hs-identifier hs-type">ExecutorConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679278644"><span class="annot"><span class="annottext">toJSON :: ExecutorConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorConfiguration.html#ExecutorConfiguration%27"><span class="hs-identifier hs-type">ExecutorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278641"><span id="local-6989586621679278642"><span class="annot"><span class="annottext">Maybe JobWorkerExecutorConfiguration
+Maybe LambdaExecutorConfiguration
+lambdaExecutorConfiguration :: Maybe LambdaExecutorConfiguration
+jobWorkerExecutorConfiguration :: Maybe JobWorkerExecutorConfiguration
+$sel:lambdaExecutorConfiguration:ExecutorConfiguration' :: ExecutorConfiguration -&gt; Maybe LambdaExecutorConfiguration
+$sel:jobWorkerExecutorConfiguration:ExecutorConfiguration' :: ExecutorConfiguration -&gt; Maybe JobWorkerExecutorConfiguration
+</span><a href="#local-6989586621679278641"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-87"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobWorkerExecutorConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JobWorkerExecutorConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>              </span><span class="annot"><span class="annottext">(JobWorkerExecutorConfiguration -&gt; Pair)
+-&gt; Maybe JobWorkerExecutorConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JobWorkerExecutorConfiguration
+</span><a href="#local-6989586621679278642"><span class="hs-identifier hs-var">jobWorkerExecutorConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lambdaExecutorConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LambdaExecutorConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>              </span><span class="annot"><span class="annottext">(LambdaExecutorConfiguration -&gt; Pair)
+-&gt; Maybe LambdaExecutorConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaExecutorConfiguration
+</span><a href="#local-6989586621679278641"><span class="hs-identifier hs-var">lambdaExecutorConfiguration</span></a></span><span>
+</span><span id="line-91"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span></pre></body></html>

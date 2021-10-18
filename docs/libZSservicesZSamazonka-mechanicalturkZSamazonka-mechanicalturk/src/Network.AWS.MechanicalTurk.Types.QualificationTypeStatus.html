@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MechanicalTurk.Types.QualificationTypeStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MechanicalTurk.Types.QualificationTypeStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#QualificationTypeStatus"><span class="hs-identifier">QualificationTypeStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#QualificationTypeStatus_Active"><span class="hs-identifier">QualificationTypeStatus_Active</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#QualificationTypeStatus_Inactive"><span class="hs-identifier">QualificationTypeStatus_Inactive</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679245226"><span id="local-6989586621679245227"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QualificationTypeStatus"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#QualificationTypeStatus"><span class="hs-identifier hs-var">QualificationTypeStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QualificationTypeStatus%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#QualificationTypeStatus%27"><span class="hs-identifier hs-var">QualificationTypeStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromQualificationTypeStatus"><span class="annot"><span class="annottext">QualificationTypeStatus -&gt; Text
+</span><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#fromQualificationTypeStatus"><span class="hs-identifier hs-var hs-var">fromQualificationTypeStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245218"><span id="local-6989586621679245220"><span id="local-6989586621679245222"><span class="annot"><span class="annottext">Int -&gt; QualificationTypeStatus -&gt; ShowS
+[QualificationTypeStatus] -&gt; ShowS
+QualificationTypeStatus -&gt; String
+(Int -&gt; QualificationTypeStatus -&gt; ShowS)
+-&gt; (QualificationTypeStatus -&gt; String)
+-&gt; ([QualificationTypeStatus] -&gt; ShowS)
+-&gt; Show QualificationTypeStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [QualificationTypeStatus] -&gt; ShowS
+$cshowList :: [QualificationTypeStatus] -&gt; ShowS
+show :: QualificationTypeStatus -&gt; String
+$cshow :: QualificationTypeStatus -&gt; String
+showsPrec :: Int -&gt; QualificationTypeStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; QualificationTypeStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679245209"><span id="local-6989586621679245211"><span id="local-6989586621679245213"><span id="local-6989586621679245215"><span class="annot"><span class="annottext">ReadPrec [QualificationTypeStatus]
+ReadPrec QualificationTypeStatus
+Int -&gt; ReadS QualificationTypeStatus
+ReadS [QualificationTypeStatus]
+(Int -&gt; ReadS QualificationTypeStatus)
+-&gt; ReadS [QualificationTypeStatus]
+-&gt; ReadPrec QualificationTypeStatus
+-&gt; ReadPrec [QualificationTypeStatus]
+-&gt; Read QualificationTypeStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [QualificationTypeStatus]
+$creadListPrec :: ReadPrec [QualificationTypeStatus]
+readPrec :: ReadPrec QualificationTypeStatus
+$creadPrec :: ReadPrec QualificationTypeStatus
+readList :: ReadS [QualificationTypeStatus]
+$creadList :: ReadS [QualificationTypeStatus]
+readsPrec :: Int -&gt; ReadS QualificationTypeStatus
+$creadsPrec :: Int -&gt; ReadS QualificationTypeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679245204"><span id="local-6989586621679245206"><span class="annot"><span class="annottext">QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool
+(QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool)
+-&gt; (QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool)
+-&gt; Eq QualificationTypeStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool
+$c/= :: QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool
+== :: QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool
+$c== :: QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679245188"><span id="local-6989586621679245190"><span id="local-6989586621679245192"><span id="local-6989586621679245194"><span id="local-6989586621679245196"><span id="local-6989586621679245198"><span id="local-6989586621679245200"><span class="annot"><span class="annottext">Eq QualificationTypeStatus
+Eq QualificationTypeStatus
+-&gt; (QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Ordering)
+-&gt; (QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool)
+-&gt; (QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool)
+-&gt; (QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool)
+-&gt; (QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool)
+-&gt; (QualificationTypeStatus
+    -&gt; QualificationTypeStatus -&gt; QualificationTypeStatus)
+-&gt; (QualificationTypeStatus
+    -&gt; QualificationTypeStatus -&gt; QualificationTypeStatus)
+-&gt; Ord QualificationTypeStatus
+QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool
+QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Ordering
+QualificationTypeStatus
+-&gt; QualificationTypeStatus -&gt; QualificationTypeStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: QualificationTypeStatus
+-&gt; QualificationTypeStatus -&gt; QualificationTypeStatus
+$cmin :: QualificationTypeStatus
+-&gt; QualificationTypeStatus -&gt; QualificationTypeStatus
+max :: QualificationTypeStatus
+-&gt; QualificationTypeStatus -&gt; QualificationTypeStatus
+$cmax :: QualificationTypeStatus
+-&gt; QualificationTypeStatus -&gt; QualificationTypeStatus
+&gt;= :: QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool
+$c&gt;= :: QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool
+&gt; :: QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool
+$c&gt; :: QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool
+&lt;= :: QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool
+$c&lt;= :: QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool
+&lt; :: QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool
+$c&lt; :: QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Bool
+compare :: QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Ordering
+$ccompare :: QualificationTypeStatus -&gt; QualificationTypeStatus -&gt; Ordering
+$cp1Ord :: Eq QualificationTypeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ QualificationTypeStatus -&gt; Rep QualificationTypeStatus x)
+-&gt; (forall x.
+    Rep QualificationTypeStatus x -&gt; QualificationTypeStatus)
+-&gt; Generic QualificationTypeStatus
+forall x. Rep QualificationTypeStatus x -&gt; QualificationTypeStatus
+forall x. QualificationTypeStatus -&gt; Rep QualificationTypeStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep QualificationTypeStatus x -&gt; QualificationTypeStatus
+$cfrom :: forall x. QualificationTypeStatus -&gt; Rep QualificationTypeStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245180"><span id="local-6989586621679245182"><span class="annot"><span class="annottext">Int -&gt; QualificationTypeStatus -&gt; Int
+QualificationTypeStatus -&gt; Int
+(Int -&gt; QualificationTypeStatus -&gt; Int)
+-&gt; (QualificationTypeStatus -&gt; Int)
+-&gt; Hashable QualificationTypeStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: QualificationTypeStatus -&gt; Int
+$chash :: QualificationTypeStatus -&gt; Int
+hashWithSalt :: Int -&gt; QualificationTypeStatus -&gt; Int
+$chashWithSalt :: Int -&gt; QualificationTypeStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679245177"><span class="annot"><span class="annottext">QualificationTypeStatus -&gt; ()
+(QualificationTypeStatus -&gt; ()) -&gt; NFData QualificationTypeStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: QualificationTypeStatus -&gt; ()
+$crnf :: QualificationTypeStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679245174"><span class="annot"><span class="annottext">Text -&gt; Either String QualificationTypeStatus
+(Text -&gt; Either String QualificationTypeStatus)
+-&gt; FromText QualificationTypeStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String QualificationTypeStatus
+$cfromText :: Text -&gt; Either String QualificationTypeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679245171"><span class="annot"><span class="annottext">QualificationTypeStatus -&gt; Text
+(QualificationTypeStatus -&gt; Text) -&gt; ToText QualificationTypeStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: QualificationTypeStatus -&gt; Text
+$ctoText :: QualificationTypeStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679245168"><span class="annot"><span class="annottext">QualificationTypeStatus -&gt; ByteString
+(QualificationTypeStatus -&gt; ByteString)
+-&gt; ToByteString QualificationTypeStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: QualificationTypeStatus -&gt; ByteString
+$ctoBS :: QualificationTypeStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679245165"><span class="annot"><span class="annottext">QualificationTypeStatus -&gt; ByteStringBuilder
+(QualificationTypeStatus -&gt; ByteStringBuilder)
+-&gt; ToLog QualificationTypeStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: QualificationTypeStatus -&gt; ByteStringBuilder
+$cbuild :: QualificationTypeStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679245162"><span class="annot"><span class="annottext">HeaderName -&gt; QualificationTypeStatus -&gt; [Header]
+(HeaderName -&gt; QualificationTypeStatus -&gt; [Header])
+-&gt; ToHeader QualificationTypeStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; QualificationTypeStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; QualificationTypeStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679245159"><span class="annot"><span class="annottext">QualificationTypeStatus -&gt; QueryString
+(QualificationTypeStatus -&gt; QueryString)
+-&gt; ToQuery QualificationTypeStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: QualificationTypeStatus -&gt; QueryString
+$ctoQuery :: QualificationTypeStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679245154"><span id="local-6989586621679245156"><span class="annot"><span class="annottext">Value -&gt; Parser [QualificationTypeStatus]
+Value -&gt; Parser QualificationTypeStatus
+(Value -&gt; Parser QualificationTypeStatus)
+-&gt; (Value -&gt; Parser [QualificationTypeStatus])
+-&gt; FromJSON QualificationTypeStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [QualificationTypeStatus]
+$cparseJSONList :: Value -&gt; Parser [QualificationTypeStatus]
+parseJSON :: Value -&gt; Parser QualificationTypeStatus
+$cparseJSON :: Value -&gt; Parser QualificationTypeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679245149"><span id="local-6989586621679245151"><span class="annot"><span class="annottext">FromJSONKeyFunction [QualificationTypeStatus]
+FromJSONKeyFunction QualificationTypeStatus
+FromJSONKeyFunction QualificationTypeStatus
+-&gt; FromJSONKeyFunction [QualificationTypeStatus]
+-&gt; FromJSONKey QualificationTypeStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [QualificationTypeStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [QualificationTypeStatus]
+fromJSONKey :: FromJSONKeyFunction QualificationTypeStatus
+$cfromJSONKey :: FromJSONKeyFunction QualificationTypeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679245140"><span id="local-6989586621679245142"><span id="local-6989586621679245144"><span id="local-6989586621679245146"><span class="annot"><span class="annottext">[QualificationTypeStatus] -&gt; Encoding
+[QualificationTypeStatus] -&gt; Value
+QualificationTypeStatus -&gt; Encoding
+QualificationTypeStatus -&gt; Value
+(QualificationTypeStatus -&gt; Value)
+-&gt; (QualificationTypeStatus -&gt; Encoding)
+-&gt; ([QualificationTypeStatus] -&gt; Value)
+-&gt; ([QualificationTypeStatus] -&gt; Encoding)
+-&gt; ToJSON QualificationTypeStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [QualificationTypeStatus] -&gt; Encoding
+$ctoEncodingList :: [QualificationTypeStatus] -&gt; Encoding
+toJSONList :: [QualificationTypeStatus] -&gt; Value
+$ctoJSONList :: [QualificationTypeStatus] -&gt; Value
+toEncoding :: QualificationTypeStatus -&gt; Encoding
+$ctoEncoding :: QualificationTypeStatus -&gt; Encoding
+toJSON :: QualificationTypeStatus -&gt; Value
+$ctoJSON :: QualificationTypeStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679245135"><span id="local-6989586621679245137"><span class="annot"><span class="annottext">ToJSONKeyFunction [QualificationTypeStatus]
+ToJSONKeyFunction QualificationTypeStatus
+ToJSONKeyFunction QualificationTypeStatus
+-&gt; ToJSONKeyFunction [QualificationTypeStatus]
+-&gt; ToJSONKey QualificationTypeStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [QualificationTypeStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [QualificationTypeStatus]
+toJSONKey :: ToJSONKeyFunction QualificationTypeStatus
+$ctoJSONKey :: ToJSONKeyFunction QualificationTypeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679245132"><span class="annot"><span class="annottext">[Node] -&gt; Either String QualificationTypeStatus
+([Node] -&gt; Either String QualificationTypeStatus)
+-&gt; FromXML QualificationTypeStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String QualificationTypeStatus
+$cparseXML :: [Node] -&gt; Either String QualificationTypeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679245129"><span class="annot"><span class="annottext">QualificationTypeStatus -&gt; XML
+(QualificationTypeStatus -&gt; XML) -&gt; ToXML QualificationTypeStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: QualificationTypeStatus -&gt; XML
+$ctoXML :: QualificationTypeStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#QualificationTypeStatus_Active"><span class="hs-identifier hs-type">QualificationTypeStatus_Active</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#QualificationTypeStatus"><span class="hs-identifier hs-type">QualificationTypeStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bQualificationTypeStatus_Active"><span id="%24mQualificationTypeStatus_Active"><span id="QualificationTypeStatus_Active"><span class="annot"><span class="annottext">$bQualificationTypeStatus_Active :: QualificationTypeStatus
+$mQualificationTypeStatus_Active :: forall r.
+QualificationTypeStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#%24bQualificationTypeStatus_Active"><span class="hs-identifier hs-var hs-var hs-var">QualificationTypeStatus_Active</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#QualificationTypeStatus%27"><span class="hs-identifier hs-type">QualificationTypeStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Active&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#QualificationTypeStatus_Inactive"><span class="hs-identifier hs-type">QualificationTypeStatus_Inactive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#QualificationTypeStatus"><span class="hs-identifier hs-type">QualificationTypeStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bQualificationTypeStatus_Inactive"><span id="%24mQualificationTypeStatus_Inactive"><span id="QualificationTypeStatus_Inactive"><span class="annot"><span class="annottext">$bQualificationTypeStatus_Inactive :: QualificationTypeStatus
+$mQualificationTypeStatus_Inactive :: forall r.
+QualificationTypeStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#%24bQualificationTypeStatus_Inactive"><span class="hs-identifier hs-var hs-var hs-var">QualificationTypeStatus_Inactive</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#QualificationTypeStatus%27"><span class="hs-identifier hs-type">QualificationTypeStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Inactive&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#QualificationTypeStatus_Active"><span class="hs-pragma hs-type">QualificationTypeStatus_Active</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#QualificationTypeStatus_Inactive"><span class="hs-pragma hs-type">QualificationTypeStatus_Inactive</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationTypeStatus.html#QualificationTypeStatus%27"><span class="hs-pragma hs-type">QualificationTypeStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

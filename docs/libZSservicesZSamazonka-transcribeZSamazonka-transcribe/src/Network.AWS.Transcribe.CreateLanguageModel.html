@@ -1,0 +1,902 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Transcribe.CreateLanguageModel</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new custom language model. Use Amazon S3 prefixes to provide</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the location of your input files. The time it takes to create your model</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- depends on the size of your training data.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Transcribe.CreateLanguageModel</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier">CreateLanguageModel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#newCreateLanguageModel"><span class="hs-identifier">newCreateLanguageModel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModel_tags"><span class="hs-identifier">createLanguageModel_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModel_languageCode"><span class="hs-identifier">createLanguageModel_languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModel_baseModelName"><span class="hs-identifier">createLanguageModel_baseModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModel_modelName"><span class="hs-identifier">createLanguageModel_modelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModel_inputDataConfig"><span class="hs-identifier">createLanguageModel_inputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier">CreateLanguageModelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#newCreateLanguageModelResponse"><span class="hs-identifier">newCreateLanguageModelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_languageCode"><span class="hs-identifier">createLanguageModelResponse_languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_inputDataConfig"><span class="hs-identifier">createLanguageModelResponse_inputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_modelStatus"><span class="hs-identifier">createLanguageModelResponse_modelStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_modelName"><span class="hs-identifier">createLanguageModelResponse_modelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_baseModelName"><span class="hs-identifier">createLanguageModelResponse_baseModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_httpStatus"><span class="hs-identifier">createLanguageModelResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.html"><span class="hs-identifier">Network.AWS.Transcribe.Types</span></a></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newCreateLanguageModel' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679286876"><span id="local-6989586621679286877"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLanguageModel"><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-var">CreateLanguageModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLanguageModel%27"><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel%27"><span class="hs-identifier hs-var">CreateLanguageModel'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Adds one or more tags, each in the form of a key:value pair, to a new</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- language model at the time you create this new model.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Atags%3ACreateLanguageModel%27"><span class="annot"><span class="annottext">CreateLanguageModel -&gt; Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3Atags%3ACreateLanguageModel%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The language of the input text you\'re using to train your custom</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- language model.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AlanguageCode%3ACreateLanguageModel%27"><span class="annot"><span class="annottext">CreateLanguageModel -&gt; CLMLanguageCode
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AlanguageCode%3ACreateLanguageModel%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CLMLanguageCode.html#CLMLanguageCode"><span class="hs-identifier hs-type">CLMLanguageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The Amazon Transcribe standard language model, or base model used to</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- create your custom language model.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- If you want to use your custom language model to transcribe audio with a</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- sample rate of 16,000 Hz or greater, choose @Wideband@.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- If you want to use your custom language model to transcribe audio with a</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- sample rate that is less than 16,000 Hz, choose @Narrowband@.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AbaseModelName%3ACreateLanguageModel%27"><span class="annot"><span class="annottext">CreateLanguageModel -&gt; BaseModelName
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AbaseModelName%3ACreateLanguageModel%27"><span class="hs-identifier hs-var hs-var">baseModelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.BaseModelName.html#BaseModelName"><span class="hs-identifier hs-type">BaseModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The name you choose for your custom language model when you create it.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AmodelName%3ACreateLanguageModel%27"><span class="annot"><span class="annottext">CreateLanguageModel -&gt; Text
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AmodelName%3ACreateLanguageModel%27"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | Contains the data access role and the Amazon S3 prefixes to read the</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- required input files to create a custom language model.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AinputDataConfig%3ACreateLanguageModel%27"><span class="annot"><span class="annottext">CreateLanguageModel -&gt; InputDataConfig
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AinputDataConfig%3ACreateLanguageModel%27"><span class="hs-identifier hs-var hs-var">inputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286866"><span id="local-6989586621679286868"><span class="annot"><span class="annottext">CreateLanguageModel -&gt; CreateLanguageModel -&gt; Bool
+(CreateLanguageModel -&gt; CreateLanguageModel -&gt; Bool)
+-&gt; (CreateLanguageModel -&gt; CreateLanguageModel -&gt; Bool)
+-&gt; Eq CreateLanguageModel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateLanguageModel -&gt; CreateLanguageModel -&gt; Bool
+$c/= :: CreateLanguageModel -&gt; CreateLanguageModel -&gt; Bool
+== :: CreateLanguageModel -&gt; CreateLanguageModel -&gt; Bool
+$c== :: CreateLanguageModel -&gt; CreateLanguageModel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286857"><span id="local-6989586621679286859"><span id="local-6989586621679286861"><span id="local-6989586621679286863"><span class="annot"><span class="annottext">ReadPrec [CreateLanguageModel]
+ReadPrec CreateLanguageModel
+Int -&gt; ReadS CreateLanguageModel
+ReadS [CreateLanguageModel]
+(Int -&gt; ReadS CreateLanguageModel)
+-&gt; ReadS [CreateLanguageModel]
+-&gt; ReadPrec CreateLanguageModel
+-&gt; ReadPrec [CreateLanguageModel]
+-&gt; Read CreateLanguageModel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateLanguageModel]
+$creadListPrec :: ReadPrec [CreateLanguageModel]
+readPrec :: ReadPrec CreateLanguageModel
+$creadPrec :: ReadPrec CreateLanguageModel
+readList :: ReadS [CreateLanguageModel]
+$creadList :: ReadS [CreateLanguageModel]
+readsPrec :: Int -&gt; ReadS CreateLanguageModel
+$creadsPrec :: Int -&gt; ReadS CreateLanguageModel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286850"><span id="local-6989586621679286852"><span id="local-6989586621679286854"><span class="annot"><span class="annottext">Int -&gt; CreateLanguageModel -&gt; ShowS
+[CreateLanguageModel] -&gt; ShowS
+CreateLanguageModel -&gt; String
+(Int -&gt; CreateLanguageModel -&gt; ShowS)
+-&gt; (CreateLanguageModel -&gt; String)
+-&gt; ([CreateLanguageModel] -&gt; ShowS)
+-&gt; Show CreateLanguageModel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateLanguageModel] -&gt; ShowS
+$cshowList :: [CreateLanguageModel] -&gt; ShowS
+show :: CreateLanguageModel -&gt; String
+$cshow :: CreateLanguageModel -&gt; String
+showsPrec :: Int -&gt; CreateLanguageModel -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateLanguageModel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateLanguageModel -&gt; Rep CreateLanguageModel x)
+-&gt; (forall x. Rep CreateLanguageModel x -&gt; CreateLanguageModel)
+-&gt; Generic CreateLanguageModel
+forall x. Rep CreateLanguageModel x -&gt; CreateLanguageModel
+forall x. CreateLanguageModel -&gt; Rep CreateLanguageModel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateLanguageModel x -&gt; CreateLanguageModel
+$cfrom :: forall x. CreateLanguageModel -&gt; Rep CreateLanguageModel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'CreateLanguageModel' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'tags', 'createLanguageModel_tags' - Adds one or more tags, each in the form of a key:value pair, to a new</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- language model at the time you create this new model.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'languageCode', 'createLanguageModel_languageCode' - The language of the input text you\'re using to train your custom</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- language model.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'baseModelName', 'createLanguageModel_baseModelName' - The Amazon Transcribe standard language model, or base model used to</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- create your custom language model.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- If you want to use your custom language model to transcribe audio with a</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- sample rate of 16,000 Hz or greater, choose @Wideband@.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- If you want to use your custom language model to transcribe audio with a</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- sample rate that is less than 16,000 Hz, choose @Narrowband@.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'modelName', 'createLanguageModel_modelName' - The name you choose for your custom language model when you create it.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'inputDataConfig', 'createLanguageModel_inputDataConfig' - Contains the data access role and the Amazon S3 prefixes to read the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- required input files to create a custom language model.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#newCreateLanguageModel"><span class="hs-identifier hs-type">newCreateLanguageModel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'languageCode'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CLMLanguageCode.html#CLMLanguageCode"><span class="hs-identifier hs-type">CLMLanguageCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'baseModelName'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.Types.BaseModelName.html#BaseModelName"><span class="hs-identifier hs-type">BaseModelName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'modelName'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-comment">-- | 'inputDataConfig'</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span><span>
+</span><span id="line-121"></span><span id="newCreateLanguageModel"><span class="annot"><span class="annottext">newCreateLanguageModel :: CLMLanguageCode
+-&gt; BaseModelName -&gt; Text -&gt; InputDataConfig -&gt; CreateLanguageModel
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#newCreateLanguageModel"><span class="hs-identifier hs-var hs-var">newCreateLanguageModel</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679286845"><span class="annot"><span class="annottext">CLMLanguageCode
+</span><a href="#local-6989586621679286845"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679286844"><span class="annot"><span class="annottext">BaseModelName
+</span><a href="#local-6989586621679286844"><span class="hs-identifier hs-var">pBaseModelName_</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679286843"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286843"><span class="hs-identifier hs-var">pModelName_</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679286842"><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679286842"><span class="hs-identifier hs-var">pInputDataConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">CreateLanguageModel' :: Maybe (NonEmpty Tag)
+-&gt; CLMLanguageCode
+-&gt; BaseModelName
+-&gt; Text
+-&gt; InputDataConfig
+-&gt; CreateLanguageModel
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel%27"><span class="hs-identifier hs-type">CreateLanguageModel'</span></a></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateLanguageModel' :: Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3Atags%3ACreateLanguageModel%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:languageCode:CreateLanguageModel' :: CLMLanguageCode
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AlanguageCode%3ACreateLanguageModel%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CLMLanguageCode
+</span><a href="#local-6989586621679286845"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:baseModelName:CreateLanguageModel' :: BaseModelName
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AbaseModelName%3ACreateLanguageModel%27"><span class="hs-identifier hs-var">baseModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BaseModelName
+</span><a href="#local-6989586621679286844"><span class="hs-identifier hs-var">pBaseModelName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelName:CreateLanguageModel' :: Text
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AmodelName%3ACreateLanguageModel%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286843"><span class="hs-identifier hs-var">pModelName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:inputDataConfig:CreateLanguageModel' :: InputDataConfig
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AinputDataConfig%3ACreateLanguageModel%27"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679286842"><span class="hs-identifier hs-var">pInputDataConfig_</span></a></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | Adds one or more tags, each in the form of a key:value pair, to a new</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- language model at the time you create this new model.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModel_tags"><span class="hs-identifier hs-type">createLanguageModel_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="createLanguageModel_tags"><span class="annot"><span class="annottext">createLanguageModel_tags :: (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; CreateLanguageModel -&gt; f CreateLanguageModel
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModel_tags"><span class="hs-identifier hs-var hs-var">createLanguageModel_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLanguageModel -&gt; Maybe (NonEmpty Tag))
+-&gt; (CreateLanguageModel
+    -&gt; Maybe (NonEmpty Tag) -&gt; CreateLanguageModel)
+-&gt; Lens
+     CreateLanguageModel
+     CreateLanguageModel
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel%27"><span class="hs-identifier hs-type">CreateLanguageModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286839"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+tags :: Maybe (NonEmpty Tag)
+$sel:tags:CreateLanguageModel' :: CreateLanguageModel -&gt; Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679286839"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679286839"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286838"><span class="annot"><span class="annottext">s :: CreateLanguageModel
+</span><a href="#local-6989586621679286838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel%27"><span class="hs-identifier hs-type">CreateLanguageModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286837"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679286837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLanguageModel
+</span><a href="#local-6989586621679286838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateLanguageModel' :: Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3Atags%3ACreateLanguageModel%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679286837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+ -&gt; CreateLanguageModel -&gt; f CreateLanguageModel)
+-&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+    -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; CreateLanguageModel
+-&gt; f CreateLanguageModel
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+-&gt; Iso
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The language of the input text you\'re using to train your custom</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- language model.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModel_languageCode"><span class="hs-identifier hs-type">createLanguageModel_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CLMLanguageCode.html#CLMLanguageCode"><span class="hs-identifier hs-type">CLMLanguageCode</span></a></span><span>
+</span><span id="line-142"></span><span id="createLanguageModel_languageCode"><span class="annot"><span class="annottext">createLanguageModel_languageCode :: (CLMLanguageCode -&gt; f CLMLanguageCode)
+-&gt; CreateLanguageModel -&gt; f CreateLanguageModel
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModel_languageCode"><span class="hs-identifier hs-var hs-var">createLanguageModel_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLanguageModel -&gt; CLMLanguageCode)
+-&gt; (CreateLanguageModel -&gt; CLMLanguageCode -&gt; CreateLanguageModel)
+-&gt; Lens
+     CreateLanguageModel
+     CreateLanguageModel
+     CLMLanguageCode
+     CLMLanguageCode
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel%27"><span class="hs-identifier hs-type">CreateLanguageModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286833"><span class="annot"><span class="annottext">CLMLanguageCode
+languageCode :: CLMLanguageCode
+$sel:languageCode:CreateLanguageModel' :: CreateLanguageModel -&gt; CLMLanguageCode
+</span><a href="#local-6989586621679286833"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CLMLanguageCode
+</span><a href="#local-6989586621679286833"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286832"><span class="annot"><span class="annottext">s :: CreateLanguageModel
+</span><a href="#local-6989586621679286832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel%27"><span class="hs-identifier hs-type">CreateLanguageModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286831"><span class="annot"><span class="annottext">CLMLanguageCode
+</span><a href="#local-6989586621679286831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLanguageModel
+</span><a href="#local-6989586621679286832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:CreateLanguageModel' :: CLMLanguageCode
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AlanguageCode%3ACreateLanguageModel%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CLMLanguageCode
+</span><a href="#local-6989586621679286831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The Amazon Transcribe standard language model, or base model used to</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- create your custom language model.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- If you want to use your custom language model to transcribe audio with a</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- sample rate of 16,000 Hz or greater, choose @Wideband@.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- If you want to use your custom language model to transcribe audio with a</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- sample rate that is less than 16,000 Hz, choose @Narrowband@.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModel_baseModelName"><span class="hs-identifier hs-type">createLanguageModel_baseModelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.BaseModelName.html#BaseModelName"><span class="hs-identifier hs-type">BaseModelName</span></a></span><span>
+</span><span id="line-153"></span><span id="createLanguageModel_baseModelName"><span class="annot"><span class="annottext">createLanguageModel_baseModelName :: (BaseModelName -&gt; f BaseModelName)
+-&gt; CreateLanguageModel -&gt; f CreateLanguageModel
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModel_baseModelName"><span class="hs-identifier hs-var hs-var">createLanguageModel_baseModelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLanguageModel -&gt; BaseModelName)
+-&gt; (CreateLanguageModel -&gt; BaseModelName -&gt; CreateLanguageModel)
+-&gt; Lens
+     CreateLanguageModel CreateLanguageModel BaseModelName BaseModelName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel%27"><span class="hs-identifier hs-type">CreateLanguageModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286830"><span class="annot"><span class="annottext">BaseModelName
+baseModelName :: BaseModelName
+$sel:baseModelName:CreateLanguageModel' :: CreateLanguageModel -&gt; BaseModelName
+</span><a href="#local-6989586621679286830"><span class="hs-identifier hs-var hs-var">baseModelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaseModelName
+</span><a href="#local-6989586621679286830"><span class="hs-identifier hs-var">baseModelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286829"><span class="annot"><span class="annottext">s :: CreateLanguageModel
+</span><a href="#local-6989586621679286829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel%27"><span class="hs-identifier hs-type">CreateLanguageModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286828"><span class="annot"><span class="annottext">BaseModelName
+</span><a href="#local-6989586621679286828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLanguageModel
+</span><a href="#local-6989586621679286829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseModelName:CreateLanguageModel' :: BaseModelName
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AbaseModelName%3ACreateLanguageModel%27"><span class="hs-identifier hs-var">baseModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BaseModelName
+</span><a href="#local-6989586621679286828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The name you choose for your custom language model when you create it.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModel_modelName"><span class="hs-identifier hs-type">createLanguageModel_modelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-157"></span><span id="createLanguageModel_modelName"><span class="annot"><span class="annottext">createLanguageModel_modelName :: (Text -&gt; f Text) -&gt; CreateLanguageModel -&gt; f CreateLanguageModel
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModel_modelName"><span class="hs-identifier hs-var hs-var">createLanguageModel_modelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLanguageModel -&gt; Text)
+-&gt; (CreateLanguageModel -&gt; Text -&gt; CreateLanguageModel)
+-&gt; Lens CreateLanguageModel CreateLanguageModel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel%27"><span class="hs-identifier hs-type">CreateLanguageModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286827"><span class="annot"><span class="annottext">Text
+modelName :: Text
+$sel:modelName:CreateLanguageModel' :: CreateLanguageModel -&gt; Text
+</span><a href="#local-6989586621679286827"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286827"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286826"><span class="annot"><span class="annottext">s :: CreateLanguageModel
+</span><a href="#local-6989586621679286826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel%27"><span class="hs-identifier hs-type">CreateLanguageModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286825"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLanguageModel
+</span><a href="#local-6989586621679286826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelName:CreateLanguageModel' :: Text
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AmodelName%3ACreateLanguageModel%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | Contains the data access role and the Amazon S3 prefixes to read the</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- required input files to create a custom language model.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModel_inputDataConfig"><span class="hs-identifier hs-type">createLanguageModel_inputDataConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span>
+</span><span id="line-162"></span><span id="createLanguageModel_inputDataConfig"><span class="annot"><span class="annottext">createLanguageModel_inputDataConfig :: (InputDataConfig -&gt; f InputDataConfig)
+-&gt; CreateLanguageModel -&gt; f CreateLanguageModel
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModel_inputDataConfig"><span class="hs-identifier hs-var hs-var">createLanguageModel_inputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLanguageModel -&gt; InputDataConfig)
+-&gt; (CreateLanguageModel -&gt; InputDataConfig -&gt; CreateLanguageModel)
+-&gt; Lens
+     CreateLanguageModel
+     CreateLanguageModel
+     InputDataConfig
+     InputDataConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel%27"><span class="hs-identifier hs-type">CreateLanguageModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286824"><span class="annot"><span class="annottext">InputDataConfig
+inputDataConfig :: InputDataConfig
+$sel:inputDataConfig:CreateLanguageModel' :: CreateLanguageModel -&gt; InputDataConfig
+</span><a href="#local-6989586621679286824"><span class="hs-identifier hs-var hs-var">inputDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679286824"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286823"><span class="annot"><span class="annottext">s :: CreateLanguageModel
+</span><a href="#local-6989586621679286823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel%27"><span class="hs-identifier hs-type">CreateLanguageModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286822"><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679286822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLanguageModel
+</span><a href="#local-6989586621679286823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDataConfig:CreateLanguageModel' :: InputDataConfig
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AinputDataConfig%3ACreateLanguageModel%27"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679286822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-166"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier hs-type">CreateLanguageModelResponse</span></a></span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679286818"><span class="annot"><span class="annottext">request :: CreateLanguageModel -&gt; Request CreateLanguageModel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateLanguageModel -&gt; Request CreateLanguageModel
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Transcribe.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679286814"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateLanguageModel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateLanguageModel)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateLanguageModel))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateLanguageModel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateLanguageModel)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679286811"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286811"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679286810"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679286810"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679286809"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286809"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Maybe CLMLanguageCode
+-&gt; Maybe InputDataConfig
+-&gt; Maybe ModelStatus
+-&gt; Maybe Text
+-&gt; Maybe BaseModelName
+-&gt; Int
+-&gt; CreateLanguageModelResponse
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse%27"><span class="hs-identifier hs-var">CreateLanguageModelResponse'</span></a></span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CLMLanguageCode
+ -&gt; Maybe InputDataConfig
+ -&gt; Maybe ModelStatus
+ -&gt; Maybe Text
+ -&gt; Maybe BaseModelName
+ -&gt; Int
+ -&gt; CreateLanguageModelResponse)
+-&gt; Either String (Maybe CLMLanguageCode)
+-&gt; Either
+     String
+     (Maybe InputDataConfig
+      -&gt; Maybe ModelStatus
+      -&gt; Maybe Text
+      -&gt; Maybe BaseModelName
+      -&gt; Int
+      -&gt; CreateLanguageModelResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CLMLanguageCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe InputDataConfig
+   -&gt; Maybe ModelStatus
+   -&gt; Maybe Text
+   -&gt; Maybe BaseModelName
+   -&gt; Int
+   -&gt; CreateLanguageModelResponse)
+-&gt; Either String (Maybe InputDataConfig)
+-&gt; Either
+     String
+     (Maybe ModelStatus
+      -&gt; Maybe Text
+      -&gt; Maybe BaseModelName
+      -&gt; Int
+      -&gt; CreateLanguageModelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InputDataConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputDataConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ModelStatus
+   -&gt; Maybe Text
+   -&gt; Maybe BaseModelName
+   -&gt; Int
+   -&gt; CreateLanguageModelResponse)
+-&gt; Either String (Maybe ModelStatus)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe BaseModelName -&gt; Int -&gt; CreateLanguageModelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ModelStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe BaseModelName -&gt; Int -&gt; CreateLanguageModelResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe BaseModelName -&gt; Int -&gt; CreateLanguageModelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe BaseModelName -&gt; Int -&gt; CreateLanguageModelResponse)
+-&gt; Either String (Maybe BaseModelName)
+-&gt; Either String (Int -&gt; CreateLanguageModelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BaseModelName)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BaseModelName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateLanguageModelResponse)
+-&gt; Either String Int -&gt; Either String CreateLanguageModelResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286811"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286801"><span id="local-6989586621679286803"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span></span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286798"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679286794"><span class="annot"><span class="annottext">toHeaders :: CreateLanguageModel -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateLanguageModel -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-189"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Transcribe.CreateLanguageModel&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-191"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-192"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-194"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-196"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286784"><span id="local-6989586621679286786"><span id="local-6989586621679286788"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679286782"><span class="annot"><span class="annottext">toJSON :: CreateLanguageModel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel%27"><span class="hs-identifier hs-type">CreateLanguageModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286776"><span id="local-6989586621679286777"><span id="local-6989586621679286778"><span id="local-6989586621679286779"><span id="local-6989586621679286780"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+Text
+BaseModelName
+CLMLanguageCode
+InputDataConfig
+inputDataConfig :: InputDataConfig
+modelName :: Text
+baseModelName :: BaseModelName
+languageCode :: CLMLanguageCode
+tags :: Maybe (NonEmpty Tag)
+$sel:inputDataConfig:CreateLanguageModel' :: CreateLanguageModel -&gt; InputDataConfig
+$sel:modelName:CreateLanguageModel' :: CreateLanguageModel -&gt; Text
+$sel:baseModelName:CreateLanguageModel' :: CreateLanguageModel -&gt; BaseModelName
+$sel:languageCode:CreateLanguageModel' :: CreateLanguageModel -&gt; CLMLanguageCode
+$sel:tags:CreateLanguageModel' :: CreateLanguageModel -&gt; Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679286776"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-204"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Tag -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679286780"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CLMLanguageCode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">CLMLanguageCode
+</span><a href="#local-6989586621679286779"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BaseModelName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BaseModelName -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">BaseModelName
+</span><a href="#local-6989586621679286778"><span class="hs-identifier hs-var">baseModelName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286777"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-209"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputDataConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputDataConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679286776"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679286770"><span class="annot"><span class="annottext">toPath :: CreateLanguageModel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateLanguageModel -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModel"><span class="hs-identifier hs-type">CreateLanguageModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679286766"><span class="annot"><span class="annottext">toQuery :: CreateLanguageModel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateLanguageModel -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | /See:/ 'newCreateLanguageModelResponse' smart constructor.</span><span>
+</span><span id="line-220"></span><span id="local-6989586621679286763"><span id="local-6989586621679286764"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLanguageModelResponse"><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier hs-var">CreateLanguageModelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLanguageModelResponse%27"><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse%27"><span class="hs-identifier hs-var">CreateLanguageModelResponse'</span></a></span></span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The language code of the text you\'ve used to create a custom language</span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- model.</span><span>
+</span><span id="line-223"></span><span>    </span><span id="%24sel%3AlanguageCode%3ACreateLanguageModelResponse%27"><span class="annot"><span class="annottext">CreateLanguageModelResponse -&gt; Maybe CLMLanguageCode
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AlanguageCode%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CLMLanguageCode.html#CLMLanguageCode"><span class="hs-identifier hs-type">CLMLanguageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- | The data access role and Amazon S3 prefixes you\'ve chosen to create</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- your custom language model.</span><span>
+</span><span id="line-226"></span><span>    </span><span id="%24sel%3AinputDataConfig%3ACreateLanguageModelResponse%27"><span class="annot"><span class="annottext">CreateLanguageModelResponse -&gt; Maybe InputDataConfig
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AinputDataConfig%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var hs-var">inputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- | The status of the custom language model. When the status is @COMPLETED@</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- the model is ready to use.</span><span>
+</span><span id="line-229"></span><span>    </span><span id="%24sel%3AmodelStatus%3ACreateLanguageModelResponse%27"><span class="annot"><span class="annottext">CreateLanguageModelResponse -&gt; Maybe ModelStatus
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AmodelStatus%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var hs-var">modelStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelStatus.html#ModelStatus"><span class="hs-identifier hs-type">ModelStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- | The name you\'ve chosen for your custom language model.</span><span>
+</span><span id="line-231"></span><span>    </span><span id="%24sel%3AmodelName%3ACreateLanguageModelResponse%27"><span class="annot"><span class="annottext">CreateLanguageModelResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AmodelName%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- | The Amazon Transcribe standard language model, or base model you\'ve</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- used to create a custom language model.</span><span>
+</span><span id="line-234"></span><span>    </span><span id="%24sel%3AbaseModelName%3ACreateLanguageModelResponse%27"><span class="annot"><span class="annottext">CreateLanguageModelResponse -&gt; Maybe BaseModelName
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AbaseModelName%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var hs-var">baseModelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.BaseModelName.html#BaseModelName"><span class="hs-identifier hs-type">BaseModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-236"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateLanguageModelResponse%27"><span class="annot"><span class="annottext">CreateLanguageModelResponse -&gt; Int
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AhttpStatus%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-237"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286753"><span id="local-6989586621679286755"><span class="annot"><span class="annottext">CreateLanguageModelResponse -&gt; CreateLanguageModelResponse -&gt; Bool
+(CreateLanguageModelResponse
+ -&gt; CreateLanguageModelResponse -&gt; Bool)
+-&gt; (CreateLanguageModelResponse
+    -&gt; CreateLanguageModelResponse -&gt; Bool)
+-&gt; Eq CreateLanguageModelResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateLanguageModelResponse -&gt; CreateLanguageModelResponse -&gt; Bool
+$c/= :: CreateLanguageModelResponse -&gt; CreateLanguageModelResponse -&gt; Bool
+== :: CreateLanguageModelResponse -&gt; CreateLanguageModelResponse -&gt; Bool
+$c== :: CreateLanguageModelResponse -&gt; CreateLanguageModelResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286745"><span id="local-6989586621679286747"><span id="local-6989586621679286749"><span id="local-6989586621679286751"><span class="annot"><span class="annottext">ReadPrec [CreateLanguageModelResponse]
+ReadPrec CreateLanguageModelResponse
+Int -&gt; ReadS CreateLanguageModelResponse
+ReadS [CreateLanguageModelResponse]
+(Int -&gt; ReadS CreateLanguageModelResponse)
+-&gt; ReadS [CreateLanguageModelResponse]
+-&gt; ReadPrec CreateLanguageModelResponse
+-&gt; ReadPrec [CreateLanguageModelResponse]
+-&gt; Read CreateLanguageModelResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateLanguageModelResponse]
+$creadListPrec :: ReadPrec [CreateLanguageModelResponse]
+readPrec :: ReadPrec CreateLanguageModelResponse
+$creadPrec :: ReadPrec CreateLanguageModelResponse
+readList :: ReadS [CreateLanguageModelResponse]
+$creadList :: ReadS [CreateLanguageModelResponse]
+readsPrec :: Int -&gt; ReadS CreateLanguageModelResponse
+$creadsPrec :: Int -&gt; ReadS CreateLanguageModelResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286739"><span id="local-6989586621679286741"><span id="local-6989586621679286743"><span class="annot"><span class="annottext">Int -&gt; CreateLanguageModelResponse -&gt; ShowS
+[CreateLanguageModelResponse] -&gt; ShowS
+CreateLanguageModelResponse -&gt; String
+(Int -&gt; CreateLanguageModelResponse -&gt; ShowS)
+-&gt; (CreateLanguageModelResponse -&gt; String)
+-&gt; ([CreateLanguageModelResponse] -&gt; ShowS)
+-&gt; Show CreateLanguageModelResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateLanguageModelResponse] -&gt; ShowS
+$cshowList :: [CreateLanguageModelResponse] -&gt; ShowS
+show :: CreateLanguageModelResponse -&gt; String
+$cshow :: CreateLanguageModelResponse -&gt; String
+showsPrec :: Int -&gt; CreateLanguageModelResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateLanguageModelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateLanguageModelResponse -&gt; Rep CreateLanguageModelResponse x)
+-&gt; (forall x.
+    Rep CreateLanguageModelResponse x -&gt; CreateLanguageModelResponse)
+-&gt; Generic CreateLanguageModelResponse
+forall x.
+Rep CreateLanguageModelResponse x -&gt; CreateLanguageModelResponse
+forall x.
+CreateLanguageModelResponse -&gt; Rep CreateLanguageModelResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateLanguageModelResponse x -&gt; CreateLanguageModelResponse
+$cfrom :: forall x.
+CreateLanguageModelResponse -&gt; Rep CreateLanguageModelResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- Create a value of 'CreateLanguageModelResponse' with all optional fields omitted.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 'languageCode', 'createLanguageModelResponse_languageCode' - The language code of the text you\'ve used to create a custom language</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- model.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- 'inputDataConfig', 'createLanguageModelResponse_inputDataConfig' - The data access role and Amazon S3 prefixes you\'ve chosen to create</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- your custom language model.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- 'modelStatus', 'createLanguageModelResponse_modelStatus' - The status of the custom language model. When the status is @COMPLETED@</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- the model is ready to use.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'modelName', 'createLanguageModelResponse_modelName' - The name you\'ve chosen for your custom language model.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- 'baseModelName', 'createLanguageModelResponse_baseModelName' - The Amazon Transcribe standard language model, or base model you\'ve</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- used to create a custom language model.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- 'httpStatus', 'createLanguageModelResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#newCreateLanguageModelResponse"><span class="hs-identifier hs-type">newCreateLanguageModelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-266"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier hs-type">CreateLanguageModelResponse</span></a></span><span>
+</span><span id="line-267"></span><span id="newCreateLanguageModelResponse"><span class="annot"><span class="annottext">newCreateLanguageModelResponse :: Int -&gt; CreateLanguageModelResponse
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#newCreateLanguageModelResponse"><span class="hs-identifier hs-var hs-var">newCreateLanguageModelResponse</span></a></span></span><span> </span><span id="local-6989586621679286736"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286736"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>  </span><span class="annot"><span class="annottext">CreateLanguageModelResponse' :: Maybe CLMLanguageCode
+-&gt; Maybe InputDataConfig
+-&gt; Maybe ModelStatus
+-&gt; Maybe Text
+-&gt; Maybe BaseModelName
+-&gt; Int
+-&gt; CreateLanguageModelResponse
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse%27"><span class="hs-identifier hs-type">CreateLanguageModelResponse'</span></a></span><span>
+</span><span id="line-269"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:languageCode:CreateLanguageModelResponse' :: Maybe CLMLanguageCode
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AlanguageCode%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">Maybe CLMLanguageCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputDataConfig:CreateLanguageModelResponse' :: Maybe InputDataConfig
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AinputDataConfig%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDataConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelStatus:CreateLanguageModelResponse' :: Maybe ModelStatus
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AmodelStatus%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var">modelStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelName:CreateLanguageModelResponse' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AmodelName%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:baseModelName:CreateLanguageModelResponse' :: Maybe BaseModelName
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AbaseModelName%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var">baseModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BaseModelName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLanguageModelResponse' :: Int
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AhttpStatus%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286736"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-276"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | The language code of the text you\'ve used to create a custom language</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- model.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_languageCode"><span class="hs-identifier hs-type">createLanguageModelResponse_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier hs-type">CreateLanguageModelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CLMLanguageCode.html#CLMLanguageCode"><span class="hs-identifier hs-type">CLMLanguageCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="createLanguageModelResponse_languageCode"><span class="annot"><span class="annottext">createLanguageModelResponse_languageCode :: (Maybe CLMLanguageCode -&gt; f (Maybe CLMLanguageCode))
+-&gt; CreateLanguageModelResponse -&gt; f CreateLanguageModelResponse
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_languageCode"><span class="hs-identifier hs-var hs-var">createLanguageModelResponse_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLanguageModelResponse -&gt; Maybe CLMLanguageCode)
+-&gt; (CreateLanguageModelResponse
+    -&gt; Maybe CLMLanguageCode -&gt; CreateLanguageModelResponse)
+-&gt; Lens
+     CreateLanguageModelResponse
+     CreateLanguageModelResponse
+     (Maybe CLMLanguageCode)
+     (Maybe CLMLanguageCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse%27"><span class="hs-identifier hs-type">CreateLanguageModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286735"><span class="annot"><span class="annottext">Maybe CLMLanguageCode
+languageCode :: Maybe CLMLanguageCode
+$sel:languageCode:CreateLanguageModelResponse' :: CreateLanguageModelResponse -&gt; Maybe CLMLanguageCode
+</span><a href="#local-6989586621679286735"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CLMLanguageCode
+</span><a href="#local-6989586621679286735"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286734"><span class="annot"><span class="annottext">s :: CreateLanguageModelResponse
+</span><a href="#local-6989586621679286734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse%27"><span class="hs-identifier hs-type">CreateLanguageModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286733"><span class="annot"><span class="annottext">Maybe CLMLanguageCode
+</span><a href="#local-6989586621679286733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLanguageModelResponse
+</span><a href="#local-6989586621679286734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:CreateLanguageModelResponse' :: Maybe CLMLanguageCode
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AlanguageCode%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CLMLanguageCode
+</span><a href="#local-6989586621679286733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier hs-type">CreateLanguageModelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | The data access role and Amazon S3 prefixes you\'ve chosen to create</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- your custom language model.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_inputDataConfig"><span class="hs-identifier hs-type">createLanguageModelResponse_inputDataConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier hs-type">CreateLanguageModelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="createLanguageModelResponse_inputDataConfig"><span class="annot"><span class="annottext">createLanguageModelResponse_inputDataConfig :: (Maybe InputDataConfig -&gt; f (Maybe InputDataConfig))
+-&gt; CreateLanguageModelResponse -&gt; f CreateLanguageModelResponse
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_inputDataConfig"><span class="hs-identifier hs-var hs-var">createLanguageModelResponse_inputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLanguageModelResponse -&gt; Maybe InputDataConfig)
+-&gt; (CreateLanguageModelResponse
+    -&gt; Maybe InputDataConfig -&gt; CreateLanguageModelResponse)
+-&gt; Lens
+     CreateLanguageModelResponse
+     CreateLanguageModelResponse
+     (Maybe InputDataConfig)
+     (Maybe InputDataConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse%27"><span class="hs-identifier hs-type">CreateLanguageModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286732"><span class="annot"><span class="annottext">Maybe InputDataConfig
+inputDataConfig :: Maybe InputDataConfig
+$sel:inputDataConfig:CreateLanguageModelResponse' :: CreateLanguageModelResponse -&gt; Maybe InputDataConfig
+</span><a href="#local-6989586621679286732"><span class="hs-identifier hs-var hs-var">inputDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDataConfig
+</span><a href="#local-6989586621679286732"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286731"><span class="annot"><span class="annottext">s :: CreateLanguageModelResponse
+</span><a href="#local-6989586621679286731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse%27"><span class="hs-identifier hs-type">CreateLanguageModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286730"><span class="annot"><span class="annottext">Maybe InputDataConfig
+</span><a href="#local-6989586621679286730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLanguageModelResponse
+</span><a href="#local-6989586621679286731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDataConfig:CreateLanguageModelResponse' :: Maybe InputDataConfig
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AinputDataConfig%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDataConfig
+</span><a href="#local-6989586621679286730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier hs-type">CreateLanguageModelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The status of the custom language model. When the status is @COMPLETED@</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- the model is ready to use.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_modelStatus"><span class="hs-identifier hs-type">createLanguageModelResponse_modelStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier hs-type">CreateLanguageModelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelStatus.html#ModelStatus"><span class="hs-identifier hs-type">ModelStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="createLanguageModelResponse_modelStatus"><span class="annot"><span class="annottext">createLanguageModelResponse_modelStatus :: (Maybe ModelStatus -&gt; f (Maybe ModelStatus))
+-&gt; CreateLanguageModelResponse -&gt; f CreateLanguageModelResponse
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_modelStatus"><span class="hs-identifier hs-var hs-var">createLanguageModelResponse_modelStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLanguageModelResponse -&gt; Maybe ModelStatus)
+-&gt; (CreateLanguageModelResponse
+    -&gt; Maybe ModelStatus -&gt; CreateLanguageModelResponse)
+-&gt; Lens
+     CreateLanguageModelResponse
+     CreateLanguageModelResponse
+     (Maybe ModelStatus)
+     (Maybe ModelStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse%27"><span class="hs-identifier hs-type">CreateLanguageModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286729"><span class="annot"><span class="annottext">Maybe ModelStatus
+modelStatus :: Maybe ModelStatus
+$sel:modelStatus:CreateLanguageModelResponse' :: CreateLanguageModelResponse -&gt; Maybe ModelStatus
+</span><a href="#local-6989586621679286729"><span class="hs-identifier hs-var hs-var">modelStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
+</span><a href="#local-6989586621679286729"><span class="hs-identifier hs-var">modelStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286728"><span class="annot"><span class="annottext">s :: CreateLanguageModelResponse
+</span><a href="#local-6989586621679286728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse%27"><span class="hs-identifier hs-type">CreateLanguageModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286727"><span class="annot"><span class="annottext">Maybe ModelStatus
+</span><a href="#local-6989586621679286727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLanguageModelResponse
+</span><a href="#local-6989586621679286728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelStatus:CreateLanguageModelResponse' :: Maybe ModelStatus
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AmodelStatus%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var">modelStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
+</span><a href="#local-6989586621679286727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier hs-type">CreateLanguageModelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | The name you\'ve chosen for your custom language model.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_modelName"><span class="hs-identifier hs-type">createLanguageModelResponse_modelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier hs-type">CreateLanguageModelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span id="createLanguageModelResponse_modelName"><span class="annot"><span class="annottext">createLanguageModelResponse_modelName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateLanguageModelResponse -&gt; f CreateLanguageModelResponse
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_modelName"><span class="hs-identifier hs-var hs-var">createLanguageModelResponse_modelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLanguageModelResponse -&gt; Maybe Text)
+-&gt; (CreateLanguageModelResponse
+    -&gt; Maybe Text -&gt; CreateLanguageModelResponse)
+-&gt; Lens
+     CreateLanguageModelResponse
+     CreateLanguageModelResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse%27"><span class="hs-identifier hs-type">CreateLanguageModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286726"><span class="annot"><span class="annottext">Maybe Text
+modelName :: Maybe Text
+$sel:modelName:CreateLanguageModelResponse' :: CreateLanguageModelResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679286726"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286726"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286725"><span class="annot"><span class="annottext">s :: CreateLanguageModelResponse
+</span><a href="#local-6989586621679286725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse%27"><span class="hs-identifier hs-type">CreateLanguageModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286724"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLanguageModelResponse
+</span><a href="#local-6989586621679286725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelName:CreateLanguageModelResponse' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AmodelName%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier hs-type">CreateLanguageModelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | The Amazon Transcribe standard language model, or base model you\'ve</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- used to create a custom language model.</span><span>
+</span><span id="line-299"></span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_baseModelName"><span class="hs-identifier hs-type">createLanguageModelResponse_baseModelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier hs-type">CreateLanguageModelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.BaseModelName.html#BaseModelName"><span class="hs-identifier hs-type">BaseModelName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span id="createLanguageModelResponse_baseModelName"><span class="annot"><span class="annottext">createLanguageModelResponse_baseModelName :: (Maybe BaseModelName -&gt; f (Maybe BaseModelName))
+-&gt; CreateLanguageModelResponse -&gt; f CreateLanguageModelResponse
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_baseModelName"><span class="hs-identifier hs-var hs-var">createLanguageModelResponse_baseModelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLanguageModelResponse -&gt; Maybe BaseModelName)
+-&gt; (CreateLanguageModelResponse
+    -&gt; Maybe BaseModelName -&gt; CreateLanguageModelResponse)
+-&gt; Lens
+     CreateLanguageModelResponse
+     CreateLanguageModelResponse
+     (Maybe BaseModelName)
+     (Maybe BaseModelName)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse%27"><span class="hs-identifier hs-type">CreateLanguageModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286723"><span class="annot"><span class="annottext">Maybe BaseModelName
+baseModelName :: Maybe BaseModelName
+$sel:baseModelName:CreateLanguageModelResponse' :: CreateLanguageModelResponse -&gt; Maybe BaseModelName
+</span><a href="#local-6989586621679286723"><span class="hs-identifier hs-var hs-var">baseModelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BaseModelName
+</span><a href="#local-6989586621679286723"><span class="hs-identifier hs-var">baseModelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286722"><span class="annot"><span class="annottext">s :: CreateLanguageModelResponse
+</span><a href="#local-6989586621679286722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse%27"><span class="hs-identifier hs-type">CreateLanguageModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286721"><span class="annot"><span class="annottext">Maybe BaseModelName
+</span><a href="#local-6989586621679286721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLanguageModelResponse
+</span><a href="#local-6989586621679286722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseModelName:CreateLanguageModelResponse' :: Maybe BaseModelName
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AbaseModelName%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var">baseModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BaseModelName
+</span><a href="#local-6989586621679286721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier hs-type">CreateLanguageModelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_httpStatus"><span class="hs-identifier hs-type">createLanguageModelResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier hs-type">CreateLanguageModelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-304"></span><span id="createLanguageModelResponse_httpStatus"><span class="annot"><span class="annottext">createLanguageModelResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateLanguageModelResponse -&gt; f CreateLanguageModelResponse
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#createLanguageModelResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createLanguageModelResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLanguageModelResponse -&gt; Int)
+-&gt; (CreateLanguageModelResponse
+    -&gt; Int -&gt; CreateLanguageModelResponse)
+-&gt; Lens
+     CreateLanguageModelResponse CreateLanguageModelResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse%27"><span class="hs-identifier hs-type">CreateLanguageModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286720"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateLanguageModelResponse' :: CreateLanguageModelResponse -&gt; Int
+</span><a href="#local-6989586621679286720"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286720"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286719"><span class="annot"><span class="annottext">s :: CreateLanguageModelResponse
+</span><a href="#local-6989586621679286719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse%27"><span class="hs-identifier hs-type">CreateLanguageModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286718"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLanguageModelResponse
+</span><a href="#local-6989586621679286719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLanguageModelResponse' :: Int
+</span><a href="Network.AWS.Transcribe.CreateLanguageModel.html#%24sel%3AhttpStatus%3ACreateLanguageModelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier hs-type">CreateLanguageModelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286716"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.CreateLanguageModel.html#CreateLanguageModelResponse"><span class="hs-identifier hs-type">CreateLanguageModelResponse</span></a></span></span><span>
+</span><span id="line-307"></span></pre></body></html>

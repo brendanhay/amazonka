@@ -1,0 +1,945 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Network.AWS.AppSync.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppSync.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.html#_ApiKeyValidityOutOfBoundsException"><span class="hs-identifier">_ApiKeyValidityOutOfBoundsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.html#_NotFoundException"><span class="hs-identifier">_NotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.html#_BadRequestException"><span class="hs-identifier">_BadRequestException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.html#_UnauthorizedException"><span class="hs-identifier">_UnauthorizedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.html#_ConcurrentModificationException"><span class="hs-identifier">_ConcurrentModificationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.html#_GraphQLSchemaException"><span class="hs-identifier">_GraphQLSchemaException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.html#_AccessDeniedException"><span class="hs-identifier">_AccessDeniedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.html#_ApiLimitExceededException"><span class="hs-identifier">_ApiLimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.html#_ApiKeyLimitExceededException"><span class="hs-identifier">_ApiKeyLimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.html#_InternalFailureException"><span class="hs-identifier">_InternalFailureException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ApiCacheStatus</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCacheStatus.html#ApiCacheStatus"><span class="hs-identifier">ApiCacheStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ApiCacheType</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCacheType.html#ApiCacheType"><span class="hs-identifier">ApiCacheType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ApiCachingBehavior</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCachingBehavior.html#ApiCachingBehavior"><span class="hs-identifier">ApiCachingBehavior</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AuthenticationType</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier">AuthenticationType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AuthorizationType</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AuthorizationType.html#AuthorizationType"><span class="hs-identifier">AuthorizationType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ConflictDetectionType</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ConflictDetectionType.html#ConflictDetectionType"><span class="hs-identifier">ConflictDetectionType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ConflictHandlerType</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ConflictHandlerType.html#ConflictHandlerType"><span class="hs-identifier">ConflictHandlerType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DataSourceType</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSourceType.html#DataSourceType"><span class="hs-identifier">DataSourceType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DefaultAction</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DefaultAction.html#DefaultAction"><span class="hs-identifier">DefaultAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FieldLogLevel</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.FieldLogLevel.html#FieldLogLevel"><span class="hs-identifier">FieldLogLevel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * OutputType</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.OutputType.html#OutputType"><span class="hs-identifier">OutputType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RelationalDatabaseSourceType</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.RelationalDatabaseSourceType.html#RelationalDatabaseSourceType"><span class="hs-identifier">RelationalDatabaseSourceType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ResolverKind</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ResolverKind.html#ResolverKind"><span class="hs-identifier">ResolverKind</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SchemaStatus</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.SchemaStatus.html#SchemaStatus"><span class="hs-identifier">SchemaStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TypeDefinitionFormat</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.TypeDefinitionFormat.html#TypeDefinitionFormat"><span class="hs-identifier">TypeDefinitionFormat</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AdditionalAuthenticationProvider</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier">AdditionalAuthenticationProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#newAdditionalAuthenticationProvider"><span class="hs-identifier">newAdditionalAuthenticationProvider</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#additionalAuthenticationProvider_openIDConnectConfig"><span class="hs-identifier">additionalAuthenticationProvider_openIDConnectConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#additionalAuthenticationProvider_userPoolConfig"><span class="hs-identifier">additionalAuthenticationProvider_userPoolConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#additionalAuthenticationProvider_lambdaAuthorizerConfig"><span class="hs-identifier">additionalAuthenticationProvider_lambdaAuthorizerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#additionalAuthenticationProvider_authenticationType"><span class="hs-identifier">additionalAuthenticationProvider_authenticationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ApiCache</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier">ApiCache</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#newApiCache"><span class="hs-identifier">newApiCache</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#apiCache_status"><span class="hs-identifier">apiCache_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#apiCache_atRestEncryptionEnabled"><span class="hs-identifier">apiCache_atRestEncryptionEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#apiCache_ttl"><span class="hs-identifier">apiCache_ttl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#apiCache_type"><span class="hs-identifier">apiCache_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#apiCache_transitEncryptionEnabled"><span class="hs-identifier">apiCache_transitEncryptionEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#apiCache_apiCachingBehavior"><span class="hs-identifier">apiCache_apiCachingBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ApiKey</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier">ApiKey</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#newApiKey"><span class="hs-identifier">newApiKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#apiKey_id"><span class="hs-identifier">apiKey_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#apiKey_deletes"><span class="hs-identifier">apiKey_deletes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#apiKey_description"><span class="hs-identifier">apiKey_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#apiKey_expires"><span class="hs-identifier">apiKey_expires</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AuthorizationConfig</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AuthorizationConfig.html#AuthorizationConfig"><span class="hs-identifier">AuthorizationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AuthorizationConfig.html#newAuthorizationConfig"><span class="hs-identifier">newAuthorizationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AuthorizationConfig.html#authorizationConfig_awsIamConfig"><span class="hs-identifier">authorizationConfig_awsIamConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AuthorizationConfig.html#authorizationConfig_authorizationType"><span class="hs-identifier">authorizationConfig_authorizationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AwsIamConfig</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AwsIamConfig.html#AwsIamConfig"><span class="hs-identifier">AwsIamConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AwsIamConfig.html#newAwsIamConfig"><span class="hs-identifier">newAwsIamConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AwsIamConfig.html#awsIamConfig_signingServiceName"><span class="hs-identifier">awsIamConfig_signingServiceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AwsIamConfig.html#awsIamConfig_signingRegion"><span class="hs-identifier">awsIamConfig_signingRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CachingConfig</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.CachingConfig.html#CachingConfig"><span class="hs-identifier">CachingConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.CachingConfig.html#newCachingConfig"><span class="hs-identifier">newCachingConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.CachingConfig.html#cachingConfig_ttl"><span class="hs-identifier">cachingConfig_ttl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.CachingConfig.html#cachingConfig_cachingKeys"><span class="hs-identifier">cachingConfig_cachingKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CognitoUserPoolConfig</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier">CognitoUserPoolConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#newCognitoUserPoolConfig"><span class="hs-identifier">newCognitoUserPoolConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#cognitoUserPoolConfig_appIdClientRegex"><span class="hs-identifier">cognitoUserPoolConfig_appIdClientRegex</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#cognitoUserPoolConfig_userPoolId"><span class="hs-identifier">cognitoUserPoolConfig_userPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#cognitoUserPoolConfig_awsRegion"><span class="hs-identifier">cognitoUserPoolConfig_awsRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DataSource</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#DataSource"><span class="hs-identifier">DataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#newDataSource"><span class="hs-identifier">newDataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_serviceRoleArn"><span class="hs-identifier">dataSource_serviceRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_relationalDatabaseConfig"><span class="hs-identifier">dataSource_relationalDatabaseConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_elasticsearchConfig"><span class="hs-identifier">dataSource_elasticsearchConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_lambdaConfig"><span class="hs-identifier">dataSource_lambdaConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_name"><span class="hs-identifier">dataSource_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_dynamodbConfig"><span class="hs-identifier">dataSource_dynamodbConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_description"><span class="hs-identifier">dataSource_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_dataSourceArn"><span class="hs-identifier">dataSource_dataSourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_type"><span class="hs-identifier">dataSource_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_openSearchServiceConfig"><span class="hs-identifier">dataSource_openSearchServiceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html#dataSource_httpConfig"><span class="hs-identifier">dataSource_httpConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DeltaSyncConfig</span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DeltaSyncConfig.html#DeltaSyncConfig"><span class="hs-identifier">DeltaSyncConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DeltaSyncConfig.html#newDeltaSyncConfig"><span class="hs-identifier">newDeltaSyncConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DeltaSyncConfig.html#deltaSyncConfig_baseTableTTL"><span class="hs-identifier">deltaSyncConfig_baseTableTTL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DeltaSyncConfig.html#deltaSyncConfig_deltaSyncTableName"><span class="hs-identifier">deltaSyncConfig_deltaSyncTableName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DeltaSyncConfig.html#deltaSyncConfig_deltaSyncTableTTL"><span class="hs-identifier">deltaSyncConfig_deltaSyncTableTTL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DynamodbDataSourceConfig</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DynamodbDataSourceConfig.html#DynamodbDataSourceConfig"><span class="hs-identifier">DynamodbDataSourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DynamodbDataSourceConfig.html#newDynamodbDataSourceConfig"><span class="hs-identifier">newDynamodbDataSourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DynamodbDataSourceConfig.html#dynamodbDataSourceConfig_useCallerCredentials"><span class="hs-identifier">dynamodbDataSourceConfig_useCallerCredentials</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DynamodbDataSourceConfig.html#dynamodbDataSourceConfig_versioned"><span class="hs-identifier">dynamodbDataSourceConfig_versioned</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DynamodbDataSourceConfig.html#dynamodbDataSourceConfig_deltaSyncConfig"><span class="hs-identifier">dynamodbDataSourceConfig_deltaSyncConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DynamodbDataSourceConfig.html#dynamodbDataSourceConfig_tableName"><span class="hs-identifier">dynamodbDataSourceConfig_tableName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.DynamodbDataSourceConfig.html#dynamodbDataSourceConfig_awsRegion"><span class="hs-identifier">dynamodbDataSourceConfig_awsRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ElasticsearchDataSourceConfig</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig.html#ElasticsearchDataSourceConfig"><span class="hs-identifier">ElasticsearchDataSourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig.html#newElasticsearchDataSourceConfig"><span class="hs-identifier">newElasticsearchDataSourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig.html#elasticsearchDataSourceConfig_endpoint"><span class="hs-identifier">elasticsearchDataSourceConfig_endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig.html#elasticsearchDataSourceConfig_awsRegion"><span class="hs-identifier">elasticsearchDataSourceConfig_awsRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FunctionConfiguration</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.FunctionConfiguration.html#FunctionConfiguration"><span class="hs-identifier">FunctionConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.FunctionConfiguration.html#newFunctionConfiguration"><span class="hs-identifier">newFunctionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.FunctionConfiguration.html#functionConfiguration_responseMappingTemplate"><span class="hs-identifier">functionConfiguration_responseMappingTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.FunctionConfiguration.html#functionConfiguration_functionVersion"><span class="hs-identifier">functionConfiguration_functionVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.FunctionConfiguration.html#functionConfiguration_syncConfig"><span class="hs-identifier">functionConfiguration_syncConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.FunctionConfiguration.html#functionConfiguration_dataSourceName"><span class="hs-identifier">functionConfiguration_dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.FunctionConfiguration.html#functionConfiguration_functionArn"><span class="hs-identifier">functionConfiguration_functionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.FunctionConfiguration.html#functionConfiguration_name"><span class="hs-identifier">functionConfiguration_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.FunctionConfiguration.html#functionConfiguration_functionId"><span class="hs-identifier">functionConfiguration_functionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.FunctionConfiguration.html#functionConfiguration_description"><span class="hs-identifier">functionConfiguration_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.FunctionConfiguration.html#functionConfiguration_requestMappingTemplate"><span class="hs-identifier">functionConfiguration_requestMappingTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="hs-comment">-- * GraphqlApi</span></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#GraphqlApi"><span class="hs-identifier">GraphqlApi</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#newGraphqlApi"><span class="hs-identifier">newGraphqlApi</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#graphqlApi_wafWebAclArn"><span class="hs-identifier">graphqlApi_wafWebAclArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#graphqlApi_apiId"><span class="hs-identifier">graphqlApi_apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#graphqlApi_arn"><span class="hs-identifier">graphqlApi_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#graphqlApi_openIDConnectConfig"><span class="hs-identifier">graphqlApi_openIDConnectConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#graphqlApi_userPoolConfig"><span class="hs-identifier">graphqlApi_userPoolConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#graphqlApi_xrayEnabled"><span class="hs-identifier">graphqlApi_xrayEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#graphqlApi_name"><span class="hs-identifier">graphqlApi_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#graphqlApi_lambdaAuthorizerConfig"><span class="hs-identifier">graphqlApi_lambdaAuthorizerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#graphqlApi_tags"><span class="hs-identifier">graphqlApi_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#graphqlApi_logConfig"><span class="hs-identifier">graphqlApi_logConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#graphqlApi_additionalAuthenticationProviders"><span class="hs-identifier">graphqlApi_additionalAuthenticationProviders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#graphqlApi_authenticationType"><span class="hs-identifier">graphqlApi_authenticationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#graphqlApi_uris"><span class="hs-identifier">graphqlApi_uris</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HttpDataSourceConfig</span></span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier">HttpDataSourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#newHttpDataSourceConfig"><span class="hs-identifier">newHttpDataSourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#httpDataSourceConfig_authorizationConfig"><span class="hs-identifier">httpDataSourceConfig_authorizationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#httpDataSourceConfig_endpoint"><span class="hs-identifier">httpDataSourceConfig_endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LambdaAuthorizerConfig</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaAuthorizerConfig.html#LambdaAuthorizerConfig"><span class="hs-identifier">LambdaAuthorizerConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaAuthorizerConfig.html#newLambdaAuthorizerConfig"><span class="hs-identifier">newLambdaAuthorizerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaAuthorizerConfig.html#lambdaAuthorizerConfig_identityValidationExpression"><span class="hs-identifier">lambdaAuthorizerConfig_identityValidationExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaAuthorizerConfig.html#lambdaAuthorizerConfig_authorizerResultTtlInSeconds"><span class="hs-identifier">lambdaAuthorizerConfig_authorizerResultTtlInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaAuthorizerConfig.html#lambdaAuthorizerConfig_authorizerUri"><span class="hs-identifier">lambdaAuthorizerConfig_authorizerUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LambdaConflictHandlerConfig</span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaConflictHandlerConfig.html#LambdaConflictHandlerConfig"><span class="hs-identifier">LambdaConflictHandlerConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaConflictHandlerConfig.html#newLambdaConflictHandlerConfig"><span class="hs-identifier">newLambdaConflictHandlerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaConflictHandlerConfig.html#lambdaConflictHandlerConfig_lambdaConflictHandlerArn"><span class="hs-identifier">lambdaConflictHandlerConfig_lambdaConflictHandlerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LambdaDataSourceConfig</span></span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig"><span class="hs-identifier">LambdaDataSourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#newLambdaDataSourceConfig"><span class="hs-identifier">newLambdaDataSourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#lambdaDataSourceConfig_lambdaFunctionArn"><span class="hs-identifier">lambdaDataSourceConfig_lambdaFunctionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LogConfig</span></span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier">LogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#newLogConfig"><span class="hs-identifier">newLogConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#logConfig_excludeVerboseContent"><span class="hs-identifier">logConfig_excludeVerboseContent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#logConfig_fieldLogLevel"><span class="hs-identifier">logConfig_fieldLogLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#logConfig_cloudWatchLogsRoleArn"><span class="hs-identifier">logConfig_cloudWatchLogsRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="hs-comment">-- * OpenIDConnectConfig</span></span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier">OpenIDConnectConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#newOpenIDConnectConfig"><span class="hs-identifier">newOpenIDConnectConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#openIDConnectConfig_clientId"><span class="hs-identifier">openIDConnectConfig_clientId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#openIDConnectConfig_authTTL"><span class="hs-identifier">openIDConnectConfig_authTTL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#openIDConnectConfig_iatTTL"><span class="hs-identifier">openIDConnectConfig_iatTTL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#openIDConnectConfig_issuer"><span class="hs-identifier">openIDConnectConfig_issuer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><span class="hs-comment">-- * OpenSearchServiceDataSourceConfig</span></span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig.html#OpenSearchServiceDataSourceConfig"><span class="hs-identifier">OpenSearchServiceDataSourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig.html#newOpenSearchServiceDataSourceConfig"><span class="hs-identifier">newOpenSearchServiceDataSourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig.html#openSearchServiceDataSourceConfig_endpoint"><span class="hs-identifier">openSearchServiceDataSourceConfig_endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig.html#openSearchServiceDataSourceConfig_awsRegion"><span class="hs-identifier">openSearchServiceDataSourceConfig_awsRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PipelineConfig</span></span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig"><span class="hs-identifier">PipelineConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#newPipelineConfig"><span class="hs-identifier">newPipelineConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#pipelineConfig_functions"><span class="hs-identifier">pipelineConfig_functions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RdsHttpEndpointConfig</span></span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier">RdsHttpEndpointConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#newRdsHttpEndpointConfig"><span class="hs-identifier">newRdsHttpEndpointConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_schema"><span class="hs-identifier">rdsHttpEndpointConfig_schema</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_awsSecretStoreArn"><span class="hs-identifier">rdsHttpEndpointConfig_awsSecretStoreArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_dbClusterIdentifier"><span class="hs-identifier">rdsHttpEndpointConfig_dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_awsRegion"><span class="hs-identifier">rdsHttpEndpointConfig_awsRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_databaseName"><span class="hs-identifier">rdsHttpEndpointConfig_databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RelationalDatabaseDataSourceConfig</span></span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig.html#RelationalDatabaseDataSourceConfig"><span class="hs-identifier">RelationalDatabaseDataSourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig.html#newRelationalDatabaseDataSourceConfig"><span class="hs-identifier">newRelationalDatabaseDataSourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig.html#relationalDatabaseDataSourceConfig_rdsHttpEndpointConfig"><span class="hs-identifier">relationalDatabaseDataSourceConfig_rdsHttpEndpointConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig.html#relationalDatabaseDataSourceConfig_relationalDatabaseSourceType"><span class="hs-identifier">relationalDatabaseDataSourceConfig_relationalDatabaseSourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Resolver</span></span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Resolver.html#Resolver"><span class="hs-identifier">Resolver</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Resolver.html#newResolver"><span class="hs-identifier">newResolver</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Resolver.html#resolver_responseMappingTemplate"><span class="hs-identifier">resolver_responseMappingTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Resolver.html#resolver_typeName"><span class="hs-identifier">resolver_typeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Resolver.html#resolver_kind"><span class="hs-identifier">resolver_kind</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Resolver.html#resolver_syncConfig"><span class="hs-identifier">resolver_syncConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Resolver.html#resolver_dataSourceName"><span class="hs-identifier">resolver_dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Resolver.html#resolver_resolverArn"><span class="hs-identifier">resolver_resolverArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Resolver.html#resolver_cachingConfig"><span class="hs-identifier">resolver_cachingConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Resolver.html#resolver_pipelineConfig"><span class="hs-identifier">resolver_pipelineConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Resolver.html#resolver_requestMappingTemplate"><span class="hs-identifier">resolver_requestMappingTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Resolver.html#resolver_fieldName"><span class="hs-identifier">resolver_fieldName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SyncConfig</span></span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier">SyncConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#newSyncConfig"><span class="hs-identifier">newSyncConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#syncConfig_conflictHandler"><span class="hs-identifier">syncConfig_conflictHandler</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#syncConfig_lambdaConflictHandlerConfig"><span class="hs-identifier">syncConfig_lambdaConflictHandlerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#syncConfig_conflictDetection"><span class="hs-identifier">syncConfig_conflictDetection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Type</span></span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Type.html#Type"><span class="hs-identifier">Type</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Type.html#newType"><span class="hs-identifier">newType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Type.html#type_format"><span class="hs-identifier">type_format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Type.html#type_arn"><span class="hs-identifier">type_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Type.html#type_name"><span class="hs-identifier">type_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Type.html#type_description"><span class="hs-identifier">type_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.Type.html#type_definition"><span class="hs-identifier">type_definition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><span class="hs-comment">-- * UserPoolConfig</span></span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier">UserPoolConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.UserPoolConfig.html#newUserPoolConfig"><span class="hs-identifier">newUserPoolConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.UserPoolConfig.html#userPoolConfig_appIdClientRegex"><span class="hs-identifier">userPoolConfig_appIdClientRegex</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.UserPoolConfig.html#userPoolConfig_userPoolId"><span class="hs-identifier">userPoolConfig_userPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.UserPoolConfig.html#userPoolConfig_awsRegion"><span class="hs-identifier">userPoolConfig_awsRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.UserPoolConfig.html#userPoolConfig_defaultAction"><span class="hs-identifier">userPoolConfig_defaultAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html"><span class="hs-identifier">Network.AWS.AppSync.Types.AdditionalAuthenticationProvider</span></a></span><span>
+</span><span id="line-300"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html"><span class="hs-identifier">Network.AWS.AppSync.Types.ApiCache</span></a></span><span>
+</span><span id="line-301"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCacheStatus.html"><span class="hs-identifier">Network.AWS.AppSync.Types.ApiCacheStatus</span></a></span><span>
+</span><span id="line-302"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCacheType.html"><span class="hs-identifier">Network.AWS.AppSync.Types.ApiCacheType</span></a></span><span>
+</span><span id="line-303"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCachingBehavior.html"><span class="hs-identifier">Network.AWS.AppSync.Types.ApiCachingBehavior</span></a></span><span>
+</span><span id="line-304"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html"><span class="hs-identifier">Network.AWS.AppSync.Types.ApiKey</span></a></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AuthenticationType.html"><span class="hs-identifier">Network.AWS.AppSync.Types.AuthenticationType</span></a></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AuthorizationConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.AuthorizationConfig</span></a></span><span>
+</span><span id="line-307"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AuthorizationType.html"><span class="hs-identifier">Network.AWS.AppSync.Types.AuthorizationType</span></a></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AwsIamConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.AwsIamConfig</span></a></span><span>
+</span><span id="line-309"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CachingConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.CachingConfig</span></a></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.CognitoUserPoolConfig</span></a></span><span>
+</span><span id="line-311"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ConflictDetectionType.html"><span class="hs-identifier">Network.AWS.AppSync.Types.ConflictDetectionType</span></a></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ConflictHandlerType.html"><span class="hs-identifier">Network.AWS.AppSync.Types.ConflictHandlerType</span></a></span><span>
+</span><span id="line-313"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSource.html"><span class="hs-identifier">Network.AWS.AppSync.Types.DataSource</span></a></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DataSourceType.html"><span class="hs-identifier">Network.AWS.AppSync.Types.DataSourceType</span></a></span><span>
+</span><span id="line-315"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DefaultAction.html"><span class="hs-identifier">Network.AWS.AppSync.Types.DefaultAction</span></a></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DeltaSyncConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.DeltaSyncConfig</span></a></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.DynamodbDataSourceConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.DynamodbDataSourceConfig</span></a></span><span>
+</span><span id="line-318"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig</span></a></span><span>
+</span><span id="line-319"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.FieldLogLevel.html"><span class="hs-identifier">Network.AWS.AppSync.Types.FieldLogLevel</span></a></span><span>
+</span><span id="line-320"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.FunctionConfiguration.html"><span class="hs-identifier">Network.AWS.AppSync.Types.FunctionConfiguration</span></a></span><span>
+</span><span id="line-321"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html"><span class="hs-identifier">Network.AWS.AppSync.Types.GraphqlApi</span></a></span><span>
+</span><span id="line-322"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.HttpDataSourceConfig</span></a></span><span>
+</span><span id="line-323"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaAuthorizerConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.LambdaAuthorizerConfig</span></a></span><span>
+</span><span id="line-324"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaConflictHandlerConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.LambdaConflictHandlerConfig</span></a></span><span>
+</span><span id="line-325"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.LambdaDataSourceConfig</span></a></span><span>
+</span><span id="line-326"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.LogConfig</span></a></span><span>
+</span><span id="line-327"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.OpenIDConnectConfig</span></a></span><span>
+</span><span id="line-328"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig</span></a></span><span>
+</span><span id="line-329"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OutputType.html"><span class="hs-identifier">Network.AWS.AppSync.Types.OutputType</span></a></span><span>
+</span><span id="line-330"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.PipelineConfig</span></a></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.RdsHttpEndpointConfig</span></a></span><span>
+</span><span id="line-332"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig</span></a></span><span>
+</span><span id="line-333"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RelationalDatabaseSourceType.html"><span class="hs-identifier">Network.AWS.AppSync.Types.RelationalDatabaseSourceType</span></a></span><span>
+</span><span id="line-334"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.Resolver.html"><span class="hs-identifier">Network.AWS.AppSync.Types.Resolver</span></a></span><span>
+</span><span id="line-335"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ResolverKind.html"><span class="hs-identifier">Network.AWS.AppSync.Types.ResolverKind</span></a></span><span>
+</span><span id="line-336"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SchemaStatus.html"><span class="hs-identifier">Network.AWS.AppSync.Types.SchemaStatus</span></a></span><span>
+</span><span id="line-337"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.SyncConfig</span></a></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.Type.html"><span class="hs-identifier">Network.AWS.AppSync.Types.Type</span></a></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.TypeDefinitionFormat.html"><span class="hs-identifier">Network.AWS.AppSync.Types.TypeDefinitionFormat</span></a></span><span>
+</span><span id="line-340"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.UserPoolConfig.html"><span class="hs-identifier">Network.AWS.AppSync.Types.UserPoolConfig</span></a></span><span>
+</span><span id="line-341"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-342"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-343"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-344"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- | API version @2017-07-25@ of the Amazon AppSync SDK configuration.</span><span>
+</span><span id="line-347"></span><span class="annot"><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-348"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-349"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-350"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;AppSync&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-351"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-352"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;appsync&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-353"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;appsync&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-354"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2017-07-25&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-355"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-356"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-357"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-358"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-359"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;AppSync&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-360"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679253149"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-361"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-362"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-363"></span><span>    </span><span id="local-6989586621679253149"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679253149"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-364"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-365"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><a href="#local-6989586621679253147"><span class="hs-identifier hs-var">Core._retryBase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><a href="#local-6989586621679253146"><span class="hs-identifier hs-var">Core._retryGrowth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-367"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><a href="#local-6989586621679253145"><span class="hs-identifier hs-var">Core._retryAttempts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-368"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><a href="#local-6989586621679253144"><span class="hs-identifier hs-var">Core._retryCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679253143"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-369"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-370"></span><span>    </span><span id="local-6989586621679253143"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679253143"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679253142"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253142"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-371"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253142"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-372"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-373"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-374"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-375"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-376"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-377"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-378"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253142"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-379"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-380"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253142"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-381"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-382"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253142"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-383"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-384"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253142"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-385"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-386"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-387"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-388"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-389"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-390"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253142"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-391"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-392"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-393"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-394"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-395"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-396"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253142"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-397"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-398"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253142"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-399"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-400"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253142"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-401"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-402"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-403"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-404"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-405"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-406"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253142"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-407"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-408"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-409"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-410"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-411"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-412"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679253142"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-413"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-414"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-415"></span><span>
+</span><span id="line-416"></span><span class="hs-comment">-- | The API key expiration must be set to a value between 1 and 365 days</span><span>
+</span><span id="line-417"></span><span class="hs-comment">-- from creation (for @CreateApiKey@) or from update (for @UpdateApiKey@).</span><span>
+</span><span id="line-418"></span><span id="local-6989586621679253137"><span class="annot"><a href="Network.AWS.AppSync.Types.html#_ApiKeyValidityOutOfBoundsException"><span class="hs-identifier hs-type">_ApiKeyValidityOutOfBoundsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679253137"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679253137"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-419"></span><span id="_ApiKeyValidityOutOfBoundsException"><span class="annot"><span class="annottext">_ApiKeyValidityOutOfBoundsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.AppSync.Types.html#_ApiKeyValidityOutOfBoundsException"><span class="hs-identifier hs-var hs-var">_ApiKeyValidityOutOfBoundsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-420"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-421"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-422"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ApiKeyValidityOutOfBoundsException&quot;</span></span><span>
+</span><span id="line-423"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-424"></span><span>
+</span><span id="line-425"></span><span class="hs-comment">-- | The resource specified in the request was not found. Check the resource,</span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- and then try again.</span><span>
+</span><span id="line-427"></span><span id="local-6989586621679253135"><span class="annot"><a href="Network.AWS.AppSync.Types.html#_NotFoundException"><span class="hs-identifier hs-type">_NotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679253135"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679253135"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-428"></span><span id="_NotFoundException"><span class="annot"><span class="annottext">_NotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.AppSync.Types.html#_NotFoundException"><span class="hs-identifier hs-var hs-var">_NotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-429"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-430"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-431"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;NotFoundException&quot;</span></span><span>
+</span><span id="line-432"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span>
+</span><span id="line-433"></span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- | The request is not well formed. For example, a value is invalid or a</span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- required field is missing. Check the field values, and then try again.</span><span>
+</span><span id="line-436"></span><span id="local-6989586621679253134"><span class="annot"><a href="Network.AWS.AppSync.Types.html#_BadRequestException"><span class="hs-identifier hs-type">_BadRequestException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679253134"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679253134"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-437"></span><span id="_BadRequestException"><span class="annot"><span class="annottext">_BadRequestException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.AppSync.Types.html#_BadRequestException"><span class="hs-identifier hs-var hs-var">_BadRequestException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-438"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-439"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-440"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;BadRequestException&quot;</span></span><span>
+</span><span id="line-441"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-442"></span><span>
+</span><span id="line-443"></span><span class="hs-comment">-- | You are not authorized to perform this operation.</span><span>
+</span><span id="line-444"></span><span id="local-6989586621679253133"><span class="annot"><a href="Network.AWS.AppSync.Types.html#_UnauthorizedException"><span class="hs-identifier hs-type">_UnauthorizedException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679253133"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679253133"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-445"></span><span id="_UnauthorizedException"><span class="annot"><span class="annottext">_UnauthorizedException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.AppSync.Types.html#_UnauthorizedException"><span class="hs-identifier hs-var hs-var">_UnauthorizedException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-446"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-447"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-448"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;UnauthorizedException&quot;</span></span><span>
+</span><span id="line-449"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">401</span></span><span>
+</span><span id="line-450"></span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- | Another modification is in progress at this time and it must complete</span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- before you can make your change.</span><span>
+</span><span id="line-453"></span><span id="local-6989586621679253132"><span class="annot"><a href="Network.AWS.AppSync.Types.html#_ConcurrentModificationException"><span class="hs-identifier hs-type">_ConcurrentModificationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679253132"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679253132"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-454"></span><span id="_ConcurrentModificationException"><span class="annot"><span class="annottext">_ConcurrentModificationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.AppSync.Types.html#_ConcurrentModificationException"><span class="hs-identifier hs-var hs-var">_ConcurrentModificationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-455"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-456"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-457"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConcurrentModificationException&quot;</span></span><span>
+</span><span id="line-458"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">409</span></span><span>
+</span><span id="line-459"></span><span>
+</span><span id="line-460"></span><span class="hs-comment">-- | The GraphQL schema is not valid.</span><span>
+</span><span id="line-461"></span><span id="local-6989586621679253131"><span class="annot"><a href="Network.AWS.AppSync.Types.html#_GraphQLSchemaException"><span class="hs-identifier hs-type">_GraphQLSchemaException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679253131"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679253131"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-462"></span><span id="_GraphQLSchemaException"><span class="annot"><span class="annottext">_GraphQLSchemaException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.AppSync.Types.html#_GraphQLSchemaException"><span class="hs-identifier hs-var hs-var">_GraphQLSchemaException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-463"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-464"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-465"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;GraphQLSchemaException&quot;</span></span><span>
+</span><span id="line-466"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-467"></span><span>
+</span><span id="line-468"></span><span class="hs-comment">-- | You do not have access to perform this operation on this resource.</span><span>
+</span><span id="line-469"></span><span id="local-6989586621679253130"><span class="annot"><a href="Network.AWS.AppSync.Types.html#_AccessDeniedException"><span class="hs-identifier hs-type">_AccessDeniedException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679253130"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679253130"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-470"></span><span id="_AccessDeniedException"><span class="annot"><span class="annottext">_AccessDeniedException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.AppSync.Types.html#_AccessDeniedException"><span class="hs-identifier hs-var hs-var">_AccessDeniedException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-471"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-472"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-473"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;AccessDeniedException&quot;</span></span><span>
+</span><span id="line-474"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">403</span></span><span>
+</span><span id="line-475"></span><span>
+</span><span id="line-476"></span><span class="hs-comment">-- | The request exceeded a limit. Try your request again.</span><span>
+</span><span id="line-477"></span><span id="local-6989586621679253129"><span class="annot"><a href="Network.AWS.AppSync.Types.html#_LimitExceededException"><span class="hs-identifier hs-type">_LimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679253129"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679253129"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-478"></span><span id="_LimitExceededException"><span class="annot"><span class="annottext">_LimitExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.AppSync.Types.html#_LimitExceededException"><span class="hs-identifier hs-var hs-var">_LimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-479"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-480"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-481"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LimitExceededException&quot;</span></span><span>
+</span><span id="line-482"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span>
+</span><span id="line-483"></span><span>
+</span><span id="line-484"></span><span class="hs-comment">-- | The GraphQL API exceeded a limit. Try your request again.</span><span>
+</span><span id="line-485"></span><span id="local-6989586621679253128"><span class="annot"><a href="Network.AWS.AppSync.Types.html#_ApiLimitExceededException"><span class="hs-identifier hs-type">_ApiLimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679253128"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679253128"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-486"></span><span id="_ApiLimitExceededException"><span class="annot"><span class="annottext">_ApiLimitExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.AppSync.Types.html#_ApiLimitExceededException"><span class="hs-identifier hs-var hs-var">_ApiLimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-487"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-488"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-489"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ApiLimitExceededException&quot;</span></span><span>
+</span><span id="line-490"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-491"></span><span>
+</span><span id="line-492"></span><span class="hs-comment">-- | The API key exceeded a limit. Try your request again.</span><span>
+</span><span id="line-493"></span><span id="local-6989586621679253127"><span class="annot"><a href="Network.AWS.AppSync.Types.html#_ApiKeyLimitExceededException"><span class="hs-identifier hs-type">_ApiKeyLimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679253127"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679253127"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-494"></span><span id="_ApiKeyLimitExceededException"><span class="annot"><span class="annottext">_ApiKeyLimitExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.AppSync.Types.html#_ApiKeyLimitExceededException"><span class="hs-identifier hs-var hs-var">_ApiKeyLimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-495"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-496"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-497"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ApiKeyLimitExceededException&quot;</span></span><span>
+</span><span id="line-498"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-499"></span><span>
+</span><span id="line-500"></span><span class="hs-comment">-- | An internal AppSync error occurred. Try your request again.</span><span>
+</span><span id="line-501"></span><span id="local-6989586621679253126"><span class="annot"><a href="Network.AWS.AppSync.Types.html#_InternalFailureException"><span class="hs-identifier hs-type">_InternalFailureException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679253126"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679253126"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-502"></span><span id="_InternalFailureException"><span class="annot"><span class="annottext">_InternalFailureException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.AppSync.Types.html#_InternalFailureException"><span class="hs-identifier hs-var hs-var">_InternalFailureException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-503"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-504"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-505"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalFailureException&quot;</span></span><span>
+</span><span id="line-506"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span>
+</span><span id="line-507"></span></pre></body></html>

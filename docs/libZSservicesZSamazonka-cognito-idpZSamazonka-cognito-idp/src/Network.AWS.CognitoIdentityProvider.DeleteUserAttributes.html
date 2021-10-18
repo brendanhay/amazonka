@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoIdentityProvider.DeleteUserAttributes</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the attributes for a user.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.DeleteUserAttributes</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes"><span class="hs-identifier">DeleteUserAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#newDeleteUserAttributes"><span class="hs-identifier">newDeleteUserAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#deleteUserAttributes_userAttributeNames"><span class="hs-identifier">deleteUserAttributes_userAttributeNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#deleteUserAttributes_accessToken"><span class="hs-identifier">deleteUserAttributes_accessToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributesResponse"><span class="hs-identifier">DeleteUserAttributesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#newDeleteUserAttributesResponse"><span class="hs-identifier">newDeleteUserAttributesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#deleteUserAttributesResponse_httpStatus"><span class="hs-identifier">deleteUserAttributesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.html"><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | Represents the request to delete user attributes.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newDeleteUserAttributes' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679449541"><span id="local-6989586621679449542"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserAttributes"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes"><span class="hs-identifier hs-var">DeleteUserAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserAttributes%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes%27"><span class="hs-identifier hs-var">DeleteUserAttributes'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of strings representing the user attribute names you wish to</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- delete.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- For custom attributes, you must prepend the @custom:@ prefix to the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- attribute name.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AuserAttributeNames%3ADeleteUserAttributes%27"><span class="annot"><span class="annottext">DeleteUserAttributes -&gt; [Text]
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#%24sel%3AuserAttributeNames%3ADeleteUserAttributes%27"><span class="hs-identifier hs-var hs-var">userAttributeNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The access token used in the request to delete user attributes.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AaccessToken%3ADeleteUserAttributes%27"><span class="annot"><span class="annottext">DeleteUserAttributes -&gt; Sensitive Text
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#%24sel%3AaccessToken%3ADeleteUserAttributes%27"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449534"><span id="local-6989586621679449536"><span class="annot"><span class="annottext">DeleteUserAttributes -&gt; DeleteUserAttributes -&gt; Bool
+(DeleteUserAttributes -&gt; DeleteUserAttributes -&gt; Bool)
+-&gt; (DeleteUserAttributes -&gt; DeleteUserAttributes -&gt; Bool)
+-&gt; Eq DeleteUserAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteUserAttributes -&gt; DeleteUserAttributes -&gt; Bool
+$c/= :: DeleteUserAttributes -&gt; DeleteUserAttributes -&gt; Bool
+== :: DeleteUserAttributes -&gt; DeleteUserAttributes -&gt; Bool
+$c== :: DeleteUserAttributes -&gt; DeleteUserAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449527"><span id="local-6989586621679449529"><span id="local-6989586621679449531"><span class="annot"><span class="annottext">Int -&gt; DeleteUserAttributes -&gt; ShowS
+[DeleteUserAttributes] -&gt; ShowS
+DeleteUserAttributes -&gt; String
+(Int -&gt; DeleteUserAttributes -&gt; ShowS)
+-&gt; (DeleteUserAttributes -&gt; String)
+-&gt; ([DeleteUserAttributes] -&gt; ShowS)
+-&gt; Show DeleteUserAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteUserAttributes] -&gt; ShowS
+$cshowList :: [DeleteUserAttributes] -&gt; ShowS
+show :: DeleteUserAttributes -&gt; String
+$cshow :: DeleteUserAttributes -&gt; String
+showsPrec :: Int -&gt; DeleteUserAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteUserAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteUserAttributes -&gt; Rep DeleteUserAttributes x)
+-&gt; (forall x. Rep DeleteUserAttributes x -&gt; DeleteUserAttributes)
+-&gt; Generic DeleteUserAttributes
+forall x. Rep DeleteUserAttributes x -&gt; DeleteUserAttributes
+forall x. DeleteUserAttributes -&gt; Rep DeleteUserAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteUserAttributes x -&gt; DeleteUserAttributes
+$cfrom :: forall x. DeleteUserAttributes -&gt; Rep DeleteUserAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DeleteUserAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'userAttributeNames', 'deleteUserAttributes_userAttributeNames' - An array of strings representing the user attribute names you wish to</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- delete.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- For custom attributes, you must prepend the @custom:@ prefix to the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- attribute name.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'accessToken', 'deleteUserAttributes_accessToken' - The access token used in the request to delete user attributes.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#newDeleteUserAttributes"><span class="hs-identifier hs-type">newDeleteUserAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'accessToken'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes"><span class="hs-identifier hs-type">DeleteUserAttributes</span></a></span><span>
+</span><span id="line-83"></span><span id="newDeleteUserAttributes"><span class="annot"><span class="annottext">newDeleteUserAttributes :: Text -&gt; DeleteUserAttributes
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#newDeleteUserAttributes"><span class="hs-identifier hs-var hs-var">newDeleteUserAttributes</span></a></span></span><span> </span><span id="local-6989586621679449522"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449522"><span class="hs-identifier hs-var">pAccessToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">DeleteUserAttributes' :: [Text] -&gt; Sensitive Text -&gt; DeleteUserAttributes
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes%27"><span class="hs-identifier hs-type">DeleteUserAttributes'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userAttributeNames:DeleteUserAttributes' :: [Text]
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#%24sel%3AuserAttributeNames%3ADeleteUserAttributes%27"><span class="hs-identifier hs-var">userAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessToken:DeleteUserAttributes' :: Sensitive Text
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#%24sel%3AaccessToken%3ADeleteUserAttributes%27"><span class="hs-identifier hs-var">accessToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449522"><span class="hs-identifier hs-var">pAccessToken_</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | An array of strings representing the user attribute names you wish to</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- delete.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- For custom attributes, you must prepend the @custom:@ prefix to the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- attribute name.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#deleteUserAttributes_userAttributeNames"><span class="hs-identifier hs-type">deleteUserAttributes_userAttributeNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes"><span class="hs-identifier hs-type">DeleteUserAttributes</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-96"></span><span id="deleteUserAttributes_userAttributeNames"><span class="annot"><span class="annottext">deleteUserAttributes_userAttributeNames :: ([Text] -&gt; f [Text])
+-&gt; DeleteUserAttributes -&gt; f DeleteUserAttributes
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#deleteUserAttributes_userAttributeNames"><span class="hs-identifier hs-var hs-var">deleteUserAttributes_userAttributeNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteUserAttributes -&gt; [Text])
+-&gt; (DeleteUserAttributes -&gt; [Text] -&gt; DeleteUserAttributes)
+-&gt; Lens DeleteUserAttributes DeleteUserAttributes [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes%27"><span class="hs-identifier hs-type">DeleteUserAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449517"><span class="annot"><span class="annottext">[Text]
+userAttributeNames :: [Text]
+$sel:userAttributeNames:DeleteUserAttributes' :: DeleteUserAttributes -&gt; [Text]
+</span><a href="#local-6989586621679449517"><span class="hs-identifier hs-var hs-var">userAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679449517"><span class="hs-identifier hs-var">userAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449516"><span class="annot"><span class="annottext">s :: DeleteUserAttributes
+</span><a href="#local-6989586621679449516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes%27"><span class="hs-identifier hs-type">DeleteUserAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449515"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679449515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserAttributes
+</span><a href="#local-6989586621679449516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributeNames:DeleteUserAttributes' :: [Text]
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#%24sel%3AuserAttributeNames%3ADeleteUserAttributes%27"><span class="hs-identifier hs-var">userAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679449515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes"><span class="hs-identifier hs-type">DeleteUserAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; DeleteUserAttributes -&gt; f DeleteUserAttributes)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; DeleteUserAttributes
+-&gt; f DeleteUserAttributes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The access token used in the request to delete user attributes.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#deleteUserAttributes_accessToken"><span class="hs-identifier hs-type">deleteUserAttributes_accessToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes"><span class="hs-identifier hs-type">DeleteUserAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-100"></span><span id="deleteUserAttributes_accessToken"><span class="annot"><span class="annottext">deleteUserAttributes_accessToken :: (Text -&gt; f Text) -&gt; DeleteUserAttributes -&gt; f DeleteUserAttributes
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#deleteUserAttributes_accessToken"><span class="hs-identifier hs-var hs-var">deleteUserAttributes_accessToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteUserAttributes -&gt; Sensitive Text)
+-&gt; (DeleteUserAttributes -&gt; Sensitive Text -&gt; DeleteUserAttributes)
+-&gt; Lens
+     DeleteUserAttributes
+     DeleteUserAttributes
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes%27"><span class="hs-identifier hs-type">DeleteUserAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449512"><span class="annot"><span class="annottext">Sensitive Text
+accessToken :: Sensitive Text
+$sel:accessToken:DeleteUserAttributes' :: DeleteUserAttributes -&gt; Sensitive Text
+</span><a href="#local-6989586621679449512"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679449512"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449511"><span class="annot"><span class="annottext">s :: DeleteUserAttributes
+</span><a href="#local-6989586621679449511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes%27"><span class="hs-identifier hs-type">DeleteUserAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449510"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679449510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserAttributes
+</span><a href="#local-6989586621679449511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:DeleteUserAttributes' :: Sensitive Text
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#%24sel%3AaccessToken%3ADeleteUserAttributes%27"><span class="hs-identifier hs-var">accessToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679449510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes"><span class="hs-identifier hs-type">DeleteUserAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; DeleteUserAttributes -&gt; f DeleteUserAttributes)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; DeleteUserAttributes
+-&gt; f DeleteUserAttributes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes"><span class="hs-identifier hs-type">DeleteUserAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes"><span class="hs-identifier hs-type">DeleteUserAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributesResponse"><span class="hs-identifier hs-type">DeleteUserAttributesResponse</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679449506"><span class="annot"><span class="annottext">request :: DeleteUserAttributes -&gt; Request DeleteUserAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteUserAttributes -&gt; Request DeleteUserAttributes
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679449502"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteUserAttributes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteUserAttributes)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteUserAttributes))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteUserAttributes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteUserAttributes)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679449499"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449499"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679449498"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679449498"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679449497"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679449497"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteUserAttributesResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributesResponse%27"><span class="hs-identifier hs-var">DeleteUserAttributesResponse'</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteUserAttributesResponse)
+-&gt; Either String Int -&gt; Either String DeleteUserAttributesResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449499"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449490"><span id="local-6989586621679449492"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes"><span class="hs-identifier hs-type">DeleteUserAttributes</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449487"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes"><span class="hs-identifier hs-type">DeleteUserAttributes</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes"><span class="hs-identifier hs-type">DeleteUserAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679449483"><span class="annot"><span class="annottext">toHeaders :: DeleteUserAttributes -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteUserAttributes -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSCognitoIdentityProviderService.DeleteUserAttributes&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-129"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449473"><span id="local-6989586621679449475"><span id="local-6989586621679449477"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes"><span class="hs-identifier hs-type">DeleteUserAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679449471"><span class="annot"><span class="annottext">toJSON :: DeleteUserAttributes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes%27"><span class="hs-identifier hs-type">DeleteUserAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449468"><span id="local-6989586621679449469"><span class="annot"><span class="annottext">[Text]
+Sensitive Text
+accessToken :: Sensitive Text
+userAttributeNames :: [Text]
+$sel:accessToken:DeleteUserAttributes' :: DeleteUserAttributes -&gt; Sensitive Text
+$sel:userAttributeNames:DeleteUserAttributes' :: DeleteUserAttributes -&gt; [Text]
+</span><a href="#local-6989586621679449468"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserAttributeNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679449469"><span class="hs-identifier hs-var">userAttributeNames</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccessToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679449468"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes"><span class="hs-identifier hs-type">DeleteUserAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679449462"><span class="annot"><span class="annottext">toPath :: DeleteUserAttributes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteUserAttributes -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributes"><span class="hs-identifier hs-type">DeleteUserAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679449458"><span class="annot"><span class="annottext">toQuery :: DeleteUserAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteUserAttributes -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Represents the response from the server to delete user attributes.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- /See:/ 'newDeleteUserAttributesResponse' smart constructor.</span><span>
+</span><span id="line-152"></span><span id="local-6989586621679449455"><span id="local-6989586621679449456"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserAttributesResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributesResponse"><span class="hs-identifier hs-var">DeleteUserAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserAttributesResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributesResponse%27"><span class="hs-identifier hs-var">DeleteUserAttributesResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteUserAttributesResponse%27"><span class="annot"><span class="annottext">DeleteUserAttributesResponse -&gt; Int
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#%24sel%3AhttpStatus%3ADeleteUserAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449450"><span id="local-6989586621679449452"><span class="annot"><span class="annottext">DeleteUserAttributesResponse
+-&gt; DeleteUserAttributesResponse -&gt; Bool
+(DeleteUserAttributesResponse
+ -&gt; DeleteUserAttributesResponse -&gt; Bool)
+-&gt; (DeleteUserAttributesResponse
+    -&gt; DeleteUserAttributesResponse -&gt; Bool)
+-&gt; Eq DeleteUserAttributesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteUserAttributesResponse
+-&gt; DeleteUserAttributesResponse -&gt; Bool
+$c/= :: DeleteUserAttributesResponse
+-&gt; DeleteUserAttributesResponse -&gt; Bool
+== :: DeleteUserAttributesResponse
+-&gt; DeleteUserAttributesResponse -&gt; Bool
+$c== :: DeleteUserAttributesResponse
+-&gt; DeleteUserAttributesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449442"><span id="local-6989586621679449444"><span id="local-6989586621679449446"><span id="local-6989586621679449448"><span class="annot"><span class="annottext">ReadPrec [DeleteUserAttributesResponse]
+ReadPrec DeleteUserAttributesResponse
+Int -&gt; ReadS DeleteUserAttributesResponse
+ReadS [DeleteUserAttributesResponse]
+(Int -&gt; ReadS DeleteUserAttributesResponse)
+-&gt; ReadS [DeleteUserAttributesResponse]
+-&gt; ReadPrec DeleteUserAttributesResponse
+-&gt; ReadPrec [DeleteUserAttributesResponse]
+-&gt; Read DeleteUserAttributesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteUserAttributesResponse]
+$creadListPrec :: ReadPrec [DeleteUserAttributesResponse]
+readPrec :: ReadPrec DeleteUserAttributesResponse
+$creadPrec :: ReadPrec DeleteUserAttributesResponse
+readList :: ReadS [DeleteUserAttributesResponse]
+$creadList :: ReadS [DeleteUserAttributesResponse]
+readsPrec :: Int -&gt; ReadS DeleteUserAttributesResponse
+$creadsPrec :: Int -&gt; ReadS DeleteUserAttributesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449435"><span id="local-6989586621679449437"><span id="local-6989586621679449439"><span class="annot"><span class="annottext">Int -&gt; DeleteUserAttributesResponse -&gt; ShowS
+[DeleteUserAttributesResponse] -&gt; ShowS
+DeleteUserAttributesResponse -&gt; String
+(Int -&gt; DeleteUserAttributesResponse -&gt; ShowS)
+-&gt; (DeleteUserAttributesResponse -&gt; String)
+-&gt; ([DeleteUserAttributesResponse] -&gt; ShowS)
+-&gt; Show DeleteUserAttributesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteUserAttributesResponse] -&gt; ShowS
+$cshowList :: [DeleteUserAttributesResponse] -&gt; ShowS
+show :: DeleteUserAttributesResponse -&gt; String
+$cshow :: DeleteUserAttributesResponse -&gt; String
+showsPrec :: Int -&gt; DeleteUserAttributesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteUserAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteUserAttributesResponse -&gt; Rep DeleteUserAttributesResponse x)
+-&gt; (forall x.
+    Rep DeleteUserAttributesResponse x -&gt; DeleteUserAttributesResponse)
+-&gt; Generic DeleteUserAttributesResponse
+forall x.
+Rep DeleteUserAttributesResponse x -&gt; DeleteUserAttributesResponse
+forall x.
+DeleteUserAttributesResponse -&gt; Rep DeleteUserAttributesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteUserAttributesResponse x -&gt; DeleteUserAttributesResponse
+$cfrom :: forall x.
+DeleteUserAttributesResponse -&gt; Rep DeleteUserAttributesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'DeleteUserAttributesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'httpStatus', 'deleteUserAttributesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#newDeleteUserAttributesResponse"><span class="hs-identifier hs-type">newDeleteUserAttributesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributesResponse"><span class="hs-identifier hs-type">DeleteUserAttributesResponse</span></a></span><span>
+</span><span id="line-171"></span><span id="newDeleteUserAttributesResponse"><span class="annot"><span class="annottext">newDeleteUserAttributesResponse :: Int -&gt; DeleteUserAttributesResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#newDeleteUserAttributesResponse"><span class="hs-identifier hs-var hs-var">newDeleteUserAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679449432"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449432"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">DeleteUserAttributesResponse' :: Int -&gt; DeleteUserAttributesResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributesResponse%27"><span class="hs-identifier hs-type">DeleteUserAttributesResponse'</span></a></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteUserAttributesResponse' :: Int
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#%24sel%3AhttpStatus%3ADeleteUserAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449432"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#deleteUserAttributesResponse_httpStatus"><span class="hs-identifier hs-type">deleteUserAttributesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributesResponse"><span class="hs-identifier hs-type">DeleteUserAttributesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span id="deleteUserAttributesResponse_httpStatus"><span class="annot"><span class="annottext">deleteUserAttributesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteUserAttributesResponse -&gt; f DeleteUserAttributesResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#deleteUserAttributesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteUserAttributesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteUserAttributesResponse -&gt; Int)
+-&gt; (DeleteUserAttributesResponse
+    -&gt; Int -&gt; DeleteUserAttributesResponse)
+-&gt; Lens
+     DeleteUserAttributesResponse DeleteUserAttributesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributesResponse%27"><span class="hs-identifier hs-type">DeleteUserAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449431"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteUserAttributesResponse' :: DeleteUserAttributesResponse -&gt; Int
+</span><a href="#local-6989586621679449431"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449431"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449430"><span class="annot"><span class="annottext">s :: DeleteUserAttributesResponse
+</span><a href="#local-6989586621679449430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributesResponse%27"><span class="hs-identifier hs-type">DeleteUserAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449429"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserAttributesResponse
+</span><a href="#local-6989586621679449430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteUserAttributesResponse' :: Int
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#%24sel%3AhttpStatus%3ADeleteUserAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributesResponse"><span class="hs-identifier hs-type">DeleteUserAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449427"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserAttributes.html#DeleteUserAttributesResponse"><span class="hs-identifier hs-type">DeleteUserAttributesResponse</span></a></span></span><span>
+</span><span id="line-182"></span></pre></body></html>

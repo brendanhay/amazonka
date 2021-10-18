@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disables AWS Health from working with AWS Organizations. To call this</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- operation, you must sign in as an AWS Identity and Access Management</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- (IAM) user, assume an IAM role, or sign in as the root user (not</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- recommended) in the organization\'s management account. For more</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html Aggregating AWS Health events&gt;</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- in the /AWS Health User Guide/.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- This operation doesn\'t remove the service-linked role from the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- management account in your organization. You must use the IAM console,</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- API, or AWS Command Line Interface (AWS CLI) to remove the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- service-linked role. For more information, see</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role Deleting a Service-Linked Role&gt;</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- You can also disable the organizational feature by using the</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Organizations</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html DisableAWSServiceAccess&gt;</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- API operation. After you call this operation, AWS Health stops</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- aggregating events for all other AWS accounts in your organization. If</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- you call the AWS Health API operations for organizational view, AWS</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Health returns an error. AWS Health continues to aggregate health events</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for your AWS account.</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganization"><span class="hs-identifier">DisableHealthServiceAccessForOrganization</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#newDisableHealthServiceAccessForOrganization"><span class="hs-identifier">newDisableHealthServiceAccessForOrganization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganizationResponse"><span class="hs-identifier">DisableHealthServiceAccessForOrganizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#newDisableHealthServiceAccessForOrganizationResponse"><span class="hs-identifier">newDisableHealthServiceAccessForOrganizationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.html"><span class="hs-identifier">Network.AWS.AWSHealth.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newDisableHealthServiceAccessForOrganization' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679189170"><span id="local-6989586621679189171"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableHealthServiceAccessForOrganization"><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganization"><span class="hs-identifier hs-var">DisableHealthServiceAccessForOrganization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableHealthServiceAccessForOrganization%27"><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganization%27"><span class="hs-identifier hs-var">DisableHealthServiceAccessForOrganization'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189165"><span id="local-6989586621679189167"><span class="annot"><span class="annottext">DisableHealthServiceAccessForOrganization
+-&gt; DisableHealthServiceAccessForOrganization -&gt; Bool
+(DisableHealthServiceAccessForOrganization
+ -&gt; DisableHealthServiceAccessForOrganization -&gt; Bool)
+-&gt; (DisableHealthServiceAccessForOrganization
+    -&gt; DisableHealthServiceAccessForOrganization -&gt; Bool)
+-&gt; Eq DisableHealthServiceAccessForOrganization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisableHealthServiceAccessForOrganization
+-&gt; DisableHealthServiceAccessForOrganization -&gt; Bool
+$c/= :: DisableHealthServiceAccessForOrganization
+-&gt; DisableHealthServiceAccessForOrganization -&gt; Bool
+== :: DisableHealthServiceAccessForOrganization
+-&gt; DisableHealthServiceAccessForOrganization -&gt; Bool
+$c== :: DisableHealthServiceAccessForOrganization
+-&gt; DisableHealthServiceAccessForOrganization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189156"><span id="local-6989586621679189158"><span id="local-6989586621679189160"><span id="local-6989586621679189162"><span class="annot"><span class="annottext">ReadPrec [DisableHealthServiceAccessForOrganization]
+ReadPrec DisableHealthServiceAccessForOrganization
+Int -&gt; ReadS DisableHealthServiceAccessForOrganization
+ReadS [DisableHealthServiceAccessForOrganization]
+(Int -&gt; ReadS DisableHealthServiceAccessForOrganization)
+-&gt; ReadS [DisableHealthServiceAccessForOrganization]
+-&gt; ReadPrec DisableHealthServiceAccessForOrganization
+-&gt; ReadPrec [DisableHealthServiceAccessForOrganization]
+-&gt; Read DisableHealthServiceAccessForOrganization
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisableHealthServiceAccessForOrganization]
+$creadListPrec :: ReadPrec [DisableHealthServiceAccessForOrganization]
+readPrec :: ReadPrec DisableHealthServiceAccessForOrganization
+$creadPrec :: ReadPrec DisableHealthServiceAccessForOrganization
+readList :: ReadS [DisableHealthServiceAccessForOrganization]
+$creadList :: ReadS [DisableHealthServiceAccessForOrganization]
+readsPrec :: Int -&gt; ReadS DisableHealthServiceAccessForOrganization
+$creadsPrec :: Int -&gt; ReadS DisableHealthServiceAccessForOrganization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189149"><span id="local-6989586621679189151"><span id="local-6989586621679189153"><span class="annot"><span class="annottext">Int -&gt; DisableHealthServiceAccessForOrganization -&gt; ShowS
+[DisableHealthServiceAccessForOrganization] -&gt; ShowS
+DisableHealthServiceAccessForOrganization -&gt; String
+(Int -&gt; DisableHealthServiceAccessForOrganization -&gt; ShowS)
+-&gt; (DisableHealthServiceAccessForOrganization -&gt; String)
+-&gt; ([DisableHealthServiceAccessForOrganization] -&gt; ShowS)
+-&gt; Show DisableHealthServiceAccessForOrganization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisableHealthServiceAccessForOrganization] -&gt; ShowS
+$cshowList :: [DisableHealthServiceAccessForOrganization] -&gt; ShowS
+show :: DisableHealthServiceAccessForOrganization -&gt; String
+$cshow :: DisableHealthServiceAccessForOrganization -&gt; String
+showsPrec :: Int -&gt; DisableHealthServiceAccessForOrganization -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisableHealthServiceAccessForOrganization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisableHealthServiceAccessForOrganization
+ -&gt; Rep DisableHealthServiceAccessForOrganization x)
+-&gt; (forall x.
+    Rep DisableHealthServiceAccessForOrganization x
+    -&gt; DisableHealthServiceAccessForOrganization)
+-&gt; Generic DisableHealthServiceAccessForOrganization
+forall x.
+Rep DisableHealthServiceAccessForOrganization x
+-&gt; DisableHealthServiceAccessForOrganization
+forall x.
+DisableHealthServiceAccessForOrganization
+-&gt; Rep DisableHealthServiceAccessForOrganization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisableHealthServiceAccessForOrganization x
+-&gt; DisableHealthServiceAccessForOrganization
+$cfrom :: forall x.
+DisableHealthServiceAccessForOrganization
+-&gt; Rep DisableHealthServiceAccessForOrganization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'DisableHealthServiceAccessForOrganization' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#newDisableHealthServiceAccessForOrganization"><span class="hs-identifier hs-type">newDisableHealthServiceAccessForOrganization</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganization"><span class="hs-identifier hs-type">DisableHealthServiceAccessForOrganization</span></a></span><span>
+</span><span id="line-76"></span><span id="newDisableHealthServiceAccessForOrganization"><span class="annot"><span class="annottext">newDisableHealthServiceAccessForOrganization :: DisableHealthServiceAccessForOrganization
+</span><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#newDisableHealthServiceAccessForOrganization"><span class="hs-identifier hs-var hs-var">newDisableHealthServiceAccessForOrganization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">DisableHealthServiceAccessForOrganization
+</span><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganization%27"><span class="hs-identifier hs-var">DisableHealthServiceAccessForOrganization'</span></a></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganization"><span class="hs-identifier hs-type">DisableHealthServiceAccessForOrganization</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganization"><span class="hs-identifier hs-type">DisableHealthServiceAccessForOrganization</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganizationResponse"><span class="hs-identifier hs-type">DisableHealthServiceAccessForOrganizationResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679189141"><span class="annot"><span class="annottext">request :: DisableHealthServiceAccessForOrganization
+-&gt; Request DisableHealthServiceAccessForOrganization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DisableHealthServiceAccessForOrganization
+-&gt; Request DisableHealthServiceAccessForOrganization
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AWSHealth.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679189137"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisableHealthServiceAccessForOrganization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DisableHealthServiceAccessForOrganization)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DisableHealthServiceAccessForOrganization
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisableHealthServiceAccessForOrganization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DisableHealthServiceAccessForOrganization)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DisableHealthServiceAccessForOrganization
+DisableHealthServiceAccessForOrganizationResponse
+</span><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganizationResponse%27"><span class="hs-identifier hs-var">DisableHealthServiceAccessForOrganizationResponse'</span></a></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679189130"><span id="local-6989586621679189132"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganization"><span class="hs-identifier hs-type">DisableHealthServiceAccessForOrganization</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679189127"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganization"><span class="hs-identifier hs-type">DisableHealthServiceAccessForOrganization</span></a></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganization"><span class="hs-identifier hs-type">DisableHealthServiceAccessForOrganization</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679189123"><span class="annot"><span class="annottext">toHeaders :: DisableHealthServiceAccessForOrganization -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DisableHealthServiceAccessForOrganization -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHealth_20160804.DisableHealthServiceAccessForOrganization&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679189113"><span id="local-6989586621679189115"><span id="local-6989586621679189117"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganization"><span class="hs-identifier hs-type">DisableHealthServiceAccessForOrganization</span></a></span></span></span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679189111"><span class="annot"><span class="annottext">toJSON :: DisableHealthServiceAccessForOrganization -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DisableHealthServiceAccessForOrganization -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganization"><span class="hs-identifier hs-type">DisableHealthServiceAccessForOrganization</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679189106"><span class="annot"><span class="annottext">toPath :: DisableHealthServiceAccessForOrganization -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+-&gt; DisableHealthServiceAccessForOrganization -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganization"><span class="hs-identifier hs-type">DisableHealthServiceAccessForOrganization</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679189102"><span class="annot"><span class="annottext">toQuery :: DisableHealthServiceAccessForOrganization -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
+-&gt; DisableHealthServiceAccessForOrganization -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newDisableHealthServiceAccessForOrganizationResponse' smart constructor.</span><span>
+</span><span id="line-137"></span><span id="local-6989586621679189099"><span id="local-6989586621679189100"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableHealthServiceAccessForOrganizationResponse"><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganizationResponse"><span class="hs-identifier hs-var">DisableHealthServiceAccessForOrganizationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableHealthServiceAccessForOrganizationResponse%27"><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganizationResponse%27"><span class="hs-identifier hs-var">DisableHealthServiceAccessForOrganizationResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189095"><span id="local-6989586621679189097"><span class="annot"><span class="annottext">DisableHealthServiceAccessForOrganizationResponse
+-&gt; DisableHealthServiceAccessForOrganizationResponse -&gt; Bool
+(DisableHealthServiceAccessForOrganizationResponse
+ -&gt; DisableHealthServiceAccessForOrganizationResponse -&gt; Bool)
+-&gt; (DisableHealthServiceAccessForOrganizationResponse
+    -&gt; DisableHealthServiceAccessForOrganizationResponse -&gt; Bool)
+-&gt; Eq DisableHealthServiceAccessForOrganizationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisableHealthServiceAccessForOrganizationResponse
+-&gt; DisableHealthServiceAccessForOrganizationResponse -&gt; Bool
+$c/= :: DisableHealthServiceAccessForOrganizationResponse
+-&gt; DisableHealthServiceAccessForOrganizationResponse -&gt; Bool
+== :: DisableHealthServiceAccessForOrganizationResponse
+-&gt; DisableHealthServiceAccessForOrganizationResponse -&gt; Bool
+$c== :: DisableHealthServiceAccessForOrganizationResponse
+-&gt; DisableHealthServiceAccessForOrganizationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189087"><span id="local-6989586621679189089"><span id="local-6989586621679189091"><span id="local-6989586621679189093"><span class="annot"><span class="annottext">ReadPrec [DisableHealthServiceAccessForOrganizationResponse]
+ReadPrec DisableHealthServiceAccessForOrganizationResponse
+Int -&gt; ReadS DisableHealthServiceAccessForOrganizationResponse
+ReadS [DisableHealthServiceAccessForOrganizationResponse]
+(Int -&gt; ReadS DisableHealthServiceAccessForOrganizationResponse)
+-&gt; ReadS [DisableHealthServiceAccessForOrganizationResponse]
+-&gt; ReadPrec DisableHealthServiceAccessForOrganizationResponse
+-&gt; ReadPrec [DisableHealthServiceAccessForOrganizationResponse]
+-&gt; Read DisableHealthServiceAccessForOrganizationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisableHealthServiceAccessForOrganizationResponse]
+$creadListPrec :: ReadPrec [DisableHealthServiceAccessForOrganizationResponse]
+readPrec :: ReadPrec DisableHealthServiceAccessForOrganizationResponse
+$creadPrec :: ReadPrec DisableHealthServiceAccessForOrganizationResponse
+readList :: ReadS [DisableHealthServiceAccessForOrganizationResponse]
+$creadList :: ReadS [DisableHealthServiceAccessForOrganizationResponse]
+readsPrec :: Int -&gt; ReadS DisableHealthServiceAccessForOrganizationResponse
+$creadsPrec :: Int -&gt; ReadS DisableHealthServiceAccessForOrganizationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189081"><span id="local-6989586621679189083"><span id="local-6989586621679189085"><span class="annot"><span class="annottext">Int -&gt; DisableHealthServiceAccessForOrganizationResponse -&gt; ShowS
+[DisableHealthServiceAccessForOrganizationResponse] -&gt; ShowS
+DisableHealthServiceAccessForOrganizationResponse -&gt; String
+(Int -&gt; DisableHealthServiceAccessForOrganizationResponse -&gt; ShowS)
+-&gt; (DisableHealthServiceAccessForOrganizationResponse -&gt; String)
+-&gt; ([DisableHealthServiceAccessForOrganizationResponse] -&gt; ShowS)
+-&gt; Show DisableHealthServiceAccessForOrganizationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisableHealthServiceAccessForOrganizationResponse] -&gt; ShowS
+$cshowList :: [DisableHealthServiceAccessForOrganizationResponse] -&gt; ShowS
+show :: DisableHealthServiceAccessForOrganizationResponse -&gt; String
+$cshow :: DisableHealthServiceAccessForOrganizationResponse -&gt; String
+showsPrec :: Int -&gt; DisableHealthServiceAccessForOrganizationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisableHealthServiceAccessForOrganizationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisableHealthServiceAccessForOrganizationResponse
+ -&gt; Rep DisableHealthServiceAccessForOrganizationResponse x)
+-&gt; (forall x.
+    Rep DisableHealthServiceAccessForOrganizationResponse x
+    -&gt; DisableHealthServiceAccessForOrganizationResponse)
+-&gt; Generic DisableHealthServiceAccessForOrganizationResponse
+forall x.
+Rep DisableHealthServiceAccessForOrganizationResponse x
+-&gt; DisableHealthServiceAccessForOrganizationResponse
+forall x.
+DisableHealthServiceAccessForOrganizationResponse
+-&gt; Rep DisableHealthServiceAccessForOrganizationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisableHealthServiceAccessForOrganizationResponse x
+-&gt; DisableHealthServiceAccessForOrganizationResponse
+$cfrom :: forall x.
+DisableHealthServiceAccessForOrganizationResponse
+-&gt; Rep DisableHealthServiceAccessForOrganizationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'DisableHealthServiceAccessForOrganizationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#newDisableHealthServiceAccessForOrganizationResponse"><span class="hs-identifier hs-type">newDisableHealthServiceAccessForOrganizationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganizationResponse"><span class="hs-identifier hs-type">DisableHealthServiceAccessForOrganizationResponse</span></a></span><span>
+</span><span id="line-148"></span><span id="newDisableHealthServiceAccessForOrganizationResponse"><span class="annot"><span class="annottext">newDisableHealthServiceAccessForOrganizationResponse :: DisableHealthServiceAccessForOrganizationResponse
+</span><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#newDisableHealthServiceAccessForOrganizationResponse"><span class="hs-identifier hs-var hs-var">newDisableHealthServiceAccessForOrganizationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="annottext">DisableHealthServiceAccessForOrganizationResponse
+</span><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganizationResponse%27"><span class="hs-identifier hs-var">DisableHealthServiceAccessForOrganizationResponse'</span></a></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679189077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.html#DisableHealthServiceAccessForOrganizationResponse"><span class="hs-identifier hs-type">DisableHealthServiceAccessForOrganizationResponse</span></a></span></span><span>
+</span><span id="line-154"></span></pre></body></html>

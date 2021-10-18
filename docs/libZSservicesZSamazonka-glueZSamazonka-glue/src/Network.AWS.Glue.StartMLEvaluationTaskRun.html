@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.StartMLEvaluationTaskRun</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts a task to estimate the quality of the transform.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- When you provide label sets as examples of truth, Glue machine learning</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- uses some of those examples to learn from them. The rest of the labels</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- are used as a test to estimate quality.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Returns a unique identifier for the run. You can call @GetMLTaskRun@ to</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- get more information about the stats of the @EvaluationTaskRun@.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.StartMLEvaluationTaskRun</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun"><span class="hs-identifier">StartMLEvaluationTaskRun</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#newStartMLEvaluationTaskRun"><span class="hs-identifier">newStartMLEvaluationTaskRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#startMLEvaluationTaskRun_transformId"><span class="hs-identifier">startMLEvaluationTaskRun_transformId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRunResponse"><span class="hs-identifier">StartMLEvaluationTaskRunResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#newStartMLEvaluationTaskRunResponse"><span class="hs-identifier">newStartMLEvaluationTaskRunResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#startMLEvaluationTaskRunResponse_taskRunId"><span class="hs-identifier">startMLEvaluationTaskRunResponse_taskRunId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#startMLEvaluationTaskRunResponse_httpStatus"><span class="hs-identifier">startMLEvaluationTaskRunResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.html"><span class="hs-identifier">Network.AWS.Glue.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newStartMLEvaluationTaskRun' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679710619"><span id="local-6989586621679710620"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartMLEvaluationTaskRun"><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun"><span class="hs-identifier hs-var">StartMLEvaluationTaskRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartMLEvaluationTaskRun%27"><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun%27"><span class="hs-identifier hs-var">StartMLEvaluationTaskRun'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier of the machine learning transform.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AtransformId%3AStartMLEvaluationTaskRun%27"><span class="annot"><span class="annottext">StartMLEvaluationTaskRun -&gt; Text
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#%24sel%3AtransformId%3AStartMLEvaluationTaskRun%27"><span class="hs-identifier hs-var hs-var">transformId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679710613"><span id="local-6989586621679710615"><span class="annot"><span class="annottext">StartMLEvaluationTaskRun -&gt; StartMLEvaluationTaskRun -&gt; Bool
+(StartMLEvaluationTaskRun -&gt; StartMLEvaluationTaskRun -&gt; Bool)
+-&gt; (StartMLEvaluationTaskRun -&gt; StartMLEvaluationTaskRun -&gt; Bool)
+-&gt; Eq StartMLEvaluationTaskRun
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartMLEvaluationTaskRun -&gt; StartMLEvaluationTaskRun -&gt; Bool
+$c/= :: StartMLEvaluationTaskRun -&gt; StartMLEvaluationTaskRun -&gt; Bool
+== :: StartMLEvaluationTaskRun -&gt; StartMLEvaluationTaskRun -&gt; Bool
+$c== :: StartMLEvaluationTaskRun -&gt; StartMLEvaluationTaskRun -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679710604"><span id="local-6989586621679710606"><span id="local-6989586621679710608"><span id="local-6989586621679710610"><span class="annot"><span class="annottext">ReadPrec [StartMLEvaluationTaskRun]
+ReadPrec StartMLEvaluationTaskRun
+Int -&gt; ReadS StartMLEvaluationTaskRun
+ReadS [StartMLEvaluationTaskRun]
+(Int -&gt; ReadS StartMLEvaluationTaskRun)
+-&gt; ReadS [StartMLEvaluationTaskRun]
+-&gt; ReadPrec StartMLEvaluationTaskRun
+-&gt; ReadPrec [StartMLEvaluationTaskRun]
+-&gt; Read StartMLEvaluationTaskRun
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartMLEvaluationTaskRun]
+$creadListPrec :: ReadPrec [StartMLEvaluationTaskRun]
+readPrec :: ReadPrec StartMLEvaluationTaskRun
+$creadPrec :: ReadPrec StartMLEvaluationTaskRun
+readList :: ReadS [StartMLEvaluationTaskRun]
+$creadList :: ReadS [StartMLEvaluationTaskRun]
+readsPrec :: Int -&gt; ReadS StartMLEvaluationTaskRun
+$creadsPrec :: Int -&gt; ReadS StartMLEvaluationTaskRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679710597"><span id="local-6989586621679710599"><span id="local-6989586621679710601"><span class="annot"><span class="annottext">Int -&gt; StartMLEvaluationTaskRun -&gt; ShowS
+[StartMLEvaluationTaskRun] -&gt; ShowS
+StartMLEvaluationTaskRun -&gt; String
+(Int -&gt; StartMLEvaluationTaskRun -&gt; ShowS)
+-&gt; (StartMLEvaluationTaskRun -&gt; String)
+-&gt; ([StartMLEvaluationTaskRun] -&gt; ShowS)
+-&gt; Show StartMLEvaluationTaskRun
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartMLEvaluationTaskRun] -&gt; ShowS
+$cshowList :: [StartMLEvaluationTaskRun] -&gt; ShowS
+show :: StartMLEvaluationTaskRun -&gt; String
+$cshow :: StartMLEvaluationTaskRun -&gt; String
+showsPrec :: Int -&gt; StartMLEvaluationTaskRun -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartMLEvaluationTaskRun -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartMLEvaluationTaskRun -&gt; Rep StartMLEvaluationTaskRun x)
+-&gt; (forall x.
+    Rep StartMLEvaluationTaskRun x -&gt; StartMLEvaluationTaskRun)
+-&gt; Generic StartMLEvaluationTaskRun
+forall x.
+Rep StartMLEvaluationTaskRun x -&gt; StartMLEvaluationTaskRun
+forall x.
+StartMLEvaluationTaskRun -&gt; Rep StartMLEvaluationTaskRun x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartMLEvaluationTaskRun x -&gt; StartMLEvaluationTaskRun
+$cfrom :: forall x.
+StartMLEvaluationTaskRun -&gt; Rep StartMLEvaluationTaskRun x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'StartMLEvaluationTaskRun' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'transformId', 'startMLEvaluationTaskRun_transformId' - The unique identifier of the machine learning transform.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#newStartMLEvaluationTaskRun"><span class="hs-identifier hs-type">newStartMLEvaluationTaskRun</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'transformId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun"><span class="hs-identifier hs-type">StartMLEvaluationTaskRun</span></a></span><span>
+</span><span id="line-76"></span><span id="newStartMLEvaluationTaskRun"><span class="annot"><span class="annottext">newStartMLEvaluationTaskRun :: Text -&gt; StartMLEvaluationTaskRun
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#newStartMLEvaluationTaskRun"><span class="hs-identifier hs-var hs-var">newStartMLEvaluationTaskRun</span></a></span></span><span> </span><span id="local-6989586621679710592"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679710592"><span class="hs-identifier hs-var">pTransformId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">StartMLEvaluationTaskRun' :: Text -&gt; StartMLEvaluationTaskRun
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun%27"><span class="hs-identifier hs-type">StartMLEvaluationTaskRun'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transformId:StartMLEvaluationTaskRun' :: Text
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#%24sel%3AtransformId%3AStartMLEvaluationTaskRun%27"><span class="hs-identifier hs-var">transformId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679710592"><span class="hs-identifier hs-var">pTransformId_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The unique identifier of the machine learning transform.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#startMLEvaluationTaskRun_transformId"><span class="hs-identifier hs-type">startMLEvaluationTaskRun_transformId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun"><span class="hs-identifier hs-type">StartMLEvaluationTaskRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="startMLEvaluationTaskRun_transformId"><span class="annot"><span class="annottext">startMLEvaluationTaskRun_transformId :: (Text -&gt; f Text)
+-&gt; StartMLEvaluationTaskRun -&gt; f StartMLEvaluationTaskRun
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#startMLEvaluationTaskRun_transformId"><span class="hs-identifier hs-var hs-var">startMLEvaluationTaskRun_transformId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartMLEvaluationTaskRun -&gt; Text)
+-&gt; (StartMLEvaluationTaskRun -&gt; Text -&gt; StartMLEvaluationTaskRun)
+-&gt; Lens StartMLEvaluationTaskRun StartMLEvaluationTaskRun Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun%27"><span class="hs-identifier hs-type">StartMLEvaluationTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679710589"><span class="annot"><span class="annottext">Text
+transformId :: Text
+$sel:transformId:StartMLEvaluationTaskRun' :: StartMLEvaluationTaskRun -&gt; Text
+</span><a href="#local-6989586621679710589"><span class="hs-identifier hs-var hs-var">transformId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679710589"><span class="hs-identifier hs-var">transformId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679710588"><span class="annot"><span class="annottext">s :: StartMLEvaluationTaskRun
+</span><a href="#local-6989586621679710588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun%27"><span class="hs-identifier hs-type">StartMLEvaluationTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679710587"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679710587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMLEvaluationTaskRun
+</span><a href="#local-6989586621679710588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformId:StartMLEvaluationTaskRun' :: Text
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#%24sel%3AtransformId%3AStartMLEvaluationTaskRun%27"><span class="hs-identifier hs-var">transformId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679710587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun"><span class="hs-identifier hs-type">StartMLEvaluationTaskRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun"><span class="hs-identifier hs-type">StartMLEvaluationTaskRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun"><span class="hs-identifier hs-type">StartMLEvaluationTaskRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRunResponse"><span class="hs-identifier hs-type">StartMLEvaluationTaskRunResponse</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679710583"><span class="annot"><span class="annottext">request :: StartMLEvaluationTaskRun -&gt; Request StartMLEvaluationTaskRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; StartMLEvaluationTaskRun -&gt; Request StartMLEvaluationTaskRun
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679710579"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartMLEvaluationTaskRun
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartMLEvaluationTaskRun)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartMLEvaluationTaskRun))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartMLEvaluationTaskRun
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartMLEvaluationTaskRun)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679710576"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679710576"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679710575"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679710575"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679710574"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679710574"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; StartMLEvaluationTaskRunResponse
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRunResponse%27"><span class="hs-identifier hs-var">StartMLEvaluationTaskRunResponse'</span></a></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; StartMLEvaluationTaskRunResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; StartMLEvaluationTaskRunResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679710574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TaskRunId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartMLEvaluationTaskRunResponse)
+-&gt; Either String Int
+-&gt; Either String StartMLEvaluationTaskRunResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679710576"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679710566"><span id="local-6989586621679710568"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun"><span class="hs-identifier hs-type">StartMLEvaluationTaskRun</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679710563"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun"><span class="hs-identifier hs-type">StartMLEvaluationTaskRun</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun"><span class="hs-identifier hs-type">StartMLEvaluationTaskRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679710559"><span class="annot"><span class="annottext">toHeaders :: StartMLEvaluationTaskRun -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartMLEvaluationTaskRun -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSGlue.StartMLEvaluationTaskRun&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679710549"><span id="local-6989586621679710551"><span id="local-6989586621679710553"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun"><span class="hs-identifier hs-type">StartMLEvaluationTaskRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679710547"><span class="annot"><span class="annottext">toJSON :: StartMLEvaluationTaskRun -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun%27"><span class="hs-identifier hs-type">StartMLEvaluationTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679710545"><span class="annot"><span class="annottext">Text
+transformId :: Text
+$sel:transformId:StartMLEvaluationTaskRun' :: StartMLEvaluationTaskRun -&gt; Text
+</span><a href="#local-6989586621679710545"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TransformId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679710545"><span class="hs-identifier hs-var">transformId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun"><span class="hs-identifier hs-type">StartMLEvaluationTaskRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679710539"><span class="annot"><span class="annottext">toPath :: StartMLEvaluationTaskRun -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartMLEvaluationTaskRun -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRun"><span class="hs-identifier hs-type">StartMLEvaluationTaskRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679710535"><span class="annot"><span class="annottext">toQuery :: StartMLEvaluationTaskRun -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartMLEvaluationTaskRun -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newStartMLEvaluationTaskRunResponse' smart constructor.</span><span>
+</span><span id="line-132"></span><span id="local-6989586621679710532"><span id="local-6989586621679710533"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartMLEvaluationTaskRunResponse"><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRunResponse"><span class="hs-identifier hs-var">StartMLEvaluationTaskRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartMLEvaluationTaskRunResponse%27"><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRunResponse%27"><span class="hs-identifier hs-var">StartMLEvaluationTaskRunResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier associated with this run.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AtaskRunId%3AStartMLEvaluationTaskRunResponse%27"><span class="annot"><span class="annottext">StartMLEvaluationTaskRunResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#%24sel%3AtaskRunId%3AStartMLEvaluationTaskRunResponse%27"><span class="hs-identifier hs-var hs-var">taskRunId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartMLEvaluationTaskRunResponse%27"><span class="annot"><span class="annottext">StartMLEvaluationTaskRunResponse -&gt; Int
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#%24sel%3AhttpStatus%3AStartMLEvaluationTaskRunResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679710526"><span id="local-6989586621679710528"><span class="annot"><span class="annottext">StartMLEvaluationTaskRunResponse
+-&gt; StartMLEvaluationTaskRunResponse -&gt; Bool
+(StartMLEvaluationTaskRunResponse
+ -&gt; StartMLEvaluationTaskRunResponse -&gt; Bool)
+-&gt; (StartMLEvaluationTaskRunResponse
+    -&gt; StartMLEvaluationTaskRunResponse -&gt; Bool)
+-&gt; Eq StartMLEvaluationTaskRunResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartMLEvaluationTaskRunResponse
+-&gt; StartMLEvaluationTaskRunResponse -&gt; Bool
+$c/= :: StartMLEvaluationTaskRunResponse
+-&gt; StartMLEvaluationTaskRunResponse -&gt; Bool
+== :: StartMLEvaluationTaskRunResponse
+-&gt; StartMLEvaluationTaskRunResponse -&gt; Bool
+$c== :: StartMLEvaluationTaskRunResponse
+-&gt; StartMLEvaluationTaskRunResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679710518"><span id="local-6989586621679710520"><span id="local-6989586621679710522"><span id="local-6989586621679710524"><span class="annot"><span class="annottext">ReadPrec [StartMLEvaluationTaskRunResponse]
+ReadPrec StartMLEvaluationTaskRunResponse
+Int -&gt; ReadS StartMLEvaluationTaskRunResponse
+ReadS [StartMLEvaluationTaskRunResponse]
+(Int -&gt; ReadS StartMLEvaluationTaskRunResponse)
+-&gt; ReadS [StartMLEvaluationTaskRunResponse]
+-&gt; ReadPrec StartMLEvaluationTaskRunResponse
+-&gt; ReadPrec [StartMLEvaluationTaskRunResponse]
+-&gt; Read StartMLEvaluationTaskRunResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartMLEvaluationTaskRunResponse]
+$creadListPrec :: ReadPrec [StartMLEvaluationTaskRunResponse]
+readPrec :: ReadPrec StartMLEvaluationTaskRunResponse
+$creadPrec :: ReadPrec StartMLEvaluationTaskRunResponse
+readList :: ReadS [StartMLEvaluationTaskRunResponse]
+$creadList :: ReadS [StartMLEvaluationTaskRunResponse]
+readsPrec :: Int -&gt; ReadS StartMLEvaluationTaskRunResponse
+$creadsPrec :: Int -&gt; ReadS StartMLEvaluationTaskRunResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679710512"><span id="local-6989586621679710514"><span id="local-6989586621679710516"><span class="annot"><span class="annottext">Int -&gt; StartMLEvaluationTaskRunResponse -&gt; ShowS
+[StartMLEvaluationTaskRunResponse] -&gt; ShowS
+StartMLEvaluationTaskRunResponse -&gt; String
+(Int -&gt; StartMLEvaluationTaskRunResponse -&gt; ShowS)
+-&gt; (StartMLEvaluationTaskRunResponse -&gt; String)
+-&gt; ([StartMLEvaluationTaskRunResponse] -&gt; ShowS)
+-&gt; Show StartMLEvaluationTaskRunResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartMLEvaluationTaskRunResponse] -&gt; ShowS
+$cshowList :: [StartMLEvaluationTaskRunResponse] -&gt; ShowS
+show :: StartMLEvaluationTaskRunResponse -&gt; String
+$cshow :: StartMLEvaluationTaskRunResponse -&gt; String
+showsPrec :: Int -&gt; StartMLEvaluationTaskRunResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartMLEvaluationTaskRunResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartMLEvaluationTaskRunResponse
+ -&gt; Rep StartMLEvaluationTaskRunResponse x)
+-&gt; (forall x.
+    Rep StartMLEvaluationTaskRunResponse x
+    -&gt; StartMLEvaluationTaskRunResponse)
+-&gt; Generic StartMLEvaluationTaskRunResponse
+forall x.
+Rep StartMLEvaluationTaskRunResponse x
+-&gt; StartMLEvaluationTaskRunResponse
+forall x.
+StartMLEvaluationTaskRunResponse
+-&gt; Rep StartMLEvaluationTaskRunResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartMLEvaluationTaskRunResponse x
+-&gt; StartMLEvaluationTaskRunResponse
+$cfrom :: forall x.
+StartMLEvaluationTaskRunResponse
+-&gt; Rep StartMLEvaluationTaskRunResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Create a value of 'StartMLEvaluationTaskRunResponse' with all optional fields omitted.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'taskRunId', 'startMLEvaluationTaskRunResponse_taskRunId' - The unique identifier associated with this run.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'startMLEvaluationTaskRunResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#newStartMLEvaluationTaskRunResponse"><span class="hs-identifier hs-type">newStartMLEvaluationTaskRunResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRunResponse"><span class="hs-identifier hs-type">StartMLEvaluationTaskRunResponse</span></a></span><span>
+</span><span id="line-155"></span><span id="newStartMLEvaluationTaskRunResponse"><span class="annot"><span class="annottext">newStartMLEvaluationTaskRunResponse :: Int -&gt; StartMLEvaluationTaskRunResponse
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#newStartMLEvaluationTaskRunResponse"><span class="hs-identifier hs-var hs-var">newStartMLEvaluationTaskRunResponse</span></a></span></span><span> </span><span id="local-6989586621679710509"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679710509"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">StartMLEvaluationTaskRunResponse' :: Maybe Text -&gt; Int -&gt; StartMLEvaluationTaskRunResponse
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRunResponse%27"><span class="hs-identifier hs-type">StartMLEvaluationTaskRunResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:taskRunId:StartMLEvaluationTaskRunResponse' :: Maybe Text
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#%24sel%3AtaskRunId%3AStartMLEvaluationTaskRunResponse%27"><span class="hs-identifier hs-var">taskRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartMLEvaluationTaskRunResponse' :: Int
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#%24sel%3AhttpStatus%3AStartMLEvaluationTaskRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679710509"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The unique identifier associated with this run.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#startMLEvaluationTaskRunResponse_taskRunId"><span class="hs-identifier hs-type">startMLEvaluationTaskRunResponse_taskRunId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRunResponse"><span class="hs-identifier hs-type">StartMLEvaluationTaskRunResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="startMLEvaluationTaskRunResponse_taskRunId"><span class="annot"><span class="annottext">startMLEvaluationTaskRunResponse_taskRunId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartMLEvaluationTaskRunResponse
+-&gt; f StartMLEvaluationTaskRunResponse
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#startMLEvaluationTaskRunResponse_taskRunId"><span class="hs-identifier hs-var hs-var">startMLEvaluationTaskRunResponse_taskRunId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartMLEvaluationTaskRunResponse -&gt; Maybe Text)
+-&gt; (StartMLEvaluationTaskRunResponse
+    -&gt; Maybe Text -&gt; StartMLEvaluationTaskRunResponse)
+-&gt; Lens
+     StartMLEvaluationTaskRunResponse
+     StartMLEvaluationTaskRunResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRunResponse%27"><span class="hs-identifier hs-type">StartMLEvaluationTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679710508"><span class="annot"><span class="annottext">Maybe Text
+taskRunId :: Maybe Text
+$sel:taskRunId:StartMLEvaluationTaskRunResponse' :: StartMLEvaluationTaskRunResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679710508"><span class="hs-identifier hs-var hs-var">taskRunId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679710508"><span class="hs-identifier hs-var">taskRunId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679710507"><span class="annot"><span class="annottext">s :: StartMLEvaluationTaskRunResponse
+</span><a href="#local-6989586621679710507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRunResponse%27"><span class="hs-identifier hs-type">StartMLEvaluationTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679710506"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679710506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMLEvaluationTaskRunResponse
+</span><a href="#local-6989586621679710507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskRunId:StartMLEvaluationTaskRunResponse' :: Maybe Text
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#%24sel%3AtaskRunId%3AStartMLEvaluationTaskRunResponse%27"><span class="hs-identifier hs-var">taskRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679710506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRunResponse"><span class="hs-identifier hs-type">StartMLEvaluationTaskRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#startMLEvaluationTaskRunResponse_httpStatus"><span class="hs-identifier hs-type">startMLEvaluationTaskRunResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRunResponse"><span class="hs-identifier hs-type">StartMLEvaluationTaskRunResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-168"></span><span id="startMLEvaluationTaskRunResponse_httpStatus"><span class="annot"><span class="annottext">startMLEvaluationTaskRunResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartMLEvaluationTaskRunResponse
+-&gt; f StartMLEvaluationTaskRunResponse
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#startMLEvaluationTaskRunResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startMLEvaluationTaskRunResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartMLEvaluationTaskRunResponse -&gt; Int)
+-&gt; (StartMLEvaluationTaskRunResponse
+    -&gt; Int -&gt; StartMLEvaluationTaskRunResponse)
+-&gt; Lens
+     StartMLEvaluationTaskRunResponse
+     StartMLEvaluationTaskRunResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRunResponse%27"><span class="hs-identifier hs-type">StartMLEvaluationTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679710505"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartMLEvaluationTaskRunResponse' :: StartMLEvaluationTaskRunResponse -&gt; Int
+</span><a href="#local-6989586621679710505"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679710505"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679710504"><span class="annot"><span class="annottext">s :: StartMLEvaluationTaskRunResponse
+</span><a href="#local-6989586621679710504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRunResponse%27"><span class="hs-identifier hs-type">StartMLEvaluationTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679710503"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679710503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMLEvaluationTaskRunResponse
+</span><a href="#local-6989586621679710504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartMLEvaluationTaskRunResponse' :: Int
+</span><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#%24sel%3AhttpStatus%3AStartMLEvaluationTaskRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679710503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRunResponse"><span class="hs-identifier hs-type">StartMLEvaluationTaskRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679710501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.StartMLEvaluationTaskRun.html#StartMLEvaluationTaskRunResponse"><span class="hs-identifier hs-type">StartMLEvaluationTaskRunResponse</span></a></span></span><span>
+</span><span id="line-173"></span></pre></body></html>

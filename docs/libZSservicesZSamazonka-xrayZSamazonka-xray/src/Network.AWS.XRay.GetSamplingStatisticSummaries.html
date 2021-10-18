@@ -1,0 +1,705 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.XRay.GetSamplingStatisticSummaries</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves information about recent sampling results for all sampling</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- rules.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.XRay.GetSamplingStatisticSummaries</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries"><span class="hs-identifier">GetSamplingStatisticSummaries</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#newGetSamplingStatisticSummaries"><span class="hs-identifier">newGetSamplingStatisticSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#getSamplingStatisticSummaries_nextToken"><span class="hs-identifier">getSamplingStatisticSummaries_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse"><span class="hs-identifier">GetSamplingStatisticSummariesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#newGetSamplingStatisticSummariesResponse"><span class="hs-identifier">newGetSamplingStatisticSummariesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#getSamplingStatisticSummariesResponse_samplingStatisticSummaries"><span class="hs-identifier">getSamplingStatisticSummariesResponse_samplingStatisticSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#getSamplingStatisticSummariesResponse_nextToken"><span class="hs-identifier">getSamplingStatisticSummariesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#getSamplingStatisticSummariesResponse_httpStatus"><span class="hs-identifier">getSamplingStatisticSummariesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.html"><span class="hs-identifier">Network.AWS.XRay.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newGetSamplingStatisticSummaries' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679261260"><span id="local-6989586621679261261"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSamplingStatisticSummaries"><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries"><span class="hs-identifier hs-var">GetSamplingStatisticSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSamplingStatisticSummaries%27"><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries%27"><span class="hs-identifier hs-var">GetSamplingStatisticSummaries'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Pagination token.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AGetSamplingStatisticSummaries%27"><span class="annot"><span class="annottext">GetSamplingStatisticSummaries -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#%24sel%3AnextToken%3AGetSamplingStatisticSummaries%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261254"><span id="local-6989586621679261256"><span class="annot"><span class="annottext">GetSamplingStatisticSummaries
+-&gt; GetSamplingStatisticSummaries -&gt; Bool
+(GetSamplingStatisticSummaries
+ -&gt; GetSamplingStatisticSummaries -&gt; Bool)
+-&gt; (GetSamplingStatisticSummaries
+    -&gt; GetSamplingStatisticSummaries -&gt; Bool)
+-&gt; Eq GetSamplingStatisticSummaries
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSamplingStatisticSummaries
+-&gt; GetSamplingStatisticSummaries -&gt; Bool
+$c/= :: GetSamplingStatisticSummaries
+-&gt; GetSamplingStatisticSummaries -&gt; Bool
+== :: GetSamplingStatisticSummaries
+-&gt; GetSamplingStatisticSummaries -&gt; Bool
+$c== :: GetSamplingStatisticSummaries
+-&gt; GetSamplingStatisticSummaries -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261245"><span id="local-6989586621679261247"><span id="local-6989586621679261249"><span id="local-6989586621679261251"><span class="annot"><span class="annottext">ReadPrec [GetSamplingStatisticSummaries]
+ReadPrec GetSamplingStatisticSummaries
+Int -&gt; ReadS GetSamplingStatisticSummaries
+ReadS [GetSamplingStatisticSummaries]
+(Int -&gt; ReadS GetSamplingStatisticSummaries)
+-&gt; ReadS [GetSamplingStatisticSummaries]
+-&gt; ReadPrec GetSamplingStatisticSummaries
+-&gt; ReadPrec [GetSamplingStatisticSummaries]
+-&gt; Read GetSamplingStatisticSummaries
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetSamplingStatisticSummaries]
+$creadListPrec :: ReadPrec [GetSamplingStatisticSummaries]
+readPrec :: ReadPrec GetSamplingStatisticSummaries
+$creadPrec :: ReadPrec GetSamplingStatisticSummaries
+readList :: ReadS [GetSamplingStatisticSummaries]
+$creadList :: ReadS [GetSamplingStatisticSummaries]
+readsPrec :: Int -&gt; ReadS GetSamplingStatisticSummaries
+$creadsPrec :: Int -&gt; ReadS GetSamplingStatisticSummaries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261238"><span id="local-6989586621679261240"><span id="local-6989586621679261242"><span class="annot"><span class="annottext">Int -&gt; GetSamplingStatisticSummaries -&gt; ShowS
+[GetSamplingStatisticSummaries] -&gt; ShowS
+GetSamplingStatisticSummaries -&gt; String
+(Int -&gt; GetSamplingStatisticSummaries -&gt; ShowS)
+-&gt; (GetSamplingStatisticSummaries -&gt; String)
+-&gt; ([GetSamplingStatisticSummaries] -&gt; ShowS)
+-&gt; Show GetSamplingStatisticSummaries
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSamplingStatisticSummaries] -&gt; ShowS
+$cshowList :: [GetSamplingStatisticSummaries] -&gt; ShowS
+show :: GetSamplingStatisticSummaries -&gt; String
+$cshow :: GetSamplingStatisticSummaries -&gt; String
+showsPrec :: Int -&gt; GetSamplingStatisticSummaries -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSamplingStatisticSummaries -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetSamplingStatisticSummaries
+ -&gt; Rep GetSamplingStatisticSummaries x)
+-&gt; (forall x.
+    Rep GetSamplingStatisticSummaries x
+    -&gt; GetSamplingStatisticSummaries)
+-&gt; Generic GetSamplingStatisticSummaries
+forall x.
+Rep GetSamplingStatisticSummaries x
+-&gt; GetSamplingStatisticSummaries
+forall x.
+GetSamplingStatisticSummaries
+-&gt; Rep GetSamplingStatisticSummaries x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetSamplingStatisticSummaries x
+-&gt; GetSamplingStatisticSummaries
+$cfrom :: forall x.
+GetSamplingStatisticSummaries
+-&gt; Rep GetSamplingStatisticSummaries x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'GetSamplingStatisticSummaries' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'nextToken', 'getSamplingStatisticSummaries_nextToken' - Pagination token.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#newGetSamplingStatisticSummaries"><span class="hs-identifier hs-type">newGetSamplingStatisticSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries"><span class="hs-identifier hs-type">GetSamplingStatisticSummaries</span></a></span><span>
+</span><span id="line-71"></span><span id="newGetSamplingStatisticSummaries"><span class="annot"><span class="annottext">newGetSamplingStatisticSummaries :: GetSamplingStatisticSummaries
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#newGetSamplingStatisticSummaries"><span class="hs-identifier hs-var hs-var">newGetSamplingStatisticSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">GetSamplingStatisticSummaries' :: Maybe Text -&gt; GetSamplingStatisticSummaries
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries%27"><span class="hs-identifier hs-type">GetSamplingStatisticSummaries'</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetSamplingStatisticSummaries' :: Maybe Text
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#%24sel%3AnextToken%3AGetSamplingStatisticSummaries%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Pagination token.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#getSamplingStatisticSummaries_nextToken"><span class="hs-identifier hs-type">getSamplingStatisticSummaries_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries"><span class="hs-identifier hs-type">GetSamplingStatisticSummaries</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="getSamplingStatisticSummaries_nextToken"><span class="annot"><span class="annottext">getSamplingStatisticSummaries_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSamplingStatisticSummaries -&gt; f GetSamplingStatisticSummaries
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#getSamplingStatisticSummaries_nextToken"><span class="hs-identifier hs-var hs-var">getSamplingStatisticSummaries_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSamplingStatisticSummaries -&gt; Maybe Text)
+-&gt; (GetSamplingStatisticSummaries
+    -&gt; Maybe Text -&gt; GetSamplingStatisticSummaries)
+-&gt; Lens
+     GetSamplingStatisticSummaries
+     GetSamplingStatisticSummaries
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries%27"><span class="hs-identifier hs-type">GetSamplingStatisticSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261232"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetSamplingStatisticSummaries' :: GetSamplingStatisticSummaries -&gt; Maybe Text
+</span><a href="#local-6989586621679261232"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261232"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261231"><span class="annot"><span class="annottext">s :: GetSamplingStatisticSummaries
+</span><a href="#local-6989586621679261231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries%27"><span class="hs-identifier hs-type">GetSamplingStatisticSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261230"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSamplingStatisticSummaries
+</span><a href="#local-6989586621679261231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetSamplingStatisticSummaries' :: Maybe Text
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#%24sel%3AnextToken%3AGetSamplingStatisticSummaries%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries"><span class="hs-identifier hs-type">GetSamplingStatisticSummaries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries"><span class="hs-identifier hs-type">GetSamplingStatisticSummaries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679261226"><span class="annot"><span class="annottext">page :: GetSamplingStatisticSummaries
+-&gt; AWSResponse GetSamplingStatisticSummaries
+-&gt; Maybe GetSamplingStatisticSummaries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679261224"><span class="annot"><span class="annottext">GetSamplingStatisticSummaries
+</span><a href="#local-6989586621679261224"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679261223"><span class="annot"><span class="annottext">AWSResponse GetSamplingStatisticSummaries
+</span><a href="#local-6989586621679261223"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-84"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetSamplingStatisticSummaries
+GetSamplingStatisticSummariesResponse
+</span><a href="#local-6989586621679261223"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">GetSamplingStatisticSummariesResponse
+-&gt; Getting (First Text) GetSamplingStatisticSummariesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetSamplingStatisticSummariesResponse
+-&gt; Const (First Text) GetSamplingStatisticSummariesResponse
+Lens' GetSamplingStatisticSummariesResponse (Maybe Text)
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#getSamplingStatisticSummariesResponse_nextToken"><span class="hs-identifier hs-var">getSamplingStatisticSummariesResponse_nextToken</span></a></span><span>
+</span><span id="line-86"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetSamplingStatisticSummariesResponse
+ -&gt; Const (First Text) GetSamplingStatisticSummariesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetSamplingStatisticSummariesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-87"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetSamplingStatisticSummaries
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [SamplingStatisticSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-90"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetSamplingStatisticSummaries
+GetSamplingStatisticSummariesResponse
+</span><a href="#local-6989586621679261223"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">GetSamplingStatisticSummariesResponse
+-&gt; Getting
+     (First [SamplingStatisticSummary])
+     GetSamplingStatisticSummariesResponse
+     [SamplingStatisticSummary]
+-&gt; Maybe [SamplingStatisticSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [SamplingStatisticSummary]
+ -&gt; Const
+      (First [SamplingStatisticSummary])
+      (Maybe [SamplingStatisticSummary]))
+-&gt; GetSamplingStatisticSummariesResponse
+-&gt; Const
+     (First [SamplingStatisticSummary])
+     GetSamplingStatisticSummariesResponse
+Lens'
+  GetSamplingStatisticSummariesResponse
+  (Maybe [SamplingStatisticSummary])
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#getSamplingStatisticSummariesResponse_samplingStatisticSummaries"><span class="hs-identifier hs-var">getSamplingStatisticSummariesResponse_samplingStatisticSummaries</span></a></span><span>
+</span><span id="line-92"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [SamplingStatisticSummary]
+  -&gt; Const
+       (First [SamplingStatisticSummary])
+       (Maybe [SamplingStatisticSummary]))
+ -&gt; GetSamplingStatisticSummariesResponse
+ -&gt; Const
+      (First [SamplingStatisticSummary])
+      GetSamplingStatisticSummariesResponse)
+-&gt; (([SamplingStatisticSummary]
+     -&gt; Const
+          (First [SamplingStatisticSummary]) [SamplingStatisticSummary])
+    -&gt; Maybe [SamplingStatisticSummary]
+    -&gt; Const
+         (First [SamplingStatisticSummary])
+         (Maybe [SamplingStatisticSummary]))
+-&gt; Getting
+     (First [SamplingStatisticSummary])
+     GetSamplingStatisticSummariesResponse
+     [SamplingStatisticSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([SamplingStatisticSummary]
+ -&gt; Const
+      (First [SamplingStatisticSummary]) [SamplingStatisticSummary])
+-&gt; Maybe [SamplingStatisticSummary]
+-&gt; Const
+     (First [SamplingStatisticSummary])
+     (Maybe [SamplingStatisticSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-93"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetSamplingStatisticSummaries
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">GetSamplingStatisticSummaries
+-&gt; Maybe GetSamplingStatisticSummaries
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(GetSamplingStatisticSummaries
+ -&gt; Maybe GetSamplingStatisticSummaries)
+-&gt; GetSamplingStatisticSummaries
+-&gt; Maybe GetSamplingStatisticSummaries
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">GetSamplingStatisticSummaries
+</span><a href="#local-6989586621679261224"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">GetSamplingStatisticSummaries
+-&gt; (GetSamplingStatisticSummaries -&gt; GetSamplingStatisticSummaries)
+-&gt; GetSamplingStatisticSummaries
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; GetSamplingStatisticSummaries
+-&gt; Identity GetSamplingStatisticSummaries
+Lens
+  GetSamplingStatisticSummaries
+  GetSamplingStatisticSummaries
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#getSamplingStatisticSummaries_nextToken"><span class="hs-identifier hs-var">getSamplingStatisticSummaries_nextToken</span></a></span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; GetSamplingStatisticSummaries
+ -&gt; Identity GetSamplingStatisticSummaries)
+-&gt; Maybe Text
+-&gt; GetSamplingStatisticSummaries
+-&gt; GetSamplingStatisticSummaries
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetSamplingStatisticSummaries
+GetSamplingStatisticSummariesResponse
+</span><a href="#local-6989586621679261223"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">GetSamplingStatisticSummariesResponse
+-&gt; Getting (First Text) GetSamplingStatisticSummariesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetSamplingStatisticSummariesResponse
+-&gt; Const (First Text) GetSamplingStatisticSummariesResponse
+Lens' GetSamplingStatisticSummariesResponse (Maybe Text)
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#getSamplingStatisticSummariesResponse_nextToken"><span class="hs-identifier hs-var">getSamplingStatisticSummariesResponse_nextToken</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetSamplingStatisticSummariesResponse
+ -&gt; Const (First Text) GetSamplingStatisticSummariesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetSamplingStatisticSummariesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries"><span class="hs-identifier hs-type">GetSamplingStatisticSummaries</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries"><span class="hs-identifier hs-type">GetSamplingStatisticSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse"><span class="hs-identifier hs-type">GetSamplingStatisticSummariesResponse</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679261213"><span class="annot"><span class="annottext">request :: GetSamplingStatisticSummaries
+-&gt; Request GetSamplingStatisticSummaries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetSamplingStatisticSummaries
+-&gt; Request GetSamplingStatisticSummaries
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.XRay.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679261209"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetSamplingStatisticSummaries
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetSamplingStatisticSummaries)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetSamplingStatisticSummaries))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetSamplingStatisticSummaries
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetSamplingStatisticSummaries)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261206"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261206"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679261205"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679261205"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679261204"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679261204"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SamplingStatisticSummary]
+-&gt; Maybe Text -&gt; Int -&gt; GetSamplingStatisticSummariesResponse
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-var">GetSamplingStatisticSummariesResponse'</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SamplingStatisticSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; GetSamplingStatisticSummariesResponse)
+-&gt; Either String (Maybe [SamplingStatisticSummary])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; GetSamplingStatisticSummariesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679261204"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [SamplingStatisticSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SamplingStatisticSummaries&quot;</span></span><span>
+</span><span id="line-116"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SamplingStatisticSummary]))
+-&gt; Maybe [SamplingStatisticSummary]
+-&gt; Either String (Maybe [SamplingStatisticSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SamplingStatisticSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-117"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; GetSamplingStatisticSummariesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetSamplingStatisticSummariesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679261204"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetSamplingStatisticSummariesResponse)
+-&gt; Either String Int
+-&gt; Either String GetSamplingStatisticSummariesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261206"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679261195"><span id="local-6989586621679261197"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries"><span class="hs-identifier hs-type">GetSamplingStatisticSummaries</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261192"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries"><span class="hs-identifier hs-type">GetSamplingStatisticSummaries</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries"><span class="hs-identifier hs-type">GetSamplingStatisticSummaries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679261188"><span class="annot"><span class="annottext">toHeaders :: GetSamplingStatisticSummaries -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSamplingStatisticSummaries -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261179"><span id="local-6989586621679261181"><span id="local-6989586621679261183"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries"><span class="hs-identifier hs-type">GetSamplingStatisticSummaries</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679261177"><span class="annot"><span class="annottext">toJSON :: GetSamplingStatisticSummaries -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries%27"><span class="hs-identifier hs-type">GetSamplingStatisticSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261175"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetSamplingStatisticSummaries' :: GetSamplingStatisticSummaries -&gt; Maybe Text
+</span><a href="#local-6989586621679261175"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261175"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries"><span class="hs-identifier hs-type">GetSamplingStatisticSummaries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679261169"><span class="annot"><span class="annottext">toPath :: GetSamplingStatisticSummaries -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetSamplingStatisticSummaries -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/SamplingStatisticSummaries&quot;</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummaries"><span class="hs-identifier hs-type">GetSamplingStatisticSummaries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679261165"><span class="annot"><span class="annottext">toQuery :: GetSamplingStatisticSummaries -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetSamplingStatisticSummaries -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newGetSamplingStatisticSummariesResponse' smart constructor.</span><span>
+</span><span id="line-145"></span><span id="local-6989586621679261162"><span id="local-6989586621679261163"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSamplingStatisticSummariesResponse"><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse"><span class="hs-identifier hs-var">GetSamplingStatisticSummariesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSamplingStatisticSummariesResponse%27"><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-var">GetSamplingStatisticSummariesResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the number of requests instrumented for each sampling</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- rule.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AsamplingStatisticSummaries%3AGetSamplingStatisticSummariesResponse%27"><span class="annot"><span class="annottext">GetSamplingStatisticSummariesResponse
+-&gt; Maybe [SamplingStatisticSummary]
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#%24sel%3AsamplingStatisticSummaries%3AGetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-var hs-var">samplingStatisticSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingStatisticSummary.html#SamplingStatisticSummary"><span class="hs-identifier hs-type">SamplingStatisticSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | Pagination token.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AnextToken%3AGetSamplingStatisticSummariesResponse%27"><span class="annot"><span class="annottext">GetSamplingStatisticSummariesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#%24sel%3AnextToken%3AGetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSamplingStatisticSummariesResponse%27"><span class="annot"><span class="annottext">GetSamplingStatisticSummariesResponse -&gt; Int
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#%24sel%3AhttpStatus%3AGetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261155"><span id="local-6989586621679261157"><span class="annot"><span class="annottext">GetSamplingStatisticSummariesResponse
+-&gt; GetSamplingStatisticSummariesResponse -&gt; Bool
+(GetSamplingStatisticSummariesResponse
+ -&gt; GetSamplingStatisticSummariesResponse -&gt; Bool)
+-&gt; (GetSamplingStatisticSummariesResponse
+    -&gt; GetSamplingStatisticSummariesResponse -&gt; Bool)
+-&gt; Eq GetSamplingStatisticSummariesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSamplingStatisticSummariesResponse
+-&gt; GetSamplingStatisticSummariesResponse -&gt; Bool
+$c/= :: GetSamplingStatisticSummariesResponse
+-&gt; GetSamplingStatisticSummariesResponse -&gt; Bool
+== :: GetSamplingStatisticSummariesResponse
+-&gt; GetSamplingStatisticSummariesResponse -&gt; Bool
+$c== :: GetSamplingStatisticSummariesResponse
+-&gt; GetSamplingStatisticSummariesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261147"><span id="local-6989586621679261149"><span id="local-6989586621679261151"><span id="local-6989586621679261153"><span class="annot"><span class="annottext">ReadPrec [GetSamplingStatisticSummariesResponse]
+ReadPrec GetSamplingStatisticSummariesResponse
+Int -&gt; ReadS GetSamplingStatisticSummariesResponse
+ReadS [GetSamplingStatisticSummariesResponse]
+(Int -&gt; ReadS GetSamplingStatisticSummariesResponse)
+-&gt; ReadS [GetSamplingStatisticSummariesResponse]
+-&gt; ReadPrec GetSamplingStatisticSummariesResponse
+-&gt; ReadPrec [GetSamplingStatisticSummariesResponse]
+-&gt; Read GetSamplingStatisticSummariesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetSamplingStatisticSummariesResponse]
+$creadListPrec :: ReadPrec [GetSamplingStatisticSummariesResponse]
+readPrec :: ReadPrec GetSamplingStatisticSummariesResponse
+$creadPrec :: ReadPrec GetSamplingStatisticSummariesResponse
+readList :: ReadS [GetSamplingStatisticSummariesResponse]
+$creadList :: ReadS [GetSamplingStatisticSummariesResponse]
+readsPrec :: Int -&gt; ReadS GetSamplingStatisticSummariesResponse
+$creadsPrec :: Int -&gt; ReadS GetSamplingStatisticSummariesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261141"><span id="local-6989586621679261143"><span id="local-6989586621679261145"><span class="annot"><span class="annottext">Int -&gt; GetSamplingStatisticSummariesResponse -&gt; ShowS
+[GetSamplingStatisticSummariesResponse] -&gt; ShowS
+GetSamplingStatisticSummariesResponse -&gt; String
+(Int -&gt; GetSamplingStatisticSummariesResponse -&gt; ShowS)
+-&gt; (GetSamplingStatisticSummariesResponse -&gt; String)
+-&gt; ([GetSamplingStatisticSummariesResponse] -&gt; ShowS)
+-&gt; Show GetSamplingStatisticSummariesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSamplingStatisticSummariesResponse] -&gt; ShowS
+$cshowList :: [GetSamplingStatisticSummariesResponse] -&gt; ShowS
+show :: GetSamplingStatisticSummariesResponse -&gt; String
+$cshow :: GetSamplingStatisticSummariesResponse -&gt; String
+showsPrec :: Int -&gt; GetSamplingStatisticSummariesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSamplingStatisticSummariesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetSamplingStatisticSummariesResponse
+ -&gt; Rep GetSamplingStatisticSummariesResponse x)
+-&gt; (forall x.
+    Rep GetSamplingStatisticSummariesResponse x
+    -&gt; GetSamplingStatisticSummariesResponse)
+-&gt; Generic GetSamplingStatisticSummariesResponse
+forall x.
+Rep GetSamplingStatisticSummariesResponse x
+-&gt; GetSamplingStatisticSummariesResponse
+forall x.
+GetSamplingStatisticSummariesResponse
+-&gt; Rep GetSamplingStatisticSummariesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetSamplingStatisticSummariesResponse x
+-&gt; GetSamplingStatisticSummariesResponse
+$cfrom :: forall x.
+GetSamplingStatisticSummariesResponse
+-&gt; Rep GetSamplingStatisticSummariesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Create a value of 'GetSamplingStatisticSummariesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'samplingStatisticSummaries', 'getSamplingStatisticSummariesResponse_samplingStatisticSummaries' - Information about the number of requests instrumented for each sampling</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- rule.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'nextToken', 'getSamplingStatisticSummariesResponse_nextToken' - Pagination token.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'httpStatus', 'getSamplingStatisticSummariesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#newGetSamplingStatisticSummariesResponse"><span class="hs-identifier hs-type">newGetSamplingStatisticSummariesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse"><span class="hs-identifier hs-type">GetSamplingStatisticSummariesResponse</span></a></span><span>
+</span><span id="line-174"></span><span id="newGetSamplingStatisticSummariesResponse"><span class="annot"><span class="annottext">newGetSamplingStatisticSummariesResponse :: Int -&gt; GetSamplingStatisticSummariesResponse
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#newGetSamplingStatisticSummariesResponse"><span class="hs-identifier hs-var hs-var">newGetSamplingStatisticSummariesResponse</span></a></span></span><span> </span><span id="local-6989586621679261138"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261138"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">GetSamplingStatisticSummariesResponse' :: Maybe [SamplingStatisticSummary]
+-&gt; Maybe Text -&gt; Int -&gt; GetSamplingStatisticSummariesResponse
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-type">GetSamplingStatisticSummariesResponse'</span></a></span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:samplingStatisticSummaries:GetSamplingStatisticSummariesResponse' :: Maybe [SamplingStatisticSummary]
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#%24sel%3AsamplingStatisticSummaries%3AGetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-var">samplingStatisticSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">Maybe [SamplingStatisticSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetSamplingStatisticSummariesResponse' :: Maybe Text
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#%24sel%3AnextToken%3AGetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSamplingStatisticSummariesResponse' :: Int
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#%24sel%3AhttpStatus%3AGetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261138"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | Information about the number of requests instrumented for each sampling</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- rule.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#getSamplingStatisticSummariesResponse_samplingStatisticSummaries"><span class="hs-identifier hs-type">getSamplingStatisticSummariesResponse_samplingStatisticSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse"><span class="hs-identifier hs-type">GetSamplingStatisticSummariesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingStatisticSummary.html#SamplingStatisticSummary"><span class="hs-identifier hs-type">SamplingStatisticSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="getSamplingStatisticSummariesResponse_samplingStatisticSummaries"><span class="annot"><span class="annottext">getSamplingStatisticSummariesResponse_samplingStatisticSummaries :: (Maybe [SamplingStatisticSummary]
+ -&gt; f (Maybe [SamplingStatisticSummary]))
+-&gt; GetSamplingStatisticSummariesResponse
+-&gt; f GetSamplingStatisticSummariesResponse
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#getSamplingStatisticSummariesResponse_samplingStatisticSummaries"><span class="hs-identifier hs-var hs-var">getSamplingStatisticSummariesResponse_samplingStatisticSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSamplingStatisticSummariesResponse
+ -&gt; Maybe [SamplingStatisticSummary])
+-&gt; (GetSamplingStatisticSummariesResponse
+    -&gt; Maybe [SamplingStatisticSummary]
+    -&gt; GetSamplingStatisticSummariesResponse)
+-&gt; Lens'
+     GetSamplingStatisticSummariesResponse
+     (Maybe [SamplingStatisticSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-type">GetSamplingStatisticSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261137"><span class="annot"><span class="annottext">Maybe [SamplingStatisticSummary]
+samplingStatisticSummaries :: Maybe [SamplingStatisticSummary]
+$sel:samplingStatisticSummaries:GetSamplingStatisticSummariesResponse' :: GetSamplingStatisticSummariesResponse
+-&gt; Maybe [SamplingStatisticSummary]
+</span><a href="#local-6989586621679261137"><span class="hs-identifier hs-var hs-var">samplingStatisticSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SamplingStatisticSummary]
+</span><a href="#local-6989586621679261137"><span class="hs-identifier hs-var">samplingStatisticSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261136"><span class="annot"><span class="annottext">s :: GetSamplingStatisticSummariesResponse
+</span><a href="#local-6989586621679261136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-type">GetSamplingStatisticSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261135"><span class="annot"><span class="annottext">Maybe [SamplingStatisticSummary]
+</span><a href="#local-6989586621679261135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSamplingStatisticSummariesResponse
+</span><a href="#local-6989586621679261136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:samplingStatisticSummaries:GetSamplingStatisticSummariesResponse' :: Maybe [SamplingStatisticSummary]
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#%24sel%3AsamplingStatisticSummaries%3AGetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-var">samplingStatisticSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SamplingStatisticSummary]
+</span><a href="#local-6989586621679261135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse"><span class="hs-identifier hs-type">GetSamplingStatisticSummariesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SamplingStatisticSummary]
+  -&gt; f (Maybe [SamplingStatisticSummary]))
+ -&gt; GetSamplingStatisticSummariesResponse
+ -&gt; f GetSamplingStatisticSummariesResponse)
+-&gt; ((Maybe [SamplingStatisticSummary]
+     -&gt; f (Maybe [SamplingStatisticSummary]))
+    -&gt; Maybe [SamplingStatisticSummary]
+    -&gt; f (Maybe [SamplingStatisticSummary]))
+-&gt; (Maybe [SamplingStatisticSummary]
+    -&gt; f (Maybe [SamplingStatisticSummary]))
+-&gt; GetSamplingStatisticSummariesResponse
+-&gt; f GetSamplingStatisticSummariesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SamplingStatisticSummary]
+  [SamplingStatisticSummary]
+  [SamplingStatisticSummary]
+  [SamplingStatisticSummary]
+-&gt; Iso
+     (Maybe [SamplingStatisticSummary])
+     (Maybe [SamplingStatisticSummary])
+     (Maybe [SamplingStatisticSummary])
+     (Maybe [SamplingStatisticSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SamplingStatisticSummary]
+  [SamplingStatisticSummary]
+  [SamplingStatisticSummary]
+  [SamplingStatisticSummary]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | Pagination token.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#getSamplingStatisticSummariesResponse_nextToken"><span class="hs-identifier hs-type">getSamplingStatisticSummariesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse"><span class="hs-identifier hs-type">GetSamplingStatisticSummariesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="getSamplingStatisticSummariesResponse_nextToken"><span class="annot"><span class="annottext">getSamplingStatisticSummariesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSamplingStatisticSummariesResponse
+-&gt; f GetSamplingStatisticSummariesResponse
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#getSamplingStatisticSummariesResponse_nextToken"><span class="hs-identifier hs-var hs-var">getSamplingStatisticSummariesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSamplingStatisticSummariesResponse -&gt; Maybe Text)
+-&gt; (GetSamplingStatisticSummariesResponse
+    -&gt; Maybe Text -&gt; GetSamplingStatisticSummariesResponse)
+-&gt; Lens' GetSamplingStatisticSummariesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-type">GetSamplingStatisticSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261132"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetSamplingStatisticSummariesResponse' :: GetSamplingStatisticSummariesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679261132"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261132"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261131"><span class="annot"><span class="annottext">s :: GetSamplingStatisticSummariesResponse
+</span><a href="#local-6989586621679261131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-type">GetSamplingStatisticSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261130"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSamplingStatisticSummariesResponse
+</span><a href="#local-6989586621679261131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetSamplingStatisticSummariesResponse' :: Maybe Text
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#%24sel%3AnextToken%3AGetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse"><span class="hs-identifier hs-type">GetSamplingStatisticSummariesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#getSamplingStatisticSummariesResponse_httpStatus"><span class="hs-identifier hs-type">getSamplingStatisticSummariesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse"><span class="hs-identifier hs-type">GetSamplingStatisticSummariesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-193"></span><span id="getSamplingStatisticSummariesResponse_httpStatus"><span class="annot"><span class="annottext">getSamplingStatisticSummariesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetSamplingStatisticSummariesResponse
+-&gt; f GetSamplingStatisticSummariesResponse
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#getSamplingStatisticSummariesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getSamplingStatisticSummariesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSamplingStatisticSummariesResponse -&gt; Int)
+-&gt; (GetSamplingStatisticSummariesResponse
+    -&gt; Int -&gt; GetSamplingStatisticSummariesResponse)
+-&gt; Lens
+     GetSamplingStatisticSummariesResponse
+     GetSamplingStatisticSummariesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-type">GetSamplingStatisticSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261129"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetSamplingStatisticSummariesResponse' :: GetSamplingStatisticSummariesResponse -&gt; Int
+</span><a href="#local-6989586621679261129"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261129"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261128"><span class="annot"><span class="annottext">s :: GetSamplingStatisticSummariesResponse
+</span><a href="#local-6989586621679261128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-type">GetSamplingStatisticSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261127"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSamplingStatisticSummariesResponse
+</span><a href="#local-6989586621679261128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSamplingStatisticSummariesResponse' :: Int
+</span><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#%24sel%3AhttpStatus%3AGetSamplingStatisticSummariesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse"><span class="hs-identifier hs-type">GetSamplingStatisticSummariesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679261125"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.GetSamplingStatisticSummaries.html#GetSamplingStatisticSummariesResponse"><span class="hs-identifier hs-type">GetSamplingStatisticSummariesResponse</span></a></span></span><span>
+</span><span id="line-198"></span></pre></body></html>

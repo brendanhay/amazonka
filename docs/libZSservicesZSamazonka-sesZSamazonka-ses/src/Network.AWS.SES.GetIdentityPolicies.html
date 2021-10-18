@@ -1,0 +1,538 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SES.GetIdentityPolicies</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the requested sending authorization policies for the given</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- identity (an email address or a domain). The policies are returned as a</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- map of policy names to policy contents. You can retrieve a maximum of 20</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- policies at a time.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This API is for the identity owner only. If you have not verified the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- identity, this API will return an error.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Sending authorization is a feature that enables an identity owner to</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- authorize other senders to use its identities. For information about</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- using sending authorization, see the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- You can execute this operation no more than once per second.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SES.GetIdentityPolicies</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies"><span class="hs-identifier">GetIdentityPolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#newGetIdentityPolicies"><span class="hs-identifier">newGetIdentityPolicies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#getIdentityPolicies_identity"><span class="hs-identifier">getIdentityPolicies_identity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#getIdentityPolicies_policyNames"><span class="hs-identifier">getIdentityPolicies_policyNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPoliciesResponse"><span class="hs-identifier">GetIdentityPoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#newGetIdentityPoliciesResponse"><span class="hs-identifier">newGetIdentityPoliciesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#getIdentityPoliciesResponse_httpStatus"><span class="hs-identifier">getIdentityPoliciesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#getIdentityPoliciesResponse_policies"><span class="hs-identifier">getIdentityPoliciesResponse_policies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.html"><span class="hs-identifier">Network.AWS.SES.Types</span></a></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Represents a request to return the requested sending authorization</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- policies for an identity. Sending authorization is an Amazon SES feature</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- that enables you to authorize other senders to use your identities. For</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- information, see the</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- /See:/ 'newGetIdentityPolicies' smart constructor.</span><span>
+</span><span id="line-70"></span><span id="local-6989586621679283965"><span id="local-6989586621679283966"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIdentityPolicies"><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies"><span class="hs-identifier hs-var">GetIdentityPolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIdentityPolicies%27"><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies%27"><span class="hs-identifier hs-var">GetIdentityPolicies'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identity for which the policies will be retrieved. You can specify</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- an identity by using its name or by using its Amazon Resource Name</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- (ARN). Examples: @user\@example.com@, @example.com@,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- To successfully call this API, you must own the identity.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Aidentity%3AGetIdentityPolicies%27"><span class="annot"><span class="annottext">GetIdentityPolicies -&gt; Text
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#%24sel%3Aidentity%3AGetIdentityPolicies%27"><span class="hs-identifier hs-var hs-var">identity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | A list of the names of policies to be retrieved. You can retrieve a</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- maximum of 20 policies at a time. If you do not know the names of the</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- policies that are attached to the identity, you can use</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- @ListIdentityPolicies@.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3ApolicyNames%3AGetIdentityPolicies%27"><span class="annot"><span class="annottext">GetIdentityPolicies -&gt; [Text]
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#%24sel%3ApolicyNames%3AGetIdentityPolicies%27"><span class="hs-identifier hs-var hs-var">policyNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283958"><span id="local-6989586621679283960"><span class="annot"><span class="annottext">GetIdentityPolicies -&gt; GetIdentityPolicies -&gt; Bool
+(GetIdentityPolicies -&gt; GetIdentityPolicies -&gt; Bool)
+-&gt; (GetIdentityPolicies -&gt; GetIdentityPolicies -&gt; Bool)
+-&gt; Eq GetIdentityPolicies
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetIdentityPolicies -&gt; GetIdentityPolicies -&gt; Bool
+$c/= :: GetIdentityPolicies -&gt; GetIdentityPolicies -&gt; Bool
+== :: GetIdentityPolicies -&gt; GetIdentityPolicies -&gt; Bool
+$c== :: GetIdentityPolicies -&gt; GetIdentityPolicies -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283949"><span id="local-6989586621679283951"><span id="local-6989586621679283953"><span id="local-6989586621679283955"><span class="annot"><span class="annottext">ReadPrec [GetIdentityPolicies]
+ReadPrec GetIdentityPolicies
+Int -&gt; ReadS GetIdentityPolicies
+ReadS [GetIdentityPolicies]
+(Int -&gt; ReadS GetIdentityPolicies)
+-&gt; ReadS [GetIdentityPolicies]
+-&gt; ReadPrec GetIdentityPolicies
+-&gt; ReadPrec [GetIdentityPolicies]
+-&gt; Read GetIdentityPolicies
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetIdentityPolicies]
+$creadListPrec :: ReadPrec [GetIdentityPolicies]
+readPrec :: ReadPrec GetIdentityPolicies
+$creadPrec :: ReadPrec GetIdentityPolicies
+readList :: ReadS [GetIdentityPolicies]
+$creadList :: ReadS [GetIdentityPolicies]
+readsPrec :: Int -&gt; ReadS GetIdentityPolicies
+$creadsPrec :: Int -&gt; ReadS GetIdentityPolicies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283942"><span id="local-6989586621679283944"><span id="local-6989586621679283946"><span class="annot"><span class="annottext">Int -&gt; GetIdentityPolicies -&gt; ShowS
+[GetIdentityPolicies] -&gt; ShowS
+GetIdentityPolicies -&gt; String
+(Int -&gt; GetIdentityPolicies -&gt; ShowS)
+-&gt; (GetIdentityPolicies -&gt; String)
+-&gt; ([GetIdentityPolicies] -&gt; ShowS)
+-&gt; Show GetIdentityPolicies
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetIdentityPolicies] -&gt; ShowS
+$cshowList :: [GetIdentityPolicies] -&gt; ShowS
+show :: GetIdentityPolicies -&gt; String
+$cshow :: GetIdentityPolicies -&gt; String
+showsPrec :: Int -&gt; GetIdentityPolicies -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetIdentityPolicies -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetIdentityPolicies -&gt; Rep GetIdentityPolicies x)
+-&gt; (forall x. Rep GetIdentityPolicies x -&gt; GetIdentityPolicies)
+-&gt; Generic GetIdentityPolicies
+forall x. Rep GetIdentityPolicies x -&gt; GetIdentityPolicies
+forall x. GetIdentityPolicies -&gt; Rep GetIdentityPolicies x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetIdentityPolicies x -&gt; GetIdentityPolicies
+$cfrom :: forall x. GetIdentityPolicies -&gt; Rep GetIdentityPolicies x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Create a value of 'GetIdentityPolicies' with all optional fields omitted.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'identity', 'getIdentityPolicies_identity' - The identity for which the policies will be retrieved. You can specify</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- an identity by using its name or by using its Amazon Resource Name</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- (ARN). Examples: @user\@example.com@, @example.com@,</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- To successfully call this API, you must own the identity.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'policyNames', 'getIdentityPolicies_policyNames' - A list of the names of policies to be retrieved. You can retrieve a</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- maximum of 20 policies at a time. If you do not know the names of the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- policies that are attached to the identity, you can use</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- @ListIdentityPolicies@.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#newGetIdentityPolicies"><span class="hs-identifier hs-type">newGetIdentityPolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-comment">-- | 'identity'</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies"><span class="hs-identifier hs-type">GetIdentityPolicies</span></a></span><span>
+</span><span id="line-109"></span><span id="newGetIdentityPolicies"><span class="annot"><span class="annottext">newGetIdentityPolicies :: Text -&gt; GetIdentityPolicies
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#newGetIdentityPolicies"><span class="hs-identifier hs-var hs-var">newGetIdentityPolicies</span></a></span></span><span> </span><span id="local-6989586621679283937"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283937"><span class="hs-identifier hs-var">pIdentity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="annottext">GetIdentityPolicies' :: Text -&gt; [Text] -&gt; GetIdentityPolicies
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies%27"><span class="hs-identifier hs-type">GetIdentityPolicies'</span></a></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identity:GetIdentityPolicies' :: Text
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#%24sel%3Aidentity%3AGetIdentityPolicies%27"><span class="hs-identifier hs-var">identity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283937"><span class="hs-identifier hs-var">pIdentity_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyNames:GetIdentityPolicies' :: [Text]
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#%24sel%3ApolicyNames%3AGetIdentityPolicies%27"><span class="hs-identifier hs-var">policyNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The identity for which the policies will be retrieved. You can specify</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- an identity by using its name or by using its Amazon Resource Name</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- (ARN). Examples: @user\@example.com@, @example.com@,</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- To successfully call this API, you must own the identity.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#getIdentityPolicies_identity"><span class="hs-identifier hs-type">getIdentityPolicies_identity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies"><span class="hs-identifier hs-type">GetIdentityPolicies</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="getIdentityPolicies_identity"><span class="annot"><span class="annottext">getIdentityPolicies_identity :: (Text -&gt; f Text) -&gt; GetIdentityPolicies -&gt; f GetIdentityPolicies
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#getIdentityPolicies_identity"><span class="hs-identifier hs-var hs-var">getIdentityPolicies_identity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIdentityPolicies -&gt; Text)
+-&gt; (GetIdentityPolicies -&gt; Text -&gt; GetIdentityPolicies)
+-&gt; Lens GetIdentityPolicies GetIdentityPolicies Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies%27"><span class="hs-identifier hs-type">GetIdentityPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283934"><span class="annot"><span class="annottext">Text
+identity :: Text
+$sel:identity:GetIdentityPolicies' :: GetIdentityPolicies -&gt; Text
+</span><a href="#local-6989586621679283934"><span class="hs-identifier hs-var hs-var">identity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283934"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283933"><span class="annot"><span class="annottext">s :: GetIdentityPolicies
+</span><a href="#local-6989586621679283933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies%27"><span class="hs-identifier hs-type">GetIdentityPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283932"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdentityPolicies
+</span><a href="#local-6989586621679283933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identity:GetIdentityPolicies' :: Text
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#%24sel%3Aidentity%3AGetIdentityPolicies%27"><span class="hs-identifier hs-var">identity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies"><span class="hs-identifier hs-type">GetIdentityPolicies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | A list of the names of policies to be retrieved. You can retrieve a</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- maximum of 20 policies at a time. If you do not know the names of the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- policies that are attached to the identity, you can use</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- @ListIdentityPolicies@.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#getIdentityPolicies_policyNames"><span class="hs-identifier hs-type">getIdentityPolicies_policyNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies"><span class="hs-identifier hs-type">GetIdentityPolicies</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span id="getIdentityPolicies_policyNames"><span class="annot"><span class="annottext">getIdentityPolicies_policyNames :: ([Text] -&gt; f [Text])
+-&gt; GetIdentityPolicies -&gt; f GetIdentityPolicies
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#getIdentityPolicies_policyNames"><span class="hs-identifier hs-var hs-var">getIdentityPolicies_policyNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIdentityPolicies -&gt; [Text])
+-&gt; (GetIdentityPolicies -&gt; [Text] -&gt; GetIdentityPolicies)
+-&gt; Lens GetIdentityPolicies GetIdentityPolicies [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies%27"><span class="hs-identifier hs-type">GetIdentityPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283931"><span class="annot"><span class="annottext">[Text]
+policyNames :: [Text]
+$sel:policyNames:GetIdentityPolicies' :: GetIdentityPolicies -&gt; [Text]
+</span><a href="#local-6989586621679283931"><span class="hs-identifier hs-var hs-var">policyNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679283931"><span class="hs-identifier hs-var">policyNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283930"><span class="annot"><span class="annottext">s :: GetIdentityPolicies
+</span><a href="#local-6989586621679283930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies%27"><span class="hs-identifier hs-type">GetIdentityPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283929"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679283929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdentityPolicies
+</span><a href="#local-6989586621679283930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyNames:GetIdentityPolicies' :: [Text]
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#%24sel%3ApolicyNames%3AGetIdentityPolicies%27"><span class="hs-identifier hs-var">policyNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679283929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies"><span class="hs-identifier hs-type">GetIdentityPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; GetIdentityPolicies -&gt; f GetIdentityPolicies)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; GetIdentityPolicies
+-&gt; f GetIdentityPolicies
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies"><span class="hs-identifier hs-type">GetIdentityPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-133"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies"><span class="hs-identifier hs-type">GetIdentityPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPoliciesResponse"><span class="hs-identifier hs-type">GetIdentityPoliciesResponse</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679283923"><span class="annot"><span class="annottext">request :: GetIdentityPolicies -&gt; Request GetIdentityPolicies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetIdentityPolicies -&gt; Request GetIdentityPolicies
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679283919"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetIdentityPolicies
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetIdentityPolicies)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse GetIdentityPolicies))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetIdentityPolicies
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetIdentityPolicies)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GetIdentityPoliciesResult&quot;</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283916"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283916"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679283915"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679283915"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679283914"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679283914"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; HashMap Text Text -&gt; GetIdentityPoliciesResponse
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPoliciesResponse%27"><span class="hs-identifier hs-var">GetIdentityPoliciesResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; HashMap Text Text -&gt; GetIdentityPoliciesResponse)
+-&gt; Either String Int
+-&gt; Either String (HashMap Text Text -&gt; GetIdentityPoliciesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283916"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either String (HashMap Text Text -&gt; GetIdentityPoliciesResponse)
+-&gt; Either String (HashMap Text Text)
+-&gt; Either String GetIdentityPoliciesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679283914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Policies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (HashMap Text Text))
+-&gt; Either String (HashMap Text Text)
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text -&gt; [Node] -&gt; Either String (HashMap Text Text)
+forall k v.
+(Eq k, Hashable k, FromText k, FromXML v) =&gt;
+Text -&gt; Text -&gt; Text -&gt; [Node] -&gt; Either String (HashMap k v)
+</span><span class="hs-identifier hs-var">Core.parseXMLMap</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entry&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span>
+</span><span id="line-144"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283904"><span id="local-6989586621679283906"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies"><span class="hs-identifier hs-type">GetIdentityPolicies</span></a></span></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283901"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies"><span class="hs-identifier hs-type">GetIdentityPolicies</span></a></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies"><span class="hs-identifier hs-type">GetIdentityPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679283897"><span class="annot"><span class="annottext">toHeaders :: GetIdentityPolicies -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetIdentityPolicies -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies"><span class="hs-identifier hs-type">GetIdentityPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679283892"><span class="annot"><span class="annottext">toPath :: GetIdentityPolicies -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetIdentityPolicies -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies"><span class="hs-identifier hs-type">GetIdentityPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679283888"><span class="annot"><span class="annottext">toQuery :: GetIdentityPolicies -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPolicies%27"><span class="hs-identifier hs-type">GetIdentityPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283885"><span id="local-6989586621679283886"><span class="annot"><span class="annottext">[Text]
+Text
+policyNames :: [Text]
+identity :: Text
+$sel:policyNames:GetIdentityPolicies' :: GetIdentityPolicies -&gt; [Text]
+$sel:identity:GetIdentityPolicies' :: GetIdentityPolicies -&gt; Text
+</span><a href="#local-6989586621679283885"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GetIdentityPolicies&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Identity&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283886"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PolicyNames&quot;</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679283885"><span class="hs-identifier hs-var">policyNames</span></a></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | Represents the requested sending authorization policies.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- /See:/ 'newGetIdentityPoliciesResponse' smart constructor.</span><span>
+</span><span id="line-172"></span><span id="local-6989586621679283881"><span id="local-6989586621679283882"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIdentityPoliciesResponse"><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPoliciesResponse"><span class="hs-identifier hs-var">GetIdentityPoliciesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIdentityPoliciesResponse%27"><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPoliciesResponse%27"><span class="hs-identifier hs-var">GetIdentityPoliciesResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetIdentityPoliciesResponse%27"><span class="annot"><span class="annottext">GetIdentityPoliciesResponse -&gt; Int
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#%24sel%3AhttpStatus%3AGetIdentityPoliciesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | A map of policy names to policies.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3Apolicies%3AGetIdentityPoliciesResponse%27"><span class="annot"><span class="annottext">GetIdentityPoliciesResponse -&gt; HashMap Text Text
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#%24sel%3Apolicies%3AGetIdentityPoliciesResponse%27"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283875"><span id="local-6989586621679283877"><span class="annot"><span class="annottext">GetIdentityPoliciesResponse -&gt; GetIdentityPoliciesResponse -&gt; Bool
+(GetIdentityPoliciesResponse
+ -&gt; GetIdentityPoliciesResponse -&gt; Bool)
+-&gt; (GetIdentityPoliciesResponse
+    -&gt; GetIdentityPoliciesResponse -&gt; Bool)
+-&gt; Eq GetIdentityPoliciesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetIdentityPoliciesResponse -&gt; GetIdentityPoliciesResponse -&gt; Bool
+$c/= :: GetIdentityPoliciesResponse -&gt; GetIdentityPoliciesResponse -&gt; Bool
+== :: GetIdentityPoliciesResponse -&gt; GetIdentityPoliciesResponse -&gt; Bool
+$c== :: GetIdentityPoliciesResponse -&gt; GetIdentityPoliciesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283867"><span id="local-6989586621679283869"><span id="local-6989586621679283871"><span id="local-6989586621679283873"><span class="annot"><span class="annottext">ReadPrec [GetIdentityPoliciesResponse]
+ReadPrec GetIdentityPoliciesResponse
+Int -&gt; ReadS GetIdentityPoliciesResponse
+ReadS [GetIdentityPoliciesResponse]
+(Int -&gt; ReadS GetIdentityPoliciesResponse)
+-&gt; ReadS [GetIdentityPoliciesResponse]
+-&gt; ReadPrec GetIdentityPoliciesResponse
+-&gt; ReadPrec [GetIdentityPoliciesResponse]
+-&gt; Read GetIdentityPoliciesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetIdentityPoliciesResponse]
+$creadListPrec :: ReadPrec [GetIdentityPoliciesResponse]
+readPrec :: ReadPrec GetIdentityPoliciesResponse
+$creadPrec :: ReadPrec GetIdentityPoliciesResponse
+readList :: ReadS [GetIdentityPoliciesResponse]
+$creadList :: ReadS [GetIdentityPoliciesResponse]
+readsPrec :: Int -&gt; ReadS GetIdentityPoliciesResponse
+$creadsPrec :: Int -&gt; ReadS GetIdentityPoliciesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283861"><span id="local-6989586621679283863"><span id="local-6989586621679283865"><span class="annot"><span class="annottext">Int -&gt; GetIdentityPoliciesResponse -&gt; ShowS
+[GetIdentityPoliciesResponse] -&gt; ShowS
+GetIdentityPoliciesResponse -&gt; String
+(Int -&gt; GetIdentityPoliciesResponse -&gt; ShowS)
+-&gt; (GetIdentityPoliciesResponse -&gt; String)
+-&gt; ([GetIdentityPoliciesResponse] -&gt; ShowS)
+-&gt; Show GetIdentityPoliciesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetIdentityPoliciesResponse] -&gt; ShowS
+$cshowList :: [GetIdentityPoliciesResponse] -&gt; ShowS
+show :: GetIdentityPoliciesResponse -&gt; String
+$cshow :: GetIdentityPoliciesResponse -&gt; String
+showsPrec :: Int -&gt; GetIdentityPoliciesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetIdentityPoliciesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetIdentityPoliciesResponse -&gt; Rep GetIdentityPoliciesResponse x)
+-&gt; (forall x.
+    Rep GetIdentityPoliciesResponse x -&gt; GetIdentityPoliciesResponse)
+-&gt; Generic GetIdentityPoliciesResponse
+forall x.
+Rep GetIdentityPoliciesResponse x -&gt; GetIdentityPoliciesResponse
+forall x.
+GetIdentityPoliciesResponse -&gt; Rep GetIdentityPoliciesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetIdentityPoliciesResponse x -&gt; GetIdentityPoliciesResponse
+$cfrom :: forall x.
+GetIdentityPoliciesResponse -&gt; Rep GetIdentityPoliciesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Create a value of 'GetIdentityPoliciesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'httpStatus', 'getIdentityPoliciesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'policies', 'getIdentityPoliciesResponse_policies' - A map of policy names to policies.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#newGetIdentityPoliciesResponse"><span class="hs-identifier hs-type">newGetIdentityPoliciesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPoliciesResponse"><span class="hs-identifier hs-type">GetIdentityPoliciesResponse</span></a></span><span>
+</span><span id="line-195"></span><span id="newGetIdentityPoliciesResponse"><span class="annot"><span class="annottext">newGetIdentityPoliciesResponse :: Int -&gt; GetIdentityPoliciesResponse
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#newGetIdentityPoliciesResponse"><span class="hs-identifier hs-var hs-var">newGetIdentityPoliciesResponse</span></a></span></span><span> </span><span id="local-6989586621679283858"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283858"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">GetIdentityPoliciesResponse' :: Int -&gt; HashMap Text Text -&gt; GetIdentityPoliciesResponse
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPoliciesResponse%27"><span class="hs-identifier hs-type">GetIdentityPoliciesResponse'</span></a></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetIdentityPoliciesResponse' :: Int
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#%24sel%3AhttpStatus%3AGetIdentityPoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283858"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:policies:GetIdentityPoliciesResponse' :: HashMap Text Text
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#%24sel%3Apolicies%3AGetIdentityPoliciesResponse%27"><span class="hs-identifier hs-var">policies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#getIdentityPoliciesResponse_httpStatus"><span class="hs-identifier hs-type">getIdentityPoliciesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPoliciesResponse"><span class="hs-identifier hs-type">GetIdentityPoliciesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-204"></span><span id="getIdentityPoliciesResponse_httpStatus"><span class="annot"><span class="annottext">getIdentityPoliciesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetIdentityPoliciesResponse -&gt; f GetIdentityPoliciesResponse
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#getIdentityPoliciesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getIdentityPoliciesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIdentityPoliciesResponse -&gt; Int)
+-&gt; (GetIdentityPoliciesResponse
+    -&gt; Int -&gt; GetIdentityPoliciesResponse)
+-&gt; Lens
+     GetIdentityPoliciesResponse GetIdentityPoliciesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPoliciesResponse%27"><span class="hs-identifier hs-type">GetIdentityPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283857"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetIdentityPoliciesResponse' :: GetIdentityPoliciesResponse -&gt; Int
+</span><a href="#local-6989586621679283857"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283857"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283856"><span class="annot"><span class="annottext">s :: GetIdentityPoliciesResponse
+</span><a href="#local-6989586621679283856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPoliciesResponse%27"><span class="hs-identifier hs-type">GetIdentityPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283855"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdentityPoliciesResponse
+</span><a href="#local-6989586621679283856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetIdentityPoliciesResponse' :: Int
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#%24sel%3AhttpStatus%3AGetIdentityPoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPoliciesResponse"><span class="hs-identifier hs-type">GetIdentityPoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | A map of policy names to policies.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#getIdentityPoliciesResponse_policies"><span class="hs-identifier hs-type">getIdentityPoliciesResponse_policies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPoliciesResponse"><span class="hs-identifier hs-type">GetIdentityPoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="getIdentityPoliciesResponse_policies"><span class="annot"><span class="annottext">getIdentityPoliciesResponse_policies :: (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; GetIdentityPoliciesResponse -&gt; f GetIdentityPoliciesResponse
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#getIdentityPoliciesResponse_policies"><span class="hs-identifier hs-var hs-var">getIdentityPoliciesResponse_policies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIdentityPoliciesResponse -&gt; HashMap Text Text)
+-&gt; (GetIdentityPoliciesResponse
+    -&gt; HashMap Text Text -&gt; GetIdentityPoliciesResponse)
+-&gt; Lens
+     GetIdentityPoliciesResponse
+     GetIdentityPoliciesResponse
+     (HashMap Text Text)
+     (HashMap Text Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPoliciesResponse%27"><span class="hs-identifier hs-type">GetIdentityPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283854"><span class="annot"><span class="annottext">HashMap Text Text
+policies :: HashMap Text Text
+$sel:policies:GetIdentityPoliciesResponse' :: GetIdentityPoliciesResponse -&gt; HashMap Text Text
+</span><a href="#local-6989586621679283854"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679283854"><span class="hs-identifier hs-var">policies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283853"><span class="annot"><span class="annottext">s :: GetIdentityPoliciesResponse
+</span><a href="#local-6989586621679283853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPoliciesResponse%27"><span class="hs-identifier hs-type">GetIdentityPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283852"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679283852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdentityPoliciesResponse
+</span><a href="#local-6989586621679283853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policies:GetIdentityPoliciesResponse' :: HashMap Text Text
+</span><a href="Network.AWS.SES.GetIdentityPolicies.html#%24sel%3Apolicies%3AGetIdentityPoliciesResponse%27"><span class="hs-identifier hs-var">policies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679283852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPoliciesResponse"><span class="hs-identifier hs-type">GetIdentityPoliciesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+ -&gt; GetIdentityPoliciesResponse -&gt; f GetIdentityPoliciesResponse)
+-&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
+    -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; GetIdentityPoliciesResponse
+-&gt; f GetIdentityPoliciesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; HashMap Text Text -&gt; f (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283850"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityPolicies.html#GetIdentityPoliciesResponse"><span class="hs-identifier hs-type">GetIdentityPoliciesResponse</span></a></span></span><span>
+</span><span id="line-211"></span></pre></body></html>

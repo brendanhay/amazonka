@@ -1,0 +1,481 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Shield.DescribeProtection</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the details of a Protection object.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Shield.DescribeProtection</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection"><span class="hs-identifier">DescribeProtection</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#newDescribeProtection"><span class="hs-identifier">newDescribeProtection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#describeProtection_resourceArn"><span class="hs-identifier">describeProtection_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#describeProtection_protectionId"><span class="hs-identifier">describeProtection_protectionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtectionResponse"><span class="hs-identifier">DescribeProtectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#newDescribeProtectionResponse"><span class="hs-identifier">newDescribeProtectionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#describeProtectionResponse_protection"><span class="hs-identifier">describeProtectionResponse_protection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#describeProtectionResponse_httpStatus"><span class="hs-identifier">describeProtectionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.html"><span class="hs-identifier">Network.AWS.Shield.Types</span></a></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeProtection' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679208730"><span id="local-6989586621679208731"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeProtection"><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection"><span class="hs-identifier hs-var">DescribeProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeProtection%27"><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection%27"><span class="hs-identifier hs-var">DescribeProtection'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN (Amazon Resource Name) of the Amazon Web Services resource for</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- the Protection object that is described. When submitting the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- @DescribeProtection@ request you must provide either the @ResourceArn@</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- or the @ProtectionID@, but not both.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AresourceArn%3ADescribeProtection%27"><span class="annot"><span class="annottext">DescribeProtection -&gt; Maybe Text
+</span><a href="Network.AWS.Shield.DescribeProtection.html#%24sel%3AresourceArn%3ADescribeProtection%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The unique identifier (ID) for the Protection object that is described.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- When submitting the @DescribeProtection@ request you must provide either</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- the @ResourceArn@ or the @ProtectionID@, but not both.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AprotectionId%3ADescribeProtection%27"><span class="annot"><span class="annottext">DescribeProtection -&gt; Maybe Text
+</span><a href="Network.AWS.Shield.DescribeProtection.html#%24sel%3AprotectionId%3ADescribeProtection%27"><span class="hs-identifier hs-var hs-var">protectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208723"><span id="local-6989586621679208725"><span class="annot"><span class="annottext">DescribeProtection -&gt; DescribeProtection -&gt; Bool
+(DescribeProtection -&gt; DescribeProtection -&gt; Bool)
+-&gt; (DescribeProtection -&gt; DescribeProtection -&gt; Bool)
+-&gt; Eq DescribeProtection
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeProtection -&gt; DescribeProtection -&gt; Bool
+$c/= :: DescribeProtection -&gt; DescribeProtection -&gt; Bool
+== :: DescribeProtection -&gt; DescribeProtection -&gt; Bool
+$c== :: DescribeProtection -&gt; DescribeProtection -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208714"><span id="local-6989586621679208716"><span id="local-6989586621679208718"><span id="local-6989586621679208720"><span class="annot"><span class="annottext">ReadPrec [DescribeProtection]
+ReadPrec DescribeProtection
+Int -&gt; ReadS DescribeProtection
+ReadS [DescribeProtection]
+(Int -&gt; ReadS DescribeProtection)
+-&gt; ReadS [DescribeProtection]
+-&gt; ReadPrec DescribeProtection
+-&gt; ReadPrec [DescribeProtection]
+-&gt; Read DescribeProtection
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeProtection]
+$creadListPrec :: ReadPrec [DescribeProtection]
+readPrec :: ReadPrec DescribeProtection
+$creadPrec :: ReadPrec DescribeProtection
+readList :: ReadS [DescribeProtection]
+$creadList :: ReadS [DescribeProtection]
+readsPrec :: Int -&gt; ReadS DescribeProtection
+$creadsPrec :: Int -&gt; ReadS DescribeProtection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208707"><span id="local-6989586621679208709"><span id="local-6989586621679208711"><span class="annot"><span class="annottext">Int -&gt; DescribeProtection -&gt; ShowS
+[DescribeProtection] -&gt; ShowS
+DescribeProtection -&gt; String
+(Int -&gt; DescribeProtection -&gt; ShowS)
+-&gt; (DescribeProtection -&gt; String)
+-&gt; ([DescribeProtection] -&gt; ShowS)
+-&gt; Show DescribeProtection
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeProtection] -&gt; ShowS
+$cshowList :: [DescribeProtection] -&gt; ShowS
+show :: DescribeProtection -&gt; String
+$cshow :: DescribeProtection -&gt; String
+showsPrec :: Int -&gt; DescribeProtection -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeProtection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeProtection -&gt; Rep DescribeProtection x)
+-&gt; (forall x. Rep DescribeProtection x -&gt; DescribeProtection)
+-&gt; Generic DescribeProtection
+forall x. Rep DescribeProtection x -&gt; DescribeProtection
+forall x. DescribeProtection -&gt; Rep DescribeProtection x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeProtection x -&gt; DescribeProtection
+$cfrom :: forall x. DescribeProtection -&gt; Rep DescribeProtection x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DescribeProtection' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'resourceArn', 'describeProtection_resourceArn' - The ARN (Amazon Resource Name) of the Amazon Web Services resource for</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- the Protection object that is described. When submitting the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- @DescribeProtection@ request you must provide either the @ResourceArn@</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- or the @ProtectionID@, but not both.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'protectionId', 'describeProtection_protectionId' - The unique identifier (ID) for the Protection object that is described.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- When submitting the @DescribeProtection@ request you must provide either</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- the @ResourceArn@ or the @ProtectionID@, but not both.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#newDescribeProtection"><span class="hs-identifier hs-type">newDescribeProtection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection"><span class="hs-identifier hs-type">DescribeProtection</span></a></span><span>
+</span><span id="line-82"></span><span id="newDescribeProtection"><span class="annot"><span class="annottext">newDescribeProtection :: DescribeProtection
+</span><a href="Network.AWS.Shield.DescribeProtection.html#newDescribeProtection"><span class="hs-identifier hs-var hs-var">newDescribeProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">DescribeProtection' :: Maybe Text -&gt; Maybe Text -&gt; DescribeProtection
+</span><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection%27"><span class="hs-identifier hs-type">DescribeProtection'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceArn:DescribeProtection' :: Maybe Text
+</span><a href="Network.AWS.Shield.DescribeProtection.html#%24sel%3AresourceArn%3ADescribeProtection%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:protectionId:DescribeProtection' :: Maybe Text
+</span><a href="Network.AWS.Shield.DescribeProtection.html#%24sel%3AprotectionId%3ADescribeProtection%27"><span class="hs-identifier hs-var">protectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The ARN (Amazon Resource Name) of the Amazon Web Services resource for</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- the Protection object that is described. When submitting the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- @DescribeProtection@ request you must provide either the @ResourceArn@</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- or the @ProtectionID@, but not both.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#describeProtection_resourceArn"><span class="hs-identifier hs-type">describeProtection_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection"><span class="hs-identifier hs-type">DescribeProtection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="describeProtection_resourceArn"><span class="annot"><span class="annottext">describeProtection_resourceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeProtection -&gt; f DescribeProtection
+</span><a href="Network.AWS.Shield.DescribeProtection.html#describeProtection_resourceArn"><span class="hs-identifier hs-var hs-var">describeProtection_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProtection -&gt; Maybe Text)
+-&gt; (DescribeProtection -&gt; Maybe Text -&gt; DescribeProtection)
+-&gt; Lens
+     DescribeProtection DescribeProtection (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection%27"><span class="hs-identifier hs-type">DescribeProtection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208700"><span class="annot"><span class="annottext">Maybe Text
+resourceArn :: Maybe Text
+$sel:resourceArn:DescribeProtection' :: DescribeProtection -&gt; Maybe Text
+</span><a href="#local-6989586621679208700"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208700"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208699"><span class="annot"><span class="annottext">s :: DescribeProtection
+</span><a href="#local-6989586621679208699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection%27"><span class="hs-identifier hs-type">DescribeProtection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208698"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProtection
+</span><a href="#local-6989586621679208699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:DescribeProtection' :: Maybe Text
+</span><a href="Network.AWS.Shield.DescribeProtection.html#%24sel%3AresourceArn%3ADescribeProtection%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection"><span class="hs-identifier hs-type">DescribeProtection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The unique identifier (ID) for the Protection object that is described.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- When submitting the @DescribeProtection@ request you must provide either</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- the @ResourceArn@ or the @ProtectionID@, but not both.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#describeProtection_protectionId"><span class="hs-identifier hs-type">describeProtection_protectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection"><span class="hs-identifier hs-type">DescribeProtection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="describeProtection_protectionId"><span class="annot"><span class="annottext">describeProtection_protectionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeProtection -&gt; f DescribeProtection
+</span><a href="Network.AWS.Shield.DescribeProtection.html#describeProtection_protectionId"><span class="hs-identifier hs-var hs-var">describeProtection_protectionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProtection -&gt; Maybe Text)
+-&gt; (DescribeProtection -&gt; Maybe Text -&gt; DescribeProtection)
+-&gt; Lens
+     DescribeProtection DescribeProtection (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection%27"><span class="hs-identifier hs-type">DescribeProtection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208697"><span class="annot"><span class="annottext">Maybe Text
+protectionId :: Maybe Text
+$sel:protectionId:DescribeProtection' :: DescribeProtection -&gt; Maybe Text
+</span><a href="#local-6989586621679208697"><span class="hs-identifier hs-var hs-var">protectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208697"><span class="hs-identifier hs-var">protectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208696"><span class="annot"><span class="annottext">s :: DescribeProtection
+</span><a href="#local-6989586621679208696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection%27"><span class="hs-identifier hs-type">DescribeProtection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208695"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProtection
+</span><a href="#local-6989586621679208696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectionId:DescribeProtection' :: Maybe Text
+</span><a href="Network.AWS.Shield.DescribeProtection.html#%24sel%3AprotectionId%3ADescribeProtection%27"><span class="hs-identifier hs-var">protectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection"><span class="hs-identifier hs-type">DescribeProtection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection"><span class="hs-identifier hs-type">DescribeProtection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection"><span class="hs-identifier hs-type">DescribeProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtectionResponse"><span class="hs-identifier hs-type">DescribeProtectionResponse</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679208691"><span class="annot"><span class="annottext">request :: DescribeProtection -&gt; Request DescribeProtection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeProtection -&gt; Request DescribeProtection
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Shield.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679208687"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeProtection
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeProtection)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeProtection))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeProtection
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeProtection)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679208684"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679208684"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679208683"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679208683"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679208682"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679208682"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe Protection -&gt; Int -&gt; DescribeProtectionResponse
+</span><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtectionResponse%27"><span class="hs-identifier hs-var">DescribeProtectionResponse'</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Protection -&gt; Int -&gt; DescribeProtectionResponse)
+-&gt; Either String (Maybe Protection)
+-&gt; Either String (Int -&gt; DescribeProtectionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679208682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Protection)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Protection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeProtectionResponse)
+-&gt; Either String Int -&gt; Either String DescribeProtectionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679208684"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208674"><span id="local-6989586621679208676"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection"><span class="hs-identifier hs-type">DescribeProtection</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection"><span class="hs-identifier hs-type">DescribeProtection</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection"><span class="hs-identifier hs-type">DescribeProtection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679208667"><span class="annot"><span class="annottext">toHeaders :: DescribeProtection -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeProtection -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSShield_20160616.DescribeProtection&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-129"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208657"><span id="local-6989586621679208659"><span id="local-6989586621679208661"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection"><span class="hs-identifier hs-type">DescribeProtection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679208655"><span class="annot"><span class="annottext">toJSON :: DescribeProtection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection%27"><span class="hs-identifier hs-type">DescribeProtection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208652"><span id="local-6989586621679208653"><span class="annot"><span class="annottext">Maybe Text
+protectionId :: Maybe Text
+resourceArn :: Maybe Text
+$sel:protectionId:DescribeProtection' :: DescribeProtection -&gt; Maybe Text
+$sel:resourceArn:DescribeProtection' :: DescribeProtection -&gt; Maybe Text
+</span><a href="#local-6989586621679208652"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208653"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProtectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208652"><span class="hs-identifier hs-var">protectionId</span></a></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection"><span class="hs-identifier hs-type">DescribeProtection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679208646"><span class="annot"><span class="annottext">toPath :: DescribeProtection -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeProtection -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtection"><span class="hs-identifier hs-type">DescribeProtection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679208642"><span class="annot"><span class="annottext">toQuery :: DescribeProtection -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeProtection -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newDescribeProtectionResponse' smart constructor.</span><span>
+</span><span id="line-149"></span><span id="local-6989586621679208639"><span id="local-6989586621679208640"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeProtectionResponse"><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtectionResponse"><span class="hs-identifier hs-var">DescribeProtectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeProtectionResponse%27"><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtectionResponse%27"><span class="hs-identifier hs-var">DescribeProtectionResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Protection object that is described.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3Aprotection%3ADescribeProtectionResponse%27"><span class="annot"><span class="annottext">DescribeProtectionResponse -&gt; Maybe Protection
+</span><a href="Network.AWS.Shield.DescribeProtection.html#%24sel%3Aprotection%3ADescribeProtectionResponse%27"><span class="hs-identifier hs-var hs-var">protection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Protection.html#Protection"><span class="hs-identifier hs-type">Protection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeProtectionResponse%27"><span class="annot"><span class="annottext">DescribeProtectionResponse -&gt; Int
+</span><a href="Network.AWS.Shield.DescribeProtection.html#%24sel%3AhttpStatus%3ADescribeProtectionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208633"><span id="local-6989586621679208635"><span class="annot"><span class="annottext">DescribeProtectionResponse -&gt; DescribeProtectionResponse -&gt; Bool
+(DescribeProtectionResponse -&gt; DescribeProtectionResponse -&gt; Bool)
+-&gt; (DescribeProtectionResponse
+    -&gt; DescribeProtectionResponse -&gt; Bool)
+-&gt; Eq DescribeProtectionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeProtectionResponse -&gt; DescribeProtectionResponse -&gt; Bool
+$c/= :: DescribeProtectionResponse -&gt; DescribeProtectionResponse -&gt; Bool
+== :: DescribeProtectionResponse -&gt; DescribeProtectionResponse -&gt; Bool
+$c== :: DescribeProtectionResponse -&gt; DescribeProtectionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208625"><span id="local-6989586621679208627"><span id="local-6989586621679208629"><span id="local-6989586621679208631"><span class="annot"><span class="annottext">ReadPrec [DescribeProtectionResponse]
+ReadPrec DescribeProtectionResponse
+Int -&gt; ReadS DescribeProtectionResponse
+ReadS [DescribeProtectionResponse]
+(Int -&gt; ReadS DescribeProtectionResponse)
+-&gt; ReadS [DescribeProtectionResponse]
+-&gt; ReadPrec DescribeProtectionResponse
+-&gt; ReadPrec [DescribeProtectionResponse]
+-&gt; Read DescribeProtectionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeProtectionResponse]
+$creadListPrec :: ReadPrec [DescribeProtectionResponse]
+readPrec :: ReadPrec DescribeProtectionResponse
+$creadPrec :: ReadPrec DescribeProtectionResponse
+readList :: ReadS [DescribeProtectionResponse]
+$creadList :: ReadS [DescribeProtectionResponse]
+readsPrec :: Int -&gt; ReadS DescribeProtectionResponse
+$creadsPrec :: Int -&gt; ReadS DescribeProtectionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208619"><span id="local-6989586621679208621"><span id="local-6989586621679208623"><span class="annot"><span class="annottext">Int -&gt; DescribeProtectionResponse -&gt; ShowS
+[DescribeProtectionResponse] -&gt; ShowS
+DescribeProtectionResponse -&gt; String
+(Int -&gt; DescribeProtectionResponse -&gt; ShowS)
+-&gt; (DescribeProtectionResponse -&gt; String)
+-&gt; ([DescribeProtectionResponse] -&gt; ShowS)
+-&gt; Show DescribeProtectionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeProtectionResponse] -&gt; ShowS
+$cshowList :: [DescribeProtectionResponse] -&gt; ShowS
+show :: DescribeProtectionResponse -&gt; String
+$cshow :: DescribeProtectionResponse -&gt; String
+showsPrec :: Int -&gt; DescribeProtectionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeProtectionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeProtectionResponse -&gt; Rep DescribeProtectionResponse x)
+-&gt; (forall x.
+    Rep DescribeProtectionResponse x -&gt; DescribeProtectionResponse)
+-&gt; Generic DescribeProtectionResponse
+forall x.
+Rep DescribeProtectionResponse x -&gt; DescribeProtectionResponse
+forall x.
+DescribeProtectionResponse -&gt; Rep DescribeProtectionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeProtectionResponse x -&gt; DescribeProtectionResponse
+$cfrom :: forall x.
+DescribeProtectionResponse -&gt; Rep DescribeProtectionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Create a value of 'DescribeProtectionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'protection', 'describeProtectionResponse_protection' - The Protection object that is described.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'httpStatus', 'describeProtectionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#newDescribeProtectionResponse"><span class="hs-identifier hs-type">newDescribeProtectionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtectionResponse"><span class="hs-identifier hs-type">DescribeProtectionResponse</span></a></span><span>
+</span><span id="line-172"></span><span id="newDescribeProtectionResponse"><span class="annot"><span class="annottext">newDescribeProtectionResponse :: Int -&gt; DescribeProtectionResponse
+</span><a href="Network.AWS.Shield.DescribeProtection.html#newDescribeProtectionResponse"><span class="hs-identifier hs-var hs-var">newDescribeProtectionResponse</span></a></span></span><span> </span><span id="local-6989586621679208616"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679208616"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">DescribeProtectionResponse' :: Maybe Protection -&gt; Int -&gt; DescribeProtectionResponse
+</span><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtectionResponse%27"><span class="hs-identifier hs-type">DescribeProtectionResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:protection:DescribeProtectionResponse' :: Maybe Protection
+</span><a href="Network.AWS.Shield.DescribeProtection.html#%24sel%3Aprotection%3ADescribeProtectionResponse%27"><span class="hs-identifier hs-var">protection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Maybe Protection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeProtectionResponse' :: Int
+</span><a href="Network.AWS.Shield.DescribeProtection.html#%24sel%3AhttpStatus%3ADescribeProtectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679208616"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The Protection object that is described.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#describeProtectionResponse_protection"><span class="hs-identifier hs-type">describeProtectionResponse_protection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtectionResponse"><span class="hs-identifier hs-type">DescribeProtectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Protection.html#Protection"><span class="hs-identifier hs-type">Protection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="describeProtectionResponse_protection"><span class="annot"><span class="annottext">describeProtectionResponse_protection :: (Maybe Protection -&gt; f (Maybe Protection))
+-&gt; DescribeProtectionResponse -&gt; f DescribeProtectionResponse
+</span><a href="Network.AWS.Shield.DescribeProtection.html#describeProtectionResponse_protection"><span class="hs-identifier hs-var hs-var">describeProtectionResponse_protection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProtectionResponse -&gt; Maybe Protection)
+-&gt; (DescribeProtectionResponse
+    -&gt; Maybe Protection -&gt; DescribeProtectionResponse)
+-&gt; Lens
+     DescribeProtectionResponse
+     DescribeProtectionResponse
+     (Maybe Protection)
+     (Maybe Protection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtectionResponse%27"><span class="hs-identifier hs-type">DescribeProtectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208615"><span class="annot"><span class="annottext">Maybe Protection
+protection :: Maybe Protection
+$sel:protection:DescribeProtectionResponse' :: DescribeProtectionResponse -&gt; Maybe Protection
+</span><a href="#local-6989586621679208615"><span class="hs-identifier hs-var hs-var">protection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Protection
+</span><a href="#local-6989586621679208615"><span class="hs-identifier hs-var">protection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208614"><span class="annot"><span class="annottext">s :: DescribeProtectionResponse
+</span><a href="#local-6989586621679208614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtectionResponse%27"><span class="hs-identifier hs-type">DescribeProtectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208613"><span class="annot"><span class="annottext">Maybe Protection
+</span><a href="#local-6989586621679208613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProtectionResponse
+</span><a href="#local-6989586621679208614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protection:DescribeProtectionResponse' :: Maybe Protection
+</span><a href="Network.AWS.Shield.DescribeProtection.html#%24sel%3Aprotection%3ADescribeProtectionResponse%27"><span class="hs-identifier hs-var">protection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Protection
+</span><a href="#local-6989586621679208613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtectionResponse"><span class="hs-identifier hs-type">DescribeProtectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#describeProtectionResponse_httpStatus"><span class="hs-identifier hs-type">describeProtectionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtectionResponse"><span class="hs-identifier hs-type">DescribeProtectionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span id="describeProtectionResponse_httpStatus"><span class="annot"><span class="annottext">describeProtectionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeProtectionResponse -&gt; f DescribeProtectionResponse
+</span><a href="Network.AWS.Shield.DescribeProtection.html#describeProtectionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeProtectionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProtectionResponse -&gt; Int)
+-&gt; (DescribeProtectionResponse
+    -&gt; Int -&gt; DescribeProtectionResponse)
+-&gt; Lens
+     DescribeProtectionResponse DescribeProtectionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtectionResponse%27"><span class="hs-identifier hs-type">DescribeProtectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208612"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeProtectionResponse' :: DescribeProtectionResponse -&gt; Int
+</span><a href="#local-6989586621679208612"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679208612"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208611"><span class="annot"><span class="annottext">s :: DescribeProtectionResponse
+</span><a href="#local-6989586621679208611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtectionResponse%27"><span class="hs-identifier hs-type">DescribeProtectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208610"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679208610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProtectionResponse
+</span><a href="#local-6989586621679208611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeProtectionResponse' :: Int
+</span><a href="Network.AWS.Shield.DescribeProtection.html#%24sel%3AhttpStatus%3ADescribeProtectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679208610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtectionResponse"><span class="hs-identifier hs-type">DescribeProtectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208608"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeProtection.html#DescribeProtectionResponse"><span class="hs-identifier hs-type">DescribeProtectionResponse</span></a></span></span><span>
+</span><span id="line-188"></span></pre></body></html>

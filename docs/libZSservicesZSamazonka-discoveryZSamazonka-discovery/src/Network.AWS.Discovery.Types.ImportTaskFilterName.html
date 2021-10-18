@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Discovery.Types.ImportTaskFilterName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Discovery.Types.ImportTaskFilterName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName"><span class="hs-identifier">ImportTaskFilterName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName_IMPORT_TASK_ID"><span class="hs-identifier">ImportTaskFilterName_IMPORT_TASK_ID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName_NAME"><span class="hs-identifier">ImportTaskFilterName_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName_STATUS"><span class="hs-identifier">ImportTaskFilterName_STATUS</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679204146"><span id="local-6989586621679204147"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImportTaskFilterName"><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName"><span class="hs-identifier hs-var">ImportTaskFilterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportTaskFilterName%27"><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName%27"><span class="hs-identifier hs-var">ImportTaskFilterName'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromImportTaskFilterName"><span class="annot"><span class="annottext">ImportTaskFilterName -&gt; Text
+</span><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#fromImportTaskFilterName"><span class="hs-identifier hs-var hs-var">fromImportTaskFilterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679204138"><span id="local-6989586621679204140"><span id="local-6989586621679204142"><span class="annot"><span class="annottext">Int -&gt; ImportTaskFilterName -&gt; ShowS
+[ImportTaskFilterName] -&gt; ShowS
+ImportTaskFilterName -&gt; String
+(Int -&gt; ImportTaskFilterName -&gt; ShowS)
+-&gt; (ImportTaskFilterName -&gt; String)
+-&gt; ([ImportTaskFilterName] -&gt; ShowS)
+-&gt; Show ImportTaskFilterName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImportTaskFilterName] -&gt; ShowS
+$cshowList :: [ImportTaskFilterName] -&gt; ShowS
+show :: ImportTaskFilterName -&gt; String
+$cshow :: ImportTaskFilterName -&gt; String
+showsPrec :: Int -&gt; ImportTaskFilterName -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImportTaskFilterName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679204129"><span id="local-6989586621679204131"><span id="local-6989586621679204133"><span id="local-6989586621679204135"><span class="annot"><span class="annottext">ReadPrec [ImportTaskFilterName]
+ReadPrec ImportTaskFilterName
+Int -&gt; ReadS ImportTaskFilterName
+ReadS [ImportTaskFilterName]
+(Int -&gt; ReadS ImportTaskFilterName)
+-&gt; ReadS [ImportTaskFilterName]
+-&gt; ReadPrec ImportTaskFilterName
+-&gt; ReadPrec [ImportTaskFilterName]
+-&gt; Read ImportTaskFilterName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImportTaskFilterName]
+$creadListPrec :: ReadPrec [ImportTaskFilterName]
+readPrec :: ReadPrec ImportTaskFilterName
+$creadPrec :: ReadPrec ImportTaskFilterName
+readList :: ReadS [ImportTaskFilterName]
+$creadList :: ReadS [ImportTaskFilterName]
+readsPrec :: Int -&gt; ReadS ImportTaskFilterName
+$creadsPrec :: Int -&gt; ReadS ImportTaskFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679204124"><span id="local-6989586621679204126"><span class="annot"><span class="annottext">ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool
+(ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool)
+-&gt; (ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool)
+-&gt; Eq ImportTaskFilterName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool
+$c/= :: ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool
+== :: ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool
+$c== :: ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679204108"><span id="local-6989586621679204110"><span id="local-6989586621679204112"><span id="local-6989586621679204114"><span id="local-6989586621679204116"><span id="local-6989586621679204118"><span id="local-6989586621679204120"><span class="annot"><span class="annottext">Eq ImportTaskFilterName
+Eq ImportTaskFilterName
+-&gt; (ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Ordering)
+-&gt; (ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool)
+-&gt; (ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool)
+-&gt; (ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool)
+-&gt; (ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool)
+-&gt; (ImportTaskFilterName
+    -&gt; ImportTaskFilterName -&gt; ImportTaskFilterName)
+-&gt; (ImportTaskFilterName
+    -&gt; ImportTaskFilterName -&gt; ImportTaskFilterName)
+-&gt; Ord ImportTaskFilterName
+ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool
+ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Ordering
+ImportTaskFilterName
+-&gt; ImportTaskFilterName -&gt; ImportTaskFilterName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ImportTaskFilterName
+-&gt; ImportTaskFilterName -&gt; ImportTaskFilterName
+$cmin :: ImportTaskFilterName
+-&gt; ImportTaskFilterName -&gt; ImportTaskFilterName
+max :: ImportTaskFilterName
+-&gt; ImportTaskFilterName -&gt; ImportTaskFilterName
+$cmax :: ImportTaskFilterName
+-&gt; ImportTaskFilterName -&gt; ImportTaskFilterName
+&gt;= :: ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool
+$c&gt;= :: ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool
+&gt; :: ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool
+$c&gt; :: ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool
+&lt;= :: ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool
+$c&lt;= :: ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool
+&lt; :: ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool
+$c&lt; :: ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Bool
+compare :: ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Ordering
+$ccompare :: ImportTaskFilterName -&gt; ImportTaskFilterName -&gt; Ordering
+$cp1Ord :: Eq ImportTaskFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ImportTaskFilterName -&gt; Rep ImportTaskFilterName x)
+-&gt; (forall x. Rep ImportTaskFilterName x -&gt; ImportTaskFilterName)
+-&gt; Generic ImportTaskFilterName
+forall x. Rep ImportTaskFilterName x -&gt; ImportTaskFilterName
+forall x. ImportTaskFilterName -&gt; Rep ImportTaskFilterName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ImportTaskFilterName x -&gt; ImportTaskFilterName
+$cfrom :: forall x. ImportTaskFilterName -&gt; Rep ImportTaskFilterName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679204100"><span id="local-6989586621679204102"><span class="annot"><span class="annottext">Int -&gt; ImportTaskFilterName -&gt; Int
+ImportTaskFilterName -&gt; Int
+(Int -&gt; ImportTaskFilterName -&gt; Int)
+-&gt; (ImportTaskFilterName -&gt; Int) -&gt; Hashable ImportTaskFilterName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ImportTaskFilterName -&gt; Int
+$chash :: ImportTaskFilterName -&gt; Int
+hashWithSalt :: Int -&gt; ImportTaskFilterName -&gt; Int
+$chashWithSalt :: Int -&gt; ImportTaskFilterName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679204097"><span class="annot"><span class="annottext">ImportTaskFilterName -&gt; ()
+(ImportTaskFilterName -&gt; ()) -&gt; NFData ImportTaskFilterName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ImportTaskFilterName -&gt; ()
+$crnf :: ImportTaskFilterName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679204094"><span class="annot"><span class="annottext">Text -&gt; Either String ImportTaskFilterName
+(Text -&gt; Either String ImportTaskFilterName)
+-&gt; FromText ImportTaskFilterName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ImportTaskFilterName
+$cfromText :: Text -&gt; Either String ImportTaskFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679204091"><span class="annot"><span class="annottext">ImportTaskFilterName -&gt; Text
+(ImportTaskFilterName -&gt; Text) -&gt; ToText ImportTaskFilterName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ImportTaskFilterName -&gt; Text
+$ctoText :: ImportTaskFilterName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679204088"><span class="annot"><span class="annottext">ImportTaskFilterName -&gt; ByteString
+(ImportTaskFilterName -&gt; ByteString)
+-&gt; ToByteString ImportTaskFilterName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ImportTaskFilterName -&gt; ByteString
+$ctoBS :: ImportTaskFilterName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679204085"><span class="annot"><span class="annottext">ImportTaskFilterName -&gt; ByteStringBuilder
+(ImportTaskFilterName -&gt; ByteStringBuilder)
+-&gt; ToLog ImportTaskFilterName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ImportTaskFilterName -&gt; ByteStringBuilder
+$cbuild :: ImportTaskFilterName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679204082"><span class="annot"><span class="annottext">HeaderName -&gt; ImportTaskFilterName -&gt; [Header]
+(HeaderName -&gt; ImportTaskFilterName -&gt; [Header])
+-&gt; ToHeader ImportTaskFilterName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ImportTaskFilterName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ImportTaskFilterName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679204079"><span class="annot"><span class="annottext">ImportTaskFilterName -&gt; QueryString
+(ImportTaskFilterName -&gt; QueryString)
+-&gt; ToQuery ImportTaskFilterName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ImportTaskFilterName -&gt; QueryString
+$ctoQuery :: ImportTaskFilterName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679204074"><span id="local-6989586621679204076"><span class="annot"><span class="annottext">Value -&gt; Parser [ImportTaskFilterName]
+Value -&gt; Parser ImportTaskFilterName
+(Value -&gt; Parser ImportTaskFilterName)
+-&gt; (Value -&gt; Parser [ImportTaskFilterName])
+-&gt; FromJSON ImportTaskFilterName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ImportTaskFilterName]
+$cparseJSONList :: Value -&gt; Parser [ImportTaskFilterName]
+parseJSON :: Value -&gt; Parser ImportTaskFilterName
+$cparseJSON :: Value -&gt; Parser ImportTaskFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679204069"><span id="local-6989586621679204071"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImportTaskFilterName]
+FromJSONKeyFunction ImportTaskFilterName
+FromJSONKeyFunction ImportTaskFilterName
+-&gt; FromJSONKeyFunction [ImportTaskFilterName]
+-&gt; FromJSONKey ImportTaskFilterName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ImportTaskFilterName]
+$cfromJSONKeyList :: FromJSONKeyFunction [ImportTaskFilterName]
+fromJSONKey :: FromJSONKeyFunction ImportTaskFilterName
+$cfromJSONKey :: FromJSONKeyFunction ImportTaskFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679204060"><span id="local-6989586621679204062"><span id="local-6989586621679204064"><span id="local-6989586621679204066"><span class="annot"><span class="annottext">[ImportTaskFilterName] -&gt; Encoding
+[ImportTaskFilterName] -&gt; Value
+ImportTaskFilterName -&gt; Encoding
+ImportTaskFilterName -&gt; Value
+(ImportTaskFilterName -&gt; Value)
+-&gt; (ImportTaskFilterName -&gt; Encoding)
+-&gt; ([ImportTaskFilterName] -&gt; Value)
+-&gt; ([ImportTaskFilterName] -&gt; Encoding)
+-&gt; ToJSON ImportTaskFilterName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ImportTaskFilterName] -&gt; Encoding
+$ctoEncodingList :: [ImportTaskFilterName] -&gt; Encoding
+toJSONList :: [ImportTaskFilterName] -&gt; Value
+$ctoJSONList :: [ImportTaskFilterName] -&gt; Value
+toEncoding :: ImportTaskFilterName -&gt; Encoding
+$ctoEncoding :: ImportTaskFilterName -&gt; Encoding
+toJSON :: ImportTaskFilterName -&gt; Value
+$ctoJSON :: ImportTaskFilterName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679204055"><span id="local-6989586621679204057"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImportTaskFilterName]
+ToJSONKeyFunction ImportTaskFilterName
+ToJSONKeyFunction ImportTaskFilterName
+-&gt; ToJSONKeyFunction [ImportTaskFilterName]
+-&gt; ToJSONKey ImportTaskFilterName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ImportTaskFilterName]
+$ctoJSONKeyList :: ToJSONKeyFunction [ImportTaskFilterName]
+toJSONKey :: ToJSONKeyFunction ImportTaskFilterName
+$ctoJSONKey :: ToJSONKeyFunction ImportTaskFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679204052"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImportTaskFilterName
+([Node] -&gt; Either String ImportTaskFilterName)
+-&gt; FromXML ImportTaskFilterName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ImportTaskFilterName
+$cparseXML :: [Node] -&gt; Either String ImportTaskFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679204049"><span class="annot"><span class="annottext">ImportTaskFilterName -&gt; XML
+(ImportTaskFilterName -&gt; XML) -&gt; ToXML ImportTaskFilterName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ImportTaskFilterName -&gt; XML
+$ctoXML :: ImportTaskFilterName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName_IMPORT_TASK_ID"><span class="hs-identifier hs-type">ImportTaskFilterName_IMPORT_TASK_ID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName"><span class="hs-identifier hs-type">ImportTaskFilterName</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImportTaskFilterName_IMPORT_TASK_ID"><span id="%24mImportTaskFilterName_IMPORT_TASK_ID"><span id="ImportTaskFilterName_IMPORT_TASK_ID"><span class="annot"><span class="annottext">$bImportTaskFilterName_IMPORT_TASK_ID :: ImportTaskFilterName
+$mImportTaskFilterName_IMPORT_TASK_ID :: forall r. ImportTaskFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#%24bImportTaskFilterName_IMPORT_TASK_ID"><span class="hs-identifier hs-var hs-var hs-var">ImportTaskFilterName_IMPORT_TASK_ID</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName%27"><span class="hs-identifier hs-type">ImportTaskFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IMPORT_TASK_ID&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName_NAME"><span class="hs-identifier hs-type">ImportTaskFilterName_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName"><span class="hs-identifier hs-type">ImportTaskFilterName</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImportTaskFilterName_NAME"><span id="%24mImportTaskFilterName_NAME"><span id="ImportTaskFilterName_NAME"><span class="annot"><span class="annottext">$bImportTaskFilterName_NAME :: ImportTaskFilterName
+$mImportTaskFilterName_NAME :: forall r. ImportTaskFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#%24bImportTaskFilterName_NAME"><span class="hs-identifier hs-var hs-var hs-var">ImportTaskFilterName_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName%27"><span class="hs-identifier hs-type">ImportTaskFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NAME&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName_STATUS"><span class="hs-identifier hs-type">ImportTaskFilterName_STATUS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName"><span class="hs-identifier hs-type">ImportTaskFilterName</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImportTaskFilterName_STATUS"><span id="%24mImportTaskFilterName_STATUS"><span id="ImportTaskFilterName_STATUS"><span class="annot"><span class="annottext">$bImportTaskFilterName_STATUS :: ImportTaskFilterName
+$mImportTaskFilterName_STATUS :: forall r. ImportTaskFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#%24bImportTaskFilterName_STATUS"><span class="hs-identifier hs-var hs-var hs-var">ImportTaskFilterName_STATUS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName%27"><span class="hs-identifier hs-type">ImportTaskFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STATUS&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName_IMPORT_TASK_ID"><span class="hs-pragma hs-type">ImportTaskFilterName_IMPORT_TASK_ID</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName_NAME"><span class="hs-pragma hs-type">ImportTaskFilterName_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName_STATUS"><span class="hs-pragma hs-type">ImportTaskFilterName_STATUS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTaskFilterName.html#ImportTaskFilterName%27"><span class="hs-pragma hs-type">ImportTaskFilterName'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

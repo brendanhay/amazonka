@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Greengrass.Types.UpdateAgentLogLevel</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Greengrass.Types.UpdateAgentLogLevel</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel"><span class="hs-identifier">UpdateAgentLogLevel</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_DEBUG"><span class="hs-identifier">UpdateAgentLogLevel_DEBUG</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_ERROR"><span class="hs-identifier">UpdateAgentLogLevel_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_FATAL"><span class="hs-identifier">UpdateAgentLogLevel_FATAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_INFO"><span class="hs-identifier">UpdateAgentLogLevel_INFO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_NONE"><span class="hs-identifier">UpdateAgentLogLevel_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_TRACE"><span class="hs-identifier">UpdateAgentLogLevel_TRACE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_VERBOSE"><span class="hs-identifier">UpdateAgentLogLevel_VERBOSE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_WARN"><span class="hs-identifier">UpdateAgentLogLevel_WARN</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- | The minimum level of log statements that should be logged by the OTA</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Agent during an update.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621679347732"><span id="local-6989586621679347733"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UpdateAgentLogLevel"><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel"><span class="hs-identifier hs-var">UpdateAgentLogLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAgentLogLevel%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel%27"><span class="hs-identifier hs-var">UpdateAgentLogLevel'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUpdateAgentLogLevel"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; Text
+</span><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#fromUpdateAgentLogLevel"><span class="hs-identifier hs-var hs-var">fromUpdateAgentLogLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347724"><span id="local-6989586621679347726"><span id="local-6989586621679347728"><span class="annot"><span class="annottext">Int -&gt; UpdateAgentLogLevel -&gt; ShowS
+[UpdateAgentLogLevel] -&gt; ShowS
+UpdateAgentLogLevel -&gt; String
+(Int -&gt; UpdateAgentLogLevel -&gt; ShowS)
+-&gt; (UpdateAgentLogLevel -&gt; String)
+-&gt; ([UpdateAgentLogLevel] -&gt; ShowS)
+-&gt; Show UpdateAgentLogLevel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateAgentLogLevel] -&gt; ShowS
+$cshowList :: [UpdateAgentLogLevel] -&gt; ShowS
+show :: UpdateAgentLogLevel -&gt; String
+$cshow :: UpdateAgentLogLevel -&gt; String
+showsPrec :: Int -&gt; UpdateAgentLogLevel -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateAgentLogLevel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679347715"><span id="local-6989586621679347717"><span id="local-6989586621679347719"><span id="local-6989586621679347721"><span class="annot"><span class="annottext">ReadPrec [UpdateAgentLogLevel]
+ReadPrec UpdateAgentLogLevel
+Int -&gt; ReadS UpdateAgentLogLevel
+ReadS [UpdateAgentLogLevel]
+(Int -&gt; ReadS UpdateAgentLogLevel)
+-&gt; ReadS [UpdateAgentLogLevel]
+-&gt; ReadPrec UpdateAgentLogLevel
+-&gt; ReadPrec [UpdateAgentLogLevel]
+-&gt; Read UpdateAgentLogLevel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateAgentLogLevel]
+$creadListPrec :: ReadPrec [UpdateAgentLogLevel]
+readPrec :: ReadPrec UpdateAgentLogLevel
+$creadPrec :: ReadPrec UpdateAgentLogLevel
+readList :: ReadS [UpdateAgentLogLevel]
+$creadList :: ReadS [UpdateAgentLogLevel]
+readsPrec :: Int -&gt; ReadS UpdateAgentLogLevel
+$creadsPrec :: Int -&gt; ReadS UpdateAgentLogLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679347710"><span id="local-6989586621679347712"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
+(UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool)
+-&gt; (UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool)
+-&gt; Eq UpdateAgentLogLevel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
+$c/= :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
+== :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
+$c== :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679347694"><span id="local-6989586621679347696"><span id="local-6989586621679347698"><span id="local-6989586621679347700"><span id="local-6989586621679347702"><span id="local-6989586621679347704"><span id="local-6989586621679347706"><span class="annot"><span class="annottext">Eq UpdateAgentLogLevel
+Eq UpdateAgentLogLevel
+-&gt; (UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Ordering)
+-&gt; (UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool)
+-&gt; (UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool)
+-&gt; (UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool)
+-&gt; (UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool)
+-&gt; (UpdateAgentLogLevel
+    -&gt; UpdateAgentLogLevel -&gt; UpdateAgentLogLevel)
+-&gt; (UpdateAgentLogLevel
+    -&gt; UpdateAgentLogLevel -&gt; UpdateAgentLogLevel)
+-&gt; Ord UpdateAgentLogLevel
+UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
+UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Ordering
+UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; UpdateAgentLogLevel
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; UpdateAgentLogLevel
+$cmin :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; UpdateAgentLogLevel
+max :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; UpdateAgentLogLevel
+$cmax :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; UpdateAgentLogLevel
+&gt;= :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
+$c&gt;= :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
+&gt; :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
+$c&gt; :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
+&lt;= :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
+$c&lt;= :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
+&lt; :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
+$c&lt; :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
+compare :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Ordering
+$ccompare :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Ordering
+$cp1Ord :: Eq UpdateAgentLogLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(forall x. UpdateAgentLogLevel -&gt; Rep UpdateAgentLogLevel x)
+-&gt; (forall x. Rep UpdateAgentLogLevel x -&gt; UpdateAgentLogLevel)
+-&gt; Generic UpdateAgentLogLevel
+forall x. Rep UpdateAgentLogLevel x -&gt; UpdateAgentLogLevel
+forall x. UpdateAgentLogLevel -&gt; Rep UpdateAgentLogLevel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateAgentLogLevel x -&gt; UpdateAgentLogLevel
+$cfrom :: forall x. UpdateAgentLogLevel -&gt; Rep UpdateAgentLogLevel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347686"><span id="local-6989586621679347688"><span class="annot"><span class="annottext">Int -&gt; UpdateAgentLogLevel -&gt; Int
+UpdateAgentLogLevel -&gt; Int
+(Int -&gt; UpdateAgentLogLevel -&gt; Int)
+-&gt; (UpdateAgentLogLevel -&gt; Int) -&gt; Hashable UpdateAgentLogLevel
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: UpdateAgentLogLevel -&gt; Int
+$chash :: UpdateAgentLogLevel -&gt; Int
+hashWithSalt :: Int -&gt; UpdateAgentLogLevel -&gt; Int
+$chashWithSalt :: Int -&gt; UpdateAgentLogLevel -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679347683"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; ()
+(UpdateAgentLogLevel -&gt; ()) -&gt; NFData UpdateAgentLogLevel
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: UpdateAgentLogLevel -&gt; ()
+$crnf :: UpdateAgentLogLevel -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679347680"><span class="annot"><span class="annottext">Text -&gt; Either String UpdateAgentLogLevel
+(Text -&gt; Either String UpdateAgentLogLevel)
+-&gt; FromText UpdateAgentLogLevel
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String UpdateAgentLogLevel
+$cfromText :: Text -&gt; Either String UpdateAgentLogLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679347677"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; Text
+(UpdateAgentLogLevel -&gt; Text) -&gt; ToText UpdateAgentLogLevel
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: UpdateAgentLogLevel -&gt; Text
+$ctoText :: UpdateAgentLogLevel -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679347674"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; ByteString
+(UpdateAgentLogLevel -&gt; ByteString)
+-&gt; ToByteString UpdateAgentLogLevel
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: UpdateAgentLogLevel -&gt; ByteString
+$ctoBS :: UpdateAgentLogLevel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679347671"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; ByteStringBuilder
+(UpdateAgentLogLevel -&gt; ByteStringBuilder)
+-&gt; ToLog UpdateAgentLogLevel
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: UpdateAgentLogLevel -&gt; ByteStringBuilder
+$cbuild :: UpdateAgentLogLevel -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679347668"><span class="annot"><span class="annottext">HeaderName -&gt; UpdateAgentLogLevel -&gt; [Header]
+(HeaderName -&gt; UpdateAgentLogLevel -&gt; [Header])
+-&gt; ToHeader UpdateAgentLogLevel
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; UpdateAgentLogLevel -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; UpdateAgentLogLevel -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679347665"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; QueryString
+(UpdateAgentLogLevel -&gt; QueryString) -&gt; ToQuery UpdateAgentLogLevel
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: UpdateAgentLogLevel -&gt; QueryString
+$ctoQuery :: UpdateAgentLogLevel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679347660"><span id="local-6989586621679347662"><span class="annot"><span class="annottext">Value -&gt; Parser [UpdateAgentLogLevel]
+Value -&gt; Parser UpdateAgentLogLevel
+(Value -&gt; Parser UpdateAgentLogLevel)
+-&gt; (Value -&gt; Parser [UpdateAgentLogLevel])
+-&gt; FromJSON UpdateAgentLogLevel
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [UpdateAgentLogLevel]
+$cparseJSONList :: Value -&gt; Parser [UpdateAgentLogLevel]
+parseJSON :: Value -&gt; Parser UpdateAgentLogLevel
+$cparseJSON :: Value -&gt; Parser UpdateAgentLogLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679347655"><span id="local-6989586621679347657"><span class="annot"><span class="annottext">FromJSONKeyFunction [UpdateAgentLogLevel]
+FromJSONKeyFunction UpdateAgentLogLevel
+FromJSONKeyFunction UpdateAgentLogLevel
+-&gt; FromJSONKeyFunction [UpdateAgentLogLevel]
+-&gt; FromJSONKey UpdateAgentLogLevel
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [UpdateAgentLogLevel]
+$cfromJSONKeyList :: FromJSONKeyFunction [UpdateAgentLogLevel]
+fromJSONKey :: FromJSONKeyFunction UpdateAgentLogLevel
+$cfromJSONKey :: FromJSONKeyFunction UpdateAgentLogLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679347646"><span id="local-6989586621679347648"><span id="local-6989586621679347650"><span id="local-6989586621679347652"><span class="annot"><span class="annottext">[UpdateAgentLogLevel] -&gt; Encoding
+[UpdateAgentLogLevel] -&gt; Value
+UpdateAgentLogLevel -&gt; Encoding
+UpdateAgentLogLevel -&gt; Value
+(UpdateAgentLogLevel -&gt; Value)
+-&gt; (UpdateAgentLogLevel -&gt; Encoding)
+-&gt; ([UpdateAgentLogLevel] -&gt; Value)
+-&gt; ([UpdateAgentLogLevel] -&gt; Encoding)
+-&gt; ToJSON UpdateAgentLogLevel
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [UpdateAgentLogLevel] -&gt; Encoding
+$ctoEncodingList :: [UpdateAgentLogLevel] -&gt; Encoding
+toJSONList :: [UpdateAgentLogLevel] -&gt; Value
+$ctoJSONList :: [UpdateAgentLogLevel] -&gt; Value
+toEncoding :: UpdateAgentLogLevel -&gt; Encoding
+$ctoEncoding :: UpdateAgentLogLevel -&gt; Encoding
+toJSON :: UpdateAgentLogLevel -&gt; Value
+$ctoJSON :: UpdateAgentLogLevel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679347641"><span id="local-6989586621679347643"><span class="annot"><span class="annottext">ToJSONKeyFunction [UpdateAgentLogLevel]
+ToJSONKeyFunction UpdateAgentLogLevel
+ToJSONKeyFunction UpdateAgentLogLevel
+-&gt; ToJSONKeyFunction [UpdateAgentLogLevel]
+-&gt; ToJSONKey UpdateAgentLogLevel
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [UpdateAgentLogLevel]
+$ctoJSONKeyList :: ToJSONKeyFunction [UpdateAgentLogLevel]
+toJSONKey :: ToJSONKeyFunction UpdateAgentLogLevel
+$ctoJSONKey :: ToJSONKeyFunction UpdateAgentLogLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679347638"><span class="annot"><span class="annottext">[Node] -&gt; Either String UpdateAgentLogLevel
+([Node] -&gt; Either String UpdateAgentLogLevel)
+-&gt; FromXML UpdateAgentLogLevel
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String UpdateAgentLogLevel
+$cparseXML :: [Node] -&gt; Either String UpdateAgentLogLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679347635"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; XML
+(UpdateAgentLogLevel -&gt; XML) -&gt; ToXML UpdateAgentLogLevel
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: UpdateAgentLogLevel -&gt; XML
+$ctoXML :: UpdateAgentLogLevel -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_DEBUG"><span class="hs-identifier hs-type">UpdateAgentLogLevel_DEBUG</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel"><span class="hs-identifier hs-type">UpdateAgentLogLevel</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpdateAgentLogLevel_DEBUG"><span id="%24mUpdateAgentLogLevel_DEBUG"><span id="UpdateAgentLogLevel_DEBUG"><span class="annot"><span class="annottext">$bUpdateAgentLogLevel_DEBUG :: UpdateAgentLogLevel
+$mUpdateAgentLogLevel_DEBUG :: forall r. UpdateAgentLogLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#%24bUpdateAgentLogLevel_DEBUG"><span class="hs-identifier hs-var hs-var hs-var">UpdateAgentLogLevel_DEBUG</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel%27"><span class="hs-identifier hs-type">UpdateAgentLogLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEBUG&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_ERROR"><span class="hs-identifier hs-type">UpdateAgentLogLevel_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel"><span class="hs-identifier hs-type">UpdateAgentLogLevel</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpdateAgentLogLevel_ERROR"><span id="%24mUpdateAgentLogLevel_ERROR"><span id="UpdateAgentLogLevel_ERROR"><span class="annot"><span class="annottext">$bUpdateAgentLogLevel_ERROR :: UpdateAgentLogLevel
+$mUpdateAgentLogLevel_ERROR :: forall r. UpdateAgentLogLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#%24bUpdateAgentLogLevel_ERROR"><span class="hs-identifier hs-var hs-var hs-var">UpdateAgentLogLevel_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel%27"><span class="hs-identifier hs-type">UpdateAgentLogLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ERROR&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_FATAL"><span class="hs-identifier hs-type">UpdateAgentLogLevel_FATAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel"><span class="hs-identifier hs-type">UpdateAgentLogLevel</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpdateAgentLogLevel_FATAL"><span id="%24mUpdateAgentLogLevel_FATAL"><span id="UpdateAgentLogLevel_FATAL"><span class="annot"><span class="annottext">$bUpdateAgentLogLevel_FATAL :: UpdateAgentLogLevel
+$mUpdateAgentLogLevel_FATAL :: forall r. UpdateAgentLogLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#%24bUpdateAgentLogLevel_FATAL"><span class="hs-identifier hs-var hs-var hs-var">UpdateAgentLogLevel_FATAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel%27"><span class="hs-identifier hs-type">UpdateAgentLogLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FATAL&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_INFO"><span class="hs-identifier hs-type">UpdateAgentLogLevel_INFO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel"><span class="hs-identifier hs-type">UpdateAgentLogLevel</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpdateAgentLogLevel_INFO"><span id="%24mUpdateAgentLogLevel_INFO"><span id="UpdateAgentLogLevel_INFO"><span class="annot"><span class="annottext">$bUpdateAgentLogLevel_INFO :: UpdateAgentLogLevel
+$mUpdateAgentLogLevel_INFO :: forall r. UpdateAgentLogLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#%24bUpdateAgentLogLevel_INFO"><span class="hs-identifier hs-var hs-var hs-var">UpdateAgentLogLevel_INFO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel%27"><span class="hs-identifier hs-type">UpdateAgentLogLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INFO&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_NONE"><span class="hs-identifier hs-type">UpdateAgentLogLevel_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel"><span class="hs-identifier hs-type">UpdateAgentLogLevel</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpdateAgentLogLevel_NONE"><span id="%24mUpdateAgentLogLevel_NONE"><span id="UpdateAgentLogLevel_NONE"><span class="annot"><span class="annottext">$bUpdateAgentLogLevel_NONE :: UpdateAgentLogLevel
+$mUpdateAgentLogLevel_NONE :: forall r. UpdateAgentLogLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#%24bUpdateAgentLogLevel_NONE"><span class="hs-identifier hs-var hs-var hs-var">UpdateAgentLogLevel_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel%27"><span class="hs-identifier hs-type">UpdateAgentLogLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_TRACE"><span class="hs-identifier hs-type">UpdateAgentLogLevel_TRACE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel"><span class="hs-identifier hs-type">UpdateAgentLogLevel</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpdateAgentLogLevel_TRACE"><span id="%24mUpdateAgentLogLevel_TRACE"><span id="UpdateAgentLogLevel_TRACE"><span class="annot"><span class="annottext">$bUpdateAgentLogLevel_TRACE :: UpdateAgentLogLevel
+$mUpdateAgentLogLevel_TRACE :: forall r. UpdateAgentLogLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#%24bUpdateAgentLogLevel_TRACE"><span class="hs-identifier hs-var hs-var hs-var">UpdateAgentLogLevel_TRACE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel%27"><span class="hs-identifier hs-type">UpdateAgentLogLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TRACE&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_VERBOSE"><span class="hs-identifier hs-type">UpdateAgentLogLevel_VERBOSE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel"><span class="hs-identifier hs-type">UpdateAgentLogLevel</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpdateAgentLogLevel_VERBOSE"><span id="%24mUpdateAgentLogLevel_VERBOSE"><span id="UpdateAgentLogLevel_VERBOSE"><span class="annot"><span class="annottext">$bUpdateAgentLogLevel_VERBOSE :: UpdateAgentLogLevel
+$mUpdateAgentLogLevel_VERBOSE :: forall r. UpdateAgentLogLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#%24bUpdateAgentLogLevel_VERBOSE"><span class="hs-identifier hs-var hs-var hs-var">UpdateAgentLogLevel_VERBOSE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel%27"><span class="hs-identifier hs-type">UpdateAgentLogLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VERBOSE&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_WARN"><span class="hs-identifier hs-type">UpdateAgentLogLevel_WARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel"><span class="hs-identifier hs-type">UpdateAgentLogLevel</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpdateAgentLogLevel_WARN"><span id="%24mUpdateAgentLogLevel_WARN"><span id="UpdateAgentLogLevel_WARN"><span class="annot"><span class="annottext">$bUpdateAgentLogLevel_WARN :: UpdateAgentLogLevel
+$mUpdateAgentLogLevel_WARN :: forall r. UpdateAgentLogLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#%24bUpdateAgentLogLevel_WARN"><span class="hs-identifier hs-var hs-var hs-var">UpdateAgentLogLevel_WARN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel%27"><span class="hs-identifier hs-type">UpdateAgentLogLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WARN&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_DEBUG"><span class="hs-pragma hs-type">UpdateAgentLogLevel_DEBUG</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_ERROR"><span class="hs-pragma hs-type">UpdateAgentLogLevel_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_FATAL"><span class="hs-pragma hs-type">UpdateAgentLogLevel_FATAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_INFO"><span class="hs-pragma hs-type">UpdateAgentLogLevel_INFO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_NONE"><span class="hs-pragma hs-type">UpdateAgentLogLevel_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_TRACE"><span class="hs-pragma hs-type">UpdateAgentLogLevel_TRACE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_VERBOSE"><span class="hs-pragma hs-type">UpdateAgentLogLevel_VERBOSE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel_WARN"><span class="hs-pragma hs-type">UpdateAgentLogLevel_WARN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel%27"><span class="hs-pragma hs-type">UpdateAgentLogLevel'</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-103"></span></pre></body></html>

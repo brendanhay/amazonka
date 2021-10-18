@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.ChannelClass</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.ChannelClass</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass"><span class="hs-identifier">ChannelClass</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass_SINGLE_PIPELINE"><span class="hs-identifier">ChannelClass_SINGLE_PIPELINE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass_STANDARD"><span class="hs-identifier">ChannelClass_STANDARD</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | A standard channel has two encoding pipelines and a single pipeline</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- channel only has one.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679863171"><span id="local-6989586621679863172"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChannelClass"><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass"><span class="hs-identifier hs-var">ChannelClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelClass%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass%27"><span class="hs-identifier hs-var">ChannelClass'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromChannelClass"><span class="annot"><span class="annottext">ChannelClass -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.ChannelClass.html#fromChannelClass"><span class="hs-identifier hs-var hs-var">fromChannelClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679863163"><span id="local-6989586621679863165"><span id="local-6989586621679863167"><span class="annot"><span class="annottext">Int -&gt; ChannelClass -&gt; ShowS
+[ChannelClass] -&gt; ShowS
+ChannelClass -&gt; String
+(Int -&gt; ChannelClass -&gt; ShowS)
+-&gt; (ChannelClass -&gt; String)
+-&gt; ([ChannelClass] -&gt; ShowS)
+-&gt; Show ChannelClass
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChannelClass] -&gt; ShowS
+$cshowList :: [ChannelClass] -&gt; ShowS
+show :: ChannelClass -&gt; String
+$cshow :: ChannelClass -&gt; String
+showsPrec :: Int -&gt; ChannelClass -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChannelClass -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679863154"><span id="local-6989586621679863156"><span id="local-6989586621679863158"><span id="local-6989586621679863160"><span class="annot"><span class="annottext">ReadPrec [ChannelClass]
+ReadPrec ChannelClass
+Int -&gt; ReadS ChannelClass
+ReadS [ChannelClass]
+(Int -&gt; ReadS ChannelClass)
+-&gt; ReadS [ChannelClass]
+-&gt; ReadPrec ChannelClass
+-&gt; ReadPrec [ChannelClass]
+-&gt; Read ChannelClass
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChannelClass]
+$creadListPrec :: ReadPrec [ChannelClass]
+readPrec :: ReadPrec ChannelClass
+$creadPrec :: ReadPrec ChannelClass
+readList :: ReadS [ChannelClass]
+$creadList :: ReadS [ChannelClass]
+readsPrec :: Int -&gt; ReadS ChannelClass
+$creadsPrec :: Int -&gt; ReadS ChannelClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679863149"><span id="local-6989586621679863151"><span class="annot"><span class="annottext">ChannelClass -&gt; ChannelClass -&gt; Bool
+(ChannelClass -&gt; ChannelClass -&gt; Bool)
+-&gt; (ChannelClass -&gt; ChannelClass -&gt; Bool) -&gt; Eq ChannelClass
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChannelClass -&gt; ChannelClass -&gt; Bool
+$c/= :: ChannelClass -&gt; ChannelClass -&gt; Bool
+== :: ChannelClass -&gt; ChannelClass -&gt; Bool
+$c== :: ChannelClass -&gt; ChannelClass -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679863133"><span id="local-6989586621679863135"><span id="local-6989586621679863137"><span id="local-6989586621679863139"><span id="local-6989586621679863141"><span id="local-6989586621679863143"><span id="local-6989586621679863145"><span class="annot"><span class="annottext">Eq ChannelClass
+Eq ChannelClass
+-&gt; (ChannelClass -&gt; ChannelClass -&gt; Ordering)
+-&gt; (ChannelClass -&gt; ChannelClass -&gt; Bool)
+-&gt; (ChannelClass -&gt; ChannelClass -&gt; Bool)
+-&gt; (ChannelClass -&gt; ChannelClass -&gt; Bool)
+-&gt; (ChannelClass -&gt; ChannelClass -&gt; Bool)
+-&gt; (ChannelClass -&gt; ChannelClass -&gt; ChannelClass)
+-&gt; (ChannelClass -&gt; ChannelClass -&gt; ChannelClass)
+-&gt; Ord ChannelClass
+ChannelClass -&gt; ChannelClass -&gt; Bool
+ChannelClass -&gt; ChannelClass -&gt; Ordering
+ChannelClass -&gt; ChannelClass -&gt; ChannelClass
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ChannelClass -&gt; ChannelClass -&gt; ChannelClass
+$cmin :: ChannelClass -&gt; ChannelClass -&gt; ChannelClass
+max :: ChannelClass -&gt; ChannelClass -&gt; ChannelClass
+$cmax :: ChannelClass -&gt; ChannelClass -&gt; ChannelClass
+&gt;= :: ChannelClass -&gt; ChannelClass -&gt; Bool
+$c&gt;= :: ChannelClass -&gt; ChannelClass -&gt; Bool
+&gt; :: ChannelClass -&gt; ChannelClass -&gt; Bool
+$c&gt; :: ChannelClass -&gt; ChannelClass -&gt; Bool
+&lt;= :: ChannelClass -&gt; ChannelClass -&gt; Bool
+$c&lt;= :: ChannelClass -&gt; ChannelClass -&gt; Bool
+&lt; :: ChannelClass -&gt; ChannelClass -&gt; Bool
+$c&lt; :: ChannelClass -&gt; ChannelClass -&gt; Bool
+compare :: ChannelClass -&gt; ChannelClass -&gt; Ordering
+$ccompare :: ChannelClass -&gt; ChannelClass -&gt; Ordering
+$cp1Ord :: Eq ChannelClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ChannelClass -&gt; Rep ChannelClass x)
+-&gt; (forall x. Rep ChannelClass x -&gt; ChannelClass)
+-&gt; Generic ChannelClass
+forall x. Rep ChannelClass x -&gt; ChannelClass
+forall x. ChannelClass -&gt; Rep ChannelClass x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ChannelClass x -&gt; ChannelClass
+$cfrom :: forall x. ChannelClass -&gt; Rep ChannelClass x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679863125"><span id="local-6989586621679863127"><span class="annot"><span class="annottext">Int -&gt; ChannelClass -&gt; Int
+ChannelClass -&gt; Int
+(Int -&gt; ChannelClass -&gt; Int)
+-&gt; (ChannelClass -&gt; Int) -&gt; Hashable ChannelClass
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ChannelClass -&gt; Int
+$chash :: ChannelClass -&gt; Int
+hashWithSalt :: Int -&gt; ChannelClass -&gt; Int
+$chashWithSalt :: Int -&gt; ChannelClass -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679863122"><span class="annot"><span class="annottext">ChannelClass -&gt; ()
+(ChannelClass -&gt; ()) -&gt; NFData ChannelClass
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ChannelClass -&gt; ()
+$crnf :: ChannelClass -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679863119"><span class="annot"><span class="annottext">Text -&gt; Either String ChannelClass
+(Text -&gt; Either String ChannelClass) -&gt; FromText ChannelClass
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ChannelClass
+$cfromText :: Text -&gt; Either String ChannelClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679863116"><span class="annot"><span class="annottext">ChannelClass -&gt; Text
+(ChannelClass -&gt; Text) -&gt; ToText ChannelClass
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ChannelClass -&gt; Text
+$ctoText :: ChannelClass -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679863113"><span class="annot"><span class="annottext">ChannelClass -&gt; ByteString
+(ChannelClass -&gt; ByteString) -&gt; ToByteString ChannelClass
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ChannelClass -&gt; ByteString
+$ctoBS :: ChannelClass -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679863110"><span class="annot"><span class="annottext">ChannelClass -&gt; ByteStringBuilder
+(ChannelClass -&gt; ByteStringBuilder) -&gt; ToLog ChannelClass
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ChannelClass -&gt; ByteStringBuilder
+$cbuild :: ChannelClass -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679863107"><span class="annot"><span class="annottext">HeaderName -&gt; ChannelClass -&gt; [Header]
+(HeaderName -&gt; ChannelClass -&gt; [Header]) -&gt; ToHeader ChannelClass
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ChannelClass -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ChannelClass -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679863104"><span class="annot"><span class="annottext">ChannelClass -&gt; QueryString
+(ChannelClass -&gt; QueryString) -&gt; ToQuery ChannelClass
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ChannelClass -&gt; QueryString
+$ctoQuery :: ChannelClass -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679863099"><span id="local-6989586621679863101"><span class="annot"><span class="annottext">Value -&gt; Parser [ChannelClass]
+Value -&gt; Parser ChannelClass
+(Value -&gt; Parser ChannelClass)
+-&gt; (Value -&gt; Parser [ChannelClass]) -&gt; FromJSON ChannelClass
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ChannelClass]
+$cparseJSONList :: Value -&gt; Parser [ChannelClass]
+parseJSON :: Value -&gt; Parser ChannelClass
+$cparseJSON :: Value -&gt; Parser ChannelClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679863094"><span id="local-6989586621679863096"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChannelClass]
+FromJSONKeyFunction ChannelClass
+FromJSONKeyFunction ChannelClass
+-&gt; FromJSONKeyFunction [ChannelClass] -&gt; FromJSONKey ChannelClass
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ChannelClass]
+$cfromJSONKeyList :: FromJSONKeyFunction [ChannelClass]
+fromJSONKey :: FromJSONKeyFunction ChannelClass
+$cfromJSONKey :: FromJSONKeyFunction ChannelClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679863085"><span id="local-6989586621679863087"><span id="local-6989586621679863089"><span id="local-6989586621679863091"><span class="annot"><span class="annottext">[ChannelClass] -&gt; Encoding
+[ChannelClass] -&gt; Value
+ChannelClass -&gt; Encoding
+ChannelClass -&gt; Value
+(ChannelClass -&gt; Value)
+-&gt; (ChannelClass -&gt; Encoding)
+-&gt; ([ChannelClass] -&gt; Value)
+-&gt; ([ChannelClass] -&gt; Encoding)
+-&gt; ToJSON ChannelClass
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ChannelClass] -&gt; Encoding
+$ctoEncodingList :: [ChannelClass] -&gt; Encoding
+toJSONList :: [ChannelClass] -&gt; Value
+$ctoJSONList :: [ChannelClass] -&gt; Value
+toEncoding :: ChannelClass -&gt; Encoding
+$ctoEncoding :: ChannelClass -&gt; Encoding
+toJSON :: ChannelClass -&gt; Value
+$ctoJSON :: ChannelClass -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679863080"><span id="local-6989586621679863082"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChannelClass]
+ToJSONKeyFunction ChannelClass
+ToJSONKeyFunction ChannelClass
+-&gt; ToJSONKeyFunction [ChannelClass] -&gt; ToJSONKey ChannelClass
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ChannelClass]
+$ctoJSONKeyList :: ToJSONKeyFunction [ChannelClass]
+toJSONKey :: ToJSONKeyFunction ChannelClass
+$ctoJSONKey :: ToJSONKeyFunction ChannelClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679863077"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChannelClass
+([Node] -&gt; Either String ChannelClass) -&gt; FromXML ChannelClass
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ChannelClass
+$cparseXML :: [Node] -&gt; Either String ChannelClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679863074"><span class="annot"><span class="annottext">ChannelClass -&gt; XML
+(ChannelClass -&gt; XML) -&gt; ToXML ChannelClass
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ChannelClass -&gt; XML
+$ctoXML :: ChannelClass -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass_SINGLE_PIPELINE"><span class="hs-identifier hs-type">ChannelClass_SINGLE_PIPELINE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass"><span class="hs-identifier hs-type">ChannelClass</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelClass_SINGLE_PIPELINE"><span id="%24mChannelClass_SINGLE_PIPELINE"><span id="ChannelClass_SINGLE_PIPELINE"><span class="annot"><span class="annottext">$bChannelClass_SINGLE_PIPELINE :: ChannelClass
+$mChannelClass_SINGLE_PIPELINE :: forall r. ChannelClass -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.ChannelClass.html#%24bChannelClass_SINGLE_PIPELINE"><span class="hs-identifier hs-var hs-var hs-var">ChannelClass_SINGLE_PIPELINE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass%27"><span class="hs-identifier hs-type">ChannelClass'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SINGLE_PIPELINE&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass_STANDARD"><span class="hs-identifier hs-type">ChannelClass_STANDARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass"><span class="hs-identifier hs-type">ChannelClass</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelClass_STANDARD"><span id="%24mChannelClass_STANDARD"><span id="ChannelClass_STANDARD"><span class="annot"><span class="annottext">$bChannelClass_STANDARD :: ChannelClass
+$mChannelClass_STANDARD :: forall r. ChannelClass -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.ChannelClass.html#%24bChannelClass_STANDARD"><span class="hs-identifier hs-var hs-var hs-var">ChannelClass_STANDARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass%27"><span class="hs-identifier hs-type">ChannelClass'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STANDARD&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass_SINGLE_PIPELINE"><span class="hs-pragma hs-type">ChannelClass_SINGLE_PIPELINE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass_STANDARD"><span class="hs-pragma hs-type">ChannelClass_STANDARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass%27"><span class="hs-pragma hs-type">ChannelClass'</span></a></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-73"></span></pre></body></html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CostExplorer.Types.ResultByTime</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CostExplorer.Types.ResultByTime</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html"><span class="hs-identifier">Network.AWS.CostExplorer.Types.DateInterval</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html"><span class="hs-identifier">Network.AWS.CostExplorer.Types.Group</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html"><span class="hs-identifier">Network.AWS.CostExplorer.Types.MetricValue</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | The result that\'s associated with a time period.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newResultByTime' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679334519"><span id="local-6989586621679334520"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResultByTime"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime"><span class="hs-identifier hs-var">ResultByTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResultByTime%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime%27"><span class="hs-identifier hs-var">ResultByTime'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The groups that this time period includes.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Agroups%3AResultByTime%27"><span class="annot"><span class="annottext">ResultByTime -&gt; Maybe [Group]
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#%24sel%3Agroups%3AResultByTime%27"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time period that the result covers.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtimePeriod%3AResultByTime%27"><span class="annot"><span class="annottext">ResultByTime -&gt; Maybe DateInterval
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#%24sel%3AtimePeriod%3AResultByTime%27"><span class="hs-identifier hs-var hs-var">timePeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Determines whether the result is estimated.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aestimated%3AResultByTime%27"><span class="annot"><span class="annottext">ResultByTime -&gt; Maybe Bool
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#%24sel%3Aestimated%3AResultByTime%27"><span class="hs-identifier hs-var hs-var">estimated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The total amount of cost or usage accrued during the time period.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Atotal%3AResultByTime%27"><span class="annot"><span class="annottext">ResultByTime -&gt; Maybe (HashMap Text MetricValue)
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#%24sel%3Atotal%3AResultByTime%27"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334510"><span id="local-6989586621679334512"><span class="annot"><span class="annottext">ResultByTime -&gt; ResultByTime -&gt; Bool
+(ResultByTime -&gt; ResultByTime -&gt; Bool)
+-&gt; (ResultByTime -&gt; ResultByTime -&gt; Bool) -&gt; Eq ResultByTime
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResultByTime -&gt; ResultByTime -&gt; Bool
+$c/= :: ResultByTime -&gt; ResultByTime -&gt; Bool
+== :: ResultByTime -&gt; ResultByTime -&gt; Bool
+$c== :: ResultByTime -&gt; ResultByTime -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334501"><span id="local-6989586621679334503"><span id="local-6989586621679334505"><span id="local-6989586621679334507"><span class="annot"><span class="annottext">ReadPrec [ResultByTime]
+ReadPrec ResultByTime
+Int -&gt; ReadS ResultByTime
+ReadS [ResultByTime]
+(Int -&gt; ReadS ResultByTime)
+-&gt; ReadS [ResultByTime]
+-&gt; ReadPrec ResultByTime
+-&gt; ReadPrec [ResultByTime]
+-&gt; Read ResultByTime
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResultByTime]
+$creadListPrec :: ReadPrec [ResultByTime]
+readPrec :: ReadPrec ResultByTime
+$creadPrec :: ReadPrec ResultByTime
+readList :: ReadS [ResultByTime]
+$creadList :: ReadS [ResultByTime]
+readsPrec :: Int -&gt; ReadS ResultByTime
+$creadsPrec :: Int -&gt; ReadS ResultByTime
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334494"><span id="local-6989586621679334496"><span id="local-6989586621679334498"><span class="annot"><span class="annottext">Int -&gt; ResultByTime -&gt; ShowS
+[ResultByTime] -&gt; ShowS
+ResultByTime -&gt; String
+(Int -&gt; ResultByTime -&gt; ShowS)
+-&gt; (ResultByTime -&gt; String)
+-&gt; ([ResultByTime] -&gt; ShowS)
+-&gt; Show ResultByTime
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResultByTime] -&gt; ShowS
+$cshowList :: [ResultByTime] -&gt; ShowS
+show :: ResultByTime -&gt; String
+$cshow :: ResultByTime -&gt; String
+showsPrec :: Int -&gt; ResultByTime -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResultByTime -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ResultByTime -&gt; Rep ResultByTime x)
+-&gt; (forall x. Rep ResultByTime x -&gt; ResultByTime)
+-&gt; Generic ResultByTime
+forall x. Rep ResultByTime x -&gt; ResultByTime
+forall x. ResultByTime -&gt; Rep ResultByTime x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResultByTime x -&gt; ResultByTime
+$cfrom :: forall x. ResultByTime -&gt; Rep ResultByTime x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'ResultByTime' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'groups', 'resultByTime_groups' - The groups that this time period includes.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'timePeriod', 'resultByTime_timePeriod' - The time period that the result covers.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'estimated', 'resultByTime_estimated' - Determines whether the result is estimated.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'total', 'resultByTime_total' - The total amount of cost or usage accrued during the time period.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#newResultByTime"><span class="hs-identifier hs-type">newResultByTime</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime"><span class="hs-identifier hs-type">ResultByTime</span></a></span><span>
+</span><span id="line-61"></span><span id="newResultByTime"><span class="annot"><span class="annottext">newResultByTime :: ResultByTime
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#newResultByTime"><span class="hs-identifier hs-var hs-var">newResultByTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">ResultByTime' :: Maybe [Group]
+-&gt; Maybe DateInterval
+-&gt; Maybe Bool
+-&gt; Maybe (HashMap Text MetricValue)
+-&gt; ResultByTime
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime%27"><span class="hs-identifier hs-type">ResultByTime'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groups:ResultByTime' :: Maybe [Group]
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#%24sel%3Agroups%3AResultByTime%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Group]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:timePeriod:ResultByTime' :: Maybe DateInterval
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#%24sel%3AtimePeriod%3AResultByTime%27"><span class="hs-identifier hs-var">timePeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DateInterval
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:estimated:ResultByTime' :: Maybe Bool
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#%24sel%3Aestimated%3AResultByTime%27"><span class="hs-identifier hs-var">estimated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:total:ResultByTime' :: Maybe (HashMap Text MetricValue)
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#%24sel%3Atotal%3AResultByTime%27"><span class="hs-identifier hs-var">total</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricValue)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The groups that this time period includes.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#resultByTime_groups"><span class="hs-identifier hs-type">resultByTime_groups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime"><span class="hs-identifier hs-type">ResultByTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="resultByTime_groups"><span class="annot"><span class="annottext">resultByTime_groups :: (Maybe [Group] -&gt; f (Maybe [Group]))
+-&gt; ResultByTime -&gt; f ResultByTime
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#resultByTime_groups"><span class="hs-identifier hs-var hs-var">resultByTime_groups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResultByTime -&gt; Maybe [Group])
+-&gt; (ResultByTime -&gt; Maybe [Group] -&gt; ResultByTime)
+-&gt; Lens ResultByTime ResultByTime (Maybe [Group]) (Maybe [Group])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime%27"><span class="hs-identifier hs-type">ResultByTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334485"><span class="annot"><span class="annottext">Maybe [Group]
+groups :: Maybe [Group]
+$sel:groups:ResultByTime' :: ResultByTime -&gt; Maybe [Group]
+</span><a href="#local-6989586621679334485"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Group]
+</span><a href="#local-6989586621679334485"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334484"><span class="annot"><span class="annottext">s :: ResultByTime
+</span><a href="#local-6989586621679334484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime%27"><span class="hs-identifier hs-type">ResultByTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334483"><span class="annot"><span class="annottext">Maybe [Group]
+</span><a href="#local-6989586621679334483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultByTime
+</span><a href="#local-6989586621679334484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:ResultByTime' :: Maybe [Group]
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#%24sel%3Agroups%3AResultByTime%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Group]
+</span><a href="#local-6989586621679334483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime"><span class="hs-identifier hs-type">ResultByTime</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Group] -&gt; f (Maybe [Group]))
+ -&gt; ResultByTime -&gt; f ResultByTime)
+-&gt; ((Maybe [Group] -&gt; f (Maybe [Group]))
+    -&gt; Maybe [Group] -&gt; f (Maybe [Group]))
+-&gt; (Maybe [Group] -&gt; f (Maybe [Group]))
+-&gt; ResultByTime
+-&gt; f ResultByTime
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Group] [Group] [Group] [Group]
+-&gt; Iso
+     (Maybe [Group]) (Maybe [Group]) (Maybe [Group]) (Maybe [Group])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Group] [Group] [Group] [Group]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The time period that the result covers.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#resultByTime_timePeriod"><span class="hs-identifier hs-type">resultByTime_timePeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime"><span class="hs-identifier hs-type">ResultByTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="resultByTime_timePeriod"><span class="annot"><span class="annottext">resultByTime_timePeriod :: (Maybe DateInterval -&gt; f (Maybe DateInterval))
+-&gt; ResultByTime -&gt; f ResultByTime
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#resultByTime_timePeriod"><span class="hs-identifier hs-var hs-var">resultByTime_timePeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResultByTime -&gt; Maybe DateInterval)
+-&gt; (ResultByTime -&gt; Maybe DateInterval -&gt; ResultByTime)
+-&gt; Lens
+     ResultByTime ResultByTime (Maybe DateInterval) (Maybe DateInterval)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime%27"><span class="hs-identifier hs-type">ResultByTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334478"><span class="annot"><span class="annottext">Maybe DateInterval
+timePeriod :: Maybe DateInterval
+$sel:timePeriod:ResultByTime' :: ResultByTime -&gt; Maybe DateInterval
+</span><a href="#local-6989586621679334478"><span class="hs-identifier hs-var hs-var">timePeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DateInterval
+</span><a href="#local-6989586621679334478"><span class="hs-identifier hs-var">timePeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334477"><span class="annot"><span class="annottext">s :: ResultByTime
+</span><a href="#local-6989586621679334477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime%27"><span class="hs-identifier hs-type">ResultByTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334476"><span class="annot"><span class="annottext">Maybe DateInterval
+</span><a href="#local-6989586621679334476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultByTime
+</span><a href="#local-6989586621679334477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timePeriod:ResultByTime' :: Maybe DateInterval
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#%24sel%3AtimePeriod%3AResultByTime%27"><span class="hs-identifier hs-var">timePeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DateInterval
+</span><a href="#local-6989586621679334476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime"><span class="hs-identifier hs-type">ResultByTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Determines whether the result is estimated.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#resultByTime_estimated"><span class="hs-identifier hs-type">resultByTime_estimated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime"><span class="hs-identifier hs-type">ResultByTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="resultByTime_estimated"><span class="annot"><span class="annottext">resultByTime_estimated :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ResultByTime -&gt; f ResultByTime
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#resultByTime_estimated"><span class="hs-identifier hs-var hs-var">resultByTime_estimated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResultByTime -&gt; Maybe Bool)
+-&gt; (ResultByTime -&gt; Maybe Bool -&gt; ResultByTime)
+-&gt; Lens ResultByTime ResultByTime (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime%27"><span class="hs-identifier hs-type">ResultByTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334474"><span class="annot"><span class="annottext">Maybe Bool
+estimated :: Maybe Bool
+$sel:estimated:ResultByTime' :: ResultByTime -&gt; Maybe Bool
+</span><a href="#local-6989586621679334474"><span class="hs-identifier hs-var hs-var">estimated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679334474"><span class="hs-identifier hs-var">estimated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334473"><span class="annot"><span class="annottext">s :: ResultByTime
+</span><a href="#local-6989586621679334473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime%27"><span class="hs-identifier hs-type">ResultByTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334472"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679334472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultByTime
+</span><a href="#local-6989586621679334473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:estimated:ResultByTime' :: Maybe Bool
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#%24sel%3Aestimated%3AResultByTime%27"><span class="hs-identifier hs-var">estimated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679334472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime"><span class="hs-identifier hs-type">ResultByTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The total amount of cost or usage accrued during the time period.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#resultByTime_total"><span class="hs-identifier hs-type">resultByTime_total</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime"><span class="hs-identifier hs-type">ResultByTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="resultByTime_total"><span class="annot"><span class="annottext">resultByTime_total :: (Maybe (HashMap Text MetricValue)
+ -&gt; f (Maybe (HashMap Text MetricValue)))
+-&gt; ResultByTime -&gt; f ResultByTime
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#resultByTime_total"><span class="hs-identifier hs-var hs-var">resultByTime_total</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResultByTime -&gt; Maybe (HashMap Text MetricValue))
+-&gt; (ResultByTime
+    -&gt; Maybe (HashMap Text MetricValue) -&gt; ResultByTime)
+-&gt; Lens
+     ResultByTime
+     ResultByTime
+     (Maybe (HashMap Text MetricValue))
+     (Maybe (HashMap Text MetricValue))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime%27"><span class="hs-identifier hs-type">ResultByTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334470"><span class="annot"><span class="annottext">Maybe (HashMap Text MetricValue)
+total :: Maybe (HashMap Text MetricValue)
+$sel:total:ResultByTime' :: ResultByTime -&gt; Maybe (HashMap Text MetricValue)
+</span><a href="#local-6989586621679334470"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricValue)
+</span><a href="#local-6989586621679334470"><span class="hs-identifier hs-var">total</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334469"><span class="annot"><span class="annottext">s :: ResultByTime
+</span><a href="#local-6989586621679334469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime%27"><span class="hs-identifier hs-type">ResultByTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334468"><span class="annot"><span class="annottext">Maybe (HashMap Text MetricValue)
+</span><a href="#local-6989586621679334468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultByTime
+</span><a href="#local-6989586621679334469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:total:ResultByTime' :: Maybe (HashMap Text MetricValue)
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#%24sel%3Atotal%3AResultByTime%27"><span class="hs-identifier hs-var">total</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricValue)
+</span><a href="#local-6989586621679334468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime"><span class="hs-identifier hs-type">ResultByTime</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MetricValue)
+  -&gt; f (Maybe (HashMap Text MetricValue)))
+ -&gt; ResultByTime -&gt; f ResultByTime)
+-&gt; ((Maybe (HashMap Text MetricValue)
+     -&gt; f (Maybe (HashMap Text MetricValue)))
+    -&gt; Maybe (HashMap Text MetricValue)
+    -&gt; f (Maybe (HashMap Text MetricValue)))
+-&gt; (Maybe (HashMap Text MetricValue)
+    -&gt; f (Maybe (HashMap Text MetricValue)))
+-&gt; ResultByTime
+-&gt; f ResultByTime
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text MetricValue)
+  (HashMap Text MetricValue)
+  (HashMap Text MetricValue)
+  (HashMap Text MetricValue)
+-&gt; Iso
+     (Maybe (HashMap Text MetricValue))
+     (Maybe (HashMap Text MetricValue))
+     (Maybe (HashMap Text MetricValue))
+     (Maybe (HashMap Text MetricValue))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text MetricValue)
+  (HashMap Text MetricValue)
+  (HashMap Text MetricValue)
+  (HashMap Text MetricValue)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334465"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime"><span class="hs-identifier hs-type">ResultByTime</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679334463"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResultByTime
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ResultByTime) -&gt; Value -&gt; Parser ResultByTime
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ResultByTime&quot;</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334460"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334460"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Group]
+-&gt; Maybe DateInterval
+-&gt; Maybe Bool
+-&gt; Maybe (HashMap Text MetricValue)
+-&gt; ResultByTime
+</span><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime%27"><span class="hs-identifier hs-var">ResultByTime'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Group]
+ -&gt; Maybe DateInterval
+ -&gt; Maybe Bool
+ -&gt; Maybe (HashMap Text MetricValue)
+ -&gt; ResultByTime)
+-&gt; Parser (Maybe [Group])
+-&gt; Parser
+     (Maybe DateInterval
+      -&gt; Maybe Bool -&gt; Maybe (HashMap Text MetricValue) -&gt; ResultByTime)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Group]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Groups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Group]))
+-&gt; Maybe [Group] -&gt; Parser (Maybe [Group])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Group]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DateInterval
+   -&gt; Maybe Bool -&gt; Maybe (HashMap Text MetricValue) -&gt; ResultByTime)
+-&gt; Parser (Maybe DateInterval)
+-&gt; Parser
+     (Maybe Bool -&gt; Maybe (HashMap Text MetricValue) -&gt; ResultByTime)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DateInterval)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TimePeriod&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool -&gt; Maybe (HashMap Text MetricValue) -&gt; ResultByTime)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe (HashMap Text MetricValue) -&gt; ResultByTime)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Estimated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text MetricValue) -&gt; ResultByTime)
+-&gt; Parser (Maybe (HashMap Text MetricValue)) -&gt; Parser ResultByTime
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text MetricValue)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Total&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text MetricValue)))
+-&gt; Maybe (HashMap Text MetricValue)
+-&gt; Parser (Maybe (HashMap Text MetricValue))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricValue)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334453"><span id="local-6989586621679334455"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime"><span class="hs-identifier hs-type">ResultByTime</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334450"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResultByTime.html#ResultByTime"><span class="hs-identifier hs-type">ResultByTime</span></a></span></span><span>
+</span><span id="line-100"></span></pre></body></html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ELBv2.Types.SslPolicy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ELBv2.Types.SslPolicy</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html"><span class="hs-identifier">Network.AWS.ELBv2.Types.Cipher</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about a policy used for SSL negotiation.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSslPolicy' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679250178"><span id="local-6989586621679250179"></span></span><span class="hs-keyword">data</span><span> </span><span id="SslPolicy"><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy"><span class="hs-identifier hs-var">SslPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SslPolicy%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy%27"><span class="hs-identifier hs-var">SslPolicy'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ciphers.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aciphers%3ASslPolicy%27"><span class="annot"><span class="annottext">SslPolicy -&gt; Maybe [Cipher]
+</span><a href="Network.AWS.ELBv2.Types.SslPolicy.html#%24sel%3Aciphers%3ASslPolicy%27"><span class="hs-identifier hs-var hs-var">ciphers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher"><span class="hs-identifier hs-type">Cipher</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the policy.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3ASslPolicy%27"><span class="annot"><span class="annottext">SslPolicy -&gt; Maybe Text
+</span><a href="Network.AWS.ELBv2.Types.SslPolicy.html#%24sel%3Aname%3ASslPolicy%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The protocols.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AsslProtocols%3ASslPolicy%27"><span class="annot"><span class="annottext">SslPolicy -&gt; Maybe [Text]
+</span><a href="Network.AWS.ELBv2.Types.SslPolicy.html#%24sel%3AsslProtocols%3ASslPolicy%27"><span class="hs-identifier hs-var hs-var">sslProtocols</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250170"><span id="local-6989586621679250172"><span class="annot"><span class="annottext">SslPolicy -&gt; SslPolicy -&gt; Bool
+(SslPolicy -&gt; SslPolicy -&gt; Bool)
+-&gt; (SslPolicy -&gt; SslPolicy -&gt; Bool) -&gt; Eq SslPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SslPolicy -&gt; SslPolicy -&gt; Bool
+$c/= :: SslPolicy -&gt; SslPolicy -&gt; Bool
+== :: SslPolicy -&gt; SslPolicy -&gt; Bool
+$c== :: SslPolicy -&gt; SslPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250161"><span id="local-6989586621679250163"><span id="local-6989586621679250165"><span id="local-6989586621679250167"><span class="annot"><span class="annottext">ReadPrec [SslPolicy]
+ReadPrec SslPolicy
+Int -&gt; ReadS SslPolicy
+ReadS [SslPolicy]
+(Int -&gt; ReadS SslPolicy)
+-&gt; ReadS [SslPolicy]
+-&gt; ReadPrec SslPolicy
+-&gt; ReadPrec [SslPolicy]
+-&gt; Read SslPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SslPolicy]
+$creadListPrec :: ReadPrec [SslPolicy]
+readPrec :: ReadPrec SslPolicy
+$creadPrec :: ReadPrec SslPolicy
+readList :: ReadS [SslPolicy]
+$creadList :: ReadS [SslPolicy]
+readsPrec :: Int -&gt; ReadS SslPolicy
+$creadsPrec :: Int -&gt; ReadS SslPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250154"><span id="local-6989586621679250156"><span id="local-6989586621679250158"><span class="annot"><span class="annottext">Int -&gt; SslPolicy -&gt; ShowS
+[SslPolicy] -&gt; ShowS
+SslPolicy -&gt; String
+(Int -&gt; SslPolicy -&gt; ShowS)
+-&gt; (SslPolicy -&gt; String)
+-&gt; ([SslPolicy] -&gt; ShowS)
+-&gt; Show SslPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SslPolicy] -&gt; ShowS
+$cshowList :: [SslPolicy] -&gt; ShowS
+show :: SslPolicy -&gt; String
+$cshow :: SslPolicy -&gt; String
+showsPrec :: Int -&gt; SslPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; SslPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SslPolicy -&gt; Rep SslPolicy x)
+-&gt; (forall x. Rep SslPolicy x -&gt; SslPolicy) -&gt; Generic SslPolicy
+forall x. Rep SslPolicy x -&gt; SslPolicy
+forall x. SslPolicy -&gt; Rep SslPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SslPolicy x -&gt; SslPolicy
+$cfrom :: forall x. SslPolicy -&gt; Rep SslPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'SslPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'ciphers', 'sslPolicy_ciphers' - The ciphers.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'name', 'sslPolicy_name' - The name of the policy.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'sslProtocols', 'sslPolicy_sslProtocols' - The protocols.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#newSslPolicy"><span class="hs-identifier hs-type">newSslPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy"><span class="hs-identifier hs-type">SslPolicy</span></a></span><span>
+</span><span id="line-55"></span><span id="newSslPolicy"><span class="annot"><span class="annottext">newSslPolicy :: SslPolicy
+</span><a href="Network.AWS.ELBv2.Types.SslPolicy.html#newSslPolicy"><span class="hs-identifier hs-var hs-var">newSslPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">SslPolicy' :: Maybe [Cipher] -&gt; Maybe Text -&gt; Maybe [Text] -&gt; SslPolicy
+</span><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy%27"><span class="hs-identifier hs-type">SslPolicy'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ciphers:SslPolicy' :: Maybe [Cipher]
+</span><a href="Network.AWS.ELBv2.Types.SslPolicy.html#%24sel%3Aciphers%3ASslPolicy%27"><span class="hs-identifier hs-var">ciphers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Cipher]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:SslPolicy' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.Types.SslPolicy.html#%24sel%3Aname%3ASslPolicy%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:sslProtocols:SslPolicy' :: Maybe [Text]
+</span><a href="Network.AWS.ELBv2.Types.SslPolicy.html#%24sel%3AsslProtocols%3ASslPolicy%27"><span class="hs-identifier hs-var">sslProtocols</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The ciphers.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#sslPolicy_ciphers"><span class="hs-identifier hs-type">sslPolicy_ciphers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy"><span class="hs-identifier hs-type">SslPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher"><span class="hs-identifier hs-type">Cipher</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="sslPolicy_ciphers"><span class="annot"><span class="annottext">sslPolicy_ciphers :: (Maybe [Cipher] -&gt; f (Maybe [Cipher])) -&gt; SslPolicy -&gt; f SslPolicy
+</span><a href="Network.AWS.ELBv2.Types.SslPolicy.html#sslPolicy_ciphers"><span class="hs-identifier hs-var hs-var">sslPolicy_ciphers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SslPolicy -&gt; Maybe [Cipher])
+-&gt; (SslPolicy -&gt; Maybe [Cipher] -&gt; SslPolicy)
+-&gt; Lens SslPolicy SslPolicy (Maybe [Cipher]) (Maybe [Cipher])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy%27"><span class="hs-identifier hs-type">SslPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250145"><span class="annot"><span class="annottext">Maybe [Cipher]
+ciphers :: Maybe [Cipher]
+$sel:ciphers:SslPolicy' :: SslPolicy -&gt; Maybe [Cipher]
+</span><a href="#local-6989586621679250145"><span class="hs-identifier hs-var hs-var">ciphers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Cipher]
+</span><a href="#local-6989586621679250145"><span class="hs-identifier hs-var">ciphers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250144"><span class="annot"><span class="annottext">s :: SslPolicy
+</span><a href="#local-6989586621679250144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy%27"><span class="hs-identifier hs-type">SslPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250143"><span class="annot"><span class="annottext">Maybe [Cipher]
+</span><a href="#local-6989586621679250143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SslPolicy
+</span><a href="#local-6989586621679250144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ciphers:SslPolicy' :: Maybe [Cipher]
+</span><a href="Network.AWS.ELBv2.Types.SslPolicy.html#%24sel%3Aciphers%3ASslPolicy%27"><span class="hs-identifier hs-var">ciphers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Cipher]
+</span><a href="#local-6989586621679250143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy"><span class="hs-identifier hs-type">SslPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Cipher] -&gt; f (Maybe [Cipher]))
+ -&gt; SslPolicy -&gt; f SslPolicy)
+-&gt; ((Maybe [Cipher] -&gt; f (Maybe [Cipher]))
+    -&gt; Maybe [Cipher] -&gt; f (Maybe [Cipher]))
+-&gt; (Maybe [Cipher] -&gt; f (Maybe [Cipher]))
+-&gt; SslPolicy
+-&gt; f SslPolicy
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Cipher] [Cipher] [Cipher] [Cipher]
+-&gt; Iso
+     (Maybe [Cipher]) (Maybe [Cipher]) (Maybe [Cipher]) (Maybe [Cipher])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Cipher] [Cipher] [Cipher] [Cipher]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The name of the policy.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#sslPolicy_name"><span class="hs-identifier hs-type">sslPolicy_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy"><span class="hs-identifier hs-type">SslPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="sslPolicy_name"><span class="annot"><span class="annottext">sslPolicy_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SslPolicy -&gt; f SslPolicy
+</span><a href="Network.AWS.ELBv2.Types.SslPolicy.html#sslPolicy_name"><span class="hs-identifier hs-var hs-var">sslPolicy_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SslPolicy -&gt; Maybe Text)
+-&gt; (SslPolicy -&gt; Maybe Text -&gt; SslPolicy)
+-&gt; Lens SslPolicy SslPolicy (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy%27"><span class="hs-identifier hs-type">SslPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250138"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:SslPolicy' :: SslPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679250138"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250138"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250137"><span class="annot"><span class="annottext">s :: SslPolicy
+</span><a href="#local-6989586621679250137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy%27"><span class="hs-identifier hs-type">SslPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250136"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SslPolicy
+</span><a href="#local-6989586621679250137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SslPolicy' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.Types.SslPolicy.html#%24sel%3Aname%3ASslPolicy%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy"><span class="hs-identifier hs-type">SslPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The protocols.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#sslPolicy_sslProtocols"><span class="hs-identifier hs-type">sslPolicy_sslProtocols</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy"><span class="hs-identifier hs-type">SslPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="sslPolicy_sslProtocols"><span class="annot"><span class="annottext">sslPolicy_sslProtocols :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; SslPolicy -&gt; f SslPolicy
+</span><a href="Network.AWS.ELBv2.Types.SslPolicy.html#sslPolicy_sslProtocols"><span class="hs-identifier hs-var hs-var">sslPolicy_sslProtocols</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SslPolicy -&gt; Maybe [Text])
+-&gt; (SslPolicy -&gt; Maybe [Text] -&gt; SslPolicy)
+-&gt; Lens SslPolicy SslPolicy (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy%27"><span class="hs-identifier hs-type">SslPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250134"><span class="annot"><span class="annottext">Maybe [Text]
+sslProtocols :: Maybe [Text]
+$sel:sslProtocols:SslPolicy' :: SslPolicy -&gt; Maybe [Text]
+</span><a href="#local-6989586621679250134"><span class="hs-identifier hs-var hs-var">sslProtocols</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250134"><span class="hs-identifier hs-var">sslProtocols</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250133"><span class="annot"><span class="annottext">s :: SslPolicy
+</span><a href="#local-6989586621679250133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy%27"><span class="hs-identifier hs-type">SslPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250132"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SslPolicy
+</span><a href="#local-6989586621679250133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslProtocols:SslPolicy' :: Maybe [Text]
+</span><a href="Network.AWS.ELBv2.Types.SslPolicy.html#%24sel%3AsslProtocols%3ASslPolicy%27"><span class="hs-identifier hs-var">sslProtocols</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy"><span class="hs-identifier hs-type">SslPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; SslPolicy -&gt; f SslPolicy)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; SslPolicy
+-&gt; f SslPolicy
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy"><span class="hs-identifier hs-type">SslPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679250129"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SslPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679250127"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679250127"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Cipher] -&gt; Maybe Text -&gt; Maybe [Text] -&gt; SslPolicy
+</span><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy%27"><span class="hs-identifier hs-var">SslPolicy'</span></a></span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Cipher] -&gt; Maybe Text -&gt; Maybe [Text] -&gt; SslPolicy)
+-&gt; Either String (Maybe [Cipher])
+-&gt; Either String (Maybe Text -&gt; Maybe [Text] -&gt; SslPolicy)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679250127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Ciphers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-78"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Cipher]))
+-&gt; Either String (Maybe [Cipher])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Cipher])
+-&gt; [Node] -&gt; Either String (Maybe [Cipher])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Cipher]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe [Text] -&gt; SslPolicy)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Text] -&gt; SslPolicy)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679250127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; SslPolicy)
+-&gt; Either String (Maybe [Text]) -&gt; Either String SslPolicy
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679250127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SslProtocols&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-82"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250118"><span id="local-6989586621679250120"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy"><span class="hs-identifier hs-type">SslPolicy</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.SslPolicy.html#SslPolicy"><span class="hs-identifier hs-type">SslPolicy</span></a></span></span><span>
+</span><span id="line-88"></span></pre></body></html>

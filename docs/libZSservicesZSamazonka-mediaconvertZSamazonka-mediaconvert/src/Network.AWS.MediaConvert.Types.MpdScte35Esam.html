@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.MpdScte35Esam</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.MpdScte35Esam</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#MpdScte35Esam"><span class="hs-identifier">MpdScte35Esam</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#MpdScte35Esam_INSERT"><span class="hs-identifier">MpdScte35Esam_INSERT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#MpdScte35Esam_NONE"><span class="hs-identifier">MpdScte35Esam_NONE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- INSERT to put SCTE-35 markers in this output at the insertion points</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- that you specify in an ESAM XML document. Provide the document in the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- setting SCC XML (sccXml).</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679985544"><span id="local-6989586621679985545"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MpdScte35Esam"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#MpdScte35Esam"><span class="hs-identifier hs-var">MpdScte35Esam</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MpdScte35Esam%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#MpdScte35Esam%27"><span class="hs-identifier hs-var">MpdScte35Esam'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpdScte35Esam"><span class="annot"><span class="annottext">MpdScte35Esam -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#fromMpdScte35Esam"><span class="hs-identifier hs-var hs-var">fromMpdScte35Esam</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679985536"><span id="local-6989586621679985538"><span id="local-6989586621679985540"><span class="annot"><span class="annottext">Int -&gt; MpdScte35Esam -&gt; ShowS
+[MpdScte35Esam] -&gt; ShowS
+MpdScte35Esam -&gt; String
+(Int -&gt; MpdScte35Esam -&gt; ShowS)
+-&gt; (MpdScte35Esam -&gt; String)
+-&gt; ([MpdScte35Esam] -&gt; ShowS)
+-&gt; Show MpdScte35Esam
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MpdScte35Esam] -&gt; ShowS
+$cshowList :: [MpdScte35Esam] -&gt; ShowS
+show :: MpdScte35Esam -&gt; String
+$cshow :: MpdScte35Esam -&gt; String
+showsPrec :: Int -&gt; MpdScte35Esam -&gt; ShowS
+$cshowsPrec :: Int -&gt; MpdScte35Esam -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679985527"><span id="local-6989586621679985529"><span id="local-6989586621679985531"><span id="local-6989586621679985533"><span class="annot"><span class="annottext">ReadPrec [MpdScte35Esam]
+ReadPrec MpdScte35Esam
+Int -&gt; ReadS MpdScte35Esam
+ReadS [MpdScte35Esam]
+(Int -&gt; ReadS MpdScte35Esam)
+-&gt; ReadS [MpdScte35Esam]
+-&gt; ReadPrec MpdScte35Esam
+-&gt; ReadPrec [MpdScte35Esam]
+-&gt; Read MpdScte35Esam
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MpdScte35Esam]
+$creadListPrec :: ReadPrec [MpdScte35Esam]
+readPrec :: ReadPrec MpdScte35Esam
+$creadPrec :: ReadPrec MpdScte35Esam
+readList :: ReadS [MpdScte35Esam]
+$creadList :: ReadS [MpdScte35Esam]
+readsPrec :: Int -&gt; ReadS MpdScte35Esam
+$creadsPrec :: Int -&gt; ReadS MpdScte35Esam
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679985522"><span id="local-6989586621679985524"><span class="annot"><span class="annottext">MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool
+(MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool)
+-&gt; (MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool) -&gt; Eq MpdScte35Esam
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool
+$c/= :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool
+== :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool
+$c== :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679985506"><span id="local-6989586621679985508"><span id="local-6989586621679985510"><span id="local-6989586621679985512"><span id="local-6989586621679985514"><span id="local-6989586621679985516"><span id="local-6989586621679985518"><span class="annot"><span class="annottext">Eq MpdScte35Esam
+Eq MpdScte35Esam
+-&gt; (MpdScte35Esam -&gt; MpdScte35Esam -&gt; Ordering)
+-&gt; (MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool)
+-&gt; (MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool)
+-&gt; (MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool)
+-&gt; (MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool)
+-&gt; (MpdScte35Esam -&gt; MpdScte35Esam -&gt; MpdScte35Esam)
+-&gt; (MpdScte35Esam -&gt; MpdScte35Esam -&gt; MpdScte35Esam)
+-&gt; Ord MpdScte35Esam
+MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool
+MpdScte35Esam -&gt; MpdScte35Esam -&gt; Ordering
+MpdScte35Esam -&gt; MpdScte35Esam -&gt; MpdScte35Esam
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; MpdScte35Esam
+$cmin :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; MpdScte35Esam
+max :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; MpdScte35Esam
+$cmax :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; MpdScte35Esam
+&gt;= :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool
+$c&gt;= :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool
+&gt; :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool
+$c&gt; :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool
+&lt;= :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool
+$c&lt;= :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool
+&lt; :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool
+$c&lt; :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; Bool
+compare :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; Ordering
+$ccompare :: MpdScte35Esam -&gt; MpdScte35Esam -&gt; Ordering
+$cp1Ord :: Eq MpdScte35Esam
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MpdScte35Esam -&gt; Rep MpdScte35Esam x)
+-&gt; (forall x. Rep MpdScte35Esam x -&gt; MpdScte35Esam)
+-&gt; Generic MpdScte35Esam
+forall x. Rep MpdScte35Esam x -&gt; MpdScte35Esam
+forall x. MpdScte35Esam -&gt; Rep MpdScte35Esam x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MpdScte35Esam x -&gt; MpdScte35Esam
+$cfrom :: forall x. MpdScte35Esam -&gt; Rep MpdScte35Esam x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679985498"><span id="local-6989586621679985500"><span class="annot"><span class="annottext">Int -&gt; MpdScte35Esam -&gt; Int
+MpdScte35Esam -&gt; Int
+(Int -&gt; MpdScte35Esam -&gt; Int)
+-&gt; (MpdScte35Esam -&gt; Int) -&gt; Hashable MpdScte35Esam
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MpdScte35Esam -&gt; Int
+$chash :: MpdScte35Esam -&gt; Int
+hashWithSalt :: Int -&gt; MpdScte35Esam -&gt; Int
+$chashWithSalt :: Int -&gt; MpdScte35Esam -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679985495"><span class="annot"><span class="annottext">MpdScte35Esam -&gt; ()
+(MpdScte35Esam -&gt; ()) -&gt; NFData MpdScte35Esam
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MpdScte35Esam -&gt; ()
+$crnf :: MpdScte35Esam -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679985492"><span class="annot"><span class="annottext">Text -&gt; Either String MpdScte35Esam
+(Text -&gt; Either String MpdScte35Esam) -&gt; FromText MpdScte35Esam
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MpdScte35Esam
+$cfromText :: Text -&gt; Either String MpdScte35Esam
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679985489"><span class="annot"><span class="annottext">MpdScte35Esam -&gt; Text
+(MpdScte35Esam -&gt; Text) -&gt; ToText MpdScte35Esam
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MpdScte35Esam -&gt; Text
+$ctoText :: MpdScte35Esam -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679985486"><span class="annot"><span class="annottext">MpdScte35Esam -&gt; ByteString
+(MpdScte35Esam -&gt; ByteString) -&gt; ToByteString MpdScte35Esam
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MpdScte35Esam -&gt; ByteString
+$ctoBS :: MpdScte35Esam -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679985483"><span class="annot"><span class="annottext">MpdScte35Esam -&gt; ByteStringBuilder
+(MpdScte35Esam -&gt; ByteStringBuilder) -&gt; ToLog MpdScte35Esam
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MpdScte35Esam -&gt; ByteStringBuilder
+$cbuild :: MpdScte35Esam -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679985480"><span class="annot"><span class="annottext">HeaderName -&gt; MpdScte35Esam -&gt; [Header]
+(HeaderName -&gt; MpdScte35Esam -&gt; [Header]) -&gt; ToHeader MpdScte35Esam
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MpdScte35Esam -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MpdScte35Esam -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679985477"><span class="annot"><span class="annottext">MpdScte35Esam -&gt; QueryString
+(MpdScte35Esam -&gt; QueryString) -&gt; ToQuery MpdScte35Esam
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MpdScte35Esam -&gt; QueryString
+$ctoQuery :: MpdScte35Esam -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679985472"><span id="local-6989586621679985474"><span class="annot"><span class="annottext">Value -&gt; Parser [MpdScte35Esam]
+Value -&gt; Parser MpdScte35Esam
+(Value -&gt; Parser MpdScte35Esam)
+-&gt; (Value -&gt; Parser [MpdScte35Esam]) -&gt; FromJSON MpdScte35Esam
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MpdScte35Esam]
+$cparseJSONList :: Value -&gt; Parser [MpdScte35Esam]
+parseJSON :: Value -&gt; Parser MpdScte35Esam
+$cparseJSON :: Value -&gt; Parser MpdScte35Esam
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679985467"><span id="local-6989586621679985469"><span class="annot"><span class="annottext">FromJSONKeyFunction [MpdScte35Esam]
+FromJSONKeyFunction MpdScte35Esam
+FromJSONKeyFunction MpdScte35Esam
+-&gt; FromJSONKeyFunction [MpdScte35Esam] -&gt; FromJSONKey MpdScte35Esam
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MpdScte35Esam]
+$cfromJSONKeyList :: FromJSONKeyFunction [MpdScte35Esam]
+fromJSONKey :: FromJSONKeyFunction MpdScte35Esam
+$cfromJSONKey :: FromJSONKeyFunction MpdScte35Esam
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679985458"><span id="local-6989586621679985460"><span id="local-6989586621679985462"><span id="local-6989586621679985464"><span class="annot"><span class="annottext">[MpdScte35Esam] -&gt; Encoding
+[MpdScte35Esam] -&gt; Value
+MpdScte35Esam -&gt; Encoding
+MpdScte35Esam -&gt; Value
+(MpdScte35Esam -&gt; Value)
+-&gt; (MpdScte35Esam -&gt; Encoding)
+-&gt; ([MpdScte35Esam] -&gt; Value)
+-&gt; ([MpdScte35Esam] -&gt; Encoding)
+-&gt; ToJSON MpdScte35Esam
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MpdScte35Esam] -&gt; Encoding
+$ctoEncodingList :: [MpdScte35Esam] -&gt; Encoding
+toJSONList :: [MpdScte35Esam] -&gt; Value
+$ctoJSONList :: [MpdScte35Esam] -&gt; Value
+toEncoding :: MpdScte35Esam -&gt; Encoding
+$ctoEncoding :: MpdScte35Esam -&gt; Encoding
+toJSON :: MpdScte35Esam -&gt; Value
+$ctoJSON :: MpdScte35Esam -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679985453"><span id="local-6989586621679985455"><span class="annot"><span class="annottext">ToJSONKeyFunction [MpdScte35Esam]
+ToJSONKeyFunction MpdScte35Esam
+ToJSONKeyFunction MpdScte35Esam
+-&gt; ToJSONKeyFunction [MpdScte35Esam] -&gt; ToJSONKey MpdScte35Esam
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MpdScte35Esam]
+$ctoJSONKeyList :: ToJSONKeyFunction [MpdScte35Esam]
+toJSONKey :: ToJSONKeyFunction MpdScte35Esam
+$ctoJSONKey :: ToJSONKeyFunction MpdScte35Esam
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679985450"><span class="annot"><span class="annottext">[Node] -&gt; Either String MpdScte35Esam
+([Node] -&gt; Either String MpdScte35Esam) -&gt; FromXML MpdScte35Esam
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MpdScte35Esam
+$cparseXML :: [Node] -&gt; Either String MpdScte35Esam
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679985447"><span class="annot"><span class="annottext">MpdScte35Esam -&gt; XML
+(MpdScte35Esam -&gt; XML) -&gt; ToXML MpdScte35Esam
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MpdScte35Esam -&gt; XML
+$ctoXML :: MpdScte35Esam -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#MpdScte35Esam_INSERT"><span class="hs-identifier hs-type">MpdScte35Esam_INSERT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#MpdScte35Esam"><span class="hs-identifier hs-type">MpdScte35Esam</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMpdScte35Esam_INSERT"><span id="%24mMpdScte35Esam_INSERT"><span id="MpdScte35Esam_INSERT"><span class="annot"><span class="annottext">$bMpdScte35Esam_INSERT :: MpdScte35Esam
+$mMpdScte35Esam_INSERT :: forall r. MpdScte35Esam -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#%24bMpdScte35Esam_INSERT"><span class="hs-identifier hs-var hs-var hs-var">MpdScte35Esam_INSERT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#MpdScte35Esam%27"><span class="hs-identifier hs-type">MpdScte35Esam'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INSERT&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#MpdScte35Esam_NONE"><span class="hs-identifier hs-type">MpdScte35Esam_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#MpdScte35Esam"><span class="hs-identifier hs-type">MpdScte35Esam</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMpdScte35Esam_NONE"><span id="%24mMpdScte35Esam_NONE"><span id="MpdScte35Esam_NONE"><span class="annot"><span class="annottext">$bMpdScte35Esam_NONE :: MpdScte35Esam
+$mMpdScte35Esam_NONE :: forall r. MpdScte35Esam -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#%24bMpdScte35Esam_NONE"><span class="hs-identifier hs-var hs-var hs-var">MpdScte35Esam_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#MpdScte35Esam%27"><span class="hs-identifier hs-type">MpdScte35Esam'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#MpdScte35Esam_INSERT"><span class="hs-pragma hs-type">MpdScte35Esam_INSERT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#MpdScte35Esam_NONE"><span class="hs-pragma hs-type">MpdScte35Esam_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Esam.html#MpdScte35Esam%27"><span class="hs-pragma hs-type">MpdScte35Esam'</span></a></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-75"></span></pre></body></html>

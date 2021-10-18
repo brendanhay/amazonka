@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.Types.ThingConnectivityIndexingMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.Types.ThingConnectivityIndexingMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#ThingConnectivityIndexingMode"><span class="hs-identifier">ThingConnectivityIndexingMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#ThingConnectivityIndexingMode_OFF"><span class="hs-identifier">ThingConnectivityIndexingMode_OFF</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#ThingConnectivityIndexingMode_STATUS"><span class="hs-identifier">ThingConnectivityIndexingMode_STATUS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679801120"><span id="local-6989586621679801121"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ThingConnectivityIndexingMode"><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#ThingConnectivityIndexingMode"><span class="hs-identifier hs-var">ThingConnectivityIndexingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThingConnectivityIndexingMode%27"><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#ThingConnectivityIndexingMode%27"><span class="hs-identifier hs-var">ThingConnectivityIndexingMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromThingConnectivityIndexingMode"><span class="annot"><span class="annottext">ThingConnectivityIndexingMode -&gt; Text
+</span><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#fromThingConnectivityIndexingMode"><span class="hs-identifier hs-var hs-var">fromThingConnectivityIndexingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679801112"><span id="local-6989586621679801114"><span id="local-6989586621679801116"><span class="annot"><span class="annottext">Int -&gt; ThingConnectivityIndexingMode -&gt; ShowS
+[ThingConnectivityIndexingMode] -&gt; ShowS
+ThingConnectivityIndexingMode -&gt; String
+(Int -&gt; ThingConnectivityIndexingMode -&gt; ShowS)
+-&gt; (ThingConnectivityIndexingMode -&gt; String)
+-&gt; ([ThingConnectivityIndexingMode] -&gt; ShowS)
+-&gt; Show ThingConnectivityIndexingMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ThingConnectivityIndexingMode] -&gt; ShowS
+$cshowList :: [ThingConnectivityIndexingMode] -&gt; ShowS
+show :: ThingConnectivityIndexingMode -&gt; String
+$cshow :: ThingConnectivityIndexingMode -&gt; String
+showsPrec :: Int -&gt; ThingConnectivityIndexingMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; ThingConnectivityIndexingMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679801103"><span id="local-6989586621679801105"><span id="local-6989586621679801107"><span id="local-6989586621679801109"><span class="annot"><span class="annottext">ReadPrec [ThingConnectivityIndexingMode]
+ReadPrec ThingConnectivityIndexingMode
+Int -&gt; ReadS ThingConnectivityIndexingMode
+ReadS [ThingConnectivityIndexingMode]
+(Int -&gt; ReadS ThingConnectivityIndexingMode)
+-&gt; ReadS [ThingConnectivityIndexingMode]
+-&gt; ReadPrec ThingConnectivityIndexingMode
+-&gt; ReadPrec [ThingConnectivityIndexingMode]
+-&gt; Read ThingConnectivityIndexingMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ThingConnectivityIndexingMode]
+$creadListPrec :: ReadPrec [ThingConnectivityIndexingMode]
+readPrec :: ReadPrec ThingConnectivityIndexingMode
+$creadPrec :: ReadPrec ThingConnectivityIndexingMode
+readList :: ReadS [ThingConnectivityIndexingMode]
+$creadList :: ReadS [ThingConnectivityIndexingMode]
+readsPrec :: Int -&gt; ReadS ThingConnectivityIndexingMode
+$creadsPrec :: Int -&gt; ReadS ThingConnectivityIndexingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679801098"><span id="local-6989586621679801100"><span class="annot"><span class="annottext">ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Bool
+(ThingConnectivityIndexingMode
+ -&gt; ThingConnectivityIndexingMode -&gt; Bool)
+-&gt; (ThingConnectivityIndexingMode
+    -&gt; ThingConnectivityIndexingMode -&gt; Bool)
+-&gt; Eq ThingConnectivityIndexingMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Bool
+$c/= :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Bool
+== :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Bool
+$c== :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679801082"><span id="local-6989586621679801084"><span id="local-6989586621679801086"><span id="local-6989586621679801088"><span id="local-6989586621679801090"><span id="local-6989586621679801092"><span id="local-6989586621679801094"><span class="annot"><span class="annottext">Eq ThingConnectivityIndexingMode
+Eq ThingConnectivityIndexingMode
+-&gt; (ThingConnectivityIndexingMode
+    -&gt; ThingConnectivityIndexingMode -&gt; Ordering)
+-&gt; (ThingConnectivityIndexingMode
+    -&gt; ThingConnectivityIndexingMode -&gt; Bool)
+-&gt; (ThingConnectivityIndexingMode
+    -&gt; ThingConnectivityIndexingMode -&gt; Bool)
+-&gt; (ThingConnectivityIndexingMode
+    -&gt; ThingConnectivityIndexingMode -&gt; Bool)
+-&gt; (ThingConnectivityIndexingMode
+    -&gt; ThingConnectivityIndexingMode -&gt; Bool)
+-&gt; (ThingConnectivityIndexingMode
+    -&gt; ThingConnectivityIndexingMode -&gt; ThingConnectivityIndexingMode)
+-&gt; (ThingConnectivityIndexingMode
+    -&gt; ThingConnectivityIndexingMode -&gt; ThingConnectivityIndexingMode)
+-&gt; Ord ThingConnectivityIndexingMode
+ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Bool
+ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Ordering
+ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; ThingConnectivityIndexingMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; ThingConnectivityIndexingMode
+$cmin :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; ThingConnectivityIndexingMode
+max :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; ThingConnectivityIndexingMode
+$cmax :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; ThingConnectivityIndexingMode
+&gt;= :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Bool
+$c&gt;= :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Bool
+&gt; :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Bool
+$c&gt; :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Bool
+&lt;= :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Bool
+$c&lt;= :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Bool
+&lt; :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Bool
+$c&lt; :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Bool
+compare :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Ordering
+$ccompare :: ThingConnectivityIndexingMode
+-&gt; ThingConnectivityIndexingMode -&gt; Ordering
+$cp1Ord :: Eq ThingConnectivityIndexingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ThingConnectivityIndexingMode
+ -&gt; Rep ThingConnectivityIndexingMode x)
+-&gt; (forall x.
+    Rep ThingConnectivityIndexingMode x
+    -&gt; ThingConnectivityIndexingMode)
+-&gt; Generic ThingConnectivityIndexingMode
+forall x.
+Rep ThingConnectivityIndexingMode x
+-&gt; ThingConnectivityIndexingMode
+forall x.
+ThingConnectivityIndexingMode
+-&gt; Rep ThingConnectivityIndexingMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ThingConnectivityIndexingMode x
+-&gt; ThingConnectivityIndexingMode
+$cfrom :: forall x.
+ThingConnectivityIndexingMode
+-&gt; Rep ThingConnectivityIndexingMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679801074"><span id="local-6989586621679801076"><span class="annot"><span class="annottext">Int -&gt; ThingConnectivityIndexingMode -&gt; Int
+ThingConnectivityIndexingMode -&gt; Int
+(Int -&gt; ThingConnectivityIndexingMode -&gt; Int)
+-&gt; (ThingConnectivityIndexingMode -&gt; Int)
+-&gt; Hashable ThingConnectivityIndexingMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ThingConnectivityIndexingMode -&gt; Int
+$chash :: ThingConnectivityIndexingMode -&gt; Int
+hashWithSalt :: Int -&gt; ThingConnectivityIndexingMode -&gt; Int
+$chashWithSalt :: Int -&gt; ThingConnectivityIndexingMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679801071"><span class="annot"><span class="annottext">ThingConnectivityIndexingMode -&gt; ()
+(ThingConnectivityIndexingMode -&gt; ())
+-&gt; NFData ThingConnectivityIndexingMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ThingConnectivityIndexingMode -&gt; ()
+$crnf :: ThingConnectivityIndexingMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679801068"><span class="annot"><span class="annottext">Text -&gt; Either String ThingConnectivityIndexingMode
+(Text -&gt; Either String ThingConnectivityIndexingMode)
+-&gt; FromText ThingConnectivityIndexingMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ThingConnectivityIndexingMode
+$cfromText :: Text -&gt; Either String ThingConnectivityIndexingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679801065"><span class="annot"><span class="annottext">ThingConnectivityIndexingMode -&gt; Text
+(ThingConnectivityIndexingMode -&gt; Text)
+-&gt; ToText ThingConnectivityIndexingMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ThingConnectivityIndexingMode -&gt; Text
+$ctoText :: ThingConnectivityIndexingMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679801062"><span class="annot"><span class="annottext">ThingConnectivityIndexingMode -&gt; ByteString
+(ThingConnectivityIndexingMode -&gt; ByteString)
+-&gt; ToByteString ThingConnectivityIndexingMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ThingConnectivityIndexingMode -&gt; ByteString
+$ctoBS :: ThingConnectivityIndexingMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679801059"><span class="annot"><span class="annottext">ThingConnectivityIndexingMode -&gt; ByteStringBuilder
+(ThingConnectivityIndexingMode -&gt; ByteStringBuilder)
+-&gt; ToLog ThingConnectivityIndexingMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ThingConnectivityIndexingMode -&gt; ByteStringBuilder
+$cbuild :: ThingConnectivityIndexingMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679801056"><span class="annot"><span class="annottext">HeaderName -&gt; ThingConnectivityIndexingMode -&gt; [Header]
+(HeaderName -&gt; ThingConnectivityIndexingMode -&gt; [Header])
+-&gt; ToHeader ThingConnectivityIndexingMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ThingConnectivityIndexingMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ThingConnectivityIndexingMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679801053"><span class="annot"><span class="annottext">ThingConnectivityIndexingMode -&gt; QueryString
+(ThingConnectivityIndexingMode -&gt; QueryString)
+-&gt; ToQuery ThingConnectivityIndexingMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ThingConnectivityIndexingMode -&gt; QueryString
+$ctoQuery :: ThingConnectivityIndexingMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679801048"><span id="local-6989586621679801050"><span class="annot"><span class="annottext">Value -&gt; Parser [ThingConnectivityIndexingMode]
+Value -&gt; Parser ThingConnectivityIndexingMode
+(Value -&gt; Parser ThingConnectivityIndexingMode)
+-&gt; (Value -&gt; Parser [ThingConnectivityIndexingMode])
+-&gt; FromJSON ThingConnectivityIndexingMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ThingConnectivityIndexingMode]
+$cparseJSONList :: Value -&gt; Parser [ThingConnectivityIndexingMode]
+parseJSON :: Value -&gt; Parser ThingConnectivityIndexingMode
+$cparseJSON :: Value -&gt; Parser ThingConnectivityIndexingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679801043"><span id="local-6989586621679801045"><span class="annot"><span class="annottext">FromJSONKeyFunction [ThingConnectivityIndexingMode]
+FromJSONKeyFunction ThingConnectivityIndexingMode
+FromJSONKeyFunction ThingConnectivityIndexingMode
+-&gt; FromJSONKeyFunction [ThingConnectivityIndexingMode]
+-&gt; FromJSONKey ThingConnectivityIndexingMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ThingConnectivityIndexingMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [ThingConnectivityIndexingMode]
+fromJSONKey :: FromJSONKeyFunction ThingConnectivityIndexingMode
+$cfromJSONKey :: FromJSONKeyFunction ThingConnectivityIndexingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679801034"><span id="local-6989586621679801036"><span id="local-6989586621679801038"><span id="local-6989586621679801040"><span class="annot"><span class="annottext">[ThingConnectivityIndexingMode] -&gt; Encoding
+[ThingConnectivityIndexingMode] -&gt; Value
+ThingConnectivityIndexingMode -&gt; Encoding
+ThingConnectivityIndexingMode -&gt; Value
+(ThingConnectivityIndexingMode -&gt; Value)
+-&gt; (ThingConnectivityIndexingMode -&gt; Encoding)
+-&gt; ([ThingConnectivityIndexingMode] -&gt; Value)
+-&gt; ([ThingConnectivityIndexingMode] -&gt; Encoding)
+-&gt; ToJSON ThingConnectivityIndexingMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ThingConnectivityIndexingMode] -&gt; Encoding
+$ctoEncodingList :: [ThingConnectivityIndexingMode] -&gt; Encoding
+toJSONList :: [ThingConnectivityIndexingMode] -&gt; Value
+$ctoJSONList :: [ThingConnectivityIndexingMode] -&gt; Value
+toEncoding :: ThingConnectivityIndexingMode -&gt; Encoding
+$ctoEncoding :: ThingConnectivityIndexingMode -&gt; Encoding
+toJSON :: ThingConnectivityIndexingMode -&gt; Value
+$ctoJSON :: ThingConnectivityIndexingMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679801029"><span id="local-6989586621679801031"><span class="annot"><span class="annottext">ToJSONKeyFunction [ThingConnectivityIndexingMode]
+ToJSONKeyFunction ThingConnectivityIndexingMode
+ToJSONKeyFunction ThingConnectivityIndexingMode
+-&gt; ToJSONKeyFunction [ThingConnectivityIndexingMode]
+-&gt; ToJSONKey ThingConnectivityIndexingMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ThingConnectivityIndexingMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [ThingConnectivityIndexingMode]
+toJSONKey :: ToJSONKeyFunction ThingConnectivityIndexingMode
+$ctoJSONKey :: ToJSONKeyFunction ThingConnectivityIndexingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679801026"><span class="annot"><span class="annottext">[Node] -&gt; Either String ThingConnectivityIndexingMode
+([Node] -&gt; Either String ThingConnectivityIndexingMode)
+-&gt; FromXML ThingConnectivityIndexingMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ThingConnectivityIndexingMode
+$cparseXML :: [Node] -&gt; Either String ThingConnectivityIndexingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679801023"><span class="annot"><span class="annottext">ThingConnectivityIndexingMode -&gt; XML
+(ThingConnectivityIndexingMode -&gt; XML)
+-&gt; ToXML ThingConnectivityIndexingMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ThingConnectivityIndexingMode -&gt; XML
+$ctoXML :: ThingConnectivityIndexingMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#ThingConnectivityIndexingMode_OFF"><span class="hs-identifier hs-type">ThingConnectivityIndexingMode_OFF</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#ThingConnectivityIndexingMode"><span class="hs-identifier hs-type">ThingConnectivityIndexingMode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThingConnectivityIndexingMode_OFF"><span id="%24mThingConnectivityIndexingMode_OFF"><span id="ThingConnectivityIndexingMode_OFF"><span class="annot"><span class="annottext">$bThingConnectivityIndexingMode_OFF :: ThingConnectivityIndexingMode
+$mThingConnectivityIndexingMode_OFF :: forall r.
+ThingConnectivityIndexingMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#%24bThingConnectivityIndexingMode_OFF"><span class="hs-identifier hs-var hs-var hs-var">ThingConnectivityIndexingMode_OFF</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#ThingConnectivityIndexingMode%27"><span class="hs-identifier hs-type">ThingConnectivityIndexingMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OFF&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#ThingConnectivityIndexingMode_STATUS"><span class="hs-identifier hs-type">ThingConnectivityIndexingMode_STATUS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#ThingConnectivityIndexingMode"><span class="hs-identifier hs-type">ThingConnectivityIndexingMode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThingConnectivityIndexingMode_STATUS"><span id="%24mThingConnectivityIndexingMode_STATUS"><span id="ThingConnectivityIndexingMode_STATUS"><span class="annot"><span class="annottext">$bThingConnectivityIndexingMode_STATUS :: ThingConnectivityIndexingMode
+$mThingConnectivityIndexingMode_STATUS :: forall r.
+ThingConnectivityIndexingMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#%24bThingConnectivityIndexingMode_STATUS"><span class="hs-identifier hs-var hs-var hs-var">ThingConnectivityIndexingMode_STATUS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#ThingConnectivityIndexingMode%27"><span class="hs-identifier hs-type">ThingConnectivityIndexingMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STATUS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#ThingConnectivityIndexingMode_OFF"><span class="hs-pragma hs-type">ThingConnectivityIndexingMode_OFF</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#ThingConnectivityIndexingMode_STATUS"><span class="hs-pragma hs-type">ThingConnectivityIndexingMode_STATUS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivityIndexingMode.html#ThingConnectivityIndexingMode%27"><span class="hs-pragma hs-type">ThingConnectivityIndexingMode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeCommit.GetComment</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the content of a comment made on a change, file, or commit in a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- repository.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Reaction counts might include numbers from user identities who were</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- deleted after the reaction was made. For a count of reactions from</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- active identities, use GetCommentReactions.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeCommit.GetComment</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment"><span class="hs-identifier">GetComment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#newGetComment"><span class="hs-identifier">newGetComment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#getComment_commentId"><span class="hs-identifier">getComment_commentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetCommentResponse"><span class="hs-identifier">GetCommentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#newGetCommentResponse"><span class="hs-identifier">newGetCommentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#getCommentResponse_comment"><span class="hs-identifier">getCommentResponse_comment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#getCommentResponse_httpStatus"><span class="hs-identifier">getCommentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.html"><span class="hs-identifier">Network.AWS.CodeCommit.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newGetComment' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679366483"><span id="local-6989586621679366484"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetComment"><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment"><span class="hs-identifier hs-var">GetComment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetComment%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment%27"><span class="hs-identifier hs-var">GetComment'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique, system-generated ID of the comment. To get this ID, use</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- GetCommentsForComparedCommit or GetCommentsForPullRequest.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AcommentId%3AGetComment%27"><span class="annot"><span class="annottext">GetComment -&gt; Text
+</span><a href="Network.AWS.CodeCommit.GetComment.html#%24sel%3AcommentId%3AGetComment%27"><span class="hs-identifier hs-var hs-var">commentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366477"><span id="local-6989586621679366479"><span class="annot"><span class="annottext">GetComment -&gt; GetComment -&gt; Bool
+(GetComment -&gt; GetComment -&gt; Bool)
+-&gt; (GetComment -&gt; GetComment -&gt; Bool) -&gt; Eq GetComment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetComment -&gt; GetComment -&gt; Bool
+$c/= :: GetComment -&gt; GetComment -&gt; Bool
+== :: GetComment -&gt; GetComment -&gt; Bool
+$c== :: GetComment -&gt; GetComment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366468"><span id="local-6989586621679366470"><span id="local-6989586621679366472"><span id="local-6989586621679366474"><span class="annot"><span class="annottext">ReadPrec [GetComment]
+ReadPrec GetComment
+Int -&gt; ReadS GetComment
+ReadS [GetComment]
+(Int -&gt; ReadS GetComment)
+-&gt; ReadS [GetComment]
+-&gt; ReadPrec GetComment
+-&gt; ReadPrec [GetComment]
+-&gt; Read GetComment
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetComment]
+$creadListPrec :: ReadPrec [GetComment]
+readPrec :: ReadPrec GetComment
+$creadPrec :: ReadPrec GetComment
+readList :: ReadS [GetComment]
+$creadList :: ReadS [GetComment]
+readsPrec :: Int -&gt; ReadS GetComment
+$creadsPrec :: Int -&gt; ReadS GetComment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366461"><span id="local-6989586621679366463"><span id="local-6989586621679366465"><span class="annot"><span class="annottext">Int -&gt; GetComment -&gt; ShowS
+[GetComment] -&gt; ShowS
+GetComment -&gt; String
+(Int -&gt; GetComment -&gt; ShowS)
+-&gt; (GetComment -&gt; String)
+-&gt; ([GetComment] -&gt; ShowS)
+-&gt; Show GetComment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetComment] -&gt; ShowS
+$cshowList :: [GetComment] -&gt; ShowS
+show :: GetComment -&gt; String
+$cshow :: GetComment -&gt; String
+showsPrec :: Int -&gt; GetComment -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetComment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetComment -&gt; Rep GetComment x)
+-&gt; (forall x. Rep GetComment x -&gt; GetComment) -&gt; Generic GetComment
+forall x. Rep GetComment x -&gt; GetComment
+forall x. GetComment -&gt; Rep GetComment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetComment x -&gt; GetComment
+$cfrom :: forall x. GetComment -&gt; Rep GetComment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'GetComment' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'commentId', 'getComment_commentId' - The unique, system-generated ID of the comment. To get this ID, use</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- GetCommentsForComparedCommit or GetCommentsForPullRequest.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#newGetComment"><span class="hs-identifier hs-type">newGetComment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'commentId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment"><span class="hs-identifier hs-type">GetComment</span></a></span><span>
+</span><span id="line-76"></span><span id="newGetComment"><span class="annot"><span class="annottext">newGetComment :: Text -&gt; GetComment
+</span><a href="Network.AWS.CodeCommit.GetComment.html#newGetComment"><span class="hs-identifier hs-var hs-var">newGetComment</span></a></span></span><span> </span><span id="local-6989586621679366456"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679366456"><span class="hs-identifier hs-var">pCommentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">GetComment' :: Text -&gt; GetComment
+</span><a href="Network.AWS.CodeCommit.GetComment.html#GetComment%27"><span class="hs-identifier hs-type">GetComment'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commentId:GetComment' :: Text
+</span><a href="Network.AWS.CodeCommit.GetComment.html#%24sel%3AcommentId%3AGetComment%27"><span class="hs-identifier hs-var">commentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679366456"><span class="hs-identifier hs-var">pCommentId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The unique, system-generated ID of the comment. To get this ID, use</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- GetCommentsForComparedCommit or GetCommentsForPullRequest.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#getComment_commentId"><span class="hs-identifier hs-type">getComment_commentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment"><span class="hs-identifier hs-type">GetComment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="getComment_commentId"><span class="annot"><span class="annottext">getComment_commentId :: (Text -&gt; f Text) -&gt; GetComment -&gt; f GetComment
+</span><a href="Network.AWS.CodeCommit.GetComment.html#getComment_commentId"><span class="hs-identifier hs-var hs-var">getComment_commentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComment -&gt; Text)
+-&gt; (GetComment -&gt; Text -&gt; GetComment)
+-&gt; Lens GetComment GetComment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment%27"><span class="hs-identifier hs-type">GetComment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366453"><span class="annot"><span class="annottext">Text
+commentId :: Text
+$sel:commentId:GetComment' :: GetComment -&gt; Text
+</span><a href="#local-6989586621679366453"><span class="hs-identifier hs-var hs-var">commentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679366453"><span class="hs-identifier hs-var">commentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366452"><span class="annot"><span class="annottext">s :: GetComment
+</span><a href="#local-6989586621679366452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment%27"><span class="hs-identifier hs-type">GetComment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366451"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679366451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComment
+</span><a href="#local-6989586621679366452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commentId:GetComment' :: Text
+</span><a href="Network.AWS.CodeCommit.GetComment.html#%24sel%3AcommentId%3AGetComment%27"><span class="hs-identifier hs-var">commentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679366451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment"><span class="hs-identifier hs-type">GetComment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment"><span class="hs-identifier hs-type">GetComment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment"><span class="hs-identifier hs-type">GetComment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetCommentResponse"><span class="hs-identifier hs-type">GetCommentResponse</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679366447"><span class="annot"><span class="annottext">request :: GetComment -&gt; Request GetComment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetComment -&gt; Request GetComment
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679366443"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetComment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetComment)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetComment))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetComment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetComment)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679366440"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366440"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679366439"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679366439"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679366438"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366438"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Comment -&gt; Int -&gt; GetCommentResponse
+</span><a href="Network.AWS.CodeCommit.GetComment.html#GetCommentResponse%27"><span class="hs-identifier hs-var">GetCommentResponse'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Comment -&gt; Int -&gt; GetCommentResponse)
+-&gt; Either String (Maybe Comment)
+-&gt; Either String (Int -&gt; GetCommentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366438"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Comment)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;comment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetCommentResponse)
+-&gt; Either String Int -&gt; Either String GetCommentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366440"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366430"><span id="local-6989586621679366432"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment"><span class="hs-identifier hs-type">GetComment</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366427"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment"><span class="hs-identifier hs-type">GetComment</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment"><span class="hs-identifier hs-type">GetComment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679366423"><span class="annot"><span class="annottext">toHeaders :: GetComment -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetComment -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeCommit_20150413.GetComment&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-106"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366413"><span id="local-6989586621679366415"><span id="local-6989586621679366417"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment"><span class="hs-identifier hs-type">GetComment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679366411"><span class="annot"><span class="annottext">toJSON :: GetComment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment%27"><span class="hs-identifier hs-type">GetComment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366409"><span class="annot"><span class="annottext">Text
+commentId :: Text
+$sel:commentId:GetComment' :: GetComment -&gt; Text
+</span><a href="#local-6989586621679366409"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;commentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679366409"><span class="hs-identifier hs-var">commentId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment"><span class="hs-identifier hs-type">GetComment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679366403"><span class="annot"><span class="annottext">toPath :: GetComment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetComment -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetComment"><span class="hs-identifier hs-type">GetComment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679366399"><span class="annot"><span class="annottext">toQuery :: GetComment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetComment -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newGetCommentResponse' smart constructor.</span><span>
+</span><span id="line-128"></span><span id="local-6989586621679366396"><span id="local-6989586621679366397"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCommentResponse"><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetCommentResponse"><span class="hs-identifier hs-var">GetCommentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCommentResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetCommentResponse%27"><span class="hs-identifier hs-var">GetCommentResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The contents of the comment.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3Acomment%3AGetCommentResponse%27"><span class="annot"><span class="annottext">GetCommentResponse -&gt; Maybe Comment
+</span><a href="Network.AWS.CodeCommit.GetComment.html#%24sel%3Acomment%3AGetCommentResponse%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCommentResponse%27"><span class="annot"><span class="annottext">GetCommentResponse -&gt; Int
+</span><a href="Network.AWS.CodeCommit.GetComment.html#%24sel%3AhttpStatus%3AGetCommentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366390"><span id="local-6989586621679366392"><span class="annot"><span class="annottext">GetCommentResponse -&gt; GetCommentResponse -&gt; Bool
+(GetCommentResponse -&gt; GetCommentResponse -&gt; Bool)
+-&gt; (GetCommentResponse -&gt; GetCommentResponse -&gt; Bool)
+-&gt; Eq GetCommentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCommentResponse -&gt; GetCommentResponse -&gt; Bool
+$c/= :: GetCommentResponse -&gt; GetCommentResponse -&gt; Bool
+== :: GetCommentResponse -&gt; GetCommentResponse -&gt; Bool
+$c== :: GetCommentResponse -&gt; GetCommentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366382"><span id="local-6989586621679366384"><span id="local-6989586621679366386"><span id="local-6989586621679366388"><span class="annot"><span class="annottext">ReadPrec [GetCommentResponse]
+ReadPrec GetCommentResponse
+Int -&gt; ReadS GetCommentResponse
+ReadS [GetCommentResponse]
+(Int -&gt; ReadS GetCommentResponse)
+-&gt; ReadS [GetCommentResponse]
+-&gt; ReadPrec GetCommentResponse
+-&gt; ReadPrec [GetCommentResponse]
+-&gt; Read GetCommentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCommentResponse]
+$creadListPrec :: ReadPrec [GetCommentResponse]
+readPrec :: ReadPrec GetCommentResponse
+$creadPrec :: ReadPrec GetCommentResponse
+readList :: ReadS [GetCommentResponse]
+$creadList :: ReadS [GetCommentResponse]
+readsPrec :: Int -&gt; ReadS GetCommentResponse
+$creadsPrec :: Int -&gt; ReadS GetCommentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366376"><span id="local-6989586621679366378"><span id="local-6989586621679366380"><span class="annot"><span class="annottext">Int -&gt; GetCommentResponse -&gt; ShowS
+[GetCommentResponse] -&gt; ShowS
+GetCommentResponse -&gt; String
+(Int -&gt; GetCommentResponse -&gt; ShowS)
+-&gt; (GetCommentResponse -&gt; String)
+-&gt; ([GetCommentResponse] -&gt; ShowS)
+-&gt; Show GetCommentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCommentResponse] -&gt; ShowS
+$cshowList :: [GetCommentResponse] -&gt; ShowS
+show :: GetCommentResponse -&gt; String
+$cshow :: GetCommentResponse -&gt; String
+showsPrec :: Int -&gt; GetCommentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCommentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetCommentResponse -&gt; Rep GetCommentResponse x)
+-&gt; (forall x. Rep GetCommentResponse x -&gt; GetCommentResponse)
+-&gt; Generic GetCommentResponse
+forall x. Rep GetCommentResponse x -&gt; GetCommentResponse
+forall x. GetCommentResponse -&gt; Rep GetCommentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetCommentResponse x -&gt; GetCommentResponse
+$cfrom :: forall x. GetCommentResponse -&gt; Rep GetCommentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Create a value of 'GetCommentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'comment', 'getCommentResponse_comment' - The contents of the comment.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'httpStatus', 'getCommentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#newGetCommentResponse"><span class="hs-identifier hs-type">newGetCommentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetCommentResponse"><span class="hs-identifier hs-type">GetCommentResponse</span></a></span><span>
+</span><span id="line-151"></span><span id="newGetCommentResponse"><span class="annot"><span class="annottext">newGetCommentResponse :: Int -&gt; GetCommentResponse
+</span><a href="Network.AWS.CodeCommit.GetComment.html#newGetCommentResponse"><span class="hs-identifier hs-var hs-var">newGetCommentResponse</span></a></span></span><span> </span><span id="local-6989586621679366373"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366373"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">GetCommentResponse' :: Maybe Comment -&gt; Int -&gt; GetCommentResponse
+</span><a href="Network.AWS.CodeCommit.GetComment.html#GetCommentResponse%27"><span class="hs-identifier hs-type">GetCommentResponse'</span></a></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:comment:GetCommentResponse' :: Maybe Comment
+</span><a href="Network.AWS.CodeCommit.GetComment.html#%24sel%3Acomment%3AGetCommentResponse%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Comment
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCommentResponse' :: Int
+</span><a href="Network.AWS.CodeCommit.GetComment.html#%24sel%3AhttpStatus%3AGetCommentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366373"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The contents of the comment.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#getCommentResponse_comment"><span class="hs-identifier hs-type">getCommentResponse_comment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetCommentResponse"><span class="hs-identifier hs-type">GetCommentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="getCommentResponse_comment"><span class="annot"><span class="annottext">getCommentResponse_comment :: (Maybe Comment -&gt; f (Maybe Comment))
+-&gt; GetCommentResponse -&gt; f GetCommentResponse
+</span><a href="Network.AWS.CodeCommit.GetComment.html#getCommentResponse_comment"><span class="hs-identifier hs-var hs-var">getCommentResponse_comment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCommentResponse -&gt; Maybe Comment)
+-&gt; (GetCommentResponse -&gt; Maybe Comment -&gt; GetCommentResponse)
+-&gt; Lens
+     GetCommentResponse
+     GetCommentResponse
+     (Maybe Comment)
+     (Maybe Comment)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetCommentResponse%27"><span class="hs-identifier hs-type">GetCommentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366372"><span class="annot"><span class="annottext">Maybe Comment
+comment :: Maybe Comment
+$sel:comment:GetCommentResponse' :: GetCommentResponse -&gt; Maybe Comment
+</span><a href="#local-6989586621679366372"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Comment
+</span><a href="#local-6989586621679366372"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366371"><span class="annot"><span class="annottext">s :: GetCommentResponse
+</span><a href="#local-6989586621679366371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetCommentResponse%27"><span class="hs-identifier hs-type">GetCommentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366370"><span class="annot"><span class="annottext">Maybe Comment
+</span><a href="#local-6989586621679366370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCommentResponse
+</span><a href="#local-6989586621679366371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:GetCommentResponse' :: Maybe Comment
+</span><a href="Network.AWS.CodeCommit.GetComment.html#%24sel%3Acomment%3AGetCommentResponse%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Comment
+</span><a href="#local-6989586621679366370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetCommentResponse"><span class="hs-identifier hs-type">GetCommentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#getCommentResponse_httpStatus"><span class="hs-identifier hs-type">getCommentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetCommentResponse"><span class="hs-identifier hs-type">GetCommentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span id="getCommentResponse_httpStatus"><span class="annot"><span class="annottext">getCommentResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetCommentResponse -&gt; f GetCommentResponse
+</span><a href="Network.AWS.CodeCommit.GetComment.html#getCommentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getCommentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCommentResponse -&gt; Int)
+-&gt; (GetCommentResponse -&gt; Int -&gt; GetCommentResponse)
+-&gt; Lens GetCommentResponse GetCommentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetCommentResponse%27"><span class="hs-identifier hs-type">GetCommentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366369"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetCommentResponse' :: GetCommentResponse -&gt; Int
+</span><a href="#local-6989586621679366369"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366369"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366368"><span class="annot"><span class="annottext">s :: GetCommentResponse
+</span><a href="#local-6989586621679366368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetCommentResponse%27"><span class="hs-identifier hs-type">GetCommentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366367"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCommentResponse
+</span><a href="#local-6989586621679366368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCommentResponse' :: Int
+</span><a href="Network.AWS.CodeCommit.GetComment.html#%24sel%3AhttpStatus%3AGetCommentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetCommentResponse"><span class="hs-identifier hs-type">GetCommentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366365"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetComment.html#GetCommentResponse"><span class="hs-identifier hs-type">GetCommentResponse</span></a></span></span><span>
+</span><span id="line-166"></span></pre></body></html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudSearch.Types.AlgorithmicStemming</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudSearch.Types.AlgorithmicStemming</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming"><span class="hs-identifier">AlgorithmicStemming</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming_Full"><span class="hs-identifier">AlgorithmicStemming_Full</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming_Light"><span class="hs-identifier">AlgorithmicStemming_Light</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming_Minimal"><span class="hs-identifier">AlgorithmicStemming_Minimal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming_None"><span class="hs-identifier">AlgorithmicStemming_None</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679206232"><span id="local-6989586621679206233"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AlgorithmicStemming"><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming"><span class="hs-identifier hs-var">AlgorithmicStemming</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlgorithmicStemming%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming%27"><span class="hs-identifier hs-var">AlgorithmicStemming'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAlgorithmicStemming"><span class="annot"><span class="annottext">AlgorithmicStemming -&gt; Text
+</span><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#fromAlgorithmicStemming"><span class="hs-identifier hs-var hs-var">fromAlgorithmicStemming</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679206224"><span id="local-6989586621679206226"><span id="local-6989586621679206228"><span class="annot"><span class="annottext">Int -&gt; AlgorithmicStemming -&gt; ShowS
+[AlgorithmicStemming] -&gt; ShowS
+AlgorithmicStemming -&gt; String
+(Int -&gt; AlgorithmicStemming -&gt; ShowS)
+-&gt; (AlgorithmicStemming -&gt; String)
+-&gt; ([AlgorithmicStemming] -&gt; ShowS)
+-&gt; Show AlgorithmicStemming
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AlgorithmicStemming] -&gt; ShowS
+$cshowList :: [AlgorithmicStemming] -&gt; ShowS
+show :: AlgorithmicStemming -&gt; String
+$cshow :: AlgorithmicStemming -&gt; String
+showsPrec :: Int -&gt; AlgorithmicStemming -&gt; ShowS
+$cshowsPrec :: Int -&gt; AlgorithmicStemming -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679206215"><span id="local-6989586621679206217"><span id="local-6989586621679206219"><span id="local-6989586621679206221"><span class="annot"><span class="annottext">ReadPrec [AlgorithmicStemming]
+ReadPrec AlgorithmicStemming
+Int -&gt; ReadS AlgorithmicStemming
+ReadS [AlgorithmicStemming]
+(Int -&gt; ReadS AlgorithmicStemming)
+-&gt; ReadS [AlgorithmicStemming]
+-&gt; ReadPrec AlgorithmicStemming
+-&gt; ReadPrec [AlgorithmicStemming]
+-&gt; Read AlgorithmicStemming
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AlgorithmicStemming]
+$creadListPrec :: ReadPrec [AlgorithmicStemming]
+readPrec :: ReadPrec AlgorithmicStemming
+$creadPrec :: ReadPrec AlgorithmicStemming
+readList :: ReadS [AlgorithmicStemming]
+$creadList :: ReadS [AlgorithmicStemming]
+readsPrec :: Int -&gt; ReadS AlgorithmicStemming
+$creadsPrec :: Int -&gt; ReadS AlgorithmicStemming
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679206210"><span id="local-6989586621679206212"><span class="annot"><span class="annottext">AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool
+(AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool)
+-&gt; (AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool)
+-&gt; Eq AlgorithmicStemming
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool
+$c/= :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool
+== :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool
+$c== :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679206194"><span id="local-6989586621679206196"><span id="local-6989586621679206198"><span id="local-6989586621679206200"><span id="local-6989586621679206202"><span id="local-6989586621679206204"><span id="local-6989586621679206206"><span class="annot"><span class="annottext">Eq AlgorithmicStemming
+Eq AlgorithmicStemming
+-&gt; (AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Ordering)
+-&gt; (AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool)
+-&gt; (AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool)
+-&gt; (AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool)
+-&gt; (AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool)
+-&gt; (AlgorithmicStemming
+    -&gt; AlgorithmicStemming -&gt; AlgorithmicStemming)
+-&gt; (AlgorithmicStemming
+    -&gt; AlgorithmicStemming -&gt; AlgorithmicStemming)
+-&gt; Ord AlgorithmicStemming
+AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool
+AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Ordering
+AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; AlgorithmicStemming
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; AlgorithmicStemming
+$cmin :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; AlgorithmicStemming
+max :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; AlgorithmicStemming
+$cmax :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; AlgorithmicStemming
+&gt;= :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool
+$c&gt;= :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool
+&gt; :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool
+$c&gt; :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool
+&lt;= :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool
+$c&lt;= :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool
+&lt; :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool
+$c&lt; :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Bool
+compare :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Ordering
+$ccompare :: AlgorithmicStemming -&gt; AlgorithmicStemming -&gt; Ordering
+$cp1Ord :: Eq AlgorithmicStemming
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AlgorithmicStemming -&gt; Rep AlgorithmicStemming x)
+-&gt; (forall x. Rep AlgorithmicStemming x -&gt; AlgorithmicStemming)
+-&gt; Generic AlgorithmicStemming
+forall x. Rep AlgorithmicStemming x -&gt; AlgorithmicStemming
+forall x. AlgorithmicStemming -&gt; Rep AlgorithmicStemming x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AlgorithmicStemming x -&gt; AlgorithmicStemming
+$cfrom :: forall x. AlgorithmicStemming -&gt; Rep AlgorithmicStemming x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679206186"><span id="local-6989586621679206188"><span class="annot"><span class="annottext">Int -&gt; AlgorithmicStemming -&gt; Int
+AlgorithmicStemming -&gt; Int
+(Int -&gt; AlgorithmicStemming -&gt; Int)
+-&gt; (AlgorithmicStemming -&gt; Int) -&gt; Hashable AlgorithmicStemming
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AlgorithmicStemming -&gt; Int
+$chash :: AlgorithmicStemming -&gt; Int
+hashWithSalt :: Int -&gt; AlgorithmicStemming -&gt; Int
+$chashWithSalt :: Int -&gt; AlgorithmicStemming -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679206183"><span class="annot"><span class="annottext">AlgorithmicStemming -&gt; ()
+(AlgorithmicStemming -&gt; ()) -&gt; NFData AlgorithmicStemming
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AlgorithmicStemming -&gt; ()
+$crnf :: AlgorithmicStemming -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679206180"><span class="annot"><span class="annottext">Text -&gt; Either String AlgorithmicStemming
+(Text -&gt; Either String AlgorithmicStemming)
+-&gt; FromText AlgorithmicStemming
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AlgorithmicStemming
+$cfromText :: Text -&gt; Either String AlgorithmicStemming
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679206177"><span class="annot"><span class="annottext">AlgorithmicStemming -&gt; Text
+(AlgorithmicStemming -&gt; Text) -&gt; ToText AlgorithmicStemming
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AlgorithmicStemming -&gt; Text
+$ctoText :: AlgorithmicStemming -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679206174"><span class="annot"><span class="annottext">AlgorithmicStemming -&gt; ByteString
+(AlgorithmicStemming -&gt; ByteString)
+-&gt; ToByteString AlgorithmicStemming
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AlgorithmicStemming -&gt; ByteString
+$ctoBS :: AlgorithmicStemming -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679206171"><span class="annot"><span class="annottext">AlgorithmicStemming -&gt; ByteStringBuilder
+(AlgorithmicStemming -&gt; ByteStringBuilder)
+-&gt; ToLog AlgorithmicStemming
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AlgorithmicStemming -&gt; ByteStringBuilder
+$cbuild :: AlgorithmicStemming -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679206168"><span class="annot"><span class="annottext">HeaderName -&gt; AlgorithmicStemming -&gt; [Header]
+(HeaderName -&gt; AlgorithmicStemming -&gt; [Header])
+-&gt; ToHeader AlgorithmicStemming
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AlgorithmicStemming -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AlgorithmicStemming -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679206165"><span class="annot"><span class="annottext">AlgorithmicStemming -&gt; QueryString
+(AlgorithmicStemming -&gt; QueryString) -&gt; ToQuery AlgorithmicStemming
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AlgorithmicStemming -&gt; QueryString
+$ctoQuery :: AlgorithmicStemming -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679206160"><span id="local-6989586621679206162"><span class="annot"><span class="annottext">Value -&gt; Parser [AlgorithmicStemming]
+Value -&gt; Parser AlgorithmicStemming
+(Value -&gt; Parser AlgorithmicStemming)
+-&gt; (Value -&gt; Parser [AlgorithmicStemming])
+-&gt; FromJSON AlgorithmicStemming
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AlgorithmicStemming]
+$cparseJSONList :: Value -&gt; Parser [AlgorithmicStemming]
+parseJSON :: Value -&gt; Parser AlgorithmicStemming
+$cparseJSON :: Value -&gt; Parser AlgorithmicStemming
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679206155"><span id="local-6989586621679206157"><span class="annot"><span class="annottext">FromJSONKeyFunction [AlgorithmicStemming]
+FromJSONKeyFunction AlgorithmicStemming
+FromJSONKeyFunction AlgorithmicStemming
+-&gt; FromJSONKeyFunction [AlgorithmicStemming]
+-&gt; FromJSONKey AlgorithmicStemming
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AlgorithmicStemming]
+$cfromJSONKeyList :: FromJSONKeyFunction [AlgorithmicStemming]
+fromJSONKey :: FromJSONKeyFunction AlgorithmicStemming
+$cfromJSONKey :: FromJSONKeyFunction AlgorithmicStemming
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679206146"><span id="local-6989586621679206148"><span id="local-6989586621679206150"><span id="local-6989586621679206152"><span class="annot"><span class="annottext">[AlgorithmicStemming] -&gt; Encoding
+[AlgorithmicStemming] -&gt; Value
+AlgorithmicStemming -&gt; Encoding
+AlgorithmicStemming -&gt; Value
+(AlgorithmicStemming -&gt; Value)
+-&gt; (AlgorithmicStemming -&gt; Encoding)
+-&gt; ([AlgorithmicStemming] -&gt; Value)
+-&gt; ([AlgorithmicStemming] -&gt; Encoding)
+-&gt; ToJSON AlgorithmicStemming
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AlgorithmicStemming] -&gt; Encoding
+$ctoEncodingList :: [AlgorithmicStemming] -&gt; Encoding
+toJSONList :: [AlgorithmicStemming] -&gt; Value
+$ctoJSONList :: [AlgorithmicStemming] -&gt; Value
+toEncoding :: AlgorithmicStemming -&gt; Encoding
+$ctoEncoding :: AlgorithmicStemming -&gt; Encoding
+toJSON :: AlgorithmicStemming -&gt; Value
+$ctoJSON :: AlgorithmicStemming -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679206141"><span id="local-6989586621679206143"><span class="annot"><span class="annottext">ToJSONKeyFunction [AlgorithmicStemming]
+ToJSONKeyFunction AlgorithmicStemming
+ToJSONKeyFunction AlgorithmicStemming
+-&gt; ToJSONKeyFunction [AlgorithmicStemming]
+-&gt; ToJSONKey AlgorithmicStemming
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AlgorithmicStemming]
+$ctoJSONKeyList :: ToJSONKeyFunction [AlgorithmicStemming]
+toJSONKey :: ToJSONKeyFunction AlgorithmicStemming
+$ctoJSONKey :: ToJSONKeyFunction AlgorithmicStemming
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679206138"><span class="annot"><span class="annottext">[Node] -&gt; Either String AlgorithmicStemming
+([Node] -&gt; Either String AlgorithmicStemming)
+-&gt; FromXML AlgorithmicStemming
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AlgorithmicStemming
+$cparseXML :: [Node] -&gt; Either String AlgorithmicStemming
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679206135"><span class="annot"><span class="annottext">AlgorithmicStemming -&gt; XML
+(AlgorithmicStemming -&gt; XML) -&gt; ToXML AlgorithmicStemming
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AlgorithmicStemming -&gt; XML
+$ctoXML :: AlgorithmicStemming -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming_Full"><span class="hs-identifier hs-type">AlgorithmicStemming_Full</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming"><span class="hs-identifier hs-type">AlgorithmicStemming</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlgorithmicStemming_Full"><span id="%24mAlgorithmicStemming_Full"><span id="AlgorithmicStemming_Full"><span class="annot"><span class="annottext">$bAlgorithmicStemming_Full :: AlgorithmicStemming
+$mAlgorithmicStemming_Full :: forall r. AlgorithmicStemming -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#%24bAlgorithmicStemming_Full"><span class="hs-identifier hs-var hs-var hs-var">AlgorithmicStemming_Full</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming%27"><span class="hs-identifier hs-type">AlgorithmicStemming'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;full&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming_Light"><span class="hs-identifier hs-type">AlgorithmicStemming_Light</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming"><span class="hs-identifier hs-type">AlgorithmicStemming</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlgorithmicStemming_Light"><span id="%24mAlgorithmicStemming_Light"><span id="AlgorithmicStemming_Light"><span class="annot"><span class="annottext">$bAlgorithmicStemming_Light :: AlgorithmicStemming
+$mAlgorithmicStemming_Light :: forall r. AlgorithmicStemming -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#%24bAlgorithmicStemming_Light"><span class="hs-identifier hs-var hs-var hs-var">AlgorithmicStemming_Light</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming%27"><span class="hs-identifier hs-type">AlgorithmicStemming'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;light&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming_Minimal"><span class="hs-identifier hs-type">AlgorithmicStemming_Minimal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming"><span class="hs-identifier hs-type">AlgorithmicStemming</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlgorithmicStemming_Minimal"><span id="%24mAlgorithmicStemming_Minimal"><span id="AlgorithmicStemming_Minimal"><span class="annot"><span class="annottext">$bAlgorithmicStemming_Minimal :: AlgorithmicStemming
+$mAlgorithmicStemming_Minimal :: forall r. AlgorithmicStemming -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#%24bAlgorithmicStemming_Minimal"><span class="hs-identifier hs-var hs-var hs-var">AlgorithmicStemming_Minimal</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming%27"><span class="hs-identifier hs-type">AlgorithmicStemming'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;minimal&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming_None"><span class="hs-identifier hs-type">AlgorithmicStemming_None</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming"><span class="hs-identifier hs-type">AlgorithmicStemming</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlgorithmicStemming_None"><span id="%24mAlgorithmicStemming_None"><span id="AlgorithmicStemming_None"><span class="annot"><span class="annottext">$bAlgorithmicStemming_None :: AlgorithmicStemming
+$mAlgorithmicStemming_None :: forall r. AlgorithmicStemming -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#%24bAlgorithmicStemming_None"><span class="hs-identifier hs-var hs-var hs-var">AlgorithmicStemming_None</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming%27"><span class="hs-identifier hs-type">AlgorithmicStemming'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;none&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming_Full"><span class="hs-pragma hs-type">AlgorithmicStemming_Full</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming_Light"><span class="hs-pragma hs-type">AlgorithmicStemming_Light</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming_Minimal"><span class="hs-pragma hs-type">AlgorithmicStemming_Minimal</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming_None"><span class="hs-pragma hs-type">AlgorithmicStemming_None</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AlgorithmicStemming.html#AlgorithmicStemming%27"><span class="hs-pragma hs-type">AlgorithmicStemming'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

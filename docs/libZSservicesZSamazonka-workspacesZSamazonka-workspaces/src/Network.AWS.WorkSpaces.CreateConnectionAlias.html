@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WorkSpaces.CreateConnectionAlias</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates the specified connection alias for use with cross-Region</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- redirection. For more information, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html Cross-Region Redirection for Amazon WorkSpaces&gt;.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkSpaces.CreateConnectionAlias</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias"><span class="hs-identifier">CreateConnectionAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#newCreateConnectionAlias"><span class="hs-identifier">newCreateConnectionAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#createConnectionAlias_tags"><span class="hs-identifier">createConnectionAlias_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#createConnectionAlias_connectionString"><span class="hs-identifier">createConnectionAlias_connectionString</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAliasResponse"><span class="hs-identifier">CreateConnectionAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#newCreateConnectionAliasResponse"><span class="hs-identifier">newCreateConnectionAliasResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#createConnectionAliasResponse_aliasId"><span class="hs-identifier">createConnectionAliasResponse_aliasId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#createConnectionAliasResponse_httpStatus"><span class="hs-identifier">createConnectionAliasResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types</span></a></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newCreateConnectionAlias' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679285623"><span id="local-6989586621679285624"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateConnectionAlias"><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias"><span class="hs-identifier hs-var">CreateConnectionAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateConnectionAlias%27"><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias%27"><span class="hs-identifier hs-var">CreateConnectionAlias'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags to associate with the connection alias.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Atags%3ACreateConnectionAlias%27"><span class="annot"><span class="annottext">CreateConnectionAlias -&gt; Maybe [Tag]
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#%24sel%3Atags%3ACreateConnectionAlias%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | A connection string in the form of a fully qualified domain name (FQDN),</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- such as @www.example.com@.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- After you create a connection string, it is always associated to your</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- AWS account. You cannot recreate the same connection string with a</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- different account, even if you delete all instances of it from the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- original account. The connection string is globally reserved for your</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AconnectionString%3ACreateConnectionAlias%27"><span class="annot"><span class="annottext">CreateConnectionAlias -&gt; Text
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#%24sel%3AconnectionString%3ACreateConnectionAlias%27"><span class="hs-identifier hs-var hs-var">connectionString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285616"><span id="local-6989586621679285618"><span class="annot"><span class="annottext">CreateConnectionAlias -&gt; CreateConnectionAlias -&gt; Bool
+(CreateConnectionAlias -&gt; CreateConnectionAlias -&gt; Bool)
+-&gt; (CreateConnectionAlias -&gt; CreateConnectionAlias -&gt; Bool)
+-&gt; Eq CreateConnectionAlias
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateConnectionAlias -&gt; CreateConnectionAlias -&gt; Bool
+$c/= :: CreateConnectionAlias -&gt; CreateConnectionAlias -&gt; Bool
+== :: CreateConnectionAlias -&gt; CreateConnectionAlias -&gt; Bool
+$c== :: CreateConnectionAlias -&gt; CreateConnectionAlias -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285607"><span id="local-6989586621679285609"><span id="local-6989586621679285611"><span id="local-6989586621679285613"><span class="annot"><span class="annottext">ReadPrec [CreateConnectionAlias]
+ReadPrec CreateConnectionAlias
+Int -&gt; ReadS CreateConnectionAlias
+ReadS [CreateConnectionAlias]
+(Int -&gt; ReadS CreateConnectionAlias)
+-&gt; ReadS [CreateConnectionAlias]
+-&gt; ReadPrec CreateConnectionAlias
+-&gt; ReadPrec [CreateConnectionAlias]
+-&gt; Read CreateConnectionAlias
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateConnectionAlias]
+$creadListPrec :: ReadPrec [CreateConnectionAlias]
+readPrec :: ReadPrec CreateConnectionAlias
+$creadPrec :: ReadPrec CreateConnectionAlias
+readList :: ReadS [CreateConnectionAlias]
+$creadList :: ReadS [CreateConnectionAlias]
+readsPrec :: Int -&gt; ReadS CreateConnectionAlias
+$creadsPrec :: Int -&gt; ReadS CreateConnectionAlias
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285600"><span id="local-6989586621679285602"><span id="local-6989586621679285604"><span class="annot"><span class="annottext">Int -&gt; CreateConnectionAlias -&gt; ShowS
+[CreateConnectionAlias] -&gt; ShowS
+CreateConnectionAlias -&gt; String
+(Int -&gt; CreateConnectionAlias -&gt; ShowS)
+-&gt; (CreateConnectionAlias -&gt; String)
+-&gt; ([CreateConnectionAlias] -&gt; ShowS)
+-&gt; Show CreateConnectionAlias
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateConnectionAlias] -&gt; ShowS
+$cshowList :: [CreateConnectionAlias] -&gt; ShowS
+show :: CreateConnectionAlias -&gt; String
+$cshow :: CreateConnectionAlias -&gt; String
+showsPrec :: Int -&gt; CreateConnectionAlias -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateConnectionAlias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateConnectionAlias -&gt; Rep CreateConnectionAlias x)
+-&gt; (forall x. Rep CreateConnectionAlias x -&gt; CreateConnectionAlias)
+-&gt; Generic CreateConnectionAlias
+forall x. Rep CreateConnectionAlias x -&gt; CreateConnectionAlias
+forall x. CreateConnectionAlias -&gt; Rep CreateConnectionAlias x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateConnectionAlias x -&gt; CreateConnectionAlias
+$cfrom :: forall x. CreateConnectionAlias -&gt; Rep CreateConnectionAlias x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'CreateConnectionAlias' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'tags', 'createConnectionAlias_tags' - The tags to associate with the connection alias.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'connectionString', 'createConnectionAlias_connectionString' - A connection string in the form of a fully qualified domain name (FQDN),</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- such as @www.example.com@.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- After you create a connection string, it is always associated to your</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- AWS account. You cannot recreate the same connection string with a</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- different account, even if you delete all instances of it from the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- original account. The connection string is globally reserved for your</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#newCreateConnectionAlias"><span class="hs-identifier hs-type">newCreateConnectionAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'connectionString'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias"><span class="hs-identifier hs-type">CreateConnectionAlias</span></a></span><span>
+</span><span id="line-90"></span><span id="newCreateConnectionAlias"><span class="annot"><span class="annottext">newCreateConnectionAlias :: Text -&gt; CreateConnectionAlias
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#newCreateConnectionAlias"><span class="hs-identifier hs-var hs-var">newCreateConnectionAlias</span></a></span></span><span> </span><span id="local-6989586621679285595"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285595"><span class="hs-identifier hs-var">pConnectionString_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">CreateConnectionAlias' :: Maybe [Tag] -&gt; Text -&gt; CreateConnectionAlias
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias%27"><span class="hs-identifier hs-type">CreateConnectionAlias'</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateConnectionAlias' :: Maybe [Tag]
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#%24sel%3Atags%3ACreateConnectionAlias%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionString:CreateConnectionAlias' :: Text
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#%24sel%3AconnectionString%3ACreateConnectionAlias%27"><span class="hs-identifier hs-var">connectionString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285595"><span class="hs-identifier hs-var">pConnectionString_</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The tags to associate with the connection alias.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#createConnectionAlias_tags"><span class="hs-identifier hs-type">createConnectionAlias_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias"><span class="hs-identifier hs-type">CreateConnectionAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="createConnectionAlias_tags"><span class="annot"><span class="annottext">createConnectionAlias_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateConnectionAlias -&gt; f CreateConnectionAlias
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#createConnectionAlias_tags"><span class="hs-identifier hs-var hs-var">createConnectionAlias_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnectionAlias -&gt; Maybe [Tag])
+-&gt; (CreateConnectionAlias -&gt; Maybe [Tag] -&gt; CreateConnectionAlias)
+-&gt; Lens
+     CreateConnectionAlias
+     CreateConnectionAlias
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias%27"><span class="hs-identifier hs-type">CreateConnectionAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285592"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateConnectionAlias' :: CreateConnectionAlias -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679285592"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679285592"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285591"><span class="annot"><span class="annottext">s :: CreateConnectionAlias
+</span><a href="#local-6989586621679285591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias%27"><span class="hs-identifier hs-type">CreateConnectionAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285590"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679285590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnectionAlias
+</span><a href="#local-6989586621679285591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateConnectionAlias' :: Maybe [Tag]
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#%24sel%3Atags%3ACreateConnectionAlias%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679285590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias"><span class="hs-identifier hs-type">CreateConnectionAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateConnectionAlias -&gt; f CreateConnectionAlias)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateConnectionAlias
+-&gt; f CreateConnectionAlias
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | A connection string in the form of a fully qualified domain name (FQDN),</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- such as @www.example.com@.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- After you create a connection string, it is always associated to your</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- AWS account. You cannot recreate the same connection string with a</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- different account, even if you delete all instances of it from the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- original account. The connection string is globally reserved for your</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#createConnectionAlias_connectionString"><span class="hs-identifier hs-type">createConnectionAlias_connectionString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias"><span class="hs-identifier hs-type">CreateConnectionAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="createConnectionAlias_connectionString"><span class="annot"><span class="annottext">createConnectionAlias_connectionString :: (Text -&gt; f Text)
+-&gt; CreateConnectionAlias -&gt; f CreateConnectionAlias
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#createConnectionAlias_connectionString"><span class="hs-identifier hs-var hs-var">createConnectionAlias_connectionString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnectionAlias -&gt; Text)
+-&gt; (CreateConnectionAlias -&gt; Text -&gt; CreateConnectionAlias)
+-&gt; Lens CreateConnectionAlias CreateConnectionAlias Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias%27"><span class="hs-identifier hs-type">CreateConnectionAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285586"><span class="annot"><span class="annottext">Text
+connectionString :: Text
+$sel:connectionString:CreateConnectionAlias' :: CreateConnectionAlias -&gt; Text
+</span><a href="#local-6989586621679285586"><span class="hs-identifier hs-var hs-var">connectionString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285586"><span class="hs-identifier hs-var">connectionString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285585"><span class="annot"><span class="annottext">s :: CreateConnectionAlias
+</span><a href="#local-6989586621679285585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias%27"><span class="hs-identifier hs-type">CreateConnectionAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285584"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnectionAlias
+</span><a href="#local-6989586621679285585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionString:CreateConnectionAlias' :: Text
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#%24sel%3AconnectionString%3ACreateConnectionAlias%27"><span class="hs-identifier hs-var">connectionString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias"><span class="hs-identifier hs-type">CreateConnectionAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias"><span class="hs-identifier hs-type">CreateConnectionAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias"><span class="hs-identifier hs-type">CreateConnectionAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAliasResponse"><span class="hs-identifier hs-type">CreateConnectionAliasResponse</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679285580"><span class="annot"><span class="annottext">request :: CreateConnectionAlias -&gt; Request CreateConnectionAlias
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateConnectionAlias -&gt; Request CreateConnectionAlias
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679285576"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateConnectionAlias
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateConnectionAlias)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateConnectionAlias))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateConnectionAlias
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateConnectionAlias)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679285573"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285573"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679285572"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679285572"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679285571"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679285571"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateConnectionAliasResponse
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAliasResponse%27"><span class="hs-identifier hs-var">CreateConnectionAliasResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateConnectionAliasResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateConnectionAliasResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679285571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AliasId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateConnectionAliasResponse)
+-&gt; Either String Int -&gt; Either String CreateConnectionAliasResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285573"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285563"><span id="local-6989586621679285565"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias"><span class="hs-identifier hs-type">CreateConnectionAlias</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias"><span class="hs-identifier hs-type">CreateConnectionAlias</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias"><span class="hs-identifier hs-type">CreateConnectionAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679285556"><span class="annot"><span class="annottext">toHeaders :: CreateConnectionAlias -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateConnectionAlias -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkspacesService.CreateConnectionAlias&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-135"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-139"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285546"><span id="local-6989586621679285548"><span id="local-6989586621679285550"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias"><span class="hs-identifier hs-type">CreateConnectionAlias</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679285544"><span class="annot"><span class="annottext">toJSON :: CreateConnectionAlias -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias%27"><span class="hs-identifier hs-type">CreateConnectionAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285541"><span id="local-6989586621679285542"><span class="annot"><span class="annottext">Maybe [Tag]
+Text
+connectionString :: Text
+tags :: Maybe [Tag]
+$sel:connectionString:CreateConnectionAlias' :: CreateConnectionAlias -&gt; Text
+$sel:tags:CreateConnectionAlias' :: CreateConnectionAlias -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679285541"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679285542"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-149"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectionString&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285541"><span class="hs-identifier hs-var">connectionString</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias"><span class="hs-identifier hs-type">CreateConnectionAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679285535"><span class="annot"><span class="annottext">toPath :: CreateConnectionAlias -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateConnectionAlias -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAlias"><span class="hs-identifier hs-type">CreateConnectionAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679285531"><span class="annot"><span class="annottext">toQuery :: CreateConnectionAlias -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateConnectionAlias -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newCreateConnectionAliasResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679285528"><span id="local-6989586621679285529"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateConnectionAliasResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAliasResponse"><span class="hs-identifier hs-var">CreateConnectionAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateConnectionAliasResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAliasResponse%27"><span class="hs-identifier hs-var">CreateConnectionAliasResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the connection alias.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AaliasId%3ACreateConnectionAliasResponse%27"><span class="annot"><span class="annottext">CreateConnectionAliasResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#%24sel%3AaliasId%3ACreateConnectionAliasResponse%27"><span class="hs-identifier hs-var hs-var">aliasId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateConnectionAliasResponse%27"><span class="annot"><span class="annottext">CreateConnectionAliasResponse -&gt; Int
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#%24sel%3AhttpStatus%3ACreateConnectionAliasResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285522"><span id="local-6989586621679285524"><span class="annot"><span class="annottext">CreateConnectionAliasResponse
+-&gt; CreateConnectionAliasResponse -&gt; Bool
+(CreateConnectionAliasResponse
+ -&gt; CreateConnectionAliasResponse -&gt; Bool)
+-&gt; (CreateConnectionAliasResponse
+    -&gt; CreateConnectionAliasResponse -&gt; Bool)
+-&gt; Eq CreateConnectionAliasResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateConnectionAliasResponse
+-&gt; CreateConnectionAliasResponse -&gt; Bool
+$c/= :: CreateConnectionAliasResponse
+-&gt; CreateConnectionAliasResponse -&gt; Bool
+== :: CreateConnectionAliasResponse
+-&gt; CreateConnectionAliasResponse -&gt; Bool
+$c== :: CreateConnectionAliasResponse
+-&gt; CreateConnectionAliasResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285514"><span id="local-6989586621679285516"><span id="local-6989586621679285518"><span id="local-6989586621679285520"><span class="annot"><span class="annottext">ReadPrec [CreateConnectionAliasResponse]
+ReadPrec CreateConnectionAliasResponse
+Int -&gt; ReadS CreateConnectionAliasResponse
+ReadS [CreateConnectionAliasResponse]
+(Int -&gt; ReadS CreateConnectionAliasResponse)
+-&gt; ReadS [CreateConnectionAliasResponse]
+-&gt; ReadPrec CreateConnectionAliasResponse
+-&gt; ReadPrec [CreateConnectionAliasResponse]
+-&gt; Read CreateConnectionAliasResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateConnectionAliasResponse]
+$creadListPrec :: ReadPrec [CreateConnectionAliasResponse]
+readPrec :: ReadPrec CreateConnectionAliasResponse
+$creadPrec :: ReadPrec CreateConnectionAliasResponse
+readList :: ReadS [CreateConnectionAliasResponse]
+$creadList :: ReadS [CreateConnectionAliasResponse]
+readsPrec :: Int -&gt; ReadS CreateConnectionAliasResponse
+$creadsPrec :: Int -&gt; ReadS CreateConnectionAliasResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285508"><span id="local-6989586621679285510"><span id="local-6989586621679285512"><span class="annot"><span class="annottext">Int -&gt; CreateConnectionAliasResponse -&gt; ShowS
+[CreateConnectionAliasResponse] -&gt; ShowS
+CreateConnectionAliasResponse -&gt; String
+(Int -&gt; CreateConnectionAliasResponse -&gt; ShowS)
+-&gt; (CreateConnectionAliasResponse -&gt; String)
+-&gt; ([CreateConnectionAliasResponse] -&gt; ShowS)
+-&gt; Show CreateConnectionAliasResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateConnectionAliasResponse] -&gt; ShowS
+$cshowList :: [CreateConnectionAliasResponse] -&gt; ShowS
+show :: CreateConnectionAliasResponse -&gt; String
+$cshow :: CreateConnectionAliasResponse -&gt; String
+showsPrec :: Int -&gt; CreateConnectionAliasResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateConnectionAliasResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateConnectionAliasResponse
+ -&gt; Rep CreateConnectionAliasResponse x)
+-&gt; (forall x.
+    Rep CreateConnectionAliasResponse x
+    -&gt; CreateConnectionAliasResponse)
+-&gt; Generic CreateConnectionAliasResponse
+forall x.
+Rep CreateConnectionAliasResponse x
+-&gt; CreateConnectionAliasResponse
+forall x.
+CreateConnectionAliasResponse
+-&gt; Rep CreateConnectionAliasResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateConnectionAliasResponse x
+-&gt; CreateConnectionAliasResponse
+$cfrom :: forall x.
+CreateConnectionAliasResponse
+-&gt; Rep CreateConnectionAliasResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Create a value of 'CreateConnectionAliasResponse' with all optional fields omitted.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'aliasId', 'createConnectionAliasResponse_aliasId' - The identifier of the connection alias.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'httpStatus', 'createConnectionAliasResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#newCreateConnectionAliasResponse"><span class="hs-identifier hs-type">newCreateConnectionAliasResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAliasResponse"><span class="hs-identifier hs-type">CreateConnectionAliasResponse</span></a></span><span>
+</span><span id="line-183"></span><span id="newCreateConnectionAliasResponse"><span class="annot"><span class="annottext">newCreateConnectionAliasResponse :: Int -&gt; CreateConnectionAliasResponse
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#newCreateConnectionAliasResponse"><span class="hs-identifier hs-var hs-var">newCreateConnectionAliasResponse</span></a></span></span><span> </span><span id="local-6989586621679285505"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285505"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">CreateConnectionAliasResponse' :: Maybe Text -&gt; Int -&gt; CreateConnectionAliasResponse
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAliasResponse%27"><span class="hs-identifier hs-type">CreateConnectionAliasResponse'</span></a></span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:aliasId:CreateConnectionAliasResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#%24sel%3AaliasId%3ACreateConnectionAliasResponse%27"><span class="hs-identifier hs-var">aliasId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateConnectionAliasResponse' :: Int
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#%24sel%3AhttpStatus%3ACreateConnectionAliasResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285505"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The identifier of the connection alias.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#createConnectionAliasResponse_aliasId"><span class="hs-identifier hs-type">createConnectionAliasResponse_aliasId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAliasResponse"><span class="hs-identifier hs-type">CreateConnectionAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="createConnectionAliasResponse_aliasId"><span class="annot"><span class="annottext">createConnectionAliasResponse_aliasId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateConnectionAliasResponse -&gt; f CreateConnectionAliasResponse
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#createConnectionAliasResponse_aliasId"><span class="hs-identifier hs-var hs-var">createConnectionAliasResponse_aliasId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnectionAliasResponse -&gt; Maybe Text)
+-&gt; (CreateConnectionAliasResponse
+    -&gt; Maybe Text -&gt; CreateConnectionAliasResponse)
+-&gt; Lens
+     CreateConnectionAliasResponse
+     CreateConnectionAliasResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAliasResponse%27"><span class="hs-identifier hs-type">CreateConnectionAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285504"><span class="annot"><span class="annottext">Maybe Text
+aliasId :: Maybe Text
+$sel:aliasId:CreateConnectionAliasResponse' :: CreateConnectionAliasResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679285504"><span class="hs-identifier hs-var hs-var">aliasId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679285504"><span class="hs-identifier hs-var">aliasId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285503"><span class="annot"><span class="annottext">s :: CreateConnectionAliasResponse
+</span><a href="#local-6989586621679285503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAliasResponse%27"><span class="hs-identifier hs-type">CreateConnectionAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285502"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679285502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnectionAliasResponse
+</span><a href="#local-6989586621679285503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasId:CreateConnectionAliasResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#%24sel%3AaliasId%3ACreateConnectionAliasResponse%27"><span class="hs-identifier hs-var">aliasId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679285502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAliasResponse"><span class="hs-identifier hs-type">CreateConnectionAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#createConnectionAliasResponse_httpStatus"><span class="hs-identifier hs-type">createConnectionAliasResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAliasResponse"><span class="hs-identifier hs-type">CreateConnectionAliasResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-196"></span><span id="createConnectionAliasResponse_httpStatus"><span class="annot"><span class="annottext">createConnectionAliasResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateConnectionAliasResponse -&gt; f CreateConnectionAliasResponse
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#createConnectionAliasResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createConnectionAliasResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnectionAliasResponse -&gt; Int)
+-&gt; (CreateConnectionAliasResponse
+    -&gt; Int -&gt; CreateConnectionAliasResponse)
+-&gt; Lens
+     CreateConnectionAliasResponse CreateConnectionAliasResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAliasResponse%27"><span class="hs-identifier hs-type">CreateConnectionAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285501"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateConnectionAliasResponse' :: CreateConnectionAliasResponse -&gt; Int
+</span><a href="#local-6989586621679285501"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285501"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285500"><span class="annot"><span class="annottext">s :: CreateConnectionAliasResponse
+</span><a href="#local-6989586621679285500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAliasResponse%27"><span class="hs-identifier hs-type">CreateConnectionAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285499"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnectionAliasResponse
+</span><a href="#local-6989586621679285500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateConnectionAliasResponse' :: Int
+</span><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#%24sel%3AhttpStatus%3ACreateConnectionAliasResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAliasResponse"><span class="hs-identifier hs-type">CreateConnectionAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateConnectionAlias.html#CreateConnectionAliasResponse"><span class="hs-identifier hs-type">CreateConnectionAliasResponse</span></a></span></span><span>
+</span><span id="line-199"></span></pre></body></html>

@@ -1,0 +1,1614 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.Types.Job</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.Types.Job</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html"><span class="hs-identifier">Network.AWS.Glue.Types.ConnectionsList</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ExecutionProperty.html"><span class="hs-identifier">Network.AWS.Glue.Types.ExecutionProperty</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobCommand.html"><span class="hs-identifier">Network.AWS.Glue.Types.JobCommand</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html"><span class="hs-identifier">Network.AWS.Glue.Types.NotificationProperty</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.WorkerType.html"><span class="hs-identifier">Network.AWS.Glue.Types.WorkerType</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Specifies a job definition.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newJob' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679705095"><span id="local-6989586621679705096"></span></span><span class="hs-keyword">data</span><span> </span><span id="Job"><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-var">Job</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Job%27"><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-var">Job'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Non-overridable arguments for this job, specified as name-value pairs.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AnonOverridableArguments%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AnonOverridableArguments%3AJob%27"><span class="hs-identifier hs-var hs-var">nonOverridableArguments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The time and date that this job definition was created.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcreatedOn%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AcreatedOn%3AJob%27"><span class="hs-identifier hs-var hs-var">createdOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the @SecurityConfiguration@ structure to be used with this</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AsecurityConfiguration%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AsecurityConfiguration%3AJob%27"><span class="hs-identifier hs-var hs-var">securityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The job timeout in minutes. This is the maximum time that a job run can</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- consume resources before it is terminated and enters @TIMEOUT@ status.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- The default is 2,880 minutes (48 hours).</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Atimeout%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Natural
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Atimeout%3AJob%27"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | For Glue version 1.0 or earlier jobs, using the standard worker type,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- the number of Glue data processing units (DPUs) that can be allocated</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- when this job runs. A DPU is a relative measure of processing power that</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- information, see the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- &lt;https://aws.amazon.com/glue/pricing/ Glue pricing page&gt;.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- The value that can be allocated for @MaxCapacity@ depends on whether you</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- are running a Python shell job, an Apache Spark ETL job, or an Apache</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Spark streaming ETL job:</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- -   When you specify a Python shell job</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     (@JobCommand.Name@=\&quot;pythonshell\&quot;), you can allocate either 0.0625</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     or 1 DPU. The default is 0.0625 DPU.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   When you specify an Apache Spark ETL job</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     (@JobCommand.Name@=\&quot;glueetl\&quot;) or Apache Spark streaming ETL job</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     (@JobCommand.Name@=\&quot;gluestreaming\&quot;), you can allocate from 2 to</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     100 DPUs. The default is 10 DPUs. This job type cannot have a</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     fractional DPU allocation.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- For Glue version 2.0 jobs, you cannot instead specify a</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @Maximum capacity@. Instead, you should specify a @Worker type@ and the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @Number of workers@.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxCapacity%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Double
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AmaxCapacity%3AJob%27"><span class="hs-identifier hs-var hs-var">maxCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The connections used for this job.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Aconnections%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe ConnectionsList
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Aconnections%3AJob%27"><span class="hs-identifier hs-var hs-var">connections</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList"><span class="hs-identifier hs-type">ConnectionsList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The last point in time when this job definition was modified.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AlastModifiedOn%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AlastModifiedOn%3AJob%27"><span class="hs-identifier hs-var hs-var">lastModifiedOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Specifies configuration properties of a job notification.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AnotificationProperty%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe NotificationProperty
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AnotificationProperty%3AJob%27"><span class="hs-identifier hs-var hs-var">notificationProperty</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty"><span class="hs-identifier hs-type">NotificationProperty</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The number of workers of a defined @workerType@ that are allocated when</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- a job runs.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- The maximum number of workers you can define are 299 for @G.1X@, and 149</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- for @G.2X@.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AnumberOfWorkers%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Int
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AnumberOfWorkers%3AJob%27"><span class="hs-identifier hs-var hs-var">numberOfWorkers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The name you assign to this job definition.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Aname%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Aname%3AJob%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The @JobCommand@ that runs this job.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Acommand%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe JobCommand
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Acommand%3AJob%27"><span class="hs-identifier hs-var hs-var">command</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobCommand.html#JobCommand"><span class="hs-identifier hs-type">JobCommand</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The name or Amazon Resource Name (ARN) of the IAM role associated with</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- this job.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3Arole%27%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Arole%27%3AJob%27"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | Glue version determines the versions of Apache Spark and Python that</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- Glue supports. The Python version indicates the version supported for</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- jobs of type Spark.</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- For more information about the available Glue versions and corresponding</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- Spark and Python versions, see</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version&gt;</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- in the developer guide.</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- Jobs that are created without specifying a Glue version default to Glue</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- 0.9.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AglueVersion%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AglueVersion%3AJob%27"><span class="hs-identifier hs-var hs-var">glueVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | The type of predefined worker that is allocated when a job runs. Accepts</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- a value of Standard, G.1X, or G.2X.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--     of memory and a 50GB disk, and 2 executors per worker.</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- -   For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--     of memory, 64 GB disk), and provides 1 executor per worker. We</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--     recommend this worker type for memory-intensive jobs.</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- -   For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--     of memory, 128 GB disk), and provides 1 executor per worker. We</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--     recommend this worker type for memory-intensive jobs.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3AworkerType%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe WorkerType
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AworkerType%3AJob%27"><span class="hs-identifier hs-var hs-var">workerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.WorkerType.html#WorkerType"><span class="hs-identifier hs-type">WorkerType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | A description of the job.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3Adescription%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Adescription%3AJob%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | The default arguments for this job, specified as name-value pairs.</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- You can specify arguments here that your own job-execution script</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- consumes, as well as arguments that Glue itself consumes.</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- For information about how to specify and consume your own Job arguments,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- see the</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python&gt;</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- topic in the developer guide.</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- For information about the key-value pairs that Glue consumes to set up</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- your job, see the</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue&gt;</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- topic in the developer guide.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AdefaultArguments%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AdefaultArguments%3AJob%27"><span class="hs-identifier hs-var hs-var">defaultArguments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | An @ExecutionProperty@ specifying the maximum number of concurrent runs</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- allowed for this job.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AexecutionProperty%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe ExecutionProperty
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AexecutionProperty%3AJob%27"><span class="hs-identifier hs-var hs-var">executionProperty</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ExecutionProperty.html#ExecutionProperty"><span class="hs-identifier hs-type">ExecutionProperty</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | This field is deprecated. Use @MaxCapacity@ instead.</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- The number of Glue data processing units (DPUs) allocated to runs of</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- this job. You can allocate from 2 to 100 DPUs; the default is 10. A DPU</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- is a relative measure of processing power that consists of 4 vCPUs of</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- compute capacity and 16 GB of memory. For more information, see the</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- &lt;https://aws.amazon.com/glue/pricing/ Glue pricing page&gt;.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AallocatedCapacity%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Int
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AallocatedCapacity%3AJob%27"><span class="hs-identifier hs-var hs-var">allocatedCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | This field is reserved for future use.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AlogUri%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AlogUri%3AJob%27"><span class="hs-identifier hs-var hs-var">logUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The maximum number of times to retry this job after a JobRun fails.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AmaxRetries%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Int
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AmaxRetries%3AJob%27"><span class="hs-identifier hs-var hs-var">maxRetries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679705070"><span id="local-6989586621679705072"><span class="annot"><span class="annottext">Job -&gt; Job -&gt; Bool
+(Job -&gt; Job -&gt; Bool) -&gt; (Job -&gt; Job -&gt; Bool) -&gt; Eq Job
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Job -&gt; Job -&gt; Bool
+$c/= :: Job -&gt; Job -&gt; Bool
+== :: Job -&gt; Job -&gt; Bool
+$c== :: Job -&gt; Job -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679705061"><span id="local-6989586621679705063"><span id="local-6989586621679705065"><span id="local-6989586621679705067"><span class="annot"><span class="annottext">ReadPrec [Job]
+ReadPrec Job
+Int -&gt; ReadS Job
+ReadS [Job]
+(Int -&gt; ReadS Job)
+-&gt; ReadS [Job] -&gt; ReadPrec Job -&gt; ReadPrec [Job] -&gt; Read Job
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Job]
+$creadListPrec :: ReadPrec [Job]
+readPrec :: ReadPrec Job
+$creadPrec :: ReadPrec Job
+readList :: ReadS [Job]
+$creadList :: ReadS [Job]
+readsPrec :: Int -&gt; ReadS Job
+$creadsPrec :: Int -&gt; ReadS Job
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679705054"><span id="local-6989586621679705056"><span id="local-6989586621679705058"><span class="annot"><span class="annottext">Int -&gt; Job -&gt; ShowS
+[Job] -&gt; ShowS
+Job -&gt; String
+(Int -&gt; Job -&gt; ShowS)
+-&gt; (Job -&gt; String) -&gt; ([Job] -&gt; ShowS) -&gt; Show Job
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Job] -&gt; ShowS
+$cshowList :: [Job] -&gt; ShowS
+show :: Job -&gt; String
+$cshow :: Job -&gt; String
+showsPrec :: Int -&gt; Job -&gt; ShowS
+$cshowsPrec :: Int -&gt; Job -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Job -&gt; Rep Job x)
+-&gt; (forall x. Rep Job x -&gt; Job) -&gt; Generic Job
+forall x. Rep Job x -&gt; Job
+forall x. Job -&gt; Rep Job x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Job x -&gt; Job
+$cfrom :: forall x. Job -&gt; Rep Job x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Create a value of 'Job' with all optional fields omitted.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'nonOverridableArguments', 'job_nonOverridableArguments' - Non-overridable arguments for this job, specified as name-value pairs.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'createdOn', 'job_createdOn' - The time and date that this job definition was created.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'securityConfiguration', 'job_securityConfiguration' - The name of the @SecurityConfiguration@ structure to be used with this</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'timeout', 'job_timeout' - The job timeout in minutes. This is the maximum time that a job run can</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- consume resources before it is terminated and enters @TIMEOUT@ status.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- The default is 2,880 minutes (48 hours).</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'maxCapacity', 'job_maxCapacity' - For Glue version 1.0 or earlier jobs, using the standard worker type,</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- the number of Glue data processing units (DPUs) that can be allocated</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- when this job runs. A DPU is a relative measure of processing power that</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- information, see the</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/glue/pricing/ Glue pricing page&gt;.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The value that can be allocated for @MaxCapacity@ depends on whether you</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- are running a Python shell job, an Apache Spark ETL job, or an Apache</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Spark streaming ETL job:</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- -   When you specify a Python shell job</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     (@JobCommand.Name@=\&quot;pythonshell\&quot;), you can allocate either 0.0625</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--     or 1 DPU. The default is 0.0625 DPU.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- -   When you specify an Apache Spark ETL job</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     (@JobCommand.Name@=\&quot;glueetl\&quot;) or Apache Spark streaming ETL job</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--     (@JobCommand.Name@=\&quot;gluestreaming\&quot;), you can allocate from 2 to</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--     100 DPUs. The default is 10 DPUs. This job type cannot have a</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     fractional DPU allocation.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- For Glue version 2.0 jobs, you cannot instead specify a</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- @Maximum capacity@. Instead, you should specify a @Worker type@ and the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- @Number of workers@.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'connections', 'job_connections' - The connections used for this job.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'lastModifiedOn', 'job_lastModifiedOn' - The last point in time when this job definition was modified.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'notificationProperty', 'job_notificationProperty' - Specifies configuration properties of a job notification.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'numberOfWorkers', 'job_numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated when</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- a job runs.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- The maximum number of workers you can define are 299 for @G.1X@, and 149</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- for @G.2X@.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'name', 'job_name' - The name you assign to this job definition.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'command', 'job_command' - The @JobCommand@ that runs this job.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'role'', 'job_role' - The name or Amazon Resource Name (ARN) of the IAM role associated with</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- this job.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'glueVersion', 'job_glueVersion' - Glue version determines the versions of Apache Spark and Python that</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Glue supports. The Python version indicates the version supported for</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- jobs of type Spark.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- For more information about the available Glue versions and corresponding</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- Spark and Python versions, see</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version&gt;</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- in the developer guide.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- Jobs that are created without specifying a Glue version default to Glue</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 0.9.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'workerType', 'job_workerType' - The type of predefined worker that is allocated when a job runs. Accepts</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- a value of Standard, G.1X, or G.2X.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     of memory and a 50GB disk, and 2 executors per worker.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- -   For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--     of memory, 64 GB disk), and provides 1 executor per worker. We</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--     recommend this worker type for memory-intensive jobs.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- -   For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     of memory, 128 GB disk), and provides 1 executor per worker. We</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--     recommend this worker type for memory-intensive jobs.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'description', 'job_description' - A description of the job.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- 'defaultArguments', 'job_defaultArguments' - The default arguments for this job, specified as name-value pairs.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- You can specify arguments here that your own job-execution script</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- consumes, as well as arguments that Glue itself consumes.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- For information about how to specify and consume your own Job arguments,</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- see the</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python&gt;</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- topic in the developer guide.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- For information about the key-value pairs that Glue consumes to set up</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- your job, see the</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue&gt;</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- topic in the developer guide.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- 'executionProperty', 'job_executionProperty' - An @ExecutionProperty@ specifying the maximum number of concurrent runs</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- allowed for this job.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- 'allocatedCapacity', 'job_allocatedCapacity' - This field is deprecated. Use @MaxCapacity@ instead.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- The number of Glue data processing units (DPUs) allocated to runs of</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- this job. You can allocate from 2 to 100 DPUs; the default is 10. A DPU</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- is a relative measure of processing power that consists of 4 vCPUs of</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- compute capacity and 16 GB of memory. For more information, see the</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/glue/pricing/ Glue pricing page&gt;.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- 'logUri', 'job_logUri' - This field is reserved for future use.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- 'maxRetries', 'job_maxRetries' - The maximum number of times to retry this job after a JobRun fails.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#newJob"><span class="hs-identifier hs-type">newJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-276"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span>
+</span><span id="line-277"></span><span id="newJob"><span class="annot"><span class="annottext">newJob :: Job
+</span><a href="Network.AWS.Glue.Types.Job.html#newJob"><span class="hs-identifier hs-var hs-var">newJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-278"></span><span>  </span><span class="annot"><span class="annottext">Job' :: Maybe (HashMap Text Text)
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Double
+-&gt; Maybe ConnectionsList
+-&gt; Maybe POSIX
+-&gt; Maybe NotificationProperty
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe JobCommand
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe WorkerType
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe ExecutionProperty
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Job
+</span><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span>
+</span><span id="line-279"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nonOverridableArguments:Job' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AnonOverridableArguments%3AJob%27"><span class="hs-identifier hs-var">nonOverridableArguments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdOn:Job' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AcreatedOn%3AJob%27"><span class="hs-identifier hs-var">createdOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityConfiguration:Job' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AsecurityConfiguration%3AJob%27"><span class="hs-identifier hs-var">securityConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeout:Job' :: Maybe Natural
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Atimeout%3AJob%27"><span class="hs-identifier hs-var">timeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxCapacity:Job' :: Maybe Double
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AmaxCapacity%3AJob%27"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>      </span><span class="annot"><span class="annottext">$sel:connections:Job' :: Maybe ConnectionsList
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Aconnections%3AJob%27"><span class="hs-identifier hs-var">connections</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionsList
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedOn:Job' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AlastModifiedOn%3AJob%27"><span class="hs-identifier hs-var">lastModifiedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:notificationProperty:Job' :: Maybe NotificationProperty
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AnotificationProperty%3AJob%27"><span class="hs-identifier hs-var">notificationProperty</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationProperty
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>      </span><span class="annot"><span class="annottext">$sel:numberOfWorkers:Job' :: Maybe Int
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AnumberOfWorkers%3AJob%27"><span class="hs-identifier hs-var">numberOfWorkers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Job' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Aname%3AJob%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>      </span><span class="annot"><span class="annottext">$sel:command:Job' :: Maybe JobCommand
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Acommand%3AJob%27"><span class="hs-identifier hs-var">command</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobCommand
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>      </span><span class="annot"><span class="annottext">$sel:role':Job' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Arole%27%3AJob%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>      </span><span class="annot"><span class="annottext">$sel:glueVersion:Job' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AglueVersion%3AJob%27"><span class="hs-identifier hs-var">glueVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:workerType:Job' :: Maybe WorkerType
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AworkerType%3AJob%27"><span class="hs-identifier hs-var">workerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkerType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Job' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Adescription%3AJob%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultArguments:Job' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AdefaultArguments%3AJob%27"><span class="hs-identifier hs-var">defaultArguments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionProperty:Job' :: Maybe ExecutionProperty
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AexecutionProperty%3AJob%27"><span class="hs-identifier hs-var">executionProperty</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionProperty
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>      </span><span class="annot"><span class="annottext">$sel:allocatedCapacity:Job' :: Maybe Int
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AallocatedCapacity%3AJob%27"><span class="hs-identifier hs-var">allocatedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>      </span><span class="annot"><span class="annottext">$sel:logUri:Job' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AlogUri%3AJob%27"><span class="hs-identifier hs-var">logUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRetries:Job' :: Maybe Int
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AmaxRetries%3AJob%27"><span class="hs-identifier hs-var">maxRetries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-299"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- | Non-overridable arguments for this job, specified as name-value pairs.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_nonOverridableArguments"><span class="hs-identifier hs-type">job_nonOverridableArguments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span id="job_nonOverridableArguments"><span class="annot"><span class="annottext">job_nonOverridableArguments :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_nonOverridableArguments"><span class="hs-identifier hs-var hs-var">job_nonOverridableArguments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe (HashMap Text Text))
+-&gt; (Job -&gt; Maybe (HashMap Text Text) -&gt; Job)
+-&gt; Lens
+     Job Job (Maybe (HashMap Text Text)) (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705045"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+nonOverridableArguments :: Maybe (HashMap Text Text)
+$sel:nonOverridableArguments:Job' :: Job -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679705045"><span class="hs-identifier hs-var hs-var">nonOverridableArguments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679705045"><span class="hs-identifier hs-var">nonOverridableArguments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705044"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679705044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705043"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679705043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679705044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonOverridableArguments:Job' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AnonOverridableArguments%3AJob%27"><span class="hs-identifier hs-var">nonOverridableArguments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679705043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Job -&gt; f Job)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Job
+-&gt; f Job
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- | The time and date that this job definition was created.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_createdOn"><span class="hs-identifier hs-type">job_createdOn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span id="job_createdOn"><span class="annot"><span class="annottext">job_createdOn :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_createdOn"><span class="hs-identifier hs-var hs-var">job_createdOn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe POSIX)
+-&gt; (Job -&gt; Maybe POSIX -&gt; Job)
+-&gt; Lens Job Job (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705038"><span class="annot"><span class="annottext">Maybe POSIX
+createdOn :: Maybe POSIX
+$sel:createdOn:Job' :: Job -&gt; Maybe POSIX
+</span><a href="#local-6989586621679705038"><span class="hs-identifier hs-var hs-var">createdOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679705038"><span class="hs-identifier hs-var">createdOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705037"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679705037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705036"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679705036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679705037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdOn:Job' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AcreatedOn%3AJob%27"><span class="hs-identifier hs-var">createdOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679705036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Job -&gt; f Job)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Job
+-&gt; f Job
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | The name of the @SecurityConfiguration@ structure to be used with this</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_securityConfiguration"><span class="hs-identifier hs-type">job_securityConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span id="job_securityConfiguration"><span class="annot"><span class="annottext">job_securityConfiguration :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_securityConfiguration"><span class="hs-identifier hs-var hs-var">job_securityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705033"><span class="annot"><span class="annottext">Maybe Text
+securityConfiguration :: Maybe Text
+$sel:securityConfiguration:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679705033"><span class="hs-identifier hs-var hs-var">securityConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705033"><span class="hs-identifier hs-var">securityConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705032"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679705032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705031"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679705032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityConfiguration:Job' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AsecurityConfiguration%3AJob%27"><span class="hs-identifier hs-var">securityConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- | The job timeout in minutes. This is the maximum time that a job run can</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- consume resources before it is terminated and enters @TIMEOUT@ status.</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- The default is 2,880 minutes (48 hours).</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_timeout"><span class="hs-identifier hs-type">job_timeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span id="job_timeout"><span class="annot"><span class="annottext">job_timeout :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_timeout"><span class="hs-identifier hs-var hs-var">job_timeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Natural)
+-&gt; (Job -&gt; Maybe Natural -&gt; Job)
+-&gt; Lens Job Job (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705029"><span class="annot"><span class="annottext">Maybe Natural
+timeout :: Maybe Natural
+$sel:timeout:Job' :: Job -&gt; Maybe Natural
+</span><a href="#local-6989586621679705029"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679705029"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705028"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679705028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705027"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679705027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679705028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeout:Job' :: Maybe Natural
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Atimeout%3AJob%27"><span class="hs-identifier hs-var">timeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679705027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | For Glue version 1.0 or earlier jobs, using the standard worker type,</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- the number of Glue data processing units (DPUs) that can be allocated</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- when this job runs. A DPU is a relative measure of processing power that</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- information, see the</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/glue/pricing/ Glue pricing page&gt;.</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- The value that can be allocated for @MaxCapacity@ depends on whether you</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- are running a Python shell job, an Apache Spark ETL job, or an Apache</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- Spark streaming ETL job:</span><span>
+</span><span id="line-332"></span><span class="hs-comment">--</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- -   When you specify a Python shell job</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--     (@JobCommand.Name@=\&quot;pythonshell\&quot;), you can allocate either 0.0625</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--     or 1 DPU. The default is 0.0625 DPU.</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- -   When you specify an Apache Spark ETL job</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--     (@JobCommand.Name@=\&quot;glueetl\&quot;) or Apache Spark streaming ETL job</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--     (@JobCommand.Name@=\&quot;gluestreaming\&quot;), you can allocate from 2 to</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--     100 DPUs. The default is 10 DPUs. This job type cannot have a</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--     fractional DPU allocation.</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- For Glue version 2.0 jobs, you cannot instead specify a</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- @Maximum capacity@. Instead, you should specify a @Worker type@ and the</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- @Number of workers@.</span><span>
+</span><span id="line-346"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_maxCapacity"><span class="hs-identifier hs-type">job_maxCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span id="job_maxCapacity"><span class="annot"><span class="annottext">job_maxCapacity :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_maxCapacity"><span class="hs-identifier hs-var hs-var">job_maxCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Double)
+-&gt; (Job -&gt; Maybe Double -&gt; Job)
+-&gt; Lens Job Job (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705025"><span class="annot"><span class="annottext">Maybe Double
+maxCapacity :: Maybe Double
+$sel:maxCapacity:Job' :: Job -&gt; Maybe Double
+</span><a href="#local-6989586621679705025"><span class="hs-identifier hs-var hs-var">maxCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679705025"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705024"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679705024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705023"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679705023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679705024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxCapacity:Job' :: Maybe Double
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AmaxCapacity%3AJob%27"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679705023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- | The connections used for this job.</span><span>
+</span><span id="line-350"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_connections"><span class="hs-identifier hs-type">job_connections</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList"><span class="hs-identifier hs-type">ConnectionsList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span id="job_connections"><span class="annot"><span class="annottext">job_connections :: (Maybe ConnectionsList -&gt; f (Maybe ConnectionsList))
+-&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_connections"><span class="hs-identifier hs-var hs-var">job_connections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe ConnectionsList)
+-&gt; (Job -&gt; Maybe ConnectionsList -&gt; Job)
+-&gt; Lens Job Job (Maybe ConnectionsList) (Maybe ConnectionsList)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705021"><span class="annot"><span class="annottext">Maybe ConnectionsList
+connections :: Maybe ConnectionsList
+$sel:connections:Job' :: Job -&gt; Maybe ConnectionsList
+</span><a href="#local-6989586621679705021"><span class="hs-identifier hs-var hs-var">connections</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionsList
+</span><a href="#local-6989586621679705021"><span class="hs-identifier hs-var">connections</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705020"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679705020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705019"><span class="annot"><span class="annottext">Maybe ConnectionsList
+</span><a href="#local-6989586621679705019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679705020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connections:Job' :: Maybe ConnectionsList
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Aconnections%3AJob%27"><span class="hs-identifier hs-var">connections</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionsList
+</span><a href="#local-6989586621679705019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- | The last point in time when this job definition was modified.</span><span>
+</span><span id="line-354"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_lastModifiedOn"><span class="hs-identifier hs-type">job_lastModifiedOn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-355"></span><span id="job_lastModifiedOn"><span class="annot"><span class="annottext">job_lastModifiedOn :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_lastModifiedOn"><span class="hs-identifier hs-var hs-var">job_lastModifiedOn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe POSIX)
+-&gt; (Job -&gt; Maybe POSIX -&gt; Job)
+-&gt; Lens Job Job (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705017"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedOn :: Maybe POSIX
+$sel:lastModifiedOn:Job' :: Job -&gt; Maybe POSIX
+</span><a href="#local-6989586621679705017"><span class="hs-identifier hs-var hs-var">lastModifiedOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679705017"><span class="hs-identifier hs-var">lastModifiedOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705016"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679705016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705015"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679705015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679705016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedOn:Job' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AlastModifiedOn%3AJob%27"><span class="hs-identifier hs-var">lastModifiedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679705015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Job -&gt; f Job)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Job
+-&gt; f Job
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-356"></span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- | Specifies configuration properties of a job notification.</span><span>
+</span><span id="line-358"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_notificationProperty"><span class="hs-identifier hs-type">job_notificationProperty</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty"><span class="hs-identifier hs-type">NotificationProperty</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-359"></span><span id="job_notificationProperty"><span class="annot"><span class="annottext">job_notificationProperty :: (Maybe NotificationProperty -&gt; f (Maybe NotificationProperty))
+-&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_notificationProperty"><span class="hs-identifier hs-var hs-var">job_notificationProperty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe NotificationProperty)
+-&gt; (Job -&gt; Maybe NotificationProperty -&gt; Job)
+-&gt; Lens
+     Job Job (Maybe NotificationProperty) (Maybe NotificationProperty)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705013"><span class="annot"><span class="annottext">Maybe NotificationProperty
+notificationProperty :: Maybe NotificationProperty
+$sel:notificationProperty:Job' :: Job -&gt; Maybe NotificationProperty
+</span><a href="#local-6989586621679705013"><span class="hs-identifier hs-var hs-var">notificationProperty</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationProperty
+</span><a href="#local-6989586621679705013"><span class="hs-identifier hs-var">notificationProperty</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705012"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679705012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705011"><span class="annot"><span class="annottext">Maybe NotificationProperty
+</span><a href="#local-6989586621679705011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679705012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationProperty:Job' :: Maybe NotificationProperty
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AnotificationProperty%3AJob%27"><span class="hs-identifier hs-var">notificationProperty</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationProperty
+</span><a href="#local-6989586621679705011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-360"></span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- | The number of workers of a defined @workerType@ that are allocated when</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- a job runs.</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- The maximum number of workers you can define are 299 for @G.1X@, and 149</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- for @G.2X@.</span><span>
+</span><span id="line-366"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_numberOfWorkers"><span class="hs-identifier hs-type">job_numberOfWorkers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-367"></span><span id="job_numberOfWorkers"><span class="annot"><span class="annottext">job_numberOfWorkers :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_numberOfWorkers"><span class="hs-identifier hs-var hs-var">job_numberOfWorkers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Int)
+-&gt; (Job -&gt; Maybe Int -&gt; Job)
+-&gt; Lens Job Job (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705009"><span class="annot"><span class="annottext">Maybe Int
+numberOfWorkers :: Maybe Int
+$sel:numberOfWorkers:Job' :: Job -&gt; Maybe Int
+</span><a href="#local-6989586621679705009"><span class="hs-identifier hs-var hs-var">numberOfWorkers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679705009"><span class="hs-identifier hs-var">numberOfWorkers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705008"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679705008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705007"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679705007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679705008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfWorkers:Job' :: Maybe Int
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AnumberOfWorkers%3AJob%27"><span class="hs-identifier hs-var">numberOfWorkers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679705007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-368"></span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- | The name you assign to this job definition.</span><span>
+</span><span id="line-370"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_name"><span class="hs-identifier hs-type">job_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-371"></span><span id="job_name"><span class="annot"><span class="annottext">job_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_name"><span class="hs-identifier hs-var hs-var">job_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705005"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679705005"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705005"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705004"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679705004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705003"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679705004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Job' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Aname%3AJob%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-372"></span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- | The @JobCommand@ that runs this job.</span><span>
+</span><span id="line-374"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_command"><span class="hs-identifier hs-type">job_command</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobCommand.html#JobCommand"><span class="hs-identifier hs-type">JobCommand</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-375"></span><span id="job_command"><span class="annot"><span class="annottext">job_command :: (Maybe JobCommand -&gt; f (Maybe JobCommand)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_command"><span class="hs-identifier hs-var hs-var">job_command</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe JobCommand)
+-&gt; (Job -&gt; Maybe JobCommand -&gt; Job)
+-&gt; Lens Job Job (Maybe JobCommand) (Maybe JobCommand)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705001"><span class="annot"><span class="annottext">Maybe JobCommand
+command :: Maybe JobCommand
+$sel:command:Job' :: Job -&gt; Maybe JobCommand
+</span><a href="#local-6989586621679705001"><span class="hs-identifier hs-var hs-var">command</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobCommand
+</span><a href="#local-6989586621679705001"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705000"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679705000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679704999"><span class="annot"><span class="annottext">Maybe JobCommand
+</span><a href="#local-6989586621679704999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679705000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:command:Job' :: Maybe JobCommand
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Acommand%3AJob%27"><span class="hs-identifier hs-var">command</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobCommand
+</span><a href="#local-6989586621679704999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- | The name or Amazon Resource Name (ARN) of the IAM role associated with</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- this job.</span><span>
+</span><span id="line-379"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_role"><span class="hs-identifier hs-type">job_role</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-380"></span><span id="job_role"><span class="annot"><span class="annottext">job_role :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_role"><span class="hs-identifier hs-var hs-var">job_role</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679704997"><span class="annot"><span class="annottext">Maybe Text
+role' :: Maybe Text
+$sel:role':Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679704997"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679704997"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679704996"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679704996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679704995"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679704995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679704996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':Job' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Arole%27%3AJob%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679704995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-381"></span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- | Glue version determines the versions of Apache Spark and Python that</span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- Glue supports. The Python version indicates the version supported for</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- jobs of type Spark.</span><span>
+</span><span id="line-385"></span><span class="hs-comment">--</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- For more information about the available Glue versions and corresponding</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- Spark and Python versions, see</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version&gt;</span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- in the developer guide.</span><span>
+</span><span id="line-390"></span><span class="hs-comment">--</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- Jobs that are created without specifying a Glue version default to Glue</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- 0.9.</span><span>
+</span><span id="line-393"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_glueVersion"><span class="hs-identifier hs-type">job_glueVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-394"></span><span id="job_glueVersion"><span class="annot"><span class="annottext">job_glueVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_glueVersion"><span class="hs-identifier hs-var hs-var">job_glueVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679704993"><span class="annot"><span class="annottext">Maybe Text
+glueVersion :: Maybe Text
+$sel:glueVersion:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679704993"><span class="hs-identifier hs-var hs-var">glueVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679704993"><span class="hs-identifier hs-var">glueVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679704992"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679704992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679704991"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679704991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679704992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:glueVersion:Job' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AglueVersion%3AJob%27"><span class="hs-identifier hs-var">glueVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679704991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-395"></span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- | The type of predefined worker that is allocated when a job runs. Accepts</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- a value of Standard, G.1X, or G.2X.</span><span>
+</span><span id="line-398"></span><span class="hs-comment">--</span><span>
+</span><span id="line-399"></span><span class="hs-comment">-- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB</span><span>
+</span><span id="line-400"></span><span class="hs-comment">--     of memory and a 50GB disk, and 2 executors per worker.</span><span>
+</span><span id="line-401"></span><span class="hs-comment">--</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- -   For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB</span><span>
+</span><span id="line-403"></span><span class="hs-comment">--     of memory, 64 GB disk), and provides 1 executor per worker. We</span><span>
+</span><span id="line-404"></span><span class="hs-comment">--     recommend this worker type for memory-intensive jobs.</span><span>
+</span><span id="line-405"></span><span class="hs-comment">--</span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- -   For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB</span><span>
+</span><span id="line-407"></span><span class="hs-comment">--     of memory, 128 GB disk), and provides 1 executor per worker. We</span><span>
+</span><span id="line-408"></span><span class="hs-comment">--     recommend this worker type for memory-intensive jobs.</span><span>
+</span><span id="line-409"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_workerType"><span class="hs-identifier hs-type">job_workerType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.WorkerType.html#WorkerType"><span class="hs-identifier hs-type">WorkerType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-410"></span><span id="job_workerType"><span class="annot"><span class="annottext">job_workerType :: (Maybe WorkerType -&gt; f (Maybe WorkerType)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_workerType"><span class="hs-identifier hs-var hs-var">job_workerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe WorkerType)
+-&gt; (Job -&gt; Maybe WorkerType -&gt; Job)
+-&gt; Lens Job Job (Maybe WorkerType) (Maybe WorkerType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679704989"><span class="annot"><span class="annottext">Maybe WorkerType
+workerType :: Maybe WorkerType
+$sel:workerType:Job' :: Job -&gt; Maybe WorkerType
+</span><a href="#local-6989586621679704989"><span class="hs-identifier hs-var hs-var">workerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkerType
+</span><a href="#local-6989586621679704989"><span class="hs-identifier hs-var">workerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679704988"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679704988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679704987"><span class="annot"><span class="annottext">Maybe WorkerType
+</span><a href="#local-6989586621679704987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679704988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workerType:Job' :: Maybe WorkerType
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AworkerType%3AJob%27"><span class="hs-identifier hs-var">workerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkerType
+</span><a href="#local-6989586621679704987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-411"></span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- | A description of the job.</span><span>
+</span><span id="line-413"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_description"><span class="hs-identifier hs-type">job_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-414"></span><span id="job_description"><span class="annot"><span class="annottext">job_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_description"><span class="hs-identifier hs-var hs-var">job_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679704985"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679704985"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679704985"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679704984"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679704984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679704983"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679704983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679704984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Job' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3Adescription%3AJob%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679704983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-415"></span><span>
+</span><span id="line-416"></span><span class="hs-comment">-- | The default arguments for this job, specified as name-value pairs.</span><span>
+</span><span id="line-417"></span><span class="hs-comment">--</span><span>
+</span><span id="line-418"></span><span class="hs-comment">-- You can specify arguments here that your own job-execution script</span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- consumes, as well as arguments that Glue itself consumes.</span><span>
+</span><span id="line-420"></span><span class="hs-comment">--</span><span>
+</span><span id="line-421"></span><span class="hs-comment">-- For information about how to specify and consume your own Job arguments,</span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- see the</span><span>
+</span><span id="line-423"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python&gt;</span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- topic in the developer guide.</span><span>
+</span><span id="line-425"></span><span class="hs-comment">--</span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- For information about the key-value pairs that Glue consumes to set up</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- your job, see the</span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue&gt;</span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- topic in the developer guide.</span><span>
+</span><span id="line-430"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_defaultArguments"><span class="hs-identifier hs-type">job_defaultArguments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-431"></span><span id="job_defaultArguments"><span class="annot"><span class="annottext">job_defaultArguments :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_defaultArguments"><span class="hs-identifier hs-var hs-var">job_defaultArguments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe (HashMap Text Text))
+-&gt; (Job -&gt; Maybe (HashMap Text Text) -&gt; Job)
+-&gt; Lens
+     Job Job (Maybe (HashMap Text Text)) (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679704981"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+defaultArguments :: Maybe (HashMap Text Text)
+$sel:defaultArguments:Job' :: Job -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679704981"><span class="hs-identifier hs-var hs-var">defaultArguments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679704981"><span class="hs-identifier hs-var">defaultArguments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679704980"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679704980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679704979"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679704979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679704980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultArguments:Job' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AdefaultArguments%3AJob%27"><span class="hs-identifier hs-var">defaultArguments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679704979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Job -&gt; f Job)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Job
+-&gt; f Job
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-432"></span><span>
+</span><span id="line-433"></span><span class="hs-comment">-- | An @ExecutionProperty@ specifying the maximum number of concurrent runs</span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- allowed for this job.</span><span>
+</span><span id="line-435"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_executionProperty"><span class="hs-identifier hs-type">job_executionProperty</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ExecutionProperty.html#ExecutionProperty"><span class="hs-identifier hs-type">ExecutionProperty</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-436"></span><span id="job_executionProperty"><span class="annot"><span class="annottext">job_executionProperty :: (Maybe ExecutionProperty -&gt; f (Maybe ExecutionProperty))
+-&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_executionProperty"><span class="hs-identifier hs-var hs-var">job_executionProperty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe ExecutionProperty)
+-&gt; (Job -&gt; Maybe ExecutionProperty -&gt; Job)
+-&gt; Lens Job Job (Maybe ExecutionProperty) (Maybe ExecutionProperty)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679704977"><span class="annot"><span class="annottext">Maybe ExecutionProperty
+executionProperty :: Maybe ExecutionProperty
+$sel:executionProperty:Job' :: Job -&gt; Maybe ExecutionProperty
+</span><a href="#local-6989586621679704977"><span class="hs-identifier hs-var hs-var">executionProperty</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionProperty
+</span><a href="#local-6989586621679704977"><span class="hs-identifier hs-var">executionProperty</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679704976"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679704976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679704975"><span class="annot"><span class="annottext">Maybe ExecutionProperty
+</span><a href="#local-6989586621679704975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679704976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionProperty:Job' :: Maybe ExecutionProperty
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AexecutionProperty%3AJob%27"><span class="hs-identifier hs-var">executionProperty</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionProperty
+</span><a href="#local-6989586621679704975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-437"></span><span>
+</span><span id="line-438"></span><span class="hs-comment">-- | This field is deprecated. Use @MaxCapacity@ instead.</span><span>
+</span><span id="line-439"></span><span class="hs-comment">--</span><span>
+</span><span id="line-440"></span><span class="hs-comment">-- The number of Glue data processing units (DPUs) allocated to runs of</span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- this job. You can allocate from 2 to 100 DPUs; the default is 10. A DPU</span><span>
+</span><span id="line-442"></span><span class="hs-comment">-- is a relative measure of processing power that consists of 4 vCPUs of</span><span>
+</span><span id="line-443"></span><span class="hs-comment">-- compute capacity and 16 GB of memory. For more information, see the</span><span>
+</span><span id="line-444"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/glue/pricing/ Glue pricing page&gt;.</span><span>
+</span><span id="line-445"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_allocatedCapacity"><span class="hs-identifier hs-type">job_allocatedCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-446"></span><span id="job_allocatedCapacity"><span class="annot"><span class="annottext">job_allocatedCapacity :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_allocatedCapacity"><span class="hs-identifier hs-var hs-var">job_allocatedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Int)
+-&gt; (Job -&gt; Maybe Int -&gt; Job)
+-&gt; Lens Job Job (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679704973"><span class="annot"><span class="annottext">Maybe Int
+allocatedCapacity :: Maybe Int
+$sel:allocatedCapacity:Job' :: Job -&gt; Maybe Int
+</span><a href="#local-6989586621679704973"><span class="hs-identifier hs-var hs-var">allocatedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679704973"><span class="hs-identifier hs-var">allocatedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679704972"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679704972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679704971"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679704971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679704972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allocatedCapacity:Job' :: Maybe Int
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AallocatedCapacity%3AJob%27"><span class="hs-identifier hs-var">allocatedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679704971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-447"></span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- | This field is reserved for future use.</span><span>
+</span><span id="line-449"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_logUri"><span class="hs-identifier hs-type">job_logUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-450"></span><span id="job_logUri"><span class="annot"><span class="annottext">job_logUri :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_logUri"><span class="hs-identifier hs-var hs-var">job_logUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679704969"><span class="annot"><span class="annottext">Maybe Text
+logUri :: Maybe Text
+$sel:logUri:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679704969"><span class="hs-identifier hs-var hs-var">logUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679704969"><span class="hs-identifier hs-var">logUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679704968"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679704968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679704967"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679704967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679704968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logUri:Job' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AlogUri%3AJob%27"><span class="hs-identifier hs-var">logUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679704967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-451"></span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- | The maximum number of times to retry this job after a JobRun fails.</span><span>
+</span><span id="line-453"></span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#job_maxRetries"><span class="hs-identifier hs-type">job_maxRetries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-454"></span><span id="job_maxRetries"><span class="annot"><span class="annottext">job_maxRetries :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.Glue.Types.Job.html#job_maxRetries"><span class="hs-identifier hs-var hs-var">job_maxRetries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Int)
+-&gt; (Job -&gt; Maybe Int -&gt; Job)
+-&gt; Lens Job Job (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679704965"><span class="annot"><span class="annottext">Maybe Int
+maxRetries :: Maybe Int
+$sel:maxRetries:Job' :: Job -&gt; Maybe Int
+</span><a href="#local-6989586621679704965"><span class="hs-identifier hs-var hs-var">maxRetries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679704965"><span class="hs-identifier hs-var">maxRetries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679704964"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679704964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679704963"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679704963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679704964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRetries:Job' :: Maybe Int
+</span><a href="Network.AWS.Glue.Types.Job.html#%24sel%3AmaxRetries%3AJob%27"><span class="hs-identifier hs-var">maxRetries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679704963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-455"></span><span>
+</span><span id="line-456"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679704960"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-457"></span><span>  </span><span id="local-6989586621679704958"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Job
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-458"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Job) -&gt; Value -&gt; Parser Job
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-459"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Job&quot;</span></span><span>
+</span><span id="line-460"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679704955"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-461"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Double
+-&gt; Maybe ConnectionsList
+-&gt; Maybe POSIX
+-&gt; Maybe NotificationProperty
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe JobCommand
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe WorkerType
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe ExecutionProperty
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Job
+</span><a href="Network.AWS.Glue.Types.Job.html#Job%27"><span class="hs-identifier hs-var">Job'</span></a></span><span>
+</span><span id="line-462"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe Double
+ -&gt; Maybe ConnectionsList
+ -&gt; Maybe POSIX
+ -&gt; Maybe NotificationProperty
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe JobCommand
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe WorkerType
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe ExecutionProperty
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Job)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Double
+      -&gt; Maybe ConnectionsList
+      -&gt; Maybe POSIX
+      -&gt; Maybe NotificationProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe JobCommand
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkerType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ExecutionProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonOverridableArguments&quot;</span></span><span>
+</span><span id="line-463"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-464"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-465"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Double
+   -&gt; Maybe ConnectionsList
+   -&gt; Maybe POSIX
+   -&gt; Maybe NotificationProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe JobCommand
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkerType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ExecutionProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Job)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Double
+      -&gt; Maybe ConnectionsList
+      -&gt; Maybe POSIX
+      -&gt; Maybe NotificationProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe JobCommand
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkerType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ExecutionProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedOn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-466"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Double
+   -&gt; Maybe ConnectionsList
+   -&gt; Maybe POSIX
+   -&gt; Maybe NotificationProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe JobCommand
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkerType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ExecutionProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Double
+      -&gt; Maybe ConnectionsList
+      -&gt; Maybe POSIX
+      -&gt; Maybe NotificationProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe JobCommand
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkerType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ExecutionProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecurityConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-467"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Double
+   -&gt; Maybe ConnectionsList
+   -&gt; Maybe POSIX
+   -&gt; Maybe NotificationProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe JobCommand
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkerType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ExecutionProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Job)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe ConnectionsList
+      -&gt; Maybe POSIX
+      -&gt; Maybe NotificationProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe JobCommand
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkerType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ExecutionProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timeout&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-468"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe ConnectionsList
+   -&gt; Maybe POSIX
+   -&gt; Maybe NotificationProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe JobCommand
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkerType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ExecutionProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Job)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe ConnectionsList
+      -&gt; Maybe POSIX
+      -&gt; Maybe NotificationProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe JobCommand
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkerType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ExecutionProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxCapacity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-469"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ConnectionsList
+   -&gt; Maybe POSIX
+   -&gt; Maybe NotificationProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe JobCommand
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkerType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ExecutionProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Job)
+-&gt; Parser (Maybe ConnectionsList)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe NotificationProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe JobCommand
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkerType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ExecutionProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConnectionsList)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Connections&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-470"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe NotificationProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe JobCommand
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkerType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ExecutionProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Job)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe NotificationProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe JobCommand
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkerType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ExecutionProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedOn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-471"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NotificationProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe JobCommand
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkerType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ExecutionProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Job)
+-&gt; Parser (Maybe NotificationProperty)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe JobCommand
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkerType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ExecutionProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NotificationProperty)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotificationProperty&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-472"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe JobCommand
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkerType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ExecutionProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Job)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe JobCommand
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkerType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ExecutionProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NumberOfWorkers&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-473"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe JobCommand
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkerType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ExecutionProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe JobCommand
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkerType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ExecutionProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-474"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe JobCommand
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkerType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ExecutionProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Job)
+-&gt; Parser (Maybe JobCommand)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkerType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ExecutionProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobCommand)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Command&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-475"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkerType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ExecutionProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe WorkerType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ExecutionProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Role&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-476"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe WorkerType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ExecutionProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe WorkerType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ExecutionProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlueVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-477"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe WorkerType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ExecutionProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Job)
+-&gt; Parser (Maybe WorkerType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ExecutionProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WorkerType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkerType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-478"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ExecutionProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe ExecutionProperty
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-479"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe ExecutionProperty
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Job)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe ExecutionProperty
+      -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe Int -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultArguments&quot;</span></span><span>
+</span><span id="line-480"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-481"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-482"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ExecutionProperty
+   -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe Int -&gt; Job)
+-&gt; Parser (Maybe ExecutionProperty)
+-&gt; Parser (Maybe Int -&gt; Maybe Text -&gt; Maybe Int -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExecutionProperty)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExecutionProperty&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-483"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Text -&gt; Maybe Int -&gt; Job)
+-&gt; Parser (Maybe Int) -&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AllocatedCapacity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-484"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Int -&gt; Job)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Int -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogUri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-485"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Job) -&gt; Parser (Maybe Int) -&gt; Parser Job
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxRetries&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-486"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-487"></span><span>
+</span><span id="line-488"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679704948"><span id="local-6989586621679704950"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span></span><span>
+</span><span id="line-489"></span><span>
+</span><span id="line-490"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679704945"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span><span>
+</span><span id="line-491"></span></pre></body></html>

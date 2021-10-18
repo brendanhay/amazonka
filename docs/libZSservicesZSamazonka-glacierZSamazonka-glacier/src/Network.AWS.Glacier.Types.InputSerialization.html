@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Glacier.Types.InputSerialization</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glacier.Types.InputSerialization</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html"><span class="hs-identifier">Network.AWS.Glacier.Types.CSVInput</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes how the archive is serialized.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInputSerialization' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679216304"><span id="local-6989586621679216305"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputSerialization"><span class="annot"><a href="Network.AWS.Glacier.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-var">InputSerialization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputSerialization%27"><span class="annot"><a href="Network.AWS.Glacier.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-var">InputSerialization'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the serialization of a CSV-encoded object.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Acsv%3AInputSerialization%27"><span class="annot"><span class="annottext">InputSerialization -&gt; Maybe CSVInput
+</span><a href="Network.AWS.Glacier.Types.InputSerialization.html#%24sel%3Acsv%3AInputSerialization%27"><span class="hs-identifier hs-var hs-var">csv</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216298"><span id="local-6989586621679216300"><span class="annot"><span class="annottext">InputSerialization -&gt; InputSerialization -&gt; Bool
+(InputSerialization -&gt; InputSerialization -&gt; Bool)
+-&gt; (InputSerialization -&gt; InputSerialization -&gt; Bool)
+-&gt; Eq InputSerialization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InputSerialization -&gt; InputSerialization -&gt; Bool
+$c/= :: InputSerialization -&gt; InputSerialization -&gt; Bool
+== :: InputSerialization -&gt; InputSerialization -&gt; Bool
+$c== :: InputSerialization -&gt; InputSerialization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216289"><span id="local-6989586621679216291"><span id="local-6989586621679216293"><span id="local-6989586621679216295"><span class="annot"><span class="annottext">ReadPrec [InputSerialization]
+ReadPrec InputSerialization
+Int -&gt; ReadS InputSerialization
+ReadS [InputSerialization]
+(Int -&gt; ReadS InputSerialization)
+-&gt; ReadS [InputSerialization]
+-&gt; ReadPrec InputSerialization
+-&gt; ReadPrec [InputSerialization]
+-&gt; Read InputSerialization
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InputSerialization]
+$creadListPrec :: ReadPrec [InputSerialization]
+readPrec :: ReadPrec InputSerialization
+$creadPrec :: ReadPrec InputSerialization
+readList :: ReadS [InputSerialization]
+$creadList :: ReadS [InputSerialization]
+readsPrec :: Int -&gt; ReadS InputSerialization
+$creadsPrec :: Int -&gt; ReadS InputSerialization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216282"><span id="local-6989586621679216284"><span id="local-6989586621679216286"><span class="annot"><span class="annottext">Int -&gt; InputSerialization -&gt; ShowS
+[InputSerialization] -&gt; ShowS
+InputSerialization -&gt; String
+(Int -&gt; InputSerialization -&gt; ShowS)
+-&gt; (InputSerialization -&gt; String)
+-&gt; ([InputSerialization] -&gt; ShowS)
+-&gt; Show InputSerialization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InputSerialization] -&gt; ShowS
+$cshowList :: [InputSerialization] -&gt; ShowS
+show :: InputSerialization -&gt; String
+$cshow :: InputSerialization -&gt; String
+showsPrec :: Int -&gt; InputSerialization -&gt; ShowS
+$cshowsPrec :: Int -&gt; InputSerialization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InputSerialization -&gt; Rep InputSerialization x)
+-&gt; (forall x. Rep InputSerialization x -&gt; InputSerialization)
+-&gt; Generic InputSerialization
+forall x. Rep InputSerialization x -&gt; InputSerialization
+forall x. InputSerialization -&gt; Rep InputSerialization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InputSerialization x -&gt; InputSerialization
+$cfrom :: forall x. InputSerialization -&gt; Rep InputSerialization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'InputSerialization' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'csv', 'inputSerialization_csv' - Describes the serialization of a CSV-encoded object.</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Network.AWS.Glacier.Types.InputSerialization.html#newInputSerialization"><span class="hs-identifier hs-type">newInputSerialization</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span><span>
+</span><span id="line-47"></span><span id="newInputSerialization"><span class="annot"><span class="annottext">newInputSerialization :: InputSerialization
+</span><a href="Network.AWS.Glacier.Types.InputSerialization.html#newInputSerialization"><span class="hs-identifier hs-var hs-var">newInputSerialization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><span class="annottext">InputSerialization' :: Maybe CSVInput -&gt; InputSerialization
+</span><a href="Network.AWS.Glacier.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-type">InputSerialization'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:csv:InputSerialization' :: Maybe CSVInput
+</span><a href="Network.AWS.Glacier.Types.InputSerialization.html#%24sel%3Acsv%3AInputSerialization%27"><span class="hs-identifier hs-var">csv</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CSVInput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | Describes the serialization of a CSV-encoded object.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Network.AWS.Glacier.Types.InputSerialization.html#inputSerialization_csv"><span class="hs-identifier hs-type">inputSerialization_csv</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span id="inputSerialization_csv"><span class="annot"><span class="annottext">inputSerialization_csv :: (Maybe CSVInput -&gt; f (Maybe CSVInput))
+-&gt; InputSerialization -&gt; f InputSerialization
+</span><a href="Network.AWS.Glacier.Types.InputSerialization.html#inputSerialization_csv"><span class="hs-identifier hs-var hs-var">inputSerialization_csv</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSerialization -&gt; Maybe CSVInput)
+-&gt; (InputSerialization -&gt; Maybe CSVInput -&gt; InputSerialization)
+-&gt; Lens
+     InputSerialization
+     InputSerialization
+     (Maybe CSVInput)
+     (Maybe CSVInput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-type">InputSerialization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216273"><span class="annot"><span class="annottext">Maybe CSVInput
+csv :: Maybe CSVInput
+$sel:csv:InputSerialization' :: InputSerialization -&gt; Maybe CSVInput
+</span><a href="#local-6989586621679216273"><span class="hs-identifier hs-var hs-var">csv</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CSVInput
+</span><a href="#local-6989586621679216273"><span class="hs-identifier hs-var">csv</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216272"><span class="annot"><span class="annottext">s :: InputSerialization
+</span><a href="#local-6989586621679216272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-type">InputSerialization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216271"><span class="annot"><span class="annottext">Maybe CSVInput
+</span><a href="#local-6989586621679216271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSerialization
+</span><a href="#local-6989586621679216272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:csv:InputSerialization' :: Maybe CSVInput
+</span><a href="Network.AWS.Glacier.Types.InputSerialization.html#%24sel%3Acsv%3AInputSerialization%27"><span class="hs-identifier hs-var">csv</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CSVInput
+</span><a href="#local-6989586621679216271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216268"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679216266"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputSerialization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InputSerialization)
+-&gt; Value
+-&gt; Parser InputSerialization
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InputSerialization&quot;</span></span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216263"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216263"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe CSVInput -&gt; InputSerialization
+</span><a href="Network.AWS.Glacier.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-var">InputSerialization'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe CSVInput -&gt; InputSerialization)
+-&gt; Parser (Maybe CSVInput) -&gt; Parser InputSerialization
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CSVInput)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;csv&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216257"><span id="local-6989586621679216259"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span></span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216246"><span id="local-6989586621679216248"><span id="local-6989586621679216250"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679216244"><span class="annot"><span class="annottext">toJSON :: InputSerialization -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-type">InputSerialization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216242"><span class="annot"><span class="annottext">Maybe CSVInput
+csv :: Maybe CSVInput
+$sel:csv:InputSerialization' :: InputSerialization -&gt; Maybe CSVInput
+</span><a href="#local-6989586621679216242"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span> </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;csv&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CSVInput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CSVInput -&gt; Pair) -&gt; Maybe CSVInput -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CSVInput
+</span><a href="#local-6989586621679216242"><span class="hs-identifier hs-var">csv</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span></pre></body></html>

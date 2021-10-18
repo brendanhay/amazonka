@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeBuild.Types.AuthType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeBuild.Types.AuthType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType"><span class="hs-identifier">AuthType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType_BASIC_AUTH"><span class="hs-identifier">AuthType_BASIC_AUTH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType_OAUTH"><span class="hs-identifier">AuthType_OAUTH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType_PERSONAL_ACCESS_TOKEN"><span class="hs-identifier">AuthType_PERSONAL_ACCESS_TOKEN</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679366991"><span id="local-6989586621679366992"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType"><span class="hs-identifier hs-var">AuthType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType%27"><span class="hs-identifier hs-var">AuthType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuthType"><span class="annot"><span class="annottext">AuthType -&gt; Text
+</span><a href="Network.AWS.CodeBuild.Types.AuthType.html#fromAuthType"><span class="hs-identifier hs-var hs-var">fromAuthType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366983"><span id="local-6989586621679366985"><span id="local-6989586621679366987"><span class="annot"><span class="annottext">Int -&gt; AuthType -&gt; ShowS
+[AuthType] -&gt; ShowS
+AuthType -&gt; String
+(Int -&gt; AuthType -&gt; ShowS)
+-&gt; (AuthType -&gt; String) -&gt; ([AuthType] -&gt; ShowS) -&gt; Show AuthType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AuthType] -&gt; ShowS
+$cshowList :: [AuthType] -&gt; ShowS
+show :: AuthType -&gt; String
+$cshow :: AuthType -&gt; String
+showsPrec :: Int -&gt; AuthType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AuthType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679366974"><span id="local-6989586621679366976"><span id="local-6989586621679366978"><span id="local-6989586621679366980"><span class="annot"><span class="annottext">ReadPrec [AuthType]
+ReadPrec AuthType
+Int -&gt; ReadS AuthType
+ReadS [AuthType]
+(Int -&gt; ReadS AuthType)
+-&gt; ReadS [AuthType]
+-&gt; ReadPrec AuthType
+-&gt; ReadPrec [AuthType]
+-&gt; Read AuthType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AuthType]
+$creadListPrec :: ReadPrec [AuthType]
+readPrec :: ReadPrec AuthType
+$creadPrec :: ReadPrec AuthType
+readList :: ReadS [AuthType]
+$creadList :: ReadS [AuthType]
+readsPrec :: Int -&gt; ReadS AuthType
+$creadsPrec :: Int -&gt; ReadS AuthType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679366969"><span id="local-6989586621679366971"><span class="annot"><span class="annottext">AuthType -&gt; AuthType -&gt; Bool
+(AuthType -&gt; AuthType -&gt; Bool)
+-&gt; (AuthType -&gt; AuthType -&gt; Bool) -&gt; Eq AuthType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AuthType -&gt; AuthType -&gt; Bool
+$c/= :: AuthType -&gt; AuthType -&gt; Bool
+== :: AuthType -&gt; AuthType -&gt; Bool
+$c== :: AuthType -&gt; AuthType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679366953"><span id="local-6989586621679366955"><span id="local-6989586621679366957"><span id="local-6989586621679366959"><span id="local-6989586621679366961"><span id="local-6989586621679366963"><span id="local-6989586621679366965"><span class="annot"><span class="annottext">Eq AuthType
+Eq AuthType
+-&gt; (AuthType -&gt; AuthType -&gt; Ordering)
+-&gt; (AuthType -&gt; AuthType -&gt; Bool)
+-&gt; (AuthType -&gt; AuthType -&gt; Bool)
+-&gt; (AuthType -&gt; AuthType -&gt; Bool)
+-&gt; (AuthType -&gt; AuthType -&gt; Bool)
+-&gt; (AuthType -&gt; AuthType -&gt; AuthType)
+-&gt; (AuthType -&gt; AuthType -&gt; AuthType)
+-&gt; Ord AuthType
+AuthType -&gt; AuthType -&gt; Bool
+AuthType -&gt; AuthType -&gt; Ordering
+AuthType -&gt; AuthType -&gt; AuthType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AuthType -&gt; AuthType -&gt; AuthType
+$cmin :: AuthType -&gt; AuthType -&gt; AuthType
+max :: AuthType -&gt; AuthType -&gt; AuthType
+$cmax :: AuthType -&gt; AuthType -&gt; AuthType
+&gt;= :: AuthType -&gt; AuthType -&gt; Bool
+$c&gt;= :: AuthType -&gt; AuthType -&gt; Bool
+&gt; :: AuthType -&gt; AuthType -&gt; Bool
+$c&gt; :: AuthType -&gt; AuthType -&gt; Bool
+&lt;= :: AuthType -&gt; AuthType -&gt; Bool
+$c&lt;= :: AuthType -&gt; AuthType -&gt; Bool
+&lt; :: AuthType -&gt; AuthType -&gt; Bool
+$c&lt; :: AuthType -&gt; AuthType -&gt; Bool
+compare :: AuthType -&gt; AuthType -&gt; Ordering
+$ccompare :: AuthType -&gt; AuthType -&gt; Ordering
+$cp1Ord :: Eq AuthType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AuthType -&gt; Rep AuthType x)
+-&gt; (forall x. Rep AuthType x -&gt; AuthType) -&gt; Generic AuthType
+forall x. Rep AuthType x -&gt; AuthType
+forall x. AuthType -&gt; Rep AuthType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AuthType x -&gt; AuthType
+$cfrom :: forall x. AuthType -&gt; Rep AuthType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366945"><span id="local-6989586621679366947"><span class="annot"><span class="annottext">Int -&gt; AuthType -&gt; Int
+AuthType -&gt; Int
+(Int -&gt; AuthType -&gt; Int) -&gt; (AuthType -&gt; Int) -&gt; Hashable AuthType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AuthType -&gt; Int
+$chash :: AuthType -&gt; Int
+hashWithSalt :: Int -&gt; AuthType -&gt; Int
+$chashWithSalt :: Int -&gt; AuthType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679366942"><span class="annot"><span class="annottext">AuthType -&gt; ()
+(AuthType -&gt; ()) -&gt; NFData AuthType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AuthType -&gt; ()
+$crnf :: AuthType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679366939"><span class="annot"><span class="annottext">Text -&gt; Either String AuthType
+(Text -&gt; Either String AuthType) -&gt; FromText AuthType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AuthType
+$cfromText :: Text -&gt; Either String AuthType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679366936"><span class="annot"><span class="annottext">AuthType -&gt; Text
+(AuthType -&gt; Text) -&gt; ToText AuthType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AuthType -&gt; Text
+$ctoText :: AuthType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679366933"><span class="annot"><span class="annottext">AuthType -&gt; ByteString
+(AuthType -&gt; ByteString) -&gt; ToByteString AuthType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AuthType -&gt; ByteString
+$ctoBS :: AuthType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679366930"><span class="annot"><span class="annottext">AuthType -&gt; ByteStringBuilder
+(AuthType -&gt; ByteStringBuilder) -&gt; ToLog AuthType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AuthType -&gt; ByteStringBuilder
+$cbuild :: AuthType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679366927"><span class="annot"><span class="annottext">HeaderName -&gt; AuthType -&gt; [Header]
+(HeaderName -&gt; AuthType -&gt; [Header]) -&gt; ToHeader AuthType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AuthType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AuthType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679366924"><span class="annot"><span class="annottext">AuthType -&gt; QueryString
+(AuthType -&gt; QueryString) -&gt; ToQuery AuthType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AuthType -&gt; QueryString
+$ctoQuery :: AuthType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679366919"><span id="local-6989586621679366921"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthType]
+Value -&gt; Parser AuthType
+(Value -&gt; Parser AuthType)
+-&gt; (Value -&gt; Parser [AuthType]) -&gt; FromJSON AuthType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AuthType]
+$cparseJSONList :: Value -&gt; Parser [AuthType]
+parseJSON :: Value -&gt; Parser AuthType
+$cparseJSON :: Value -&gt; Parser AuthType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679366914"><span id="local-6989586621679366916"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthType]
+FromJSONKeyFunction AuthType
+FromJSONKeyFunction AuthType
+-&gt; FromJSONKeyFunction [AuthType] -&gt; FromJSONKey AuthType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AuthType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AuthType]
+fromJSONKey :: FromJSONKeyFunction AuthType
+$cfromJSONKey :: FromJSONKeyFunction AuthType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679366905"><span id="local-6989586621679366907"><span id="local-6989586621679366909"><span id="local-6989586621679366911"><span class="annot"><span class="annottext">[AuthType] -&gt; Encoding
+[AuthType] -&gt; Value
+AuthType -&gt; Encoding
+AuthType -&gt; Value
+(AuthType -&gt; Value)
+-&gt; (AuthType -&gt; Encoding)
+-&gt; ([AuthType] -&gt; Value)
+-&gt; ([AuthType] -&gt; Encoding)
+-&gt; ToJSON AuthType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AuthType] -&gt; Encoding
+$ctoEncodingList :: [AuthType] -&gt; Encoding
+toJSONList :: [AuthType] -&gt; Value
+$ctoJSONList :: [AuthType] -&gt; Value
+toEncoding :: AuthType -&gt; Encoding
+$ctoEncoding :: AuthType -&gt; Encoding
+toJSON :: AuthType -&gt; Value
+$ctoJSON :: AuthType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679366900"><span id="local-6989586621679366902"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthType]
+ToJSONKeyFunction AuthType
+ToJSONKeyFunction AuthType
+-&gt; ToJSONKeyFunction [AuthType] -&gt; ToJSONKey AuthType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AuthType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AuthType]
+toJSONKey :: ToJSONKeyFunction AuthType
+$ctoJSONKey :: ToJSONKeyFunction AuthType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679366897"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthType
+([Node] -&gt; Either String AuthType) -&gt; FromXML AuthType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AuthType
+$cparseXML :: [Node] -&gt; Either String AuthType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679366894"><span class="annot"><span class="annottext">AuthType -&gt; XML
+(AuthType -&gt; XML) -&gt; ToXML AuthType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AuthType -&gt; XML
+$ctoXML :: AuthType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType_BASIC_AUTH"><span class="hs-identifier hs-type">AuthType_BASIC_AUTH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType"><span class="hs-identifier hs-type">AuthType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthType_BASIC_AUTH"><span id="%24mAuthType_BASIC_AUTH"><span id="AuthType_BASIC_AUTH"><span class="annot"><span class="annottext">$bAuthType_BASIC_AUTH :: AuthType
+$mAuthType_BASIC_AUTH :: forall r. AuthType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeBuild.Types.AuthType.html#%24bAuthType_BASIC_AUTH"><span class="hs-identifier hs-var hs-var hs-var">AuthType_BASIC_AUTH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType%27"><span class="hs-identifier hs-type">AuthType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BASIC_AUTH&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType_OAUTH"><span class="hs-identifier hs-type">AuthType_OAUTH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType"><span class="hs-identifier hs-type">AuthType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthType_OAUTH"><span id="%24mAuthType_OAUTH"><span id="AuthType_OAUTH"><span class="annot"><span class="annottext">$bAuthType_OAUTH :: AuthType
+$mAuthType_OAUTH :: forall r. AuthType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeBuild.Types.AuthType.html#%24bAuthType_OAUTH"><span class="hs-identifier hs-var hs-var hs-var">AuthType_OAUTH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType%27"><span class="hs-identifier hs-type">AuthType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OAUTH&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType_PERSONAL_ACCESS_TOKEN"><span class="hs-identifier hs-type">AuthType_PERSONAL_ACCESS_TOKEN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType"><span class="hs-identifier hs-type">AuthType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthType_PERSONAL_ACCESS_TOKEN"><span id="%24mAuthType_PERSONAL_ACCESS_TOKEN"><span id="AuthType_PERSONAL_ACCESS_TOKEN"><span class="annot"><span class="annottext">$bAuthType_PERSONAL_ACCESS_TOKEN :: AuthType
+$mAuthType_PERSONAL_ACCESS_TOKEN :: forall r. AuthType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeBuild.Types.AuthType.html#%24bAuthType_PERSONAL_ACCESS_TOKEN"><span class="hs-identifier hs-var hs-var hs-var">AuthType_PERSONAL_ACCESS_TOKEN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType%27"><span class="hs-identifier hs-type">AuthType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PERSONAL_ACCESS_TOKEN&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType_BASIC_AUTH"><span class="hs-pragma hs-type">AuthType_BASIC_AUTH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType_OAUTH"><span class="hs-pragma hs-type">AuthType_OAUTH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType_PERSONAL_ACCESS_TOKEN"><span class="hs-pragma hs-type">AuthType_PERSONAL_ACCESS_TOKEN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.AuthType.html#AuthType%27"><span class="hs-pragma hs-type">AuthType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

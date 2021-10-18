@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.StorageGateway.Types.PoolStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.StorageGateway.Types.PoolStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#PoolStatus"><span class="hs-identifier">PoolStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#PoolStatus_ACTIVE"><span class="hs-identifier">PoolStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#PoolStatus_DELETED"><span class="hs-identifier">PoolStatus_DELETED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679368831"><span id="local-6989586621679368832"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PoolStatus"><span class="annot"><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#PoolStatus"><span class="hs-identifier hs-var">PoolStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PoolStatus%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#PoolStatus%27"><span class="hs-identifier hs-var">PoolStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPoolStatus"><span class="annot"><span class="annottext">PoolStatus -&gt; Text
+</span><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#fromPoolStatus"><span class="hs-identifier hs-var hs-var">fromPoolStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368823"><span id="local-6989586621679368825"><span id="local-6989586621679368827"><span class="annot"><span class="annottext">Int -&gt; PoolStatus -&gt; ShowS
+[PoolStatus] -&gt; ShowS
+PoolStatus -&gt; String
+(Int -&gt; PoolStatus -&gt; ShowS)
+-&gt; (PoolStatus -&gt; String)
+-&gt; ([PoolStatus] -&gt; ShowS)
+-&gt; Show PoolStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PoolStatus] -&gt; ShowS
+$cshowList :: [PoolStatus] -&gt; ShowS
+show :: PoolStatus -&gt; String
+$cshow :: PoolStatus -&gt; String
+showsPrec :: Int -&gt; PoolStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; PoolStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679368814"><span id="local-6989586621679368816"><span id="local-6989586621679368818"><span id="local-6989586621679368820"><span class="annot"><span class="annottext">ReadPrec [PoolStatus]
+ReadPrec PoolStatus
+Int -&gt; ReadS PoolStatus
+ReadS [PoolStatus]
+(Int -&gt; ReadS PoolStatus)
+-&gt; ReadS [PoolStatus]
+-&gt; ReadPrec PoolStatus
+-&gt; ReadPrec [PoolStatus]
+-&gt; Read PoolStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PoolStatus]
+$creadListPrec :: ReadPrec [PoolStatus]
+readPrec :: ReadPrec PoolStatus
+$creadPrec :: ReadPrec PoolStatus
+readList :: ReadS [PoolStatus]
+$creadList :: ReadS [PoolStatus]
+readsPrec :: Int -&gt; ReadS PoolStatus
+$creadsPrec :: Int -&gt; ReadS PoolStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679368809"><span id="local-6989586621679368811"><span class="annot"><span class="annottext">PoolStatus -&gt; PoolStatus -&gt; Bool
+(PoolStatus -&gt; PoolStatus -&gt; Bool)
+-&gt; (PoolStatus -&gt; PoolStatus -&gt; Bool) -&gt; Eq PoolStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PoolStatus -&gt; PoolStatus -&gt; Bool
+$c/= :: PoolStatus -&gt; PoolStatus -&gt; Bool
+== :: PoolStatus -&gt; PoolStatus -&gt; Bool
+$c== :: PoolStatus -&gt; PoolStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679368793"><span id="local-6989586621679368795"><span id="local-6989586621679368797"><span id="local-6989586621679368799"><span id="local-6989586621679368801"><span id="local-6989586621679368803"><span id="local-6989586621679368805"><span class="annot"><span class="annottext">Eq PoolStatus
+Eq PoolStatus
+-&gt; (PoolStatus -&gt; PoolStatus -&gt; Ordering)
+-&gt; (PoolStatus -&gt; PoolStatus -&gt; Bool)
+-&gt; (PoolStatus -&gt; PoolStatus -&gt; Bool)
+-&gt; (PoolStatus -&gt; PoolStatus -&gt; Bool)
+-&gt; (PoolStatus -&gt; PoolStatus -&gt; Bool)
+-&gt; (PoolStatus -&gt; PoolStatus -&gt; PoolStatus)
+-&gt; (PoolStatus -&gt; PoolStatus -&gt; PoolStatus)
+-&gt; Ord PoolStatus
+PoolStatus -&gt; PoolStatus -&gt; Bool
+PoolStatus -&gt; PoolStatus -&gt; Ordering
+PoolStatus -&gt; PoolStatus -&gt; PoolStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PoolStatus -&gt; PoolStatus -&gt; PoolStatus
+$cmin :: PoolStatus -&gt; PoolStatus -&gt; PoolStatus
+max :: PoolStatus -&gt; PoolStatus -&gt; PoolStatus
+$cmax :: PoolStatus -&gt; PoolStatus -&gt; PoolStatus
+&gt;= :: PoolStatus -&gt; PoolStatus -&gt; Bool
+$c&gt;= :: PoolStatus -&gt; PoolStatus -&gt; Bool
+&gt; :: PoolStatus -&gt; PoolStatus -&gt; Bool
+$c&gt; :: PoolStatus -&gt; PoolStatus -&gt; Bool
+&lt;= :: PoolStatus -&gt; PoolStatus -&gt; Bool
+$c&lt;= :: PoolStatus -&gt; PoolStatus -&gt; Bool
+&lt; :: PoolStatus -&gt; PoolStatus -&gt; Bool
+$c&lt; :: PoolStatus -&gt; PoolStatus -&gt; Bool
+compare :: PoolStatus -&gt; PoolStatus -&gt; Ordering
+$ccompare :: PoolStatus -&gt; PoolStatus -&gt; Ordering
+$cp1Ord :: Eq PoolStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PoolStatus -&gt; Rep PoolStatus x)
+-&gt; (forall x. Rep PoolStatus x -&gt; PoolStatus) -&gt; Generic PoolStatus
+forall x. Rep PoolStatus x -&gt; PoolStatus
+forall x. PoolStatus -&gt; Rep PoolStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PoolStatus x -&gt; PoolStatus
+$cfrom :: forall x. PoolStatus -&gt; Rep PoolStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368785"><span id="local-6989586621679368787"><span class="annot"><span class="annottext">Int -&gt; PoolStatus -&gt; Int
+PoolStatus -&gt; Int
+(Int -&gt; PoolStatus -&gt; Int)
+-&gt; (PoolStatus -&gt; Int) -&gt; Hashable PoolStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PoolStatus -&gt; Int
+$chash :: PoolStatus -&gt; Int
+hashWithSalt :: Int -&gt; PoolStatus -&gt; Int
+$chashWithSalt :: Int -&gt; PoolStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679368782"><span class="annot"><span class="annottext">PoolStatus -&gt; ()
+(PoolStatus -&gt; ()) -&gt; NFData PoolStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PoolStatus -&gt; ()
+$crnf :: PoolStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679368779"><span class="annot"><span class="annottext">Text -&gt; Either String PoolStatus
+(Text -&gt; Either String PoolStatus) -&gt; FromText PoolStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PoolStatus
+$cfromText :: Text -&gt; Either String PoolStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679368776"><span class="annot"><span class="annottext">PoolStatus -&gt; Text
+(PoolStatus -&gt; Text) -&gt; ToText PoolStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PoolStatus -&gt; Text
+$ctoText :: PoolStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679368773"><span class="annot"><span class="annottext">PoolStatus -&gt; ByteString
+(PoolStatus -&gt; ByteString) -&gt; ToByteString PoolStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PoolStatus -&gt; ByteString
+$ctoBS :: PoolStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679368770"><span class="annot"><span class="annottext">PoolStatus -&gt; ByteStringBuilder
+(PoolStatus -&gt; ByteStringBuilder) -&gt; ToLog PoolStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PoolStatus -&gt; ByteStringBuilder
+$cbuild :: PoolStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679368767"><span class="annot"><span class="annottext">HeaderName -&gt; PoolStatus -&gt; [Header]
+(HeaderName -&gt; PoolStatus -&gt; [Header]) -&gt; ToHeader PoolStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PoolStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PoolStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679368764"><span class="annot"><span class="annottext">PoolStatus -&gt; QueryString
+(PoolStatus -&gt; QueryString) -&gt; ToQuery PoolStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PoolStatus -&gt; QueryString
+$ctoQuery :: PoolStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679368759"><span id="local-6989586621679368761"><span class="annot"><span class="annottext">Value -&gt; Parser [PoolStatus]
+Value -&gt; Parser PoolStatus
+(Value -&gt; Parser PoolStatus)
+-&gt; (Value -&gt; Parser [PoolStatus]) -&gt; FromJSON PoolStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PoolStatus]
+$cparseJSONList :: Value -&gt; Parser [PoolStatus]
+parseJSON :: Value -&gt; Parser PoolStatus
+$cparseJSON :: Value -&gt; Parser PoolStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679368754"><span id="local-6989586621679368756"><span class="annot"><span class="annottext">FromJSONKeyFunction [PoolStatus]
+FromJSONKeyFunction PoolStatus
+FromJSONKeyFunction PoolStatus
+-&gt; FromJSONKeyFunction [PoolStatus] -&gt; FromJSONKey PoolStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PoolStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [PoolStatus]
+fromJSONKey :: FromJSONKeyFunction PoolStatus
+$cfromJSONKey :: FromJSONKeyFunction PoolStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679368745"><span id="local-6989586621679368747"><span id="local-6989586621679368749"><span id="local-6989586621679368751"><span class="annot"><span class="annottext">[PoolStatus] -&gt; Encoding
+[PoolStatus] -&gt; Value
+PoolStatus -&gt; Encoding
+PoolStatus -&gt; Value
+(PoolStatus -&gt; Value)
+-&gt; (PoolStatus -&gt; Encoding)
+-&gt; ([PoolStatus] -&gt; Value)
+-&gt; ([PoolStatus] -&gt; Encoding)
+-&gt; ToJSON PoolStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PoolStatus] -&gt; Encoding
+$ctoEncodingList :: [PoolStatus] -&gt; Encoding
+toJSONList :: [PoolStatus] -&gt; Value
+$ctoJSONList :: [PoolStatus] -&gt; Value
+toEncoding :: PoolStatus -&gt; Encoding
+$ctoEncoding :: PoolStatus -&gt; Encoding
+toJSON :: PoolStatus -&gt; Value
+$ctoJSON :: PoolStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679368740"><span id="local-6989586621679368742"><span class="annot"><span class="annottext">ToJSONKeyFunction [PoolStatus]
+ToJSONKeyFunction PoolStatus
+ToJSONKeyFunction PoolStatus
+-&gt; ToJSONKeyFunction [PoolStatus] -&gt; ToJSONKey PoolStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PoolStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [PoolStatus]
+toJSONKey :: ToJSONKeyFunction PoolStatus
+$ctoJSONKey :: ToJSONKeyFunction PoolStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679368737"><span class="annot"><span class="annottext">[Node] -&gt; Either String PoolStatus
+([Node] -&gt; Either String PoolStatus) -&gt; FromXML PoolStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PoolStatus
+$cparseXML :: [Node] -&gt; Either String PoolStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679368734"><span class="annot"><span class="annottext">PoolStatus -&gt; XML
+(PoolStatus -&gt; XML) -&gt; ToXML PoolStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PoolStatus -&gt; XML
+$ctoXML :: PoolStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#PoolStatus_ACTIVE"><span class="hs-identifier hs-type">PoolStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#PoolStatus"><span class="hs-identifier hs-type">PoolStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPoolStatus_ACTIVE"><span id="%24mPoolStatus_ACTIVE"><span id="PoolStatus_ACTIVE"><span class="annot"><span class="annottext">$bPoolStatus_ACTIVE :: PoolStatus
+$mPoolStatus_ACTIVE :: forall r. PoolStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#%24bPoolStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">PoolStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#PoolStatus%27"><span class="hs-identifier hs-type">PoolStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#PoolStatus_DELETED"><span class="hs-identifier hs-type">PoolStatus_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#PoolStatus"><span class="hs-identifier hs-type">PoolStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPoolStatus_DELETED"><span id="%24mPoolStatus_DELETED"><span id="PoolStatus_DELETED"><span class="annot"><span class="annottext">$bPoolStatus_DELETED :: PoolStatus
+$mPoolStatus_DELETED :: forall r. PoolStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#%24bPoolStatus_DELETED"><span class="hs-identifier hs-var hs-var hs-var">PoolStatus_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#PoolStatus%27"><span class="hs-identifier hs-type">PoolStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#PoolStatus_ACTIVE"><span class="hs-pragma hs-type">PoolStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#PoolStatus_DELETED"><span class="hs-pragma hs-type">PoolStatus_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.PoolStatus.html#PoolStatus%27"><span class="hs-pragma hs-type">PoolStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

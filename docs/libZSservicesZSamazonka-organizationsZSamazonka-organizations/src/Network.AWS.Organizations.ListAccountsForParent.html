@@ -1,0 +1,761 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Organizations.ListAccountsForParent</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the accounts in an organization that are contained by the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specified target root or organizational unit (OU). If you specify the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- root, you get a list of all the accounts that aren\'t in any OU. If you</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- specify an OU, you get a list of all the accounts in only that OU and</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- not in any child OUs. To get a list of all accounts in the organization,</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- use the ListAccounts operation.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Always check the @NextToken@ response parameter for a @null@ value when</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- calling a @List*@ operation. These operations can occasionally return an</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- empty set of results even when there are more results available. The</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- @NextToken@ response parameter value is @null@ /only/ when there are no</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- more results to display.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- This operation can be called only from the organization\'s management</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- account or by a member account that is a delegated administrator for an</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- AWS service.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Organizations.ListAccountsForParent</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier">ListAccountsForParent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#newListAccountsForParent"><span class="hs-identifier">newListAccountsForParent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParent_nextToken"><span class="hs-identifier">listAccountsForParent_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParent_maxResults"><span class="hs-identifier">listAccountsForParent_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParent_parentId"><span class="hs-identifier">listAccountsForParent_parentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse"><span class="hs-identifier">ListAccountsForParentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#newListAccountsForParentResponse"><span class="hs-identifier">newListAccountsForParentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParentResponse_nextToken"><span class="hs-identifier">listAccountsForParentResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParentResponse_accounts"><span class="hs-identifier">listAccountsForParentResponse_accounts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParentResponse_httpStatus"><span class="hs-identifier">listAccountsForParentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.html"><span class="hs-identifier">Network.AWS.Organizations.Types</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newListAccountsForParent' smart constructor.</span><span>
+</span><span id="line-70"></span><span id="local-6989586621679245079"><span id="local-6989586621679245080"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccountsForParent"><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-var">ListAccountsForParent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccountsForParent%27"><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent%27"><span class="hs-identifier hs-var">ListAccountsForParent'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The parameter for receiving additional results if you receive a</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- @NextToken@ response in a previous request. A @NextToken@ response</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- indicates that more output is available. Set this parameter to the value</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- of the previous call\'s @NextToken@ response to indicate where the</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- output should continue from.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AnextToken%3AListAccountsForParent%27"><span class="annot"><span class="annottext">ListAccountsForParent -&gt; Maybe Text
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3AnextToken%3AListAccountsForParent%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The total number of results that you want included on each page of the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- response. If you do not include this parameter, it defaults to a value</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- that is specific to the operation. If additional items exist beyond the</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- maximum you specify, the @NextToken@ response element is present and has</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- a value (is not null). Include that value as the @NextToken@ request</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- parameter in the next call to the operation to get the next part of the</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- results. Note that Organizations might return fewer results than the</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- maximum even when there are more results available. You should check</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- @NextToken@ after every operation to ensure that you receive all of the</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AmaxResults%3AListAccountsForParent%27"><span class="annot"><span class="annottext">ListAccountsForParent -&gt; Maybe Natural
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3AmaxResults%3AListAccountsForParent%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The unique identifier (ID) for the parent root or organization unit (OU)</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- whose accounts you want to list.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AparentId%3AListAccountsForParent%27"><span class="annot"><span class="annottext">ListAccountsForParent -&gt; Text
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3AparentId%3AListAccountsForParent%27"><span class="hs-identifier hs-var hs-var">parentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245071"><span id="local-6989586621679245073"><span class="annot"><span class="annottext">ListAccountsForParent -&gt; ListAccountsForParent -&gt; Bool
+(ListAccountsForParent -&gt; ListAccountsForParent -&gt; Bool)
+-&gt; (ListAccountsForParent -&gt; ListAccountsForParent -&gt; Bool)
+-&gt; Eq ListAccountsForParent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAccountsForParent -&gt; ListAccountsForParent -&gt; Bool
+$c/= :: ListAccountsForParent -&gt; ListAccountsForParent -&gt; Bool
+== :: ListAccountsForParent -&gt; ListAccountsForParent -&gt; Bool
+$c== :: ListAccountsForParent -&gt; ListAccountsForParent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245062"><span id="local-6989586621679245064"><span id="local-6989586621679245066"><span id="local-6989586621679245068"><span class="annot"><span class="annottext">ReadPrec [ListAccountsForParent]
+ReadPrec ListAccountsForParent
+Int -&gt; ReadS ListAccountsForParent
+ReadS [ListAccountsForParent]
+(Int -&gt; ReadS ListAccountsForParent)
+-&gt; ReadS [ListAccountsForParent]
+-&gt; ReadPrec ListAccountsForParent
+-&gt; ReadPrec [ListAccountsForParent]
+-&gt; Read ListAccountsForParent
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAccountsForParent]
+$creadListPrec :: ReadPrec [ListAccountsForParent]
+readPrec :: ReadPrec ListAccountsForParent
+$creadPrec :: ReadPrec ListAccountsForParent
+readList :: ReadS [ListAccountsForParent]
+$creadList :: ReadS [ListAccountsForParent]
+readsPrec :: Int -&gt; ReadS ListAccountsForParent
+$creadsPrec :: Int -&gt; ReadS ListAccountsForParent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245055"><span id="local-6989586621679245057"><span id="local-6989586621679245059"><span class="annot"><span class="annottext">Int -&gt; ListAccountsForParent -&gt; ShowS
+[ListAccountsForParent] -&gt; ShowS
+ListAccountsForParent -&gt; String
+(Int -&gt; ListAccountsForParent -&gt; ShowS)
+-&gt; (ListAccountsForParent -&gt; String)
+-&gt; ([ListAccountsForParent] -&gt; ShowS)
+-&gt; Show ListAccountsForParent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAccountsForParent] -&gt; ShowS
+$cshowList :: [ListAccountsForParent] -&gt; ShowS
+show :: ListAccountsForParent -&gt; String
+$cshow :: ListAccountsForParent -&gt; String
+showsPrec :: Int -&gt; ListAccountsForParent -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAccountsForParent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListAccountsForParent -&gt; Rep ListAccountsForParent x)
+-&gt; (forall x. Rep ListAccountsForParent x -&gt; ListAccountsForParent)
+-&gt; Generic ListAccountsForParent
+forall x. Rep ListAccountsForParent x -&gt; ListAccountsForParent
+forall x. ListAccountsForParent -&gt; Rep ListAccountsForParent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAccountsForParent x -&gt; ListAccountsForParent
+$cfrom :: forall x. ListAccountsForParent -&gt; Rep ListAccountsForParent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Create a value of 'ListAccountsForParent' with all optional fields omitted.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'nextToken', 'listAccountsForParent_nextToken' - The parameter for receiving additional results if you receive a</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- @NextToken@ response in a previous request. A @NextToken@ response</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- indicates that more output is available. Set this parameter to the value</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- of the previous call\'s @NextToken@ response to indicate where the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- output should continue from.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'maxResults', 'listAccountsForParent_maxResults' - The total number of results that you want included on each page of the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- response. If you do not include this parameter, it defaults to a value</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- that is specific to the operation. If additional items exist beyond the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- maximum you specify, the @NextToken@ response element is present and has</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- a value (is not null). Include that value as the @NextToken@ request</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- parameter in the next call to the operation to get the next part of the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- results. Note that Organizations might return fewer results than the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- maximum even when there are more results available. You should check</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- @NextToken@ after every operation to ensure that you receive all of the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'parentId', 'listAccountsForParent_parentId' - The unique identifier (ID) for the parent root or organization unit (OU)</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- whose accounts you want to list.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#newListAccountsForParent"><span class="hs-identifier hs-type">newListAccountsForParent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'parentId'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-type">ListAccountsForParent</span></a></span><span>
+</span><span id="line-125"></span><span id="newListAccountsForParent"><span class="annot"><span class="annottext">newListAccountsForParent :: Text -&gt; ListAccountsForParent
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#newListAccountsForParent"><span class="hs-identifier hs-var hs-var">newListAccountsForParent</span></a></span></span><span> </span><span id="local-6989586621679245050"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245050"><span class="hs-identifier hs-var">pParentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="annottext">ListAccountsForParent' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListAccountsForParent
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent%27"><span class="hs-identifier hs-type">ListAccountsForParent'</span></a></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAccountsForParent' :: Maybe Text
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3AnextToken%3AListAccountsForParent%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListAccountsForParent' :: Maybe Natural
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3AmaxResults%3AListAccountsForParent%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:parentId:ListAccountsForParent' :: Text
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3AparentId%3AListAccountsForParent%27"><span class="hs-identifier hs-var">parentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245050"><span class="hs-identifier hs-var">pParentId_</span></a></span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The parameter for receiving additional results if you receive a</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- @NextToken@ response in a previous request. A @NextToken@ response</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- indicates that more output is available. Set this parameter to the value</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- of the previous call\'s @NextToken@ response to indicate where the</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- output should continue from.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParent_nextToken"><span class="hs-identifier hs-type">listAccountsForParent_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-type">ListAccountsForParent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="listAccountsForParent_nextToken"><span class="annot"><span class="annottext">listAccountsForParent_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAccountsForParent -&gt; f ListAccountsForParent
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParent_nextToken"><span class="hs-identifier hs-var hs-var">listAccountsForParent_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountsForParent -&gt; Maybe Text)
+-&gt; (ListAccountsForParent -&gt; Maybe Text -&gt; ListAccountsForParent)
+-&gt; Lens
+     ListAccountsForParent
+     ListAccountsForParent
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent%27"><span class="hs-identifier hs-type">ListAccountsForParent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245048"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAccountsForParent' :: ListAccountsForParent -&gt; Maybe Text
+</span><a href="#local-6989586621679245048"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245048"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245047"><span class="annot"><span class="annottext">s :: ListAccountsForParent
+</span><a href="#local-6989586621679245047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent%27"><span class="hs-identifier hs-type">ListAccountsForParent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245046"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountsForParent
+</span><a href="#local-6989586621679245047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAccountsForParent' :: Maybe Text
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3AnextToken%3AListAccountsForParent%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-type">ListAccountsForParent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The total number of results that you want included on each page of the</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- response. If you do not include this parameter, it defaults to a value</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- that is specific to the operation. If additional items exist beyond the</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- maximum you specify, the @NextToken@ response element is present and has</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- a value (is not null). Include that value as the @NextToken@ request</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- parameter in the next call to the operation to get the next part of the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- results. Note that Organizations might return fewer results than the</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- maximum even when there are more results available. You should check</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- @NextToken@ after every operation to ensure that you receive all of the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParent_maxResults"><span class="hs-identifier hs-type">listAccountsForParent_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-type">ListAccountsForParent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="listAccountsForParent_maxResults"><span class="annot"><span class="annottext">listAccountsForParent_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListAccountsForParent -&gt; f ListAccountsForParent
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParent_maxResults"><span class="hs-identifier hs-var hs-var">listAccountsForParent_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountsForParent -&gt; Maybe Natural)
+-&gt; (ListAccountsForParent
+    -&gt; Maybe Natural -&gt; ListAccountsForParent)
+-&gt; Lens
+     ListAccountsForParent
+     ListAccountsForParent
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent%27"><span class="hs-identifier hs-type">ListAccountsForParent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245045"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListAccountsForParent' :: ListAccountsForParent -&gt; Maybe Natural
+</span><a href="#local-6989586621679245045"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679245045"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245044"><span class="annot"><span class="annottext">s :: ListAccountsForParent
+</span><a href="#local-6989586621679245044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent%27"><span class="hs-identifier hs-type">ListAccountsForParent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245043"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679245043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountsForParent
+</span><a href="#local-6989586621679245044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAccountsForParent' :: Maybe Natural
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3AmaxResults%3AListAccountsForParent%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679245043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-type">ListAccountsForParent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The unique identifier (ID) for the parent root or organization unit (OU)</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- whose accounts you want to list.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParent_parentId"><span class="hs-identifier hs-type">listAccountsForParent_parentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-type">ListAccountsForParent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-156"></span><span id="listAccountsForParent_parentId"><span class="annot"><span class="annottext">listAccountsForParent_parentId :: (Text -&gt; f Text)
+-&gt; ListAccountsForParent -&gt; f ListAccountsForParent
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParent_parentId"><span class="hs-identifier hs-var hs-var">listAccountsForParent_parentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountsForParent -&gt; Text)
+-&gt; (ListAccountsForParent -&gt; Text -&gt; ListAccountsForParent)
+-&gt; Lens ListAccountsForParent ListAccountsForParent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent%27"><span class="hs-identifier hs-type">ListAccountsForParent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245042"><span class="annot"><span class="annottext">Text
+parentId :: Text
+$sel:parentId:ListAccountsForParent' :: ListAccountsForParent -&gt; Text
+</span><a href="#local-6989586621679245042"><span class="hs-identifier hs-var hs-var">parentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245042"><span class="hs-identifier hs-var">parentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245041"><span class="annot"><span class="annottext">s :: ListAccountsForParent
+</span><a href="#local-6989586621679245041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent%27"><span class="hs-identifier hs-type">ListAccountsForParent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245040"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountsForParent
+</span><a href="#local-6989586621679245041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentId:ListAccountsForParent' :: Text
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3AparentId%3AListAccountsForParent%27"><span class="hs-identifier hs-var">parentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-type">ListAccountsForParent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-type">ListAccountsForParent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679245036"><span class="annot"><span class="annottext">page :: ListAccountsForParent
+-&gt; AWSResponse ListAccountsForParent -&gt; Maybe ListAccountsForParent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679245034"><span class="annot"><span class="annottext">ListAccountsForParent
+</span><a href="#local-6989586621679245034"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679245033"><span class="annot"><span class="annottext">AWSResponse ListAccountsForParent
+</span><a href="#local-6989586621679245033"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-161"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccountsForParent
+ListAccountsForParentResponse
+</span><a href="#local-6989586621679245033"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">ListAccountsForParentResponse
+-&gt; Getting (First Text) ListAccountsForParentResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAccountsForParentResponse
+-&gt; Const (First Text) ListAccountsForParentResponse
+Lens' ListAccountsForParentResponse (Maybe Text)
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParentResponse_nextToken"><span class="hs-identifier hs-var">listAccountsForParentResponse_nextToken</span></a></span><span>
+</span><span id="line-163"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAccountsForParentResponse
+ -&gt; Const (First Text) ListAccountsForParentResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAccountsForParentResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-164"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAccountsForParent
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Account] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-167"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccountsForParent
+ListAccountsForParentResponse
+</span><a href="#local-6989586621679245033"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">ListAccountsForParentResponse
+-&gt; Getting
+     (First [Account]) ListAccountsForParentResponse [Account]
+-&gt; Maybe [Account]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Account] -&gt; Const (First [Account]) (Maybe [Account]))
+-&gt; ListAccountsForParentResponse
+-&gt; Const (First [Account]) ListAccountsForParentResponse
+Lens' ListAccountsForParentResponse (Maybe [Account])
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParentResponse_accounts"><span class="hs-identifier hs-var">listAccountsForParentResponse_accounts</span></a></span><span>
+</span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Account] -&gt; Const (First [Account]) (Maybe [Account]))
+ -&gt; ListAccountsForParentResponse
+ -&gt; Const (First [Account]) ListAccountsForParentResponse)
+-&gt; (([Account] -&gt; Const (First [Account]) [Account])
+    -&gt; Maybe [Account] -&gt; Const (First [Account]) (Maybe [Account]))
+-&gt; Getting
+     (First [Account]) ListAccountsForParentResponse [Account]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Account] -&gt; Const (First [Account]) [Account])
+-&gt; Maybe [Account] -&gt; Const (First [Account]) (Maybe [Account])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-170"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAccountsForParent
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">ListAccountsForParent -&gt; Maybe ListAccountsForParent
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListAccountsForParent -&gt; Maybe ListAccountsForParent)
+-&gt; ListAccountsForParent -&gt; Maybe ListAccountsForParent
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ListAccountsForParent
+</span><a href="#local-6989586621679245034"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">ListAccountsForParent
+-&gt; (ListAccountsForParent -&gt; ListAccountsForParent)
+-&gt; ListAccountsForParent
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListAccountsForParent -&gt; Identity ListAccountsForParent
+Lens
+  ListAccountsForParent
+  ListAccountsForParent
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParent_nextToken"><span class="hs-identifier hs-var">listAccountsForParent_nextToken</span></a></span><span>
+</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListAccountsForParent -&gt; Identity ListAccountsForParent)
+-&gt; Maybe Text -&gt; ListAccountsForParent -&gt; ListAccountsForParent
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccountsForParent
+ListAccountsForParentResponse
+</span><a href="#local-6989586621679245033"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">ListAccountsForParentResponse
+-&gt; Getting (First Text) ListAccountsForParentResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAccountsForParentResponse
+-&gt; Const (First Text) ListAccountsForParentResponse
+Lens' ListAccountsForParentResponse (Maybe Text)
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParentResponse_nextToken"><span class="hs-identifier hs-var">listAccountsForParentResponse_nextToken</span></a></span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAccountsForParentResponse
+ -&gt; Const (First Text) ListAccountsForParentResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAccountsForParentResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-type">ListAccountsForParent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-182"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-type">ListAccountsForParent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse"><span class="hs-identifier hs-type">ListAccountsForParentResponse</span></a></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679245023"><span class="annot"><span class="annottext">request :: ListAccountsForParent -&gt; Request ListAccountsForParent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAccountsForParent -&gt; Request ListAccountsForParent
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Organizations.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679245019"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListAccountsForParent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListAccountsForParent)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListAccountsForParent))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListAccountsForParent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListAccountsForParent)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245016"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245016"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679245015"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679245015"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679245014"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245014"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [Account] -&gt; Int -&gt; ListAccountsForParentResponse
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse%27"><span class="hs-identifier hs-var">ListAccountsForParentResponse'</span></a></span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Account] -&gt; Int -&gt; ListAccountsForParentResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [Account] -&gt; Int -&gt; ListAccountsForParentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [Account] -&gt; Int -&gt; ListAccountsForParentResponse)
+-&gt; Either String (Maybe [Account])
+-&gt; Either String (Int -&gt; ListAccountsForParentResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Account]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Accounts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Account]))
+-&gt; Maybe [Account] -&gt; Either String (Maybe [Account])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Account]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListAccountsForParentResponse)
+-&gt; Either String Int -&gt; Either String ListAccountsForParentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245016"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245005"><span id="local-6989586621679245007"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-type">ListAccountsForParent</span></a></span></span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245002"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-type">ListAccountsForParent</span></a></span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-type">ListAccountsForParent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679244998"><span class="annot"><span class="annottext">toHeaders :: ListAccountsForParent -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAccountsForParent -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-202"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSOrganizationsV20161128.ListAccountsForParent&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-204"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-205"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-207"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-208"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-209"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244988"><span id="local-6989586621679244990"><span id="local-6989586621679244992"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-type">ListAccountsForParent</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679244986"><span class="annot"><span class="annottext">toJSON :: ListAccountsForParent -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent%27"><span class="hs-identifier hs-type">ListAccountsForParent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244982"><span id="local-6989586621679244983"><span id="local-6989586621679244984"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+parentId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:parentId:ListAccountsForParent' :: ListAccountsForParent -&gt; Text
+$sel:maxResults:ListAccountsForParent' :: ListAccountsForParent -&gt; Maybe Natural
+$sel:nextToken:ListAccountsForParent' :: ListAccountsForParent -&gt; Maybe Text
+</span><a href="#local-6989586621679244982"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-217"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244984"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679244983"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244982"><span class="hs-identifier hs-var">parentId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-type">ListAccountsForParent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679244976"><span class="annot"><span class="annottext">toPath :: ListAccountsForParent -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAccountsForParent -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParent"><span class="hs-identifier hs-type">ListAccountsForParent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679244972"><span class="annot"><span class="annottext">toQuery :: ListAccountsForParent -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListAccountsForParent -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | /See:/ 'newListAccountsForParentResponse' smart constructor.</span><span>
+</span><span id="line-230"></span><span id="local-6989586621679244969"><span id="local-6989586621679244970"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccountsForParentResponse"><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse"><span class="hs-identifier hs-var">ListAccountsForParentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccountsForParentResponse%27"><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse%27"><span class="hs-identifier hs-var">ListAccountsForParentResponse'</span></a></span></span><span>
+</span><span id="line-231"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If present, indicates that more output is available than is included in</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- element comes back as @null@.</span><span>
+</span><span id="line-236"></span><span>    </span><span id="%24sel%3AnextToken%3AListAccountsForParentResponse%27"><span class="annot"><span class="annottext">ListAccountsForParentResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3AnextToken%3AListAccountsForParentResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- | A list of the accounts in the specified root or OU.</span><span>
+</span><span id="line-238"></span><span>    </span><span id="%24sel%3Aaccounts%3AListAccountsForParentResponse%27"><span class="annot"><span class="annottext">ListAccountsForParentResponse -&gt; Maybe [Account]
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3Aaccounts%3AListAccountsForParentResponse%27"><span class="hs-identifier hs-var hs-var">accounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Organizations.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-240"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAccountsForParentResponse%27"><span class="annot"><span class="annottext">ListAccountsForParentResponse -&gt; Int
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3AhttpStatus%3AListAccountsForParentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-241"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244962"><span id="local-6989586621679244964"><span class="annot"><span class="annottext">ListAccountsForParentResponse
+-&gt; ListAccountsForParentResponse -&gt; Bool
+(ListAccountsForParentResponse
+ -&gt; ListAccountsForParentResponse -&gt; Bool)
+-&gt; (ListAccountsForParentResponse
+    -&gt; ListAccountsForParentResponse -&gt; Bool)
+-&gt; Eq ListAccountsForParentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAccountsForParentResponse
+-&gt; ListAccountsForParentResponse -&gt; Bool
+$c/= :: ListAccountsForParentResponse
+-&gt; ListAccountsForParentResponse -&gt; Bool
+== :: ListAccountsForParentResponse
+-&gt; ListAccountsForParentResponse -&gt; Bool
+$c== :: ListAccountsForParentResponse
+-&gt; ListAccountsForParentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244956"><span id="local-6989586621679244958"><span id="local-6989586621679244960"><span class="annot"><span class="annottext">Int -&gt; ListAccountsForParentResponse -&gt; ShowS
+[ListAccountsForParentResponse] -&gt; ShowS
+ListAccountsForParentResponse -&gt; String
+(Int -&gt; ListAccountsForParentResponse -&gt; ShowS)
+-&gt; (ListAccountsForParentResponse -&gt; String)
+-&gt; ([ListAccountsForParentResponse] -&gt; ShowS)
+-&gt; Show ListAccountsForParentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAccountsForParentResponse] -&gt; ShowS
+$cshowList :: [ListAccountsForParentResponse] -&gt; ShowS
+show :: ListAccountsForParentResponse -&gt; String
+$cshow :: ListAccountsForParentResponse -&gt; String
+showsPrec :: Int -&gt; ListAccountsForParentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAccountsForParentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListAccountsForParentResponse
+ -&gt; Rep ListAccountsForParentResponse x)
+-&gt; (forall x.
+    Rep ListAccountsForParentResponse x
+    -&gt; ListAccountsForParentResponse)
+-&gt; Generic ListAccountsForParentResponse
+forall x.
+Rep ListAccountsForParentResponse x
+-&gt; ListAccountsForParentResponse
+forall x.
+ListAccountsForParentResponse
+-&gt; Rep ListAccountsForParentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListAccountsForParentResponse x
+-&gt; ListAccountsForParentResponse
+$cfrom :: forall x.
+ListAccountsForParentResponse
+-&gt; Rep ListAccountsForParentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- Create a value of 'ListAccountsForParentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- 'nextToken', 'listAccountsForParentResponse_nextToken' - If present, indicates that more output is available than is included in</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- element comes back as @null@.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- 'accounts', 'listAccountsForParentResponse_accounts' - A list of the accounts in the specified root or OU.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- 'httpStatus', 'listAccountsForParentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#newListAccountsForParentResponse"><span class="hs-identifier hs-type">newListAccountsForParentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-262"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-263"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-264"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse"><span class="hs-identifier hs-type">ListAccountsForParentResponse</span></a></span><span>
+</span><span id="line-265"></span><span id="newListAccountsForParentResponse"><span class="annot"><span class="annottext">newListAccountsForParentResponse :: Int -&gt; ListAccountsForParentResponse
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#newListAccountsForParentResponse"><span class="hs-identifier hs-var hs-var">newListAccountsForParentResponse</span></a></span></span><span> </span><span id="local-6989586621679244953"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244953"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-266"></span><span>  </span><span class="annot"><span class="annottext">ListAccountsForParentResponse' :: Maybe Text
+-&gt; Maybe [Account] -&gt; Int -&gt; ListAccountsForParentResponse
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse%27"><span class="hs-identifier hs-type">ListAccountsForParentResponse'</span></a></span><span>
+</span><span id="line-267"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAccountsForParentResponse' :: Maybe Text
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3AnextToken%3AListAccountsForParentResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">$sel:accounts:ListAccountsForParentResponse' :: Maybe [Account]
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3Aaccounts%3AListAccountsForParentResponse%27"><span class="hs-identifier hs-var">accounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Account]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAccountsForParentResponse' :: Int
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3AhttpStatus%3AListAccountsForParentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244953"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | If present, indicates that more output is available than is included in</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- element comes back as @null@.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParentResponse_nextToken"><span class="hs-identifier hs-type">listAccountsForParentResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse"><span class="hs-identifier hs-type">ListAccountsForParentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span id="listAccountsForParentResponse_nextToken"><span class="annot"><span class="annottext">listAccountsForParentResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAccountsForParentResponse -&gt; f ListAccountsForParentResponse
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParentResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAccountsForParentResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountsForParentResponse -&gt; Maybe Text)
+-&gt; (ListAccountsForParentResponse
+    -&gt; Maybe Text -&gt; ListAccountsForParentResponse)
+-&gt; Lens' ListAccountsForParentResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse%27"><span class="hs-identifier hs-type">ListAccountsForParentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244952"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAccountsForParentResponse' :: ListAccountsForParentResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679244952"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244952"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244951"><span class="annot"><span class="annottext">s :: ListAccountsForParentResponse
+</span><a href="#local-6989586621679244951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse%27"><span class="hs-identifier hs-type">ListAccountsForParentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244950"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountsForParentResponse
+</span><a href="#local-6989586621679244951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAccountsForParentResponse' :: Maybe Text
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3AnextToken%3AListAccountsForParentResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse"><span class="hs-identifier hs-type">ListAccountsForParentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | A list of the accounts in the specified root or OU.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParentResponse_accounts"><span class="hs-identifier hs-type">listAccountsForParentResponse_accounts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse"><span class="hs-identifier hs-type">ListAccountsForParentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Organizations.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="listAccountsForParentResponse_accounts"><span class="annot"><span class="annottext">listAccountsForParentResponse_accounts :: (Maybe [Account] -&gt; f (Maybe [Account]))
+-&gt; ListAccountsForParentResponse -&gt; f ListAccountsForParentResponse
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParentResponse_accounts"><span class="hs-identifier hs-var hs-var">listAccountsForParentResponse_accounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountsForParentResponse -&gt; Maybe [Account])
+-&gt; (ListAccountsForParentResponse
+    -&gt; Maybe [Account] -&gt; ListAccountsForParentResponse)
+-&gt; Lens' ListAccountsForParentResponse (Maybe [Account])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse%27"><span class="hs-identifier hs-type">ListAccountsForParentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244949"><span class="annot"><span class="annottext">Maybe [Account]
+accounts :: Maybe [Account]
+$sel:accounts:ListAccountsForParentResponse' :: ListAccountsForParentResponse -&gt; Maybe [Account]
+</span><a href="#local-6989586621679244949"><span class="hs-identifier hs-var hs-var">accounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Account]
+</span><a href="#local-6989586621679244949"><span class="hs-identifier hs-var">accounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244948"><span class="annot"><span class="annottext">s :: ListAccountsForParentResponse
+</span><a href="#local-6989586621679244948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse%27"><span class="hs-identifier hs-type">ListAccountsForParentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244947"><span class="annot"><span class="annottext">Maybe [Account]
+</span><a href="#local-6989586621679244947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountsForParentResponse
+</span><a href="#local-6989586621679244948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accounts:ListAccountsForParentResponse' :: Maybe [Account]
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3Aaccounts%3AListAccountsForParentResponse%27"><span class="hs-identifier hs-var">accounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Account]
+</span><a href="#local-6989586621679244947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse"><span class="hs-identifier hs-type">ListAccountsForParentResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Account] -&gt; f (Maybe [Account]))
+ -&gt; ListAccountsForParentResponse
+ -&gt; f ListAccountsForParentResponse)
+-&gt; ((Maybe [Account] -&gt; f (Maybe [Account]))
+    -&gt; Maybe [Account] -&gt; f (Maybe [Account]))
+-&gt; (Maybe [Account] -&gt; f (Maybe [Account]))
+-&gt; ListAccountsForParentResponse
+-&gt; f ListAccountsForParentResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Account] [Account] [Account] [Account]
+-&gt; Iso
+     (Maybe [Account])
+     (Maybe [Account])
+     (Maybe [Account])
+     (Maybe [Account])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Account] [Account] [Account] [Account]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParentResponse_httpStatus"><span class="hs-identifier hs-type">listAccountsForParentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse"><span class="hs-identifier hs-type">ListAccountsForParentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-287"></span><span id="listAccountsForParentResponse_httpStatus"><span class="annot"><span class="annottext">listAccountsForParentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListAccountsForParentResponse -&gt; f ListAccountsForParentResponse
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#listAccountsForParentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listAccountsForParentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountsForParentResponse -&gt; Int)
+-&gt; (ListAccountsForParentResponse
+    -&gt; Int -&gt; ListAccountsForParentResponse)
+-&gt; Lens
+     ListAccountsForParentResponse ListAccountsForParentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse%27"><span class="hs-identifier hs-type">ListAccountsForParentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244944"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListAccountsForParentResponse' :: ListAccountsForParentResponse -&gt; Int
+</span><a href="#local-6989586621679244944"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244944"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244943"><span class="annot"><span class="annottext">s :: ListAccountsForParentResponse
+</span><a href="#local-6989586621679244943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse%27"><span class="hs-identifier hs-type">ListAccountsForParentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244942"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountsForParentResponse
+</span><a href="#local-6989586621679244943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAccountsForParentResponse' :: Int
+</span><a href="Network.AWS.Organizations.ListAccountsForParent.html#%24sel%3AhttpStatus%3AListAccountsForParentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse"><span class="hs-identifier hs-type">ListAccountsForParentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccountsForParent.html#ListAccountsForParentResponse"><span class="hs-identifier hs-type">ListAccountsForParentResponse</span></a></span></span><span>
+</span><span id="line-290"></span></pre></body></html>

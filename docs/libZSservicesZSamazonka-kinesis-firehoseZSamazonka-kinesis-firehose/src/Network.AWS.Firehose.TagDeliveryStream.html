@@ -1,0 +1,455 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Firehose.TagDeliveryStream</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds or updates tags for the specified delivery stream. A tag is a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- key-value pair that you can define and assign to AWS resources. If you</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- specify a tag that already exists, the tag value is replaced with the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- value that you specify in the request. Tags are metadata. For example,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- you can add friendly names and descriptions or other types of</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- information that can help you distinguish the delivery stream. For more</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- information about tags, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the /AWS Billing and Cost Management User Guide/.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Each delivery stream can have up to 50 tags.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- This operation has a limit of five transactions per second per account.</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Firehose.TagDeliveryStream</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream"><span class="hs-identifier">TagDeliveryStream</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#newTagDeliveryStream"><span class="hs-identifier">newTagDeliveryStream</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#tagDeliveryStream_deliveryStreamName"><span class="hs-identifier">tagDeliveryStream_deliveryStreamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#tagDeliveryStream_tags"><span class="hs-identifier">tagDeliveryStream_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStreamResponse"><span class="hs-identifier">TagDeliveryStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#newTagDeliveryStreamResponse"><span class="hs-identifier">newTagDeliveryStreamResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#tagDeliveryStreamResponse_httpStatus"><span class="hs-identifier">tagDeliveryStreamResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.html"><span class="hs-identifier">Network.AWS.Firehose.Types</span></a></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newTagDeliveryStream' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679267504"><span id="local-6989586621679267505"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagDeliveryStream"><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream"><span class="hs-identifier hs-var">TagDeliveryStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagDeliveryStream%27"><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream%27"><span class="hs-identifier hs-var">TagDeliveryStream'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the delivery stream to which you want to add the tags.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdeliveryStreamName%3ATagDeliveryStream%27"><span class="annot"><span class="annottext">TagDeliveryStream -&gt; Text
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#%24sel%3AdeliveryStreamName%3ATagDeliveryStream%27"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | A set of key-value pairs to use to create the tags.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Atags%3ATagDeliveryStream%27"><span class="annot"><span class="annottext">TagDeliveryStream -&gt; NonEmpty Tag
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#%24sel%3Atags%3ATagDeliveryStream%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267497"><span id="local-6989586621679267499"><span class="annot"><span class="annottext">TagDeliveryStream -&gt; TagDeliveryStream -&gt; Bool
+(TagDeliveryStream -&gt; TagDeliveryStream -&gt; Bool)
+-&gt; (TagDeliveryStream -&gt; TagDeliveryStream -&gt; Bool)
+-&gt; Eq TagDeliveryStream
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TagDeliveryStream -&gt; TagDeliveryStream -&gt; Bool
+$c/= :: TagDeliveryStream -&gt; TagDeliveryStream -&gt; Bool
+== :: TagDeliveryStream -&gt; TagDeliveryStream -&gt; Bool
+$c== :: TagDeliveryStream -&gt; TagDeliveryStream -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267488"><span id="local-6989586621679267490"><span id="local-6989586621679267492"><span id="local-6989586621679267494"><span class="annot"><span class="annottext">ReadPrec [TagDeliveryStream]
+ReadPrec TagDeliveryStream
+Int -&gt; ReadS TagDeliveryStream
+ReadS [TagDeliveryStream]
+(Int -&gt; ReadS TagDeliveryStream)
+-&gt; ReadS [TagDeliveryStream]
+-&gt; ReadPrec TagDeliveryStream
+-&gt; ReadPrec [TagDeliveryStream]
+-&gt; Read TagDeliveryStream
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TagDeliveryStream]
+$creadListPrec :: ReadPrec [TagDeliveryStream]
+readPrec :: ReadPrec TagDeliveryStream
+$creadPrec :: ReadPrec TagDeliveryStream
+readList :: ReadS [TagDeliveryStream]
+$creadList :: ReadS [TagDeliveryStream]
+readsPrec :: Int -&gt; ReadS TagDeliveryStream
+$creadsPrec :: Int -&gt; ReadS TagDeliveryStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267481"><span id="local-6989586621679267483"><span id="local-6989586621679267485"><span class="annot"><span class="annottext">Int -&gt; TagDeliveryStream -&gt; ShowS
+[TagDeliveryStream] -&gt; ShowS
+TagDeliveryStream -&gt; String
+(Int -&gt; TagDeliveryStream -&gt; ShowS)
+-&gt; (TagDeliveryStream -&gt; String)
+-&gt; ([TagDeliveryStream] -&gt; ShowS)
+-&gt; Show TagDeliveryStream
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TagDeliveryStream] -&gt; ShowS
+$cshowList :: [TagDeliveryStream] -&gt; ShowS
+show :: TagDeliveryStream -&gt; String
+$cshow :: TagDeliveryStream -&gt; String
+showsPrec :: Int -&gt; TagDeliveryStream -&gt; ShowS
+$cshowsPrec :: Int -&gt; TagDeliveryStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TagDeliveryStream -&gt; Rep TagDeliveryStream x)
+-&gt; (forall x. Rep TagDeliveryStream x -&gt; TagDeliveryStream)
+-&gt; Generic TagDeliveryStream
+forall x. Rep TagDeliveryStream x -&gt; TagDeliveryStream
+forall x. TagDeliveryStream -&gt; Rep TagDeliveryStream x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TagDeliveryStream x -&gt; TagDeliveryStream
+$cfrom :: forall x. TagDeliveryStream -&gt; Rep TagDeliveryStream x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'TagDeliveryStream' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'deliveryStreamName', 'tagDeliveryStream_deliveryStreamName' - The name of the delivery stream to which you want to add the tags.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'tags', 'tagDeliveryStream_tags' - A set of key-value pairs to use to create the tags.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#newTagDeliveryStream"><span class="hs-identifier hs-type">newTagDeliveryStream</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'deliveryStreamName'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'tags'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream"><span class="hs-identifier hs-type">TagDeliveryStream</span></a></span><span>
+</span><span id="line-87"></span><span id="newTagDeliveryStream"><span class="annot"><span class="annottext">newTagDeliveryStream :: Text -&gt; NonEmpty Tag -&gt; TagDeliveryStream
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#newTagDeliveryStream"><span class="hs-identifier hs-var hs-var">newTagDeliveryStream</span></a></span></span><span> </span><span id="local-6989586621679267476"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267476"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span></span><span> </span><span id="local-6989586621679267475"><span class="annot"><span class="annottext">NonEmpty Tag
+</span><a href="#local-6989586621679267475"><span class="hs-identifier hs-var">pTags_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">TagDeliveryStream' :: Text -&gt; NonEmpty Tag -&gt; TagDeliveryStream
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream%27"><span class="hs-identifier hs-type">TagDeliveryStream'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deliveryStreamName:TagDeliveryStream' :: Text
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#%24sel%3AdeliveryStreamName%3ATagDeliveryStream%27"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267476"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TagDeliveryStream' :: NonEmpty Tag
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#%24sel%3Atags%3ATagDeliveryStream%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Tag) (Identity (NonEmpty Tag))
+-&gt; Tagged (NonEmpty Tag) (Identity (NonEmpty Tag))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Tag) (Identity (NonEmpty Tag))
+ -&gt; Tagged (NonEmpty Tag) (Identity (NonEmpty Tag)))
+-&gt; NonEmpty Tag -&gt; NonEmpty Tag
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
+</span><a href="#local-6989586621679267475"><span class="hs-identifier hs-var">pTags_</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The name of the delivery stream to which you want to add the tags.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#tagDeliveryStream_deliveryStreamName"><span class="hs-identifier hs-type">tagDeliveryStream_deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream"><span class="hs-identifier hs-type">TagDeliveryStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="tagDeliveryStream_deliveryStreamName"><span class="annot"><span class="annottext">tagDeliveryStream_deliveryStreamName :: (Text -&gt; f Text) -&gt; TagDeliveryStream -&gt; f TagDeliveryStream
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#tagDeliveryStream_deliveryStreamName"><span class="hs-identifier hs-var hs-var">tagDeliveryStream_deliveryStreamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagDeliveryStream -&gt; Text)
+-&gt; (TagDeliveryStream -&gt; Text -&gt; TagDeliveryStream)
+-&gt; Lens TagDeliveryStream TagDeliveryStream Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream%27"><span class="hs-identifier hs-type">TagDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267470"><span class="annot"><span class="annottext">Text
+deliveryStreamName :: Text
+$sel:deliveryStreamName:TagDeliveryStream' :: TagDeliveryStream -&gt; Text
+</span><a href="#local-6989586621679267470"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267470"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267469"><span class="annot"><span class="annottext">s :: TagDeliveryStream
+</span><a href="#local-6989586621679267469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream%27"><span class="hs-identifier hs-type">TagDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267468"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDeliveryStream
+</span><a href="#local-6989586621679267469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamName:TagDeliveryStream' :: Text
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#%24sel%3AdeliveryStreamName%3ATagDeliveryStream%27"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream"><span class="hs-identifier hs-type">TagDeliveryStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | A set of key-value pairs to use to create the tags.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#tagDeliveryStream_tags"><span class="hs-identifier hs-type">tagDeliveryStream_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream"><span class="hs-identifier hs-type">TagDeliveryStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="tagDeliveryStream_tags"><span class="annot"><span class="annottext">tagDeliveryStream_tags :: (NonEmpty Tag -&gt; f (NonEmpty Tag))
+-&gt; TagDeliveryStream -&gt; f TagDeliveryStream
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#tagDeliveryStream_tags"><span class="hs-identifier hs-var hs-var">tagDeliveryStream_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagDeliveryStream -&gt; NonEmpty Tag)
+-&gt; (TagDeliveryStream -&gt; NonEmpty Tag -&gt; TagDeliveryStream)
+-&gt; Lens
+     TagDeliveryStream TagDeliveryStream (NonEmpty Tag) (NonEmpty Tag)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream%27"><span class="hs-identifier hs-type">TagDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267467"><span class="annot"><span class="annottext">NonEmpty Tag
+tags :: NonEmpty Tag
+$sel:tags:TagDeliveryStream' :: TagDeliveryStream -&gt; NonEmpty Tag
+</span><a href="#local-6989586621679267467"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
+</span><a href="#local-6989586621679267467"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267466"><span class="annot"><span class="annottext">s :: TagDeliveryStream
+</span><a href="#local-6989586621679267466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream%27"><span class="hs-identifier hs-type">TagDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267465"><span class="annot"><span class="annottext">NonEmpty Tag
+</span><a href="#local-6989586621679267465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDeliveryStream
+</span><a href="#local-6989586621679267466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagDeliveryStream' :: NonEmpty Tag
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#%24sel%3Atags%3ATagDeliveryStream%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
+</span><a href="#local-6989586621679267465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream"><span class="hs-identifier hs-type">TagDeliveryStream</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Tag -&gt; f (NonEmpty Tag))
+ -&gt; TagDeliveryStream -&gt; f TagDeliveryStream)
+-&gt; ((NonEmpty Tag -&gt; f (NonEmpty Tag))
+    -&gt; NonEmpty Tag -&gt; f (NonEmpty Tag))
+-&gt; (NonEmpty Tag -&gt; f (NonEmpty Tag))
+-&gt; TagDeliveryStream
+-&gt; f TagDeliveryStream
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; f (NonEmpty Tag))
+-&gt; NonEmpty Tag -&gt; f (NonEmpty Tag)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream"><span class="hs-identifier hs-type">TagDeliveryStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream"><span class="hs-identifier hs-type">TagDeliveryStream</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStreamResponse"><span class="hs-identifier hs-type">TagDeliveryStreamResponse</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679267460"><span class="annot"><span class="annottext">request :: TagDeliveryStream -&gt; Request TagDeliveryStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TagDeliveryStream -&gt; Request TagDeliveryStream
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Firehose.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679267456"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy TagDeliveryStream
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse TagDeliveryStream)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse TagDeliveryStream))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy TagDeliveryStream
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse TagDeliveryStream)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679267453"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267453"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679267452"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679267452"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679267451"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679267451"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; TagDeliveryStreamResponse
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStreamResponse%27"><span class="hs-identifier hs-var">TagDeliveryStreamResponse'</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; TagDeliveryStreamResponse)
+-&gt; Either String Int -&gt; Either String TagDeliveryStreamResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267453"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267444"><span id="local-6989586621679267446"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream"><span class="hs-identifier hs-type">TagDeliveryStream</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267441"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream"><span class="hs-identifier hs-type">TagDeliveryStream</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream"><span class="hs-identifier hs-type">TagDeliveryStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679267437"><span class="annot"><span class="annottext">toHeaders :: TagDeliveryStream -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TagDeliveryStream -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Firehose_20150804.TagDeliveryStream&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-129"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267427"><span id="local-6989586621679267429"><span id="local-6989586621679267431"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream"><span class="hs-identifier hs-type">TagDeliveryStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679267425"><span class="annot"><span class="annottext">toJSON :: TagDeliveryStream -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream%27"><span class="hs-identifier hs-type">TagDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267422"><span id="local-6989586621679267423"><span class="annot"><span class="annottext">NonEmpty Tag
+Text
+tags :: NonEmpty Tag
+deliveryStreamName :: Text
+$sel:tags:TagDeliveryStream' :: TagDeliveryStream -&gt; NonEmpty Tag
+$sel:deliveryStreamName:TagDeliveryStream' :: TagDeliveryStream -&gt; Text
+</span><a href="#local-6989586621679267422"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryStreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267423"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Tag -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
+</span><a href="#local-6989586621679267422"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream"><span class="hs-identifier hs-type">TagDeliveryStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679267416"><span class="annot"><span class="annottext">toPath :: TagDeliveryStream -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TagDeliveryStream -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStream"><span class="hs-identifier hs-type">TagDeliveryStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679267412"><span class="annot"><span class="annottext">toQuery :: TagDeliveryStream -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; TagDeliveryStream -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newTagDeliveryStreamResponse' smart constructor.</span><span>
+</span><span id="line-150"></span><span id="local-6989586621679267409"><span id="local-6989586621679267410"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagDeliveryStreamResponse"><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStreamResponse"><span class="hs-identifier hs-var">TagDeliveryStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagDeliveryStreamResponse%27"><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStreamResponse%27"><span class="hs-identifier hs-var">TagDeliveryStreamResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATagDeliveryStreamResponse%27"><span class="annot"><span class="annottext">TagDeliveryStreamResponse -&gt; Int
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#%24sel%3AhttpStatus%3ATagDeliveryStreamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267404"><span id="local-6989586621679267406"><span class="annot"><span class="annottext">TagDeliveryStreamResponse -&gt; TagDeliveryStreamResponse -&gt; Bool
+(TagDeliveryStreamResponse -&gt; TagDeliveryStreamResponse -&gt; Bool)
+-&gt; (TagDeliveryStreamResponse -&gt; TagDeliveryStreamResponse -&gt; Bool)
+-&gt; Eq TagDeliveryStreamResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TagDeliveryStreamResponse -&gt; TagDeliveryStreamResponse -&gt; Bool
+$c/= :: TagDeliveryStreamResponse -&gt; TagDeliveryStreamResponse -&gt; Bool
+== :: TagDeliveryStreamResponse -&gt; TagDeliveryStreamResponse -&gt; Bool
+$c== :: TagDeliveryStreamResponse -&gt; TagDeliveryStreamResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267396"><span id="local-6989586621679267398"><span id="local-6989586621679267400"><span id="local-6989586621679267402"><span class="annot"><span class="annottext">ReadPrec [TagDeliveryStreamResponse]
+ReadPrec TagDeliveryStreamResponse
+Int -&gt; ReadS TagDeliveryStreamResponse
+ReadS [TagDeliveryStreamResponse]
+(Int -&gt; ReadS TagDeliveryStreamResponse)
+-&gt; ReadS [TagDeliveryStreamResponse]
+-&gt; ReadPrec TagDeliveryStreamResponse
+-&gt; ReadPrec [TagDeliveryStreamResponse]
+-&gt; Read TagDeliveryStreamResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TagDeliveryStreamResponse]
+$creadListPrec :: ReadPrec [TagDeliveryStreamResponse]
+readPrec :: ReadPrec TagDeliveryStreamResponse
+$creadPrec :: ReadPrec TagDeliveryStreamResponse
+readList :: ReadS [TagDeliveryStreamResponse]
+$creadList :: ReadS [TagDeliveryStreamResponse]
+readsPrec :: Int -&gt; ReadS TagDeliveryStreamResponse
+$creadsPrec :: Int -&gt; ReadS TagDeliveryStreamResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267390"><span id="local-6989586621679267392"><span id="local-6989586621679267394"><span class="annot"><span class="annottext">Int -&gt; TagDeliveryStreamResponse -&gt; ShowS
+[TagDeliveryStreamResponse] -&gt; ShowS
+TagDeliveryStreamResponse -&gt; String
+(Int -&gt; TagDeliveryStreamResponse -&gt; ShowS)
+-&gt; (TagDeliveryStreamResponse -&gt; String)
+-&gt; ([TagDeliveryStreamResponse] -&gt; ShowS)
+-&gt; Show TagDeliveryStreamResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TagDeliveryStreamResponse] -&gt; ShowS
+$cshowList :: [TagDeliveryStreamResponse] -&gt; ShowS
+show :: TagDeliveryStreamResponse -&gt; String
+$cshow :: TagDeliveryStreamResponse -&gt; String
+showsPrec :: Int -&gt; TagDeliveryStreamResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; TagDeliveryStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ TagDeliveryStreamResponse -&gt; Rep TagDeliveryStreamResponse x)
+-&gt; (forall x.
+    Rep TagDeliveryStreamResponse x -&gt; TagDeliveryStreamResponse)
+-&gt; Generic TagDeliveryStreamResponse
+forall x.
+Rep TagDeliveryStreamResponse x -&gt; TagDeliveryStreamResponse
+forall x.
+TagDeliveryStreamResponse -&gt; Rep TagDeliveryStreamResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TagDeliveryStreamResponse x -&gt; TagDeliveryStreamResponse
+$cfrom :: forall x.
+TagDeliveryStreamResponse -&gt; Rep TagDeliveryStreamResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Create a value of 'TagDeliveryStreamResponse' with all optional fields omitted.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'httpStatus', 'tagDeliveryStreamResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#newTagDeliveryStreamResponse"><span class="hs-identifier hs-type">newTagDeliveryStreamResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStreamResponse"><span class="hs-identifier hs-type">TagDeliveryStreamResponse</span></a></span><span>
+</span><span id="line-169"></span><span id="newTagDeliveryStreamResponse"><span class="annot"><span class="annottext">newTagDeliveryStreamResponse :: Int -&gt; TagDeliveryStreamResponse
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#newTagDeliveryStreamResponse"><span class="hs-identifier hs-var hs-var">newTagDeliveryStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679267387"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267387"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">TagDeliveryStreamResponse' :: Int -&gt; TagDeliveryStreamResponse
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStreamResponse%27"><span class="hs-identifier hs-type">TagDeliveryStreamResponse'</span></a></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:TagDeliveryStreamResponse' :: Int
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#%24sel%3AhttpStatus%3ATagDeliveryStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267387"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#tagDeliveryStreamResponse_httpStatus"><span class="hs-identifier hs-type">tagDeliveryStreamResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStreamResponse"><span class="hs-identifier hs-type">TagDeliveryStreamResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-177"></span><span id="tagDeliveryStreamResponse_httpStatus"><span class="annot"><span class="annottext">tagDeliveryStreamResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; TagDeliveryStreamResponse -&gt; f TagDeliveryStreamResponse
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#tagDeliveryStreamResponse_httpStatus"><span class="hs-identifier hs-var hs-var">tagDeliveryStreamResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagDeliveryStreamResponse -&gt; Int)
+-&gt; (TagDeliveryStreamResponse -&gt; Int -&gt; TagDeliveryStreamResponse)
+-&gt; Lens TagDeliveryStreamResponse TagDeliveryStreamResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStreamResponse%27"><span class="hs-identifier hs-type">TagDeliveryStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267386"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:TagDeliveryStreamResponse' :: TagDeliveryStreamResponse -&gt; Int
+</span><a href="#local-6989586621679267386"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267386"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267385"><span class="annot"><span class="annottext">s :: TagDeliveryStreamResponse
+</span><a href="#local-6989586621679267385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStreamResponse%27"><span class="hs-identifier hs-type">TagDeliveryStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267384"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDeliveryStreamResponse
+</span><a href="#local-6989586621679267385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TagDeliveryStreamResponse' :: Int
+</span><a href="Network.AWS.Firehose.TagDeliveryStream.html#%24sel%3AhttpStatus%3ATagDeliveryStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStreamResponse"><span class="hs-identifier hs-type">TagDeliveryStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267382"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.TagDeliveryStream.html#TagDeliveryStreamResponse"><span class="hs-identifier hs-type">TagDeliveryStreamResponse</span></a></span></span><span>
+</span><span id="line-180"></span></pre></body></html>

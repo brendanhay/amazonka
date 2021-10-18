@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CostExplorer.Types.RootCause</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CostExplorer.Types.RootCause</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The combination of Amazon Web Services service, linked account, Region,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- and usage type where a cost anomaly is observed.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRootCause' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679335153"><span id="local-6989586621679335154"></span></span><span class="hs-keyword">data</span><span> </span><span id="RootCause"><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause"><span class="hs-identifier hs-var">RootCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RootCause%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause%27"><span class="hs-identifier hs-var">RootCause'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services service name that\'s associated with the cost</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- anomaly.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aservice%3ARootCause%27"><span class="annot"><span class="annottext">RootCause -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#%24sel%3Aservice%3ARootCause%27"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The @UsageType@ value that\'s associated with the cost anomaly.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AusageType%3ARootCause%27"><span class="annot"><span class="annottext">RootCause -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#%24sel%3AusageType%3ARootCause%27"><span class="hs-identifier hs-var hs-var">usageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services Region that\'s associated with the cost anomaly.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aregion%3ARootCause%27"><span class="annot"><span class="annottext">RootCause -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#%24sel%3Aregion%3ARootCause%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The member account value that\'s associated with the cost anomaly.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlinkedAccount%3ARootCause%27"><span class="annot"><span class="annottext">RootCause -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#%24sel%3AlinkedAccount%3ARootCause%27"><span class="hs-identifier hs-var hs-var">linkedAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335144"><span id="local-6989586621679335146"><span class="annot"><span class="annottext">RootCause -&gt; RootCause -&gt; Bool
+(RootCause -&gt; RootCause -&gt; Bool)
+-&gt; (RootCause -&gt; RootCause -&gt; Bool) -&gt; Eq RootCause
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RootCause -&gt; RootCause -&gt; Bool
+$c/= :: RootCause -&gt; RootCause -&gt; Bool
+== :: RootCause -&gt; RootCause -&gt; Bool
+$c== :: RootCause -&gt; RootCause -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335135"><span id="local-6989586621679335137"><span id="local-6989586621679335139"><span id="local-6989586621679335141"><span class="annot"><span class="annottext">ReadPrec [RootCause]
+ReadPrec RootCause
+Int -&gt; ReadS RootCause
+ReadS [RootCause]
+(Int -&gt; ReadS RootCause)
+-&gt; ReadS [RootCause]
+-&gt; ReadPrec RootCause
+-&gt; ReadPrec [RootCause]
+-&gt; Read RootCause
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RootCause]
+$creadListPrec :: ReadPrec [RootCause]
+readPrec :: ReadPrec RootCause
+$creadPrec :: ReadPrec RootCause
+readList :: ReadS [RootCause]
+$creadList :: ReadS [RootCause]
+readsPrec :: Int -&gt; ReadS RootCause
+$creadsPrec :: Int -&gt; ReadS RootCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335128"><span id="local-6989586621679335130"><span id="local-6989586621679335132"><span class="annot"><span class="annottext">Int -&gt; RootCause -&gt; ShowS
+[RootCause] -&gt; ShowS
+RootCause -&gt; String
+(Int -&gt; RootCause -&gt; ShowS)
+-&gt; (RootCause -&gt; String)
+-&gt; ([RootCause] -&gt; ShowS)
+-&gt; Show RootCause
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RootCause] -&gt; ShowS
+$cshowList :: [RootCause] -&gt; ShowS
+show :: RootCause -&gt; String
+$cshow :: RootCause -&gt; String
+showsPrec :: Int -&gt; RootCause -&gt; ShowS
+$cshowsPrec :: Int -&gt; RootCause -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RootCause -&gt; Rep RootCause x)
+-&gt; (forall x. Rep RootCause x -&gt; RootCause) -&gt; Generic RootCause
+forall x. Rep RootCause x -&gt; RootCause
+forall x. RootCause -&gt; Rep RootCause x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RootCause x -&gt; RootCause
+$cfrom :: forall x. RootCause -&gt; Rep RootCause x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'RootCause' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'service', 'rootCause_service' - The Amazon Web Services service name that\'s associated with the cost</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- anomaly.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'usageType', 'rootCause_usageType' - The @UsageType@ value that\'s associated with the cost anomaly.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'region', 'rootCause_region' - The Amazon Web Services Region that\'s associated with the cost anomaly.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'linkedAccount', 'rootCause_linkedAccount' - The member account value that\'s associated with the cost anomaly.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#newRootCause"><span class="hs-identifier hs-type">newRootCause</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause"><span class="hs-identifier hs-type">RootCause</span></a></span><span>
+</span><span id="line-61"></span><span id="newRootCause"><span class="annot"><span class="annottext">newRootCause :: RootCause
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#newRootCause"><span class="hs-identifier hs-var hs-var">newRootCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">RootCause' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RootCause
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause%27"><span class="hs-identifier hs-type">RootCause'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:service:RootCause' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#%24sel%3Aservice%3ARootCause%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:usageType:RootCause' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#%24sel%3AusageType%3ARootCause%27"><span class="hs-identifier hs-var">usageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:region:RootCause' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#%24sel%3Aregion%3ARootCause%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:linkedAccount:RootCause' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#%24sel%3AlinkedAccount%3ARootCause%27"><span class="hs-identifier hs-var">linkedAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The Amazon Web Services service name that\'s associated with the cost</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- anomaly.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#rootCause_service"><span class="hs-identifier hs-type">rootCause_service</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause"><span class="hs-identifier hs-type">RootCause</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="rootCause_service"><span class="annot"><span class="annottext">rootCause_service :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RootCause -&gt; f RootCause
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#rootCause_service"><span class="hs-identifier hs-var hs-var">rootCause_service</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RootCause -&gt; Maybe Text)
+-&gt; (RootCause -&gt; Maybe Text -&gt; RootCause)
+-&gt; Lens RootCause RootCause (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause%27"><span class="hs-identifier hs-type">RootCause'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335119"><span class="annot"><span class="annottext">Maybe Text
+service :: Maybe Text
+$sel:service:RootCause' :: RootCause -&gt; Maybe Text
+</span><a href="#local-6989586621679335119"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335119"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335118"><span class="annot"><span class="annottext">s :: RootCause
+</span><a href="#local-6989586621679335118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause%27"><span class="hs-identifier hs-type">RootCause'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335117"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RootCause
+</span><a href="#local-6989586621679335118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:service:RootCause' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#%24sel%3Aservice%3ARootCause%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause"><span class="hs-identifier hs-type">RootCause</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The @UsageType@ value that\'s associated with the cost anomaly.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#rootCause_usageType"><span class="hs-identifier hs-type">rootCause_usageType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause"><span class="hs-identifier hs-type">RootCause</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="rootCause_usageType"><span class="annot"><span class="annottext">rootCause_usageType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RootCause -&gt; f RootCause
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#rootCause_usageType"><span class="hs-identifier hs-var hs-var">rootCause_usageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RootCause -&gt; Maybe Text)
+-&gt; (RootCause -&gt; Maybe Text -&gt; RootCause)
+-&gt; Lens RootCause RootCause (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause%27"><span class="hs-identifier hs-type">RootCause'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335115"><span class="annot"><span class="annottext">Maybe Text
+usageType :: Maybe Text
+$sel:usageType:RootCause' :: RootCause -&gt; Maybe Text
+</span><a href="#local-6989586621679335115"><span class="hs-identifier hs-var hs-var">usageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335115"><span class="hs-identifier hs-var">usageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335114"><span class="annot"><span class="annottext">s :: RootCause
+</span><a href="#local-6989586621679335114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause%27"><span class="hs-identifier hs-type">RootCause'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335113"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RootCause
+</span><a href="#local-6989586621679335114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usageType:RootCause' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#%24sel%3AusageType%3ARootCause%27"><span class="hs-identifier hs-var">usageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause"><span class="hs-identifier hs-type">RootCause</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The Amazon Web Services Region that\'s associated with the cost anomaly.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#rootCause_region"><span class="hs-identifier hs-type">rootCause_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause"><span class="hs-identifier hs-type">RootCause</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="rootCause_region"><span class="annot"><span class="annottext">rootCause_region :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RootCause -&gt; f RootCause
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#rootCause_region"><span class="hs-identifier hs-var hs-var">rootCause_region</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RootCause -&gt; Maybe Text)
+-&gt; (RootCause -&gt; Maybe Text -&gt; RootCause)
+-&gt; Lens RootCause RootCause (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause%27"><span class="hs-identifier hs-type">RootCause'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335111"><span class="annot"><span class="annottext">Maybe Text
+region :: Maybe Text
+$sel:region:RootCause' :: RootCause -&gt; Maybe Text
+</span><a href="#local-6989586621679335111"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335111"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335110"><span class="annot"><span class="annottext">s :: RootCause
+</span><a href="#local-6989586621679335110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause%27"><span class="hs-identifier hs-type">RootCause'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335109"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RootCause
+</span><a href="#local-6989586621679335110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:RootCause' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#%24sel%3Aregion%3ARootCause%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause"><span class="hs-identifier hs-type">RootCause</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The member account value that\'s associated with the cost anomaly.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#rootCause_linkedAccount"><span class="hs-identifier hs-type">rootCause_linkedAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause"><span class="hs-identifier hs-type">RootCause</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="rootCause_linkedAccount"><span class="annot"><span class="annottext">rootCause_linkedAccount :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RootCause -&gt; f RootCause
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#rootCause_linkedAccount"><span class="hs-identifier hs-var hs-var">rootCause_linkedAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RootCause -&gt; Maybe Text)
+-&gt; (RootCause -&gt; Maybe Text -&gt; RootCause)
+-&gt; Lens RootCause RootCause (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause%27"><span class="hs-identifier hs-type">RootCause'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335107"><span class="annot"><span class="annottext">Maybe Text
+linkedAccount :: Maybe Text
+$sel:linkedAccount:RootCause' :: RootCause -&gt; Maybe Text
+</span><a href="#local-6989586621679335107"><span class="hs-identifier hs-var hs-var">linkedAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335107"><span class="hs-identifier hs-var">linkedAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335106"><span class="annot"><span class="annottext">s :: RootCause
+</span><a href="#local-6989586621679335106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause%27"><span class="hs-identifier hs-type">RootCause'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335105"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RootCause
+</span><a href="#local-6989586621679335106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkedAccount:RootCause' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#%24sel%3AlinkedAccount%3ARootCause%27"><span class="hs-identifier hs-var">linkedAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause"><span class="hs-identifier hs-type">RootCause</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335102"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause"><span class="hs-identifier hs-type">RootCause</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679335100"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RootCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser RootCause) -&gt; Value -&gt; Parser RootCause
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RootCause&quot;</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679335097"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679335097"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RootCause
+</span><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause%27"><span class="hs-identifier hs-var">RootCause'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RootCause)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RootCause)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679335097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Service&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RootCause)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; RootCause)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679335097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UsageType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; RootCause)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; RootCause)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679335097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; RootCause)
+-&gt; Parser (Maybe Text) -&gt; Parser RootCause
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679335097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LinkedAccount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335091"><span id="local-6989586621679335093"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause"><span class="hs-identifier hs-type">RootCause</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.RootCause.html#RootCause"><span class="hs-identifier hs-type">RootCause</span></a></span></span><span>
+</span><span id="line-101"></span></pre></body></html>
